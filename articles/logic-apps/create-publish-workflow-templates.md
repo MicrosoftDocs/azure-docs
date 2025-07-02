@@ -66,7 +66,13 @@ This guide shows how to create and publish a workflow template in the following 
 
 - The deployed Consumption or Standard logic app resource and workflow to use as the source workflow definition for the template.
 
-  If you don't have this resource, see [Create an example Standard logic app workflow](create-single-tenant-workflows-azure-portal.md). Your logic app resource and workflow must be deployed before you create your template. Also, make sure that any values that the workflow user must provide are correctly parameterized, rather than hardcoded. 
+  Your logic app resource and workflow must be deployed before you create your template. Make sure that you correctly parameterize any values that the workflow's end-user must provide, rather than hardcode those values.
+
+  If you don't have this resource and workflow, see the following articles:
+
+  - [Create an example Consumption logic app workflow](quickstart-create-example-consumption-workflow.md)
+
+  - [Create an example Standard logic app workflow](create-single-tenant-workflows-azure-portal.md)
 
 - Screenshots that show a read-only preview for the workflow template with **.png** file name extension. These preview images for template appear on the template overview pane in the templates gallery.
 
@@ -90,7 +96,7 @@ This list provides best practices to follow when you create your workflow templa
 
 - Provide more context about trigger and action definitions by adding descriptive and helpful comments.
 
-- Standard logic app workflows
+- Standard logic app resource and workflows
 
   - Use the built-in operations as much as possible. For example, the Azure Blob Storage connector has the following versions available for Standard workflows:
 
@@ -162,6 +168,8 @@ Next, choose the source workflow definition to use for your template.
 
 1. When you're done, select **Save**.
 
+   You can save your template anytime during the creation process. Every time that you save your progress, validation automatically runs to determine whether any errors exist, for example, unsupported actions or un-parameterized values. You don't have to immediately fix errors when you find them, but you must fix them before publishing.
+
 1. On the **Connections** tab, review and confirm the connections that Azure automatically pulls from the source workflows.
 
    You don't have to take any other actions.
@@ -206,15 +214,29 @@ The **Profile** tab specifies information about your template that appears in th
 
 #### Publish to testing or production
 
-When you're ready to test your template, you can publish your template for testing. The template appears in the template gallery with the **Testing** label.
+When you're ready to test your template, you can publish your template for testing.
 
 1. On the **Summary** tab or any other preceding tab, at the tab bottom, select **Save** > **Save + publish for testing**.
 
-   Azure publishes the template with the **Testing** label to the template gallery.
+   Azure publishes the template bearing the **Testing** label to the template gallery.
 
-1. To use your new template, follow the corresponding steps to create a Consumption or Standard logic app resource and workflow.
+1. To test your new template, choose corresponding steps to create a Consumption or Standard logic app resource and workflow from a template:
 
-1. After you finish your testing and make any necessary updates, select **Save** > **Save + publish for production**.
+   - [Create a Standard logic app workflow from a prebuilt template](create-single-tenant-workflows-templates.md)
+
+   - 
+
+   1. In the template gallery, make sure to select the Azure subscription associated with your template.
+
+      :::image type="content" source="media/create-publish-workflow-templates/org-filter.png" alt-text="Screenshot shows Azure portal, templates gallery, and Subscription filter set to example Azure subscription associated with created template." lightbox="media/create-publish-workflow-templates/org-filter.png":::
+
+   1. Under the filters row, select **My templates**.
+
+      Your template appears with the **Testing** label, for example:
+
+      :::image type="content" source="media/create-publish-workflow-templates/my-templates.png" alt-text="Screenshot shows Azure portal, templates gallery, and selected tab for My templates." lightbox="media/create-publish-workflow-templates/my-templates.png":::
+
+1. After you finish creating your workflow, testing your template, and making any necessary updates, select **Save** > **Save + publish for production**.
 
    This step updates the template label from **Testing** to **Production** in the template gallery.
 
