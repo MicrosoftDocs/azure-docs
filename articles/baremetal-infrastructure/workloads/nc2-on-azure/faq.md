@@ -25,7 +25,7 @@ The following details are important considerations for Nutanix on Azure BareMeta
 
 **Trial duration**: The trial begins with the initial hardware node deployment and lasts for 30 consecutive days. It can't be paused, and the start date is fixed regardless of cluster activity. Even if the cluster is dropped, the trial time continues.
 
-**One-time opportunity**: The trial is a one-time offer. If you deploy a cluster after the initial 30-day trial period, regardless of the timeframe, the trial doesn't reset, and you'll be billed. If you create a cluster in a different subscription this also does not reset any trial timing.
+**One-time opportunity**: The trial is a one-time offer. If you deploy a cluster after the initial 30-day trial period, regardless of the timeframe, the trial doesn't reset, and you'll be billed. Creating a cluster in a different subscription does not reset your trial timing.
 
 **Track the trial period**: There's no visible trial information for the BareMetal. You should track your BareMetal deployment date manually.
 
