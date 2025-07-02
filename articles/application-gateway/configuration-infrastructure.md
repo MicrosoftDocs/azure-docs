@@ -91,6 +91,10 @@ Depending on whether you're creating new resources or using existing ones, add t
 | ApplicationGatewayWebApplicationFirewallPolicies | Create new / Update existing | `Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/write` <br> `Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/read` <br> `Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/join/action` |
 
 For more information, see [Azure permissions for Networking](../role-based-access-control/permissions/networking.md) and [Virtual network permissions](../virtual-network/virtual-network-manage-subnet.md#permissions).
+
+> [!NOTE]
+> When deploying an Application Gateway as part of an [Azure Managed Applicaton](../articles/azure-resource-manager/managed-applications/overview.md), ensure that any deny assignments do not conflict with the RBAC Owner role assignment, as deny assignments take precedence over RBAC permissions.
+
 ## Roles scope
 In the process of custom role definition, you can specify a role assignment scope at four levels: management group, subscription, resource group, and resources. To grant access, you assign roles to users, groups, service principals, or managed identities at a particular scope.
 These scopes are structured in a parent-child relationship, with each level of hierarchy making the scope more specific. You can assign roles at any of these levels of scope, and the level you select determines how widely the role is applied.
