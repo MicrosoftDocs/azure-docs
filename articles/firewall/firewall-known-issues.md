@@ -7,6 +7,7 @@ ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 04/13/2025
 ms.author: varunkalyana
+# Customer intent: "As a network administrator, I want to understand the known issues and limitations of Azure Firewall, so that I can effectively manage and troubleshoot firewall deployments in my organization."
 ---
 
 # Azure Firewall known issues and limitations

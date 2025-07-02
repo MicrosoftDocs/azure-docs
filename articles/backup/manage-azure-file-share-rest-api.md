@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 05/22/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to manage and monitor Azure Files backups using a REST API, so that I can automate backup operations and efficiently track job statuses."
 ---
 
 # Manage Azure Files backup with REST API

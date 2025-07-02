@@ -9,6 +9,7 @@ ms.date: 11/07/2023
 ms.custom:
   - include file
   - ignite-2023
+# Customer intent: As a cloud architect, I want to review the detailed specifications of available virtual machine sizes, so that I can select the most appropriate options for deployment based on workload requirements and optimize resource allocation in our cloud environment.
 ---
 
 | Size Series | Series Type | Deployment Status |

@@ -8,6 +8,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 12/28/2023
 ms.author: duau
+# Customer intent: As a network administrator, I want to configure route filters for Microsoft peering using PowerShell, so that I can efficiently manage and filter the prefixes advertised through my ExpressRoute circuit, reducing the size of route tables in my network.
 ---
 # Configure route filters for Microsoft peering using PowerShell
 

@@ -8,7 +8,7 @@ metadata:
   ms.service: azure-active-directory
   
   ms.topic: faq
-  ms.date: 06/12/2024
+  ms.date: 06/20/2025
   ms.author: godonnell
   ms.subservice: b2c
   ms.custom: b2c-support, has-azure-ad-ps-ref,azure-ad-ref-level-one-done
@@ -24,7 +24,7 @@ sections:
       - question: |
           Azure AD B2C end of sale
         answer: |
-          Effective **May 1, 2025** Azure AD B2C will no longer be available to purchase for new customers, but current Azure AD B2C customers can continue using the product. The product experience, including creating new tenants or user flows, will remain unchanged. The operational commitments, including service level agreements (SLAs), security updates, and compliance, will also remain unchanged. We'll continue supporting Azure AD B2C until at least May 2030. More information, including migration plans will be made available. Contact your account representative for more information and to learn more about Microsoft Entra External ID.
+          Effective **May 1, 2025** Azure AD B2C will no longer be available to purchase for new customers, but current Azure AD B2C customers can continue using the product. The product experience, including creating new tenants or user flows, will remain unchanged; however, new tenants can only be created with Azure AD B2C P1.  Azure AD B2C P2 will be discontinued on March 15, 2026, for all customers. The operational commitments, including service level agreements (SLAs), security updates, and compliance, will also remain unchanged. We'll continue supporting Azure AD B2C until at least May 2030. More information, including migration plans will be made available. Contact your account representative for more information and to learn more about Microsoft Entra External ID.
       - question: |
           What is Microsoft Entra External ID?
         answer: |

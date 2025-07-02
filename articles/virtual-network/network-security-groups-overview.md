@@ -10,6 +10,7 @@ ms.date: 03/31/2025
 ms.author: allensu
 ms.reviewer: kumud
 ms.custom: FY23 content-maintenance
+# Customer intent: "As a network administrator, I want to configure network security groups to filter traffic between Azure resources, so that I can control access and enhance security across our virtual network."
 ---
 
 # Network security groups

@@ -4,7 +4,7 @@ description: Learn about VPN Gateway SKUs.
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 03/31/2025
+ms.date: 06/23/2025
 ms.author: cherylmc 
 
 # Customer intent: As a cloud network architect, I want to choose the appropriate VPN Gateway SKU, so that I can optimize the performance and reliability of our network connections based on workload requirements and feature support.
@@ -64,7 +64,6 @@ Due to the differences in SLAs and feature sets, we recommend the following SKUs
 | **Production, critical workloads** | All Generation1 and Generation2 SKUs, except Basic|
 | **Dev-test or proof of concept**   | Basic (**)             |
 
-
 (\*\*) The Basic SKU has certain feature and performance limitations and shouldn't be used for production purposes. Verify that the feature that you need is supported before you use the Basic SKU. The Basic SKU doesn't support IPv6 and can only be configured using PowerShell or Azure CLI. Additionally, the Basic SKU doesn't support RADIUS authentication.
 
 If you're using the old SKUs (legacy), the production SKU recommendations are Standard and HighPerformance. For information and instructions for old SKUs, see [Gateway SKUs (legacy)](vpn-gateway-about-skus-legacy.md).
@@ -82,22 +81,12 @@ You specify the gateway SKU when you create your VPN Gateway. See the following 
 * [PowerShell](create-gateway-powershell.md)
 * [Azure CLI](create-routebased-vpn-gateway-cli.md)
 
-## <a name="resizechange"></a>Change or resize a SKU
+## <a name="resizechange"></a>Upgrade a SKU
+
+For most VPN gateways, you can upgrade a gateway SKU. For more information, see [Upgrade a VPN Gateway SKU](gateway-sku-upgrade.md).
 
 > [!NOTE]
 > If you're working with a legacy gateway SKU (Standard and High Performance), see [Managing Legacy gateway SKUs](vpn-gateway-about-skus-legacy.md).
-
-[!INCLUDE [changing vs. resizing](../../includes/vpn-gateway-sku-about-change-resize.md)]
-
-### Considerations
-
-There are many things to consider when moving to a new gateway SKU. This section outlines the main items and also provides a table that helps you select the best method to use.
-
-[!INCLUDE [resize SKU restrictions](../../includes/vpn-gateway-sku-resize-restrictions.md)]
-
-The following table helps you understand the required method to move from one SKU to another.
-
-[!INCLUDE [resize SKU methods table](../../includes/vpn-gateway-sku-resize-methods-table.md)]
 
 ## Next steps
 

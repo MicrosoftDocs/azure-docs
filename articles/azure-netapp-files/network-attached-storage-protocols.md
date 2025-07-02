@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 01/28/2025
 ms.author: anfdocs
+# Customer intent: As an IT administrator, I want to understand the NAS protocols supported by Azure NetApp Files, so that I can effectively manage and configure storage access for both Windows and UNIX clients in a dual-protocol environment.
 ---
 
 # Understand NAS protocols in Azure NetApp Files 
@@ -119,7 +120,7 @@ Some organizations have pure Windows or pure UNIX environments (homogeneous) in 
 * SMB and [NTFS](/windows-server/storage/file-server/ntfs-overview) file security
 * NFS and UNIX file security - mode bits or [NFSv4.x access control lists (ACLs)](https://wiki.linux-nfs.org/wiki/index.php/ACLs)
 
-However, many sites must enable data sets to be accessed from both Windows and UNIX clients (heterogenous). For environments with these requirements, Azure NetApp Files has native dual-protocol NAS support. After the user is authenticated on the network and has both appropriate share or export permissions and the necessary file-level permissions, the user can access the data from UNIX hosts using NFS or from Windows hosts using SMB.
+However, many sites must enable data sets to be accessed from both Windows and UNIX clients (heterogeneous). For environments with these requirements, Azure NetApp Files has native dual-protocol NAS support. After the user is authenticated on the network and has both appropriate share or export permissions and the necessary file-level permissions, the user can access the data from UNIX hosts using NFS or from Windows hosts using SMB.
 
 ### Reasons for using dual-protocol volumes
 

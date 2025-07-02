@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: "As a .NET developer, I want to implement blob index tags to categorize and query data, so that I can efficiently manage and retrieve information from Azure Blob Storage."
 ---
 
 # Use blob index tags to manage and find data with .NET

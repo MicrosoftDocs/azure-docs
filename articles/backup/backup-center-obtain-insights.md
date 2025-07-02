@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 12/24/2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a backup administrator, I want to analyze historical trends and gain insights from my backup data using the Backup Center, so that I can optimize storage costs and improve backup performance.
 ---
 
 # Obtain Insights using Backup center

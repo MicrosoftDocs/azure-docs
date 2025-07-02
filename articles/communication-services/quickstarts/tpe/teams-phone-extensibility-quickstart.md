@@ -225,10 +225,14 @@ The following steps demonstrate how to receive and answer an incoming Teams call
 1. A Teams Phone number assigned to the resource account.
 1. A Teams Resource Account provisioned to send calls to the Azure Communication Services Resource.
 1. A Teams Resource Account provisioned with a Calling Plan.
-1. An Azure Communication Services Resource with permission to receive call from the Teams Resource Account.
+1. An Azure Communication Services Resource with permission to receive call from the Teams Resource Account. 
 1. [Create and host a dev tunnel](/azure/developer/dev-tunnels/get-started).
 1. (Optional) Create a Microsoft Teams user with a phone license that is voice enabled. Teams Phone license is required to add Teams users to the call. Learn more about [Microsoft Teams business options](https://www.microsoft.com/microsoft-teams/compare-microsoft-teams-business-options). For more information, see [Set up Teams Phone in your organization](/microsoftteams/setting-up-your-phone-system).
 1. Complete client and server consent as defined in [Access a user's Teams Phone separate from their Teams client](https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-access-teams-phone.md).
+
+> [!NOTE]
+> For the Azure Communication Services resource, ensure the data location matches the Teams Tenant location to comply with data boundary regulations. You can retrieve programatically details about tenant organisation via [Get organization](https://learn.microsoft.com/graph/api/organization-get?view=graph-rest-1.0&tabs=http)
+>
 
 #### Setup and host your Azure dev tunnels
 
@@ -431,7 +435,7 @@ Once you set the call options, then use the `startCall()` method in the [TeamsCa
 
 After you sign in as an agent with a dual persona identity, you can add that Teams Phone extensibility call agent to an established call using their dual persona identity.
 
-The following example shows a request to add a Teams Phone extensibility call agent with Microsoft Entra ID identifier `e5b7f628-ea94-4fdc-b3d9-1af1fe231111` in tenant `87d349ed-44d7-43e1-9a83-5f2406dee5bd` scoped to Azure Communication Services Resource `0269be4d-5be0-4770-bf9c-a1bf50ee78d5`. 
+The following example shows a request to add a Teams Phone extensibility call agent with Microsoft Entra ID identifier `0269be4d-5be0-4770-bf9c-a1bf50ee78d5` in tenant `87d349ed-44d7-43e1-9a83-5f2406dee5bd` scoped to Azure Communication Services Resource `e5b7f628-ea94-4fdc-b3d9-1af1fe231111`. 
 
 ```csharp
 //Call is already established
@@ -457,7 +461,7 @@ The following example shows a request to add a PSTN user to a Teams Phone extens
 //Call is already established
 ...
 ...
-var target = new PhoneNumberIdentifier("4:+12065551212");
+var target = new PhoneNumberIdentifier("+12065551212");
 await callConnection.AddParticipantAsync(new AddParticipantOptions(new CallInvite(target, null))
 {
     InvitationTimeoutInSeconds = 60,
@@ -477,7 +481,7 @@ The following example shows a request to transfer an established call to a PSTN 
 //Call is already established
 ...
 ...
-var target = new PhoneNumberIdentifier("4:+12065551212");
+var target = new PhoneNumberIdentifier("+12065551212");
 await callConnection.TransferCallToParticipantAsync(new TransferToParticipantOptions(target)
 {
     OperationContext = "transferParticipantAsync"

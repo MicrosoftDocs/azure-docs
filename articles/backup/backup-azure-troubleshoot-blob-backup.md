@@ -2,12 +2,13 @@
 title: Troubleshoot Blob backup and restore issues
 description: In this article, learn about symptoms, causes, and resolutions of Azure Backup failures related to the Azure Blob backups and restore.
 ms.topic: troubleshooting
-ms.date: 06/13/2025
+ms.date: 07/02/2025
 ms.service: azure-backup
 ms.reviewer: geg
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: As a backup administrator, I want to troubleshoot Azure Blob backup and restore issues, so that I can ensure seamless data protection and recovery for our cloud-based storage solutions.
 ---
 
 # Troubleshoot Azure Blob backup
@@ -30,7 +31,7 @@ This article provides troubleshooting information to address issues you encounte
 
 **Error message**: The storage account type isn't supported for backup.
 
-**Recommendation**: Ensure that the storage account you've selected for backup is supported. [Learn more](blob-backup-support-matrix.md?tabs=vaulted-backup#limitations).
+**Recommendation**: Ensure that the storage account you've selected for backup is supported. [Learn more](blob-backup-support-matrix.md?tabs=vaulted-backup#supported-and-unsupported-scenarios-for-azure-blob-backup).
 
 ### UserErrorMaxOrsPolicyExistOnStorageAccount
 **Error code**: `UserErrorMaxOrsPolicyExistOnStorageAccount`

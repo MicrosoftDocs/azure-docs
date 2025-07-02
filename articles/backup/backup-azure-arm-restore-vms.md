@@ -3,10 +3,11 @@ title: Restore VMs by using the Azure portal using Azure Backup
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: nikhilsarode
 ms.topic: how-to
-ms.date: 06/12/2025
+ms.date: 06/19/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an Azure administrator, I want to restore Azure virtual machines from recovery points using the portal, so that I can recover data and configurations efficiently after a failure or data loss."
 ---
 # How to restore Azure VM data in Azure portal
 
@@ -40,7 +41,7 @@ Some details about storage accounts:
 - **Replace disk**: When replacing a managed disk from a Vault-Standard recovery point that's **< 4 TB** or a VM containing **< 16 disks**, a VHD file is created in the specified storage account. After replacement, source VM disks remain in the designated Resource Group, and VHDs stay in the storage account; you can delete or retain the source disk and the VHDs as needed.
 - **Storage account location**: The storage account must be in the same region as the vault. Only these accounts are displayed. If there are no storage accounts in the location, you need to create one.
 - **Storage type**: Blob Storage account isn't supported because the Premium Storage account  it requires is excluded for cost optimization.
-- **Storage redundancy**: Zone redundant storage (ZRS) isn't supported. The replication and redundancy information for the account is shown in parentheses after the account name.
+- **Storage redundancy**: Zone redundant storage (ZRS) is supported. The replication and redundancy information for the account is shown in parentheses after the account name.
 - **Premium storage**:
   - When you restore non-premium VMs, premium storage accounts aren't supported.
   - When you restore managed VMs, premium storage accounts configured with network rules aren't supported.
@@ -121,7 +122,8 @@ As one of the [restore options](#restore-options), you can create a VM quickly w
 1. Select **Restore** to trigger the restore operation.
 
 >[!Note]
->Before you modify any NSG settings, ensure the VM restore operation is complete. Learn about [tracking the restore operation](#track-the-restore-operation).
+>- Before you modify any NSG settings, ensure the VM restore operation is complete. Learn about [tracking the restore operation](#track-the-restore-operation).
+>- During an Alternate Location Restore (Create new VM), the restored VM retains the same SKU as the original VM at the time of the recovery point creation. Any SKU changes made after the backup date don't reflect in the restored VM.
 
 ## Restore disks
 

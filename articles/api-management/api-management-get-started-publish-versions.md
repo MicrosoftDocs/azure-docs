@@ -16,7 +16,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-There are times when it's impractical to have all callers to your API use the same version. When callers want to upgrade to a later version, they want an approach that's easy to understand. As shown in this tutorial, it's possible to provide multiple *versions* in Azure API Management. 
+There are situations where it's impractical for all API consumers to use the same version. When consumers are ready to upgrade to a newer version, they prefer a simple and understandable approach. As demonstrated in this tutorial, Azure API Management supports exposing multiple API versions to meet this need.
 
 For background, see [Versions](api-management-versions.md) and [Revisions](api-management-revisions.md).
 

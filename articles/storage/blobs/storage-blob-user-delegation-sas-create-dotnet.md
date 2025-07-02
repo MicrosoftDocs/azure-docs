@@ -11,6 +11,7 @@ ms.date: 09/06/2024
 ms.reviewer: dineshm
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: As a developer, I want to create a user delegation SAS for blobs and containers using .NET, so that I can securely grant limited access to storage resources based on user permissions.
 ---
 
 # Create a user delegation SAS for a container or blob with .NET
