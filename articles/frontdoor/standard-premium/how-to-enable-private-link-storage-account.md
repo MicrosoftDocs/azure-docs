@@ -136,7 +136,7 @@ az afd origin create --enabled-state Enabled \
 2. Use the [az network private-endpoint-connection approve](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-approve) command to approve the private endpoint connection.
 
     ```azurecli-interactive
-    az network private-endpoint-connection approve --id /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorage/privateEndpointConnections/mystorage.aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
+    az network private-endpoint-connection approve --id '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorage/privateEndpointConnections/mystorage.aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
     ```
 
 ::: zone-end
