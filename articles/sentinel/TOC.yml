@@ -5,6 +5,9 @@
   items:
   - name: What is Microsoft Sentinel?
     href: overview.md
+  - name: What is Microsoft Sentinel data lake (Preview)?
+    href: graph/sentinel-lake-overview.md
+    displayName: data lake
   - name: What's new
     href: whats-new.md
   - name: Best practices
@@ -17,8 +20,6 @@
     items:
     - name: Machine learning in the Microsoft Sentinel data lake (Preview)  
       href: graph/machine-learning.md
-
-
 - name: Plan
   items:
   - name: Deployment planning guide  
@@ -63,6 +64,9 @@
     href: quickstart-onboard.md
   - name: Connect Microsoft Sentinel to the Defender portal
     href: /unified-secops-platform/microsoft-sentinel-onboard?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+  - name: Onboard to Microsoft Sentinel data lake (Preview)
+    href: graph/sentinel-lake-onboarding.md
+    displayName: data lake
   - name: Configure content
     href: configure-content.md
   - name: Set up multiple workspaces
@@ -757,8 +761,11 @@
     href: aws-s3-troubleshoot.md
 - name: Reference
   items:
-  - name: Service limits
+  - name: Microsoft Sentinel service limits
     href: sentinel-service-limits.md
+  - name: Microsoft Sentinel data lake service limits
+    href: graph/sentinel-lake-service-limits.md  
+    displayName: data lake
   - name: Microsoft Sentinel REST-API
     href: /rest/api/securityinsights/
   - name: OOTB content centralization changes
