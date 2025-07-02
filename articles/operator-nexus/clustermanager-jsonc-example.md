@@ -19,7 +19,7 @@ ms.custom: template-how-to, devx-track-arm-template
     "environment": {
       "type": "string",
       "metadata": {
-        "description": "Name of the Environment"
+        "description": "Name of the environment"
       }
     },
     "name": {
@@ -48,20 +48,20 @@ ms.custom: template-how-to, devx-track-arm-template
     "resourceGroupName": {
       "type": "string",
       "metadata": {
-        "description": "Specify the Resource Group for the resources."
+        "description": "Specify the resource group for the resources."
       },
       "defaultValue": ""
     },
     "managedResourceGroupName": {
       "type": "string",
       "metadata": {
-        "description": "Specify a Managed Resource Group for the resource."
+        "description": "Specify a managed resource group for the resource."
       }
     },
     "clusterManagerTags": {
       "type": "object",
       "metadata": {
-        "description": "Additional tags to pass to the Cluster Manager on creation"
+        "description": "Additional tags to pass to the cluster manager on creation"
       }
     },
     "assignedIdentities": {
