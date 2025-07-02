@@ -8,7 +8,6 @@ ms.topic: tutorial
 ms.date: 05/12/2025
 ms.service: azure-migrate
 ms.custom: vmware-scenario-422, mvc, subject-rbac-steps, engagement-fy24
-#Customer intent: As an VMware admin, I want to discover my on-premises servers running in a VMware environment.
 # Customer intent: "As a VMware administrator, I want to utilize the discovery and assessment tool to identify on-premises servers and their dependencies in my VMware environment, so that I can facilitate a seamless migration to the cloud."
 ---
 
