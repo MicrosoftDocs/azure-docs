@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 4/21/2025
 #cusom intent: As a cloud administrator, I want to enable first-party application service principal for Azure VMware Solution Generation 2 Private Clouds so that I can manage the Azure VMware Solution experiences.
+# Customer intent: As a cloud administrator, I want to enable the first-party application service principal for Azure VMware Solution Generation 2 private clouds so that I can effectively manage and deploy the cloud infrastructure.
 ---
 
 # Enable first-party application service principal for Azure VMware Solution Generation 2 Private Clouds
