@@ -15,17 +15,6 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 
 # Display name changed
-::: zone pivot="platform-android"
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-::: zone-end
-
-::: zone pivot="platform-ios"
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-::: zone-end
-
-::: zone pivot="platform-windows"
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-::: zone-end
 
 This article describes how you can subscribe the Teams participants' display name changed events showing the old, new values, and the reason of the name change.
 
@@ -67,9 +56,8 @@ The following tables show support for the display name change in individual Azur
 |----------------|-----|--------|--------|--------|----------|--------|---------|
 | Is Supported   | ✔️  |        |        |        |          |        |         |		
 
-::: zone pivot="platform-web"
+
 [!INCLUDE [Display name changed Client-side JavaScript](./includes/displayname-changed/displayname-changed-web.md)]
-::: zone-end
 
 
 ## Next steps
