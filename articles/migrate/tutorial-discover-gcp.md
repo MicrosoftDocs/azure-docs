@@ -11,8 +11,7 @@ ms.custom: mvc, subject-rbac-steps, engagement-fy24
 ms.collection:
  - migration
  - gcp-to-azure
-#Customer intent: As a server admin I want to discover my GCP instances.
-# Customer intent: "As a server admin, I want to discover my GCP instances using a migration tool, so that I can assess and plan for their migration to Azure efficiently."
+# Customer intent: "As a server administrator, I want to discover my GCP instances using a migration tool, so that I can assess and plan for their migration to Azure efficiently."
 ---
 
 # Tutorial: Discover Google Cloud Platform (GCP) instances with Azure Migrate
