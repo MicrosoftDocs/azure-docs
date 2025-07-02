@@ -5,8 +5,8 @@ keywords: security copilot, Microsoft Defender XDR, embedded experience, inciden
 ms.service: microsoft-sentinel
 ms.collection: usx-security
 ms.pagetype: security
-ms.author: austinmc
-author: austinmccollum
+ms.author: macapara 
+author: mjcaparas 
 ms.localizationpriority: medium
 audience: ITPro
 ms.topic: conceptual
