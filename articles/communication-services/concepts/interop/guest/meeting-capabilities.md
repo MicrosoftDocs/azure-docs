@@ -96,6 +96,8 @@ This article describes which capabilities Azure Communication Services SDKs supp
 | | Honor disabling or enabling a camera as an attendee | ✔️ |
 | | Adding Teams user honors information barriers | ✔️ |
 | | Announce when phone callers join or leave  | ❌ |
+| | Get notification that Teams participant display name changed | ✔️ |
+| | Adding Teams user honors information barriers | ✔️ |
 | Teams Copilot | User can access Teams Copilot | ❌[6] |
 | | User's transcript is captured when Copilot is enabled  | ✔️ |
 | Device management | Ask for permission to use audio and/or video | ✔️ |

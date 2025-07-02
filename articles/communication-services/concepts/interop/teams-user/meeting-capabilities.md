@@ -71,6 +71,8 @@ The following list of capabilities is allowed when Microsoft 365 users participa
 |                   | Disable or enable camera for attendees                                                                              | ❌        | ❌ | ❌ | ❌ |
 |                   | Honor disabling or enabling a camera as an attendee                                                                 | ✔️        | ✔️ | ✔️ | ✔️ |
 |                   | Adding Teams user honors information barriers                                                                       |   ✔️      | ✔️ | ✔️ | ✔️ |
+| | Check if Teams participant has display name changed | ✔️ | ❌ | ❌ | ❌ |
+| | Get notification that Teams participant display name changed | ✔️ | ❌ | ❌ | ❌ |
 | Device Management | Ask for permission to use  audio and/or video                                                                       | ✔️        | ✔️ | ✔️ | ✔️ |
 |                   | Get camera list                                                                                                     | ✔️        | ✔️ | ✔️ | ✔️ |
 |                   | Set camera                                                                                                          | ✔️        | ✔️ | ✔️ | ✔️ |
@@ -179,6 +181,7 @@ Teams meeting organizers can configure the Teams meeting options to adjust the e
 |[Allow reactions](/microsoftteams/meeting-policies-in-teams-general#meeting-reactions)|If enabled, Teams users can use reactions in the Teams meeting. Azure Communication Services doesn't support reactions. |❌|
 |[RTMP-IN](/microsoftteams/stream-teams-meetings)|If enabled, organizers can stream meetings and webinars to external endpoints by providing a Real-Time Messaging Protocol (RTMP) URL and key to the built-in Custom Streaming app in Teams. |Not applicable|
 |[Provide CART Captions](https://support.microsoft.com/office/use-cart-captions-in-a-microsoft-teams-meeting-human-generated-captions-2dd889e8-32a8-4582-98b8-6c96cf14eb47)|Communication access real-time translation (CART) is a service in which a trained CART captioner listens to the speech and instantaneously translates all speech to text. As a meeting organizer, you can set up and offer CART captioning to your audience instead of the Microsoft Teams built-in live captions that are automatically generated.|❌|
+|[Recognize and respond to Teams meeting participant display name changes](https://techcommunity.microsoft.com/blog/microsoft365insiderblog/edit-your-display-name-in-teams-meetings/4389359)|Teams users can change their display name in Teams meetings. As a meeting organizer, you can enable this feature in meeting options. The ACS Calling client SDK can receive notification of display name changes and determine whether the display name has changed, but it cannot make changes to the display name. |✔️|
 
 
 ## Next steps
