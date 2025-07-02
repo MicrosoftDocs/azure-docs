@@ -173,7 +173,7 @@ Geo-replication can be configured through the Azure portal, Azure CLI, Azure Pow
 
 - **Enable**. Configure geo-replication after registry creation by specifying additional regions on container registries using the Premium SKU.
 - **Disable**. Remove individual regional replicas through the Azure portal or command-line tools. The home region registry can't be removed.
-- **Migrate**. To enanble geo-replication you need to upgrade existing Basic or Standard tier registries to Premium tier.
+- **Migrate**. To enable geo-replication you need to upgrade existing Basic or Standard tier registries to Premium tier.
 
 ### Normal operations
 
