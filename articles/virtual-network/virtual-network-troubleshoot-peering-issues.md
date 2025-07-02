@@ -9,6 +9,7 @@ ms.service: azure-virtual-network
 ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: allensu
+# Customer intent: As a network engineer, I want to troubleshoot virtual network peering issues, so that I can ensure proper connectivity between Azure virtual networks in both the same and different subscriptions or regions.
 ---
 
 # Troubleshoot virtual network peering issues

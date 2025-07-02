@@ -6,6 +6,7 @@ ms.date: 06/13/2024
 ms.devlang: csharp
 # ms.devlang: csharp, python
 ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet
+# Customer intent: As a developer managing large-scale processing, I want to submit a high volume of tasks to a Batch job efficiently, so that I can optimize throughput and execution time for my workloads.
 ---
 # Submit a large number of tasks to a Batch job
 

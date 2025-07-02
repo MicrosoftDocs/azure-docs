@@ -7,6 +7,7 @@ ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 09/05/2019
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a security engineer, I want to configure a web application firewall policy with custom rules and a default rule set for Azure Front Door, so that I can enhance the security of my application against various threats.
 ---
 
 # Configure a WAF policy by using Azure PowerShell

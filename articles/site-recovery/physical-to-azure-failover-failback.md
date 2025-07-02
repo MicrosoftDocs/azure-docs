@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 07/08/2024
 ms.author: jsuri
 author: jyothisuri
+# Customer intent: As a system administrator, I want to set up failover and failback for physical servers using cloud replication, so that I can ensure business continuity and disaster recovery in the event of an on-premises outage.
 ---
 
 # Fail over and fail back physical servers replicated to Azure

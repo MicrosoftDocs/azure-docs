@@ -2,14 +2,15 @@
 author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 09/08/2021
-ms.author: rifox
+ms.date: 06/15/2025
+ms.author: micahvivion
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-ios.md)]
 
-With our iOS SDK, You can subscribe to most of the properties and collections to be notified when values change.
+Now that you installed the iOS SDK, you can subscribe to most of the properties and collections to be notified when values change.
 
 ## Properties
+
 To subscribe to `property changed` events, use the following code.
 
 ```swift
@@ -25,6 +26,7 @@ self.call.delegate = nil
 ```
 
 ## Collections
+
 To subscribe to `collection updated` events, use the following code.
 
 ```swift

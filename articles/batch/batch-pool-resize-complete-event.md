@@ -2,13 +2,13 @@
 title: Azure Batch pool resize complete event
 description: Reference for Batch pool resize complete event. See an example of a pool that increased in size and completed successfully.
 ms.topic: reference
-ms.date: 12/13/2021
+ms.date: 07/01/2025
 # Customer intent: "As a cloud operations manager, I want to receive notifications for pool resize events, so that I can monitor and manage compute resource allocations effectively."
 ---
 
 # Pool resize complete event
 
- This event is emitted when a pool resize has completed or failed.
+ This event is emitted when a pool resize is completed or failed.
 
  The following example shows the body of a pool resize complete event for a pool that increased in size and completed successfully.
 
@@ -32,7 +32,7 @@ ms.date: 12/13/2021
 |Element|Type|Notes|
 |-------------|----------|-----------|
 |`id`|String|The ID of the pool.|
-|`nodeDeallocationOption`|String|Specifies when nodes may be removed from the pool, if the pool size is decreasing.<br /><br /> Possible values are:<br /><br /> **requeue** – Terminate running tasks and requeue them. The tasks will run again when the job is enabled. Remove nodes as soon as tasks have been terminated.<br /><br /> **terminate** – Terminate running tasks. The tasks will not run again. Remove nodes as soon as tasks have been terminated.<br /><br /> **taskcompletion** – Allow currently running tasks to complete. Schedule no new tasks while waiting. Remove nodes when all tasks have completed.<br /><br /> **Retaineddata** -  Allow currently running tasks to complete, then wait for all task data retention periods to expire. Schedule no new tasks while waiting. Remove nodes when all task retention periods have expired.<br /><br /> The default value is requeue.<br /><br /> If the pool size is increasing then the value is set to **invalid**.|
+|`nodeDeallocationOption`|String|Specifies when nodes may be removed from the pool, if the pool size is decreasing.<br /><br /> Possible values are:<br /><br /> **requeue** – Terminate running tasks and requeue them. The tasks run again when the job is enabled. Remove nodes as soon as tasks are terminated.<br /><br /> **terminate** – Terminate running tasks. The tasks won't run again. Remove nodes as soon as tasks are terminated.<br /><br /> **taskcompletion** – Allow currently running tasks to complete. Schedule no new tasks while waiting. Remove nodes when all tasks are completed.<br /><br /> **Retaineddata** -  Allow currently running tasks to complete, then wait for all task data retention periods to expire. Schedule no new tasks while waiting. Remove nodes when all task retention periods are expired.<br /><br /> The default value is requeue.<br /><br /> If the pool size is increasing, then the value is set to **invalid**.|
 |`currentDedicatedNodes`|Int32|The number of dedicated compute nodes currently assigned to the pool.|
 |`targetDedicatedNodes`|Int32|The number of dedicated compute nodes that are requested for the pool.|
 |`currentLowPriorityNodes`|Int32|The number of [Spot compute nodes](batch-spot-vms.md) currently assigned to the pool.|

@@ -1,18 +1,21 @@
 ---
+title: Enable audio noise suppression improvements
+titleSuffix: An Azure Communication Services article
+description: This article describes how to add audio effects in your calls using Azure Communication Services.
 author: garchiro7
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 04/30/2024
+ms.date: 06/27/2025
 ms.author: jorgarcia
 ---
 
-## Learn how to configure audio filters with the Native Calling SDKs 
+## Configure audio filters with the Native Calling SDKs 
 
 The Azure Communication Services audio effects offer filters that can improve your audio call. For native platforms (Android, iOS, and Windows), you can configure the following filters.
 
 ### Echo cancellation
 
-You can eliminate acoustic echo caused by the caller's voice echoing back into the microphone after it's emitted from the speaker. Echo cancellation ensures clear communication.
+You can eliminate acoustic echo caused by the caller's voice echoing back into the microphone after being emitted from the speaker. Echo cancellation ensures clear communication.
 
 You can configure the filter before and during a call. You can toggle echo cancellation only if music mode is enabled. By default, this filter is enabled.
 

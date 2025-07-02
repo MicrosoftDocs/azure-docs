@@ -1,11 +1,13 @@
 ---
 title: Use Azure portal to move schedules and machines from Automation Update Management to Azure Update Manager
 description: Guidance on how to use Azure portal to move schedules and machines from Automation Update Management to Azure Update Manager
-author: snehasudhirG
+author: habibaum
+ms.author: v-uhabiba
 ms.service: azure-update-manager
 ms.topic: how-to
 ms.date: 08/01/2024
-ms.author: sudhirsneha
+
+# Customer intent: "As a system administrator, I want to migrate schedules and machines from Automation Update Management to Azure Update Manager using the Azure portal, so that I can streamline my update management processes with minimal effort."
 ---
 
 # Migration using Azure portal

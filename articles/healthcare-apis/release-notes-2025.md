@@ -17,6 +17,19 @@ ms.custom:
 
 This article describes features, enhancements, and bug fixes released in 2025 for the FHIR&reg; service, Azure API for FHIR, DICOM&reg; service, and MedTech service in Azure Health Data Services.
 
+## June 2025
+### FHIR service
+**Added configuration for eventual consistency option in $import**: Allows users to enable eventual consistency for the $import operation.
+
+**Bulk delete enhancement**: Added a parameter to bulk delete that can receive a list of resources to exclude from the bulk delete operation.
+
+#### Bug fixes:
+**Support Added for Standalone Extensions on Primitive Type "code"**: Previously, extensions for primitive type "code" could not be uploaded individually, and would lead to a HTTP 400 Bad Request response. This bug has been fixed, and users can now upload extensions without their corresponding "origin" attributes.
+
+**_summary Search Parameter Now Included in CapabilityStatement**: Previously, the CapabilityStatement was missing the _summary search parameter. We have fixed this and added the _summary search parameter to the CapabilityStatement.
+
+**Intermittent HTTP 400 Errors Resolved for Custom Search Parameter Queries**: Previously, there were intermittent HTTP 400 error responses back when searching using custom search parameters that were created and reindexed successfully. This issue has been fixed. 
+
 ## May 2025
 ### FHIR service
 **Enhanced error handling for $export**: Previously, 412 errors from Azure Storage weren't retried, and would be surfaced as 500 InternalServerError. The issue is fixed, and these requests are now retried. 
@@ -25,12 +38,18 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 
 **Transaction handling improvement**: Fixed invisible transaction watchdog to limit number of transactions to process in a single batch to 10000 to avoid timeouts and improve transaction handling.
 
+**Improved error handling for exports or imports that have missing Managed Identity**: Previously, exports or imports with missing Managed Identity would result in a 500 Unknown Server Error. We have added improved error handling for this case, and now, a more descriptive error message "Failed to get access token" will be shown. 
+
+**Support multiple pages of include results in bulk delete**: Previously, bulk deletes with _include and _revinclude couldn't delete more than 100 included resources. We have made a fix to lift that limit by supporting multiple pages of include results, and bulk delete will be able to delete more than 100 included resources.
+
+**Added ID in CapabilityStatement**: Previously, when retrieving the server's CapabilityStatement from the /metadata endpoint, the returned resource did not contain an ID. We have now added a dynamic ID to the CapabilityStatement 
+
+**Added validation on resource ID for import**: Previously, the import process was not validating IDs, allowing unsupported characters, for example, "#", to cause errors. Now, we have added validation on resource ID for import, and have included the error message "Invalid resource ID".
 
 #### Bug fixes:
 **Creation after deletion of search parameters fix**: Previously, creating the same search parameter that was deleted in the past could fail due to an issue in updating the cache for Search Parameter definition manager. The issue is fixed, and now, the cache is synced before validating a search parameter in an incoming request.
 
 **Patient-everything with SMART patient user fix**: An issue was discovered where the patient-everything operation with a SMART patient user was failing. The issue is fixed, and now, the patient-everything operation works as expected with a SMART patient user.
-
 
 ## April 2025
 ### FHIR service

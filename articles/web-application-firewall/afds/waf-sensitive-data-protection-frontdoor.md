@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 06/24/2024
+# Customer intent: "As a security administrator, I want to implement log scrubbing in the Web Application Firewall, so that I can protect sensitive customer information from being exposed in WAF logs."
 ---
 
 # What is Azure Web Application Firewall on Azure Front Door sensitive data protection?

@@ -11,6 +11,7 @@ ms.date: 10/27/2023
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.devlang: csharp
+# Customer intent: As an application developer, I want to migrate my applications to use TLS 1.2 for Azure Blob Storage, so that I can ensure secure communication and avoid disruptions when older TLS versions are deprecated.
 ---
 
 # Migrate to TLS 1.2 for Azure Blob Storage

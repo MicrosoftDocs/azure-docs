@@ -3,11 +3,12 @@ title: Send VMware syslogs to log management server using Azure Logic Apps
 description: Learn how to use Azure Logic Apps to collect and send VMware syslogs from your Azure VMware Solution private cloud to any log management service of your choice.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 4/10/2025
+ms.date: 6/27/2025
 ms.custom: engagement-fy25
 
 #Customer intent: As an Azure service administrator, I want to use Azure Logic Apps to send VMware syslogs from my Azure VMware Solution private cloud to my preferred log management service for centralized logging and analysis.
 
+# Customer intent: "As an Azure service administrator, I want to configure Azure Logic Apps to forward VMware syslogs from my private cloud to a log management service, so that I can achieve centralized log management for better monitoring and analysis."
 ---
 
 # Send VMware syslogs to log management server using Azure Logic Apps
@@ -20,9 +21,7 @@ In this article, learn how to configure an Azure Logic Apps workflow to capture 
 
 ## Prerequisites
 
-Make sure you have an Azure VMware Solution private cloud set up that is streaming its syslogs to an Azure Event Hubs instance. 
-
-[Configure VMware syslogs - Stream to Microsoft Azure Event Hubs](/azure/azure-vmware/configure-vmware-syslogs#stream-to-microsoft-azure-event-hubs).
+Make sure you have an Azure VMware Solution private cloud set up that is streaming its syslogs to an Azure Event Hubs instance within an Azure Event Hubs namespace. **A valid instance of event hub within your Azure Event Hub namespace is required**. For setup guidance, visit [Configure VMware syslogs - Stream to Microsoft Azure Event Hubs](/azure/azure-vmware/configure-vmware-syslogs#stream-to-microsoft-azure-event-hubs).
 
 ## Create an Azure Logic Apps instance
 
@@ -34,7 +33,9 @@ Make sure you have an Azure VMware Solution private cloud set up that is streami
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-2.png" alt-text="Screenshot showing which hosting option of Azure Logic Apps to select." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-2.png":::
 
-3. Enter the Subscription you intend to use, the Resource Group chosen to house this instance. Give it a name and select a region. The default Windows plan is **Workflow Standard WS1 (210 total ACU, 3.5 Gb memory, 1 vCPU)** which should be enough to handle log volumes from large workloads. This option can always be adjusted later, as needed. After filing these details, select **Review + create**.
+3. Enter the Subscription you intend to use, the Resource Group chosen to house this instance. Give it a name and select a region.
+**If your log management server is hosted in Azure—including within your Azure VMware Solution private cloud—ensure you select the same region as the Azure Virtual Network connected to your log management server. Otherwise, the integration will fail.**
+The default Windows plan is **Workflow Standard WS1 (210 total ACU, 3.5 Gb memory, 1 vCPU)** which should be enough to handle log volumes from large workloads. This option can always be adjusted later, as needed. After filing these details, select **Review + create**.
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-3.png" alt-text="Screenshot showing the fields that need to be populated when creating an Azure Logic App." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-3.png":::
 
@@ -76,9 +77,34 @@ Make sure you have an Azure VMware Solution private cloud set up that is streami
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-12.png" alt-text="Screenshot showing the necessary parameters needed for the Azure Logic App template." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-12.png":::
 
-9. Finally, review the information provided, then click **Create**. This action saves the workflow that can be used to send the log messages from Azure VMware Solution to any syslog endpoint.
+9. Review the information provided, then click **Create**. This action saves the workflow that can be used to send the log messages from Azure VMware Solution to any syslog endpoint.
 
 :::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-13.png" alt-text="Screenshot showing the review page before creating the Azure Logic App template." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-13.png":::
+
+## Integrating with Azure Virtual Network
+
+If your log management server is hosted in Azure - for example, your VMware Cloud Foundation Operations for Logs in your Azure VMware Solution private cloud - you will need to integrate your Azure Logic App with an Azure virtual network that can be reached by the log management server. This ensures the Logic App can communicate with endpoints that are only accessible within the virtual network. 
+
+For example - if you're deploying your log management server on an Azure VMware Solution private cloud, you will need an Azure Virtual Network that can be peered to the private cloud's network.
+###Prerequisites
+- The Azure Virtual Network and the Azure Logic App must be in the same region. **Cross-region integration is not supported and will cause the setup to fail.**
+- Ensure there is an available subnet in your Azure Virtual Network for integration. For more information, visit [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md).
+
+###Steps to integrate with your Azure Virtual Network
+1. In the Azure Logic App, navigate to **Settings > Networking**. 
+:::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-21.png" alt-text="Screenshot showing where the Networking tab is in the Azure Logic App instance." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-21.png":::
+
+2. Select the highlighted text that says **Not configured** next to **Virtual Network integration**.
+:::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-22.png" alt-text="Screenshot showing where the Not Configured text is next to the Virtual Network option in the Azure Logic App instance." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-22.png":::
+
+3. On the next screen, you'll see a message stating **No virtual network integration configured**. Select **Add virtual network integration** to integrate with the Azure Virtual Network that is connected to your log management server.
+:::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-23.png" alt-text="Screenshot showing where to add virtual network integration in the Azure Logic App instance." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-23.png":::
+
+4. In the panel, choose the **Subscription** where your Azure Virtual Network lies, the **Virtual Network** you intend to use, and the **Subnet** you want to associate. Click **Connect** to integrate with your virtual network.
+:::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-24.png" alt-text="Screenshot showing where to add virtual network integration details in the Azure Logic App instance." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-24.png":::
+
+5. Upon successful integration, the next screen will display the **Virtual Network Integration** details. You can always click on **Disconnect** if you need to change the virtual network integration for your Logic App.
+:::image type="content" source="media/logs-to-logic-app/logs-to-logic-app-25.png" alt-text="Screenshot showing where to manage virtual network integration in the Azure Logic App instance." border="false"  lightbox="media/logs-to-logic-app/logs-to-logic-app-25.png":::
 
 ## Adding certificates, updating HTTP headers, and configuring notifications
 

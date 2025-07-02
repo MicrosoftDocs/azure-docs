@@ -103,6 +103,10 @@ landingContent:
           url: enable-dynamic-configuration-java-spring-app.md
         - text: Use dynamic config in Python
           url: enable-dynamic-configuration-python.md
+        - text: Use dynamic config in Go
+          url: enable-dynamic-configuration-go-console-app.md
+        - text: Use dynamic config in Go Gin
+          url: enable-dynamic-configuration-gin-web-app.md
       - linkListType: tutorial
         links:
         - text: Import data using Azure Pipelines
@@ -161,6 +165,8 @@ landingContent:
           url: howto-variant-feature-flags.md
         - text: Use variant feature flags in Python
           url: howto-variant-feature-flags-python.md
+        - text: Use variant feature flags in JavaScript
+          url: howto-variant-feature-flags-javascript.md
       - linkListType: reference
         links:
         - text: Overview

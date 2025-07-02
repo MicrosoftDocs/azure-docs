@@ -2,10 +2,11 @@
 title: Overview of offline backup 
 description: Learn about the components of offline backup. They include offline backup based on Azure Data Box and offline backup based on the Azure Import/Export service.
 ms.topic: overview
-ms.date: 07/30/2024
+ms.date: 07/02/2025
 ms.custom: references_regions 
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a backup administrator, I want to understand the options for offline backup solutions, so that I can choose the best method for transferring large amounts of data without consuming network bandwidth.
 ---
 
 # Overview of offline backup
@@ -79,6 +80,8 @@ The following table compares the two available options so that you can make the 
 
 ## Next steps
 
-- [Azure Backup offline backup by using Azure Data Box](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus)
-- [Offline backup workflow in Azure Backup](backup-azure-backup-import-export.md)
-- [Offline backup workflow for DPM and Azure Backup Server](backup-azure-backup-server-import-export.md)
+- [Azure Backup offline backup by using Azure Data Box](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus).
+- [Offline backup workflow in Azure Backup](backup-azure-backup-import-export.md).
+- [Offline backup workflow for DPM and Azure Backup Server](backup-azure-backup-server-import-export.md).
+- [Offline backup workflow for DPM and Azure Backup Server](offline-backup-azure-data-box-dpm-mabs.md).
+- [Offline backup workflow for DPM and Azure Backup Server for previous versions](offline-backup-server-previous-versions.md).

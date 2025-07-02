@@ -139,7 +139,7 @@ More considerations for using a custom Linux image:
 
 To enable a Batch pool to run container workloads, you must specify [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) settings in the pool's [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object. This article provides links to the Batch .NET API reference. Corresponding settings are in the [Batch Python](/python/api/overview/azure/batch) API.
 
-You can create a container-enabled pool with or without prefetched container images, as shown in the following examples. The pull (or prefetch) process lets you preload container images from either Docker Hub or another container registry on the Internet. For best performance, use an [Azure container registry](/azure/container-registry/container-registry-intro) in the same region as the Batch account.
+You can create a container-enabled pool with or without prefetched container images, as shown in the following examples. The pull (or prefetch) process lets you preload container images from either Docker Hub or another container registry on the Internet. For best performance, use an [Azure Container Registry](/azure/container-registry/container-registry-intro) in the same region as the Batch account.
 
 The advantage of prefetching container images is that when tasks first start running, they don't have to wait for the container image to download. The container configuration pulls container images to the VMs when the pool is created. Tasks that run on the pool can then reference the list of container images and container run options.
 
@@ -276,7 +276,7 @@ pool.StartTask = startTaskContainer;
 
 ### Prefetch images from a private container registry
 
-You can also prefetch container images by authenticating to a private container registry server. In the following examples, the `ContainerConfiguration` and `VirtualMachineConfiguration` objects prefetch a private TensorFlow image from a private Azure container registry. The image reference is the same as in the previous example.
+You can also prefetch container images by authenticating to a private container registry server. In the following examples, the `ContainerConfiguration` and `VirtualMachineConfiguration` objects prefetch a private TensorFlow image from a private Azure Container Registry. The image reference is the same as in the previous example.
 
 ```python
 image_ref_to_use = batch.models.ImageReference(

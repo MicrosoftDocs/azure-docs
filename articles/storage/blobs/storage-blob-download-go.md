@@ -11,6 +11,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
+# Customer intent: As a Go developer, I want to download blobs from Azure Storage, so that I can effectively manage and utilize data in my applications.
 ---
 
 # Download a blob with Go

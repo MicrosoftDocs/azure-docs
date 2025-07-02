@@ -9,6 +9,7 @@ ms.date: 05/21/2024
 ms.topic: how-to
 ms.service: azure-queue-storage
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a cloud developer, I want to use PowerShell to manage Azure Queue Storage, so that I can efficiently perform operations like creating queues, adding messages, retrieving messages, and clearing resources."
 ---
 
 # How to use Azure Queue Storage from PowerShell
