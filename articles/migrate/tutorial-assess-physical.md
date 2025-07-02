@@ -6,7 +6,6 @@ ms.date: 02/06/2025
 ms.service: azure-migrate
 ms.custom: MVC, engagement-fy25
 monikerRange: migrate-classic
-#Customer intent: As a server admin, I want to assess my on-premises physical servers in preparation for migration to Azure.
 # Customer intent: As a server administrator, I want to assess my on-premises physical servers for their cloud readiness and migration costs, so that I can effectively plan and execute their migration to a cloud infrastructure.
 ---
 
