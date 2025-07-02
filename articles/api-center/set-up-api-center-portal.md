@@ -48,7 +48,7 @@ After you create the API Center portal app registration, you need to configure a
 You can now access the API Center portal:
 * On the **Portal settings** page, select **View API Center portal** to open the portal in a new tab. 
 * Or, enter the following URL in your browser, replacing `<service-name>` and `<location>` with the name of your API center and the location where it's deployed:<br/>
-    `https://<service-name>.portal.<location>.azure-api-center.ms`
+    `https://<service-name>.portal.<location>.azure-apicenter.ms`
 
 ### API visibility
 

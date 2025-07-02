@@ -157,7 +157,7 @@ Customer-managed (unplanned) failover of storage accounts with [change feed](../
 
 For more information about change feed, see [How the change feed works](../blobs/storage-blob-change-feed.md#how-the-change-feed-works).
 
-Keep in mind that other storage account features also require the change feed to be enabled. These features include [operational backup of Azure Blob Storage](../../backup/blob-backup-support-matrix.md#limitations), [Object replication](../blobs/object-replication-overview.md), and [Point-in-time restore for block blobs](../blobs/point-in-time-restore-overview.md).
+Keep in mind that other storage account features also require the change feed to be enabled. These features include [operational backup of Azure Blob Storage](../../backup/blob-backup-support-matrix.md#supported-and-unsupported-scenarios-for-azure-blob-backup), [Object replication](../blobs/object-replication-overview.md), and [Point-in-time restore for block blobs](../blobs/point-in-time-restore-overview.md).
 
 #### Point-in-time restore inconsistencies
 
