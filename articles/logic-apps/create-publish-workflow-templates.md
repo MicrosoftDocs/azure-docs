@@ -226,19 +226,33 @@ When you're ready to test your template, you can publish your template for testi
 
    - 
 
-   1. In the template gallery, make sure to select the Azure subscription associated with your template.
+   1. In the template gallery, from the **Subscription** list, select the Azure subscription associated with your template.
 
       :::image type="content" source="media/create-publish-workflow-templates/org-filter.png" alt-text="Screenshot shows Azure portal, templates gallery, and Subscription filter set to example Azure subscription associated with created template." lightbox="media/create-publish-workflow-templates/org-filter.png":::
 
-   1. Under the filters row, select **My templates**.
+   1. From the **Status** list, select **Published for Testing**. Under the filters row, select **My Templates**.
 
       Your template appears with the **Testing** label, for example:
 
       :::image type="content" source="media/create-publish-workflow-templates/my-templates.png" alt-text="Screenshot shows Azure portal, templates gallery, and selected tab for My templates." lightbox="media/create-publish-workflow-templates/my-templates.png":::
 
-1. After you finish creating your workflow, testing your template, and making any necessary updates, select **Save** > **Save + publish for production**.
+   1. Finish creating your workflow, testing your template, and making any necessary adjustments.
 
-   This step updates the template label from **Testing** to **Production** in the template gallery.
+   1. When you're ready to publish your template for production, on any tab in the template wizard, select **Save** > **Save + publish for production**.
+
+      This step updates the template label from **Testing** to **Production** in the template gallery.
+
+#### Remove template from gallery
+
+If you no longer want to include your custom workflow template in the template gallery, unpublish the template to delete it.
+
+1. In the [Azure portal](https://portal.azure.com) search box, enter **logic apps template**.
+
+1. From the template resources list, find and open your workflow template.
+
+1. On the template sidebar, under **Template**, select **Template**.
+
+1. On the **Template** page, select **Next** until you reach the **Profile** tab. From the **Save** list, select **Save + unpublish template**.
 
 ### [All Azure](#tab/all-azure)
 
