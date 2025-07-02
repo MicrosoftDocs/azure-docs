@@ -7,6 +7,7 @@ ms.topic: reference
 ms.date: 04/18/2024
 ms.author: normesta
 ms.subservice: storage-common-concepts
+# Customer intent: As a storage administrator, I want to reference the AzCopy error codes and their meanings, so that I can quickly diagnose and resolve issues related to Azure Blob Storage API requests.
 ---
 
 # Error codes: AzCopy V10
