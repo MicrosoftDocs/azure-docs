@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 06/25/2025
 ---
 
-# Tutorial: Enable telemetry for feature flags in a Node.js application
+# Enable telemetry for feature flags in a Node.js application
 
-In this tutorial, you use telemetry in your Node.js application to track feature flag evaluations and custom events. Telemetry allows you to make informed decisions about your feature management strategy. You utilize the feature flag with telemetry enabled created in [Enable telemetry for feature flags](./howto-telemetry.md). Before proceeding, ensure that you create a feature flag named *Greeting* in your Configuration store with telemetry enabled. This tutorial builds on top of [Tutorial: Use variant feature flags in a Node.js application](./howto-variant-feature-flags-javascript.md).
+In this tutorial, you use telemetry in your Node.js application to track feature flag evaluations and custom events. Telemetry allows you to make informed decisions about your feature management strategy. You utilize the feature flag with telemetry enabled created in [Enable telemetry for feature flags](./howto-telemetry.md). Before proceeding, ensure that you create a feature flag named *Greeting* in your Configuration store with telemetry enabled. This tutorial builds on top of [Use variant feature flags in a Node.js application](./howto-variant-feature-flags-javascript.md).
 
 ## Prerequisites
 
 - [Enable telemetry for feature flags](./howto-telemetry.md).
-- [Tutorial: Use variant feature flags in a Node.js application](./howto-variant-feature-flags-javascript.md).
+- [Use variant feature flags in a Node.js application](./howto-variant-feature-flags-javascript.md).
 
 ## Add telemetry to your Node.js application
 
@@ -93,7 +93,7 @@ In this tutorial, you use telemetry in your Node.js application to track feature
 
 1. Run the application, [see step 4 of Use variant feature flags](./howto-variant-feature-flags-javascript.md#run-the-application).
 
-1. Use 10 different users to visit the application. As you use a different user, you get a different message variant for some of them. ~50% of the time you get no message. 25% of the time you get the message "Hello!" and 25% of the time you get "I hope this makes your day!".
+1. Create 10 different users and log into the application. As you log in with each user, you get a different message variant for some of them. ~50% of the time you get no message. 25% of the time you get the message "Hello!" and 25% of the time you get "I hope this makes your day!"
 
 1. With some of the users click the **Like** button to trigger the telemetry event.
 

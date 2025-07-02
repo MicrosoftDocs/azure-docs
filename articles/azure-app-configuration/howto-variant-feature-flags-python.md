@@ -7,7 +7,7 @@ author: mrm9084
 ms.author: mametcal
 ms.service: azure-app-configuration
 ms.devlang: python
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 05/06/2025
 ---
 
