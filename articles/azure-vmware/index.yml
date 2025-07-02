@@ -215,7 +215,9 @@ additionalContent:
           - text: Configure VMware HCX network extension
             url: configure-hcx-network-extension.md
           - text: VMware HCX Mobility Optimized Networking (MON) guidance
-            url: vmware-hcx-mon-guidance.md	
+            url: vmware-hcx-mon-guidance.md
+          - text: Migrate workloads between Azure VMware Solution private clouds
+            url: migrate-between-avs-private-clouds.md
         # Card
         - title: Operate and monitor
           links:
