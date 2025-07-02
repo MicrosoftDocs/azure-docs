@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 06/01/2023
+# Customer intent: "As a web application administrator, I want to configure bot protection in the Web Application Firewall for my Application Gateway, so that I can safeguard my web applications against malicious bots and potential security threats."
 ---
 
 # Configure bot protection for Web Application Firewall on Azure Application Gateway

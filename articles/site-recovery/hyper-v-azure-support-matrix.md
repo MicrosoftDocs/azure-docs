@@ -6,6 +6,7 @@ ms.topic: concept-article
 ms.date: 12/19/2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a IT admin managing on-premises Hyper-V VMs, I want to implement disaster recovery to Azure, so that I can ensure business continuity and data protection in case of on-premises failures.
 ---
 
 

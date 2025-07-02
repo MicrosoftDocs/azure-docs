@@ -6,6 +6,7 @@ ms.date: 06/27/2025
 author: jyothisuri
 ms.author: jsuri
 ms.service: azure-backup
+# Customer intent: As a VMware administrator, I want to configure Azure Backup Server to back up VMware VMs, so that I can ensure data protection and recovery for my virtual machine environment.
 ---
 # Back up VMware VMs using Azure Backup Server
 

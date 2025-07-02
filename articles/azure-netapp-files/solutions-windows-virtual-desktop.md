@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 08/13/2024
 ms.author: anfdocs
+# Customer intent: "As a cloud architect, I want to deploy Azure Virtual Desktop with Azure NetApp Files, so that I can ensure high performance, scalability, and efficient data management for large-scale virtual desktop environments."
 ---
 # Benefits of using Azure NetApp Files with Azure Virtual Desktop 
 

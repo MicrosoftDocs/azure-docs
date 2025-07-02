@@ -6,6 +6,7 @@ ms.author: jsuri
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
 ms.date: 05/27/2024
+# Customer intent: As an IT administrator, I want to troubleshoot Azure VM extension issues for disaster recovery, so that I can ensure successful protection and minimize downtime during failures.
 ---
 
 # Troubleshoot Azure VM extension issues

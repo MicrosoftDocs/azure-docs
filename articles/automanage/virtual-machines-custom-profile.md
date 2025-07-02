@@ -5,6 +5,7 @@ ms.service: azure-automanage
 ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 07/01/2023
+# Customer intent: As a cloud administrator, I want to create a custom profile in my cloud management tool for virtual machines, so that I can configure specific services and settings tailored to my organization's needs before the retirement of the current service.
 ---
 
 

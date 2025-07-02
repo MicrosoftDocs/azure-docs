@@ -8,6 +8,7 @@ ms.author: anfdocs
 ms.date: 06/10/2025
 ms.custom:
   - build-2025
+# Customer intent: As an application administrator, I want to understand the best practices for ensuring application resilience on Azure NetApp Files during storage service maintenance events, so that I can minimize disruptions and maintain continuity of service for my users.
 ---
 # Application resilience FAQs for Azure NetApp Files
 

@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 07/10/2024
 ms.author: jsuri
 author: jyothisuri
+# Customer intent: As an IT administrator, I want to monitor and receive alerts for replication issues in Azure Site Recovery, so that I can ensure business continuity and quickly respond to any potential failures or configuration problems.
 ---
 
 # Use the Recovery Services dashboard

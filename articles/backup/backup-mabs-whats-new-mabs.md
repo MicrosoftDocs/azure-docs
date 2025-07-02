@@ -6,6 +6,7 @@ ms.topic: release-notes
 ms.date: 06/27/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to understand the latest features and fixes in Microsoft Azure Backup Server, so that I can ensure robust backup solutions and improve data protection for VMs, files, and critical workloads."
 ---
 
 # What's new in Microsoft Azure Backup Server (MABS)?

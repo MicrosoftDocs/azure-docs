@@ -5,6 +5,7 @@ ms.topic: include
 ms.service: azure-vmware
 ms.date: 01/04/2024
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud administrator, I want to configure user accounts with the CloudAdmin role in vCenter Server, so that I can manage workloads in my private cloud while ensuring emergency access is available for critical scenarios."
 ---
 
 <!-- used in concepts-run-commands.md and tutorial-configure-identity-source.md -->

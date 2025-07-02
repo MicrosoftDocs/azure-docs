@@ -8,6 +8,7 @@ ms.date: 05/28/2025
 ms.assetid: 759ee63f-148b-464c-bfc4-c9e640b7da6b
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to create backup policies for Azure PostgreSQL flexible servers using a REST API, so that I can ensure consistent data protection and retention according to our operational requirements.
 ---
 
 # Create Azure Data Protection backup policies for Azure Database for PostgreSQL - Flexible servers using REST API
