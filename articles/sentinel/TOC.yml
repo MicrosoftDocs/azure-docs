@@ -755,6 +755,8 @@
     href: /rest/api/securityinsights/
   - name: OOTB content centralization changes
     href: sentinel-content-centralize.md
+  - name: Asset data tables in Microsoft Sentinel data lake (Preview)
+    href: graph/asset-data-tables.md
   - name: Management references
     items:
     - name: Microsoft Sentinel Logic Apps connector
