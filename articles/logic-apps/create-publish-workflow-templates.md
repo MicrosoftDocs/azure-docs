@@ -1,6 +1,6 @@
 ---
 title: Create and publish workflow templates
-description: How to create workflow templates for use in Azure Logic Apps and share templates with others through the template gallery.
+description: How to create workflow templates for use in Azure Logic Apps and share templates with others through the templates gallery.
 services: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -22,7 +22,7 @@ Templates can include one or more workflows along with their connections, parame
 | Workflow | Reusable templates that create single workflows. |
 | Accelerators | Bundled solutions that contain multiple related workflows. |
 
-You can find these templates in the template gallery, which opens when you choose to create a workflow by starting with a template. The gallery already contains Microsoft-authored templates for common design and integration patterns.
+You can find these templates in the templates gallery, which opens when you choose to create a workflow by starting with a template. The gallery already contains Microsoft-authored templates for common design and integration patterns.
 
 Not only can you kickstart development by using workflow templates, but you can create and publish workflow templates for your organization's use alone within an Azure subscription or share them with others. Your template can include artifacts such as schemas, maps, and custom assemblies.
 
@@ -46,9 +46,9 @@ Azure Logic Apps templates also give you the following capabilities:
 
     This capability provides enterprise-grade control over who can author, view, and deploy templates. You have full control over the way that you want organize templates so that you can make sure the right teams get access to the automation patterns they need.
 
-The following screenshot shows the workflow template gallery scoped to an organization and Azure subscription with example templates that show status labels such as **Testing** and **Production**:
+The following screenshot shows the workflow templates gallery scoped to an organization and Azure subscription with example templates that show status labels such as **Testing** and **Production**:
 
-:::image type="content" source="media/create-publish-workflow-templates/templates-labels.png" alt-text="Screenshot shows Azure portal and workflow template gallery with Azure subscription-scoped custom templates in testing and production." lightbox="media/create-publish-workflow-templates/templates-labels.png":::
+:::image type="content" source="media/create-publish-workflow-templates/templates-labels.png" alt-text="Screenshot shows Azure portal and workflow templates gallery with Azure subscription-scoped custom templates in testing and production." lightbox="media/create-publish-workflow-templates/templates-labels.png":::
 
 This guide shows how to create and publish a workflow template in the following ways:
 
@@ -195,13 +195,13 @@ On the **Parameters** tab, add customization for any parameters that you want fo
 
 #### Provide template information
 
-The **Profile** tab specifies information about your template that appears in the template gallery, for example, the template's display name, publisher name, connectors, and other metadata.
+The **Profile** tab specifies information about your template that appears in the templates gallery, for example, the template's display name, publisher name, connectors, and other metadata.
 
 1. On the **Profile** tab, provide the following information about your template:
 
    | Property | Required | Description |
    |----------|----------|-------------|
-   | **Display name** | Yes | The workflow template display name that appears in the template gallery. |
+   | **Display name** | Yes | The workflow template display name that appears in the templates gallery. |
    | **By** | Yes | The workflow template publisher name. |
    | **Summary** | Yes | The description for the workflow that the template creates. |
    | **Featured connectors** | Yes | Select the primary connector types in the workflow template. |
@@ -218,17 +218,9 @@ When you're ready to test your template, you can publish your template for testi
 
 1. On the **Summary** tab or any other preceding tab, at the tab bottom, select **Save** > **Save + publish for testing**.
 
-   Azure publishes the template bearing the **Testing** label to the template gallery.
+   Azure publishes the template, which displays the **Testing** label, to the templates gallery.
 
-1. To test your new template, choose corresponding steps to create a Consumption or Standard logic app resource and workflow from a template:
-
-   - [Create a Standard logic app workflow from a prebuilt template](create-single-tenant-workflows-templates.md)
-
-   - 
-
-   1. In the template gallery, from the **Subscription** list, select the Azure subscription associated with your template.
-
-      :::image type="content" source="media/create-publish-workflow-templates/org-filter.png" alt-text="Screenshot shows Azure portal, templates gallery, and Subscription filter set to example Azure subscription associated with created template." lightbox="media/create-publish-workflow-templates/org-filter.png":::
+1. To test your new template, follow the steps in [Create workflows from prebuilt templates](create-single-tenant-workflows-templates.md) but with these steps:
 
    1. From the **Status** list, select **Published for Testing**. Under the filters row, select **My Templates**.
 
@@ -240,19 +232,21 @@ When you're ready to test your template, you can publish your template for testi
 
    1. When you're ready to publish your template for production, on any tab in the template wizard, select **Save** > **Save + publish for production**.
 
-      This step updates the template label from **Testing** to **Production** in the template gallery.
+      This step updates the template label from **Testing** to **Production** in the templates gallery.
 
 #### Remove template from gallery
 
-If you no longer want to include your custom workflow template in the template gallery, unpublish the template to delete it.
+If you want to temporarily or permanently remove your custom workflow template from the templates gallery, you can unpublish the template.
 
-1. In the [Azure portal](https://portal.azure.com) search box, enter **logic apps template**.
-
-1. From the template resources list, find and open your workflow template.
+1. In the [Azure portal](https://portal.azure.com), find and open your template resource.
 
 1. On the template sidebar, under **Template**, select **Template**.
 
-1. On the **Template** page, select **Next** until you reach the **Profile** tab. From the **Save** list, select **Save + unpublish template**.
+1. On the **Template** page, select **Next** and repeat until you open the **Profile** tab.
+
+1. From the **Save** list, select **Save + unpublish template**.
+
+   :::image type="content" source="media/create-publish-workflow-templates/unpublish-template.png" alt-text="{alt-text}" lightbox="media/create-publish-workflow-templates/unpublish-template.png":::
 
 ### [All Azure](#tab/all-azure)
 
@@ -290,7 +284,7 @@ You can also include any other files to maintain and support your template, for 
 
 The **workflow.json** file contains the underlying definition for a workflow in JSON format. To create the **workflow.json** file, you need to copy and save your workflow definition as a file named **workflow.json**.
 
-For the easiest and best way to get the workflow definition, create your workflow using the designer. Make sure to review [Workflow best practices](#workflow-best-practices) along with [Names and style conventions](#names-and-style-conventions). Or, as a starting point, you can use the prebuilt workflow templates from the template gallery in the Azure portal.
+For the easiest and best way to get the workflow definition, create your workflow using the designer. Make sure to review [Workflow best practices](#workflow-best-practices) along with [Names and style conventions](#names-and-style-conventions). Or, as a starting point, you can use the prebuilt workflow templates from the templates gallery in the Azure portal.
 
 As you build your workflow, the designer automatically includes references to any added built-in, service provider connections, managed API connections, or libraries in the underlying workflow definition.
 
@@ -345,7 +339,7 @@ The following table describes the attributes in the **manifest.json** file:
 | Attribute name | Required | Value | Description |
 |----------------|----------|-------|-------------|
 | **`title`** | Yes | <*template-title*> | The title that appears in the templates gallery, which opens when you add a workflow from a template in the Azure portal. |
-| **`description`** | Yes | <*template-description*> | The template description, which appears on the template's overview pane in the template gallery. |
+| **`description`** | Yes | <*template-description*> | The template description, which appears on the template's overview pane in the templates gallery. |
 | **`prerequisites`** | No | <*template-prerequisites*> | Any prerequisites to meet for using the template. Appears in the template's overview pane. You can link to other documents from this section. |
 | **`tags`** | No | <*template-tags-array*> | The template tags to use for searching or filtering templates. |
 | **`skus`** | Yes | **`standard`**, **`consumption`** | The logic app workflow type supported by the template. If you're not sure, use **`standard`**. |
@@ -356,7 +350,7 @@ The following table describes the attributes in the **manifest.json** file:
 | **`images`** | Yes | See description. | The workflow image file names for both browser light and dark themes: <br><br>- **`light`**: Image name for light theme, for example, **workflow-light**  <br><br>- **`dark`**: Image name for dark theme, for example, **workflow-dark**. |
 | **`parameters`** | Yes, but can be empty if none exist | <*workflow-parameters-array*> | The parameters for the actions in the workflow template. For each parameter, you need to specify the following properties: <br><br>- **`name`**: The parameter name must have the suffix, **`_#workflowname#`**. Use only alphanumeric characters, hyphens or underscores, and follow this format: <br><br>**`<parameter-name>_#workflowname#`** <br><br>- **`displayName`**: The parameter's friendly display name. See [Names and style conventions](#names-style-conventions). <br><br>- **`type`**: The parameter's data type, for example, **`String`** or **`Int`**. <br><br>- **`default`**: The parameter's default value, if any. If none, leave this value as an empty string. <br><br>- **`description`** The parameter's details and other important or helpful information. <br><br>- **`required`**: **`true`** or **`false`** |
 | **`connections`** | Yes, but can be empty if none exist. | <*connections-array*> | The connections to create using the workflow template. Each connection has the following properties: <br><br>-**`connectorId`**: The connector ID must have the suffix, **`_#workflowname#`**. Use only alphanumeric characters, hyphens or underscores, and follow this format: <br><br>**`<connector-ID>_#workflowname#`** <br><br>To find the connector ID, see [Find the connector ID](#find-connector-id). <br><br>- **`kind`**: The connector's runtime host type, which is either **`inapp`** for built-in operations and service provider connectors or **`shared`** for managed, Azure-hosted connectors. In the connectors gallery, built-in operations and service provider connectors are labeled as **In App**, while managed connectors are labeled as **Shared**. |
-| **`featuredConnections`** | No | <*featured-connections-array*> | By default, the template gallery shows icons for the prebuilt operations and connectors in Azure Logic Apps used by each template. To include icons for any other operations, you can use the **`featuredConnections`** attribute. Each operation must have the following attributes: <br><br>- **`kind`**: The operation kind <br><br>- **`type`**: The operation type <br><br>To find these values, see [Find the operation kind and type for featuredConnections section](#find-featured-connections-operation-properties). |
+| **`featuredConnections`** | No | <*featured-connections-array*> | By default, the templates gallery shows icons for the prebuilt operations and connectors in Azure Logic Apps used by each template. To include icons for any other operations, you can use the **`featuredConnections`** attribute. Each operation must have the following attributes: <br><br>- **`kind`**: The operation kind <br><br>- **`type`**: The operation type <br><br>To find these values, see [Find the operation kind and type for featuredConnections section](#find-featured-connections-operation-properties). |
 
 In the **manifest.json** file for your workflow template package, add the same image names to the **`images`** section without the **.png** file name extension, for example:
 
@@ -410,7 +404,7 @@ To find the connector ID to use for a connection in the **manifest.json** file o
 
 #### Find the operation 'kind' and 'type' properties for featuredConnections
 
-In the **manifest.json** file, the **`featuredConnections`** section can include icons for any other operations that you want to include with the template gallery in the Azure portal. For this section, which is an array, you need to provide the **`kind`** and **`type`** attributes for each operation.
+In the **manifest.json** file, the **`featuredConnections`** section can include icons for any other operations that you want to include with the templates gallery in the Azure portal. For this section, which is an array, you need to provide the **`kind`** and **`type`** attributes for each operation.
 
 To get these attribute values, follow these steps in the [Azure portal](https://portal.azure.com) with your opened workflow:
 
