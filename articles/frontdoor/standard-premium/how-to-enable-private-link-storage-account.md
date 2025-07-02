@@ -121,7 +121,7 @@ az afd origin create --enabled-state Enabled \
 
 1. Select the **pending** private endpoint request from Azure Front Door Premium then select **Approve**.
 
-    :::image type="content" source="../media/how-to-enable-private-link-storage-account/private-endpoint-pending-approval.png" alt-text="Screenshot of pending storage private endpoint request.":::
+    :::image type="content" source="../media/how-to-enable-private-link-storage-account/private-endpoint-pending-approval.png" alt-text="Screenshot of pending storage private endpoint request." lightbox="../media/how-to-enable-private-link-storage-account/private-endpoint-pending-approval.png":::
 
 ::: zone-end
 
