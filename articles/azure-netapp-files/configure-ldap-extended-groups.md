@@ -32,7 +32,7 @@ The following information is passed to the server in the query:
 1. If the request is successful, then user and group attributes are [cached for future use](configure-ldap-extended-groups.md#considerations). This operation improves the performance of subsequent LDAP queries associated with the cached user or group attributes. It also reduces the load on the AD DS or Microsoft Entra Domain Services LDAP server.
 
 >[!IMPORTANT]
->To configure LDAP with an alternative server, see [Configure an LDAP server](configure-ldap.md).
+>To configure LDAP with an alternative server, see [Configure an LDAP server](configure-directory-server.md).
 
 ## Considerations
 

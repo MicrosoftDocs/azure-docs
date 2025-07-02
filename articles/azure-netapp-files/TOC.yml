@@ -318,7 +318,7 @@
       - name: Configure AD DS LDAP with extended groups for NFS
         href: configure-ldap-extended-groups.md
       - name: Configure LDAP server 
-        href: configure-ldap.md
+        href: configure-directory-server.md
       - name: Configure an NFS client for Azure NetApp Files
         href: configure-nfs-clients.md
       - name: Convert an NFS volume between NFSv3 and NFSv4.1

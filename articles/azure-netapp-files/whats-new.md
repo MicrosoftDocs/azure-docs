@@ -16,7 +16,7 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Other LDAP directory services for Azure NetApp Files NFS volumes](configure-ldap.md) (preview)
+* [Other LDAP directory services for Azure NetApp Files NFS volumes](configure-directory-server.md) (preview)
 
     Expanding on the existing Active Directory support, Azure NetApp Files now supports FreeIPA, OpenLDAP, and Red Hat Directory Server as LDAP directory services for NFSv3 and NFSv4.1 volumes. 
     This feature is currently in preview. 

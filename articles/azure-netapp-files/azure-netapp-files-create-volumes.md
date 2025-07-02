@@ -23,7 +23,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 * A subnet must be delegated to Azure NetApp Files.  
     See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 * Plan your lightweight directory access protocol (LDAP) server.
-    If you're using FreeIPA, OpenLDAP, or Red Hat Directory Server, you must create the server before creating the NFS volumes. For other considerations, see [Configure LDAP directory servers](configure-ldap.md).
+    If you're using FreeIPA, OpenLDAP, or Red Hat Directory Server, you must create the server before creating the NFS volumes. For other considerations, see [Configure LDAP directory servers](configure-directory-server.md).
 
 ## Considerations 
 
@@ -127,7 +127,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
     * Select **LDAP** to enable LDAP users and extended groups (up to 1,024 groups) to access the volume.
         * For Active Directory servers, follow instructions in [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md) to complete the required configurations. 
-        * For other servers, you must have created the server before you can create the volume. Follow instructions in [Configure LDAP directory servers](configure-ldap.md).
+        * For other servers, you must have created the server before you can create the volume. Follow instructions in [Configure LDAP directory servers](configure-directory-server.md).
 
     * **LDAP server type**: If you've selected **LDAP**, choose the server connection type:
         - For Active Directory, select **Active Directory connections**.
