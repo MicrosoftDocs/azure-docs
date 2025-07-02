@@ -6,7 +6,6 @@ ms.date: 08/22/2024
 ms.topic: tutorial 
 author: habibaum
 ms.author: v-uhabiba
-#Customer intent: As an IT admin, I want dynamically apply patches on the machines as per a schedule.
 # Customer intent: As an IT administrator, I want to dynamically group machines and schedule update deployments, so that I can manage patches efficiently across different environments.
 ---
 
