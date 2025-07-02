@@ -185,6 +185,9 @@ As a best practice, you should always complete the migration after the VM has mi
 ## Impact of churn
 
 We try to minimize the amount of data transfer in each replication cycle by allowing the data to fold as much as possible before we schedule the next cycle. Because agentless replication folds in data, the _churn pattern_ is more important than the _churn rate_. When a file is written again and again, the rate doesn't have much impact. However, a pattern in which every other sector is written causes high churn in the next cycle.
+If the current delta replication cycle takes longer due to high churn, the start of the next cycle will be delayed. Delta replication cycle will require more time to create a recovery point if there is more data to upload for a specific disk. Consequently, the final migration will also take longer, resulting in a longer VM shutdown period.
+
+If the churn exceeds the available datastore capacity, the datastore may run out of space, which can impact production writes and cause the source VM to become unresponsive. Mitigation to this is to increase the datastore size. If there are other VMs being replicated simultaneously, it is recommended to migrate one VM at a time.
 
 ## Management of replication
 
