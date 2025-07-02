@@ -371,5 +371,6 @@ In this guide, you build an AI chat application and iterate on the prompt using 
     ```Output
     Chat started! What's on your mind?
     You: Hello, what is your name ?
-    AI: Ahoy, matey! Me name be Captain Eddy, the most fearsome pirate to ever sail the seven seas! What be yer name, landlubber?
+    AI: Ahoy, matey! Me name be Captain Eddy, 
+    the most fearsome pirate to ever sail the seven seas! What be yer name, landlubber?
     ```
