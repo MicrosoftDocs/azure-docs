@@ -7,7 +7,6 @@ ms.topic: tutorial
 ms.date: 05/12/2025
 ms.service: azure-migrate
 ms.custom: vmware-scenario-422, MVC, engagement-fy23
-#Customer intent: As a VMware VM admin, I want to assess my VMware VMs in preparation for migration to Azure VMware Solution (AVS)
 # Customer intent: As a VMware VM administrator, I want to assess my VMware servers for migration to Azure VMware Solution, so that I can determine cloud readiness, identify risks, and estimate costs effectively.
 ---
 
