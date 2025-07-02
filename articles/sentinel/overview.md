@@ -20,10 +20,6 @@ Microsoft Sentinel also natively incorporates proven Azure services, like Log An
 
 Use Microsoft Sentinel to alleviate the stress of increasingly sophisticated attacks, increasing volumes of alerts, and long resolution time frames. This article highlights the key capabilities in Microsoft Sentinel.
 
-
-[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
-
-
 Microsoft Sentinel inherits the Azure Monitor [tamper-proofing and immutability](/azure/azure-monitor/logs/data-security#tamper-proofing-and-immutability) practices. While Azure Monitor is an append-only data platform, it includes provisions to delete data for compliance purposes.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service-no-note.md)]
