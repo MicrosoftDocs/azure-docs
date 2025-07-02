@@ -2,10 +2,10 @@
 title: Azure Firewall FQDN filtering
 description: Learn about Azure Firewall FQDN filtering and how it works with DNAT rules, network rules, and application rules.
 services: firewall
-author: sjamiya
+author: sujamiya
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 6/30/2025
+ms.date: 7/01/2025
 ms.author: sujamiya
 ms.custom: ai-usage
 ---
@@ -67,6 +67,10 @@ Application rules are designed for filtering HTTP/S and MSSQL traffic. They rely
 
 By understanding the differences between these rule types, you can effectively configure Azure Firewall to meet your organization's security and traffic management needs.
 
+<<<<<<< HEAD:articles/firewall/fqdn-filtering-overview.md
 ## Next steps
 
 - Learn how  Azure Firewall policy rule sets are structured [Azure Firewall Policy rule sets](policy-rule-sets.md).
+=======
+- Learn how  Azure Firewall policy rule sets are structured [Azure Firewall Policy rule sets](policy-rule-sets.md).
+>>>>>>> c9cb2e7364bb29ba317a85c404bddcb8cefdb8ec:articles/firewall/domain-filtering-overview.md
