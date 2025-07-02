@@ -25,6 +25,15 @@ Before you begin, ensure that you have:
 - An [Azure Storage account](../storage/common/storage-account-create.md) to use as the destination.
 - A [Storage Mover resource](storage-mover-create.md) deployed in your Azure subscription.
 
+## Preview limitations
+
+The Cloud-to-Cloud Migration feature in Azure Storage Mover is currently in preview. The following limitations apply:
+
+- Each migration job supports the transfer of 10 million objects.
+- A maximum of 10 concurrent jobs is supported per subscription.
+- Azure Storage Mover doesn't support automatic rehydration of archived objects. Data stored in AWS Glacier or Deep Archive must be restored before migration. Migration jobs should only be initiated after the data is fully restored.
+- Private Networking is currently not supported. However, Azure Storage Mover's Cloud-to-Cloud feature securely transfers data by limiting S3 access to trusted Azure IP ranges. This approach ensures secure, controlled connectivity over the public internet.
+
 ## Create a multicloud connector for AWS
 
 The first step in performing a cross-cloud migration to Azure is the creation of an Azure Arc multicloud connector for AWS. The multicloud connector allows you to securely connect AWS services to Azure.
@@ -72,7 +81,7 @@ Follow the steps in this section to configure an AWS connector within your Stora
 
     Ensure that both solutions are added by validating the presence of **Edit** links within the **Actions** column of the **Solutions** list. Select **Next** to continue to the **Authentication template** tab as shown in the following image.
 
-    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-solutions-sml.png" alt-text="A screen capture showing the presence of the Edit links in the Actions column of the Solutions list, confirming the required solutions are added." lightbox="media/cloud-to-cloud-migration/add-connector-solutions.png":::
+    :::image type="content" source="media/cloud-to-cloud-migration/add-connector-solutions-sml.png" alt-text="A screen capture showing the presence of the Edit links in the Actions column of the Solutions list." lightbox="media/cloud-to-cloud-migration/add-connector-solutions.png":::
     
 1. Within the **Authentication template** tab, follow the on-screen instructions to create the *AWS CloudFormation Stack* using the AWS portal.
 
@@ -143,38 +152,60 @@ Follow the steps in this section to create a migration project and run a migrati
 
 1. Navigate to the **Project explorer** tab in your Storage Mover instance and select **Create project**.
 1. Provide values for the following fields:
-    - **Project name**: A meaningful name for the migration.
+    - **Project name**: A meaningful name for the migration project.
     - **Project description**: A useful description for the project.
-    - Select **Create** to create the project.
+    - Select **Create** to create the project. It might take a moment for the newly created project to appear in the project explorer.
 
     :::image type="content" source="media/cloud-to-cloud-migration/project-create-sml.png" alt-text="A screen capture showing the Project Explorer page with the Create a Project pane's fields visible." lightbox="media/cloud-to-cloud-migration/project-create.png":::
 
-1. Select the newly created project after it appears within the **Project explorer**, then select **Create job definition** to open the **Create a Migration Job** page's **Basics** tab. Provide values for the following fields:
-    - **Job name**: A meaningful name for the migration.
+1.  Select the project after it appears, and then select **Create job definition** to open the **Create a Migration Job** page's **Basics** tab. Provide values for the following fields:
+    - **Job name**: A meaningful name for the migration job.
     - **Migration type**: Select `Cloud to cloud`.
     
     :::image type="content" source="media/cloud-to-cloud-migration/create-job-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Basics tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-job.png":::
 
-1. Within the **Source** tab, select the **Select an existing endpoint** option for the **Source endpoint** field. 
+1. Within the **Source** tab, select the **Existing endpoint** option for the **Endpoint** field. 
 
     :::image type="content" source="media/cloud-to-cloud-migration/create-source-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Source tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-source.png":::
 
     Next, select the **Select an existing endpoint as a source** link to open the **Select an existing endpoint** pane. Choose the AWS S3 source endpoint created in the previous section and select **Select** to save your changes.
 
     > [!NOTE]
-    > Amazon S3 buckets might take up to an hour to become visible within newly created Multicloud connectors.
+    > Amazon S3 buckets might take up to an hour to become visible within newly created multicloud connectors.
 
-    :::image type="content" source="media/cloud-to-cloud-migration/select-source-sml.png" alt-text="A screen capture showing the Select an existing source endpointpane." lightbox="media/cloud-to-cloud-migration/select-source.png":::
+    :::image type="content" source="media/cloud-to-cloud-migration/select-source-sml.png" alt-text="A screen capture showing the Select an Existing Source Endpoint pane." lightbox="media/cloud-to-cloud-migration/select-source.png":::
 
-1. Within the **Target** tab, select the **Select an existing endpoint reference** option for the **Target endpoint** field. Next, select the **Select an existing endpoint as a target** link to open the **Select an existing endpoint** pane. Choose the Azure Blob Storage target endpoint created in the previous section and select **Select** to save your changes. Verify that the correct target endpoint is displayed in the **Existing target endpoint** field and then select **Next** to continue to the **Settings** tab.
+1. Within the **Target** tab, select the **Select an existing endpoint reference** option for the **Target endpoint** field. Next, select the **Select an existing endpoint as a target** link to open the **Select an existing endpoint** pane. 
 
-    :::image type="content" source="media/cloud-to-cloud-migration/create-target-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Target tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-target.png":::
-    
-1. **Copy mode**: Select `Mirror source to target`.
-1. Select **Next** and review your settings.
-1. After confirming that your settings are correct, select **Start Migration** to begin the copy operation.
+    :::image type="content" source="media/cloud-to-cloud-migration/create-target-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Target tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-target.png"::: 
 
-## Monitor Migration Progress
+    Next, select the **Select an existing endpoint as a target** link to open the **Select an existing target endpoint** pane. Choose the Azure Blob Storage target endpoint created in the previous section and select **Select** to save your changes. Verify that the correct target endpoint is displayed in the **Existing target endpoint** field and then select **Next** to continue to the **Settings** tab.
+
+    :::image type="content" source="media/cloud-to-cloud-migration/select-target-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Select anExisting Target Endpoint pane displayed." lightbox="media/cloud-to-cloud-migration/select-target.png":::
+
+1. Within the **Settings** tab, select **Mirror source to target** from the **Copy mode** drop-down list. Verify that the **Migration outcomes** results are appropriate for your use case, then select **Next** and review your settings.
+
+    :::image type="content" source="media/cloud-to-cloud-migration/project-settings-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Settings tab selected and migration outcomes displayed." lightbox="media/cloud-to-cloud-migration/project-settings.png":::
+
+1. After confirming that your settings are correct within the **Review** tab, select **Create** to deploy the migration job. You're redirected to the **Project explorer** after the job's deployment begins. After completion, the job appears within the associated migration project.
+
+    :::image type="content" source="media/cloud-to-cloud-migration/job-review-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Review tab selected and all settings displayed." lightbox="media/cloud-to-cloud-migration/job-review.png":::
+
+## Run a migration job
+
+1. Navigate to the **Migration Jobs** tab. The **Migration Jobs** tab displays all migration jobs created within your Storage Mover resource, including the one you recently created. It might take a moment for the newly created migration job to appear in the list of migration jobs. Refresh the page if necessary. 
+
+    :::image type="content" source="media/cloud-to-cloud-migration/migration-jobs-sml.png" alt-text="A screen capture showing the Migration Jobs page with the Migration Jobs tab selected and all Migration Jobs displayed." lightbox="media/cloud-to-cloud-migration/migration-jobs.png":::
+
+1. Select your newly created job definition to view its details in the **Properties** tab. Select the **Start job** button to expose the **Start job** pane for the migration job. 
+
+    :::image type="content" source="media/cloud-to-cloud-migration/migration-job-sml.png" alt-text="A screen capture showing the Migration Job details page with the Properties tab and the Start Job button highlighted." lightbox="media/cloud-to-cloud-migration/migration-job.png":::
+
+    The multicloud connector attempts to assign roles to the storage account and blob container. After the roles are assigned, select **Start** to begin the migration job. The job runs in the background, and you can monitor its progress in the **Migration overview** tab.
+
+    :::image type="content" source="media/cloud-to-cloud-migration/migration-job-start-sml.png" alt-text="A screen capture showing the Migration Job page's Start Job pane." lightbox="media/cloud-to-cloud-migration/migration-job-start.png":::
+
+## Monitor migration progress
 
 As you use Storage Mover to migrate your data to your Azure destination targets, you should monitor the copy operations for potential issues. Data relating to the operations being performed during your migration are displayed within the **Migration overview** tab. This data allows you to track the progress of your migration by providing current status and key information such as progress, speed, and estimated completion time.
 
