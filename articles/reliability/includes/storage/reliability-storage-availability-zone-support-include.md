@@ -11,4 +11,4 @@
 
 
 
-:::image type="content" source="media/reliability-storage-files/zone-redundant-storage.png" alt-text="Diagram showing how data is replicated in the primary region with ZRS" lightbox="media/reliability-storage-files/zone-redundant-storage.png" border="false":::
+:::image type="content" source="media/reliability-storage/zone-redundant-storage.png" alt-text="Diagram showing how data is replicated in the primary region with ZRS" lightbox="media/reliability-storage/zone-redundant-storage.png" border="false":::
