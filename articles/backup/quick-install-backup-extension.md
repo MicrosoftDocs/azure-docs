@@ -8,6 +8,7 @@ ms.custom:
   - ignite-2023, engagement-fy24
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a DevOps engineer, I want to install the backup extension in an AKS cluster, so that I can efficiently manage backup and restore operations for my containerized applications."
 ---
 
 # Quickstart: Install Azure Backup extension in an AKS cluster  

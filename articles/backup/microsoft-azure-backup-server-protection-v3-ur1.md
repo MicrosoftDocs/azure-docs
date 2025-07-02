@@ -7,6 +7,7 @@ ms.custom: engagement-fy24, linux-related-content
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a backup administrator, I want to review the protection matrix for Azure Backup Server, so that I can ensure all critical workloads and data types are supported for backup and recovery in my environment.
 ---
 
 # MABS (Azure Backup Server) V3 UR1 (and later) protection matrix

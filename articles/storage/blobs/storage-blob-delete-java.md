@@ -11,6 +11,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+# Customer intent: As a Java developer, I want to delete and restore blobs in Azure Storage, so that I can manage data effectively while minimizing accidental data loss.
 ---
 
 # Delete and restore a blob with Java

@@ -9,6 +9,7 @@ ms.date: 04/07/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to create a backup policy for Azure Database for PostgreSQL - Flexible Server, so that I can ensure data protection and establish recovery points according to my organization's requirements.
 ---
 
 #  Quickstart: Create a backup policy for Azure Database for PostgreSQL - Flexible Server using Azure portal

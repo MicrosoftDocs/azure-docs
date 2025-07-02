@@ -7,6 +7,7 @@ ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 03/10/2020
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud administrator, I want to configure a geo-filtering WAF policy for my Azure Front Door, so that I can control access by blocking requests from specific countries or regions.
 ---
 
 # Set up a geo-filtering WAF policy for Azure Front Door

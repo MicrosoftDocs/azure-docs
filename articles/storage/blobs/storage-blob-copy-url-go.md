@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
+# Customer intent: "As a Go developer, I want to copy a blob from a source object URL in Azure Storage, so that I can efficiently move data between different storage locations or from external sources."
 ---
 
 # Copy a blob from a source object URL with Go

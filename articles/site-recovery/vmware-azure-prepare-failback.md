@@ -7,6 +7,7 @@ ms.date: 09/24/2024
 ms.author: jsuri
 author: jyothisuri
 ms.custom: engagement-fy23
+# Customer intent: As a cloud administrator, I want to configure reprotection and failback for VMware VMs using a recovery solution, so that I can efficiently manage disaster recovery and ensure seamless data replication between on-premises and Azure environments.
 ---
 
 # Prepare for reprotection and failback of VMware VMs

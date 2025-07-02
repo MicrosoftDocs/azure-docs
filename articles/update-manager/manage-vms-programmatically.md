@@ -6,6 +6,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 10/17/2024
 ms.topic: overview
+# Customer intent: As a cloud administrator, I want to programmatically manage update assessments and deployments for Azure VMs using REST API, so that I can efficiently maintain system security and compliance without manual intervention.
 ---
 
 # How to programmatically manage updates for Azure VMs

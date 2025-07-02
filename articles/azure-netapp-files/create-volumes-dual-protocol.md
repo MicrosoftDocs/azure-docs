@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 12/11/2024
 ms.author: anfdocs
+# Customer intent: As an IT administrator, I want to create a dual-protocol volume in Azure NetApp Files, so that I can enable both NFS and SMB access with LDAP user mapping for a flexible file storage solution.
 ---
 # Create a dual-protocol volume for Azure NetApp Files
 
