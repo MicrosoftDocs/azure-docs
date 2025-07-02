@@ -44,7 +44,7 @@ The Microsoft Sentinel data lake technical architecture includes the following k
 The Microsoft Sentinel data lake is designed with two distinct storage tiers to optimize cost and performance:
 
 + Analytics tier: The existing Microsoft Sentinel data tier enabling advanced querying, visualization, and alerting capabilities to help you proactively identify and resolve issues across your infrastructure and applications. 
-+ Data lake tier: A centralized security data lake offering long-term data storage for querying and python-based advanced analytics. The data lake tier is designed for cost-effective storage of large volumes of security data, enabling you to retain data for up to 12 years. For more information on data tiers and retention, see [Manage data tiers and retention in Microsoft Defender Portal (preview)](https://aka.ms/manage-data-defender-portal-overview).
++ Data lake tier: A centralized security data lake offering long-term data storage for querying and python-based advanced analytics. The data lake tier is designed for cost-effective storage of large volumes of security data, enabling you to retain data for up to 12 years. For more information on data tiers and retention, see [Manage data tiers and retention in Microsoft Defender portal (preview)](https://aka.ms/manage-data-defender-portal-overview).
 
 
 ### Integration
