@@ -221,7 +221,7 @@ await audioEffectsFeatureApi.stopEffects({
 ```
 
 ## Check what audio effects are active
-To check what noise suppression effects are currently active, you can use the `activeEffects` property. The `activeEffects` property returns an object with the names of the current active effects. See [here](/javascript/api/azure-communication-services/@azure/communication-calling/activeaudioeffects?view=azure-communication-services-js) for more details on the 'activeEffects' interface.
+To check what noise suppression effects are currently active, you can use the `activeEffects` property. The `activeEffects` property returns an object with the names of the current active effects. See [here](/javascript/api/azure-communication-services/@azure/communication-calling/activeaudioeffects?view=azure-communication-services-js&preserve-view=true) for more details on the 'activeEffects' interface.
 
 ```js
 import { EchoCancellationEffect, DeepNoiseSuppressionEffect } from '@azure/communication-calling-effects';
