@@ -26,12 +26,9 @@ In this section, you create a chat completion configuration in Azure portal usin
  1. In Azure portal, navigate to your App configuration store. From the **Operations** menu, select **Configuration explorer** > **Create**, and then select **AI configuration**.
 
  1. Specify the following values:
-    - **Key**: Type **ChatApp:Model**.
+    - **Key**: Type **ChatApp:ChatCompletion**.
     - **Label**: Leave this value blank.
     - **Model**: Select **gpt-4o**.
-    - **Message**: Add a new message.
-        - **Role**: Select **user**
-        - **Content**: Type "What is the capital of France?"
     
     > [!div class="mx-imgBorder"]
     > ![Screenshot shows the create new AI configuration form.](./media/create-ai-chat-completion-config.png)
@@ -40,7 +37,7 @@ In this section, you create a chat completion configuration in Azure portal usin
 
 ## Add model connection configuration
 
-You successfully added your chat completion configuration named **ChatApp:Model** in the previous section. In this section, you add the connection details for your model, including the endpoint and deployment name. If required by your authentication method, you can also specify an API key using a Key Vault reference.
+You successfully added your chat completion configuration named **ChatApp:ChatCompletion** in the previous section. In this section, you add the connection details for your model, including the endpoint and deployment name. If required by your authentication method, you can also specify an API key using a Key Vault reference.
 
 > [!NOTE]
 > This tutorial demonstrates how to use chat completion configuration with an Azure OpenAI model. However, the chat completion configuration demonstrated in the tutorial can be applied to any AI model you choose to work with in your application.
