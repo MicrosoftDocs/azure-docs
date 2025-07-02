@@ -970,9 +970,9 @@ Use the following tabs to view latency statistics for each region.
 
 ---
 
-Additionally, you can view all of the data in a single data set.
+Additionally, you can view all of the data in a single table.
 
-[!INCLUDE [latency](includes/latency.md)]
+:::image type="content" source="media/azure-network-latency/azure-network-latency.png" alt-text="Screenshot of full region latency table" lightbox="media/azure-network-latency/azure-network-latency-thumb.png":::
 
 ## Next steps
 

@@ -7,7 +7,7 @@ ms.author: mbender
 # Customer intent: 
 ---
 
-```azurecli-interactive
+```text
 
 "Source","am","auh","bl","bm","bn","by","cbr","cbr2","ch","chn","chw","cpt","cq","cw","cy","db","den","dewc","dm","dxb","hk","ilc","itn","jinw","jnb","ln","ma","ml","mrs","mwh","mxc","myw","noe","now","nzn","os","par","plc","pn","ps","qac","se","sec","sg","sn","sy","ty","usw3","yq","yt"
 d,173,92,238,,243,183,110,110,221,165,160,211,343,176,197,179,177,170,212,95,49,199,162,87,193,171,50,100,154,176,234,21,189,186,131,82,165,,68,72,,77,,17,216,107,85,200,243,235
