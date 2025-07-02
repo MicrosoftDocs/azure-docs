@@ -23,7 +23,7 @@ This article teaches you how to:
 
 - Two Azure VMware Solution private clouds (source and destination) deployed within your Azure subscriptions.
 - VMware HCX deployed in both private clouds with appropriate licensing.
-- [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) if your private clouds reside in different Azure regions.
+- Established connectivity between the two private clouds. [AVS Interconnect](connect-multiple-private-clouds-same-region.md) if your private clouds reside in the same region, or [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) if your private clouds reside in different Azure regions.
 
 ## Enable VMware HCX in both private clouds
 
