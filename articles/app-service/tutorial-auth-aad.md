@@ -177,7 +177,7 @@ For more information, see [Configure Microsoft Entra authentication for your App
    :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Screenshot of the backend app's left menu showing Authentication/Authorization selected and settings selected in the right menu.":::
 
 1. For the other values, accept the default settings and select **Add**.
-1. The **Authentication** page opens. Copy the **Client ID** of the Microsoft Entra application to Notepad. You need this value later.
+1. The **Authentication** page opens. Copy the client ID of the Microsoft Entra application to Notepad. You need this value later.
 
    :::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Screenshot of the Microsoft Entra Settings window showing the Microsoft Entra App, and the Microsoft Entra Applications window showing the Client ID to copy.":::
 
@@ -234,7 +234,7 @@ az webapp auth set --resource-group myAuthResourceGroup --name <front-end-app-na
 
 The commands add a `loginParameters` property with other custom scopes. Here's an explanation of the requested scopes:
 
-- `openid` is requested by App Service by default already. For information, see [OpenID Connect Scopes](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes).
+- `openid` is requested by App Service by default already. For more information, see [OpenID Connect Scopes](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes).
 - [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access) is included here for convenience, in case you want to [refresh tokens](#what-happens-when-the-frontend-token-expires).
 - `api://<back-end-client-id>/user_impersonation` is an exposed API in your backend app registration. It's the scope that gives you a JWT that includes the backend app as a [token audience](https://wikipedia.org/wiki/JSON_Web_Token). 
 
@@ -409,7 +409,9 @@ Your access token expires after some time. For information on how to refresh you
 
 ### If I have a browser-based app on the frontend app, can it talk to the back end directly?
 
-This approach requires the server code to pass the access token to the JavaScript code running in the client browser. Because there's no way to safeguard the access token in the browser, we don't recommend this approach. Currently, we recommend [the Backend-for-Frontend pattern](https://auth0.com/blog/the-backend-for-frontend-pattern-bff/). If applied to the example in this tutorial, the browser code on the frontend app would make API calls in an authenticated session to its server code as an intermediary. The server code on the frontend app would then make the API calls to the backend app by using the `x-ms-token-aad-access-token` header value as the bearer token. All calls from your browser code to the server code are protected by the authenticated session.
+This approach requires the server code to pass the access token to the JavaScript code running in the client browser. Because there's no way to safeguard the access token in the browser, we don't recommend this approach. Currently, we recommend [the Backend-for-Frontend pattern](https://auth0.com/blog/the-backend-for-frontend-pattern-bff/).
+
+If applied to the example in this tutorial, the browser code on the frontend app would make API calls in an authenticated session to its server code as an intermediary. The server code on the frontend app would then make the API calls to the backend app by using the `x-ms-token-aad-access-token` header value as the bearer token. All calls from your browser code to the server code are protected by the authenticated session.
 
 <a name="next"></a>
 ## Next step
