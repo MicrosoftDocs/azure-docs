@@ -126,7 +126,7 @@ ms.custom: template-how-to, devx-track-arm-template
           "resources": [
             {
               "type": "Microsoft.NetworkCloud/clusterManagers",
-              "apiVersion": "2024-07-01",
+              "apiVersion": "2025-02-01",
               "name": "[parameters('name')]",
               "location": "[parameters('location')]",
               "tags": "[parameters('clusterManagerTags')]",

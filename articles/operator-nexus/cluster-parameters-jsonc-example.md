@@ -25,7 +25,7 @@ ms.custom: template-how-to, devx-track-arm-template
     "managedResourceGroupName": {
       "value": "<MRG_NAME>"
     },
-    "clusterLawName": {
+    "analyticsWorkspaceName": {
       "value": "<LAW_NAME>"
     },
     "networkFabricId": {
@@ -33,6 +33,23 @@ ms.custom: template-how-to, devx-track-arm-template
     },
     "clusterType": {
       "value": "<CLUSTER_TYPE>"
+    },
+    "assignedIdentities": {
+      "value": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+          "<CLUSTER_UAMI>": {}
+        }
+      }
+    },
+    "analyticsOutputSettings": {
+      "value": {
+        "analyticsWorkspaceId": "<LAW_ID>",
+        "associatedIdentity": {
+          "identityType": "UserAssignedIdentity",
+          "userAssignedIdentityResourceId": "<CLUSTER_UAMI>"
+        }
+      }
     },
     "skipHardwareValidation": {
       "value": "false>"
@@ -46,8 +63,23 @@ ms.custom: template-how-to, devx-track-arm-template
     "customLocation": {
       "value": "<CL_NAME>"
     },
-    "secretArchive": {
-      "value": "<KV_RESOURCE_ID>"
+    "commandOutputSettings": {
+      "value": {
+        "containerUrl": "<CONTAINER_URI>",
+        "associatedIdentity": {
+          "identityType": "UserAssignedIdentity",
+          "userAssignedIdentityResourceId": "<CLUSTER_UAMI>"
+        }
+      }
+    },
+    "secretArchiveSettings": {
+      "value": {
+        "vaultUri": "<VAULT_URI>",
+        "associatedIdentity": {
+          "identityType": "UserAssignedIdentity",
+          "userAssignedIdentityResourceId": "<CLUSTER_UAMI>"
+        }
+      }
     },
     "aggregatorOrSingleRack": {
       "value": {
@@ -1871,14 +1903,6 @@ ms.custom: template-how-to, devx-track-arm-template
           ]
         }
       ]
-    },
-    "clusterServicePrincipal": {
-      "value": {
-        "tenantId": "<TENANT_ID>",
-        "applicationId": "<SP_APP_ID>",
-        "principalId": "<SP_ID>",
-        "password": "<SP_PASS>"
-      }
     },
     "environment": {
       "value": "<CLUSTER_NAME>"

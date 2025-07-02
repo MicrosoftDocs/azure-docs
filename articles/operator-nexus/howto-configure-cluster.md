@@ -64,7 +64,6 @@ with a Network Fabric.
 az networkcloud cluster create --name "<CLUSTER_NAME>" --location "<LOCATION>" \
   --extended-location name="<CL_NAME>" type="CustomLocation" \
   --resource-group "<CLUSTER_RG>" \
-  --analytics-workspace-id "<LAW_ID>" \
   --cluster-location "<CLUSTER_LOCATION>" \
   --network-rack-id "<AGGR_RACK_RESOURCE_ID>" \
   --rack-sku-id "<AGGR_RACK_SKU>"\
@@ -75,10 +74,11 @@ az networkcloud cluster create --name "<CLUSTER_NAME>" --location "<LOCATION>" \
   --compute-rack-definitions '[{"networkRackId": "<COMPX_RACK_RESOURCE_ID>", "rackSkuId": "<COMPX_RACK_SKU>", "rackSerialNumber": "<COMPX_RACK_SN>", "rackLocation": "<COMPX_RACK_LOCATION>", "storageApplianceConfigurationData": [], "bareMetalMachineConfigurationData":[{"bmcCredentials": {"password":"<COMPX_SVRY_BMC_PASS>", "username":"<COMPX_SVRY_BMC_USER>"}, "bmcMacAddress":"<COMPX_SVRY_BMC_MAC>", "bootMacAddress":"<COMPX_SVRY_BOOT_MAC>", "machineDetails":"<COMPX_SVRY_SERVER_DETAILS>", "machineName":"<COMPX_SVRY_SERVER_NAME>"}]}]'\
   --managed-resource-group-configuration name="<MRG_NAME>" location="<MRG_LOCATION>" \
   --network fabric-id "<NF_ID>" \
-  --cluster-service-principal application-id="<SP_APP_ID>" \
-    password="$SP_PASS" principal-id="$SP_ID" tenant-id="<TENANT_ID>" \
+  --mi-user-assigned "<CLUSTER_UAMI>" \
+  --analytics-output-settings analytics-workspace-id="<LAW_ID>" identity-type="<ID_TYPE>" identity-resource-id="<CLUSTER_UAMI>" \
+  --command-output-settings container-url="<COMMAND_OUTPUT_CONTAINER_URI>" identity-type="<ID_TYPE>" identity-resource-id="<CLUSTER_UAMI>" \
+  --secret-archive-settings vault-uri="<VAULT_URI>" identity-type="<ID_TYPE>" identity-resource-id="<CLUSTER_UAMI>" \
   --subscription "<SUBSCRIPTION_ID>" \
-  --secret-archive-settings "{identity-type:<ID_TYPE>, vault-uri:<VAULT_URI>}" \
   --cluster-type "<CLUSTER_TYPE>" --cluster-version "<CLUSTER_VERSION>" \
   --tags <TAG_KEY1>="<TAG_VALUE1>" <TAG_KEY2>="<TAG_VALUE2>"
 ```
@@ -102,10 +102,11 @@ az networkcloud cluster create --name "<CLUSTER_NAME>" --location "<LOCATION>" \
   --compute-rack-definitions '[{"networkRackId": "<COMPX_RACK_RESOURCE_ID>", "rackSkuId": "<COMPX_RACK_SKU>", "rackSerialNumber": "<COMPX_RACK_SN>", "rackLocation": "<COMPX_RACK_LOCATION>", "storageApplianceConfigurationData": [], "bareMetalMachineConfigurationData":[{"bmcCredentials": {"password":"<COMPX_SVRY_BMC_PASS>", "username":"<COMPX_SVRY_BMC_USER>"}, "bmcMacAddress":"<COMPX_SVRY_BMC_MAC>", "bootMacAddress":"<COMPX_SVRY_BOOT_MAC>", "machineDetails":"<COMPX_SVRY_SERVER_DETAILS>", "machineName":"<COMPX_SVRY_SERVER_NAME>"}]}]'\
   --managed-resource-group-configuration name="<MRG_NAME>" location="<MRG_LOCATION>" \
   --network fabric-id "<NF_ID>" \
-  --cluster-service-principal application-id="<SP_APP_ID>" \
-    password="$SP_PASS" principal-id="$SP_ID" tenant-id="<TENANT_ID>" \
+  --mi-user-assigned "<CLUSTER_UAMI>" \
+  --analytics-output-settings analytics-workspace-id="<LAW_ID>" identity-type="<ID_TYPE>" identity-resource-id="<CLUSTER_UAMI>" \
+  --command-output-settings container-url="<COMMAND_OUTPUT_CONTAINER_URI>" identity-type="<ID_TYPE>" identity-resource-id="<CLUSTER_UAMI>" \
+  --secret-archive-settings vault-uri="<VAULT_URI>" identity-type="<ID_TYPE>" identity-resource-id="<CLUSTER_UAMI>" \
   --subscription "<SUBSCRIPTION_ID>" \
-  --secret-archive-settings "{identity-type:<ID_TYPE>, vault-uri:<VAULT_URI>}" \
   --cluster-type "<CLUSTER_TYPE>" --cluster-version "<CLUSTER_VERSION>" \
   --tags <TAG_KEY1>="<TAG_VALUE1>" <TAG_KEY2>="<TAG_VALUE2>"
 ```
@@ -118,7 +119,9 @@ az networkcloud cluster create --name "<CLUSTER_NAME>" --location "<LOCATION>" \
 | LOCATION                  | The Azure Region where the Cluster is deployed                                                                                                          |
 | CL_NAME                   | The Cluster Manager Custom Location from Azure portal                                                                                                   |
 | CLUSTER_RG                | The Cluster resource group name                                                                                                                         |
-| LAW_ID                    | Log Analytics Workspace ID for the Cluster                                                                                                              |
+| ID_TYPE                   | See [Cluster Support for Managed Identities](./howto-cluster-managed-identity-user-provided-resources.md) for details on managed identities for user-provided resources                           |
+| CLUSTER_UAMI              | See [Cluster Support for Managed Identities](./howto-cluster-managed-identity-user-provided-resources.md) for details on managed identities for user-provided resources                           |
+| LAW_ID                    | See [Cluster Support for Managed Identities](./howto-cluster-managed-identity-user-provided-resources.md#log-analytics-workspaces-setup) for details on analytics-output-settings                 |
 | CLUSTER_LOCATION          | The local name of the Cluster                                                                                                                           |
 | AGGR_RACK_RESOURCE_ID     | RackID for Aggregator Rack                                                                                                                              |
 | AGGR_RACK_SKU             | The Rack Stock Keeping Unit (SKU) for Aggregator Rack \*See [Operator Nexus Network Cloud SKUs](./reference-operator-nexus-skus.md)                                              |
@@ -145,20 +148,16 @@ az networkcloud cluster create --name "<CLUSTER_NAME>" --location "<LOCATION>" \
 | MRG_NAME                  | Cluster managed resource group name                                                                                                                     |
 | MRG_LOCATION              | Cluster Azure region                                                                                                                                    |
 | NF_ID                     | Reference to Network Fabric                                                                                                                             |
-| SP_APP_ID                 | Service Principal App ID                                                                                                                                |
-| SP_PASS                   | Service Principal Password                                                                                                                              |
-| SP_ID                     | Service Principal ID                                                                                                                                    |
 | TENANT_ID                 | Subscription tenant ID                                                                                                                                  |
 | SUBSCRIPTION_ID           | Subscription ID                                                                                                                                         |
-| KV_RESOURCE_ID            | Key Vault ID                                                                                                                                            |
 | CLUSTER_TYPE              | Type of Cluster, Single, or MultiRack                                                                                                                   |
 | CLUSTER_VERSION           | Network Cloud (NC) Version of Cluster                                                                                                                   |
 | TAG_KEY1                  | Optional tag1 to pass to Cluster Create                                                                                                                 |
 | TAG_VALUE1                | Optional tag1 value to pass to Cluster Create                                                                                                           |
 | TAG_KEY2                  | Optional tag2 to pass to Cluster Create                                                                                                                 |
 | TAG_VALUE2                | Optional tag2 value to pass to Cluster Create                                                                                                           |
-| ID_TYPE                   | See [Cluster Support for Managed Identities](./howto-cluster-managed-identity-user-provided-resources.md#key-vault-settings) for details on secret-archive-settings                               |
 | VAULT_URI                 | See [Cluster Support for Managed Identities](./howto-cluster-managed-identity-user-provided-resources.md#key-vault-settings) for details on secret-archive-settings                               |
+| CONTAINER_URI             | See [Cluster Support for Managed Identities](./howto-cluster-managed-identity-user-provided-resources.md#storage-accounts-setup) for details on command-output-settings                           |
 
 ## Cluster Identity
 
@@ -303,7 +302,6 @@ passed and/or are available to meet the thresholds necessary for deployment to c
 
 > [!IMPORTANT]
 > The hardware validation process writes the results to the specified `analyticsWorkspaceId` at Cluster Creation.
-> Additionally, the provided Service Principal in the Cluster object is used for authentication against the Log Analytics Workspace Data Collection API.
 > This capability is only visible during a new deployment (Green Field); the logs aren't available retroactively.
 
 > [!NOTE]

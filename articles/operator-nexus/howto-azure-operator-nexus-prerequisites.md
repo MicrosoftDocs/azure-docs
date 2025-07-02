@@ -101,7 +101,7 @@ Ensure that the registration state is Registered.
     service-provider side. For an ExpressRoute circuit to be operational,
     Circuit status must be Enabled, and Provider status must be
     Provisioned
-- Set up Azure Key Vault to store encryption and security tokens, service principals,
+- Set up Azure Key Vault to store encryption and security tokens,
   passwords, certificates, and API keys
 - Set up Log Analytics WorkSpace (LAW) to store logs and analytics data for
   Operator Nexus subcomponents (Network Fabric, Cluster, etc.)

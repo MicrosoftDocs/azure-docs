@@ -346,12 +346,6 @@
           href: howto-configure-acls-for-ssh-management-on-access-vpn.md
         - name: Enable/Disable Vulnerability Scanning
           href: howto-enable-disable-vulnerability-scanning.md
-        - name: Service Principal Best Practices
-          href: howto-service-principal.md
-          expanded: false
-          items:
-            - name: Service Principal Rotation
-              href: howto-service-principal-rotation.md
     - name: Install CLI Extension
       href: howto-install-cli-extensions.md
     - name: General

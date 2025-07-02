@@ -32,7 +32,6 @@ Terms and Acronyms for the Telco Input Template:
 - Access Control List (ACL) - Define controls on which source networks and protocols can access target networks and protocols.
 - Autonomous System Number (ASN) - Identifier assigned to a collection of networks and routers having same routing policy.
 - Terminal Server (TS) - Device that connects devices with a serial port to a local network.
-- Service Principal (SP) - Azure service principal with access to create Nexus instance.
 - Preboot eXecution Environment (PXE) - Network boot protocol used for automating provisioning of servers.
 - Hardware (HW) - Generic shorthand for different types of physical equipment.
 - Stock Keeping Unit (SKU) - Product purchasable unit ID.
@@ -206,9 +205,6 @@ Terms and Acronyms for the Telco Input Template:
    | `LAW`                         | `CLUSTER_LAW_NAME` | `analyticsWorkspaceId`       |
    | `Compute Rack SKU`            | `CR_SKU`           | `computeRackSku`             |
    | `Aggregate Rack SKU`          | `AGGR_SKU`         | `aggregateRackSku`           |
-   | `Cluster SP Application ID`   | `SP_ID`            | `applicationId`              |
-   | `Cluster SP Principal ID`     | `SP_APP_ID`        | `principalId`                |
-   | `Cluster SP Secret Name`      | `SP_SECRET`        | `servicePrincipalSecretName` |
    | `Rotation KV Resource ID`     | `CLUSTER_KV_RID`   | `keyVaultId`                 |
 
 ### [Compute Devices](#tab/compute-devices)
