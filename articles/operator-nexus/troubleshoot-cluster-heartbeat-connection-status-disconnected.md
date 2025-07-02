@@ -11,42 +11,43 @@ author: omarrivera
 
 # Troubleshoot Cluster heartbeat connection status shows disconnected
 
-This guide attempts to provide steps to troubleshoot a Cluster with a `ClusterConnectionStatus` in `Disconnected` state.
+This guide describes steps to troubleshoot a Cluster with a `ClusterConnectionStatus` in `Disconnected` state.
 For a Cluster, the `ClusterConnectionStatus` represents the stability in the connection between the on-premises Cluster and its ability to reach the Cluster Manager.
 
 > [!IMPORTANT]
 > The `ClusterConnectionStatus` **doesn't** represent or is related to the health or connectivity of the Arc Connected Kubernetes Cluster.
 > The `ClusterConnectionStatus` indicates that the Cluster is successful in sending heartbeats and receiving acknowledgment from the Cluster Manager.
 
-[!include[prereqAzCLI](./includes/baremetal-machines/prerequisites-azure-cli-bare-metal-machine-actions.md)]
+![prereqAzCLI](./includes/baremetal-machines/prerequisites-azure-cli-bare-metal-machine-actions.md)]
 
 ## Understanding the Cluster connection status signal
 
 The `ClusterConnectionStatus` represents the ability of the on-premises Cluster to send heartbeats and receive acknowledgments from the Cluster Manager, indicating the health of the network connection between them.
-`ClusterConnectionStatus` distinct from the connectivity of the Arc Connected Kubernetes Cluster, though network issues affect both.
+`ClusterConnectionStatus` is distinct from the connectivity of the Arc Connected Kubernetes Cluster, though network issues affect both.
 
-A Cluster resource has the property `ClusterConnectionStatus` set to the value `Connected` as the heartbeats are continuously received and acknowledged.
+A Cluster resource has the property `ClusterConnectionStatus` set to the value `Connected` if the heartbeats are continuously received and acknowledged.
 The `ClusterConnectionStatus` becomes `Connected` once the Cluster is in a healthy state and network connectivity issues are resolved.
 The Cluster shows `Timeout` only as a transitional state between `Connected` and `Disconnected`.
-The Cluster `ClusterConnectionStatus` value becomes `Disconnected` as Cluster Manager detects continuously missed heartbeats.
-Once the cluster is a healthy state and there no network connectivity issues, the `ClusterConnectionStatus` automatically moves to `Connected`
+The Cluster `ClusterConnectionStatus` value becomes `Disconnected` if the Cluster Manager detects continuously missed heartbeats.
+Heartbeats are considered missed if they aren't received within or beyond the specified time thresholds.
+Once the Cluster is a healthy state and there no network connectivity issues, the `ClusterConnectionStatus` automatically moves to `Connected`
 
-During the Cluster deployment process, the Cluster is in `Undefined` state until the Cluster is fully deployed and operational.
+During the Cluster deployment process, the Cluster is in an `Undefined` state until the Cluster is fully deployed and operational.
 
 The following table shows the possible values of `ClusterConnectionStatus` and their definitions:
 
 | Status         | Definition                                                                                                            |
 |----------------|-----------------------------------------------------------------------------------------------------------------------|
-| `Connected`    | Heartbeats received, indicates healthy cluster and cluster manager connectivity                                       |
+| `Connected`    | Heartbeats received, indicates healthy Cluster and Cluster Manager connectivity                                       |
 | `Disconnected` | Heartbeats missed for **over 5 minutes**, indicates likely connectivity issue between Cluster Manager and Cluster     |
-| `Timeout`      | Heartbeats missed for **over 2 minutes but less than 5 minutes**, cluster connectivity is uncertain possibly degraded |
+| `Timeout`      | Heartbeats missed for **over 2 minutes but less than 5 minutes**, Cluster connectivity is uncertain possibly degraded |
 | `Undefined`    | Cluster not yet deployed or running a version without the heartbeats feature                                          |
 
 ## Check the value of the Cluster's ClusterConnectionStatus property
 
 The value of `ClusterConnectionStatus` is visible in the Azure portal in the Cluster resource view.
 
-[!include[ClusterConnectionStatus](./media/troubleshoot-cluster-heartbeat-connection-status/az-portal-cluster-connection-status.png)]
+![ClusterConnectionStatus](./media/troubleshoot-cluster-heartbeat-connection-status/az-portal-cluster-connection-status.png)
 
 Or, you can use the Azure CLI to see the value of `ClusterConnectionStatus`:
 
@@ -65,7 +66,7 @@ Connected
 
 ## Understanding the NexusClusterConnectionStatus metric
 
-Use Azure Resource Health to build alerts for cluster health, as it provides a comprehensive and supported view of resource status.
+Use Azure Resource Health to build alerts for Cluster health, as it provides a comprehensive and supported view of resource status.
 The `NexusClusterConnectionStatus` metric integrates into the Cluster's Azure Resource Health.
 If you use the `NexusClusterConnectionStatus` metric directly, understand how it functions and what it represents.
 
@@ -76,13 +77,13 @@ The metric emitting process never sends "0" values. Any "0" values seen in graph
 The detection of state changes requires the Cluster Manager's reconciliation process to update the Cluster resource's `ClusterConnectionStatus` property accordingly.
 
 There might be a delay between the actual loss of heartbeats and the metric reflecting the `Disconnected` state, due to the reconciliation loop and other operational factors.
-The `NexusClusterConnectionStatus` metric is used as a health indicator for the cluster, but delays in status changes can occur due to reconciliation timing and operational constraints.
+The `NexusClusterConnectionStatus` metric is used as a health indicator for the Cluster, but delays in status changes can occur due to reconciliation timing and operational constraints.
 Timeout events can occur if heartbeats aren't received within a 2-minute threshold, but a single successful heartbeat resets the timer.
 The status can transition between Connected, Timeout, and `Disconnected` based on heartbeat activity.
 
 The image shows a general representation of the components responsible for emitting the `NexusClusterConnectionStatus` metric.
 
-[!include[ClusterHeartbeatComponents](./media/troubleshoot-cluster-heartbeat-connection-status/cluster-connection-status-components-for-metric.png)]
+![ClusterHeartbeatComponents](./media/troubleshoot-Cluster-heartbeat-connection-status/cluster-connection-status-components-for-metric.png)
 
 ### ClusterConnectionStatus isn't the same as Arc Connected Cluster status
 

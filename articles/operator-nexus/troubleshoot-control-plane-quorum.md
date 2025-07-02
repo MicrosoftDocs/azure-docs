@@ -2,9 +2,9 @@
 title: Troubleshoot control plane quorum loss when multiple nodes are offline
 description: Learn how to restore control plane quorum loss when multiple nodes are offline.
 ms.topic: article
-ms.date: 01/18/2024
-author: matthewernst
+ms.date: 07/02/2025
 ms.author: matthewernst
+author: matternst7258
 ms.service: azure-operator-nexus
 ---
 

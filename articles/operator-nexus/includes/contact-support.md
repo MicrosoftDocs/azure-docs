@@ -1,7 +1,7 @@
 ---
 author: omarrivera
 ms.author: omarrivera
-ms.date: 04/28/2025
+ms.date: 07/02/2025
 ms.topic: include
 ms.service: azure-operator-nexus
 ---
