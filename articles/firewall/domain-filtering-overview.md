@@ -69,4 +69,4 @@ By understanding the differences between these rule types, you can effectively c
 
 ## Next steps
 
-- Learn how  Azure Firewall policy rule sets are structured [Azure Firewall Policy rule sets](policy-rule-sets.md).
+- Learn how Azure Firewall policy rule sets are structured [Azure Firewall Policy rule sets](policy-rule-sets.md).
