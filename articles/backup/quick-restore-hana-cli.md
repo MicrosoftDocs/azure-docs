@@ -8,6 +8,7 @@ ms.custom: mvc, devx-track-azurecli, mode-api, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to restore SAP HANA databases using the command line, so that I can efficiently manage database backups and ensure quick recovery during critical situations.
 ---
 
 # Quickstart: Restore SAP HANA System Replication on Azure VMs using Azure CLI

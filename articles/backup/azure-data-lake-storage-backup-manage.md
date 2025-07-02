@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 04/16/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to manage vaulted backup for Azure Data Lake Storage, so that I can ensure data protection and compliance for our organization's storage solutions."
 ---
 
 # Manage vaulted backup for Azure Data Lake Storage using Azure portal (preview)

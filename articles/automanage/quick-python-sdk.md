@@ -7,6 +7,7 @@ ms.custom: devx-track-python
 ms.topic: quickstart
 ms.date: 08/24/2022
 ms.author: andrsmith
+# Customer intent: "As a cloud administrator, I want to apply best practices configuration profiles to existing virtual machines using Python, so that I can automate the management and optimization of my cloud resources effectively before the upcoming retirement of Azure Automanage services."
 ---
 
 # Quickstart: Enable Azure Automanage for virtual machines using Python
