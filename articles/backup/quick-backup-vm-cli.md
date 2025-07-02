@@ -8,6 +8,7 @@ ms.custom: mvc, devx-track-azurecli, mode-api
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to use the command line to create a Recovery Services vault and enable backup for my Azure VM, so that I can ensure data protection and recovery capabilities for my virtual machines.
 ---
 
 # Back up a virtual machine in Azure with the Azure CLI

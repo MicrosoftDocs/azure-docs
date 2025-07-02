@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: devx-track-azurecli
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to back up SQL server databases on Azure VMs using the command line, so that I can automate the backup process and ensure data is securely stored and easily retrievable."
 ---
 
 # Back up SQL databases in Azure VM using Azure CLI

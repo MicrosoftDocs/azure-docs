@@ -5,6 +5,7 @@ ms.topic: overview
 ms.service: azure-vmware
 ms.date: 4/24/2025
 ms.custom: engagement-fy23
+# Customer intent: As a cloud architect, I want to deploy and manage VMware-based workloads in Azure using a dedicated private cloud solution, so that I can leverage Azure's infrastructure while maintaining VMware compatibility and maximizing operational efficiency.
 ---
 
 # What is Azure VMware Solution?

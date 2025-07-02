@@ -9,6 +9,7 @@ ms.date: 05/15/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
+# Customer intent: "As a database administrator, I want to configure cross-region replication for SAP HANA volumes, so that I can ensure disaster recovery capabilities for my database system."
 ---
 # Add volumes for an SAP HANA system as a DR system using cross-region replication
 

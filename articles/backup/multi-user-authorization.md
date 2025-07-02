@@ -8,6 +8,7 @@ ms.service: azure-backup
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a security admin, I want to configure Multi-user authorization for Backup vaults using Resource Guard, so that I can ensure additional protection for critical operations and manage access permissions effectively."
 ---
 # Configure Multi-user authorization using Resource Guard in Azure Backup
 

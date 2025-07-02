@@ -9,6 +9,7 @@ ms.date: 01/04/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
+# Customer intent: "As a database administrator, I want to implement Oracle Direct NFS with Azure NetApp Files, so that I can maximize performance and scalability of my Oracle Database workloads."
 ---
 # Benefits of using Azure NetApp Files with Oracle Database
 

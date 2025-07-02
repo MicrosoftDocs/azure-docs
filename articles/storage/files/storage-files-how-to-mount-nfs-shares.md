@@ -57,25 +57,22 @@ To enable hybrid access to an NFS Azure file share, use one of the following net
 
 ## Step 2: Mount an NFS Azure file share
 
-You can mount the share using the Azure portal, or you can use the native Linux mount commands. You can also create a record in the **/etc/fstab** file to automatically mount the share every time the Linux server or VM boots.
+You can mount the share using the AZNFS mount helper in Azure portal, or you can use the native NFS mount commands in CLI. You can also create a record in the **/etc/fstab** file to automatically mount the share every time the Linux server or VM boots.
 
 You can use the `nconnect` Linux mount option to improve performance for NFS Azure file shares at scale. For more information, see [Improve NFS Azure file share performance](nfs-performance.md#nfs-nconnect).
 
-### Mount an NFS share using the Azure portal
+### Mount an NFS share using the Azure portal (Recommended)
 
 1. Once the file share is created, select the share and then select **Connect from Linux**.
-1. Enter the mount path you'd like to use, then copy the script and run it on your client. Only the required mount options are included in the script, but you can add other [recommended mount options](#mount-options).
-
-> [!NOTE]
-> The Azure portal offers a step-by-step, ready-to-use installation script tailored to your selected Linux distribution for installing the AZNFS mount helper package. Once installed, you can use the provided AZNFS mount script to securely mount the share using [Encyption in Transit](encryption-in-transit-for-nfs-shares.md).
+2. Enter the mount path you'd like to use, then copy the script and run it on your client. Azure portal offers a step-by-step, ready-to-use installation script tailored to your selected Linux distribution for installing the AZNFS mount helper package and to securely mount the share using [Encyption in Transit](encryption-in-transit-for-nfs-shares.md). Only the required mount options are included in the script, but you can add other [recommended mount options](#mount-options).
 
    :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/mount-file-share.png" alt-text="Screenshot showing how to connect to an N F S file share from Linux using a provided mounting script." lightbox="media/storage-files-how-to-mount-nfs-shares/mount-file-share.png" border="true":::
 
 The NFS file share is now mounted.
 
-### Mount an NFS share using the Linux command line
+### Mount an NFS share using the NFS client mount in command line
 
-You can also mount the file share using the Linux command line. Select the tab below for your Linux distribution to see the commands you need to run. Be sure to replace `<YourStorageAccountName>` and `<FileShareName>` with your information.
+Alternatively, you can also mount the Azure file share using NFS client mount in command line. Select the tab below for your Linux distribution to see the commands you need to run. Be sure to replace `<YourStorageAccountName>` and `<FileShareName>` with your information.
 
 # [Ubuntu/Debian](#tab/Ubuntu)
 ```bash

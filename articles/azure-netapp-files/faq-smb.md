@@ -6,6 +6,7 @@ ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
 ms.date: 06/13/2025
+# Customer intent: As an IT administrator using Azure NetApp Files, I want to understand the SMB protocol and its configurations, so that I can ensure optimal connectivity and performance for my organization's file sharing and storage needs.
 ---
 # SMB FAQs for Azure NetApp Files
 

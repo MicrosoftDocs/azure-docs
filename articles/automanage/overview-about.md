@@ -7,6 +7,7 @@ ms.topic: overview
 ms.date: 9/07/2022
 ms.author: memccror
 ms.custom: overview
+# Customer intent: "As a system administrator, I want to onboard and configure Azure best practice services for my virtual machines automatically, so that I can ensure their reliability, security, and compliance without manual intervention."
 ---
 
 # Azure Automanage machine best practices

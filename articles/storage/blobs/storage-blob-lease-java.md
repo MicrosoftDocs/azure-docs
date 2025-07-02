@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 08/05/2024
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+# Customer intent: "As a Java developer working with Azure Storage, I want to create and manage blob leases, so that I can ensure exclusive access to blobs during operation and control concurrent access effectively."
 ---
 
 # Create and manage blob leases with Java

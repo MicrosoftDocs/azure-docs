@@ -8,6 +8,7 @@ ms.topic: troubleshooting
 ms.date: 02/10/2021
 ms.author: delhan
 
+# Customer intent: "As a network administrator, I want to access community-suggested settings for third-party VPN and firewall devices with Azure VPN Gateway, so that I can configure these devices effectively for secure connectivity."
 ---
 
 # Community-suggested third-party VPN or firewall device settings for Azure VPN gateway

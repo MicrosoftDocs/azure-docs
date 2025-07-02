@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 09/11/2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a system administrator, I want to implement file data backups using Azure Backup Server, so that I can ensure the safety and availability of critical data on both server and client machines.
 ---
 
 # Back up file data with MABS

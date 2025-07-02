@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.custom: kr2b-contr-experiment
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+# Customer intent: As a cloud administrator, I want to seamlessly migrate block data to Azure without downtime, so that I can ensure continuous operation of applications during the transition.
 ---
 
 # Migrate your block data to Azure with Cirrus Migrate Cloud

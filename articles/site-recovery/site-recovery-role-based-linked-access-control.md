@@ -7,6 +7,7 @@ author: jyothisuri
 ms.topic: overview
 ms.author: jsuri
 
+# Customer intent: As an IT administrator, I want to manage access permissions for Azure Site Recovery using role-based access control, so that I can ensure appropriate access levels for team members involved in disaster recovery operations.
 ---
 # Manage Site Recovery access with Azure role-based access control (Azure RBAC)
 

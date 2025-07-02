@@ -6,6 +6,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 02/26/2025
 ms.topic: overview
+# Customer intent: As an IT administrator managing updates for Azure VMs and servers, I want to understand supported update sources and types, so that I can ensure my systems receive the necessary Microsoft and third-party application updates efficiently.
 ---
 
 # Supported update sources, types, Microsoft application updates and Third party updates

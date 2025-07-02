@@ -10,6 +10,7 @@ ms.custom:
   - engagement-fy24
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a DevOps engineer, I want to restore an Azure Kubernetes Service cluster using PowerShell, so that I can recover lost resources or data efficiently with minimal downtime.
 ---
 
 # Restore Azure Kubernetes Service using PowerShell 

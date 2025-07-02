@@ -7,6 +7,7 @@ ms.date: 07/02/2025
 ms.custom: mvc, devx-track-azurepowershell, mode-api
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to configure vaulted backup for Azure Blobs using CLI, so that I can automate the backup process and ensure data protection for my cloud resources.
 ---
 
 # Quickstart: Configure vaulted backup for Azure Blobs using Azure Backup via Azure CLI

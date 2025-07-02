@@ -8,6 +8,7 @@ ms.date: 11/11/2024
 ms.author: jsuri
 ms.custom: engagement-fy23
 
+# Customer intent: As a cloud administrator, I want to configure failover for secondary IP configurations of Azure virtual machines, so that I can ensure continuous availability and manage network settings during disaster recovery scenarios.
 ---
 # Configure failover of multiple IP addresses with Azure Site Recovery
 

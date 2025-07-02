@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.author: jsuri 
 ms.date: 06/03/2025
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As an IT administrator, I want to set up and manage disaster recovery for Azure virtual machines using PowerShell, so that I can ensure business continuity during unexpected outages."
 ---
 
 # Set up disaster recovery for Azure virtual machines using Azure PowerShell

@@ -7,6 +7,7 @@ ms.service: azure-vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/31/2025
 ms.author: fabferri
+# Customer intent: "As a network administrator, I want to troubleshoot site-to-site VPN connection issues using error codes, so that I can quickly identify and resolve connectivity failures between on-premises devices and the cloud."
 ---
 # Troubleshooting: Azure site-to-site VPN error codes
 

@@ -6,6 +6,7 @@ ms.date: 12/24/2024
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a backup administrator, I want to monitor and manage backups and disaster recovery operations through a centralized platform, so that I can ensure data protection, streamline recovery processes, and maintain compliance with organizational policies.
 ---
 
 # Monitor and operate backups and disaster recovery using Backup center

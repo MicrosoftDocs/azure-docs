@@ -10,6 +10,7 @@ ms.topic: concept-article
 ms.date: 07/23/2024
 ms.author: shaas
 ms.subservice: storage-common-concepts
+# Customer intent: As a storage administrator, I want to execute a customer-managed failover for my geo-redundant storage account, so that I can maintain data accessibility during a primary endpoint outage and ensure a smooth transition to the secondary region.
 ---
 
 <!--

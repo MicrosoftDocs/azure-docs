@@ -8,6 +8,7 @@ ms.service: azure-backup
 ms.custom: engagement-fy23
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to configure and manage blob backups in a storage account using REST API so that I can ensure data protection and compliance for critical applications.
 ---
 
 # Back up blobs in a storage account using Azure Data Protection via REST API

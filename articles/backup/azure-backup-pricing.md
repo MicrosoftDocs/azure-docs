@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 09/09/2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a finance manager, I want to utilize a cost estimator for Azure Backup, so that I can accurately budget and compare costs for backing up various workloads within our organization."
 ---
 
 # Azure Backup pricing

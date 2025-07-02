@@ -8,6 +8,7 @@ ms.date: 05/09/2023
 ms.service: azure-queue-storage
 ms.topic: how-to
 ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, passwordless-go, devx-track-azurecli, devx-track-azurepowershell
+# Customer intent: "As a developer migrating an application, I want to implement passwordless authentication for Azure Queue Storage, so that I can enhance security and eliminate the need for managing secrets in my application."
 ---
 
 # Migrate an application to use passwordless connections with Azure Queue Storage

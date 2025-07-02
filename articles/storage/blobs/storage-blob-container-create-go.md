@@ -11,6 +11,7 @@ ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
+# Customer intent: As a Go developer, I want to create a blob container in Azure Storage, so that I can organize and upload my blobs effectively within my storage account.
 ---
 
 # Create a blob container with Go

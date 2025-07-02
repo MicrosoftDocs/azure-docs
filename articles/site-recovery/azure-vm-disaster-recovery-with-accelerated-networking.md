@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 09/23/2024
 ms.author: jsuri
 ms.custom: engagement-fy23, linux-related-content
+# Customer intent: As a cloud administrator, I want to enable Accelerated Networking for Azure VMs during disaster recovery, so that I can improve network performance and minimize latency for critical workloads in Azure Site Recovery.
 ---
 # Accelerated Networking with Azure virtual machine disaster recovery
 

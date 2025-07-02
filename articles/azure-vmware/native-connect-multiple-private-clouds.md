@@ -8,6 +8,7 @@ ms.author: jacobjaygbay
 ms.date: 4/21/2025
 ms.custom: engagement-fy25
 #customer intent: As a cloud administrator, I want to connect multiple Azure VMware Solution Generation 2 Private Clouds so that I can enable seamless communication between private clouds.
+# Customer intent: As a cloud administrator, I want to connect multiple Azure VMware Solution Generation 2 private clouds using Virtual Network peering, so that I can ensure efficient communication and optimize performance across my cloud infrastructure.
 ---
 
 # Connect multiple Azure VMware Solution Generation 2 Private Clouds

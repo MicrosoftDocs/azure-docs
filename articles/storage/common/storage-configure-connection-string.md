@@ -10,6 +10,7 @@ ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 05/10/2024
 ms.reviewer: nachakra
+# Customer intent: As a software developer, I want to configure a connection string for my Azure storage account, so that my application can securely access data at runtime using Shared Key authorization.
 ---
 
 # Configure Azure Storage connection strings

@@ -6,6 +6,7 @@ ms.service: azure-backup
 ms.date: 06/26/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to configure private endpoints for Azure Backup, so that I can enhance the security of backup and restore operations within my Virtual Network.
 ---
 
 # Create and use private endpoints (v2 experience) for Azure Backup

@@ -9,6 +9,7 @@ ms.update-cycle: 180-days
 ms.author: jsuri
 ms.custom: UpdateFrequency.5
 
+# Customer intent: "As a cloud architect, I want to understand which extension resource types are supported during region migrations, so that I can plan and execute effective resource relocations without encountering unsupported configurations."
 ---
 
 # Support for moving extension resource types between Azure regions

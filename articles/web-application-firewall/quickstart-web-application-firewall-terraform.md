@@ -10,6 +10,7 @@ ms.author: halkazwini
 #customer intent: As a Terraform user, I want to learn how to configure Azure Web Application Firewall v2 on Azure Application Gateway.
 content_well_notification: 
   - AI-contribution
+# Customer intent: As a cloud engineer using infrastructure as code, I want to configure an Azure Application Gateway with WAF policies using Terraform, so that I can ensure secure and efficient management of web traffic for my applications.
 ---
 
 # Quickstart: Use Terraform to configure Azure Web Application Firewall v2 on Azure Application Gateway

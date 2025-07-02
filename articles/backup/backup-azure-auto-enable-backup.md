@@ -7,6 +7,7 @@ ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: As a Backup Admin, I want to automatically enable backup for all newly created virtual machines using Azure Policy, so that I can ensure business-critical data is protected without manual intervention.
 ---
 
 # Audit and enforce backup during virtual machine creation automatically using Azure Policy

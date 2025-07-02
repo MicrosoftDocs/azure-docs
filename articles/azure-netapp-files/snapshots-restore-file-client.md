@@ -8,6 +8,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 03/16/2024
 ms.author: anfdocs
+# Customer intent: As a data administrator, I want to restore individual files from snapshots using mounted clients, so that I can recover mistakenly deleted or overwritten files without restoring entire volumes.
 ---
 
 # Restore a file from a snapshot using a client with Azure NetApp Files

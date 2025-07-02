@@ -12,6 +12,7 @@ ms.date: 10/28/2024
 
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a developer, I want to list blob containers in my Azure Storage account using JavaScript or TypeScript, so that I can efficiently manage and retrieve container data based on specific options and filters.
 ---
 
 # List blob containers with JavaScript or TypeScript

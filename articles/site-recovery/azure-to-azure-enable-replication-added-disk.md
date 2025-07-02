@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: engagement-fy23
 ms.service: azure-site-recovery
+# Customer intent: As an IT administrator, I want to enable replication for newly added disks on Azure VMs, so that I can ensure complete disaster recovery coverage for all data disks.
 ---
 
 

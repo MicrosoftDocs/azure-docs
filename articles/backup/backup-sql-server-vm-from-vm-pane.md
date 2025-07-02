@@ -6,6 +6,7 @@ ms.date: 06/03/2025
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: "As an IT administrator managing SQL Server VMs, I want to configure automatic backups from the VM pane, so that I can ensure my databases are protected and recoverable in case of data loss."
 ---
 # Back up a SQL Server from the VM pane
 

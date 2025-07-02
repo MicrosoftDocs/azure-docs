@@ -8,6 +8,7 @@ ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a developer, I want to use a local storage emulator for developing and testing my Azure storage applications, so that I can avoid costs and subscriptions while ensuring compatibility before deploying to the cloud."
 ---
 
 # Use the Azure Storage Emulator for development and testing (deprecated)

@@ -8,6 +8,7 @@ ms.service: azure-vmware
 ms.date: 4/21/2025
 ms.custom: engagement-fy25
 #customer intent: As a cloud administrator, I want to create an Azure VMware Solution Generation 2 Private Cloud so that I can leverage Azure's infrastructure and VMware expertise.
+# Customer intent: "As a cloud administrator, I want to create an Azure VMware Solution Generation 2 private cloud so that I can efficiently utilize Azure's infrastructure and VMware capabilities to enhance network performance and security."
 ---
 
 # Create an Azure VMware Solution Generation 2 Private Cloud (preview)

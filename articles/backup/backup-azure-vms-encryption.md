@@ -6,6 +6,7 @@ ms.date: 05/07/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to back up and restore encrypted Azure virtual machines, so that I can ensure data protection and recovery for my organization's critical workloads."
 ---
 # Back up and restore encrypted Azure virtual machines
 

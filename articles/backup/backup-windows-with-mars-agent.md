@@ -6,6 +6,7 @@ ms.date: 06/18/2025
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy23
+# Customer intent: "As a system administrator, I want to configure the MARS agent for backing up Windows machines, so that I can ensure data protection and recovery options are in place for my organization's critical resources."
 ---
 
 # Back up Windows Server files and folders to Azure

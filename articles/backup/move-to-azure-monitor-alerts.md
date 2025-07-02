@@ -7,6 +7,7 @@ ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: As a cloud administrator, I want to back up classic alerts in the Azure Recovery Services vault, so that I can maintain alerting functionality while transitioning to Azure Monitor for improved alert management and monitoring capabilities.
 ---
 
 # Backup Classic Alerts

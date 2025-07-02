@@ -11,6 +11,7 @@ ms.date: 03/06/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: references_regions
+# Customer intent: As a storage admin, I want to initiate a planned failover and failback of my storage account, so that I can test disaster recovery processes and maintain data availability without loss during outages or planned maintenance.
 ---
 
 <!--

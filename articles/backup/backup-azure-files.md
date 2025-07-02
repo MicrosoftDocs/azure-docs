@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: engagement-fy23
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to configure backups for Azure Files, so that I can ensure data protection against accidental or malicious deletions while minimizing on-premises maintenance."
 ---
 
 # Back up Azure Files

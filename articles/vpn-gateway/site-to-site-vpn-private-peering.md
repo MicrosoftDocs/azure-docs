@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 08/22/2024
 ms.author: cherylmc
 
+# Customer intent: As a network engineer, I want to configure site-to-site VPN connections over ExpressRoute private peering, so that I can ensure encrypted traffic between on-premises resources and Azure while maintaining flexible networking options.
 ---
 # Configure a Site-to-Site VPN connection over ExpressRoute private peering
 

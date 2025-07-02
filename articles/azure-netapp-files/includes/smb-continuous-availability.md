@@ -8,6 +8,7 @@ ms.custom: include file
 
 # azure-netapp-files-create-volumes-smb.md
 # enable-continuous-availability-existing-SMB.md
+# Customer intent: As an IT administrator, I want to configure Continuous Availability for selected workloads, so that I can ensure optimal performance and reliability for applications like Citrix and SQL Server in my Azure environment.
 ---
 
 You should enable Continuous Availability for only the following workloads and use cases:

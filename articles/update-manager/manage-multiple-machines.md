@@ -6,6 +6,7 @@ ms.date: 12/04/2024
 ms.topic: overview
 author: habibaum
 ms.author: v-uhabiba
+# Customer intent: "As an IT administrator managing multiple servers, I want to use a centralized update management tool, so that I can efficiently assess, deploy, and monitor updates across my Azure and on-premises environments."
 ---
 
 # Manage multiple machines with Azure Update Manager

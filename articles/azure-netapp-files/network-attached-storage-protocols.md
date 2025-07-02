@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 01/28/2025
 ms.author: anfdocs
+# Customer intent: As an IT administrator, I want to understand the NAS protocols supported by Azure NetApp Files, so that I can effectively manage and configure storage access for both Windows and UNIX clients in a dual-protocol environment.
 ---
 
 # Understand NAS protocols in Azure NetApp Files 

@@ -7,6 +7,7 @@ ms.date: 03/25/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT security administrator, I want to integrate ransomware alerts from a security management system with backup solutions, so that I can ensure the preservation of backup recovery points in case of an attack."
 ---
 
 # Integrate Microsoft Defender's ransomware alerts to protect Azure Backup recovery points

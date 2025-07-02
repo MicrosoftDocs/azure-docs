@@ -5,6 +5,7 @@ ms.topic: quickstart
 ms.date: 11/22/2024
 ms.service: azure-backup
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to enable Cross Region Restore for my PostgreSQL database, so that I can ensure data availability and perform restoration drills in case of regional failures or compliance audits."
 ---
 
 # Quickstart: Restore a PostgreSQL database across regions by using Azure Backup

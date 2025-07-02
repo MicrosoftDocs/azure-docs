@@ -12,6 +12,7 @@ ms.author: normesta
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud architect, I want to implement customer-managed keys for Azure Storage encryption, so that I can maintain control over data encryption and access policies while enhancing security and flexibility for my organization."
 ---
 
 # Customer-managed keys for Azure Storage encryption

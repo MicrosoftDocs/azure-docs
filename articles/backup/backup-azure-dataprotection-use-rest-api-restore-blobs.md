@@ -7,6 +7,7 @@ ms.custom: engagement-fy24
 ms.assetid: 9b8d21e6-3e23-4345-bb2b-e21040996afd
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to restore Azure blobs to a specific point in time using the Data Protection REST API, so that I can recover lost or corrupted data efficiently."
 ---
 
 # Restore Azure blobs to point-in-time using Azure Data Protection REST API

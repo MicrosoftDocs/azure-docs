@@ -11,6 +11,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+# Customer intent: As a Java developer, I want to manage system properties and user-defined metadata for blobs, so that I can enhance my data storage capabilities and maintain organized, searchable content in my Azure Storage account.
 ---
 
 # Manage blob properties and metadata with Java

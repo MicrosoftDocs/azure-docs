@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 02/13/2025
 ms.author: cherylmc
 
+# Customer intent: "As a network administrator, I want to generate and export client certificates using PowerShell, so that I can configure secure point-to-site connections for remote access to the VPN Gateway."
 ---
 # Generate and export certificates for point-to-site using PowerShell
 

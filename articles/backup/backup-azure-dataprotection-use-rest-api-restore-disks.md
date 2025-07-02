@@ -7,6 +7,7 @@ ms.assetid: 30f4e7ff-2a55-4a85-be44-55feedc24607
 ms.custom: engagement-fy24
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to restore Azure Disks using a Data Protection API, so that I can efficiently recover managed disks without incurring infrastructure costs or affecting application performance."
 ---
 
 # Restore Azure Disks using Azure Data Protection REST API

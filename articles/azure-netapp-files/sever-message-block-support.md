@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 01/29/2025
 ms.author: anfdocs
+# Customer intent: "As a cloud storage administrator, I want to configure SMB for Azure NetApp Files, so that I can leverage its features and ensure secure and efficient shared access to data across multiple clients."
 ---
 # Understand Server Message Block support in Azure NetApp Files 
 

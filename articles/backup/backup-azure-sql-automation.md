@@ -8,6 +8,7 @@ ms.custom: devx-track-azurepowershell, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to automate the backup and restore process for SQL databases in Azure VMs using PowerShell, so that I can efficiently manage data protection and recovery within my cloud environment.
 ---
 
 # Back up and restore SQL databases in Azure VMs with PowerShell

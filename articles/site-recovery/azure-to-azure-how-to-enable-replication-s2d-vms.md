@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 02/19/2024
 ms.service: azure-site-recovery
 
+# Customer intent: As a cloud administrator managing critical applications, I want to set up disaster recovery for Azure virtual machines using replication, so that I can ensure high availability and quick recovery in case of regional failures.
 ---
 
 # Replicate Azure virtual machines running Storage Spaces Direct to another region

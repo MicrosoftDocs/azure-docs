@@ -7,6 +7,7 @@ ms.date: 06/20/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a data administrator, I want to implement enhanced security features for hybrid backups, so that I can protect against data loss and unauthorized access during critical operations."
 ---
 
 # Security features to help protect hybrid backups that use Azure Backup

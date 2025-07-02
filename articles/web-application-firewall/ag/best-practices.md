@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 04/30/2025
+# Customer intent: As a security administrator, I want to implement best practices for configuring the web application firewall on my application gateway, so that I can effectively protect my web applications from common threats and ensure optimal performance while minimizing false positives.
 ---
 
 # Best practices for Azure Web Application Firewall (WAF) on Azure Application Gateway

@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 02/13/2025
 ms.author: cherylmc
 
+# Customer intent: "As a network administrator, I want to generate and export client certificates using MakeCert, so that I can establish secure Point-to-Site connections for remote access."
 ---
 # Generate and export certificates for Point-to-Site connections using MakeCert
 

@@ -8,6 +8,7 @@ ms.date: 04/05/2022
 ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+# Customer intent: As a data management professional, I want to implement Tiger Bridge for continuous data protection and disaster recovery with Azure Blob Storage, so that I can efficiently manage data, optimize costs, and ensure quick recovery from data loss incidents.
 ---
 
 # Tiger Bridge archiving with continuous data protection and disaster recovery

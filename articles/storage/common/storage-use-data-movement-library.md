@@ -12,6 +12,7 @@ ms.author: pauljewell
 ms.subservice: storage-common-concepts
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
+# Customer intent: "As a .NET developer working with Azure Storage, I want to transfer data using the Data Movement library, so that I can efficiently manage uploads, downloads, and copies of blobs and files within Azure Storage."
 ---
 
 # Transfer data with the Data Movement library

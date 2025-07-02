@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 07/30/2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a system administrator, I want to configure pre-backup and post-backup scripts in the backup environment, so that I can automate data preparation and post-processing tasks for better backup efficiency and data management.
 ---
 
 # Using pre-backup and post-backup scripts

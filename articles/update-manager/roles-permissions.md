@@ -6,6 +6,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 10/06/2024
 ms.topic: overview
+# Customer intent: "As an IT administrator managing Azure VMs or Arc-enabled servers, I want to understand the required roles and permissions for Azure Update Manager so that I can effectively configure update operations and ensure compliance with organizational policies."
 ---
  
 # Roles and permissions in Azure Update Manager

@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 08/24/2023
+# Customer intent: As a security administrator, I want to enable and manage logging for the Web Application Firewall in Azure, so that I can monitor and analyze access, performance, and security events to enhance the protection of my applications.
 ---
 # Resource logs for Azure Web Application Firewall
 

@@ -6,6 +6,7 @@ ms.author: anfdocs
 ms.service: azure-vmware
 ms.date: 12/03/2024
 ms.custom: engagement-fy23
+# Customer intent: As a cloud administrator, I want to install and configure a backup solution for virtual machines in my Azure environment, so that I can ensure VM consistency and enable quick recovery of Azure NetApp Files datastores and virtual machines.
 ---
 
 # Install Cloud Backup for Virtual Machines (preview)

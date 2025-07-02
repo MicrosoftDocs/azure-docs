@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 08/05/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: As a .NET developer, I want to manage blob leases using the Azure Storage client library, so that I can control access to blobs and ensure data consistency during concurrent operations.
 ---
 
 # Create and manage blob leases with .NET

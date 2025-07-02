@@ -6,6 +6,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 03/07/2025
 ms.topic: overview
+# Customer intent: "As a cloud administrator, I want to enable automatic guest patching for Azure Virtual Machines, so that I can ensure they remain secure and compliant without manual intervention."
 ---
 # Automatic guest patching for Azure virtual machines
 

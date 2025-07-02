@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 3/22/2024
 ms.author: anfdocs
+# Customer intent: "As a virtualization administrator, I want to design and size datastores for Azure VMware Solution using Azure NetApp Files, so that I can optimize application performance and cost efficiency across multiple workloads."
 ---
 # Azure VMware Solution datastore performance considerations for Azure NetApp Files 
 

@@ -6,6 +6,7 @@ ms.custom: devx-track-arm-template
 ms.date: 06/17/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to back up Azure Blob data in a storage account using an ARM template, so that I can ensure data protection with customizable retention policies and automated scheduling."
 ---
 
 # Quickstart: Back up a storage account with Blob data using an ARM template

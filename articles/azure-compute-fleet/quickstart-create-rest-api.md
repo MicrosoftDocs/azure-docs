@@ -8,6 +8,7 @@ ms.service: azure-compute-fleet
 ms.date: 04/21/2025
 ms.reviewer: jushiman
 ms.custom: devx-track-arm-template, build-2024
+# Customer intent: "As a cloud engineer, I want to create an Azure Compute Fleet using an ARM template, so that I can automate the deployment and management of scalable virtual machine resources."
 ---
 
 # Create an Azure Compute Fleet using an ARM template

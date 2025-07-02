@@ -8,6 +8,7 @@ ms.custom: devx-track-js
 ms.date: 06/13/2025
 ms.topic: concept-article
 #customer intent: As a cloud network architect, I want to understand the Azure Web Application Firewall JavaScript challenge feature to determine if I want to deploy it.
+# Customer intent: As a cloud network architect, I want to evaluate the JavaScript challenge feature of Azure Web Application Firewall, so that I can assess its effectiveness in mitigating bot traffic for our web applications and decide on its deployment.
 ---
 
 # Azure Web Application Firewall JavaScript challenge (preview)

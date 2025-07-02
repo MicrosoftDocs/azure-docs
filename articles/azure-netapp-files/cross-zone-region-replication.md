@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 ms.date: 05/12/2025
 ms.author: anfdocs
+# Customer intent: "As a data administrator, I want to utilize cross-zone-region replication in Azure NetApp Files so that I can enhance data protection and ensure high availability for my critical workloads."
 ---
 # Understand cross-zone-region replication in Azure NetApp Files
 

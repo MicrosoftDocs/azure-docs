@@ -7,6 +7,7 @@ ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to understand the support matrix for Azure Elastic SAN backup, so that I can effectively plan and execute backup and restore operations while adhering to the supported scenarios and limitations."
 ---
 
 # Support matrix for Azure Elastic SAN backup (preview)

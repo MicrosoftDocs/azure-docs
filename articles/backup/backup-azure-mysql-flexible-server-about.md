@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: engagement-fy23
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to extend backup retention for Azure Database for MySQL Flexible Server to 10 years using Azure Backup, so that I can meet compliance requirements and protect against data loss from accidental deletions or ransomware attacks.
 ---
 
 # Long-term retention for Azure Database for MySQL - Flexible Server by using Azure Backup (preview)

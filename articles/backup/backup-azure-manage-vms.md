@@ -6,6 +6,7 @@ ms.date: 09/11/2024
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator managing virtual machines, I want to efficiently manage and monitor Azure VM backups through the backup service, so that I can ensure data protection and streamline recovery processes."
 ---
 # Manage Azure VM backups with Azure Backup service
 

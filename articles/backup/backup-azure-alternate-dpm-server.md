@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: engagement-fy24
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an IT administrator, I want to recover data from an Azure Backup Server using the Recovery Services vault, so that I can restore critical files and ensure business continuity after data loss.
 ---
 
 # Recover data from Azure Backup Server

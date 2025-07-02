@@ -10,6 +10,7 @@ ms.author: cherylmc
 
 #customer intent: As a network engineer, I want to create a site-to-site VPN connection between my on-premises location and my Azure virtual network using certificate authentication and Azure Key Vault.
 
+# Customer intent: "As a network engineer, I want to establish a secure site-to-site VPN connection using certificate authentication, so that I can securely connect my on-premises network to my Azure virtual network."
 ---
 # Configure a S2S VPN Gateway certificate authentication connection - Preview
 

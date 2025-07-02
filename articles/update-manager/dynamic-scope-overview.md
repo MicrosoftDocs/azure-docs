@@ -6,6 +6,7 @@ ms.date: 09/06/2024
 ms.topic: overview
 author: habibaum
 ms.author: v-uhabiba
+# Customer intent: "As an IT administrator managing multiple virtual machines, I want to utilize dynamic scoping for scheduled patching, so that I can efficiently manage and automate updates across various environments without manual intervention."
 ---
 
 # About Dynamic Scoping

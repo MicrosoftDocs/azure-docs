@@ -11,6 +11,7 @@ ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
+# Customer intent: "As a Go developer, I want to list blob containers in my Azure Storage account, so that I can efficiently manage and retrieve container information based on specific criteria and options."
 ---
 
 # List blob containers with Go

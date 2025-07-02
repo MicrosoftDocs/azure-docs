@@ -12,6 +12,7 @@ ms.date: 08/05/2024
 
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: "As a .NET developer, I want to delete and restore blob containers in Azure Storage, so that I can efficiently manage my cloud data while ensuring recovery options are available when needed."
 ---
 
 # Delete and restore a blob container with .NET

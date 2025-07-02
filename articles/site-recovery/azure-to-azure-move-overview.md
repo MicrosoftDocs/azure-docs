@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.date: 02/19/2024
 ms.author: jsuri
 ms.custom: MVC, engagement-fy23
+# Customer intent: "As a cloud administrator, I want to move Azure VMs to a different region using Azure Site Recovery, so that I can improve application performance and meet availability requirements through reduced latency and enhanced service level agreements."
 ---
 
 # Moving Azure VMs to another Azure region

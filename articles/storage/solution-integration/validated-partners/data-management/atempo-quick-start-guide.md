@@ -7,6 +7,7 @@ ms.service: azure-storage
 ms.topic: quickstart #Required; leave this attribute/value as-is.
 ms.date: 05/04/2023
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
+# Customer intent: As an IT administrator using Atempo Miria, I want to configure Miria to migrate data to Azure Storage, so that I can ensure efficient and secure data transfer to the cloud while optimizing my existing infrastructure.
 ---
 # Atempo Quick Start Guide
 

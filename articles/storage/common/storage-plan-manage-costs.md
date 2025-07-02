@@ -9,6 +9,7 @@ ms.date: 06/12/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: subject-cost-optimization
+# Customer intent: As a cost manager, I want to analyze and manage Azure Blob Storage costs, so that I can optimize our cloud spending and avoid unexpected charges.
 ---
 
 # Plan and manage costs for Azure Blob Storage

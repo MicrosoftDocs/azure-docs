@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 10/22/2024
 ms.author: anfdocs
+# Customer intent: As a cloud architect, I want to implement availability zone placement for Azure NetApp Files, so that I can enhance application high availability and resilience against local failures.
 ---
 # Use availability zone volume placement for application high availability with Azure NetApp Files
 

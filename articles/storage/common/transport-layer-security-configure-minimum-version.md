@@ -13,6 +13,7 @@ ms.reviewer: fryu
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
+# Customer intent: "As a cloud administrator, I want to enforce a minimum version of Transport Layer Security (TLS) for my storage accounts, so that I can ensure secure communications and protect sensitive data from potential vulnerabilities."
 ---
 
 # Enforce a minimum required version of Transport Layer Security (TLS) for requests to a storage account

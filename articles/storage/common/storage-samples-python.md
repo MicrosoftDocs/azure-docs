@@ -12,6 +12,7 @@ ms.topic: sample
 ms.devlang: python
 ms.custom: devx-track-python, py-fresh-zinc
 ai-usage: ai-assisted
+# Customer intent: As a Python developer, I want to access comprehensive Azure Storage code samples and developer guides, so that I can efficiently implement storage functionalities in my applications.
 ---
 
 # Azure Storage samples using Python client libraries

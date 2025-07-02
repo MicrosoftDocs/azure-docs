@@ -6,6 +6,7 @@ ms.date: 06/03/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to configure and manage backups for SQL Server databases running on Azure VMs, so that I can ensure data protection and meet recovery objectives.
 ---
 # Back up a SQL Server from the Azure SQL Server VM pane
 

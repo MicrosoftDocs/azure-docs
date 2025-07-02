@@ -8,6 +8,7 @@ ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.date: 04/01/2024
 ms.reviewer: nachakra
+# Customer intent: "As a security administrator, I want to configure attribute-based access control for Azure Blob Storage, so that I can enforce granular access permissions based on specific conditions and attributes for different storage operations."
 ---
 
 # Actions and attributes for Azure role assignment conditions for Azure Blob Storage

@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: overview
 ms.date: 03/24/2025
 ms.author: anfdocs
+# Customer intent: As a cloud architect, I want to evaluate Azure NetApp Files for high-performance file storage, so that I can efficiently manage enterprise workloads while ensuring data availability, scalability, and security in the cloud.
 ---
 
 # What is Azure NetApp Files?

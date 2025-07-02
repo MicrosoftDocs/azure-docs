@@ -7,6 +7,7 @@ ms.date: 4/21/2025
 ms.custom:
   - build-2025
 # customer intent: As a cloud administrator, I want to learn about Azure VMware Solution Generation 2 private cloud design considerations so that I can make informed decisions about my Azure VMware Solution deployment.
+# Customer intent: As a cloud administrator, I want to understand the design considerations for Azure VMware Solution Generation 2 private clouds so that I can effectively plan and implement my private cloud deployment while ensuring compliance with current limitations and requirements.
 ---
 
 # Design considerations for Azure VMware Solution Generation 2 Private Clouds (preview)

@@ -10,6 +10,7 @@ ms.date: 06/04/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
+# Customer intent: As a database administrator, I want to deploy an application volume group for Oracle, so that I can efficiently manage all required storage volumes in a single optimized workflow, enhancing performance and reducing deployment time for enterprise-scale Oracle databases.
 ---
 # Understand Azure NetApp Files application volume group for Oracle 
 

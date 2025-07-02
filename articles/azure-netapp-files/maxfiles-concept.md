@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 04/16/2025
 ms.author: anfdocs
+# Customer intent: "As a cloud storage administrator, I want to understand the `maxfiles` limits for Azure NetApp Files, so that I can effectively manage volume capacity and avoid 'out of space' errors when creating new files."
 ---
 # Understand `maxfiles` limits in Azure NetApp Files
 

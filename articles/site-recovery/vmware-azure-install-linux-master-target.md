@@ -8,6 +8,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.author: jsuri
 ms.date: 10/16/2024
+# Customer intent: "As a system administrator, I want to install a Linux master target server for failback to an on-premises site, so that I can ensure a smooth disaster recovery process for VMware virtual machines migrated to Azure."
 ---
 
 

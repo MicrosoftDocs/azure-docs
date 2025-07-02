@@ -7,6 +7,7 @@ ms.date: 6/4/2025
 ms.custom: engagement-fy23
 
 #Customer intent: As a VMware administrator, I want to learn how to scale an Azure VMware Solution private cloud in the Azure portal.
+# Customer intent: As a VMware administrator, I want to scale clusters and hosts in my Azure VMware Solution private cloud using the Azure portal, so that I can optimize performance and meet the requirements of my application workloads.
 ---
 
 # Tutorial: Scale clusters in a private cloud

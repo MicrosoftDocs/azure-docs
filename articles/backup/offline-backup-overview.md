@@ -6,6 +6,7 @@ ms.date: 07/02/2025
 ms.custom: references_regions 
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a backup administrator, I want to understand the options for offline backup solutions, so that I can choose the best method for transferring large amounts of data without consuming network bandwidth.
 ---
 
 # Overview of offline backup

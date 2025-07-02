@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: As a .NET developer, I want to copy a blob from a source object URL so that I can efficiently transfer data into my Azure Storage account.
 ---
 
 # Copy a blob from a source object URL with .NET

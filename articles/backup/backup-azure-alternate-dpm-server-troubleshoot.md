@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: engagement-fy24
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a system administrator, I want to troubleshoot data recovery errors from Azure Backup Server, so that I can ensure successful restoration of data for my organization.
 ---
 
 # Troubleshoot data recovery from Microsoft Azure Backup Server 

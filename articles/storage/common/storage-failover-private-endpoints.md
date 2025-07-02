@@ -11,6 +11,7 @@ ms.topic: concept-article
 ms.date: 05/07/2021
 ms.author: shaas
 
+# Customer intent: "As a cloud architect, I want to design a highly available storage architecture using private endpoints and geo-redundant options so that I can ensure continuous accessibility and resilience of data across regions during service interruptions."
 ---
 # Failover considerations for storage accounts with private endpoints
 

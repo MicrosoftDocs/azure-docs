@@ -8,6 +8,7 @@ ms.custom: devx-track-terraform
 ms.topic: how-to
 ms.date: 02/05/2025
 ms.author: anfdocs
+# Customer intent: "As a cloud administrator, I want to configure availability zone volume placement in Azure NetApp Files, so that I can ensure high availability and optimize resource deployment across different geographical locations."
 ---
 # Manage availability zone volume placement for Azure NetApp Files
 

@@ -9,6 +9,7 @@ ms.date: 02/18/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to configure automated backups for Azure Database for PostgreSQL - Flexible Server using a Terraform template, so that I can ensure data protection and streamline management of backup policies."
 ---
 
 #  Quickstart: Configure backup for Azure Database for PostgreSQL - Flexible Server using a Terraform template

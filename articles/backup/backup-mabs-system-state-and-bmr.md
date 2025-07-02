@@ -7,6 +7,7 @@ ms.date: 12/03/2024
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: "As a system administrator, I want to back up the system state and enable bare-metal recovery using a backup server, so that I can ensure complete protection and quick recovery of critical server data in the event of system failures."
 ---
 
 # Back up system state and restore to bare metal by using Azure Backup Server

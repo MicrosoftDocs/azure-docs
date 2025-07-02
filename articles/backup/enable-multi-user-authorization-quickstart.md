@@ -6,6 +6,7 @@ ms.date: 06/09/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a backup administrator, I want to enable Multi-user authorization for my Recovery Services and Backup vaults, so that I can enhance security and protect critical operations against unauthorized access.
 ---
 
 # Quickstart: Enable protection using Multi-user authorization in Azure Backup

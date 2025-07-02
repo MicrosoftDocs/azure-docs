@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: troubleshooting
 ms.date: 04/28/2025
 ms.author: anfdocs
+# Customer intent: As a cloud administrator, I want to troubleshoot cross-region replication errors for managed file services, so that I can ensure data availability and maintain uninterrupted replication processes.
 ---
 # Troubleshoot cross-region replication errors
 

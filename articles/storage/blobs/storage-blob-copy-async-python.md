@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: As a cloud developer, I want to implement asynchronous blob copying using the Python client library, so that I can efficiently manage large data transfers between storage accounts or through HTTP accessible URLs.
 ---
 
 # Copy a blob with asynchronous scheduling using Python

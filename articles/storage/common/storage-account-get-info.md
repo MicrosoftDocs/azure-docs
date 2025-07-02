@@ -11,6 +11,7 @@ ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.custom: engagement-fy23, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
+# Customer intent: As a cloud administrator, I want to retrieve configuration details for a storage account, so that I can manage resources effectively and ensure compliance with operational requirements.
 ---
 
 # Get storage account configuration information

@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 10/28/2024
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a JavaScript developer, I want to create and manage blob leases using the Azure Storage client library, so that I can control access to blobs within my Azure Storage account effectively.
 ---
 
 # Create and manage blob leases with JavaScript or TypeScript

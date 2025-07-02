@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 08/05/2024
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
+# Customer intent: "As a Go developer, I want to set up a project that connects to Azure Blob Storage, so that I can manage and interact with containers and blobs effectively."
 ---
 
 # Get started with Azure Blob Storage and Go

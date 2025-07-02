@@ -11,6 +11,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a developer using JavaScript or TypeScript, I want to download blobs from Azure Storage, so that I can handle and utilize storage data effectively in my applications.
 ---
 
 # Download a blob with JavaScript or TypeScript

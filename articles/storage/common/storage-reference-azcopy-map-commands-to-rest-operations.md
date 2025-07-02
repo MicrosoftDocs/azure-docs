@@ -7,6 +7,7 @@ ms.topic: reference
 ms.date: 01/27/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
+# Customer intent: As a cloud data engineer, I want to understand the mapping between AzCopy commands and Azure Blob Storage REST operations, so that I can optimize my data transfer and management processes effectively.
 ---
 
 # Map of AzCopy v10 commands to Azure Blob Storage REST operations

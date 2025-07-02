@@ -7,6 +7,7 @@ ms.topic: faq
 ms.date: 03/31/2025
 ms.service: azure-site-recovery
 
+# Customer intent: "As an IT professional managing disaster recovery, I want to transition from classic to modernized VMware disaster recovery, so that I can enhance resilience, simplify management, and ensure compliance with security standards in my organization."
 ---
 # Common questions about classic to modernized VMware disaster recovery
 

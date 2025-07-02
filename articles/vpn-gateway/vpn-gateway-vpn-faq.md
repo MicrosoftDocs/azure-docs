@@ -6,6 +6,7 @@ ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 05/09/2025
 ms.author: cherylmc
+# Customer intent: As a network administrator, I want to understand the configuration options and limitations of Azure VPN Gateway, so that I can effectively manage cross-premises connections and optimize my organization’s hybrid network architecture.
 ---
 
 # VPN Gateway FAQ

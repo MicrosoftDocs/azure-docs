@@ -8,6 +8,7 @@ ms.service: azure-site-recovery
 ms.author: jsuri
 author: jyothisuri
 #Customer intent: As an Azure admin, I want to run a production failover of Azure VMs to a secondary Azure region.
+# Customer intent: As an Azure administrator, I want to execute a failover of virtual machines to a secondary region, so that I can ensure business continuity and disaster recovery for critical workloads.
 ---
 
 # Tutorial: Fail over Azure VMs to a secondary region

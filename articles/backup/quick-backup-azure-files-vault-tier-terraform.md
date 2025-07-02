@@ -9,6 +9,7 @@ ms.date: 05/22/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to configure vaulted backup for Azure Files using Terraform, so that I can ensure secure and reliable data protection against ransomware and other threats.
 ---
 
 #  Quickstart: Configure vaulted backup for Azure Files using Azure Terraform

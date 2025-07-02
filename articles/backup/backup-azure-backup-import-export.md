@@ -8,6 +8,7 @@ author: jyothisuri
 ms.author: jsuri
 ms.custom:
   - build-2025
+# Customer intent: "As an IT administrator managing large data backups, I want to use customer-owned disks for offline seeding to Azure, so that I can efficiently transfer initial full backup data over low-bandwidth networks without incurring high costs."
 ---
 
 # Offline seeding for MARS using customer-owned disks with Azure Import/Export

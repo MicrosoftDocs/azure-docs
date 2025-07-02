@@ -6,6 +6,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 03/13/2025
 ms.topic: how-to
+# Customer intent: As a cloud administrator, I want to enable cross-subscription patching in Azure Update Manager, so that I can effectively manage and automate patching across multiple resources and subscriptions to maintain security and compliance.
 ---
 
 # Enable cross subscription patching in Azure Update Manager

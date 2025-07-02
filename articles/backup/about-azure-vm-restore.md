@@ -6,6 +6,7 @@ ms.date: 09/09/2024
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: As an IT admin, I want to understand the Azure VM restore process and its options, so that I can efficiently recover virtual machines based on different scenarios and ensure business continuity.
 ---
 
 # About Azure VM restore

@@ -8,6 +8,7 @@ ms.date: 07/21/2022
 ms.author: normesta
 ms.subservice: storage-common-concepts
 
+# Customer intent: As a cloud storage administrator, I want to use AzCopy to change blob properties and metadata, so that I can efficiently manage and optimize storage access and organization.
 ---
 
 # Replace blob properties and metadata by using AzCopy v10

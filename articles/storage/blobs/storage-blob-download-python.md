@@ -11,6 +11,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: "As a developer using Python, I want to download blobs from Azure Storage, so that I can manage and utilize data effectively in my applications."
 ---
 
 # Download a blob with Python

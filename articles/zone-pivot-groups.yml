@@ -1264,8 +1264,8 @@ groups:
     title: Network security group
 # Owner: hmb
 - id: front-door-dev-exp-portal-ps-cli
-  title: Front Door Developer experience
-  prompt: "Select the developer experience:"
+  title: Front Door deployment method
+  prompt: "Select the deployment method:"
   pivots:
   - id: front-door-portal
     title: Azure portal
@@ -1274,16 +1274,16 @@ groups:
   - id: front-door-cli
     title: Azure CLI
 - id: front-door-dev-exp-portal-cli
-  title: Front Door Developer experience
-  prompt: "Select the developer experience:"
+  title: Front Door deployment method
+  prompt: "Select the deployment method:"
   pivots:
   - id: front-door-portal
     title: Azure portal
   - id: front-door-cli
     title: Azure CLI
 - id: front-door-dev-exp-ps-cli
-  title: Front Door Developer experience
-  prompt: "Select the developer experience:"
+  title: Front Door deployment method
+  prompt: "Select the deployment method:"
   pivots:
   - id: front-door-ps
     title: Azure PowerShell

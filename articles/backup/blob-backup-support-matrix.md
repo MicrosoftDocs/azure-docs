@@ -7,6 +7,7 @@ ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to understand the support matrix for backing up Azure Blobs so that I can ensure compliance with regional limitations and operational requirements when implementing backup solutions."
 ---
 
 # Support matrix for Azure Blobs backup

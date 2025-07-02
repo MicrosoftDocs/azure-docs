@@ -10,6 +10,7 @@ ms.date: 03/04/2025
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
+# Customer intent: "As a cloud administrator, I want to manage Azure Storage resources through the resource provider, so that I can create, update, and delete storage accounts and permissions efficiently."
 ---
 
 # Use the Azure Storage resource provider to access management resources

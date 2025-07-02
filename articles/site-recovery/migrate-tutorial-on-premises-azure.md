@@ -6,6 +6,7 @@ ms.topic: tutorial
 ms.date: 05/24/2024
 ms.author: jsuri
 author: jyothisuri
+# Customer intent: As an IT administrator, I want to migrate on-premises machines to Azure using a centralized migration tool, so that I can efficiently manage the discovery, assessment, and migration process while minimizing downtime and risk.
 ---
 
 # Migrate on-premises machines to Azure

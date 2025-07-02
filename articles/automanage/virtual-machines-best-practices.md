@@ -6,6 +6,7 @@ ms.service: azure-automanage
 ms.topic: concept-article
 ms.date: 12/10/2021
 ms.author: memccror
+# Customer intent: As a cloud administrator, I want to implement Azure Automanage best practices for virtual machines, so that I can ensure optimal configuration, automation, and monitoring of my cloud resources while preparing for upcoming service changes.
 ---
 
 # Azure Automanage for virtual machines best practices

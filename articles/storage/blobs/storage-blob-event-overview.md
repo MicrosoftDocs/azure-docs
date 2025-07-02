@@ -7,6 +7,7 @@ ms.date: 04/24/2024
 ms.topic: concept-article
 ms.service: azure-blob-storage
 ms.reviewer: dineshm
+# Customer intent: "As a cloud developer, I want to subscribe to and react to Blob storage events using Event Grid, so that I can automate workflows and improve responsiveness in my applications without relying on complex coding or polling mechanisms."
 ---
 
 # Reacting to Blob storage events

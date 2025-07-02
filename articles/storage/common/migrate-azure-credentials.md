@@ -10,6 +10,7 @@ ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, passwordless-go, devx-track-azurecli, devx-track-azurepowershell
+# Customer intent: "As a developer, I want to migrate my application to use passwordless authentication with Azure Blob Storage, so that I can enhance security and eliminate the need to manage application secrets."
 ---
 
 # Migrate an application to use passwordless connections with Azure Blob Storage

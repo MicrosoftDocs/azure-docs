@@ -7,6 +7,7 @@ ms.date: 05/30/2025
 ms.topic: faq
 ms.service: azure-site-recovery
 
+# Customer intent: As a cloud administrator, I want to understand the disaster recovery options for Azure virtual machines using replication, so that I can implement effective strategies for failover and data protection across regions.
 ---
 # Common questions about Azure-to-Azure disaster recovery
 

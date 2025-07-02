@@ -8,6 +8,7 @@ ms.date: 05/12/2021
 ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+# Customer intent: As a business decision maker, I want to identify compatible storage partners for Azure solutions, so that I can implement effective primary and secondary storage systems tailored to my organization's needs across on-premises, cloud, or hybrid environments.
 ---
 
 # Azure Storage partners for primary and secondary storage

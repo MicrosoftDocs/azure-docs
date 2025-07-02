@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: As a Python developer, I want to copy a blob from a source object URL using the client library, so that I can efficiently move data into Azure Storage from various accessible sources.
 ---
 
 # Copy a blob from a source object URL with Python

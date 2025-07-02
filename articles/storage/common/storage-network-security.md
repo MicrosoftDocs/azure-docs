@@ -10,6 +10,7 @@ ms.date: 05/01/2025
 ms.author: normesta
 ms.reviewer: santoshc
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement, ignite-2024
+# Customer intent: As a cloud administrator, I want to configure network firewalls and access rules for Azure Storage, so that I can enhance security by restricting access to specific IP addresses, virtual networks, and trusted services.
 ---
 
 # Configure Azure Storage firewalls and virtual networks

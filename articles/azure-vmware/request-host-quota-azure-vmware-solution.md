@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/19/2023
 #Customer intent: As an Azure service admin, I want to request hosts for either a new private cloud deployment or I want to have more hosts allocated in an existing private cloud.
+# Customer intent: As an Azure service administrator, I want to request host quota for a new or existing Azure VMware Solution private cloud, so that I can ensure adequate provisioning of resources for my deployment needs.
 ---
 
 # Request Host Quota for Azure VMware Solution

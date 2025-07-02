@@ -6,6 +6,7 @@ ms.date: 09/11/2024
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an IT administrator managing Azure Stack environments, I want to back up files and applications from Azure Stack using Azure Backup Server, so that I can ensure the data's protection and recoverability.
 ---
 
 # Back up files and applications on Azure Stack

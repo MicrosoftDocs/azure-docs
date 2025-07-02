@@ -11,6 +11,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+# Customer intent: As a Java developer, I want to download blobs from Azure Storage using the Java client library, so that I can manage and retrieve data effectively for my applications.
 ---
 
 # Download a blob with Java

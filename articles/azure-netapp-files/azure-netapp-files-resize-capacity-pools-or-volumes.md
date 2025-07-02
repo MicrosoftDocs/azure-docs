@@ -10,6 +10,7 @@ ms.custom:
 ms.topic: how-to
 ms.date: 05/20/2024
 ms.author: anfdocs
+# Customer intent: "As a cloud administrator, I want to resize capacity pools and volumes in Azure storage, so that I can optimize resource allocation and prevent performance issues as storage demands change."
 ---
 # Resize a capacity pool or a volume
 

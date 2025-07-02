@@ -7,6 +7,7 @@ author: jyothisuri
 ms.author: jsuri
 ms.service: azure-backup
 ms.custom: engagement-fy23
+# Customer intent: "As a system administrator managing DPM and Azure Backup Server, I want to execute an offline backup process using the Azure Import/Export service, so that I can efficiently transfer large backup datasets over low-bandwidth connections without overwhelming the network."
 ---
 # Offline backup workflow for DPM and Azure Backup Server (previous versions)
 

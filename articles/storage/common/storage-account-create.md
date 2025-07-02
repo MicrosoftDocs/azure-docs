@@ -11,6 +11,7 @@ ms.date: 04/10/2025
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement-fy23, devx-track-extended-azdevcli, devx-track-terraform
+# Customer intent: "As a cloud developer, I want to create an Azure storage account using various deployment methods, so that I can efficiently store and manage blobs, files, queues, and tables in a scalable environment."
 ---
 
 # Create an Azure storage account

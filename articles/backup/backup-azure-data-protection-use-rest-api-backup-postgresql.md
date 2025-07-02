@@ -9,6 +9,7 @@ author: jyothisuri
 ms.author: jsuri
 ms.custom:
   - build-2025
+# Customer intent: "As a database administrator, I want to configure and manage backups for PostgreSQL databases using a REST API, so that I can ensure data protection and recovery in my cloud environment."
 ---
 
 # Back up PostgreSQL databases by using the Data Protection REST API

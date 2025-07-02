@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 12/27/2024
 ms.author: jsuri
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud administrator, I want to manage and delete resources created during the virtual machine move process, so that I can maintain an organized and efficient resource environment following migrations."
 ---
 
 # Manage resources created for the virtual machine move

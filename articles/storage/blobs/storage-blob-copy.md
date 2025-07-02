@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: "As a .NET developer, I want to copy blobs using the Azure Storage client library, so that I can efficiently move and manage data within and between storage accounts."
 ---
 
 # Copy a blob with .NET

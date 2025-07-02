@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 02/08/2024
 ms.author: anfdocs
+# Customer intent: As a cloud storage administrator, I want to understand the supported languages and character sets in Azure NetApp Files, so that I can ensure proper file naming and content encoding for internationalization and compatibility across different protocols.
 ---
 # Understand volume languages in Azure NetApp Files
 

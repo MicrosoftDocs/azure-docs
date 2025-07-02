@@ -6,6 +6,7 @@ ms.date: 01/31/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a backup administrator, I want to troubleshoot issues with Data Protection Manager, so that I can ensure reliable data protection and recovery processes for my organization.
 ---
 
 # Troubleshoot System Center Data Protection Manager

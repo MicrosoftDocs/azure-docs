@@ -5,6 +5,7 @@ ms.topic: reference
 ms.service: azure-vmware
 ms.date: 02/26/2025
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud architect, I want to configure VMware HCX Mobility Optimized Networking for my Azure VMware Solution environment, so that I can optimize traffic routing and ensure low latency and symmetric traffic flow between on-premises and cloud resources."
 ---
 
 # VMware HCX Mobility Optimized Networking (MON) guidance

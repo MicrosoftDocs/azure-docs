@@ -12,6 +12,7 @@ ms.author: akashdubey
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
+# Customer intent: As an IT administrator, I want to assign Azure roles for access to queue data, so that I can manage permissions for users and applications effectively using Azure role-based access control.
 ---
 
 # Assign an Azure role for access to queue data

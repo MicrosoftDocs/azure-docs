@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 10/02/2024
 ms.author: anfdocs
+# Customer intent: As a cloud architect, I want to select the optimal Azure virtual machine SKUs for my storage workloads, so that I can ensure consistent performance and maximize resource efficiency in my Azure NetApp Files environment.
 ---
 # Azure virtual machine stock-keeping unit (SKU) best practices for Azure NetApp Files
 

@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 01/28/2025
 ms.author: anfdocs
+# Customer intent: "As an IT administrator, I want to restore individual files from a snapshot in Azure NetApp Files, so that I can quickly recover specific data without the need for entire volume restoration."
 ---
 
 # Restore individual files using single-file snapshot restore 

@@ -7,6 +7,7 @@ ms.custom: MVC
 ms.author: jsuri
 ms.service: azure-site-recovery
 author: jyothisuri
+# Customer intent: "As a system administrator managing Hyper-V virtual machines with System Center VMM, I want to set up disaster recovery to Azure using Site Recovery, so that I can ensure high availability and quick recovery in case of an outage."
 ---
 
 # Set up disaster recovery of on-premises Hyper-V VMs in VMM clouds to Azure

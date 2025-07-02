@@ -7,6 +7,7 @@ ms.author: jodowns
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 03/06/2025
+# Customer intent: As a cloud architect, I want to understand the improvements and new features of the WAF engine on the application gateway, so that I can assess its capabilities for enhancing security and performance within my web applications.
 ---
 
 # WAF engine on Azure Application Gateway

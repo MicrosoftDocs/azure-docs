@@ -9,6 +9,7 @@ ms.custom:
   - ignite-2024
 ms.date: 04/21/2025
 ms.reviewer: jushiman
+# Customer intent: As a cloud operations manager, I want to modify the target capacity and VM sizes of my Compute Fleet while it's running, so that I can optimize resource allocation and manage costs effectively.
 ---
 
 # Modify a Compute Fleet 

@@ -11,6 +11,7 @@ ms.date: 07/29/2024
 ms.reviewer: nachakra
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23
+# Customer intent: As a storage administrator, I want to configure an expiration policy for shared access signatures (SAS), so that I can enhance security by limiting the validity period and monitoring compliance with best practices.
 ---
 
 # Configure an expiration policy for shared access signatures

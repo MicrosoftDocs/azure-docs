@@ -86,7 +86,7 @@ The status of items that appear in this table might change over time as support 
 | [File management plane REST API](/rest/api/storagerp/file-shares)	| ✔️ |
 | [File data plane REST API](/rest/api/storageservices/file-service-rest-api)| ✔️ |
 | Encryption at rest|	✔️ |
-| Encryption in transit| ✔️ ([preview](encryption-in-transit-for-nfs-shares.md))|
+| [Encryption in transit](encryption-in-transit-for-nfs-shares.md)| ✔️ |
 | [LRS or ZRS redundancy types](storage-files-planning.md#redundancy)|	✔️ |
 | [LRS to ZRS conversion](files-redundancy.md) (private endpoints only) | ✔️ |
 | [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md#storage-account-endpoints) | ✔️  |

@@ -6,6 +6,7 @@ ms.custom: devx-track-azurepowershell
 ms.date: 05/17/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to back up Azure blobs within a storage account using PowerShell, so that I can ensure data protection and quick recovery in case of data loss."
 ---
 
 # Back up all Azure blobs in a storage account using Azure PowerShell

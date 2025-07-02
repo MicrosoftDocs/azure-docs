@@ -6,6 +6,7 @@ ms.topic: reference
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT admin, I want to access a detailed protection matrix for Azure Backup Server V3 RTM, so that I can ensure all necessary workloads and data types are properly supported for backup and recovery."
 ---
 
 # Azure Backup Server V3 RTM protection matrix

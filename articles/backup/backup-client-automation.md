@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: devx-track-azurepowershell, no-azure-ad-ps-ref, engagement-fy24
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a system administrator, I want to implement Azure Backup using PowerShell for Windows Server, so that I can automate the backup and recovery processes efficiently and ensure data protection in the cloud."
 ---
 
 # Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell

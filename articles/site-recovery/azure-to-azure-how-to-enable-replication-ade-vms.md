@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 10/29/2024
 ms.author: jsuri
 
+# Customer intent: As a cloud administrator, I want to configure replication for encrypted Azure VMs to another region, so that I can ensure disaster recovery and maintain data security across regions.
 ---
 
 # Replicate Azure Disk Encryption-enabled virtual machines to another Azure region

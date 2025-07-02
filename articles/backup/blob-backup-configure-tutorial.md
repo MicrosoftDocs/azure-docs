@@ -6,6 +6,7 @@ ms.date: 06/17/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to configure the vaulted backup for Azure Blobs, so that I can ensure data is securely backed up and retained according to our organizational policies.
 ---
 
 # Tutorial: Configure vaulted backup for Azure Blobs using Azure Backup

@@ -8,6 +8,7 @@ ms.reviewer: caishwarya
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to move Recovery Services vaults between subscriptions and resource groups, so that I can effectively manage my backup resources and maintain compliance with organizational policies."
 ---
 
 # Move a Recovery Services vault across Azure subscriptions and resource groups

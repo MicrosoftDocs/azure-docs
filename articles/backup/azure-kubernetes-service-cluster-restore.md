@@ -9,6 +9,7 @@ ms.custom:
 ms.date: 01/30/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud operations engineer, I want to restore a backed-up Azure Kubernetes Service cluster using Azure Backup, so that I can recover cluster resources and ensure continuity of services during disruptions."
 ---
 
 # Restore Azure Kubernetes Service using Azure Backup 

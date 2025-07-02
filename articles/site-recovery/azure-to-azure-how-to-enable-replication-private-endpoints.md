@@ -7,6 +7,7 @@ ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 05/11/2025
 ms.custom: references_regions, subject-rbac-steps, engagement-fy23
+# Customer intent: As an IT administrator, I want to configure private endpoints for Azure Site Recovery replication, so that I can secure traffic between my virtual machines and the recovery vault within an isolated virtual network.
 ---
 # Replicate machines with private endpoints
 

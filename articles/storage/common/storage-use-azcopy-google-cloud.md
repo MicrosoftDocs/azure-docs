@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: storage-common-concepts
+# Customer intent: As a cloud storage administrator, I want to use a command-line utility to transfer data from Google Cloud Storage to Azure Storage, so that I can manage and consolidate my data across different cloud environments efficiently.
 ---
 
 # Copy data from Google Cloud Storage to Azure Storage by using AzCopy

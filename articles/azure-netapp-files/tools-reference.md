@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 05/08/2025
 ms.author: anfdocs
+# Customer intent: "As a cloud architect, I want to utilize estimation and monitoring tools for Azure NetApp Files, so that I can optimize costs and performance while ensuring efficient management of my storage deployment."
 ---
 
 # Azure NetApp Files tools 

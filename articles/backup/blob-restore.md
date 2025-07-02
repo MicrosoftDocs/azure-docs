@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 06/17/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to restore Azure Blob data from both operational and vaulted backups, so that I can recover essential files and maintain business continuity in case of data loss.
 ---
 
 # Restore Azure Blobs

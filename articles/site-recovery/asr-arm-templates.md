@@ -8,6 +8,7 @@ ms.topic: sample
 ms.date: 07/08/2024
 ms.author: jsuri
 ms.custom: engagement-fy23, devx-track-arm-template
+# Customer intent: "As a cloud administrator, I want to utilize Azure Resource Manager templates for configuring Azure Site Recovery, so that I can efficiently manage disaster recovery processes for my Azure virtual machines."
 ---
 
 # Azure Resource Manager templates for Azure Site Recovery

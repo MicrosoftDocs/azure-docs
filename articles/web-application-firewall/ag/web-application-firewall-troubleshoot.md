@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 06/13/2025
+# Customer intent: "As a web application firewall administrator, I want to troubleshoot WAF rule violations and false positives, so that I can ensure legitimate traffic is allowed while maintaining robust security for my applications."
 ---
 
 # Troubleshoot Web Application Firewall (WAF) for Azure Application Gateway

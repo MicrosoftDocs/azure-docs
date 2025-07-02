@@ -8,6 +8,7 @@ ms.custom: engagement-fy25
 
 #Customer intent: As an Azure service administrator, I want to use Azure Logic Apps to send VMware syslogs from my Azure VMware Solution private cloud to my preferred log management service for centralized logging and analysis.
 
+# Customer intent: "As an Azure service administrator, I want to configure Azure Logic Apps to forward VMware syslogs from my private cloud to a log management service, so that I can achieve centralized log management for better monitoring and analysis."
 ---
 
 # Send VMware syslogs to log management server using Azure Logic Apps

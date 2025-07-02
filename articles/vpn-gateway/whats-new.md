@@ -8,6 +8,7 @@ ms.date: 05/30/2025
 ms.author: cherylmc
 ms.custom:
   - build-2025
+# Customer intent: "As a network administrator, I want to stay informed about the latest updates and planned changes for the VPN Gateway service, so that I can ensure optimal usage and compliance with upcoming migrations and deprecations."
 ---
 
 # What's new in Azure VPN Gateway?
