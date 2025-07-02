@@ -28,4 +28,16 @@ items:
     href: /cli/azure/mongodb
   - name: Azure PowerShell
     href: /powershell/module/az.mongodb
+  - name: .NET
+    href: /dotnet/api/overview/azure/ResourceManager.MongoDBAtlas
+  - name: Java
+    href: /java/api/overview/azure/resourcemanager-mongodbatlas
+  - name: Javascript
+    href: /javascript/api/overview/azure/arm-mongodbatlas
+  - name: Python
+    href: /python/api/overview/azure/mgmt-mongodbatlas
+  - name: Go
+    href: https://github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/mongodbatlas/armmongodbatlas
+    
+  
     
