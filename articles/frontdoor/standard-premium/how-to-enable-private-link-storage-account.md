@@ -1,5 +1,5 @@
 ---
-title: 'Connect Azure Front Door to a Storage Account Origin with Private Link'
+title: Connect Azure Front Door to a Storage Account Origin
 titleSuffix: Azure Private Link
 description: Learn how to connect your Azure Front Door Premium to a storage account privately with Azure Private Link.
 author: halkazwini
@@ -15,17 +15,39 @@ zone_pivot_groups: front-door-dev-exp-portal-cli
 
 **Applies to:** :heavy_check_mark: Front Door Premium
 
-This article guides you through configuring Azure Front Door Premium to connect privately to a storage account origin using Azure Private Link service. You'll learn how to set up and approve the private endpoint connection, ensuring secure communication between Front Door and your storage resources.
+This article guides you through configuring Azure Front Door Premium to connect privately to a storage account origin using Azure Private Link service.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
+::: zone pivot="front-door-portal"
 
 - A Private Link. For more information, see [Create a Private Link service](../../private-link/create-private-link-service-portal.md) for your origin web server.
 
-## Enable Private Link to a storage account
+- Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
+
+::: zone-end
+
+::: zone pivot="front-door-cli"
+
+- A Private Link. For more information, see [Create a Private Link service](../../private-link/create-private-link-service-cli.md) for your origin web server.
+
+- Azure Cloud Shell or Azure CLI.
+
+    The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+
+    You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
+
+::: zone-end
+
+> [!NOTE]
+> Private endpoints require your Storage Account to meet specific requirements. For more information, see [Using Private Endpoints for Azure Storage](../../storage/common/storage-private-endpoints.md).
+
+
+## Enable Private Link to a storage account in Azure Front Door
+
+::: zone pivot="front-door-portal"
  
 In this section, you map the Private Link service to a private endpoint created in Azure Front Door's private network. 
 
@@ -35,7 +57,7 @@ In this section, you map the Private Link service to a private endpoint created 
 
 1. Select **+ Add an origin** to add a new storage account origin or select a previously created storage account origin from the list.
 
-1. Select or enter the following settings to configure the storage blob you want Azure Front Door Premium to connect with privately.
+1. Select or enter the following values to configure the storage blob you want Azure Front Door Premium to connect with privately.
 
     | Setting | Value |
     | ------- | ----- |
@@ -59,6 +81,33 @@ In this section, you map the Private Link service to a private endpoint created 
 
 > [!NOTE]
 > Ensure the **origin path** in your routing rule is configured correctly with the storage container file path so file requests can be acquired.
+
+::: zone-end
+
+::: zone pivot="front-door-cli"
+
+Use the [az afd origin create](/cli/azure/afd/origin#az-afd-origin-create) command to create a new Azure Front Door origin. The `private-link-location` value must be from the [available regions](../private-link.md#region-availability) and the `private-link-sub-resource-type` value is **blob**.
+
+```azurecli-interactive
+az afd origin create --enabled-state Enabled \
+                     --resource-group 'myResourceGroup' \
+                     --origin-group-name 'og1' \
+                     --origin-name 'mystorageorigin' \
+                     --profile-name 'contosoAFD' \
+                     --host-name 'mystorage.blob.core.windows.net' \
+                     --origin-host-header 'mystorage.blob.core.windows.net' \
+                     --http-port 80 \
+                     --https-port 443 \
+                     --priority 1 \
+                     --weight 500 \
+                     --enable-private-link true \
+                     --private-link-location 'EastUS' \
+                     --private-link-request-message 'AFD storage origin Private Link request.' \
+                     --private-link-resource /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorage \
+                     --private-link-sub-resource-type blob 
+```
+
+::: zone-end
 
 ## Approve private endpoint connection from the storage account
 
