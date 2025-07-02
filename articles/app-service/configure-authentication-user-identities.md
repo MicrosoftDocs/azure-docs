@@ -16,14 +16,14 @@ This article shows you how to work with user identities when you use built-in [a
 
 Your app's authenticated end users or client applications make claims in incoming tokens. App Service makes the claims available to your code by injecting them into request headers. External requests aren't allowed to set these headers, so they're present only if set by App Service.
 
-Code in any language or framework can get needed information from the request headers. Some code frameworks provide extra options that might be more convenient. See [Framework-specific alternatives](#framework-specific-alternatives).
+You can use the claims information that App Service authentication makes available to perform authorization checks in your app code. Code in any language or framework can get needed information from the request headers. Some code frameworks provide extra options that might be more convenient. See [Framework-specific alternatives](#framework-specific-alternatives).
 
 The following table describes some example headers:
 
 | Header                       | Description                                                           |
 |------------------------------|-----------------------------------------------------------------------|
-| `X-MS-CLIENT-PRINCIPAL`      | A Base64-encoded JSON representation of available claims. For more information, see [Decode the client principal header](#decode-the-client-principal-header).   |
-| `X-MS-CLIENT-PRINCIPAL-ID`   | An identifier for the caller, which the identity provider sets.            |
+| `X-MS-CLIENT-PRINCIPAL`      | A Base64-encoded JSON representation of available claims. For more information, see [Decode the X-MS-CLIENT-PRINCIPAL header](#decode-the-client-principal-header).   |
+| `X-MS-CLIENT-PRINCIPAL-ID`   | An identifier that the identity provider sets for the caller.            |
 | `X-MS-CLIENT-PRINCIPAL-NAME` | A human-readable name that the identity provider sets for the caller, such as an email address or user principal name.   |
 | `X-MS-CLIENT-PRINCIPAL-IDP`  | The name of the identity provider that App Service authentication uses. |
 
@@ -38,9 +38,7 @@ Similar headers expose [provider tokens](configure-authentication-oauth-tokens.m
 The `X-MS-CLIENT-PRINCIPAL` header contains the full set of available claims in Base64-encoded JSON. To process this header, your app must decode the payload and iterate through the `claims` array to find relevant claims.
 
 > [!NOTE]
-> These claims undergo a default claims-mapping process, so some might have different names than if you process the token directly.
-
-For claims mapping to work, you must enable the [token store](overview-authentication-authorization.md#token-store) in your app.
+> These claims undergo a default claims-mapping process, so some might have different names than if you process the token directly. 
 
 The decoded payload structure is as follows:
 
@@ -64,10 +62,10 @@ The decoded payload structure is as follows:
 | `claims`   | array            | An array of objects that represent the available claims. Each object contains `typ` and `val` properties. |
 | `typ`      | string           | The name of the claim, which might be subject to default claims mapping and be different from the corresponding claim in the token. |
 | `val`      | string           | The value of the claim.                                      |
-| `name_typ` | string           | The name claim type, which is typically a URI that provides schema information about the `name` claim if one is defined. |
-| `role_typ` | string           | The role claim type, which is typically a URI that provides schema information about the `role` claim if one is defined. |
+| `name_typ` | string           | The name claim type, which is typically a URI that provides scheme information about the `name` claim if one is defined. |
+| `role_typ` | string           | The role claim type, which is typically a URI that provides scheme information about the `role` claim if one is defined. |
 
-For convenience, you can convert claims into a representation that the app's language framework uses. The following example of this process uses C# to construct a [`ClaimsPrincipal`](/dotnet/api/system.security.claims.claimsprincipal) type for the app to use.
+For convenience, you can convert claims into a representation that the app's language framework uses. The following example uses C# to construct a [`ClaimsPrincipal`](/dotnet/api/system.security.claims.claimsprincipal) type for the app to use.
 
 ```csharp
 using System;
@@ -136,13 +134,14 @@ The rest of this function performs this conversion to create a `ClaimsPrincipal`
 
 - For [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` isn't populated for .NET code, but you can still find the user claims in the request headers, or get the `ClaimsPrincipal` object from the request context or through a binding parameter. For more information, see [Work with client identities in Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities).
 
-- For .NET Core, [`Microsoft.Identity.Web`](https://www.nuget.org/packages/Microsoft.Identity.Web/) supports populating the current user with App Service authentication.
+- For .NET Core, [`Microsoft.Identity.Web`](https://www.nuget.org/packages/Microsoft.Identity.Web/) supports populating the current user with App Service authentication. For more information, see [Integration with Azure App Services authentication of web Apps running with Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/wiki/1.2.0#integration-with-azure-app-services-authentication-of-web-apps-running-with-microsoftidentityweb). For a demonstration of a web app accessing Microsoft Graph, see [Tutorial: Access Microsoft Graph from a secured .NET app as the user](scenario-secure-app-access-microsoft-graph-as-user.md).
 
-  For more information, see [Integration with Azure App Services authentication of web Apps running with Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/wiki/1.2.0#integration-with-azure-app-services-authentication-of-web-apps-running-with-microsoftidentityweb). For a demonstration of a web app accessing Microsoft Graph, see [Install client library packages](scenario-secure-app-access-microsoft-graph-as-user.md?tabs=command-line#install-client-library-packages) in [Tutorial: Access Microsoft Graph from a secured .NET app as the user](scenario-secure-app-access-microsoft-graph-as-user.md).
+> [!NOTE]
+> For claims mapping to work, you must enable the [token store](overview-authentication-authorization.md#token-store) for your app.
 
 ## Access user claims by using the API
 
-If the [token store](overview-authentication-authorization.md#token-store) is enabled for your app, you can also obtain other details on the authenticated user by calling `/.auth/me`.
+If the [token store](overview-authentication-authorization.md#token-store) is enabled for your app, you can also call `/.auth/me` to obtain other details on the authenticated user.
 
 ## Related content
 
