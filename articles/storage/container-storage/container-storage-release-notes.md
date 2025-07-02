@@ -18,6 +18,7 @@ The following Azure Container Storage versions are supported:
 
 | Milestone | Status |
 |----|----------------|
+|1.3.1- Patch Release | Supported |
 |1.3.0- Minor Release | Supported |
 |1.2.1- Patch Release | Supported |
 |1.2.0- Minor Release | Supported |
@@ -33,6 +34,14 @@ The following Azure Container Storage versions are no longer supported: 1.0.6-pr
 
 A **major release** introduces significant changes, often including new features, architectural updates, or breaking changes; for example, moving from version 1.1.0 to 2.0.0. A **minor release** adds enhancements or new functionality that are backward-compatible, such as moving from version 1.2.0 to 1.3.0. Lastly, a **patch release** focuses on resolving critical bugs, security issues, or minor optimizations while maintaining backward compatibility, such as moving from version 1.1.1 to 1.1.2, and is intended to ensure stability and reliability without introducing new features.
 
+## Version 1.3.1
+
+### Improvements and issues that are fixed
+
+- **Bug fixes and recovery improvements**: We’ve made important updates to make etcd recovery stable and reliable. Now, the process includes enhanced retries making cluster restoration smoother and easier to manage. We have also fixed bugs in Azure Disks and Azure Elastic SAN storage pool creation and addressed upgrade failures caused by Kubernetes job name length limits.
+- **Expanded platform compatibility and scheduling fixes**: We've resolved issues with Azure Container Storage pods being incorrectly scheduled to Windows nodes in mixed OS clusters by enforcing node affinity rules. Additionally, we've added support for Elastic SAN on Azure Linux 3.0 nodes.
+- **Safeguards to prevent storage pool deletion**: Measures have been implemented to prevent the deletion of storage pools with existing persistent volumes when created through custom storage classes.
+  
 ## Version 1.3.0
 
 ### Improvements and issues that are fixed
@@ -88,6 +97,7 @@ Azure Container Storage follows a transparent and predictable support lifecycle 
 
 | Release version | Release Date  | End of Life | Supported Kubernetes Versions |
 |----|----------------| ------------| -------- |
+|1.3.1- Patch Release | 07/02/2025 | 04/27/2026 | 1.32, 1.31, 1.30 |
 |1.3.0- Minor Release | 04/28/2025 | 04/27/2026 | 1.32, 1.31, 1.30 |
 |1.2.1- Patch Release| 02/10/2025 | 11/10/2025| 1.30, 1.29, 1.28|
 |1.2.0- Minor Release | 11/11/2024 | 11/10/2025 | 1.30, 1.29, 1.28 |
