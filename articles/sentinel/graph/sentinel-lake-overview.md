@@ -13,7 +13,7 @@ ms.collection: ms-security
 ---  
 
 
-# What is Microsoft Sentinel data lake?
+# What is Microsoft Sentinel data lake (Preview) ?
 
 Microsoft Sentinel data lake is a purpose-built, cloud-native security data lake that transforms how organizations manage and analyze security data. Architected as a true data lake, it is designed to ingest, store, and analyze large volumes of diverse security data at scale. By centralizing all your security data into a single, open, and extensible platform, it delivers deep visibility, long-term retention, and advanced analytics.  
   
