@@ -17,7 +17,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Use chat completion configuration in a .NET console app
 
-In this guide, you build an AI chat application and iterate on the prompt using chat completion configuration dynamically loaded from Azure App Configuration.
+In this guide, you build an AI chat application and iterate on the prompt using chat completion configuration dynamically loaded from Azure App Configuration. Full [sample source code](https://github.com/Azure/AppConfiguration/tree/main/examples/DotNetCore/ChatApp) available.
 
 ## Prerequisites
 
@@ -197,7 +197,7 @@ In this guide, you build an AI chat application and iterate on the prompt using 
         // Get AI response and add it to chat conversation
         var response = await chatClient.CompleteChatAsync(chatMessages, requestOptions);
         string aiResponse = response.Value.Content[0].Text;
-        
+
         Console.WriteLine($"AI: {aiResponse}");
         chatConversation.Add(ChatMessage.CreateAssistantMessage(aiResponse));
 
@@ -366,7 +366,7 @@ In this guide, you build an AI chat application and iterate on the prompt using 
     - Role: **system**
     - Content: "You are a pirate and your name is Eddy."
 
-1. Type your message when prompted with "You:". Be sure to wait a few moments for the refresh interval to elapse, and then press the Enter key to see the updated AI response in the output
+1. Type your message when prompted with "You:". Be sure to wait a few moments for the refresh interval to elapse, and then press the Enter key to see the updated AI response in the output.
 
     ```Output
     Chat started! What's on your mind?
