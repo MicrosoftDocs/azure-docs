@@ -7,6 +7,7 @@ ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: As an IT administrator, I want to automate the email distribution of backup reports, so that I can efficiently monitor backup statuses and retrieve relevant data without manual intervention.
 ---
 
 # Email Azure Backup Reports

@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 05/12/2025
 ms.author: anfdocs
+# Customer intent: As a cloud architect, I want to understand the requirements and considerations for cross-region replication with Azure NetApp Files so that I can effectively plan and implement replication strategies for improved data availability and disaster recovery in my organization.
 ---
 
 # Requirements and considerations for Azure NetApp Files cross-region replication

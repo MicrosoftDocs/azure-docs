@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: devx-track-azurecli, ignite-2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to restore an Azure Database for PostgreSQL - Flexible Server using Azure CLI, so that I can recover data from backups to a specified storage account safely and efficiently.
 ---
 
 # Restore Azure Database for PostgreSQL - Flexible Servers using Azure CLI

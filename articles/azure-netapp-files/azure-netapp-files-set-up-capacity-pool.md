@@ -9,6 +9,7 @@ ms.date: 05/14/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
+# Customer intent: "As a cloud storage administrator, I want to create a capacity pool for Azure NetApp Files so that I can manage the storage volumes and configure their performance requirements effectively."
 ---
 # Create a capacity pool for Azure NetApp Files
 

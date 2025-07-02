@@ -10,6 +10,7 @@ ms.topic: concept-article
 ms.date: 11/21/2024
 ms.reviewer: dineshm
 ms.subservice: storage-common-concepts
+# Customer intent: As a cloud architect, I want to implement shared access signatures to securely delegate access to Azure Storage resources, so that I can maintain control over resource permissions and manage access efficiently across various client applications.
 ---
 
 # Grant limited access to Azure Storage resources using shared access signatures (SAS)

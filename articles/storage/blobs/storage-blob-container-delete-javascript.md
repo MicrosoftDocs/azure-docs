@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 10/28/2024
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: "As a developer using the Azure Blob Storage client library, I want to delete and restore blob containers using JavaScript or TypeScript, so that I can effectively manage the lifecycle of my storage resources while minimizing the risk of data loss."
 ---
 
 # Delete and restore a blob container with JavaScript or TypeScript

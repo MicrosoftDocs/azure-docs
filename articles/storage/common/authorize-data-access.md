@@ -10,6 +10,7 @@ ms.topic: concept-article
 ms.date: 01/24/2025
 ms.reviewer: nachakra
 ms.subservice: storage-common-concepts
+# Customer intent: As a cloud solution architect, I want to understand the various authorization methods for Azure Storage data access, so that I can implement the most secure and effective access controls for my organization's storage accounts.
 ---
 
 # Authorize access to data in Azure Storage

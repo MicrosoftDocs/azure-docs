@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 03/28/2025
 ms.author: anfdocs
+# Customer intent: As a storage administrator, I want to quickly revert a volume to a previous state using snapshot functionality, so that I can efficiently manage data recovery and minimize downtime in my cloud storage environment.
 ---
 
 # Revert a volume using snapshot revert with Azure NetApp Files

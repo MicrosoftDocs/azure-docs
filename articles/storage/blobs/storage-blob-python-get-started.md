@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 10/02/2024
 ms.custom: devx-track-python, devguide-python
 ai-usage: ai-assisted
+# Customer intent: As a Python developer, I want to integrate my application with Azure Blob Storage, so that I can efficiently manage and interact with data resources using the client library.
 ---
 
 # Get started with Azure Blob Storage and Python

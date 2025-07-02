@@ -9,6 +9,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: As a data engineer, I want to utilize blob index tags to categorize and search for blob objects in Azure Blob Storage, so that I can efficiently manage and retrieve data based on specific attributes.
 ---
 
 # Use blob index tags to manage and find data on Azure Blob Storage

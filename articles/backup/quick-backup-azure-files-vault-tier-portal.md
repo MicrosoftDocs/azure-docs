@@ -9,6 +9,7 @@ ms.date: 05/22/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an IT administrator, I want to create a backup policy for Azure Files using the Azure portal, so that I can ensure data protection and establish a reliable schedule for backup and recovery.
 ---
 
 #  Quickstart: Create a backup policy for Azure Files using Azure portal

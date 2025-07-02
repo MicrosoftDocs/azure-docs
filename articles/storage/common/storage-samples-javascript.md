@@ -10,6 +10,7 @@ ms.topic: sample
 ms.custom: devx-track-js
 ms.devlang: javascript
 ai-usage: ai-assisted
+# Customer intent: "As a developer using JavaScript, I want to access code samples for Azure Storage operations, so that I can quickly implement features like uploading and downloading data without having to write all the code from scratch."
 ---
 
 # Azure Storage samples using JavaScript client libraries

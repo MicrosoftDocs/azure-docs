@@ -10,6 +10,7 @@ ms.topic: concept-article
 ms.date: 04/07/2025
 ms.author: ssundara
 ms.custom: compute-evergreen
+# Customer intent: As a cloud service administrator, I want to migrate my services from Guest OS Family 1 to a supported OS Family, so that I can ensure the stability and continued support of my applications before the retirement deadline.
 ---
 
 # Guest OS Family 1 retirement notice

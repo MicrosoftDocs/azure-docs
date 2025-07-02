@@ -8,6 +8,7 @@ ms.topic: faq
 ms.date: 12/27/2024
 ms.update-cycle: 180-days
 ms.author: jsuri
+# Customer intent: As an Azure user, I want to understand the capabilities and limitations of the Azure Resource Mover, so that I can effectively plan and execute resource migrations across regions and subscriptions.
 ---
 
 # Common questions
