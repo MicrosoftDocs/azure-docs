@@ -177,7 +177,7 @@ landingContent:
             url: backup-azure-dpm-azure-server-faq.yml
           - text: Install and upgrade MABS
             url: backup-azure-microsoft-azure-backup.md
-      - linkListType: how-to
+      - linkListType: how-to-guide
         links:
           - text: Offline backup using Azure Data Box
             url: offline-backup-azure-data-box.md
