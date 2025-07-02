@@ -7,6 +7,7 @@ ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 
+# Customer intent: As an IT administrator, I want to install the Recovery Services agent on my Windows machines, so that I can back up files, folders, and system state data to Azure for data protection and recovery.
 ---
 
 # Install the Azure Backup MARS agent
@@ -64,11 +65,11 @@ To modify the storage replication type, follow these steps:
 > You can't modify the storage replication type after the vault is set up and contains backup items. If you want to do this, you need to re-create the vault.
 >
 
-## Configure Recovery Services vault to save passphrase to Recovery Services vault
+## Configure Recovery Services vault to save passphrase to Azure Key Vault
 
-Azure Backup using the Recovery Services agent (MARS) allows you to back up file or folder and system state data to Azure Recovery Services vault. This data is encrypted using a passphrase provided during the installation and registration of the MARS agent. This passphrase is required to retrieve and restore the backup data and needs to be saved in a secure external location, such as Azure Key Vault.
+Azure Backup using the Recovery Services agent (MARS) allows you to back up file or folder and system state data to Azure Recovery Services vault. This data is encrypted using a passphrase provided during the installation and registration of the MARS agent. This passphrase is required to retrieve and restore the backup data and needs to be saved in a secure external location, such as Key Vault.
 
-We recommend you to create a Key Vault and provide permissions to your Recovery Services vault to save the passphrase to the Key Vault. [Learn more](save-backup-passphrase-securely-in-azure-key-vault.md).
+We recommend you create a key vault and provide permissions to your Recovery Services vault to save the passphrase to the key vault. [Learn more](save-backup-passphrase-securely-in-azure-key-vault.md).
 
 ### Verify internet access
 

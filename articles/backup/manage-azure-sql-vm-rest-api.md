@@ -7,6 +7,7 @@ ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 
+# Customer intent: "As a database administrator, I want to manage and monitor SQL server databases in Azure VMs using REST API, so that I can automate backup and restore operations efficiently and track the job status effectively."
 ---
 
 # Manage SQL server databases in Azure VMs using REST API

@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 05/09/2024
 ms.author: kendownie
 ms.custom: devx-track-azurecli, linux-related-content
+# Customer intent: As a Linux system administrator, I want to configure a point-to-site VPN to connect to Azure file shares, so that I can securely access and mount my Azure file shares directly from my on-premises environment.
 ---
 
 # Configure a point-to-site (P2S) VPN on Linux for use with Azure Files
@@ -227,7 +228,7 @@ sudo ipsec up $VIRTUAL_NETWORK_NAME
 
 ## Mount Azure file share
 
-After seting up your Point-to-Site VPN, you can mount your Azure file share. See [Mount SMB file shares to Linux](storage-how-to-use-files-linux.md) or [Mount NFS file share to Linux](storage-files-how-to-mount-nfs-shares.md). 
+After setting up your Point-to-Site VPN, you can mount your Azure file share. See [Mount SMB file shares to Linux](storage-how-to-use-files-linux.md) or [Mount NFS file share to Linux](storage-files-how-to-mount-nfs-shares.md). 
 
 ## See also
 

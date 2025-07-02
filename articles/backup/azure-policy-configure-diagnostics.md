@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 07/18/2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to apply diagnostics settings to all Recovery Services vaults at once using policy enforcement, so that I can streamline monitoring and reporting without manually configuring each vault.
 ---
 # Configure Vault Diagnostics settings at scale
 

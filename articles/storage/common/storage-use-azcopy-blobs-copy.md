@@ -8,6 +8,7 @@ ms.date: 10/31/2023
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: dineshm
+# Customer intent: As a cloud administrator, I want to use AzCopy to efficiently copy blobs, directories, and containers between Azure storage accounts, so that I can manage data transfers seamlessly and ensure data availability in different environments.
 ---
 
 # Copy blobs between Azure storage accounts by using AzCopy

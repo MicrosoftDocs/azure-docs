@@ -6,6 +6,7 @@ ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 10/30/2023
 ms.author: allensu
+# Customer intent: As a network administrator, I want to leverage cloud-based monitoring solutions for my hybrid network infrastructure, so that I can ensure optimal performance, troubleshoot issues, and maintain connectivity across my applications and services.
 ---
 # Network monitoring solutions 
 

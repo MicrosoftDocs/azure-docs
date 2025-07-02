@@ -11,6 +11,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: "As a Python developer working with Azure Storage, I want to understand how to copy blobs using the client library, so that I can efficiently manage data transfer within and between storage accounts."
 ---
 
 # Copy a blob with Python

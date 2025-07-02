@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+# Customer intent: "As a developer using Java, I want to copy a blob from a source object URL to Azure Blob Storage, so that I can easily manage and transfer data between different storage accounts or accessible external sources."
 ---
 
 # Copy a blob from a source object URL with Java

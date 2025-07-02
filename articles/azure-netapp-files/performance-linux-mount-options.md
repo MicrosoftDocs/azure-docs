@@ -8,6 +8,7 @@ ms.custom: linux-related-content
 ms.topic: concept-article
 ms.date: 03/07/2024
 ms.author: anfdocs
+# Customer intent: "As a Linux system administrator, I want to configure optimal NFS mount options for Azure NetApp Files, so that I can enhance performance and reduce job run times in a multi-node environment."
 ---
 # Linux NFS mount options best practices for Azure NetApp Files
 

@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 05/02/2023
 ms.devlang: powershell
 ms.custom: devx-track-azurepowershell
+# Customer intent: As an Azure administrator, I want to manage block blobs using PowerShell so that I can efficiently upload, download, list, and delete large data files in my cloud storage environment.
 ---
 
 # Manage block blobs with PowerShell

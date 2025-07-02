@@ -11,6 +11,7 @@ ms.date: 02/10/2021
 ms.topic: how-to
 ms.service: azure-queue-storage
 ms.custom: devx-track-azurecli
+# Customer intent: "As a cloud developer, I want to authorize access to Azure Queue data using the Azure CLI, so that I can securely perform data operations while choosing from various authentication methods."
 ---
 
 # Choose how to authorize access to queue data with Azure CLI

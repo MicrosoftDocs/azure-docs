@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 01/03/2025
 ms.custom:
   - build-2025
+# Customer intent: As a system administrator, I want to manage SMB share access control lists in Azure NetApp Files so that I can control user permissions effectively and ensure proper access levels for shared resources.
 ---
 # Manage SMB share ACLs in Azure NetApp Files
 

@@ -2,17 +2,22 @@
 title: Restore files to Windows Server using the MARS Agent
 description: In this article, learn how to restore data stored in Azure to a Windows server or Windows computer with the Microsoft Azure Recovery Services (MARS) Agent.
 ms.topic: how-to
-ms.date: 08/14/2023
+ms.date: 06/20/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a system administrator, I want to restore files from Azure Backup to a Windows Server using the Recovery Services Agent, so that I can recover critical data from backup vaults quickly and efficiently, whether to the original machine or an alternate one."
 ---
 # Restore files to Windows Server using the MARS Agent
 
-This article explains how to restore data from a backup vault. To restore data, you use the Recover Data wizard in the Microsoft Azure Recovery Services (MARS) Agent. You can:
+This article describes how to restore data from a backup vault. To restore data, you use the Recover Data wizard in the Microsoft Azure Recovery Services (MARS) Agent.
+
+## Key features
+
+The MARS Agent enables seamless restoration of files to Windows Server. By using this feature, you can:
 
 * Restore data to the same machine from which the backups were taken.
 * Restore data to an alternate machine.
-* If you have Cross Region Restore enabled on your vault, you can restore the backup data from the secondary region.
+* Restore the backup data from the secondary region, if you have Cross Region Restore enabled on your vault.
 
 Use the Instant Restore feature to mount a writeable recovery point snapshot as a recovery volume. You can then explore the recovery volume and copy files to a local computer, thus selectively restoring files.
 
@@ -24,9 +29,11 @@ Use Instant Restore with Recovery Services vaults in the Azure portal. If you st
 
 [!INCLUDE [learn-about-deployment-models](~/reusable-content/ce-skilling/azure/includes/learn-about-deployment-models-rm-include.md)]
 
-## Use Instant Restore to recover data to the same machine
+## Recover data to the same machine using Instant Restore
 
-If you accidentally deleted a file and want to restore it to the same machine (from which the backup is taken), the following steps will help you recover the data.
+If you accidentally deleted a file, MARS allows you to restore it to the same machine (from which the backup is taken).
+
+To recover the data to the same machine, follow these steps:
 
 1. Open the **Microsoft Azure Backup** snap-in. If you don't know where the snap-in was installed, search the computer or server for **Microsoft Azure Backup**.
 
@@ -81,11 +88,9 @@ If you accidentally deleted a file and want to restore it to the same machine (f
     > If you don't select **Unmount**, the recovery volume will remain mounted for 6 hours from the time when it was mounted. However, the mount time is extended to a maximum of 7 days in  case of an ongoing file-copy. No backup operations will run while the volume is mounted. Any backup operation scheduled to run during the time when the volume is mounted will run after the recovery volume is unmounted.
     >
 
-## Use Instant Restore to restore data to an alternate machine
+## Restore data to an alternate machine using Instant Restore
 
-If your entire server is lost, you can still recover data from Azure Backup to a different machine. The following steps illustrate the workflow.
-
-These steps include the following terminology:
+If your entire server is lost, you can still recover data from Azure Backup to a different machine. Before you proceed, review the following terminology:
 
 * *Source machine* – The original machine from which the backup was taken, and which is currently unavailable.
 * *Target machine* – The machine to which the data is being recovered.
@@ -95,6 +100,7 @@ These steps include the following terminology:
 > Backups can't be restored to a target machine that's running an earlier version of the operating system. For example, a backup taken from a Windows 7 computer can be restored on a Windows 7 (or later) computer. A backup taken from a Windows 10 computer can't be restored to a Windows 7 computer.
 >
 >
+To recover the data to an alternate machine, follow these steps:
 
 1. Open the **Microsoft Azure Backup** snap-in on the target machine.
 

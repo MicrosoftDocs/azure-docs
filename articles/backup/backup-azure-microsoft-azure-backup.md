@@ -2,11 +2,12 @@
 title: Use Azure Backup Server to back up workloads
 description: In this article, learn how to prepare your environment to protect and back up workloads using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 11/23/2024
+ms.date: 06/27/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: "As an IT administrator, I want to set up Azure Backup Server to back up application workloads, so that I can ensure data protection and recovery for my organization's critical systems."
 ---
 
 # Install and upgrade Azure Backup Server
@@ -374,7 +375,7 @@ Use the following steps to upgrade MABS:
 
 ## Increase maximum parallel online backups
 
-You can increase the number of maximum parallel online backup jobs from the default 8 to a configurable number using the following registry keys (if your underlying hardware and network bandwidth can support it).
+You can increase the number of maximum parallel online backup jobs from the default 8 to a configurable limit of 20 using the following registry keys (if your underlying hardware and network bandwidth can support it).
 
 The example below increases the limit to 12 jobs.
 

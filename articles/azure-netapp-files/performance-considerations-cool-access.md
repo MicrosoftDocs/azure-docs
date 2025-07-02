@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 10/24/2024
 ms.author: anfdocs
+# Customer intent: "As a cloud architect analyzing data storage solutions, I want to understand the performance implications of using cool access with Azure NetApp Files, so that I can optimize costs and performance based on access patterns and workload characteristics."
 ---
 # Performance considerations for Azure NetApp Files storage with cool access
 
