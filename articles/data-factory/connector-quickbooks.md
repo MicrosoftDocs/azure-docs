@@ -1,5 +1,5 @@
 ---
-title: Copy data from QuickBooks Online
+title: Copy data from QuickBooks Online (Preview) 
 description: Learn how to copy data from QuickBooks Online to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
@@ -10,7 +10,7 @@ ms.custom: synapse
 ms.date: 06/11/2025
 ---
 
-# Copy data from QuickBooks Online using Azure Data Factory or Synapse Analytics
+# Copy data from QuickBooks Online using Azure Data Factory or Synapse Analytics (Preview)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from QuickBooks Online. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
@@ -19,7 +19,7 @@ This article outlines how to use the Copy Activity in an Azure Data Factory or S
 > This connector version 1.0 is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
 
 > [!IMPORTANT]
-> The QuickBooks connector version 2.0 provides improved native QuickBooks support. If you are using QuickBooks connector version 1.0 (Preview) in your solution, please [upgrade the QuickBooks connector](#upgrade-the-quickbooks-connector-from-version-10-to-version-20) before **August 31, 2025**. Refer to this [section](#quickbooks-connector-lifecycle-and-upgrade) for details on the difference between version 2.0 and version 1.0 (Preview).
+> The QuickBooks connector version 2.0 provides improved native QuickBooks support. If you are using QuickBooks connector version 1.0 in your solution, please [upgrade the QuickBooks connector](#upgrade-the-quickbooks-connector-from-version-10-to-version-20) before **August 31, 2025**. Refer to this [section](#quickbooks-connector-lifecycle-and-upgrade) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 
@@ -69,10 +69,10 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The QuickBooks connector now supports version 2.0. Refer to this [section](#upgrade-the-quickbooks-connector-from-version-10-to-version-20) to upgrade your QuickBooks connector version from version 1.0 (Preview). For the property details, see the corresponding sections.
+The QuickBooks connector now supports version 2.0. Refer to this [section](#upgrade-the-quickbooks-connector-from-version-10-to-version-20) to upgrade your QuickBooks connector version from version 1.0. For the property details, see the corresponding sections.
 
 - [Version 2.0](#version-20)
-- [Version 1.0 (Preview)](#version-10)
+- [Version 1.0](#version-10)
 
 ### Version 2.0
 
@@ -113,9 +113,9 @@ The QuickBooks linked service supports the following properties when apply versi
 }
 ```
 
-### <a name="version-10"></a> Version 1.0 (Preview)
+### <a name="version-10"></a> Version 1.0
 
-The following properties are supported for QuickBooks linked service when apply version 1.0 (Preview):
+The following properties are supported for QuickBooks linked service when apply version 1.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -201,7 +201,7 @@ To copy data from QuickBooks Online, set the source type in the copy activity to
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **QuickBooksSource** | Yes |
-| query | Use the custom SQL query to read data. <br><br>For version 2.0, you can only use QuickBooks native query with limitations. For more information, see [query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries). Note that the `tableName` specified in the query must match the `tableName` in the dataset. <br><br>For version 1.0 (Preview), you can use SQL-92 query. For example: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | No (if "tableName" in dataset is specified) |
+| query | Use the custom SQL query to read data. <br><br>For version 2.0, you can only use QuickBooks native query with limitations. For more information, see [query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries). Note that the `tableName` specified in the query must match the `tableName` in the dataset. <br><br>For version 1.0, you can use SQL-92 query. For example: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
@@ -242,7 +242,7 @@ The Copy Activity in the service cannot copy data directly from Quickbooks Deskt
 
 When you copy data from Quickbooks, the following mappings apply from Quickbooks's data types to the internal data types used by the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| Quickbooks data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0 (Preview)) |
+| Quickbooks data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
 |:--- |:--- |:--- |
 | String       | string            | string                 |
 | Boolean      | bool              | bool                   |
@@ -250,7 +250,7 @@ When you copy data from Quickbooks, the following mappings apply from Quickbooks
 | Decimal      | decimal (15,2)    | decimal (15, 2)        |
 | Enum         | string            | string                 |
 | Date         | datetime          | datetime               |
-| BigDecimal   | decimal (15,2)    | Decimal (15, 2)        |
+| BigDecimal   | decimal (15,2)    | decimal (15, 2)        |
 | Integer      | int               | int                    |
 
 ## Lookup activity properties
@@ -263,13 +263,13 @@ The following table shows the release stage and change logs for different versio
 
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
-| Version 1.0 (Preview) | End of support announced | / |  
+| Version 1.0 | End of support announced | / |  
 | Version 2.0 | GA version available | • `useEncryptedEndpoints` is not supported. <br><br>• SQL-92 query is not supported.  <br><br>• Support Quickbooks native query with limitations. GROUP BY clauses, JOIN clauses and Aggregate Function (Avg, Max, Sum) aren't supported. For more information, see [query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries). <br><br>• The `tableName` specified in the `query` must match the `tableName` in the dataset.  |
 
-### <a name="upgrade-the-quickbooks-connector-from-version-10-to-version-20"></a> Upgrade the Quickbooks connector from version 1.0 (Preview) to version 2.0
+### <a name="upgrade-the-quickbooks-connector-from-version-10-to-version-20"></a> Upgrade the Quickbooks connector from version 1.0 to version 2.0
 
 1. In **Edit linked service** page, select 2.0 for version. For more information, see [linked service version 2.0 properties](#version-20).
-1. If you use SQL query in the copy activity source or the lookup activity that refers to the version 1.0 (Preview) linked service, you need to convert them to the QuickBooks native query. Learn more about native query from [Quickbooks as a source type](#quickbooks-as-source) and [query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries).
+1. If you use SQL query in the copy activity source or the lookup activity that refers to the version 1.0 linked service, you need to convert them to the QuickBooks native query. Learn more about native query from [Quickbooks as a source type](#quickbooks-as-source) and [query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
