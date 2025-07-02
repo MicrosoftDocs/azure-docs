@@ -34,15 +34,13 @@ Key traits for echo cancelation:
 > [!IMPORTANT]
 > **Noise Suppression** features are available in GA SDK version `1.28.4` or later, alongside the Azure Communication Services Calling Effects SDK version GA `1.1.2` or later. The general availability (GA) stable version `1.28.4` and later of the Calling SDK support noise suppression features. Alternatively, if you opt to use the public preview version, Calling SDK versions `1.24.2-beta.1` and later also support noise suppression.
 
-> This tutorial employs the Azure Communication Services Calling SDK version `1.28.4` or later, alongside the Azure Communication Services Calling Effects SDK version `1.1.2` or later. The general availability (GA) stable version `1.28.4` and later of the Calling SDK support noise suppression features. Alternatively, if you opt to use the public preview version, Calling SDK versions `1.24.2-beta.1` and later also support noise suppression.
-> 
-> Current browser support for adding audio noise suppression effects is available only on Chrome and Microsoft Edge desktop browsers.
-
 > [!IMPORTANT]
 > **Echo Cancellation** features are available in public preview SDK version [1.37.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1371-beta1-2025-06-16). Also note that to use echo cancelation you must use public preview audio effects SDK version beta version [1.21.1-beta](https://www.npmjs.com/package/@azure/communication-calling-effects/v/1.2.1-beta.1) or later.
 
 > [!NOTE]
 > - Utilizing audio effects is available only on Chrome and Edge desktop browsers.
+
+> [!NOTE]
 > - The audio effects library isn't a standalone module and can't function independently. To utilize its capabilities the effects package must be integrated with the Azure Communication Services Calling client library for WebJS.
 > - If you use the GA version of the Calling SDK, you must use the [GA version](https://www.npmjs.com/package/@azure/communication-calling-effects/v/latest) of the Calling audio effects package.
 
