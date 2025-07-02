@@ -3,6 +3,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.topic: include
 ms.date: 08/02/2023
+# Customer intent: "As an IT administrator managing virtual machines, I want to configure patch orchestration schedules, so that I can ensure my systems are updated and maintain business continuity."
 ---
 
 
