@@ -40,17 +40,29 @@ The minimum size of the subnet in which API Management can be deployed is /29, w
 
 * When deploying into an [internal virtual network](./api-management-using-with-internal-vnet.md), the instance requires an extra IP address for the internal load balancer.
 
+> [!NOTE]
+> When considering a subnet size, it is advisable to err on the side of caution due to the integral role that API Management typically holds. Consider growth and scaling in your sizing.
+
 ### Examples
 
-* **/29 subnet**: 8 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP address for internal load balancer, if used in internal mode = 0 remaining IP addresses left for scale-out units.  
-  
-* **/28 subnet**: 16 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP address for internal load balancer, if used in internal mode = 8 remaining IP addresses left for four scale-out units (2 IP addresses/scale-out unit) for a total of five units.   
-  
-* **/27 subnet**: 32 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP address for internal load balancer, if used in internal mode = 24 remaining IP addresses left for 12 scale-out units (2 IP addresses/scale-out unit) for a total of 13 units. 
-  
-* **/26 subnet**: 64 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP address for internal load balancer, if used in internal mode = 56 remaining IP addresses left for 28 scale-out units (2 IP addresses/scale-out unit) for a total of 29 units. 
-  
-* **/25 subnet**: 128 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP address for internal load balancer, if used in internal mode = 120 remaining IP addresses left for 60 scale-out units (2 IP addresses/scale-out unit) for a total of 61 units. This is a large, theoretical number of scale-out units. 
+The following table shows subnet sizing examples for API Management virtual network injection, illustrating how different CIDR blocks affect the number of scale-out units possible:
+
+| Subnet CIDR | Total IP Addresses | Azure Reserved IPs | API Management Instance IPs | Internal Load Balancer IP | Remaining IPs for Scale-out | Max Scale-out Units | Total Max Units |
+|------------:|-------------------:|-------------------:|----------------------------:|--------------------------:|----------------------------:|--------------------:|----------------:|
+|        /29  |                  8 |                  5 |                           2 |                         1 |                           0 |                   0 |               1 |
+|        /28  |                 16 |                  5 |                           2 |                         1 |                           8 |                   4 |               5 |
+|        /27  |                 32 |                  5 |                           2 |                         1 |                          24 |                  12 |              13 |
+|        /26  |                 64 |                  5 |                           2 |                         1 |                          56 |                  28 |              29 |
+|        /25  |                128 |                  5 |                           2 |                         1 |                         120 |                 60* |             61* |
+
+## Key Points
+
+- **Minimum subnet size**: /29 (provides 3 usable IP addresses for API Management)
+- **Azure reserved IPs**: 5 addresses per subnet (first and last for protocol conformance, plus 3 for Azure services)
+- **Scale-out requirement**: Each scale-out unit requires 2 IP addresses
+- **Internal load balancer**: Only required when API Management is deployed in internal virtual network mode
+- **Premium SKU limit**: * Currently supports up to 31 units maximum
+- **Recommended sizing**: For high-scale scenarios approaching the Premium SKU limit, consider /26 or /25 subnets
 
 > [!NOTE]
 > It is currently possible to scale the Premium SKU to 31 units. If you foresee demand approaching this limit, consider the /26 subnet or /25 subnet.
