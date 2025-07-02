@@ -2,11 +2,11 @@
 author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 03/26/2024
+ms.date: 06/28/2025
 ms.author: jsaurezlee
 ---
 
-## Considerations for Windows push notifications
+## Implement Windows push notifications
 
 Mobile push notifications are the pop-up notifications that appear on mobile devices. For calling, this article focuses on voice over Internet Protocol (VoIP) push notifications.
 
@@ -60,7 +60,7 @@ Before you start the tasks of registering for, handling, and showing a Windows n
    }
    ```
 
-1. Register the event handler that's activated when a new push notification message arrives on `App.xaml.cs`:
+1. Register the event handler activated when a new push notification message arrives on `App.xaml.cs`:
 
    ```C#
    // App.xaml.cs

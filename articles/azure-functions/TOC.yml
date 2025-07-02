@@ -726,8 +726,6 @@
           href: functions-hybrid-powershell.md
     - name: Troubleshoot
       items:
-        - name: SRE Agent overview
-          href: ../app-service/sre-agent-overview.md?toc=/azure/azure-functions/toc.json
         - name: Storage connections
           href: functions-recover-storage-account.md
           displayName: troubleshoot
@@ -762,6 +760,8 @@
           displayName: upgrade, migrate, language stack
         - name: Migrate Node.js to model v4.x
           href: functions-node-upgrade-v4.md
+    - name: Migrate Consumption plan apps to Flex Consumption
+      href: migration/migrate-plan-consumption-to-flex.md    
     - name: Migrate .NET apps to the isolated model
       href: migrate-dotnet-to-isolated-model.md
     - name: Move resources
