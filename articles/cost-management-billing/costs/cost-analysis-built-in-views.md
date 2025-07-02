@@ -4,16 +4,16 @@ titleSuffix: Microsoft Cost Management
 description:  This article helps you understand when to use which view, how each one provides unique insights about your costs and recommended next steps to investigate further.
 author: shasulin
 ms.author: shasulin
-ms.date: 01/07/2025
+ms.date: 06/27/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: shasulin
 ---
 
-# Use built-in views in Cost analysis
+# Use built-in views in Cost Analysis
 
-Cost Management includes several tools to help you view and monitor your cloud costs. As you get started, cost analysis is the first one you should familiarize yourself with. And within cost analysis, you'll start with built-in views. This article helps you understand when to use which view, how each one provides unique insights about your costs and recommended next steps to investigate further.
+Cost Management includes several tools to help you view and monitor your cloud costs. As you get started, Cost Analysis is the first one you should familiarize yourself with. And within Cost Analysis, you'll start with built-in views. This article helps you understand when to use which view, how each one provides unique insights into your costs and recommended next steps to investigate further.
 
 <a name="Resources"></a>
 <a name="CostByResource"></a>
@@ -58,7 +58,7 @@ Use either view to:
 
 ## Analyze resource group costs
 
-The **Resource groups** view separates each resource group in your subscription, management group, or billing account showing nested resources.
+The **Resource groups** view aggregates costs by resource group in your subscription, management group, or billing account, showing nested resources.
 
 Use this view to:
 
@@ -165,4 +165,4 @@ Use the **Invoice details** view to:
 ## Related content
 
 - Now that you're familiar with using built-in views, read about [Saving and sharing customized views](save-share-views.md).
-- Learn about how to [Customize views in cost analysis](customize-cost-analysis-views.md)
+- Learn about how to [Customize views in Cost Analysis](customize-cost-analysis-views.md)
