@@ -157,8 +157,8 @@ To install the Hybrid Connection Manager on Linux, from your terminal running as
 ```bash
 sudo apt update
 sudo apt install tar gzip build-essential
-wget "https://download.microsoft.com/download/HybridConnectionManager-Linux.tar.gz"
-tar -xf HybridConnectionManager-Linux.tar.gz
+sudo wget "https://download.microsoft.com/download/HybridConnectionManager-Linux.tar.gz"
+sudo tar -xf HybridConnectionManager-Linux.tar.gz
 cd HybridConnectionManager/
 sudo chmod 755 setup.sh
 sudo ./setup.sh

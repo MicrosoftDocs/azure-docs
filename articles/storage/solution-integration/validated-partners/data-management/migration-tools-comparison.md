@@ -4,7 +4,7 @@ description: Basic functionality and comparison between tools used for migration
 author: beber
 ms.author: beber
 ms.topic: concept-article
-ms.date: 08/25/2023
+ms.date: 07/02/2025
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
 ---
@@ -57,7 +57,7 @@ The following comparison matrix shows basic functionality of different tools tha
 | **NFS v3**         | Source/Destination (Azure Blob NFSv3)  | Source/Destination (Azure Blob NFSv3) | Source/Destination (Azure Blob NFSv3) | Yes | Yes | Yes |
 | **NFS v4.1**       | Source | Source | Source | Yes | No | Yes |
 | **Blob REST API**  | Yes  | Destination | Destination | Yes | Yes | Yes |
-| **S3**             | Source | No | No | Yes | Yes | Yes |
+| **S3**             | Source | No | Source | Yes | Yes | Yes |
 | **Google Cloud Storage** | Source | No | No | Yes | Yes | Yes |
 
 ## Extended features
