@@ -127,7 +127,7 @@ Alternatively, if your invoice is under the threshold amount for your currency, 
 > When multiple invoices are remitted in a single wire transfer, you must specify the invoice numbers for all of the invoices.
 
 >[!IMPORTANT]
-> SEPA (Single Euro Payments Area) transfers allow up to 140 characters in the payment details field. Exceeding this limit may cause processing issues.
+> SEPA (Single Euro Payments Area) transfers allow up to 140 characters in the payment details field. Exceeding this limit might cause processing issues.
 
 ### Bank details used to send wire transfer payments
 <a name="wire-bank-details"></a>
