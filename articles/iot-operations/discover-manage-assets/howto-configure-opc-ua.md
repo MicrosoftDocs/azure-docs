@@ -12,15 +12,15 @@ ms.date: 06/25/2025
 
 # Manage asset and device configurations
 
-An _asset_ in Azure IoT Operations is a logical entity that you create to represent a real asset. An Azure IoT Operations asset can have properties, data points, and events that describe its behavior and characteristics.
-
 _OPC UA servers_ are software applications that communicate with assets. OPC UA servers expose _OPC UA data points_ that represent data points. OPC UA data points provide real-time or historical data about the status, performance, quality, or condition of assets.
 
-A _device_ is a custom resource in your Kubernetes cluster that connects OPC UA servers to connector for OPC UA modules. This connection enables a connector for OPC UA to access an asset's data points. Without a device, data can't flow from an OPC UA server to the connector for OPC UA and MQTT broker. After you configure the custom resources in your cluster, a connection is established to the downstream OPC UA server and the server forwards messages such as sensor data to the connector for OPC UA.
+[!INCLUDE [iot-operations-asset-definition](../includes/iot-operations-asset-definition.md)]
+
+[!INCLUDE [iot-operations-device-definition](../includes/iot-operations-device-definition.md)]
 
 This article describes how to use the operations experience web UI and the Azure CLI to:
 
-- Define the devices that connect assets to your Azure IoT Operations instance.
+- Define the devices that connect OPC UA servers to your Azure IoT Operations instance.
 - Add assets, and define their data points and events to enable data flow from OPC UA servers to the MQTT broker.
 
 These assets, data points, and events map inbound data from OPC UA servers to friendly names that you can use in the MQTT broker and data flows.
@@ -127,12 +127,12 @@ To add an asset in the operations experience:
 
 1. On the asset details screen, enter the following asset information:
 
-    - device. Select your device from the list.
+    - Device. Select your device from the list.
     - Asset name
     - Description
     - The MQTT topic that the asset publishes to. The default is `<namespace>/data/<asset-name>`.
 
-1. Configure the set of properties that you want to associate with the asset. You can accept the default list of properties or add your own. The following properties are available by default:
+1. Configure the set of custom properties that you want to associate with the asset. You can accept the default list of properties or add your own. The following properties are available by default:
 
     - Manufacturer
     - Manufacturer URI

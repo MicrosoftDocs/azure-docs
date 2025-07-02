@@ -11,15 +11,17 @@ ms.date: 06/25/2025
 
 # Manage asset configurations
 
-An _asset_ in Azure IoT Operations is a logical entity that you create to represent a real asset. An Azure IoT Operations asset can have properties, tags, and events that describe its behavior and characteristics.
-
-_OPC UA servers_ are software applications that communicate with assets. OPC UA servers expose _OPC UA tags_ that represent data points. OPC UA tags provide real-time or historical data about the status, performance, quality, or condition of assets.
-
-A _device_ is a custom resource in your Kubernetes cluster that connects OPC UA servers to connector for OPC UA modules. This connection enables a connector for OPC UA to access an asset's data points. Without a device, data can't flow from an OPC UA server to the connector for OPC UA and MQTT broker. After you configure the custom resources in your cluster, a connection is established to the downstream OPC UA server and the server forwards messages such as sensor data to the connector for OPC UA.
-
 A _site_ is a collection of Azure IoT Operations instances. Sites typically group instances by physical location and make it easier for OT users to locate and manage assets. Your IT administrator creates sites and assigns Azure IoT Operations instances to them. To learn more, see [What is Azure Arc site manager (preview)?](/azure/azure-arc/site-manager/overview).
 
-In the operations experience web UI, an _instance_ represents an Azure IoT Operations cluster. An instance can have one or more devices.
+In the operations experience web UI, an _instance_ represents an Azure IoT Operations cluster.
+
+[!INCLUDE [iot-operations-asset-definition](../includes/iot-operations-asset-definition.md)]
+
+[!INCLUDE [iot-operations-device-definition](../includes/iot-operations-device-definition.md)]
+
+An _inbound endpoint_ is a logical endpoint that you create to represent a physical device or asset. Inbound endpoints have a type, such as OPC UA or ONVIF, that determines the type of of physical device or asset to connect to. The available types of inbound endpoints depend on the connector templates the IT admin configured in the Azure portal. Each type of inbound endpoint has it's own set of properties that you can configure. For example, an OPC UA inbound endpoint has properties such as the OPC UA server URL, security mode, and security policy.
+
+In the operations experience web UI, an _instance_ represents an Azure IoT Operations cluster.
 
 This article describes how to use the operations experience web UI and the Azure CLI to:
 

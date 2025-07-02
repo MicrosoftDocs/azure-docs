@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
 ms.date: 04/08/2025
 
-#CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
+#CustomerIntent: As an IT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
 
 # Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster
