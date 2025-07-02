@@ -21,12 +21,6 @@ Networking is a foundational aspect of deploying and managing distributed system
 
 The Azure Arc gateway acts as a network proxy that lets you simplify network configuration requirements by reducing the number of Azure endpoints to allow through your firewall. By routing traffic through the gateway, you can simplify firewall rules and reduce the need for complex network changes. This approach is especially useful for securely connecting isolated or segmented environments to Azure Arc and Azure IoT Operations.
 
-For more information, see [How to simplify network configuration requirements with Azure Arc gateway (preview)](/azure/azure-arc/servers/arc-gateway).
-
-## Connected Kubernetes clusters
-
-The Azure Arc gateway for connected Kubernetes clusters enables you to register and manage clusters behind firewalls or in private networks. It reduces the need for outbound connectivity from each cluster by centralizing network egress through the gateway. This approach streamlines onboarding and ongoing management of clusters in secure or restricted environments.
-
 For more information, see [Simplify network configuration requirements with Azure Arc gateway (preview)](/azure/azure-arc/kubernetes/arc-gateway-simplify-networking).
 
 ## Explicit proxy usage
