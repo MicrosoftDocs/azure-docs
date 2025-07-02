@@ -109,7 +109,9 @@ az afd origin create --enabled-state Enabled \
 
 ::: zone-end
 
-## Approve private endpoint connection from the storage account
+## Approve Front Door private endpoint connection from the storage account
+
+::: zone pivot="front-door-portal"
 
 1. Go to the storage account you configured Private Link for in the previous section.
 
@@ -121,7 +123,25 @@ az afd origin create --enabled-state Enabled \
 
     :::image type="content" source="../media/how-to-enable-private-link-storage-account/private-endpoint-pending-approval.png" alt-text="Screenshot of pending storage private endpoint request.":::
 
-    It takes a few minutes for the connection to fully establish after approval. Once established, you can access your storage account privately through Azure Front Door Premium.
+::: zone-end
+
+::: zone pivot="front-door-cli"
+
+1. Use the [az network private-endpoint-connection list](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-list) command to list the private endpoint connections for your storage account. Note the `Resource ID` of the private endpoint connection from the output.
+
+    ```azurecli-interactive
+    az network private-endpoint-connection list --name mystorage --resource-group myResourceGroup --type Microsoft.Storage/storageAccounts
+    ```
+
+2. Use the [az network private-endpoint-connection approve](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-approve) command to approve the private endpoint connection.
+
+    ```azurecli-interactive
+    az network private-endpoint-connection approve --id /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorage/privateEndpointConnections/mystorage.aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
+    ```
+
+::: zone-end
+
+    It takes a few minutes for the connection to fully establish after approval. Once established, you can access your storage account privately through Azure Front Door Premium. Public internet access to the storage account is disabled once the private endpoint is enabled.
 
 > [!NOTE]
 > If the blob or container within the storage account doesn't permit anonymous access, requests made against the blob/container should be authorized. One option for authorizing a request is by using [shared access signatures](../../storage/common/storage-sas-overview.md).
@@ -135,4 +155,5 @@ The following are common mistakes when configuring an origin with Azure Private 
 
 ## Related content
 
-Learn about [Private Link service with storage account](../../storage/common/storage-private-endpoints.md).
+- [Connect Azure Front Door to an internal load balancer origin with Private Link](how-to-enable-private-link-internal-load-balancer.md)
+- [Private Link service with storage account](../../storage/common/storage-private-endpoints.md)
