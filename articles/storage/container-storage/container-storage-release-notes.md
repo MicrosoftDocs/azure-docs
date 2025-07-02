@@ -38,7 +38,7 @@ A **major release** introduces significant changes, often including new features
 
 ### Improvements and issues that are fixed
 
-- **Bug fixes and recovery improvements**: We’ve made important updates to make etcd recovery stable and reliable. Now, the process includes enhanced retries making cluster restoration smoother and easier to manage. We have also fixed bugs in Azure Disks and Azure Elastic SAN storage pool creation and addressed upgrade failures caused by Kubernetes job name length limits.
+- **Bug fixes and recovery improvements**: We’ve made important updates to make etcd recovery stable and reliable. Now, the process includes enhanced retries making cluster restoration smoother and easier to manage. We have also fixed bugs in Azure Disks and Azure Elastic SAN storage pool creation and addressed upgrade failures caused by Kubernetes job name length limits. This release also addresses an issue where Azure Container Storage extension installation with Azure Elastic SAN was failing due to a missing etcd certificate by ensuring etcd components are not deployed when unnecessary.
 - **Expanded platform compatibility and scheduling fixes**: We've resolved issues with Azure Container Storage pods being incorrectly scheduled to Windows nodes in mixed OS clusters by enforcing node affinity rules. Additionally, we've added support for Elastic SAN on Azure Linux 3.0 nodes.
 - **Safeguards to prevent storage pool deletion**: Measures have been implemented to prevent the deletion of storage pools with existing persistent volumes when created through custom storage classes.
   
@@ -46,7 +46,7 @@ A **major release** introduces significant changes, often including new features
 
 ### Improvements and issues that are fixed
 
-- **Bug fixes-Prometheus Operator**: In previous versions, some customers faced difficulties disabling Azure Container Storage’s default Prometheus operator when using a custom Prometheus deployment. This issue has now been fixed, allowing users to successfully turn off the built-in operator without conflict.  
+- **Bug fixes-Prometheus Operator**: In previous versions, some customers faced difficulties disabling Azure Container Storage’s default Prometheus operator when using a custom Prometheus deployment. This issue has now been fixed, allowing users to successfully turn off the built-in operator without conflict.
 - **Performance Tuning for SQL-based Databases**: Running MySQL and PostgreSQL on Azure Container Storage is up to 5x faster on ephemeral disks. For more information and examples, refer to the [PostgreSQL on AKS deployment guide](/azure/aks/postgresql-ha-overview).
   
 ## Version 1.2.1
