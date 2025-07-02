@@ -39,8 +39,6 @@ Key traits for echo cancelation:
 
 > [!NOTE]
 > - Utilizing audio effects is available only on Chrome and Edge desktop browsers.
-
-> [!NOTE]
 > - The audio effects library isn't a standalone module and can't function independently. To utilize its capabilities the effects package must be integrated with the Azure Communication Services Calling client library for WebJS.
 > - If you use the GA version of the Calling SDK, you must use the [GA version](https://www.npmjs.com/package/@azure/communication-calling-effects/v/latest) of the Calling audio effects package.
 
@@ -87,9 +85,13 @@ audioEffectsFeatureApi.on('effectsStopped', (activeEffects: ActiveAudioEffects) 
     console.log(`Current status audio effects: ${activeEffects}`);
 });
 
-
 audioEffectsFeatureApi.on('effectsError', (error: AudioEffectErrorPayload) => {
     console.log(`Error with audio effects: ${error.message}`);
+});
+
+// Start Communication Services Noise Suppression
+await audioEffectsFeatureApi.startEffects({
+    noiseSuppression: deepNoiseSuppression
 });
 ```
 ### Enable Echo Cancellation
@@ -107,6 +109,11 @@ const localAudioStreamInCall = call.localAudioStreams[0];
 
 // Get the audio effects feature API from LocalAudioStream
 const audioEffectsFeatureApi = localAudioStreamInCall.feature(AzureCommunicationCallingSDK.Features.AudioEffects);
+
+// Start Communication Services echo cancellation
+await audioEffectsFeatureApi.startEffects({
+    echoCancellation: echoCancellationEffect
+}); 
 
 ```
 ### Validate that the current browser environment supports audio effects
@@ -128,7 +135,7 @@ if (isNoiseSuppressionSupported) {
 ```
 
 ## Bring it all together: Load and start noise suppression and echo cancelation  
-To initiate a call with noise suppression and echo cancelation enabled, create a new `LocalAudioStream` property using `AudioDeviceInfo`. Ensure that the `LocalAudioStream` source isn't set as a raw `MediaStream` property to support audio effects. Then, include this property within `CallStartOptions.audioOptions` when starting the call.
+To initiate a call with both **noise suppression** and **echo cancelation** enabled, create a new `LocalAudioStream` property using `AudioDeviceInfo`. Ensure that the `LocalAudioStream` source isn't set as a raw `MediaStream` property to support audio effects. Then, include this property within `CallStartOptions.audioOptions` when starting the call.
 
 ```js
 import { EchoCancellationEffect, DeepNoiseSuppressionEffect } from '@azure/communication-calling-effects';
@@ -214,7 +221,7 @@ await audioEffectsFeatureApi.stopEffects({
 ```
 
 ## Check what audio effects are active
-To check what noise suppression effects are currently active, you can use the `activeEffects` property. The `activeEffects` property returns an object with the names of the current active effects.
+To check what noise suppression effects are currently active, you can use the `activeEffects` property. The `activeEffects` property returns an object with the names of the current active effects. See [here](/javascript/api/azure-communication-services/@azure/communication-calling/activeaudioeffects?view=azure-communication-services-js) for more details on the 'activeEffects' interface.
 
 ```js
 import { EchoCancellationEffect, DeepNoiseSuppressionEffect } from '@azure/communication-calling-effects';
@@ -225,20 +232,16 @@ const localAudioStreamInCall = call.localAudioStreams[0];
 // Get the audio effects feature API from LocalAudioStream
 const audioEffectsFeatureApi = localAudioStreamInCall.feature(AzureCommunicationCallingSDK.Features.AudioEffects);
 
-// Subscribe to useful events that show audio effects status
-audioEffectsFeatureApi.on('effectsStarted', (activeEffects: ActiveAudioEffects) => {
-    console.log(`Current status audio effects: ${activeEffects}`);
-});
+// Get the current active effects
+const activeAudioEffects = audioEffectsFeatureApi.activeEffects;
 
-
-audioEffectsFeatureApi.on('effectsStopped', (activeEffects: ActiveAudioEffects) => {
-    console.log(`Current status audio effects: ${activeEffects}`);
-});
-
-
-audioEffectsFeatureApi.on('effectsError', (error: AudioEffectErrorPayload) => {
-    console.log(`Error with audio effects: ${error.message}`);
-});
+if (activeAudioEffects.noiseSuppression === 'DeepNoiseSuppression') {
+    // Deep Noise Suppression is currently active
+}
+if (activeAudioEffects.echoCancellation === 'EchoCancellation') {
+    // Echo Cancellation is currently active
+}
+;
 ```
 ## Best Practices
 The Azure Communication Services WebJS audio effects package provides tools for reducing unwanted sounds. Other measures can be taken to improve audio quality, such as:
