@@ -15,7 +15,7 @@ ms.author: normesta
 
 Azure Storage firewall rules provide granular control over network access to your storage account's public endpoint. By default, storage accounts allow connections from any network, but you can restrict access by configuring network rules that define which sources can connect to your storage account.
 
-You can configure four types of network access rules:
+You can configure four types of network rules:
 
 - **Virtual network rules**: Allow traffic from specific subnets within Azure Virtual Networks
 - **IP network rules**: Allow traffic from specific public IP address ranges  
@@ -25,7 +25,7 @@ You can configure four types of network access rules:
 When network rules are configured, only traffic from explicitly allowed sources can access your storage account through its public endpoint. All other traffic is denied.
 
 > [!NOTE]
-> Network rules control network-level access but don't replace authentication and authorization requirements. Clients from allowed sources must still meet the authorization requirements of the storage account. To learn more about account authorization, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
+> Clients that make requests from allowed sources must also meet the authorization requirements of the storage account. To learn more about account authorization, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
 
 <a id="grant-access-from-a-virtual-network"></a>
 <a id="azure-storage-cross-region-service-endpoints"></a>

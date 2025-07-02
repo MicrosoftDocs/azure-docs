@@ -28,7 +28,7 @@ Where possible, create private links to your storage account to secure access th
 
 ## Public endpoints
 
-The *public endpoint* of your storage account is accessed through a public IP address. If you use only private endpoints, then you should disable all traffic to the storage account's public IP address. If some clients use a private link, or you choose not to use private endpoints for cost or other reasons, then you can secure the public endpoint of your storage account by using firewall rules or by adding your storage account to a network security perimeter.
+The *public endpoint* of your storage account is accessed through a public IP address. You can secure the public endpoint of your storage account by using firewall rules or by adding your storage account to a network security perimeter.
 
 ### Firewall rules
 

@@ -43,7 +43,8 @@ For a complete list of trusted Azure services, see [Trusted Azure services](stor
 
 3. Configure the exceptions for the storage account network rules:
 
-    ```powershell    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass AzureServices,Metrics,Logging
+    ```powershell    
+    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass AzureServices,Metrics,Logging
     ```
 
 4. Remove the exceptions from the storage account network rules:
@@ -64,7 +65,8 @@ For a complete list of trusted Azure services, see [Trusted Azure services](stor
 
 3. Configure the exceptions for the storage account network rules:
 
-    ```azurecli    az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --bypass Logging Metrics AzureServices
+    ```azurecli    
+    az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --bypass Logging Metrics AzureServices
     ```
 
 4. Remove the exceptions from the storage account network rules:
