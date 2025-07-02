@@ -93,7 +93,7 @@ Depending on whether you're creating new resources or using existing ones, add t
 For more information, see [Azure permissions for Networking](../role-based-access-control/permissions/networking.md) and [Virtual network permissions](../virtual-network/virtual-network-manage-subnet.md#permissions).
 
 > [!NOTE]
-> When deploying an Application Gateway as part of an [Azure Managed Applicaton](../articles/azure-resource-manager/managed-applications/overview.md), ensure that any deny assignments do not conflict with the RBAC Owner role assignment, as deny assignments take precedence over RBAC permissions.
+> When deploying an Application Gateway as part of an [Azure Managed Applicaton](../azure-resource-manager/managed-applications/overview.md), ensure that any deny assignments do not conflict with the RBAC Owner role assignment, as deny assignments take precedence over RBAC permissions.
 
 ## Roles scope
 In the process of custom role definition, you can specify a role assignment scope at four levels: management group, subscription, resource group, and resources. To grant access, you assign roles to users, groups, service principals, or managed identities at a particular scope.
