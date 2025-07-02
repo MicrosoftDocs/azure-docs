@@ -53,7 +53,7 @@ testuser@<servername> [ ~ ]$ sudo crictl ps -a |grep -i ironic-conductor
     "bootMacAddress": "<bootMacAddress",
     "machineDetails": "extraDetails",
     "machineName": "<machineName>",
-    "rackSlot": <rackSlot>,
+    "rackSlot": "<rackSlot>",
     "serialNumber": "<serialNumber>"
 },
 ```
