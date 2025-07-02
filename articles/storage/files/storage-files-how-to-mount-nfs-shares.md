@@ -61,7 +61,7 @@ You can mount the share using the AZNFS mount helper in Azure portal, or you can
 
 You can use the `nconnect` Linux mount option to improve performance for NFS Azure file shares at scale. For more information, see [Improve NFS Azure file share performance](nfs-performance.md#nfs-nconnect).
 
-### Mount an NFS share using the Azure portal
+### Mount an NFS share using the Azure portal (Recommended)
 
 1. Once the file share is created, select the share and then select **Connect from Linux**.
 2. Enter the mount path you'd like to use, then copy the script and run it on your client. Azure portal offers a step-by-step, ready-to-use installation script tailored to your selected Linux distribution for installing the AZNFS mount helper package and to securely mount the share using [Encyption in Transit](encryption-in-transit-for-nfs-shares.md). Only the required mount options are included in the script, but you can add other [recommended mount options](#mount-options).
@@ -70,9 +70,9 @@ You can use the `nconnect` Linux mount option to improve performance for NFS Azu
 
 The NFS file share is now mounted.
 
-### Mount an NFS share using the native NFS mount in command line
+### Mount an NFS share using the NFS client mount in command line
 
-Alternatively, if the AZNFS mount helper installation and commands available in Azure Portal don't work for your environment, you can also mount the file share using the native NFS mount commands in CLI. Select the tab below for your Linux distribution to see the commands you need to run. Be sure to replace `<YourStorageAccountName>` and `<FileShareName>` with your information.
+Alternatively, you can also mount the Azure file share using NFS client mount in command line. Select the tab below for your Linux distribution to see the commands you need to run. Be sure to replace `<YourStorageAccountName>` and `<FileShareName>` with your information.
 
 # [Ubuntu/Debian](#tab/Ubuntu)
 ```bash
