@@ -17,7 +17,8 @@
     items:
     - name: Machine learning in the Microsoft Sentinel data lake (Preview)  
       href: graph/machine-learning.md
-
+  - name: Enable asset data (Preview)
+    href: graph/enable-data-connectors.md
 
 - name: Plan
   items:
