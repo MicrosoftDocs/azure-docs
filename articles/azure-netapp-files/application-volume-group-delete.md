@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 03/27/2025
 ms.author: anfdocs
+# Customer intent: "As a cloud administrator, I want to delete an application volume group, so that I can manage storage resources efficiently after removing all contained volumes."
 ---
 # Delete an application volume group
 

@@ -8,6 +8,7 @@ ms.service: azure-web-application-firewall
 ms.topic: how-to 
 ms.date: 03/26/2021
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a cloud engineer, I want to set up a Web Application Firewall using PowerShell on an application gateway, so that I can secure my application against web exploits and attacks effectively."
 ---
 
 # Enable Web Application Firewall using Azure PowerShell

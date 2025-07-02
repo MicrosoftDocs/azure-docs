@@ -10,6 +10,7 @@ ms.update-cycle: 180-days
 ms.topic: concept-article
 ms.localizationpriority: high
 ms.collection: Tier1, ce-skilling-ai-copilot
+# Customer intent: As a security professional, I want to integrate Azure Web Application Firewall with AI tools, so that I can quickly investigate flagged traffic and gain actionable insights on potential threats and vulnerabilities in my environment.
 ---
 
 # Azure Web Application Firewall integration in Microsoft Security Copilot

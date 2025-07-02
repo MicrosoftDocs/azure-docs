@@ -7,6 +7,7 @@ ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 01/28/2025
+# Customer intent: "As a storage administrator, I want to configure export policies for NFS volumes in Azure NetApp Files, so that I can control access and permissions for different clients efficiently."
 ---
 # Configure export policy for NFS or dual-protocol volumes in Azure NetApp Files
 
