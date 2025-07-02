@@ -8,6 +8,7 @@ ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.date: 05/09/2023
 ms.reviewer: nachakra
+# Customer intent: "As a security administrator, I want to implement role assignment conditions in Azure Blob Storage, so that I can safeguard access to resources and prevent unauthorized modifications based on attributes and user permissions."
 ---
 
 # Security considerations for Azure role assignment conditions in Azure Blob Storage
