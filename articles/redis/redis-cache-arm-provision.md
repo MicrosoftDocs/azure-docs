@@ -160,7 +160,3 @@ $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
-
-## Related Content
-
-In this tutorial, you learnt how to create an Azure Resource Manager template that deploys an Azure Cache for Redis. To learn how to create an Azure Resource Manager template that deploys an Azure Web App with Azure Cache for Redis, see [Create a Web App plus Azure Cache for Redis using a template](web-app-arm-with-redis-cache-provision.md).

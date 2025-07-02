@@ -51,7 +51,7 @@ As a Python developer, you might also be interested in these topics:
 ## [Hosting options](#tab/hosting)
 
 + [Flex Consumption plan](./flex-consumption-plan.md): Linux-based serverless hosting option that features full support for managed identities, virtual networks, and flexible deployments. 
-+ [Container hosting options](container-concepts.md): Run and deploy your Python functions on Linux in a Docker container, including integrated [Azure Container Apps hosting](functions-container-apps-hosting.md).
++ [Container hosting options](container-concepts.md): Run and deploy your Python functions on Linux in a Docker container, including integrated [Azure Container Apps hosting](../container-apps/functions-overview.md).
 + [Compare hosting options...](functions-scale.md) 
 
 ---
@@ -1089,7 +1089,7 @@ The runtime uses the available Python version when you run it locally.
 
 ### Changing Python version
 
-To set a Python function app to a specific language version, you need to specify the language and the version of the language in the `LinuxFxVersion` field in the site configuration. For example, to change the Python app to use Python 3.8, set `linuxFxVersion` to `python|3.8`.
+To set a Python function app to a specific language version, you need to specify the language and the version of the language in the `LinuxFxVersion` field in the site configuration. For example, to change the Python app to use Python 3.12, set `linuxFxVersion` to `python|3.12`.
 
 To learn how to view and change the `linuxFxVersion` site setting, see [How to target Azure Functions runtime versions](set-runtime-version.md#manual-version-updates-on-linux).  
 

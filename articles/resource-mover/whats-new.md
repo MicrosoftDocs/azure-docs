@@ -6,6 +6,7 @@ ms.author: jsuri
 ms.service: azure-resource-mover
 ms.topic: whats-new 
 ms.custom: UpdateFrequency.5
+ms.update-cycle: 180-days
 ms.date: 12/27/2024
 ---
 

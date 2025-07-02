@@ -4,7 +4,7 @@ description: How to work with the old virtual network gateway SKUs; Standard, an
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 06/23/2025
+ms.date: 06/24/2025
 ms.author: cherylmc
 
 #customer intent: As an Azure administrator, I want to understand the legacy SKU deprecation timeline so that I can plan for the automatic migration.
@@ -59,17 +59,17 @@ The UltraPerformance gateway SKU isn't represented in this table. For informatio
 
 ### <a name="migrate"></a>Migrate a gateway SKU
 
-A gateway SKU migration process is similar to a resize. It requires fewer steps and configuration changes than changing to a new gateway SKU. Your gateway will be migrated seamlessly from backend without any connectivity impact before September 30, 2025. This is different from the initial approach of providing a migration path.
+Your legacy gateway will be migrated seamlessly from backend without any connectivity impact before September 30, 2025. This is different from the initial approach of providing a migration path.
 
-### <a name="resize"></a>Resize to a gateway SKU in the same SKU family
+### <a name="resize"></a>Upgrade to a gateway SKU in the same SKU family
 
-Resizing a gateway SKU incurs less downtime and fewer configuration changes than the process to change to a new SKU. However, there are limitations. You can only resize your gateway to a gateway SKU within the same SKU family (except for the Basic SKU).
+Upgrading a legacy SKU has limitations. You can only upgrade your gateway to a gateway SKU within the same SKU family (except for the Basic SKU).
 
-For example, if you have a Standard SKU, you can resize to a High Performance SKU. However, you can't resize your VPN gateway between the old SKUs and the new SKU families. You can't go from a Standard SKU to a VpnGw2 SKU, or from a Basic SKU to VpnGw1 by resizing.
+For example, if you have a Standard SKU, you can upgrade to a High Performance SKU. However, you can't upgrade your VPN gateway between the old SKUs and the new SKU families. You can't go from a Standard SKU to a VpnGw2 SKU, or from a Basic SKU to VpnGw1 by resizing.
 
 **Resource Manager**
 
-You can resize a gateway for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) using the Azure portal or PowerShell. For PowerShell, use the following command:
+You can upgrade a gateway for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) using the Azure portal or PowerShell. For PowerShell, use the following command:
 
 ```powershell
 $gw = Get-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
@@ -78,7 +78,7 @@ Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerfor
 
 **Classic**
 
-To resize a gateway for the [classic deployment model](../azure-resource-manager/management/deployment-models.md), you must use the Service Management PowerShell cmdlets. Use the following command:
+To upgrade a gateway for the [classic deployment model](../azure-resource-manager/management/deployment-models.md), you must use the Service Management PowerShell cmdlets. Use the following command:
 
 ```powershell
 Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
@@ -92,7 +92,7 @@ Standard and High Performance SKUs will be deprecated September 30, 2025. The pr
 
 ## SKU deprecation
 
-The Standard and High Performance SKUs will be deprecated on September 30, 2025. The product team will do backend seamless migration for these SKUs starting June 2025. This is a change from originally announced November 2024 date **At this time, there's no action that you need to take**.
+The Standard and High Performance SKUs will be deprecated on September 30, 2025. The product team will initiate backend seamless migration for these SKUs starting June 2025. This is a change from originally announced November 2024 date **At this time, there's no action that you need to take**.
 
 * View the [Announcement](https://go.microsoft.com/fwlink/?linkid=2255127)
 * See the SKU deprecation [FAQs](#sku-deprecation-faqs)
