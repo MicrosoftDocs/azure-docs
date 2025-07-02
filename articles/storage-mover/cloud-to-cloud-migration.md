@@ -12,7 +12,7 @@ ms.date: 07/01/2025
 
 The Cloud-to-Cloud Migration feature in Azure Storage Mover allows you to securely transfer data from Amazon Simple Storage Service (Amazon S3) to Azure Blob Storage. 
 
-The feature utilizes Azure Arc for AWS (Amazon Web Services) to simplify authentication and resource management. The Azure Arc service provides a centralized source for management and governance. The service uses multicloud connectors to extend Azure's management capabilities to resources outside of the Azure cloud. These capabilities and resources can include on-premises servers, multicloud environments, and edge computing devices. For more details on Azure Arc, visit the [Azure Arc overview](/azure/azure-arc/overview) article.
+The feature utilizes Azure Arc multicloud connectors for AWS (Amazon Web Services) to simplify authentication and resource management capabilities to resources outside of the Azure cloud. These capabilities and resources can include on-premises servers, multicloud environments, and edge computing devices. For more details on Azure Arc, visit the [Azure Arc overview](/azure/azure-arc/overview) article.
 
 This article guides you through the complete process of configuring Storage Mover to migrate your data from Amazon S3 to Azure Blob Storage. The process consists of creating a multicloud connector for AWS, configuring endpoints, and creating and running a migration job.
 
@@ -152,23 +152,24 @@ Follow the steps in this section to create a migration project and run a migrati
 
 1. Navigate to the **Project explorer** tab in your Storage Mover instance and select **Create project**.
 1. Provide values for the following fields:
-    - **Project name**: A meaningful name for the migration project.
+    - **Name**: A meaningful name for the migration project.
     - **Project description**: A useful description for the project.
-    - Select **Create** to create the project. It might take a moment for the newly created project to appear in the project explorer.
+
+    Select **Create** to create the project. It might take a moment for the newly created project to appear in the project explorer.
 
     :::image type="content" source="media/cloud-to-cloud-migration/project-create-sml.png" alt-text="A screen capture showing the Project Explorer page with the Create a Project pane's fields visible." lightbox="media/cloud-to-cloud-migration/project-create.png":::
 
-1.  Select the project after it appears, and then select **Create job definition** to open the **Create a Migration Job** page's **Basics** tab. Provide values for the following fields:
-    - **Job name**: A meaningful name for the migration job.
+1.  Select the project after it appears, and then select **Create job definition**. The **Create a Migration Job** page opens to the **Basics** tab. Provide values for the following fields:
+    - **Name**: A meaningful name for the migration job.
     - **Migration type**: Select `Cloud to cloud`.
     
     :::image type="content" source="media/cloud-to-cloud-migration/create-job-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Basics tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-job.png":::
 
-1. Within the **Source** tab, select the **Existing endpoint** option for the **Endpoint** field. 
+1. Within the **Source** tab, select the **Existing endpoint** option for the **Endpoint** field. Next, select the **Select an existing endpoint as a source** link to open the **Select an existing endpoint** pane. 
 
     :::image type="content" source="media/cloud-to-cloud-migration/create-source-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Source tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-source.png":::
 
-    Next, select the **Select an existing endpoint as a source** link to open the **Select an existing endpoint** pane. Choose the AWS S3 source endpoint created in the previous section and select **Select** to save your changes.
+    Choose the AWS S3 source endpoint created in the previous section and select **Select** to save your changes.
 
     > [!NOTE]
     > Amazon S3 buckets might take up to an hour to become visible within newly created multicloud connectors.
