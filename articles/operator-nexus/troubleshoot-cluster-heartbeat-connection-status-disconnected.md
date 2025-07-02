@@ -46,7 +46,7 @@ The following table shows the possible values of `ClusterConnectionStatus` and t
 
 The value of `ClusterConnectionStatus` is visible in the Azure portal in the Cluster resource view.
 
-![!include[ClusterConnectionStatus](./media/troubleshoot-cluster-heartbeat-connection-status/az-portal-cluster-connection-status.png)]
+[!include[ClusterConnectionStatus](./media/troubleshoot-cluster-heartbeat-connection-status/az-portal-cluster-connection-status.png)]
 
 Or, you can use the Azure CLI to see the value of `ClusterConnectionStatus`:
 
@@ -82,7 +82,7 @@ The status can transition between Connected, Timeout, and `Disconnected` based o
 
 The image shows a general representation of the components responsible for emitting the `NexusClusterConnectionStatus` metric.
 
-![!include[ClusterHeartbeatComponents](./media/troubleshoot-cluster-heartbeat-connection-status/cluster-connection-status-components-for-metric.png)]
+[!include[ClusterHeartbeatComponents](./media/troubleshoot-cluster-heartbeat-connection-status/cluster-connection-status-components-for-metric.png)]
 
 ### ClusterConnectionStatus isn't the same as Arc Connected Cluster status
 
