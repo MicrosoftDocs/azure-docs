@@ -17,13 +17,17 @@ ms.collection: usx-security
 
 # Search for specific events across large datasets in Microsoft Sentinel
 
-Use a search job when you start an investigation to scan through up to a year of data in a table for specific events. You can a run search job on any table, including tables with the Analytics, Basic, and Auxiliary log plans. The search job sends its results to a new Analytics table in the same workspace as the source data. 
+Use a search job to retrieve data stored in [long-term retention](/azure/azure-monitor/logs/data-retention-configure#interactive-long-term-and-total-retention), or to scan through large volumes of data, if the log query time-out of 10 minutes isn't sufficient. A search job scans through up to a year of data in a table for specific events. The search job sends its results to a new Analytics table in the same workspace as the source data. 
 
 This article explains how to run a search job in Microsoft Sentinel and how to work with the search job results.
 
 Search jobs across certain data sets might incur extra charges. For more information, see [Microsoft Sentinel pricing page](billing.md).
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
+### Implementation considerations
+
+See [Search job limitations](/azure/azure-monitor/logs/search-jobs#limitations) in the Azure Monitor documentation.
 
 ## Start a search job
 

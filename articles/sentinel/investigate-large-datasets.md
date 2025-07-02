@@ -25,29 +25,13 @@ In Microsoft Sentinel, you can search across long time periods in extremely larg
 
 ## Search large datasets
 
-Use a search job when you start an investigation to find specific events in logs within a given time frame. You can search all your logs to find events that match your criteria and filter through the results.
-
-Search in Microsoft Sentinel is built on top of search jobs. Search jobs are asynchronous queries that fetch records. The results are returned to a search table that's created in your Log Analytics workspace after you start the search job. The search job uses parallel processing to run the search across long time spans, in extremely large datasets. So search jobs don't impact the workspace's performance or availability.
+Use a search job to retrieve data stored in [long-term retention](/azure/azure-monitor/logs/data-retention-configure#interactive-long-term-and-total-retention), or to scan through large volumes of data, if the log query time-out of 10 minutes isn't sufficient. Search jobs are asynchronous queries that fetch records into a search table in your Log Analytics workspace. The search job uses parallel processing to search across long time spans in extremely large datasets, so search jobs don't impact the workspace's performance or availability.
 
 Search results are stored in a table named with a `_SRCH` suffix.
 
-The following image shows example search criteria for a search job.
+This image shows example search criteria for a search job.
 
 :::image type="content" source="media/investigate-large-datasets/search-job-criteria.png" alt-text="Screenshot of search page with search criteria of administrator, time range last 1 year, and a table selected.":::
-
-### Supported log types
-
-Use search to find events in any of the following log types:
-
-- [Analytics logs](/azure/azure-monitor/logs/data-platform-logs)
-- [Basic logs](/azure/azure-monitor/logs/data-platform-logs)
-- [Auxiliary logs](/azure/azure-monitor/logs/data-platform-logs)
-
-You can also search analytics or basic log data stored in [long-term retention](/azure/azure-monitor/logs/data-retention-configure#interactive-long-term-and-total-retention).
-
-### Limitations of a search job
-
-See [Search job limitations](/azure/azure-monitor/logs/search-jobs#limitations) in the Azure Monitor documentation.
 
 ## Restore log data from long-term retention
 
