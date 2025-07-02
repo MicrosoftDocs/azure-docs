@@ -189,14 +189,34 @@ On the **Parameters** tab, add customization for any parameters that you want fo
 
 The **Profile** tab specifies information about your template that appears in the template gallery, for example, the template's display name, publisher name, connectors, and other metadata.
 
-| Property | Required | Description |
-|----------|----------|-------------|
-| **Display name** | Yes | The workflow template display name that appears in the template gallery. |
-| **By** | Yes | The workflow template publisher name. |
-| **Summary** | Yes | The description for the workflow that the template creates. |
-| **Featured connectors** | Yes | The names for the primary connectors in the workflow template. |
-| **Category** | No | The category where the template belongs. |
-| **Tags** | No | Any tags that you want to use for labeling the workflow. |
+1. On the **Profile** tab, provide the following information about your template:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Display name** | Yes | The workflow template display name that appears in the template gallery. |
+   | **By** | Yes | The workflow template publisher name. |
+   | **Summary** | Yes | The description for the workflow that the template creates. |
+   | **Featured connectors** | Yes | Select the primary connector types in the workflow template. |
+   | **Category** | No | The category where the template belongs. |
+   | **Tags** | No | Any tags that you want to use for labeling the workflow. |
+
+1. When you're ready, select **Next**.
+
+1. On the **Summary** tab, review and confirm all the provided information.
+
+#### Publish to testing or production
+
+When you're ready to test your template, you can publish your template for testing. The template appears in the template gallery with the **Testing** label.
+
+1. On the **Summary** tab or any other preceding tab, at the tab bottom, select **Save** > **Save + publish for testing**.
+
+   Azure publishes the template with the **Testing** label to the template gallery.
+
+1. To use your new template, follow the corresponding steps to create a Consumption or Standard logic app resource and workflow.
+
+1. After you finish your testing and make any necessary updates, select **Save** > **Save + publish for production**.
+
+   This step updates the template label from **Testing** to **Production** in the template gallery.
 
 ### [All Azure](#tab/all-azure)
 
