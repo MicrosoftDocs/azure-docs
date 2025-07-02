@@ -4,6 +4,7 @@ description: This article shows how to define an access restriction policy for M
 ms.topic: how-to
 author: batamig
 ms.author: bagol
+ms.reviewer: Anat Gilenson
 ms.date: 03/14/2024
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -38,7 +39,7 @@ For more information, see:
 1. On the **Automation** page, select the **Active playbooks** tab.
 
 1. Filter the list for Standard-plan apps. Select the **Plan** filter and clear the **Consumption** checkbox, and then select **OK**. For example:
-    
+
     :::image type="content" source="../media/define-playbook-access-restrictions/filter-list-for-standard.png" alt-text="Screenshot showing how to filter the list of apps for the standard plan type.":::
 
 1. Select a playbook to which you want to restrict access. For example:
@@ -53,11 +54,11 @@ For more information, see:
 
     :::image type="content" source="../media/define-playbook-access-restrictions/select-networking.png" alt-text="Screenshot showing how to select networking settings from the logic app menu." lightbox="../media/define-playbook-access-restrictions/select-networking.png":::
 
-1. In the **Inbound traffic** area, select **Access restriction**. For example:
+1. In the **Inbound traffic configuration** area, select **Public network access**.
+
+1. In the **Access Restrictions** page, select the **Enabled from select virtual networks and IP addresses** checkbox.
 
     :::image type="content" source="../media/define-playbook-access-restrictions/select-access-restriction.png" alt-text="Screenshot showing how to select access restriction policy for configuration.":::
-
-1. In the **Access Restrictions** page, leave the **Allow public access** checkbox selected.
 
 1. Under **Site access and rules**, select **+ Add**. The **Add rule** panel opens on the side. For example:
 
