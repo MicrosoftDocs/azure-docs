@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: jyothisuri
   ms.author: jsuri
-  ms.date: 05/21/2025
+  ms.date: 07/02/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -184,6 +184,8 @@ landingContent:
         links:
           - text: Manage at scale with Backup Center
             url: backup-center-monitor-operate.md
+          - text: Manage backup operations at scale using Azure CLI
+            url: create-manage-azure-services-using-azure-command-line-interface.md  
           - text: Govern at scale with Azure Policy
             url: backup-azure-auto-enable-backup.md
           - text: Monitor and operate at scale with Backup Explorer
