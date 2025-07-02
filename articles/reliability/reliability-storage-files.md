@@ -60,6 +60,10 @@ ZRS is supported in HDD (standard) file shares in [all regions with availability
 
 ZRS is supported for SSD (premium) file shares through the `FileStorage` storage account kind. For a list of regions that support ZRS for SSD file share accounts, see [ZRS support for SSD file shares](/azure/storage/files/redundancy-premium-file-shares#zrs-support-for-ssd-azure-file-shares).
 
+### Requirements
+
+ZRS is supported by all file share types.
+
 ### Cost
 
 When you enable ZRS, you're charged at a different rate than locally redundant storage due to the additional replication and storage overhead. For detailed pricing information, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
