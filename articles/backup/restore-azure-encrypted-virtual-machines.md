@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 06/23/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to restore encrypted Azure virtual machines using the Azure Backup service, so that I can ensure data recovery while maintaining security compliance."
 ---
 # Restore encrypted Azure virtual machines
 
