@@ -72,7 +72,7 @@ In addition to major and minor version updates, the service also delivers new fe
 
 In addition to providing [tools](connector-upgrade-advisor.md) and [best practices](connector-upgrade-guidance.md) to help users manually upgrade their connectors, the service now also provides a more streamlined upgrade process for some cases where applicable. This is designed to help users adopt the most reliable and supported connector versions with minimal disruption.
 
-The following section outlines the general that the service takes for automatic upgrades. While this provides a high-level overview, it is strongly recommended to review the documentation specific to each connector to understand which scenarios are supported and how the upgrade process applies to your workloads.
+The following section outlines the general approach that the service takes for automatic upgrades. While this provides a high-level overview, it is strongly recommended to review the documentation specific to each connector to understand which scenarios are supported and how the upgrade process applies to your workloads.
 
 In cases where certain scenarios running on the latest GA connector version are fully backward compatible with the previous version, the service will automatically upgrade existing workloads (such as Copy, Lookup, and Script activities) to a compatibility mode that preserves the behavior of the earlier version.
 
@@ -80,8 +80,54 @@ These auto-upgraded workloads are not affected by the announced removal date of 
 
 You can identify which activities have been automatically upgraded by inspecting the activity output, where relevant upgrade information is recorded.
 
+Example:
+
+Copy activity output 
+
+```json
+"source": {
+    "type": "AmazonS3",
+    "autoUpgrade": "true",
+    "compatibleWithVersion": "1.0"
+} 
+
+"sink": {
+    "type": "AmazonS3",
+    "autoUpgrade": "true",
+    "compatibleWithVersion": "1.0"
+}
+```
+
+Lookup activity output 
+
+```json
+"source": {
+    "type": "AmazonS3",
+    "autoUpgrade": "true",
+    "compatibleWithVersion": "1.0"
+}
+```
+ 
+
+Script activity output
+
+```json
+"source": {
+    "type": "AmazonS3",
+    "autoUpgrade": "true",
+    "compatibleWithVersion": "1.0"
+}
+```
+
 > [!NOTE]
 > While compatibility mode offers flexibility, we strongly encourage users to upgrade to the latest GA version as soon as possible to benefit from ongoing improvements, optimizations, and full support. 
+
+You can find more details from the table below on the connector list that is planned for the automatic upgrade.  
+
+| Connector        | Scenario |
+|------------------|----------|
+| Google BigQuery  | Scenario that does not rely on below capability in Google BigQuery V1:<br><br>  • Use `trustedCertsPath`, `additionalProjects`, `requestgoogledrivescope` connection properties.<br>  • Set `useSystemTrustStore` connection property as `false`.<br>  • Use **STRUCT** and **ARRAY** data types. |
+| Teradata         | Scenario that does not rely on below capability in Teradata (version 1.0):<br><br>  • Set below value for **CharacterSet**:<br>&nbsp;&nbsp;- BIG5 (TCHBIG5_1R0)<br>&nbsp;&nbsp;- EUC (Unix compatible, KANJIEC_0U)<br>&nbsp;&nbsp;- GB (SCHGB2312_1T0)<br>&nbsp;&nbsp;- IBM Mainframe (KANJIEBCDIC5035_0I)<br>&nbsp;&nbsp;- NetworkKorean (HANGULKSC5601_2R4)<br>&nbsp;&nbsp;- Shift-JIS (Windows, DOS compatible, KANJISJIS_0S)|
 
 ## Related content
 
