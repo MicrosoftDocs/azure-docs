@@ -6,6 +6,7 @@ ms.date: 06/30/2025
 ms.custom: references_regions, engagement-fy23
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to create and configure a Recovery Services vault with Cross Region Restore capabilities, so that I can ensure data backup and recovery are reliable and compliant during regional outages or disaster recovery scenarios.
 ---
 
 # Create and configure a Recovery Services vault

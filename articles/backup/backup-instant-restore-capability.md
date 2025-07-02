@@ -5,6 +5,7 @@ ms.topic: overview
 ms.date: 06/16/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a system administrator, I want to utilize the Instant Restore feature for VM backups so that I can significantly reduce restore times and improve recovery performance during data restoration processes.
 ---
 
 # Get improved backup and restore performance with Azure Backup Instant Restore capability
