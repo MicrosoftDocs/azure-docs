@@ -17,13 +17,13 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 ::: zone pivot="platform-windows"  
 
-Azure App Service provides a highly scalable, self-patching web hosting service. App Service has built-in support for user authentication and authorization. This tutorial shows how to secure your apps with App Service authentication and authorization. It uses an Express.js with views front end. App Service authentication and authorization support all language runtimes. You can learn how to apply it to your preferred language by following the tutorial.
+Azure App Service provides a highly scalable, self-patching web hosting service. App Service has built-in support for user authentication and authorization. This tutorial shows how to secure your apps with App Service authentication and authorization. It uses an Express.js with views front end. App Service authentication and authorization support all language runtimes. You can learn how to apply it to your preferred language by following this tutorial.
 
 ::: zone-end
 
 ::: zone pivot="platform-linux"
 
-Azure App Service provides a highly scalable, self-patching web hosting service using the Linux operating system. App Service has built-in support for user authentication and authorization. This tutorial shows how to secure your apps with App Service authentication and authorization. It uses an Express.js with views front end. App Service authentication and authorization support all language runtimes. You can learn how to apply it to your preferred language by following the tutorial.
+Azure App Service provides a highly scalable, self-patching web hosting service using the Linux operating system. App Service has built-in support for user authentication and authorization. This tutorial shows how to secure your apps with App Service authentication and authorization. It uses an Express.js with views front end. App Service authentication and authorization support all language runtimes. You can learn how to apply it to your preferred language by following this tutorial.
 
 ::: zone-end
 
@@ -33,7 +33,7 @@ The authentication in this procedure is provided at the hosting platform layer b
 
 After you complete this scenario, continue to the next tutorial to learn how to connect to Azure services as an authenticated user. Common scenarios include accessing Azure Storage or a database as the user who has specific abilities or access to specific tables or files. 
 
-In the tutorial, you:
+In this tutorial, you:
 
 > [!div class="checklist"]
 > - Enable built-in authentication and authorization
@@ -69,7 +69,7 @@ In the [Azure Cloud Shell](https://shell.azure.com), run the following command t
 
 ## Create and deploy apps
 
-Create the resource group, web app plan, the web app and deploy in a single step.
+Create the resource group, web app plan, and the web app, then deploy in a single step.
 
 ::: zone pivot="platform-windows"  
 
@@ -91,7 +91,7 @@ Create the resource group, web app plan, the web app and deploy in a single step
    cd ../backend
    ```
 
-1. Deploy the back-end web app to same resource group and app plan. The web app name has to be globally unique. Replace `<back-end-app-name>` with a unique set of initials or numbers.
+1. Deploy the back-end web app to same resource group and app plan. The web app name has to be globally unique. Replace `<back-end-app-name>` with a unique string of letters and numbers.
 
     ```azurecli-interactive
     az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> --plan myPlan --os-type Windows --location "West Europe" --runtime "NODE:20LTS"
@@ -101,13 +101,13 @@ Create the resource group, web app plan, the web app and deploy in a single step
 
 ::: zone pivot="platform-linux"
 
-1. Change into the front-end web app directory.
+1. Change into the `frontend` web app directory.
 
    ```azurecli-interactive
    cd frontend
    ```
 
-1. Create and deploy the front-end web app with the [az webapp up](/cli/azure/webapp#az-webapp-up) command. The web app name has to be globally unique. Replace `<front-end-app-name>` with a unique set of initials or numbers. 
+1. Create and deploy the front-end web app with the [az webapp up](/cli/azure/webapp#az-webapp-up) command. The web app name has to be globally unique. Replace `<front-end-app-name>` with a unique string of letters and numbers. 
 
    ```azurecli-interactive
    az webapp up --resource-group myAuthResourceGroup --name <front-end-app-name> --plan myPlan --sku FREE --location "West Europe" --os-type Linux --runtime "NODE:20-lts"
@@ -119,7 +119,7 @@ Create the resource group, web app plan, the web app and deploy in a single step
    cd ../backend
    ```
 
-1. Deploy the back-end web app to same resource group and app plan. The web app name has to be globally unique. Replace `<back-end-app-name>` with a unique set of initials or numbers. 
+1. Deploy the back-end web app to same resource group and app plan. The web app name has to be globally unique. Replace `<back-end-app-name>` with a unique string of letters and numbers. 
 
    ```azurecli-interactive
    az webapp up --resource-group myAuthResourceGroup --name <back-end-app-name> --plan myPlan --sku FREE --location "West Europe" --runtime "NODE:16-lts"
@@ -179,7 +179,7 @@ For more information, see [Configure Microsoft Entra authentication for your App
 1. For the other values, accept the default settings and select **Add**.
 1. The **Authentication** page opens. Copy the client ID of the Microsoft Entra application to Notepad. You need this value later.
 
-   :::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Screenshot of the Microsoft Entra Settings window showing the Microsoft Entra App, and the Microsoft Entra Applications window showing the Client ID to copy.":::
+   :::image type="content" source="./media/tutorial-auth-aad/get-application-id-back-end.png" alt-text="Screenshot of the Microsoft Entra Settings window showing the Microsoft Entra App, and the Microsoft Entra Applications window showing the client ID to copy.":::
 
 If you stop here, you have a self-contained app that the App Service authentication and authorization secure. The remaining sections show you how to secure a multiple app solution by *flowing* the authenticated user from the front end to the back end. 
 
@@ -195,7 +195,7 @@ If you stop here, you have a self-contained app that the App Service authenticat
 
 1. Select a value for **Client secret expiration**. For the other values, accept the default settings and select **Add**.
 
-1. The **Authentication** page opens. Copy the **Client ID** of the Microsoft Entra application to Notepad. You need this value later.
+1. The **Authentication** page opens. Copy the client ID of the Microsoft Entra application to Notepad. You need this value later.
 
 ### Grant front-end app access to  
 
@@ -235,7 +235,7 @@ az webapp auth set --resource-group myAuthResourceGroup --name <front-end-app-na
 The commands add a `loginParameters` property with other custom scopes. Here's an explanation of the requested scopes:
 
 - `openid` is requested by App Service by default already. For more information, see [OpenID Connect Scopes](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes).
-- [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access) is included here for convenience, in case you want to [refresh tokens](#what-happens-when-the-frontend-token-expires).
+- [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access) is included here for convenience, in case you want to [refresh tokens](#what-happens-when-the-front-end-token-expires).
 - `api://<back-end-client-id>/user_impersonation` is an exposed API in your back-end app registration. It's the scope that gives you a JWT that includes the back-end app as a [token audience](https://wikipedia.org/wiki/JSON_Web_Token). 
 
 > [!TIP]
@@ -253,7 +253,7 @@ You should also configure the back-end App Service to only accept a token from t
 
 You can implement this approach by using the same Azure CLI process you used in the previous step.
 
-1. Get the `appId` of the front-end App Service. You can get this value on the "Authentication" page of the front-end App Service.
+1. Get the `appId` of the front-end App Service. You can get this value on the **Authentication** page of the front-end App Service.
 
 1. Run the following Azure CLI, substituting the `<back-end-app-name>` and `<front-end-app-id>`.
 
@@ -384,7 +384,7 @@ The front-end and back-end apps both have `/debug` routes to help debug the auth
 1. Verify the *package.json* `name` property is the same as the web name, either `frontend` or `backend`.
 1. If you changed the source code, and need to redeploy, use the [az webapp up](/cli/azure/webapp#az-webapp-up) command from the directory that has the *package.json* file for that app.
 
-### Did the application start correctly
+### Did the application start correctly?
 
 Both the web apps should return something when the home page is requested. If you can't reach `/debug` on a web app, the app didn't start correctly. Review the error logs for that web app. 
 
