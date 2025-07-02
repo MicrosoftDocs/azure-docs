@@ -27,7 +27,7 @@ For more information, see [Simplify network configuration requirements with Azur
 
 The Azure Arc gateway for connected Kubernetes clusters enables you to register and manage clusters behind firewalls or in private networks. It reduces the need for outbound connectivity from each cluster by centralizing network egress through the gateway. This approach streamlines onboarding and ongoing management of clusters in secure or restricted environments.
 
-For more information, see [Simplify network configuration requirements with Azure Arc gateway (preview)](/azure/azure-arc/servers/arc-gateway).
+For more information, see [Simplify network configuration requirements with Azure Arc gateway (preview)](/azure/azure-arc/kubernetes/arc-gateway-simplify-networking).
 
 ## Explicit proxy usage
 
