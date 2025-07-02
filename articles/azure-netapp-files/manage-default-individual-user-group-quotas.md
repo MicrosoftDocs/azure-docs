@@ -7,6 +7,7 @@ ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 03/24/2025
+# Customer intent: As a cloud storage administrator, I want to manage user and group quotas for Azure NetApp Files volumes so that I can effectively control storage usage and ensure optimal performance across my organization's data resources.
 ---
 # Manage default and individual user and group quotas for a volume 
 

@@ -8,6 +8,7 @@ ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: As an IT administrator, I want to implement an effective backup strategy for cloud and on-premises workloads, so that I can ensure data protection and compliance while optimizing recovery processes across my organization's Azure environment.
 ---
 
 # Backup cloud and on-premises workloads to cloud

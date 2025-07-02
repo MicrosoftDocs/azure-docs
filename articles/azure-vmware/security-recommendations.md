@@ -5,6 +5,7 @@ ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 02/26/2025
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud architect managing Azure VMware Solution deployments, I want to implement security best practices and network configurations, so that I can protect against vulnerabilities and ensure the integrity of my environment."
 ---
 
 

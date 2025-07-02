@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 01/13/2025
 ms.author: anfdocs
+# Customer intent: "As a cloud administrator, I want to understand SMB file permissions using NTFS ACLs in Azure NetApp Files, so that I can effectively manage access controls and ownership for my organization's files and folders."
 ---
 
 # Understand SMB file permissions in Azure NetApp Files 
