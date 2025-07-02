@@ -34,7 +34,7 @@ For production environments:
 
 Azure Table Storage operates as a distributed NoSQL database within the Azure Storage platform infrastructure. The service provides redundancy through multiple copies of your table data, with the specific redundancy model depending on your storage account configuration.
 
-[!INCLUDE [Storage - Reliability architecture overview](includes/storage/reliability-storage-reliability-architecture-include.md)]
+[!INCLUDE [Storage - Reliability architecture overview](includes/storage/reliability-storage-architecture-include.md)]
 
 
 ## Transient faults
@@ -95,11 +95,11 @@ When you enable ZRS, you're charged at a different rate than locally redundant s
 
     1.  [Create a table](/azure/storage/tables/table-storage-quickstart-portal).
 
-[!INCLUDE [Storage - Configure availability zone support](includes/storage/reliability-storage-configure-availability-zone-support-include.md)]
+[!INCLUDE [Storage - Configure availability zone support](includes/storage/reliability-storage-availability-zone-configure-include.md)]
 
 
 ### Normal operations
-
+    
 This section describes what to expect when a table storage account is configured for zone redundancy and all availability zones are operational.
 
 [!INCLUDE [Storage - Normal operations](includes/storage/reliability-storage-availability-zone-normal-operations-include.md)]
