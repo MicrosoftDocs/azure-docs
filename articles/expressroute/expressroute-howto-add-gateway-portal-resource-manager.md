@@ -77,8 +77,8 @@ The steps for this tutorial use the values in the following configuration refere
     | Region | Change the **Region** field to point to the location where your virtual network is located. If the region isn't pointing to the location where your virtual network is, the virtual network doesn't appear in the **Virtual network** dropdown. <br>  If you want to create the gateway in an [Azure Extended Zone](../extended-zones/overview.md), select **Deploy to an Azure Extended Zone**.|
     | Gateway type | Select **ExpressRoute**.|
     | SKU | Select a gateway SKU from the dropdown. For more information, see [ExpressRoute gateway SKUs](expressroute-about-virtual-network-gateways.md#gwsku). |
-    | Minimum Scale Units | This option is only available when you select the **ErGwScale (Preview)** SKU. Enter the minimum number of scale units you want to use. For more information, see [ExpressRoute Gateway Scale Units](https://learn.microsoft.com/en-us/azure/expressroute/scalable-gateway). |
-    | Maximum Scale Units | This option is only available when you select the **ErGwScale (Preview)** SKU. Enter the maximum number of scale units you want to use. For more information, see [ExpressRoute Gateway Scale Units](https://learn.microsoft.com/en-us/azure/expressroute/scalable-gateway). |
+    | Minimum Scale Units | This option is only available when you select the **ErGwScale (Preview)** SKU. Enter the minimum number of scale units you want to use. For more information, see [ExpressRoute Gateway Scale Units](scalable-gateway.md). |
+    | Maximum Scale Units | This option is only available when you select the **ErGwScale (Preview)** SKU. Enter the maximum number of scale units you want to use. For more information, see [ExpressRoute Gateway Scale Units](scalable-gateway.md). |
     | Virtual network | Select *vnet-1*. |
     | **Public IP address** | |
     | Public IP address | Select **Create new**.|
