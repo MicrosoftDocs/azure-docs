@@ -116,7 +116,7 @@ The following table highlights the key capabilities in Microsoft Sentinel for th
 |Automation rules|Centrally manage the automation of incident handling in Microsoft Sentinel by defining and coordinating a small set of rules that cover different scenarios. |[Automate threat response in Microsoft Sentinel with automation rules](automate-incident-handling-with-automation-rules.md)|
 |Playbooks|Automate and orchestrate your threat response by using playbooks, which are a collection of remediation actions. Run a playbook on-demand or automatically in response to specific alerts or incidents, when triggered by an automation rule. <br><br>  To build playbooks with Azure Logic Apps, choose from a constantly expanding gallery of connectors for various services and systems like ServiceNow, Jira, and more. These connectors allow you to apply any custom logic in your workflow. |[Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md)<br><br>[List of all Logic App connectors](/connectors/connector-reference/connector-reference-logicapps-connectors)|
 
-## Microsoft Sentinel in the Azure portal deprecation timeline
+## Microsoft Sentinel in the Azure portal retirement timeline
 
 [!INCLUDE [sentinel-azure-deprecation](includes/sentinel-azure-deprecation.md)]
 
