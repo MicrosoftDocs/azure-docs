@@ -1,5 +1,5 @@
 ---  
-title: Onboarding to Microsoft Sentinel data lake (Preview)
+title: Onboarding to Microsoft Sentinel data lake (preview)
 titleSuffix: Microsoft Security  
 description: This article describes how to onboard to the Microsoft Sentinel data lake  
 author: EdB-MSFT
@@ -13,7 +13,7 @@ ms.subservice: sentinel-graph
 ---  
 
 
-# Onboarding to Microsoft Sentinel data lake (Preview)
+# Onboarding to Microsoft Sentinel data lake (preview)
 
 
 The Microsoft Sentinel data lake (Preview), available in the Microsoft Defender portal, is a tenant-wide, centralized repository designed to store and manage vast amounts of security-related data from various sources. It enables your organization to collect, ingest, and analyze security data in a unified manner, providing a comprehensive view of your security landscape. Leveraging advanced analytics, machine learning, and artificial intelligence, the Microsoft Sentinel data lake helps in detecting threats, investigate and responding to incidents, and improving overall security posture.
@@ -98,7 +98,7 @@ Use the following steps to onboard to the Microsoft Sentinel data lake from the 
     > If you accidentally close the banner, you can initiate onboarding by navigating to the data lake settings page under **System Settings**, **Microsoft Sentinel**.
 
 
-1. If you don't have the correct roles to set up the data lake, a side panel appears indicating that you don't have the required permissions. Request that your administrator complete the onboarding process.
+1. If you don't have the correct roles to set up the data lake, a side panel appears indicating that you don't have the required permissions. Request that your administrator completes the onboarding process.
 
     :::image type="content" source="./media/sentinel-lake-onboarding/permissions-required.png" lightbox="./media/sentinel-lake-onboarding/permissions-required.png" alt-text="A screenshot showing the permissions required page in the Defender portal."::: 
 
@@ -136,6 +136,6 @@ If you encounter any issues during the setup process, see the following troubles
 ## Related content
 
 - [Microsoft Sentinel data lake overview (Preview)](https://aka.ms/sentinel-lake-overview)
-- [Microsoft Sentinel data lake roles and permissions](https://aka.ms/sentinel-data-lake-roles) <!---(../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview) --->
+- [Microsoft Sentinel data lake roles and permissions](https://aka.ms/sentinel-data-lake-roles)
 - [Microsoft Sentinel data lake billing](../billing.md)
 - [Create custom roles with Microsoft Defender XDR Unified role-based access control (RBAC)](/defender-xdr/create-custom-rbac-roles)

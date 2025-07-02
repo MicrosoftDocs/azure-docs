@@ -1,7 +1,7 @@
 ---  
-title: Microsoft Sentinel data lake (Preview) service limits
+title: Microsoft Sentinel data lake (preview) service limits
 titleSuffix: Microsoft Security  
-description: Service limits for the Microsoft Sentinel data lake (Preview) service.
+description: Service limits for the Microsoft Sentinel data lake (preview) service.
 author: EdB-MSFT  
 ms.service: microsoft-sentinel  
 ms.subservice: sentinel-graph
@@ -13,9 +13,9 @@ ms.author: edbaynash
 ---  
 
 
-# Microsoft Sentinel data lake (Preview) service limits
+# Microsoft Sentinel data lake (preview) service limits
 
-The following service limits apply to the Microsoft Sentinel data lake (Preview) service.
+The following service limits apply to the Microsoft Sentinel data lake (preview) service.
 
 [!INCLUDE [Service limits for VS Code notebooks](../includes/service-limits-notebooks.md)]
 

@@ -11,7 +11,7 @@ ms.date: 06/30/2025
 The following section lists the service limits for Microsoft Sentinel data lake (Preview) when using VS Code Notebooks.
 
 + Spark compute session takes about 5-6 minutes to start. You can view the status of the session at the bottom of your VS Code Notebook.
-+ Only [Azure Synapse libraries](https://github.com/microsoft/synapse-spark-runtime/blob/main/Synapse/spark3.4/Official-Spark3.4-Rel-2025-04-16.0-rc.1.md) and the Microsoft Sentinel Provider library for abstracted functions are supported for querying lake. Pip installs or custom libraries aren't supported.
++ Only [Azure Synapse libraries 3.4](https://github.com/microsoft/synapse-spark-runtime/tree/main#readme) and the Microsoft Sentinel Provider library for abstracted functions are supported for querying lake. Pip installs or custom libraries aren't supported.
 
 
 | Category | Limit |
