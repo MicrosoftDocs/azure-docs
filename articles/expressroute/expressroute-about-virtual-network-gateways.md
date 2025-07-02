@@ -89,8 +89,8 @@ The Hosted-On-Behalf-Of (HOBO) Public IP feature simplifies ExpressRoute gateway
 
 **Key benefits:**
 
-- **Improved security:** The public IP is managed internally by Microsoft and isn't exposed to customers, reducing risks associated with open management ports.
-- **Reduced complexity:** Customers aren't required to provision or manage a public IP resource.
+- **Improved security:** The public IP is managed internally by Microsoft and isn't exposed to you, reducing risks associated with open management ports.
+- **Reduced complexity:** You aren't required to provision or manage a public IP resource.
 - **Streamlined deployment:** The Azure portal and CLI no longer prompt for a public IP during gateway creation.
 
 **How it works:**  
