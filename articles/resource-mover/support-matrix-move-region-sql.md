@@ -8,6 +8,7 @@ ms.date: 12/27/2024
 ms.update-cycle: 180-days
 ms.author: jsuri
 ms.custom: UpdateFrequency.5
+# Customer intent: As a database administrator, I want to understand the support and limitations for moving Azure SQL resources between regions, so that I can effectively plan and execute resource relocations while ensuring compliance with feature availability and prerequisites.
 ---
 # Support for moving Azure SQL resources between Azure regions
 
