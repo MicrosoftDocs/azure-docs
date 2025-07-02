@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-enable-private-link-storage-account-cli.md",
+            "redirect_url": "/azure/frontdoor/standard-premium/how-to-enable-private-link-storage-account",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cdn/index.yml",
             "redirect_url": "/azure/frontdoor",
             "redirect_document_id": false
