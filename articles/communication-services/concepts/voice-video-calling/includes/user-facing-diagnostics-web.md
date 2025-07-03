@@ -209,9 +209,9 @@ To transmit remote UFDs to all participants on a call, you need to enable the fu
 
 ```js
 // Start the local client to send its local UFD to all remote participants (send local UFD to remote clients).
-remoteUfdsFeature.startSendingDiagnostics();
+userFacingDiagnostics.remote.startSendingDiagnostics();
 // Stop sending local UFDs to remote clients.
-remoteUfdsFeature.stopSendingDiagnostics();
+userFacingDiagnostics.remote.stopSendingDiagnostics();
 ```
 
 For the code sample below, `RemoteParticipantDiagnosticsData` has the following data associated with it:
