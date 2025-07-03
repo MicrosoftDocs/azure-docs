@@ -102,6 +102,8 @@ This section describes what to expect when a file storage account is configured 
 
 - **Traffic rerouting.** Azure automatically reroutes traffic to the remaining healthy availability zones. The service maintains full functionality using the surviving zones with no customer intervention required.
 
+  No remounting of Azure file shares from the connected clients is required.
+
 ### Failback
 
 <!-- This paragraph is copied from the Blob guide -->
