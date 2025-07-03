@@ -80,7 +80,7 @@ These auto-upgraded workloads are not affected by the announced removal date of 
 
 You can identify which activities have been automatically upgraded by inspecting the activity output, where relevant upgrade information is recorded.
 
-Example:
+**Example:**
 
 Copy activity output 
 
@@ -126,8 +126,8 @@ You can find more details from the table below on the connector list that is pla
 
 | Connector        | Scenario |
 |------------------|----------|
-| Google BigQuery  | Scenario that does not rely on below capability in Google BigQuery V1:<br><br>  • Use `trustedCertsPath`, `additionalProjects`, `requestgoogledrivescope` connection properties.<br>  • Set `useSystemTrustStore` connection property as `false`.<br>  • Use **STRUCT** and **ARRAY** data types. |
-| Teradata         | Scenario that does not rely on below capability in Teradata (version 1.0):<br><br>  • Set below value for **CharacterSet**:<br>&nbsp;&nbsp;- BIG5 (TCHBIG5_1R0)<br>&nbsp;&nbsp;- EUC (Unix compatible, KANJIEC_0U)<br>&nbsp;&nbsp;- GB (SCHGB2312_1T0)<br>&nbsp;&nbsp;- IBM Mainframe (KANJIEBCDIC5035_0I)<br>&nbsp;&nbsp;- NetworkKorean (HANGULKSC5601_2R4)<br>&nbsp;&nbsp;- Shift-JIS (Windows, DOS compatible, KANJISJIS_0S)|
+| [Google BigQuery](connector-google-bigquery.md)  | Scenario that does not rely on below capability in Google BigQuery V1:<br><br>  • Use `trustedCertsPath`, `additionalProjects`, `requestgoogledrivescope` connection properties.<br>  • Set `useSystemTrustStore` connection property as `false`.<br>  • Use **STRUCT** and **ARRAY** data types. |
+| [Teradata](connector-teradata.md)         | Scenario that does not rely on below capability in Teradata (version 1.0):<br><br>  • Set below value for **CharacterSet**:<br>&nbsp;&nbsp;• BIG5 (TCHBIG5_1R0)<br>&nbsp;&nbsp;• EUC (Unix compatible, KANJIEC_0U)<br>&nbsp;&nbsp;• GB (SCHGB2312_1T0)<br>&nbsp;&nbsp;• IBM Mainframe (KANJIEBCDIC5035_0I)<br>&nbsp;&nbsp;- NetworkKorean (HANGULKSC5601_2R4)<br>&nbsp;&nbsp;• Shift-JIS (Windows, DOS compatible, KANJISJIS_0S)|
 
 ## Related content
 
