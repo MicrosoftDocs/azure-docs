@@ -16,12 +16,16 @@ In this guide, you'll use the targeting filter to roll out a feature to targeted
 
 ## Prerequisites
 
-- Create a [Node.js application with a feature flag](./quickstart-feature-flag-javascript.md).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - A feature flag with targeting filter. [Create the feature flag](./howto-targetingfilter.md).
+- [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule).
 
 ## Create a web application with a feature flag
 
 In this section, you create a web application that uses the *Beta* feature flag to control the access to the beta version of the page.
+
+### Initial project setup
 
 1. Create a folder called `targeting-filter-tutorial` and initialize the project.
 
@@ -39,16 +43,20 @@ In this section, you create a web application that uses the *Beta* feature flag 
     npm install express
     ```
 
+### Add App Configuration provider
+
+You will load the feature flag you created in the prerequisites from Azure App Configuration and create a `FeatureManager` to manage the feature flag.
+
 1. Create a new file named *app.js* and add the following code.
 
     ```js
     const express = require("express");
-    const app = express();
+    const server = express();
+    const port = "8080";
 
     const appConfigEndpoint = process.env.AZURE_APPCONFIG_ENDPOINT;
     const { DefaultAzureCredential } = require("@azure/identity");
     const { load } = require("@azure/app-configuration-provider");
-    const { FeatureManager, ConfigurationMapFeatureFlagProvider } = require("@microsoft/feature-management");
 
     let appConfig;
     let featureManager;
@@ -65,45 +73,46 @@ In this section, you create a web application that uses the *Beta* feature flag 
 
         featureManager = new FeatureManager(new ConfigurationMapFeatureFlagProvider(appConfig));
     }
+    ```
 
-    function buildContent(title, message) {
-        return `
+### Use the feature flag
+
+1. Add the following code to the *app.js* file. You add a middleware to refresh configuration and configure the route handler. The server will serve different contents based on whether the **Beta** feature flag is enabled.
+
+    ```js
+    // Use a middleware to refresh the configuration before each request.
+    server.use((req, res, next) => {
+        appConfig.refresh();
+        next();
+    });
+
+    server.get("/", async (req, res) => {
+        const isBetaEnabled = await featureManager.isEnabled("Beta");
+        const [title, message] = isBetaEnabled 
+            ? ["Beta Page", "This is a beta page."]
+            : ["Home Page", "Welcome."];
+        
+        res.send(
+            `<!DOCTYPE html>
             <html>
                 <head><title>${title}</title></head>
-                <body style="display: flex; justify-content: center; align-items: center;">
-                    <h1 style="text-align: center; font-size: 5.0rem">${message}</h1>
+                <body style="display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;">
+                    <h1 style="text-align: center; font-size: 5rem;">${message}</h1>
                 </body>
-            </html>
-        `;
-    }
+            </html>`
+        );
+    });
+    ```
 
-    function startServer() {
-        // Use a middleware to refresh the configuration before each request
-        app.use((req, res, next) => {
-            appConfig.refresh();
-            next();
-        });
+1. Complete the application. It will initialize the configuration and then start the express server.
 
-        app.get("/", async (req, res) => {
-            const { userId, groups } = req.query;
-            const isBetaEnabled = await featureManager.isEnabled("Beta", { userId: userId, groups: groups ? groups.split(",") : [] });
-            
-            res.send(isBetaEnabled ? 
-                buildContent("Beta Page", "This is a beta page.") : 
-                buildContent("Home Page", "Welcome.")
-            );
-        });
-
-        const port = "8080";
-        app.listen(port, () => {
-            console.log(`Server is running at http://localhost:${port}`);
-        });
-    }
-
-    // Initialize the configuration and start the server
+    ```js
     initializeConfig()
         .then(() => {
-            startServer();
+            // Start the express server.
+            server.listen(port, () => {
+                console.log(`Server is running at http://localhost:${port}`);
+            });
         })
         .catch((error) => {
             console.error("Failed to load configuration:", error);
@@ -113,33 +122,36 @@ In this section, you create a web application that uses the *Beta* feature flag 
 
 ## Enable targeting for the web application
 
-A targeting context is required for feature evaluation with targeting. You can provide it as a parameter to the `featureManager.isEnabled` API explicitly. In the tutorial, we extract user information from query parameters of the request URL for simplicity.
+A targeting context is required for feature evaluation with targeting. To explicitly specify the targeting context for each feature evaluation, you can pass targeting context as a parameter to the `featureManager.isEnabled` call.
 
-### Targeting Context Accessor
+```js
+const isBetaEnabled = await featureManager.isEnabled("Beta", { userId: "UserA", groups: ["Group1"] });
+```
 
-In the web application, the targeting context can also be provided as an ambient context by implementing the [ITargetingContextAccessor](./feature-management-javascript-reference.md#itargetingcontextaccessor) interface.
+In the web application, the targeting context can also be provided as an ambient context by implementing the [ITargetingContextAccessor](./feature-management-javascript-reference.md#itargetingcontextaccessor) interface. Ambient targeting context means the targeting information is automatically retrieved from the environment (like the current HTTP request) without explicitly passing it to each `featureManager.isEnabled()` call.
 
-1. Add the following code to your application:
+We will use ambient targeting context as an example in this tutorial.
+
+1. Add the following code after where you declare the express server.
 
     ```js
-    // ...
-    // existing code
-    const app = express();
+    const express = require("express");
+    const server = express();
 
     const { AsyncLocalStorage } = require("async_hooks");
     const requestAccessor = new AsyncLocalStorage();
-    // Use a middleware to store request context
-    app.use((req, res, next) => {
-        // Store the request in AsyncLocalStorage for this request chain
+    // Use a middleware to store request context.
+    server.use((req, res, next) => {
+        // Store the request in AsyncLocalStorage for this request chain.
         requestAccessor.run(req, () => {
             next();
         });
     });
 
-    // Create a targeting context accessor that retrieves user data from the current request
+    // Create a targeting context accessor that retrieves user data from the current request.
     const targetingContextAccessor = {
         getTargetingContext: () => {
-            // Get the current request from AsyncLocalStorage
+            // Get the current request from AsyncLocalStorage.
             const request = requestAccessor.getStore();
             if (!request) {
                 return undefined;
@@ -151,12 +163,14 @@ In the web application, the targeting context can also be provided as an ambient
             };
         }
     };
-
-    // existing code
-    // ...
+    // Existing code ...
     ```
 
-1. When constructing the `FeatureManager`, pass the targeting cotnext accessor to the `FeatureManagerOptions`.
+    For demonstration purposes, in this tutorial, you extract user information from the query string of the request URL. In a real-world application, user information is typically obtained through authentication mechanisms.
+
+    For more information, go to [Using AsyncLocalStorage for request context](./feature-management-javascript-reference.md#using-asynclocalstorage-for-request-context).
+
+1. When constructing the `FeatureManager`, pass the targeting context accessor to the `FeatureManagerOptions`.
 
     ```js
     featureManager = new FeatureManager(featureFlagProvider, {
@@ -164,22 +178,99 @@ In the web application, the targeting context can also be provided as an ambient
     });
     ```
 
-1. Instead of explicitly passing the targeting context with each `isEnabled` call, the feature manager will retrieve the current user's targeting information from the targeting context accessor.
+Your complete application code should look like the following:
 
-    ```js
-    app.get("/", async (req, res) => {
-            const beta = await featureManager.isEnabled("Beta");
-            if (beta) {
-                // existing code
-                // ...
-            } else {
-                // existing code
-                // ...
+```js
+const express = require("express");
+const server = express();
+const port = 8080;
+
+const { AsyncLocalStorage } = require("async_hooks");
+const requestAccessor = new AsyncLocalStorage();
+// Use a middleware to store request context
+server.use((req, res, next) => {
+    // Store the request in AsyncLocalStorage for this request chain
+    requestAccessor.run(req, () => {
+        next();
+    });
+});
+
+// Create a targeting context accessor that retrieves user data from the current request
+const targetingContextAccessor = {
+    getTargetingContext: () => {
+        // Get the current request from AsyncLocalStorage
+        const request = requestAccessor.getStore();
+        if (!request) {
+            return undefined;
+        }
+        const { userId, groups } = request.query;
+        return {
+            userId: userId,
+            groups: groups ? groups.split(",") : [] 
+        };
+    }
+};
+
+const appConfigEndpoint = process.env.AZURE_APPCONFIG_ENDPOINT;
+const { DefaultAzureCredential } = require("@azure/identity");
+const { load } = require("@azure/app-configuration-provider");
+const { FeatureManager, ConfigurationMapFeatureFlagProvider } = require("@microsoft/feature-management");
+
+let appConfig;
+let featureManager;
+
+async function initializeConfig() {
+    appConfig = await load(appConfigEndpoint, new DefaultAzureCredential(), {
+        featureFlagOptions: {
+            enabled: true,
+            refresh: {
+                enabled: true
             }
-        });
-    ```
+        }
+    });
 
-For more information, go to [Using AsyncLocalStorage for request context](./feature-management-javascript-reference.md#using-asynclocalstorage-for-request-context).
+    featureManager = new FeatureManager(new ConfigurationMapFeatureFlagProvider(appConfig), {
+        targetingContextAccessor: targetingContextAccessor
+    });
+}
+
+// Use a middleware to refresh the configuration before each request
+server.use((req, res, next) => {
+    appConfig.refresh();
+    next();
+});
+
+server.get("/", async (req, res) => {
+    const isBetaEnabled = await featureManager.isEnabled("Beta");
+    const [title, message] = isBetaEnabled 
+        ? ["Beta Page", "This is a beta page."]
+        : ["Home Page", "Welcome."];
+    
+    res.send(
+        `<!DOCTYPE html>
+        <html>
+            <head><title>${title}</title></head>
+            <body style="display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;">
+                <h1 style="text-align: center; font-size: 5rem;">${message}</h1>
+            </body>
+        </html>`
+    );
+});
+
+// Initialize the configuration and start the server
+initializeConfig()
+    .then(() => {
+        // Start the express server.
+        server.listen(port, () => {
+            console.log(`Server is running at http://localhost:${port}`);
+        });
+    })
+    .catch((error) => {
+        console.error("Failed to load configuration:", error);
+        process.exit(1);
+    });
+```
+
 
 ## Targeting filter in action
 
