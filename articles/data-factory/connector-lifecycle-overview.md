@@ -80,45 +80,6 @@ These auto-upgraded workloads are not affected by the announced removal date of 
 
 You can identify which activities have been automatically upgraded by inspecting the activity output, where relevant upgrade information is recorded.
 
-**Example:**
-
-Copy activity output 
-
-```json
-"source": {
-    "type": "AmazonS3",
-    "autoUpgrade": "true",
-    "compatibleWithVersion": "1.0"
-} 
-
-"sink": {
-    "type": "AmazonS3",
-    "autoUpgrade": "true",
-    "compatibleWithVersion": "1.0"
-}
-```
-
-Lookup activity output 
-
-```json
-"source": {
-    "type": "AmazonS3",
-    "autoUpgrade": "true",
-    "compatibleWithVersion": "1.0"
-}
-```
- 
-
-Script activity output
-
-```json
-"source": {
-    "type": "AmazonS3",
-    "autoUpgrade": "true",
-    "compatibleWithVersion": "1.0"
-}
-```
-
 > [!NOTE]
 > While compatibility mode offers flexibility, we strongly encourage users to upgrade to the latest GA version as soon as possible to benefit from ongoing improvements, optimizations, and full support. 
 
