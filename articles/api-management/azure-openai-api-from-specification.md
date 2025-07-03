@@ -6,6 +6,7 @@ author: dlepow
 ms.author: danlep
 ms.topic: how-to
 ms.date: 05/16/2025
+ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ms.custom: template-how-to, build-2024
 ---
@@ -20,6 +21,7 @@ You can import AI model endpoints deployed in [Azure OpenAI in Foundry Models](/
 This article shows two options to import an Azure OpenAI API into an Azure API Management instance as a REST API:
 
 - [Import an Azure OpenAI API directly from Azure OpenAI](#option-1-import-api-from-azure-openai) (recommended)
+ 
 - [Download and add the OpenAPI specification](#option-2-add-an-openapi-specification-to-api-management) for Azure OpenAI and add it to API Management as an OpenAPI API.
 
 Learn more about managing AI APIs in API Management:
@@ -39,7 +41,7 @@ Learn more about managing AI APIs in API Management:
 - Permissions to grant access to the Azure OpenAI resource from the API Management instance.
 
 ## Option 1. Import API from Azure OpenAI 
-
+ 
 You can import an Azure OpenAI API directly from Azure OpenAI to API Management. 
 
 [!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
@@ -134,8 +136,8 @@ To ensure that your Azure OpenAI API is working as expected, test it in the API 
 1. Select an operation that's compatible with the model you deployed in the Azure OpenAI resource. 
     The page displays fields for parameters and headers.
 1. In **Template parameters**, enter the following values:
-    * `deployment-id` - the ID of a deployment in Azure OpenAI  
-    * `api-version` - a valid Azure OpenAI API version, such as the API version you selected when you imported the API.
+     * `deployment-id` - the ID of a deployment in Azure OpenAI   
+     * `api-version` - a valid Azure OpenAI API version, such as the API version you selected when you imported the API.
       :::image type="content" source="media/azure-openai-api-from-specification/test-azure-openai-api.png" alt-text="Screenshot of testing an Azure OpenAI API in the portal." lightbox="media/azure-openai-api-from-specification/test-azure-openai-api.png" :::
 1. Enter other parameters and headers as needed. Depending on the operation, you might need to configure or update a **Request body**.
     > [!NOTE]

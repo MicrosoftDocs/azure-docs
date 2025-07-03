@@ -7,6 +7,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
 ms.author: akashdubey
+# Customer intent: As a cloud administrator, I want to use the BlobFuse2 secure command to manage the encryption and decryption of configuration files, so that I can ensure secure access to sensitive data within my cloud storage environment.
 ---
 
 # How to use the BlobFuse2 secure command

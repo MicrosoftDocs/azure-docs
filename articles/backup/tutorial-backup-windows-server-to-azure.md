@@ -7,6 +7,7 @@ ms.custom: mvc, engagement-fy23
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a system administrator, I want to back up my on-premises Windows Server to a cloud storage solution, so that I can protect my files and ensure data recovery in case of corruption, cyberattacks, or disasters.
 ---
 # Tutorial: Back up Windows Server to Azure
 

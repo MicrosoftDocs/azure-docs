@@ -7,6 +7,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: concept-article
 ms.date: 11/15/2024
 ms.author: normesta
+# Customer intent: As a cloud architect, I want to upgrade my Azure Blob Storage to Data Lake Storage, so that I can leverage enhanced capabilities like hierarchical namespace, improved security, and performance optimizations for big data analytics workloads.
 ---
 
 # Upgrade Azure Blob Storage with Azure Data Lake Storage capabilities

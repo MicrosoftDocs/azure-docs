@@ -1,18 +1,19 @@
 ---
-title: Collecting user feedback in native calling scenarios
-description: Understand how to provide effective user feedback.
+title: User support
+titleSuffix: An Azure Communication Services article
+description: This article describes how to provide effective user feedback.
 author:      ahammer
 ms.author:   adamhammer
 ms.service:  azure-communication-services
 ms.topic:    conceptual
-ms.date:     07/17/2023
+ms.date:     06/28/2025
 ---
 
 # Collecting user feedback in native calling scenarios
 
 ## Introduction
 
-As a third-party library, we must acknowledge that diagnostic data, crucial for troubleshooting, resides on end user mobile devices. Our support model hinges on a symbiotic relationship: to assist your customers effectively, we must ensure you're equipped to do so. This documentation outlines the methodologies to collect diagnostic data when a user reports an issue.
+As a third-party library, we acknowledge that diagnostic data, crucial for troubleshooting, resides on end user mobile devices. Our support model hinges on a symbiotic relationship: to assist your customers effectively, we must ensure you're equipped to do so. This article outlines methods to collect diagnostic data when a user reports an issue.
 
 ### Key development concerns
 
@@ -83,4 +84,4 @@ For developers utilizing the Calling SDK or the ACS UI Library, consider the fol
     
 ## Conclusion
 
-This guide emphasizes the necessity of efficiently collecting and transmitting diagnostic data for effective user support in native calling applications. Employing these strategies enables the rapid diagnosis and resolution of user issues, improving the app's performance and user satisfaction. 
+This guide emphasizes how to efficiently collect and transmit diagnostic data for user support in native calling applications. Employing these strategies enables the rapid diagnosis and resolution of user issues, improving app performance and user satisfaction. 

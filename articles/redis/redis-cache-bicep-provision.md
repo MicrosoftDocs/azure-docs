@@ -21,8 +21,8 @@ Learn how to use Bicep to deploy a cache using Azure Cache for Redis. After you 
 
 ## Prerequisites
 
-* **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* **A storage account**: To create one, see [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal). The storage account is used for diagnostic data. Create the storage account in a new resource group named **exampleRG**.
+- **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- **A storage account**: To create one, see [Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal). The storage account is used for diagnostic data. Create the storage account in a new resource group named **exampleRG**.
 
 ## Azure Cache for Redis
 
@@ -160,9 +160,6 @@ Remove-AzResourceGroup -Name exampleRG
 
 ---
 
-## Next steps
+## Related content
 
-In this tutorial, you learned how to use Bicep to deploy a cache using Azure Cache for Redis. To learn more about Azure Cache for Redis and Bicep, see the articles below:
-
-* Learn more about [Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md).
-* Learn more about [Bicep](../../articles/azure-resource-manager/bicep/overview.md).
+- Learn more about [ARM templates](/azure/azure-resource-manager/templates/overview)

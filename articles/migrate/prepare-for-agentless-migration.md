@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 05/09/2025
 ms.custom: vmware-scenario-422, engagement-fy23, linux-related-content
+# Customer intent: "As an IT administrator preparing on-premises VMware VMs for migration, I want to implement the necessary configuration changes, so that the VMs can successfully boot and connect in Azure after the migration process."
 ---
 
 # Prepare for VMware agentless migration

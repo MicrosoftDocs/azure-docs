@@ -8,6 +8,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 02/13/2025
 ms.author: cherylmc
+# Customer intent: As a network administrator, I want to install client certificates for P2S VPN authentication on various operating systems, so that I can ensure secure and proper access for users connecting to the network.
 ---
 # Install client certificates for P2S certificate authentication connections
 

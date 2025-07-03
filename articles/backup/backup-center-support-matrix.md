@@ -7,6 +7,7 @@ ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: As an IT administrator, I want to understand the supported scenarios and limitations of the Backup Center for various workloads so that I can effectively monitor, govern, and manage backup configurations in my cloud environment.
 ---
 
 # Support matrix for Backup center

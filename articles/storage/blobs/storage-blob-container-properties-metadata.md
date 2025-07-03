@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 08/05/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: As a .NET developer, I want to manage properties and custom metadata for blob containers, so that I can efficiently control additional data attributes and enhance data organization in my Azure Storage account.
 ---
 
 # Manage container properties and metadata with .NET

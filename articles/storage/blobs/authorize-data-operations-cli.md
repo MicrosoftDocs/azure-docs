@@ -11,6 +11,7 @@ ms.date: 07/12/2021
 ms.reviewer: nachakra
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
+# Customer intent: "As a cloud administrator, I want to authorize access to blob data using the Azure CLI, so that I can securely manage data operations while ensuring compliance with best practices in identity and access management."
 ---
 
 # Choose how to authorize access to blob data with Azure CLI

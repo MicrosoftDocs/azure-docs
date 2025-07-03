@@ -7,6 +7,7 @@ ms.topic: reference
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-application-gateway
+# Customer intent: "As a cloud administrator, I want to access detailed performance metrics for Azure Application Gateway, so that I can effectively monitor traffic handling, optimize resource usage, and ensure high availability of services."
 ---
 
 # Azure Application Gateway monitoring data reference
@@ -334,14 +335,28 @@ If the application gateway can't complete the request, it stores one of the foll
 | ERRORINFO_HTTP_NO_HOST_HEADER | Client sent a request without Host header. |
 | ERRORINFO_HTTP_TO_HTTPS_PORT | The client sent a plain HTTP request to an HTTPS port. |
 | ERRORINFO_HTTPS_NO_CERT | Indicates client isn't sending a valid and properly configured TLS certificate during Mutual TLS authentication. |
+| ERRORINFO_INVALID_HEADER (4xx) | Indicates that the HTTP request from the client contains a malformed or improperly structured Host header, which prevents the Application Gateway from correctly processing and routing the request to the backend server |
+| ERRORINFO_CLIENT_TIMED_OUT | This error indicates that the client terminated the connection because it did not receive a response from the backend server within its configured timeout period. This is typically caused by a backend server that is slow, overloaded, or experiencing operational issues. |
+| ERRORINFO_REQUEST_URI_TOO_LARGE | This error indicates URL in an HTTP request exceeds the maximum length that the server is configured to accept. The default limit on URL length (including query parameters), is 8kb |
+| ERRORINFO_REQUEST_HEADER_TOO_LARGE | This error indicates that the total size of the HTTP request headers sent by the client exceeds the 32KB limit enforced by Application Gateway. Please note that this limit is fixed and cannot be customized. |
+| ERRORINFO_REQUEST_URI_UNSAFE | This error shows that the WAF found unsafe or malformed content in the request URI. Check the WAF logs to see which rule was triggered and decide if the request was malicious or mistakenly flagged, possibly needing WAF rule adjustments. |
+| ERRORINFO_HTTPS_CERT_VERIFY_ERROR | This error is thrown if the client's TLS certificate presented during the Mutual TLS handshake is either invalid or untrusted.  |
+| ERRORINFO_HTTP_MISDIRECTED_REQUEST | Application Gateway returns Misdirected Request error if the backend server isn't configured to respond to that hostname in the client’s request especially in SSL/TLS scenarios involving Server Name Indication (SNI)  |
+| ERRORINFO_HTTP_NOT_FOUND | Application Gateway returns Not found error when the backend server cannot find the requested resource. This usually occurs when the requested URL path does not exist on the backend server or there are misconfigurations in routing rules in the Application Gateway, causing requests to be forwarded to the wrong backend pool  |
+| ERRORINFO_CLIENT_SSL_CERT_ERROR |The Application Gateway encountered a problem with the client's SSL certificate during the TLS handshake, preventing successful authentication. This typically occurs when AppGW is configured for Mutual authentication and the client certificate is not provided  |
 
 | 5XX Errors | Description |
 |:-----------|:------------|
 | ERRORINFO_UPSTREAM_NO_LIVE | The application gateway is unable to find any active or reachable backend servers to handle incoming requests. |
+| ERRORINFO_EMPTY_BACKEND_POOL | This indicates that the AppGW cannot fulfil the request because the backend pool is empty. |
 | ERRORINFO_UPSTREAM_CLOSED_CONNECTION | The backend server closed the connection unexpectedly or before the request was fully processed. This condition could happen due to backend server reaching its limits, crashing etc. |
 | ERRORINFO_UPSTREAM_TIMED_OUT | The established TCP connection with the server was closed as the connection took longer than the configured timeout value. |
 | ERRORINFO_INVALID_HEADER | Application Gateway detected a partial invalid header and forwarded the remaining header to the backend, which responded with 500. Ensure the client's request header does not contain CR, LF, NULL, or similar characters. Replace such characters with SP (whitespace). |
-
+| ERRORINFO_EMPTY_BACKEND_POOL | This indicates that the Application Gateway cannot fulfil the request because the backend pool is empty. |
+| ERRORINFO_UPSTREAM_RESPONSE_HEADER_TOO_LARGE | The backend server's HTTP response headers exceed the maximum size that Azure Application Gateway can process. Application Gateway enforces a fixed limit of 32 KB for response headers, and exceeding this limit can result in a 502 Bad Gateway . |
+| ERRORINFO_UPSTREAM_NO_RESOLVER | This error indicates that the Virtual Network does not have a DNS resolver configured to translate hostnames into IP addresses |
+| ERRORINFO_UPSTREAM_SSL_CERT_VERIFY_ERROR | This error occurs when Application Gateway can't verify the backend certificate due to issues like trust failure, expiration, incomplete chain etc. AppGW will fail the SSL/TLS handshake and mark the backend as unhealthy |
+| ERRORINFO_UPSTREAM_SSL_CERT_MISMATCH | This error is caused by a mismatch between the Common Name/SAN in the backend server certificate and the expected hostname in the FQDN configured in the backend pool or specified in the HTTP settings.  |
 ### Firewall log category
 
 The firewall log is generated only if you enable it for each application gateway, as detailed in [Enable logging](application-gateway-diagnostics.md#enable-logging-through-the-azure-portal). This log also requires that the web application firewall is configured on an application gateway. The data is stored in the storage account that you specified when you enabled the logging. The following data is logged:

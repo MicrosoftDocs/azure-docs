@@ -102,8 +102,8 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [5049608]: https://support.microsoft.com/kb/5049608
 [5049617]: https://support.microsoft.com/kb/5049617
 [5054006]: https://support.microsoft.com/kb/5054006
-[5054007]: https://support.microsoft.com/kb/5054007
-[5053666]: https://support.microsoft.com/kb/5053666
+[5054007]: https://support.microsoft.com/help/5053596
+[5053666]: https://support.microsoft.com/help/5053603
 [4494175]: https://support.microsoft.com/kb/4494175
 
 [5.104]: ./cloud-services-guestos-update-matrix.md#family-5-releases

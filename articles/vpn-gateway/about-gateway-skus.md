@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 06/23/2025
 ms.author: cherylmc 
 
+# Customer intent: As a cloud network architect, I want to choose the appropriate VPN Gateway SKU, so that I can optimize the performance and reliability of our network connections based on workload requirements and feature support.
 ---
 # About gateway SKUs
 

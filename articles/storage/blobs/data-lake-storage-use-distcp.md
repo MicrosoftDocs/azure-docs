@@ -9,6 +9,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 11/26/2024
 ms.author: normesta
+# Customer intent: As a data engineer, I want to use DistCp to efficiently copy data between Azure Blob Storage and Azure Data Lake Storage, so that I can manage data transfers and optimize performance in my cloud environment.
 ---
 
 # Use DistCp to copy data between Azure Storage Blobs and Azure Data Lake Storage

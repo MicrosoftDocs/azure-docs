@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 02/07/2025
 ms.custom: MVC, engagement-fy24
+# Customer intent: "As a cloud architect, I want to migrate AWS EC2 instances to Azure, so that I can leverage Azure's infrastructure while maintaining operational continuity and optimizing costs."
 ---
 
 # Discover, assess, and migrate Amazon Web Services (AWS) EC2 instances to Azure

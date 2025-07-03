@@ -7,6 +7,7 @@ ms.service: azure-vpn-gateway
 ms.date: 08/07/2024
 ms.author: cherylmc
 ms.topic: how-to
+# Customer intent: "As a network administrator, I want to delete a virtual network gateway, so that I can remove unused resources and potentially reconfigure my network setup."
 ---
 # Delete a virtual network gateway using the portal
 

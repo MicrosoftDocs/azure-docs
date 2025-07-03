@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 06/24/2025
 ms.author: anfdocs
+# Customer intent: "As a network administrator, I want to configure DNS for Azure NetApp Files integration with Active Directory, so that I can ensure reliable data access and avoid interruptions caused by incorrect or incomplete DNS records."
 ---
 # Understand Domain Name Systems in Azure NetApp Files 
 

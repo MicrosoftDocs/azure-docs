@@ -6,6 +6,7 @@ ms.date: 06/11/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to back up Azure Managed Disks using cloud-based solutions, so that I can ensure data security and enable recovery in case of a disaster."
 ---
 
 # Tutorial: Back up Azure Managed Disks using Azure Backup

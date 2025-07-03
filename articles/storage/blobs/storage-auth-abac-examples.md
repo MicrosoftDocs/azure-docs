@@ -10,6 +10,7 @@ ms.reviewer: nachakra
 ms.custom: devx-track-azurepowershell
 ms.date: 04/01/2024
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
+# Customer intent: "As a developer or IT admin, I want to understand examples of role assignment conditions for Azure Blob Storage, so that I can implement advanced access controls tailored to specific attributes and scenarios."
 ---
 
 # Example Azure role assignment conditions for Blob Storage

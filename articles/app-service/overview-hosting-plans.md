@@ -4,7 +4,8 @@ description: Learn how App Service plans work in Azure App Service, how they're 
 keywords: app service, azure app service, scale, scalable, scalability, app service plan, app service cost
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: overview
-ms.date: 03/28/2025
+ms.date: 07/02/2025
+ms.update-cycle: 1095-days
 ms.author: msangapu
 author: msangapu-msft
 ms.custom: UpdateFrequency3
@@ -122,7 +123,19 @@ However, keep in mind that apps in the same App Service plan all share the same 
 
 Isolate your app in a new App Service plan when:
 
-- The app is resource intensive.
+- The app is resource intensive. For general guidance, use this table:
+
+  | App Service plan | Maximum apps |
+  |--|--|
+  | B1, S1, P1v2, I1v1 | 8 |
+  | B2, S2, P2v2, I2v1 | 16 |
+  | B3, S3, P3v2, I3v1 | 32 |
+  | P0v3 | 8 |
+  | P1v3, I1v2 | 16 |
+  | P2v3, I2v2, P1mv3 | 32 |
+  | P3v3, I3v2, P2mv3 | 64 |
+  | I4v2, I5v2, I6v2 | Maximum density bound by vCPU usage |
+  | P3mv3, P4mv3, P5mv3 | Maximum density bound by vCPU usage |
 - You want to scale the app independently from the other apps in the existing plan.
 - The app needs resources in a different geographical region. This way, you can allocate a new set of resources for your app and gain greater control of your apps.
 

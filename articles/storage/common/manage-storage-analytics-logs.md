@@ -10,6 +10,7 @@ ms.reviewer: fryu
 ms.subservice: storage-common-concepts
 ms.devlang: csharp
 ms.custom: monitoring, devx-track-azurepowershell
+# Customer intent: "As a storage account administrator, I want to enable and manage Azure Storage Analytics logs, so that I can monitor and retain log data efficiently while controlling storage costs."
 ---
 
 # Enable and manage Azure Storage Analytics logs (classic)
