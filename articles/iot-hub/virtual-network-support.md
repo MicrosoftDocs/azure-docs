@@ -53,7 +53,7 @@ Private endpoints work for IoT Hub device APIs (like device-to-cloud messages) a
 
 1. Provide the subscription, resource group, name, network interface name, and region to create the new private endpoint. Ideally, a private endpoint should be created in the same region as your hub.
 
-1. Select **Next: Resource**, and provide the subscription for your IoT Hub resource. Then, select **Microsoft.Devices/IotHubs** for the resource type, your IoT hub name as the resource**, and **iotHub** as the target subresource.
+1. Select **Next: Resource**, and provide the subscription for your IoT Hub resource. Then, select **Microsoft.Devices/IotHubs** for the resource type, your IoT hub name as the resource, and **iotHub** as the target subresource.
 
 1. Select **Next: Virtual Network**, and provide your virtual network and subnet to create the private endpoint in. 
 
