@@ -53,8 +53,8 @@ You need the following items to ensure you're set up to begin the onboarding pro
 
 - In addition, Azure VMware Solution requires the following:
 
-    | Service   | Port |                                                                                   | Direction                  | Notes                                      |
-    |----------------------|------|---------------------------------------------------------------------------------------------|----------------------------|--------------------------------------------|
+    | Service   | Port |  URL      | Direction      | Notes          |
+    |----------------------|------|---------------------------------------------------------|----------------------------|--------------------------------------------|
     | aka.ms Shortlinks    | 443  | `https://aka.ms/*`                                                                          | Outbound from Management VM| Used for Azure CLI installer and redirects |
     | GitHub (repos)       | 443  | `https://github.com/vmware/govmomi/*` or `https://github.com/*`                             | Outbound from Management VM| GitHub release files & repos               |
     | GitHub Raw Content   | 443  | `https://raw.githubusercontent.com/Azure/azure-cli/*` or `https://raw.githubusercontent.com/*`| Outbound from Management VM| Raw file access from GitHub                |
