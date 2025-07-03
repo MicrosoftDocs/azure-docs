@@ -261,7 +261,7 @@ Connect from the appliance to Hyper-V hosts or clusters, and start server discov
 
 In **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis, discovery of SQL Server instances and databases in your Microsoft HyperV environment.**, you can provide multiple server credentials. If you don't want to use any of these appliance features,  you can disable the slider and proceed with discovery of servers running on Hyper-V hosts/clusters. You can change this option at any time.
 
-    :::image type="content" source="./media/tutorial-discover-hyper-v/appliance-server-credentials-mapping.png" alt-text="Screenshot that shows providing credentials for software inventory and dependency analysis.":::
+ :::image type="content" source="./media/tutorial-discover-hyper-v/appliance-server-credentials-mapping.png" alt-text="Screenshot that shows providing credentials for software inventory and dependency analysis.":::
 
 If you want to use these features, provide server credentials by completing the following steps. The appliance attempts to automatically map the credentials to the servers to perform the discovery features.
 
@@ -308,7 +308,7 @@ In the configuration manager, in the credentials table, see the **Validation sta
 
 If validation fails, you can select a **Failed** status to see the validation error. Fix the issue, and then select **Revalidate credentials** to reattempt validation of the credentials.
 
-    :::image type="content" source="./media/tutorial-discover-hyper-v/add-server-credentials-multiple.png" alt-text="Screenshot that shows providing and validating multiple credentials.":::
+:::image type="content" source="./media/tutorial-discover-hyper-v/add-server-credentials-multiple.png" alt-text="Screenshot that shows providing and validating multiple credentials.":::
 
 ### Start discovery
 
@@ -354,7 +354,7 @@ To view the remaining duration until end of support, that is, the number of mont
 
 Provide the Azure Stack cluster information and the credentials to connect to the cluster. For more information, see [Download the Azure Local software](/azure-stack/hci/deploy/download-azure-stack-hci-software).
 
-    :::image type="content" source="./media/tutorial-discover-hyper-v/onboard-hci.png" alt-text="Screenshot that shows the Onboard to Azure Local section.":::
+:::image type="content" source="./media/tutorial-discover-hyper-v/onboard-hci.png" alt-text="Screenshot that shows the Onboard to Azure Local section.":::
 
 ## Next steps
 
