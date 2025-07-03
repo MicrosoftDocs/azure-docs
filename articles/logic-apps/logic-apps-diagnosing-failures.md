@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 06/26/2025
+ms.date: 07/03/2025
 ---
 
 # Troubleshoot and diagnose workflow failures in Azure Logic Apps
@@ -33,7 +33,7 @@ Each workflow run starts with a trigger, which either fires on a schedule or wai
 
    :::image type="content" source="media/logic-apps-diagnosing-failures/review-trigger-inputs-consumption.png" alt-text="Screenshot showing Consumption logic app workflow trigger inputs." lightbox="media/logic-apps-diagnosing-failures/review-trigger-inputs-consumption.png":::
 
-1. Check the triggers outputs, if any, to confirm that they appear as you expect. On the **History** pane, under **Outputs link**, select the link, which shows the **Outputs** pane.
+1. Check the trigger's outputs, if any, to confirm that they appear as you expect. On the **History** pane, under **Outputs link**, select the link, which shows the **Outputs** pane.
 
    Trigger outputs include the data that the trigger passes to the next step in your workflow. Reviewing these outputs can help you determine whether the correct or expected values passed on to the next step in your workflow.
 
@@ -58,7 +58,7 @@ Each workflow run starts with a trigger, which either fires on a schedule or wai
 
    :::image type="content" source="media/logic-apps-diagnosing-failures/review-trigger-inputs-standard.png" alt-text="Screenshot showing Standard logic app workflow trigger inputs." lightbox="media/logic-apps-diagnosing-failures/review-trigger-inputs-standard.png":::
 
-1. Check the triggers outputs, if any, to confirm that they appear as you expect. On the **History** pane, under **Outputs link**, select the link, which shows the **Outputs** pane.
+1. Check the trigger's outputs, if any, to confirm that they appear as you expect. On the **History** pane, under **Outputs link**, select the link, which shows the **Outputs** pane.
 
    Trigger outputs include the data that the trigger passes to the next step in your workflow. Reviewing these outputs can help you determine whether the correct or expected values passed on to the next step in your workflow.
 
@@ -73,7 +73,7 @@ Each workflow run starts with a trigger, which either fires on a schedule or wai
 
 ---
 
-<a name="check-runs-history"></a>
+<a name="check-run-history"></a>
 
 ## Check workflow run history
 
@@ -81,9 +81,9 @@ Each time that the trigger fires, Azure Logic Apps creates a workflow instance a
 
 ### [Consumption](#tab/consumption)
 
-1. To check the workflow's run status in your Consumption logic app, review the [workflow's run history](monitor-logic-apps.md#review-runs-history). To view more information about a failed run, including all the steps in that run in their status, select the failed run.
+1. To check the workflow's run status in your Consumption logic app, review the [workflow's run history](view-workflow-status-run-history.md#review-run-history). To view more information about a failed run, including all the steps in that run in their status, select the failed run.
 
-   :::image type="content" source="media/logic-apps-diagnosing-failures/logic-app-runs-history-consumption.png" alt-text="Screenshot showing Azure portal with Consumption logic app workflow runs and a failed run selected." lightbox="media/logic-apps-diagnosing-failures/logic-app-runs-history-consumption.png":::
+   :::image type="content" source="media/logic-apps-diagnosing-failures/logic-app-run-history-consumption.png" alt-text="Screenshot showing Azure portal with Consumption logic app workflow runs and a failed run selected." lightbox="media/logic-apps-diagnosing-failures/logic-app-run-history-consumption.png":::
 
 1. After all the steps in the run appear, select each step to expand their shapes.
 
@@ -99,9 +99,9 @@ Each time that the trigger fires, Azure Logic Apps creates a workflow instance a
 
 ### [Standard](#tab/standard)
 
-1. To check the workflow's run status in your Standard logic app, review the [workflow's run history](monitor-logic-apps.md#review-runs-history). To view more information about a failed run, including all the steps in that run in their status, select the failed run.
+1. To check the workflow's run status in your Standard logic app, review the [workflow's run history](view-workflow-status-run-history.md#review-run-history). To view more information about a failed run, including all the steps in that run in their status, select the failed run.
 
-   :::image type="content" source="media/logic-apps-diagnosing-failures/logic-app-runs-history-standard.png" alt-text="Screenshot showing Azure portal with Standard logic app workflow runs and a failed run selected." lightbox="media/logic-apps-diagnosing-failures/logic-app-runs-history-standard.png":::
+   :::image type="content" source="media/logic-apps-diagnosing-failures/logic-app-run-history-standard.png" alt-text="Screenshot showing Azure portal with Standard logic app workflow runs and a failed run selected." lightbox="media/logic-apps-diagnosing-failures/logic-app-run-history-standard.png":::
 
 1. After all the steps in the run appear, select each step to review their details.
 
@@ -119,7 +119,7 @@ Each time that the trigger fires, Azure Logic Apps creates a workflow instance a
 
 ## Perform runtime debugging
 
-To help with debugging, you can add diagnostic steps to a logic app workflow, along with reviewing the trigger and runs history. For example, you can add steps that use the [Webhook Tester](https://webhook.site/) service, so you can inspect HTTP requests and determine their exact size, shape, and format.
+To help with debugging, you can add diagnostic steps to a logic app workflow, along with reviewing the trigger and run history. For example, you can add steps that use the [Webhook Tester](https://webhook.site/) service, so you can inspect HTTP requests and determine their exact size, shape, and format.
 
 1. In a browser, go to the [Webhook Tester](https://webhook.site/) site, and copy the generated unique URL.
 

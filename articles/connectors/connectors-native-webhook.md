@@ -38,7 +38,7 @@ Similar to the webhook trigger, a webhook action is also event-based. After you 
 * Before a workflow run times out.
 * You change any webhook action parameter values that are used as inputs by a webhook trigger.
 
-For example, the Office 365 Outlook connector's [**Send approval email**](connectors-create-api-office365-outlook.md) action is an example of webhook action that follows this pattern. You can extend this pattern into any service by using the webhook action.
+For example, the Office 365 Outlook connector's [**Send approval email**](connectors-create-api-office365-outlook.md) action is an example of a webhook action that follows this pattern. You can extend this pattern into any service by using the webhook action.
 
 For more information, see the following documentation:
 
@@ -276,6 +276,6 @@ The following example shows the webhook trigger definition with the `accessKeyTy
 
 ## Related content
 
-* [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
+* [Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
 * [List of all Logic Apps connectors](/connectors/connector-reference/connector-reference-logicapps-connectors)
 * [Built-in connectors in Azure Logic Apps](built-in.md)
