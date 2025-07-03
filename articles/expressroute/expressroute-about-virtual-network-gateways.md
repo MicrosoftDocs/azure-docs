@@ -30,7 +30,7 @@ Each virtual network can have only one virtual network gateway per gateway type.
 
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-You can upgrade your gateway to a higher-capacity SKU within the same SKU family, that is  Non-Az-enabled or Az-enabled gateway. 
+You can upgrade your gateway to a higher-capacity SKU within the same SKU family that is Non-Az-enabled or Az-enabled gateway. 
 
 For example, you can upgrade:
 * From one Non-Az-enabled SKU to another Non-Az-enabled SKU
