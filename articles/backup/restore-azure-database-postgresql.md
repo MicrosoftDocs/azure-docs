@@ -9,6 +9,7 @@ ms.custom:
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to restore backups of Azure Database for PostgreSQL using the Azure portal, so that I can quickly recover data and maintain service continuity in case of data loss."
 ---
 
 # Restore Azure Database for PostgreSQL backups by using the Azure portal

@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 01/27/2025
 ms.custom: engagement-fy25
+# Customer intent: As a cloud architect, I want to evaluate the migration capabilities for physical servers and other virtual machines to Azure, so that I can determine the best strategy for transitioning our on-premises infrastructure to the cloud.
 ---
 
 # Support matrix for migration of physical servers, AWS VMs, and GCP VMs

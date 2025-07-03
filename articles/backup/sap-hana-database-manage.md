@@ -6,6 +6,7 @@ ms.date: 06/05/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator managing SAP HANA databases on Azure VMs, I want to monitor and manage backup operations, so that I can ensure data protection and compliance with backup policies."
 ---
 
 # Manage and monitor backed up SAP HANA databases using Azure portal

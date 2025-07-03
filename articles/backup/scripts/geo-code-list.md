@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: references_regions
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a network administrator, I want to access a detailed list of geo-codes mapped to their respective regions, so that I can effectively configure custom DNS zones for private endpoints in my cloud environment.
 ---
 
 # Geo-code mapping

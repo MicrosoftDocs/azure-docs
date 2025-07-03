@@ -8,6 +8,7 @@ ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 03/21/2025
 ms.custom: engagement-fy25
+# Customer intent: "As an IT administrator in a government setting, I want to deploy an Azure Migrate appliance using a PowerShell script, so that I can efficiently discover, assess, and replicate servers from various environments to Azure Government cloud."
 ---
 
 
