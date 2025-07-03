@@ -41,7 +41,7 @@ Azure App Service supports the following [Transport Layer Security (TLS)](https:
 - TLS 1.2: The default minimum TLS version for new web apps.
 - TLS 1.1 and TLS 1.0: Versions supported for backward compatibility, but not considered secure by industry standards such as the [Payment Card Industry Data Security Standard (PCI DSS)](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard).
 
-You can configure the minimum TLS version for incoming requests to your web app and its Source Control Manager (SCM) site. By default, the minimum is set to **TLS 1.2**. To enforce different TLS versions, see [Configure general settings]((configure-common.md#configure-general-settings).
+You can configure the minimum TLS version for incoming requests to your web app and its Source Control Manager (SCM) site. By default, the minimum is set to **TLS 1.2**. To enforce different TLS versions, see [Configure general settings](configure-common.md#configure-general-settings).
 
 App Service supports both FTP and FTPS for deploying app files. New apps are set to accept only FTPS by default. To increase security, use FTPS instead of FTP if possible. If you aren't using FTP/S, you should [disable it](deploy-ftp.md#enforce-ftps). For more information, see [Deploy your app to Azure App Service using FTP/S](deploy-ftp.md).
 
@@ -63,9 +63,9 @@ App Service authentication and authorization support multiple authentication pro
 
 When you authenticate against a back-end service, App Service provides two mechanisms depending on your needs:
 
-- **Service identity** signs in to the remote resource by using the identity of the app itself. In App Service, you can create a [managed identity](overview-managed-identity.md) to use to authenticate with other services, such as [Azure SQL Database](/azure/sql-database/) or [Azure Key Vault](/azure/key-vault/). For an end-to-end tutorial, see [Secure an Azure SQL Database connection from App Service by using a managed identity](tutorial-connect-msi-sql-database.md).
+- **Service identity** signs in to the remote resource by using the identity of the app itself. In App Service, you can create a [managed identity](overview-managed-identity.md) that other services, such as [Azure SQL Database](/azure/sql-database/) or [Azure Key Vault](/azure/key-vault/), can use to authenticate. For an end-to-end tutorial, see [Secure an Azure SQL Database connection from App Service by using a managed identity](tutorial-connect-msi-sql-database.md).
 
-- **On behalf of (OBO)** delegates access to remote resources on behalf of the user. With Microsoft Entra ID as the authentication provider, your App Service app can perform delegated sign-in to a remote service such as [Microsoft Graph](/graph/overview) or to a remote App Service API app. For an end-to-end tutorial, see [Authenticate and authorize users end to end in Azure App Service](tutorial-auth-aad.md).
+- **On behalf of (OBO) authentication** delegates access to remote resources on behalf of the user. With Microsoft Entra ID as the authentication provider, your App Service app can perform delegated sign-in to a remote service such as [Microsoft Graph](/graph/overview) or to a remote App Service API app. For an end-to-end tutorial, see [Authenticate and authorize users end to end in Azure App Service](tutorial-auth-aad.md).
 
 ## Connectivity to remote resources
 
@@ -87,24 +87,24 @@ To isolate your resource connectivity completely from the shared networks in Azu
 
 ### On-premises resources
 
-You can securely access on-premises resources like databases in several different ways.
+You can securely access on-premises resources like databases in the following ways:
 
 - A [hybrid connection](app-service-hybrid-connections.md) establishes a point-to-point connection to your remote resource through a Transmission Control Protocol (TCP) tunnel that uses TLS 1.2 with shared access signature keys.
-- [Virtual network integration](overview-vnet-integration.md) or [App Service Environment](environment/intro.md) use a site-to-site VPN as described in [Resources inside an Azure virtual network](#resources-inside-an-azure-virtual-network), but the virtual network is connected to your on-premises network through the [site-to-site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal). In this network topology, your app can connect to on-premises resources the same way it connects to other resources in the virtual network.
+- [Virtual network integration](overview-vnet-integration.md) or [App Service Environment](environment/intro.md) with site-to-site VPN connect as described in [Resources inside an Azure virtual network](#resources-inside-an-azure-virtual-network), but connect the virtual network to the on-premises network through a [site-to-site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal). In this network topology, your app can connect to on-premises resources the same way it connects to other resources in the virtual network.
 
 ## Application secrets
 
-Don't store application secrets like database credentials, API tokens, and private keys in your code or configuration files. Instead, access them as [environment variables](https://wikipedia.org/wiki/Environment_variable) using the standard pattern for your code language. In App Service, you define environment variables through [app settings](configure-common.md#configure-app-settings) and, especially for .NET applications, [connection strings](configure-common.md#configure-connection-strings).
+Don't store application secrets like database credentials, API tokens, and private keys in code or configuration files, but access them as [environment variables](https://wikipedia.org/wiki/Environment_variable) using the standard pattern for your code language. In App Service, you define environment variables through [app settings](configure-common.md#configure-app-settings) and, especially for .NET applications, through [connection strings](configure-common.md#configure-connection-strings).
 
 App settings and connection strings are stored encrypted in Azure and are decrypted just before they're injected into your app's process memory when the app starts. The encryption keys are rotated regularly.
 
-Alternatively, you can integrate your App Service app with [Azure Key Vault](/azure/key-vault/) for advanced secrets management. Your App Service app can [access the key vault by using a managed identity](/azure/key-vault/general/tutorial-net-create-vault-azure-web-app) to securely access the secrets you need.
+Alternatively, you can integrate your App Service app with [Azure Key Vault](/azure/key-vault/) for advanced secrets management. Your App Service app can [securely access the key vault by using a managed identity](/azure/key-vault/general/tutorial-net-create-vault-azure-web-app) to get the secrets you need.
 
 ## Network isolation
 
-All App Service pricing tiers run your apps on the Azure shared network infrastructure except for the Isolated pricing tier. For example, the public IP addresses and front-end load balancers are shared with other tenants. The Isolated tier gives you complete network isolation by running your apps inside a dedicated [App Service Environment](environment/intro.md) in your own instance of [Azure Virtual Network](/azure/virtual-network/index).
+All App Service pricing tiers run your apps on the Azure shared network infrastructure except for the Isolated pricing tier. For example, the public IP addresses and front-end load balancers are shared with other tenants.
 
-By using network isolation, you can:
+The Isolated tier provides complete network isolation by running your apps inside a dedicated [App Service Environment](environment/intro.md) in your own instance of [Azure Virtual Network](/azure/virtual-network/index). By using network isolation, you can:
 
 - Serve your apps through a dedicated public endpoint with dedicated front ends.
 - Serve internal application by using an internal load balancer (ILB) that allows access only from inside your Azure virtual network. The ILB has an IP address from your private subnet, which provides total isolation of your apps from the internet.
@@ -112,8 +112,9 @@ By using network isolation, you can:
 
 ## DDoS protection
 
-For web workloads, use a [WAF](/azure/web-application-firewall/overview) and [Azure DDoS protection](/azure/ddos-protection/ddos-protection-overview) to safeguard against emerging DDoS attacks. Another option is to deploy [Azure Front Door](/azure/frontdoor/web-application-firewall) with a WAF for platform-level [protection against network-level DDoS attacks](/azure/frontdoor/front-door-ddos).
+For web workloads, use a [WAF](/azure/web-application-firewall/overview) and [Azure DDoS protection](/azure/ddos-protection/ddos-protection-overview) to safeguard against emerging DDoS attacks. Another option is to deploy [Azure Front Door](/azure/frontdoor/web-application-firewall) with a WAF for [platform-level protection against network-level DDoS attacks](/azure/frontdoor/front-door-ddos).
 
 ## Related content
 
-[Introduction to Azure App Service Environments](environment/intro.md)
+- [Introduction to Azure App Service Environments](environment/intro.md)
+- [Managed identities for App Service](overview-managed-identity.md)
