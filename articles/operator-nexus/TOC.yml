@@ -362,22 +362,6 @@
 - name: Troubleshooting
   expanded: true
   items:
-    - name: Resource Health
-      expanded: false
-      items:
-        - name: Troubleshoot Unhealthy or Degraded Storage Appliance
-          href: troubleshoot-unhealthy-degraded-storage-appliance.md
-    - name: Network Fabric
-      expanded: false
-      items:
-        - name: Troubleshoot Isolation Domain
-          href: troubleshoot-isolation-domain.md
-        - name: Troubleshoot LACP Bonding
-          href: troubleshoot-lacp-bonding.md
-        - name: Troubleshoot DNS Issues
-          href: troubleshoot-dns-issues.md
-        - name: Troubleshoot TWAMP (UDP) not working
-          href: troubleshoot-twamp-udp-not-working.md
     - name: Cluster or BMM
       expanded: false
       items:
@@ -397,6 +381,27 @@
           href: troubleshoot-accepted-cluster-hydration.md
         - name: Troubleshoot Out of Memory Pods
           href: troubleshoot-memory-limits.md
+    - name: Network Fabric
+      expanded: false
+      items:
+        - name: Troubleshoot Isolation Domain
+          href: troubleshoot-isolation-domain.md
+        - name: Troubleshoot LACP Bonding
+          href: troubleshoot-lacp-bonding.md
+        - name: Troubleshoot DNS Issues
+          href: troubleshoot-dns-issues.md
+        - name: Troubleshoot TWAMP (UDP) not working
+          href: troubleshoot-twamp-udp-not-working.md
+    - name: Resource Health
+      expanded: false
+      items:
+        - name: Troubleshoot Unhealthy or Degraded Storage Appliance
+          href: troubleshoot-unhealthy-degraded-storage-appliance.md
+    - name: Storage Appliance
+      expanded: false
+      items:
+        - name: Troubleshoot Multiple Storage appliances
+          href: troubleshoot-multiple-storage-appliances.md
     - name: Tenant Workload
       expanded: false
       items:
@@ -428,12 +433,6 @@
           items:
             - name: Due To Bare Metal Machine Power Failure
               href: troubleshoot-kubernetes-cluster-stuck-workloads-due-to-power-failure.md
-    - name: Storage Appliance
-      expanded: false
-      items:
-        - name: Troubleshoot Multiple Storage appliances
-          href: troubleshoot-multiple-storage-appliances.md
-
 - name: FAQ
   href: azure-operator-nexus-faq.md
 - name: Reference

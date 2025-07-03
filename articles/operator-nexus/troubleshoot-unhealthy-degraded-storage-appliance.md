@@ -24,10 +24,16 @@ You can see the current usage of the appliance by navigating to the Storage Appl
 navigating to the `Monitoring > Metrics` tab and selecting `Nexus Storage Array Space Utilization` from
 the `Metric` dropdown.
 
+:::image type="content" source="media/storage-metrics-utilization.png" alt-text="Metric showing the percentage utilization of a Storage Appliance":::
+
 These issues can be addressed by reducing the load on the Storage Appliance. This can be achieved by:
 
-- Moving some workloads to another cluster if one is available.
-- Activating array expansions, if those are available and unused.
+- Moving some workloads to another cluster if one is available, and your workload supports this.
+  - Re-create the workload on a different cluster (Operator Nexus).
+  - Perform steps required to migrate traffic to the new cluster (this will depend on your workload).
+  - Delete the workload from the current cluster.
+- Adding array expansions, if you have empty array expansion spaces in your aggregator rack. Speak to
+  your storage vendor for information on how to do this.
 
 You can check back on the value of the utilization metric to confirm that it has returned below 80%.
 
@@ -62,6 +68,8 @@ ticket with Microsoft.
   select all of the boxes. You will then see a summary of the alert, as well as the vendor alert code. You
   can use this information to search your vendor documentation for further details of the alert.
 
+:::image type="content" source="media/storage-metrics-alerts.png" alt-text="Metric showing an active alert on a Storage Appliance":::
+
 Once you have this information, you should be able to tell if you can fix the issue yourself, or if
 you need to raise a ticket with your Storage Appliance vendor or with us. If you need to raise a
 ticket with us, please include the Storage Appliance name and "Availability Impacting Reason" for
@@ -72,19 +80,25 @@ quicker issue triage.
 This will have an "Availability Impacting Reason" of:
 
 - `StorageApplianceLatencyDegraded`, which means the self-reported latency of the Storage Appliance
-  has exceeded 1.2ms.
+  has exceeded 3ms.
 - `StorageApplianceLatencyUnavailable`, which means the self-reported latency of the Storage Appliance
   has exceeded 100ms.
 
-<!-- TODO: needs an update after the new threshold is set (and the new threshold may need to depend on type) -->
+The expected latency for Pure X-series is 1ms or less.
 
-The expected latency is 1ms or less.
+Latency issues could be caused by an issue with the appliance, or high load. First, check if high load
+is the cause:
 
-Latency issues could be caused by an issue with the appliance, or high load. First, check for high
-load by navigating to the Storage Appliance on the portal, navigating to the `Monitoring > Metrics` tab
-and viewing the `Nexus Storage Array Performance Throughput Iops (Avg)` metric, and the
-`Nexus Storage Array Latency` metric on the same chart, starting from shortly before the health event
-appeared. You should be able to see from this chart whether high load is the cause. If so, reducing the
+- Navigate to the Storage Appliance on the portal.
+- Navigate to the `Monitoring > Metrics` tab.
+- Select the `Nexus Storage Array Latency` metric, and click `Apply splitting`, selecting `Dimension` as
+  the dimension to split on.
+- Click `+ New Chart`, and select the `Nexus Storage Array Performance Throughput Iops (Avg)` metric.
+  Click `Apply Splitting`, and select `Dimension` as the dimension to split on
+
+:::image type="content" source="media/storage-metrics-latency-throughput.png" alt-text="Metric showing the latency and throughput on a Storage Appliance":::
+
+By comparing the resulting graphs, you can determine whether high load is the cause. If so, reducing the
 load will resolve the health event.
 
 If you have ruled out high load, you should raise a ticket with your Storage Appliance vendor.
@@ -99,10 +113,12 @@ This will have an "Availability Impacting Reason" of:
 To determine the unhealthy network interface(s), as well as the distribution of the errors, navigate
 to the Storage Appliance in the portal, navigate to the `Monitoring > Metrics` tab select
 `Nexus Storage Network Interface Performance Errors` in the `Metric` dropdown. Then, you should click
-`Apply splitting`, and select the `Dimension` and `Name` boxes, ensuring that you select a timerange
+`Apply splitting`, and select the `Dimension` and `Name` boxes, ensuring that you select a time range
 which starts shortly before the start time of the resource health alert. Once you have identified the
 unhealthy network interface(s), and error types, you should raise a ticket with your Storage Appliance
 vendor.
+
+:::image type="content" source="media/storage-metrics-network-error.png" alt-text="Metric showing network interface errors on a Storage Appliance":::
 
 ## Network Latency
 
@@ -116,4 +132,4 @@ This will have an "Availability Impacting Reason" of:
 This increased latency implies an underlying problem with the networking between the Bare Metal Machines
 (BMMs) and the Storage Appliance. As this can result from any of the hops between BMMs and Storage Appliance,
 you should raise a ticket with Microsoft, quoting the availability impacting reason and the text of this
-TSG.
+troubleshooting guide (TSG).
