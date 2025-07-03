@@ -3,6 +3,7 @@ title: Copy applications and data to pool nodes
 description: Learn how to copy applications and data to pool nodes.
 ms.topic: how-to
 ms.date: 07/01/2025
+# Customer intent: As a cloud engineer, I want to understand the methods for copying applications and data to compute nodes in Azure Batch, so that I can effectively manage data dependencies for different job types and optimize resource usage across the pool.
 ---
 
 # Copy applications and data to pool nodes

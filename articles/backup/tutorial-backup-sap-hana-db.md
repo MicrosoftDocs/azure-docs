@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: engagement-fy24
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to back up SAP HANA databases in Azure VMs to a recovery vault, so that I can ensure data protection and facilitate recovery in the event of data loss."
 ---
 
 # Tutorial: Back up SAP HANA databases in an Azure VM
