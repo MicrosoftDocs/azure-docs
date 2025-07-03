@@ -126,7 +126,13 @@ Azure Table Storage geo-redundant configurations use Azure paired regions for se
 
 ### Considerations
 
-[!INCLUDE [Storage - Multi Region Considerations](includes/storage/reliability-storage-multi-region-considerations-include.md)]
+When implementing multi-region Azure Table Storage, consider the following important factors:
+
+[!INCLUDE [Storage - Multi Region Considerations - Latency](includes/storage/reliability-storage-multi-region-considerations-latency-include.md)]
+
+[!INCLUDE [Storage - Multi Region Considerations - Secondary region access (GRS)](includes/storage/reliability-storage-multi-region-considerations-secondary-grs-include.md)]
+
+[!INCLUDE [Storage - Multi Region Considerations - Feature limitations](includes/storage/reliability-storage-multi-region-considerations-feature-limitations-include.md)]
 
 ### Cost
 
