@@ -8,6 +8,7 @@ ms.date: 09/06/2024
 ms.author: jsuri  
 ms.custom: engagement-fy23
 
+# Customer intent: "As an IT administrator using Azure Site Recovery, I want to transition from the deprecated data encryption feature to encryption at rest, so that my Hyper-V VMs can continue to perform failover operations without interruption."
 ---
 # Deprecation of the Site Recovery data encryption feature
 

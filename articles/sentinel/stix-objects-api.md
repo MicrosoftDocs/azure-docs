@@ -2,10 +2,10 @@
 title: Import threat intelligence with the upload API
 titleSuffix: Microsoft Sentinel
 description: This article is a reference for the upload upload API with example requests and responses.
-author: austinmccollum
+author: poliveria
 ms.topic: reference
 ms.date: 05/30/2024
-ms.author: austinmc
+ms.author: pauloliveria
 appliesto:
     - Microsoft Sentinel in the Azure portal
 ---

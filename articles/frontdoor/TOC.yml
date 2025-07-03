@@ -6,10 +6,12 @@
     href: front-door-overview.md
   - name: Front Door and CDN comparison
     href: front-door-cdn-comparison.md
-  - name: Well-Architected review of Front Door
+  - name: Architecture best practices for Azure Front Door
     href: /azure/well-architected/service-guides/azure-front-door?toc=/azure/frontdoor/toc.json
   - name: Front Door best practices
     href: best-practices.md
+  - name: What is load balancing and content delivery?
+    href: /azure/networking/load-balancer-content-delivery/load-balancing-content-delivery-overview?toc=/azure/frontdoor/TOC.json
   - name: Choosing the right load balancer
     href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/frontdoor/toc.json
   - name: FAQ
@@ -79,10 +81,10 @@
       href: front-door-rules-engine-actions.md?pivots=front-door-standard-premium
     - name: Configure a rule set
       href: standard-premium/how-to-configure-rule-set.md
-    - name: Configure security headers
-      href: front-door-security-headers.md?pivots=front-door-standard-premium
     - name: Configure delivery rules
       href: standard-premium/front-door-add-rules-cli.md
+    - name: Rules engine scenarios
+      href: rules-engine-scenarios.md
     - name: Server variables
       href: rule-set-server-variables.md
     - name: URL rewrite
@@ -113,12 +115,8 @@
       items:
       - name: Connect to an internal load balancer
         href: standard-premium/how-to-enable-private-link-internal-load-balancer.md
-      - name: Connect to Azure Storage Account
-        items:
-        - name: Azure portal
-          href: standard-premium/how-to-enable-private-link-storage-account.md
-        - name: Azure CLI
-          href: standard-premium/how-to-enable-private-link-storage-account-cli.md
+      - name: Connect to Azure Storage account
+        href: standard-premium/how-to-enable-private-link-storage-account.md
       - name: Connect to Azure Storage static website
         href: how-to-enable-private-link-storage-static-website.md
       - name: Connect to Azure App Service
@@ -271,23 +269,21 @@
     href: compare-cdn-front-door-price.md
 - name: Troubleshoot
   items:
-  - name: Front Door
-    items:
-    - name: Troubleshooting with RefString
-      href: refstring.md
-    - name: Troubleshooting Front Door issues
-      href: troubleshoot-issues.md
-    - name: Troubleshooting Front Door performance issues
-      href: troubleshoot-performance-issues.md
-    - name: Allowed certificate authorities
-      href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
-    - name: File compression
-      href: standard-premium/troubleshoot-compression.md
-    - name: Subscription offers and bandwidth throttling
-      href: standard-premium/subscription-offers.md
-    - name: Questions & answers
-      href: /answers/tags/96/azure-front-door
-- name: Legacy CDN
+  - name: Troubleshoot with RefString
+    href: refstring.md
+  - name: Troubleshoot Front Door issues
+    href: troubleshoot-issues.md
+  - name: Troubleshoot Front Door performance issues
+    href: troubleshoot-performance-issues.md
+  - name: Troubleshoot file compression
+    href: standard-premium/troubleshoot-compression.md
+  - name: Allowed certificate authorities
+    href: https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT
+  - name: Subscription offers and bandwidth throttling
+    href: standard-premium/subscription-offers.md
+  - name: Questions & answers
+    href: /answers/tags/96/azure-front-door
+- name: CDN and Front Door (classic)
   items:
   - name: Get started
     items:
@@ -424,7 +420,7 @@
       - name: File compression
         href: ../cdn/cdn-troubleshoot-compression.md?toc=/azure/frontdoor/toc.json
       - name: Allowed certificate authorities
-        href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
+        href: https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT
       - name: Subscription offers and bandwidth throttling
         href: ../cdn/subscription-offerings.md?toc=/azure/frontdoor/toc.json
       - name: Questions & answers
@@ -529,6 +525,6 @@
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-cdn
     - name: Videos
-      href: https://azure.microsoft.com/documentation/videos/index/?services=cdn
+      href: /shows/Inside-Azure-for-IT/?products=azure-cdn
   - name: Networking blog
     href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog

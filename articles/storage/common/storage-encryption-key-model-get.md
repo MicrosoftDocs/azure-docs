@@ -12,6 +12,7 @@ ms.author: normesta
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli
+# Customer intent: "As a cloud administrator, I want to check which encryption key model is in use for my storage account, so that I can ensure compliance with my organization's data security policies."
 ---
 
 # Determine which Azure Storage encryption key model is in use for the storage account

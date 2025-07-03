@@ -2310,7 +2310,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | networkIntentPolicies | Yes | Yes |
 > | networkInterfaces | Yes | Yes |
 > | networkManagerConnections | No | No |
-> | networkManagers | Yes | Yes |
+> | networkManagers | Yes | No |
 > | networkProfiles | Yes | Yes |
 > | networkSecurityGroups | Yes | Yes |
 > | networkSecurityGroups / securityRules | No | No |

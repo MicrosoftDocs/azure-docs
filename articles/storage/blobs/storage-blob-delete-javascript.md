@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: "As a developer using JavaScript, I want to delete and restore blobs in Azure Storage, so that I can manage my data more effectively and recover from accidental deletions."
 ---
 
 # Delete and restore a blob with JavaScript or TypeScript

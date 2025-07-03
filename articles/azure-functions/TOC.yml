@@ -668,12 +668,6 @@
           items:
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
-            - name: Azure Cache for Redis
-              items:
-                - name: Get started with VS Code
-                  href: ../redis/tutorial-functions-getting-started.md?toc=%2fazure%2fazure-functions%2ftoc.json
-                - name: Create a write-behind cache
-                  href: ../redis/tutorial-write-behind.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Storage
               items:
                 - name: Azure portal
@@ -732,8 +726,6 @@
           href: functions-hybrid-powershell.md
     - name: Troubleshoot
       items:
-        - name: SRE Agent overview
-          href: ../app-service/sre-agent-overview.md?toc=/azure/azure-functions/toc.json
         - name: Storage connections
           href: functions-recover-storage-account.md
           displayName: troubleshoot
@@ -768,6 +760,8 @@
           displayName: upgrade, migrate, language stack
         - name: Migrate Node.js to model v4.x
           href: functions-node-upgrade-v4.md
+    - name: Migrate Consumption plan apps to Flex Consumption
+      href: migration/migrate-plan-consumption-to-flex.md    
     - name: Migrate .NET apps to the isolated model
       href: migrate-dotnet-to-isolated-model.md
     - name: Move resources
@@ -1180,7 +1174,7 @@
     - name: Architecture guidance
       href: /azure/architecture/serverless-quest/serverless-overview
     - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/?category=compute
+      href: https://azure.microsoft.com/updates/?category=compute
     - name: Pricing details
       href: https://azure.microsoft.com/pricing/details/functions/
     - name: Pricing calculator

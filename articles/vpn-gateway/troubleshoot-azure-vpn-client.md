@@ -8,6 +8,7 @@ ms.topic: troubleshooting
 ms.date: 09/05/2024
 ms.author: cherylmc
 
+# Customer intent: "As a network administrator, I want to troubleshoot Azure VPN Client connection issues, so that I can ensure secure and reliable connectivity for users accessing the VPN."
 ---
 # Troubleshoot Azure VPN Client
 

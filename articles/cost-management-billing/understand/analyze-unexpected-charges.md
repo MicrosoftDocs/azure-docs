@@ -7,13 +7,13 @@ ms.reviewer: shasulin
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: conceptual
-ms.date: 01/07/2025
+ms.date: 06/26/2025
 ms.author: shasulin
 ---
 
 # Identify anomalies and unexpected changes in cost
 
-The article helps you identify anomalies and unexpected changes in your cloud costs using Cost Management and Billing. There's no charge to use Cost Management and Billing features for your Azure subscriptions. You start with anomaly detection for subscriptions in cost analysis to identify any atypical usage patterns based on your cost and usage trends. Then, you learn how to drill into cost information to find and investigate cost spikes and dips.
+The article helps you identify anomalies and unexpected changes in your cloud costs using Cost Management and Billing. There's no charge to use Cost Management and Billing features for your Azure subscriptions. You start with anomaly detection for subscriptions in Cost Analysis to identify any atypical usage patterns based on your cost and usage trends. Then, you learn how to drill into cost information to find and investigate cost spikes and dips.
 
 You can also create an anomaly alert to automatically get notified when an anomaly is detected.
 
@@ -25,28 +25,28 @@ In general, there are three types of changes that you might want to investigate:
 
 ## Identify cost anomalies
 
-The cloud comes with the promise of significant cost savings compared to on-premises costs. However, savings require diligence to proactively plan, govern, and monitor your cloud solutions. Even with proactive processes, cost surprises can still happen. For example, you might notice that something changed, but you're not sure what. Using Cost Management anomaly detection for your subscriptions can help minimize surprises.
+The cloud comes with the promise of significant cost savings compared to on-premises costs. However, savings require diligence to proactively plan, govern, and monitor your cloud solutions. Even with proactive processes, cost surprises can still happen. For example, you might notice that something has changed, but you're not sure what. Using Cost Management anomaly detection for your subscriptions can help minimize surprises.
 
-Whether you know if you have any existing cost anomalies or not, Cost analysis informs you if it finds anything unusual as part of Insights. If not, Cost analysis shows **No anomalies detected**.
+Whether you know if you have any existing cost anomalies or not, Cost Analysis informs you if it finds anything unusual as part of Insights. If not, Cost Analysis shows **No anomalies detected**.
 
-### View anomalies in Cost analysis
+### View anomalies in Cost Analysis
 
-Anomaly detection is available in Cost analysis smart views when you select a subscription scope. You can view your anomaly status as part of **[Insights](https://azure.microsoft.com/blog/azure-cost-management-and-billing-updates-february-2021/#insights)**.
+Anomaly detection is available in Cost Analysis smart views when you select a subscription scope. You can view your anomaly status as part of **[Insights](https://azure.microsoft.com/blog/azure-cost-management-and-billing-updates-february-2021/#insights)**.
 
 >[!NOTE]
 > Cost anomaly alerts are not available for Azure Government customers.
 
-In the Azure portal, navigate to Cost Management from Azure Home. Select a subscription scope and then in the left menu, select **Cost analysis**. In the view list, select any view under **Smart views**. In the following example, the **Resources** smart view is selected. If you have a cost anomaly, you see an insight.
+In the Azure portal, navigate to Cost Management from Azure Home. Select a subscription scope and then in the left menu, select **Cost Analysis**. In the view list, select any view under **Smart views**. In the following example, the **Resources** smart view is selected. If you have a cost anomaly, you will see an insight.
 
 :::image type="content" source="./media/analyze-unexpected-charges/insight-recommendation-01.png" alt-text="Example screenshot showing an insight." lightbox="./media/analyze-unexpected-charges/insight-recommendation-01.png" :::
 
-If you don't have any anomalies, you see a **No anomalies detected** insight, confirming the dates that were evaluated.
+If you don't have any anomalies, you will see a **No anomalies detected** insight, confirming the dates that were evaluated.
 
 :::image type="content" source="./media/analyze-unexpected-charges/insight-no-anomalies.png" alt-text="Example screenshot showing No anomalies detected message." lightbox="./media/analyze-unexpected-charges/insight-no-anomalies.png" :::
 
 ### Drill into anomaly details
 
-To drill into the underlying data for something that changed, select the insight link. It opens a view in classic cost analysis where you can review your daily usage by resource group for the time range that was evaluated.
+To drill into the underlying data for something that changed, select the insight link. It opens a view in the classic Cost Analysis where you can review your daily usage by resource group for the time range that was evaluated.
 
 Continuing from the previous example of the anomaly labeled **Daily run rate down 748% on Sep 28**, let's examine its details after the link is selected. The following example image shows details about the anomaly. Notice the large increase in costs, a cost spike, and eventual drop in from a temporary, short-lived resource.
 
@@ -56,7 +56,7 @@ Cost anomalies are evaluated for subscriptions daily and compare the day's total
 
 The anomaly detection model is a univariate time-series, unsupervised prediction, and reconstruction-based model that uses 60 days of historical usage for training, then forecasts expected usage for the day. Anomaly detection forecasting uses a deep learning algorithm called [WaveNet](https://research.google/pubs/pub45774/). It's different than the Cost Management forecast. The total normalized usage is determined to be anomalous if it falls outside the expected range based on a predetermined confidence interval.
 
-Anomaly detection is available to every subscription monitored using the cost analysis. To enable anomaly detection for your subscriptions, open a cost analysis smart view and select your subscription from the scope selector at the top of the page. You see a notification informing you that your subscription is onboarded and you start to see your anomaly detection status within 24 hours.
+Anomaly detection is available to every subscription monitored using Cost Analysis. To enable anomaly detection for your subscriptions, open a Cost Analysis smart view and select your subscription from the scope selector at the top of the page. You see a notification informing you that your subscription is onboarded and you start to see your anomaly detection status within 24 hours.
 
 ## Create an anomaly alert
 
@@ -102,7 +102,6 @@ This approach enables highly customizable, low-code automation to streamline Fin
 You can route anomaly alert emails to a monitored mailbox and ingest them into Microsoft Sentinel using the Microsoft 365 data connector. Once ingested:
 
 - Create analytics rule to detect anomaly alert emails based on subject lines or recipients.
-
 - Automatically create incidents in Microsoft Sentinel.
 - Trigger playbooks (Logic Apps) to investigate costs, notify teams, or open ITSM tickets.
 
@@ -133,13 +132,13 @@ This approach ensures that cost anomalies are logged, assigned, and tracked thro
 
 ## Manually find unexpected cost changes
 
-Let's look at a more detailed example of finding a change in cost. When you navigate to Cost analysis and then select a subscription scope, you start with the **Accumulated costs** view. The following screenshot shows an example of what you might see.
+Let's look at a more detailed example of finding a change in cost. When you navigate to Cost Analysis and then select a subscription scope, you start with the **Accumulated costs** view. The following screenshot shows an example of what you might see.
 
 :::image type="content" source="./media/analyze-unexpected-charges/drill-in-default-view.png" alt-text="Example screenshot showing the accumulated costs view." lightbox="./media/analyze-unexpected-charges/drill-in-default-view.png" :::
 
 With the default view and current month (March 2022), the example image doesn't show any dips or spikes.
 
-Change the view to **Daily costs** and then expand the date range to Last year (2021). Then, set the granularity to **Monthly**. In the following image, notice that there's a significant increase in costs for the `arcticmustang` resource group starting in July.
+Change the view to **Daily costs** and then expand the date range to Last year. Then, set the granularity to **Monthly**. In the following image, notice that there's a significant increase in costs for the `arcticmustang` resource group starting in July.
 
 :::image type="content" source="./media/analyze-unexpected-charges/drill-in-articmustang.png" alt-text="Example screenshot showing an increase in monthly costs." lightbox="./media/analyze-unexpected-charges/drill-in-articmustang.png" :::
 
@@ -153,17 +152,17 @@ Let's continue drilling into the data to find out more about the cost increase. 
 
 :::image type="content" source="./media/analyze-unexpected-charges/drill-in-resource-increase-cost.png" alt-text="Example screenshot showing increased cost for a resource type." lightbox="./media/analyze-unexpected-charges/drill-in-resource-increase-cost.png" :::
 
-Next, select the resource in the chart that increased in cost `articring` to set another filter for the resource. Now, costs are shown for just that resource. Then, set the **Group by** list to **Meter**.
+Next, select the resource in the chart that increased in cost `articring`, to set another filter for the resource. Now, costs are shown for just that resource. Then, set the **Group by** list to **Meter**.
 
 :::image type="content" source="./media/analyze-unexpected-charges/drill-in-resource-meter-change.png" alt-text="Example screenshot showing increased cost for a specific resource." lightbox="./media/analyze-unexpected-charges/drill-in-resource-meter-change.png" :::
 
 In the previous example, you see that the virtual private network resource named VpnGw1 stopped getting used on June 30. On June 30, a more expensive virtual private network resource named VpnGw3 started getting used.
 
-At this point, you know what changed and the value that costs changed. However, you might not know _why_ the change happened. At this point, you should contact the people that created or used the resource. Continue to the next section to learn more.
+At this point, you know what changed and the value in costs that changed. However, you might not know _why_ the change happened. To find out, you could contact the people that created or used the resource. Continue to the next section to learn more.
 
-## Find people responsible for changed resource use
+## Find people responsible for changes in resource use
 
-Using Cost analysis, you might find resources that had sudden changes in usage. However, it might not be obvious who is responsible for the resource or why the change was made. Often, the team responsible for a given resource knows about changes that were made to a resource. Engaging them is useful as you identify why charges might appear. For example, the owning team created the resource, updated its SKU (which changed the resource rate), or increased the load on the resource due to code changes.
+Using Cost Analysis, you might find resources that had sudden changes in usage. However, it might not be obvious who is responsible for the resource or why the change was made. Often, the team responsible for a given resource knows about changes that were made to a resource. Engaging them is useful as you identify why charges might appear. For example, the owning team created the resource, updated its SKU (which changed the resource rate), or increased the load on the resource due to code changes.
 
 The [Get resource changes](../../governance/resource-graph/how-to/get-resource-changes.md) article for Azure Resource Graph might help you to find additional information about configuration changes to resources.
 
@@ -175,7 +174,7 @@ If you have permission to view a resource, you should be able to access its audi
 
 ### Analyze user permissions to the resource's parent scope
 
-People that have write access to a subscription or resource group typically have information about the resources that were created or updated. They should be able to explain the purpose of a resource or point you to the person who knows. To identify the people with permissions for a subscription scope, see [Check access for a user to Azure resources](../../role-based-access-control/check-access.md). You can use a similar process for billing scopes, resource groups, and management groups.
+People that have write access to a subscription or to a resource group typically have information about the resources that were created or updated. They should be able to explain the purpose of a resource or point you to the person who knows. To identify the people with permissions for a subscription scope, see [Check access for a user to Azure resources](../../role-based-access-control/check-access.md). You can use a similar process for billing scopes, resource groups, and management groups.
 
 ### Examine tagged resources
 
@@ -205,17 +204,17 @@ Try the following steps:
 
 - Anomaly alert rules can only be created at the subscription scope. Ensure that the correct scope is selected.
 - Verify that you have the Owner, Contributor, or Cost Management Contributor role on the subscription.
-- If you got an error message indicating that you reached the limit of five alerts per subscription, consider editing an existing anomaly alert rule. Add yourself as a recipient instead of creating a new rule in case you exhausted the limit.
+- If you get an error message indicating that you reached the limit of five alerts per subscription, consider editing an existing anomaly alert rule. Add yourself as a recipient instead of creating a new rule in case you exhausted the limit.
 
 - Anomaly alerts are currently available only in the Azure public cloud. If you are using a government cloud or any of the sovereign clouds, this service is not yet available. 
 
 ### How can I automate the creation of an anomaly alert rule?
 
-You can automate the creation of anomaly alert rules using the [Scheduled Action API](/rest/api/cost-management/scheduled-actions/create-or-update-by-scope?view=rest-cost-management-2023-11-01&tabs=HTTP), specifying the scheduled action kind as **`InsightAlert.`**
+You can automate the creation of anomaly alert rules using the [Scheduled Action API](/rest/api/cost-management/scheduled-actions/create-or-update-by-scope?view=rest-cost-management-2023-11-01&tabs=HTTP&preserve-view=true), specifying the scheduled action kind as **`InsightAlert.`**
 
 ## Get help to identify charges
 
-If used the preceding strategies and you still don't understand why you received a charge or if you need other help with billing issues, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+If you used the preceding strategies and you still don't understand why you received a charge or if you need other help with billing issues, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Related content
 

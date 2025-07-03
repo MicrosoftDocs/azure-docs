@@ -2,10 +2,11 @@
 title: Configure and manage backup for Azure Blobs using Azure Backup
 description: Learn how to configure and manage operational and vaulted backups for Azure Blobs.
 ms.topic: how-to
-ms.date: 05/30/2025
+ms.date: 06/18/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to configure and manage backup for Azure Blobs across multiple storage accounts, so that I can ensure data protection and recovery options are available in case of accidental deletion or data loss."
 ---
 
 # Configure and manage backup for Azure Blobs using Azure Backup
@@ -205,5 +206,8 @@ To update the backup instance, follow these steps:
 
 ## Next steps
 
-- [Restore Azure Blobs](blob-restore.md).
-- [Restore Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).
+[Restore Azure Blobs using Azure portal](blob-restore.md).
+
+## Related content
+
+Restore Azure Blobs by Azure Backup using [Azure PowerShell](restore-blobs-storage-account-ps.md), [Azure CLI](restore-blobs-storage-account-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).

@@ -7,6 +7,7 @@ author: jyothisuri
 ms.author: jsuri
 ms.service: azure-backup
 ms.custom: engagement-fy24
+# Customer intent: "As an IT administrator, I want to manage Azure Managed Disks through the portal so that I can efficiently change backup policies, monitor operations, and control data protection settings."
 ---
 
 # Manage Azure Managed Disks

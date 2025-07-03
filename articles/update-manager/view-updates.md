@@ -6,6 +6,7 @@ ms.date: 08/22/2024
 ms.topic: how-to
 author: habibaum
 ms.author: v-uhabiba
+# Customer intent: "As an IT administrator, I want to assess update compliance for all my virtual machines using a centralized tool, so that I can ensure they are up-to-date and secure."
 ---
 
 # Check update compliance with Azure Update Manager

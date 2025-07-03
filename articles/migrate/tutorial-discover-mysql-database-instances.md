@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.date: 03/03/2025
 ms.custom: mvc, subject-rbac-steps, engagement-fy25, references_regions
 monikerRange: migrate-classic
+# Customer intent: As a database administrator, I want to discover MySQL database instances in my datacenter using an agentless solution, so that I can assess and manage my databases efficiently before migrating to the cloud.
 ---
 
 # Tutorial: Discover MySQL database instances running in your datacenter (preview)
@@ -57,6 +58,14 @@ The following table lists the regions that support MySQL Discovery and Assessmen
    > - Ensure that the user corresponding to the added MySQL credentials have the following privileges: 
    >    - Select permission on information_schema tables.
    >    - Select permission on mysql.users table.
+   
+   > - Use the following commands to grant the necessary privileges to the MySQL user
+   > ```
+   >  GRANT USAGE ON *.* TO 'newuser'@'localhost';
+   >  GRANT PROCESS ON *.* TO 'newuser'@'localhost';
+   >  GRANT SELECT (User, Host, Super_priv, File_priv, Create_tablespace_priv, Shutdown_priv) ON mysql.user TO 'newuser'@'localhost';
+   >  FLUSH PRIVILEGES; 
+
 
 You can review the discovered MySQL databases after around 24 hours of discovery initiation, through the **Discovered servers** view.
 

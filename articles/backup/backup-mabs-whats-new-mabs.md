@@ -3,9 +3,10 @@ title: What's new in Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server gives you enhanced backup capabilities for protecting VMs, files and folders, workloads, and more.
 ms.service: azure-backup
 ms.topic: release-notes
-ms.date: 02/28/2025
+ms.date: 06/27/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to understand the latest features and fixes in Microsoft Azure Backup Server, so that I can ensure robust backup solutions and improve data protection for VMs, files, and critical workloads."
 ---
 
 # What's new in Microsoft Azure Backup Server (MABS)?
@@ -72,7 +73,7 @@ The following table lists the included features in MABS V4:
 | VMware 8.0 support | MABS V4 can now back up VMware VMs running on VMware 8.0. MABS V4 supports VMware, version 6.5 to 8.0. [Learn more](backup-azure-backup-server-vmware.md). <br><br> Note that MABS V4 doesn't support the DataSets feature added in vSphere 8.0. |
 | Item-level recovery from online recovery points for Hyper-V and Stack HCI VMs running Windows Server | With MABS V4, you can perform item-level recovery of files and folders from your online recovery point for VMs running Windows Server on Hyper-V or Stack HCI without downloading the entire recovery point. <br><br> Go to the *Recovery* pane, select a *VM online recovery point* and double-click the *recoverable item* to browse and recover its contents at a file/folder level. <br><br> [Learn more](back-up-hyper-v-virtual-machines-mabs.md). |
 | Parallel Restore of VMware and Hyper-V VMs | MABS V4 supports parallel restore of [VMware](restore-azure-backup-server-vmware.md) and [Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) virtual machines. With earlier versions of MABS, restore of VMware VM and Hyper-V virtual machine was restricted to only one restore job at a time. With MABS V4, by default you can restore *eight* VMs in parallel and this number can be increased using a registry key. |
-| Parallel online backup jobs - limit enhancement | MABS V4 supports increasing the maximum parallel online backup jobs from *eight* to a configurable limit based on your hardware and network limitations through a registry key for faster online backups. [Learn more](backup-azure-microsoft-azure-backup.md). |
+| Parallel online backup jobs - limit enhancement | MABS V4 supports increasing the maximum parallel online backup jobs from eight to a configurable limit of twenty through a registry key for faster online backups. [Learn more](backup-azure-microsoft-azure-backup.md). |
 | Faster Item Level Recoveries | MABS V4 moves away from File Catalog for online backup of file/folder workloads. File Catalog was necessary to restore individual files and folders from online recovery points, but increased backup time by uploading file metadata. <br><br> MABS V4 uses an *iSCSI mount* to provide faster individual file restores and reduces backup time, because file metadata doesn't need to be uploaded. |
 
 ## What's new in MABS V3 UR2 Hotfix?

@@ -10,6 +10,7 @@ ms.date: 03/18/2025
 ms.author: mattmcinnes
 ms.reviewer: mattmcinnes
 #Customer intent: I want to improve the security and performance of my Azure virtual machines
+# Customer intent: "As a cloud architect, I want to implement Azure Boost for my virtual machines, so that I can enhance their performance and security while optimizing resource usage."
 ---
 
 # Microsoft Azure Boost

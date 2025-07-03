@@ -2,12 +2,13 @@
 title: Back up Azure VMs with Enhanced policy
 description: Learn how to configure Enhanced policy to back up VMs.
 ms.topic: how-to
-ms.date: 06/10/2025
+ms.date: 06/11/2025
 ms.reviewer: sharrai
 ms.service: azure-backup
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an Azure administrator, I want to configure an Enhanced backup policy for Azure VMs so that I can utilize advanced backup features like frequent snapshots and zonal resiliency to ensure better data protection and recovery options.
 ---
 # Back up an Azure VM using Enhanced policy
 
@@ -266,7 +267,7 @@ You can exclude noncritical disks from backup by using selective disk backup to 
 
 ## Next steps
 
-- [Run a backup immediately](./backup-azure-vms-first-look-arm.md#run-a-backup-immediately)
-- [Verify Backup job status](./backup-azure-arm-vms-prepare.md#verify-backup-job-status)
-- [Restore Azure virtual machines](./backup-azure-arm-restore-vms.md#restore-disks)
-- [Troubleshoot VM backup](backup-azure-vms-troubleshoot.md#usererrormigrationfromtrustedlaunchvm-tonontrustedvmnotallowed)
+- [Run a backup immediately](./backup-azure-vms-first-look-arm.md#run-an-on-demand-backup-of-azure-vm).
+- [Verify Backup job status](./backup-azure-arm-vms-prepare.md#verify-backup-job-status).
+- [Restore Azure virtual machines](./backup-azure-arm-restore-vms.md#restore-disks).
+- [Troubleshoot VM backup](backup-azure-vms-troubleshoot.md#usererrormigrationfromtrustedlaunchvm-tonontrustedvmnotallowed).

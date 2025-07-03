@@ -11,6 +11,7 @@ ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+# Customer intent: As a Java developer, I want to create a blob container in Azure Storage, so that I can organize and manage my blobs effectively before uploading them.
 ---
 
 # Create a blob container with Java

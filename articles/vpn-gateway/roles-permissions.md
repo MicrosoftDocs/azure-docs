@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 12/4/2024
 ms.author: cherylmc
 
+# Customer intent: As a network administrator, I want to understand the roles and permissions required for managing a VPN gateway, so that I can ensure the appropriate access and functionality for users and resources involved in VPN operations.
 ---
 # About roles and permissions for VPN 
 

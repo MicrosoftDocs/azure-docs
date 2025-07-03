@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 02/06/2025
 ms.custom: engagement-fy24
+# Customer intent: "As a system administrator, I want to deploy the Azure Migrate appliance for server discovery and assessment, so that I can evaluate the infrastructure and plan for migration to the cloud."
 ---
 
  
@@ -55,7 +56,8 @@ The appliance has the following services:
 - **Web apps discovery and assessment agent**: sends the web apps configuration data to Azure.
 
 > [!Note]
-> The last 3 services are available in the appliance used for discovery and assessment of servers running in your VMware VMs, Hyper-V VMs, bare-metal servers, and servers running on other public clouds like AWS, GCP etc.
+> - The last 3 services are available in the appliance used for discovery and assessment of servers running in your VMware VMs, Hyper-V VMs, bare-metal servers, and servers running on other public clouds like AWS, GCP etc.
+> - The Azure Migrate appliance stores data from the on-premises environment in the regional Cosmos DB during discovery.
 
 ## Appliance - VMware
 
@@ -101,7 +103,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **Discovery limits** | An appliance can discover up to 1000 physical servers.
 **Supported deployment** | Deploy on an existing server running Windows Server 2022 using PowerShell installer script.
 **PowerShell script** | Download the script (AzureMigrateInstaller.ps1) in a zip file from the project or from [here](https://go.microsoft.com/fwlink/?linkid=2140334). [Learn more](tutorial-discover-physical.md).<br><br> Download size is 85.8 MB.
-**Script verification** | [Verify](tutorial-discover-physical.md#verify-security) the PowerShell installer script downloaded from project by checking the hash values.
+**Script verification** | Verify the PowerShell installer script downloaded from project by checking the hash values.
 **Hardware and network requirements** |  The appliance should run on server with Windows Server 2019 or Windows Server 2022, 16-GB RAM, 8 vCPUs, around 80 GB of disk storage.<br/> The appliance needs a static or dynamic IP address, and requires internet access, either directly or through a proxy.<br/><br/> If you run the appliance on an existing server, make sure that it is running Windows Server 2019 or Windows Server 2022, and meets hardware requirements.
 
 

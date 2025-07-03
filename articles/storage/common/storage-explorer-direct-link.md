@@ -9,6 +9,7 @@ ms.topic: article
 ms.date: 02/24/2021
 ms.author: jinglou
 ms.reviewer: cralvord,richardgao
+# Customer intent: As a cloud developer, I want to utilize direct links in Azure Storage Explorer, so that I can efficiently access and manage specific storage resources using predefined URLs.
 ---
 
 # Azure Storage Explorer direct link
