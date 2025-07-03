@@ -13,6 +13,8 @@ items:
     items:
     - name: Portal
       href: quickstart-create-example-consumption-workflow.md
+    - name: Portal - Templates gallery
+      href: create-workflows-from-templates.md?tab=consumption
     - name: Visual Studio
       href: quickstart-create-logic-apps-with-visual-studio.md
     - name: Visual Studio Code
@@ -33,7 +35,7 @@ items:
     - name: Portal
       href: create-single-tenant-workflows-azure-portal.md
     - name: Portal - Templates gallery
-      href: create-single-tenant-workflows-templates.md
+      href: href: create-workflows-from-templates.md?tab=standard
     - name: Visual Studio Code
       href: create-standard-workflows-visual-studio-code.md
 - name: Tutorials
