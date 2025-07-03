@@ -1,35 +1,43 @@
 ---
 title: How to use the media connector (preview)
-description: How to use the media connector (preview) to perform tasks such as sending an image snapshot to the MQTT broker or saving a video stream to a local file system.
+description: Use the operations experience web UI or the Azure CLI to configure assets and devices for connections to media sources.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
 ms.date: 10/07/2024
 
-#CustomerIntent: As an industrial edge IT or operations user, I want to configure the media connector so that I can access snapshots and videos from a media source such as a IP video camera.
+#CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access snapshots and videos from a media source such as a IP video camera.
 ---
 
 # Configure the media connector (preview)
 
-In Azure IoT Operations, the media connector (preview) enables access to media from media sources such as edge-attached cameras. This article explains how to use the media connector to perform tasks such as:
+In Azure IoT Operations, the media connector (preview) enables access to media from media sources such as edge-attached cameras.
 
+[!INCLUDE [iot-operations-asset-definition](../includes/iot-operations-asset-definition.md)]
+
+[!INCLUDE [iot-operations-device-definition](../includes/iot-operations-device-definition.md)]
+
+This article explains how to use the media connector to perform tasks such as:
+
+- Define the devices that connect media sources to your Azure IoT Operations instance.
+- Add assets, and define their streams, data points, and events to enable data flow from the media source to the MQTT broker.
 - Send an image snapshot to the MQTT broker.
 - Save a video stream to a local file system.
 
-The media connector:
-
-- Uses _asset endpoints_ to access media sources. An asset endpoint defines a connection to a media source such as a camera. The asset endpoint configuration includes the URL of the media source, the type of media source, and any credentials needed to access the media source.
-
-- Uses _assets_ to represent media sources such as cameras. An asset defines the capabilities and properties of a media source such as a camera.
-
 ## Prerequisites
 
-A deployed instance of Azure IoT Operations. If you don't already have an instance, see [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
+To configure devices and assets, you need a running instance of Azure IoT Operations.
+
+[!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
+
+Your IT administrator must have configured the media connector template for your Azure IoT Operations instance in the Azure portal.
 
 A camera connected to your network and accessible from your Azure IoT Operations cluster. The camera must support the Real Time Streaming Protocol for video streaming. You also need the camera's username and password to authenticate with it.
 
 ## Deploy the media connector
+
+<!--TODO: Probably not necessary now we have the connector templates? -->
 
 [!INCLUDE [deploy-preview-media-connectors](../includes/deploy-preview-media-connectors.md)]
 
@@ -58,19 +66,19 @@ kubectl get service media-server-public --namespace media-server
 
 Make a note of the **CLUSTER-IP** value, you use it later to access the media server.
 
-## Asset endpoint configuration
+## Create a device
 
-To configure the media connector, first create an asset endpoint that defines the connection to the media source. The asset endpoint includes the URL of the media source, the type of media source, and any credentials you need to access the media source.
+To configure the media connector, first create a device that defines the connection to the media source. The device includes the URL of the media source, the type of media source, and any credentials you need to access the media source.
 
 If your camera requires authentication, create a secret in your Kubernetes cluster that stores the camera's username and password. The media connector uses this secret to authenticate with the camera:
 
-1. Create a YAML file called _contoso-secrets.yaml_ with the following content. Replace the placeholders with your camera's username and password encoded in base64:
+1. Create a YAML file called _contoso-media-secrets.yaml_ with the following content. Replace the placeholders with your camera's username and password encoded in base64:
 
     ```yaml
     apiVersion: v1
     kind: Secret
     metadata:
-      name: contoso-secrets
+      name: contoso-media-secrets
     type: Opaque
     data:
       username: "<YOUR CAMERA USERNAME BASE64 ENCODED>"
@@ -83,12 +91,44 @@ If your camera requires authentication, create a secret in your Kubernetes clust
 1. To add the secret to your cluster in the default Azure IoT Operations namespace, run the following command:
 
     ```console
-    kubectl apply -f contoso-secrets.yaml -n azure-iot-operations
+    kubectl apply -f contoso-media-secrets.yaml -n azure-iot-operations
     ```
 
-To create the asset endpoint by using a Bicep file:
+To create a device configuration:
 
-# [Bash](#tab/bash)
+# [Operations experience](#tab/portal)
+
+1. Select **devices** and then **Create device**:
+
+    :::image type="content" source="media/howto-configure-opc-ua/asset-endpoints.png" alt-text="Screenshot that shows the devices page in the operations experience." lightbox="media/howto-configure-opc-ua/asset-endpoints.png":::
+
+    > [!TIP]
+    > You can use the filter box to search for devices.
+
+1. Enter the following endpoint information:
+
+    | Field | Value |
+    | --- | --- |
+    | Name | `opc-ua-connector-0` |
+    | Connector for OPC UA URL | `opc.tcp://opcplc-000000:50000` |
+    | User authentication | `Anonymous` |
+
+1. To save the definition, select **Create**.
+
+# [Azure CLI](#tab/cli)
+
+Run the following command:
+
+```azurecli
+az iot ops device create opcua --name opc-ua-connector-0 --target-address opc.tcp://opcplc-000000:50000 -g {your resource group name} --instance {your instance name} 
+```
+
+> [!TIP]
+> Use `az connectedk8s list` to list the clusters you have access to.
+
+To learn more, see [az iot ops device](/cli/azure/iot/ops/asset/endpoint).
+
+# [Bicep (Bash)](#tab/bicep-bash)
 
 1. Set the following environment variables:
 
@@ -109,11 +149,34 @@ To create the asset endpoint by using a Bicep file:
     # Find the name of your custom location
     CUSTOM_LOCATION_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
     
-    # Use the Bicep file to deploy the asset endpoint
+    # Use the Bicep file to deploy the device
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file aep-media-connector.bicep --parameters targetAddress=$TARGET_ADDRESS customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME secretName=$SECRET_NAME
     ```
 
-# [PowerShell](#tab/powershell)
+The following snippet shows the bicep file that you used to create the device:
+
+:::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/aep-media-connector.bicep":::
+
+The previous example configures the device to authenticate with the camera with a username and password. In the Bicep file, the authentication section of the device you created looks like the following example:
+
+```bicep
+authentication: {
+  method: 'UsernamePassword'
+  usernamePasswordCredentials: {
+    passwordSecretName: '${secretName}/password'
+    usernameSecretName: '${secretName}/username'
+    }
+ ```
+
+If your camera doesn't require a username and password, configure anonymous authentication as shown in the following example:
+
+```bicep
+authentication: {
+  method: 'Anonymous'
+}
+```
+
+# [Bicep (PowerShell)](#tab/bicep-powershell)
 
 1. Set the following environment variables:
 
@@ -134,17 +197,15 @@ To create the asset endpoint by using a Bicep file:
     # Find the name of your custom location
     $CUSTOM_LOCATION_NAME = (az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
 
-    # Use the Bicep file to deploy the asset endpoint
+    # Use the Bicep file to deploy the device
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file aep-media-connector.bicep --parameters targetAddress=$TARGET_ADDRESS customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME secretName=$SECRET_NAME
     ```
 
----
-
-The following snippet shows the bicep file that you used to create the asset endpoint:
+The following snippet shows the bicep file that you used to create the device:
 
 :::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/aep-media-connector.bicep":::
 
-The previous example configures the asset endpoint to authenticate with the camera with a username and password. In the Bicep file, the authentication section of the asset endpoint you created looks like the following example:
+The previous example configures the device to authenticate with the camera with a username and password. In the Bicep file, the authentication section of the device you created looks like the following example:
 
 ```bicep
 authentication: {
@@ -162,6 +223,8 @@ authentication: {
   method: 'Anonymous'
 }
 ```
+
+---
 
 ## Asset configuration
 
@@ -193,7 +256,21 @@ The following examples show how to deploy assets for each task type.
 
 To configure an asset that captures snapshots from a camera and publishes them to an MQTT topic:
 
-# [Bash](#tab/bash)
+# [Operations experience](#tab/portal)
+
+Go to the operations experience web UI and select **Assets**. Then select **Create asset**.
+
+Add the configuration for a snapshot to mqtt asset.
+
+<!-- TODO: Expand this section when we have the UI available -->
+
+# [Azure CLI](#tab/cli)
+
+Use the `az iot ops asset create` command to create a snapshot to mqtt asset.
+
+<!-- TODO: Expand this section when we have the CLI available -->
+
+# [Bicep (Bash)](#tab/bicep-bash)
 
 1. Set the following environment variables:
 
@@ -216,7 +293,11 @@ To configure an asset that captures snapshots from a camera and publishes them t
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-snapshot-to-mqtt.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
     ```
 
-# [PowerShell](#tab/powershell)
+The following snippet shows the bicep file that you used to create the asset:
+
+:::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/asset-snapshot-to-mqtt.bicep":::
+
+# [Bicep (PowerShell)](#tab/bicep-powershell)
 
 1. Set the following environment variables:
 
@@ -239,11 +320,11 @@ To configure an asset that captures snapshots from a camera and publishes them t
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-snapshot-to-mqtt.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
     ```
 
----
-
 The following snippet shows the bicep file that you used to create the asset:
 
 :::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/asset-snapshot-to-mqtt.bicep":::
+
+---
 
 To verify that snapshots are publishing to the MQTT broker, use the **mosquitto_sub** tool. In this example, you run the **mosquitto_sub** tool inside a pod in your Kubernetes cluster:
 
@@ -286,7 +367,21 @@ az iot ops asset delete -n asset-snapshot-to-mqtt -g $RESOURCE_GROUP
 
 To configure an asset that captures snapshots from a camera and saves them as files:
 
-# [Bash](#tab/bash)
+# [Operations experience](#tab/portal)
+
+Go to the operations experience web UI and select **Assets**. Then select **Create asset**.
+
+Add the configuration for a snapshot to file system asset.
+
+<!-- TODO: Expand this section when we have the UI available -->
+
+# [Azure CLI](#tab/cli)
+
+Use the `az iot ops asset create` command to create a snapshot to file system asset.
+
+<!-- TODO: Expand this section when we have the CLI available -->
+
+# [Bicep (Bash)](#tab/bicep-bash)
 
 1. Set the following environment variables:
 
@@ -309,7 +404,11 @@ To configure an asset that captures snapshots from a camera and saves them as fi
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-snapshot-to-fs.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
     ```
 
-# [PowerShell](#tab/powershell)
+The following snippet shows the bicep file that you used to create the asset:
+
+:::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/asset-snapshot-to-fs.bicep":::
+
+# [Bicep (PowerShell)](#tab/bicep-powershell)
 
 1. Set the following environment variables:
 
@@ -332,11 +431,11 @@ To configure an asset that captures snapshots from a camera and saves them as fi
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-snapshot-to-fs.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
     ```
 
----
-
 The following snippet shows the bicep file that you used to create the asset:
 
 :::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/asset-snapshot-to-fs.bicep":::
+
+---
 
 The files are saved in the file system of the `opc-media-1-...` pod. To find the full name of the pod, run the following command. The following command uses the default Azure IoT Operations namespace:
 
@@ -360,7 +459,21 @@ az iot ops asset delete -n asset-snapshot-to-fs -g $RESOURCE_GROUP
 
 To configure an asset that captures clips from a camera and saves them as files:
 
-# [Bash](#tab/bash)
+# [Operations experience](#tab/portal)
+
+Go to the operations experience web UI and select **Assets**. Then select **Create asset**.
+
+Add the configuration for a clip to file system asset.
+
+<!-- TODO: Expand this section when we have the UI available -->
+
+# [Azure CLI](#tab/cli)
+
+Use the `az iot ops asset create` command to create a clip to file system asset.
+
+<!-- TODO: Expand this section when we have the CLI available -->
+
+# [Bicep (Bash)](#tab/bicep-bash)
 
 1. Set the following environment variables:
 
@@ -383,7 +496,11 @@ To configure an asset that captures clips from a camera and saves them as files:
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-clip-to-fs.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
     ```
 
-# [PowerShell](#tab/powershell)
+The following snippet shows the bicep file that you used to create the asset:
+
+:::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/asset-clip-to-fs.bicep":::
+
+# [Bicep (PowerShell)](#tab/bicep-powershell)
 
 1. Set the following environment variables:
 
@@ -406,11 +523,11 @@ To configure an asset that captures clips from a camera and saves them as files:
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-clip-to-fs.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
     ```
 
----
-
 The following snippet shows the bicep file that you used to create the asset:
 
 :::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/asset-clip-to-fs.bicep":::
+
+---
 
 The files are saved in the file system of the `opc-media-1-...` pod. To find the full name of the pod, run the following command. The following command uses the default Azure IoT Operations namespace:
 
@@ -436,7 +553,21 @@ To configure an asset that forwards video streams from a camera to a media serve
 
 You made a note of the IP address of the media server when you deployed it in a previous step.
 
-# [Bash](#tab/bash)
+# [Operations experience](#tab/portal)
+
+Go to the operations experience web UI and select **Assets**. Then select **Create asset**.
+
+Add the configuration for a stream to RTSP asset.
+
+<!-- TODO: Expand this section when we have the UI available -->
+
+# [Azure CLI](#tab/cli)
+
+Use the `az iot ops asset create` command to create a stream to RTSP asset.
+
+<!-- TODO: Expand this section when we have the CLI available -->
+
+# [Bicep (Bash)](#tab/bicep-bash)
 
 1. Set the following environment variables:
 
@@ -460,7 +591,11 @@ You made a note of the IP address of the media server when you deployed it in a 
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-stream-to-rtsp.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME mediaServerAddress=$MEDIA_SERVER_ADDRESS
     ```
 
-# [PowerShell](#tab/powershell)
+The following snippet shows the bicep file that you used to create the asset:
+
+:::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/asset-stream-to-rtsp.bicep":::
+
+# [Bicep (PowerShell)](#tab/bicep-powershell)
 
 1. Set the following environment variables:
 
@@ -484,11 +619,11 @@ You made a note of the IP address of the media server when you deployed it in a 
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-stream-to-rtsp.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME mediaServerAddress=$MEDIA_SERVER_ADDRESS
     ```
 
----
-
 The following snippet shows the bicep file that you used to create the asset:
 
 :::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/asset-stream-to-rtsp.bicep":::
+
+---
 
 To view the media stream, use a URL that looks like: `http://<YOUR KUBERNETES CLUSTER IP ADDRESS>:8888/azure-iot-operations/data/asset-stream-to-rtsp`.
 
