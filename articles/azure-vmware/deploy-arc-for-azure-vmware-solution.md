@@ -335,7 +335,7 @@ Additionally, for virtual machines there's another section to configure **VM ext
 2. Choose a __Connectivity Method__ for the Arc agent.
 3. Provide an Administrator/Root access username and password for the VM.
 
-If you choose to enable the guest management as a separate step or have issues with the VM extension install steps, see [Enable guest management and extension installation for Arc-enabled VMware VMs](/azure/azure-vmware/arc-enable-guest-management).
+If you choose to enable the guest management as a separate step or have issues with the VM extension install steps, see [Enable guest management and install extensions on Arc-enabled VMs](/azure/azure-vmware/arc-enable-guest-management).
 
 ## Next Steps
 

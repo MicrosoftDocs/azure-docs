@@ -1,14 +1,15 @@
 ---
-title: Enable guest management and extension installation for Arc-enabled VMs
-description: Learn how to set up and enable guest management and extension installation for Arc-enabled VMs.
+title: Enable guest management and install extensions on Arc-enabled VMs
+description: Learn how to set up and enable guest management and install extensions on Arc-enabled VMs.
 ms.topic: how-to 
 ms.service: azure-vmware
 ms.date: 05/15/2024
 ms.custom: references_regions, devx-track-azurecli, engagement-fy23
 ---
 
-# Enable guest management and extension installation for Arc-enabled VMware VMs
-In this article, you learn how to enable guest management and install extensions on Arc-enabled VMware VMs in Azure VMware Solution. Use guest management empowers you to manage the guest operating system of your VM, including installing and managing extensions. This feature is available for Arc-enabled VMware VMs in Azure VMware Solution private clouds.
+# Enable guest management and install extensions on Arc-enabled VMs
+
+In this article, you learn how to enable guest management and install extensions on Arc-enabled VMs in Azure VMware Solution. Use guest management empowers you to manage the guest operating system of your VM, including installing and managing extensions. This feature is available for Arc-enabled VMware VMs in Azure VMware Solution private clouds.
 
 ## Prerequisite
 
