@@ -6,7 +6,7 @@ ms.topic: include
 ms.service: azure-operator-nexus
 ---
 
-## Still Having Issues?
+## Still having issues?
 
 If the steps outlined didn't provide a path to resolve the issue or if you still have questions [contact support].
 Please, provide as much detail as possible about the issue you're experiencing, including any error messages or logs that may be relevant.

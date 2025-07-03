@@ -15,7 +15,7 @@ This guide describes steps to troubleshoot a Cluster with a `ClusterConnectionSt
 For a Cluster, the `ClusterConnectionStatus` represents the stability in the connection between the on-premises Cluster and its ability to reach the Cluster Manager.
 
 > [!IMPORTANT]
-> The `ClusterConnectionStatus` **doesn't** represent or is related to the health or connectivity of the Arc Connected Kubernetes Cluster.
+> The `ClusterConnectionStatus` **doesn't** represent nor is it related to the health or connectivity of the Arc Connected Kubernetes Cluster.
 > The `ClusterConnectionStatus` indicates that the Cluster is successful in sending heartbeats and receiving acknowledgment from the Cluster Manager.
 
 [!include[prereqAzCLI](./includes/baremetal-machines/prerequisites-azure-cli-bare-metal-machine-actions.md)]
@@ -47,7 +47,7 @@ The following table shows the possible values of `ClusterConnectionStatus` and t
 
 The value of `ClusterConnectionStatus` is visible in the Azure portal in the Cluster resource view.
 
-![ClusterConnectionStatus](./media/troubleshoot-cluster-heartbeat-connection-status/az-portal-cluster-connection-status.png)
+:::image type="content" source="media/troubleshoot-cluster-heartbeat-connection-status/azure-portal-cluster-connection-status.png" alt-text="Screenshot of ClusterConnectionStatus property as shown in the Azure portal." lightbox="media/troubleshoot-cluster-heartbeat-connection-status/azure-portal-cluster-connection-status.png":::
 
 Or, you can use the Azure CLI to see the value of `ClusterConnectionStatus`:
 
@@ -83,7 +83,7 @@ The status can transition between Connected, Timeout, and `Disconnected` based o
 
 The image shows a general representation of the components responsible for emitting the `NexusClusterConnectionStatus` metric.
 
-![ClusterHeartbeatComponents](./media/troubleshoot-Cluster-heartbeat-connection-status/cluster-connection-status-components-for-metric.png)
+:::image type="content" source="media/troubleshoot-Cluster-heartbeat-connection-status/cluster-connection-status-components-for-metric.png" alt-text="Diagram that shows the components responsible for emitting the NexusClusterConnectionStatus metric." lightbox="media/troubleshoot-Cluster-heartbeat-connection-status/cluster-connection-status-components-for-metric.png":::
 
 ### ClusterConnectionStatus isn't the same as Arc Connected Cluster status
 

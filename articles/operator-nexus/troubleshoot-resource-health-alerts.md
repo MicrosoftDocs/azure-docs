@@ -1,5 +1,6 @@
 ---
-title: Troubleshoot resource health alerts
+title: Troubleshoot Azure Operator Nexus resource health alerts
+titleSuffix: Azure Operator Nexus
 description: Find troubleshooting guides for platform-emitted resource health alerts.
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
@@ -27,7 +28,7 @@ These alerts are generated based on the status of the resource and its dependenc
 
 [Troubleshoot Cluster heartbeat connection status shows disconnected]: ./troubleshoot-cluster-heartbeat-connection-status-disconnected.md
 
-## Please Contact Support
+## Please contact support
 
 For some resource health alerts, troubleshooting guides are not available.
 If you encounter these alerts, it is recommended to [contact Azure support] for further assistance.
