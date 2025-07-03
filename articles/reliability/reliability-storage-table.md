@@ -72,7 +72,7 @@ Zone-redundant Azure Storage accounts can be deployed [in any region that suppor
 
 ### Requirements
 
-You must use a Standard general-purpose v2 storage account to enable zone-redundant storage for Table Storage. Premium storage accounts don't support Table Storage. All storage account tiers and performance levels support ZRS configuration where availability zones are available.
+You must use a Standard general-purpose v2 storage account to enable zone-redundant storage for Table Storage. Premium storage accounts don't support Table Storage.
 
 ### Cost
 
@@ -82,7 +82,7 @@ When you enable ZRS, you're charged at a different rate than locally redundant s
 
 - **Create a storage account and table with zone redundancy:**
 
-    1. [Create a storage account](/azure/storage/common/storage-account-create) and select ZRS, geo-zone-redundant storage (GZRS) or read-access geo-redundant storage (RA-GZRS) as the redundancy option during account creation.  
+    1. [Create a storage account](/azure/storage/common/storage-account-create) and select ZRS, geo-zone-redundant storage (GZRS) or read-access geo-redundant storage (RA-GZRS) as the redundancy option during account creation.
 
     1. [Create a table](/azure/storage/tables/table-storage-quickstart-portal).
 
@@ -102,9 +102,7 @@ When an availability zone becomes unavailable, Azure Table Storage automatically
 
 ### Failback
 
-When the failed availability zone recovers, Azure Table Storage automatically begins using it again for new operations. The service gradually rebalances traffic and partitions across all three zones to restore optimal performance and redundancy.
-
-During failback, the service ensures data consistency by synchronizing any operations that occurred during the outage period. Partition rebalancing occurs gradually to minimize performance impact, typically completing within minutes without requiring any customer intervention or configuration changes.
+[!INCLUDE [Storage - Zone failback](includes/storage/reliability-storage-availability-zone-failback-include.md)]
 
 ### Testing for zone failures
 
