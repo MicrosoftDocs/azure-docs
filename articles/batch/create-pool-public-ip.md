@@ -4,6 +4,7 @@ description: Learn how to create an Azure Batch pool that uses your own static p
 ms.topic: how-to
 ms.custom:
 ms.date: 07/01/2025
+# Customer intent: "As a cloud infrastructure engineer, I want to create a Batch pool using static public IP addresses, so that I can maintain consistent network access for external services that require specific IP whitelisting."
 ---
 
 # Create an Azure Batch pool with specified public IP addresses

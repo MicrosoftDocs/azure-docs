@@ -7,6 +7,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: concept-article
 ms.date: 12/12/2024
 ms.author: rogarana
+# Customer intent: "As a cloud administrator, I want to create and manage snapshots of Azure Elastic SAN volumes, so that I can efficiently back up data and restore volumes as needed for development and testing without incurring extra costs."
 ---
 
 # Snapshot Azure Elastic SAN volumes

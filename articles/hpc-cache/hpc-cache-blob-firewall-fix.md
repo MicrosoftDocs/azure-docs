@@ -6,6 +6,7 @@ ms.service: azure-hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2021
 ms.author: rohogue
+# Customer intent: "As a cloud administrator, I want to adjust firewall settings temporarily when creating a Blob storage target, so that I can bypass access issues caused by network configurations and ensure a successful setup in Azure HPC Cache."
 ---
 
 # Work around Blob storage account firewall settings
