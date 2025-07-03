@@ -114,7 +114,7 @@ App Configuration exposes `AppConfigurationRefresh`, which checks if the refresh
 1. Refresh the browser page twice to see the new message displayed. The first time triggers the refresh, the second loads the changes.
 
     > [!NOTE]
-    > The library checks for changes only after the refresh interval passes. If the interval hasn't passed, no change is displayed. Wait for the interval to pass, and then trigger the refresh check.
+    > The library checks for changes only after the refresh interval passes. If the refresh interval hasn't passed, it doesn't check for changes. Wait for the interval to pass, then trigger the refresh check.
 
 ## Use automated refresh
 
