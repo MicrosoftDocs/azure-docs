@@ -9,9 +9,6 @@
  ms.custom: include file
 ---
 
-
-
-
 This section describes what to expect when a storage account is configured for geo-redundancy and there's an outage in the primary region.
 
 - **Customer-managed failover (unplanned)**: An unplanned failover is intended to be used when storage in the primary region is unavailable.
@@ -38,7 +35,7 @@ This section describes what to expect when a storage account is configured for g
 
 - **Customer-managed failover (planned)**: A planned failover is intended to be used when storage remains operational in the primary region, but you need to fail over your whole solution to a secondary region for another reason.
 
-    - **Detection and response:** You're responsible for deciding to fail over. You'd typically do so if you need to fail over between regions even though your storage account is healthy. For example, a major outage of another component that you can't recover from in the primary region.
+    - **Detection and response:** You're responsible for deciding to fail over. You'd typically do so if you need to fail over between regions even though your storage account is healthy. For example, you might trigger a failover when there's a major outage of another application component that you can't recover from in the primary region.
 
     - **Active requests:** During the failover process, both the primary and secondary storage account endpoints become temporarily unavailable for both reads and writes. Any active requests might be dropped, and client applications need to retry after the failover completes.
 

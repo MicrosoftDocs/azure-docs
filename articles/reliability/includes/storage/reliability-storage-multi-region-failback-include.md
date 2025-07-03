@@ -9,8 +9,6 @@
  ms.custom: include file
 ---
 
-
-
 The failback process differs significantly between Microsoft-managed and customer-managed failover scenarios:
 
 - **Customer-managed failover (unplanned)**: After an unplanned failover, the storage account is configured with locally redundant storage (LRS). In order to fail back, you need to re-establish the GRS relationship and wait for the data to be replicated.

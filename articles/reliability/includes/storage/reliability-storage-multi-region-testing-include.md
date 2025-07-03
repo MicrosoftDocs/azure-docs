@@ -9,7 +9,6 @@
  ms.custom: include file
 ---
 
-
 You can simulate regional failures to test your disaster recovery procedures:
 
 - **Planned failover testing**: For geo-redundant storage accounts, you can perform planned failover operations during maintenance windows to test the complete failover and failback process. Although planned failover doesn't require data loss it does involve downtime during both failover and failback.
