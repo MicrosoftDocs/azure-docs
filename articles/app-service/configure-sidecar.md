@@ -75,7 +75,7 @@ Add the `Microsoft.Web/sites/sitecontainers` resource type to an app. To pull a 
 
 For more information, see [Microsoft.Web sites/sitecontainers](/azure/templates/microsoft.web/sites/sitecontainers).
 
-## How to Define Environment Variables for a Sidecar
+## Set environment variables
 
 In a Linux app, all containers (main and sidecars) share environment variables. To override a specific variable for a sidecar, add it in the sidecar's configuration.
 
@@ -128,7 +128,7 @@ From the Azure portal, you can add a Datadog sidecar extension to collect logs, 
 
 Before you add the Datadog sidecar extension, add the Datadog tracer setup in your Dockerfile, similar to the script example for code-based apps.
 
-## Add the Phi-3/Phi-4
+## Add the Phi-3/Phi-4 sidecar extension
 
 From the Azure portal, you can add a Phi-3 or Phi-4 sidecar extension to your app to provide a local inference model for AI workloads. Your app must be in a pricing tier that supports the inferencing needs. For unsupported tiers, you don't see the options for the Phi-3/Phi-4 sidecar extensions.
 
@@ -174,3 +174,9 @@ Example configuration:
 
 > [!Note]
 > For code-based Linux apps, the built-in Linux container cannot use volume mounts.
+
+## More resources
+
+- [Sidecars overview](overview-sidecar.md)
+- [Migrate Docker Compose apps to sidecars in Azure App Service](migrate-sidecar-multi-container-apps.md)
+- [Microsoft Q&A for Azure App Service](/answers/tags/436/azure-app-service)

@@ -14,14 +14,13 @@ If you're running a Docker Compose app in Azure App Service, you should migrate 
 - Script-based migration - recommended for simple setups.
 - Manual migration
 
-## a. Prerequisites
+## Prerequisites
 
 - PowerShell
 - Azure CLI
 - Docker (for building and pushing images)
-- Text editor (e.g., VS Code)
 
-## Script-based migration
+## Migrate with a script
 
 If your Docker Compose file is straightforward, you can use the official migration script to automate the process.
 
@@ -42,9 +41,9 @@ If your Docker Compose file is straightforward, you can use the official migrati
       -targetPort "<targetPort>"
     ```
 
-If your registry requires authentication, the script prompts you to provide `dockerRegistryServerUsername` and `dockerRegistryServerPassword` interactively.
+    If your registry requires authentication, the script prompts you to provide `dockerRegistryServerUsername` and `dockerRegistryServerPassword` interactively.
 
-## Manual migration
+## Migrate manually
 
 1. Sign in to Azure and set your subscription.
 
@@ -116,26 +115,26 @@ If your registry requires authentication, the script prompts you to provide `doc
     az webapp deployment slot swap --name <webapp-name> --resource-group <resource-group> --slot <slot-name> --target-slot production
     ```
 
-## Mapping of Docker Compose Attributes and Sidecar Configuration
+## Mapping of Docker Compose attributes and sidecar configuration
 
 The following Docker Compose fields are mapped to sidecar configuration:
 
-| Docker Compose | Sidecar Configuration | Notes |
+| Docker Compose | Sidecar configuration | Notes |
 |---------------|----------------------|-------|
 | `command`, `entrypoint` | `startUpCommand` | |
 | `environment` | `environmentVariables` | |
 | `image` | `image` | |
-| `ports` | `targetPort` | Only ports 80 and 8080 are supported for external traffic |
-| `volumes` | `volumeMounts` | Persistent Azure storage not supported |
+| `ports` | `targetPort` | Only ports 80 and 8080 are supported for external traffic. |
+| `volumes` | `volumeMounts` | Persistent Azure storage not supported. |
 
 The following Docker Compose fields are unsupported in sidecars:
 
 | Docker Compose Field | Support | Notes |
 |---------------------|---------|-------|
-| `build` | Not allowed | Pre-build and push images to a registry |
-| `depends_on` | Ignored | No container startup ordering guaranteed |
-| `networks` | Ignored | Network handled internally |
-| `secrets` | Ignored | Use App Settings or Key Vault |
+| `build` | Not allowed | Pre-build and push images to a registry. |
+| `depends_on` | Ignored | No container startup ordering is guaranteed. |
+| `networks` | Ignored | Networking is handled internally. |
+| `secrets` | Ignored | Use App Service app settings or Key Vault for secrets. |
 | `volumes` using `{WEBAPP_STORAGE_HOME}` or `{WEBSITES_ENABLE_APP_SERVICE_STORAGE}` | Not supported | |
 
 ## Migration limitations and considerations

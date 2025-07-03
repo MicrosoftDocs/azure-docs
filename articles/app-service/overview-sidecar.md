@@ -11,9 +11,9 @@ author: cephalin
 
 In Linux App Service apps (built-in containers and custom containers), a sidecar is an auxiliary container that runs in the same environment as your main app container. Sidecars can provide supporting services (like telemetry, caching, or AI inference) and are managed as part of your App Service app.
 
-## Why use Sidecars on App Service?
+## Why use sidecars on App Service?
 
-Sidecars enable you to add new capabilities—such as monitoring, caching, AI, or custom logic—without modifying your main application code (in built-in containers) or your main container (in custom containers). Benefits include:
+Sidecars enable you to add new capabilities, such as monitoring, caching, AI, or custom logic, without modifying your main application code (in built-in containers) or your main container (in custom containers). Benefits include:
 
 - **Separation of concerns:** Add or update services independently of your main app.
 - **Extensibility:** Integrate prebuilt or custom extensions (e.g., OpenTelemetry, Redis, Datadog, Phi-3/4 AI models).
