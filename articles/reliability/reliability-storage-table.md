@@ -160,13 +160,14 @@ Multi-region Azure Table Storage configurations incur additional costs for cross
 
 ### Alternative multi-region approaches
 
-[!INCLUDE [Storage - Alternative multi-region approaches](includes/storage/reliability-storage-multi-region-alternative-include.md)]
+[!INCLUDE [Storage - Alternative multi-region approaches - reasons](includes/storage/reliability-storage-multi-region-alternative-reasons-include.md)]
 
-This approach requires you to manage data distribution, handle synchronization between tables, and implement custom failover logic. Consider the following patterns:
+> [!NOTE]
+> For applications built to use Azure Table Storage, consider using [Azure Cosmos DB for Table](/azure/cosmos-db/table/introduction) instead, which supports advanced multi-region requirements, including support for nonpaired regions. Azure Cosmos DB for Table is designed to be compatible with applications built for Azure Table Storage.
 
-- **Partition-aware distribution**: Distribute entities across regions based on partition key ranges to maintain query efficiency.
-- **Read/write splitting**: Direct write operations to a primary region while allowing reads from multiple regions.
-- **Conflict resolution**: Implement strategies to handle conflicting updates when using multi-master configurations.
+[!INCLUDE [Storage - Alternative multi-region approaches - approach overview](includes/storage/reliability-storage-multi-region-alternative-approach-include.md)]
+
+For Azure Table Storage, a multi-account approach requires you to manage data distribution, handle synchronization between tables across regions including conflict resolution, and implement custom failover logic.
 
 ## Backups
 

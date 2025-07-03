@@ -20,5 +20,3 @@ It may be the case that the cross-region failover capabilities of Azure Storage 
 - You need an active/active configuration across regions.
 
 Instead, you can design a cross-region failover solution that's tailored to your needs. A complete treatment of deployment topologies for Azure Storage is outside the scope of this article, but you can consider a multi-region deployment model.
-
-Azure Storage can be deployed across multiple regions using separate storage accounts in each region. This approach provides flexibility in region selection, the ability to use non-paired regions, and more granular control over replication timing and data consistency. When implementing multiple storage accounts across regions, you need to configure cross-region data replication, implement load balancing and failover policies, and ensure data consistency across regions.
