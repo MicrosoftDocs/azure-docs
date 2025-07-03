@@ -2,12 +2,12 @@
 author: cephalin
 ms.service: azure-app-service
 ms.topic: include
-ms.date: 07/02/2025
+ms.date: 07/03/2025
 ms.author: cephalin
 ---
 Azure App Service actively secures and hardens its platform components, including Azure virtual machines (VMs), storage, network connections, web frameworks, and management and integration features. App Service undergoes continuous, rigorous compliance checks to ensure that:
 
-- [Apps are segregated from other Azure apps and resources](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox).
+- [Each app is segregated from other Azure apps and resources](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox).
 - [Regular updates of VMs and runtime software](/azure/app-service/overview-patch-os-runtime) address newly discovered vulnerabilities.
 - Communication of secrets and connection strings between apps and other Azure resources like [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) occurs only within Azure, without crossing any network boundaries. Stored secrets are always encrypted.
 - All communications over App Service connectivity features like [Hybrid Connection](/azure/app-service/app-service-hybrid-connections) are encrypted.
