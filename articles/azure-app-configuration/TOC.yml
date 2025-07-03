@@ -358,7 +358,7 @@
         href: https://go.microsoft.com/fwlink/?linkid=2180917
       - name: Azure SDK for Java
         href: https://go.microsoft.com/fwlink/?linkid=2098196
-      - name: Migration guide to version 4.7
+      - name: Migration guide to version 6.0
         href: howto-convert-to-the-new-spring-boot.md
     - name: Python
       items:
