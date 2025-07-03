@@ -76,38 +76,57 @@ python -m pip install azure-health-deidentification
 ```
 
 ## Test the service
-In terminal, [log in to Microsoft azure.](/cli/azure/authenticate-azure-cli) 
-Now, write “python” to open a python shell and paste the following code. 
-Be sure to replace your Service URL with the URL you noted when creating a resource. 
+In terminal, [log in to Microsoft Azure.](/cli/azure/authenticate-azure-cli) 
+The code below references the [python SDK for text.](https://github.com/Azure/azure-sdk-for-python/blob/azure-health-deidentification_1.0.0/sdk/healthdataaiservices/azure-health-deidentification/samples/deidentify_text_redact.py) 
+
+To use it, create a python file called "deidentify_text_redact.py" and paste the following code in. Run "python deidentify_text_redact.py".
+
+Be sure to replace AZURE_HEALTH_DEIDENTIFICATION_ENDPOINT with the URL you noted when creating a resource. 
 You can also change the operation type between REDACT, TAG, or SURROGATE.
 
-```Bash
-from azure.health.deidentification import *  
-from azure.health.deidentification.models import *  
-from azure.identity import DefaultAzureCredential  
+```python
 
-SERVICE_URL = "<YOUR SERVICE URL HERE>" ### Replace 
-client = DeidentificationClient(SERVICE_URL.replace("https://", ""), DefaultAzureCredential())  
+"""
+FILE: deidentify_text_redact.py
 
-# Input  
-text = """  Hannah is a 92-year-old admitted on 9/7/23. First presented symptoms two days earlier on Tuesday, 9/5/23 """  
-operation=OperationType.SURROGATE ### CHANGE OPERATION TYPE AS NEEDED. Options include OperationType.TAG, OperationType.REDACT, and OperationType.SURROGATE    
+DESCRIPTION:
+    This sample demonstrates the most simple de-identification scenario, calling the service to redact
+    PHI values in a string.
 
-# Processing  
-print("############ Input")  
-print(text)  
-content = DeidentificationContent(input_text=text, operation=operation)  
-try: 
-    response = client.deidentify(content) 
-except Exception as e: 
-    print("Request failed with exception: \n\n", e) 
-    exit() 
-print("\n############ Output")  
+USAGE:
+    python deidentify_text_redact.py
 
-if operation==OperationType.TAG:  
-    print(response.tagger_result)  
-else:  
-    print(response.output_text)  
+    Set the environment variables with your own values before running the sample:
+    1) AZURE_HEALTH_DEIDENTIFICATION_ENDPOINT - the service URL endpoint for a de-identification service.
+"""
+
+
+from azure.health.deidentification import DeidentificationClient
+from azure.health.deidentification.models import (
+    DeidentificationContent,
+    DeidentificationOperationType,
+    DeidentificationResult,
+)
+from azure.identity import DefaultAzureCredential
+
+
+def deidentify_text_redact():
+    endpoint = AZURE_HEALTH_DEIDENTIFICATION_ENDPOINT
+    credential = DefaultAzureCredential()
+    client = DeidentificationClient(endpoint, credential)
+
+    # [START redact]
+    body = DeidentificationContent(
+        input_text="It's great to work at Contoso.", operation_type=DeidentificationOperationType.SURROGATE
+    )
+    result: DeidentificationResult = client.deidentify_text(body)
+    print(f'\nOriginal Text:        "{body.input_text}"')
+    print(f'Redacted Text:   "{result.output_text}"')  # Redacted output: "It's great to work at [organization]."
+    # [END redact]
+
+
+if __name__ == "__main__":
+    deidentify_text_redact()
 
 ```
 
@@ -115,7 +134,7 @@ else:
 
    | Input        | Output          |
    |----------------|---------|
-   | Hannah is a 92-year-old admitted on 9/7/23. First presented symptoms two days earlier on Tuesday, 9/5/23           | Kim is a 90-year-old admitted on 9/30/23. First presented symptoms two days earlier on Thursday, 9/28/23          |
+   | Kimberly Brown is a 34 y.o. female presenting with bilateral eye discomfort. Last seen by her PCP 2/6/2025 Dr. Orlo at Overlake Clinics Downtown Bellevue PCP.           | Britt Macdonough is a 34 y.o. female presenting with bilateral eye discomfort. Last seen by her PCP 1/18/2025 Dr. Defiore at Cardston Hospital PCP.          |
 
 ## Clean up resources
 
