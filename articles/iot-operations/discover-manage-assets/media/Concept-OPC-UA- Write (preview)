@@ -24,8 +24,10 @@ It is especially useful in scenarios where latency, autonomy, or local decision-
 Once an asset is deployed, you can use the OPC UA Connector to perform write operations directly to the asset’s OPC UA server, by leveraging remote MQTT calls. 
 When an MQTT request is received, the OPC UA Connector dynamically creates an ad-hoc session using the asset’s AssetEndpointProfile (AEP). 
 During this session, it performs strict validation to ensure that the write payload only includes data points defined in the target dataset. 
-Once validated, the Commander executes the write operation, updating the specified nodes on the OPC UA asset. 
+Once validated, the OPC UA Connector executes the write operation, updating the specified nodes on the OPC UA asset. 
 Each MQTT message includes Message Metadata that defines system-level and user-defined properties—such as SourceId, ProtocolVersion, and CorrelationData—to ensure traceability and conformance.
+
+Note: In the current preview phase, write operations are limited to data points that are explicitly defined in a dataset.
 
 The OPC UA Connector subscribes to the topic:
 {AioNamespace}/asset-operations/{AssetId}/{DatasetName}/
@@ -33,12 +35,13 @@ When a write request is received, the OPC UA Connector:
 
 - Creates an ad-hoc session using the asset’s AssetEndpointProfile (AEP).
 - Validates the payload to ensure all data points exist within the defined dataset.
-- Executes the write by sending the values to the OPC UA Server, which updates the target nodes and returns a success or failure response.
+- Executes the write by sending the values to the OPC UA Server, which updates the target nodes and returns a success or failure response. 
+Note: The changed value is transmitted via the standard telemetry topic associated with the dataset.
 
 
 # How It Works
 1. Asset Setup: Deploy the asset and define its AssetEndpointProfile (AEP) in the Azure Device Registry.
-2. Write Request: Send a JSON payload to the MQTT topic with the dataset name and values to be written.
+2. Write Request: Send a JSON payload to the MQTT topic using MQTT v5 request/response, specifying the dataset name and the values to be written.
 3. Session Creation: OPC UA Connector creates a temporary session using the AEP.
 4. Validation: The payload is checked to ensure all data points exist in the dataset.
 5. Execution: The values are written to the OPC UA server, and a response is returned.
@@ -48,100 +51,7 @@ When a write request is received, the OPC UA Connector:
 
 Here’s a minimal example for writing a simple float value to a node:
 
-{
-  "method": "Write",
-  "params": {
-    "dataset": "TemperatureData",
-    "values": {
-      "SetPoint": 50.0
-    }
-  },
-  "metadata": {
-    "sourceId": "opcua-connector-01",
-    "protocolVersion": "1.0",
-    "correlationData": "b7f3a9e2-4c3d-4e9a-9f3a-2d1c6e7f9a3b"
-  }
+{ 
+   "SetPoint": 50
 }
-
-# Step-by-Step Guide
-
-# Define the Asset and Dataset
-
-In your asset configuration (YAML or JSON), define the dataset and endpoint profile:
-
-
-Replace asset123, myNamespace, and aio-mqtt-broker.mynamespace.svc.cluster.local with your actual values.
-
-assetId: asset123
-endpointProfile:
-  endpointUrl: "opc.tcp://192.168.1.100:4840"
-  securityPolicy: "Basic256Sha256"
-  userTokenType: "Username"
-  username: "operator"
-  password: "securePassword"
-datasets:
-  - name: TemperatureData
-    datapoints:
-      - name: SetPoint
-        nodeId: "ns=2;s=Machine/Temperature/SetPoint"
-        dataType: "Double"
-
-# Prepare the Write Payload
-Create a file named payload.json with the following content
-{
-  "method": "Write",
-  "params": {
-    "dataset": "TemperatureData",
-    "values": {
-      "SetPoint": 50.0
-    }
-  },
-  "metadata": {
-    "sourceId": "opcua-connector-01",
-    "protocolVersion": "1.0",
-    "correlationData": "b7f3a9e2-4c3d-4e9a-9f3a-2d1c6e7f9a3b"
-  }
-}
-
-
-# Publish the Payload to Azure IoT Operations MQTT Broker
-Use a containerized MQTT client or a custom app to publish the payload
-
-kubectl exec -n mynamespace mqtt-client -- \
-  mqtt pub \
-  --host aio-mqtt-broker.mynamespace.svc.cluster.local \
-  --port 1883 \
-  --topic "myNamespace/asset-operations/asset123/TemperatureData/" \
-  --file /data/payload.json
-
-Mount payload.json into the pod at /data/payload.json using a ConfigMap or volume.
-
-Ensure the topic matches the format:\
-{AioNamespace}/asset-operations/{AssetId}/{DatasetName}/
-
-
-# Monitor the Response
-Subscribe to the same topic to receive the response:
-
-kubectl exec -n mynamespace mqtt-client -- \
-  mqtt sub \
-  --host aio-mqtt-broker.mynamespace.svc.cluster.local \
-  --port 1883 \
-  --topic "myNamespace/asset-operations/asset123/TemperatureData/"
-
-Expected response:
-{
-  "status": "Success",
-  "message": "Write operation completed",
-  "timestamp": " "
-}
-
-
-# Verify the Write
-Use an OPC UA client 
-- Connect to the asset’s endpoint URL.
-- Browse to the node ns=2;s=Machine/Temperature/SetPoint.
-- Confirm that the value has been updated to 50.0.
-
-
 
