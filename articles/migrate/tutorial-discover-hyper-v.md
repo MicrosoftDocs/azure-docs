@@ -116,34 +116,13 @@ SHA256 | [!INCLUDE [hyper-v-vhd.md](includes/hyper-v-vhd.md)]
 
 ### Create an account to access servers
 
-The user account on your servers must have the required permissions to initiate discovery of installed applications, agentless dependency analysis, and SQL Server instances and databases. You can provide the user account information in the appliance configuration manager. The appliance doesn't install agents on the servers.
-
-* To perform software inventory and agentless dependency analysis, create a guest user account (local or domain) on the servers. To perform web app discovery, you need an account with administrative permissions on the servers. To discover SQL Server instances and databases, the Windows or SQL Server account must be a member of the sysadmin server role or have [these permissions](./migrate-support-matrix-vmware.md#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance. Learn how to [assign the required role to the user account](/sql/relational-databases/security/authentication-access/server-level-roles).
-* For **Linux servers**, provide a sudo user account with permissions to execute ls and netstat commands or create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files. If you're providing a sudo user account, ensure that you have enabled **NOPASSWD** for the account to run the required commands without prompting for a password every time sudo command is invoked.
-
-> [!NOTE]
-> You can add multiple server credentials in the Azure Migrate appliance configuration manager to initiate discovery of installed applications, agentless dependency analysis, and SQL Server instances and databases. You can add multiple domain, Windows (non-domain), Linux (non-domain), or SQL Server authentication credentials. Learn how to [add server credentials](add-server-credentials.md).
+You can add multiple server credentials in the Azure Migrate appliance configuration manager to initiate discovery of installed applications, agentless dependency analysis, and SQL Server instances and databases. You can add multiple domain, Windows (non-domain), Linux (non-domain), or SQL Server authentication credentials. Learn how to [add server credentials](add-server-credentials.md).
 
 ## Set up a project
 
-Set up a new project.
+To set up a new project, see, [Create and manage Azure Migrate projects](quickstart-create-project.md)
 
-1. In the Azure portal > **All services**, search for **Azure Migrate**.
-2. Under **Services**, select **Azure Migrate**.
-3. In **Get started**, select **Create project**.
-5. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
-6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government).
-
-   > [!Note]
-   > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity). 
-
-7. Select **Create**.
-8. Wait a few minutes for the project to deploy. The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.
-
-    :::image type="content" source="./media/tutorial-discover-hyper-v/added-tool.png" alt-text="Screenshot showing Azure Migrate: Discovery and assessment tool added by default.":::
-
-> [!NOTE]
-> If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of servers. [Learn more](create-manage-projects.md#find-a-project).
+  :::image type="content" source="./media/tutorial-discover-hyper-v/added-tool.png" alt-text="Screenshot showing Azure Migrate: Discovery and assessment tool added by default.":::
 
 ## Set up the appliance
 
@@ -171,31 +150,7 @@ This tutorial sets up the appliance on a server running in Hyper-V environment, 
 
 ### 2. Download the VHD
 
-In **2: Download Azure Migrate appliance**, select the .VHD file and select **Download**.
-
-### Verify security
-
-Check that the zipped file is secure, before you deploy it.
-
-1. On the machine to which you downloaded the file, open an administrator command window.
-
-2. Run the following PowerShell command to generate the hash for the ZIP file
-    - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
-    - Example usage: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
-
-3.  Verify the latest appliance versions and hash values:
-
-    - For the Azure public cloud:
-
-        **Scenario** | **Download** | **SHA256**
-        --- | --- | ---
-        Hyper-V (8.91 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848) | 952e493a63a45f97ecdc0945807d504f4bd2f0f4f8248472b784c3e6bd25eb13 
-
-    - For Azure Government:
-
-        **Scenario*** | **Download** | **SHA256**
-        --- | --- | ---
-        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
+In **2: Download Azure Migrate appliance**, select the .VHD file and select **Download**.  Verify security by validating the SHA256 values.  
 
 ### 3. Create an appliance
 
@@ -315,7 +270,7 @@ To add server credentials:
 1. Select **Add Credentials**.
 1. In the dropdown menu, select **Credentials type**.
     
-    You can provide domain/, Windows(non-domain)/, Linux(non-domain)/, and SQL Server authentication credentials. Learn how to [provide credentials](add-server-credentials.md) and how we handle them.
+    You can provide domain/, Windows(non-domain)/, Linux(non-domain)/, Linux (SSH key based), and SQL Server authentication credentials. Learn how to [provide credentials](add-server-credentials.md) and how we handle them.
 1. For each type of credentials, enter:
     * A friendly name.
     * A username.
@@ -323,6 +278,26 @@ To add server credentials:
     Select **Save**.
 
     If you choose to use domain credentials, you also must enter the FQDN for the domain. The FQDN is required to validate the authenticity of the credentials with the Active Directory instance in that domain.
+1. For a Windows server: 
+    1. Select the source type as **Windows Server**. 
+    1. Enter a friendly name for the credentials. 
+    1. Add the username and password. 
+    1. Select **Save**. 
+1. If you use password-based authentication for a Linux server, select the source type as **Linux Server (Password-based)**. 
+    1. Enter a friendly name for the credentials. 
+    1. Add the username and password, and then select Save. 
+1. If you use SSH key-based authentication for a Linux server: 
+    1. Select the source type as **Linux Server (SSH key-based)**. 
+    1. Enter a friendly name for the credentials. 
+    1. Add the username. 
+    1. Browse and select the SSH private key file. 
+    1. Select **Save**. 
+
+    >[!Note]
+    > - Azure Migrate supports SSH private keys created using the ssh-keygen command with RSA, ECDSA, and ed25519 algorithms.
+    > - It supports SSH private key files in OpenSSH format.
+    > - It doesn't support SSH keys with a passphrase. We recommend using a key without a passphrase
+    > - It also doesn't support SSH private key files created by PuTTY.
 1. Review the [required permissions](add-server-credentials.md#required-permissions) on the account for discovery of installed applications, agentless dependency analysis, and discovery SQL Server instances and databases.
 1. To add multiple credentials at once, select **Add more** to save credentials, and then add more credentials.
     When you select **Save** or **Add more**, the appliance validates the domain credentials with the domain's Active Directory instance for authentication. Validation is made after each addition to avoid account lockouts as the appliance iterates to map credentials to respective servers.
