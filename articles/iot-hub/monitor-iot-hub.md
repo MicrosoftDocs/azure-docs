@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure IoT Hub
 description: Start here to learn how to monitor Azure IoT Hub by using Azure Monitor. Learn about the types of monitoring data you can collect and ways to analyze that data.
-ms.date: 07/30/2024
+ms.date: 06/27/2025
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: conceptual
 author: SoniaLopezBravo
@@ -15,11 +15,11 @@ ms.service: azure-iot-hub
 
 ## Monitor per-device disconnects with Event Grid
 
-Azure Monitor provides a metric called *Connected devices* that you can use to monitor the number of devices connected to your IoT Hub. This metric triggers an alert when the number of connected devices drops below a threshold value. Azure Monitor also emits events in the [connections category](monitor-iot-hub-reference.md#connections-category) that you can use to monitor device connects, disconnects, and connection errors. While these events might be sufficient for some scenarios, [Azure Event Grid](../event-grid/index.yml) provides a low-latency, per-device monitoring solution that you can use to track device connections for critical devices and infrastructure.
+Azure Monitor provides a metric called *Connected devices* that you can use to monitor the number of devices connected to your IoT hub. This metric triggers an alert when the number of connected devices drops below a threshold value. Azure Monitor also emits events in the [connections category](monitor-iot-hub-reference.md#connections-category) that you can use to monitor device connects, disconnects, and connection errors. While these events might be sufficient for some scenarios, [Azure Event Grid](../event-grid/index.yml) provides a low-latency, per-device monitoring solution that you can use to track device connections for critical devices and infrastructure.
 
-With Event Grid, you can subscribe to the IoT Hub [**DeviceConnected** and **DeviceDisconnected** events](iot-hub-event-grid.md#event-types) to trigger alerts and monitor device connection state. Event Grid provides a much lower event latency than Azure Monitor, so you can monitor on a per-device basis rather than for all connected devices. These factors make Event Grid the preferred method for monitoring connections for critical devices and infrastructure. We highly recommend using Event Grid to monitor device connections in production environments.
+With Event Grid, you can subscribe to the IoT Hub [**DeviceConnected** and **DeviceDisconnected** events](iot-hub-event-grid.md#event-types) to trigger alerts and monitor device connection state. Event Grid provides a lower event latency than Azure Monitor, so you can monitor on a per-device basis rather than for all connected devices. These factors make Event Grid the preferred method for monitoring connections for critical devices and infrastructure. We highly recommend using Event Grid to monitor device connections in production environments.
 
-For more information about monitoring device connectivity with Event Grid and Azure Monitor, see [Monitor, diagnose, and troubleshoot device connectivity to Azure IoT Hub](iot-hub-troubleshoot-connectivity.md).
+For more information about monitoring device connectivity with Event Grid and Azure Monitor, see [Monitor, diagnose, and troubleshoot Azure IoT Hub device connectivity](iot-hub-troubleshoot-connectivity.md).
 
 [!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 
@@ -53,14 +53,14 @@ When routing IoT Hub platform metrics to other locations:
 
 The **Overview** page in the Azure portal for each IoT hub includes charts that provide some usage metrics, such as the number of messages used and the number of devices connected to the IoT hub.
 
-:::image type="content" source="media/monitor-iot-hub/overview-portal.png" alt-text="Default metric charts on IoT hub Overview page.":::
+:::image type="content" source="media/monitor-iot-hub/overview-portal.png" alt-text="Screenshot showing default metric charts on the Overview page of an IoT hub in the Azure portal.":::
 
 A correct message count value might be delayed by 1 minute. Due to the IoT Hub service infrastructure, the value can sometimes bounce between higher and lower values on refresh. This counter should be incorrect only for values accrued over the last minute.
 
 The information presented on the **Overview pane** is useful, but represents only a small amount of monitoring data that's available for an IoT hub. Some monitoring data is collected automatically and available for analysis as soon as you create your IoT hub. You can enable other types of data collection with some configuration.
 
 > [!IMPORTANT]
-> The events emitted by the IoT Hub service using Azure Monitor resource logs aren't guaranteed to be reliable or ordered. Some events might be lost or delivered out of order. Resource logs aren't intended to be real-time, so it may take several minutes for events to be logged to your choice of destination.
+> The events emitted by the IoT Hub service using Azure Monitor resource logs aren't guaranteed to be reliable or ordered. Some events might be lost or delivered out of order. Resource logs aren't intended to be real-time, so it might take several minutes for events to be logged to your choice of destination.
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
@@ -74,7 +74,7 @@ The IoT Hub [resource logs connections category](monitor-iot-hub-reference.md#co
 
 We recommend creating a diagnostic setting as early as possible after you create your IoT hub, because, although IoT Hub always emits resource logs, Azure Monitor doesn't collect them until you route them to a destination.
 
-To learn more about routing logs to a destination, see the [Collect and route monitoring data](#collect-and-route-monitoring-data) section. For detailed instructions to create a diagnostic setting, see the [Use metrics and logs tutorial](tutorial-use-metrics-and-diags.md).
+To learn more about routing logs to a destination, see the [Collect and route monitoring data](#collect-and-route-monitoring-data) section. For detailed instructions to create a diagnostic setting, see [Tutorial: Set up and use metrics and logs with an IoT hub](tutorial-use-metrics-and-diags.md).
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
@@ -94,7 +94,7 @@ When routing IoT Hub platform metrics to Azure Monitor Logs:
 
 - Multi-dimensional metrics, for example some [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are currently exported as flattened single dimensional metrics aggregated across dimension values. For more detail, see [Exporting platform metrics to other locations](/azure/azure-monitor/essentials/metrics-supported#exporting-platform-metrics-to-other-locations).
 
-For common queries with IoT Hub, see [Sample Kusto queries](#sample-kusto-queries). For more information on using Log Analytics queries, see [Overview of log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview).
+For common queries with IoT Hub, see [Kusto queries](#sample-kusto-queries). For more information on using Log Analytics queries, see [Log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview).
 
 ### SDK version in IoT Hub logs
 
@@ -228,20 +228,19 @@ Use the following Kusto queries to help you monitor your IoT hub.
 
 ### IoT Hub alert rules
 
-You can set alerts for any metric, log entry, or activity log entry listed in the [IoT Hub monitoring data reference](monitor-iot-hub-reference.md).
+You can set alerts for any metric, log entry, or activity log entry listed in the [Azure IoT Hub monitoring data reference](monitor-iot-hub-reference.md).
 
 ## Set up metric alerts for device disconnects
 
 You can set up alerts based on the platform metrics emitted by IoT Hub. With metric alerts, you can notify individuals that a condition of interest occurred and also trigger actions that can respond to that condition automatically.
 
-The [*Connected devices (preview)*](monitor-iot-hub-reference.md#device-metrics) metric tells you how many devices are connected to your IoT Hub. If this metric drops below a threshold value, an alert can trigger:
+The [*Connected devices*](monitor-iot-hub-reference.md#device-metrics) metric tells you how many devices are connected to your IoT hub. If this metric drops below a threshold value, an alert can trigger:
 
 :::image type="content" source="media/iot-hub-troubleshoot-connectivity/configure-alert-logic.png" alt-text="Alert logic settings for connected devices metric.":::
 
 You can use metric alert rules to monitor for device disconnect anomalies at-scale. That is, use alerts to determine when a significant number of devices unexpectedly disconnect. When this situation is detected, you can look at logs to help troubleshoot the issue. To monitor per-device disconnects and disconnects for critical devices in near real time, however, you must use Event Grid.
 
-To learn more about alerts with IoT Hub, see [Alerts in Monitor IoT Hub](monitor-iot-hub.md#alerts). For a walk-through of creating alerts in IoT Hub, see the [Use metrics and logs tutorial](tutorial-use-metrics-and-diags.md). For a more detailed overview of alerts, see [Overview of alerts in Microsoft Azure](/azure/azure-monitor/alerts/alerts-overview) in the Azure Monitor documentation.
-
+To learn more about alerts with IoT Hub, see the [Alerts](monitor-iot-hub.md#alerts) section in [Monitor IoT Hub](monitor-iot-hub.md). For a walk-through of creating alerts in IoT Hub, see [Tutorial: Set up and use metrics and logs with an IoT hub](tutorial-use-metrics-and-diags.md). For a more detailed overview of alerts, see [What are Azure Monitor alerts?](/azure/azure-monitor/alerts/alerts-overview) in the Azure Monitor documentation.
 
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
