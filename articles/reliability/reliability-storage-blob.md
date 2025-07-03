@@ -96,7 +96,7 @@ This section describes what to expect when a blob storage account is configured 
 
 ### Failback
 
-When the failed availability zone recovers, Azure Blob Storage automatically restores normal operations across all of the availability zones.
+When the failed availability zone recovers, Azure Storage automatically restores normal operations across all of the availability zones. During failback, the service automatically ensures data consistency by synchronizing any operations that occurred during the outage period.
 
 ### Testing for zone failures
 
