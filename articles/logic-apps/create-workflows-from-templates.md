@@ -119,7 +119,7 @@ To find and choose a template for your workflow, follow the corresponding steps 
 
 1. Select **Next** and continue to the next steps.
 
-## Create connections for you workflow
+## Create connections for your workflow
 
 The **Connections** tab lists any connections that the workflow needs to create and authenticate.
 
