@@ -3,7 +3,7 @@ title: 'Tutorial: Troubleshoot an app using an Azure SRE Agent (preview) in Azur
 description: Deploy an automated agent to help monitor and resolve issues with an SRE Agent in Azure Container Apps.
 author: craigshoemaker
 ms.topic: tutorial
-ms.date: 06/17/2025
+ms.date: 07/03/2025
 ms.author: cshoe
 ms.service: azure
 ---
