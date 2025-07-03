@@ -338,60 +338,7 @@ console.log(
 Here's sample code to generate the latest Remote UFD value delivered to the calling SDK. If a diagnostic is undefined, it means the UFD hasn't been raised from the remote client SDK.
 ```js
 const latestRemoteDiagnostics = userFacingDiagnostics.remote.getLatest();
-
-console.log(
-  `noNetwork: ${latestRemoteDiagnostics.noNetwork.value}, ` +
-    `value type = ${latestRemoteDiagnostics.noNetwork.valueType}`
-);
-
-console.log(
-  `networkReconnect: ${latestRemoteDiagnostics.networkReconnect.value}, ` +
-    `value type = ${latestRemoteDiagnostics.networkReconnect.valueType}`
-);
-
-console.log(
-  `networkReceiveQuality: ${latestRemoteDiagnostics.networkReceiveQuality.value}, ` +
-    `value type = ${latestRemoteDiagnostics.networkReceiveQuality.valueType}`
-);
-
-console.log(
-  `networkSendQuality: ${latestRemoteDiagnostics.networkSendQuality.value}, ` +
-    `value type = ${latestRemoteDiagnostics.networkSendQuality.valueType}`
-);
-
-console.log(
-  `cameraStartFailed: ${latestRemoteDiagnostics.cameraStartFailed.value}, ` +
-    `value type = ${latestRemoteDiagnostics.cameraStartFailed.valueType}`
-);
-
-console.log(
-  `microphoneNotFunctioning: ${latestRemoteDiagnostics.microphoneNotFunctioning.value}, ` +
-    `value type = ${latestRemoteDiagnostics.microphoneNotFunctioning.valueType}`
-);
-
-console.log(
-  `microphoneMuteUnexpectedly: ${latestRemoteDiagnostics.microphoneMuteUnexpectedly.value}, ` +
-    `value type = ${latestRemoteDiagnostics.microphoneMuteUnexpectedly.valueType}`
-);
-
-console.log(
-  `cameraFreeze: ${latestRemoteDiagnostics.cameraFreeze.value}, ` +
-    `value type = ${latestRemoteDiagnostics.cameraFreeze.valueType}`
-);
-
-console.log(
-  `cameraStartFailed: ${latestRemoteDiagnostics.cameraStartFailed.value}, ` +
-    `value type = ${latestRemoteDiagnostics.cameraStartFailed.valueType}`
-);
-
-console.log(
-  `cameraStartTimedOut: ${latestRemoteDiagnostics.cameraStartTimedOut.value}, ` +
-    `value type = ${latestRemoteDiagnostics.cameraStartTimedOut.valueType}`
-);
-
-console.log(
-  `cameraStoppedUnexpectedly: ${latestRemoteDiagnostics.cameraStoppedUnexpectedly.value}, ` +
-    `value type = ${latestRemoteDiagnostics.cameraStoppedUnexpectedly.valueType}`
-);
-
+for (const diagnostic of latestRemoteDiagnostics.diagnostics) { 
+    console.error(`Remote participant ${diagnostic.participantId} diagnostic: ${diagnostic.diagnostic} = ${diagnostic.value}`); 
+}  
 ```
