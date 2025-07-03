@@ -7,7 +7,7 @@ ms.author: cephalin
 author: cephalin
 ---
 
-# Configure Sidecars in Azure App Service
+# Configure sidecars in Azure App Service
 
 This article provides practical steps for enabling and configuring sidecars in your App Service app.
 
