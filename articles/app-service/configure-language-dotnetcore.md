@@ -4,7 +4,7 @@ description: Learn how to configure an ASP.NET Core app in native Windows instan
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-dotnet, linux-related-content
 ms.topic: how-to
-ms.date: 05/07/2025
+ms.date: 07/07/2025
 zone_pivot_groups: app-service-platform-windows-linux
 author: cephalin
 ms.author: cephalin
