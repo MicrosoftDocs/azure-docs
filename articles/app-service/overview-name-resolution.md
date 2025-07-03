@@ -68,7 +68,7 @@ az resource show --resource-group <group-name> --name <app-name> --query propert
 
 ## Limitations
 
-- App Service does not support falling back to DNS resolution over TCP when it encounters a truncated response over UDP. Configuring App Services to use a DNS server which does not implement EDNS to negotiate UDP responses larger than the standard 512 byte limit may result in DNS resolution failures.
+- App Service on Windows does not support DNS resolution over TCP.
 
 ## Next steps
 
