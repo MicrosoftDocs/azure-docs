@@ -18,7 +18,7 @@ ms.author: guywild
 
 ## Prerequisites
 
-A Microsoft Entra Workload ID Premium license is required to stream **AADRiskyServicePrincipals** and **AADServicePrincipalRiskEvents** logs to Microsoft Sentinel.
+A Microsoft Entra Workload ID Premium license is required to stream **[AADRiskyServicePrincipals](/azure/azure-monitor/reference/tables/aadriskyserviceprincipals)** and **[AADServicePrincipalRiskEvents](/azure/azure-monitor/reference/tables/aadserviceprincipalriskevents)** logs to Microsoft Sentinel.
 
 ## Microsoft Entra ID data connector data types
 
