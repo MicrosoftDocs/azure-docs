@@ -417,6 +417,41 @@ Process name | `ps`
 Process arguments | `ps`
 Application name | `dpkg` or `rpm`
 
+## Storage metadata
+
+The appliance collects storage releated data about configuration, roles, and features from Windows servers
+Here's the full list of metadata that the appliance collects and sends to Azure:
+
+### Windows server metadata
+
+Data | WMI class | WMI class property
+--- | --- | ---
+FQDN | `Win32_OperatingSystem` | `Name`, `Domain`, `PartOfDomain`
+OS version | `Win32_OperatingSystem` | `Version`
+NIC details | `Win32_NetworkAdapter` | `NetConnectionID`, `Description`, `MACAddress`, `NetConnectionStatus`, `Speed`, `PNPDeviceID`
+ISCSI Target query from Initiator | `MSiSCSIInitiator_SessionClass`  | `TargetName`, `TargetAddress`, `Devices`, `LegacyName`
+Physical Disk information | `Win32_DiskDrive` | `PNPDeviceID`, `Index`, `Caption`, `SerialNumber`, `BusType`, `BytesPerSector`,`InterfaceType`, `Size`, `Status`, `FirmwareRevision`, `MediaType`, `Manufacturer`
+Logical Disk Information | `Win32_Volume` | `DeviceID`, `DriveLetter`, `FileSystem`, `BootVolume`, `Capacity`, `FreeSpace`
+Logical Disk Information | `Win32_DiskPartition` | `DiskIndex`, `AccessPaths`, `DiskNumber`
+Logical Disk Information | `Win32_LogicalDiskToPartition` | `Antecedent`, `Dependent`
+
+
+Data | PowerShell cmdlet | Property
+--- | --- | ---
+SMB server - Protocol Version | `Get-SmbServerConfiguration` | `EnableSMB1Protocol`, `EnableSMB2Protocol`
+SMB server | `Get-WindowsFeature` | `FileAndStorage-Services`, `FS-FileServer`
+NFS server | `Get-WindowsFeature` | `FS-NFS-Service`
+iSCSI target | `Get-IscsiServerTarget`  | `TargetIqn`
+Physical Disk information | `Get-PhysicalDisk` | `DeviceID`, `uniqueId`, `PhysicalSectorSize`, `LogicalSectorSize`,`BusType`
+PhysicalDisk information | `Get-Disk` | `Number`, `IsBoot`
+Virtual Disk Information | `Get-VirtualDisk` | `UniqueId`, `FriendlyName`, `Caption`, `Size`, `ResiliencySettingName`, `HealthStatus`, `MediaType`, `ObjectId`, `LogicalSectorSize`, `PhysicalSectorSize`
+Storage Pool Information | `Get-StoragePool` | `FriendlyName`, `HealthStatus`, `OperationalStatus`, `ResiliencySettingNameDefault`
+Logical Disk Information | `Get-Partition` | `AccessPaths`, `DiskNumber`
+FileShare - SMB | `Get-SmbShare` | `Name`, `Path, Volume`
+FileShare - NFS | `Get-NfsShare` | `Name`, `SharePath`
+NFS server - Protocol Version | `Get-NfsServerConfiguration` | `EnableNFSv2`, `EnableNFSv3`, `EnableNFSv4`
+
+
 ## Related content
 
 - [Set up an appliance for servers in a VMware environment](how-to-set-up-appliance-vmware.md)
