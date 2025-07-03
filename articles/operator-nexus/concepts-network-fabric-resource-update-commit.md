@@ -12,6 +12,9 @@ ms.custom:
   - build-2025
 ---
 
+>[!Note]
+>As part of our continued efforts to improve operational efficiency and reliability, we are announcing that new Fabric Commit v2 workflow will become the default commit workflow starting with Azure Operator 2507.1 release and commit v1 is depricated. Refer [Commit Workflow v2 in Azure Operator Nexus - Network Fabric](./concepts-commit-workflow-v2.md)
+
 # Update and commit Network Fabric resources
 
 Currently, Nexus Network Fabric resources require that you disable a parent resource (such as an L3Isolation domain) and reput the parent or child resource with updated values and execute the administrative post action to enable and configure the devices. Network Fabric's new resource update flow allows you to  batch and update a set of Network Fabric resources via a `commitConfiguration` POST action when resources are enabled. There's no change if you choose the current workflow of disabling L3 Isolation domain, making changes and the enabling L3 Isolation domain. 
