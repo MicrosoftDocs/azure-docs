@@ -18,7 +18,15 @@ ms.author: guywild
 
 ## Prerequisites
 
-A Microsoft Entra Workload ID Premium license is required to stream **[AADRiskyServicePrincipals](/azure/azure-monitor/reference/tables/aadriskyserviceprincipals)** and **[AADServicePrincipalRiskEvents](/azure/azure-monitor/reference/tables/aadserviceprincipalriskevents)** logs to Microsoft Sentinel.
+- A Microsoft Entra Workload ID Premium license is required to stream **[AADRiskyServicePrincipals](/azure/azure-monitor/reference/tables/aadriskyserviceprincipals)** and **[AADServicePrincipalRiskEvents](/azure/azure-monitor/reference/tables/aadserviceprincipalriskevents)** logs to Microsoft Sentinel.
+
+- A Microsoft Entra ID P1 or P2 license is required to ingest sign-in logs into Microsoft Sentinel. Any Microsoft Entra ID license (Free/O365/P1 or P2) is sufficient to ingest the other log types. Other per-gigabyte charges might apply for Azure Monitor (Log Analytics) and Microsoft Sentinel.
+
+- Your user must be assigned the [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) role on the workspace.
+
+- Your user must have the [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) role on the tenant you want to stream the logs from, or the equivalent permissions.
+
+- Your user must have read and write permissions to the Microsoft Entra diagnostic settings in order to be able to see the connection status.
 
 ## Microsoft Entra ID data connector data types
 
@@ -47,15 +55,6 @@ This table lists the logs you can send from Microsoft Entra ID to Microsoft Sent
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-## Prerequisites
-
-- A Microsoft Entra ID P1 or P2 license is required to ingest sign-in logs into Microsoft Sentinel. Any Microsoft Entra ID license (Free/O365/P1 or P2) is sufficient to ingest the other log types. Other per-gigabyte charges might apply for Azure Monitor (Log Analytics) and Microsoft Sentinel.
-
-- Your user must be assigned the [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) role on the workspace.
-
-- Your user must have the [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) role on the tenant you want to stream the logs from, or the equivalent permissions.
-
-- Your user must have read and write permissions to the Microsoft Entra diagnostic settings in order to be able to see the connection status.
 
 <a name='connect-to-azure-active-directory'></a>
 
