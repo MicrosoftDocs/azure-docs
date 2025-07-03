@@ -11,7 +11,7 @@ ms.author: egrootenboer
 
 # Configure the minimum TLS version for a Service Bus namespace
 
-Azure Service Bus namespaces permit clients to send and receive data with TLS 1.0 and above. To enforce stricter security measures, you can configure your Service Bus namespace to require that clients send and receive data with a newer version of TLS. If a Service Bus namespace requires a minimum version of TLS, then any requests made with an older version will fail. For conceptual information about this feature, see [Enforce a minimum required version of Transport Layer Security (TLS) for requests to a Service Bus namespace](transport-layer-security-enforce-minimum-version.md).
+Azure Service Bus namespaces permit clients to send and receive data with TLS 1.2 and above. To enforce stricter security measures, you can configure your Service Bus namespace to require that clients send and receive data with a newer version of TLS. If a Service Bus namespace requires a minimum version of TLS, then any requests made with an older version will fail. For conceptual information about this feature, see [Enforce a minimum required version of Transport Layer Security (TLS) for requests to a Service Bus namespace](transport-layer-security-enforce-minimum-version.md).
 
 You can configure the minimum TLS version using the Azure portal or Azure Resource Manager (ARM) template. 
 
@@ -28,28 +28,28 @@ You can also specify the minimum TLS version for an existing namespace on the **
 :::image type="content" source="./media/transport-layer-security-configure-minimum-version/existing-namespace-tls.png" alt-text="Screenshot showing the page to set the minimum TLS version for an existing namespace.":::
 
 ## Use Azure CLI
-To **create a namespace with minimum TLS version set to 1.2**, use the [`az servicebus namespace create`](/cli/azure/servicebus/namespace#az-servicebus-namespace-create) command with `--min-tls` set to `1.2`.
+To **create a namespace with minimum TLS version set to 1.3**, use the [`az servicebus namespace create`](/cli/azure/servicebus/namespace#az-servicebus-namespace-create) command with `--min-tls` set to `1.3`.
 
 ```azurecli-interactive
 az servicebus namespace create \
     --name mynamespace \
     --resource-group myresourcegroup \
-    --min-tls 1.2
+    --min-tls 1.3
 ```
 
 ## Use Azure PowerShell
-To **create a namespace with minimum TLS version set to 1.2**, use the [`New-AzServiceBusNamespace`](/powershell/module/az.servicebus/new-azservicebusnamespace) command with `-MinimumTlsVersion` set to `1.2`. 
+To **create a namespace with minimum TLS version set to 1.3**, use the [`New-AzServiceBusNamespace`](/powershell/module/az.servicebus/new-azservicebusnamespace) command with `-MinimumTlsVersion` set to `1.3`. 
 
 ```azurepowershell-interactive
 New-AzServiceBusNamespace `
     -ResourceGroup myresourcegroup `
     -Name mynamespace `
-    -MinimumTlsVersion 1.2
+    -MinimumTlsVersion 1.3
 ```
 
 
 ## Create a template to configure the minimum TLS version
-To configure the minimum TLS version for a Service Bus namespace, set the  `MinimumTlsVersion`  version property to 1.0, 1.1, or 1.2. When you create a Service Bus namespace with an Azure Resource Manager template, the `MinimumTlsVersion` property is set to 1.2 by default, unless explicitly set to another version.
+To configure the minimum TLS version for a Service Bus namespace, set the  `MinimumTlsVersion`  version property to 1.2 or 1.3. When you create a Service Bus namespace with an Azure Resource Manager template, the `MinimumTlsVersion` property is set to 1.2 by default, unless explicitly set to another version.
 
 > [!NOTE]
 > Namespaces created using an api-version prior to 2022-01-01-preview will have 1.0 as the value for `MinimumTlsVersion`. This behavior was the prior default, and is still there for backwards compatibility.
