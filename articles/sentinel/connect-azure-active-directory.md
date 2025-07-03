@@ -15,6 +15,11 @@ ms.author: guywild
 
 [Microsoft Entra ID](/entra/fundamentals/what-is-entra) logs provide comprehensive information about users, applications, and networks accessing your Entra tenant. This article explains the types of logs you can collect using the Microsoft Entra ID data connector, how to enable the connector to send data to Microsoft Sentinel, and how to find your data in Microsoft Sentinel.
 
+
+## Prerequisites
+
+A Microsoft Entra Workload ID Premium license is required to stream **AADRiskyServicePrincipals** and **AADServicePrincipalRiskEvents** logs to Microsoft Sentinel.
+
 ## Microsoft Entra ID data connector data types
 
 This table lists the logs you can send from Microsoft Entra ID to Microsoft Sentinel using the Microsoft Entra ID data connector. Sentinel stores these logs in the Log Analytics workspace linked to your Microsoft Sentinel workspace.
