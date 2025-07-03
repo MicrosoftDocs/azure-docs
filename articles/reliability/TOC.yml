@@ -347,24 +347,24 @@
       href: availability-zones-migration-overview.md
     - name: Migration guides by service
       items:
+      - name: Azure AI Search
+        href: migrate-search-service.md
       - name: Azure API Management
         href: migrate-api-mgt.md
       - name: Azure App Configuration
         href: migrate-app-configuration.md
-      - name: Azure Application Gateway
-        href: migrate-app-gateway-v2.md
       - name: Azure App Service
         href: reliability-app-service.md#configure-availability-zone-support
+      - name: Azure Application Gateway
+        href: migrate-app-gateway-v2.md
       - name: Azure Functions
         href: migrate-functions.md
-      - name: Azure Cache for Redis
-        href: migrate-cache-redis.md
-      - name: Azure AI Search
-        href: migrate-search-service.md
       - name: Azure Backup
         href: migrate-recovery-services-vault.md
       - name: Azure Batch
         href: reliability-batch.md#availability-zone-migration
+      - name: Azure Cache for Redis
+        href: migrate-cache-redis.md
       - name: Azure Container Apps
         href: reliability-azure-container-apps.md#availability-zone-migration
       - name: Azure Container Instances
