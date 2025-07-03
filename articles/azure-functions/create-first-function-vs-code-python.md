@@ -2,7 +2,7 @@
 title: Create a Python function using Visual Studio Code - Azure Functions
 description: Learn how to create a Python function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
-ms.date: 06/26/2025
+ms.date: 07/04/2025
 ms.devlang: python
 ms.custom: devx-track-python, mode-api, devdivchpfy22, vscode-azure-extension-update-complete, ai-video-demo, copilot-scenario-highlight
 ai-usage: ai-assisted
@@ -80,19 +80,18 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 After you verify that the function runs correctly on your local computer, it's time to use Visual Studio Code to publish the project directly to Azure.
 
-## Use AI to validate user input in your function
+## Use AI to normalize and validate user input in Azure Functions
 
-You can use AI tools, such as GitHub Copilot in Visual Studio Code, to generate Python code that updates the existing function to handle user data cleaning and validation. You can customize the prompt to add specifics per your requirements.
+You can use AI tools, such as GitHub Copilot in Visual Studio Code, to generate Python code that updates the existing function to retrieve parameters from either the query string or JSON body, apply formatting or type conversions, and return them in the JSON response. You can customize the prompt to add specifics per your requirements.
 
 The following text shows an example prompt for Copilot Chat:
 
 ```copilot-prompt
-Generate Python code to modify current function to build an Azure Function API endpoint that:
-Accepts user data: {"name": " john doe ", "email": "JOHN@TEST.COM", "age": 25}
-Returns cleaned data: {"name": "John Doe", "email": "john@test.com", "age": 25, "category": "Adult"}
-Validates required fields and data formats
-Handles errors gracefully with clear messages
-Uses POST method and JSON content type
+#file:function_app.py Modify the function to accept name, email, and age from either the query parameters or the JSON body of the request, whichever is available. Return all three parameters in the JSON response, applying these rules:
+Title-case the name
+Lowercase the email
+Convert age to an integer, otherwise return "not provided"
+Use sensible defaults if any parameter is missing
 ```
 
 GitHub Copilot is powered by AI, so surprises and mistakes are possible. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs).
@@ -118,3 +117,7 @@ You created and deployed a function app with a simple HTTP-triggered function. I
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
+
+## Related content
+- [GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview)
+- [GitHub Copilot in Visual Studio](/visualstudio/ide/visual-studio-github-copilot-install-and-states)
