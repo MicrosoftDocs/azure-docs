@@ -6,6 +6,7 @@ ms.service: azure-hpc-cache
 ms.topic: how-to
 ms.date: 03/29/2021
 ms.author: rohogue
+# Customer intent: As a data analyst, I want to assess whether my high-performance computing job fits well with Azure HPC Cache, so that I can optimize data access and improve performance during my file-based analytics workflows.
 ---
 
 # Is your job a good fit for Azure HPC Cache?

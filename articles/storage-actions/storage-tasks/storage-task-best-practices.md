@@ -83,7 +83,7 @@ To optimize the management of scale limits, consider implementing the following 
 
 3. **Incremental processing**: Break down large tasks into smaller, incremental steps. This method ensures that each task segment can complete within the given limits, reducing the risk of incomplete operations.
 
-4. **Monitoring and adjust**: Regularly monitor task performance and progress. Adjust the task conditions / prefixes and schedules as necessary to ensure efficient processing withing scale limits.
+4. **Monitoring and adjust**: Regularly monitor task performance and progress. Adjust the task conditions / prefixes and schedules as necessary to ensure efficient processing within scale limits.
 
 By employing these strategies, you can effectively manage and work around the imposed scale limits, ensuring smooth and efficient task executions.
 

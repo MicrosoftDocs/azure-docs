@@ -5,6 +5,7 @@ ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 08/21/2024
 ms.custom: engagement-fy25
+# Customer intent: As a cloud migration planner, I want to group servers for assessment in Azure Migrate, so that I can evaluate their suitability and obtain accurate sizing and cost estimates for a successful migration to the cloud.
 ---
 
 # Create a group for assessment

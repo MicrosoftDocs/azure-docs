@@ -6,6 +6,7 @@ ms.date: 03/19/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a backup administrator, I want to troubleshoot Archive Tier errors, so that I can ensure recovery points are properly managed and eligible for archiving."
 ---
 
 # Troubleshooting recovery point archive using Archive Tier

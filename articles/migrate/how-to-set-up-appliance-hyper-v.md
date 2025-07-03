@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 03/21/2025
 ms.custom: engagement-fy25
+# Customer intent: "As an IT administrator managing Hyper-V environments, I want to set up an Azure Migrate appliance for server discovery and assessment, so that I can effectively migrate my on-premises servers to the cloud."
 ---
 
 # Set up an appliance for servers on Hyper-V

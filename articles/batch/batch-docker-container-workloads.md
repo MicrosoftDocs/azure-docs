@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 06/10/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, linux-related-content
+# Customer intent: As a cloud developer, I want to run and manage container workloads on Azure Batch, so that I can efficiently scale and automate my batch computing tasks without handling environment complexities.
 ---
 
 # Use Azure Batch to run container workloads

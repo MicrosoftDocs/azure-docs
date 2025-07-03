@@ -7,6 +7,7 @@ ms.manager: pallavi
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 04/24/2025
+# Customer intent: As a system administrator managing physical and VMware environments, I want to utilize an upgraded agent-based migration stack so that I can efficiently migrate newer Linux distributions and ensure a seamless migration process to Azure.
 ---
 
 # Overview of simplified experience for Azure Migrate

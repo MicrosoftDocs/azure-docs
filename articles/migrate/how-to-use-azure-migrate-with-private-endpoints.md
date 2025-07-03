@@ -7,6 +7,7 @@ ms.custom: subject-rbac-steps, engagement-fy23
 ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 02/06/2024
+# Customer intent: "As a cloud architect, I want to use Azure Migrate with private endpoints, so that I can securely discover, assess, and migrate servers without relying on public networks."
 ---
 
 # Support requirements and considerations for Private endpoint connectivity

@@ -7,6 +7,7 @@ ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: "As a database administrator, I want to back up SAP HANA databases on Azure virtual machines using Azure Backup, so that I can ensure data protection and minimize downtime for critical workloads."
 ---
 
 # Back up SAP HANA System Replication databases on Azure VMs using Azure portal

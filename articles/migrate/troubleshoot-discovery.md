@@ -8,6 +8,7 @@ ms.topic: troubleshooting
 ms.service: azure-migrate
 ms.date: 08/21/2024
 ms.custom: engagement-fy25
+# Customer intent: "As an IT administrator, I want to troubleshoot server discovery and software inventory issues, so that I can ensure accurate data collection and reporting in the migration project."
 ---
 
 # Troubleshoot ongoing server discovery, software inventory, and SQL and web apps discovery

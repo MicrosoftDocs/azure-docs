@@ -7,6 +7,7 @@ ms.topic: concept-article
 author: cherylmc
 ms.author: cherylmc
 ms.service: azure-vpn-gateway
+# Customer intent: As a network administrator, I want to utilize monitoring tools for Azure VPN Gateway, so that I can effectively track performance metrics and logs to ensure secure and reliable connectivity.
 ---
 # Monitor Azure VPN Gateway
 

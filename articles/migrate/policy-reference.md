@@ -6,6 +6,7 @@ ms.topic: reference
 ms.service: azure-migrate
 author: MaggiePucciEvans
 ms.custom: subject-policy-reference
+# Customer intent: "As a cloud administrator, I want to access built-in policy definitions for Azure Migrate, so that I can effectively manage and govern our Azure resources in compliance with organizational standards."
 ---
 # Azure Policy built-in definitions for Azure Migrate
 

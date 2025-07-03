@@ -5,6 +5,7 @@ ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 12/06/2024
 ms.custom: engagement-fy25
+# Customer intent: "As an IT administrator, I want to assess the suitability of my on-premises vSphere servers for migration to Azure VMware Solution, so that I can make informed decisions on resource allocation and cost estimation for successful migration."
 ---
 
 # Assessment overview (migrate to Azure VMware Solution)

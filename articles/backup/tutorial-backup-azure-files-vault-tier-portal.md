@@ -9,6 +9,7 @@ ms.date: 05/22/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an IT administrator, I want to back up Azure Files using the portal so that I can ensure data protection against accidental or malicious deletions without maintaining on-premises infrastructure.
 ---
 
 #  Tutorial: Back up Azure Files using Azure portal

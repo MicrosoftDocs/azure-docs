@@ -8,6 +8,7 @@ ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 02/06/2025
 ms.custom: engagement-fy24
+# Customer intent: As a cloud administrator, I want to run diagnostics on my Azure Migrate appliance, so that I can identify and resolve any configuration issues that may impede migration operations.
 ---
 
 # Diagnose and solve issues with Azure Migrate appliance

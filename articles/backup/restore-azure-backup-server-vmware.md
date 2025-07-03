@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 02/25/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a system administrator, I want to restore VMware virtual machines using Azure Backup Server, so that I can recover data efficiently and minimize downtime for critical applications."
 ---
 # Restore VMware virtual machines using Azure Backup Server
 

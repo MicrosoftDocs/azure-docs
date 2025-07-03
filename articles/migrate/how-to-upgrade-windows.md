@@ -7,6 +7,7 @@ ms.manager: vijain
 ms.topic: how-to
 ms.date: 05/08/2025
 ms.custom: engagement-fy25
+# Customer intent: As a system administrator, I want to upgrade the Windows Server OS during migration to Azure, so that I can ensure a seamless transition while preserving my settings, server roles, and data integrity.
 ---
 
 # Azure Migrate Windows Server upgrade (Preview)  

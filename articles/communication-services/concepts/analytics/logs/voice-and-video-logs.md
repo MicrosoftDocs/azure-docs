@@ -64,7 +64,7 @@ Contain detailed call client events. These log events are generated for each `En
 To learn more, see: [Call client operations log schema](call-client-operations-log-schema.md)
 
 ### **Call client media statistics logs**:
-Contain detailed media stream values. These logs are generated for each media stream in a call. For each `EndpointId` within a call (including the server), Azure Communication Services creates a distinct log for each media stream (audio or video, for example) between endpoints. The volume of data generated in each log depends on the duration of call and number of media steams in the call. 
+Contain detailed media stream values. These logs are generated for each media stream in a call. For each `EndpointId` within a call (including the server), Azure Communication Services creates a distinct log for each media stream (audio or video, for example) between endpoints. The volume of data generated in each log depends on the duration of call and number of media streams in the call. 
 
 In a P2P call, each log contains data that relates to each of the outbound streams associated with each endpoint. In a group call, each stream associated with `endpointType` = `"Server"` creates a log that contains data for the inbound streams. All other streams create logs that contain data for the outbound streams for all nonserver endpoints. In group calls, use the `participantId` value as the key to join the related inbound and outbound logs into a distinct participant connection.
 

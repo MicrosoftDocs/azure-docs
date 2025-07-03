@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 09/09/2024
 ms.custom: engagement-fy25
+# Customer intent: As a cloud migration specialist, I want to understand the differences between agent-based and agentless dependency analysis in Azure Migrate so that I can choose the best approach for assessing my organization's server migration needs.
 ---
 
 # Discovery and dependency analysis - Common questions

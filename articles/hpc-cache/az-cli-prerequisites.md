@@ -7,6 +7,7 @@ ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: rohogue
+# Customer intent: As an IT administrator, I want to set up and configure Azure CLI for Azure HPC Cache, so that I can effectively create and manage HPC Cache resources in my environment.
 ---
 
 # Set up Azure CLI for Azure HPC Cache

@@ -7,6 +7,7 @@ ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 03/31/2025
 ms.author: cherylmc
+# Customer intent: As a network administrator, I want to configure packet capture on my VPN gateway, so that I can effectively diagnose and troubleshoot connectivity issues by narrowing down traffic analysis to specific network segments.
 ---
 
 # Configure packet capture for VPN gateways

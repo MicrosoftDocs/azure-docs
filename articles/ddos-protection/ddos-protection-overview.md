@@ -8,6 +8,7 @@ ms.topic: overview
 ms.date: 03/17/2025
 ms.author: abell
 ms.custom: references_regions
+# Customer intent: As a cloud infrastructure manager, I want to implement DDoS protection for my applications, so that I can enhance security and ensure high availability during potential DDoS attacks.
 ---
 
 # What is Azure DDoS Protection?

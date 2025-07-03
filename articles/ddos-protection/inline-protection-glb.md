@@ -7,6 +7,7 @@ ms.service: azure-ddos-protection
 ms.topic: how-to
 ms.author: abell
 ms.date: 06/18/2025
+# Customer intent: As a network security engineer, I want to implement inline L7 DDoS protection using a Gateway Load Balancer and partner NVAs, so that I can ensure real-time traffic inspection and minimize latency for sensitive workloads against DDoS attacks.
 ---
 
 # Inline L7 DDoS Protection with Gateway Load Balancer and Partner NVAs

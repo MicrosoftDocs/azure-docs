@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.custom: engagement-fy24, devx-track-extended-java
 zone_pivot_groups: web-apps-assessment-app-service
 ::: moniker range="migrate"
+# Customer intent: As an IT administrator managing on-premises web apps, I want to assess their readiness for migration to a cloud environment, so that I can identify risks and estimate costs involved in moving to a cloud-based application service.
 ---
 
 

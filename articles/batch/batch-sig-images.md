@@ -6,6 +6,7 @@ ms.date: 07/01/2025
 ms.devlang: csharp
 # ms.devlang: csharp, python
 ms.custom: devx-track-python, devx-track-azurecli
+# Customer intent: As a cloud administrator, I want to create a custom image pool using the Azure Compute Gallery, so that I can efficiently provision compute nodes for Batch workloads with pre-configured applications and data.
 ---
 
 # Use the Azure Compute Gallery to create a custom image pool

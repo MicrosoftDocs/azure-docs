@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 04/09/2025 
 ms.custom: engagement-fy24 
 monikerRange: migrate
+# Customer intent: As a cloud architect, I want to evaluate and conduct Azure Migrate assessments for my workloads, so that I can determine the best migration strategy, estimate costs, and ensure the readiness of my applications for a successful transition to Azure.
 --- 
 
 # Overview of assessment

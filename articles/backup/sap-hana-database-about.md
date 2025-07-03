@@ -6,6 +6,7 @@ ms.date: 06/05/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to implement backup and restore for SAP HANA databases on Azure VMs, so that I can ensure data integrity and meet recovery objectives efficiently."
 ---
 
 # About SAP HANA database backup on Azure VMs

@@ -23,7 +23,7 @@ Some popular modules are available for use in Azure Managed Redis:
 
 | Module | Memory Optimized  |Balanced | Compute Optimized  |Flash Optimized  |
 |---------|---------|---------|---------|---------|
-|RediSearch   |   Yes   |    Yes     | Yes|  Yes (preview)    |
+|RediSearch   |   Yes   |    Yes     | Yes|  No    |
 |RedisBloom   |      Yes   |    Yes    | Yes |  No    |
 |RedisTimeSeries |   Yes    |    Yes   | Yes |  No    |
 |RedisJSON  |     Yes    |  Yes    |   Yes   | Yes |

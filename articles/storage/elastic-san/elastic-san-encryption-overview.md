@@ -6,6 +6,7 @@ ms.date: 05/31/2024
 ms.topic: concept-article
 ms.author: rogarana
 ms.service: azure-elastic-san-storage
+# Customer intent: "As a cloud architect, I want to choose between platform-managed and customer-managed keys for encryption, so that I can meet my organization's specific security and compliance requirements for data stored in Azure Elastic SAN."
 ---
 
 # Learn about encryption for an Azure Elastic SAN

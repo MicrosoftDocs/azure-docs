@@ -5,6 +5,7 @@ ms.topic: overview
 ms.date: 02/24/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a security manager, I want to understand the security features of Azure Backup, so that I can ensure our backup data is protected against unauthorized access and comply with industry regulations.
 ---
 
 # Overview of security features in Azure Backup

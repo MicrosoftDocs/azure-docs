@@ -6,6 +6,7 @@ ms.custom: devx-track-azurepowershell
 ms.date: 06/17/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to restore Azure blobs to a specific point-in-time using PowerShell, so that I can recover lost data efficiently and ensure business continuity."
 ---
 
 # Restore Azure Blobs using Azure PowerShell

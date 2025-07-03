@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 09/26/2024
 ms.custom: engagement-fy25
+# Customer intent: As a cloud architect, I want to assess my on-premises Spring Boot applications using a migration tool, so that I can evaluate their readiness and cost-effectiveness for moving to Azure Spring Apps.
 ---
 
 # Assessment overview (migrate to Azure Spring Apps) (preview)

@@ -7,6 +7,7 @@ ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 12/02/2024
 ms.author: cherylmc
+# Customer intent: "As a network administrator, I want to configure custom IPsec/IKE policies for Site-to-Site and VNet-to-VNet connections, so that I can enhance the security and performance of our VPN gateways."
 ---
 
 # Configure custom IPsec/IKE connection policies for S2S VPN and VNet-to-VNet: Azure portal

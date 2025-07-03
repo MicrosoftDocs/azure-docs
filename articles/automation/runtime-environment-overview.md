@@ -36,7 +36,7 @@ Runtime environment captures the following details about the job execution envir
 - **Runtime version** - The version of the language selected for runbook execution. For example - PowerShell 7.4 and Python 3.10.
 - **Packages** - The packages are the assemblies and the *.dll* files that you import and required by runbooks for execution. There are two types of packages supported for Runtime environment.
 
-   |**Package Types** | **Description** |
+   |**Package types** | **Description** |
    |---------|---------|
    |**Default packages**  | The packages enable you to manage Azure resources. For example, Az PowerShell 12.3.0, Azure CLI 2.64.0|
    |**Customer-provided packages** | These are custom packages that are required by runbooks during execution. The packages can be from: </br> - Public gallery: PSGallery, pypi </br> - Self-authored |
@@ -83,7 +83,7 @@ You can't edit these Runtime environments. However, any changes that are made in
 - RBAC permissions cannot be assigned to Runtime environment.
 - Runtime environment can't be configured through Azure Automation extension for Visual Studio Code.
 - Deleted Runtime environments cannot be recovered.  
-- This feature is currently supported through Azure portal and [REST API](/rest/api/automation/runtime-environments?view=rest-automation-2023-05-15-preview&preserve-view=true).
+- This feature is currently supported through Azure portal and [REST API](/rest/api/automation/runtime-environments?view=rest-automation-2024-10-23&preserve-view=true).
 - Management of modules for Azure Automation State Configuration is not supported through Runtime environment experience. You can continue using the old experience for managing modules and packages for Azure Automation State Configuration.
 
 ## Switch between new and old experience

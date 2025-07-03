@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 07/01/2025
 ms.devlang: csharp
 ms.custom: devx-track-azurecli
+# Customer intent: As a cloud solutions architect, I want to configure customer-managed keys for my Azure Batch account using Azure Key Vault and managed identities, so that I can enhance data security and control over the encryption of sensitive information.
 ---
 
 # Configure customer-managed keys for your Azure Batch account with Azure Key Vault and Managed Identity

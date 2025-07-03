@@ -6,6 +6,7 @@ ms.author: abell
 ms.service: azure-ddos-protection
 ms.topic: how-to 
 ms.date: 03/17/2025
+# Customer intent: "As a cloud administrator, I want to switch between DDoS Protection tiers in the Azure portal, so that I can adapt my DDoS protections based on my network architecture and requirements."
 ---
 
 # How to switch Azure DDoS Protection tiers using Azure portal

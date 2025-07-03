@@ -10,6 +10,7 @@ ms.date: 03/17/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+# Customer intent: As a cloud architect, I want to create and configure a DDoS protection plan using Terraform, so that I can enhance the security of my Azure virtual networks across multiple subscriptions.
 ---
 
 # QuickStart: Create and configure Azure DDoS Network Protection using Terraform

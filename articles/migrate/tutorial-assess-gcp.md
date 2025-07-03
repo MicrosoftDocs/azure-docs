@@ -6,7 +6,7 @@ ms.date: 02/06/2025
 ms.service: azure-migrate
 ms.custom: MVC, engagement-fy25
 monikerRange: migrate-classic
-#Customer intent: As a server admin, I want to assess my GCP instances in preparation for migration to Azure.
+# Customer intent: As a server administrator, I want to assess my Google Cloud Platform VM instances for migration to Azure, so that I can evaluate their readiness, estimate costs, and identify any potential risks in the migration process.
 ---
 
 # Tutorial: Assess Google Cloud Platform (GCP) VM instances for migration to Azure

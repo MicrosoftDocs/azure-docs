@@ -7,6 +7,7 @@ ms.custom: devx-track-python
 ms.topic: how-to
 ms.date: 07/07/2022
 ms.author: rohogue
+# Customer intent: As an HPC Cache user, I want to customize the write-back of specific files to my on-premises storage, so that I can ensure timely availability of output without disrupting other compute tasks relying on shared data.
 ---
 
 # Customize file write-back in Azure HPC Cache

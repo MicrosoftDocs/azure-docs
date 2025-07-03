@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.date: 03/17/2025
 ms.author: abell
 ms.custom: devx-track-azurepowershell, mode-api
+# Customer intent: "As a cloud administrator, I want to create and configure a DDoS protection plan using PowerShell, so that I can secure my virtual networks against distributed denial-of-service attacks effectively."
 ---
 # QuickStart: Create and configure Azure DDoS Network Protection using Azure PowerShell
 

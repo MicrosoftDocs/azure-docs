@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 01/23/2025
 ms.author: cherylmc
 
+# Customer intent: "As a network administrator, I want to transition from SSTP to IKEv2 or OpenVPN, so that I can exceed the 128 concurrent connection limit and enhance the performance and flexibility of our VPN gateway connections."
 ---
 # Transition to OpenVPN protocol or IKEv2 from SSTP
 

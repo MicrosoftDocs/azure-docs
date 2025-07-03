@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 07/01/2025
 ms.devlang: csharp
 ms.custom: "H1Hack27Feb2017, devx-track-csharp"
+# Customer intent: As a data engineer, I want to configure task dependencies for Azure Batch tasks, so that I can ensure tasks execute in the correct order based on the completion of parent tasks for efficient data processing workflows.
 ---
 # Create task dependencies to run tasks that depend on other tasks
 

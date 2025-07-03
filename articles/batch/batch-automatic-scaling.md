@@ -4,6 +4,7 @@ description: Enable automatic scaling on an Azure Batch cloud pool to dynamicall
 ms.topic: how-to
 ms.date: 06/05/2025
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
+# Customer intent: "As a cloud operations engineer, I want to implement autoscaling for compute nodes in a cloud pool, so that I can dynamically adjust resources based on workload demands, optimizing costs and performance."
 ---
 
 # Create a formula to automatically scale compute nodes in a Batch pool

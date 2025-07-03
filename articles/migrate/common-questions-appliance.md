@@ -8,6 +8,7 @@ ms.service: azure-migrate
 ms.topic: concept-article
 ms.custom: engagement-fy25
 ms.date: 09/03/2024
+# Customer intent: "As a systems administrator, I want to deploy and configure the Azure Migrate appliance, so that I can effectively discover and assess on-premises servers for migration to the cloud."
 ---
 
 # Azure Migrate appliance: Common questions

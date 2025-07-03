@@ -8,6 +8,7 @@ ms.custom:
   - ignite-2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to configure automated backup for my SAP ASE databases on Azure VMs, so that I can ensure data integrity and recovery in case of failure."
 ---
 
 # Configure backup for SAP ASE (Sybase) database on Azure VMs using Azure portal

@@ -6,6 +6,7 @@ ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 09/09/2024
 ms.custom: engagement-fy25
+# Customer intent: "As a cloud operations engineer, I want to troubleshoot network connectivity issues with private endpoints in Azure Migrate, so that I can ensure seamless data migration and application performance."
 ---
 
 # Troubleshoot network connectivity

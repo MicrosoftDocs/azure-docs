@@ -12,6 +12,7 @@ ms.custom:
   - engagement-fy24
 ms.collection:
  - migration
+# Customer intent: As an IT administrator managing VMware servers, I want to use a discovery and assessment tool in Azure Migrate, so that I can effectively plan and execute the migration of my servers to Azure while ensuring compatibility and adherence to requirements.
 ---
 
 # Support matrix for VMware discovery

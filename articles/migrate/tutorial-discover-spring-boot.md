@@ -7,6 +7,7 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 02/07/2025
 ms.custom: mvc, subject-rbac-steps, engagement-fy25, references_regions
+# Customer intent: "As a systems administrator, I want to discover Spring Boot applications in my datacenter using an agentless approach, so that I can assess and manage my applications effectively without installing additional software on the servers."
 ---
 
 # Tutorial: Discover Spring Boot applications running in your datacenter (preview)

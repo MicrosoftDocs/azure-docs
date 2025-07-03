@@ -8,6 +8,7 @@ zone_pivot_groups: backup-client-portaltier-powershelltier-clitier
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator managing backup policies, I want to configure Smart Tiering to automatically move eligible recovery points to the Archive tier, so that I can optimize storage costs and ensure efficient long-term data retention."
 ---
 
 # Use Archive tier support

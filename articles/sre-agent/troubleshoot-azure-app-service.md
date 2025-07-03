@@ -4,7 +4,7 @@ description: Learn how to use Azure SRE Agent (preview) and Azure App Service to
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
-ms.date: 06/17/2025
+ms.date: 07/03/2025
 ms.service: azure
 ---
 
@@ -43,6 +43,8 @@ In this tutorial, you will:
     ```azurecli  
     az provider register --namespace "Microsoft.App"
     ```
+
+* **Access to Sweden Central region**: During preview, the only allowed region for SRE Agent is Sweden Central. Make sure your user account has *owner* or *admin* permissions and permissions to create resources in the Sweden Central region.
 
 ## 1. Create an App Service app
 

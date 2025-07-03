@@ -3,6 +3,7 @@ title: Rotate Batch account keys
 description: Learn how to rotate Batch account shared key credentials.
 ms.topic: how-to
 ms.date: 07/01/2025
+# Customer intent: As a cloud administrator, I want to rotate the shared keys for my Batch account, so that I can maintain secure access without downtime and follow best practices for key management.
 ---
 # Batch account shared key credential rotation
 
