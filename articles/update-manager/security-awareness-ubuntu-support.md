@@ -32,7 +32,7 @@ Azure Update Manager assesses both Azure and Arc-enabled VMs to identify availab
 You can continue to use the Azure Update Manager [capabilities](updates-maintenance-schedules.md) to remain secure after migrating to a supported model from Canonical.
 
 > [!NOTE]
-> For detailed information on Ubuntu LTS release cycles, end-of-support dates, and official upgrade paths, see the [Canonical Ubuntu LTS end of standard support guidance](https://learn.microsoft.com/en-us/azure/virtual-machines/workloads/canonical/ubuntu-els-guidance).
+> For detailed information on Ubuntu LTS release cycles, end-of-support dates, and official upgrade paths, see the [Canonical Ubuntu LTS end of standard support guidance](/azure/virtual-machines/workloads/canonical/ubuntu-els-guidance).
 > - Ubuntu offers 20.04 LTS and 22.04 LTS as a migration from 18.04 LTS. [Learn more](https://ubuntu.com/18-04/azure).
 
  
