@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 05/09/2025
 ms.custom: vmware-scenario-422, engagement-fy25
+# Customer intent: As a cloud migration specialist, I want to assess and migrate VMware vSphere VMs to Azure, so that I can leverage cloud capabilities and optimize resource management for our workloads.
 ---
 
 # Support matrix for VMware vSphere migration

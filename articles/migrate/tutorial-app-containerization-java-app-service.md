@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.service: azure-migrate
 ms.custom: devx-track-extended-java
 ms.date: 02/06/2025
+# Customer intent: "As a software developer, I want to containerize my Java web applications running on Apache Tomcat and deploy them to a cloud platform, so that I can improve application management and scalability while minimizing infrastructure maintenance."
 ---
 # Java web app containerization and migration to Azure App Service
 

@@ -5,6 +5,7 @@ ms.topic: troubleshooting
 ms.service: azure-migrate
 ms.date: 09/26/2024
 ms.custom: engagement-fy24
+# Customer intent: As a cloud architect, I want to troubleshoot assessment errors in Azure Migrate, so that I can ensure successful migration and operation of applications in the cloud environment.
 ---
 
 # Common issues in Azure Migrate assessments

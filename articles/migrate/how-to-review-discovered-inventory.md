@@ -10,6 +10,7 @@ ms.date: 04/11/2025
 ms.custom: engagement-fy23
 monikerRange: migrate
 
+# Customer intent: As a cloud administrator, I want to review the discovered inventory of my datacenter assets in a unified view so that I can efficiently manage and assess the workloads, databases, and web applications for migration planning.
 ---
 
 # Review discovered inventory (preview) in Azure Migrate

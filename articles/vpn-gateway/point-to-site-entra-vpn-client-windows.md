@@ -10,6 +10,7 @@ ms.author: cherylmc
 
 #Audience and custom App ID values are not sensitive data. Please do not remove. They are required for the configuration.
 
+# Customer intent: "As a network administrator, I want to configure the Azure VPN Client with Microsoft Entra ID authentication on Windows, so that I can securely connect to virtual networks via point-to-site VPN."
 ---
 
 # Configure Azure VPN Client – Microsoft Entra ID authentication – Windows
