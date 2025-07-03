@@ -78,8 +78,6 @@ You must use a Standard general-purpose v2 storage account to enable zone-redund
 
 When you enable ZRS, you're charged at a different rate than locally redundant storage due to the additional replication and storage overhead. For detailed pricing information, see [Azure Tables pricing](https://azure.microsoft.com/pricing/details/storage/tables/).
 
-**Source**: [Azure Storage redundancy](https://learn.microsoft.com/azure/storage/common/storage-redundancy#summary-of-redundancy-options)
-
 ### Configure availability zone support
 
 - **Create a storage account and table with zone redundancy:**
@@ -116,7 +114,7 @@ During failback, the service ensures data consistency by synchronizing any opera
 
 [!INCLUDE [Storage - Multi-region support introduction](includes/storage/reliability-storage-multi-region-support-include.md)]
 
-[!INCLUDE [Storage - Multi-region support introduction RA-GRS addendum](includes/storage/reliability-storage-multi-region-support-ra-grs-include.md)]
+[!INCLUDE [Storage - Multi-region support introduction RA-GRS addendum](includes/storage/reliability-storage-multi-region-support-read-access-include.md)]
 
 [!INCLUDE [Storage - Multi-region support introduction failover types](includes/storage/reliability-storage-multi-region-support-failover-types-include.md)]
 
@@ -134,7 +132,7 @@ When implementing multi-region Azure Table Storage, consider the following impor
 
 [!INCLUDE [Storage - Multi Region Considerations - Latency](includes/storage/reliability-storage-multi-region-considerations-latency-include.md)]
 
-[!INCLUDE [Storage - Multi Region Considerations - Secondary region access (GRS)](includes/storage/reliability-storage-multi-region-considerations-secondary-grs-include.md)]
+[!INCLUDE [Storage - Multi Region Considerations - Secondary region access (read access)](includes/storage/reliability-storage-multi-region-considerations-secondary-read-access-include.md)]
 
 [!INCLUDE [Storage - Multi Region Considerations - Feature limitations](includes/storage/reliability-storage-multi-region-considerations-feature-limitations-include.md)]
 
@@ -171,8 +169,6 @@ This approach requires you to manage data distribution, handle synchronization b
 - **Partition-aware distribution**: Distribute entities across regions based on partition key ranges to maintain query efficiency.
 - **Read/write splitting**: Direct write operations to a primary region while allowing reads from multiple regions.
 - **Conflict resolution**: Implement strategies to handle conflicting updates when using multi-master configurations.
-
-**Source**: [Performance and scalability checklist for Table storage](https://learn.microsoft.com/azure/storage/tables/storage-performance-checklist)
 
 ## Backups
 
