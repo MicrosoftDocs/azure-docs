@@ -455,14 +455,6 @@ This error is usually seen for operational tier restore failure due to PITR stil
 
 **Recommended action**: Remove network security perimeter from the storage account and retry the operation. 
 
-## UserErrorConflictingOperationInProgress
-
-**Error code**: `UserErrorConflictingOperationInProgress`
-
-**Error message**: This operation on Storage Account requires exclusive access.
-
-**Recommended action**: Retry after ensuring there is no conflicting operation in progress.
-
 ## UserErrorCrossTenantOrsPolicyDisabled
 
 **Error code**: `UserErrorCrossTenantOrsPolicyDisabled`
