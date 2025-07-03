@@ -79,47 +79,95 @@ The following user-facing diagnostics are available:
 
 User-facing diagnostics is an extended feature of the core [`Call`](/javascript/api/azure-communication-services/@azure/communication-calling/call?view=azure-communication-services-js&preserve-view=true) API. You can understand more about the `UserFacingDiagnosticsFeature` interface [here](/javascript/api/azure-communication-services/@azure/communication-calling/userfacingdiagnosticsfeature?view=azure-communication-services-js&preserve-view=true).
 
-UserFacingDiagnosticsFeature (extends CallFeature)
-├── network: NetworkDiagnostics
-│   ├── getLatest(): LatestNetworkDiagnostics
-│   ├── on('diagnosticChanged', listener)
-│   ├── off('diagnosticChanged', listener)
-│   └── LatestNetworkDiagnostics
-│       ├── networkReconnect?: LatestDiagnosticValue
-│       ├── networkReceiveQuality?: LatestDiagnosticValue
-│       ├── networkSendQuality?: LatestDiagnosticValue
-│       ├── noNetwork?: LatestDiagnosticValue
-│       └── networkRelaysNotReachable?: LatestDiagnosticValue
+Here’s a comprehensive tree structure that maps out the `UserFacingDiagnosticsFeature` interface along with its related dependencies, properties, and methods. Each diagnostic module (Network, Media, Remote) has event listeners for changes and provides the latest diagnostic snapshot.
+
+```
+UserFacingDiagnosticsFeature (Interface)
+├── Inherits: CallFeature
+├── Properties
+│   ├── network: NetworkDiagnostics
+│   ├── media: MediaDiagnostics
+│   └── remote: RemoteDiagnostics
 │
-├── media: MediaDiagnostics
-│   ├── getLatest(): LatestMediaDiagnostics
-│   ├── on('diagnosticChanged', listener)
-│   ├── off('diagnosticChanged', listener)
-│   └── LatestMediaDiagnostics
-│       ├── speakingWhileMicrophoneIsMuted?: LatestDiagnosticValue
-│       ├── noSpeakerDevicesEnumerated?: LatestDiagnosticValue
-│       ├── noMicrophoneDevicesEnumerated?: LatestDiagnosticValue
-│       ├── cameraFreeze?: LatestDiagnosticValue
-│       ├── cameraStartFailed?: LatestDiagnosticValue
-│       ├── cameraStartTimedOut?: LatestDiagnosticValue
-│       ├── capturerStartFailed?: LatestDiagnosticValue
-│       ├── microphoneNotFunctioning?: LatestDiagnosticValue
-│       ├── microphoneMuteUnexpectedly?: LatestDiagnosticValue
-│       ├── cameraStoppedUnexpectedly?: LatestDiagnosticValue
-│       ├── capturerStoppedUnexpectedly?: LatestDiagnosticValue
-│       ├── screenshareRecordingDisabled?: LatestDiagnosticValue
-│       ├── microphonePermissionDenied?: LatestDiagnosticValue
-│       └── cameraPermissionDenied?: LatestDiagnosticValue
-│
-└── remote: RemoteDiagnostics
-    ├── isSendingDiagnosticsEnabled: boolean
-    ├── startSendingDiagnostics()
-    ├── stopSendingDiagnostics()
-    ├── getLatest(): RemoteParticipantDiagnosticsData
-    ├── on('diagnosticChanged', listener)
-    ├── off('diagnosticChanged', listener)
-    └── RemoteParticipantDiagnosticsData
-        └── diagnostics: RemoteDiagnostic
+├── Dependencies
+│   ├── NetworkDiagnostics
+│   │   ├── Methods
+│   │   │   ├── getLatest(): LatestNetworkDiagnostics
+│   │   │   ├── on('diagnosticChanged', listener): void
+│   │   │   └── off('diagnosticChanged', listener): void
+│   │   └── Types
+│   │       ├── NetworkDiagnosticChangedEventArgs
+│   │       │   ├── value: DiagnosticQuality | DiagnosticFlag
+│   │       │   ├── valueType: DiagnosticValueType
+│   │       │   └── diagnostic: NetworkDiagnosticType
+│   │       ├── NetworkDiagnosticType = keyof LatestNetworkDiagnostics
+│   │       └── LatestNetworkDiagnostics
+│   │           ├── networkReconnect?: LatestDiagnosticValue
+│   │           ├── networkReceiveQuality?: LatestDiagnosticValue
+│   │           ├── networkSendQuality?: LatestDiagnosticValue
+│   │           ├── noNetwork?: LatestDiagnosticValue
+│   │           └── networkRelaysNotReachable?: LatestDiagnosticValue
+│   │
+│   ├── MediaDiagnostics
+│   │   ├── Methods
+│   │   │   ├── getLatest(): LatestMediaDiagnostics
+│   │   │   ├── on('diagnosticChanged', listener): void
+│   │   │   └── off('diagnosticChanged', listener): void
+│   │   └── Types
+│   │       ├── MediaDiagnosticChangedEventArgs
+│   │       │   ├── value: DiagnosticQuality | DiagnosticFlag
+│   │       │   ├── valueType: DiagnosticValueType
+│   │       │   └── diagnostic: MediaDiagnosticType
+│   │       ├── MediaDiagnosticType = keyof LatestMediaDiagnostics
+│   │       └── LatestMediaDiagnostics
+│   │           ├── speakingWhileMicrophoneIsMuted?: LatestDiagnosticValue
+│   │           ├── noSpeakerDevicesEnumerated?: LatestDiagnosticValue
+│   │           ├── noMicrophoneDevicesEnumerated?: LatestDiagnosticValue
+│   │           ├── cameraFreeze?: LatestDiagnosticValue
+│   │           ├── cameraStartFailed?: LatestDiagnosticValue
+│   │           ├── cameraStartTimedOut?: LatestDiagnosticValue
+│   │           ├── capturerStartFailed?: LatestDiagnosticValue
+│   │           ├── microphoneNotFunctioning?: LatestDiagnosticValue
+│   │           ├── microphoneMuteUnexpectedly?: LatestDiagnosticValue
+│   │           ├── cameraStoppedUnexpectedly?: LatestDiagnosticValue
+│   │           ├── capturerStoppedUnexpectedly?: LatestDiagnosticValue
+│   │           ├── screenshareRecordingDisabled?: LatestDiagnosticValue
+│   │           ├── microphonePermissionDenied?: LatestDiagnosticValue
+│   │           └── cameraPermissionDenied?: LatestDiagnosticValue
+│   │
+│   └── RemoteDiagnostics
+│       ├── Properties
+│       │   └── isSendingDiagnosticsEnabled: boolean
+│       ├── Methods
+│       │   ├── startSendingDiagnostics(): void
+│       │   ├── stopSendingDiagnostics(): void
+│       │   ├── getLatest(): RemoteParticipantDiagnosticsData
+│       │   ├── on('diagnosticChanged', listener): void
+│       │   └── off('diagnosticChanged', listener): void
+│       └── Types
+│           ├── RemoteParticipantDiagnosticsData
+│           │   └── diagnostics: RemoteDiagnostic[]
+                        ├── networkReconnect?: LatestDiagnosticValue
+                        ├── networkReceiveQuality?: LatestDiagnosticValue
+                        ├── networkSendQuality?: LatestDiagnosticValue
+                        ├── noNetwork?: LatestDiagnosticValue
+                        ├── networkRelaysNotReachable?: LatestDiagnosticValue
+                        ├── microphoneNotFunctioning?: LatestDiagnosticValue
+                        ├── microphoneMuteUnexpectedly?: LatestDiagnosticValue
+                        ├── cameraStoppedUnexpectedly?: LatestDiagnosticValue
+                        ├── cameraFreeze?: LatestDiagnosticValue
+                        ├── capturerStartFailed?: LatestDiagnosticValue
+                        └── cameraStartTimedOut?: LatestDiagnosticValue
+│           └── RemoteDiagnostic
+│               ├── participantId: string
+│               ├── rawId: string
+│               ├── remoteParticipant?: RemoteParticipant
+│               ├── diagnostic: NetworkDiagnosticType | MediaDiagnosticType | ServerDiagnosticType
+│               ├── value: DiagnosticQuality | DiagnosticFlag
+│               └── valueType: DiagnosticValueType
+│           └── ServerDiagnosticType = 'serverConnection'
+```
+
 
 To utilize user facing diagnostics, first thing you must do is instantiate the user facing diagnostics feature from the call.
 ```js
