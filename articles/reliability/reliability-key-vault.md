@@ -209,7 +209,7 @@ Consider the following key factors regarding backup functionality:
 
 - Backups are point-in-time snapshots and don't automatically update when secrets change.
 
-For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [Key Vault backup](/azure/key-vault/general/backup).
+For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't, such as accidental deletion of specific secrets. For more information, see [Key Vault backup](/azure/key-vault/general/backup).
 
 ## Recovery features
 
