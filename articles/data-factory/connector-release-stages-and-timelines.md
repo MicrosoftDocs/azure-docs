@@ -57,7 +57,7 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [PostgreSQL V1](connector-postgresql-legacy.md)            | /              | End of support                    | October 31, 2024      | September 30, 2025    |
 | [Presto](connector-presto.md)                             | version 2.0    | GA                           | /                   | /                   |
 |                                    | version 1.0    | End of support announced                             | August 31, 2025      | September 30, 2025                    |
-| [QuickBooks Online](connector-quickbooks.md)                        | version 2.0    | GA                   | /                   | /                   |
+| [QuickBooks Online (Preview)](connector-quickbooks.md)                        | version 2.0    | GA                   | /                   | /                   |
 |                                    | version 1.0    | End of support announced                                | August 31, 2025     | September 30, 2025                    |
 | [Salesforce V2](connector-salesforce.md)                   | /              | GA                                | /                   | /                   |
 | [Salesforce V1](connector-salesforce-legacy.md)            | /              | End of support announced          | June 30, 2025         | September 30, 2025    |
