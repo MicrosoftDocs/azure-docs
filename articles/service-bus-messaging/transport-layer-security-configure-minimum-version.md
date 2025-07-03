@@ -18,10 +18,6 @@ You can configure the minimum TLS version using the Azure portal or Azure Resour
 > [!WARNING]
 > As of 28 February 2025, TLS 1.0 and TLS 1.1 will no longer be supported on Azure Service Bus. The minimum TLS version will be 1.2 for all Service Bus deployments. 
 
-> [!IMPORTANT]
-> On 31 October 2024, TLS 1.3 will be enabled for AMQP traffic. TLS 1.3 is already enabled for HTTPS traffic. Java clients may have a problem with TLS 1.3 due to a dependency on an older version of Proton-J. For more details, read [Java client changes to support TLS 1.3 with Azure Service Bus and Azure Event Hubs](https://techcommunity.microsoft.com/t5/messaging-on-azure-blog/java-client-changes-to-support-tls-1-3-with-azure-service-bus/ba-p/4089355) 
-
-
 ## Specify the minimum TLS version in the Azure portal
 You can specify the minimum TLS version when creating a Service Bus namespace in the Azure portal on the **Advanced** tab. 
 
