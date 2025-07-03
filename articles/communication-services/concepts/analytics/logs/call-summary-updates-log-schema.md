@@ -43,7 +43,7 @@ When using the call summary updates log schema, always refer to the highest `Cal
 
 ### More about log versions and data latency
 
-The call summary updates log schema may require approximately 60 minutes following the end of a call to propogate data, most logs may be available within 40 minutes. 
+The call summary updates log schema may require approximately 60 minutes following the end of a call to propagate data, most logs may be available within 40 minutes. 
 
 After a call ends, an initial version (version 1) of the log is sent to the CallSummaryUpdates and CallDiagnosticUpdates tables. Initial versions may contain `null` values, if more information becomes available updated versions of the logs are created with more complete information. For example, client data can be delayed because of network connectivity issues between the client computer and our servers, or something as simple as a user closing the lid on their laptop post-call before their client data was sent and re-opening it hours (or days) later. 
 
@@ -87,6 +87,7 @@ This table describes each property.
 | `DiagnosticOptions`| This value allows developers to attach custom tags to their client telemetry, which can then be viewed in the Call Diagnostics section. This helps in identifying and troubleshooting issues more effectively. To learn how to add custom tags to this value, refer to [Tutorial on adding custom tags to your client telemetry](../../../tutorials/voice-video-calling/diagnostic-options-tag.md) |
 | `CallUpdatesVersion`| Represents the log version, with higher numbers indicating the most recently published version. |
 | `callDebuggingInfo`| This value contains json object with key-value pairs that represent internal properties of the call used for Microsoft debugging purposes.|
+| `TPE`| This value indicates that the call is associated with a Teams Phone extensibility scenario.|
 
 ### Error codes 
 

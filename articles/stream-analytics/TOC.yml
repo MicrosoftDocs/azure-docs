@@ -43,8 +43,6 @@
     href: stream-analytics-real-time-fraud-detection.md
   - name: Integrate third party services using Azure Functions
     href: stream-analytics-with-azure-functions.md
-  - name: Create a custom .NET deserializer
-    href: visual-studio-code-custom-deserializer.md
   - name: Create an IoT Edge job
     href: ../iot-edge/tutorial-deploy-stream-analytics.md
     maintainContext: true
@@ -53,7 +51,7 @@
   - name: Code samples
     items:
     - name: .NET
-      href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/streamanalytics/Azure.ResourceManager.StreamAnalytics/samples/Generated/Samples
+      href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/streamanalytics/Azure.ResourceManager.StreamAnalytics/tests/Generated/Samples
     - name: Java
       href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/streamanalytics/azure-resourcemanager-streamanalytics/src/samples/java/com/azure/resourcemanager/streamanalytics/generated
     - name: JavaScript and TypeScript
@@ -99,8 +97,6 @@
       href: stream-analytics-define-kafka-input.md
     - name: Validate input schema
       href: input-validation.md
-    - name: Read inputs in any format using custom deserializers
-      href: custom-deserializer-examples.md
   - name: Output types for a job
     items:
     - name: Outputs overview
@@ -377,8 +373,6 @@
       href: visual-studio-code-local-run.md
     - name: Debug queries using job diagram
       href: debug-locally-using-job-diagram-vs-code.md
-    - name: Create and debug .NET custom deserializer
-      href: visual-studio-code-custom-deserializer.md
     - name: JobConfig.json fields
       href: job-config-json.md
   - name: Visual Studio
@@ -397,8 +391,6 @@
       href: stream-analytics-monitor-jobs-use-vs.md
     - name: Debug queries using job diagram
       href: debug-locally-using-job-diagram.md
-    - name: Create a custom .NET deserializer
-      href: custom-deserializer.md
     - name: Develop an edge job
       href: stream-analytics-tools-for-visual-studio-edge-jobs.md
     - name: Run a C# UDF
@@ -870,7 +862,7 @@
   - name: Stream Analytics previews
     href: stream-analytics-previews.md
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/updates/
   - name: Blog
     href: https://techcommunity.microsoft.com/t5/analytics-on-azure/bg-p/AnalyticsonAzure/label-name/Azure%20Stream%20Analytics
   - name: Feedback forum
@@ -888,4 +880,4 @@
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest
   - name: Customer case studies
-    href: https://azure.microsoft.com/case-studies/?service=stream-analytics
+    href: https://www.microsoft.com/customers/search?filters=product%3Aazure&q=stream+analytics

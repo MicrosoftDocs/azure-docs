@@ -1,12 +1,13 @@
 ---
 title: Monitoring data reference for Azure Cache for Redis
 description: This article contains important reference material you need when you monitor Azure Cache for Redis.
-ms.date: 05/13/2024
-ms.custom: horz-monitor, ignite-2024
+ms.date: 05/18/2025
 ms.topic: reference
-
+ms.custom:
+  - horz-monitor
+  - ignite-2024
+  - build-2025
 appliesto:
-  - ✅ Azure Managed Redis
   - ✅ Azure Cache for Redis
 
 ---
@@ -52,7 +53,7 @@ The following list provides details and more information about the supported Azu
 - Cache Miss Rate
   - The percent of unsuccessful key lookups during the specified reporting interval. This metric isn't available in Enterprise or Enterprise Flash tier caches.
 - Cache Read
-  - The amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and isn't Redis specific. This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server-side network bandwidth limits, then create it using this `Cache Read` counter. See [this table](planning-faq.yml#how-can-i-measure-azure-managed-redis--preview--performance-) for the observed bandwidth limits for various cache pricing tiers and sizes.
+  - The amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and isn't Redis specific. This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server-side network bandwidth limits, then create it using this `Cache Read` counter. See [this table](planning-faq.yml#how-can-i-measure-azure-managed-redis-performance-) for the observed bandwidth limits for various cache pricing tiers and sizes.
 - Cache Write
   - The amount of data written to the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and isn't Redis specific. This value corresponds to the network bandwidth of data sent to the cache from the client.
 - Connected Clients

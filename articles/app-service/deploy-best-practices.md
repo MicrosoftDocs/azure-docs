@@ -5,6 +5,7 @@ keywords: azure app service, web app, deploy, deployment, pipelines, build
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: best-practice
 ms.date: 01/17/2025
+ms.update-cycle: 1095-days
 ms.custom: UpdateFrequency3
 author: cephalin
 ms.author: cephalin
@@ -12,8 +13,6 @@ ms.author: cephalin
 ---
 
 # Deployment best practices
-
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 Every development team has unique requirements that can make implementing an efficient deployment pipeline difficult on any cloud service. This article introduces the three main components of deploying to Azure App Service: *deployment sources*, *build pipelines*, and *deployment mechanisms*. This article also covers some best practices and tips for specific language stacks.
 

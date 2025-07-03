@@ -3,10 +3,15 @@ title: Manage modules in Azure Automation
 description: This article tells how to use PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 10/01/2024
+ms.date: 05/27/2025
 ms.topic: how-to 
-ms.custom: devx-track-azurepowershell, devx-track-python
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-python
+  - build-2025
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Manage modules in Azure Automation
@@ -16,10 +21,10 @@ ms.service: azure-automation
 
 Azure Automation uses a number of PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations. Supported modules include:
 
-* [Azure PowerShell Az.Automation](/powershell/azure/new-azureps-module-az).
+* [Azure PowerShell Az modules](/powershell/azure/new-azureps-module-az).
 * Other PowerShell modules.
-* Internal `Orchestrator.AssetManagement.Cmdlets` module.
-* Python 2 modules.
+* Internal `Orchestrator.AssetManagement.Cmdlets` module (not available on a Linux Hybrid Runbook Worker).
+* Python 2 and Python 3 modules.
 * Custom modules that you create.
 
 When you create an Automation account, Azure Automation imports some modules by default. See [Default modules](#default-modules).
@@ -91,7 +96,12 @@ The default modules are also known as global modules. In the Azure portal, the *
 
 ## Internal cmdlets
 
-Azure Automation supports internal cmdlets that are only available when you execute runbooks in the Azure sandbox environment or on a Windows Hybrid Runbook Worker. The internal module `Orchestrator.AssetManagement.Cmdlets` is installed by default in your Automation account and when the Windows Hybrid Runbook Worker role is installed on the machine. 
+Azure Automation provides internal cmdlets that are exclusively available when runbooks are executed in the Azure sandbox environment or on a Windows Hybrid Runbook Worker. The `Orchestrator.AssetManagement.Cmdlets` module, containing these internal cmdlets, is installed by default in your Automation account and specifically when the Windows Hybrid Runbook Worker role is installed on a Windows machine.
+
+> [!NOTE]
+> This functionality is not available on Linux Hybrid Runbook Workers.
+
+
 
 The following table defines the internal cmdlets. These cmdlets are designed to be used instead of Azure PowerShell cmdlets to interact with your Automation account resources. They can retrieve secrets from encrypted variables, credentials, and encrypted connections.
 
@@ -208,7 +218,7 @@ If you’re going to use different versions of the same module between runbooks,
 For a DSC resource, use the following command to specify a particular version:
 
 ```powershell
-Import-DscResource -ModuleName <ModuleName> -ModuleVersion <version>
+Import-DscResource -ModuleName "<ModuleName>" -ModuleVersion "<version>"
 ```
 
 ### Help information
@@ -359,15 +369,23 @@ To import a module in the Azure portal:
 You can use the [New-AzAutomationModule](/powershell/module/az.automation/new-azautomationmodule) cmdlet to import a module into your Automation account. The cmdlet takes a URL for a module .zip package.
 
 ```azurepowershell-interactive
-New-AzAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
+$moduleName = "<ModuleName>"
+$contentLinkUri = "<ModuleUri>"
+$runtimeVersion = "<RuntimeVersion>" # 5.1 or 7.2
+$resourceGroupName = "<ResourceGroupName>"
+$automationAccountName = "<AutomationAccountName>"
+New-AzAutomationModule -Name $moduleName -RuntimeVersion $runtimeVersion -ContentLinkUri $contentLinkUri -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName
 ```
 
 You can also use the same cmdlet to import a module from the PowerShell Gallery directly. Make sure to grab `ModuleName` and `ModuleVersion` from the [PowerShell Gallery](https://www.powershellgallery.com).
 
 ```azurepowershell-interactive
-$moduleName = <ModuleName>
-$moduleVersion = <ModuleVersion>
-New-AzAutomationModule -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName> -Name $moduleName -ContentLinkUri "https://www.powershellgallery.com/api/v2/package/$moduleName/$moduleVersion"
+$moduleName = "<ModuleName>"
+$moduleVersion = "<ModuleVersion>"
+$runtimeVersion = "<RuntimeVersion>" # 5.1 or 7.2
+$resourceGroupName = "<ResourceGroupName>"
+$automationAccountName = "<AutomationAccountName>"
+New-AzAutomationModule -AutomationAccountName $automationAccountName -RuntimeVersion $runtimeVersion -ResourceGroupName $resourceGroupName -Name $moduleName -ContentLinkUri "https://www.powershellgallery.com/api/v2/package/$moduleName/$moduleVersion"
 ```
 
 ### Import modules from the PowerShell Gallery
@@ -376,7 +394,7 @@ You can import [PowerShell Gallery](https://www.powershellgallery.com) modules e
 
 To import a module directly from the PowerShell Gallery:
 
-1. Go to https://www.powershellgallery.com and search for the module to import.
+1. Go to [https://www.powershellgallery.com](https://www.powershellgallery.com) and search for the module to import.
 2. Under **Installation Options**, on the **Azure Automation** tab, select **Deploy to Azure Automation**. This action opens the Azure portal. 
 3. On the Import page, select your Automation account, and select **OK**.
 

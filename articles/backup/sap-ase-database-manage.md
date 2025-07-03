@@ -1,20 +1,20 @@
 ---
-title: Manage backed-up SAP ASE databases on Azure VMs
+title: Manage and monitor backed-up SAP ASE database using Azure portal
 description: In this article, learn the common tasks for managing and monitoring SAP ASE databases that are running on Azure virtual machines.
 ms.topic: how-to
-ms.date: 11/19/2024
+ms.date: 05/13/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator managing SAP ASE databases on Azure, I want to monitor and modify backup settings, so that I can ensure data protection and optimize performance efficiently.
 ---
 
-# Manage and monitor backed-up SAP ASE databases (preview)
+# Manage and monitor backed-up SAP ASE database using Azure portal
 
-This article describes how to manage the SAP Adaptive Server Enterprise (ASE) (Sybase) databases that are running on an Azure virtual machine (VM) by using the [Azure Backup](./backup-overview.md) service. 
-
-Azure Backup allows you to monitor jobs and alerts, trigger an on-demand backup, edit policies, stop and resume database protection, and unregister a VM from backups.
+This article describes how to manage the SAP Adaptive Server Enterprise (ASE) (Sybase) databases (running on an Azure virtual machines) using Azure portal.
+Azure Backup allows you to monitor jobs and alerts, trigger an on-demand backup, edit policies, stop and resume database protection, and unregister a Virtual Machine (VM) from backups.
 
 If the  backup isn't configured for your SAP ASE databases, see [Back up SAP ASE databases on Azure VMs](sap-ase-database-backup.md). To learn more about the supported configurations and scenarios, see [Support matrix for backup of SAP ASE databases on Azure VMs](sap-ase-backup-support-matrix.md).
 
@@ -50,24 +50,22 @@ Making policy modifications affects all the associated backup items and triggers
 :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/change-backup-jobs.png" alt-text="Screenshot showing how to change backup jobs." lightbox="media/sap-adaptive-server-enterprise-db-manage/change-backup-jobs.png":::
 
 ## Edit a Policy
-To modify the policy to change backup types, frequencies, and retention range, follow these steps:
+To modify the policy to change backup types, frequencies, and retention range, go to the **Recovery Services Vault** > **Backup Policies**, and then select the policy you want to edit.
 
 >[!Note]
->Any change in the retention period will be applied to both the new recovery points and, retroactively, to all the older recovery points.
+>- Modification of the backup policy affects all the associated backup items and triggers the corresponding configure protection jobs.
+>- Any change in the retention period will be applied to both the new recovery points and, retroactively, to all the older recovery points.
 
-1. On the **Recovery Services Vault**, go to **Backup Policies**, and then select the policy you want to edit.
 
-    :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/edit-policy.png" alt-text="Screenshot showing how to edit backup policy." lightbox="media/sap-adaptive-server-enterprise-db-manage/edit-policy.png":::
-
-Modifying the backup policy affects all the associated backup items and triggers the corresponding configure protection jobs.
+:::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/edit-policy.png" alt-text="Screenshot showing how to edit backup policy." lightbox="media/sap-adaptive-server-enterprise-db-manage/edit-policy.png":::
 
 ## Stop protection for an SAP ASE database or ASE instance
 
-There are two ways to stop protection of an SAP ASE database:
+You can stop protection of an SAP ASE database in the following ways:
 
-- Delete backup data -Stop all future backup jobs and delete all recovery points.
+- **Delete backup data**: Stop all future backup jobs and delete all recovery points.
 
-- Retain backup data -Stop all future backup jobs and leave the recovery points intact.
+- **Retain backup data**: Stop all future backup jobs and leave the recovery points intact.
 
    >[!Note]
    >If you choose to leave recovery points:
@@ -100,11 +98,11 @@ To unregister an SAP ASE instance, follow these steps:
 
      :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/backup-infrastructure.png" alt-text="Screenshot showing how to backup infrastructure." lightbox="media/sap-adaptive-server-enterprise-db-manage/backup-infrastructure.png":::
 
-2. On the **Backup Infrastructure** blade, for **BACKUP MANAGEMENT TYPE**, select **Workload in Azure VM**.
+2. On the **Backup Infrastructure** pane, for **BACKUP MANAGEMENT TYPE**, select **Workload in Azure VM**.
 
    :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/select-workload.png" alt-text="Screenshot showing how to select workload in Azure VM." lightbox="media/sap-adaptive-server-enterprise-db-manage/select-workload.png":::
 
-3. On the **Protected Servers** blade, select the instance to unregister. To delete the vault, you must unregister all servers and instances.
+3. On the **Protected Servers** pane, select the instance to unregister. To delete the vault, you must unregister all servers and instances.
 
    :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/select-instance.png" alt-text="Screenshot showing how to select instance to deregister." lightbox="media/sap-adaptive-server-enterprise-db-manage/select-instance.png":::
 
@@ -178,3 +176,7 @@ There are two ways to update the compression level:
 
 >[!Note]
 > If you set the given ASE parameters, the memory and CPU utilization increase. We recommend that you monitor the memory consumption and CPU utilization as overutilization might negatively impact the backup and other ASE operations.
+
+## Next steps
+
+[Troubleshoot SAP ASE (Sybase) database backup](troubleshoot-sap-ase-sybase-database-backup.md).

@@ -5,10 +5,11 @@ ms.devlang: azurecli
 ms.custom:
   - ignite-2024
 ms.topic: tutorial
-ms.date: 02/27/2025
+ms.date: 05/22/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an IT administrator, I want to back up Azure Files using the portal so that I can ensure data protection against accidental or malicious deletions without maintaining on-premises infrastructure.
 ---
 
 #  Tutorial: Back up Azure Files using Azure portal
@@ -95,7 +96,9 @@ To run an on-demand backup, follow these steps:
 
 ## Next steps
 
-[Restore Azure Files using Azure portal](restore-afs.md?tabs=full-share-recovery).
+- [Restore Azure Files using Azure portal](restore-afs.md?tabs=full-share-recovery).
+- Restore Azure Files using [Azure PowerShell](restore-afs-powershell.md), [Azure CLI](restore-afs-cli.md), [REST API](restore-azure-file-share-rest-api.md).
+- Manage Azure Files backups using [Azure portal](manage-afs-backup.md), [Azure PowerShell](manage-afs-powershell.md), [Azure CLI](manage-afs-backup-cli.md), [REST API](manage-azure-file-share-rest-api.md).
 
 
 

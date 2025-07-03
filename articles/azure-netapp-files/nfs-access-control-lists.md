@@ -5,8 +5,9 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 11/13/2023
+ms.date: 02/13/2025
 ms.author: anfdocs
+# Customer intent: "As a system administrator managing data access in Azure NetApp Files, I want to understand NFSv4.x ACLs and their permissions so that I can effectively control access and secure our file storage while ensuring compliance with user management policies."
 ---
 
 # Understand NFSv4.x access control lists in Azure NetApp Files

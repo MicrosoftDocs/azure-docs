@@ -6,6 +6,7 @@ ms.topic: troubleshooting
 ms.date: 04/30/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a system administrator, I want to troubleshoot System State Backup issues on on-premises Windows servers, so that I can ensure effective data protection and recovery capabilities for my infrastructure."
 ---
 
 # Troubleshoot System State Backup
@@ -65,7 +66,7 @@ To install Windows Server Backup using PowerShell, run the following command:
 
 To install Windows Server Backup using Server Manager, follow these steps:
 
-1. In **Server Manger**, select **Add roles and features**. The **Add roles and features wizard** appears.
+1. In **Server Manager**, select **Add roles and features**. The **Add roles and features wizard** appears.
 
     ![Dashboard](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 

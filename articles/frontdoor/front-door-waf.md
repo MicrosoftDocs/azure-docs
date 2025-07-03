@@ -6,10 +6,14 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: tutorial
 ms.date: 11/18/2024
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ---
 
 # Tutorial: Quickly scale and protect a web application using Azure Front Door and Azure Web Application Firewall (WAF)
+
+**Applies to:** :heavy_check_mark: Front Door (classic)
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
@@ -25,9 +29,9 @@ In this tutorial, you learn to:
 > - Associate a WAF policy with Front Door.
 > - Configure a custom domain.
 
-[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
-
 ## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - This tutorial uses the Azure CLI. [Get started with the Azure CLI](/cli/azure/get-started-with-azure-cli).
 

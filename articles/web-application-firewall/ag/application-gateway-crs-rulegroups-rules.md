@@ -7,6 +7,9 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 03/06/2025
+ms.custom:
+  - build-2025
+# Customer intent: "As a web application security administrator, I want to manage DRS and CRS rule sets in the web application firewall, so that I can customize security settings and protect against a broad range of vulnerabilities effectively."
 ---
 
 # Web Application Firewall DRS and CRS rule groups and rules
@@ -264,7 +267,7 @@ The following rule groups and rules are available when using Web Application Fir
 |931100|Critical - 5|PL1|Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP Address|
 |931110|Critical - 5|PL1|Possible Remote File Inclusion (RFI) Attack: Common RFI Vulnerable Parameter Name used w/URL Payload|
 |931120|Critical - 5|PL1|Possible Remote File Inclusion (RFI) Attack: URL Payload Used w/Trailing Question Mark Character (?)|
-|931130|Critical - 5|PL1|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link|
+|931130|Critical - 5|PL2|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link|
 
 ### <a name="drs932-21"></a> RCE - Remote Command Execution
 |Rule ID|Anomaly score severity|Paranoia Level|Description|

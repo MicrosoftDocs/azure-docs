@@ -3,11 +3,12 @@ author: ggailey777
 ms.service: azure-functions
 ms.custom:
   - build-2024
+  - build-2025
 ms.topic: include
 ms.date: 03/06/2025
 ms.author: glenga
 ---
-| Resource |[Flex Consumption plan](/azure/azure-functions/flex-consumption-plan)|[Premium plan](/azure/azure-functions/functions-premium-plan)|[Dedicated plan](/azure/azure-functions/dedicated-plan)/[ASE](/azure/app-service/environment/intro)| [Container Apps](/azure/azure-functions/functions-container-apps-hosting)|[Consumption plan](/azure/azure-functions/consumption-plan)|
+| Resource |[Flex Consumption plan](../articles/azure-functions/flex-consumption-plan.md)|[Premium plan](../articles/azure-functions/functions-premium-plan.md)|[Dedicated plan](../articles/azure-functions/dedicated-plan.md)/[ASE](../articles/app-service/environment/overview.md)| [Container Apps](../articles/container-apps/functions-overview.md)|[Consumption plan](../articles/azure-functions/consumption-plan.md)|
 | --- | --- | --- | --- | --- | --- | 
 | Default [time-out duration](/azure/azure-functions/functions-scale#timeout) (min) | 30 | 30 |30<sup>1</sup> | 30<sup>16</sup> |5 |
 | Max [time-out duration](/azure/azure-functions/functions-scale#timeout) (min) | unbounded<sup>9</sup> | unbounded<sup>9</sup> | unbounded<sup>2</sup> | unbounded<sup>17</sup> |10 |
@@ -17,7 +18,7 @@ ms.author: glenga
 | Max request URL length<sup>3</sup> | 8192 | 8192 | 8192 | 8192 | 8192 | 
 |[ACU](/azure/virtual-machines/acu) per instance |  210-840 | 100-840/210-250<sup>10</sup> | [varies](/azure/container-apps/billing) |100 | varies |
 | Max memory (GB per instance) | 4<sup>14</sup> |  3.5-14 | 1.75-256/8-256 | [varies](/azure/container-apps/billing) |1.5 | 
-| Max instance count (Windows&nbsp;\|&nbsp;Linux) |  n/a&nbsp;\|&nbsp;1000<sup>15</sup> | varies by SKU&nbsp;\|&nbsp;100<sup>11</sup> |  10-300<sup>18</sup> | n/a&nbsp;\|&nbsp;1000<sup>15</sup> | 200&nbsp;\|&nbsp;100 | 
+| Max instance count (Windows&nbsp;\|&nbsp;Linux)<sup>15</sup> |  n/a&nbsp;\|&nbsp;1000 | 20-100 |  10-30 (100 ASE)<sup>11</sup> | 300-1000<sup>18</sup> | 200&nbsp;\|&nbsp;100 | 
 | Function apps per plan<sup>13</sup> |  1 | 100 | unbounded<sup>4</sup> | unbounded<sup>4</sup> |100 |
 | [App Service plans](/azure/app-service/overview-hosting-plans) |  n/a | 100 per resource group |100 per resource group | n/a | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) |
 | [Deployment slots](/azure/azure-functions/functions-deployment-slots) per app<sup>12</sup> |  n/a | 3 | 1-20<sup>11</sup> | not supported |2 |
@@ -41,8 +42,8 @@ Notes on service limits:
 11. See [App Service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) for details.  
 12. Including the production slot.  
 13. There's currently a limit of 5,000 function apps in a given subscription. 
-14. Flex Consumption plan instance sizes are currently defined as either 2,048 MB or 4,096 MB. For more information, see [Instance memory](/azure/azure-functions/flex-consumption-plan#instance-memory).  
-15. Flex Consumption plan has a regional subscription quota that limits the total memory usage of all instances across a given region. For more information, see [Regional subscription memory quotas](/azure/azure-functions/flex-consumption-plan#regional-subscription-memory-quotas). Container Apps has Environments and cores quotas per subscription. See [Quotas for Azure Container Apps](/azure/container-apps/quotas).
+14. Flex Consumption plan instance sizes are currently defined as 512 MB, 2,048 MB, or 4,096 MB. For more information, see [Instance memory](/azure/azure-functions/flex-consumption-plan#instance-memory).  
+15. For details, see [Scale](../articles/azure-functions/functions-scale.md#scale) in the Hosting comparison article.
 16. When the [minimum number of replicas](/azure/container-apps/scale-app#scale-definition) is set to zero, the default time-out depends on the specific triggers used in the app.
 17. When the [minimum number of replicas](../articles/container-apps/scale-app.md#scale-definition) is set to one or more.
-18. On Container Apps, you can set the [maximum number of replicas](/azure/container-apps/scale-app#scale-definition), which is honored as long as there's enough cores quota available.
+

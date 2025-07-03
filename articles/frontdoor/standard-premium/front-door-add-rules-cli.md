@@ -4,19 +4,18 @@ description: Learn how to create an Azure Front Door Standard/Premium with the A
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
-ms.topic: sample
+ms.topic: tutorial
 ms.date: 12/30/2021
 ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Add and customize delivery rules for Azure Front Door Standard/Premium with Azure CLI
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 Azure Front Door Standard/Premium  is a fast and secure modern cloud CDN.  Azure Front Door uses the Microsoft global edge network and integrates with intelligent threat protection. Azure Front Door Standard focuses on content delivery. Azure Front Door Premium adds extensive security capabilities and customization. This tutorial focuses on creating an Azure Front Door profile, then adding delivery rules for more granular control over your web app behaviors.
 
-> [!NOTE]
-> This documentation is for Azure Front Door Standard/Premium. Looking for information on Azure Front Door? View [Azure Front Door Docs](../front-door-overview.md).
-
-In this tutorial, you'll learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > - Create an Azure Front Door profile.
@@ -69,7 +68,7 @@ If you don't already have a web app, use the following script to set up two exam
 
 #### Create app service plans
 
-Before you can create the web apps you'll need two app service plans, one in *Central US* and the second in *East US*.
+Before you can create the web apps, you must have two app service plans, one in *Central US* and the second in *East US*.
 
 Run [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create&preserve-view=true) to create your app service plans.
 
@@ -226,9 +225,9 @@ az afd security-policy create \
 
 When you create the Azure Front Door Standard/Premium profile, it takes a few minutes for the configuration to be deployed globally. Once completed, you can access the frontend host you created. In a browser, go to `contoso-frontend.z01.azurefd.net`. Your request will automatically get routed to the nearest server from the specified servers in the origin group.
 
-To test instant global failover, we'll use the following steps:
+To test instant global failover, use the following steps:
 
-1. Open a browser, as described above, and go to the frontend address: `contoso-frontend.azurefd.net`.
+1. Open a browser, and go to the frontend address: `contoso-frontend.azurefd.net`.
 
 2. In the Azure portal, search for and select *App services*. Scroll down to find one of your web apps, **WebAppContoso-1** in this example.
 
@@ -237,7 +236,7 @@ To test instant global failover, we'll use the following steps:
 4. Refresh your browser. You should see the same information page.
 
    >[!TIP]
-   >There is a little bit of delay for these actions. You might need to refresh again.
+   >There's some delay for these actions. You might need to refresh again.
 
 5. Find the other web app, and stop it as well.
 

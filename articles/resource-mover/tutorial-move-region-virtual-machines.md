@@ -1,33 +1,31 @@
 ---
 title: Move Azure VMs across regions with Azure Resource Mover
 description: Learn how to move Azure VMs to another region with Azure Resource Mover
-author: ankitaduttaMSFT 
+author: jyothisuri 
 ms.service: azure-resource-mover
 ms.topic: tutorial
-ms.date: 03/29/2024
-ms.author: ankitadutta
-ms.custom: mvc, engagement-fy23
-#Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region using Azure Resource Mover.
+ms.date: 05/22/2025
+ms.author: jsuri
+ms.custom: mvc, engagement-fy23, akash-accuracy-may-2025
+# Customer intent: "As an Azure administrator, I want to move virtual machines and related resources across regions using a resource migration tool, so that I can optimize resource allocation, comply with internal policies, or leverage services available in different Azure regions."
 ---
-
 # Move Azure VMs across regions
 
 This tutorial shows you how to move Azure VMs and related network/storage resources to a different Azure region using [Azure Resource Mover](overview.md).
 
-Azure Resource Mover helps you move Azure resources between Azure regions. You might move your resources to another region for many reasons. For example, to take advantage of a new Azure region, to deploy features or services available in specific regions only, to meet internal policy and governance requirements, or in response to capacity planning requirements.
+Azure Resource Mover(ARM) helps you move Azure resources between Azure regions. You might move your resources to another region for many reasons. For example, to take advantage of a new Azure region, to deploy features or services available in specific regions only, to meet internal policy and governance requirements, or in response to capacity planning requirements.
+
+> [!NOTE]
+> You can now use Azure Resource Mover to move Azure resources between Azure subscription & region in one attempt. You can use this functionality to organize your resources or simplify billing mechanisms. 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Move Azure VMs to another region with Azure Resource Mover.
-> * Move resources associated with VMs to another region.
+> * Move Azure VMs to another subscription and region with ARM.
+> * Move resources associated with VMs to another subscription and region.
 
 > [!NOTE]
-> Tutorials show the quickest path for trying out a scenario, and use default options where possible.
-
-## Sign in to Azure
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin and sign in to the [Azure portal](https://portal.azure.com). 
+> Tutorials show the quickest path for trying out a scenario, and use default options where possible. 
 
 ## Prerequisites
 
@@ -43,7 +41,7 @@ Before you begin, verify the following:
 
 ## Prepare VMs
 
-To prepare VMs for the move, follow these steps:
+Sign in to the [Azure portal](https://portal.azure.com) to prepare VMs for the move, and follow these steps:
 
 1. After checking that VMs meet the requirements, ensure that the VMs you want to move are turned on. All VMs disks that you want to be available in the destination region must be attached and initialized in the VM.
 1. Ensure that VMs have the latest trusted root certificates and an updated certificate revocation list (CRL). To do this:
@@ -63,7 +61,7 @@ To select the resources you want to move, follow these steps:
 
     :::image type="content" source="./media/tutorial-move-region-virtual-machines/search.png" alt-text="Screenshot displays search results for resource mover in the Azure portal." lightbox="./media/tutorial-move-region-virtual-machines/search.png":::
 
-2. In **Overview** pane, select **Get Started**.
+2. In **Overview** pane, select **Get Started** and click on **Move across regions**.
 
     :::image type="content" source="./media/tutorial-move-region-virtual-machines/get-started.png" alt-text="Screenshot displays button to add resources to move to another region." lightbox="./media/tutorial-move-region-virtual-machines/get-started.png":::
 

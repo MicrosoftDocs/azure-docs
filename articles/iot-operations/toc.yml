@@ -4,207 +4,286 @@ items:
     items:
     - name: Overview
       href: overview-iot-operations.md
+      displayName: Arc-enabled, Kubernetes, AKS, Edge Essentials, industrial, metaverse, adaptive cloud, architecture
     - name: Quickstart
       expanded: true
       items:
       - name: Run Azure IoT Operations in Codespaces
         href: get-started-end-to-end-sample/quickstart-deploy.md
+        displayName: get started, end-to-end, e2e, sample
       - name: Configure your instance
         href: get-started-end-to-end-sample/quickstart-configure.md
+        displayName: get started, end-to-end, e2e, sample, asset, asset endpoint, MQTT, broker, OPC UA, connector, data flow
       - name: Get insights from your data
         href: get-started-end-to-end-sample/quickstart-get-insights.md
+        displayName: get started, end-to-end, e2e, sample, fabric, dashboard, Event Hubs
     - name: Deploy Azure IoT Operations to your cluster
       items:
       - name: Deployment overview
         href: deploy-iot-ops/overview-deploy.md
+        displayName: Kubernetes, k3s, Ubuntu, AKS, Azure Local, secure, permissions, sites
       - name: Prepare a cluster
         href: deploy-iot-ops/howto-prepare-cluster.md
+        displayName: Kubernetes, Arc-enable
       - name: Deploy to a cluster
         href: deploy-iot-ops/howto-deploy-iot-operations.md
+        displayName: Kubernetes, Arc-enable, test settings, secure settings
       - name: Manage, update, or uninstall
         href: deploy-iot-ops/howto-manage-update-uninstall.md
+        displayName: Kubernetes, deployment manifest, delete
       - name: Upgrade
         href: deploy-iot-ops/howto-upgrade.md
+        displayName: Kubernetes, version
       - name: Enable secure settings
         href: deploy-iot-ops/howto-enable-secure-settings.md
+        displayName: Kubernetes, cluster, secrets, management, user-assigned, managed identity
       - name: Production deployment guidelines
         href: deploy-iot-ops/concept-production-guidelines.md
+        displayName: Kubernetes, cluster, security, networking, observability, schema registry
       - name: Production deployment examples
         href: deploy-iot-ops/concept-production-examples.md
+        displayName: Kubernetes, cluster, single, multiple, node, multi, performance
     - name: Secure your deployment
       items:
-      - name: Certificate management
-        href: secure-iot-ops/concept-default-root-ca.md
+      - name: Manage certificates
+        href: secure-iot-ops/howto-manage-certificates.md
+        displayName: TLS, X.509, certificate, root CA, self-signed, trusted CA, CA, issuer, cert-manager, trust-manager
       - name: Manage secrets
         href: secure-iot-ops/howto-manage-secrets.md
+        displayName: Azure Key Vault, secret store, sync, synchronize, secretproviderclass, secretsync
       - name: Validate images
         href: secure-iot-ops/howto-validate-images.md
+        displayName: docker, helm, integrity, container, certificate
       - name: Secure your solution
         href: ../iot/iot-overview-security.md
+        displayName: security, best practice, guidelines, defender
     - name: Discover and manage assets
       items:
       - name: Asset management overview
         href: discover-manage-assets/overview-manage-assets.md
+        displayName: operations, experience, connector, OPC UA, ONVIF, media, device, registry, discovery, detect, discover
       - name: Understand assets and asset endpoints
         href: discover-manage-assets/concept-assets-asset-endpoints.md
+        displayName: tags, events, operations, experience
       - name: Discover assets
         href: discover-manage-assets/overview-akri.md
+        displayName: OPC UA, akri, detect, device, registry
       - name: Manage your assets
         href: discover-manage-assets/howto-manage-assets-remotely.md
+        displayName: operations, experience, site, instance, OPC UA, asset endpoint, tags, events
       - name: OPC UA (connect to your assets)
         items:
         - name: What is connector for OPC UA?
           href: discover-manage-assets/overview-opcua-broker.md
         - name: Message format
           href: discover-manage-assets/concept-opcua-message-format.md
+          displayName: OPC UA, payload
         - name: OPC UA application authentication overview
           href: discover-manage-assets/overview-opcua-broker-certificates-management.md
+          displayName: connector, X.509, certificate, instance, trusted, issuer, cert-manager, auth, authn
         - name: Configure OPC UA application authentication
           href: discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md
+          displayName: connector, X.509, certificate, instance, trusted, issuer, cert-manager, enterprise, CA, auth, authn
         - name: Configure OPC UA user authentication
           href: discover-manage-assets/howto-configure-opcua-authentication-options.md
+          displayName: connector, username, password, Key Vault, secret, sync, synchronize, auth, authn
         - name: Configure and use automatic asset discovery
           href: discover-manage-assets/howto-autodetect-opc-ua-assets-use-akri.md
+          displayName: connector, OPC UA, detect, akri
       - name: Connect to media sources
         items:
         - name: What is the media connector?
           href: discover-manage-assets/overview-media-connector.md
+          displayName: image, video, camera, stream, snapshot, RTSP, RTCP, RTP, MJPEG, container, storage
         - name: Use the media connector
           href: discover-manage-assets/howto-use-media-connector.md
+          displayName: image, video, camera, stream, snapshot, RTSP, RTCP, RTP, MJPEG, container, storage
       - name: Control ONVIF assets
         items:
         - name: What is the connector for ONVIF?
           href: discover-manage-assets/overview-onvif-connector.md
+          displayName: camera, PTZ, pan, tilt, zoom
         - name: Use the connector for ONVIF
           href: discover-manage-assets/howto-use-onvif-connector.md
+          displayName: camera, PTZ, pan, tilt, zoom, DiscoveredAsset, DiscoveredAssetEndpointProfile, media, events, stream
     - name: Manage MQTT broker
       items:
       - name: Broker overview
         href: manage-mqtt-broker/overview-broker.md
+        displayName: MQTT, architecture, frontend, backend, listener, NodePort, LoadBalancer, ClusterIP, cardinality, message buffer
       - name: Listener
         href: manage-mqtt-broker/howto-configure-brokerlistener.md
+        displayName: MQTT, brokerlistener, listener, TLS, certificate, websockets, NodePort, LoadBalancer, ClusterIP, secret, CA
       - name: Authentication
         href: manage-mqtt-broker/howto-configure-authentication.md
+        displayName: MQTT, broker, BrokerAuthentication, auth, authn, X.509, trusted, CA, certificate, kubernetes, SAT, service account token, TLS, username, password
       - name: Authorization
         href: manage-mqtt-broker/howto-configure-authorization.md
+        displayName: MQTT, broker, BrokerAuthorization, auth, authz, X.509, certificate, kubernetes, SAT, service account token, state store
       - name: Scale and availability
         href: manage-mqtt-broker/howto-configure-availability-scale.md
+        displayName: MQTT, broker, cardinality, kubernetes, scaling, memory profile, multi-node, affinity
       - name: Disk-backed message buffer
         href: manage-mqtt-broker/howto-disk-backed-message-buffer.md
+        displayName: MQTT, broker, persistence, storage
       - name: Diagnostic settings
         href: manage-mqtt-broker/howto-broker-diagnostics.md
+        displayName: MQTT, broker, metrics, logs
       - name: MQTT client options
         href: manage-mqtt-broker/howto-broker-mqtt-client-options.md
+        displayName: MQTT, broker
       - name: Encrypt internal traffic
         href: manage-mqtt-broker/howto-encrypt-internal-traffic.md
+        displayName: MQTT, broker, certificates
       - name: Test connection
         href: manage-mqtt-broker/howto-test-connection.md
+        displayName: MQTT, broker, NodePort, LoadBalancer, ClusterIP, TLS, testing
     - name: Process and route data
       items:
       - name: What are data flows?
         href: connect-to-cloud/overview-dataflow.md
+        displayName: architecture, data processing, routing, transformation, schema registry, enrich
       - name: Prepare endpoints
         items:
         - name: Overview
           href: connect-to-cloud/howto-configure-dataflow-endpoint.md
+          displayName: data flow, endpoint, routing, MQTT, Kafka, Data Lake, Fabric, Azure Data Explorer, storage, local storage
         - name: MQTT and Event Grid
           href: connect-to-cloud/howto-configure-mqtt-endpoint.md
+          displayName: data flow, endpoint
         - name: Kafka and Event Hubs
           href: connect-to-cloud/howto-configure-kafka-endpoint.md
+          displayName: data flow, endpoint
         - name: ADLSv2 Blob Storage
           href: connect-to-cloud/howto-configure-adlsv2-endpoint.md
+          displayName: data flow, endpoint
         - name: Microsoft Fabric Real-Time Intelligence
           href: connect-to-cloud/howto-configure-fabric-real-time-intelligence.md
+          displayName: data flow, endpoint
         - name: Microsoft Fabric OneLake
           href: connect-to-cloud/howto-configure-fabric-endpoint.md
+          displayName: data flow, endpoint
         - name: Azure Data Explorer
           href: connect-to-cloud/howto-configure-adx-endpoint.md
+          displayName: data flow, endpoint
         - name: Local storage or ACSA
-          href: connect-to-cloud/howto-configure-local-storage-endpoint.md  
+          href: connect-to-cloud/howto-configure-local-storage-endpoint.md
+          displayName: data flow, endpoint  
       - name: Create a data flow
         href: connect-to-cloud/howto-create-dataflow.md
+        displayName: endpoint, transformation, source, destination, profile, data flow profile, enrich , map, serialize, schema
       - name: Transform data
         items:
         - name: Map data
           href: connect-to-cloud/concept-dataflow-mapping.md
+          displayName: data flow, transform, metadata, mapping, filtering, last known value, LKV
         - name: Convert data
           href: connect-to-cloud/concept-dataflow-conversions.md
+          displayName: data flow, transform, conversion, formula, function
         - name: Enrich data
           href: connect-to-cloud/concept-dataflow-enrich.md
+          displayName: data flow, transform, context, contextualization
       - name: Use message schemas
         href: connect-to-cloud/concept-schema-registry.md
+        displayName: data flow, serialize, deserialize, schema registry
       - name: Manage data flow profiles
         href: connect-to-cloud/howto-configure-dataflow-profile.md
-    - name: Manage layered network
+        displayName: data flow, scale, scaling
+    - name: Manage network
       items:
       - name: Overview
         href: manage-layered-network/overview-layered-network.md
+        displayName: ISA-95, Purdue, layered, network, isolated
       - name: IoT Operations in layered network
         href: manage-layered-network/concept-iot-operations-in-layered-network.md
+        displayName: ISA-95, Purdue, isolated, level 2, level 3, level 4, L2, L3, L4
       - name: Configure Layered Network Management
         href: manage-layered-network/howto-deploy-aks-layered-network.md
+        displayName: ISA-95, Purdue, isolated, level 2, level 3, level 4, L2, L3, L4
       - name: How to
         items:
         - name: Deploy Azure IoT Operations in isolated network
           href: manage-layered-network/howto-configure-aks-edge-essentials-layered-network.md
+          displayName: ISA-95, Purdue, isolated, level 2, level 3, level 4, L2, L3, L4
         - name: Create sample network environment
           href: manage-layered-network/howto-configure-layered-network.md
+          displayName: ISA-95, Purdue, isolated, level 2, level 3, level 4, L2, L3, L4
         - name: Configure L4 cluster
           href: manage-layered-network/howto-configure-l4-cluster-layered-network.md
+          displayName: ISA-95, Purdue, isolated, level 4, L4
         - name: Configure L3 cluster
           href: manage-layered-network/howto-configure-l3-cluster-layered-network.md
+          displayName: ISA-95, Purdue, isolated, level 3, L3
         - name: Connect Azure Arc-enabled servers
           href: manage-layered-network/howto-connect-arc-enabled-servers.md
+          displayName: ISA-95, Purdue, isolated, level 2, level 3, level 4, L2, L3, L4
     - name: Configure observability and monitoring
       items:
       - name: Deploy observability resources
         href: configure-observability-monitoring/howto-configure-observability.md
+        displayName: container insights, prometheus, opentelemetry, otel, metrics, Azure Monitor, Grafana, Log Analytics
       - name: Clean up observability resources
         href: configure-observability-monitoring/howto-clean-up-observability-resources.md
+        displayName: container insights, prometheus, opentelemetry, otel, metrics, Azure Monitor, Grafana, Log Analytics
     - name: Create edge apps
       items:
       - name: MQTT client app guidance
         href: create-edge-apps/edge-apps-overview.md
+        displayName: state store, dapr, developer
       - name: State store
         items:
         - name: State store overview
           href: create-edge-apps/overview-state-store.md
+          displayName: MQTT, client app, developer
         - name: About the state store protocol 
           href: create-edge-apps/concept-about-state-store-protocol.md
+          displayName: MQTT, client app, developer
       - name: Dapr apps
         items:
         - name: Deploy Dapr
           href: create-edge-apps/howto-deploy-dapr.md
+          displayName: MQTT, client app, developer
         - name: Develop Dapr apps
           href: create-edge-apps/howto-develop-dapr-apps.md
+          displayName: MQTT, client app, developer
         - name: Build an event-driven app with Dapr
           href: create-edge-apps/tutorial-event-driven-with-dapr.md
+          displayName: MQTT, client app, developer
       - name: Develop MQTTnet apps
         href: create-edge-apps/howto-develop-mqttnet-apps.md
+        displayName: MQTT, client app, developer
     - name: Tutorials
       items:
-      - name: Get started end-to-end
+      - name: End-to-end sample
         items:
         - name: Add OPC UA assets to your cluster
           href: end-to-end-tutorials/tutorial-add-assets.md
-        - name: Upload data to the cloud
-          href: end-to-end-tutorials/tutorial-upload-telemetry-to-cloud.md
+          displayName: tutorial, e2e, end-to-end, asset, asset endpoint, OPC UA, connector, MQTT
+        - name: Upload sensor data to the cloud
+          href: end-to-end-tutorials/tutorial-upload-messages-to-cloud.md
+          displayName: tutorial, e2e, end-to-end, asset, asset endpoint, OPC UA, connector, MQTT
         - name: Get insights from your data
           href: end-to-end-tutorials/tutorial-get-insights.md
       - name: Bi-directional messaging with Event Grid
         href: connect-to-cloud/tutorial-mqtt-bridge.md
+        displayName: tutorial, MQTT, bridge
       - name: Send data to Data Lake Storage
         href: connect-to-cloud/tutorial-opc-ua-to-data-lake.md
+        displayName: tutorial, OPC UA, data flow
       - name: Secure communication with TLS, X.509, and ABAC
         href: manage-mqtt-broker/tutorial-tls-x509.md
+        displayName: tutorial, MQTT, auth, authn, X.509, certificate, CA
     - name: Troubleshoot
       items:
       - name: Troubleshoot
         href: troubleshoot/troubleshoot.md
+        displayName: troubleshooting, diagnostics, logs, issue, workaround
       - name: Known issues
         href: troubleshoot/known-issues.md
+        displayName: diagnostics, logs, issue, workaround
       - name: Tips and tools
         href: troubleshoot/tips-tools.md
+        displayName: kubernetes, MQTT, client, kubectl, k9s, listener, MQTT explorer
       - name: FAQ
         href: troubleshoot/iot-operations-faq.yml
     - name: Reference # supporting information like APIs, tools, code libraries
@@ -215,20 +294,30 @@ items:
         href: https://github.com/Azure/azure-iot-operations/releases
       - name: Azure IoT Operations CLI
         href: /cli/azure/iot/ops
+        displayName: Azure CLI, command line, az cli
       - name: Azure IoT Operations REST API
         href: /rest/api/iotoperations
       - name: Custom RBAC
         href: reference/custom-rbac.md
+        displayName: permission, role, auth, authz
       - name: Available metrics for observability
         items:
         - name: MQTT broker
           href: reference/observability-metrics-mqtt-broker.md
+          displayName: metrics, observability
         - name: Connector for OPC UA
           href: reference/observability-metrics-opcua-broker.md
+          displayName: metrics, observability
         - name: Layered Network Management
           href: reference/observability-metrics-layered-network.md
+          displayName: metrics, observability
       - name: MQTT support
         href: reference/mqtt-support.md
+        displayName: v5, v3.1.1, protocol
       - name: IoT Glossary
         href: ../iot/iot-glossary.md?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json
-
+        displayName: term, terminology, definition, usage
+      - name: Digital twin builder (preview) in Fabric
+        href: /fabric/real-time-intelligence/digital-twin-builder/overview
+        displayName: modeling, ontology, real-time, analytics
+        

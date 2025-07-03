@@ -10,6 +10,7 @@ ms.topic: concept-article
 ms.date: 10/19/2022
 ms.author: pauljewell
 ms.reviewer: nachakra
+# Customer intent: As an Azure administrator, I want to implement attribute-based access control for queue access, so that I can manage permissions more efficiently and ensure users have the appropriate access based on defined conditions.
 ---
 
 # Authorize access to queues using Azure role assignment conditions

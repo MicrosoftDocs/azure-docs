@@ -4,8 +4,9 @@ description: This article provides information on how workbooks provide a flexib
 ms.service: azure-update-manager
 ms.date: 09/06/2024
 ms.topic: overview
-author: SnehaSudhir 
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
+# Customer intent: "As a data analyst, I want to create interactive visual reports using workbooks, so that I can effectively analyze data and share insights within my team."
 ---
 
 # About workbooks

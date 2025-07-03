@@ -1,12 +1,15 @@
 ---
-title: Delete volume replications or volumes for Azure NetApp Files cross-region replication | Microsoft Docs
+title: Delete volume replications or volumes for Azure NetApp Files cross-region replication 
 description: Describes how to delete a replication connection that is no longer needed between the source and the destination volumes.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 03/22/2023
+ms.date: 03/22/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
+# Customer intent: "As a cloud administrator, I want to delete unnecessary volume replications and volumes in a cross-region setup, so that I can free up resources and maintain optimized storage management."
 ---
 # Delete volume replications or volumes
 
@@ -18,7 +21,7 @@ You can terminate the replication connection between the source and the destinat
 
 1. Ensure that the replication peering has been broken before you delete volume replication. To break the replication peering: 
 
-    1. Select the *destination* volume. Click **Replication** under Storage Service.  
+    1. Select the *destination* volume. Select **Replication** under Storage Service.  
 
     2.	Check the following fields before continuing:  
         * Ensure that Mirror State shows ***Mirrored***.   
@@ -28,18 +31,18 @@ You can terminate the replication connection between the source and the destinat
 
         See [Display health status of replication relationship](cross-region-replication-display-health-status.md). 
 
-    3.	Click **Break Peering**.  
+    3.	Select **Break Peering**.  
 
-    4.	Type **Yes** when prompted and click **Break**. 
+    4.	Type **Yes** when prompted and select **Break**. 
 
         ![Break replication peering](./media/shared/cross-region-replication-break-replication-peering.png)
 
 
 1. To delete volume replication, select **Replication** from the source or the destination volume.  
 
-2. Click **Delete**.    
+2. Select **Delete**.    
 
-3. Confirm deletion by typing **Yes** and clicking **Delete**.   
+3. Confirm deletion by typing **Yes** then selecting **Delete**.   
 
     ![Delete replication](./media/cross-region-replication-delete/cross-region-replication-delete-replication.png)
 

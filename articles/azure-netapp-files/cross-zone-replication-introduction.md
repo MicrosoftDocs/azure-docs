@@ -1,5 +1,5 @@
 ---
-title: Cross-zone replication of Azure NetApp Files volumes | Microsoft Docs
+title: Cross-zone replication of Azure NetApp Files volumes 
 description: Describes what Azure NetApp Files cross-zone replication does.
 services: azure-netapp-files
 author: b-ahibbard
@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 08/29/2024
 ms.author: anfdocs
 ms.custom: references_regions
+# Customer intent: As a cloud architect, I want to implement cross-zone replication for Azure NetApp Files volumes so that I can enhance data resiliency and ensure critical applications remain operational during zone-wide outages or disasters.
 ---
 
 # Understand cross-zone replication of Azure NetApp Files
@@ -41,3 +42,4 @@ Replicated volumes are hosted on a [capacity pool](azure-netapp-files-understand
 
 * [Requirements and considerations for using cross-zone replication](cross-zone-replication-requirements-considerations.md)
 * [Create cross-zone replication](create-cross-zone-replication.md)
+* [Configure cross-zone-region replication](cross-zone-region-replication-configure.md)

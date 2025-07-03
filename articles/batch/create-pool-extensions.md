@@ -4,6 +4,7 @@ description: Extensions are small applications that facilitate post-provisioning
 ms.topic: how-to
 ms.custom: linux-related-content
 ms.date: 03/04/2025
+# Customer intent: "As a cloud engineer, I want to implement and manage extensions on Batch compute nodes so that I can ensure proper configuration and optimize post-provisioning operations for my applications."
 ---
 
 # Use extensions with Batch pools

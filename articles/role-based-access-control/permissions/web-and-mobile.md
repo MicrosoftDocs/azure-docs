@@ -3,10 +3,10 @@ title: Azure permissions for Web and Mobile - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Web and Mobile category.
 ms.service: role-based-access-control
 ms.topic: generated-reference
-author: rolyon
-manager: femila
-ms.author: rolyon
-ms.date: 04/25/2025
+author: jenniferf-skc
+manager: pmwongera
+ms.author: jfields
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -466,11 +466,6 @@ Azure service: [App Service](/azure/app-service/), [Azure Functions](/azure/azur
 > | Microsoft.Web/serverfarms/eventGridFilters/delete | Delete Event Grid Filter on server farm. |
 > | Microsoft.Web/serverfarms/eventGridFilters/read | Get Event Grid Filter on server farm. |
 > | Microsoft.Web/serverfarms/eventGridFilters/write | Put Event Grid Filter on server farm. |
-> | microsoft.web/serverfarms/firstpartyapps/keyvaultsettings/read | Get first party Azure Key vault referenced settings for App Service Plan. |
-> | microsoft.web/serverfarms/firstpartyapps/keyvaultsettings/write | Create or Update first party Azure Key vault referenced settings for App Service Plan. |
-> | microsoft.web/serverfarms/firstpartyapps/settings/delete | Delete App Service Plans First Party Apps Settings. |
-> | microsoft.web/serverfarms/firstpartyapps/settings/read | Get App Service Plans First Party Apps Settings. |
-> | microsoft.web/serverfarms/firstpartyapps/settings/write | Update App Service Plans First Party Apps Settings. |
 > | microsoft.web/serverfarms/hybridconnectionnamespaces/relays/read | Get App Service Plans Hybrid Connection Namespaces Relays. |
 > | microsoft.web/serverfarms/hybridconnectionnamespaces/relays/delete | Delete App Service Plans Hybrid Connection Namespaces Relays. |
 > | microsoft.web/serverfarms/hybridconnectionnamespaces/relays/sites/read | Get App Service Plans Hybrid Connection Namespaces Relays Web Apps. |

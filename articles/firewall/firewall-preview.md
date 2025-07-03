@@ -7,6 +7,7 @@ ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 04/02/2025
 ms.author: duau
+# Customer intent: "As a network administrator, I want to explore and test Azure Firewall preview features, so that I can enhance our security configurations and monitor health more effectively before they reach general availability."
 ---
 
 # Azure Firewall preview features
@@ -42,14 +43,6 @@ For more information, see [Resource Health overview](/azure/service-health/resou
 ### Autolearn SNAT routes (preview)
 
 You can configure Azure Firewall to autolearn both registered and private ranges every 30 minutes. For information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md#auto-learn-snat-routes-preview).
-
-### Private IP address DNAT rules (preview)
-
-You can now configure a DNAT rule on Azure Firewall Policy with the private IP address of the Azure Firewall as the destination. Previously, DNAT rules only worked with Azure Firewall Public IP addresses.
-This capability helps with connectivity between overlapped IP networks, which is a common scenario for enterprises when onboarding new partners to their network or merging with new acquisitions.
-This is also relevant for hybrid scenarios, connecting on-premises datacenters to Azure, where DNAT bridges the gap, enabling communication between private resources over nonroutable IP addresses.
-
-For more information, see [Private IP DNAT Support and Scenarios with Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/private-ip-dnat-support-and-scenarios-with-azure-firewall/ba-p/4230073).
 
 ## Change tracking (preview)
 

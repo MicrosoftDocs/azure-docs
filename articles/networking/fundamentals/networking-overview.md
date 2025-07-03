@@ -7,16 +7,17 @@ ms.service: azure-virtual-network
 ms.topic: overview
 ms.date: 11/08/2024
 ms.author: mbender
+# Customer intent: "As a cloud architect, I want to understand the various Azure networking services, so that I can design and implement a secure, efficient networking infrastructure for my applications and resources in the cloud."
 ---
 
 # Azure networking services overview
 
 The networking services in Azure provide various networking capabilities that can be used together or separately. Select each of the following networking scenarios to learn more about them:
 
-- [**Networking foundation**](#foundation): [Azure networking foundation services](../foundations/index.yml) provide core connectivity for your resources in Azure - Virtual Network (VNet), Private Link, Azure DNS, Azure Bastion, Route Server, NAT Gateway, and Traffic Manager.
-- [**Load balancing and content delivery**](#delivery): [Azure load balancing and content delivery services](../load-balancer-content-delivery/index.yml)allow for management, distribution, and optimization of your applications and workloads - Load balancer, Application Gateway, and Azure Front Door.
-- [**Hybrid connectivity**](#hybrid): [Azure hybrid connectivity services](../hybrid-connectivity/index.yml) secure communication to and from your resources in Azure - VPN Gateway, ExpressRoute, Virtual WAN, and Peering Service.
-- [**Network security**](#security): [Azure network security services](../security/index.yml) protect your web applications and IaaS services from DDoS attacks and malicious actors - Firewall Manager, Firewall, Web Application Firewall, and DDoS Protection.
+- [**Networking foundation**](#foundation): [Azure networking foundation services](../foundations/network-foundations-overview.md) provide core connectivity for your resources in Azure - Virtual Network (VNet), Private Link, Azure DNS, Azure Bastion, Route Server, NAT Gateway, and Traffic Manager.
+- [**Load balancing and content delivery**](#delivery): [Azure load balancing and content delivery services](../load-balancer-content-delivery/load-balancing-content-delivery-overview.md)allow for management, distribution, and optimization of your applications and workloads - Load balancer, Application Gateway, and Azure Front Door.
+- [**Hybrid connectivity**](#hybrid): [Azure hybrid connectivity services](../hybrid-connectivity/hybrid-connectivity.md) secure communication to and from your resources in Azure - VPN Gateway, ExpressRoute, Virtual WAN, and Peering Service.
+- [**Network security**](#security): [Azure network security services](../security/network-security.md) protect your web applications and IaaS services from DDoS attacks and malicious actors - Firewall Manager, Firewall, Web Application Firewall, and DDoS Protection.
 - [**Network Management and monitoring**](#management): [Azure network management and monitoring services](../monitoring-management/index.yml) provide tools to manage and monitor your network resources - Network Watcher, Azure Monitor, and Azure Virtual Network Manager.
 
 ## <a name="foundation"></a>Networking foundation
@@ -192,7 +193,7 @@ Azure DDoS Protection consists of two tiers:
 
 ### <a name="container-security"></a> Container network security
 
-Container network security is part of [Advanced Container Networking Services (ACNS)](/azure/aks/advanced-container-networking-services-overview). It provides enhanced control over AKS network security. With features like fully qualified domain name (FQDN) filtering, clusters using Azure CNI Powered by Cilium can implement FQDN-based network policies to achieve a Zero Trust security architecture in AKS.
+Container network security is part of [Advanced Container Networking Services](/azure/aks/advanced-container-networking-services-overview). Advanced Container Networking Services provides enhanced control over AKS network security. With features like fully qualified domain name (FQDN) filtering, clusters using Azure CNI Powered by Cilium can implement FQDN-based network policies to achieve a Zero Trust security architecture in AKS.
 
 ## <a name="management"></a>Network Management and monitoring
 
@@ -216,7 +217,7 @@ This section describes network management and monitoring services in Azure - Net
 
 ### <a name="container-monitoring"></a> Container network observability
 
-Container network observability is part of [Advanced Container Networking Services (ACNS)](/azure/aks/advanced-container-networking-services-overview). ACNS uses Hubble’s control plane to provide comprehensive visibility into AKS networking and performance. It offers real-time, detailed insights across node-level, pod-level, TCP, and DNS metrics, ensuring thorough monitoring of your network infrastructure. 
+Container network observability is part of [Advanced Container Networking Services](/azure/aks/advanced-container-networking-services-overview). Advanced Container Networking Services uses Hubble’s control plane to provide comprehensive visibility into AKS networking and performance. It offers real-time, detailed insights across node-level, pod-level, TCP, and DNS metrics, ensuring thorough monitoring of your network infrastructure. 
 
 :::image type="content" source="./media/networking-overview/advanced-network-observability.png" alt-text="Diagram of Container Network Observability.":::
 

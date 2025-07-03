@@ -9,6 +9,7 @@ ms.collection: ce-skilling-ai-copilot
 ms.custom:
 ms.topic: reference
 ms.date: 02/18/2025
+ms.update-cycle: 180-days
 ms.author: danlep
 ---
 
@@ -61,7 +62,7 @@ By relying on token usage metrics returned from the LLM endpoint, the policy can
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 - [**Gateways:**](api-management-gateways-overview.md) classic, v2, self-hosted, workspace
 

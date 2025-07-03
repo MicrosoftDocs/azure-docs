@@ -8,10 +8,15 @@ ms.workload: storage
 ms.topic: how-to
 ms.date: 05/06/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
+# Customer intent: "As a database administrator, I want to manage volumes in an Azure NetApp Files application volume group for Oracle, so that I can resize, delete, or adjust throughput to optimize performance and storage efficiency for my applications."
 ---
 # Manage volumes in an application volume group for Oracle
 
 You can manage a volume from its volume group. You can resize, delete, or change throughput for the volume. 
+
+[!INCLUDE [CLI & PowerShell call-out](includes/application-volume-group-powershell-oracle.md)]
 
 ## Steps
 

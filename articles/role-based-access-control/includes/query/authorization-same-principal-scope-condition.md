@@ -1,13 +1,15 @@
 ---
-author: rolyon
+author: jenniferf-skc
 ms.service: resource-graph
 ms.topic: include
 ms.date: 01/12/2024
-ms.author: rolyon
+ms.author: jfields
+ms.custom:
+  - build-2025
 ---
 
 ```kusto
-AuthorizationResources
+authorizationresources
 | where type =~ "microsoft.authorization/roleassignments"
 | where id startswith "/subscriptions"
 | extend PrincipalId = tostring(properties.principalId) 
@@ -15,7 +17,7 @@ AuthorizationResources
 | extend RoleDefinitionId = tolower(tostring(properties.roleDefinitionId))
 | extend condition = tostring(properties.condition)
 | join kind = leftouter (
-  AuthorizationResources
+  authorizationresources
   | where type =~ "microsoft.authorization/roledefinitions"
   | extend RoleName = tostring(properties.roleName)
   | extend RoleId = tolower(id)

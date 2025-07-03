@@ -1,25 +1,24 @@
 ---
 title: Azure Functions deployment slots
-description: Learn to create and use deployment slots with Azure Functions
+description: Learn to create and use deployment slots with Azure Functions by using the Azure portal or with Azure CLI.
 ms.topic: conceptual
-ms.date: 02/27/2024
+ms.date: 05/07/2025
 ---
 # Azure Functions deployment slots
 
-Azure Functions deployment slots allow your function app to run different instances called _slots_. Slots are different environments exposed via a publicly available endpoint. One app instance is always mapped to the production slot, and you can swap instances assigned to a slot on demand. 
+Azure Functions deployment slots allow your function app to run different instances called *slots*. Slots are different environments exposed by using a publicly available endpoint. One app instance is always mapped to the production slot, and you can swap instances assigned to a slot on demand.
 
 The number of available slots depends on your specific hosting option:
 
 | Hosting option | Slots (including production) |
-| ---- | ---- | 
+| ---- | ---- |
 | [Consumption plan](consumption-plan.md) | 2 |
 | [Flex Consumption plan](flex-consumption-plan.md) | Not currently supported |
 | [Premium plan](functions-premium-plan.md) | 3 |
 | [Dedicated (App Service) plan](dedicated-plan.md) | [1-20](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits) |
-| [Container Apps](functions-container-apps-hosting.md) | Uses [Revisions](../container-apps/revisions.md) |
+| [Container Apps](../container-apps/functions-overview.md) | Uses [Revisions](../container-apps/revisions.md) |
   
-
-The following reflect how functions are affected by swapping slots:
+The following descriptions reflect how functions are affected by swapping slots:
 
 - Traffic redirection is seamless; no requests are dropped because of a swap. This seamless behavior occurs because the next function trigger is routed to the swapped slot.
 - Currently executing function are terminated during the swap. To learn how to write stateless and defensive functions, see [Improve the performance and reliability of Azure Functions](performance-reliability.md#write-functions-to-be-stateless).
@@ -31,16 +30,17 @@ There are many advantages to using deployment slots, including:
 - **Different environments for different purposes**: Using different slots gives you the opportunity to differentiate app instances before swapping to production or a staging slot.
 - **Prewarming**: Deploying to a slot instead of directly to production allows the app to warm up before going live. Additionally, using slots reduces latency for HTTP-triggered workloads. Instances are warmed up before deployment, which reduces the cold start for newly deployed functions.
 - **Easy fallbacks**: After a swap with production, the slot with a previously staged app now has the previous production app. If the changes swapped into the production slot aren't as you expect, you can immediately reverse the swap to get your "last known good instance" back.
-- **Minimize restarts**: Changing app settings in a production slot requires a restart of the running app. You can instead change settings in a staging slot and swap the settings change into production with a prewarmed instance. Slots are the recommended way to migrate between Functions runtime versions while maintaining the highest availability. To learn more, see [Minimum downtime update](migrate-version-3-version-4.md#minimum-downtime-update). 
+- **Minimize restarts**: Changing app settings in a production slot requires a restart of the running app. You can instead change settings in a staging slot and swap the settings change into production with a prewarmed instance. Slots are the recommended way to migrate between Functions runtime versions while maintaining the highest availability. To learn more, see [Minimum downtime update](migrate-version-3-version-4.md#minimum-downtime-update).
 
 ## Swap operations
 
 During a swap, one slot is considered the source and the other is the target. The source slot has the instance of the application that is applied to the target slot. The following steps ensure the target slot doesn't experience downtime during a swap:
 
 1. **Apply settings:** Settings from the target slot are applied to all instances of the source slot. For example, the production settings are applied to the staging instance. The applied settings include the following categories:
-    - [Slot-specific](#manage-settings) app settings and connection strings (if applicable)
-    - [Continuous deployment](../app-service/deploy-continuous-deployment.md) settings (if enabled)
-    - [App Service authentication](../app-service/overview-authentication-authorization.md) settings (if enabled)
+
+   - [Slot-specific](#manage-settings) app settings and connection strings (if applicable)
+   - [Continuous deployment](../app-service/deploy-continuous-deployment.md) settings (if enabled)
+   - [App Service authentication](../app-service/overview-authentication-authorization.md) settings (if enabled)
 
 1. **Wait for restarts and availability:** The swap waits for every instance in the source slot to complete its restart and to be available for requests. If any instance fails to restart, the swap operation reverts all changes to the source slot and stops the operation.
 
@@ -56,7 +56,7 @@ Keep in mind the following points:
 
 - Settings related to event sources and bindings must be configured as [deployment slot settings](#manage-settings) *before you start a swap*. Marking them as "sticky" ahead of time ensures events and outputs are directed to the proper instance.
 
-- When you create a new staging slot, all existing settings from the production slot are created in the new slot, regardless of the *stickiness* of the setting.    
+- When you create a new staging slot, all existing settings from the production slot are created in the new slot, regardless of the *stickiness* of the setting.
 
 ## Manage settings
 
@@ -89,12 +89,12 @@ Some configuration settings are slot-specific. The following lists detail which 
 Features marked with an asterisk (*) don't get swapped, by design.
 
 > [!NOTE]
-> Certain app settings that apply to unswapped settings are also not swapped. For example, since diagnostic settings are not swapped, related app settings like `WEBSITE_HTTPLOGGING_RETENTION_DAYS` and `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` are also not swapped, even if they don't show up as slot settings.
+> Certain app settings that apply to unswapped settings are also not swapped. For example, since diagnostic settings aren't swapped, related app settings like `WEBSITE_HTTPLOGGING_RETENTION_DAYS` and `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` are also not swapped, even if they don't show up as slot settings.
 >
 
 ### Create a deployment setting
 
-You can mark settings as a deployment setting, which makes it _sticky_. A sticky setting doesn't swap with the app instance.
+You can mark settings as a deployment setting, which makes it *sticky*. A sticky setting doesn't swap with the app instance.
 
 If you create a deployment setting in one slot, make sure to create the same setting with a unique value in any other slot that is involved in a swap. This way, while a setting's value doesn't change, the setting names remain consistent among slots. This name consistency ensures your code doesn't try to access a setting that is defined in one slot but not another.
 
@@ -102,19 +102,19 @@ Use the following steps to create a deployment setting:
 
 1. Navigate to **Deployment slots** in the function app, and then select the slot name.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Find slots in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Screenshot shows the deployments slots in the Azure portal." border="true":::
 
 1. Select **Configuration**, and then select the setting name you want to stick with the current slot.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Configure the application setting for a slot in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Screenshot shows where to configure the application setting for a slot in the Azure portal." border="true":::
 
 1. Select **Deployment slot setting**, and then select **OK**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="Configure the deployment slot setting." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="Screenshot shows where to configure the deployment slot setting." border="true":::
 
 1. Once setting section disappears, select **Save** to keep the changes
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="Save the deployment slot setting." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="Screenshot shows how to save the deployment slot setting." border="true":::
 
 ## Deployment
 
@@ -137,8 +137,8 @@ Use these steps to create a new slot in the portal:
 
 1. Navigate to your function app.
 
-1. Select **Deployment slots** and the existing slots are shown. 
- 
+1. Select **Deployment slots** and the existing slots are shown.
+
 ### [Azure CLI](#tab/azure-cli)
 
 Run this [az functionapp deployment slot list](/cli/azure/functionapp/deployment/slot#az-functionapp-deployment-slot-list) command to list the existing slots in your function app:
@@ -161,11 +161,11 @@ Use these steps to create a slot in the portal:
 
 1. Select **Deployment slots**, and then select **+ Add Slot**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Add Azure Functions deployment slot." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Screenshot shows adding an Azure Functions deployment slot." border="true":::
 
 1. Type the name of the slot and select **Add**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Name the Azure Functions deployment slot." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Screenshot shows naming the Azure Functions deployment slot." border="true":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -183,7 +183,7 @@ You access resources (HTTP triggers and administrator endpoints) in a staging sl
 
 ## Swap slots
 
-You can swap slots in an out of production using either the [Azure CLI](/cli/azure) or through the [Azure portal](https://portal.azure.com). 
+You can swap slots in an out of production using either the [Azure CLI](/cli/azure) or through the [Azure portal](https://portal.azure.com).
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -195,9 +195,9 @@ Use these steps to swap a staging slot into production:
 
     :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Screenshot that shows the 'Deployment slot' page with the 'Add Slot' action selected." border="true":::
 
-1. Verify the configuration settings for your swap and select **Swap**
+1. Verify the configuration settings for your swap and select **Swap**.
 
-    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Swap the deployment slot." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Screenshot showing swapping the deployment slot." border="true":::
 
 The swap operation can take a few seconds.
 
@@ -207,7 +207,7 @@ Run this [az functionapp deployment slot swap](/cli/azure/functionapp/deployment
 
 ```azurecli
 az functionapp deployment slot swap --name "<APP_NAME>" --resource-group "<RESOURCE_GROUP>" --slot staging --target-slot production
-```  
+```
 ---
 
 ## Roll back a swap
@@ -216,7 +216,7 @@ If a swap results in an error or you simply want to "undo" a swap, you can roll 
 
 ## Remove a slot
 
-You can remove a slot using either the [Azure CLI](/cli/azure) or through the [Azure portal](https://portal.azure.com). 
+You can remove a slot using either the [Azure CLI](/cli/azure) or through the [Azure portal](https://portal.azure.com).
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -224,7 +224,7 @@ Use these steps to remove a slot from your app in the portal:
 
 1. Navigate to **Deployment slots** in the function app, and then select the slot name.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Find slots in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Screenshot show the page where you find slots in the Azure portal." border="true":::
 
 1. Select **Delete**.
 
@@ -232,11 +232,11 @@ Use these steps to remove a slot from your app in the portal:
 
 1. Type the name of the deployment slot you want to delete, and then select **Delete**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Delete the deployment slot in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Screenshot shows deleting the deployment slot in the Azure portal." border="true":::
 
 1. Close the confirmation pane.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Deployment slot delete confirmation." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Screenshot shows the deployment slot deletion confirmation." border="true":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -259,13 +259,13 @@ Use the following steps to change a slot's App Service plan:
 
 1. Navigate to **Deployment slots** in the function app, and then select the slot name.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Find slots in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Screenshot shows the slots in the Azure portal." border="true":::
 
 1. Under **App Service plan**, select **Change App Service plan**.
 
 1. Select the plan you want to upgrade to, or create a new plan.
 
-    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Change the App Service plan in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Screenshot shows where to change the App Service plan in the Azure portal." border="true":::
 
 1. Select **OK**.
 

@@ -9,6 +9,7 @@ ms.service: azure-table-storage
 ms.topic: concept-article
 ms.date: 02/09/2023
 ms.author: akashdubey
+# Customer intent: "As a cloud administrator, I want to authorize access to Azure table resources using Microsoft Entra ID and Azure RBAC, so that I can manage permissions securely and efficiently for users and applications accessing data."
 ---
 
 # Authorize access to tables using Microsoft Entra ID

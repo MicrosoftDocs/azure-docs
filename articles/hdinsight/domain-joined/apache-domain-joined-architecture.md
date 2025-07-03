@@ -3,7 +3,7 @@ title: Azure HDInsight architecture with Enterprise Security Package
 description: Learn how to plan Azure HDInsight security with Enterprise Security Package.
 ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive, has-azure-ad-ps-ref
+ms.custom: hdinsightactive, no-azure-ad-ps-ref
 author: hareshg
 ms.author: hgowrisankar
 ms.reviewer: nijelsf 
@@ -60,52 +60,51 @@ If you're using federation with Active Directory Federation Services (AD FS), yo
 
 When you use on-premises Active Directory or Active Directory on IaaS VMs alone, without Microsoft Entra ID and Microsoft Entra Domain Services, isn't a supported configuration for HDInsight clusters with ESP.
 
-[!INCLUDE [Azure AD PowerShell deprecation note](~/reusable-content/msgraph-powershell/includes/aad-powershell-deprecation-note.md)]
-
 If you use federation and password hashes are synced correctly, but you're getting authentication failures, check if cloud password authentication is enabled for the PowerShell service principal. If not, you must set a [Home Realm Discovery (HRD) policy](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) for your Microsoft Entra tenant. To check and set the HRD policy:
 
-1. Install the preview [Azure AD PowerShell module](/powershell/azure/active-directory/install-adv2).
+1. Install the [Microsoft.Entra](/powershell/module/microsoft.entra) and [Microsoft.Entra.Beta](/powershell/module/microsoft.entra.beta) modules.
 
    ```powershell
-   Install-Module AzureAD
+   Install-Module Microsoft.Entra
+   Install-Module microsoft.Entra.Beta
    ```
 
 2. Connect using [Hybrid Identity Administrator](/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator)credentials.
 
    ```powershell
-   Connect-AzureAD
+   Connect-Entra -Scopes 'Application.ReadWrite.All'
    ```
 
 3. Check if the Microsoft Azure PowerShell service principal has already been created.
 
    ```powershell
-   Get-AzureADServicePrincipal -SearchString "Microsoft Azure PowerShell"
+   Get-EntraServicePrincipal -SearchString "Microsoft Azure PowerShell"
    ```
 
 4. If it doesn't exist, then create the service principal.
 
    ```powershell
-   $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+   $powershellSPN = New-EntraServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
    ```
 
 5. Create and attach the policy to this service principal.
 
    ```powershell
     # Determine whether policy exists
-    Get-AzureADPolicy | Where {$_.DisplayName -eq "EnableDirectAuth"}
+    Get-EntraBetaPolicy | Where {$_.DisplayName -eq "EnableDirectAuth"}
 
     # Create if not exists
-    $policy = New-AzureADPolicy `
+    $policy = New-EntraBetaPolicy `
         -Definition @('{"HomeRealmDiscoveryPolicy":{"AllowCloudPasswordValidation":true}}') `
         -DisplayName "EnableDirectAuth" `
         -Type "HomeRealmDiscoveryPolicy"
 
     # Determine whether a policy for the service principal exist
-    Get-AzureADServicePrincipalPolicy `
+    Get-EntraBetaServicePrincipalPolicy `
         -Id $powershellSPN.ObjectId
 
     # Add a service principal policy if not exist
-    Add-AzureADServicePrincipalPolicy `
+    Add-EntraBetaServicePrincipalPolicy `
         -Id $powershellSPN.ObjectId `
         -refObjectID $policy.ID
    ```

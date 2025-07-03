@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 04/17/2025
 monikerRange: migrate
+# Customer intent: As a cloud architect, I want to configure assessment properties for workload migration, so that I can ensure optimal resource allocation, cost management, and security compliance in Azure.
 ---
 
 # General assessment properties 
@@ -26,5 +27,6 @@ This article explains the assessment properties on the **General** tab that you 
 | |**Currency** | The billing currency for your account.| 
 | |**Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%. | 
 | | **VM uptime** | The duration in days per month and hours per day for Azure VMs that won't run continuously. Cost estimates are based on that duration. The default values are 31 days per month and 24 hours per day. | 
-| | **Azure Hybrid Benefit**| Specifies whether you have software assurance and are eligible for [Azure Hybrid Benefit](/pricing/hybrid-benefit/) to use your existing OS licenses. For Azure VM assessments, you can bring in both Windows and Linux licenses. If the setting is enabled, Azure prices for selected operating systems aren't considered for VM costing.  |
-|**Security** | **Security** | Specifies whether you want to assess readiness and cost for security tooling on Azure. If the setting has the default value **Yes, with Microsoft Defender for Cloud**, it assesses security readiness and costs for your Azure VM with Microsoft Defender for Cloud. | 
+| | **Azure Hybrid Benefit**| Specifies if you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) to use your existing OS licenses. For Azure VM assessments, you can bring in both Windows and Linux licenses. If the setting is enabled, Azure prices for selected operating systems aren't considered for VM costing.  |
+|**Security** | **Security** | Specifies if you want to assess readiness and cost for security tooling on Azure. If the setting has the default value **Yes, with Microsoft Defender for Cloud**, it assesses security readiness and costs for your Azure VM with Microsoft Defender for Cloud. | 
+|**VM Security Type** | | Specifies is you want to verify readiness for **Trusted Launch Virtual Machines (TVMs)**, Standard Virtual Machines, or both. By default, readiness is verified for both. We recommend to migrate eligible VMs to **Trusted Launch**, as TVMs provide enhanced security features, such as secure boot and virtual TPM at no extra cost.| 

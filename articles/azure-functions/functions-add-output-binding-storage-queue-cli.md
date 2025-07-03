@@ -104,8 +104,6 @@ Observe that you *don't* need to write any code for authentication, getting a qu
 
 [!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
 
-[!INCLUDE [functions-extension-bundles-info](../../includes/functions-extension-bundles-info.md)]
-
 ## View the message in the Azure Storage queue
 
 [!INCLUDE [functions-add-output-binding-view-queue-cli](../../includes/functions-add-output-binding-view-queue-cli.md)]

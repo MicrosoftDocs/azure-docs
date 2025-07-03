@@ -1,11 +1,14 @@
 ---
-title: FAQs About Azure NetApp Files | Microsoft Docs
+title: FAQs About Azure NetApp Files
 description: Answers frequently asked questions (FAQs) about Azure NetApp Files capacity management.
 ms.service: azure-netapp-files
 ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
-ms.date: 09/01/2022
+ms.date: 03/01/2025
+ms.custom:
+  - build-2025
+# Customer intent: As a cloud administrator, I want to monitor and manage the capacity of Azure NetApp Files, so that I can ensure optimal storage utilization and prevent disruptions due to space constraints.
 ---
 # Capacity management FAQs for Azure NetApp Files
 
@@ -21,7 +24,7 @@ You can use the `stat` command from a client to see whether a directory is appro
 
 See [Understand directory sizes in Azure NetApp Files](directory-sizes-concept.md) for the limit and calculation. 
 
-## Does snapshot space count towards the usable / provisioned capacity of a volume?
+## Does snapshot space count towards the usable/provisioned capacity of a volume?
 
 Yes, the [consumed snapshot capacity](azure-netapp-files-cost-model.md#capacity-consumption-of-snapshots) counts towards the provisioned space in the volume. In case the volume runs full, consider taking the following actions:
 
@@ -30,9 +33,9 @@ Yes, the [consumed snapshot capacity](azure-netapp-files-cost-model.md#capacity-
 
 ## Does Azure NetApp Files support auto-grow for volumes or capacity pools?
 
-No, Azure NetApp Files volumes and capacity pool don't auto-grow upon filling up. See [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md).   
+No, Azure NetApp Files volumes and capacity pools don't auto-grow upon filling up. See [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md).   
 
-You can use the community supported [Logic Apps ANFCapacityManager tool](https://github.com/ANFTechTeam/ANFCapacityManager) to manage capacity-based alert rules. The tool can automatically increase volume sizes to prevent your volumes from running out of space.
+You can use the community supported [ANFCapacityManager tool](https://github.com/ANFTechTeam/ANFCapacityManager) to manage capacity-based alert rules. The tool can automatically increase volume sizes to prevent your volumes from running out of space.
 
 ## Does the destination volume of a replication count towards hard volume quota?  
 

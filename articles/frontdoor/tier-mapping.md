@@ -10,6 +10,8 @@ ms.date: 11/18/2024
 
 # Settings mapped between Azure Front Door (classic) and Standard/Premium tier
 
+**Applies to:** :heavy_check_mark: Front Door (classic)
+
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 When migrating from Azure Front Door (classic) to Azure Front Door Standard or Premium, some configurations are changed or relocated for a better management experience. This article explains how routing rules, cache duration, rules engine configuration, WAF policy, and custom domains are mapped in the new Azure Front Door tier.
 

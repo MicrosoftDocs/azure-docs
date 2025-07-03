@@ -8,6 +8,7 @@ ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 02/07/2025
 ms.custom: engagement-fy25
+# Customer intent: "As a cloud architect, I want to understand the migration options available with the Migration and Modernization Tool, so that I can effectively plan and execute the migration of our on-premises servers to Azure."
 ---
 
 # Migration and modernization: Common questions
@@ -393,6 +394,30 @@ You can work out the bandwidth requirement based on:
 * The time you want to allot for the initial replication process.
 
 Ideally, you'd want initial replication to complete at least 3-4 days before the actual migration window. This timeline gives you sufficient time to perform a test migration before the actual window and keep downtime during the window to a minimum.
+
+## How do I roll back if something goes wrong during the migration process?
+
+Azure Migrate doesn't support rollback now, which means after users migrate, they can't go back to on-premises.
+
+## What strategies do I use to reduce downtime during migration?
+
+| **Practice** | **How it helps** | **Benefit** |
+| --- | --- | --- |
+| Use Agent-Based Replication for Continuous Sync | It continuously replicates on-premises VMs to Azure| This helps you cut over with minimal data loss (RPO of a few seconds) and reduces downtime (RTO of a few minutes). |
+| Perform Test Migrations  | Azure Migrate lets you run test migrations without affecting the production VM.  | You check boot success, network connectivity, and application functionality in Azure before the final cutover. |
+| Use Replication Groups for Dependency-Aware Migration  | You group VMs based on application or service dependencies and migrate them together. | This lowers the risk of broken dependencies during migration and helps keep services running smoothly. |
+| Schedule Cutovers During Maintenance Windows  | **: You plan the final cutover (switching users to the Azure-hosted app) during a known low-traffic period. | This minimizes the user impact and gives time for rollback if needed.|
+| Do a Phased Migration  | You migrate and modernize workloads in stages instead of all at once. | Smaller changes minimize the risk and help keep services available throughout the process. |
+
+## How do I measure the success of my cloud migration execution?
+
+| Metric  | Description |
+| --- | --- |
+| Cutover success rate | Percentage of workloads successfully migrated without rollback or issues. |
+| Downtime duration | Total unplanned downtime occurs during cutover; the goal is minimal or zero. |
+| Data integrity | Post-migration validation of data completeness and accuracy. |
+| Application functionality |Post-migration, apps work exactly as expected (functional testing, and UAT pass). |
+| Migration completion timeline | Actual vs planned migration schedule adherence. |
 
 ## Related content
 

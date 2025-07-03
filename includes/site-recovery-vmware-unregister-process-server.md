@@ -12,7 +12,7 @@ Follow the steps for your specific circumstances.
 
 1. Establish a remote connection to the process server as an Administrator.
 2. In the **Control Panel**, open **Programs > Uninstall a program**.
-3. Uninstall the program **Microsoft Azure Site Recovery Mobility Service/Master Target Server**.
+3. Uninstall the program **Microsoft Azure Site Recovery Mobility Service/Target Server**.
 4. Uninstall the program **Microsoft Azure Site Recovery Configuration/Process Server**.
 5. After the programs in steps 3 and 4 are uninstalled, uninstall **Microsoft Azure Site Recovery Configuration/Process Server Dependencies**.
 

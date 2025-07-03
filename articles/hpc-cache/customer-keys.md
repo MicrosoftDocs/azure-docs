@@ -6,6 +6,7 @@ ms.service: azure-hpc-cache
 ms.topic: how-to
 ms.date: 11/02/2022
 ms.author: rohogue
+# Customer intent: "As an IT administrator managing cloud resources, I want to configure customer-managed encryption keys for Azure HPC Cache, so that I can enhance data security and retain control over encryption key access."
 ---
 
 # Use customer-managed encryption keys for Azure HPC Cache

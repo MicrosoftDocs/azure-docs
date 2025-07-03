@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: reference
 ms.date: 05/15/2024
 ms.author: phjensen
+# Customer intent: As a cloud engineer, I want to run connectivity tests using the Application Consistent Snapshot tool, so that I can verify the integration with SAP HANA and ensure proper access to storage volumes before implementation.
 ---
 
 # Test Azure Application Consistent Snapshot tool

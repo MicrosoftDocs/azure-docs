@@ -3,15 +3,16 @@ title: Manage Azure Files backups with the Azure CLI
 description: Learn how to manage and monitor the backed-up Azure Files using Azure CLI.
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 02/27/2025
+ms.date: 05/22/2025
 author: jyothisuri
 ms.author: jsuri
 
+# Customer intent: "As a cloud administrator, I want to manage and monitor Azure Files backups using the command line, so that I can automate backup processes and ensure data protection efficiently."
 ---
 
 # Manage Azure Files backups with the Azure CLI
 
-This article describes how to manage and monitor the backed-up Azure Files ([snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups) using Azure CLI. The Azure CLI provides a command-line experience for managing Azure resources. It's a great tool for building custom automation to use Azure resources. You can also perform these steps with the [Azure portal](https://portal.azure.com/).
+This article describes how to manage and monitor the backed-up Azure Files ([snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups) using Azure CLI. The Azure CLI provides a command-line experience for managing Azure resources. It's a great tool for building custom automation to use Azure resources. You can also manage Azure Files backups using [Azure portal](manage-afs-backup.md), [Azure PowerShell](manage-afs-powershell.md), [REST API](manage-azure-file-share-rest-api.md).
 
 ## Prerequisites
 

@@ -1,5 +1,5 @@
 ---
-title: Manage backup vaults for Azure NetApp Files | Microsoft Docs
+title: Manage backup vaults for Azure NetApp Files
 description: Describes how to use backup vaults to manage backups in Azure NetApp Files.
 services: azure-netapp-files
 author: b-ahibbard
@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 04/24/2024
 ms.author: anfdocs
+# Customer intent: As a cloud administrator, I want to manage backup vaults for Azure NetApp Files, so that I can efficiently store, migrate, and restore backups while ensuring data availability and compliance within my organization.
 ---
 # Manage backup vaults for Azure NetApp Files
 

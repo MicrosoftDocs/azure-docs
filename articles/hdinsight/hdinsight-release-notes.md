@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: yeturis
 ms.author: sairamyeturi
 ms.reviewer: nijelsf
-ms.date: 04/29/2025
+ms.date: 05/28/2025
 ---
 
 # Azure HDInsight release notes
@@ -23,7 +23,7 @@ To subscribe, click the **watch** button in the banner and watch out for [HDInsi
 
 ## Release Information
 
-### Release date: Apr 28, 2025
+### Release date: May 28, 2025
 
 > [!NOTE]
 > This is a Hotfix / maintenance release for Resource Provider. For more information see, [Resource Provider](.//hdinsight-overview-versioning.md#hdinsight-resource-provider).
@@ -55,25 +55,19 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 
 ## Issues fixed
 
-* Managed identity-based authentication for WASB encounters issues when network ACL is enabled on storage.
-* Managed identity-based authentication for SQL databases encounters issues when availability zones are used.
-* Multiple security fixes.
+* Authentication issue for SQL databases when managed identity is used.
 
 ## Updates
 
-* Active PIN requests for creating HDInsight clusters with predetermined image versions will be revoked/cancelled on 26 May 2025. Beyond this date, customers will only be able to create clusters using the updated (compliant) images of each HDInsight version. This measure is intended to improve cluster security and prevent potential issues with clusters and gateway nodes. 
+* Active PIN requests for creating HDInsight clusters with predetermined image versions stand revoked/cancelled as of 26 May 2025. Customers can only create clusters using the updated (compliant) images of each HDInsight version. This measure is intended to improve cluster security and prevent potential issues with clusters and gateway nodes. 
 
 ## Reminder
 
-* HDInsight service transitioned to use standard load balancers for all its cluster configurations due to [deprecation announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer#main) of Azure basic load balancer.
+* HDInsight service has transitioned to use standard load balancers for all its cluster configurations due to [deprecation announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer#main) of Azure basic load balancer.
 
   > [!IMPORTANT]
   > By default, creation of any new HDInsight cluster happens with Standard Load Balancers. We recommend referring to the [migration guide to recreate the cluster](./load-balancer-migration-guidelines.md).
   > For any assistance, contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
-
-* [Basic and Standard A-series VMs Retirement](https://azure.microsoft.com/updates/basic-and-standard-aseries-vms-on-hdinsight-will-retire-on-31-august-2024/).
-   * On August 31, 2024, we'll retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs).
-   * To avoid service disruptions, [migrate your workloads](https://aka.ms/Av1retirement) from Basic and Standard A-series VMs to Av2-series VMs before August 31, 2024.
 
 If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
 

@@ -2,18 +2,13 @@
 title: Benefits of using Azure NetApp Files for Electronic Design Automation (EDA)
 description: Explains the solution Azure NetApp Files provides for meeting the needs of the semiconductor and chip design industry. Presents test scenarios running a standard industry benchmark for electronic design automation (EDA) using Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: concept-article
 ms.date: 10/18/2024
 ms.author: anfdocs
+# Customer intent: As an EDA engineer, I want to utilize Azure NetApp Files for scalable storage solutions, so that I can improve workload performance and reduce time to market for semiconductor designs.
 ---
 # Benefits of using Azure NetApp Files for Electronic Design Automation (EDA)
 

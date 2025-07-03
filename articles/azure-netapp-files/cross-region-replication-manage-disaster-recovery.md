@@ -5,8 +5,9 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 04/14/2025
+ms.date: 05/12/2025
 ms.author: anfdocs 
+# Customer intent: As a cloud operations manager, I want to implement cross-region replication for disaster recovery using cloud storage services, so that I can ensure data availability and minimize downtime during recovery events.
 ---
 # Manage disaster recovery using Azure NetApp Files 
 
@@ -51,10 +52,15 @@ After disaster recovery, you can reactivate the source volume by performing a re
 > 
 > ***The reverse resync operation overwrites any newer data (than the most common snapshot) in the source volume with the updated destination volume data. The UI warns you about the potential for data loss. You will be prompted to confirm the resync action before the operation starts.***  
 > 
-> In case the source volume did not survive the disaster and therefore no common snapshot exists, all data in the destination will be resynchronized to a newly created source volume.
+> In case the source volume didn't survive the disaster and therefore no common snapshot exists, all data in the destination will be resynchronized to a newly created source volume.
+
+>[!NOTE]
+>To perform a reverse resync with [cross-zone-region replication](cross-zone-region-replication.md), you must break the secondary relationship then perform the reverse resync as described. 
+> 
+> To restore the cross-zone-region replication, delete the secondary DP volume then [reconfigure replication](cross-zone-region-replication-configure.md).
 
 
-1. To reverse resync replication, select the *source* volume. Select **Replication** under Storage Service. Then select **Reverse Resync**.  
+1. To perform a reverse resync, select the *source* volume. Select **Replication** under Storage Service. Then select **Reverse Resync**.  
 
 2. Type **Yes** when prompted then select **OK**. 
  

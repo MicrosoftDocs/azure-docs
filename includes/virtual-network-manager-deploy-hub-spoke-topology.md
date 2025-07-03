@@ -5,13 +5,13 @@
  author: mbender
  ms.service: virtual-network-manager
  ms.topic: include
- ms.date: 06/04/2024
+ ms.date: 05/08/2025
  ms.author: mbender-ms
 ms.custom: include-file
 ---
 ## Create a connectivity configuration
 
-In this task, you create a connectivity configuration that includes your network group and a routing rule collection. You can choose to enable [direct connectivity](../articles/virtual-network-manager/concept-connectivity-configuration.md#direct-connectivity) in the hub and spoke topology, or leave all communication to go through the hub virtual network and Azure firewall.
+In this task, you create a connectivity configuration that includes your network group and a routing rule collection. You can choose to enable [direct connectivity](../articles/virtual-network-manager/concept-connectivity-configuration.md#enable-direct-connectivity) in the hub and spoke topology, or leave all communication to go through the hub virtual network and Azure firewall.
 
 1. In the network manager instance, select **Configurations** under **Settings** then select **Create connectivity configuration**.
 2. In the **Create a connectivity configuration** window, enter the connectivity configuration **Name** and **Description** on the **Basics** tab then select **Next: Topology >**.

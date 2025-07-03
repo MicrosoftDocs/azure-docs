@@ -4,8 +4,9 @@ description: Details about upcoming deprecation of classic experience to protect
 ms.service: azure-site-recovery
 ms.topic: overview
 ms.date: 03/26/2025
-ms.author: ankitadutta
+ms.author: jsuri
 
+# Customer intent: "As an IT administrator managing VMware and physical machines, I want to migrate from the classic experience to the modernized experience of Azure Site Recovery, so that I can ensure ongoing disaster recovery support and avoid disruptions after the deprecation date."
 ---
 
 # Deprecation of classic experience to protect VMware and Physical machines using Azure Site Recovery 

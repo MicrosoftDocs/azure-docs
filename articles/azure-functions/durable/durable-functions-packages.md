@@ -12,15 +12,15 @@ ms.reviewer: azfuncdf
 
 # The Durable Functions packages
 
-[Durable Functions](./durable-functions-overview.md) is available in all first-party Azure Functions runtime environments (e.g. .NET, Node, Python, etc.). As such, there are multiple Durable Functions SDKs and packages for each language runtime supported. This guide provides a description of each Durable Functions package from the perspective of each runtime supported.
+[Durable Functions](./durable-functions-overview.md) is available in all first-party Azure Functions runtime environments, such as .NET, Node.js, and Python. As such, there are multiple Durable Functions SDKs and packages for each language runtime supported. This guide provides a description of each Durable Functions package from the perspective of each runtime supported.
 
 ## .NET in-process
 
 .NET in-process users need to reference the [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/) package in their `.csproj` file to use Durable Functions. This package is known as the "WebJobs extension" for Durable Functions.
 
-### The storage providers packages
+**Storage providers packages**:
 
-By default, Durable Functions uses Azure Storage as it's backing store. However, alternative [storage providers](./durable-functions-storage-providers.md) are available as well. To use them, you need to reference their packages _in addition to_ the WebJobs extension in your `.csproj`. Those packages are:
+By default, Durable Functions uses Azure Storage as its backing store. However, alternative [storage providers](./durable-functions-storage-providers.md) are available as well. To use them, you need to reference their packages _in addition to_ the WebJobs extension in your `.csproj`. Those packages are:
 
 * The Netherite storage provider: [Microsoft.Azure.DurableTask.Netherite.AzureFunctions](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions).
 * The MSSQL storage provider: [Microsoft.DurableTask.SqlServer.AzureFunctions](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions)
@@ -35,7 +35,7 @@ By default, Durable Functions uses Azure Storage as it's backing store. However,
 
 .NET isolated users need to reference the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/) package in their `.csproj` file to use Durable Functions. This replaces the "WebJobs" extension used in .NET in-process as .NET isolated projects can't directly reference WebJobs packages. This package is known as the "worker extension" for Durable Functions.
 
-### The storage providers packages
+**storage providers packages**:
 
 In .NET isolated, the alternative [storage providers](./durable-functions-storage-providers.md) are available as well under "worker extension" packages of their own. You need to reference their packages _in addition to_ the worker extension in your `.csproj`. Those packages are:
 
@@ -47,25 +47,27 @@ In .NET isolated, the alternative [storage providers](./durable-functions-storag
 
 ## Extension Bundles users
 
-Users of [Extension Bundles](../functions-bindings-register.md#extension-bundles) (the recommended Azure Functions extension management mechanism for non-.NET users) simply need to install their language runtime's Durable Functions SDK. The SDKs for each first-party language are listed in the table below:
+Users of [Extension Bundles](../extension-bundles.md) (the recommended Azure Functions extension management mechanism for non-.NET users) simply need to install their language runtime's Durable Functions SDK. The SDKs for each first-party language are listed in the table below:
 
 * Node (JavaScript / TypeScript): The [durable-functions](https://www.npmjs.com/package/durable-functions) npm package.
 * Python: The [azure-functions-durable](https://pypi.org/project/azure-functions-durable/) PyPI package.
 * Java: The [durabletask-azure-functions](https://mvnrepository.com/artifact/com.microsoft/durabletask-azure-functions) Maven package.
-* PowerShell: The current GA SDK is built-in to Azure Functions PowerShell language worker, so no installation is needed. See the following _note_ for details.
+* PowerShell: The [AzureFunctions.PowerShell.Durable.SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK) module.
 
 > [!NOTE]
-> For PowerShell users: we have a [_preview_ SDK standalone package](./durable-functions-powershell-v2-sdk-migration-guide.md) under [AzureFunctions.PowerShell.Durable.SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK) in the PowerShell gallery. The latter will be preferred in the future.
+> For PowerShell users: the standalone [AzureFunctions.PowerShell.Durable.SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK) module is now generally available (GA) and is recommended over the legacy SDK that is built into the Azure Functions PowerShell language worker. Going forward, the legacy SDK may not receive new features or bug fixes, and may eventually be removed from the worker. See [migration guide](./durable-functions-powershell-v2-sdk-migration-guide.md) for details on migrating to the standalone SDK. 
 
 ## GitHub repositories
 
-Durable Functions is developed in the open as OSS. Users are welcome to contribute to it's development, request features, and to report issues in the appropriate repositories:
+Durable Functions is developed in the open as OSS. Users are welcome to contribute to its development, request features, and to report issues in the appropriate repositories:
 
-* [azure-functions-durable-extension](https://github.com/Azure/azure-functions-durable-extension): For .NET in-process and the Azure Storage storage provider.
-* [durabletask-dotnet](https://github.com/microsoft/durabletask-dotnet): For .NET isolated.
-* [azure-functions-durable-js](https://github.com/Azure/azure-functions-durable-js): For the Node.js SDK.
-* [azure-functions-durable-python](https://github.com/Azure/azure-functions-durable-python): For the Python SDK.
-* [durabletask-java](https://github.com/Microsoft/durabletask-java): For the Java SDK.
-* [azure-functions-durable-powershell](https://github.com/Azure/azure-functions-durable-powershell): For the PowerShell SDK.
-* [durabletask-netherite](https://github.com/microsoft/durabletask-netherite): For the Netherite storage provider.
-* [durabletask-mssql](https://github.com/microsoft/durabletask-mssql): For the MSSQL storage provider.
+|GitHub repository | Description |
+| ----- | ----- |
+|[azure-functions-durable-extension](https://github.com/Azure/azure-functions-durable-extension) | .NET in-process library and the Azure Storage storage provider |
+| [durabletask-dotnet](https://github.com/microsoft/durabletask-dotnet)| .NET isolated worker process library |
+|[azure-functions-durable-js](https://github.com/Azure/azure-functions-durable-js)| Node.js SDK |
+|[azure-functions-durable-python](https://github.com/Azure/azure-functions-durable-python)| Python SDK |
+|[durabletask-java](https://github.com/Microsoft/durabletask-java)| Java SDK |
+|[azure-functions-durable-powershell](https://github.com/Azure/azure-functions-durable-powershell)| PowerShell SDK |
+|[durabletask-netherite](https://github.com/microsoft/durabletask-netherite)| Netherite storage provider |
+|[durabletask-mssql](https://github.com/microsoft/durabletask-mssql)| MSSQL storage provider |

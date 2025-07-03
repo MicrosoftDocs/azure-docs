@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/15/2024
+ms.date: 06/20/2025
 ---
 
 # Copy data from and to Salesforce V2 using Azure Data Factory or Azure Synapse Analytics
@@ -18,7 +18,7 @@ ms.date: 10/15/2024
 This article outlines how to use Copy Activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Salesforce. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 > [!IMPORTANT]
-> The [Salesforce V2 connector](connector-salesforce.md) provides improved native Salesforce support. If you are using the [Salesforce V1 connector](connector-salesforce-legacy.md) in your solution, you are recommended to [upgrade your Salesforce connector](#upgrade-the-salesforce-linked-service) at your earliest convenience. Refer to this [section](#differences-between-salesforce-and-salesforce-legacy) for details on the difference between V2 and v1. 
+> The [Salesforce V2 connector](connector-salesforce.md) provides improved native Salesforce support. If you are using the [Salesforce V1 connector](connector-salesforce-legacy.md) in your solution, you are recommended to [upgrade your Salesforce connector](#upgrade-the-salesforce-linked-service) before **June 30, 2025**. Refer to this [section](#differences-between-salesforce-and-salesforce-legacy) for details on the difference between V2 and v1. 
 
 ## Supported capabilities
 
@@ -247,7 +247,7 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **SalesforceV2Source**. | Yes |
-| query | Use the custom query to read data. You can only use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query with limitations. For SOQL limitations, see this [article](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). If query isn't specified, all the data of the Salesforce object specified in "objectApiName/reportId" in dataset is retrieved. | No (if "objectApiName/reportId" in the dataset is specified) |
+| query | Use the custom query to read data. You can only use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. If query isn't specified, all the data of the Salesforce object specified in "objectApiName/reportId" in dataset is retrieved. | No (if "objectApiName/reportId" in the dataset is specified) |
 | includeDeletedObjects | Indicates whether to query the existing records, or query all records including the deleted ones. If not specified, the default behavior is false. <br>Allowed values: **false** (default), **true**.   | No |
 
 > [!IMPORTANT]
@@ -369,7 +369,16 @@ When you copy data from Salesforce, the following mappings are used from Salesfo
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## <a name="upgrade-the-salesforce-linked-service"></a> Upgrade the Salesforce connector
+## <a name="differences-between-salesforce-and-salesforce-legacy"></a> Salesforce connector lifecycle and upgrade
+
+The following table shows the release stage and change logs for different versions of the Salesforce connector:
+
+| Version  | Release stage           | Change log |
+| :------- | :---------------------- |:---------- |
+| Salesforce V1 | End of support announced | / |
+| Salesforce V2 | GA version available | • Support OAuth2ClientCredentials authentication instead of the basic authentication. <br><br> • Support SOQL query only.<br><br>• Support report by selecting a report ID.<br><br>• `readBehavior` is replaced with `includeDeletedObjects` in the copy activity source or the lookup activity.|
+
+### <a name="upgrade-the-salesforce-linked-service"></a> Upgrade the Salesforce connector from V1 to V2
 
 Here are steps that help you upgrade your Salesforce connector:
 
@@ -379,18 +388,7 @@ Here are steps that help you upgrade your Salesforce connector:
 
 1. If you use SQL query in the copy activity source or the lookup activity that refers to the V1 linked service, you need to convert them to the SOQL query. Learn more about SOQL query from [Salesforce as a source type](connector-salesforce.md#salesforce-as-a-source-type) and [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm).
 
-1. readBehavior is replaced with includeDeletedObjects in the copy activity source or the lookup activity. For the detailed configuration, see [Salesforce as a source type](connector-salesforce.md#salesforce-as-a-source-type).
-
-## <a name="differences-between-salesforce-and-salesforce-legacy"></a> Differences between Salesforce V2 and V1
-
-The Salesforce V2 connector offers new functionalities and is compatible with most features of Salesforce V1 connector. The following table shows the feature differences between V2 and V1.
-
-|Salesforce V2 |Salesforce V1|
-|:---|:---|
-|Support SOQL within [Salesforce Bulk API 2.0](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). <br>For SOQL queries:  <br>• GROUP BY, LIMIT, ORDER BY, OFFSET, or TYPEOF clauses aren't supported. <br>• Aggregate Functions such as COUNT() aren't supported, you can use Salesforce reports to implement them. <br>• Date functions in GROUP BY clauses aren't supported, but they're supported in the WHERE clause. <br>• Compound address fields or compound geolocation fields aren't supported. As an alternative, query the individual components of compound fields.  <br>• Parent-to-child relationship queries aren't supported, whereas child-to-parent relationship queries are supported. |Support both SQL and SOQL syntax. |
-| Objects that contain binary fields aren't supported when specifying query. | Objects that contain binary fields are supported when specifying query.|
-| Support objects within Bulk API when specifying query. | Support objects that are unsupported with Bulk API when specifying query.|
-|Support report by selecting a report ID.|Support report query syntax, like `{call "<report name>"}`.|
+1. `readBehavior` is replaced with `includeDeletedObjects` in the copy activity source or the lookup activity. For the detailed configuration, see [Salesforce as a source type](connector-salesforce.md#salesforce-as-a-source-type).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

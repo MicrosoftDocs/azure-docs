@@ -7,6 +7,7 @@ ms.service: azure-ddos-protection
 ms.topic: concept-article
 ms.date: 03/17/2025
 ms.author: abell
+# Customer intent: As a security architect, I want to implement best practices for Azure DDoS Protection, so that I can ensure my applications are resilient and secure against denial-of-service attacks while optimizing scalability and minimizing risk.
 ---
 # Azure DDoS Protection fundamental best practices
 

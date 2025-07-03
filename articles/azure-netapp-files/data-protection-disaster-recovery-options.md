@@ -5,8 +5,9 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 12/04/2024
+ms.date: 05/12/2025
 ms.author: anfdocs
+# Customer intent: "As a data administrator, I want to assess the data protection and disaster recovery options available in Azure NetApp Files, so that I can choose the most effective solutions to ensure data integrity and availability for my organization's needs."
 ---
 # Understand data protection and disaster recovery options in Azure NetApp Files
 
@@ -41,6 +42,8 @@ To learn more, see [How snapshots can be vaulted for long-term retention and cos
 
 Using snapshot technology, you can replicate your Azure NetApp Files across designated Azure regions to protect your data from unforeseeable regional failures. Cross-region replication minimizes data transfer costs, replicating only changed blocks across regions while also enabling a lower restore point objective.   
 
+Cross-region replication can be used in conjunction with cross-zone replication. For more information, see [configure cross-zone-region replication](cross-zone-region-replication-configure.md).
+
 ### Benefits 
 
 - Provides disaster recovery across regions 
@@ -52,6 +55,8 @@ To learn more, see [How volumes and snapshots are replicated cross-region for DR
 ## Cross-zone replication 
 
 Cross-zone replication leverages [availability zones](use-availability-zones.md) and the same replication engine as cross-region replication. This technology creating a fast and cost-effective solution for you to asynchronously replicate volumes from availability zone to another without the need for host-based data replication.  
+
+Cross-zone replication can be used in conjunction with cross-region replication. For more information, see [configure cross-zone-region replication](cross-zone-region-replication-configure.md).
 
 ### Benefits 
 
@@ -92,3 +97,4 @@ Fast data recovery (whole volume) | Revert volume from snapshot | Revert volume 
 * [Restore individual files using single-file snapshot restore](snapshots-restore-file-single.md)
 * [Restore a snapshot to a new volume](snapshots-restore-new-volume.md)
 * [Restore a volume using snapshot revert](snapshots-revert-volume.md)
+* [Understand cross-zone-region replication](cross-zone-region-replication.md)

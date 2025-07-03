@@ -8,6 +8,7 @@ ms.date: 03/15/2021
 ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+# Customer intent: As a cloud architect, I want to evaluate storage solutions from verified partners for container management, so that I can automate data protection and optimize storage management for our Kubernetes-based applications in Azure.
 ---
 
 # Azure Storage container management partners

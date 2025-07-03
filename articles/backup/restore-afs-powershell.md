@@ -2,15 +2,16 @@
 title: Restore Azure Files with PowerShell
 description: In this article, learn how to restore Azure Files using the Azure Backup service and PowerShell. 
 ms.topic: how-to
-ms.date: 03/05/2025
+ms.date: 06/03/2025
 ms.custom: devx-track-azurepowershell
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to restore backed-up Azure Files using PowerShell, so that I can quickly recover data from backup points to either the original or an alternate location as needed."
 ---
 
 # Restore Azure Files with PowerShell
 
-This article explains how to restore an entire File Share, or specific files, from a restore point created by the [Azure Backup](backup-overview.md) service using Azure PowerShell.
+This article explains how to restore an entire File Share, or specific files, from a restore point created by the [Azure Backup](backup-overview.md) service using Azure PowerShell. You can also restore Azure Files using [Azure portal](restore-afs.md), [Azure CLI](restore-afs-cli.md), [REST API](restore-azure-file-share-rest-api.md).
 
 You can restore an entire File Share or specific files on the share. You can restore to the original location, or to an alternate location.
 
@@ -18,7 +19,8 @@ You can restore an entire File Share or specific files on the share. You can res
 > Make sure the PowerShell version is upgraded to the minimum version for 'Az.RecoveryServices 2.6.0' for AFS backups. For more information, see [the section](backup-azure-afs-automation.md#important-notice-backup-item-identification) outlining the requirement for this change.
 
 >[!NOTE]
->Azure Backup now supports restoring multiple files or folders to the original or alternate Location using PowerShell. Refer to [this section](#restore-multiple-files-or-folders-to-original-or-alternate-location) of the document to learn how.
+>- Azure Files restore is only supported within the same subscription when using PowerShell or CLI.
+>- Azure Backup now supports restoring multiple files or folders to the original or alternate Location using PowerShell. Refer to [this section](#restore-multiple-files-or-folders-to-original-or-alternate-location) of the document to learn how.
 
 ## Fetch recovery points
 
@@ -169,4 +171,4 @@ If you want to restore multiple files or folders to alternate location, use the 
 
 ## Next steps
 
-[Learn about](restore-afs.md) restoring Azure Files in the Azure portal.
+Manage Azure Files backups using [Azure portal](manage-afs-backup.md), [Azure PowerShell](manage-afs-powershell.md), [Azure CLI](manage-afs-backup-cli.md), [REST API](manage-azure-file-share-rest-api.md).

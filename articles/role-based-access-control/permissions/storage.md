@@ -3,10 +3,10 @@ title: Azure permissions for Storage - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Storage category.
 ms.service: role-based-access-control
 ms.topic: generated-reference
-author: rolyon
-manager: femila
-ms.author: rolyon
-ms.date: 04/25/2025
+author: jenniferf-skc
+manager: pmwongera
+ms.author: jfields
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -311,18 +311,22 @@ Azure service: [Storage](/azure/storage/)
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.Storage/register/action | Registers the subscription for the storage resource provider and enables the creation of storage accounts. |
+> | Microsoft.Storage/unregister/action |  |
 > | Microsoft.Storage/register/action |  |
 > | Microsoft.Storage/checknameavailability/read | Checks that account name is valid and is not in use. |
 > | Microsoft.Storage/deletedAccounts/read |  |
 > | Microsoft.Storage/locations/deleteVirtualNetworkOrSubnets/action | Notifies Microsoft.Storage that virtual network or subnet is being deleted |
 > | Microsoft.Storage/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action |  |
 > | Microsoft.Storage/locations/previewActions/action |  |
+> | Microsoft.Storage/locations/ActionsRPOperationStatuses/write | Creates or updates an ActionsRP operation status |
+> | Microsoft.Storage/locations/ActionsRPOperationStatuses/read | Get an ActionsRP operation status |
 > | Microsoft.Storage/locations/checknameavailability/read | Checks that account name is valid and is not in use. |
 > | Microsoft.Storage/locations/usages/read | Returns the limit and the current usage count for resources in the specified subscription |
 > | Microsoft.Storage/operations/read |  |
 > | Microsoft.Storage/operations/read | Polls the status of an asynchronous operation. |
 > | Microsoft.Storage/resilienciesProgressions/read |  |
 > | Microsoft.Storage/skus/read | Lists the Skus supported by Microsoft.Storage. |
+> | Microsoft.Storage/storageAccounts/updateAutoRotateUserKeys/action |  |
 > | Microsoft.Storage/storageAccounts/updateAccountContainerHoldingPeriod/action |  |
 > | Microsoft.Storage/storageAccounts/updateInternalProperties/action |  |
 > | Microsoft.Storage/storageAccounts/consumerDataShare/action |  |
@@ -350,7 +354,6 @@ Azure service: [Storage](/azure/storage/)
 > | Microsoft.Storage/storageAccounts/accountMigrations/write | Customer is able to update their storage account redundancy for increased resiliency |
 > | Microsoft.Storage/storageAccounts/blobServices/read | List blob services |
 > | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Returns a user delegation key for the blob service |
-> | Microsoft.Storage/storageAccounts/blobServices/generateCrossTenantUserDelegationKey/action | Returns a cross tenant user delegation key for the blob service |
 > | Microsoft.Storage/storageAccounts/blobServices/getInfo/action |  |
 > | Microsoft.Storage/storageAccounts/blobServices/write | Returns the result of put blob service properties |
 > | Microsoft.Storage/storageAccounts/blobServices/read | Returns blob service properties or statistics |
@@ -387,7 +390,6 @@ Azure service: [Storage](/azure/storage/)
 > | Microsoft.Storage/storageAccounts/fileServices/write | Put file service properties |
 > | Microsoft.Storage/storageAccounts/fileServices/read | Get file service properties |
 > | Microsoft.Storage/storageAccounts/fileServices/generateUserDelegationKey/action | Returns a user delegation key for the file service |
-> | Microsoft.Storage/storageAccounts/fileServices/generateCrossTenantUserDelegationKey/action | Returns a cross tenant user delegation key for the file service |
 > | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource. |
 > | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource. |
 > | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/logDefinitions/read | Gets the log definition for File |
@@ -441,7 +443,6 @@ Azure service: [Storage](/azure/storage/)
 > | Microsoft.Storage/storageAccounts/queueServices/read | Returns queue service properties or statistics. |
 > | Microsoft.Storage/storageAccounts/queueServices/write | Returns the result of setting queue service properties |
 > | Microsoft.Storage/storageAccounts/queueServices/generateUserDelegationKey/action | Returns a user delegation key for the queue service |
-> | Microsoft.Storage/storageAccounts/queueServices/generateCrossTenantUserDelegationKey/action | Returns a cross tenant user delegation key for the queue service |
 > | Microsoft.Storage/storageAccounts/queueServices/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource. |
 > | Microsoft.Storage/storageAccounts/queueServices/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource. |
 > | Microsoft.Storage/storageAccounts/queueServices/providers/Microsoft.Insights/logDefinitions/read | Gets the log definition for Queue |
@@ -469,7 +470,6 @@ Azure service: [Storage](/azure/storage/)
 > | Microsoft.Storage/storageAccounts/tableServices/read | Get table service properties or statistics |
 > | Microsoft.Storage/storageAccounts/tableServices/write | Set table service properties |
 > | Microsoft.Storage/storageAccounts/tableServices/generateUserDelegationKey/action | Returns a user delegation key for the table service |
-> | Microsoft.Storage/storageAccounts/tableServices/generateCrossTenantUserDelegationKey/action | Returns a cross tenant user delegation key for the table service |
 > | Microsoft.Storage/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource. |
 > | Microsoft.Storage/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource. |
 > | Microsoft.Storage/storageAccounts/tableServices/providers/Microsoft.Insights/logDefinitions/read | Gets the log definition for Table |

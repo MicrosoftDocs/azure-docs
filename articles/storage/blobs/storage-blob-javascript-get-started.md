@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 10/28/2024
 ms.custom: template-how-to, devx-track-js, devguide-js, passwordless-js, devx-track-ts, devguide-ts
+# Customer intent: As a JavaScript or TypeScript developer, I want to connect my application to Azure Blob Storage, so that I can efficiently manage and interact with storage resources like containers and blobs.
 ---
 
 # Get started with Azure Blob Storage and JavaScript or TypeScript
@@ -29,7 +30,6 @@ If you're looking to start with a complete example, see the client library quick
 - [Node.js LTS](https://nodejs.org/)
 - [TypeScript](https://www.typescriptlang.org/download), if applicable
 - For client (browser) applications, you need [bundling tools](https://github.com/Azure/azure-sdk-for-js/blob/main/documentation/Bundling.md).
-- 
 
 ## Set up your project
 

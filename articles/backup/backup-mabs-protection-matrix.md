@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: linux-related-content, engagement-fy24
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to understand the Azure Backup Server v4 protection matrix, so that I can determine what workloads and data types I can back up and ensure my data protection strategy is effective."
 ---
 
 # MABS (Azure Backup Server) V4 (and later) protection matrix

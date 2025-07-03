@@ -7,6 +7,7 @@ ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 2/15/2023
 ms.author: kianaharris
+# Customer intent: "As a cloud architect, I want to ensure my environment meets all prerequisites for Azure HPC Cache deployment, so that I can successfully set up and optimize high-performance computing resources for data-intensive applications."
 ---
 
 # Prerequisites for Azure HPC Cache

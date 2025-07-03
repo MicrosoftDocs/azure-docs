@@ -1,13 +1,13 @@
 ---
 title: Optimize security operations
 description: Use Microsoft Sentinel SOC optimization recommendations to optimize your security operations center (SOC) team activities.
-ms.author: bagol
-author: batamig
-manager: raynew
+ms.author: abbyweisberg
+author: AbbyMSFT
+manager: orpsod
 ms.collection:
   - usx-security
 ms.topic: how-to
-ms.date: 10/16/2024
+ms.date: 05/06/2025
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
@@ -39,7 +39,7 @@ Watch the following video for an overview and demo of SOC optimization in the Mi
 
 ## Access the SOC optimization page
 
-Use one of the following tabs, depending on whether you're working in the Azure portal or Defender portal. When your workspace is onboarded for unified security operations, SOC optimizations include coverage from across Microsoft security services.
+Use one of the following tabs, depending on whether you're working in the Azure portal or Defender portal. When your workspace is onboarded to the Defender portal, SOC optimizations include coverage from across Microsoft security services.
 
 ### [Defender portal](#tab/defender-portal)
 
@@ -67,7 +67,7 @@ Supported metrics at the top of the **Overview** tab include:
 |---------|---------|
 |**Recent optimization value**    | Shows value gained based on recommendations you recently implemented |
 |**Data ingested**     | Shows the total data ingested in your workspace over the last 90 days. |
-|**Threat-based coverage optimizations**     |  Shows one of the following coverage indicators, based on the number of analytics rules found in your workspace, compared with the number of rules recommended by the Microsoft research team: <br>- **High**: Over 75% of recommended rules are activated <br>- **Medium**: 30%-74% of recommended rules are activated <br>- **Low**: 0%-29% of recommended rules are activated. <br><br>Select **View all threat scenarios** to view the full list of relevant threats, active and recommended detections, and coverage levels. Then, select a threat scenario to drill down for more details about the recommendation on a separate, threat scenario details page. |
+|**Threat-based coverage optimizations**     |  Shows one of the following coverage indicators, based on the number of analytics rules found in your workspace, compared with the number of rules recommended by the Microsoft research team: <br>- **High**: Over 75% of recommended rules are activated <br>- **Medium**: 30%-74% of recommended rules are activated <br>- **Low**: 0%-29% of recommended rules are activated. <br><br>Select **View all threat scenarios** to view the full list of relevant threat and risk-based scenarios, active and recommended detections, and coverage levels. Then, select a threat scenario to drill down for more details about the recommendation on a separate, threat scenario details page. |
 |**Optimization status**     | Shows the number of recommended optimizations that are currently active, completed, and dismissed.        |
 
 ### [Azure portal](#tab/azure-portal)
@@ -77,7 +77,7 @@ Supported metrics at the top of the **Overview** tab include:
 | **Ingested data over the last 3 months** | Shows the total data ingested in your workspace over the last three months. |
 |**Optimizations status**    | Shows the number of recommended optimizations that are currently active, completed, and dismissed.        |
 
-Select **See all threat scenarios** to view the full list of relevant threats, percentages of active and recommended analytics rules, and coverage levels.
+Select **See all threat scenarios** to view the full list of relevant threat and risk-based scenarios, percentages of active and recommended analytics rules, and coverage levels.
 
 ---
 
@@ -105,8 +105,10 @@ SOC optimization recommendations are calculated every 24 hours. Each optimizatio
 
 Filter the optimizations based on optimization type, or search for a specific optimization title using the search box on the side. Optimization types include:
 
-- **Coverage**: Includes threat-based recommendations for adding security controls to help close coverage gaps for various types of attacks.
-
+- **Coverage** : Includes recommendations to help you close coverage gaps against specific threats and tighten your ingestion rates against data that doesn't provide security value. Coverage recommendations include:
+    - **Threat-based recommendations** for adding security controls to help close coverage gaps for various types of attacks.
+    - **AI MITRE ATT&CK recommendations** for adding tagging recommendations to help close coverage gaps for various types of attacks, based on the MITRE ATT&CK framework.
+    - **Risk-based recommendations** for adding security controls to help close coverage gaps for various types of business risks.
 - **Data value**: Includes recommendations that suggest ways to improve your data usage for maximizing security value from ingested data, or suggest a better data plan for your organization.
 
 ### View optimization details and take action

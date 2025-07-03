@@ -5,12 +5,17 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/06/2025
+ms.date: 05/15/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
+# Customer intent: "As a database administrator, I want to configure cross-region replication for SAP HANA volumes, so that I can ensure disaster recovery capabilities for my database system."
 ---
 # Add volumes for an SAP HANA system as a DR system using cross-region replication
 
 This article describes using an application volume group to add volumes for an SAP HANA system as a disaster recovery (DR) system. This configuration uses Azure NetApp Files cross-region replication (CRR) functionality.
+
+[!INCLUDE [PowerShell & CLI call-out](includes/application-volume-group-powershell.md)]
 
 ## CRR between source and destination HANA servers
 

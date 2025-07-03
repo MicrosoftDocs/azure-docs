@@ -1,12 +1,13 @@
 ---
 title: Enable replication for on-premises machines with private endpoints 
 description: This article describes how to configure replication for on-premises machines by using private endpoints in Site Recovery. 
-author: ankitaduttaMSFT
-ms.author: ankitadutta
+author: jyothisuri
+ms.author: jsuri
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 12/19/2024
+ms.date: 05/11/2025
 ms.custom: subject-rbac-steps, engagement-fy23
+# Customer intent: As a system administrator, I want to configure private endpoints for on-premises machine replication to Azure, so that I can enhance security and control data traffic during disaster recovery operations.
 ---
 # Replicate on-premises machines by using private endpoints
 
@@ -16,15 +17,6 @@ a recovery vault is supported in all Azure Commercial & Government regions.
 
 >[!Note]
 >Automatic upgrades are not supported for Private Endpoints. [Learn more](upgrade-mobility-service-modernized.md).
-
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Create an Azure Backup Recovery Services vault to protect your machines.
-> * Enable a managed identity for the vault. Grant the permissions required to access the storage accounts to enable replication of traffic from on-premises to Azure target locations. Managed identity access for storage is required for Private Link access to the vault.
-> * Make DNS changes that are required for private endpoints.
-> * Create and approve private endpoints for a vault inside a virtual network.
-> * Create private endpoints for the storage accounts. You can continue to allow public or firewalled access for storage as needed. Creating a private endpoint to access storage isn't required for Azure Site Recovery.
 
   
 The following diagram shows the replication workflow for hybrid disaster
@@ -39,6 +31,7 @@ then create private endpoints in the bypass network. You can choose any form of 
 
 - Private links are supported in Site Recovery 9.35 and later.
 - You can create private endpoints only for new Recovery Services vaults that don't have any items registered to them. Therefore, you must create private endpoints before any items are added to the vault. See [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/) for pricing information.
+- Private endpoint for Recovery Services only supports dynamic IP addresses. Static IP addresses are not supported. 
 - When you create a private endpoint for a vault, the vault is locked down. It can be accessed only from networks that have private endpoints.
 - Microsoft Entra ID doesn't currently support private endpoints. So you need to allow outbound access from the secured Azure virtual network to IPs and fully qualified domain names that are required for Microsoft Entra ID to work in a region. As applicable, you can also use network security group tag "Microsoft Entra ID" and Azure Firewall tags to allow access to Microsoft Entra ID.
 - Five IP addresses are required in the bypass network where you create your private endpoint. When you create a private endpoint for the vault, Site Recovery creates five private links for access to its microservices.

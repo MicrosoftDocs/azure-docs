@@ -6,28 +6,28 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/28/2023
+ms.date: 06/16/2025
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal
 ---
 
 # Traffic splitting in Azure Container Apps
 
-By default, when ingress is enabled, all traffic is routed to the latest deployed revision. When you enable [multiple revision mode](revisions.md#revision-modes) in your container app, you can split incoming traffic between active revisions.  
+By default, when ingress are enabled, all traffic is routed to the latest deployed revision. When you enable [multiple revision mode](revisions.md#revision-modes) in your container app, you can split incoming traffic between active revisions.  
 
-Traffic splitting is useful for testing updates to your container app.  You can use traffic splitting to gradually phase in a new revision in [blue-green deployments](blue-green-deployment.md) or in [A/B testing](https://wikipedia.org/wiki/A/B_testing).
+Traffic splitting is useful for testing updates to your container app. You can use traffic splitting to gradually phase in a new revision in [blue-green deployments](blue-green-deployment.md) or in [A/B testing](https://wikipedia.org/wiki/A/B_testing).
 
-Traffic splitting is based on the weight (percentage) of traffic that is routed to each revision.  The combined weight of all traffic split rules must equal 100%.  You can specify revision by revision name or [revision label](revisions.md#labels).
+Traffic splitting is based on the weight (percentage) of traffic that is routed to each revision. The combined weight of all traffic split rules must equal 100%. You can specify revision by revision name or [revision label](revisions.md#labels).
 
 This article shows you how to configure traffic splitting rules for your container app. 
-To run the following examples, you need a container app with multiple revisions.  
+To run the following examples, you need a container app with multiple revisions. 
 
 
 ## Configure traffic splitting
 
 ::: zone pivot="azure-cli"
 
-Configure traffic splitting between revisions using the [`az containerapp ingress traffic set`](/cli/azure/containerapp/revision#az-containerapp-ingress-traffic-set) command.  You can specify the revisions by name with the `--revision-weight` parameter or by revision label with the `--label-weight` parameter.
+Configure traffic splitting between revisions using the [`az containerapp ingress traffic set`](/cli/azure/containerapp/revision#az-containerapp-ingress-traffic-set) command. You can specify the revisions by name with the `--revision-weight` parameter or by revision label with the `--label-weight` parameter.
 
 The following command sets the traffic weight for each revision to 50%:
 
@@ -79,7 +79,7 @@ az containerapp ingress traffic set \
 
 ::: zone pivot="azure-resource-manager"
 
-Enable traffic splitting by  adding the `configuration.ingress.traffic` properties to the `ingress` section of your container app template.  You can specify the revisions by name with the `revisionName` property or by revision label with the `label` property.
+Enable traffic splitting by adding the `configuration.ingress.traffic` properties to the `ingress` section of your container app template. You can specify the revisions by name with the `revisionName` property or by revision label with the `label` property.
 
 The following example sets 100% of traffic to the latest deployed revision:
 
@@ -153,7 +153,7 @@ The following example shows traffic splitting between two revisions by label:
 
 ## Use cases
 
-The following scenarios describe configuration settings for common use cases.  The examples are shown in JSON format, but you can also use the Azure portal or Azure CLI to configure traffic splitting.
+The following scenarios describe configuration settings for common use cases. The examples are shown in JSON format, but you can also use the Azure portal or Azure CLI to configure traffic splitting.
 
 ### Rapid iteration
 
