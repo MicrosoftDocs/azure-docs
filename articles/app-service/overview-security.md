@@ -12,7 +12,7 @@ ms.author: cephalin
 ---
 # Security in Azure App Service
 
-This article describes how [Azure App Service](overview.md) helps secure your web app, mobile app back end, API app, or [function app](/azure/azure-functions/index). The article also describes how to help secure your app further by using built-in App Service features.
+This article describes how [Azure App Service](overview.md) helps secure your web app, mobile app back end, API app, or [function app](/azure/azure-functions/index). The article also describes how you can help secure your app further by using built-in App Service features.
 
 [!INCLUDE [app-service-security-intro](../../includes/app-service-security-intro.md)]
 
@@ -20,7 +20,7 @@ The following sections describe more ways to help protect your App Service app f
 
 ## HTTPS and certificates
 
-You can use App Service to secure your apps through [HTTPS](https://wikipedia.org/wiki/HTTPS). When your app is created, its default domain name `<app_name>.azurewebsites.net` is already accessible via HTTPS. If you [configure a custom domain for your app](app-service-web-tutorial-custom-domain.md), help secure it with a [TLS/SSL certificate](configure-ssl-bindings.md) so that client browsers can make secure HTTPS connections to your custom domain.
+You can use App Service to secure your apps through [HTTPS](https://wikipedia.org/wiki/HTTPS). When your app is created, its default domain name `<app_name>.azurewebsites.net` is already accessible via HTTPS. If you [configure a custom domain for your app](app-service-web-tutorial-custom-domain.md), help [secure it with a TLS/SSL certificate](configure-ssl-bindings.md) so that client browsers can make secure HTTPS connections to your custom domain.
 
 App Service supports the following types of certificates:
 
@@ -33,29 +33,27 @@ For more information, see [Add and manage TLS/SSL certificates in Azure App Serv
 
 ### Unsecured protocols (HTTP, TLS 1.0, FTP)
 
-By default, App Service forces a redirect from HTTP requests to HTTPS. Unsecured requests are turned away before they reach your application code. To change this behavior, see [Configure general settings]((configure-common.md#configure-general-settings).
+By default, App Service forces a redirect from HTTP requests to HTTPS. Unsecured requests are redirected before they reach your application code. To change this behavior, see [Configure general settings](configure-common.md#configure-general-settings).
 
 Azure App Service supports the following [Transport Layer Security (TLS)](https://wikipedia.org/wiki/Transport_Layer_Security) versions for incoming requests to your web app:
 
 - TLS 1.3: The latest and most secure version.
 - TLS 1.2: The default minimum TLS version for new web apps.
-- TLS 1.1 and TLS 1.0: Versions supported for backward compatibility, but not considered secure by industry standards such as the [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard).
+- TLS 1.1 and TLS 1.0: Versions supported for backward compatibility, but not considered secure by industry standards such as the [Payment Card Industry Data Security Standard (PCI DSS)](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard).
 
 You can configure the minimum TLS version for incoming requests to your web app and its Source Control Manager (SCM) site. By default, the minimum is set to **TLS 1.2**. To enforce different TLS versions, see [Configure general settings]((configure-common.md#configure-general-settings).
 
-App Service supports both FTP and FTPS for deploying app files. New apps are set to accept FTPS only by default. To increase security, use FTPS instead of FTP if possible.
-
-Both **SCM Basic Auth Publishing Credentials** and **FTP Basic Auth Publishing Credentials** must be enabled to use FTP/S. These  credentials are disabled by default for new web apps. If you aren't using FTP or FTPS, you should [disable it](deploy-ftp.md#enforce-ftps). For more information, see [Deploy your app to Azure App Service using FTP/S](deploy-ftp.md).
+App Service supports both FTP and FTPS for deploying app files. New apps are set to accept only FTPS by default. To increase security, use FTPS instead of FTP if possible. If you aren't using FTP/S, you should [disable it](deploy-ftp.md#enforce-ftps). For more information, see [Deploy your app to Azure App Service using FTP/S](deploy-ftp.md).
 
 ## Static IP restrictions
 
-By default, your App Service app accepts requests from all internet IP addresses, but you can limit access to a subset of IP addresses. You can use App Service on Windows to define a list of IP addresses that are allowed to access your app. The allowed list can include individual IP addresses or a range of IP addresses that are defined by a subnet mask. For more information, see [Set up Azure App Service access restrictions](app-service-ip-restrictions.md).
+By default, your App Service app accepts requests from all internet IP addresses, but you can limit access to a subset of IP addresses. You can use App Service on Windows to define a list of IP addresses that are allowed to access your app. The allowed list can include individual IP addresses or a range of IP addresses defined by a subnet mask. For more information, see [Set up Azure App Service access restrictions](app-service-ip-restrictions.md).
 
 For App Service on Windows, you can also restrict IP addresses dynamically by configuring the *web.config* file. For more information, see [Dynamic IP Security \<dynamicIpSecurity>](/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## Client authentication and authorization
 
-You can implement your own authentication and authorization solution or allow App Service to handle it for you. App Service provides built-in authentication and authorization of users or client apps.
+App Service provides built-in authentication and authorization of users or client apps. You can implement your own authentication and authorization solution or allow App Service to handle it for you.
 
 When enabled, built-in authentication and authorization can sign in users and client apps with little or no application code. The authentication and authorization module handles web requests before passing them to your application code, and denies unauthorized requests.
 
@@ -71,7 +69,7 @@ When you authenticate against a back-end service, App Service provides two mecha
 
 ## Connectivity to remote resources
 
-Your app might need to access [Azure resources](#azure-resources), [on-premises resources](#on-premises-resources), or [resources inside an Azure virtual network](#resources-inside-an-azure-virtual-network). App Service provides a secure connection method for each of these scenarios, but you should also observe security best practices, such as always using encrypted connections even if the back-end resource allows unencrypted connections.
+Your app might need to access [Azure resources](#azure-resources), [on-premises resources](#on-premises-resources), or [resources inside an Azure virtual network](#resources-inside-an-azure-virtual-network). App Service provides a secure connection method for each of these scenarios. You should also observe security best practices, such as always using encrypted connections even if the back-end resource allows unencrypted connections.
 
 Also ensure that your back-end Azure service allows the smallest possible set of IP addresses. To find the outbound IP addresses for your app, see [Find outbound IPs](overview-inbound-outbound-ips.md#find-outbound-ips).
 
@@ -91,12 +89,12 @@ To isolate your resource connectivity completely from the shared networks in Azu
 
 You can securely access on-premises resources like databases in several different ways.
 
-- A [hybrid connection](app-service-hybrid-connections.md) establishes a point-to-point connection to your remote resource through a TCP tunnel that uses TLS 1.2 with shared access signature keys.
+- A [hybrid connection](app-service-hybrid-connections.md) establishes a point-to-point connection to your remote resource through a Transmission Control Protocol (TCP) tunnel that uses TLS 1.2 with shared access signature keys.
 - [Virtual network integration](overview-vnet-integration.md) or [App Service Environment](environment/intro.md) use a site-to-site VPN as described in [Resources inside an Azure virtual network](#resources-inside-an-azure-virtual-network), but the virtual network is connected to your on-premises network through the [site-to-site VPN](/azure/vpn-gateway/tutorial-site-to-site-portal). In this network topology, your app can connect to on-premises resources the same way it connects to other resources in the virtual network.
 
 ## Application secrets
 
-Don't store application secrets like database credentials, API tokens, and private keys in your code or configuration files, but access them as [environment variables](https://wikipedia.org/wiki/Environment_variable) by using the standard pattern in your code language. In App Service, you define environment variables through [app settings](configure-common.md#configure-app-settings) and, especially for .NET applications, [connection strings](configure-common.md#configure-connection-strings).
+Don't store application secrets like database credentials, API tokens, and private keys in your code or configuration files. Instead, access them as [environment variables](https://wikipedia.org/wiki/Environment_variable) using the standard pattern for your code language. In App Service, you define environment variables through [app settings](configure-common.md#configure-app-settings) and, especially for .NET applications, [connection strings](configure-common.md#configure-connection-strings).
 
 App settings and connection strings are stored encrypted in Azure and are decrypted just before they're injected into your app's process memory when the app starts. The encryption keys are rotated regularly.
 
