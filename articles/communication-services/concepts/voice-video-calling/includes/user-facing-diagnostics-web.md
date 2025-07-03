@@ -32,8 +32,6 @@ There are some minor differences in using **remote UFDs** and **local UFDs**. Th
 The following user-facing diagnostics are available:
 
 ### Network values
-
-
 | Name | Description | Possible values | Location | Use cases | Mitigation steps |
 | --- | --- | --- | --- | --- | --- |
 | noNetwork | There's no network available. | - Set to `True` when a call fails to start because there's no network available. <br/> - Set to `False` when there are ICE candidates present. | Local <br/> Remote | Device isn't connected to a network. | Ensure that the call has a reliable internet connection that can sustain a voice call. For more information, see the [Network optimization](../network-requirements.md#network-optimization) section. |
@@ -41,10 +39,9 @@ The following user-facing diagnostics are available:
 | networkReconnect | The connection was lost and the client is reconnecting to the network. | - Set to`Bad` when the network is disconnected <br/> - Set to `Poor`when the media transport connectivity is lost <br/> - Set to `Good` when a new session is connected. | Local <br/> Remote | Low bandwidth, no internet | Ensure that the call has a reliable internet connection that can sustain a voice call. For more information, see the [Network bandwidth requirement](../network-requirements.md#network-bandwidth) section. |
 | networkReceiveQuality | An indicator regarding incoming stream quality. | - Set to `Bad` when there's a severe problem with receiving the stream. <br/> - Set to `Poor` when there's a mild problem with receiving the stream. <br/> - Set to `Good` when there's no problem with receiving the stream. | Local <br/> Remote | Low bandwidth | Ensure that the call has a reliable internet connection that can sustain a voice call. For more information, see the [Network bandwidth requirement](../network-requirements.md#network-bandwidth) section. Suggest that the end user turn-off their camera to conserve available internet bandwidth. |
 | networkSendQuality | An indicator regarding outgoing stream quality. | - Set to `Bad` when there's a severe problem with sending the stream. <br/> - Set to `Poor` when there's a mild problem with sending the stream. <br/> - Set to `Good` when there's no problem with sending the stream. | Local <br/> Remote | Low bandwidth | Ensure that the call has a reliable internet connection that can sustain a voice call. For more information, see the [Network bandwidth requirement](../network-requirements.md#network-bandwidth) section. Also, suggest that the end user turn-off their camera to conserve available internet bandwidth. |
+| serverConnection | It shows whether a remote participant has unexpectedly disconnected from the call due to server loosing connection to client. | - Set to `Bad` when there's a severe problem with sending the stream. <br/> - Set to `Good` when there's no problem with sending the stream. | Remote | No internet connection between client and server infrastrucutre | Ensure that the call has a reliable internet connection that can sustain a voice call. For more information, see the [Network bandwidth requirement](../network-requirements.md#network-bandwidth) section.|
 
 ### Audio values
-
-
 | Name | Description | Possible values | Location | Use cases | Mitigation steps |
 | --- | --- | --- | --- | --- | --- |
 | noSpeakerDevicesEnumerated | there's no audio output device (speaker) on the user's system. | - Set to `True` when there are no speaker devices on the system, and speaker selection is supported. <br/> - Set to `False` when there's a least one speaker device on the system, and speaker selection is supported. | Local | All speakers are unplugged | When value set to `True`, consider giving visual notification to end user that their current call session doesn't have any speakers available. |
@@ -55,8 +52,6 @@ The following user-facing diagnostics are available:
 | microphonePermissionDenied | there's low volume from device or it's almost silent on macOS. | - Set to `True` when audio permission is denied from the system settings (audio). <br/> - Set to `False` on successful stream acquisition. <br/> Note: This diagnostic only works on macOS. | Local | Microphone permissions are disabled in the Settings. | When value is set to `True`, give visual notification to end user that they didn't enable permission to use microphone for an Azure Communication Services call. |
 
 ### Camera values
-
-
 | Name | Description | Possible values | Location | Use cases | Mitigation steps |
 | --- | --- | --- | --- | --- | --- |
 | cameraFreeze | Camera stops producing frames for more than 5 seconds. | - Set to `True` when the local video stream is frozen. This diagnostic means that the remote side is seeing your video frozen on their screen or it means that the remote participants aren't rendering your video on their screen. <br/> - Set to `False` when the freeze ends and users can see your video as per normal. | Local <br/> Remote | The Camera was lost during the call, or bad network caused the camera to freeze. | When value is set to `True`, consider giving notification to end user that the remote participant network might be bad. Suggest that the user turn-off their camera to conserve bandwidth. For more information, see [Network bandwidth requirement](../network-requirements.md#network-bandwidth) section on needed internet abilities for an Azure Communication Services call. |
@@ -66,8 +61,6 @@ The following user-facing diagnostics are available:
 | cameraStoppedUnexpectedly | Camera malfunction | - Set to `True` when camera enters stopped state unexpectedly. <br/> - Set to `False` when camera starts to successfully send video stream again. | Local <br/> Remote | Check camera is functioning correctly. | When value is set to `True`, give visual notification to end user that their camera is possibly having problems. (When value is set back to `False` remove notification). |
 
 ### Miscellaneous values
-
-
 | Name | Description | Possible values | Location | Use cases | Mitigation Steps |
 | --- | --- | --- | :--- | --- | --- |
 | screenshareRecordingDisabled | System screen sharing was denied from the preferences in Settings. | - Set to `True` when screen sharing permission is denied from the system settings (sharing). <br/> - Set to `False` on successful stream acquisition. <br/> Note: This diagnostic only works on macOS.Chrome. | Local <br/> Remote | Screen recording is disabled in Settings. | When value is set to `True`, give visual notification to end user that they didn't enable permission to share their screen for an Azure Communication Services call. |
