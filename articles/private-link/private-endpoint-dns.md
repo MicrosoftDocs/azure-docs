@@ -206,6 +206,8 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure Data Lake File System Gen2 (Microsoft.Storage/storageAccounts) | dfs </br> dfs_secondary | privatelink.dfs.core.windows.net | dfs.core.windows.net |
 >| Azure File Sync (Microsoft.StorageSync/storageSyncServices) | afs | privatelink.afs.azure.net | afs.azure.net |
 >| Azure Managed Disks (Microsoft.Compute/diskAccesses) | disks | privatelink.blob.core.windows.net | blob.core.windows.net |
+>| Azure Elastic SAN (Microsoft.ElasticSan/elasticSans) | volumegroup | privatelink.blob.core.windows.net | blob.storage.azure.net |
+
 
 ### Web
 
