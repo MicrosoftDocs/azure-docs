@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 09/09/2024
 ms.custom: engagement-fy25
+# Customer intent: As a cloud migration specialist, I want to understand the differences between agent-based and agentless dependency analysis in Azure Migrate so that I can choose the best approach for assessing my organization's server migration needs.
 ---
 
 # Discovery and dependency analysis - Common questions
@@ -89,6 +90,11 @@ For agentless visualization, you can view the dependency map of a single server 
 ## Can I visualize dependencies for groups of more than 10 servers?
 
 You can [visualize dependencies](./how-to-create-a-group.md#refine-a-group-with-dependency-mapping) for groups that have up to 10 servers. If you've a group that has more than 10 servers, we recommend that you split the group into smaller groups, and then visualize the dependencies.
+
+## How do I start discovering my infrastructure?
+
+To start discovering your on-premises infrastructure, you first decide the discovery method that best fits your needs. For more information on available discovery methods, see [Discovery methods](discovery-methods-modes.md).
+
 
 ## Next steps
 

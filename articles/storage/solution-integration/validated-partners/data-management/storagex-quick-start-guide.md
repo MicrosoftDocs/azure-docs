@@ -8,13 +8,14 @@ ms.date: 06/15/2021
 ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+# Customer intent: As a data administrator, I want to implement Data Dynamics StorageX in Azure, so that I can efficiently analyze and migrate file data to Azure storage solutions while minimizing disruption to production environments.
 ---
 
 # Migrate data to Azure with Data Dynamics StorageX
 
 This article helps you deploy Data Dynamics StorageX in Microsoft Azure. We introduce key concepts around how StorageX works, deployment prerequisites, installation process, and how-tos for operational guidance. For more in-depth information, visit [Data Dynamics Customer Portal](https://ddsupport.datadynamicsinc.com/).
 
-Data Dynamics StorageX is a Unified Unstructured Data Management platform that allows analyzing, managing, and moving data across heterogenous storage environments. Basic capabilities are:
+Data Dynamics StorageX is a Unified Unstructured Data Management platform that allows analyzing, managing, and moving data across heterogeneous storage environments. Basic capabilities are:
 - Data Movement capabilities
     - NAS to NAS (with or without Analysis)
     - NAS to Object replication

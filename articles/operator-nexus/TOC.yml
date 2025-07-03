@@ -102,6 +102,11 @@
       href: concepts-security-access-identity.md
     - name: Availability
       href: concepts-nexus-availability.md
+    - name: Credential
+      expanded: false
+      items:
+        - name: Baseboard Management Controller Credential Rotation Overview
+          href: concepts-baseboard-management-controller-credential-rotation.md
 - name: Quickstarts
   items:
     - name: Before you start workload deployment
@@ -423,6 +428,8 @@
           items:
             - name: Due To Bare Metal Machine Power Failure
               href: troubleshoot-kubernetes-cluster-stuck-workloads-due-to-power-failure.md
+        - name: Troubleshoot a Kubernetes Cluster Node in NotReady,Scheduling Disabled after Runtime Upgrade
+          href: troubleshoot-kubernetes-cluster-node-cordoned.md
     - name: Storage Appliance
       expanded: false
       items:
@@ -483,6 +490,8 @@
           href: reference-acl-examples.md
     - name: Operator Nexus SKUs
       href: reference-operator-nexus-skus.md
+    - name: Password By Key Vault Reference
+      href: reference-key-vault-credential.md
 - name: Release Notes
   items:
     - name: 2024

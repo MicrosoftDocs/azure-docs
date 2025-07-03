@@ -7,6 +7,7 @@ author: jyothisuri
 ms.author: jsuri
 ms.service: azure-backup
 ms.custom: engagement-fy24
+# Customer intent: As a database administrator, I want to configure Azure Backup Server to back up SQL Server databases, so that I can ensure data protection and recovery capabilities for my organization's critical SQL databases.
 ---
 
 # Back up SQL Server to Azure using Azure Backup Server
@@ -22,7 +23,7 @@ Microsoft Azure Backup Server (MABS) provides backup and recovery for SQL Server
 
 - MABS v3 UR2, MABS v4, or later supports SQL Server Failover Cluster Instance (FCI) using Cluster Shared Volume (CSV).
 - Protection of SQL Server FCI with Storage Spaces Direct on Azure, and SQL Server FCI with Azure shared disks is supported with this feature. The DPM server must be deployed in the Azure Virtual Machine to protect the SQL FCI instance, deployed on the Azure VMs.
-- A SQL Server Always On availability group with theses preferences:
+- A SQL Server Always On availability group with these preferences:
   - Prefer Secondary
   - Secondary only
   - Primary

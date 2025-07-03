@@ -9,6 +9,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 06/26/2023
 ms.author: shaas
+# Customer intent: As a cloud storage administrator, I want to manage blob containers using the Azure portal, so that I can effectively organize, secure, and control access to large volumes of unstructured data.
 ---
 
 # Manage blob containers using the Azure portal

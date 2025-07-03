@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 04/05/2024
 ms.author: allensu
 #Customer intent: As an administrator, I want to resolve on-premises domains in Azure and resolve Azure private zones on-premises.
+# Customer intent: As an IT administrator, I want to configure hybrid DNS resolution between Azure and on-premises domains, so that I can ensure seamless access to resources across both environments.
 ---
 
 # Resolve Azure and on-premises domains

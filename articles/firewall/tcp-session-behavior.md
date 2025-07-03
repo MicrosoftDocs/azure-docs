@@ -7,6 +7,7 @@ ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 03/25/2025
 ms.author: duau
+# Customer intent: As a network administrator, I want to understand the TCP session management and idle timeout behavior of Azure Firewall, so that I can configure settings to optimize network performance and prevent disruption of long-running connections for critical applications.
 ---
 
 # Understanding Azure Firewall TCP session management and idle timeout behavior
@@ -56,6 +57,9 @@ When a TCP connection is terminated due to an idle timeout, the Azure Firewall s
 - **East-west traffic**: Azure Firewall doesn't send a reset packet (RST) when an idle timeout occurs. This behavior can cause unexpected issues in applications. Configure a keep-alive mechanism within your application to keep long-running sessions active and prevent disruptions during scale-in, maintenance, or autorecovery events.
 
 Certain applications, such as traditional SAP GUI and SAP Remote Function Call (RFC)-based applications, are sensitive to session resets and can experience connectivity issues when sessions are terminated unexpectedly. To avoid these issues, you can implement a retry logic in your application to handle session resets gracefully. This mechanism should include logic to re-establish connections and resume operations seamlessly.
+
+> [!NOTE]
+> If you're running SAP workloads through an Azure Firewall, test your configuration and review the [SAP design documentation](/azure/sap/workloads/deployment-checklist?tabs=pilot#pilot-phase-strongly-recommended) to ensure a successful Azure deployment.
 
 ## Next steps
 

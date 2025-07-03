@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: akashdubey
 ms.custom: devx-track-azurecli, engagement
+# Customer intent: As a cloud engineer, I want to upgrade my general-purpose v1 storage account to a general-purpose v2 account, so that I can take advantage of the latest features and optimize my storage costs based on access tiers.
 ---
 
 # Upgrade to a general-purpose v2 storage account

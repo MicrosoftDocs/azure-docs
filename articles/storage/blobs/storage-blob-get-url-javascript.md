@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a developer, I want to retrieve URLs for Azure storage containers and blobs using JavaScript or TypeScript, so that I can easily access and manage stored data programmatically.
 ---
 
 # Get a URL for a container or blob with JavaScript or TypeScript

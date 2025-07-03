@@ -6,6 +6,7 @@ author: dlepow
 ms.author: danlep
 ms.topic: how-to
 ms.date: 06/04/2025
+ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ms.custom: template-how-to
 ---
@@ -24,7 +25,7 @@ Learn more about managing AI APIs in API Management:
 
 API Management supports two types of language model APIs for this scenario. Choose the option suitable for your model deployment. The option determines how clients call the API and how the API Management instance routes requests to the AI service.
 
-* **OpenAI-compatible** - Language model endpoints that are compatible with OpenAI's API. Examples include certain models exposed by inference providers such as [Hugging Face Text Generation Inference (TGI)](https://huggingface.co/docs/text-generation-inference/en/index) and [Google Gemini API](https://ai.google.dev/gemini-api/docs).
+* **OpenAI-compatible** - Language model endpoints that are compatible with OpenAI's API. Examples include certain models exposed by inference providers such as [Hugging Face Text Generation Inference (TGI)](https://huggingface.co/docs/text-generation-inference/en/index) and [Google Gemini API](openai-compatible-google-gemini-api.md).
 
     For an OpenAI-compatible LLM, API Management configures a chat completions endpoint. 
 

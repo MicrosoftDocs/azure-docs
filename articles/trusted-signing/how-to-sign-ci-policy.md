@@ -1,8 +1,8 @@
 ---
 title: Sign a CI policy 
 description: Learn how to sign new CI policies by using Trusted Signing.  
-author: microsoftshawarma 
-ms.author: rakiasegev 
+author: TacoTechSharma
+ms.author: mesharm 
 ms.service: trusted-signing
 ms.topic: how-to 
 ms.date: 06/03/2024 

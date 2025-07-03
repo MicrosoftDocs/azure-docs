@@ -3,7 +3,7 @@ title: Getting Started Guide for Microsoft Planetary Computer Pro
 description: "Get started with Microsoft Planetary Computer Pro: Deploy GeoCatalog, manage geospatial data with STAC collections, ingest assets, and explore datasets via APIs."
 author: prasadko
 ms.author: prasadkomma
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: get-started
 ms.date: 05/08/2025
 #customer intent: As a new customer, I want to learn how to use Microsoft Planetary Computer Pro to solve my geospatial data management challenges.
@@ -71,7 +71,7 @@ The recommended and most secure method for ingesting data is to have the data st
 
 ### Get your data ready for Ingestion
 > [!div class="checklist"]
-> * [Setup Managed Identity Access to your Azure Blob Storage](./set-up-ingestion-credentials-managed-identity.md)
+> * [Set up Managed Identity Access to your Azure Blob Storage](./set-up-ingestion-credentials-managed-identity.md)
 > * [Create STAC Items for your data](./create-stac-item.md)
 > * Ingest Your Data a [single item at a time](./add-stac-item-to-collection.md) or through [bulk ingestion](./bulk-ingestion-api.md)
 
@@ -91,7 +91,7 @@ Planetary Computer Pro's Tiler service [requires configuration](./collection-con
 > [!div class="checklist"]
 > * [Review Supported Data Types](./supported-data-types.md)
 > * [Configure Mosaic Settings](./mosaic-configurations-for-collections.md)
-> * [Setup Rendering](./render-configuration.md)
+> * [Set up Rendering](./render-configuration.md)
 > * [Adjust Tile Settings](./tile-settings.md)
 
 
@@ -110,7 +110,7 @@ Planetary Computer Pro supports [connecting collections to ESRI's ArcGIS Pro Ser
 ## Get help
 
 1. Review the [rest of the documentation](/azure/planetary-computer) for relevant articles
-2. [Check out Microsoft Q&A](https://learn.microsoft.com/answers/tags/133/azure) to ask a question or find answers from others
+2. [Check out Microsoft Q&A](/answers/tags/133/azure) to ask a question or find answers from others
 3. [File a Support Ticket](https://azure.microsoft.com/support/create-ticket)
 
 

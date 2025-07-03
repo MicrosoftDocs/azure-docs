@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.author: jsuri
 ms.date: 05/27/2021
 
+# Customer intent: As a disaster recovery planner, I want to analyze cost estimations for VMware disaster recovery in Azure, so that I can make informed decisions about budget allocation for storage, compute, and licensing costs.
 ---
 # Review cost estimations in the VMware Deployment Planner 
 

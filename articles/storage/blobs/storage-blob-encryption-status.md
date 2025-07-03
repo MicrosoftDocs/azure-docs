@@ -12,6 +12,7 @@ ms.author: normesta
 ms.reviewer: ozgun
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
+# Customer intent: "As a cloud administrator, I want to check the encryption status of a blob using the portal, PowerShell, or CLI, so that I can ensure that sensitive data is protected in compliance with security policies."
 ---
 
 # Check the encryption status of a blob

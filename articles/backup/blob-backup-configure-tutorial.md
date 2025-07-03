@@ -2,10 +2,11 @@
 title: Tutorial - Configure vaulted backup for Azure Blobs using Azure Backup
 description: In this tutorial, learn how to configure vaulted backup for Azure Blobs.
 ms.topic: tutorial
-ms.date: 04/17/2025
+ms.date: 06/17/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to configure the vaulted backup for Azure Blobs, so that I can ensure data is securely backed up and retained according to our organizational policies.
 ---
 
 # Tutorial: Configure vaulted backup for Azure Blobs using Azure Backup
@@ -42,6 +43,7 @@ For more information about the supported scenarios, limitations, and availabilit
 
 ## Related content
 
+- Restore Azure Blobs by Azure Backup using [Azure PowerShell](restore-blobs-storage-account-ps.md), [Azure CLI](restore-blobs-storage-account-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).
 - [Create a backup policy for  Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md).
 - [Back up Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-backup-blobs.md).
 - [Restore Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).

@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 03/25/2025
 ms.author: jsuri
 
+# Customer intent: "As an IT administrator managing disaster recovery, I want to unregister servers and disable protection for virtual machines and physical servers, so that I can effectively manage and streamline our backup processes and reduce unnecessary costs."
 ---
 
 # Remove servers and disable protection

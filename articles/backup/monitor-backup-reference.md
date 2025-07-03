@@ -7,6 +7,7 @@ ms.topic: reference
 author: FuzziWumpus
 ms.author: mkluck
 ms.service: azure-backup
+# Customer intent: "As a cloud operations engineer, I want to access detailed monitoring data for Azure Backup, so that I can effectively track performance and ensure reliable data protection for our applications."
 ---
 
 # Azure Backup monitoring data reference

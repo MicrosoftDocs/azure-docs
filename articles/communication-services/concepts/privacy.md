@@ -99,7 +99,9 @@ For customers that use Virtual appointments, refer to our Teams Interoperability
 
 ### SMS
 
-The service temporarily processes sent and received SMS messages and they aren't retained.
+ACS temporarily processes SMS message content and associated metadata (e.g., sender and recipient phone numbers, timestamps) only for the purposes of delivery and troubleshooting. ACS does not retain the contents of SMS messages after successful delivery or failure notification. Messages are held only in transient memory for the duration needed to route and deliver them through our messaging infrastructure. ACS does not store customer message data for retrieval or future use.
+
+The service temporarily processes sent and received SMS messages and they aren't retained. 
 
 ### PSTN voice calling
 

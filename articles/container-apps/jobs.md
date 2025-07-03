@@ -36,7 +36,7 @@ The following table compares common scenarios for apps and jobs:
 | A job that processes a single message or a small batch of messages from an Azure queue and exits | Job | Use the *Event* job type and [configure a custom scale rule](tutorial-event-driven-jobs.md) to trigger job executions when there are messages in the queue. |
 | A background task that's triggered on-demand and exits when finished | Job | Use the *Manual* job type and [start executions](#start-a-job-execution-on-demand) manually or programmatically using an API. |
 | A self-hosted GitHub Actions runner or Azure Pipelines agent | Job | Use the *Event* job type and configure a [GitHub Actions](tutorial-ci-cd-runners-jobs.md?pivots=container-apps-jobs-self-hosted-ci-cd-github-actions) or [Azure Pipelines](tutorial-ci-cd-runners-jobs.md?pivots=container-apps-jobs-self-hosted-ci-cd-azure-pipelines) scale rule. |
-| An Azure Functions app | App | [Deploy Azure Functions to Container Apps](../azure-functions/functions-container-apps-hosting.md). |
+| An Azure Functions app | App | [Deploy Azure Functions to Container Apps](../container-apps/functions-overview.md). |
 | An event-driven app using the Azure WebJobs SDK | App | [Configure a scale rule](scale-app.md#custom) for each event source. |
 
 ## Concepts

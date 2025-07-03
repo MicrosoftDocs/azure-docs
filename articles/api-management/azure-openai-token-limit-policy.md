@@ -10,6 +10,7 @@ ms.custom:
   - build-2024
 ms.topic: reference
 ms.date: 02/18/2025
+ms.update-cycle: 180-days
 ms.author: danlep
 ---
 
@@ -17,7 +18,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
-The `azure-openai-token-limit` policy prevents Azure OpenAI Service API usage spikes on a per key basis by limiting consumption of language model tokens to a specified rate (number per minute), a quota over a specified period, or both. When a specified token rate limit is exceeded, the caller receives a `429 Too Many Requests` response status code. When a specified quota is exceeded, the caller receives a `403 Forbidden` response status code.
+The `azure-openai-token-limit` policy prevents Azure OpenAI in Foundry Models API usage spikes on a per key basis by limiting consumption of language model tokens to a specified rate (number per minute), a quota over a specified period, or both. When a specified token rate limit is exceeded, the caller receives a `429 Too Many Requests` response status code. When a specified quota is exceeded, the caller receives a `403 Forbidden` response status code.
 
 By relying on token usage metrics returned from the OpenAI endpoint, the policy can accurately monitor and enforce limits in real time. The policy also enables precalculation of prompt tokens by API Management, minimizing unnecessary requests to the OpenAI backend if the limit is already exceeded.
 
@@ -69,8 +70,8 @@ By relying on token usage metrics returned from the OpenAI endpoint, the policy 
 ### Usage notes
 
 * This policy can be used multiple times per policy definition.
-* This policy can optionally be configured when adding an API from the Azure OpenAI Service using the portal.
-* Where available when `estimate-prompt-tokens` is set to `false`, values in the usage section of the response from the Azure OpenAI Service API are used to determine token usage.
+* This policy can optionally be configured when adding an API from the Azure OpenAI using the portal.
+* Where available when `estimate-prompt-tokens` is set to `false`, values in the usage section of the response from the Azure OpenAI API are used to determine token usage.
 * Certain Azure OpenAI endpoints support streaming of responses. When `stream` is set to `true` in the API request to enable streaming, prompt tokens are always estimated, regardless of the value of the `estimate-prompt-tokens` attribute. Completion tokens are also estimated when responses are streamed.
 * For models that accept image input, image tokens are generally counted by the backend language model and included in limit and quota calculations. However, when streaming is used or `estimate-prompt-tokens` is set to `true`, the policy currently over-counts each image as a maximum count of 1200 tokens.
 * [!INCLUDE [api-management-rate-limit-key-scope](../../includes/api-management-rate-limit-key-scope.md)]

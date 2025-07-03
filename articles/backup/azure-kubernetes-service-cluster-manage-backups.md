@@ -7,9 +7,10 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
   - ignite-2024
-ms.date: 01/16/2025
+ms.date: 06/18/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to manage backups for Azure Kubernetes Service clusters using Azure Backup, so that I can ensure data protection and recovery for my applications and services."
 ---
 
 # Manage Azure Kubernetes Service backups using Azure Backup 
@@ -22,8 +23,9 @@ In addition, it helps to describe how to manage backup for the Azure Kubernetes 
 
 ## Resource provider registrations
 
-- You must register these resource providers on the subscription before initiating any backup and restore operation.
-- Once the registration is complete, you can perform backup and restore operations on all the cluster under the subscription.
+Resource Provider registration is required for installing the Backup Extension, and initiating any backup and restore operation. You can  do this registration as a Subscription Owner. Generally, the Resource Provider is already registered in an Azure subscription. If not, register the `Microsoft.KubernetesConfiguration` resource provider.
+
+After the registration is complete, you can perform backup and restore operations on all the cluster under the subscription.
 
 ### Register the Backup Extension
 

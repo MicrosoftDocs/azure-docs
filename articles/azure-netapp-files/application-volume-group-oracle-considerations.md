@@ -11,6 +11,7 @@ ms.date:  01/29/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
+# Customer intent: As a database administrator, I want to understand the requirements and considerations for deploying an application volume group for Oracle using Azure NetApp Files, so that I can ensure optimal performance and scalability for my Oracle workloads in the cloud.
 ---
 # Requirements and considerations for Azure NetApp Files application volume group for Oracle 
 

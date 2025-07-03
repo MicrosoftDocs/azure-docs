@@ -1,6 +1,176 @@
 {
   "redirections": [
     {
+      "source_path": "articles/fxt-edge-filer/add-nodes.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/add-nodes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/add-storage.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/add-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/additional-doc.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/additional-doc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/cluster-create.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/cluster-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/configure-network.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/configure-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/index.yml",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/install.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/monitor.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/mount-clients.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/mount-clients",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/network-power.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/network-power",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/node-password.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/node-password",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/overview.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/port-list.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/port-list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/power-off.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/power-off",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/specs.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/specs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/support-ticket.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/support-ticket",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/fxt-edge-filer/supported-ciphers.md",
+      "redirect_url": "/previous-versions/azure/fxt-edge-filer/supported-ciphers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/azure-elastic-storage-area-network-backup-manage.md",
+      "redirect_url": "/azure/backup/azure-elastic-san-backup-manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/azure-elastic-storage-area-network-backup-restore.md",
+      "redirect_url": "/azure/backup/azure-elastic-san-backup-restore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/azure-elastic-storage-area-network-backup-configure.md",
+      "redirect_url": "/azure/backup/azure-elastic-san-backup-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/azure-elastic-storage-area-network-backup-support-matrix.md",
+      "redirect_url": "/azure/backup/azure-elastic-san-backup-support-matrix",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/azure-elastic-storage-area-network-backup-overview.md",
+      "redirect_url": "/azure/backup/azure-elastic-san-backup-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-traffic-manager.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-traffic-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/quickstart-create-front-door.md",
+      "redirect_url": "/previous-versions/azure/frontdoor/quickstart-create-front-door",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/quickstart-create-front-door-terraform.md",
+      "redirect_url": "/previous-versions/azure/frontdoor/quickstart-create-front-door-terraform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/quickstart-create-front-door-template.md",
+      "redirect_url": "/previous-versions/azure/frontdoor/quickstart-create-front-door-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/quickstart-create-front-door-powershell.md",
+      "redirect_url": "/previous-versions/azure/frontdoor/quickstart-create-front-door-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/quickstart-create-front-door-cli.md",
+      "redirect_url": "/previous-versions/azure/frontdoor/quickstart-create-front-door-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/quickstart-create-front-door-bicep.md",
+      "redirect_url": "/previous-versions/azure/frontdoor/quickstart-create-front-door-bicep",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-application-and-service-availability-faq.yml",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-application-and-service-availability-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-configuration-and-management-faq.yml",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-configuration-and-management-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-connectivity-and-networking-faq.yml",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-connectivity-and-networking-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/cloud-services-deployment-faq.yml",
+      "redirect_url": "/previous-versions/azure/cloud-services/cloud-services-deployment-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloud-services/index.yml",
+      "redirect_url": "/previous-versions/azure/cloud-services/index",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/private-multi-access-edge-compute-mec/index.yml",
       "redirect_url": "/previous-versions/azure/private-multi-access-edge-compute-mec/index",
       "redirect_document_id": false
@@ -2347,6 +2517,16 @@
     {
       "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-cross-premises-options.md",
       "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/gateway-sku-change.md",
+      "redirect_url": "/azure/vpn-gateway/gateway-sku-upgrade",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/gateway-sku-resize.md",
+      "redirect_url": "/azure/vpn-gateway/gateway-sku-upgrade",
       "redirect_document_id": false
     },
     {
@@ -6998,6 +7178,32 @@
       "source_path": "articles/cyclecloud/release-notes/ccws/2025.02.06.md",
       "redirect_url": "/azure/cyclecloud/release-notes/ccws/2025-02-06",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/sre-agent-overview.md",
+      "redirect_url": "/azure/sre-agent/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/sre-agent-usage.md",
+      "redirect_url": "/azure/sre-agent/usage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/tutorial-sre-agent.md",
+      "redirect_url": "/azure/sre-agent/troubleshoot-azure-app-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/container-apps/sre-agent-troubleshoot.md",
+      "redirect_url": "/azure/sre-agent/troubleshoot-azure-container-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/whats-new.md",
+      "redirect_url": "/azure/reliability/overview",
+      "redirect_document_id": false
     }
   ]
 }
+
