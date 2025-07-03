@@ -5,9 +5,10 @@ description: Learn how to configure an ASP.NET app in Azure App Service. This ar
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-dotnet
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 07/07/2025
 author: cephalin
 ms.author: cephalin
+#customer intent: As an ASP.NET developer, I want to configure an ASP.NET app using Azure App Service to take advantage the Azure features.
 ---
 
 # Configure an ASP.NET app for Azure App Service
@@ -73,7 +74,7 @@ ConfigurationManager.ConnectionStrings["MyConnection"];
 }
 ```
 
-If you configure an app setting with the same name in App Service and in *web.config*, the App Service value takes precedence over the *web.config* value. The local *web.config* value lets you debug the app locally, but the App Service value lets your run the app in product with production settings. Connection strings work in the same way. This way, you can keep your application secrets outside of your code repository and access the appropriate values without changing your code.
+If you configure an app setting with the same name in App Service and in *web.config*, the App Service value takes precedence over the *web.config* value. The local *web.config* value lets you debug the app locally. The App Service value lets your run the app in product with production settings. Connection strings work in the same way. This way, you can keep your application secrets outside of your code repository and access the appropriate values without changing your code.
 
 > [!NOTE]
 > Consider more secure connectivity options that don't require connection secrets at all. For more information, see [Secure connectivity to Azure services and databases from Azure App Service](tutorial-connect-overview.md).
@@ -81,7 +82,7 @@ If you configure an app setting with the same name in App Service and in *web.co
 
 ## Deploy multi-project solutions
 
-When a Visual Studio solution includes multiple projects, the Visual Studio publish process already includes selecting the project to deploy. When you deploy to the App Service deployment engine, such as with Git, or with ZIP deploy [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the App Service deployment engine picks the first Web Site or Web Application Project it finds as the App Service app. You can specify which project App Service should use by specifying the `PROJECT` app setting. For example, run the following command in the [Cloud Shell](https://shell.azure.com):
+When a Visual Studio solution includes multiple projects, the Visual Studio publish process includes selecting the project to deploy. When you deploy to the App Service deployment engine, such as with Git, or with ZIP deploy [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the App Service deployment engine picks the first Web Site or Web Application Project it finds as the App Service app. You can specify which project App Service should use by specifying the `PROJECT` app setting. For example, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings PROJECT="<project-name>/<project-name>.csproj"
@@ -89,7 +90,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## Get detailed exceptions page
 
-When your ASP.NET app generates an exception in the Visual Studio debugger, the browser displays a detailed exception page. A generic error message replaces that page in App Service. To display the detailed exception page in App Service, open the *Web.config* file and add the `<customErrors mode="Off"/>` element under the `<system.web>` element. For example:
+When your ASP.NET app generates an exception in the Visual Studio debugger, the browser displays a detailed exception page. A generic error message replaces that page in App Service. To display the detailed exception page in App Service, open the *web.config* file and add the `<customErrors mode="Off"/>` element under the `<system.web>` element. For example:
 
 ```xml
 <system.web>
@@ -97,7 +98,7 @@ When your ASP.NET app generates an exception in the Visual Studio debugger, the 
 </system.web>
 ```
 
-Redeploy your app with the updated *Web.config*. You should now see the same detailed exception page.
+Redeploy your app with the updated *web.config*. You should now see the same detailed exception page.
 
 ## Access diagnostic logs
 
