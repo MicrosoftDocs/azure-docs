@@ -132,6 +132,7 @@ The following mount options are recommended or required when mounting NFS Azure 
 | `noresvport` | n/a | Recommended for kernels below 5.18. Tells the NFS client to use a nonprivileged source port when communicating with an NFS server for the mount point. Using the `noresvport` mount option helps ensure that your NFS share has uninterrupted availability after a reconnection. Using this option is recommended for achieving high availability. |
 | `actimeo` | 30-60 | Recommended. Specifying `actimeo` sets all of `acregmin`, `acregmax`, `acdirmin`, and `acdirmax` to the same value. Using a value lower than 30 seconds can cause performance degradation because attribute caches for files and directories expire too quickly. We recommend setting `actimeo` between 30 and 60 seconds. |
 | `nconnect` | 4 | Recommended. Nconnect increases performance by using multiple TCP connections between the client and your NFS share. We recommend configuring the mount options with the optimal setting of nconnect=4. Currently, there are no gains beyond four channels for the Azure Files implementation of nconnect. |
+| `Clear` | n/a | A non-TLS mount may fail if a prior TLS mount to the same server ended abruptly, leaving stale entries. To resolve this issue, remount the share using the clean option, which immediately clears any stale entries. |
 
 ## Step 3: Validate connectivity
 
