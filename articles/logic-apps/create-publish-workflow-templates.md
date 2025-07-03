@@ -212,11 +212,13 @@ The **Profile** tab specifies information about your template that appears in th
 
 1. On the **Summary** tab, review and confirm all the provided information.
 
-#### Publish to testing or production
+#### Publish for testing
 
 When you're ready to test your template, you can publish your template for testing.
 
-1. On the **Summary** tab or any other preceding tab, at the tab bottom, select **Save** > **Save + publish for testing**.
+1. On the **Summary** tab or a preceding tab, at the tab bottom, from the **Save** list, select **Save + publish for testing**.
+
+   :::image type="content" source="media/create-publish-workflow-templates/publish-testing.png" alt-text="Screenshot shows Azure portal, Profile tab, and option selected for Save + publish for testing." lightbox="media/create-publish-workflow-templates/publish-testing.png":::
 
    Azure publishes the template, which displays the **Testing** label, to the templates gallery.
 
@@ -230,9 +232,19 @@ When you're ready to test your template, you can publish your template for testi
 
    1. Finish creating your workflow, testing your template, and making any necessary adjustments.
 
-   1. When you're ready to publish your template for production, on any tab in the template wizard, select **Save** > **Save + publish for production**.
+#### Publish for production
 
-      This step updates the template label from **Testing** to **Production** in the templates gallery.
+To change the template label from **Testing** to **Production** in the templates gallery, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com), find and open your template resource.
+
+1. On the template sidebar, under **Template**, select **Template**.
+
+1. On the **Template** page, select **Next** and repeat until you open the **Profile** tab.
+
+1. From the **Save** list, select **Save + publish for production**.
+
+   :::image type="content" source="media/create-publish-workflow-templates/publish-production.png" alt-text="Screenshot shows Azure portal, Profile tab, and option selected for Save + publish for production." lightbox="media/create-publish-workflow-templates/publish-production.png":::
 
 #### Remove template from gallery
 
@@ -246,7 +258,7 @@ If you want to temporarily or permanently remove your custom workflow template f
 
 1. From the **Save** list, select **Save + unpublish template**.
 
-   :::image type="content" source="media/create-publish-workflow-templates/remove-template.png" alt-text="{alt-text}" lightbox="media/create-publish-workflow-templates/remove-template.png":::
+   :::image type="content" source="media/create-publish-workflow-templates/remove-template.png" alt-text="Screenshot shows Azure portal, Profile tab, and option selected for Save + unpublish template." lightbox="media/create-publish-workflow-templates/remove-template.png":::
 
 ### [All Azure](#tab/all-azure)
 
