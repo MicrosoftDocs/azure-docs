@@ -6,6 +6,7 @@ ms.service: azure-avere-vfxt
 ms.topic: concept-article
 ms.date: 01/13/2020
 ms.author: rohogue
+# Customer intent: "As an Avere cluster administrator, I want to access comprehensive documentation on Avere vFXT management, so that I can effectively configure and monitor my cloud cluster for optimal performance."
 ---
 
 # Additional documentation

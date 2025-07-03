@@ -7,6 +7,7 @@ ms.service: azure-ddos-protection
 ms.topic: concept-article
 ms.date: 03/17/2025
 ms.author: abell
+# Customer intent: As a network security administrator, I want to implement Azure DDoS Protection, so that I can ensure my organization's resources are safeguarded against DDoS attacks through automatic mitigation, real-time monitoring, and tailored protection policies.
 ---
 # Azure DDoS Protection features
 
