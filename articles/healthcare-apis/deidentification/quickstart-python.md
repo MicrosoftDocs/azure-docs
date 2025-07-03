@@ -134,7 +134,7 @@ if __name__ == "__main__":
 
    | Input        | Output          |
    |----------------|---------|
-   | Kimberly Brown is a 34 y.o. female presenting with bilateral eye discomfort. Last seen by her PCP 2/6/2025 Dr. Orlo at Overlake Clinics Downtown Bellevue PCP.           | Britt Macdonough is a 34 y.o. female presenting with bilateral eye discomfort. Last seen by her PCP 1/18/2025 Dr. Defiore at Cardston Hospital PCP.          |
+   | Kimberly Brown is a 34 y.o. female presenting with bilateral eye discomfort. Last seen by her PCP 2/6/2025 Dr. Orlo at Contoso Clinics Downtown Bellevue PCP.           | Britt Macdonough is a 34 y.o. female presenting with bilateral eye discomfort. Last seen by her PCP 1/18/2025 Dr. Defiore at Cardston Hospital PCP.          |
 
 ## Clean up resources
 
