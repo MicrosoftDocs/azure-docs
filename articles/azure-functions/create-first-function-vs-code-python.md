@@ -117,5 +117,5 @@ You created and deployed a function app with a simple HTTP-triggered function. I
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
 
 ## Related content
-- [GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview)
+- [GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview)
 - [GitHub Copilot in Visual Studio](/visualstudio/ide/visual-studio-github-copilot-install-and-states)
