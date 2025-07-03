@@ -22,10 +22,10 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 
 ### Updated articles
 
-- [Configure Cloudflare Web Application Firewall with Azure Active Directory B2C](partner-cloudflare.md) - Added Azure Front Door-managed certificates note
-- [Azure AD B2C: Frequently asked questions (FAQ)](faq.yml) - Updated the note about Azure AD B2C end of sale
-- [Page layout versions](page-layout.md) - Added CAPTCHA updates
-- [Securing phone-based multifactor authentication](phone-based-mfa.md) - Added fraudulent sign-up prevention
+- [Configure Cloudflare Web Application Firewall with Azure Active Directory B2C](partner-cloudflare.md) - Added a note about Azure Front Door-managed certificates
+- [Azure AD B2C: Frequently asked questions (FAQ)](faq.yml) - Updated the note in the Azure AD B2C end-of-sale section
+- [Page layout versions](page-layout.md) - Added updates related to CAPTCHA
+- [Securing phone-based multifactor authentication](phone-based-mfa.md) - Added information on preventing fraudulent sign-ups 
 
 ## April 2025
 
