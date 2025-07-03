@@ -24,7 +24,7 @@ To check if display name changed, use the `hasDisplayNameChanged` property of th
 const hasDisplayNameChanged = remoteParticipant.hasDisplayNameChanged;
 ```
 
-### Get notification that display name changed
+### Get notification that displays name changed
 
 Use the `PropertyChangedEventWithArgs` listener to subscribe the display name change event
 
