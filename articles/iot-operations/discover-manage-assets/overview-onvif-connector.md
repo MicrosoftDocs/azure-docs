@@ -1,5 +1,5 @@
 ---
-title: What is the connector for ONVIF (preview)?
+title: Connect cameras using the connector for ONVIF (preview)
 description: The connector for ONVIF (preview) in Azure IoT Central discovers and registers ONVIF cameras connected to Azure IoT Operations and enables you to manage them.
 author: dominicbetts
 ms.author: dobett
