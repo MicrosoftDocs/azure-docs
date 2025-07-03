@@ -6,6 +6,7 @@ ms.service: azure-hpc-cache
 ms.topic: how-to
 ms.date: 05/02/2022
 ms.author: rohogue
+# Customer intent: "As a system administrator, I want to plan the virtual namespace for Azure HPC Cache so that client machines can easily access and manage files from multiple back-end storage systems without needing to modify client-side procedures."
 ---
 
 # Plan the aggregated namespace

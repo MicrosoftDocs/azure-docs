@@ -4,11 +4,11 @@ description: Learn about ways to improve performance and throughput for SSD (pre
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 01/22/2025
+ms.date: 06/19/2025
 ms.author: kendownie
 ms.custom:
-  - references_regions
   - build-2025
+# Customer intent: "As a storage administrator, I want to optimize the performance of SSD SMB Azure file shares using techniques like SMB Multichannel and metadata caching, so that I can enhance throughput and efficiency for demanding workloads."
 ---
 
 # Improve performance for SMB Azure file shares
@@ -165,9 +165,9 @@ This feature improves the following metadata APIs and can be used from both Wind
 - Close
 - Delete
 
-Currently this feature is only available for SSD file shares. There are no extra costs associated with using this feature.
+Currently this feature is only available for SSD file shares. There are no extra costs associated with using this feature. You can also [register to increase file handle limits for SSD file shares (preview)](#register-for-increased-file-handle-limits-preview).
 
-### Register for the feature
+### Register for the metadata caching feature
 
 To get started, register for the feature using the Azure portal or Azure PowerShell.
 
@@ -190,52 +190,7 @@ Register-AzProviderFeature -FeatureName AzurePremiumFilesMetadataCacheFeature -P
 
 > [!IMPORTANT]
 > - Although listed under Preview Features, we honor GA SLAs and will soon make this the default for all accounts, removing the need for registration.
-> - Allow 1-2 days for accounts to be onboarded once registration is complete.
-
-### Regional availability
-
-Supported regions:
-
-- East Asia 
-- Australia Central
-- Australia East
-- Australia Southeast
-- Brazil South
-- Canada Central
-- Canada East
-- North Europe
-- France Central
-- Germany West Central
-- Central India
-- South India
-- West India
-- Israel Central
-- Italy North
-- Japan East
-- Japan West
-- Jio India West
-- Korea Central
-- Korea South
-- Mexico Central
-- Norway East
-- New Zealand North
-- Poland Central
-- Qatar Central
-- South Africa North
-- Spain Central
-- Sweden Central
-- Switzerland North
-- UAE North
-- North Central US
-- South Central US 
-- East US
-- East US 2
-- West US
-- West US 2
-- West US 3
-- West Central US
-- UK South
-- UK West
+> - Allow 2-6 hours for accounts to be onboarded once registration is complete.
 
 ### Performance improvements with metadata caching
 
@@ -267,6 +222,27 @@ Metadata caching can increase available IOPS by more than 60% for metadata-heavy
 Metadata caching can increase network throughput by more than 60% for metadata-heavy workloads at scale.
 
 :::image type="content" source="media/smb-performance/metadata-caching-throughput.jpg" alt-text="Chart showing network throughput with and without metadata caching." border="false":::
+
+## Register for increased file handle limits (preview)
+
+To increase the maximum number of concurrent handles per file and directory for SSD SMB file shares from 2,000 to 10,000, register for the preview feature using the Azure portal or Azure PowerShell. If you have questions, email azfilespreview@microsoft.com.
+
+# [Azure portal](#tab/portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
+2. Search for and select **Preview features**.
+3. Select the **Type** filter and select **Microsoft.Storage**.
+4. Select **Azure Premium Files Increased Maximum Opened Handles Count** and then select **Register**.
+
+# [Azure PowerShell](#tab/powershell)
+
+To register your subscription using Azure PowerShell, run the following commands. Replace `<your-subscription-id>` and `<your-tenant-id>` with your own values. 
+
+```azurepowershell-interactive
+Connect-AzAccount -SubscriptionId <your-subscription-id> -TenantId <your-tenant-id> 
+Register-AzProviderFeature -FeatureName HigherHandlesCountOnSmb -ProviderNamespace Microsoft.Storage 
+```
+---
 
 ## Next steps
 

@@ -1,11 +1,12 @@
 ---
-title: Networking considerations for Azure Files
+title: Networking Considerations for Azure Files
 description: An overview of networking considerations and options for Azure Files, including secure transfer, public and private endpoints, VPN, ExpressRoute, DNS, and firewall settings.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: overview
-ms.date: 05/10/2024
+ms.date: 07/02/2025
 ms.author: kendownie
+# Customer intent: As a network administrator, I want to configure secure access to Azure Files, so that I can manage file share access in accordance with my organization’s networking and security policies.
 ---
 
 # Azure Files networking considerations
@@ -41,18 +42,18 @@ Configuring public and private endpoints for Azure Files is done on the top-leve
 
 ## Secure transfer
 
-By default, Azure storage accounts require secure transfer, regardless of whether data is accessed over the public or private endpoint. For Azure Files, the **require secure transfer** setting is enforced for all protocol access to the data stored on Azure file shares, including SMB, NFS, and FileREST. You can disable the **require secure transfer** setting to allow unencrypted traffic. In the Azure portal, you might also see this setting labeled as **require secure transfer for REST API operations**.
+By default, Azure storage accounts require secure transfer, regardless of whether data is accessed over the public or private endpoint. For Azure Files, the **Secure transfer required** setting is enforced for all protocol access to the data stored on Azure file shares, including SMB, NFS, and FileREST. You can disable the **Secure transfer required** setting to allow unencrypted traffic.
 
-The SMB, NFS, and FileREST protocols have slightly different behavior with respect to the **require secure transfer** setting:
+The SMB, NFS, and FileREST protocols have slightly different behavior with respect to the **Secure transfer required** setting:
 
-- When **require secure transfer** is enabled on a storage account, all SMB file shares in that storage account will require the SMB 3.x protocol with AES-128-CCM, AES-128-GCM, or AES-256-GCM encryption algorithms, depending on the available/required encryption negotiation between the SMB client and Azure Files. You can toggle which SMB encryption algorithms are allowed via the [SMB security settings](files-smb-protocol.md#smb-security-settings). Disabling the **require secure transfer** setting enables SMB 2.1 and SMB 3.x mounts without encryption.
+- When **Secure transfer required** is enabled on a storage account, all SMB file shares in that storage account will require the SMB 3.x protocol with AES-128-CCM, AES-128-GCM, or AES-256-GCM encryption algorithms, depending on the available/required encryption negotiation between the SMB client and Azure Files. You can toggle which SMB encryption algorithms are allowed via the [SMB security settings](files-smb-protocol.md#smb-security-settings). Disabling the **Secure transfer required** setting enables SMB 2.1 and SMB 3.x mounts without encryption.
 
-- NFS file shares don't support an encryption mechanism, so in order to use the NFS protocol to access an Azure file share, you must disable **require secure transfer** for the storage account.
+- NFS Azure file shares use the AZNFS utility package to simplify encrypted mounts by installing and setting up Stunnel (an open-source TLS wrapper) on the client. See [Encryption in transit for NFS Azure file shares](encryption-in-transit-for-nfs-shares.md).
 
-- When secure transfer is required, the FileREST protocol may only be used with HTTPS. FileREST is only supported on SMB file shares today.
+- When secure transfer is required, the FileREST protocol may only be used with HTTPS.
 
 > [!NOTE]
-> Communication between a client and an Azure storage account is encrypted using Transport Layer Security (TLS). Azure Files relies on a Windows implementation of SSL that isn't based on OpenSSL and therefore isn't exposed to OpenSSL related vulnerabilities.
+> Communication between a client and an Azure storage account is encrypted using Transport Layer Security (TLS). Azure Files relies on a Windows implementation of SSL that isn't based on OpenSSL and therefore isn't exposed to OpenSSL related vulnerabilities. Users who prefer to maintain flexibility between TLS and non-TLS connections on the same storage account should disable **Secure transfer required**.
 
 ## Public endpoint
 
@@ -61,7 +62,7 @@ The public endpoint for the Azure file shares within a storage account is an int
 The SMB, NFS, and FileREST protocols can all use the public endpoint. However, each has slightly different rules for access:
 
 - SMB file shares are accessible from anywhere in the world via the storage account's public endpoint with SMB 3.x with encryption. This means that authenticated requests, such as requests authorized by a user's logon identity, can originate securely from inside or outside of the Azure region. If SMB 2.1 or SMB 3.x without encryption is desired, two conditions must be met:
-    1. The storage account's **require secure transfer** setting must be disabled.
+    1. The storage account's **Secure transfer required** setting must be disabled.
     2. The request must originate from inside of the Azure region. As previously mentioned, encrypted SMB requests are allowed from anywhere, inside or outside of the Azure region.
 
 - NFS file shares are accessible from the storage account's public endpoint if and only if the storage account's public endpoint is restricted to specific virtual networks using *service endpoints*. See [public endpoint firewall settings](#public-endpoint-firewall-settings) for additional information on *service endpoints*.

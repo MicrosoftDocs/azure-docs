@@ -9,6 +9,7 @@ ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: golang
 ms.custom: mode-api, passwordless-go, devx-track-go
+# Customer intent: "As a Go developer, I want to use the Azure Blob Storage client module so that I can create, manage, and manipulate blobs and containers effectively in my applications."
 ---
 
 # Quickstart: Azure Blob Storage client module for Go

@@ -7,6 +7,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: jsuri
+# Customer intent: As an IT administrator, I want to monitor churn patterns on virtual machines using various tools, so that I can identify high churn applications and take appropriate actions to optimize performance.
 ---
 
 # Monitoring churn patterns on virtual machines

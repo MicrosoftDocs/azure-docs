@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 08/08/2024
 ms.author: allensu
 ms.custom: template-how-to
+# Customer intent: "As a web developer, I want to embed Real User Measurements JavaScript into my web pages, so that I can collect user performance data for my application using Azure Traffic Manager."
 ---
 
 # How to send Real User Measurements to Azure Traffic Manager using web pages

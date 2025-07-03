@@ -481,6 +481,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/blobs/storage-lifecycle-management-concepts.md#move-data-based-on-last-accessed-time",
+            "redirect_url": "/azure/storage/blobs/lifecycle-management-policy-structure#move-data-based-on-last-accessed-time",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-lifecycle-management-concepts.md#faq",
+            "redirect_url": "/azure/storage/blobs/storage-blob-faq#lifecycle-management-policies",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-lifecycle-management-concepts.md#lifecycle-policy-completed-event",
+            "redirect_url": "/azure/storage/blobs/lifecycle-management-policy-monitor#receiving-notifications-when-a-run-is-complete",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/blobs/storage-manage-access-to-resources.md",
             "redirect_url": "/azure/storage/blobs/anonymous-read-access-configure",
             "redirect_document_id": true
@@ -1329,6 +1344,11 @@
             "source_path_from_root": "/articles/storage/elastic-san/elastic-san-connect.md",
             "redirect_url": "/azure/storage/elastic-san/elastic-san-connect-windows",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/elastic-san/elastic-san-networking-concepts.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-networking",
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/storage/file-sync/file-sync-offline-data-transfer.md",

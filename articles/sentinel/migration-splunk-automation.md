@@ -1,8 +1,8 @@
 ---
 title: Migrate Splunk SOAR automation to Microsoft Sentinel | Microsoft Docs
 description: Learn how to identify SOAR use cases, and how to migrate your Splunk SOAR automation to Microsoft Sentinel.
-author: austinmccollum
-ms.author: austinmc
+author: mberdugo
+ms.author: monaberdugo
 ms.topic: how-to
 ms.date: 09/11/2024
 #Customer intent: As a security engineer, I want to migrate my Splunk SOAR automation to Microsoft Sentinel so that I can leverage Sentinel's advanced orchestration and automation capabilities for incident response.

@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: engagement-fy24
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an IT administrator managing on-premises backups, I want to upgrade the MARS agent for Azure Backup, so that I can ensure optimal performance and security for data protection in my environment.
 ---
 
 # Upgrade the Microsoft Azure Recovery Services (MARS) agent

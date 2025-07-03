@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 05/28/2025
 ms.author: kendownie
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
+# Customer intent: "As a cloud administrator, I want to create and manage SMB Azure file shares using the portal, PowerShell, or CLI, so that I can efficiently store and access data with configurable performance and redundancy options."
 ---
 
 # Create an SMB Azure file share

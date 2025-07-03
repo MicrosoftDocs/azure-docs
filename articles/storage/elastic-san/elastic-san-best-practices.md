@@ -6,6 +6,7 @@ ms.service: azure-elastic-san-storage
 ms.topic: concept-article
 ms.date: 04/21/2025
 ms.author: rogarana
+# Customer intent: As a cloud infrastructure administrator, I want to implement best practices for configuring an Elastic SAN, so that I can achieve optimal performance and resource efficiency for my storage solutions in a cloud environment.
 ---
 
 # Optimize the performance of your Elastic SAN
@@ -26,7 +27,7 @@ This article provides some general guidance on getting optimal performance with 
 
 :::image type="content" source="media/elastic-san-best-practices/enable-accelerated-networking.png" alt-text="Screenshot of VM creation flow, enable accelerated networking highlighted." lightbox="media/elastic-san-best-practices/enable-accelerated-networking.png":::
 
-- You must use 32 sessions per target volume for each volume to achieve its maximum IOPS and/or throughput limits. Use Multipath I/O (MPIO) on the client to manage these multiple sessions to each volume for load balancing. Scripts are available for [Windows](elastic-san-connect-windows.md#connect-to-volumes), [Linux](elastic-san-connect-linux.md#connect-to-volumes), or on the Connect to volume page for your volumes in the Azure portal, which uses 32 sessions by default. Windows software iSCSI initiator has a limit of maximum 256 sessions. If you need to connect more than eight volumes to a Windows VM, reduce the number of sessions to each volume as needed. 
+- You must use 32 sessions per target volume for each volume to achieve its maximum IOPS and/or throughput limits. Use Multipath I/O (MPIO) on the client to manage these multiple sessions to each volume for load balancing. Scripts are available for [Windows](elastic-san-connect-windows.md), [Linux](elastic-san-connect-linux.md), or on the Connect to volume page for your volumes in the Azure portal, which uses 32 sessions by default. Windows software iSCSI initiator has a limit of maximum 256 sessions. If you need to connect more than eight volumes to a Windows VM, reduce the number of sessions to each volume as needed. 
 
 #### Azure VMware Solution
 
@@ -76,6 +77,7 @@ defaults {
     failback immediate			# For immediate failback to highest priority path group with active paths
     no_path_retry 3			# To disable I/O queueing after retrying once when all paths are down
     polling_interval 5         # Set path check polling interval to 5 seconds
+    find multipaths yes        # To allow multipath to take control of only those devices that have multiple paths 
 }
 devices {
   device {

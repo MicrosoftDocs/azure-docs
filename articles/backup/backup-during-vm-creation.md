@@ -8,6 +8,7 @@ author: jyothisuri
 ms.author: jsuri
 ms.custom:
   - build-2025
+# Customer intent: "As a cloud administrator, I want to enable backup during the creation of a virtual machine, so that I can ensure data protection and recovery points are established from the outset."
 ---
 
 # Enable backup during Azure VM creation using Azure Backup

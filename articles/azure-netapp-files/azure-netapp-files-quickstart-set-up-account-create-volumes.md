@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.date: 03/10/2025
 ms.custom: devx-track-azurecli, subject-armqs, mode-ui, devx-track-azurepowershell, devx-track-terraform
 #Customer intent: As an IT admin new to Azure NetApp Files, I want to quickly set up Azure NetApp Files and create a volume.
+# Customer intent: As an IT admin new to cloud storage solutions, I want to quickly set up Azure NetApp Files and create an NFS volume, so that I can efficiently manage and store my data in a scalable environment.
 ---
 
 # Quickstart: Set up Azure NetApp Files and create an NFS volume

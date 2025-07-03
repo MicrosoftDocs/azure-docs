@@ -2,12 +2,13 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 05/28/2025
+ms.date: 06/02/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to stay informed about new features and enhancements in Azure Backup, so that I can effectively manage data protection and ensure compliance within my organization's cloud infrastructure."
 ---
 
 # What's new in Azure Backup
@@ -18,6 +19,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- June 2025
+  - [Migration of Azure VM backups from Standard to Enhanced policy is now generally available](#migration-of-azure-vm-backups-from-standard-to-enhanced-policy-is-now-generally-available)
 - May 2025
   - [Operational backup support for Azure Elastic SAN (preview)](#operational-backup-support-for-azure-elastic-san-preview)
   - [Vaulted Backups for Azure Database for PostgreSQL – flexible server is now generally available](#vaulted-backups-for-azure-database-for-postgresql--flexible-server-is-now-generally-available)
@@ -111,6 +114,21 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier for Azure Backup (in preview)](#archive-tier-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+## Migration of Azure VM backups from Standard to Enhanced policy is now generally available
+
+Azure Backup now supports migrating VM backups (protected with Standard policy) to the Enhanced policy, offering greater flexibility and resilience.
+
+This feature includes:
+
+- Scheduling multiple backups per day (up to every 4 hours).
+- Retaining snapshots for extended durations.
+- Ensuring multi-disk crash consistency for VM backups.
+- Providing zonally resilient snapshot-tier recovery points.
+- Enabling seamless migration of VMs to Trusted Launch, and using Premium SSD v2 and Ultra disks for the VMs without disrupting existing backups.
+- Migrating protected VMs from Standard policy to Enhanced policy in bulk.
+
+For more information, see [Migrate Azure VM backups from Standard to Enhanced policy](backup-azure-vm-migrate-enhanced-policy.md).
 
 ## Operational backup support for Azure Elastic SAN (preview)
 

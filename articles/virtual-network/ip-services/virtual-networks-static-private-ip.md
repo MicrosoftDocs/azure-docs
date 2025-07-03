@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.custom: template-how-to, engagement-fy23
+# Customer intent: "As a cloud administrator, I want to create a virtual machine with a static private IP address, so that I can ensure consistent network connectivity for the VM across reboots and maintain optimal network configurations."
 ---
 
 # Create a virtual machine with a static private IP address

@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: “As a .NET developer, I want to manage Azure storage account resources programmatically, so that I can create, update, list, and delete storage accounts efficiently within my applications.”
 ---
 
 # Manage storage account resources with .NET

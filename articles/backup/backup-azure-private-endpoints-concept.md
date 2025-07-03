@@ -3,9 +3,10 @@ title: Private endpoints for Azure Backup - Overview
 description: This article explains about the concept of private endpoints for Azure Backup that helps to perform backups while maintaining the security of your resources.
 ms.topic: overview
 ms.service: azure-backup
-ms.date: 05/26/2025
+ms.date: 06/26/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an IT administrator, I want to implement private endpoints for Azure Backup, so that I can secure backup and restore operations within my virtual network and enhance the protection of sensitive data.
 ---
 
 # Overview and concepts of private endpoints (v2 experience) for Azure Backup
@@ -38,7 +39,7 @@ This article describes how the [enhanced capabilities of private endpoints](#key
 
 - One virtual network can contain private endpoints for multiple Recovery Services vaults. Also, one Recovery Services vault can have private endpoints for it in multiple virtual networks. However, you can create a maximum of 12 private endpoints for a vault.
 
-- A private endpoint for a vault uses 10 private IPs, and the count may increase over time. Ensure that you've enough IPs available while creating private endpoints. 
+- A private endpoint for a vault uses 10 private IPs, and the count may increase over time. Ensure that you've enough IPs available while creating private endpoints. We recommend that you have enough private IPs (/25) available when you attempt to create private endpoints for Backup.
 
 - Private endpoints for Azure Backup don’t include access to Microsoft Entra ID. Ensure that you enable the access so that IPs and FQDNs required for Microsoft Entra ID to work in a region have outbound access in allowed state in the secured network when performing backup of databases in Azure VMs and backup using the MARS agent. You can also use NSG tags and Azure Firewall tags for allowing access to Microsoft Entra ID, as applicable.
 

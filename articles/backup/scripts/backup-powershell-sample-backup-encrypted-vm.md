@@ -6,6 +6,7 @@ ms.date: 04/30/2025
 ms.custom: mvc, devx-track-azurepowershell
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to use a PowerShell script to back up an encrypted Azure virtual machine, so that I can ensure data protection and facilitate recovery in case of data loss."
 ---
 
 # Back up an encrypted Azure virtual machine with PowerShell

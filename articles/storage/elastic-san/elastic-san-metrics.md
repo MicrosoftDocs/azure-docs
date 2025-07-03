@@ -6,6 +6,7 @@ ms.service: azure-elastic-san-storage
 ms.topic: concept-article
 ms.date: 06/28/2024
 ms.author: rogarana
+# Customer intent: As a cloud storage administrator, I want to monitor the performance metrics of my Azure Elastic SAN, so that I can optimize its availability and manage resource usage effectively.
 ---
 
 # Elastic SAN metrics
@@ -17,7 +18,7 @@ The following metrics are currently available for your Elastic SAN resource. You
 
 |Metric|Definition|
 |---|---|
-|**Used Capacity**|The total amount of storage used in your SAN resources. At the SAN level, it's the sum of capacity used by volume groups and volumes, in bytes.|
+|**Availability**|The percentage of availability for the storage service or the specified API operation.|
 |**Transactions**|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests that produced errors.|
 |**E2E Latency**|The average end-to-end latency of successful requests made to the resource or the specified API operation.|
 |**Server Latency**|The average time used to process a successful request. This value doesn't include the network latency specified in **E2E Latency**. |
@@ -28,10 +29,9 @@ By default, all metrics are shown at the SAN level. To view these metrics at eit
 
 ## Resource logging
 
-You can configure the [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings) of your elastic SAN to send Azure platform logs and metrics to different destinations. Currently, there are two log configurations:
+You can configure the [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings) of your elastic SAN to send Azure platform logs and metrics to different destinations. Currently, there's one log configuration:
 
-- All - Every resource log offered by the resource.
-- Audit - All resource logs that record customer interactions with data or the settings of the service. 
+- Transactions - Every transaction log offered by the resource.
 
 Audit logs are an attempt by each resource provider to provide the most relevant audit data, but might not be considered sufficient from an auditing standards perspective.
 

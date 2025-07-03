@@ -9,6 +9,7 @@ ms.service: azure-table-storage
 ms.topic: concept-article
 ms.date: 03/09/2020
 ms.author: akashdubey
+# Customer intent: "As a cloud architect, I want to understand the scalability and performance targets for Table storage, so that I can design applications that efficiently manage large datasets."
 ---
 
 # Scalability and performance targets for Table storage

@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 11/01/2024
 ms.author: cherylmc 
 
+# Customer intent: "As a network administrator, I want to configure an active-active VPN gateway so that I can ensure continuous connectivity and minimize interruption during maintenance or outages."
 ---
 # About active-active mode VPN gateways
 

@@ -5,8 +5,9 @@ author: jyothisuri
 ms.author: jsuri
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 03/13/2025
+ms.date: 05/11/2025
 ms.custom: references_regions, subject-rbac-steps, engagement-fy23
+# Customer intent: As an IT administrator, I want to configure private endpoints for Azure Site Recovery replication, so that I can secure traffic between my virtual machines and the recovery vault within an isolated virtual network.
 ---
 # Replicate machines with private endpoints
 
@@ -56,7 +57,7 @@ A recovery services vault is an entity that contains the replication information
 used to trigger Site Recovery operations. For more information, see
 [Create a Recovery Services vault](./azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault).
 
-## Enable the managed identity for the vault.
+## Enable the managed identity for the vault
 
 A [managed identity](../active-directory/managed-identities-azure-resources/overview.md) allow the
 vault to gain access to the customer's storage accounts. Site Recovery needs to access the source
@@ -66,6 +67,9 @@ Managed identity access is essential when you're using private links service for
 1. Go to your Recovery Services vault. Select **Identity** under _Settings_.
 
    :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/enable-managed-identity-in-vault.png" alt-text="Shows the Azure portal and the Recovery Services page.":::
+
+    > [!NOTE]
+    > System assigned and User assigned managed identity is supported for Recovery Services vault.
 
 1. Change the **Status** to _On_ and select **Save**.
 
