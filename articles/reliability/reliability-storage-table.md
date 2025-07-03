@@ -28,9 +28,9 @@ For production environments:
 
 - Enable zone-redundant storage (ZRS) for the storage accounts that contain Table Storage resources. ZRS provides higher availability by replicating your data synchronously across multiple availability zones in the primary region, protecting against availability zone failures. 
 
-- If your primary region is paired, consider enabling geo-redundant storage (GRS) or geo-zone-redundant storage (GZRS) for the storage accounts that contain Table Storage resources. GZRS provides protection against regional outages, using GZRS which combines zone redundancy in the primary region with geo-replication to a secondary region.
+- If you need resilience to region outages and your storage account's primary region is paired, consider enabling geo-redundant storage, which replicates data asynchronously to the paired region. In supported regions, you can combine geo-redundancy with zone redundancy by using GZRS.
 
-- For high-scale production workloads, consider using [Azure Cosmos DB for Table](/azure/cosmos-db/table/introduction), which is compatible with applications that are written for Azure Table Storage. Azure Cosmos DB for Table supports low latency read and write operations at high scale, strong global distribution across multiple regions with flexible consistency models, and a range of other capabilities that enhance your resiliency and performance.
+- For high-scale production workloads, or if you have high resiliency requirements, consider using [Azure Cosmos DB for Table](/azure/cosmos-db/table/introduction). Azure Cosmos DB for Table is compatible with applications that are written for Azure Table Storage. It supports low latency read and write operations at high scale, strong global distribution across multiple regions with flexible consistency models, built-in backup, and a range of other capabilities that enhance your resiliency and performance.
 
 ## Reliability architecture overview
 
