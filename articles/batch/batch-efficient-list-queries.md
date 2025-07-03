@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 07/01/2025
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
+# Customer intent: As a developer, I want to create efficient queries for Batch resources, so that I can optimize application performance by reducing data retrieval and improving response times.
 ---
 
 # Create queries to list Batch resources efficiently

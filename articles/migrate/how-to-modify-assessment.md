@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 3/22/2024
 ms.custom: engagement-fy23
 
+# Customer intent: As a cloud migration specialist, I want to customize assessments for migrating on-premises workloads to Azure, so that I can ensure accurate sizing and cost estimations based on performance data and specific criteria for a successful transition to the cloud.
 ---
 
 # Customize an assessment
