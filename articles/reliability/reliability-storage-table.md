@@ -136,7 +136,7 @@ When implementing multi-region Azure Table Storage, consider the following impor
 
 ### Cost
 
-Multi-region Azure Table Storage configurations incur additional costs for cross-region replication and storage in the secondary region. Data transfer between Azure regions is charged based on standard inter-region bandwidth rates. For detailed pricing information, see [Azure Table Storage pricing](https://azure.microsoft.com/pricing/details/storage/Table/).
+Multi-region Azure Table Storage configurations incur additional costs for cross-region replication and storage in the secondary region. Data transfer between Azure regions is charged based on standard inter-region bandwidth rates. For detailed pricing information, see [Azure Table Storage pricing](https://azure.microsoft.com/pricing/details/storage/tables/).
 
 ### Configure multi-region support
 
