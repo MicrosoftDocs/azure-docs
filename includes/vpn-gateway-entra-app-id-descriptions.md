@@ -1,7 +1,7 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 02/27/2025
+ms.date: 07/02/2025
 ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: include
@@ -19,7 +19,7 @@ VPN Gateway now supports a new Microsoft-registered App ID and corresponding Aud
 * The Azure VPN Client for Linux isn't backward compatible with P2S gateways configured to use the older Audience values that align with the manually registered app. However, the Azure VPN Client for Linux does support Custom Audience values.
 
 * [!INCLUDE [Supported Linux versions](vpn-gateway-azure-vpn-client-linux-supported-releases.md)]
-
+* [!INCLUDE [Supported Windows versions](vpn-gateway-vwan-azure-vpn-client-windows-supported.md)]
 * The latest versions of the Azure VPN Clients for macOS and Windows are backward compatible with P2S gateways configured to use the older Audience values that align with the manually registered app. These clients also support Custom Audience values.
 
 **Azure VPN Client Audience values**

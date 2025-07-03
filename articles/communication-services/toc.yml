@@ -88,6 +88,8 @@ items:
     href: concepts/chat/concepts.md#real-time-notifications
   - name: Push notifications
     href: concepts/chat/concepts.md#push-notifications
+  - name: Push notifications overview
+    href: concepts/notifications.md
   - name: Archive chats
     href: how-tos/chat-sdk/archive-chat-threads.md
   - name: Government clouds
@@ -312,7 +314,7 @@ items:
     href: concepts/sms/messaging-policy.md
   - name: Short code program brief filling guidelines
     href: concepts/sms/program-brief-guidelines.md
-  - name: Ten digit long code (10DLC) registration guidelines
+  - name: 10DLC - Ten digit long code registration guidelines
     href: concepts/sms/ten-digit-long-code-guidelines.md
   - name: Opt-Out management overview
     href: concepts/sms/opt-out-api-concept.md
@@ -354,7 +356,7 @@ items:
 #      href: tutorials/postman-tutorial.md
     - name: Send short URL
       href: tutorials/sms-url-shortener.md
-    - name: Apply for 10 digit long code (10DLC) registration
+    - name: Apply for 10DLC registration
       href: quickstarts/sms/apply-for-ten-digit-long-code.md
     - name: Apply for toll-free verification
       href: quickstarts/sms/apply-for-toll-free-verification.md
@@ -446,6 +448,8 @@ items:
     items:
     - name: Voice and video terminology
       href: concepts/voice-video-calling/about-call-types.md
+    - name: Push notifications overview
+      href: concepts/notifications.md
     - name: Connect to a call
       items:
       - name: Create an access token
@@ -522,13 +526,13 @@ items:
       href: quickstarts/voice-video-calling/local-preview-mirroring.md
     - name: Optimize video placement on your web app
       href: quickstarts/voice-video-calling/optimizing-video-placement.md
-      displayName: Optimal Video Count, OVC, dual pin
-    - name: Simulcast
+      displayName: Optimal Video Count, OVC, dual pin, 1080P
+    - name: Understanding Simulcast
       href: concepts/voice-video-calling/simulcast.md
-      displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-    - name: Enable audio noise suppression improvements
+      displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues, simulcast
+    - name: Add audio quality improvements
       href: tutorials/audio-quality-enhancements/add-noise-supression.md
-      displayName: noise suppression, audio quality, noise removal, background noise, deep noise, voice isolation
+      displayName: noise suppression, audio quality, noise removal, background noise, deep noise, voice isolation, echo cancellation
     - name: Enable video background effects
       href: quickstarts/voice-video-calling/get-started-video-effects.md
       displayName: background blur, background replace, background replacement, frosted glass

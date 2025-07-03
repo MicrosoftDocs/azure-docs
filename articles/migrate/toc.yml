@@ -445,7 +445,7 @@ items:
   - name: Blog
     href: https://azure.microsoft.com/blog/tag/azure-migrate/
   - name: Azure Migrate
-    href: https://azure.microsoft.com/migrate
+    href: https://azure.microsoft.com/products/azure-migrate
   - name: Azure Roadmap
     href: https://azure.microsoft.com/updates/
   # - name: Decide

@@ -6,6 +6,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 06/21/2024
 ms.topic: how-to
+# Customer intent: "As a system administrator managing virtual machines, I want to enable alerts using Update Manager, so that I can efficiently monitor and respond to update-related events across my hybrid cloud environment."
 ---
 
 # Create alerts (preview)

@@ -22,5 +22,6 @@ The policy is used with APIs [added to API Management from the Azure OpenAI in F
 > [!NOTE]
 > Traditional completion APIs are only available with legacy model versions and support is limited.
 
-For current information about the models and their capabilities, see [Azure OpenAI models](/azure/ai-services/openai/concepts/models).
+For current information about the models and their capabilities, see [Azure OpenAI in Foundry Models](/azure/ai-services/openai/concepts/models).
+
 

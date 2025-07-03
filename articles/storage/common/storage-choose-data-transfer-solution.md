@@ -9,6 +9,7 @@ ms.subservice: storage-common-concepts
 ms.topic: concept-article
 ms.date: 09/25/2020
 ms.author: shaas
+# Customer intent: As a data engineer, I want to evaluate Azure data transfer solutions based on data size and network bandwidth, so that I can choose the most efficient method for transferring data to the cloud.
 ---
 
 <!--

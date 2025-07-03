@@ -9,6 +9,7 @@ ms.date: 06/06/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
+# Customer intent: "As a cloud storage administrator, I want to configure inactive data to transition from hot to cool storage, so that I can optimize costs while managing data efficiently in Azure NetApp Files."
 ---
 
 # Manage Azure NetApp Files storage with cool access

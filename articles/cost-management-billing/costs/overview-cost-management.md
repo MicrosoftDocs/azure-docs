@@ -5,7 +5,7 @@ description: You use Cost Management features to monitor and control Azure spend
 author: shasulin
 ms.author: shasulin
 ms.reviewer: shasulin
-ms.date: 01/07/2025
+ms.date: 06/27/2025
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -28,7 +28,7 @@ To understand how Cost Management works, you should first understand the Commerc
 
 :::image type="content" source="./media/overview-cost-management/commerce-pipeline.svg" alt-text="Diagram showing the Commerce data pipeline." border="false" lightbox="./media/overview-cost-management/commerce-pipeline.svg":::
 
-From the left, your Azure, Microsoft 365, Dynamics 365, and Power Platform services are measuring the products and services you use and purchase at the most granular level. Each service pushes the measured usage and purchase quantities into the Commerce data pipeline on a different cadence. In general, if data for one service is slower than another, it's due to how frequently those services are publishing their usage and charges.
+From the left, your Azure, Microsoft 365, Dynamics 365, and Power Platform services measure the products and services you use and purchase at the most granular level. Each service pushes the measured usage and purchase quantities into the Commerce data pipeline on a different cadence. In general, if data for one service is slower than another, it's due to how frequently those services are publishing their usage and charges.
 
 As data makes its way through the pipeline, the rating system applies discounts based on your specific price sheet and generates “rated usage,” which includes a price and quantity for each cost record. It's important to note that measured usage and purchase quantities and pricing quantities may differ due to different pricing models, like block pricing which rates usage in "blocks" of units (e.g., "100 hours"). Usage and purchase quantities are often provided in the lower-level measurement unit while pricing quantities can be in a higher-level pricing unit. Cost Management shows quantity in the measurement unit while the price sheet and invoices show quantity in the pricing unit. At the end of the month, credits are applied and the invoice is published. This process starts 72 hours after your billing period ends, which is usually the last day of the calendar month for most accounts. For example, if your billing period ends on March 31, charges will be finalized on April 4 at midnight.
 
@@ -42,7 +42,7 @@ Everything up to this point makes up the billing process where charges are final
 - Azure Advisor cost recommendations are pulled in to enable cost savings insights for subscriptions and resource groups.
 - Cost alerts are sent out for [budgets](tutorial-acm-create-budgets.md), [anomalies](../understand/analyze-unexpected-charges.md#create-an-anomaly-alert), [scheduled alerts](save-share-views.md#subscribe-to-scheduled-alerts), and more based on the configured settings.
 
-Lastly, cost details are made available from [cost analysis](quick-acm-cost-analysis.md) in the Azure portal and published to your storage account via [scheduled exports](tutorial-improved-exports.md).
+Lastly, cost details are made available from [Cost Analysis](quick-acm-cost-analysis.md) in the Azure portal and published to your storage account via [scheduled exports](tutorial-improved-exports.md).
 
 ## How Cost Management and Billing relate
 
@@ -74,7 +74,7 @@ During your cloud journey, there are many tools available to help you understand
 
 Cost Management and Billing include several tools to help you understand, report on, and analyze your invoiced Microsoft Cloud costs.
 
-- **[Cost analysis](quick-acm-cost-analysis.md)** is a tool for ad-hoc cost exploration. Get quick answers with lightweight insights and analytics.
+- **[Cost Analysis](quick-acm-cost-analysis.md)** is a tool for ad-hoc cost exploration. Get quick answers with lightweight insights and analytics.
 **Power BI** is an advanced solution to build more extensive dashboards and complex reports or combine costs with other data. Power BI is available for billing accounts and billing profiles.
 - [**Exports and the Cost Details API**](../automate/usage-details-best-practices.md) enable you to integrate cost details into external systems or business processes.
 
@@ -84,15 +84,15 @@ For more information, see [Get started with reporting](reporting-get-started.md)
 
 Organizing and allocating costs are critical to ensuring invoices are routed to the correct business units and can be further split for internal billing, also known as *chargeback*. The first step to allocating cloud costs is organizing subscriptions and resources in a way that facilitates natural reporting and chargeback. Microsoft offers the following options to organize resources and subscriptions:
 
-- MCA **billing profiles** and **invoice sections** are used to [group subscriptions into invoices](../manage/mca-section-invoice.md). Each billing profile represents a separate invoice that can be billed to a different business unit and each invoice section is segmented separately within those invoices. You can also view costs by billing profile or invoice section in costs analysis.
-- EA **departments** and **enrollment accounts** are conceptually similar to invoice sections, as groups of subscriptions, but they aren't represented within the invoice PDF. They're included within the cost details backing each invoice, however. You can also view costs by department or enrollment account in costs analysis.
+- MCA **billing profiles** and **invoice sections** are used to [group subscriptions into invoices](../manage/mca-section-invoice.md). Each billing profile represents a separate invoice that can be billed to a different business unit and each invoice section is segmented separately within those invoices. You can also view costs by billing profile or invoice section in Cost Analysis.
+- EA **departments** and **enrollment accounts** are conceptually like invoice sections, as groups of subscriptions, but they aren't represented within the invoice PDF. They're included within the cost details backing each invoice, however. You can also view costs by department or enrollment account in Cost Analysis.
 - **Management groups** also allow grouping subscriptions together, but offer a few key differences:
   - Management group access is inherited down to the subscriptions and resources.
   - Management groups can be layered into multiple levels and subscriptions can be placed at any level.
   - Management groups aren't included in cost details.
   - All historical costs are returned for management groups based on the subscriptions currently within that hierarchy. When a subscription moves, all historical cost moves.
-  - Azure Policy supports management groups and they can have rules assigned to automate compliance reporting for your cost governance strategy.
-- **Subscriptions** and **resource groups** are the lowest level at which you can organize your cloud solutions. At Microsoft, every product – sometimes even limited to a single region – is managed within its own subscription. It simplifies cost governance but requires more overhead for subscription management. Most organizations use subscriptions for business units and separating dev/test from production or other environments, then use resource groups for the products. It complicates cost management because resource group owners don't have a way to manage cost across resource groups. On the other hand, it's a straightforward way to understand who's responsible for most resource-based charges. Keep in mind that not all charges come from resources and some don't have resource groups or subscriptions associated with them. It also changes as you move to MCA billing accounts.
+  - Azure Policy supports management groups, and they can have rules assigned to automate compliance reporting for your cost governance strategy.
+- **Subscriptions** and **resource groups** are the lowest level at which you can organize your cloud solutions. At Microsoft, every product – sometimes even limited to a single region – is managed within its own subscription. It simplifies cost governance but requires more overhead for subscription management. Most organizations use subscriptions for business units and separating dev/test from production or other environments, then use resource groups for the products. It complicates cost management because resource group owners don't have a way to manage cost across resource groups. On the other hand, it's a straightforward way to understand who's responsible for most resource-based charges. Keep in mind that not all charges come from resources and some don't have resource groups or subscriptions associated with them. It is important to understand that the subscriptions and resource groups linked to the purchase transaction of an entitlement offer may differ from those associated with the usage benefiting from the commitment. For instance, when you purchase a reservation, the transaction is tied to a billing subscription. Subsequently, the reservation benefit is applied to actual usage, which may be recorded in a different subscription and resource group, if choosing a shared scope. It also changes as you move to MCA billing accounts.
 - **Resource tags** are the only way to add your own business context to cost details and are perhaps the most flexible way to map resources to applications, business units, environments, owners, etc. For more information, see [How tags are used in cost and usage data](understand-cost-mgt-data.md#how-tags-are-used-in-cost-and-usage-data) for limitations and important considerations.
 
 Once your resources and subscriptions are organized using the subscription hierarchy and have the necessary metadata (tags) to facilitate further allocation, use the following tools in Cost Management to streamline cost reporting:
@@ -106,9 +106,9 @@ How you organize and allocate costs plays a huge role in how people within your 
 
 Cost Management and Billing offer many different types of emails and alerts to keep you informed and help you proactively manage your account and incurred costs.
 
-- [**Budget alerts**](tutorial-acm-create-budgets.md) notify recipients when cost exceeds a predefined cost or forecast amount. Budgets can be visualized in cost analysis and are available on every scope supported by Cost Management. Subscription and resource group budgets can also be configured to notify an action group to take automated actions to reduce or even stop further charges.
-- [**Anomaly alerts**](../understand/analyze-unexpected-charges.md) notify recipients when an unexpected change in daily usage has been detected. It can be a spike or a dip. Anomaly detection is only available for subscriptions and can be viewed within Cost analysis smart views. Anomaly alerts can be configured from the cost alerts page.
-- **[Scheduled alerts](save-share-views.md#subscribe-to-scheduled-alerts)** notify recipients about the latest costs on a daily, weekly, or monthly schedule based on a saved cost view. Alert emails include a visual chart representation of the view and can optionally include a CSV file. Views are configured in cost analysis, but recipients don't require access to cost to view the email, chart, or linked CSV.
+- [**Budget alerts**](tutorial-acm-create-budgets.md) notify recipients when cost exceeds a predefined cost or forecast amount. Budgets can be visualized in Cost Analysis and are available on every scope supported by Cost Management. Subscription and resource group budgets can also be configured to notify an action group to take automated actions to reduce or even stop further charges.
+- [**Anomaly alerts**](../understand/analyze-unexpected-charges.md) notify recipients when an unexpected change in daily usage has been detected. It can be a spike or a dip. Anomaly detection is only available for subscriptions and can be viewed within Cost Analysis smart views. Anomaly alerts can be configured from the cost alerts page.
+- **[Scheduled alerts](save-share-views.md#subscribe-to-scheduled-alerts)** notify recipients about the latest costs on a daily, weekly, or monthly schedule based on a saved cost view in Cost Analysis. Alert emails include a visual chart representation of the view and can optionally include a CSV file. Although views are configured in Cost Analysis, recipients don't require access to the Azure portal or to Cost Management to view the email, chart, or linked CSV when sent to them.
 
 - **EA commitment balance alerts** are automatically sent to any notification contacts configured on the EA billing account when the balance is 90% or 100% used.
 - **Invoice alerts** can be configured for MCA billing profiles and Microsoft Online Services Program (MOSP) subscriptions. For details, see [View and download your Azure invoice](../understand/download-azure-invoice.md).
@@ -117,15 +117,13 @@ For more information, see [Monitor usage and spending with cost alerts](cost-mgt
 
 ## Optimize costs
 
-Microsoft offers a wide range of tools for optimizing your costs. Some of these tools are available outside the Cost Management and Billing experience, but are included for completeness.
+Microsoft offers a wide range of tools for optimizing your costs. Some of these tools are available outside the Cost Management and Billing experience but are included for completeness.
 
 - There are many [**free services**](https://azure.microsoft.com/pricing/free-services/) available in Azure. Be sure to pay close attention to the constraints. Different services are free indefinitely, for 12 months, or 30 days. Some are free up to a specific amount of usage and some may have dependencies on other services that aren't free.
-- [**Azure Advisor cost recommendations**](tutorial-acm-opt-recommendations.md) should be your first stop when interested in optimizing existing resources. Advisor recommendations are updated daily and are based on your usage patterns. Advisor is available for subscriptions and resource groups. Management group users can also see recommendations but they need to select the desired subscriptions. Billing users can only see recommendations for subscriptions they have resource access to.
+- [**Azure Advisor cost recommendations**](tutorial-acm-opt-recommendations.md) should be your first stop when interested in optimizing existing resources. Advisor recommendations are updated daily and are based on your usage patterns. Advisor is available for subscriptions and resource groups. Management group users can also see recommendations, but they need to select the desired subscriptions. Billing users can only see recommendations for subscriptions they have resource access to.
 - [**Azure savings plans**](../savings-plan/index.yml) save you money when you have consistent usage of Azure compute resources. A savings plan can significantly reduce your resource costs by up to 65% from pay-as-you-go prices.
 - **[Azure reservations](https://azure.microsoft.com/reservations/)** help you save up to 72% compared to pay-as-you-go rates by pre-committing to specific usage amounts for a set time duration.
 - [**Azure Hybrid Benefit**](https://azure.microsoft.com/pricing/hybrid-benefit/) helps you significantly reduce costs by using on-premises Windows Server and SQL Server licenses or RedHat and SUSE Linux subscriptions on Azure.
-
-For other options, see [Azure benefits and incentives](https://azure.microsoft.com/pricing/offers/#cloud).
 
 ## Next steps
 

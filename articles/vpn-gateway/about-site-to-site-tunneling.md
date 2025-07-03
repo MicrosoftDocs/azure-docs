@@ -7,6 +7,7 @@ ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 03/31/2025
 ms.author: cherylmc
+# Customer intent: "As a network administrator, I want to implement forced tunneling for site-to-site VPN connections, so that I can ensure all Internet-bound traffic is inspected and audited for compliance with enterprise security policies."
 ---
 
 # About forced tunneling for site-to-site configurations

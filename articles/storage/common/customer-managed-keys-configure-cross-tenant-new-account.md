@@ -12,6 +12,7 @@ ms.author: normesta
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: As a cloud administrator, I want to configure cross-tenant customer-managed keys for a new storage account, so that I can control the encryption of data at rest using keys managed from a different tenant while ensuring compliance with security policies.
 ---
 
 # Configure cross-tenant customer-managed keys for a new storage account

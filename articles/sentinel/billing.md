@@ -2,8 +2,8 @@
 title: Plan costs and understand pricing and billing
 titleSuffix: Microsoft Sentinel
 description: Learn how to plan your Microsoft Sentinel costs, and understand pricing and billing using the pricing calculator and other methods.
-author: austinmccollum
-ms.author: austinmc
+author: EdB-MSFT
+ms.author: edbaynash
 ms.custom: subject-cost-optimization
 ms.topic: concept-article
 ms.date: 03/31/2025

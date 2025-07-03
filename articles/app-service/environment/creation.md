@@ -1,10 +1,10 @@
 ---
 title: Create an App Service Environment
 description: Learn how to create an App Service Environment. This single-tenant deployment of Azure App Service integrates with an Azure virtual network and supports internal or external virtual IP types.
-author: madsd
+author: seligj95
 ms.topic: article
 ms.date: 05/07/2025
-ms.author: madsd
+ms.author: jordanselig
 ms.custom:
   - build-2025
 ---

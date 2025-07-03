@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/14/2025
 ms.author: cherylmc
 
+# Customer intent: As a network administrator, I want to run a prerequisites check on the Azure VPN Client, so that I can identify and resolve any issues that may hinder users from successfully connecting to the P2S VPN.
 ---
 # Azure VPN Client prerequisites check for P2S VPN connections
 

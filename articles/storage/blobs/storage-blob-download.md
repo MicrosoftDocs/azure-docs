@@ -11,6 +11,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: "As a .NET developer, I want to download blobs from Azure Storage, so that I can manage and utilize data efficiently within my applications."
 ---
 
 # Download a blob with .NET
