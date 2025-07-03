@@ -1,6 +1,6 @@
 ---
-title: OPC UA certificates infrastructure overview
-description: Describe the security concepts of OPC UA and how they can be managed in the context of the connector for OPC UA.
+title: Understand OPC UA certificates infrastructure
+description: Describes the security concepts of OPC UA and how they can be managed in the context of the connector for OPC UA.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-opcua-connector
@@ -11,7 +11,7 @@ ms.date: 05/12/2025
 ms.service: azure-iot-operations
 ---
 
-# OPC UA certificates infrastructure for the connector for OPC UA
+# Understand the OPC UA certificates infrastructure
 
 The connector for OPC UA is an OPC UA client application that lets you connect securely to OPC UA servers. In OPC UA, the security includes:
 

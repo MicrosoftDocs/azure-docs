@@ -1,5 +1,5 @@
 ---
-title: Device and asset management overview
+title: Understand device and asset management
 description: Understand concepts and options needed to manage the devices and assets that are part of your Azure IoT Operations solution.
 author: dominicbetts
 ms.author: dobett

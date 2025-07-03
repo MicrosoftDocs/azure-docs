@@ -65,23 +65,21 @@ items:
       - name: Understand assets and devices
         href: discover-manage-assets/concept-assets-devices.md
         displayName: data points, events, operations, experience
-      - name: Discovery overview
+      - name: Understand discovery with Akri services
         href: discover-manage-assets/overview-akri.md
         displayName: OPC UA, akri, detect, device, registry
       - name: Use the operations experience and CLI
         href: discover-manage-assets/howto-manage-assets-devices.md
         displayName: operations, experience, site, instance, device, data points, events, CLI, kubectl
-      - name: OPC UA (connect to your assets)
+      - name: Connect to OPC UA servers
         items:
-        - name: What is connector for OPC UA?
+        - name: Understand the connector for OPC UA
           href: discover-manage-assets/overview-opc-ua-connector.md
-        - name: Message format
-          href: discover-manage-assets/concept-opc-ua-message-format.md
-          displayName: OPC UA, payload
+          displayName: OPC UA server, OPC UA client, payload
         - name: Configure OPC UA assets and devices
           href: discover-manage-assets/howto-configure-opc-ua.md
           displayName: operations, experience, OPC UA, device, data points, events
-        - name: OPC UA application authentication overview
+        - name: Understand OPC UA application authentication
           href: discover-manage-assets/overview-opc-ua-connector-certificates-management.md
           displayName: connector, X.509, certificate, instance, trusted, issuer, cert-manager, auth, authn
         - name: Configure OPC UA application authentication
@@ -90,12 +88,12 @@ items:
         - name: Configure OPC UA user authentication
           href: discover-manage-assets/howto-configure-opc-ua-authentication-options.md
           displayName: connector, username, password, Key Vault, secret, sync, synchronize, auth, authn
-        - name: Configure and use automatic asset discovery
+        - name: Discover OPC UA assets and devices
           href: discover-manage-assets/howto-autodetect-opc-ua-assets-use-akri.md
           displayName: connector, OPC UA, detect, akri
       - name: Connect to media sources
         items:
-        - name: What is the media connector?
+        - name: Understand the media connector
           href: discover-manage-assets/overview-media-connector.md
           displayName: image, video, camera, stream, snapshot, RTSP, RTCP, RTP, MJPEG, container, storage
         - name: Use the media connector
@@ -103,7 +101,7 @@ items:
           displayName: image, video, camera, stream, snapshot, RTSP, RTCP, RTP, MJPEG, container, storage
       - name: Control ONVIF assets
         items:
-        - name: What is the connector for ONVIF?
+        - name: Understand the connector for ONVIF
           href: discover-manage-assets/overview-onvif-connector.md
           displayName: camera, PTZ, pan, tilt, zoom
         - name: Use the connector for ONVIF

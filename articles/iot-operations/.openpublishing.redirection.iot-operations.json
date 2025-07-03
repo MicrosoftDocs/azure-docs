@@ -7,8 +7,13 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/discover-manage-assets/concept-opcua-message-format.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/concept-opc-ua-message-format",
-            "redirect_document_id": true
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-opc-ua-connector",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/concept-opc-ua-message-format.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-opc-ua-connector",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-layered-network/howto-configure-mq-layered-network.md",

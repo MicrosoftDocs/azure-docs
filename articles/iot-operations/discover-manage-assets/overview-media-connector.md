@@ -1,5 +1,5 @@
 ---
-title: What is the media connector (preview)?
+title: Connect media sources using the media connector (preview)
 description: The media connector (preview) in Azure IoT Operations makes media from media sources such as IP cameras available to other Azure IoT Operations components.
 author: dominicbetts
 ms.author: dobett
