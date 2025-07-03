@@ -110,7 +110,7 @@ To create a new Spring Boot project:
                     endpoint: ${APP_CONFIGURATION_ENDPOINT}
         ```
 
-    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+        You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
     1. Add the following code to your project, unless you want to use Managed Identity. Create a new file named `AppConfigCredential.java`:
     
