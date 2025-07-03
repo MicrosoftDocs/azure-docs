@@ -1,38 +1,54 @@
 ---
 title: How to use the connector for ONVIF (preview)
-description: How to use the connector for ONVIF (preview) to perform tasks such as reading and writing settings in a connected ONVIF compliant camera.
+description: Use the operations experience web UI or the Azure CLI to configure assets and devices for connections to ONVIF compliant cameras.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 04/24/2025
+ms.date: 07/03/2025
 
-#CustomerIntent: As an industrial edge IT or operations user, I want to configure the connector for ONVIF so that I can read and write camera settings to control an ONVIF compliant camera.
+#CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can read and write camera settings to control an ONVIF compliant camera.
 ---
 
 # Configure the connector for ONVIF (preview)
 
-In Azure IoT Operations, the connector for ONVIF (preview) enables you to control an ONVIF compliant camera that's connected to your Azure IoT Operations cluster. This article explains how to configure and use the connector for ONVIF to perform tasks such as:
+In Azure IoT Operations, the connector for ONVIF (preview) enables you to control an ONVIF compliant camera that's connected to your Azure IoT Operations cluster.
 
-- Reading and writing properties to control a camera.
-- Discovering the media streams a camera supports.
+[!INCLUDE [iot-operations-asset-definition](../includes/iot-operations-asset-definition.md)]
+
+[!INCLUDE [iot-operations-device-definition](../includes/iot-operations-device-definition.md)]
+
+This article describes how to use the operations experience web UI and the Azure CLI to:
+
+- Define the devices that connect ONVIF compliant devices to your Azure IoT Operations instance.
+- Add assets, and define their data points and events to enable a bidirectional data flow between ONVIF compliant cameras and the MQTT broker.
+- Read and write properties to control a camera.
+- Discover the media streams a camera supports.
+
+These assets, data points, and events map data from ONVIF devices to friendly names that you can use in the MQTT broker and data flows.
 
 ## Prerequisites
 
-A deployed instance of Azure IoT Operations. If you don't already have an instance, see [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
+To configure devices and assets, you need a running instance of Azure IoT Operations.
 
-An ONVIF compliant camera connected to your Azure IoT Operations cluster.
+[!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
+
+Your IT administrator must have configured the ONVIF connector template for your Azure IoT Operations instance in the Azure portal.
+
+An ONVIF compliant camera that you can reach from your Azure IoT Operations cluster.
 
 ## Deploy the connector for ONVIF
+
+<!--TODO: Probably not necessary now we have the connector templates? -->
 
 [!INCLUDE [deploy-preview-media-connectors](../includes/deploy-preview-media-connectors.md)]
 
 > [!IMPORTANT]
 > If you don't enable preview features, you see the following error message in the `aio-supervisor-...` pod logs when you try to use the media or ONVIF connectors: `No connector configuration present for AssetEndpointProfile: <AssetEndpointProfileName>`.
 
-## Asset endpoint configuration
+## Create a device
 
-To configure the ONVIF connector, first create an asset endpoint that defines the connection to the ONVIF compliant camera asset. The asset endpoint includes the URL of the ONVIF discovery endpoint and any credentials you need to access the camera.
+To configure the ONVIF connector, first create a device that defines the connection to the ONVIF compliant camera. The device configuration includes the URL of the ONVIF discovery endpoint and any credentials you need to access the camera.
 
 If your camera requires authentication, create a secret in your Kubernetes cluster that stores the camera's username and password. The media connector uses this secret to authenticate with the camera:
 
@@ -58,9 +74,41 @@ If your camera requires authentication, create a secret in your Kubernetes clust
     kubectl apply -f contoso-onvif-secrets.yaml -n azure-iot-operations
     ```
 
-To create the asset endpoint by using a Bicep file:
+To create a device configuration:
 
-# [Bash](#tab/bash)
+# [Operations experience](#tab/portal)
+
+1. Select **devices** and then **Create device**:
+
+    :::image type="content" source="media/howto-configure-opc-ua/asset-endpoints.png" alt-text="Screenshot that shows the devices page in the operations experience." lightbox="media/howto-configure-opc-ua/asset-endpoints.png":::
+
+    > [!TIP]
+    > You can use the filter box to search for devices.
+
+1. Enter the following endpoint information:
+
+    | Field | Value |
+    | --- | --- |
+    | Name | `opc-ua-connector-0` |
+    | Connector for OPC UA URL | `opc.tcp://opcplc-000000:50000` |
+    | User authentication | `Anonymous` |
+
+1. To save the definition, select **Create**.
+
+# [Azure CLI](#tab/cli)
+
+Run the following command:
+
+```azurecli
+az iot ops device create opcua --name opc-ua-connector-0 --target-address opc.tcp://opcplc-000000:50000 -g {your resource group name} --instance {your instance name} 
+```
+
+> [!TIP]
+> Use `az connectedk8s list` to list the clusters you have access to.
+
+To learn more, see [az iot ops device](/cli/azure/iot/ops/asset/endpoint).
+
+# [Bicep (Bash)](#tab/bicep-bash)
 
 1. Set the following environment variables:
 
@@ -81,11 +129,34 @@ To create the asset endpoint by using a Bicep file:
     # Find the name of your custom location
     CUSTOM_LOCATION_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
     
-    # Use the Bicep file to deploy the asset endpoint
+    # Use the Bicep file to deploy the device
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file aep-onvif-connector.bicep --parameters onvifAddress=$ONVIF_ADDRESS customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME secretName=$SECRET_NAME
     ```
 
-# [PowerShell](#tab/powershell)
+The following snippet shows the bicep file that you used to create the device:
+
+:::code language="bicep" source="~/azure-iot-operations-samples/samples/onvif-connector-bicep/aep-onvif-connector.bicep":::
+
+The previous example configures the device to authenticate with the camera with a username and password. In the Bicep file, the authentication section of the device you created looks like the following example:
+
+```bicep
+authentication: {
+  method: 'UsernamePassword'
+  usernamePasswordCredentials: {
+    passwordSecretName: '${secretName}/password'
+    usernameSecretName: '${secretName}/username'
+    }
+ ```
+
+If your camera doesn't require a username and password, configure anonymous authentication as shown in the following example:
+
+```bicep
+authentication: {
+  method: 'Anonymous'
+}
+```
+
+# [Bicep (PowerShell)](#tab/bicep-powershell)
 
 1. Set the following environment variables:
 
@@ -106,17 +177,15 @@ To create the asset endpoint by using a Bicep file:
     # Find the name of your custom location
     $CUSTOM_LOCATION_NAME = (az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
 
-    # Use the Bicep file to deploy the asset endpoint
+    # Use the Bicep file to deploy the device
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file aep-onvif-connector.bicep --parameters onvifAddress=$ONVIF_ADDRESS customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME secretName=$SECRET_NAME
     ```
 
----
-
-The following snippet shows the bicep file that you used to create the asset endpoint:
+The following snippet shows the bicep file that you used to create the device:
 
 :::code language="bicep" source="~/azure-iot-operations-samples/samples/onvif-connector-bicep/aep-onvif-connector.bicep":::
 
-The previous example configures the asset endpoint to authenticate with the camera with a username and password. In the Bicep file, the authentication section of the asset endpoint you created looks like the following example:
+The previous example configures the device to authenticate with the camera with a username and password. In the Bicep file, the authentication section of the device you created looks like the following example:
 
 ```bicep
 authentication: {
@@ -135,9 +204,11 @@ authentication: {
 }
 ```
 
-## Create the asset endpoints and assets to represent the ONVIF camera capabilities
+---
 
-After you create the asset endpoint, the connector for ONVIF runs a discovery process to detect the capabilities of the connected camera. The results of the discovery process are **DiscoveredAsset** and **DiscoverAssetEndpointProfile** custom resources:
+## Create the devices and assets to represent the ONVIF camera capabilities
+
+After you create the device, the connector for ONVIF runs a discovery process to detect the capabilities of the connected camera. The results of the discovery process are **DiscoveredAsset** and **DiscoverAssetEndpointProfile** custom resources:
 
 - A **DiscoveredAsset** custom resource represents one of the [ONVIF services](https://www.onvif.org/profiles/specifications/) such as pan-tilt-zoom (PTZ) that the camera supports. The output from `kubectl get discoveredassets -n azure-iot-operations` might look like the following example:
 
@@ -168,7 +239,21 @@ Currently, during public preview, you must manually create the **Asset** and **A
 
 Use the PTZ capabilities of an ONVIF compliant camera to control its position and orientation. To manually create an asset that represents the PTZ capabilities of the camera discovered previously:
 
-# [Bash](#tab/bash)
+# [Operations experience](#tab/portal)
+
+Go to the operations experience web UI and select **Assets**. Then select **Create asset**.
+
+Add the configuration for a PTZ asset.
+
+<!-- TODO: Expand this section when we have the UI available -->
+
+# [Azure CLI](#tab/cli)
+
+Use the `az iot ops asset create` command to create an asset that represents the PTZ capabilities of the camera.
+
+<!-- TODO: Expand this section when we have the CLI available -->
+
+# [Bicep (Bash)](#tab/bicep-bash)
 
 1. Set the following environment variables:
 
@@ -191,7 +276,11 @@ Use the PTZ capabilities of an ONVIF compliant camera to control its position an
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-ptz.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
     ```
 
-# [PowerShell](#tab/powershell)
+The following snippet shows the bicep file that you used to create the asset. The `-ptz` suffix to the asset name is a required convention to indicate that the asset represents the PTZ capabilities of the camera:
+
+:::code language="bicep" source="~/azure-iot-operations-samples/samples/onvif-connector-bicep/asset-ptz.bicep":::
+
+# [Bicep (PowerShell)](#tab/bicep-powershell)
 
 1. Set the following environment variables:
 
@@ -214,17 +303,31 @@ Use the PTZ capabilities of an ONVIF compliant camera to control its position an
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-ptz.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
     ```
 
----
-
 The following snippet shows the bicep file that you used to create the asset. The `-ptz` suffix to the asset name is a required convention to indicate that the asset represents the PTZ capabilities of the camera:
 
 :::code language="bicep" source="~/azure-iot-operations-samples/samples/onvif-connector-bicep/asset-ptz.bicep":::
+
+---
 
 ### Access the media capabilities of the camera
 
 To manually create an asset that represents the media capabilities of the camera discovered previously:
 
-# [Bash](#tab/bash)
+# [Operations experience](#tab/portal)
+
+Go to the operations experience web UI and select **Assets**. Then select **Create asset**.
+
+Add the configuration for the media capabilities asset.
+
+<!-- TODO: Expand this section when we have the UI available -->
+
+# [Azure CLI](#tab/cli)
+
+Use the `az iot ops asset create` command to create an asset that represents the media capabilities of the camera.
+
+<!-- TODO: Expand this section when we have the CLI available -->
+
+# [Bicep (Bash)](#tab/bicep-bash)
 
 1. Set the following environment variables:
 
@@ -247,7 +350,11 @@ To manually create an asset that represents the media capabilities of the camera
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-onvif-media.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
     ```
 
-# [PowerShell](#tab/powershell)
+The following snippet shows the bicep file that you used to create the asset. The `-media` suffix to the asset name is a required convention to indicate that the asset represents the media capabilities of the camera:
+
+:::code language="bicep" source="~/azure-iot-operations-samples/samples/onvif-connector-bicep/asset-onvif-media.bicep":::
+
+# [Bicep (PowerShell)](#tab/bicep-powershell)
 
 1. Set the following environment variables:
 
@@ -270,11 +377,11 @@ To manually create an asset that represents the media capabilities of the camera
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-onvif-media.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
     ```
 
----
-
 The following snippet shows the bicep file that you used to create the asset. The `-media` suffix to the asset name is a required convention to indicate that the asset represents the media capabilities of the camera:
 
 :::code language="bicep" source="~/azure-iot-operations-samples/samples/onvif-connector-bicep/asset-onvif-media.bicep":::
+
+---
 
 ### Receive events from the camera
 
@@ -290,7 +397,7 @@ The output from the previous command includes a `Spec:` section that looks like 
 
 ```output
 Spec:
-  Asset Endpoint Profile Ref:  your-asset-endpoint-profile-aep
+  device Profile Ref:  your-asset-endpoint-profile-aep
   Datasets:
   Default Datasets Configuration:
   Default Events Configuration:
@@ -318,7 +425,21 @@ Spec:
 
 During public preview, you must manually add an asset definition based on the information in the discovered asset. To manually create an asset that represents the media capabilities of the camera discovered previously:
 
-# [Bash](#tab/bash)
+# [Operations experience](#tab/portal)
+
+Go to the operations experience web UI and select **Assets**. Then select **Create asset**.
+
+Add the configuration for the media capabilities asset.
+
+<!-- TODO: Expand this section when we have the UI available -->
+
+# [Azure CLI](#tab/cli)
+
+Use the `az iot ops asset create` command to create an asset that represents the media capabilities of the camera.
+
+<!-- TODO: Expand this section when we have the CLI available -->
+
+# [Bicep (Bash)](#tab/bicep-bash)
 
 1. Set the following environment variables:
 
@@ -341,7 +462,28 @@ During public preview, you must manually add an asset definition based on the in
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-onvif-device.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
     ```
 
-# [PowerShell](#tab/powershell)
+The following snippet shows the bicep file that you used to create the asset. The `-device` suffix to the asset name is a required convention to indicate that the asset represents the device capabilities of the camera:
+
+:::code language="bicep" source="~/azure-iot-operations-samples/samples/onvif-connector-bicep/asset-onvif-device.bicep":::
+
+The connector for ONVIF now receives notifications of motion detected events from the camera and publishes them to the `data/camera-device` topic in the MQTT broker:
+
+```output
+{
+  "name": "motionDetected",
+  "eventNotifier": "tns1:RuleEngine/CellMotionDetector/Motion",
+  "source": {
+    "VideoSourceConfigurationToken": "vsconf",
+    "VideoAnalyticsConfigurationToken": "VideoAnalyticsToken",
+    "Rule": "MyMotionDetectorRule"
+  },
+  "data": {
+    "IsMotion": "true"
+  }
+}
+```
+
+# [Bicep (PowerShell)](#tab/bicep-powershell)
 
 1. Set the following environment variables:
 
@@ -364,8 +506,6 @@ During public preview, you must manually add an asset definition based on the in
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-onvif-device.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
     ```
 
----
-
 The following snippet shows the bicep file that you used to create the asset. The `-device` suffix to the asset name is a required convention to indicate that the asset represents the device capabilities of the camera:
 
 :::code language="bicep" source="~/azure-iot-operations-samples/samples/onvif-connector-bicep/asset-onvif-device.bicep":::
@@ -387,6 +527,8 @@ The connector for ONVIF now receives notifications of motion detected events fro
 }
 ```
 
+---
+
 ## Manage and control the camera
 
 To interact with the ONVIF camera, you can publish MQTT messages that the connector for ONVIF subscribes to. The message format is based on the [ONVIF network interface specifications](https://www.onvif.org/profiles/specifications/).
@@ -400,8 +542,8 @@ The sample application uses the Azure IoT Operations MQTT broker to send command
 
 ### Access the camera's video streams
 
-To manually create an asset endpoint and asset that enable access to the video streams of the ONVIF-compliant camera:
+To manually create an device and asset that enable access to the video streams of the ONVIF-compliant camera:
 
 1. During public preview, first use a tool to discover the RTSP stream URLs of the camera.
 
-1. Use the RTSP stream URL to create the asset endpoint and asset. To learn more, see [Configure the media connector (preview)](howto-use-media-connector.md).
+1. Use the RTSP stream URL to create the device and asset. To learn more, see [Configure the media connector (preview)](howto-use-media-connector.md).
