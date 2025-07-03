@@ -506,6 +506,14 @@ items:
           href: tutorial-custom-container.md
         - name: Deploy with Azure Pipelines
           href: deploy-container-azure-pipelines.md
+- name: Sidecars
+  items:
+    - name: Overview
+      href: overview-sidecar.md
+    - name: Configure sidecars
+      href: configure-sidecar.md
+    - name: Migrate from multi-container
+      href: migrate-sidecar-multi-container-apps.md
 - name: WebJobs
   items:
     - name: Overview

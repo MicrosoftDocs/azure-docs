@@ -171,36 +171,7 @@ When you no longer need the environment you created for this tutorial, you can d
 azd down
 ```
 
-## Frequently asked questions
-
-- [What are the differences for sidecar-enabled custom containers?](#what-are-the-differences-for-sidecar-enabled-custom-containers)
-- [How do sidecar containers handle internal communication?](#how-do-sidecar-containers-handle-internal-communication)
-- [Can a sidecar container receive internet requests?](#can-a-sidecar-container-receive-internet-requests)
-- [How do I use volume mounts?](#how-do-i-use-volume-mounts)
-
-### What are the differences for sidecar-enabled custom containers?
-
-Sidecar-enabled apps are configured differently than apps that aren't sidecar-enabled.
-
-- Sidecar-enabled apps are designated by `LinuxFxVersion=sitecontainers` and configured with [`sitecontainers`](/azure/templates/microsoft.web/sites/sitecontainers) resources.
-- Apps that aren't sidecar enabled configure the container name and type directly with `LinuxFxVersion=DOCKER|<image-details>`.
-
-For more information, see [az webapp config set --linux-fx-version](/cli/azure/webapp/config).
-
-Apps that aren't sidecar-enabled configure the main container with app settings such as:
-
-- `DOCKER_REGISTRY_SERVER_URL`
-- `DOCKER_REGISTRY_SERVER_USERNAME`
-- `DOCKER_REGISTRY_SERVER_PASSWORD`
-- `WEBSITES_PORT`
-
-These settings don't apply for sidecar-enabled apps.
-
-[!INCLUDE [common-faqs](includes/tutorial-sidecar/common-faqs.md)]
-
 ## Related resources
 
-- [Configure custom container](configure-custom-container.md)
-- [REST API: Web Apps - Create Or Update Site Container](/rest/api/appservice/web-apps/create-or-update-site-container)
-- [Infrastructure as Code: Microsoft.Web sites/`sitecontainers`](/azure/templates/microsoft.web/sites/sitecontainers)
-- [Deploy custom containers with GitHub Actions](deploy-container-github-action.md)
+- [Sidecars overview](overview-sidecar.md)
+- [Configure sidecar](configure-sidecar.md)

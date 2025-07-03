@@ -11,7 +11,7 @@ ms.custom:
 
 # Tutorial: Run chatbot in App Service with a Phi-4 sidecar extension (Spring Boot)
 
-This tutorial guides you through deploying a Spring Boot-based chatbot application integrated with the Phi-4 sidecar extension on Azure App Service. By following the steps, you'll learn how to set up a scalable web app, add an AI-powered sidecar for enhanced conversational capabilities, and test the chatbot's functionality.
+This tutorial guides you through deploying a Spring Boot-based chatbot application integrated with the Phi-4 [sidecar extension](overview-sidecar.md) on Azure App Service. By following the steps, you'll learn how to set up a scalable web app, add an AI-powered sidecar for enhanced conversational capabilities, and test the chatbot's functionality.
 
 [!INCLUDE [advantages](includes/tutorial-ai-slm/advantages.md)]
 
