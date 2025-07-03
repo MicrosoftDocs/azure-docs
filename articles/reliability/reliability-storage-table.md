@@ -171,11 +171,14 @@ For Azure Table Storage, a multi-account approach requires you to manage data di
 
 ## Backups
 
-Azure Table Storage doesn't provide traditional backup capabilities like point-in-time restore, as the service is designed for operational NoSQL data storage with built-in redundancy rather than backup-based recovery. However, you can implement backup strategies for table data when needed.
+Azure Table Storage doesn't provide traditional backup capabilities like point-in-time restore. However, you can implement custom backup strategies for table data. For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [Redundancy, replication, and backup](./concept-redundancy-replication-backup.md).
 
-For scenarios requiring table data backup, consider the following approaches:
+If you require built-in backup capabilities, consider moving to [Azure Cosmos DB for Table](/azure/cosmos-db/table/introduction), which provides support for both periodic and continuous backups. For more information, see [Online backup and on-demand data restore in Azure Cosmos DB](/azure/cosmos-db/online-backup-and-restore).
 
-- **Export to Azure Blob Storage**: Use AzCopy or custom applications to periodically export table data to Azure Blob Storage for long-term retention. This approach allows you to maintain historical snapshots of your table data.
+For scenarios requiring data backup from Azure Table Storage, consider the following approaches:
+
+- **Export by using Azure Data Factory:** Use the [Azure Data Factory connector for Azure Table Storage](/azure/data-factory/connector-azure-table-storage) to export your entities to another location. For example, you could back up each entity to a JSON file that's stored in Azure Blob Storage.
+
 - **Application-level backup**: Implement custom backup logic within your applications to export critical table entities to other storage services like Azure SQL Database or Azure Cosmos DB for more robust backup and restore capabilities.
 
 When designing backup strategies for Table Storage, consider the partitioned nature of the data and ensure your backup processes can handle large tables efficiently by processing multiple partitions in parallel.
