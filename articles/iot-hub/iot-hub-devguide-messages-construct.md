@@ -6,7 +6,7 @@ author: SoniaLopezBravo
 
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 08/22/2024
+ms.date: 06/26/2025
 ms.author: sonialopez
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
@@ -17,7 +17,7 @@ To support interoperability across protocols, IoT Hub defines a common set of me
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-IoT Hub implements device-to-cloud messaging using a streaming messaging pattern. IoT Hub's device-to-cloud messages are more like [Event Hubs](../event-hubs/index.yml) *events* than [Service Bus](../service-bus-messaging/index.yml) *messages* in that there's a high volume of events passing through the service that multiple readers can read.
+IoT Hub implements device-to-cloud messaging using a streaming messaging pattern. IoT Hub's device-to-cloud messages are more like [Event Hubs](../event-hubs/index.yml) *events* than [Service Bus](../service-bus-messaging/index.yml) *messages*, in that there's a high volume of events passing through the service that multiple readers can read.
 
 An IoT Hub message consists of:
 
@@ -27,7 +27,7 @@ An IoT Hub message consists of:
 
 * A message body, which can be any type of data.
 
-Each device protocol implements setting properties in different ways. For more information, see the [MQTT protocol guide](../iot/iot-mqtt-connect-to-iot-hub.md) and [AMQP protocol guide](./iot-hub-amqp-support.md) developer guides for details.
+Each device protocol implements setting properties in different ways. For more information, see [Communicate with an IoT hub using the MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md) and [Communicate with your IoT hub by using the AMQP Protocol](./iot-hub-amqp-support.md).
 
 When you send device-to-cloud messages using the HTTPS protocol or send cloud-to-device messages, property names and values can only contain ASCII alphanumeric characters, plus ``! # $ % & ' * + - . ^ _ ` | ~`` .
 
@@ -39,12 +39,12 @@ Device-to-cloud messaging with IoT Hub has the following characteristics:
 
 * IoT Hub doesn't allow arbitrary partitioning. Device-to-cloud messages are partitioned based on their originating **deviceId**.
 
-* As explained in [Control access to IoT Hub](iot-hub-devguide-security.md), IoT Hub enables per-device authentication and access control.
+* As explained in [Control access to IoT Hub by using Microsoft Entra ID](iot-hub-devguide-security.md), IoT Hub enables per-device authentication and access control.
 
-* You can stamp messages with information that goes into the application properties. For more information, see [message enrichments](iot-hub-message-enrichments-overview.md).
+* You can stamp messages with information that goes into the application properties. For more information, see [Message enrichments for device-to-cloud IoT Hub messages](iot-hub-message-enrichments-overview.md).
 
 > [!NOTE]
-> Each IoT Hub protocol provides a message content type property which is respected when routing data to custom endpoints.  To have your data properly handled at the destination (for example, JSON being treated as a parsable string instead of Base64 encoded binary data), provide the appropriate content type and charset for the message.
+> Each IoT Hub protocol provides a message content type property, which is respected when routing data to custom endpoints. To have your data properly handled at the destination (for example, JSON being treated as a parsable string instead of Base64 encoded binary data), provide the appropriate content type and charset for the message.
 
 To use your message body in an IoT Hub routing query, provide a valid JSON object for the message and set the content type property of the message to `application/json;charset=utf-8`.
 
@@ -62,8 +62,8 @@ The following example shows a valid, routable message body:
 
 | Property | Description  |User Settable?|Keyword for </br>routing query|
 | --- | --- | --- | --- |
-| message-id |A user-settable identifier for the message used for request-reply patterns. Format: A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus `- : . + % _ # * ? ! ( ) , = @ ; $ '`.  | Yes | messageId |
-| iothub-enqueuedtime |Date and time the [Device-to-Cloud](iot-hub-devguide-d2c-guidance.md) message was received by IoT Hub. | No | enqueuedTime |
+| message-id |A user-settable identifier for the message used for request-reply patterns. Format: A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus `- : . + % _ # * ? ! ( ) , = @ ; $ '`. | Yes | messageId |
+| iothub-enqueuedtime |Date and time that IoT Hub receives the [device-to-cloud](iot-hub-devguide-d2c-guidance.md) message. | No | enqueuedTime |
 | user-id |An ID used to specify the origin of messages. | Yes | userId |
 | iothub-connection-device-id |An ID set by IoT Hub on device-to-cloud messages. It contains the **deviceId** of the device that sent the message. | No | connectionDeviceId |
 | iothub-connection-module-id |An ID set by IoT Hub on device-to-cloud messages. It contains the **moduleId** of the device that sent the message. | No | connectionModuleId |
@@ -71,12 +71,12 @@ The following example shows a valid, routable message body:
 | iothub-connection-auth-method |An authentication method set by IoT Hub on device-to-cloud messages. This property contains information about the authentication method used to authenticate the device sending the message.| No | connectionAuthMethod |
 | iothub-app-iothub-creation-time-utc | Allows the device to send event creation time when sending data in a batch. | Yes | creation-time-utc |
 | iothub-creation-time-utc | Allows the device to send event creation time when sending one message at a time. | Yes | creation-time-utc |
-| dt-dataschema | This value is set by IoT hub on device-to-cloud messages. It contains the device model ID set in the device connection. | No | $dt-dataschema |
+| dt-dataschema | The IoT hub sets this value on device-to-cloud messages. It contains the device model ID set in the device connection. | No | $dt-dataschema |
 | dt-subject | The name of the component that is sending the device-to-cloud messages. | Yes | $dt-subject |
 
 ## Application properties of device-to-cloud messages
 
-A common use of application properties is to send a timestamp from the device using the `iothub-creation-time-utc` property to record when the message was sent by the device. The format of this timestamp must be UTC with no timezone information. For example, `2021-04-21T11:30:16Z` is valid, but `2021-04-21T11:30:16-07:00` is invalid.
+A common use of application properties is to send a timestamp from the device using the `iothub-creation-time-utc` property to record when the device sends the message. The format of this timestamp must be UTC with no timezone information. For example, `2021-04-21T11:30:16Z` is valid, but `2021-04-21T11:30:16-07:00` is invalid.
 
 ```json
 {
@@ -100,13 +100,13 @@ A common use of application properties is to send a timestamp from the device us
 
 | Property | Description  |User Settable?|
 | --- | --- | --- |
-| message-id |A user-settable identifier for the message used for request-reply patterns. Format: A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus `- : . + % _ # * ? ! ( ) , = @ ; $ '`.  |Yes|
-| sequence-number |A number (unique per device-queue) assigned by IoT Hub to each cloud-to-device message. |No|
-| to |A destination specified in [Cloud-to-Device](iot-hub-devguide-c2d-guidance.md) messages. |No|
-| absolute-expiry-time |Date and time of message expiration. |Yes| 
-| correlation-id |A string property in a response message that typically contains the MessageId of the request, in request-reply patterns. |Yes|
-| user-id |An ID used to specify the origin of messages. When messages are generated by IoT Hub, the user ID is the IoT hub name. |Yes|
-| iothub-ack |A feedback message generator. This property is used in cloud-to-device messages to request IoT Hub to generate feedback messages as a result of the consumption of the message by the device. Possible values: **none** (default): no feedback message is generated, **positive**: receive a feedback message if the message was completed, **negative**: receive a feedback message if the message expired (or maximum delivery count was reached) without being completed by the device, or **full**: both positive and negative. |Yes|
+| message-id |A user-settable identifier for the message used for request-reply patterns. Format: A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus `- : . + % _ # * ? ! ( ) , = @ ; $ '`. | Yes |
+| sequence-number |A number (unique per device-queue) assigned by IoT Hub to each cloud-to-device message. | No |
+| to |A destination specified in [cloud-to-device](iot-hub-devguide-c2d-guidance.md) messages. | No |
+| absolute-expiry-time |Date and time of message expiration. | Yes | 
+| correlation-id |A string property in a response message that typically contains the MessageId of the request, in request-reply patterns. | Yes |
+| user-id |An ID used to specify the origin of messages. When IoT Hub generates messages, the user ID is the IoT hub name. | Yes |
+| iothub-ack |A feedback message generator. This property is used in cloud-to-device messages to request IoT Hub to generate feedback messages as a result of the consumption of the message by the device. Possible values: **none** (default): no feedback message is generated, **positive**: receive a feedback message if the message was completed, **negative**: receive a feedback message if the message expired (or maximum delivery count was reached) without being completed by the device, or **full**: both positive and negative. | Yes |
 
 ### System property names
 
@@ -160,5 +160,5 @@ The **iothub-connection-auth-method** property contains a JSON serialized object
 ## Next steps
 
 * For information about message size limits in IoT Hub, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
-* To learn how to create and read IoT Hub messages in various programming languages, see the [Quickstarts](../iot/tutorial-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json).
-* To learn about the structure of non-telemetry events generated by IoT Hub, see [IoT Hub non-telemetry event schemas](iot-hub-non-telemetry-event-schema.md).
+* To learn how to create and read IoT Hub messages in various programming languages, see [Tutorial: Send telemetry from an IoT Plug and Play device to Azure IoT Hub](../iot/tutorial-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json).
+* To learn about the structure of non-telemetry events generated by IoT Hub, see [Azure IoT Hub non-telemetry event schemas](iot-hub-non-telemetry-event-schema.md).

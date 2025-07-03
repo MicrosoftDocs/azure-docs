@@ -9,6 +9,7 @@ ms.date: 04/22/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
+# Customer intent: As an SAP HANA administrator, I want to add volumes for a secondary database using HANA System Replication, so that I can ensure data synchronization and high availability between primary and secondary SAP HANA systems.
 ---
 # Add volumes for an SAP HANA system as a secondary database in HSR
 

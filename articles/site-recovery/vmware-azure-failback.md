@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.author: jsuri
 ms.date: 12/04/2023
 
+# Customer intent: As a disaster recovery manager, I want to understand how to fail back VMware VMs and physical servers to the on-premises site from Azure, so that I can ensure business continuity and maintain protection for my infrastructure after a failover.
 ---
 # Fail back VMware VMs to on-premises site
 

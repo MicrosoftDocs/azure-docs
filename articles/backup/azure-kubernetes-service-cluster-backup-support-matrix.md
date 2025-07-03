@@ -10,6 +10,7 @@ ms.custom:
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to understand the backup support and limitations for Azure Kubernetes Service (AKS) so that I can implement effective backup strategies for my clusters and ensure data protection compliance.
 ---
 
 # Azure Kubernetes Service backup support matrix

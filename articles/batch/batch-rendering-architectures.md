@@ -3,6 +3,7 @@ title: Azure rendering reference architectures
 description: Architectures for using Azure Batch and other Azure services to extend an on-premises render farm by bursting to the cloud
 ms.date: 02/07/2025
 ms.topic: how-to
+# Customer intent: As a media production engineer, I want to implement a cloud bursting strategy for my on-premises render farm using Azure services, so that I can efficiently scale rendering capacity and enhance workload management during peak processing times.
 ---
 
 # Reference architectures for Azure rendering

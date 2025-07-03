@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.service: azure-blob-storage
 ms.reviewer: sadodd 
 ms.custom: engagement-fy23
+# Customer intent: As a data engineer, I want to implement the change feed in Blob Storage, so that I can track and process changes to my blobs efficiently for analytics and compliance purposes.
 ---
 
 # Change feed support in Azure Blob Storage

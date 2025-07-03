@@ -6,6 +6,7 @@ ms.author: v-uhabiba
 ms.topic: troubleshooting
 ms.date: 06/26/2024
 ms.custom: engagement-fy24
+# Customer intent: As an IT administrator, I want to troubleshoot issues with creating and managing Azure Migrate projects, so that I can ensure smooth migration and assessment processes for my organization's workloads.
 ---
 
 # Troubleshoot Azure Migrate projects

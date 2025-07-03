@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 03/25/2025
 ms.author: shaas
 zone_pivot_groups: data-box-sku
+# Customer intent: "As a data center technician, I want to follow the safety guidelines for installing and operating the Data Box, so that I can ensure safe handling and prevent accidents or equipment damage during setup."
 ---
 
 # Safely install and operate your Azure Data Box

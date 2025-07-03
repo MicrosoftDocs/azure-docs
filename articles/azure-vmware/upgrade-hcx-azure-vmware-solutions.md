@@ -4,6 +4,7 @@ description: This article explains how to upgrade HCX on Azure VMware Solution.
 ms.topic: how-to
 ms.date: 05/23/2025
 ms.custom: engagement-fy23
+# Customer intent: As an IT administrator managing Azure VMware Solution, I want to upgrade HCX to the latest version, so that I can ensure access to new features, security patches, and continued support while minimizing system downtime.
 ---
 
 # Upgrade HCX on Azure VMware Solution
