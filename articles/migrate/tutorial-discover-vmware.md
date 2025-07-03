@@ -39,7 +39,7 @@ Requirement | Details
 --- | ---
 **vCenter Server/ESXi host** | You need a server running vCenter Server version 8.0, 7.0, 6.7, 6.5, 6.0, or 5.5.<br /><br /> Servers must be hosted on an ESXi host running version 5.5 or later.<br /><br /> On the vCenter Server, allow inbound connections on TCP port 443 so that the appliance can collect configuration and performance metadata.<br /><br /> The appliance connects to vCenter Server on port 443 by default. If the server running vCenter Server listens on a different port, you can modify the port when you provide the vCenter Server details in the appliance configuration manager.<br /><br /> On the ESXi hosts, make sure that inbound access is allowed on TCP port 443 for discovery of installed applications and for agentless dependency analysis on servers.
 **Azure Migrate appliance** | vCenter Server must have these resources to allocate to a server that hosts the Azure Migrate appliance:<br /><br /> - 32 GB of RAM, 8 vCPUs, and approximately 80 GB of disk storage.<br /><br /> - An external virtual switch and internet access on the appliance server, directly or via a proxy.
-**Servers** | All Windows and Linux OS versions are supported for discovery of configuration and performance metadata. <br /><br /> For application discovery on servers, all Windows and Linux OS versions are supported. Check the [OS versions supported for agentless dependency analysis](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agent-based) <br /><br /> For discovery of installed applications and for agentless dependency analysis, VMware Tools (version 10.2.1 or later) must be installed and running on servers. Windows servers must have PowerShell version 2.0 or later installed.<br /><br /> To discover SQL Server instances and databases, check [supported SQL Server and Windows OS versions and editions](migrate-support-matrix-vmware.md#sql-server-instance-and-database-discovery-requirements) and Windows authentication mechanisms.<br /><br /> To discover ASP.NET web apps running on IIS web server, check [supported Windows OS and IIS versions](migrate-support-matrix-vmware.md).<br /><br />  To discover Java web apps running on Apache Tomcat web server, check [supported Linux OS and Tomcat versions](migrate-support-matrix-vmware.md#web-apps-discovery-requirements). 
+**Servers** | All Windows and Linux OS versions are supported for discovery of configuration and performance metadata. <br /><br /> For application discovery on servers, all Windows and Linux OS versions are supported. Check the [OS versions supported for agentless dependency analysis](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agent-based) <br /><br /> For discovery of installed applications and for agentless dependency analysis, VMware Tools (version 10.2.1 or later) must be installed and running on servers. Windows servers must have PowerShell version 2.0 or later installed.<br /><br /> For Linux servers, SSH key-based authentication supports discovery of configuration and performance data, installed applications, agentless dependency analysis, and workload discovery. <br /><br > To discover Linux servers using SSH key-based authentication, the appliance needs a direct connection to the target servers. <br /><br /> To discover SQL Server instances and databases, check [supported SQL Server and Windows OS versions and editions](migrate-support-matrix-vmware.md#sql-server-instance-and-database-discovery-requirements) and Windows authentication mechanisms.<br /><br /> To discover ASP.NET web apps running on IIS web server, check [supported Windows OS and IIS versions](migrate-support-matrix-vmware.md).<br /><br />  To discover Java web apps running on Apache Tomcat web server, check [supported Linux OS and Tomcat versions](migrate-support-matrix-vmware.md#web-apps-discovery-requirements). 
 **SQL Server access** | To discover SQL Server instances and databases, the Windows account, or SQL Server account [requires these permissions](migrate-support-matrix-vmware.md#sql-server-instance-and-database-discovery-requirements) for each SQL Server instance. You can use the [account provisioning utility](least-privilege-credentials.md) to create custom accounts or use any existing account that is a member of the sysadmin server role for simplicity.
 
 ## Prepare an Azure user account
@@ -112,13 +112,10 @@ In VMware vSphere Web Client, set up a read-only account to use for vCenter Serv
 > [!NOTE]
 > Lightweight Directory Access Protocol (LDAP) accounts are not supported for discovery.
 
-Your user account on your servers must have the required permissions to initiate discovery of installed applications, agentless dependency analysis, and discovery of web apps, and SQL Server instances and databases. You can provide the user account information in the appliance configuration manager. The appliance doesn't install agents on the servers.
-
-* To perform software inventory and agentless dependency analysis, create a guest user account (local or domain) on the servers. To perform web app discovery, you need an account with administrative permissions on the servers. To discover SQL Server instances and databases, the Windows or SQL Server account must be a member of the sysadmin server role or have [these permissions](./migrate-support-matrix-vmware.md#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance. Learn how to [assign the required role to the user account](/sql/relational-databases/security/authentication-access/server-level-roles).
-* For **Linux servers**, provide a sudo user account with permissions to execute ls and netstat commands or create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files. If you're providing a sudo user account, ensure that you have enabled **NOPASSWD** for the account to run the required commands without prompting for a password every time sudo command is invoked.
+Refer to security best practices to set up user accounts. 
 
 > [!NOTE]
-> You can add multiple server credentials in the Azure Migrate appliance configuration manager to initiate discovery of installed applications, agentless dependency analysis, and discovery of web apps, and SQL Server instances and databases. You can add multiple domain, Windows (non-domain), Linux (non-domain), or SQL Server authentication credentials. Learn how to [add server credentials](add-server-credentials.md).
+> You can add multiple server credentials in the Azure Migrate appliance configuration manager to initiate discovery of installed applications, agentless dependency analysis, and discovery of web apps, and SQL Server instances and databases. You can add multiple domain, Windows (non-domain), Linux (non-domain), Linux (SSH-key) or SQL Server authentication credentials. Learn how to [add server credentials](add-server-credentials.md).
 
 ## Set up a project
 
@@ -174,31 +171,6 @@ To set up the appliance by using an OVA template, complete these steps, which ar
 
 In **2: Download Azure Migrate appliance**, select the OVA file, and then select **Download**.
 
-##### Verify security
-
-Before you deploy the OVA file, verify that the file is secure:
-
-1. On the server on which you downloaded the file, open a Command Prompt window by using the **Run as administrator** option.
-1. Run the following command to generate the hash for the OVA file:
-  
-    ```bash
-    C:\>CertUtil -HashFile <file_location> <hashing_agorithm>
-    ```
-   
-    Example: `C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256`
-
-1. Verify the latest appliance versions and hash values:
-
-    - For the Azure public cloud:
-    
-        [!INCLUDE [public-cloud-vmware.md](./includes/public-cloud-vmware.md)]
-
-    - For Azure Government:
-    
-        **Algorithm** | **Download** | **SHA256**
-        --- | --- | ---
-        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](./includes/security-hash-value.md)]
-
 #### Create the appliance server
 
 Import the downloaded file, and then create a server in the VMware environment:
@@ -243,9 +215,6 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 1. **Install updates and register appliance**: To run auto-update and register the appliance, follow these steps:
 
     :::image type="content" source="./media/tutorial-discover-vmware/prerequisites.png" alt-text="Screenshot that shows setting up the prerequisites in the appliance configuration manager.":::
-
-    > [!NOTE]
-    > This is a new user experience in Azure Migrate appliance which is available only if you have set up an appliance using the latest OVA/Installer script downloaded from the portal. The appliances which have already been registered will continue seeing the older version of the user experience and will continue to work without any issues.
 
     1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown.
 	2. The appliance will verify the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
@@ -301,14 +270,34 @@ To add server credentials:
 1. Select **Add Credentials**.
 1. In the dropdown menu, select **Credentials type**.
     
-    You can provide domain, Windows(non-domain), Linux(non-domain), and SQL Server authentication credentials. Learn how to [provide credentials](./add-server-credentials.md) and how we handle them.
-1. For each type of credentials, enter:
-    * A friendly name.
-    * A username.
-    * A password.
-    Select **Save**.
+    You can provide domain, Windows(non-domain), Linux(non-domain), Linux (SSH-key), and SQL Server authentication credentials. Learn how to [provide credentials](./add-server-credentials.md) and how we handle them.
 
-    If you choose to use domain credentials, you also must enter the FQDN for the domain. The FQDN is required to validate the authenticity of the credentials with the Active Directory instance in that domain.
+1. For a Windows server: 
+    1. Select the source type as **Windows Server**. 
+    1. Enter a friendly name for the credentials. 
+    1. Add the username and password. 
+    1. Select **Save**. 
+1. If you use password-based authentication for a Linux server, select the source type as **Linux Server (Password-based)**. 
+    1. Enter a friendly name for the credentials. 
+    1. Add the username and password, and then select Save. 
+1. If you use SSH key-based authentication for a Linux server: 
+    1. Select the source type as **Linux Server (SSH key-based)**. 
+    1. Enter a friendly name for the credentials. 
+    1. Add the username. 
+    1. Browse and select the SSH private key file. 
+    1. Select **Save**. 
+
+    >[!Note]
+    > - Azure Migrate supports SSH private keys created using the ssh-keygen command with RSA, ECDSA, and ed25519 algorithms.
+    > - It supports SSH private key files in OpenSSH format.
+    > - It doesn't support SSH keys with a passphrase. We recommend using a key without a passphrase
+    > - It also doesn't support SSH private key files created by PuTTY.
+
+>[!Note]
+> - To discover servers using passwords, the Azure Migrate appliance uses VMware tools and vSphere APIs to collect software inventory and dependency analysis data.
+> - To discover Linux servers using SSH key-based authentication, the appliance needs a direct connection to the target servers. It connects through SSH to gather software inventory and agentless dependency analysis information.
+
+If you choose to use domain credentials, you also must enter the FQDN for the domain. The FQDN is required to validate the authenticity of the credentials with the Active Directory instance in that domain.
 1. Review the [required permissions](add-server-credentials.md#required-permissions) on the account for discovery of installed applications, agentless dependency analysis, and discovery of web apps and SQL Server instances and databases.
 1. To add multiple credentials at once, select **Add more** to save credentials, and then add more credentials.
     When you select **Save** or **Add more**, the appliance validates the domain credentials with the domain's Active Directory instance for authentication. Validation is made after each addition to avoid account lockouts as the appliance iterates to map credentials to respective servers.
