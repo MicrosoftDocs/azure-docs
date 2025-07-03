@@ -114,7 +114,11 @@ During failback, the service ensures data consistency by synchronizing any opera
 
 ## Multi-region support
 
-[!INCLUDE [Storage - Testing for zone failures](includes/storage/reliability-storage-multi-region-support-include.md)]
+[!INCLUDE [Storage - Multi-region support introduction](includes/storage/reliability-storage-multi-region-support-include.md)]
+
+[!INCLUDE [Storage - Multi-region support introduction RA-GRS addendum](includes/storage/reliability-storage-multi-region-support-ra-grs-include.md)]
+
+[!INCLUDE [Storage - Multi-region support introduction failover types](includes/storage/reliability-storage-multi-region-support-failover-types-include.md)]
 
 ### Region support
 
