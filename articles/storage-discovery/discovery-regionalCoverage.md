@@ -2,7 +2,7 @@
 title: Regional coverage of Azure Storage Discovery | Microsoft Docs
 description: Regions where Storage Discovery is available to be created and the regions from where storage account metrics will be aggregated.
 author: pthippeswamy
-ms.service: azure-storage-discovery
+ms.service: azure-storage-mover
 ms.topic: overview
 ms.date: 06/24/2025
 ms.author: pthippeswamy
@@ -22,7 +22,7 @@ Document score: not run
 !########################################################
 -->
 
-# Regions
+# Azure Storage Discovery regions
 
 Azure Storage Discovery is currently in PREVIEW and is available in the following regions. See the Supplemental Terms of Use for Microsoft Azure Previews for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 

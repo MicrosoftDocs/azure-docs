@@ -2,7 +2,7 @@
 title: Planning for Storage Discovery deployment | Microsoft Docs
 description: Storage Discovery provides insights on storage capacity, transactions, and configurations - providing visibility into your storage estate at entire organization level and aiding business decisions.
 author: pthippeswamy
-ms.service: azure-storage-discovery
+ms.service: azure-storage-mover
 ms.topic: overview
 ms.date: 06/27/2025
 ms.author: pthippeswamy
@@ -21,6 +21,7 @@ Document score: not run
 
 !########################################################
 -->
+# Azure Storage Discovery concepts
 
 Deploying Azure Storage Discovery workspace in one of your Azure subscriptions is the first step in starting aggregation of storage account metrics. This article discusses the important decisions and best practices for a Storage Discovery deployment.
 

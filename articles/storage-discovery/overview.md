@@ -2,7 +2,7 @@
 title: Introduction to Azure Storage Discovery | Microsoft Docs
 description: Storage Discovery provides insights on storage capacity, transactions, and configurations - providing visibility into their storage estate at entire organization level and aiding business decisions.
 author: pthippeswamy
-ms.service: azure-storage-discovery
+ms.service: azure-storage-mover
 ms.topic: overview
 ms.date: 06/15/2025
 ms.author: pthippeswamy
