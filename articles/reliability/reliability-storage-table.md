@@ -12,23 +12,25 @@ ms.date:  07/2/2025
 
 # Reliability in Azure Table Storage
 
-[Azure Table Storage](/azure/storage/tables/table-storage-overview) is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. A single table can contain entities that have different sets of properties, and properties can be of various data types. Table Storage is ideal for storing flexible datasets like user data for web applications, address books, device information, or other types of metadata your service requires.
+[Azure Table Storage](/azure/storage/tables/table-storage-overview) is a service that stores structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. A single table can contain entities that have different sets of properties, and properties can be of various data types.
 
-Azure Table Storage provides several reliability features through the underlying Azure Storage platform. As part of Azure Storage, Table Storage inherits the same redundancy options, availability zone support, and geo-replication capabilities that ensure high availability and durability for your table data. The service automatically handles transient faults and provides built-in retry mechanisms through Azure Storage client libraries, making it well-suited for applications requiring reliable NoSQL data storage with high availability.
+Azure Table Storage provides several reliability features through the underlying Azure Storage platform. As part of Azure Storage, Table Storage inherits the same redundancy options, availability zone support, and geo-replication capabilities that ensure high availability and durability for your table data.
 
 This article describes reliability and availability zones support in Azure Table Storage. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/reliability/overview).
+
+<!-- Anastasia - I think we should add something like this to each of the Azure Storage guides that use the include files: -->
+> [!NOTE]
+> Azure Table Storage is part of the Azure Storage platform. Some of the capabilities of Table Storage are common across many Azure Storage services. In this document, we use "Azure Storage" to indicate these common capabilities.
 
 ## Production deployment recommendations
 
 For production environments:
 
-- Enable zone-redundant storage (ZRS) or geo-zone-redundant storage (GZRS) in paired regions for the storage accounts that contain Table Storage resources.
+- Enable zone-redundant storage (ZRS) for the storage accounts that contain Table Storage resources. ZRS provides higher availability by replicating your data synchronously across multiple availability zones in the primary region, protecting against availability zone failures. 
 
-    - ZRS provides higher availability by replicating your data synchronously across three availability zones in the primary region, protecting against availability zone failures. 
-    - GZRS provides protection against regional outages, using GZRS which combines zone redundancy in the primary region with geo-replication to a secondary region.
+- If your primary region is paired, consider enabling geo-redundant storage (GRS) or geo-zone-redundant storage (GZRS) for the storage accounts that contain Table Storage resources. GZRS provides protection against regional outages, using GZRS which combines zone redundancy in the primary region with geo-replication to a secondary region.
 
-- Choose the Standard general-purpose v2 storage account type for Table Storage, as it provides the best balance of features, performance, and cost-effectiveness. Premium storage accounts don't support Table Storage.
-
+- For high-scale production workloads, consider using [Azure Cosmos DB for Table](/azure/cosmos-db/table/introduction), which is compatible with applications that are written for Azure Table Storage. Azure Cosmos DB for Table supports low latency read and write operations at high scale, strong global distribution across multiple regions with flexible consistency models, and a range of other capabilities that enhance your resiliency and performance.
 
 ## Reliability architecture overview
 
@@ -36,22 +38,17 @@ Azure Table Storage operates as a distributed NoSQL database within the Azure St
 
 [!INCLUDE [Storage - Reliability architecture overview](includes/storage/reliability-storage-architecture-include.md)]
 
-
 ## Transient faults
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
-Azure Table Storage handles transient faults automatically through several mechanisms provided by the Azure Storage platform and client libraries. The service is designed to provide resilient NoSQL data storage capabilities even during temporary infrastructure issues.
-
-Azure Table Storage client libraries include built-in retry policies that automatically handle common transient failures such as network timeouts, temporary service unavailability (HTTP 503), throttling responses (HTTP 429/500), and partition server overload conditions. When your application encounters these transient conditions, the client libraries automatically retry operations using exponential backoff strategies.
+[Azure Table Storage client libraries and SDKs](https://devblogs.microsoft.com/azure-sdk/announcing-the-new-azure-data-tables-libraries/) include built-in retry policies that automatically handle common transient failures such as network timeouts, temporary service unavailability (HTTP 503), throttling responses (HTTP 429), and partition server overload conditions. When your application encounters these transient conditions, the client libraries automatically retry operations using exponential backoff strategies.
 
 To manage transient faults effectively when using Azure Table Storage:
 
 - **Configure appropriate timeouts** in your Table Storage client to balance responsiveness with resilience to temporary slowdowns. The default timeouts in Azure Storage client libraries are typically suitable for most scenarios.
 - **Implement exponential backoff** for retry policies, especially when encountering HTTP 503 Server Busy or HTTP 500 Operation Timeout errors. Table Storage may throttle requests when individual partitions become hot or when storage account limits are approached.
 - **Design partition-aware retry logic** that considers Table Storage's partitioned architecture. Distribute operations across multiple partitions to reduce the likelihood of encountering throttling on individual partition servers.
-- **Handle specific Table Storage error conditions** such as EntityTooLarge (413), RequestEntityTooLarge (413), and PayloadTooLarge (413) which indicate data size limitations rather than transient issues.
-
 
 Common transient fault scenarios specific to Table Storage include:
 
@@ -59,27 +56,23 @@ Common transient fault scenarios specific to Table Storage include:
 - **Hot partition throttling**: When a partition receives disproportionate traffic, the service may temporarily throttle requests to that partition while load balancing occurs.
 - **Entity Group Transaction failures**: Transient failures during batch operations affecting multiple entities within the same partition are automatically retried by client libraries.
 
-
 ## Availability zone support
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
+Azure Table Storage is zone-redundant when deployed with ZRS configuration, meaning the service spreads replicas of your table data synchronously across all of the availability zones in the region. This configuration ensures that your tables remain accessible even if an entire availability zone becomes unavailable. All write operations must be acknowledged across multiple zones before completing, providing strong consistency guarantees.
 
-Azure Table Storage is zone-redundant when deployed with ZRS configuration, meaning the service spreads replicas of your table data synchronously across three separate availability zones. This configuration ensures that your tables remain accessible even if an entire availability zone becomes unavailable. All write operations must be acknowledged across multiple zones before completing, providing strong consistency guarantees.
-
-Zone redundancy is enabled at the storage account level and applies to all Queue Storage resources within that account. You cannot configure individual queues for different redundancy levels - the setting applies to the entire storage account. When an availability zone experiences an outage, Azure Storage automatically routes requests to healthy zones without requiring any intervention from your application.
+Zone redundancy is enabled at the storage account level and applies to all Table Storage resources within that account. You cannot configure individual entities for different redundancy levels - the setting applies to the entire storage account. When an availability zone experiences an outage, Azure Storage automatically routes requests to healthy zones without requiring any intervention from you or your application.
 
 [!INCLUDE [Storage - Availability zone support](includes/storage/reliability-storage-availability-zone-support-include.md)]
 
 ### Region support
 
-Zone-redundant Azure Queue Storage can be deployed [in any region that supports availability zones](./regions-list.md).
+Zone-redundant Azure Storage accounts can be deployed [in any region that supports availability zones](./regions-list.md).
 
 ### Requirements
 
 You must use a Standard general-purpose v2 storage account to enable zone-redundant storage for Table Storage. Premium storage accounts don't support Table Storage. All storage account tiers and performance levels support ZRS configuration where availability zones are available.
-
-**Source**: [Azure Storage redundancy](https://learn.microsoft.com/azure/storage/common/storage-redundancy#summary-of-redundancy-options)
 
 ### Cost
 
@@ -89,14 +82,13 @@ When you enable ZRS, you're charged at a different rate than locally redundant s
 
 ### Configure availability zone support
 
-- **Create a queue storage with redundancy:** 
+- **Create a storage account and table with zone redundancy:**
 
-    1.  [Create a storage account](/azure/storage/common/storage-account-create) and select ZRS, geo-zone-redundant storage(GZRS) or read-access geo-redundant storage (RA-GZRS) as the redundancy option during account creation
+    1. [Create a storage account](/azure/storage/common/storage-account-create) and select ZRS, geo-zone-redundant storage (GZRS) or read-access geo-redundant storage (RA-GZRS) as the redundancy option during account creation.  
 
-    1.  [Create a table](/azure/storage/tables/table-storage-quickstart-portal).
+    1. [Create a table](/azure/storage/tables/table-storage-quickstart-portal).
 
 [!INCLUDE [Storage - Configure availability zone support](includes/storage/reliability-storage-availability-zone-configure-include.md)]
-
 
 ### Normal operations
     
@@ -104,15 +96,11 @@ This section describes what to expect when a table storage account is configured
 
 [!INCLUDE [Storage - Normal operations](includes/storage/reliability-storage-availability-zone-normal-operations-include.md)]
 
-
 ### Zone-down experience
 
 When an availability zone becomes unavailable, Azure Table Storage automatically handles the failover process with the following behavior:
 
-
 [!INCLUDE [Storage - Zone down experience](includes/storage/reliability-storage-availability-zone-down-experience-include.md)]
-
-
 
 ### Failback
 
@@ -120,26 +108,21 @@ When the failed availability zone recovers, Azure Table Storage automatically be
 
 During failback, the service ensures data consistency by synchronizing any operations that occurred during the outage period. Partition rebalancing occurs gradually to minimize performance impact, typically completing within minutes without requiring any customer intervention or configuration changes.
 
-**Source**: [Azure storage disaster recovery planning and failover](https://learn.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance)
-
 ### Testing for zone failures
 
 [!INCLUDE [Storage - Testing for zone failures](includes/storage/reliability-storage-availability-zone-testing-include.md)]
-
 
 ## Multi-region support
 
 [!INCLUDE [Storage - Testing for zone failures](includes/storage/reliability-storage-multi-region-support-include.md)]
 
-
-
 ### Region support
 
-Azure Table Storage geo-redundant configurations use Azure paired regions for secondary region replication. The secondary region is automatically determined based on your primary region selection and cannot be customized. For a complete list of Azure paired regions, see [Azure paired regions](/azure/reliability/cross-region-replication-azure#azure-paired-regions).
+Azure Table Storage geo-redundant configurations use Azure paired regions for secondary region replication. The secondary region is automatically determined based on your primary region selection and cannot be customized. For a complete list of Azure paired regions, see [Azure regions list](./regions-list.md).
 
 ### Requirements
 
-[!INCLUDE [Storage - Multi Region Requirements](includes/storage/reliability-storage-multi-region-support-include.md)]
+[!INCLUDE [Storage - Multi Region Requirements](includes/storage/reliability-storage-multi-region-requirements-include.md)]
 
 ### Considerations
 
@@ -153,12 +136,9 @@ Multi-region Azure Table Storage configurations incur additional costs for cross
 
 [!INCLUDE [Storage - Multi Region Configure multi-region support](includes/storage/reliability-storage-multi-region-configure-include.md)]
 
-
 ### Normal operations
 
-
 [!INCLUDE [Storage - Multi Region Normal operations](includes/storage/reliability-storage-multi-region-normal-operations-include.md)]
-
 
 ### Region-down experience
 
@@ -191,26 +171,13 @@ Azure Table Storage doesn't provide traditional backup capabilities like point-i
 For scenarios requiring table data backup, consider the following approaches:
 
 - **Export to Azure Blob Storage**: Use AzCopy or custom applications to periodically export table data to Azure Blob Storage for long-term retention. This approach allows you to maintain historical snapshots of your table data.
-- **Cross-region replication**: Leverage geo-redundant storage options (GRS/GZRS) which maintain copies of your table data in a secondary region, providing protection against regional disasters.
 - **Application-level backup**: Implement custom backup logic within your applications to export critical table entities to other storage services like Azure SQL Database or Azure Cosmos DB for more robust backup and restore capabilities.
 
 When designing backup strategies for Table Storage, consider the partitioned nature of the data and ensure your backup processes can handle large tables efficiently by processing multiple partitions in parallel.
 
-The geo-redundant storage options (GRS/GZRS) serve as the primary disaster recovery mechanism for Table Storage by maintaining copies of your table data in a secondary region, providing protection against regional outages without requiring separate backup infrastructure.
-
-**Source**: [Azure Storage redundancy](https://learn.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region)
-
 ## Service-level agreement
 
-The service-level agreement (SLA) for Azure Table Storage is included in the broader Azure Storage SLA, which guarantees different availability levels based on your redundancy configuration. Storage accounts with zone-redundant storage (ZRS) or geo-zone-redundant storage (GZRS) receive higher availability guarantees compared to locally redundant storage (LRS).
-
-For LRS configurations, Azure guarantees at least 99.9% availability for read and write requests to Table Storage. For ZRS configurations, the availability increases to at least 99.9% with improved resilience during availability zone failures. Read-access geo-redundant configurations provide at least 99.99% availability for read requests when configured properly.
-
-The SLA covers table operations including entity queries, insertions, updates, deletions, and batch operations. Performance targets for Table Storage include up to 20,000 entities per second per storage account and up to 2,000 entities per second per partition, with 1KB entity size assumptions.
-
-For complete SLA details and conditions, see [Service Level Agreement for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/).
-
-**Source**: [Service Level Agreement for Storage Accounts](https://azure.microsoft.com/support/legal/sla/storage/v1_5/)
+[!INCLUDE [Storage - SLA](includes/storage/reliability-storage-sla-include.md)]
 
 ## Related content
 
@@ -219,6 +186,5 @@ For complete SLA details and conditions, see [Service Level Agreement for Storag
 - [Azure Storage redundancy](/azure/storage/common/storage-redundancy)
 - [Azure storage disaster recovery planning and failover](/azure/storage/common/storage-disaster-recovery-guidance)
 - [Performance and scalability checklist for Table storage](/azure/storage/tables/storage-performance-checklist)
-- [What are availability zones?](/azure/reliability/availability-zones-overview)
 - [Azure reliability](/azure/reliability/overview)
 - [Recommendations for handling transient faults](/azure/well-architected/reliability/handle-transient-faults)
