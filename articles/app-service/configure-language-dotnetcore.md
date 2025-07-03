@@ -4,10 +4,11 @@ description: Learn how to configure an ASP.NET Core app in native Windows instan
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-dotnet, linux-related-content
 ms.topic: how-to
-ms.date: 06/02/2020
+ms.date: 05/07/2025
 zone_pivot_groups: app-service-platform-windows-linux
 author: cephalin
 ms.author: cephalin
+#customer intent: As an app designer, I want to learn how to configure my ASP.NET Core app to use Azure App Service.
 ---
 
 # Configure an ASP.NET Core app for Azure App Service
@@ -55,7 +56,7 @@ az webapp list-runtimes --os linux | grep DOTNET
 
 ## Set .NET Core version
 
-::: zone pivot="platform-windows"  
+::: zone pivot="platform-windows"
 
 Set the target framework in the project file for your ASP.NET Core project. For more information, see [Select the .NET Core version to use](/dotnet/core/versions/selection).
 
@@ -128,7 +129,7 @@ namespace SomeNamespace
 }
 ```
 
-If you configure an app setting with the same name in App Service and in `appsettings.json`, for example, the App Service value takes precedence over the `appsettings.json` value. By using the local `appsettings.json` value, you can debug the app locally, but by using the App Service value, you can run the app in production with production settings. Connection strings work the same way. By using this method, you can keep your application secrets outside your code repository and access the appropriate values without changing your code.
+If you configure an app setting with the same name in App Service and in `appsettings.json`, the App Service value takes precedence over the `appsettings.json` value. By using the local `appsettings.json` value, you can debug the app locally. By using the App Service value, you can run the app in production with production settings. Connection strings work the same way. By using this method, you can keep your application secrets outside your code repository and access the appropriate values without changing your code.
 
 > [!NOTE]
 > You can also consider more secure connectivity options that don't require connection secrets. For more information, see [Secure connectivity to Azure services and databases from Azure App Service](tutorial-connect-overview.md).
@@ -154,7 +155,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## Deploy multi-project solutions
 
-When a Visual Studio solution includes multiple projects, the Visual Studio publish process automatically selects the project to deploy. When you deploy to the App Service deployment engine, such as with Git, or with ZIP deploy [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the App Service deployment engine picks the first website or web application project that it finds as the App Service app. You can specify which project App Service should use by specifying the `PROJECT` app setting. For example, run the following command in [Cloud Shell](https://shell.azure.com):
+When a Visual Studio solution includes multiple projects, the Visual Studio publish process selects the project to deploy. When you deploy to the App Service deployment engine, such as with Git, or with ZIP deploy [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the App Service deployment engine picks the first website or web application project that it finds as the App Service app. You can specify which project App Service should use by specifying the `PROJECT` app setting. For example, run the following command in [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings PROJECT="<project-name>/<project-name>.csproj"
@@ -193,7 +194,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## Detect HTTPS session
 
-In App Service, [TLS termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to know if user requests are encrypted, configure the Forwarded Headers Middleware in `Startup.cs`:
+In App Service, [TLS termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers. All HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to know if user requests are encrypted, configure the Forwarded Headers Middleware in `Startup.cs`:
 
 - Configure the middleware with [`ForwardedHeadersOptions`](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) to forward the `X-Forwarded-For` and `X-Forwarded-Proto` headers in `Startup.ConfigureServices`.
 - Add private IP address ranges to the known networks, so that the middleware can trust the App Service load balancer.
@@ -245,12 +246,12 @@ To rewrite or redirect a URL, use the [URL-rewriting middleware in ASP.NET Core]
 
 ## Related content
 
-* [Tutorial: Deploy an ASP.NET Core and Azure SQL Database app](tutorial-dotnetcore-sqldb-app.md)
+- [Tutorial: Deploy an ASP.NET Core and Azure SQL Database app](tutorial-dotnetcore-sqldb-app.md)
 
 ::: zone pivot="platform-linux"
 
-* [Azure App Service on Linux FAQ](faq-app-service-linux.yml)
+- [Azure App Service on Linux FAQ](faq-app-service-linux.yml)
 
 ::: zone-end
 
-* [Environment variables and app settings reference](reference-app-settings.md)
+- [Environment variables and app settings reference](reference-app-settings.md)
