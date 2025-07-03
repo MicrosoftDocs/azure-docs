@@ -222,7 +222,7 @@ When you're ready to test your template, you can publish your template for testi
 
    Azure publishes the template, which displays the **Testing** label, to the templates gallery.
 
-1. To test your new template, follow the steps in [Create workflows from prebuilt templates](create-single-tenant-workflows-templates.md) but with these steps:
+1. To test your new template, follow the steps in [Create workflows from prebuilt templates](create-workflows-from-templates.md) but with these steps:
 
    1. From the **Status** list, select **Published for Testing**. Under the filters row, select **My Templates**.
 
@@ -509,4 +509,4 @@ For more guidance, see the [Microsoft Style Guide](/style-guide/welcome/) and [G
 
 ## Related content
 
-[Create a Standard logic app workflow from a prebuilt template](create-single-tenant-workflows-templates.md)
+[Create logic app workflows from prebuilt templates](create-workflows-from-templates.md)
