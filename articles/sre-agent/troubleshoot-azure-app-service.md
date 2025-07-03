@@ -44,6 +44,8 @@ In this tutorial, you will:
     az provider register --namespace "Microsoft.App"
     ```
 
+* **Access to Sweden Central region**: During preview, the only allowed region for SRE Agent is Sweden Central. Make sure your user account has *owner* or *admin* permissions and permissions to create resources in the Sweden Central region.
+
 ## 1. Create an App Service app
 
 Start by creating a web app that the SRE Agent can monitor.
