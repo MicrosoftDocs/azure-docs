@@ -11,7 +11,7 @@ ms.custom: mvc, subject-rbac-steps, engagement-fy25
 ms.collection:
  - migration
  - aws-to-azure
-#Customer intent: As a server admin I want to discover my AWS instances.
+# Customer intent: "As a server administrator, I want to discover my AWS instances using a migration tool, so that I can assess and plan their migration to Azure efficiently."
 ---
 
 # Tutorial: Discover AWS instances with Azure Migrate

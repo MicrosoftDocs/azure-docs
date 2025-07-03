@@ -7,6 +7,7 @@ ms.topic: reference
 author: AbdullahBell
 ms.author: abell
 ms.service: azure-ddos-protection
+# Customer intent: As a network administrator, I want to monitor Azure DDoS Protection metrics and logs, so that I can effectively manage traffic and identify potential threats to ensure the security and performance of my network.
 ---
 
 # Azure DDoS Protection monitoring data reference

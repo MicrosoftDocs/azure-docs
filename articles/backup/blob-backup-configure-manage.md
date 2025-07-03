@@ -6,6 +6,7 @@ ms.date: 06/18/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to configure and manage backup for Azure Blobs across multiple storage accounts, so that I can ensure data protection and recovery options are available in case of accidental deletion or data loss."
 ---
 
 # Configure and manage backup for Azure Blobs using Azure Backup

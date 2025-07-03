@@ -3,10 +3,10 @@ title: Data connector definitions reference for the Codeless Connector Framework
 titleSuffix: Microsoft Sentinel
 description: This article provides a supplemental reference for creating the connectorUIConfig JSON section for the Data Connector Definitions API as part of the Codeless Connector Framework.
 services: sentinel
-author: austinmccollum
+author: EdB-MSFT
 ms.topic: reference
 ms.date: 11/13/2023
-ms.author: austinmc
+ms.author: edbaynash
 
 
 

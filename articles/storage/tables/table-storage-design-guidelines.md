@@ -7,6 +7,7 @@ author: akashdubey-ms
 ms.author: akashdubey
 ms.topic: article
 ms.date: 04/23/2018
+# Customer intent: As a data engineer, I want to design Azure storage tables for optimal read and write efficiency, so that I can ensure high performance and scalability for my applications.
 ---
 # Guidelines for table design
 

@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 02/21/2025
 ms.author: anfdocs
+# Customer intent: As a cloud administrator, I want to enable LDAP authentication with extended groups for NFS volumes, so that I can authorize Active Directory users for secure file access in an Azure NetApp Files environment.
 ---
 # Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS 
 

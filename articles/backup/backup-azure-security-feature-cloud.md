@@ -7,6 +7,7 @@ ms.custom: devx-track-azurepowershell, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a backup administrator, I want to enable soft delete for Azure Backup, so that I can protect my backup data from accidental or malicious deletions and ensure recovery within a secure retention period."
 ---
 
 # Soft delete for Azure Backup

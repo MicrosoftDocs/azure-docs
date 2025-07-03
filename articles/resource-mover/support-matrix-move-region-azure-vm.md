@@ -8,6 +8,7 @@ ms.date: 04/22/2025
 ms.update-cycle: 180-days
 ms.author: jsuri
 ms.custom: engagement-fy23, UpdateFrequency.5, linux-related-content
+# Customer intent: As a cloud administrator, I want to understand the prerequisites and supported configurations for moving Azure VMs between regions using Resource Mover, so that I can ensure a successful migration process without service interruptions.
 ---
 
 # Support for moving Azure VMs between Azure regions

@@ -3,7 +3,7 @@ title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables used to configure functions apps.
 ms.topic: conceptual
 ms.custom: devx-track-extended-java, devx-track-python, ignite-2023, build-2024, linux-related-content
-ms.date: 07/11/2024
+ms.date: 06/04/2025
 ---
 
 # App settings reference for Azure Functions
@@ -500,6 +500,18 @@ This setting enables the Python worker to use shared memory to improve throughpu
 |FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED|`1`|
 
 With this setting enabled, you can use the [DOCKER_SHM_SIZE](#docker_shm_size) setting to set the shared memory size. To learn more, see [Shared memory](functions-reference-python.md#shared-memory).
+
+## JAVA_ENABLE_SDK_TYPES
+
+Enables your function app to use native Azure SDK types in bindings.
+
+[!INCLUDE [functions-java-sdk-types-preview-note](../../includes/functions-java-sdk-types-preview-note.md)]
+
+|Key|Sample value|
+|---|------------|
+|JAVA_ENABLE_SDK_TYPES|`true`|
+
+For more information, see [SDK types](functions-reference-java.md#sdk-types) in the Java reference article
 
 ## JAVA_OPTS
 

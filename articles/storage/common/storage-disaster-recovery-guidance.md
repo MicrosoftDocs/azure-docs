@@ -11,6 +11,7 @@ ms.date: 01/06/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: references_regions
+# Customer intent: As a cloud architect, I want to develop a comprehensive disaster recovery plan for Azure Storage, so that I can ensure high availability and minimize data loss during service outages or regional failures.
 ---
 
 <!--
@@ -157,7 +158,7 @@ Customer-managed (unplanned) failover of storage accounts with [change feed](../
 
 For more information about change feed, see [How the change feed works](../blobs/storage-blob-change-feed.md#how-the-change-feed-works).
 
-Keep in mind that other storage account features also require the change feed to be enabled. These features include [operational backup of Azure Blob Storage](../../backup/blob-backup-support-matrix.md#limitations), [Object replication](../blobs/object-replication-overview.md), and [Point-in-time restore for block blobs](../blobs/point-in-time-restore-overview.md).
+Keep in mind that other storage account features also require the change feed to be enabled. These features include [operational backup of Azure Blob Storage](../../backup/blob-backup-support-matrix.md#supported-and-unsupported-scenarios-for-azure-blob-backup), [Object replication](../blobs/object-replication-overview.md), and [Point-in-time restore for block blobs](../blobs/point-in-time-restore-overview.md).
 
 #### Point-in-time restore inconsistencies
 

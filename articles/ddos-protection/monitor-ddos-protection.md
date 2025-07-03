@@ -7,6 +7,7 @@ ms.topic: concept-article
 author: AbdullahBell
 ms.author: abell
 ms.service: azure-ddos-protection
+# Customer intent: "As a security administrator, I want to monitor Azure DDoS Protection metrics and logs so that I can analyze attack patterns and ensure the effectiveness of my DDoS mitigation strategies."
 ---
 
 # Monitor Azure DDoS Protection

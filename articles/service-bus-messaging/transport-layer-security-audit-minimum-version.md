@@ -37,7 +37,7 @@ To create a policy with an audit effect for the minimum TLS version with the Azu
             {
               "not": {
                 "field": "Microsoft.ServiceBus/namespaces/minimumTlsVersion",
-                "equals": "1.2"
+                "equals": "1.3"
               }
             }
           ]
@@ -85,7 +85,7 @@ Azure Policy supports cloud governance by ensuring that Azure resources adhere t
 
 The enforcement policy uses the deny effect to prevent a request that would create or modify a Service Bus namespace so that the minimum TLS version no longer adheres to your organization's standards. For more information about effects, see [Understand Azure Policy effects](../governance/policy/concepts/effects.md).
 
-To create a policy with a deny effect for a minimum TLS version that is less than TLS 1.2, provide the following JSON in the  **policyRule**  section of the policy definition:
+To create a policy with a deny effect for a minimum TLS version that is less than TLS 1.3, provide the following JSON in the  **policyRule**  section of the policy definition:
 
 ```json
 {
@@ -99,7 +99,7 @@ To create a policy with a deny effect for a minimum TLS version that is less tha
         {
           "not": {
             "field": "Microsoft.ServiceBus/namespaces/minimumTlsVersion",
-            "equals": "1.2"
+            "equals": "1.3"
           }
         }
       ]
@@ -111,9 +111,9 @@ To create a policy with a deny effect for a minimum TLS version that is less tha
 }
 ```
 
-After you create the policy with the deny effect and assign it to a scope, a user cannot create a Service Bus namespace with a minimum TLS version that is older than 1.2. Nor can a user make any configuration changes to an existing Service Bus namespace that currently requires a minimum TLS version that is older than 1.2. Attempting to do so results in an error. The required minimum TLS version for the Service Bus namespace must be set to 1.2 to proceed with namespace creation or configuration.
+After you create the policy with the deny effect and assign it to a scope, a user cannot create a Service Bus namespace with a minimum TLS version that is older than 1.3. Nor can a user make any configuration changes to an existing Service Bus namespace that currently requires a minimum TLS version that is older than 1.3. Attempting to do so results in an error. The required minimum TLS version for the Service Bus namespace must be set to 1.3 to proceed with namespace creation or configuration.
 
-An error will be shown if you try to create a Service Bus namespace with the minimum TLS version set to TLS 1.0 when a policy with a deny effect requires that the minimum TLS version be set to TLS 1.2.
+An error will be shown if you try to create a Service Bus namespace with the minimum TLS version set to TLS 1.2 when a policy with a deny effect requires that the minimum TLS version be set to TLS 1.3.
 
 ## Next steps
 

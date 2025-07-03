@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 04/17/2025
 monikerRange: migrate
+# Customer intent: As a cloud architect, I want to configure assessment properties for workload migration, so that I can ensure optimal resource allocation, cost management, and security compliance in Azure.
 ---
 
 # General assessment properties 
