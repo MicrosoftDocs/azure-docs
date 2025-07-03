@@ -140,17 +140,6 @@ UserFacingDiagnosticsFeature (Interface)
 │       └── Types
 │           ├── RemoteParticipantDiagnosticsData
 │           │   └── diagnostics: RemoteDiagnostic[]
-                        ├── networkReconnect?: LatestDiagnosticValue
-                        ├── networkReceiveQuality?: LatestDiagnosticValue
-                        ├── networkSendQuality?: LatestDiagnosticValue
-                        ├── noNetwork?: LatestDiagnosticValue
-                        ├── networkRelaysNotReachable?: LatestDiagnosticValue
-                        ├── microphoneNotFunctioning?: LatestDiagnosticValue
-                        ├── microphoneMuteUnexpectedly?: LatestDiagnosticValue
-                        ├── cameraStoppedUnexpectedly?: LatestDiagnosticValue
-                        ├── cameraFreeze?: LatestDiagnosticValue
-                        ├── capturerStartFailed?: LatestDiagnosticValue
-                        └── cameraStartTimedOut?: LatestDiagnosticValue
 │           └── RemoteDiagnostic
 │               ├── participantId: string
 │               ├── rawId: string
