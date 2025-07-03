@@ -246,7 +246,7 @@ If you want to temporarily or permanently remove your custom workflow template f
 
 1. From the **Save** list, select **Save + unpublish template**.
 
-   :::image type="content" source="media/create-publish-workflow-templates/unpublish-template.png" alt-text="{alt-text}" lightbox="media/create-publish-workflow-templates/unpublish-template.png":::
+   :::image type="content" source="media/create-publish-workflow-templates/remove-template.png" alt-text="{alt-text}" lightbox="media/create-publish-workflow-templates/remove-template.png":::
 
 ### [All Azure](#tab/all-azure)
 

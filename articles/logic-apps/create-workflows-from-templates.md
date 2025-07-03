@@ -17,7 +17,7 @@ Azure Logic Apps provides prebuilt templates so that you can more quickly build 
 
 For example, the following screenshot shows the workflow templates gallery for creating Standard logic app workflows:
 
-:::image type="content" source="media/create-single-tenant-workflows-templates/templates-gallery.png" alt-text="Screenshot shows Azure portal and workflow templates gallery for Standard workflows." lightbox="media/create-single-tenant-workflows-templates/templates-gallery.png":::
+:::image type="content" source="media/create-workflows-from-templates/templates-gallery.png" alt-text="Screenshot shows Azure portal and workflow templates gallery for Standard workflows." lightbox="media/create-workflows-from-templates/templates-gallery.png":::
 
 This guide shows how to use a template to kickstart your workflow.
 
