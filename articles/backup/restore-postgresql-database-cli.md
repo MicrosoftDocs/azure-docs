@@ -9,6 +9,7 @@ ms.custom:
   - build-2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to restore PostgreSQL databases using the command line, so that I can efficiently manage backup and recovery operations without relying on graphical interfaces.
 ---
 
 # Restore PostgreSQL databases by using the Azure CLI

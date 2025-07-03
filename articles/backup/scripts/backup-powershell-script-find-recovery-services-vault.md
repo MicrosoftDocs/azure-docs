@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: devx-track-azurepowershell
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to use a PowerShell script to identify the Recovery Services vault associated with my storage account, so that I can manage backup and recovery efficiently."
 ---
 
 # PowerShell Script to find the Recovery Services vault where a Storage Account is registered

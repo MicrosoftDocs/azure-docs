@@ -6,6 +6,7 @@ ms.date: 06/05/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to restore SAP HANA databases on Azure VMs so that I can recover lost data and create test environments efficiently."
 ---
 
 # Restore SAP HANA databases on Azure VMs using Azure portal

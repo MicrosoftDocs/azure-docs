@@ -6,6 +6,7 @@ ms.service: azure-hpc-cache
 ms.topic: overview
 ms.date: 03/15/2024
 ms.author: rohogue
+# Customer intent: As a high-performance computing administrator, I want to find an alternative file access solution to Azure HPC Cache, so that I can maintain efficient data access and support scalability in my workflows after its retirement.
 ---
 
 # What is Azure HPC Cache?

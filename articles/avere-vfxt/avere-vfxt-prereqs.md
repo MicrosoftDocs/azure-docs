@@ -6,6 +6,7 @@ ms.service: azure-avere-vfxt
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
+# Customer intent: As a cloud engineer, I want to prepare the necessary prerequisites for creating an Avere vFXT cluster in Azure, so that I can ensure a smooth deployment and optimal resource allocation without encountering permission or quota issues.
 ---
 
 # Prepare to create the Avere vFXT

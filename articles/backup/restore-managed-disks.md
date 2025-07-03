@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 06/11/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to restore Azure Managed Disks using recovery points, so that I can recover lost or corrupted data while maintaining the integrity of the original disk.
 ---
 
 # Restore Azure Managed Disks
