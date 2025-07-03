@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 04/28/2025
+ms.date: 07/03/2025
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -100,7 +100,7 @@ Use these steps to configure the diagnostic settings for your container app:
 
 1. Select one or more **Destination details**:
     - **Send to Log Analytics workspace**: Select from existing Log Analytics workspaces.
-    - **Archive to a storage account**: This option is deprecated.
+    - **Archive to a storage account**: Select a storage account. 
     - **Stream to an event hub**: Select from Azure event hubs.
     - **Send to a partner solution**: Select from Azure partner solutions. 
 

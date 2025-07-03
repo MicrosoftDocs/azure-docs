@@ -9,7 +9,7 @@ ms.service: azure-app-configuration
 ms.devlang: java
 ms.custom: devx-track-extended-java
 ms.topic: tutorial
-ms.date: 12/04/2024
+ms.date: 06/18/2025
 ms.author: mametcal
 #Customer intent: I want to use push refresh to dynamically update my app to use the latest configuration data in App Configuration.
 ---
@@ -63,7 +63,7 @@ In this tutorial, you learn how to:
         <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.18.0</version>
+        <version>5.22.0</version>
         <type>pom</type>
         <scope>import</scope>
         </dependency>
