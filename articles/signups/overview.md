@@ -128,7 +128,7 @@ Learn more about [Microsoft for Startups](/microsoft-for-startups/).
 Microsoft is committed to supporting startups at every stage. We offer two paths to get started with Azure:
 
 - Azure startup credit offer - Open to all eligible startups with no application required. This offer provides up to $5,000 USD in Azure credits, with $1,000 available immediately to explore the latest AI models and start building on Azure.
-- Microsoft for Startups – Designed for startups affiliated with the Microsoft for Startups Investor Network, this program offers enhanced benefits designed to help you build faster, scale smarter, and reach more customers. Benefits include increased Azure credits, access to advanced AI services, expert technical guidance, and go-to-market support to help drive visibility and growth.
+- Microsoft for Startups - Designed for startups affiliated with the Microsoft for Startups Investor Network, this program offers enhanced benefits designed to help you build faster, scale smarter, and reach more customers. Benefits include increased Azure credits, access to advanced AI services, expert technical guidance, and go-to-market support to help drive visibility and growth.
 
 ### How do I switch back to the default Azure portal homepage?
 
