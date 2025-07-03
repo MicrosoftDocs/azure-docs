@@ -17,7 +17,7 @@ ms.author: cephalin
 
 ASP.NET Core apps must be deployed to Azure App Service as compiled binaries. The Visual Studio publishing tool builds the solution and then deploys the compiled binaries directly. The App Service deployment engine deploys the code repository first and then compiles the binaries.
 
-This guide provides key concepts and instructions for ASP.NET Core developers. If this is your first time using Azure App Service, first follow the [ASP.NET Core quickstart](quickstart-dotnetcore.md) and [ASP.NET Core with SQL Database tutorial](tutorial-dotnetcore-sqldb-app.md).
+This guide provides key concepts and instructions for ASP.NET Core developers. If this article is your first time using Azure App Service, first follow [Deploy an ASP.NET web app](quickstart-dotnetcore.md) and [Deploy an ASP.NET Core and Azure SQL Database app to Azure App Service](tutorial-dotnetcore-sqldb-app.md).
 
 ::: zone pivot="platform-windows"  
 
@@ -177,7 +177,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
         });
 ```
 
-You can then configure and generate logs with the [standard .NET Core pattern](/aspnet/core/fundamentals/logging).
+You can then configure and generate logs with the standard .NET Core pattern. See [Logging in .NET Core and ASP.NET Core](/aspnet/core/fundamentals/logging).
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
@@ -185,7 +185,7 @@ For more information on troubleshooting ASP.NET Core apps in App Service, see [T
 
 ## Access a detailed exceptions page
 
-When your ASP.NET Core app generates an exception in the Visual Studio debugger, the browser displays a detailed exception page, but in App Service that page is replaced by a generic "HTTP 500" or "An error occurred while processing your request." To display the detailed exception page in App Service, add the `ASPNETCORE_ENVIRONMENT` app setting to your app by running the following command in <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+When your ASP.NET Core app generates an exception in the Visual Studio debugger, the browser displays a detailed exception page. In App Service, a generic "HTTP 500" or "An error occurred while processing your request" message replaces that page. To display the detailed exception page in App Service, add the `ASPNETCORE_ENVIRONMENT` app setting to your app by running the following command in <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
@@ -193,7 +193,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## Detect HTTPS session
 
-In App Service, [TLS/SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to know if user requests are encrypted, configure the Forwarded Headers Middleware in `Startup.cs`:
+In App Service, [TLS termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to know if user requests are encrypted, configure the Forwarded Headers Middleware in `Startup.cs`:
 
 - Configure the middleware with [`ForwardedHeadersOptions`](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) to forward the `X-Forwarded-For` and `X-Forwarded-Proto` headers in `Startup.ConfigureServices`.
 - Add private IP address ranges to the known networks, so that the middleware can trust the App Service load balancer.
@@ -245,11 +245,11 @@ To rewrite or redirect a URL, use the [URL-rewriting middleware in ASP.NET Core]
 
 ## Related content
 
-* [Tutorial: ASP.NET Core app with SQL Database](tutorial-dotnetcore-sqldb-app.md)
+* [Tutorial: Deploy an ASP.NET Core and Azure SQL Database app](tutorial-dotnetcore-sqldb-app.md)
 
 ::: zone pivot="platform-linux"
 
-* [App Service Linux FAQ](faq-app-service-linux.yml)
+* [Azure App Service on Linux FAQ](faq-app-service-linux.yml)
 
 ::: zone-end
 
