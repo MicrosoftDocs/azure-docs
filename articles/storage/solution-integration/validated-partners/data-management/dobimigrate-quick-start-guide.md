@@ -8,6 +8,7 @@ ms.date: 04/27/2021
 ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+# Customer intent: "As a data administrator, I want to migrate my on-premises file data to Azure using DobiMigrate, so that I can ensure efficient storage management and leverage cloud-based recovery solutions."
 ---
 
 # Migrate data to Azure with Datadobi DobiMigrate

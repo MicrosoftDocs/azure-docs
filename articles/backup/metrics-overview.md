@@ -6,6 +6,7 @@ ms.date: 09/11/2024
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT admin, I want to monitor the health of my backups using built-in metrics and configure alerts, so that I can ensure data integrity and promptly address any backup issues."
 ---
 
 # Monitor the health of your backups using Azure Backup Metrics (preview)

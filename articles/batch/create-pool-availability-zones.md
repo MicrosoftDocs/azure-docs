@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 08/12/2024
 ms.devlang: csharp
 ms.custom:
+# Customer intent: As a cloud architect, I want to create a Batch pool across multiple Availability Zones, so that I can enhance fault tolerance and ensure my compute resources remain available during datacenter-level failures.
 ---
 
 # Create an Azure Batch pool across Availability Zones

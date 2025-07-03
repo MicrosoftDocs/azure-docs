@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 06/20/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to configure backup for Azure Elastic SAN using the Azure portal, so that I can ensure data protection and recovery for my storage resources."
 ---
 
 # Configure Azure Elastic SAN backup using Azure portal (preview)

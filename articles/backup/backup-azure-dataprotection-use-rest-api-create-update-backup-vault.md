@@ -6,6 +6,7 @@ ms.date: 07/02/2025
 ms.assetid: 93861379-5bec-4ed5-95d2-46f534a115fd
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to create an Azure Backup vault using REST API, so that I can efficiently manage and automate backup policies for blobs in storage accounts.
 ---
 
 # Create Azure Backup vault using REST API

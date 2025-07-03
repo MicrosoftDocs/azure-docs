@@ -7,6 +7,7 @@ ms.topic: overview
 ms.date: 9/07/2022
 ms.author: memccror
 ms.custom: references_regions
+# Customer intent: As an IT administrator managing Azure virtual machines, I want to check the Automanaged VM status, so that I can ensure compliance with configuration profiles and address any issues effectively.
 ---
 
 # Automanage machine statuses

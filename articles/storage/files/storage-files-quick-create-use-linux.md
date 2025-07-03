@@ -194,6 +194,10 @@ Now that you've created an NFS share, you have to mount it on your Linux client.
 
 You have now mounted your NFS share, and it's ready to store files.
 
+> [!NOTE]
+> Alternatively, you can also mount the NFS share using [NFS client mount in command line](storage-files-how-to-mount-nfs-shares.md#mount-an-nfs-share-using-the-nfs-client-mount-in-command-line).
+
+
 ## Clean up resources
 
 When you're done, delete the resource group. Deleting the resource group deletes the storage account, the Azure file share, and any other resources that you deployed inside the resource group.

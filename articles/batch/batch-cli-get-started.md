@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 07/01/2025
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
 
+# Customer intent: As a cloud developer, I want to learn how to manage Azure Batch resources using the command-line interface, so that I can automate resource management tasks and improve efficiency in my cloud workflows.
 ---
 # Manage Batch resources with Azure CLI
 

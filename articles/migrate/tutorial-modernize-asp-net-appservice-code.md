@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 02/07/2025
 ms.custom: template-tutorial
+# Customer intent: As a web application developer, I want to migrate my ASP.NET web apps to a cloud-based platform, so that I can leverage managed services for better scalability and maintenance.
 ---
 
 # Modernize ASP.NET web apps to Azure App Service code

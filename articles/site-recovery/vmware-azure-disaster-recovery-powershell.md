@@ -9,6 +9,7 @@ ms.date: 03/07/2024
 ms.custom: devx-track-azurepowershell
 
 
+# Customer intent: "As a cloud architect, I want to set up disaster recovery for VMware VMs to Azure using PowerShell, so that I can ensure business continuity and quick recovery in case of a disaster."
 ---
 # Set up disaster recovery of VMware VMs to Azure with PowerShell
 

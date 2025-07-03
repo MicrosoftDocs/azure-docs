@@ -12,6 +12,7 @@ ms.author: normesta
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli
+# Customer intent: As a cloud security administrator, I want to configure Azure Storage encryption with customer-managed keys using a managed HSM, so that I can maintain control over encryption keys and ensure compliance with organizational security policies.
 ---
 
 # Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM

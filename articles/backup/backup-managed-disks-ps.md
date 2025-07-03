@@ -6,6 +6,7 @@ ms.date: 06/11/2025
 ms.custom: devx-track-azurepowershell
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to back up Azure Managed Disks using PowerShell, so that I can ensure data reliability and recoverability for critical workloads."
 ---
 
 # Back up Azure Managed Disks using Azure PowerShell

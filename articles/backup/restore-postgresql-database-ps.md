@@ -9,6 +9,7 @@ ms.custom:
   - build-2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to restore a PostgreSQL database using Azure PowerShell, so that I can effectively manage backups and recover data as needed while adhering to platform limitations.
 ---
 
 # Restore PostgreSQL databases by using Azure PowerShell

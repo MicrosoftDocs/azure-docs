@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 03/11/2025
 ms.author: anfdocs
+# Customer intent: As a cloud storage administrator, I want to understand how Kerberos authentication works in Azure NetApp Files, so that I can configure secure access for SMB and NFS protocols and manage authentication processes effectively within my organization.
 ---
 
 # Understand Kerberos in Azure NetApp Files

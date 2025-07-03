@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.custom: devx-track-dotnet
 ms.topic: concept-article
 ms.date: 11/15/2023
+# Customer intent: "As a .NET developer, I want to assess my application's readiness for migration to Azure, so that I can identify potential issues and optimize performance and security through cloud-native solutions."
 ---
 
 # Azure Migrate application and code assessment for .NET

@@ -6,6 +6,7 @@ author: ekpgh
 ms.author: rohogue
 ms.topic: concept-article
 ms.date: 01/06/2020
+# Customer intent: As a cloud architect, I want access to whitepapers and case studies on Avere vFXT for Azure, so that I can evaluate its integration with my existing workflows and determine its effectiveness for file-based workloads in a hybrid cloud environment.
 ---
 
 # Azure vFXT for Azure whitepapers and other resources

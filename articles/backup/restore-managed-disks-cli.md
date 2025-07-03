@@ -6,6 +6,7 @@ ms.custom: devx-track-azurecli
 ms.date: 06/11/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to restore Azure Managed Disks using Azure CLI commands, so that I can efficiently recover data from backups to new disks in my chosen resource groups."
 ---
 
 # Restore Azure Managed Disks using Azure CLI

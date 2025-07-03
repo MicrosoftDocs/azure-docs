@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 10/18/2022
 ms.custom: devx-track-azurepowershell, devx-track-bicep
 zone_pivot_groups: web-application-firewall-configuration
+# Customer intent: As a web application administrator, I want to configure WAF exclusion lists for my Azure Front Door endpoint, so that I can allow legitimate requests to pass through without being blocked by SQL injection protection rules.
 ---
 
 # Configure web application firewall exclusion lists
