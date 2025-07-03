@@ -50,7 +50,7 @@ To manage transient faults effectively when using Azure Table Storage:
 - **Implement exponential backoff** for retry policies, especially when encountering HTTP 503 Server Busy or HTTP 500 Operation Timeout errors. Table Storage may throttle requests when individual partitions become hot or when storage account limits are approached.
 - **Design partition-aware retry logic** in high-scale applications. Partition-aware retry logic is a more advanced approach that considers Table Storage's partitioned architecture and distributes operations across multiple partitions to reduce the likelihood of encountering throttling on individual partition servers.
 
-To learn more about the Azure Table Storage architecture and how to design resilient and high-scale applications, see [Performance and scalability checklist for Table storage](/storage/tables/storage-performance-checklist).
+To learn more about the Azure Table Storage architecture and how to design resilient and high-scale applications, see [Performance and scalability checklist for Table storage](/azure/storage/tables/storage-performance-checklist).
 
 ## Availability zone support
 
