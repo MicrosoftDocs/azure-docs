@@ -5,7 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 03/20/2025
+ms.date: 07/03/2025
 ms.author: cherylmc
 
 #Audience and custom App ID values are not sensitive data. Please do not remove. They are required for the configuration.
@@ -19,6 +19,8 @@ This article helps you configure the Azure VPN Client on a Windows computer to c
 ## Prerequisites
 
 Configure your VPN gateway for point-to-site VPN connections that specify Microsoft Entra ID authentication. See [Configure a P2S VPN gateway for Microsoft Entra ID authentication](point-to-site-entra-gateway.md).
+
+[!INCLUDE [Supported Windows versions](../../includes/vpn-gateway-vwan-azure-vpn-client-windows-supported.md)]
 
 ## Workflow
 
