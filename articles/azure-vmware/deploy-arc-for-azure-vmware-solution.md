@@ -41,11 +41,10 @@ To deploy Arc for Azure VMware Solution, you need to ensure the following prereq
 You need the following items to ensure you're set up to begin the onboarding process to deploy [Arc Resource Bridge](/azure/azure-arc/resource-bridge/overview) for Azure VMware Solution. 
 
 - Validate the regional support before you start the onboarding process. Arc for Azure VMware Solution is supported in all regions where Arc for VMware vSphere on-premises is supported. For details, see [Azure Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/overview#supported-regions).
-
 - A [management VM](/azure/azure-arc/resource-bridge/system-requirements#management-machine-requirements) with internet access that has a direct line of site to the vCenter Server.
 - [Support Matrix](/azure/azure-arc/vmware-vsphere/support-matrix-for-arc-enabled-vmware-vsphere) for using Azure Arc to manage your Azure VMware Solution VMs. 
 - [Ensure Azure Arc resource bridge system requirements](/azure/azure-arc/resource-bridge/system-requirements) are met before proceeding with the deployment. 
-- A [management VM](/azure/azure-arc/resource-bridge/system-requirements#management-machine-requirements) with internet access that has a direct line of site to the vCenter Server. - 
+- A [management VM](/azure/azure-arc/resource-bridge/system-requirements#management-machine-requirements) with internet access that has a direct line of site to the vCenter Server.
 - From the Management VM, verify you  have access to [vCenter Server and NSX Manager portals](/azure/azure-vmware/tutorial-access-private-cloud#connect-to-the-vcenter-server-of-your-private-cloud).
 - A resource group in the subscription where you have an owner or contributor role.
 - An unused, [NSX network segment](/azure/azure-vmware/tutorial-nsx-t-network-segment) that is a static network segment used for deploying the Arc for Azure VMware Solution OVA. If an unused NSX network segment doesn't exist, one gets created.
@@ -61,9 +60,8 @@ You need the following items to ensure you're set up to begin the onboarding pro
 
 - vCenter Server requirements 
     - Verify your vCenter Server version is 7.0 or higher. 
-    
-    - A resource pool or a cluster with a minimum capacity of 16 GB of RAM and 4 vCPUs. 
-    
+    - Ensure the vCenter Server is accessible from the management VM. The management VM must be able to access the vCenter Server using the FQDN or IP address.
+    - A resource pool or a cluster with a minimum capacity of 16 GB of RAM and 4 vCPUs.     
     - A datastore with a minimum of 100 GB of free disk space is available through the resource pool or cluster.  
 
   > [!Note] 
@@ -73,7 +71,6 @@ You need the following items to ensure you're set up to begin the onboarding pro
 If you want to use a custom DNS, use the following steps: 
 
   1. In your Azure VMware Solution private cloud, navigate to the DNS page, under Workload networking, select **DNS, and identify the default forwarder-zones under the DNS zones tab. 
-
   2. Edit the forwarder zone to add the custom DNS server IP. By adding the custom DNS as the first IP, it allows requests to be directly forwarded to the first IP and decreases the number of retries. 
 
 ## Deployment considerations 
@@ -167,8 +164,6 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
     $ chmod +x run.sh  
     $ sudo bash run.sh onboard {config-json-path} 
     ```
-
-
 4. More Azure resources are created in your resource group.
     - Resource bridge
     - Custom location
