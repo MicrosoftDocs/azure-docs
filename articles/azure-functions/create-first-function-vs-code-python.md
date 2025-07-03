@@ -80,11 +80,9 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 After you verify that the function runs correctly on your local computer, it's time to use Visual Studio Code to publish the project directly to Azure.
 
-## Use AI to normalize and validate user input in Azure Functions
+## Use AI to normalize and validate input
 
-You can use AI tools, such as GitHub Copilot in Visual Studio Code, to generate Python code that updates the existing function to retrieve parameters from either the query string or JSON body, apply formatting or type conversions, and return them in the JSON response. You can customize the prompt to add specifics per your requirements.
-
-The following text shows an example prompt for Copilot Chat:
+You can use AI tools, such as GitHub Copilot in Visual Studio Code, to update template-generated function code. This is an example prompt for Copilot Chat that updates the existing Python function to retrieve parameters from either the query string or JSON body, apply formatting or type conversions, and return them as JSON in the response: 
 
 ```copilot-prompt
 #file:function_app.py Modify the function to accept name, email, and age from either the query parameters or the JSON body of the request, whichever is available. Return all three parameters in the JSON response, applying these rules:
@@ -94,7 +92,7 @@ Convert age to an integer, otherwise return "not provided"
 Use sensible defaults if any parameter is missing
 ```
 
-GitHub Copilot is powered by AI, so surprises and mistakes are possible. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs).
+You can customize your prompt to add specifics as needed. GitHub Copilot is powered by AI, so surprises and mistakes are possible. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs).  
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
@@ -119,5 +117,5 @@ You created and deployed a function app with a simple HTTP-triggered function. I
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
 
 ## Related content
-- [GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/overview)
+- [GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview)
 - [GitHub Copilot in Visual Studio](/visualstudio/ide/visual-studio-github-copilot-install-and-states)
