@@ -193,10 +193,6 @@
       href: reliability-iot-hub.md
     - name: Azure Notification Hubs
       href: reliability-notification-hubs.md
-  - name: Media
-    items:     
-    - name: Azure Media Services
-      href: /azure/media-services/latest/architecture-high-availability-encoding-concept?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
   - name: Management and governance
     items:
     - name: Azure Backup
