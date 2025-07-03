@@ -154,4 +154,4 @@ The following table shows the features currently supported in Docker Compose app
 
 - [Sidecar overview](overview-sidecar.md)
 - [Configure sidecars](configure-sidecar.md)
-- [Microsoft Q&A for Azure App Service](https://learn.microsoft.com/answers/tags/436/azure-app-service)
+- [Microsoft Q&A for Azure App Service](/answers/tags/436/azure-app-service)

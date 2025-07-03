@@ -101,7 +101,7 @@ In the resource group in the Azure portal, create a Linux custom container app w
     :::image type="content" source="media/tutorial-custom-container-sidecar/create-wizard-container-panel.png" alt-text="Screenshot showing the Container settings for the Linux custom container web app.":::
 
     > [!NOTE]
-    > These settings are configured differently in sidecar-enabled apps than in apps not enabled for sidecars. For more information, see [What are the differences for sidecar-enabled custom containers](#what-are-the-differences-for-sidecar-enabled-custom-containers).
+    > These settings are configured differently in sidecar-enabled apps than in apps not enabled for sidecars. For more information, see [What are the differences for sidecar-enabled custom containers](configure-sidecar.md#what-are-the-differences-for-sidecar-enabled-custom-containers).
 
 1. Select **Review + create**, and when validation passes, select **Create**.
 
@@ -149,7 +149,7 @@ Configure the environment variable for the container by configuring [app setting
    :::image type="content" source="media/tutorial-custom-container-sidecar/configure-app-settings.png" alt-text="Screenshot showing a web app's Configuration page with two app settings added.":::
 
 > [!NOTE]
-> Some app settings don't apply to sidecar-enabled apps. For more information, see [What are the differences for sidecar-enabled custom containers](#what-are-the-differences-for-sidecar-enabled-custom-containers).
+> Some app settings don't apply to sidecar-enabled apps. For more information, see [What are the differences for sidecar-enabled custom containers](configure-sidecar.md#what-are-the-differences-for-sidecar-enabled-custom-containers).
 
 ## 5. Verify in Application Insights
 
