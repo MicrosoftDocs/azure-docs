@@ -39,7 +39,7 @@ API Management supports two types of language model APIs for this scenario. Choo
 - A self-hosted or non-Azure-provided language model deployment with an API endpoint.  
 
 
-## Import language model API using the portal
+## Import language model API using the portalF
 
 When you import the LLM API in the portal, API Management automatically configures:
 
@@ -91,63 +91,5 @@ To ensure that your LLM API is working as expected, test it in the API Managemen
 1. Select **Send**.
 
     When the test is successful, the backend responds with a successful HTTP response code and some data. Appended to the response is token usage data to help you monitor and manage your language model token consumption.
-
-## Example: Google Gemini
-
-You can import an OpenAI-compatible Google Gemini API to access models such as `gemini-2.0-flash`. For these models, Azure API Management can manage an OpenAI-compatible chat completions endpoint. 
-
-To import an OpenAI-compatible Gemini model:
-
-1. Create an API key for the Gemini API at [Google AI Studio](https://aistudio.google.com/apikey) and store it in a safe location.
-1. Note the following base URL from the [Gemini OpenAI compatibility documentation](https://ai.google.dev/gemini-api/docs/openai).
-
-    `https://generativelanguage.googleapis.com/v1beta/openai`
-
-1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. In the left menu, under **APIs**, select **APIs** > **+ Add API**.
-1. Under **Define a new API**, select **Language Model API**.
-1. On the **Configure API** tab:
-    1. Enter a **Display name** and optional **Description** for the API.
-    1. In **URL**, enter the following base URL that you copied previously: `https://generativelanguage.googleapis.com/v1beta/openai`
-
-1. In **Path**, append a path that your API Management instance uses to route requests to the Gemini API endpoints.
-1. In **Type**, select **Create OpenAI API**.
-1. In **Access key**, enter the following:
-    1. **Header name**: *Authorization*.
-    1. **Header value (key)**: `Bearer` followed by the API key for the Gemini API that you created previously.
-1. On the remaining tabs, optionally configure policies to manage token consumption, semantic caching, and AI content safety.
-1. Select **Create**.
-
-### Test Gemini model
-
-After importing the API, you can test the chat completions endpoint for the API.
-
-1. Select the API you created in the previous step.
-1. Select the **Test** tab.
-1. Select the `POST  Creates a model response for the given chat conversation` operation, which is a `POST` request to the `/chat/completions` endpoint.
-1. In the **Request body** section, enter the following JSON to specify the model and an example prompt. In this example, the `gemini-2.0-flash` model is used.
-
-    ```json
-    {
-        "model": "gemini-2.0-flash",
-        "messages": [
-            {
-                "role": "system",
-                "content": "You are a helpful assistant"
-            },
-            {
-                "role": "user",
-                "content": "How are you?"
-            }
-        ],
-        "max_tokens": 50
-    }
-    ```
-    
-    When the test is successful, the backend responds with a successful HTTP response code and some data. Appended to the response is token usage data to help you monitor and manage your language model token consumption.
-
-    :::image type="content" source="media/openai-compatible-llm-api/gemini-test.png" alt-text="Screenshot of testing a Gemini LLM API in the portal.":::
-
-
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
