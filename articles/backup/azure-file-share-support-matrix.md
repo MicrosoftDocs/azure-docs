@@ -2,7 +2,7 @@
 title: Support Matrix for Azure files backup by using Azure Backup
 description: Provides a summary of support settings and limitations when backing up Azure files.
 ms.topic: reference
-ms.date: 05/23/2025
+ms.date: 07/03/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
@@ -29,9 +29,9 @@ Azure files backup is available in all regions, **except** for Germany Central (
 
 # [Vault-standard tier](#tab/vault-tier)
 
-Vaulted backup for Azure Files is available in the following regions: UK South, UK West, Southeast Asia, East Asia, West Central US, Central US, Central India, North Europe, Australia East, West US, East US, South India, France Central, Canada Central, North Central US, East US 2, Australia Southeast, Germany North, France South, West US 2, Brazil South, Japan West, Germany West Central, Canada East, Korea South, Jio India West, Korea Central, South Africa West, Japan East, Norway East, Switzerland West, Norway West, South Africa North, UAE North, West Europe, Sweden Central, Switzerland North.
+Vaulted backup for Azure Files is available in the following regions: UK South, UK West, Southeast Asia, East Asia, West Central US, Central US, Central India, North Europe, Australia East, West US, East US, South India, France Central, Canada Central, North Central US, East US 2, Australia Southeast, Germany North, France South, West US 2, Brazil South, Japan West, Germany West Central, Canada East, Korea South, Jio India West, Korea Central, South Africa West, Japan East, Norway East, Switzerland West, Norway West, South Africa North, UAE North, West Europe, Sweden Central, Switzerland North, Sweden South, Brazil Southeast, UAE Central, Italy North, Jio India Central, West US 3, Australia Central, Australia Central 2.
 
-Cross Region Restore is currently supported in the following regions: Australia East, West US, North Central US, East US, East US2, West US2, South India, Australia Southeast, Brazil South, Canada East, Korea Central, Norway East, South Africa North, Switzerland North, France Central, Germany North, Japan West, Korea South, South Africa West, Switzerland West, Canada Central, France South, Germany West Central,  Japan East, Norway West, West Europe. This feature isn't supported in Sweden Central, UAE North, Jio India West.
+Cross Region Restore is supported in all preceding regions, except Italy North.
 
 Migration of  File Shares protected with snapshot backup to vaulted backup is supported in the following regions: UK South, UK West, Southeast Asia, East Asia, West Central US, and India Central.
 
