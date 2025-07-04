@@ -51,9 +51,9 @@ To discover the basic settings of servers running in the VMware estate, the foll
 
 Quick guest discovery: For quick discovery of software inventory, server dependencies, and database instances, you need the following permissions:
 
-| Use case  | Discovered Metadata  | Credentials |
+| Use case  | Discovered Metadata  | Credentials |Guest Account Configuration |
 | --- | --- | --- |
-| Quick guest discovery  | Software inventory <br /><br /> Server dependencies (limited data)* <br /><br />Inventory of Database instances  | Windows <br /><br /> Linux | Local guest user account <br /><br /> Any non-sudo guest user account 
+| Quick guest discovery  | Software inventory <br /><br /> Server dependencies (limited data)* <br /><br />Inventory of Database instances  | Windows <br /><br /> Linux | Local guest user account <br /><br /> Any non-sudo guest user account. |
 
 ### Limitations
 
@@ -102,7 +102,7 @@ For deep discovery of Hyper-V estate and to perform software inventory and depen
     -  Enable account 
     - Remote enable 
 
-:::image type="content" source="~/best-practices-least-privileged-accounts/security-for-root.png" alt-text="The screen shows the guest user permissions.":::
+    :::image type="content" source="~/media/best-practices-least-privileged-accounts/security-for-root.png" alt-text="Screenshot shows the guest user permissions." lightbox="./media/best-practices-least-privileged-accounts/security-for-root.png" :::
 
 1. Select **Apply** to enable the permissions set on the user account. 
 1. Restart WinRM service after you add the new guest user.  
