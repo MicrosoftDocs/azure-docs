@@ -1,16 +1,16 @@
 ---
-title: Configure assets and devices for OPC UA
-description: Use the operations experience web UI or the Azure CLI to configure your assets and devices for OPC UA connections.
+title: How to use the connector for OPC UA
+description: Use the operations experience web UI or the Azure CLI to configure assets and devices for OPC UA connections.
 author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
-ms.date: 06/25/2025
+ms.date: 07/03/2025
 
 
-#CustomerIntent: As an OT user, I want configure my IoT Operations environment to so that data can flow from my OPC UA servers through to the MQTT broker.
+#CustomerIntent: As an OT user, I want configure my Azure IoT Operations environment so that data can flow from my OPC UA servers through to the MQTT broker.
 ---
 
-# Manage asset and device configurations
+# Configure the connector for OPC UA
 
 _OPC UA servers_ are software applications that communicate with assets. OPC UA servers expose _OPC UA data points_ that represent data points. OPC UA data points provide real-time or historical data about the status, performance, quality, or condition of assets.
 
@@ -29,16 +29,11 @@ These assets, data points, and events map inbound data from OPC UA servers to fr
 
 To configure devices and assets, you need a running instance of Azure IoT Operations.
 
-To sign in to the operations experience web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. You can't sign in with a Microsoft account (MSA). To create a suitable Microsoft Entra ID account in your Azure tenant:
+[!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with the same tenant and user name that you used to deploy Azure IoT Operations.
-1. In the Azure portal, go to the **Microsoft Entra ID** section, select **Users > +New user > Create new user**. Create a new user and make a note of the password, you need it to sign in later.
-1. In the Azure portal, go to the resource group that contains your **Kubernetes - Azure Arc** instance. On the **Access control (IAM)** page, select **+Add > Add role assignment**.
-1. On the **Add role assignment page**, select **Privileged administrator roles**. Then select **Contributor** and then select **Next**.
-1. On the **Members** page, add your new user to the role.
-1. Select **Review and assign** to complete setting up the new user.
+Your IT administrator must have configured the OPC UA connector template for your Azure IoT Operations instance in the Azure portal.
 
-You can now use the new user account to sign in to the [Azure IoT Operations](https://iotoperations.azure.com) portal.
+An OPC UA server that you can reach from your Azure IoT Operations cluster. If you don't have an OPC UA server, use the built-in OPC PLC simulator that comes with Azure IoT Operations.
 
 ## Create a device
 

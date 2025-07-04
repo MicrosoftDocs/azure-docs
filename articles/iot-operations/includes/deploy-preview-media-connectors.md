@@ -11,13 +11,13 @@ To deploy the preview version of the connectors, you can either enable them when
 
 To enable the preview connectors when you deploy your Azure IoT Operations instance:
 
-# [Azure portal](#tab/portal)
+# [Azure portal](#tab/deploy-portal)
 
 Select **ONVIF Connector and Media Connector (Preview)** in the **Connectors** section of the **Install Azure IoT Operations > Basics** page:
 
 :::image type="content" source="media/deploy-preview-media-connectors/portal-deploy-preview-connectors.png" alt-text="Screenshot of Azure portal that shows how to select the preview connectors.":::
 
-# [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/deploy-cli)
 
 Include the `--feature connectors.settings.preview=Enabled` parameter when you run the `az iot ops create` command.
 
@@ -25,7 +25,7 @@ Include the `--feature connectors.settings.preview=Enabled` parameter when you r
 
 To enable the preview connectors after you deploy your Azure IoT Operations instance:
 
-# [Azure portal](#tab/portal)
+# [Azure portal](#tab/deploy-portal)
 
 1. Go to your Azure IoT Operations instance in the Azure portal.
 
@@ -33,7 +33,7 @@ To enable the preview connectors after you deploy your Azure IoT Operations inst
 
   :::image type="content" source="media/deploy-preview-media-connectors/portal-enable-preview-connectors.png" alt-text="Screenshot of Azure portal that shows how to enable the preview connectors.":::
 
-# [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/deploy-cli)
 
 Run the following command to enable the preview connectors:
 
