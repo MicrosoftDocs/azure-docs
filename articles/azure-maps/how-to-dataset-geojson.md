@@ -86,7 +86,7 @@ One thing to consider when adding to an existing dataset is how the feature IDs 
 
 If your original dataset was created from a GoeJSON source and you wish to add another facility created from a drawing package, you can append it to your existing dataset by referencing its `conversionId`, as demonstrated by this HTTP POST request:
 
-```shttp
+```https
 https://us.atlas.microsoft.com/datasets?api-version=2023-03-01-preview&conversionId={conversionId}&outputOntology=facility-2.0&datasetId={datasetId}
 ```
 
