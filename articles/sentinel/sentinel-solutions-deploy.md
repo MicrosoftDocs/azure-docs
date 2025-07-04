@@ -134,7 +134,7 @@ If you're using the API to install solution packages or individual templates, fo
 
 2. In the API response, locate the `properties.mainTemplate` field. This field contains the ARM template JSON that defines the solution or template resources.
 
-3. Deploy the extracted `mainTemplate` using an [ARM template deployment](/azure/azure-resource-manager/templates/deploy-template), either through the Azure portal, Azure CLI, or PowerShell.
+3. Deploy the extracted `mainTemplate` using an [ARM template deployment](/azure/azure-resource-manager/templates/overview#template-deployment-process), either through the Rest API, Azure CLI, or PowerShell.
 
 ## Enable content items in a solution
 
