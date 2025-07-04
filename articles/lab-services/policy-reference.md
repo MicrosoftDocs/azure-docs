@@ -22,7 +22,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure Lab Services
 
-[!INCLUDE [azure-policy-reference-rp-lab-services](../../includes/policy/reference/byrp/microsoft.labservices.md)]
+[!INCLUDE [azure-policy-reference-rp-lab-services](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.labservices.md)]
 
 ## Next steps
 

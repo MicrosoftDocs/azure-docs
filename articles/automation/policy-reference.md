@@ -19,7 +19,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure Automation
 
-[!INCLUDE [azure-policy-reference-rp-automation](../../includes/policy/reference/byrp/microsoft.automation.md)]
+[!INCLUDE [azure-policy-reference-rp-automation](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.automation.md)]
 
 ## Next steps
 

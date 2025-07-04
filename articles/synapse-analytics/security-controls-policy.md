@@ -20,7 +20,7 @@ compliant with the specific standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-synapse](../../includes/policy/standards/byrp/microsoft.synapse.md)]
+[!INCLUDE [azure-policy-compliancecontrols-synapse](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.synapse.md)]
 
 ## Next steps
 

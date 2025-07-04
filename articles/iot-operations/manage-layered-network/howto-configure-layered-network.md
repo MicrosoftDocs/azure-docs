@@ -21,6 +21,8 @@ To use Azure IoT Layered Network Management (preview) service, you need to confi
 
 Both approaches require you to configure a custom DNS in the isolated network layer to direct the network traffic to the Layered Network Management instance in upper layer.
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
 > [!IMPORTANT]
 > The network environments outlined in Layered Network Management documentation are examples for testing the Layered Network Management. It's not a recommendation of how you build your network and cluster topology for production.
 

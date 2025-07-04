@@ -18,7 +18,7 @@ page lists the **compliance domains** and **security controls** for the FHIR ser
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-healthcare](../../includes/policy/standards/byrp/microsoft.healthcareapis.md)]
+[!INCLUDE [azure-policy-compliancecontrols-healthcare](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.healthcareapis.md)]
 
 ## Next steps
 
