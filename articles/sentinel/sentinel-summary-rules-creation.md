@@ -77,7 +77,7 @@ The `dataTypes` attribute represents the data types that the summary rule depend
 
 ### Destination table
 
-The `requiredDataConnectors` attribute specifies the name of the table in Log Analytics (LA) where the query results are saved.
+The `destinationTable` attribute specifies the name of the table in Log Analytics (LA) where the query results are saved.
 
 ### Query
 
