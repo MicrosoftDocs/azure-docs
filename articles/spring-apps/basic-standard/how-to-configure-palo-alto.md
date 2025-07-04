@@ -168,7 +168,7 @@ function New-PaloAltoService {
             }
         }
 
-        # Some rules in the CSV may need to conain source ports or descriptions. If these are present, populate them in the request
+        # Some rules in the CSV may need to contain source ports or descriptions. If these are present, populate them in the request
         if ($ServiceObject.description) {
             $requestBody.entry.description = $ServiceObject.description
         }
