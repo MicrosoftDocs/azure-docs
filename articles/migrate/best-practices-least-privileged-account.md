@@ -52,8 +52,8 @@ To discover the basic settings of servers running in the VMware estate, the foll
 Quick guest discovery: For quick discovery of software inventory, server dependencies, and database instances, you need the following permissions:
 
 | Use case  | Discovered Metadata  | Credentials needed  |
-| --- | --- | --- | --- |
-| Quick guest discovery  | Software inventory <br /><br /> Server dependencies (limited data)* <br /><br />Inventory of Database instances  | Windows <br /><br /> Linux | Local guest user account <br /><br /> Any non-sudo guest user account |
+| --- | --- | --- |
+| Quick guest discovery  | Software inventory <br /><br /> Server dependencies (limited data)* <br /><br />Inventory of Database instances  | Windows <br /><br /> Linux | Local guest user account <br /><br /> Any non-sudo guest user account 
 
 ### Limitations
 
@@ -77,7 +77,7 @@ Hyper-V server account: On all the Hyper-V hosts, create a local user that’s p
 - Performance Monitor Users  
 - Remote Management Users   
 
-Use the [script](tutorial-discover-hyper-v#prepare-hyper-v-hosts) to prepare Hyper-V hosts.   
+Use the [script](tutorial-discover-hyper-v.md#prepare-hyper-v-hosts) to prepare Hyper-V hosts.   
 
 For deep discovery of Hyper-V estate and to perform software inventory and dependency analysis, guest account credentials are required. The guest account should have the following permissions:
 
@@ -87,7 +87,7 @@ For deep discovery of Hyper-V estate and to perform software inventory and depen
 
 Quick server discovery:  
 
-| Use case                      | Discovered Metadata                                                                                 | Credentials needed                                                                                                         | Additional Configuration Steps    | Quick server discovery (Windows) | - Software inventory<br>- Agentless dependency analysis (limited data)*<br>- Workload inventory of databases and web apps | Windows user account that’s part of:<br>- Remote Management Users<br>- Performance Monitor Users<br>- Performance Log Users | 1. The guest user account should have permissions to the CIMV2 Namespace and sub-namespaces in the WMI Control Panel.<br>2. To set this access:<br>&nbsp;&nbsp;- On the target Windows server, open **Run** from the Start menu, enter `wmimgmt.msc`, and press Enter.<br>&nbsp;&nbsp;- In the **wmimgmt** console, right-click **WMI Control (Local)** and select **Properties**.<br>&nbsp;&nbsp;- In the **WMI Control (Local) Properties** dialog, select the **Security** tab.<br>&nbsp;&nbsp;- Expand the **Root** folder and select the **cimv2** namespace.<br>&nbsp;&nbsp;- Click **Security**.<br>&nbsp;&nbsp;- Click **Add** to add the user account.<br>&nbsp;&nbsp;- Select the guest user account and ensure **Enable Account** and **Remote Enable** permissions are allowed.<br>&nbsp;&nbsp;- Click **Apply**.<br>3. Restart the **WinRM** service after adding the new guest user. |
+| Use case | Discovered Metadata | Credentials needed  | Additional Configuration Steps | Quick server discovery (Windows) | - Software inventory<br>- Agentless dependency analysis (limited data)*<br>- Workload inventory of databases and web apps | Windows user account that’s part of:<br>- Remote Management Users<br>- Performance Monitor Users<br>- Performance Log Users | 1. The guest user account should have permissions to the CIMV2 Namespace and sub-namespaces in the WMI Control Panel.<br>2. To set this access:<br>&nbsp;&nbsp;- On the target Windows server, open **Run** from the Start menu, enter `wmimgmt.msc`, and press Enter.<br>&nbsp;&nbsp;- In the **wmimgmt** console, right-click **WMI Control (Local)** and select **Properties**.<br>&nbsp;&nbsp;- In the **WMI Control (Local) Properties** dialog, select the **Security** tab.<br>&nbsp;&nbsp;- Expand the **Root** folder and select the **cimv2** namespace.<br>&nbsp;&nbsp;- Click **Security**.<br>&nbsp;&nbsp;- Click **Add** to add the user account.<br>&nbsp;&nbsp;- Select the guest user account and ensure **Enable Account** and **Remote Enable** permissions are allowed.<br>&nbsp;&nbsp;- Click **Apply**.<br>3. Restart the **WinRM** service after adding the new guest user. |
 
  
 
