@@ -25,7 +25,7 @@ In this guide, you'll use the targeting filter to roll out a feature to targeted
 
 In this section, you create a web application that uses the *Beta* feature flag to control the access to the beta version of the page.
 
-### Initial project setup
+### Initialize project setup
 
 1. Create a folder called `targeting-filter-tutorial` and initialize the project.
 
