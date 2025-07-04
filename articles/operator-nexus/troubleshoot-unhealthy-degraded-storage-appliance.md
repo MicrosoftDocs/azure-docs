@@ -15,10 +15,10 @@ unhealthy or degraded.
 
 ## Capacity Threshold Reached
 
-The health events listed in the text below indicate that the appliance is nearing capacity:
+The health events in this list indicate that the appliance is nearing capacity:
 
-- `SACapacityThresholdDegraded`, which means the Storage Appliance is at 80% capacity or above.
-- `SACapacityThresholdUnhealthy`, which means the Storage Appliance is at 90% capacity or above.
+- `SACapacityThresholdDegraded`, which means the Storage Appliance is at 80% capacity or greater.
+- `SACapacityThresholdUnhealthy`, which means the Storage Appliance is at 90% capacity or greater.
 
 You can see the current usage of the appliance by navigating to the Storage Appliance in the portal,
 navigating to the `Monitoring > Metrics` tab, and selecting `Nexus Storage Array Space Utilization` from
@@ -45,13 +45,13 @@ any deletions should be carried out slowly to avoid worsening the problem.
 
 ## Active Alerts
 
-The health events listed in the text below indicate that the appliance has active alerts:
+The health events in this list indicate that the appliance has active alerts:
 
 - `StorageApplianceActiveAlertsWarning`, which means there are one or more open warning alerts on the
   Storage Appliance. Warning alerts indicate that there is an issue that requires attention, but the Storage
   Appliance should continue to function.
 - `StorageApplianceActiveAlertsCritical`, which means there are one or more open critical alerts on the
-  Storage Appliance. Critical alerts indicate a severe problem with the Storage Appliance, that may impact
+  Storage Appliance. Critical alerts indicate a severe problem with the Storage Appliance that may impact
   functionality.
 
 You can find more details of the specific alert(s), using the following instructions:
@@ -82,7 +82,7 @@ Once you have this information, use it to determine the appropriate next action.
 
 ## Latency
 
-The health events listed in the text below indicate that the appliance has high latency:
+The health events in this list indicate that the appliance has high latency:
 
 - `StorageApplianceLatencyDegraded`, which means the self-reported latency of the Storage Appliance
   exceeds 3 ms.
@@ -110,7 +110,7 @@ If the issue is _not_ high load, you should raise a ticket with your Storage App
 
 ## Network Interface Errors
 
-The health event listed in the text below indicates that the appliance has network interface errors:
+The health event in this list indicates that the appliance has network interface errors:
 
 - `StorageApplianceNetworkErrorsDegraded`, which means the average rate of network interface errors
   on one or more interfaces has exceeded 3%.
@@ -127,7 +127,7 @@ vendor.
 
 ## Network Latency
 
-The health events listed in the text below indicate that the appliance has high networking latency:
+The health events in this list indicate that the appliance has high networking latency:
 
 - `StorageApplianceNetworkLatencyDegraded`, which means the latency between the initiator and the Storage
   Appliance exceeds 25 ms.
