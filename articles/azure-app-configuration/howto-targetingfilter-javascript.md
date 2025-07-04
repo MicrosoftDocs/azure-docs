@@ -18,14 +18,14 @@ In this guide, you'll use the targeting filter to roll out a feature to targeted
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- A feature flag with targeting filter. [Create the feature flag](./howto-targetingfilter.md).
+A _Beta_ feature flag with targeting filter. [Create the feature flag](./howto-targetingfilter.md).
 - [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule).
 
 ## Create a web application with a feature flag
 
-In this section, you create a web application that uses the *Beta* feature flag to control the access to the beta version of the page.
+In this section, you create a web application that uses the [_Beta_ feature flag](./howto-targetingfilter.md) to control the access to the beta version of a web page.
 
-### Initialize project setup
+### Initial project setup
 
 1. Create a folder called `targeting-filter-tutorial` and initialize the project.
 
@@ -43,9 +43,9 @@ In this section, you create a web application that uses the *Beta* feature flag 
     npm install express
     ```
 
-### Add App Configuration provider
+### Connect to Azure App Configuration
 
-You will load the feature flag you created in the prerequisites from Azure App Configuration and create a `FeatureManager` to manage the feature flag.
+You connect to Azure App Configuration to load feature flags, enable automatic refresh, and create a `FeatureManager` object for accessing feature flags later. A middleware is added to refresh configuration before each request.
 
 1. Create a new file named *app.js* and add the following code.
 
@@ -62,30 +62,35 @@ You will load the feature flag you created in the prerequisites from Azure App C
     let featureManager;
 
     async function initializeConfig() {
-        appConfig = await load(appConfigEndpoint, new DefaultAzureCredential(), {
-            featureFlagOptions: {
-                enabled: true,
-                refresh: {
-                    enabled: true
+        try {
+            appConfig = await load(appConfigEndpoint, new DefaultAzureCredential(), {
+                featureFlagOptions: {
+                    enabled: true,
+                    refresh: {
+                        enabled: true
+                    }
                 }
-            }
-        });
+            });
+        } catch(error) {
+            console.error("Failed to load configuration:", error);
+            process.exit(1);
+        }
 
         featureManager = new FeatureManager(new ConfigurationMapFeatureFlagProvider(appConfig));
     }
-    ```
 
-### Use the feature flag
-
-1. Add the following code to the *app.js* file. You add a middleware to refresh configuration and configure the route handler. The server will serve different contents based on whether the **Beta** feature flag is enabled.
-
-    ```js
     // Use a middleware to refresh the configuration before each request.
     server.use((req, res, next) => {
         appConfig.refresh();
         next();
     });
+    ```
 
+### Use the feature flag
+
+1. Add the following code to the *app.js* file. You configure the route handler so that the server will serve different contents based on whether the **Beta** feature flag is enabled.
+
+    ```js
     server.get("/", async (req, res) => {
         const isBetaEnabled = await featureManager.isEnabled("Beta");
         const [title, message] = isBetaEnabled 
@@ -114,25 +119,21 @@ You will load the feature flag you created in the prerequisites from Azure App C
                 console.log(`Server is running at http://localhost:${port}`);
             });
         })
-        .catch((error) => {
-            console.error("Failed to load configuration:", error);
-            process.exit(1);
-        });
     ```
 
 ## Enable targeting for the web application
 
-A targeting context is required for feature evaluation with targeting. To explicitly specify the targeting context for each feature evaluation, you can pass targeting context as a parameter to the `featureManager.isEnabled` call.
+A targeting context is required when evaluating features with targeting enabled. To explicitly provide this context for feature evaluation, you can pass it as a parameter to the `featureManager.isEnabled` method.
 
 ```js
 const isBetaEnabled = await featureManager.isEnabled("Beta", { userId: "UserA", groups: ["Group1"] });
 ```
 
-In the web application, the targeting context can also be provided as an ambient context by implementing the [ITargetingContextAccessor](./feature-management-javascript-reference.md#itargetingcontextaccessor) interface. Ambient targeting context means the targeting information is automatically retrieved from the environment (like the current HTTP request) without explicitly passing it to each `featureManager.isEnabled()` call.
+In a web application, the targeting context can also be provided as an ambient context by implementing the [ITargetingContextAccessor](./feature-management-javascript-reference.md#itargetingcontextaccessor) interface. An ambient targeting context means that targeting information is automatically retrieved from the environment, such as the current HTTP request, without needing to explicitly pass it to each `featureManager.isEnabled()` call.
 
-We will use ambient targeting context as an example in this tutorial.
+You use ambient targeting context in this tutorial.
 
-1. Add the following code after the express server declaration
+1. Add the following code after the Express server declaration. It uses `AsyncLocalStorage` to store the current request, allowing the feature manager to automatically retrieve the targeting context via a targeting context accessor callback. For more details, see [Using AsyncLocalStorage for request context](./feature-management-javascript-reference.md#using-asynclocalstorage-for-request-context).
 
     ```js
     const express = require("express");
@@ -166,10 +167,6 @@ We will use ambient targeting context as an example in this tutorial.
     };
     // Existing code ...
     ```
-
-    For demonstration purposes, in this tutorial, you extract user information from the query string of the request URL. In a real-world application, user information is typically obtained through authentication mechanisms.
-
-    For more information, go to [Using AsyncLocalStorage for request context](./feature-management-javascript-reference.md#using-asynclocalstorage-for-request-context).
 
 1. When constructing the `FeatureManager`, pass the targeting context accessor to the `FeatureManagerOptions`.
 
