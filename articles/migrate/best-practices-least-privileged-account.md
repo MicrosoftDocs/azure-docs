@@ -51,7 +51,7 @@ To discover the basic settings of servers running in the VMware estate, the foll
 
 Quick guest discovery: For quick discovery of software inventory, server dependencies, and database instances, you need the following permissions:
 
-| Use case  | Discovered Metadata  | Credentials needed  |
+| Use case  | Discovered Metadata  | Credentials |
 | --- | --- | --- |
 | Quick guest discovery  | Software inventory <br /><br /> Server dependencies (limited data)* <br /><br />Inventory of Database instances  | Windows <br /><br /> Linux | Local guest user account <br /><br /> Any non-sudo guest user account 
 
@@ -63,7 +63,7 @@ With least privileged accounts, you might not collect process information (like 
 
 **In-depth guest discovery**: For in-depth discovery of software inventory, server dependencies, and web apps such as .NET and Java Tomcat, you need the following permissions:
 
-| Use case  | Discovered Metadata  | Credentials needed |
+| Use case  | Discovered Metadata  | Credentials  | Commands to Configure|
 | --- | --- | --- |
 | In-depth guest discovery  | Software inventory <br /><br /> Server dependencies (full data) <br /><br /> Inventory of Database instances <br /><br /> Web apps like .NET, Java Tomcat  | Windows <br /><br /> Linux <br /><br /> **Windows:** Administrator account <br /><br /> **Linux:** Following sudo permissions are required to identify server dependencies: <br /><br /> `/usr/bin/netstat, /usr/bin/ls` <br /><br /> If netstat is not available, sudo permissions on `ss` are required.<br /><br /> For Java webapps discovery (Tomcat servers), the user should have read and execute (r-x) permissions on all Catalina homes.<br /><br /> Execute the following command to find all catalina homes:<br /><br /> `ps -ef | grep catalina.home` <br /><br /> Here is a sample command to set up least privileged user: <br /><br /> `setfacl -m u:johndoe:rx <catalina/home/path>`|
 
@@ -85,9 +85,7 @@ For deep discovery of Hyper-V estate and to perform software inventory and depen
 
 #### Quick server discovery
 
-Quick server discovery:  
-
-| Discovered metadata  | Credentials | Col 3 | 
+| Discovered metadata  | Credentials | Access Configuration for Guest User | 
 | --- | --- | --- |
 | Software inventory <br /><br /> Agentless dependency analysis (limited data)* <br /><br /> Workload inventory of databases and web apps   | Windows  | A Windows user account that belongs to the following user groups <br /><br /> Remote Management Users <br /><br /> Performance Monitor Users <br /><br /> Performance Log Users <br /><br /> The guest user account needs permission to access the CIMV2 namespace and its sub-namespaces in the WMI Control Panel. Follow the below steps to set the access. |
 
@@ -109,13 +107,13 @@ Quick server discovery:
 1. Select **Apply** to enable the permissions set on the user account. 
 1. Restart WinRM service after you add the new guest user.  
 
-| Discovered metadata  | Credentials  | Col 3 | 
+| Discovered metadata  | Credentials  | Commands to Configure | 
 | --- | --- | --- | 
 | Software inventory <br /><br /> Agentless dependency analysis (full data) <br /><br />Workload inventory of databases and web apps   | Linux  | The user account should have sudo privileges on the following file paths. <br /><br /> AzMigrateLeastprivuser ALL=(ALL) NOPASSWD: `/usr/sbin/dmidecode, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l , /usr/bin/ls -l /proc//exe, /usr/bin/netstat -atnp, /usr/sbin/lvdisplay ""` Defaults:AzMigrateLeastprivuser !requiretty |
 
 In-depth server discovery
 
-| Discovered metadata  | Credentials  | Col 3 | 
+| Discovered metadata  | Credentials  | Commands to Configure | 
 | --- | --- | --- | 
 | In-depth discovery of web apps such as .NET and Java Tomcat <br /><br />Agentless dependency analysis (full data)* <br /><br />In-depth discovery of web apps such as .NET and Java Tomcat | Windows <br /><br /> Linux  | Administrator <br /><br />For discovering Java webapps (Tomcat servers), the user account needs read and execute (r-x) permissions on all Catalina home directories.<br /><br />Execute the following command to find out all catalina homes: `ps -ef | grep catalina.home`<br /><br />Here is a sample command to set up least privileged user: `setfacl -m u:johndoe:rx <catalina/home/path>` |
 
@@ -321,8 +319,8 @@ Use the following commands to grant the necessary privileges to the MySQL user:
 
 ## Next steps
 
-Learn how to [Discover VMware estate](tutorial-discover-vmware.md).
+- Learn how to [Discover VMware estate](tutorial-discover-vmware.md).
 
-Learn how to [Discover Hyper-V estate](tutorial-discover-hyper-v.md).
+- Learn how to [Discover Hyper-V estate](tutorial-discover-hyper-v.md).
 
-Learn how to [Discover physical servers or servers running in public cloud](tutorial-discover-physical.md).
+- Learn how to [Discover physical servers or servers running in public cloud](tutorial-discover-physical.md).
