@@ -20,7 +20,7 @@ compliant with the specific standard.
 
 [!INCLUDE [Azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [Azure-policy-compliancecontrols-appservice](../../includes/policy/standards/byrp/microsoft.web.md)]
+[!INCLUDE [Azure-policy-compliancecontrols-appservice](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.web.md)]
 
 ## Next steps
 

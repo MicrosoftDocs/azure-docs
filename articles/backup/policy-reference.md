@@ -20,7 +20,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure Backup
 
-[!INCLUDE [azure-policy-reference-rp-backup](../../includes/policy/reference/byrp/microsoft.recoveryservices.md)]
+[!INCLUDE [azure-policy-reference-rp-backup](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.recoveryservices.md)]
 
 ## Next steps
 
