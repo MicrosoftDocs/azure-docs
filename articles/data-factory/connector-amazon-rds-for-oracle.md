@@ -35,8 +35,8 @@ This Amazon RDS for Oracle connector is supported for the following capabilities
 Specifically, this Amazon RDS for Oracle connector supports:
 
 - The following versions of an Amazon RDS for Oracle database for version 2.0:
-    - Amazon RDS for Oracle 19c or later
-    - Amazon RDS for Oracle 18c or later
+    - Amazon RDS for Oracle 19c and higher
+    - Amazon RDS for Oracle 18c and higher
 - The following versions of an Amazon RDS for Oracle database for version 1.0:
     - Amazon RDS for Oracle 19c R1 (19.1) and higher
     - Amazon RDS for Oracle 18c R1 (18.1) and higher
