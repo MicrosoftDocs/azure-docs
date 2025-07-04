@@ -17,7 +17,7 @@ The Application Firewall provides sophisticated control over client connections 
 
 ## What Does the Application Firewall Do?
 
-The Application Firewall consists of various rule lists. Currently, there are two rule lists called *Client Connection Count Rules* and *Client Traffic Control Rules*. Future updates will support more rule lists to control aspects such as connection lifetime.
+The Application Firewall consists of various rule lists. Currently, there are two rule lists called *Client Connection Count Rules* and *Client Traffic Control Rules* and a configuration *Max Client Lifetime*. Future updates will support more rule lists to control aspects such as connection lifetime.
 
 This guideline is divided into three parts:
 1. Introduction to different application firewall rules.
@@ -69,6 +69,9 @@ Client Traffic Control Rules restrict the inbound throughput of client connectio
    This rule limits the inbound throughput of the same claim.
    
 
+## Max Client Lifetime Configuration
+This setting controls the maximum lifetime of a client connection, in seconds. When the client connection lifetime reaches the specified time, the service will automatically clean up the session and close the connection. To disable this limit, set the value to 0.
+
 ## Set up Application Firewall 
 
 # [Portal](#tab/Portal)
@@ -112,42 +115,43 @@ resource signalr 'Microsoft.SignalRService/signalr@2024-10-01-preview' = {
                 claimName: 'paidUser'
             }
         ]
-         clientTrafficControlRules:[
+        clientTrafficControlRules:[
         // Add or remove rules as needed
-        {
-            // This rule will be skipped if no userId is set
-            type: 'TrafficThrottleByUserIdRule'
-            // Every minute
-            aggregationWindowInSeconds: 60
-            // 10MB
-            maxInboundMessageBytes: 10485760
-        }
-        {
-            type: 'TrafficThrottleByJwtSignatureRule'
-            // Every 30 seconds
-            aggregationWindowInSeconds: 30
-            // 5MB
-            maxInboundMessageBytes: 5242880
-        }
-        {
-            // This rule will be skipped if no freeUser claim is set
-            type: 'TrafficThrottleByJwtCustomClaimRule'
-            // Every 10 minutes
-            aggregationWindowInSeconds: 600
-            // 1MB
-            maxInboundMessageBytes: 1048576
-            claimName: 'freeUser'
-        }
-        {
-            // This rule will be skipped if no paidUser claim is set
-            type: 'TrafficThrottleByJwtCustomClaimRule'  
-            // Every 30 seconds
-            aggregationWindowInSeconds: 30
-            // 1MB
-            maxInboundMessageBytes: 1048576
-            claimName: 'paidUser'
-        }
-      ]
+            {
+                // This rule will be skipped if no userId is set
+                type: 'TrafficThrottleByUserIdRule'
+                // Every minute
+                aggregationWindowInSeconds: 60
+                // 10MB
+                maxInboundMessageBytes: 10485760
+            }
+            {
+                type: 'TrafficThrottleByJwtSignatureRule'
+                // Every 30 seconds
+                aggregationWindowInSeconds: 30
+                // 5MB
+                maxInboundMessageBytes: 5242880
+            }
+            {
+                // This rule will be skipped if no freeUser claim is set
+                type: 'TrafficThrottleByJwtCustomClaimRule'
+                // Every 10 minutes
+                aggregationWindowInSeconds: 600
+                // 1MB
+                maxInboundMessageBytes: 1048576
+                claimName: 'freeUser'
+            }
+            {
+                // This rule will be skipped if no paidUser claim is set
+                type: 'TrafficThrottleByJwtCustomClaimRule'  
+                // Every 30 seconds
+                aggregationWindowInSeconds: 30
+                // 1MB
+                maxInboundMessageBytes: 1048576
+                claimName: 'paidUser'
+            }
+        ],
+        maxClientConnectionLifetimeInSeconds: 30
     }
   }
 }
