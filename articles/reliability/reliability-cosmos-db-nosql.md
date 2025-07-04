@@ -37,11 +37,11 @@ You can enable zone redundancy in Azure regions that supports availability zones
 
 The impact of zone redundancy on the high availability of your Cosmos DB for NoSQL database depends on the consistency level of the account and which regions have zone redundancy enabled. Consult the table below to estimate the impact of using availability zones in your account configuration:
 
-| Account consistency level | Regions with availability zones enabled| Impact of using availability zones|
+| Regions with availability zones enabled | Account consistency level | Impact of using availability zones|
 |----|---|---|
 | Single region | All | **High benefit to zone redundancy.** Single region cannot benefit from multi-region failover capability. Enabling zone reudndancy guards against total availability loss due to the failure of an availability zone.|
 | Write regions and any number of secondary regions | All | **High benefit of zone redundancy.** Ensures greater availability for write operations for availability zone failures. |
-| One secondary read region | Synchronous (Strong) | **High benefit of zone redundancy.** Provides greater value because the loss of a read region in this scenario can impact write availability.|
+| One secondary read region | [Synchronous (Strong)](/azure/cosmos-db/consistency-levels#strong-consistency) | **High benefit of zone redundancy.** Provides greater value because the loss of a read region in this scenario can impact write availability.|
 | Two or more secondary read regions | [Synchronous (Strong)](/azure/cosmos-db/consistency-levels#strong-consistency) | **Less value of zone redundancy.** Provides marginal value because the system can leverage dynamic quorum should a read region lose availability which allows for writes to continue.|
 | One or more secondary read regions | [Asynchronous (Bounded Staleness or weaker)](/azure/cosmos-db/consistency-levels#bounded-staleness-consistency) | **Less value of zone redundancy.** Provides minimal value because the SDK already provides seamless redirects for reads when a read region fails.|
 
@@ -90,6 +90,8 @@ To enable availability zone support you can use:
 * [Azure CLI](/azure/cosmos-db/sql/manage-with-cli#add-or-remove-regions)
 
 * [Azure Resource Manager templates](/azure/cosmos-db/manage-with-templates)
+
+<a name="migrate-to-availability-zone-support">
 
 #### Enable availability zone support
 
