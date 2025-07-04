@@ -186,6 +186,7 @@ This change adds a new function call to *SendNotification* between *Foo* and *Ba
 Here are some of the strategies for dealing with versioning challenges:
 
 * Do nothing (not recommended)
+* Orchestration Versioning (recommended in most cases)
 * Stop all in-flight instances
 * Side-by-side deployments
 
@@ -199,6 +200,23 @@ The naive approach to versioning is to do nothing and let in-flight orchestratio
 * If a function gets removed after it was scheduled to run, then the app may experience low-level runtime failures in the Durable Task Framework engine, potentially resulting in severe performance degradation.
 
 Because of these potential failures, the "do nothing" strategy is not recommended.
+
+### Orchestration Versioning
+
+> [!NOTE]
+> Orchestration Versioning is currently in public preview.
+
+Orchestration Versioning is a built-in feature that enables [zero-downtime deployments](durable-functions-zero-downtime-deployments.md) with breaking changes. This approach allows different versions of orchestrations to coexist and execute concurrently without conflicts.
+
+With Orchestration Versioning:
+- Each orchestration instance gets a version permanently associated with it when created
+- Orchestrator functions can examine their version and branch execution accordingly  
+- Workers running newer orchestrator function versions can continue executing orchestration instances created by older versions
+- The runtime prevents workers running older orchestrator function versions from executing orchestrations started by newer versions
+
+This strategy is recommended for applications that need to support breaking changes while maintaining [zero-downtime deployments](durable-functions-zero-downtime-deployments.md). The feature is currently available for .NET in-process and .NET isolated programming models.
+
+For detailed configuration and implementation guidance, see [Orchestration Versioning in Durable Functions](durable-functions-orchestration-versioning.md).
 
 ### Stop all in-flight instances
 
@@ -228,6 +246,9 @@ When doing side-by-side deployments in Azure Functions or Azure App Service, we 
 > This strategy works best when you use HTTP and webhook triggers for orchestrator functions. For non-HTTP triggers, such as queues or Event Hubs, the trigger definition should [derive from an app setting](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) that gets updated as part of the swap operation.
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Learn about Orchestration Versioning](durable-functions-orchestration-versioning.md)
 
 > [!div class="nextstepaction"]
 > [Learn about using and choosing storage providers](durable-functions-storage-providers.md)
