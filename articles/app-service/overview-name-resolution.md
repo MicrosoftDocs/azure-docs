@@ -66,9 +66,9 @@ Validate the settings by using this CLI command:
 az resource show --resource-group <group-name> --name <app-name> --query properties.dnsConfiguration --resource-type "Microsoft.Web/sites"
 ```
 
-## Limitations
+## Limitation
 
-- App Service on Windows does not support DNS resolution over TCP.
+App Service on Windows does not support DNS resolution over TCP.
 
 ## Next steps
 
