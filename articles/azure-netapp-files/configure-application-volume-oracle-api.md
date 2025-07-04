@@ -7,6 +7,9 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 05/12/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
+# Customer intent: "As a cloud architect, I want to configure an application volume group for Oracle using a REST API, so that I can efficiently manage storage resources and automate deployment processes within my cloud environment."
 ---
 # Configure application volume group for Oracle using REST API
 

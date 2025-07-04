@@ -5,6 +5,8 @@ ms.date: 05/15/2024
 ms.topic: sample
 ms.service: azure-automation
 ms.custom: subject-policy-compliancecontrols
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Azure Policy Regulatory Compliance controls for Azure Automation

@@ -7,6 +7,7 @@ ms.date: 12/15/2023
 ms.custom: MVC, engagement-fy23
 ms.author: jsuri
 author: jyothisuri
+# Customer intent: As an IT administrator, I want to configure Azure resources for on-premises disaster recovery, so that I can ensure high availability and quick recovery of critical workloads in the event of a disaster.
 ---
 # Prepare Azure for on-premises disaster recovery to Azure
 

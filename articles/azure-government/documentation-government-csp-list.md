@@ -18,7 +18,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 
 |Partner name|
 |----------------------------|
-|[2w Technologies LLC](https://2wtech.com)|
+|[2W Technologies, INC](https://2wtech.com/)|
 |[10th Magnitude](https://www.10thmagnitude.com)|
 |[12:34 MicroTechnolgies Inc.](https://www.1234micro.com/)|
 |[1901 Group, LLC](https://1901group.com)|

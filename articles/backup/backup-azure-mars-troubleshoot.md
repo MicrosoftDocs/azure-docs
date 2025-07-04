@@ -2,11 +2,14 @@
 title: Troubleshoot the Azure Backup agent
 description: In this article, learn how to troubleshoot the installation and registration of the Azure Backup agent.
 ms.topic: troubleshooting
-ms.date: 05/19/2025
+ms.date: 06/20/2025
 ms.service: azure-backup
-ms.custom: engagement-fy24
+ms.custom:
+  - engagement-fy24
+  - build-2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to troubleshoot the Azure Backup agent installation and registration issues, so that I can ensure successful backup operations and maintain data integrity."
 ---
 
 # Troubleshoot the Microsoft Azure Recovery Services (MARS) agent
@@ -228,7 +231,7 @@ Azure Backup might not successfully mount the recovery volume, even after severa
 
 9. Retry recovery by using [Instant Restore](backup-instant-restore-capability.md).
 
-If the recovery still fails, restart your server or client. If you don't want to restart, or if the recovery still fails even after you restart the server, try [recovering from another machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+If the recovery still fails, restart your server or client. If you don't want to restart, or if the recovery still fails even after you restart the server, try [recovering from another machine](backup-azure-restore-windows-server.md#restore-data-to-an-alternate-machine-using-instant-restore).
 
 ## Cache issues
 

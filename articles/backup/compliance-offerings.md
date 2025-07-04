@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: engagement-fy23
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a compliance officer, I want to understand the certification and attestation offerings for Azure Backup, so that I can ensure our organization's data handling practices meet national, regional, and industry-specific regulations.
 ---
 
 # Azure Backup compliance offerings

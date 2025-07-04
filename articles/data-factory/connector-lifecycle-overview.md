@@ -6,8 +6,10 @@ ms.author: jianleishen
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
-ms.custom: references_regions
-ms.date: 05/27/2025
+ms.custom:
+  - references_regions
+  - build-2025
+ms.date: 06/25/2025
 ---
 
 # Connector lifecycle overview
@@ -43,7 +45,7 @@ A connector lifecycle includes multiple stages with thorough and measurable asse
 | Private Preview      | The private preview phase marks the initial release of a new connector version to limited users. During this phase, opt-in users can use the latest version of the connector and provide feedback. | 3 months or above       |
 | Public Preview      | This stage marks the initial release of a new connector version to all users publicly. During this phase, users are encouraged to try the latest connector version and provide feedback. For newly created connections, it defaults to the latest connector version. Users can switch back to the previous version. | 1 month or above*       |
 | General Availability  | Once a connector version meets the General Availability (GA) criteria, it's released to the public and is suitable for production workloads. To reach this stage, the new connector version must meet the requirements in terms of performance, reliability, and its capability to meet business needs. | 12 months or above*     |
-| End-of-Support (EOS) announced | When a connector version reaches its EOS, it will not receive any further updates or support. Typically, a three to six-month notice is given before the EOS date of this version. This is documented together with the version removal date. | 3-6 months before the end-of-support date* |
+| End-of-Support (EOS) announced | When a connector version reaches its EOS, it will not receive any further updates or support. A six-month notice is announced before the EOS date of this version. This is documented together with the removal date. | 6 months before the end-of-support date* |
 | End-of-Support (EOS)  | Once the previously announced EOS date arrives, the connector version becomes officially unsupported. This implies that it will not receive any updates or bug fixes, and no official support will be provided. Users will not be able to create new workloads on a version that is under EOS stage. Using an unsupported connector version is at the user's own risk. The workload running on EOS version may not fail immediately, the service might expedite moving into the final stage at any time, at Microsoft's discretion due to outstanding security issues, or other factors. | /                        |
 | Version removed  | Once the connector version passes its EOS date, the service will remove all related components associated with this connector version. This implies that pipelines using this connector version will discontinue to execute. | 1-12 months after the end of support date* |
 
@@ -58,13 +60,35 @@ To manage connection updates effectively, it's important to understand versionin
 
 ## How Data Factory handles connector version upgrade
 
-**Major and minor version** updates may include changes that can impact your pipeline output or related components. To help you prepare, we will notify you in advance, providing a window for testing and upgrading to the latest version. Specific examples of version changes can be found in the documentation for each individual connector. We recommend reviewing and upgrading to new versions as early as possible to take advantage of the latest enhancements and ensure your pipelines continue to run smoothly and reliably.
+**Major and minor version** updates may include changes that can impact your pipeline output or related components. To help you prepare, we will notify you in advance, providing a window for testing and upgrading to the latest version. Specific examples of version changes can be found in the documentation for each individual connector. We recommend reviewing and upgrading to the latest version as early as possible to take advantage of the up-to-date enhancements and ensure your pipelines continue to run smoothly and reliably.
 
 When new versions are released, the service starts to always set to the latest new versions by default for all newly created linked service. At that time, users can fall back to the earlier version if needed.
 
 When a version reaches its end-of-support date, users are no longer allowed to create new linked service on that version.
 
 In addition to major and minor version updates, the service also delivers new features and bug fixes that are fully backward compatible with your existing setup. These changes do not require a version update to the connector. Depending on the nature of the change, users may either receive the improvements automatically or have the option to enable new features as needed. This approach ensures a seamless experience while maintaining stability and flexibility.
+
+## Automatic connector upgrade 
+
+In addition to providing [tools](connector-upgrade-advisor.md) and [best practices](connector-upgrade-guidance.md) to help users manually upgrade their connectors, the service now also provides a more streamlined upgrade process for some cases where applicable. This is designed to help users adopt the most reliable and supported connector versions with minimal disruption.
+
+The following section outlines the general approach that the service takes for automatic upgrades. While this provides a high-level overview, it is strongly recommended to review the documentation specific to each connector to understand which scenarios are supported and how the upgrade process applies to your workloads.
+
+In cases where certain scenarios running on the latest GA connector version are fully backward compatible with the previous version, the service will automatically upgrade existing workloads (such as Copy, Lookup, and Script activities) to a compatibility mode that preserves the behavior of the earlier version.
+
+These auto-upgraded workloads are not affected by the announced removal date of the older version, giving users additional time to evaluate and transition to the latest GA version without facing immediate failures. 
+
+You can identify which activities have been automatically upgraded by inspecting the activity output, where relevant upgrade information is recorded.
+
+> [!NOTE]
+> While compatibility mode offers flexibility, we strongly encourage users to upgrade to the latest GA version as soon as possible to benefit from ongoing improvements, optimizations, and full support. 
+
+You can find more details from the table below on the connector list that is planned for the automatic upgrade.  
+
+| Connector        | Scenario |
+|------------------|----------|
+| [Google BigQuery](connector-google-bigquery.md)  | Scenario that does not rely on below capability in Google BigQuery V1:<br><br>  • Use `trustedCertsPath`, `additionalProjects`, `requestgoogledrivescope` connection properties.<br>  • Set `useSystemTrustStore` connection property as `false`.<br>  • Use **STRUCT** and **ARRAY** data types. |
+| [Teradata](connector-teradata.md)         | Scenario that does not rely on below capability in Teradata (version 1.0):<br><br>  • Set below value for **CharacterSet**:<br>&nbsp;&nbsp;• BIG5 (TCHBIG5_1R0)<br>&nbsp;&nbsp;• EUC (Unix compatible, KANJIEC_0U)<br>&nbsp;&nbsp;• GB (SCHGB2312_1T0)<br>&nbsp;&nbsp;• IBM Mainframe (KANJIEBCDIC5035_0I)<br>&nbsp;&nbsp;- NetworkKorean (HANGULKSC5601_2R4)<br>&nbsp;&nbsp;• Shift-JIS (Windows, DOS compatible, KANJISJIS_0S)|
 
 ## Related content
 

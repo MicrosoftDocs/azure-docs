@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 01/02/2025
 ms.author: anfdocs
+# Customer intent: "As an IT administrator managing user access, I want to understand NFS group memberships and supplemental groups in Azure NetApp Files, so that I can properly configure user authentication and access levels in line with organizational security policies."
 ---
 
 # Understand NFS group memberships and supplemental groups in Azure NetApp Files

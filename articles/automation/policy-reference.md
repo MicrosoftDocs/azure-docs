@@ -4,6 +4,8 @@ description: Lists Azure Policy built-in policy definitions for Azure Automation
 ms.date: 02/06/2024
 ms.topic: reference
 ms.custom: subject-policy-reference
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 # Azure Policy built-in definitions for Azure Automation
 

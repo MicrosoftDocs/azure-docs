@@ -1,7 +1,7 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Health Data Services FHIR service
 description: Lists Azure Policy Regulatory Compliance controls available. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 02/06/2024
+ms.date: 06/09/2025
 ms.topic: sample
 author: matjazl
 ms.author: chrupa

@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.author: jsuri
 ms.date: 08/16/2024
 
+# Customer intent: As an IT administrator managing VMware environments, I want to troubleshoot replication appliance health issues in my Azure Site Recovery setup so that I can ensure reliable disaster recovery and smooth data replication.
 ---
 # Troubleshoot replication appliance health issues
  

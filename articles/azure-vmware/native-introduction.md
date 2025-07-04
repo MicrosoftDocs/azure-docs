@@ -4,9 +4,12 @@ description: Learn about Azure VMware Solution Gen 2 private clouds.
 ms.topic: overview
 ms.service: azure-vmware
 ms.date: 4/22/2025
-ms.custom: engagement-fy25
+ms.custom:
+  - engagement-fy25
+  - build-2025
 ms.author: jacobjaygbay
 # customer intent: As a cloud administrator, I want to learn about Azure VMware Solution Gen 2 private clouds so that I can understand the features and benefits of this offering.
+# Customer intent: As a cloud administrator, I want to understand the features and benefits of Azure VMware Solution Generation 2 private clouds so that I can make informed decisions about deploying and managing cost-effective, secure, and high-performance cloud architectures in Azure.
 ---
 
 # Introduction to Azure VMware Solution Generation 2 Private Clouds (preview) 

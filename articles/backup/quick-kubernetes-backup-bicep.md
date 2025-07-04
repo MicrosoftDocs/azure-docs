@@ -4,10 +4,15 @@ description: Learn how to quickly configure backup for a Kubernetes cluster usin
 ms.service: azure-backup
 ms.topic: quickstart
 ms.date: 01/21/2025
-ms.custom: devx-track-terraform, devx-track-extended-azdevcli, ignite-2024
+ms.custom:
+  - devx-track-terraform
+  - devx-track-extended-azdevcli
+  - ignite-2024
+  - build-2025
 ms.reviewer: rajats
 ms.author: jsuri
 author: jyothisuri
+# Customer intent: As a cloud administrator, I want to configure backups for an Azure Kubernetes Service cluster using Bicep, so that I can ensure data protection and recovery in a streamlined manner.
 ---
 
 # Quickstart: Configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Azure Bicep

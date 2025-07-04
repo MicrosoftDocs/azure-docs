@@ -192,13 +192,13 @@
       href: backup-azure-mysql-flexible-server-support-matrix.md
     - name: Azure files backup support matrix
       href: azure-file-share-support-matrix.md
-    - name: Azure Elastic SAN backup support matrix (preview)  
-      href: azure-elastic-storage-area-network-backup-support-matrix.md
+    - name: Azure Elastic SAN backup support matrix  
+      href: azure-elastic-san-backup-support-matrix.md
     - name: Azure Disk Backup support matrix
       href: disk-backup-support-matrix.md
     - name: Azure Blobs backup support matrix
       href: blob-backup-support-matrix.md
-    - name: Azure Data Lake Storage backup support matrix (preview)
+    - name: Azure Data Lake Storage backup support matrix
       href: azure-data-lake-storage-backup-support-matrix.md  
     - name: Active Directory domain controllers
       href: active-directory-backup-restore.md
@@ -278,10 +278,10 @@
       href: azure-kubernetes-service-cluster-backup-concept.md
   - name: Azure Blob backup
     href: blob-backup-overview.md
-  - name: Azure Data Lake Storage backup (preview)
+  - name: Azure Data Lake Storage backup
     href: azure-data-lake-storage-backup-overview.md  
-  - name: Azure Elastic SAN backup (preview)
-    href: azure-elastic-storage-area-network-backup-overview.md  
+  - name: Azure Elastic SAN backup
+    href: azure-elastic-san-backup-overview.md
   - name: Azure Files backup
     href: azure-file-share-backup-overview.md
   - name: Windows backup using MARS agent
@@ -300,7 +300,7 @@
       href: multi-user-authorization-concept.md
     - name: Immutable vault
       href: backup-azure-immutable-vault-concept.md
-    - name: Secure by Default with Azure Backup (Preview)
+    - name: Secure by Default with Azure Backup
       href: secure-by-default.md
     - name: Private endpoints
       items:
@@ -640,7 +640,7 @@
         href: backup-azure-dataprotection-use-rest-api-backup-blobs.md
       - name: Restore
         href: backup-azure-dataprotection-use-rest-api-restore-blobs.md
-  - name: Azure Data Lake Storage backup (preview)
+  - name: Azure Data Lake Storage backup
     items:
     - name: Configure backup
       href: azure-data-lake-storage-configure-backup.md
@@ -682,14 +682,14 @@
         href: restore-azure-file-share-rest-api.md
       - name: Manage
         href: manage-azure-file-share-rest-api.md
-  - name: Azure Elastic SAN backup (preview)
+  - name: Azure Elastic SAN backup
     items:
     - name: Configure backup
-      href: azure-elastic-storage-area-network-backup-configure.md
+      href: azure-elastic-san-backup-configure.md
     - name: Restore
-      href: azure-elastic-storage-area-network-backup-restore.md
+      href: azure-elastic-san-backup-restore.md
     - name: manage  
-      href: azure-elastic-storage-area-network-backup-manage.md          
+      href: azure-elastic-san-backup-manage.md          
   - name: SAP HANA database on Azure VM backup
     items:
     - name: Backup
@@ -816,7 +816,7 @@
       items:
       - name: Azure Monitor alerts
         href: backup-azure-monitoring-alerts.md 
-      - name: Metrics (preview)
+      - name: Metrics
         href: metrics-overview.md   
       - name: Logs
         href: backup-azure-monitoring-use-azuremonitor.md
@@ -856,6 +856,8 @@
         href: backup-azure-auto-enable-backup.md
       - name: Configure vault diagnostics settings at scale
         href: azure-policy-configure-diagnostics.md
+      - name: Audit and Enforce backup for Azure Files using Azure policy  
+        href: backup-azure-files-policy-automation.md
       - name: Audit and Enforce backup for Managed Disks using Azure policy
         href: backup-managed-disks-policy.md
       - name: Audit and Enforce backup operations for Azure Kubernetes Service clusters using Azure policy
@@ -971,7 +973,7 @@
       href: backup-azure-mars-troubleshoot.md
     - name: Azure Blob backup
       href: backup-azure-troubleshoot-blob-backup.md
-    - name: Azure Data Lake Storage backup (preview)
+    - name: Azure Data Lake Storage backup
       href: azure-data-lake-storage-backup-troubleshoot.md  
     - name: Files and folders backup is slow
       href: backup-azure-troubleshoot-slow-backup-performance-issue.md
@@ -1067,4 +1069,4 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=backup
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=backup
+    href: /shows/browse?terms=backup

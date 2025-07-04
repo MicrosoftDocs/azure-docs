@@ -2,11 +2,12 @@
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: reference
-ms.date: 05/22/2025
+ms.date: 06/24/2025
 ms.custom: references_regions, linux-related-content
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to understand the support matrix for Azure Backup so that I can make informed decisions about data protection strategies and ensure compliance with our backup requirements."
 ---
 
 # Support matrix for Azure Backup
@@ -35,7 +36,7 @@ The following table describes the features of Recovery Services vaults:
 **Machines in a vault** | Up to 2000 datasources across all workloads (like Azure VMs, SQL Server VM, MABS Servers, and so on) can be protected in a single vault.<br><br>Up to 1,000 Azure VMs in a single vault.<br/><br/> Up to 50 MABS servers can be registered in a single vault.
 **Data sources** | Maximum size of an individual [data source](./backup-azure-backup-faq.yml#how-is-the-data-source-size-determined-) is 54,400 GB. This limit doesn't apply to Azure VM backups. No limits apply to the total amount of data you can back up to the vault.
 **Backups to vault** | **Azure VMs:** Once a day.<br/><br/>**Machines protected by DPM/MABS:** Twice a day.<br/><br/> **Machines backed up directly by using the MARS agent:** Three times a day.
-**Backups between vaults** | Backup is within a region.<br/><br/> You need a vault in every Azure region that contains VMs you want to back up. You can't back up to a different region.
+**Backups between vaults** | Backup is within a region and subscription.<br/><br/> You need a vault in every Azure region and subscription that contains VMs you want to back up. You can't back up to a different region. Cross subscription backup (RS vault and protected VMs are in different subscriptions) isn't a supported scenario.
 **Move vaults** | You can [move vaults](./backup-azure-move-recovery-services-vault.md) across subscriptions or between resource groups in the same subscription. However, moving vaults across regions isn't supported.
 **Move data between vaults** | Moving backed-up data between vaults isn't supported.
 **Modify vault storage type** | You can modify the storage replication type (either geo-redundant storage or locally redundant storage) for a vault before backups are stored. After backups begin in the vault, the replication type can't be modified.
@@ -157,7 +158,7 @@ Azure Backup has added the Cross Region Restore feature to strengthen data avail
 | SQL /SAP HANA | Available      | Available in all Azure public regions and sovereign regions, except for France Central and UG IOWA. |
 | MARS Agent (Preview)  | Available in preview. <br><br> Not supported for vaults with Private Endpoint enabled.       | Available in all Azure public regions.   |
 | DPM/MABS | No                        |                      N/A                   |
-| AFS (Azure file shares)                 | No                                                           | N/A               |
+| AFS (Azure file shares)                 | Yes                                                           |      See the [supported regions](azure-file-share-support-matrix.md?tabs=vault-tier#supported-regions).               |
 
 ## Resource health
 
@@ -202,6 +203,9 @@ The following table lists the workload specific operations supported even if zon
 | **Blob** | Recovery is successful, if the protected storage account is in ZRS. |
 | **Disk** | - Backups are successful, if the protected disk is in an active zone. <br><br> - Restore to an active zone is successful. |
 | **MARS** | Backups and restores are successful. |
+
+>[!Note]
+>Archive Tier is unsupported on Zone-redundant storage (ZRS) in Azure Storage and Recovery Services vault.
 
 ## Monitoring and Reporting support
 

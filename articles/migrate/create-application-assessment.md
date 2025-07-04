@@ -6,13 +6,14 @@ ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 11/05/2024
+# Customer intent: As a cloud architect, I want to create an application assessment using Azure Migrate, so that I can evaluate migration strategies, identify optimal targets, and understand the cost and readiness of my application workloads for the cloud transition.
 ---
 
 # Create an application assessment
 
 This article shows you how to create an application assessment to migrate or modernize your application workloads using Azure Migrate. Creating an application assessment for your application provides you the multiple migration strategies that you can use to migrate your workloads identify the recommended as well as alternative targets and key insights such as **readiness**, **target right-sizing**, and **cost** to host and run these workloads on Azure month over month.  
 
-You can also create a cross-workload assessment using the following steps. A cross-workload assessment can constitute multiple workloads that do not necessarily combine to form just one application, it can be a group of multiple applications or it can be just a group of heterogenous workloads in your datacenter.  
+You can also create a cross-workload assessment using the following steps. A cross-workload assessment can constitute multiple workloads that do not necessarily combine to form just one application, it can be a group of multiple applications or it can be just a group of heterogeneous workloads in your datacenter.  
 
 In this article, you’ll learn how to:  
 

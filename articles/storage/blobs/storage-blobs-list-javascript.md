@@ -12,6 +12,7 @@ ms.date: 10/28/2024
 
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a JavaScript developer, I want to list blobs in Azure Blob Storage, so that I can efficiently retrieve and manage my storage resources using either flat or hierarchical structures based on my project's requirements.
 ---
 
 # List blobs with JavaScript

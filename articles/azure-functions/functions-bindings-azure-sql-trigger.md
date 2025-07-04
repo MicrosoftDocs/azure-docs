@@ -444,7 +444,6 @@ The following is sample python code for the function_app.py file:
 import json
 import logging
 import azure.functions as func
-from azure.functions.decorators.core import DataType
 
 app = func.FunctionApp()
 

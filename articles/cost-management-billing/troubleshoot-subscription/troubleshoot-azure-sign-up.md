@@ -9,6 +9,8 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 02/05/2025
 ms.author: prlachhw
+ms.custom:
+  - build-2025
 ---
 
 # Troubleshoot issues when you sign up for a new account in the Azure portal

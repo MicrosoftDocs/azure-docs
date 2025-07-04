@@ -8,6 +8,7 @@ ms.service: azure-application-gateway
 ms.topic: troubleshooting
 ms.date: 09/16/2024
 ms.author: mbender
+# Customer intent: As a security analyst, I want to analyze Web Application Firewall logs using Log Analytics, so that I can gain insights into traffic patterns and security events for the Application Gateway.
 ---
 
 # Use Log Analytics to examine Application Gateway Logs

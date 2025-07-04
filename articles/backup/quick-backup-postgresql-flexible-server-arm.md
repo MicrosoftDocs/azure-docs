@@ -4,11 +4,13 @@ description: Learn how to configure backup for Azure Database for Azure PostgreS
 ms.devlang: azurecli
 ms.custom:
   - ignite-2024
+  - build-2025
 ms.topic: quickstart
 ms.date: 05/15/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to configure automated backups for Azure Database for PostgreSQL using an ARM template, so that I can ensure data availability and compliance with recovery policies.
 ---
 
 # Quickstart: Configure backup for Azure Database for PostgreSQL - Flexible Server with an Azure Resource Manager template

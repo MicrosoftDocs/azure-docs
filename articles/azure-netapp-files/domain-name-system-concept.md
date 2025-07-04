@@ -5,8 +5,9 @@ services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 01/29/2025
+ms.date: 06/24/2025
 ms.author: anfdocs
+# Customer intent: "As a network administrator, I want to configure DNS for Azure NetApp Files integration with Active Directory, so that I can ensure reliable data access and avoid interruptions caused by incorrect or incomplete DNS records."
 ---
 # Understand Domain Name Systems in Azure NetApp Files 
 
@@ -485,7 +486,7 @@ Ensure you meet the following DNS configuration requirements:
 - If a DNS alias is required, use a CNAME record. Point the CNAME record to the A/AAAA records for Azure NetApp Files.
 - If you're not using dynamic DNS updates, you must manually create an A record and a PTR record for the AD DS computer accounts created in the AD DS Organizational Unit (specified in the Azure NetApp Files AD connection) to support Azure NetApp Files LDAP Signing, LDAP over TLS, SMB, dual-protocol, or Kerberos NFSv4.1 volumes.
 - For complex or large AD DS topologies, [DNS Policies or DNS subnet prioritization might be required to support LDAP enabled NFS volumes](understand-guidelines-active-directory-domain-service-site.md#ad-ds-ldap-discover).
-- If DNS scavenging is enabled (where stale DNS entries are automatically pruned based on timestamp/age) and dynamic DNS was used to create the DNS records for the Azure NetApp Files volume, the scavenger process might inadvertently prune the records for the volume. This pruning can lead to a service outage for name-based queries. Until this issue is resolved, manually create DNS A/AAAA and PTR entries for the Azure NetApp Files volume if DNS scavenging is enabled.
+- If DNS scavenging is enabled (where stale DNS entries are automatically pruned based on timestamp/age) and dynamic DNS was used to create the DNS records for the Azure NetApp Files volume, the scavenger process might inadvertently prune the records for the volume. This pruning can lead to a service outage for name-based queries. Until this issue is resolved, manually create DNS A/AAAA and PTR entries for the Azure NetApp Files volume if DNS scavenging is enabled. Azure NetApp Files will not remove or delete PTR records in any conditions.
 
 ## Next steps
 

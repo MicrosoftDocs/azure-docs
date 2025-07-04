@@ -1,8 +1,8 @@
 ---
 title: Sign a CI policy 
 description: Learn how to sign new CI policies by using Trusted Signing.  
-author: microsoftshawarma 
-ms.author: rakiasegev 
+author: TacoTechSharma
+ms.author: mesharm 
 ms.service: trusted-signing
 ms.topic: how-to 
 ms.date: 06/03/2024 
@@ -20,7 +20,7 @@ To complete the steps in this article, you need:
 - A Trusted Signing account, identity validation, and certificate profile.
 - Individual or group assignment of the Trusted Signing Certificate Profile Signer role.
 - [Azure PowerShell in Windows](/powershell/azure/install-azps-windows) installed.
-- [Az.CodeSigning](/powershell/module/az.codesigning/) module downloaded.
+- [Az.TrustedSigning](/powershell/module/az.trustedsigning/) module downloaded.
 
 ## Sign a CI policy
 
@@ -36,40 +36,40 @@ To complete the steps in this article, you need:
    }
    ```
 
-1. Get the [root certificate](/powershell/module/az.codesigning/get-azcodesigningrootcert) that you want to add to the trust store:
+1. Get the [root certificate](/powershell/module/az.trustedsigning/get-aztrustedsigningcertificateroot) that you want to add to the trust store:
 
    ```powershell
-   Get-AzCodeSigningRootCert -AccountName TestAccount -ProfileName TestCertProfile -EndpointUrl https://xxx.codesigning.azure.net/ -Destination c:\temp\root.cer
+   Get-AzTrustedSigningCertificateRoot -AccountName TestAccount -ProfileName TestCertProfile -EndpointUrl https://xxx.codesigning.azure.net/ -Destination c:\temp\root.cer
    ```
 
    If you're using a *metadata.json* file, run this command instead:
 
    ```powershell
-   Get-AzCodeSigningRootCert -MetadataFilePath C:\temp\metadata.json https://xxx.codesigning.azure.net/ -Destination c:\temp\root.cer 
+   Get-AzTrustedSigningCertificateRoot -MetadataFilePath C:\temp\metadata.json -Destination c:\temp\root.cer 
    ```
 
-1. To get the Extended Key Usage (EKU) to insert into your policy:
+1. To get the [Extended Key Usage (EKU)](/powershell/module/az.trustedsigning/get-aztrustedsigningcustomereku) to insert into your policy:
 
    ```powershell
-   Get-AzCodeSigningCustomerEku -AccountName TestAccount -ProfileName TestCertProfile -EndpointUrl https://xxx.codesigning.azure.net/ 
-   ```
-
-   If you're using a *metadata.json* file, run this command instead:
-
-   ```powershell
-   Get-AzCodeSigningCustomerEku -MetadataFilePath C:\temp\metadata.json 
-   ```
-
-1. To sign your policy, run the `invoke` command:
-
-   ```powershell
-   Invoke-AzCodeSigningCIPolicySigning -accountName TestAccount -profileName TestCertProfile -endpointurl "https://xxx.codesigning.azure.net/" -Path C:\Temp\defaultpolicy.bin -Destination C:\Temp\defaultpolicy_signed.bin -TimeStamperUrl: http://timestamp.acs.microsoft.com 
+   Get-AzTrustedSigningCustomerEku -AccountName TestAccount -ProfileName TestCertProfile -EndpointUrl https://xxx.codesigning.azure.net/ 
    ```
 
    If you're using a *metadata.json* file, run this command instead:
 
    ```powershell
-   Invoke-AzCodeSigningCIPolicySigning -MetadataFilePath C:\temp\metadata.json -Path C:\Temp\defaultpolicy.bin -Destination C:\Temp\defaultpolicy_signed.bin -TimeStamperUrl: http://timestamp.acs.microsoft.com 
+   Get-AzTrustedSigningCustomerEku -MetadataFilePath C:\temp\metadata.json 
+   ```
+
+1. To [sign your policy](/powershell/module/az.trustedsigning/invoke-aztrustedsigningcipolicysigning), run the `invoke` command:
+
+   ```powershell
+   Invoke-AzTrustedSigningCIPolicySigning -accountName TestAccount -profileName TestCertProfile -endpointurl "https://xxx.codesigning.azure.net/" -Path C:\Temp\defaultpolicy.bin -Destination C:\Temp\defaultpolicy_signed.bin -TimeStamperUrl: http://timestamp.acs.microsoft.com 
+   ```
+
+   If you're using a *metadata.json* file, run this command instead:
+
+   ```powershell
+   Invoke-AzTrustedSigningCIPolicySigning -MetadataFilePath C:\temp\metadata.json -Path C:\Temp\defaultpolicy.bin -Destination C:\Temp\defaultpolicy_signed.bin -TimeStamperUrl: http://timestamp.acs.microsoft.com 
    ```
 
 ## Create and deploy a CI policy

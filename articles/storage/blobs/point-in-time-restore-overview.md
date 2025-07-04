@@ -9,6 +9,7 @@ ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.date: 09/21/2023
 ms.author: normesta
+# Customer intent: As a data administrator, I want to enable point-in-time restore for block blobs, so that I can protect my storage account from accidental data deletion or corruption and ensure data integrity during testing scenarios.
 ---
 
 # Point-in-time restore for block blobs

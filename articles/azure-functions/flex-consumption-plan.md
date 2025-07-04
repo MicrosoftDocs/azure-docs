@@ -4,7 +4,11 @@ description: Running your function code in the Azure Functions Flex Consumption 
 ms.service: azure-functions
 ms.topic: concept-article
 ms.date: 05/12/2025
-ms.custom: references_regions, build-2024, ignite-2024, build-2025
+ms.custom:
+  - references_regions
+  - build-2024
+  - ignite-2024
+  - build-2025
 # Customer intent: As a developer, I want to understand the benefits of using the Flex Consumption plan so I can get the scalability benefits of Azure Functions without having to pay for resources I don't need.
 ---
 
@@ -16,12 +20,13 @@ You can review end-to-end samples that feature the Flex Consumption plan in the 
 
 ## Benefits
 
-The Flex Consumption plan builds on the strengths of the Consumption plan, which include dynamic scaling and execution-based billing. With Flex Consumption, you also get these extra features:
+The Flex Consumption plan builds on the strengths of the serverless Consumption plan, which include dynamic scaling and execution-based billing. With Flex Consumption, you also get these extra features:
 
-+ [Always-ready instances](#always-ready-instances) 
-+ [Virtual network integration](#virtual-network-integration)
-+ Fast scaling based on concurrency for both HTTP and non-HTTP apps
-+ Multiple choices for instance memory sizes
++ **Reduced Cold Start Times**: Enable [always-ready instances](#always-ready-instances) to achieve faster cold-start times compared to the Consumption plan. 
++ **Virtual network support**: [Virtual network integration](#virtual-network-integration) enables your serverless app to run in a virtual network.
++ **Per-Function Scaling**: Each function in your app [scales independently based on its workload](#per-function-scaling), potentially resulting in more efficient resource allocation.
++ **Improved Concurrency Handling**: Better handling of concurrent executions with configurable concurrency settings per function.
++ **Flexible Memory Configuration**: Flex Consumption offers multiple [instance memory](#instance-memory) size options, allowing you to optimize for your specific workload requirements.
 
 This table helps you directly compare the features of Flex Consumption with the Consumption hosting plan:
 
@@ -119,18 +124,18 @@ This table shows the language stack versions that are currently supported for Fl
 
 Currently, each region in a given subscription has a memory limit of `512,000 MB` for all instances of apps running on Flex Consumption plans. This quota means that, in a given subscription and region, you could have any combination of instance memory sizes and counts, as long as they stay under the quota limit. For example, each the following examples would mean the quota is reached and the apps would stop scaling:
 
-+ You have one 512 MB app scaled to 250 instances and a second 512 MB app scaled to 750 instances. 
-+ You have one 512 MB app scaled to 1,000 instances.
-+ You have one 2,048 MB app scaled to 100 and a second 2,048 MB app scaled to 150 instances
-+ You have one 2,048 MB app that scaled out to 250 instances
-+ You have one 4,096 MB app that scaled out to 125 instances
-+ You have one 4,096 MB app scaled to 100 and one 2,048 MB app scaled to 50 instances
++ You have one 512-MB app scaled to 250 instances and a second 512-MB app scaled to 750 instances. 
++ You have one 512-MB app scaled to 1,000 instances.
++ You have one 2,048-MB app scaled to 100 and a second 2,048-MB app scaled to 150 instances
++ You have one 2,048-MB app that scaled out to 250 instances
++ You have one 4,096-MB app that scaled out to 125 instances
++ You have one 4,096-MB app scaled to 100 and one 2,048-MB app scaled to 50 instances
 
 Flex Consumption apps scaled to zero, or instances marked to be scaled in and deleted, don't count against the quota. This quota can be increased to allow your Flex Consumption apps to scale further, depending on your requirements. If your apps require a larger quota, create a support ticket.
 
 ## Deprecated properties and settings
 
-In Flex Consumption many of the standard application settings and site configuration properties are deprecated or have moved and shouldn't be used when automating function app resource creation. For more information, see [Flex Consumption plan deprecations](functions-app-settings.md#flex-consumption-plan-deprecations).
+In the Flex Consumption plan, many of the standard application settings and site configuration properties are deprecated or have moved and shouldn't be used when automating function app resource creation. For more information, see [Flex Consumption plan deprecations](functions-app-settings.md#flex-consumption-plan-deprecations).
 
 ## Considerations
 
@@ -143,6 +148,7 @@ Keep these other considerations in mind when using Flex Consumption plan:
 + **Triggers**: While all triggers are fully supported in a Flex Consumption plan, the Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./extension-bundles.md), or a later version. 
 + **Regions**: Not all regions are currently supported. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).
 + **Deployments**: Deployment slots aren't currently supported.
++ **Proxies**: Functions Proxies aren't supported. Consider integrating your function apps with Azure API Management.
 + **Scale**: The lowest maximum scale is currently `40`. The highest currently supported value is `1000`. 
 + **Managed dependencies**: [Managed dependencies in PowerShell](functions-reference-powershell.md#managed-dependencies-feature) aren't supported by Flex Consumption. You must instead [upload modules with app content](functions-reference-powershell.md#including-modules-in-app-content).
 + **Diagnostic settings**: Diagnostic settings aren't currently supported.

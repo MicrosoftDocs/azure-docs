@@ -6,6 +6,8 @@ ms.date: 10/31/2024
 author: matternst7258
 ms.author: matthewernst
 ms.service: azure-operator-nexus
+ms.custom:
+  - build-2025
 ---
 
 # Azure Operator Nexus SKUs

@@ -8,6 +8,7 @@ ms.custom: linux-related-content
 ms.topic: concept-article
 ms.date: 08/02/2024
 ms.author: anfdocs
+# Customer intent: As a Linux administrator, I want to optimize session slots and slot table entries for Azure NetApp Files NFS, so that I can enhance performance and efficiency in managing concurrent operations while preventing server overload.
 ---
 # Linux concurrency best practices for Azure NetApp Files - Session slots and slot table entries
 

@@ -5,16 +5,17 @@ items:
   items:
   - name: What is Azure Firewall?
     href: overview.md
-  - name: Well-Architected review of Azure Firewall
-    href: /azure/architecture/framework/services/networking/azure-firewall?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
+  - name: Architecture best practices for Azure Firewall
+    href: /azure/well-architected/service-guides/azure-firewall?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
+  - name: What is Azure network security?
+    href: /azure/networking/security/network-security.md?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
   - name: SKU comparison
     href: choose-firewall-sku.md
   - name: Preview features
     href: firewall-preview.md
   - name: FAQ
     href: firewall-faq.yml
-  - name: Known issues and limitations
-    href: firewall-known-issues.md
+  expanded: true
 - name: Design & architecture
   items:
   - name: Policy 
@@ -23,6 +24,8 @@ items:
       href: policy-rule-sets.md
     - name: Policy Analytics
       href: policy-analytics.md
+  - name: FQDN filtering
+    href: domain-filtering-overview.md
   - name: Infrastructure FQDNs
     href: infrastructure-fqdns.md
   - name: IDPS signature rule categories
@@ -80,6 +83,8 @@ items:
       href: premium-certificates.md
     - name: Enterprise CA Certificates
       href: premium-deploy-certificates-enterprise-ca.md
+  - name: Draft and Deploy
+    href: draft-deploy.md
   - name: To a hybrid Network
     items:
     - name: Portal
@@ -148,6 +153,8 @@ items:
   items:
   - name: Add or modify rules using PowerShell
     href: deploy-rules-powershell.md
+  - name: DNAT rule for filtering inbound traffic
+    href: destination-nat-rules.md
   - name: DNS proxy
     items:
     - name: Overview
@@ -166,15 +173,7 @@ items:
     href: sql-fqdn-filtering.md
   - name: SNAT private ranges
     href: snat-private-range.md
-- name: Migration and upgrades
-  items:
-  - name: Migrate to Azure Firewall Premium
-    href: premium-migrate.md
-  - name: Migrate to Premium using Terraform
-    href: /azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
-  - name: Easy upgrade/downgrade
-    href: easy-upgrade.md
-- name: Security
+- name: Secure
   items:
   - name: Security baseline
     href: /security/benchmark/azure/baselines/firewall-security-baseline?toc=/azure/firewall/toc.json
@@ -196,6 +195,14 @@ items:
       href: detect-malware-with-sentinel.md
   - name: Network security blog
     href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
+- name: Migration and upgrades
+  items:
+  - name: Migrate to Azure Firewall Premium
+    href: premium-migrate.md
+  - name: Migrate to Premium using Terraform
+    href: /azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
+  - name: Easy upgrade/downgrade
+    href: easy-upgrade.md
 - name: Operational excellence
   items:
   - name: Monitoring
@@ -212,6 +219,10 @@ items:
     href: ../azure-resource-manager/management/relocation/relocation-firewall.md?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
   - name: Remote work support
     href: remote-work-support.md
+- name: Troubleshooting
+  items:
+  - name: Known issues and limitations
+    href: firewall-known-issues.md
 - name: Reference
   items:
   - name: Azure CLI

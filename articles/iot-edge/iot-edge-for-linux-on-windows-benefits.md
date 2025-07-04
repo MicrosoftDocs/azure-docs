@@ -3,7 +3,7 @@ title: Why use Azure IoT Edge for Linux on Windows?
 description: Benefits for using Azure IoT Edge for Linux on Windows (EFLOW) to deploy production Linux-based cloud-native workloads on Windows devices.
 author: PatAltimore
 ms.author: patricka
-ms.date: 06/04/2024
+ms.date: 06/09/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
@@ -14,26 +14,26 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-For organizations interested in running business logic and analytics on devices, Azure IoT Edge for Linux on Windows (EFLOW) enables the deployment of production Linux-based cloud-native workloads onto Windows devices. Connecting your devices to Microsoft Azure lets you quickly bring cloud intelligence to your business. At the same time, running workloads on devices allows you to respond quickly in instances with limited connectivity and reduce bandwidth costs.
+Azure IoT Edge for Linux on Windows (EFLOW) lets you run business logic and analytics on devices by deploying production Linux-based cloud-native workloads on Windows devices. Connecting devices to Microsoft Azure lets you bring cloud intelligence to your business. Running workloads on devices helps you respond quickly when connectivity is limited and reduces bandwidth costs.
 
-By bringing the best of Windows and Linux together, EFLOW enables new capabilities while leveraging existing Windows infrastructure and application investments. By running Linux IoT Edge modules on Windows devices, you can do more on a single device, reducing the overhead and cost of separate devices for different applications.
+EFLOW combines the strengths of Windows and Linux, so you get new capabilities while using your existing Windows infrastructure and applications. Running Linux IoT Edge modules on Windows devices lets you do more on a single device, which reduces the overhead and cost of using separate devices for different apps.
 
-EFLOW doesn't require extensive Linux knowledge and utilizes familiar Windows tools to manage your EFLOW device and workloads. Windows IoT provides trusted enterprise-grade security with established IT admin infrastructure. Lastly, the entire solution is maintained and kept up to date by Microsoft. 
+You don't need deep Linux knowledge to use EFLOW, and you manage your EFLOW device and workloads with familiar Windows tools. Windows IoT gives you trusted enterprise-grade security and established IT admin infrastructure. Microsoft maintains and keeps the entire solution up to date. 
 
-## Easily Connect to Azure
-**IoT Edge Built-In**. [Tier 1 Azure IoT Edge support](support.md#operating-systems) is built in to EFLOW for a simplified deployment experience for your cloud workloads.
+## Easily connect to Azure
+**IoT Edge Built-In**. [Tier 1 Azure IoT Edge support](support.md#operating-systems) is built in to EFLOW for a simpler deployment experience for your cloud workloads.
 
-**Curated Linux VM for Azure**. EFLOW consists of a specially curated Linux VM that runs alongside Windows IoT host OS. This Linux VM is based on [CBL-Mariner Linux](https://github.com/microsoft/CBL-Mariner), and is optimized for hosting IoT Edge workloads.
+**Curated Linux VM for Azure**. EFLOW uses a specially curated Linux VM that runs alongside the Windows IoT host OS. This Linux VM is based on [CBL-Mariner Linux](https://github.com/microsoft/CBL-Mariner), and is optimized for hosting IoT Edge workloads.
 
-## Familiar Windows Management
-**Flexible Scripting**. [PowerShell modules](reference-iot-edge-for-linux-on-windows-functions.md) provide the ability to fully script deployments.
+## Familiar Windows management
+**Flexible Scripting**. [PowerShell modules](reference-iot-edge-for-linux-on-windows-functions.md) let you fully script deployments.
 
-**WAC**. [Windows Admin Center EFLOW extension](how-to-provision-single-device-linux-on-windows-symmetric.md#developer-tools) (preview, EFLOW 1.1 only) provides a click-through deployment wizard and remote management experience.
+**WAC**. [Windows Admin Center EFLOW extension](how-to-provision-single-device-linux-on-windows-symmetric.md#developer-tools) (preview, EFLOW 1.1 only) gives you a click-through deployment wizard and remote management experience.
 
-## Production Ready
-**Always Up-to-date**. EFLOW regularly releases feature and security improvements and is reliably updated using Microsoft Update. For more information on EFLOW updates, see [Update IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows-updates.md).
+## Production ready
+**Always Up-to-date**. EFLOW regularly releases feature and security improvements, and its reliably updated using Microsoft Update. For more information about EFLOW updates, see [Update IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows-updates.md).
 
-**Fully Supported Environment.** In an EFLOW solution, the base operating system, the EFLOW Linux environment, and the container runtime are all maintained by Microsoft—meaning there's a single source for all of the components. Each of the three components: [Windows IoT](/windows/iot/iot-enterprise/commercialization/licensing), EFLOW, and [Azure IoT Edge](version-history.md) have defined servicing mechanisms and support timelines.
+**Fully Supported Environment.** In an EFLOW solution, Microsoft maintains the base operating system, the EFLOW Linux environment, and the container runtime. This means there's a single source for all components. Each of the three components—[Windows IoT](/windows/iot/iot-enterprise/commercialization/licensing), EFLOW, and [Azure IoT Edge](version-history.md)—has defined servicing mechanisms and support timelines.
 
 ## Windows + Linux
-**Interoperability**. With EFLOW, the whole is greater than the sum of its parts. Combining a Windows application and Linux application on the same device unlocks new experiences and scenarios that otherwise wouldn't have been possible. Interoperability and hardware passthrough capabilities built into EFLOW including, [TPM passthrough](how-to-provision-devices-at-scale-linux-on-windows-tpm.md), [HW acceleration](gpu-acceleration.md), [Camera passthrough](https://github.com/Azure/iotedge-eflow/tree/main/samples/camera-over-rtsp), [Serial passthrough](https://github.com/Azure/iotedge-eflow/tree/main/samples/serial), and more, allow you to take advantage of both Linux and Windows environments.
+**Interoperability**. EFLOW lets you combine a Windows application and a Linux application on the same device, unlocking new experiences and scenarios that aren't possible otherwise. Interoperability and hardware passthrough capabilities built into EFLOW, including [TPM passthrough](how-to-provision-devices-at-scale-linux-on-windows-tpm.md), [HW acceleration](gpu-acceleration.md), [Camera passthrough](https://github.com/Azure/iotedge-eflow/tree/main/samples/camera-over-rtsp), [Serial passthrough](https://github.com/Azure/iotedge-eflow/tree/main/samples/serial), and more, let you use both Linux and Windows environments.

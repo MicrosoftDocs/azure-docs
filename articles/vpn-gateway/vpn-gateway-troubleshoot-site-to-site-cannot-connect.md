@@ -7,6 +7,7 @@ ms.service: azure-vpn-gateway
 ms.topic: troubleshooting-problem-resolution
 ms.date: 03/31/2025
 ms.author: cherylmc 
+# Customer intent: "As a network administrator managing a site-to-site VPN, I want to troubleshoot connection issues effectively, so that I can restore connectivity between our on-premises network and the Azure virtual network."
 ---
 # Troubleshooting: An Azure site-to-site VPN connection can't connect and stops working
 

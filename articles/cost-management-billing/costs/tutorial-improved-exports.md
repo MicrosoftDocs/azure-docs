@@ -3,11 +3,13 @@ title: Tutorial - Create and manage Cost Management exports
 description: This tutorial helps you create automatic exports for your actual and amortized costs.
 author: jojohpm
 ms.author: jojoh
-ms.date: 03/30/2025
+ms.date: 06/26/2025
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: jojoh
+ms.custom:
+  - build-2025
 ---
 
 # Tutorial: Create and manage Cost Management exports

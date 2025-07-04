@@ -5,6 +5,7 @@ ms.topic: tutorial
 ms.service: azure-vmware
 ms.date: 12/11/2024
 ms.custom: engagement-fy25
+# Customer intent: As a cloud administrator, I want to create and configure an NSX Tier-1 Gateway, so that I can enhance the networking capabilities and ensure high availability within my Azure VMware Solution environment.
 ---
 
 # Tutorial: Create an NSX Tier-1 Gateway 
