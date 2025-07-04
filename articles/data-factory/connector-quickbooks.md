@@ -264,7 +264,7 @@ The following table shows the release stage and change logs for different versio
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
 | Version 1.0 | End of support announced | / |  
-| Version 2.0 | GA version available | • `useEncryptedEndpoints` is not supported. <br><br>• SQL-92 query is not supported.  <br><br>• Support Quickbooks native query with limitations. GROUP BY clauses, JOIN clauses and Aggregate Function (Avg, Max, Sum) aren't supported. For more information, see [query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries). <br><br>• The `tableName` specified in the `query` must match the `tableName` in the dataset.  |
+| Version 2.0 | GA version available | • Support Quickbooks native query with limitations. GROUP BY clauses, JOIN clauses and Aggregate Function (Avg, Max, Sum) aren't supported. For more information, see [query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries). <br><br>• The `tableName` specified in the `query` must match the `tableName` in the dataset.  <br><br>• `useEncryptedEndpoints` is not supported. <br><br>• SQL-92 query is not supported.  |
 
 ### <a name="upgrade-the-quickbooks-connector-from-version-10-to-version-20"></a> Upgrade the Quickbooks connector from version 1.0 to version 2.0
 
