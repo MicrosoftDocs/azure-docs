@@ -25,7 +25,7 @@ items:
     href: /security/benchmark/azure/baselines/azure-migrate-security-baseline?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
   - name: Appliance-Security best practices
     href: best-practices-security.md
-  - name: Credentials - Security best practices
+  - name: Credentials-Security best practices
     href: best-practices-least-privileged-account.md
   - name: Requirements for Private endpoints # Explain about private end points and support requirements 
     href: how-to-use-azure-migrate-with-private-endpoints.md

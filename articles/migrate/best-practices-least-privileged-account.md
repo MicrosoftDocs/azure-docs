@@ -82,11 +82,11 @@ Use the [script](tutorial-discover-hyper-v.md#prepare-hyper-v-hosts) to prepare 
 
 For deep discovery of Hyper-V estate and to perform software inventory and dependency analysis, guest account [credentials](#enable-guest-discovery-with-server-credentials) are required. 
 
-### Discovery of physical and Cloud servers
+## Discovery of physical and Cloud servers
 
 To discover and assess physical servers or servers running in other public clouds the Azure Migrate appliance requires credentials with least privilege access.
 
-#### Quick server discovery
+### Quick server discovery
 
 | **Discovered metadata**  | **Credentials** | **Access configuration for guest user** | 
 | --- | --- | --- |
@@ -120,11 +120,11 @@ To discover and assess physical servers or servers running in other public cloud
 | --- | --- | --- | 
 | In-depth discovery of web apps such as .NET and Java Tomcat <br /><br />Agentless dependency analysis (full data)* <br /><br />In-depth discovery of web apps such as .NET and Java Tomcat | Windows <br /><br /> Linux  | Administrator <br /><br />o discover Java webapps on Tomcat servers, the user account needs read and execute (r-x) permissions on all Catalina home directories.<br /><br />Execute the following command to find out all catalina homes: `ps -ef | grep catalina.home`<br /><br />Here is a sample command to set up least privileged user: `setfacl -m u:johndoe:rx <catalina/home/path>` |
 
-### Advanced database discovery
+## Advanced database discovery
 
 Software inventory is required for initiating workload discovery. Ensure that guest credentials are added to enable it. The permissions to discover SQL and MySQL databases are the same for all appliance types—VMware, Hyper-V, and physical servers. 
 
-#### Discover SQL server instances and database:    
+### Discover SQL server instances and database:    
 
 Create least privileged accounts on individual SQL server instance. Use Windows authentication and assign only the required permissions.
 
@@ -308,7 +308,7 @@ Create least privileged accounts on individual SQL server instance. Use Windows 
 > [!Note]
 > Create Least privileged accounts on multiple SQL server instances, for more inforamtion to setup [least privileged](least-privilege-credentials.md) custom SQL accounts at scale.  
 
-### Discover MySQL server instances and database    
+## Discover MySQL server instances and database    
 
 To discover MySQL database, add MySQL DB credentials to appliance.  
 
