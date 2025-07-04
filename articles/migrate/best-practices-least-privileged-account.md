@@ -87,10 +87,242 @@ For deep discovery of Hyper-V estate and to perform software inventory and depen
 
 Quick server discovery:  
 
-| Use case | Discovered Metadata | Credentials needed  | Additional Configuration Steps | Quick server discovery (Windows) | - Software inventory<br>- Agentless dependency analysis (limited data)*<br>- Workload inventory of databases and web apps | Windows user account that’s part of:<br>- Remote Management Users<br>- Performance Monitor Users<br>- Performance Log Users | 1. The guest user account should have permissions to the CIMV2 Namespace and sub-namespaces in the WMI Control Panel.<br>2. To set this access:<br>&nbsp;&nbsp;- On the target Windows server, open **Run** from the Start menu, enter `wmimgmt.msc`, and press Enter.<br>&nbsp;&nbsp;- In the **wmimgmt** console, right-click **WMI Control (Local)** and select **Properties**.<br>&nbsp;&nbsp;- In the **WMI Control (Local) Properties** dialog, select the **Security** tab.<br>&nbsp;&nbsp;- Expand the **Root** folder and select the **cimv2** namespace.<br>&nbsp;&nbsp;- Click **Security**.<br>&nbsp;&nbsp;- Click **Add** to add the user account.<br>&nbsp;&nbsp;- Select the guest user account and ensure **Enable Account** and **Remote Enable** permissions are allowed.<br>&nbsp;&nbsp;- Click **Apply**.<br>3. Restart the **WinRM** service after adding the new guest user. |
+| Discovered metadata  | Credentials | Col 3 | 
+| --- | --- | --- |
+| Software inventory <br /><br /> Agentless dependency analysis (limited data)* <br /><br /> Workload inventory of databases and web apps   | Windows  | A Windows user account that belongs to the following user groups <br /><br /> Remote Management Users <br /><br /> Performance Monitor Users <br /><br /> Performance Log Users <br /><br /> The guest user account needs permission to access the CIMV2 namespace and its sub-namespaces in the WMI Control Panel. Follow the below steps to set the access. |
 
- 
+1. On the target Windows server, open the **Start menu**, search for **Run**, and then select it.
+1. In the **Run** dialog box, type `wmimgmt.msc` and then press **Enter**.
+    The **wmimgmt console** opens where you can find **WMI Control** (Local) in the left pane
+1. Right-click it, and then select **Properties** from the menu. 
+1. In the **WMI Control** (Local) **Properties** dialog, and then select the **Securities** tab. 
+1. On the **Securities** tab, expand the **Root** folder in the namespace tree and then select the `cimv2 namespace`. 
+1. Select **Security** to open the Security for `ROOT\cimv2` dialog. 
+    Under the **Group** or users names section, select **Add** to open the **Select Users**, Computers, Service Accounts or Groups dialog. 
+1. Search for the user account, select it, and then select **OK** to return to the Security for `ROOT\cimv2` dialog. 
+1. In the Group or users names section, select the guest user account. Validate if the following permissions are allowed: 
+    -  Enable account 
+    - Remote enable 
 
+:::image type="content" source="~/best-practices-least-privileged-accounts/security-for-root.png" alt-text="The screen shows the guest user permissions.":::
 
+1. Select **Apply** to enable the permissions set on the user account. 
+1. Restart WinRM service after you add the new guest user.  
 
+| Discovered metadata  | Credentials  | Col 3 | 
+| --- | --- | --- | 
+| Software inventory <br /><br /> Agentless dependency analysis (full data) <br /><br />Workload inventory of databases and web apps   | Linux  | The user account should have sudo privileges on the following file paths. <br /><br /> AzMigrateLeastprivuser ALL=(ALL) NOPASSWD: `/usr/sbin/dmidecode, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l , /usr/bin/ls -l /proc//exe, /usr/bin/netstat -atnp, /usr/sbin/lvdisplay ""` Defaults:AzMigrateLeastprivuser !requiretty |
 
+In-depth server discovery
+
+| Discovered metadata  | Credentials  | Col 3 | 
+| --- | --- | --- | 
+| In-depth discovery of web apps such as .NET and Java Tomcat <br /><br />Agentless dependency analysis (full data)* <br /><br />In-depth discovery of web apps such as .NET and Java Tomcat | Windows <br /><br /> Linux  | Administrator <br /><br />For discovering Java webapps (Tomcat servers), the user account needs read and execute (r-x) permissions on all Catalina home directories.<br /><br />Execute the following command to find out all catalina homes: `ps -ef | grep catalina.home`<br /><br />Here is a sample command to set up least privileged user: `setfacl -m u:johndoe:rx <catalina/home/path>` |
+
+### In-depth Databases discovery
+
+Software inventory is required for initiating workload discovery. Ensure that guest credentials are added to enable it. The permissions to discover SQL and MySQL databases are the same for all appliance types—VMware, Hyper-V, and physical servers. 
+
+#### Discover SQL server instances and database:    
+
+Create least privileged accounts on individual SQL server instance. Use Windows authentication and assign only the required permissions.
+
+#### Windows authentication
+  
+  ```sql
+  -- Create a login to run the assessment
+  use master;
+  DECLARE @SID NVARCHAR(MAX) = N'';
+  CREATE LOGIN [MYDOMAIN\MYACCOUNT] FROM WINDOWS;
+  SELECT @SID = N'0x'+CONVERT(NVARCHAR, sid, 2) FROM sys.syslogins where name = 'MYDOMAIN\MYACCOUNT'
+  IF (ISNULL(@SID,'') != '')
+    PRINT N'Created login [MYDOMAIN\MYACCOUNT] with SID = ' + @SID
+  ELSE
+    PRINT N'Login creation failed'
+  GO    
+
+  -- Create user in every database other than tempdb, model, and secondary AG databases (with connection_type = ALL) and provide minimal read-only permissions.
+  USE master;
+  EXECUTE sp_MSforeachdb '
+    USE [?];
+    IF (''?'' NOT IN (''tempdb'',''model''))
+    BEGIN
+      DECLARE @is_secondary_replica BIT = 0;
+      IF CAST(PARSENAME(CAST(SERVERPROPERTY(''ProductVersion'') AS VARCHAR), 4) AS INT) >= 11
+      BEGIN
+        DECLARE @innersql NVARCHAR(MAX);
+        SET @innersql = N''
+          SELECT @is_secondary_replica = IIF(
+            EXISTS (
+                SELECT 1
+                FROM sys.availability_replicas a
+                INNER JOIN sys.dm_hadr_database_replica_states b
+                ON a.replica_id = b.replica_id
+                WHERE b.is_local = 1
+                AND b.is_primary_replica = 0
+                AND a.secondary_role_allow_connections = 2
+                AND b.database_id = DB_ID()
+            ), 1, 0
+          );
+        '';
+        EXEC sp_executesql @innersql, N''@is_secondary_replica BIT OUTPUT'', @is_secondary_replica OUTPUT;
+      END
+      IF (@is_secondary_replica = 0)
+      BEGIN
+        CREATE USER [MYDOMAIN\MYACCOUNT] FOR LOGIN [MYDOMAIN\MYACCOUNT];
+        GRANT SELECT ON sys.sql_expression_dependencies TO [MYDOMAIN\MYACCOUNT];
+        GRANT VIEW DATABASE STATE TO [MYDOMAIN\MYACCOUNT];
+      END
+    END'
+  GO
+
+  -- Provide server level read-only permissions
+  use master;
+  GRANT SELECT ON sys.sql_expression_dependencies TO [MYDOMAIN\MYACCOUNT];
+  GRANT EXECUTE ON OBJECT::sys.xp_regenumkeys TO [MYDOMAIN\MYACCOUNT];
+  GRANT EXECUTE ON OBJECT::sys.xp_instance_regread TO [MYDOMAIN\MYACCOUNT];
+  GRANT VIEW DATABASE STATE TO [MYDOMAIN\MYACCOUNT];
+  GRANT VIEW SERVER STATE TO [MYDOMAIN\MYACCOUNT];
+  GRANT VIEW ANY DEFINITION TO [MYDOMAIN\MYACCOUNT];
+  GO
+
+  -- Provide msdb specific permissions
+  use msdb;
+  GRANT EXECUTE ON [msdb].[dbo].[agent_datetime] TO [MYDOMAIN\MYACCOUNT];
+  GRANT SELECT ON [msdb].[dbo].[sysjobsteps] TO [MYDOMAIN\MYACCOUNT];
+  GRANT SELECT ON [msdb].[dbo].[syssubsystems] TO [MYDOMAIN\MYACCOUNT];
+  GRANT SELECT ON [msdb].[dbo].[sysjobhistory] TO [MYDOMAIN\MYACCOUNT];
+  GRANT SELECT ON [msdb].[dbo].[syscategories] TO [MYDOMAIN\MYACCOUNT];
+  GRANT SELECT ON [msdb].[dbo].[sysjobs] TO [MYDOMAIN\MYACCOUNT];
+  GRANT SELECT ON [msdb].[dbo].[sysmaintplan_plans] TO [MYDOMAIN\MYACCOUNT];
+  GRANT SELECT ON [msdb].[dbo].[syscollector_collection_sets] TO [MYDOMAIN\MYACCOUNT];
+  GRANT SELECT ON [msdb].[dbo].[sysmail_profile] TO [MYDOMAIN\MYACCOUNT];
+  GRANT SELECT ON [msdb].[dbo].[sysmail_profileaccount] TO [MYDOMAIN\MYACCOUNT];
+  GRANT SELECT ON [msdb].[dbo].[sysmail_account] TO [MYDOMAIN\MYACCOUNT];
+  GO
+  
+  -- Clean up
+  --use master;
+  -- EXECUTE sp_MSforeachdb 'USE [?]; DROP USER [MYDOMAIN\MYACCOUNT]'
+  -- DROP LOGIN [MYDOMAIN\MYACCOUNT];
+  --GO
+  ```
+
+#### SQL Server authentication
+  
+   ```sql
+  --- Create a login to run the assessment
+  use master;
+  -- NOTE: SQL instances that host replicas of Always On availability groups must use the same SID for the SQL login.
+    -- After the account is created in one of the members, copy the SID output from the script and include this value
+    -- when executing against the remaining replicas.
+    -- When the SID needs to be specified, add the value to the @SID variable definition below.
+  DECLARE @SID NVARCHAR(MAX) = N'';
+  IF (@SID = N'')
+  BEGIN
+    CREATE LOGIN [evaluator]
+        WITH PASSWORD = '<provide a strong password>'
+  END
+  ELSE
+  BEGIN
+    DECLARE @SQLString NVARCHAR(500) = 'CREATE LOGIN [evaluator]
+      WITH PASSWORD = ''<provide a strong password>''
+      , SID = ' + @SID
+    EXEC SP_EXECUTESQL @SQLString
+  END
+  SELECT @SID = N'0x'+CONVERT(NVARCHAR(100), sid, 2) FROM sys.syslogins where name = 'evaluator'
+  IF (ISNULL(@SID,'') != '')
+    PRINT N'Created login [evaluator] with SID = '''+ @SID +'''. If this instance hosts any Always On Availability Group replica, use this SID value when executing the script against the instances hosting the other replicas'
+  ELSE
+    PRINT N'Login creation failed'
+  GO
+  
+  -- Create user in every database other than tempdb, model, and secondary AG databases (with connection_type = ALL) and provide minimal read-only permissions.
+  USE master;
+  EXECUTE sp_MSforeachdb '
+    USE [?];
+    IF (''?'' NOT IN (''tempdb'',''model''))
+    BEGIN
+      DECLARE @is_secondary_replica BIT = 0;
+      IF CAST(PARSENAME(CAST(SERVERPROPERTY(''ProductVersion'') AS VARCHAR), 4) AS INT) >= 11
+      BEGIN
+        DECLARE @innersql NVARCHAR(MAX);
+        SET @innersql = N''
+          SELECT @is_secondary_replica = IIF(
+            EXISTS (
+              SELECT 1
+              FROM sys.availability_replicas a
+              INNER JOIN sys.dm_hadr_database_replica_states b
+                ON a.replica_id = b.replica_id
+              WHERE b.is_local = 1
+                AND b.is_primary_replica = 0
+                AND a.secondary_role_allow_connections = 2
+                AND b.database_id = DB_ID()
+            ), 1, 0
+          );
+        '';
+        EXEC sp_executesql @innersql, N''@is_secondary_replica BIT OUTPUT'', @is_secondary_replica OUTPUT;
+      END
+
+      IF (@is_secondary_replica = 0)
+      BEGIN
+          CREATE USER [evaluator] FOR LOGIN [evaluator];
+          GRANT SELECT ON sys.sql_expression_dependencies TO [evaluator];
+          GRANT VIEW DATABASE STATE TO [evaluator];
+      END
+    END'
+  GO
+  
+  -- Provide server level read-only permissions
+  USE master;
+  GRANT SELECT ON sys.sql_expression_dependencies TO [evaluator];
+  GRANT EXECUTE ON OBJECT::sys.xp_regenumkeys TO [evaluator];
+  GRANT EXECUTE ON OBJECT::sys.xp_instance_regread TO [evaluator];
+  GRANT VIEW DATABASE STATE TO [evaluator];
+  GRANT VIEW SERVER STATE TO [evaluator];
+  GRANT VIEW ANY DEFINITION TO [evaluator];
+  GO
+  
+  -- Provide msdb specific permissions
+  USE msdb;
+  GRANT EXECUTE ON [msdb].[dbo].[agent_datetime] TO [evaluator];
+  GRANT SELECT ON [msdb].[dbo].[sysjobsteps] TO [evaluator];
+  GRANT SELECT ON [msdb].[dbo].[syssubsystems] TO [evaluator];
+  GRANT SELECT ON [msdb].[dbo].[sysjobhistory] TO [evaluator];
+  GRANT SELECT ON [msdb].[dbo].[syscategories] TO [evaluator];
+  GRANT SELECT ON [msdb].[dbo].[sysjobs] TO [evaluator];
+  GRANT SELECT ON [msdb].[dbo].[sysmaintplan_plans] TO [evaluator];
+  GRANT SELECT ON [msdb].[dbo].[syscollector_collection_sets] TO [evaluator];
+  GRANT SELECT ON [msdb].[dbo].[sysmail_profile] TO [evaluator];
+  GRANT SELECT ON [msdb].[dbo].[sysmail_profileaccount] TO [evaluator];
+  GRANT SELECT ON [msdb].[dbo].[sysmail_account] TO [evaluator];
+  GO
+  
+  -- Clean up
+  --use master;
+  -- EXECUTE sp_MSforeachdb 'USE [?]; BEGIN TRY DROP USER [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;'
+  -- BEGIN TRY DROP LOGIN [evaluator] END TRY BEGIN CATCH PRINT ERROR_MESSAGE() END CATCH;
+  --GO
+   ```
+> [!Note]
+> Create Least privileged accounts on multiple SQL server instances, for more inforamtion to setup [least privileged](least-privilege-credentials.md) custom SQL accounts at scale.  
+
+### Discover MySQL server instances and database    
+
+To discover MySQL database, add MySQL DB credentials to appliance.  
+
+Ensure that the user corresponding to the added MySQL credentials have the following privileges: 
+- Select permission on information_schema tables. 
+- Select permission on mysql.users table. 
+
+Use the following commands to grant the necessary privileges to the MySQL user: 
+
+`GRANT USAGE ON . TO 'newuser'@'localhost'; GRANT PROCESS ON . TO 'newuser'@'localhost'; GRANT SELECT (User, Host, Super_priv, File_priv, Create_tablespace_priv, Shutdown_priv) ON mysql.user TO 'newuser'@'localhost'; FLUSH PRIVILEGES;`
+
+## Next steps
+
+Learn how to [Discover VMware estate](tutorial-discover-vmware.md).
+
+Learn how to [Discover Hyper-V estate](tutorial-discover-hyper-v.md).
+
+Learn how to [Discover physical servers or servers running in public cloud](tutorial-discover-physical.md).
