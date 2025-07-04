@@ -7,6 +7,7 @@ ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 05/18/2023
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a cloud infrastructure administrator, I want to upgrade the WAF policies for my application gateway using a migration script, so that I can utilize new features and enhance security for my web applications."
 ---
 
 # Upgrade Web Application Firewall policies using Azure PowerShell

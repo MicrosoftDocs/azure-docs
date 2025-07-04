@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backups
 description: Get a summary of support settings and limitations for backing up Azure VMs by using the Azure Backup service.
 ms.topic: reference
-ms.date: 06/19/2025
+ms.date: 06/23/2025
 ms.custom:
   - references_regions
   - linux-related-content
@@ -11,6 +11,7 @@ ms.reviewer: nikhilsarode
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an IT administrator, I want to understand the support settings and limitations for backing up Azure VMs using a backup service, so that I can ensure comprehensive data protection for our virtual machines.
 ---
 
 # Support matrix for Azure VM backups
@@ -195,7 +196,7 @@ Backup of VMs with SSE and CMK encryption using HSM | Supported. <br><br> You mu
 **Component** | **Support**
 --- | ---
 Azure VM data disks | Support for backup of Azure VMs is up to 32 disks.<br><br> Support for backup of Azure VMs with unmanaged disks or classic VMs is deprecated. <br><br> *Note that backup support for disks in Azure Classic Storage is no longer available. To ensure continued functionality, migrate these disks to Azure Resource Manager (ARM) Storage, as Classic Storage accounts don't support ARM-based Virtual Machines (VMs). Also, backup for all Classic VMs is set to be deprecated on September 30, 2025. To prevent disruptions, migrate Classic VMs and associated disks to ARM Storage before this timeline.*
-Data disk size | Individual disk size can be up to 64 TB and a maximum of 512 TB combined for all disks in a VM.
+Data disk size | Individual disk size can be up to 64 TB and a maximum of 512 TB combined for all disks in a VM. <br><br> Note that it's available only in specific regions - East Asia, North Europe, West Europe, East US 2, North Central US, West Central US, West US 3, Central US.
 Storage type | Standard HDD, Standard SSD, Premium SSD. <br><br>  Backup and restore of [zone-redundant storage disks](/azure/virtual-machines/disks-redundancy#zone-redundant-storage-for-managed-disks) is supported.
 Managed disks | Supported.
 Encrypted disks | Supported.<br/><br/> Azure VMs enabled with Azure Disk Encryption can be backed up (with or without the Microsoft Entra app).<br/><br/> Encrypted VMs can't be recovered at the file or folder level. You must recover the entire VM.<br/><br/> You can enable encryption on VMs that Azure Backup is already protecting. <br><br> You can back up and restore disks encrypted via platform-managed keys or customer-managed keys. You can also assign a disk-encryption set while restoring in the same region. That is, providing a disk-encryption set while performing cross-region restore is currently not supported. However, you can assign the disk-encryption set to the restored disk after the restore is complete.

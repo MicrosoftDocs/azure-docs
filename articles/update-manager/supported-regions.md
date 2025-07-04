@@ -9,6 +9,7 @@ ms.topic: overview
 ms.custom:
   - references_regions
   - build-2025
+# Customer intent: As an IT administrator managing virtual machines and servers, I want to know the supported regions for Azure Update Manager, so that I can ensure compliance and optimize updates for our infrastructure.
 ---
 
 # Supported regions for Azure Update Manager

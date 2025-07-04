@@ -8,6 +8,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 02/12/2025
 ms.author: cherylmc
+# Customer intent: "As a network administrator using Ubuntu Linux, I want to configure a strongSwan VPN client for Azure's P2S connections with certificate authentication, so that I can securely connect to the Azure virtual network."
 ---
 
 # Configure strongSwan VPN for P2S certificate authentication IKEv2 connections - Linux

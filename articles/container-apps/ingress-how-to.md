@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 01/17/2024
+ms.date: 06/13/2024
 ms.author: cshoe
 ms.custom: devx-track-azurecli
 zone_pivot_groups: arm-azure-cli-portal
@@ -85,7 +85,7 @@ You can configure ingress when you create your container app by using the Azure 
 1. Set **Ingress** to **Enabled**.
 1. Configure the ingress settings for your container app.
 1. Select **Limited to Container Apps Environment** for internal ingress or **Accepting traffic from anywhere** for external ingress.
-1. Select the **Ingress Type**: **HTTP** or **TCP** (TCP ingress is only available in environments configured with a custom virtual network).
+1. Select the **Ingress Type**: **HTTP** or **TCP** (TCP ingress is only available in environments configured with a virtual network).
 1. If *HTTP* is selected for the **Ingress Type**, select the **Transport**: **Auto**, **HTTP/1** or **HTTP/2**. 
 1. Select **Insecure connections** if you want to allow HTTP connections to your app.
 1. Enter the **Target port** for your container app.

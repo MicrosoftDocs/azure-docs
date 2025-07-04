@@ -5,7 +5,7 @@ author: Muksvso
 ms.author: mubatra
 ms.service: azure-app-configuration
 ms.topic: conceptual 
-ms.date: 11/15/2023
+ms.date: 06/04/2025
 ---
 
 # Snapshots
@@ -75,15 +75,16 @@ For stores that use HMAC authentication, both the "read snapshot" operation (to 
 
 ## Billing considerations and limits
 
-App Configuration has three tiers, Free, Standard and Premium. Check the following details for snapshot quotas in each tier.
+App Configuration has four tiers: Free, Developer, Standard, and Premium. The following table summarizes the snapshot storage quotas for each tier:
 
-* **Free tier**: This tier has a snapshot storage quota of 10 MB.  One can create as many snapshots as possible as long as the total storage size of all active and archived snapshots is less than 10 MB.
+| Tier        | Snapshot storage quota |
+|-------------|-----------------------|
+| Free        | 10 MB                 |
+| Developer   | 500 MB                |
+| Standard    | 1 GB                  |
+| Premium     | 4 GB                  |
 
-* **Standard tier**: This tier has a snapshot storage quota of 1 GB. One can create as many snapshots as possible as long as the total storage size of all active and archived snapshots is less than 1 GB.
-
-* **Premium tier**: This tier has a snapshot storage quota of 4 GB. One can create as many snapshots as possible as long as the total storage size of all active and archived snapshots is less than 4 GB.
-
-The maximum size for a snapshot is 1 MB.
+You can create as many snapshots as needed, as long as the total storage size of all active and archived snapshots does not exceed the quota for your tier. The maximum size for an individual snapshot is 1 MB.
 
 ## Next steps
 

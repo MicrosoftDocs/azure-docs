@@ -5,6 +5,7 @@ ms.topic: overview
 ms.date: 09/11/2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an IT administrator managing Azure VMs, I want to implement agentless multi-disk crash-consistent backups, so that I can optimize backup performance without the need for additional agents or scripts when my virtual machine can tolerate crash-consistent recovery.
 ---
 
 # About agentless multi-disk crash-consistent backup for Azure VMs (preview)

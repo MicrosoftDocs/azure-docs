@@ -9,6 +9,7 @@ ms.date: 05/15/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
+# Customer intent: "As a network administrator, I want to configure a point-to-site VPN using certificate authentication, so that I can securely connect remote clients to our Azure virtual network."
 ---
 # Configure server settings for P2S VPN Gateway certificate authentication - PowerShell
 

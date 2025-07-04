@@ -11,6 +11,7 @@ ms.topic: concept-article
 ms.reviewer: yzheng
 ms.custom: "devx-track-azurepowershell, devx-track-azurecli" 
 ms.devlang: azurecli
+# Customer intent: "As a cloud storage administrator, I want to configure lifecycle management policies for blob storage, so that I can automatically transition or delete data based on access patterns to optimize storage costs and improve data management."
 ---
 
 # Configure a lifecycle management policy

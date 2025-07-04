@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 06/07/2024
 ms.author: kendownie
 ms.custom: references_regions
+# Customer intent: As a system architect, I want to evaluate deployment options for Azure Files, so that I can determine the best approach for directly mounting or caching file shares while considering performance, compatibility, and organizational needs.
 ---
 
 # Plan to deploy Azure Files
@@ -106,7 +107,7 @@ You can disable encryption in transit for an Azure storage account. When encrypt
 
 We strongly recommend ensuring encryption of data in-transit is enabled.
 
-For more information about encryption in transit, see [requiring secure transfer in Azure storage](../common/storage-require-secure-transfer.md?toc=/azure/storage/files/toc.json).
+For more information about encryption in transit, see [requiring secure transfer in Azure storage](../common/storage-require-secure-transfer.md?toc=/azure/storage/files/toc.json) and [Encryption in transit for NFS Azure file shares](encryption-in-transit-for-nfs-shares.md).
 
 ### Encryption at rest
 
