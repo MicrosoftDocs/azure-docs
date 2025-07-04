@@ -37,13 +37,13 @@ To discover the basic settings of servers running in the VMware estate, the foll
 
     | **vSphere privilege name**| **Privilege purpose**| **Required** | **API privilege name** |
     | --- | --- | --- | --- |
-    | Browse datastore  | Allow browsing of VM log files to troubleshoot snapshot creation and deletion.  | Data stores  | Datastore.Browse  |
-    | Low level file operations  | Allow read/write/delete/rename operations in the datastore browser to troubleshoot snapshot creation and deletion. |Data stores  | Datastore.FileManagement  |
+    | Browse datastore  | Allow users to browse VM log files to troubleshoot snapshot creation and deletion  | Data stores  | Datastore.Browse  |
+    | Low level file operations  | Allow read, write, delete, and rename actions in the datastore browser to troubleshoot snapshot creation and deletion |Data stores  | Datastore.FileManagement  |
     | Change Configuration - Toggle disk change tracking  | Allow enable or disable change tracking of VM disks to pull changed blocks of data between snapshots.  | Virtual machines  | VirtualMachine.Config.ChangeTracking  |
-    | Change Configuration - Acquire disk lease  | Allow disk lease operations for a VM to read the disk using the VMware vSphere Virtual Disk Development Kit (VDDK).  | Virtual machines  | VirtualMachine.Config.DiskLease |
+    | Change Configuration - Acquire disk lease  | Allow disk lease operations on a VM to read the disk using the VMware vSphere Virtual Disk Development Kit (VDDK)  | Virtual machines  | VirtualMachine.Config.DiskLease |
     | Provisioning - Allow read-only disk access  | Allow read-only disk access: Allow opening a disk on a VM to read the disk using the VDDK. | Virtual machines  | VirtualMachine.Provisioning.DiskRandomRead  |
     | Provisioning - Allow disk access  | Allow opening a disk on a VM to read the disk using the VDDK.  | Virtual machines  | VirtualMachine.Provisioning.DiskRandomAccess  |
-    | Provisioning - Allow virtual machine download  | Allow virtual machine download: Allows read operations on files associated with a VM to download the logs and troubleshoot if failure occurs.  | Root host or vCenter Server  | VirtualMachine.Provisioning.GetVmFiles  |
+    | Provisioning - Allow virtual machine download  | AAllow virtual machine download to read VM files, get logs, and troubleshoot failures | Root host or vCenter Server  | VirtualMachine.Provisioning.GetVmFiles  |
     | Snapshot management  | Allow Discovery, Software Inventory, and Dependency Mapping on VMs.  | Virtual machines  | VirtualMachine.State.*  |
     | Guest operations  | Allow creation and management of VM snapshots for replication. | Virtual machines | VirtualMachine.GuestOperations.*  |
     | Interaction Power Off | Allow the VM to be powered off during migration to Azure.  | Virtual machines | VirtualMachine.Interact.PowerOff  |
@@ -66,7 +66,7 @@ With least privileged accounts, you might not collect process information (like 
 
 | **Use case**  | **Discovered metadata**  | **Credentials**  | 
 | --- | --- | --- |
-| In-depth guest discovery  | Software inventory <br /><br /> Server dependencies (full data) <br /><br /> Inventory of Database instances <br /><br /> Web apps like .NET, Java Tomcat  | Windows <br /><br /> Linux <br /><br /> **Windows:** Administrator account <br /><br /> **Linux:** Following sudo permissions are required to identify server dependencies: <br /><br /> `/usr/bin/netstat, /usr/bin/ls` <br /><br /> If netstat is not available, sudo permissions on `ss` are required.<br /><br /> For Java webapps discovery (Tomcat servers), the user should have read and execute (r-x) permissions on all Catalina homes.<br /><br /> Execute the following command to find all catalina homes:<br /><br /> `ps -ef | grep catalina.home` <br /><br /> Here is a sample command to set up least privileged user: <br /><br /> `setfacl -m u:johndoe:rx <catalina/home/path>`|
+| In-depth guest discovery  | Software inventory <br /><br /> Server dependencies (full data) <br /><br /> Inventory of Database instances <br /><br /> Web apps like .NET, Java Tomcat  | Windows <br /><br /> Linux <br /><br /> **Windows:** Administrator account <br /><br /> **Linux:** Following sudo permissions are required to identify server dependencies: <br /><br /> `/usr/bin/netstat, /usr/bin/ls` <br /><br /> If netstat is not available, sudo permissions on `ss` are required.<br /><br />For discovering Java webapps on Tomcat servers, the user needs read and execute (r-x) permissions on all Catalina home directories.<br /><br /> Execute the following command to find all catalina homes:<br /><br /> `ps -ef | grep catalina.home` <br /><br /> Here is a sample command to set up least privileged user: <br /><br /> `setfacl -m u:johndoe:rx <catalina/home/path>`|
 
 ## Discovery of Hyper-V estate
 
@@ -118,7 +118,7 @@ To discover and assess physical servers or servers running in other public cloud
 
 | **Discovered metadata**  | **Credentials**  | **Commands to configure** | 
 | --- | --- | --- | 
-| In-depth discovery of web apps such as .NET and Java Tomcat <br /><br />Agentless dependency analysis (full data)* <br /><br />In-depth discovery of web apps such as .NET and Java Tomcat | Windows <br /><br /> Linux  | Administrator <br /><br />For discovering Java webapps (Tomcat servers), the user account needs read and execute (r-x) permissions on all Catalina home directories.<br /><br />Execute the following command to find out all catalina homes: `ps -ef | grep catalina.home`<br /><br />Here is a sample command to set up least privileged user: `setfacl -m u:johndoe:rx <catalina/home/path>` |
+| In-depth discovery of web apps such as .NET and Java Tomcat <br /><br />Agentless dependency analysis (full data)* <br /><br />In-depth discovery of web apps such as .NET and Java Tomcat | Windows <br /><br /> Linux  | Administrator <br /><br />o discover Java webapps on Tomcat servers, the user account needs read and execute (r-x) permissions on all Catalina home directories.<br /><br />Execute the following command to find out all catalina homes: `ps -ef | grep catalina.home`<br /><br />Here is a sample command to set up least privileged user: `setfacl -m u:johndoe:rx <catalina/home/path>` |
 
 ### Advanced database discovery
 
