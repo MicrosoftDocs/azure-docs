@@ -51,11 +51,13 @@ The health events listed in the text below indicate that the appliance has activ
   Storage Appliance. Warning alerts indicate that there is an issue that requires attention, but the Storage
   Appliance should continue to function.
 - `StorageApplianceActiveAlertsCritical`, which means there are one or more open critical alerts on the
-  Storage Appliance. Critical alerts indicate a severe problem with the Storage Appliance.
+  Storage Appliance. Critical alerts indicate a severe problem with the Storage Appliance, that may impact
+  functionality.
 
-You should find more details of the specific alert(s), using the following instructions:
+You can find more details of the specific alert(s), using the following instructions:
 
-- If you have your Storage Appliance set up to send logs to a Log Analytics Workspace (LAW), you can gather
+- If you have your Storage Appliance set up to send logs to a
+  [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview) (LAW), you can gather
   more details by running the query from the text block below in your LAW.
   ```
   StorageApplianceAlerts
@@ -75,8 +77,8 @@ Once you have this information, use it to determine the appropriate next action.
 
 - Take an action yourself (such as reseating a cable).
 - Raise a ticket with your storage vendor.
-- Raise a ticket with Microsoft. If you need to raise a ticket with us, please include the Storage Appliance
-  name and the details of the health event for quicker issue triage.
+- Raise a ticket with Microsoft. If you need to raise a ticket with Microsoft, please include the Storage Appliance
+  resource ID, and the details of the health event for quicker issue triage.
 
 ## Latency
 
@@ -97,7 +99,7 @@ is the cause:
 - Select the `Nexus Storage Array Latency` metric. Click `Apply splitting`, and select `Dimension` as
   the dimension to split on.
 - Click `+ New Chart`, and select the `Nexus Storage Array Performance Throughput Iops (Avg)` metric.
-  Click `Apply Splitting`, and select `Dimension` as the dimension to split on
+  Click `Apply Splitting`, and select `Dimension` as the dimension to split on.
 
 :::image type="content" source="media/storage-metrics-latency-throughput.png" alt-text="Metric showing the latency and throughput on a Storage Appliance":::
 
@@ -114,7 +116,7 @@ The health event listed in the text below indicates that the appliance has netwo
   on one or more interfaces has exceeded 3%.
 
 To determine the unhealthy network interfaces, as well as the distribution of the errors, navigate
-to the Storage Appliance in the portal, navigate to the `Monitoring > Metrics` tab select
+to the Storage Appliance in the portal, navigate to the `Monitoring > Metrics` tab, and select
 `Nexus Storage Network Interface Performance Errors` in the `Metric` dropdown. Then, you should click
 `Apply splitting`, and select the `Dimension` and `Name` boxes, ensuring that you select a time range
 that starts shortly before the start time of the resource health alert. After identifying the
@@ -134,4 +136,4 @@ The health events listed in the text below indicate that the appliance has high 
 
 This increased latency implies an underlying problem with the networking between the Bare Metal Machines
 (BMMs) and the Storage Appliance. Latency can be introduced on any of the hops between BMMs and Storage Appliance.
-You should raise a ticket with Microsoft, quoting the text of this troubleshooting guide (TSG).
+You should raise a ticket with Microsoft, quoting the text of this troubleshooting article.
