@@ -156,7 +156,7 @@ authentication: {
 }
 ```
 
-# [Bicep (PowerShell)](#tab/bicep-powershell)
+# [Bicep (PowersShell)](#tab/bicep-powershell)
 
 1. Set the following environment variables:
 
@@ -280,7 +280,7 @@ The following snippet shows the bicep file that you used to create the asset. Th
 
 :::code language="bicep" source="~/azure-iot-operations-samples/samples/onvif-connector-bicep/asset-ptz.bicep":::
 
-# [Bicep (PowerShell)](#tab/bicep-powershell)
+# [Bicep (PowersShell)](#tab/bicep-powershell)
 
 1. Set the following environment variables:
 
@@ -354,7 +354,7 @@ The following snippet shows the bicep file that you used to create the asset. Th
 
 :::code language="bicep" source="~/azure-iot-operations-samples/samples/onvif-connector-bicep/asset-onvif-media.bicep":::
 
-# [Bicep (PowerShell)](#tab/bicep-powershell)
+# [Bicep (PowersShell)](#tab/bicep-powershell)
 
 1. Set the following environment variables:
 
@@ -483,7 +483,7 @@ The connector for ONVIF now receives notifications of motion detected events fro
 }
 ```
 
-# [Bicep (PowerShell)](#tab/bicep-powershell)
+# [Bicep (PowersShell)](#tab/bicep-powershell)
 
 1. Set the following environment variables:
 
