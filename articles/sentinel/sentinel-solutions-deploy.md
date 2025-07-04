@@ -129,12 +129,12 @@ Content hub supports a list view in addition to the default card view. Select th
 If you're using the API to install solution packages or individual templates, follow these steps:
 
 1. Retrieve the solution package or template:
-   - To retrieve a package, use the [Get Product Package API](https://learn.microsoft.com/rest/api/securityinsights/product-package/get).
-   - To retrieve an individual template, use the [Get Product Template API](https://learn.microsoft.com/rest/api/securityinsights/product-template/get).
+   - To retrieve a package, use the [Get Product Package API](/rest/api/securityinsights/product-package/get).
+   - To retrieve an individual template, use the [Get Product Template API](/rest/api/securityinsights/product-template/get).
 
 2. In the API response, locate the `properties.mainTemplate` field. This field contains the ARM template JSON that defines the solution or template resources.
 
-3. Deploy the extracted `mainTemplate` using an [ARM template deployment](https://learn.microsoft.com/azure/azure-resource-manager/templates/deploy-template), either through the Azure portal, Azure CLI, or PowerShell.
+3. Deploy the extracted `mainTemplate` using an [ARM template deployment](/azure/azure-resource-manager/templates/deploy-template), either through the Azure portal, Azure CLI, or PowerShell.
 
 ## Enable content items in a solution
 
