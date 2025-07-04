@@ -20,7 +20,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure App Configuration
 
-[!INCLUDE [azure-policy-reference-rp-appconfig](../../includes/policy/reference/byrp/microsoft.appconfiguration.md)]
+[!INCLUDE [azure-policy-reference-rp-appconfig](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.appconfiguration.md)]
 
 ## Next steps
 

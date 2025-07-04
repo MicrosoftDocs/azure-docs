@@ -21,7 +21,7 @@ the specific standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-backup](../../includes/policy/standards/byrp/microsoft.recoveryservices.md)]
+[!INCLUDE [azure-policy-compliancecontrols-backup](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.recoveryservices.md)]
 
 ## Next steps
 

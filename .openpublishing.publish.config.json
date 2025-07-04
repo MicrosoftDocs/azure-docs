@@ -757,6 +757,12 @@
             "url": "https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet",
             "branch": "GuidedSetup",
             "branch_mapping": {}
+        },
+        {
+            "path_to_root": "azure-policy-autogen-docs",
+            "url": "https://github.com/MicrosoftDocs/azure-policy-autogen-docs",
+            "branch": "main",
+            "branch_mapping": {}
         }
     ],
     "branch_target_mapping": {
