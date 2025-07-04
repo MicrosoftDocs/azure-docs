@@ -137,7 +137,7 @@ In some cases, it's more efficient to handle the load by creating multiple proce
 
 When using `FUNCTIONS_WORKER_PROCESS_COUNT` on a Premium plan or Dedicated (App Service) plan, keep in mind the number of cores provided by your plan. For example, the Premium plan `EP2` provides two cores, so you should start with a value of `2` and increase by two as needed, up to the maximum.
 
-Alao, most  programming languages have built-in support for concurrency and/or parallelism. For example, in Node.js you can achieve those by using [Cluster module](https://nodejs.org/api/cluster.html) or [Worker Threads](https://nodejs.org/api/worker_threads.html).
+Also, most  programming languages have built-in support for concurrency and/or parallelism. For example, in Node.js you can achieve those by using [Cluster module](https://nodejs.org/api/cluster.html) or [Worker Threads](https://nodejs.org/api/worker_threads.html).
 
 ### Trigger configuration
 
