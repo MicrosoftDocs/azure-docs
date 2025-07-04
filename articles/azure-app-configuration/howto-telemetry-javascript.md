@@ -11,12 +11,12 @@ ms.date: 06/25/2025
 
 # Enable telemetry for feature flags in a Node.js application
 
-In this tutorial, you use telemetry in your Node.js application to track feature flag evaluations and custom events. Telemetry allows you to make informed decisions about your feature management strategy. You utilize the feature flag with telemetry enabled created in [Enable telemetry for feature flags](./howto-telemetry.md). Before proceeding, ensure that you create a feature flag named *Greeting* in your Configuration store with telemetry enabled. This tutorial builds on top of [Use variant feature flags in a Node.js application](./howto-variant-feature-flags-javascript.md).
+In this tutorial, you use telemetry in your Node.js application to track feature flag evaluations and custom events. Telemetry allows you to make informed decisions about your feature management strategy. You utilize the feature flag with telemetry enabled created in the [overview for enabling telemetry for feature flags](./howto-telemetry.md). Before proceeding, ensure that you create a feature flag named *Greeting* in your Configuration store with telemetry enabled. This tutorial builds on top of the tutorial for [using variant feature flags in a Node.js application](./howto-variant-feature-flags-javascript.md).
 
 ## Prerequisites
 
-- [Enable telemetry for feature flags](./howto-telemetry.md).
-- [Use variant feature flags in a Node.js application](./howto-variant-feature-flags-javascript.md).
+- The variant feature flag with telemetry enabled from [Enable telemetry for feature flags](./howto-telemetry.md).
+- The application from [Use variant feature flags in a Node.js application](./howto-variant-feature-flags-javascript.md).
 
 ## Add telemetry to your Node.js application
 
@@ -156,7 +156,9 @@ In this tutorial, you use telemetry in your Node.js application to track feature
     > [!div class="mx-imgBorder"]
     > ![Screenshot of Application Insights showing the results table with four rows; All, Simple, Long, and None with their respective user counts and percentages.](./media/howto-telemetry-javascript/telemetry-results.png)
 
-    You see one "FeatureEvaluation" for each time the quote page was loaded and one "Liked" event for each time the like button was clicked. The "FeatureEvaluation" event have a custom property called `FeatureName` with the name of the feature flag that was evaluated. Both events have a custom property called `TargetingId` with the name of the user that liked the quote.
+    You see one "FeatureEvaluation" event for each time the quote page was loaded and one "Liked" event for each time the like button was clicked. The "FeatureEvaluation" event has a custom property called `FeatureName` with the name of the feature flag that was evaluated. Both events have a custom property called `TargetingId` with the name of the user that liked the quote.
+
+    For more information about the "FeatureEvaluation" event, go to the [Feature flag telemetry reference](./feature-flag-telemetry-reference.md)
 
 ## Additional resources
 
