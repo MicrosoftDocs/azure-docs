@@ -48,25 +48,33 @@ To discover the basic settings of servers running in the VMware estate, the foll
     | Guest operations  | Allow creation and management of VM snapshots for replication. | Virtual machines | VirtualMachine.GuestOperations.*  |
     | Interaction Power Off | Allow the VM to be powered off during migration to Azure.  | Virtual machines | VirtualMachine.Interact.PowerOff  |
 
-### Enable guest discovery with server credentials
+### Provide server credentials for guest discovery of installed software, dependencies and workloads
 
-Quick guest discovery: For quick discovery of software inventory, server dependencies, and database instances, you need the following permissions:
+To discover software, dependencies, and workloads, Azure Migrate Appliance needs guest OS credentials to connect to target servers and collect data.
 
-| **Use case**  | **Discovered metadata**  | **Credentials** |**Guest account configuration** |
+- [Quick guest discovery](#quick-guest-discovery)
+- [In-depth guest discovery](#in-depth-guest-discovery)
+
+#### Quick guest discovery
+
+For quick discovery of software inventory, server dependencies, and database instances, you need the following permissions:
+
+| **Use case**  | **Discovered metadata**  | **Credential type** |**Secure permissions** |
 | --- | --- | --- |
 | Quick guest discovery  | Software inventory <br /><br /> Server dependencies (limited data)* <br /><br />Inventory of Database instances  | Windows <br /><br /> Linux | Local guest user account <br /><br /> Any non-sudo guest user account. |
 
-### Limitations
-
-You can use a Windows guest or a Linux non-sudo user account to get dependency mapping data, but the following limitation can happen.
+>[!Note] Limitations: You can use a Windows guest or a Linux non-sudo user account to get dependency mapping data, but the following limitation can happen.
 
 With least privileged accounts, you might not collect process information (like process name or app name) for some processes that run with higher privileges. These processes will show as **Unknown** processes under the machine in the single server view.
 
-**In-depth guest discovery**: For in-depth discovery of software inventory, server dependencies, and web apps such as .NET and Java Tomcat, you need the following permissions:
+#### In-depth guest discovery
 
-| **Use case**  | **Discovered metadata**  | **Credentials**  | 
-| --- | --- | --- |
-| In-depth guest discovery  | Software inventory <br /><br /> Server dependencies (full data) <br /><br /> Inventory of Database instances <br /><br /> Web apps like .NET, Java Tomcat  | Windows <br /><br /> Linux <br /><br /> **Windows:** Administrator account <br /><br /> **Linux:** Following sudo permissions are required to identify server dependencies: <br /><br /> `/usr/bin/netstat, /usr/bin/ls` <br /><br /> If netstat is not available, sudo permissions on `ss` are required.<br /><br />For discovering Java webapps on Tomcat servers, the user needs read and execute (r-x) permissions on all Catalina home directories.<br /><br /> Execute the following command to find all catalina homes:<br /><br /> `ps -ef | grep catalina.home` <br /><br /> Here is a sample command to set up least privileged user: <br /><br /> `setfacl -m u:johndoe:rx <catalina/home/path>`|
+For in-depth discovery of software inventory, server dependencies, and web apps such as .NET and Java Tomcat, you need the following permissions:
+
+| **Use case**  | **Discovered metadata**  | **Credential type**| **Required permissions** |
+| --- | --- | --- | --- |
+| In-depth guest discovery  | Software inventory <br /><br /> Server dependencies (full data)<br /><br /> Inventory of Database instances <br /><br /> We apps like .NET, Java Tomcat  | Windows | Administrator  |
+|  |  | Linux  | Following sudo permissions are required to identify server dependencies.  <br /><br /> /usr/bin/netstat, `/usr/bin/ls` <br /><br /> If netstat is not available, sudo permissions on ss is required. <br /><br /> For Java webapps discovery (Tomcat servers), the user should have read and execute (r-x) permissions on all Catalina homes. <br /><br /> Execute the following command to find out all catalina homes: <br /><br /> `ps -ef | grep catalina.home` <br /><br /> Here is a sample command to up least privileged user: <br /><br /> `setfacl -m u:johndoe:rx <catalina/home/path>`  |
 
 ## Discovery of Hyper-V estate
 
@@ -88,27 +96,53 @@ To discover and assess physical servers or servers running in other public cloud
 
 ### Quick server discovery
 
-| **Discovered metadata**  | **Credentials** | **Access configuration for guest user** | 
-| --- | --- | --- |
-| Software inventory <br /><br /> Agentless dependency analysis (limited data)* <br /><br /> Workload inventory of databases and web apps   | Windows  | A Windows user account that belongs to the following user groups <br /><br /> Remote Management Users <br /><br /> Performance Monitor Users <br /><br /> Performance Log Users <br /><br /> The guest user account needs permission to access the CIMV2 namespace and its sub-namespaces in the WMI Control Panel. Follow the below steps to set the access. |
+Quick server discovery is a lightweight process in Azure Migrate that collects basic server details—like OS, hardware, and network info—using minimal permissions and without deep access.
 
-1. On the target Windows server, open the **Start menu**, search for **Run**, and then select it.
-1. In the **Run** dialog box, type `wmimgmt.msc` and then press **Enter**.
-    The **wmimgmt console** opens where you can find **WMI Control** (Local) in the left pane
-1. Right-click it, and then select **Properties** from the menu. 
-1. In the **WMI Control** (Local) **Properties** dialog, and then select the **Securities** tab. 
-1. On the **Securities** tab, expand the **Root** folder in the namespace tree and then select the `cimv2 namespace`. 
-1. Select **Security** to open the Security for `ROOT\cimv2` dialog. 
+Software inventory and dependency analysis 
+
+1. Windows Servers
+    - Discovered metadata: Software inventory, Agentless dependency analysis (limited data), Workload inventory of databases and web apps.
+    - Credentials required: Windows 
+    A Windows user account that belongs to the following user groups:
+        - Remote Management Users
+        - Performance Monitor Users
+        - Performance Log Users
+    The guest user account needs permission to access the CIMV2 namespace and its sub-namespaces in the WMI Control Panel. Follow the below steps to set the access: 
+    1. On the target Windows server, open the **Start menu**, search for **Run**, and then select it. 
+    1. In the **Run** dialog box, type `wmimgmt.msc` and then press **Enter**.
+    The **wmimgmt console** opens where you can find **WMI Control** (Local) in the left pane. Right-click it, and then select **Properties** from the menu. 
+    1. In the **WMI Control** (Local) **Properties** dialog, and then select the **Securities** tab. 
+    1. On the **Securities** tab, expand the **Root** folder in the namespace tree and then select the `cimv2 namespace`. 
+    1. Select **Security** to open the Security for `ROOT\cimv2` dialog. 
     Under the **Group** or users names section, select **Add** to open the **Select Users**, Computers, Service Accounts or Groups dialog. 
-1. Search for the user account, select it, and then select **OK** to return to the Security for `ROOT\cimv2` dialog. 
-1. In the Group or users names section, select the guest user account. Validate if the following permissions are allowed: 
+    1. Search for the user account, select it, and then select **OK** to return to the Security for `ROOT\cimv2` dialog. 
+    1. In the Group or users names section, select the guest user account. Validate if the following permissions are allowed: 
     -  Enable account 
     - Remote enable 
 
     :::image type="content" source="./media/best-practices-least-privileged-accounts/security-for-root.png" alt-text="Screenshot shows the guest user permissions." lightbox="./media/best-practices-least-privileged-accounts/security-for-root.png":::
 
-1. Select **Apply** to enable the permissions set on the user account. 
-1. Restart WinRM service after you add the new guest user.  
+    1. Select **Apply** to enable the permissions set on the user account. 
+    1. Restart WinRM service after you add the new guest user.  
+    
+1. Linux Servers
+    - Discovered Metadata: Software inventory, Agentless dependency analysis (full data), Workload inventory of databases and web apps.  
+    - Credentials required: The user account should have sudo privileges on the following file paths:
+    AzMigrateLeastprivuser ALL=(ALL) NOPASSWD: 
+    
+    ```
+    /usr/sbin/dmidecode, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l , /usr/bin/ls -l /proc//exe, /usr/bin/netstat -atnp, /usr/sbin/lvdisplay "" Defaults:AzMigrateLeastprivuser !requiretty
+     ```
+### In-depth server discovery
+
+For in-depth discovery of software inventory, server dependencies, and web apps such as .NET and Java Tomcat, you need the following permissions:
+
+1. Windows and Linux Servers
+    - Discovered metadata: In-depth discovery of web apps such as .NET and Java Tomcat, Agentless dependency analysis (full data) *,In-depth discovery of web apps such as .NET and Java Tomcat.  
+    - Credentials required for windows: Administrator privileges.
+    - Credential require for Linux: To discover Java webapps on Tomcat servers, the user account needs read and execute (r-x) permissions on all Catalina home directories.
+        - Execute the following command to find out all catalina homes: `ps -ef | grep catalina.home`.
+        - Here is a sample command to set up least privileged user: `setfacl -m u:johndoe:rx <catalina/home/path>`
 
 | **Discovered metadata**  | **Credentials**  | **Commands to configure** | 
 | --- | --- | --- | 
@@ -120,7 +154,7 @@ To discover and assess physical servers or servers running in other public cloud
 | --- | --- | --- | 
 | In-depth discovery of web apps such as .NET and Java Tomcat <br /><br />Agentless dependency analysis (full data)* <br /><br />In-depth discovery of web apps such as .NET and Java Tomcat | Windows <br /><br /> Linux  | Administrator <br /><br />o discover Java webapps on Tomcat servers, the user account needs read and execute (r-x) permissions on all Catalina home directories.<br /><br />Execute the following command to find out all catalina homes: `ps -ef | grep catalina.home`<br /><br />Here is a sample command to set up least privileged user: `setfacl -m u:johndoe:rx <catalina/home/path>` |
 
-## Advanced database discovery
+## Database discovery
 
 Software inventory is required for initiating workload discovery. Ensure that guest credentials are added to enable it. The permissions to discover SQL and MySQL databases are the same for all appliance types—VMware, Hyper-V, and physical servers. 
 
@@ -318,8 +352,11 @@ Ensure that the user corresponding to the added MySQL credentials have the follo
 
 Use the following commands to grant the necessary privileges to the MySQL user: 
 
-`GRANT USAGE ON . TO 'newuser'@'localhost'; GRANT PROCESS ON . TO 'newuser'@'localhost'; GRANT SELECT (User, Host, Super_priv, File_priv, Create_tablespace_priv, Shutdown_priv) ON mysql.user TO 'newuser'@'localhost'; FLUSH PRIVILEGES;`. [Learn more](tutorial-discover-mysql-database-instances.md#provide-mysql-credentials).
+```
+GRANT USAGE ON . TO 'newuser'@'localhost'; GRANT PROCESS ON . TO 'newuser'@'localhost'; GRANT SELECT (User, Host, Super_priv, File_priv, Create_tablespace_priv, Shutdown_priv) ON mysql.user TO 'newuser'@'localhost'; FLUSH PRIVILEGES;`. .
 
+```
+[Learn more](tutorial-discover-mysql-database-instances.md#provide-mysql-credentials)
 ## Next steps
 
 - Learn how to [Discover VMware estate](tutorial-discover-vmware.md).
