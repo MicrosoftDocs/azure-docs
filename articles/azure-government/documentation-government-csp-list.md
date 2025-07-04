@@ -241,7 +241,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[IV4, Inc](https://www.iv4.com)|
 |J and C Landwehr LLC|
 |[Jackpine Technologies](https://www.jackpinetech.com)|
-|[Jacobs Technolgy Inc.](https://www.jacobs.com/)|
+|[Jacobs Technology Inc.](https://www.jacobs.com/)|
 |[Jadex Strategic Group](https://jadexstrategic.com)|
 |[Jasper Solutions Inc.](https://jaspersolutions.com/)|
 |[Quiet Professionals](https://quietprofessionalsllc.com)|
@@ -540,7 +540,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Executech Utah Inc.](https://www.executech.com)|
 |[F1 Solutions Inc](https://www.f1networks.com)|
 |[FCN Inc. ](https://fcnit.com)|
-|[Four Points Technolgy, LLC](https://www.4points.com)|
+|[Four Points Technology, LLC](https://www.4points.com)|
 |[G2 Ops, Inc.](https://g2-ops.com)|
 |[General Dynamics Information Technology](https://www.gdit.com)|
 |[Golden Five LLC](https://www.goldenfiveconsulting.com/)|
