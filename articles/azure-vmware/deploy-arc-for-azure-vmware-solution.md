@@ -168,7 +168,7 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
     - Resource bridge
     - Custom location
     - VMware vCenter Server
-    -  
+      
 5. SSL proxy configuration 
 
 If using a proxy, the Arc Resource Bridge must be configured to use the proxy in order to connect to Azure services. This approach requires other parameters to be specified during the onboarding process via the script. 
