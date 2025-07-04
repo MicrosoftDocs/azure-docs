@@ -248,6 +248,12 @@ List the content of a directory.
 :::zone pivot = "programming-language-python"
 
 ```python
+# Supported path:
+#    Local file path, e.g. file:/tmp/abc, file:/synfs/notebook/0/mnt
+#    Remote path, e.g. abfss://..., https://... (support schema: "wasb", "wasbs", "adl", "adls", "abfs", "abfss", "https")
+#    synfs schema, e.g. synfs:/notebook/0/mnt
+#    Relative path, based on fs.defaultFS spark conf e.g. a/b/c
+#    Absolute path with no schema, based on the host of fs.defaultFS spark conf, e.g. /a/b/c
 mssparkutils.fs.ls('Your directory path')
 ```
 
@@ -256,6 +262,12 @@ mssparkutils.fs.ls('Your directory path')
 :::zone pivot = "programming-language-scala"
 
 ```scala
+// Supported path:
+//    Local file path, e.g. file:/tmp/abc, file:/synfs/notebook/0/mnt
+//    Remote path, e.g. abfss://..., https://... (support schema: "wasb", "wasbs", "adl", "adls", "abfs", "abfss", "https")
+//    synfs schema, e.g. synfs:/notebook/0/mnt
+//    Relative path, based on fs.defaultFS spark conf e.g. a/b/c
+//    Absolute path with no schema, based on the host of fs.defaultFS spark conf, e.g. /a/b/c
 mssparkutils.fs.ls("Your directory path")
 ```
 ::: zone-end
@@ -263,6 +275,12 @@ mssparkutils.fs.ls("Your directory path")
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
+// Supported path:
+//    Local file path, e.g. file:/tmp/abc, file:/synfs/notebook/0/mnt
+//    Remote path, e.g. abfss://..., https://... (support schema: "wasb", "wasbs", "adl", "adls", "abfs", "abfss", "https")
+//    synfs schema, e.g. synfs:/notebook/0/mnt
+//    Relative path, based on fs.defaultFS spark conf e.g. a/b/c
+//    Absolute path with no schema, based on the host of fs.defaultFS spark conf, e.g. /a/b/c
 FS.Ls("Your directory path")
 ```
 
@@ -271,6 +289,12 @@ FS.Ls("Your directory path")
 :::zone pivot = "programming-language-r"
 
 ```r
+# Supported path:
+#    Local file path, e.g. file:/tmp/abc, file:/synfs/notebook/0/mnt
+#    Remote path, e.g. abfss://..., https://... (support schema: "wasb", "wasbs", "adl", "adls", "abfs", "abfss", "https")
+#    synfs schema, e.g. synfs:/notebook/0/mnt
+#    Relative path, based on fs.defaultFS spark conf e.g. a/b/c
+#    Absolute path with no schema, based on the host of fs.defaultFS spark conf, e.g. /a/b/c
 mssparkutils.fs.ls("Your directory path")
 ```
 
