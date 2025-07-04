@@ -42,9 +42,9 @@ The Elastic integration with Azure includes the following technical capabilities
 
 [!INCLUDE [subscribe](../includes/subscribe.md)]
 
-- ElasticCloud (Elasticsearch)
-- Elastic Observability
-- Elastic Security
+- [ElasticCloud (Elasticsearch)](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview)
+- [Elastic Observability](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-observability?tab=Overview)
+- [Elastic Security](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-security?tab=Overview)
 
 [!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
