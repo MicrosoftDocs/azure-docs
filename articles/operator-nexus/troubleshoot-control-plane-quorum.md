@@ -1,10 +1,10 @@
 ---
-title: Troubleshoot control plane quorum loss
-description: Learn how to restore control plane quorum loss.
+title: Troubleshoot control plane quorum loss when multiple nodes are offline
+description: Learn how to restore control plane quorum loss when multiple nodes are offline.
 ms.topic: article
-ms.date: 01/18/2024
-author: matthewernst
+ms.date: 07/02/2025
 ms.author: matthewernst
+author: matternst7258
 ms.service: azure-operator-nexus
 ---
 
@@ -34,29 +34,29 @@ Follow the steps in this troubleshooting article when multiple control plane nod
    - Sign in to the identified server.
    - Ensure that the ironic-conductor service is present on this node by using `crictl ps -a |grep -i ironic-conductor`. Here's example output:
 
-        ~~~
-        testuser@<servername> [ ~ ]$ sudo crictl ps -a |grep -i ironic-conductor
-        <id>       <id>       6 hours ago       Running       ironic-conductor       0       <id>
-        ~~~
+```shell
+testuser@<servername> [ ~ ]$ sudo crictl ps -a |grep -i ironic-conductor
+<id>       <id>       6 hours ago       Running       ironic-conductor       0       <id>
+```
 
 1. Determine the integrated Dell remote access controller (iDRAC) IP of the server:
    - Run the command `az networkcloud cluster list -g <RG_Name>`.
    - The output of the command is JSON with the iDRAC IP.
 
-        ~~~
-        {
-                "bmcConnectionString": "redfish+https://xx.xx.xx.xx/redfish/v1/Systems/System.Embedded.1",
-                "bmcCredentials": {
-                  "username": "<username>"
-                },
-                "bmcMacAddress": "<bmcMacAddress>",
-                "bootMacAddress": "<bootMacAddress",
-                "machineDetails": "extraDetails",
-                "machineName": "<machineName>",
-                "rackSlot": <rackSlot>,
-                "serialNumber": "<serialNumber>"
-        },
-        ~~~
+```json
+{
+    "bmcConnectionString": "redfish+https://xx.xx.xx.xx/redfish/v1/Systems/System.Embedded.1",
+    "bmcCredentials": {
+      "username": "<username>"
+    },
+    "bmcMacAddress": "<bmcMacAddress>",
+    "bootMacAddress": "<bootMacAddress",
+    "machineDetails": "extraDetails",
+    "machineName": "<machineName>",
+    "rackSlot": "<rackSlot>",
+    "serialNumber": "<serialNumber>"
+},
+```
 
 1. Access the integrated iDRAC graphical user interface (GUI) by using the IP in your browser to shut down affected management servers.
 
