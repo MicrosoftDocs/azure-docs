@@ -43,7 +43,7 @@ You successfully added your chat completion configuration named **ChatApp:ChatCo
 > This tutorial demonstrates how to use chat completion configuration with an Azure OpenAI model. However, the chat completion configuration demonstrated in the tutorial can be applied to any AI model you choose to work with in your application.
 >
 
-1. Follow the [Get started with Azure OpenAI Service](/azure/ai-services/openai/overview#get-started-with-azure-openai-service) to create and deploy an Azure OpenAI service resource with a **gpt-4o** model. Note down the deployment name for later use.
+1. Follow the [Get started with Azure OpenAI Service](/azure/ai-foundry/openai/how-to/create-resource) to create and deploy an Azure OpenAI service resource with a **gpt-4o** model. Note down the deployment name for later use.
 
 1. In your Azure OpenAI resource, from the **Resource Management** menu, select **Keys and Endpoint** and copy the Azure OpenAI resource endpoint. It should follow the format: `https://<open-ai-resource-name>.openai.azure.com`. If using the API key for authentication, copy the API key as well.
 

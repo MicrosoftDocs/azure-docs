@@ -17,7 +17,9 @@ ms.collection: ce-skilling-ai-copilot
 
 # Use chat completion configuration in a .NET console app
 
-In this guide, you build an AI chat application and iterate on the prompt using chat completion configuration dynamically loaded from Azure App Configuration. Full [sample source code](https://github.com/Azure/AppConfiguration/tree/main/examples/DotNetCore/ChatApp) available.
+In this guide, you build an AI chat application and iterate on the prompt using chat completion configuration dynamically loaded from Azure App Configuration. 
+
+The full sample source code is available in the [Azure App Configuration GitHub repository](https://github.com/Azure/AppConfiguration/tree/main/examples/DotNetCore/ChatApp).
 
 ## Prerequisites
 
@@ -162,6 +164,10 @@ In this guide, you build an AI chat application and iterate on the prompt using 
 1. Next, update the existing code in the _Program.cs_ file to refresh the configuration from Azure App Configuration, apply the latest AI configuration values to the chat completion settings, and retrieve a response from the AI model.
 
     ```csharp
+    // Initialize chat conversation
+    var chatConversation = new List<ChatMessage>();
+    Console.WriteLine("Chat started! What's on your mind?");
+
     while (true)
     {
         // Get user input
@@ -175,6 +181,8 @@ In this guide, you build an AI chat application and iterate on the prompt using 
             break;
         }
 
+        chatConversation.Add(ChatMessage.CreateUserMessage(userInput));
+
         // Refresh the configuration from Azure App Configuration
         await refresher.RefreshAsync();
 
@@ -187,8 +195,6 @@ In this guide, you build an AI chat application and iterate on the prompt using 
             Temperature = chatCompletionConfiguration.Temperature,
             TopP = chatCompletionConfiguration.TopP
         };
-
-        chatConversation.Add(ChatMessage.CreateUserMessage(userInput));
 
         // Get latest system message from AI configuration
         var chatMessages = new List<ChatMessage>(GetChatMessages(chatCompletionConfiguration));
@@ -263,6 +269,8 @@ In this guide, you build an AI chat application and iterate on the prompt using 
             break;
         }
 
+        chatConversation.Add(ChatMessage.CreateUserMessage(userInput));
+
         // Refresh the configuration from Azure App Configuration
         await refresher.RefreshAsync();
 
@@ -274,8 +282,6 @@ In this guide, you build an AI chat application and iterate on the prompt using 
             Temperature = chatCompletionConfiguration.Temperature,
             TopP = chatCompletionConfiguration.TopP
         };
-
-        chatConversation.Add(ChatMessage.CreateUserMessage(userInput));
 
         // Get latest system message from AI configuration
         var chatMessages = new List<ChatMessage>(GetChatMessages(chatCompletionConfiguration));
@@ -356,21 +362,29 @@ In this guide, you build an AI chat application and iterate on the prompt using 
     dotnet run
     ```
 
-    You should see the following output:
+
+1. Type the message "What is your name?" when prompted with "You:" and then press the Enter key.
 
     ```Output
     Chat started! What's on your mind?
+    You: What is your name ?
+    AI: I’m your helpful assistant! I don’t have a personal name, but you can call me whatever you’d like. 
+    😊 Do you have a name in mind?
     ```
 
 1. In Azure portal, select the App Configuration store instance that you created. From the **Operations** menu, select **Configuration explorer** and select the **ChatApp:ChatCompletion** key. Update the value of the Messages property:
     - Role: **system**
     - Content: "You are a pirate and your name is Eddy."
 
-1. Type your message when prompted with "You:". Be sure to wait a few moments for the refresh interval to elapse, and then press the Enter key to see the updated AI response in the output.
+1. Type the same message when prompted with "You:". Be sure to wait a few moments for the refresh interval to elapse, and then press the Enter key to see the updated AI response in the output.
 
     ```Output
     Chat started! What's on your mind?
-    You: Hello, what is your name ?
-    AI: Ahoy, matey! Me name be Captain Eddy, 
-    the most fearsome pirate to ever sail the seven seas! What be yer name, landlubber?
+    You: What is your name ?
+    AI: I’m your helpful assistant! I don’t have a personal name, but you can call me whatever you’d like. 
+    😊 Do you have a name in mind?
+
+    You: What is your name ?
+    AI: Arrr, matey! Me name be Eddy, the most fearsome pirate to ever sail the seven seas!
+    What be yer name, landlubber? 
     ```
