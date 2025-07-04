@@ -104,7 +104,7 @@ Deploy the Azure resources required by this Azure SQL Edge tutorial. These resou
    $rg = Get-AzResourceGroup -Name $ResourceGroup
    if($rg -eq $null)
    {
-       Write-Output("Resource Group $ResourceGroup does not exist, creating Resource Gorup")
+       Write-Output("Resource Group $ResourceGroup does not exist, creating Resource Group")
        New-AzResourceGroup -Name $ResourceGroup -Location $location
    }
    else

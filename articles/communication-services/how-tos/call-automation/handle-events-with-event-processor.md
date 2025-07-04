@@ -14,7 +14,7 @@ ms.author: minwoolee
 
 Once the call is established with Call Automation, further state update of the on-going call is sent as separate event via [Webhook Callback](../../concepts/call-automation/call-automation.md#call-automation-webhook-events). These events have important information, such as latest state of the call and outcome of the request that was sent.
 
-Call Automation's EventProcessor helps easily processing these Webhook Callback events for your applications. It helps corelate each event to its respective call, and allow you to build applications with ease.
+Call Automation's EventProcessor helps easily processing these Webhook Callback events for your applications. It helps correlate each event to its respective call, and allow you to build applications with ease.
 
 ## Benefits
 
