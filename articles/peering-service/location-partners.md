@@ -44,7 +44,7 @@ The following table provides information on the Peering Service connectivity par
 | [MainOne](https://mainone.net/products-and-services/) | Africa |
 | [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) | Africa |
 | [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) | Japan, Indonesia |
-| [PCCW](https://www.pccwglobal.com/en/enterprise/products/network/ep-global-internet-access) | Asia |
+| [PCCW](https://www.pccwglobal.com/) | Asia |
 | [PIT Chile](https://www.pitchile.cl/wp/maps/) |LATAM|
 | [Sejong Telecom](https://www.sejongtelecom.net/) | Asia |
 | [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct) | Asia |

@@ -90,7 +90,7 @@ To enable HTTPS on a custom domain:
 
 ### Option 2: Use your own certificate
 
-You can use your own certificate through an integration with Azure Key Vault. Ensure your certificate is from a [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT) and has a complete certificate chain.
+You can use your own certificate through an integration with Azure Key Vault. Ensure your certificate is from a [Microsoft Trusted CA List](/security/trusted-root/participants-list) and has a complete certificate chain.
 
 #### Prepare your key vault and certificate
 
@@ -100,7 +100,7 @@ You can use your own certificate through an integration with Azure Key Vault. En
 - Upload your certificate as a **certificate** object, not a **secret**.
 
 > [!NOTE]
-> Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms. The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA list](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
+> Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms. The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA list](/security/trusted-root/participants-list).
 
 #### Register Azure Front Door
 
