@@ -9,10 +9,11 @@ ms.date: 07/04/2025
 monikerRange: migrate
 ms.custom:
   - build-2025
-# Customer intent: As a cloud migration specialist, I want to implement security best practices for deploying the migration appliance, so that I can ensure a secure and efficient migration process while protecting sensitive data.
+# Customer intent: As an IT administrator, I want to securely configure Azure Migrate Appliance with least privilege access by setting up read-only VMware roles with guest operations and scoped permissions, enabling efficient workload discovery, software inventory, and agentess migration.
+
 ---
 
-# Credentials-Best Practices for Least Privileged Accounts in Azure Migrate
+# Credentials-Best practices for least privileged accounts in Azure Migrate
 
 Azure Migrate Appliance is a lightweight tool that discovers on-premises servers and sends their configuration and performance data to Azure. It also performs software inventory, agentless dependency analysis, and detects workloads like web apps and SQL/MySQL Server instances. To use these features, users add server and guest credentials in the Appliance Config Manager. Following the principle of least privilege helps keep the setup secure and efficient.
 
@@ -47,7 +48,7 @@ To discover the basic settings of servers running in the VMware estate, the foll
     | Guest operations  | Allow creation and management of VM snapshots for replication. | Virtual machines | VirtualMachine.GuestOperations.*  |
     | Interaction Power Off | Allow the VM to be powered off during migration to Azure.  | Virtual machines | VirtualMachine.Interact.PowerOff  |
 
-### Enable Guest Discovery with Server Credentials
+### Enable guest discovery with server credentials
 
 Quick guest discovery: For quick discovery of software inventory, server dependencies, and database instances, you need the following permissions:
 
@@ -79,9 +80,11 @@ Hyper-V server account: On all the Hyper-V hosts, create a local user that’s p
 
 Use the [script](tutorial-discover-hyper-v.md#prepare-hyper-v-hosts) to prepare Hyper-V hosts.   
 
-For deep discovery of Hyper-V estate and to perform software inventory and dependency analysis, guest account [credentials] are required. The guest account should have the following permissions:
+For deep discovery of Hyper-V estate and to perform software inventory and dependency analysis, guest account [credentials](#enable-guest-discovery-with-server-credentials) are required. 
 
 ### Discovery of physical and Cloud servers
+
+To discover and assess physical servers or servers running in other public clouds the Azure Migrate appliance requires credentials with least privilege access.
 
 #### Quick server discovery
 
@@ -111,13 +114,13 @@ For deep discovery of Hyper-V estate and to perform software inventory and depen
 | --- | --- | --- | 
 | Software inventory <br /><br /> Agentless dependency analysis (full data) <br /><br />Workload inventory of databases and web apps   | Linux  | The user account should have sudo privileges on the following file paths. <br /><br /> AzMigrateLeastprivuser ALL=(ALL) NOPASSWD: `/usr/sbin/dmidecode, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l , /usr/bin/ls -l /proc//exe, /usr/bin/netstat -atnp, /usr/sbin/lvdisplay ""` Defaults:AzMigrateLeastprivuser !requiretty |
 
-In-depth server discovery
+**In-depth server discovery**: For in-depth discovery of software inventory, server dependencies, and web apps such as .NET and Java Tomcat, you need the following permissions:
 
 | **Discovered metadata**  | **Credentials**  | **Commands to configure** | 
 | --- | --- | --- | 
 | In-depth discovery of web apps such as .NET and Java Tomcat <br /><br />Agentless dependency analysis (full data)* <br /><br />In-depth discovery of web apps such as .NET and Java Tomcat | Windows <br /><br /> Linux  | Administrator <br /><br />For discovering Java webapps (Tomcat servers), the user account needs read and execute (r-x) permissions on all Catalina home directories.<br /><br />Execute the following command to find out all catalina homes: `ps -ef | grep catalina.home`<br /><br />Here is a sample command to set up least privileged user: `setfacl -m u:johndoe:rx <catalina/home/path>` |
 
-### In-depth Databases discovery
+### Advanced database discovery
 
 Software inventory is required for initiating workload discovery. Ensure that guest credentials are added to enable it. The permissions to discover SQL and MySQL databases are the same for all appliance types—VMware, Hyper-V, and physical servers. 
 
@@ -320,7 +323,5 @@ Use the following commands to grant the necessary privileges to the MySQL user:
 ## Next steps
 
 - Learn how to [Discover VMware estate](tutorial-discover-vmware.md).
-
 - Learn how to [Discover Hyper-V estate](tutorial-discover-hyper-v.md).
-
 - Learn how to [Discover physical servers or servers running in public cloud](tutorial-discover-physical.md).
