@@ -122,10 +122,9 @@ The guest user account needs permission to access the CIMV2 namespace and its su
    - Remote enable 
 
    :::image type="content" source="./media/best-practices-least-privileged-accounts/security-for-root.png" alt-text="Screenshot shows the guest user permissions." lightbox="./media/best-practices-least-privileged-accounts/security-for-root.png":::
+ 1. Select **Apply** to enable the permissions set on the user account. 
+ 1. Restart WinRM service after you add the new guest user.  
 
-  1. Select **Apply** to enable the permissions set on the user account. 
-  1. Restart WinRM service after you add the new guest user.  
-    
 1. Linux Servers
     - Discovered Metadata: Software inventory, Agentless dependency analysis (full data), Workload inventory of databases and web apps.  
     - Credentials required: The user account should have sudo privileges on the following file paths:
@@ -139,11 +138,11 @@ The guest user account needs permission to access the CIMV2 namespace and its su
 For in-depth discovery of software inventory, server dependencies, and web apps such as .NET and Java Tomcat, you need the following permissions:
 
 1. Windows and Linux Servers
-    - Discovered metadata: In-depth discovery of web apps such as .NET and Java Tomcat, Agentless dependency analysis (full data) *,In-depth discovery of web apps such as .NET and Java Tomcat.  
-    - Credentials required for windows: Administrator privileges.
-    - Credential require for Linux: To discover Java webapps on Tomcat servers, the user account needs read and execute (r-x) permissions on all Catalina home directories.
-        - Execute the following command to find out all catalina homes: `ps -ef | grep catalina.home`.
-        - Here is a sample command to set up least privileged user: `setfacl -m u:johndoe:rx <catalina/home/path>`
+- Discovered metadata: In-depth discovery of web apps such as .NET and Java Tomcat, Agentless dependency analysis (full data) *,In-depth discovery of web apps such as .NET and Java Tomcat.  
+- Credentials required for windows: Administrator privileges.
+- Credential require for Linux: To discover Java webapps on Tomcat servers, the user account needs read and execute (r-x) permissions on all Catalina home directories.
+    - Execute the following command to find out all catalina homes: `ps -ef | grep catalina.home`.
+    - Here is a sample command to set up least privileged user: `setfacl -m u:johndoe:rx <catalina/home/path>`
 
 ## Database discovery
 
