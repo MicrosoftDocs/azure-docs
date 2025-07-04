@@ -17,7 +17,7 @@ ms.custom: mvc, engagement-fy25
 
 ## Update (July 2025)
 
-Azure Migrate supports [VMware](tutorial-discover-vmware.md) and [Hyper-V](tutorial-discover-hyper-v.md#provide-server-credentials) customers in enabling software inventory, performing dependency analysis, and discovering Java Tomcat applications on Linux servers using SSH keys.
+- General availability: Azure Migrate supports [VMware](tutorial-discover-vmware.md) and [Hyper-V](tutorial-discover-hyper-v.md#provide-server-credentials) customers in enabling software inventory, performing dependency analysis, and discovering Java Tomcat applications on Linux servers using SSH keys.
 
 ## Update (June 2025)
 
