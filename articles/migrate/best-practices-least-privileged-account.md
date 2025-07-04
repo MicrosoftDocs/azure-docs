@@ -16,9 +16,11 @@ ms.custom:
 
 Azure Migrate Appliance is a lightweight tool that discovers on-premises servers and sends their configuration and performance data to Azure. It also performs software inventory, agentless dependency analysis, and detects workloads like web apps and SQL/MySQL Server instances. To use these features, users add server and guest credentials in the Appliance Config Manager. Following the principle of least privilege helps keep the setup secure and efficient.
 
-## Discovery of VMware estate:  
+## Discovery of VMware estate
 
-vCenter account permissions:  
+To discover the basic settings of servers running in the VMware estate, the following permissions are needed.
+
+### vCenter account permissions 
 
 1. **Discovery of server metadata**: To discover basic server configurations in a VMware environment, you need read-only permissions.
     - **Read-only**: Use either the built-in read-only role or create a copy of it.
@@ -45,7 +47,7 @@ vCenter account permissions:
     | Guest operations  | Allow creation and management of VM snapshots for replication. | Virtual machines | VirtualMachine.GuestOperations.*  |
     | Interaction Power Off | Allow the VM to be powered off during migration to Azure.  | Virtual machines | VirtualMachine.Interact.PowerOff  |
 
-## Enable Guest Discovery with Server Credentials
+### Enable Guest Discovery with Server Credentials
 
 Quick guest discovery: For quick discovery of software inventory, server dependencies, and database instances, you need the following permissions:
 
@@ -53,17 +55,42 @@ Quick guest discovery: For quick discovery of software inventory, server depende
 | --- | --- | --- | --- |
 | Quick guest discovery  | Software inventory <br /><br /> Server dependencies (limited data)* <br /><br />Inventory of Database instances  | Windows <br /><br /> Linux | Local guest user account <br /><br /> Any non-sudo guest user account |
 
-* Limitations:  
+### Limitations
 
 You can use a Windows guest or a Linux non-sudo user account to get dependency mapping data, but the following limitation can happen.
 
 With least privileged accounts, you might not collect process information (like process name or app name) for some processes that run with higher privileges. These processes will show as **Unknown** processes under the machine in the single server view.
 
-In-depth guest discovery:
+**In-depth guest discovery**: For in-depth discovery of software inventory, server dependencies, and web apps such as .NET and Java Tomcat, you need the following permissions:
 
-| Use case  | Discovered Metadata  | Credentials needed | 
-| --- | --- | --- | 
-| In-depth guest discovery  | Software inventory <br /><br /> Server dependencies (full data) <br /><br /> Inventory of Database instances <br /><br /> We apps like .NET, Java Tomcat  | Windows <br /<br /> Linux  | Administrator <br /><br /> Following sudo permissions are required to identify server dependencies. <br /><br />
-`/usr/bin/netstat, /usr/bin/ls` <br /><br /> If netstat is not available, sudo permissions on ss is required.<br /><br /> For Java webapps discovery (Tomcat servers), the user should have read and execute (r-x) permissions on all Catalina homes.<br >/<br /> Execute the following command to find out all catalina homes:<br /><br />
-`ps -ef | grep catalina.home` <br /><br /> Here is a sample command to up least privileged user: <br /><br />
-`setfacl -m u:johndoe:rx <catalina/home/path>` |
+| Use case  | Discovered Metadata  | Credentials needed |
+| --- | --- | --- |
+| In-depth guest discovery  | Software inventory <br /><br /> Server dependencies (full data) <br /><br /> Inventory of Database instances <br /><br /> Web apps like .NET, Java Tomcat  | Windows <br /><br /> Linux <br /><br /> **Windows:** Administrator account <br /><br /> **Linux:** Following sudo permissions are required to identify server dependencies: <br /><br /> `/usr/bin/netstat, /usr/bin/ls` <br /><br /> If netstat is not available, sudo permissions on `ss` are required.<br /><br /> For Java webapps discovery (Tomcat servers), the user should have read and execute (r-x) permissions on all Catalina homes.<br /><br /> Execute the following command to find all catalina homes:<br /><br /> `ps -ef | grep catalina.home` <br /><br /> Here is a sample command to set up least privileged user: <br /><br /> `setfacl -m u:johndoe:rx <catalina/home/path>`|
+
+## Discovery of Hyper-V estate
+
+To find the basic settings of servers running in the Hyper-V estate, the following permissions are needed.
+
+Hyper-V server account: On all the Hyper-V hosts, create a local user that’s part of the three groups:
+
+- Hyper-V Administrators  
+- Performance Monitor Users  
+- Remote Management Users   
+
+Use the [script](tutorial-discover-hyper-v#prepare-hyper-v-hosts) to prepare Hyper-V hosts.   
+
+For deep discovery of Hyper-V estate and to perform software inventory and dependency analysis, guest account credentials are required. The guest account should have the following permissions:
+
+### Discovery of physical and Cloud servers
+
+#### Quick server discovery
+
+Quick server discovery:  
+
+| Use case                      | Discovered Metadata                                                                                 | Credentials needed                                                                                                         | Additional Configuration Steps    | Quick server discovery (Windows) | - Software inventory<br>- Agentless dependency analysis (limited data)*<br>- Workload inventory of databases and web apps | Windows user account that’s part of:<br>- Remote Management Users<br>- Performance Monitor Users<br>- Performance Log Users | 1. The guest user account should have permissions to the CIMV2 Namespace and sub-namespaces in the WMI Control Panel.<br>2. To set this access:<br>&nbsp;&nbsp;- On the target Windows server, open **Run** from the Start menu, enter `wmimgmt.msc`, and press Enter.<br>&nbsp;&nbsp;- In the **wmimgmt** console, right-click **WMI Control (Local)** and select **Properties**.<br>&nbsp;&nbsp;- In the **WMI Control (Local) Properties** dialog, select the **Security** tab.<br>&nbsp;&nbsp;- Expand the **Root** folder and select the **cimv2** namespace.<br>&nbsp;&nbsp;- Click **Security**.<br>&nbsp;&nbsp;- Click **Add** to add the user account.<br>&nbsp;&nbsp;- Select the guest user account and ensure **Enable Account** and **Remote Enable** permissions are allowed.<br>&nbsp;&nbsp;- Click **Apply**.<br>3. Restart the **WinRM** service after adding the new guest user. |
+
+ 
+
+
+
+
