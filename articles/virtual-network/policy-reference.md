@@ -7,6 +7,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-virtual-network
 ms.custom: subject-policy-reference
+# Customer intent: "As a cloud administrator, I want to access built-in policy definitions for Azure Virtual Network, so that I can effectively manage and enforce compliance across my Azure resources."
 ---
 
 # Azure Policy built-in definitions for Azure Virtual Network
@@ -21,15 +22,15 @@ the link in the **Version** column to view the source on the
 
 ## Azure Virtual Network
 
-[!INCLUDE [azure-policy-reference-policies-network](../../includes/policy/reference/bycat/policies-network.md)]
+[!INCLUDE [azure-policy-reference-policies-network](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policies-network.md)]
 
 ## Tags
 
-[!INCLUDE [azure-policy-reference-policies-tags](../../includes/policy/reference/bycat/policies-tags.md)]
+[!INCLUDE [azure-policy-reference-policies-tags](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policies-tags.md)]
 
 ## General
 
-[!INCLUDE [azure-policy-reference-policies-general](../../includes/policy/reference/bycat/policies-general.md)]
+[!INCLUDE [azure-policy-reference-policies-general](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policies-general.md)]
 
 ## Next steps
 

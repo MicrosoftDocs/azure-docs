@@ -6,6 +6,7 @@ ms.topic: reference
 ms.service: azure-migrate
 author: MaggiePucciEvans
 ms.custom: subject-policy-reference
+# Customer intent: "As a cloud administrator, I want to access built-in policy definitions for Azure Migrate, so that I can effectively manage and govern our Azure resources in compliance with organizational standards."
 ---
 # Azure Policy built-in definitions for Azure Migrate
 
@@ -19,7 +20,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure Migrate
 
-[!INCLUDE [azure-policy-reference-cat-migrate](../../includes/policy/reference/bycat/policies-migrate.md)]
+[!INCLUDE [azure-policy-reference-cat-migrate](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policies-migrate.md)]
 
 ## Next steps
 

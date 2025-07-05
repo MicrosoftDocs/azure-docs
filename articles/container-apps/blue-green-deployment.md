@@ -4,14 +4,17 @@ description: Minimize downtime and reduce the risks associated with new releases
 services: container-apps
 author: ruslany
 ms.service: azure-container-apps
-ms.custom: devx-track-azurecli, devx-track-bicep
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-bicep
+  - build-2025
 ms.topic: how-to
 ms.date: 06/23/2023
 ms.author: ruslany
 zone_pivot_groups: azure-cli-bicep
 ---
 
-# Blue-Green Deployment in Azure Container Apps
+# Blue-green deployment in Azure Container Apps
 
 [Blue-Green Deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html) is a software release strategy that aims to minimize downtime and reduce the risk associated with deploying new versions of an application. In a blue-green deployment, two identical environments, referred to as "blue" and "green," are set up. One environment (blue) is running the current application version and one environment (green) is running the new application version. 
 

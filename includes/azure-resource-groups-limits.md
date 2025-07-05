@@ -5,6 +5,7 @@ ms.topic: include
 ms.date: 10/25/2024
 ms.author: jgao
 ---
+
 | Resource | Limit |
 | --- | --- |
 | Resources per [resource group](../articles/azure-resource-manager/management/overview.md#resource-groups) | Resources aren't limited by resource group. Instead, they're limited by resource type in a resource group. See next row. |

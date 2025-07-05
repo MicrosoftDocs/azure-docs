@@ -2,11 +2,12 @@
 title: Encrypt backup data by using customer-managed keys
 description: Learn how to use Azure Backup to encrypt your backup data by using customer-managed keys (CMKs).
 ms.topic: how-to
-ms.date: 07/30/2024
+ms.date: 05/26/2025
 ms.custom: devx-track-azurepowershell-azurecli, devx-track-azurecli
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a backup administrator, I want to configure encryption for my Recovery Services vault using customer-managed keys, so that I can maintain full control over the encryption keys and enhance the security of my backup data."
 ---
 
 # Encrypt backup data by using customer-managed keys
@@ -585,6 +586,10 @@ If you don't follow the steps in the article and you proceed to protect items, t
 ### Does using CMK encryption add to the cost of my backups?
 
 Using CMK encryption for Backup doesn't incur any additional costs. But you might continue to incur costs for using your key vault where your key is stored.
+
+### What happens to data encrypted with a CMK after its expiration?
+
+When a Customer Managed Key (CMK) expires, it can still unwrap keys, allowing backup and restore operations to succeed. However, it cannot encrypt new vaults. To ensure continuity, enable key rotation to automatically generate a new version upon expiration. Learn about [Key types, algorithms, and operations](/azure/key-vault/keys/about-keys-details).
 
 ## Next steps
 

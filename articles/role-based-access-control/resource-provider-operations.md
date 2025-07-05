@@ -4,9 +4,9 @@ description: Lists the permissions for Azure resource providers.
 ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
-author: rolyon
-manager: femila
-ms.author: rolyon
+author: jenniferf-skc
+manager: pmwongera
+ms.author: jfields
 ms.date: 05/25/2025
 ms.custom: generated
 ---
@@ -314,6 +314,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.Kubernetes](./permissions/hybrid-multicloud.md#microsoftkubernetes) |  | [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) |
 > | [Microsoft.KubernetesConfiguration](./permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration) |  | [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) |
 > | [Microsoft.ResourceConnector](./permissions/hybrid-multicloud.md#microsoftresourceconnector) |  |  |
+> | [Microsoft.SCVMM](./permissions/hybrid-multicloud.md#microsoftscvmm) |  | [Azure Arc-enabled System Center Virtual Machine Manager (SCVMM)](/azure/azure-arc/system-center-virtual-machine-manager/overview) |
 
 ## Next steps
 

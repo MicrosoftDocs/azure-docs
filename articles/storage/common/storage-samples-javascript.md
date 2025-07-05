@@ -10,6 +10,7 @@ ms.topic: sample
 ms.custom: devx-track-js
 ms.devlang: javascript
 ai-usage: ai-assisted
+# Customer intent: "As a developer using JavaScript, I want to access code samples for Azure Storage operations, so that I can quickly implement features like uploading and downloading data without having to write all the code from scratch."
 ---
 
 # Azure Storage samples using JavaScript client libraries
@@ -84,7 +85,7 @@ The following table links to Azure Queues samples that use JavaScript client lib
 
 The following table links to Azure Tables samples that use JavaScript client libraries:
 
-- [Authentication methods](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/tables/data-tables/samples/v13/javascript/authenticationMethods.js)
+- [Authentication methods](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/tables/data-tables#authenticate-a-tableserviceclient)
 - [Create and delete a table](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/tables/data-tables/samples/v13/javascript/createAndDeleteTable.js)
 - [Create and delete table entities](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/tables/data-tables/samples/v13/javascript/createAndDeleteEntities.js)
 - [Query tables](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/tables/data-tables/samples/v13/javascript/queryTables.js)

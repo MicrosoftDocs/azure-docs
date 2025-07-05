@@ -4,9 +4,9 @@ description: In this tutorial, you learn how to group machines, dynamically appl
 ms.service: azure-update-manager
 ms.date: 08/22/2024
 ms.topic: tutorial 
-author: SnehaSudhirG
-ms.author: sudhirsneha
-#Customer intent: As an IT admin, I want dynamically apply patches on the machines as per a schedule.
+author: habibaum
+ms.author: v-uhabiba
+# Customer intent: As an IT administrator, I want to dynamically group machines and schedule update deployments, so that I can manage patches efficiently across different environments.
 ---
 
 # Tutorial: Schedule updates on Dynamic scopes

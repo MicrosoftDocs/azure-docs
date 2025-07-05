@@ -13,6 +13,7 @@ ms.reviewer: dineshm
 ms.subservice: storage-common-concepts
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: As a .NET developer, I want to create an account shared access signature (SAS) using the Azure Storage client library, so that I can delegate access to service-level operations and manage resources in multiple services within a storage account.
 ---
 
 # Create an account SAS with .NET

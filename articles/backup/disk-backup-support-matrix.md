@@ -7,6 +7,7 @@ ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to understand the support matrix for Azure Disk Backup so that I can plan my backup and recovery strategy effectively within the service limitations and requirements."
 ---
 
 # Azure Disk Backup support matrix
@@ -50,7 +51,9 @@ Azure Disk Backup is available in all public cloud and Sovereign cloud regions.
 
 - ADE encrypted disks can't be protected.
 
-- Disks encrypted with platform-managed keys or customer-managed keys are supported. However, the restore fails for the restore points of a disk that is encrypted using customer-managed keys (CMK) if the Disk Encryption Set KeyVault key is disabled or deleted.
+- Disks encrypted with platform-managed keys or customer-managed keys are supported. However, if a restore point of a CMK-encrypted disk is used for recovery, ensure that the Disk Encryption Set Key Vault key is active and accessible to prevent restore failures.
+
+- Cross-subscription restore is not supported for disks encrypted using Customer-Managed Keys (CMK) via Disk Encryption Set. 
 
 - The Snapshot Resource group that is assigned to a backup instance when you  configure the backup of a disk can't be changed.
 

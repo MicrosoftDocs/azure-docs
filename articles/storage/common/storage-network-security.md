@@ -10,6 +10,7 @@ ms.date: 05/01/2025
 ms.author: normesta
 ms.reviewer: santoshc
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement, ignite-2024
+# Customer intent: As a cloud administrator, I want to configure network firewalls and access rules for Azure Storage, so that I can enhance security by restricting access to specific IP addresses, virtual networks, and trusted services.
 ---
 
 # Configure Azure Storage firewalls and virtual networks
@@ -638,7 +639,7 @@ The following table lists services that can access your storage account data if 
 | Azure AI Search          | `Microsoft.Search/searchServices`       | Enables access to storage accounts for indexing, processing, and querying. |
 | Azure AI services        | `Microsoft.CognitiveService/accounts`   | Enables access to storage accounts. [Learn more](../..//cognitive-services/cognitive-services-virtual-networks.md).|
 | Microsoft Cost Management | `Microsoft.CostManagementExports` | Enables export to storage accounts behind a firewall. [Learn more](../../cost-management-billing/costs/tutorial-improved-exports.md).|
-| Azure Databricks                | `Microsoft.Databricks/accessConnectors` | Enables access to storage accounts. |
+| Azure Databricks                | `Microsoft.Databricks/accessConnectors` | Enables access to storage accounts. Serverless SQL warehouses require additional configuration. [Learn more](/azure/databricks/admin/sql/serverless).|
 | Azure Data Factory              | `Microsoft.DataFactory/factories`       | Enables access to storage accounts through the Data Factory runtime. |
 | Azure Data Explorer           | `Microsoft.Kusto/Clusters`          | Read data for ingestion and external tables, and write data to external tables. [Learn more](/azure/data-explorer/data-explorer-overview). |
 | Azure Backup Vault              | `Microsoft.DataProtection/BackupVaults` | Enables access to storage accounts. |

@@ -9,6 +9,7 @@ ms.date: 02/28/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to create a backup policy for Azure Database for PostgreSQL Flexible Server using CLI commands, so that I can ensure data protection and establish a reliable recovery plan for my database.
 ---
 
 #  Quickstart: Create a backup policy for Azure Database for PostgreSQL - Flexible Server using Azure CLI
@@ -164,6 +165,9 @@ The policy template consists of a trigger (decides what triggers the backup) and
     }
 
 ```
+
+>[!Important]
+>The backup schedule follows the ISO 8601 duration format. However, the repeating interval prefix `R` is not supported, as backups are configured to run indefinitely. Any value specified with `R` will be ignored.
 
 ### Modify the policy template
 

@@ -3,7 +3,15 @@ title: Create and manage function apps in a Flex Consumption plan
 description: "Learn how to create function apps hosted in the Flex Consumption plan in Azure Functions and how to modify specific settings for an existing function app."
 ms.date: 12/29/2024
 ms.topic: how-to
-ms.custom: build-2024, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts, ignite-2024
+ms.custom:
+  - build-2024
+  - devx-track-azurecli
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-ts
+  - ignite-2024
+  - build-2025
 zone_pivot_groups: programming-languages-set-functions
 #customer intent: As an Azure developer, I want learn how to create and manage function apps in the Flex Consumption plan so that I can take advantage of the beneficial features of this plan.
 ---
@@ -125,7 +133,7 @@ To support your function code, you need to create three resources:
     This command creates a function app running in the Flex Consumption plan. 
 
     Because you created the app without specifying [always ready instances](#set-always-ready-instance-counts), your app only incurs costs when actively executing functions. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md).
-    ```
+
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -175,7 +183,7 @@ You can use the Azure CLI to upload a deployment package file to the deployment 
 This package file must contain all of the build output files and referenced libraries required for your project to run. 
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
-For projects with a large amount of libraries, you should package the root of your project file and request a [remote build]. 
+For projects with a large number of libraries, you should package the root of your project file and request a [remote build]. 
 ::: zone-end
 ::: zone pivot="programming-language-python"
 For Python projects, you should package the root of your project file and always request a [remote build]. Using a remote build prevents potential issues that can occur when you build a project on Windows to be deployed on Linux.  
@@ -266,14 +274,14 @@ For Python projects, you should package the root of your project file and always
 
 ### [Continuous Deployment](#tab/continuous-deployment)
 
-Azure Functions has a custom GitHub Action and Azure DevOps Task to support continuous deployment. Refer the following guides to incorporate these tools in your CI/CD pipelines:
+Azure Functions has both a custom GitHub Action and a custom Azure Pipelines Task to support continuous deployment. Refer the following guides to incorporate these tools in your CI/CD pipelines:
 
 - [Build and deploy using Azure Pipelines](./functions-how-to-azure-devops.md)
 - [Build and deploy using GitHub Actions](./functions-how-to-github-actions.md)
 
 ### [Core Tools](#tab/core-tools)
 
-[!INCLUDE [functions-publish-project-CLI-clean](../../includes/functions-publish-project-cli-clean.md)]
+[!INCLUDE [functions-publish-project-cli-clean](../../includes/functions-publish-project-cli-clean.md)]
 
 ### [Visual Studio Code](#tab/vs-code-publish)
 
@@ -404,7 +412,7 @@ az functionapp vnet-integration list --resource-group <RESOURCE_GROUP> --name <A
 
 You can integrate your existing app with an existing virtual network and subnet in the portal. 
 
-1. In your function app page in the [Azure portal](https://portal.azure.com), expand **Settings** in the left menu and select **Networking**.
+1. In your function app page in the [Azure portal], expand **Settings** in the left menu and select **Networking**.
 
 1. Under **Outbound traffic configuration**, select **Not configured**.
 
@@ -485,7 +493,7 @@ az functionapp deployment config set --resource-group <RESOURCE_GROUP> --name <A
 
 ### [Azure portal](#tab/azure-portal)
 
-1. In your function app page in the [Azure portal](https://portal.azure.com), expand **Settings** in the left menu and select **Deployment settings**.
+1. In your function app page in the [Azure portal], expand **Settings** in the left menu and select **Deployment settings**.
 
 1. Under Application package location, select an existing **Storage account** and then select an existing empty **container** in the account.
 
@@ -540,7 +548,7 @@ az functionapp scale config set --resource-group <resourceGroup> --name <APP_NAM
 
 ### [Azure portal](#tab/azure-portal)
 
-1. In your function app page in the [Azure portal](https://portal.azure.com), expand **Settings** in the left menu and select **Scale and concurrency**.
+1. In your function app page in the [Azure portal], expand **Settings** in the left menu and select **Scale and concurrency**.
 
 1. Select an **Instance memory** option and select **Save** to update the app.
 
@@ -604,7 +612,7 @@ az functionapp scale config always-ready delete --resource-group <RESOURCE_GROUP
 
 ### [Azure portal](#tab/azure-portal)
 
-1. In your function app page in the [Azure portal](https://portal.azure.com), expand **Settings** in the left menu and select **Scale and concurrency**.
+1. In your function app page in the [Azure portal], expand **Settings** in the left menu and select **Scale and concurrency**.
 
 1. Under **Always-ready instance minimum** type `http`, `blob`, `durable`, or a specific function name using the format `function:<FUNCTION_NAME>=n` in **Trigger** and type the **Number of always-ready instances**.
 
@@ -634,7 +642,7 @@ This example sets the HTTP trigger concurrency level to `10`. After you specific
 
 ### [Azure portal](#tab/azure-portal)
 
-1. In your function app page in the [Azure portal](https://portal.azure.com), expand **Settings** in the left menu and select **Scale and concurrency**.
+1. In your function app page in the [Azure portal], expand **Settings** in the left menu and select **Scale and concurrency**.
 
 1. Under **Concurrency per instance** select **Assign manually** and type a specific limit.
 
@@ -654,6 +662,128 @@ To view the list of regions that currently support Flex Consumption plans:
 
 When you create an app in the [Azure portal](flex-consumption-how-to.md?tabs=azure-portal#create-a-flex-consumption-app) or by using [Visual Studio Code](flex-consumption-how-to.md?tabs=vs-code#create-a-flex-consumption-app), currently unsupported regions are filtered out of the region list.
 
+## Monitor your app in Azure
+
+Azure Monitor provides these distinct sets of metrics to help you better understand how your function app runs in Azure:
+
++ Platform metrics: provides infrastructure-level insights
++ Application Insights: provides code-level insights, including traces and errors logs.
+
+If you haven't done so already, you should [enable Application Insights in your app](configure-monitoring.md#enable-application-insights-integration) to be able to:
+
++ Track detailed execution times and dependencies
++ Monitor individual function performance
++ Analyze failures and exceptions
++ Correlate platform metrics with application behavior with custom queries
+
+For more information, see [Monitor Azure Functions](monitor-functions.md).
+
+### Supported metrics
+
+Run this script to view all of the platform metrics that are currently available your app:
+
+```azurecli
+appId=$(az functionapp show --name <APP_NAME> --resource-group <RESOURCE_GROUP> --query id -o tsv)
+az monitor metrics list-definitions --resource $appId --query "[].{Name:name.localizedValue,Value:name.value}" -o table
+```
+
+In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource group and function app names, respectively. This script gets the fully qualified app ID and returns the available platform metrics in a table.
+
+### View metrics
+
+You can review current metrics either in the Azure portal or by using the Azure CLI. 
+
+In the Azure portal, you can also create metrics alerts and pin charts and other reports to dashboards in the portal.
+
+### [Azure CLI](#tab/azure-cli)
+
+Use this script to generate a report of the current metrics for your app: 
+
+```azurecli
+appId=$(az functionapp show --name <APP_NAME> --resource-group <RESOURCE_GROUP> --query id -o tsv)
+
+appId=$(az functionapp show --name func-fuxigh6c255de --resource-group exampleRG --query id -o tsv)
+
+echo -e "\nAlways-ready and on-emand execution counts..."
+az monitor metrics list --resource $appId --metric "AlwaysReadyFunctionExecutionCount" --interval PT1H --output table
+az monitor metrics list --resource $appId --metric "OnDemandFunctionExecutionCount" --interval PT1H --output table
+
+echo -e "\nExecution units (MB-ms) in always-ready and on-emand execution counts..."
+az monitor metrics list --resource $appId --metric "AlwaysReadyFunctionExecutionUnits" --interval PT1H --output table
+az monitor metrics list --resource $appId --metric "OnDemandFunctionExecutionUnits" --interval PT1H --output table
+
+echo -e "\nAlways-ready resource utilization..."
+az monitor metrics list --resource $appId --metric "AlwaysReadyUnits" --interval PT1H --output table
+
+echo -e "\nMemory utilization..."
+az monitor metrics list --resource $appId --metric "AverageMemoryWorkingSet" --interval PT1H --output table
+az monitor metrics list --resource $appId --metric "MemoryWorkingSet" --interval PT1H --output table
+
+echo -e "\nInstance count and CPU utilization..."
+az monitor metrics list --resource $appId --metric "InstanceCount" --interval PT1H --output table
+az monitor metrics list --resource $appId --metric "CpuPercentage" --interval PT1H --output table
+```
+
+### [Azure portal](#tab/azure-portal)
+
+1. In your function app page in the [Azure portal], select **Monitoring** > **Metrics** and if the current chart is blank, select **+ Add metric**.
+
+1. With your app as the **Scope**, choose one or more of the supported **Metric** options to add to the current chart.
+
+1. Repeat the previous step to add other metrics to the chart.
+
+1. (Optional) Select **Save to dashboard** to add the current chart to a new or existing dashboard. Remember to include both always-ready and on-demand metrics for broad visibility. 
+
+1. (Optional) Select **New alert rue** to create an alert on a specific metric. Remember to include both always-ready and on-demand metrics for broad visibility. 
+
+### [Visual Studio Code](#tab/vs-code)
+
+You can't currently review and set metrics using Visual Studio Code. 
+
+---
+
+To learn more about metrics for Azure Functions, see [Monitor Azure Functions](monitor-functions.md).
+
+### View logs
+
+When your app is connected to Application Insights, you can better analyze your app performance and troubleshoot problems during execution.
+
+ 
+   + Use "Performance" to analyze response times and dependencies
+   + Use "Failures" to identify any errors occurring after migration
+   + Create custom queries in "Logs" to analyze function behavior:
+
+     ```kusto
+     // Compare success rates by instance
+     requests
+     | where timestamp > ago(7d)
+     | summarize successCount=countif(success == true), failureCount=countif(success == false) by bin(timestamp, 1h), cloud_RoleName
+     | render timechart
+     ```
+
+### View costs
+
+Because you can tune your app to adjust performance versus operating costs, it's important to track the costs associated with running your app in the Flex Consumption plan. 
+
+To view the current costs:
+
+1. In your function app page in the [Azure portal], select the resource group link.
+
+1. In the resource group page, select **Cost Management** > **Cost analysis**.
+
+1. Review the current costs and cost trajectory of the app itself. 
+
+1. Optionally, select **Cost Management** > **Alerts** and then **+ Add** to create a new alert for the app.
+
+## Fine-tune your app
+
+The Flex Consumption plan provides several settings that you can tune to refine the performance of your app. Actual performance and costs can vary based on your app-specific workload patterns and configuration. For example, higher [memory instance sizes](./flex-consumption-plan.md#instance-memory) can improve performance for memory-intensive operations but at a higher cost per active period. 
+
+Here are some adjustments you can make to fine-tune performance versus cost:
+ 
++ [Adjust concurrency settings](./functions-concurrency.md) to maximize throughput per instance. 
++ [Choose the appropriate memory size](#configure-instance-memory) for your workload. Higher memory sizes cost more but can improve performance.
+
 ## Related content
 
 + [Azure Functions Flex Consumption plan hosting](flex-consumption-plan.md)
@@ -661,3 +791,5 @@ When you create an app in the [Azure portal](flex-consumption-how-to.md?tabs=azu
 
 [`az functionapp create`]: /cli/azure/functionapp#az-functionapp-create
 [remote build]: ./functions-deployment-technologies.md#remote-build
+[Azure portal]: https://portal.azure.com
+

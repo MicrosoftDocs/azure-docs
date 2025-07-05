@@ -23,7 +23,7 @@ compliant with the specific standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../../includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-springcloud](../../../includes/policy/standards/byrp/microsoft.appplatform.md)]
+[!INCLUDE [azure-policy-compliancecontrols-springcloud](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.appplatform.md)]
 
 ## Next steps
 

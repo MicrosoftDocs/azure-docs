@@ -10,6 +10,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet, ai-video-demo, devx-track-extended-azdevcli
 ai-usage: ai-assisted
 zone_pivot_groups: azure-blob-storage-quickstart-options
+# Customer intent: As a .NET developer, I want to create and manage blob storage in Azure using the client library, so that I can efficiently store and retrieve large amounts of unstructured data for my applications.
 ---
 
 # Quickstart: Azure Blob Storage client library for .NET

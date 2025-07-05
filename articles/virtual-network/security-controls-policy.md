@@ -7,6 +7,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-virtual-network
 ms.custom: subject-policy-compliancecontrols
+# Customer intent: As a compliance officer, I want to understand the Azure Policy regulatory compliance controls for Azure Virtual Network, so that I can ensure our cloud resources meet necessary regulatory standards and security requirements.
 ---
 
 # Azure Policy Regulatory Compliance controls for Azure Virtual Network
@@ -20,7 +21,7 @@ compliant with the specific standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-vnet](../../includes/policy/standards/byrp/microsoft.network.md)]
+[!INCLUDE [azure-policy-compliancecontrols-vnet](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.network.md)]
 
 ## Next steps
 

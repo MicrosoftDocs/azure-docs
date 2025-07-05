@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.custom:
   - build-2024
   - ignite-2024
+  - build-2025
 # Customer intent: As a cloud developer, I want to understand the overall costs of running my code in a dynamic plan in Azure Functions so that I can make better architectural and business decisions.
 ---
 
@@ -20,7 +21,7 @@ Azure Functions currently offers these different hosting options for your functi
 | [**Flex Consumption plan**](flex-consumption-plan.md)| You pay for execution time on the instances on which your functions are running, plus any _always ready_ instances. Instances are dynamically added and removed based on the number of incoming events. This is the recommended dynamic scale plan, which also supports virtual network integration. |
 | [**Premium**](functions-premium-plan.md) | Provides you with the same features and scaling mechanism as the Consumption plan, but with enhanced performance and virtual network integration. Cost is based on your chosen pricing tier. To learn more, see [Azure Functions Premium plan](functions-premium-plan.md). |
 | [**Dedicated (App Service)**](dedicated-plan.md) <br/>(basic tier or higher) | When you need to run in dedicated VMs or in isolation, use custom images, or want to use your excess App Service plan capacity. Uses [regular App Service plan billing](https://azure.microsoft.com/pricing/details/app-service/). Cost is based on your chosen pricing tier.|
-| [**Container Apps**](functions-container-apps-hosting.md) | Create and deploy containerized function apps in a fully managed environment hosted by Azure Container Apps, which lets you run your functions alongside other microservices, APIs, websites, and workflows as container-hosted programs. |  
+| [**Container Apps**](../container-apps/functions-overview.md) | Create and deploy containerized function apps in a fully managed environment hosted by Azure Container Apps, which lets you run your functions alongside other microservices, APIs, websites, and workflows as container-hosted programs. |  
 | [**Consumption**](consumption-plan.md) | You're only charged for the time that your function app runs. This plan includes a [free grant][pricing page] on a per subscription basis.|
 
 You should always choose the option that best supports the feature, performance, and cost requirements for your function executions. To learn more, see [Azure Functions scale and hosting](functions-scale.md).

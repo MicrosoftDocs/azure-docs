@@ -4,9 +4,12 @@ description: Learn how to restore Azure Database for PostgreSQL by using the Azu
 ms.topic: how-to
 ms.date: 05/20/2025
 ms.service: azure-backup
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to restore PostgreSQL databases using the command line, so that I can efficiently manage backup and recovery operations without relying on graphical interfaces.
 ---
 
 # Restore PostgreSQL databases by using the Azure CLI

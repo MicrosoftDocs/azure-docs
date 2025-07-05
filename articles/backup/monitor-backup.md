@@ -7,6 +7,7 @@ ms.topic: concept-article
 author: FuzziWumpus
 ms.author: mkluck
 ms.service: azure-backup
+# Customer intent: As an IT administrator, I want to monitor Azure Backup using Azure Monitor, so that I can collect, analyze, and receive alerts on backup metrics and logs to ensure optimal data protection and recovery.
 ---
 
 # Monitor Azure Backup

@@ -164,7 +164,7 @@ The following considerations apply when adding bindings to a function:
 ::: zone-end 
 + When you add bindings that connect to a service, you must also add an application setting that references a connection string or managed identity to the local.settings.json file. For more information, see [Work with app settings locally](#local-settings).  
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell"
-+ When you add a supported binding, the extension should already be installed when your app uses extension bundle. For more information, see [extension bundles](functions-bindings-register.md#extension-bundles).
++ When you add a supported binding, the extension should already be installed when your app uses extension bundle. For more information, see [extension bundles](extension-bundles.md).
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
 + When you add a binding that requires a new binding extension, you must also add a reference to that specific binding extension in your C# project. 
@@ -347,6 +347,9 @@ The following considerations apply when using the administrator endpoint for loc
 
 + Calling an administrator endpoint and passing test data is similar to using the **Test** tab in the Azure portal.
 
++ If the input is a complex JSON object, additional formatting is needed. The data must be properly escaped and include a `SystemProperties` object. 
+This example shows a properly escaped JSON string with both a `testData` object and `SystemProperties`:   
+`'{"input": "{\"SystemProperties\":{},\"testData\":{\"testid\":\"123\"}"}'`
 ### [Event Grid trigger](#tab/event-grid-trigger)
 
 Event Grid triggers have specific requirements to enable local testing. For more information, see [Local testing with viewer web app](event-grid-how-tos.md#local-testing-with-viewer-web-app).
@@ -410,7 +413,7 @@ When you deploy to an Azure Container Apps environment, the following considerat
 
 + Storage connection strings and other service credentials are important secrets. Make sure to securely store any script files using `func azurecontainerapps deploy` and don't store them in any publicly accessible source control systems. You can [encrypt the local.settings.json file](#encrypt-the-local-settings-file) for added security.
 
-For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md). 
+For more information, see [Azure Container Apps hosting of Azure Functions](../azure-functions/functions-container-apps-hosting.md). 
 
 ### [Kubernetes cluster](#tab/kubernetes)
 
@@ -510,10 +513,10 @@ This section doesn't apply to version 1.x of the Functions runtime. In version 1
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
-For C# class library projects, add references to the specific NuGet packages for the binding extensions required by your functions. C# script (.csx) project must use [extension bundles](functions-bindings-register.md#extension-bundles).
+For C# class library projects, add references to the specific NuGet packages for the binding extensions required by your functions. C# script (.csx) project must use [extension bundles](extension-bundles.md).
 ::: zone-end
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
-Functions provides _extension bundles_ to make is easy to work with binding extensions in your project. Extension bundles, which are versioned and defined in the host.json file, install a complete set of compatible binding extension packages for your app. Your host.json should already have extension bundles enabled. If for some reason you need to add or update the extension bundle in the host.json file, see [Extension bundles](functions-bindings-register.md#extension-bundles).
+Functions provides _extension bundles_ to make is easy to work with binding extensions in your project. Extension bundles, which are versioned and defined in the host.json file, install a complete set of compatible binding extension packages for your app. Your host.json should already have extension bundles enabled. If for some reason you need to add or update the extension bundle in the host.json file, see [Extension bundles](extension-bundles.md).
 
 If you must use a binding extension or an extension version not in a supported bundle, you need to manually install extensions. For such rare scenarios, see the [`func extensions install`](./functions-core-tools-reference.md#func-extensions-install) command.
 ::: zone-end
@@ -552,7 +555,7 @@ Learn how to [develop, test, and publish Azure functions by using Azure Function
 
 <!-- LINKS -->
 
-[extension bundles]: functions-bindings-register.md#extension-bundles
+[extension bundles]: extension-bundles.md
 [func azure functionapp publish]: functions-core-tools-reference.md?tabs=v2#func-azure-functionapp-publish
 
 

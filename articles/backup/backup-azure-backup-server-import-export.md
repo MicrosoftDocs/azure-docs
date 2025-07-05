@@ -6,6 +6,9 @@ ms.date: 05/19/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+ms.custom:
+  - build-2025
+# Customer intent: As a backup administrator, I want to perform an offline backup using customer-owned disks, so that I can efficiently transfer large initial backups to Azure without consuming significant network bandwidth.
 ---
 
 # Offline seeding for DPM/MABS using customer-owned disks with Azure Import/Export

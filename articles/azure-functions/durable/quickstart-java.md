@@ -139,7 +139,7 @@ Add a _host.json_ file to your project directory. It should look similar to the 
 ```
 
 > [!NOTE]
-> It's important to note that only the Azure Functions v4 extension bundle currently has the necessary support for Durable Functions for Java. Durable Functions for Java is _not_ supported in v3 and early extension bundles. For more information on extension bundles, see the [extension bundles documentation](../functions-bindings-register.md#extension-bundles).
+> It's important to note that only the Azure Functions v4 extension bundle currently has the necessary support for Durable Functions for Java. Durable Functions for Java is _not_ supported in v3 and early extension bundles. For more information on extension bundles, see the [extension bundles documentation](../extension-bundles.md).
 
 Durable Functions needs a storage provider to store runtime state. Add a _local.settings.json_ file to your project directory to configure the storage provider. To use Azure Storage as the provider, set the value of `AzureWebJobsStorage` to the connection string of your Azure Storage account:
 

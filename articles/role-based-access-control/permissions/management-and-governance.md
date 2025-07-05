@@ -3,10 +3,10 @@ title: Azure permissions for Management and governance - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Management and governance category.
 ms.service: role-based-access-control
 ms.topic: generated-reference
-author: rolyon
-manager: femila
-ms.author: rolyon
-ms.date: 04/25/2025
+author: jenniferf-skc
+manager: pmwongera
+ms.author: jfields
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -297,6 +297,7 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/addPaymentTerms/action | Adds payment terms to all the billing profiles under the billing account.<br>Currently, payment terms can be added only on billing accounts that have Agreement Type as 'Microsoft Customer Agreement' and AccountType as 'Enterprise'.<br>This action needs pre-authorization and only Field Sellers are authorized to add the payment terms and is not a self-serve action. |
 > | Microsoft.Billing/billingAccounts/cancelPaymentTerms/action | Cancels all the payment terms on billing account that falls after the cancellation date in the request. Currently, cancel payment terms is only served by admin actions and is not a self-serve action. |
 > | Microsoft.Billing/billingAccounts/validatePaymentTerms/action | Validates payment terms on a billing account with agreement type 'Microsoft Customer Agreement' and account type 'Enterprise'. |
+> | Microsoft.Billing/billingAccounts/offboard/action | Offboard a billing account |
 > | Microsoft.Billing/billingAccounts/addDailyInvoicingOverrideTerms/write |  |
 > | Microsoft.Billing/billingAccounts/addDepartment/write |  |
 > | Microsoft.Billing/billingAccounts/addEnrollmentAccount/write |  |
@@ -479,6 +480,7 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/notificationContacts/read | Lists the NotificationContacts for the given billing account. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/notificationContacts/write | Update a notification contact by ID. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/operationResults/read |  |
+> | Microsoft.Billing/billingAccounts/partnerOrganizations/read | List all the partner organizations user belongs to. The operation is supported for billing accounts with agreement type Microsoft Enterprise Agreement and for users with role Partner Administrator. |
 > | Microsoft.Billing/billingAccounts/paymentMethodLinks/read | Lists payment methods attached to a billing account. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
 > | Microsoft.Billing/billingAccounts/policies/read | Get the policies for a billing account of Enterprise Agreement type. |
 > | Microsoft.Billing/billingAccounts/policies/write | Update the policies for a billing account of Enterprise Agreement type. |
@@ -488,6 +490,7 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/products/write | Updates the properties of a Product. Currently, auto renew can be updated. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
 > | Microsoft.Billing/billingAccounts/purchaseProduct/write |  |
 > | Microsoft.Billing/billingAccounts/resolveBillingRoleAssignments/write | Lists the role assignments for the caller on a billing account while fetching user info for each role assignment. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement. |
+> | Microsoft.Billing/billingAccounts/transferEnrollmentToMCA/write | Create and update entities in WAEP database, when enrollment is transferred from EA to MCA |
 > | Microsoft.Billing/billingAccounts/validateDailyInvoicingOverrideTerms/write |  |
 > | Microsoft.Billing/billingAccounts/validatePaymentTerms/write |  |
 > | Microsoft.Billing/billingPeriods/read |  |
@@ -818,6 +821,7 @@ Azure service: [Management Groups](/azure/governance/management-groups/)
 > | Microsoft.Management/serviceGroups/write | Create or Update a Service Group |
 > | Microsoft.Management/serviceGroups/read | Read a Service Group |
 > | Microsoft.Management/serviceGroups/delete | Delete a Service Group |
+> | Microsoft.Management/serviceGroups/listAncestors/action | For a given service group in the URI, retrieves all the service group ancestors |
 
 ## Microsoft.PolicyInsights
 
@@ -1212,12 +1216,11 @@ Azure service: [Azure Resource Manager](/azure/azure-resource-manager/)
 > | Microsoft.Resources/checkZonePeers/action | Check Zone Peers |
 > | Microsoft.Resources/changes/read | Gets or lists changes |
 > | Microsoft.Resources/checkPolicyCompliance/read | Check the compliance status of a given resource against resource policies. |
-> | Microsoft.Resources/dataBoundaries/write | Tenant level opt-in to data boundary |
 > | Microsoft.Resources/deployments/read | Gets or lists deployments. |
 > | Microsoft.Resources/deployments/write | Creates or updates an deployment. |
 > | Microsoft.Resources/deployments/delete | Deletes a deployment. |
 > | Microsoft.Resources/deployments/cancel/action | Cancels a deployment. |
-> | Microsoft.Resources/deployments/validate/action | Validates an deployment. |
+> | Microsoft.Resources/deployments/validate/action | Validates a deployment. |
 > | Microsoft.Resources/deployments/whatIf/action | Predicts template deployment changes. |
 > | Microsoft.Resources/deployments/exportTemplate/action | Export template for a deployment |
 > | Microsoft.Resources/deployments/operations/read | Gets or lists deployment operations. |
@@ -1229,6 +1232,8 @@ Azure service: [Azure Resource Manager](/azure/azure-resource-manager/)
 > | Microsoft.Resources/deploymentStacks/read | Gets or lists deployment stacks |
 > | Microsoft.Resources/deploymentStacks/write | Creates or updates a deployment stack |
 > | Microsoft.Resources/deploymentStacks/delete | Deletes a deployment stack |
+> | Microsoft.Resources/deploymentStacks/validate/action | Validates a deployment stack. |
+> | Microsoft.Resources/deploymentStacks/exportTemplate/action | Export the template for a deployment stack |
 > | Microsoft.Resources/deploymentStacks/manageDenySetting/action | Manage the denySettings property of a deployment stack. |
 > | Microsoft.Resources/links/read | Gets or lists resource links. |
 > | Microsoft.Resources/links/write | Creates or updates a resource link. |

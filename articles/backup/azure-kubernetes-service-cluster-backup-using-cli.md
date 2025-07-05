@@ -10,6 +10,7 @@ ms.custom:
   - ignite-2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a Kubernetes administrator, I want to configure and execute backups for Azure Kubernetes Service (AKS) using Azure CLI, so that I can ensure data protection and recoverability for my applications running in AKS."
 ---
 
 # Back up Azure Kubernetes Service using Azure CLI 
@@ -153,6 +154,7 @@ Backup for AKS provides multiple backups per day. If you require more frequent b
 
 >[!Important]
 >The time of the day indicates the backup start time and not the time when the backup completes.
+>The backup schedule follows the ISO 8601 duration format. However, the repeating interval prefix `R` is not supported, as backups are configured to run indefinitely. Any value specified with `R` will be ignored.
 
 Once you download the template as a JSON file, you can edit it for scheduling and retention as required. Then create a new policy with the resulting JSON. If you want to edit the hourly frequency or the retention period, use the `az dataprotection backup-policy trigger set` and/or `az dataprotection backup-policy retention-rule set` commands. 
 
@@ -214,7 +216,7 @@ Once the vault and policy creation are complete, you need to perform the followi
    az k8s-extension create --name azure-aks-backup --extension-type microsoft.dataprotection.kubernetes --scope cluster --cluster-type managedClusters --cluster-name $akscluster --resource-group $aksclusterresourcegroup --release-train stable --configuration-settings blobContainer=$blobcontainer storageAccount=$storageaccount storageAccountResourceGroup=$storageaccountresourcegroup storageAccountSubscriptionId=$subscriptionId
    ```
 
-  In case the AKS cluster is within a virtual network, then you will have to create a private endpoint, connecting thw storage account with the virtual network in which the AKS cluster resides.
+  In case the AKS cluster is within a virtual network, then you will have to create a private endpoint, connecting the storage account with the virtual network in which the AKS cluster resides.
 
   ```azurecli
   #Fetch the Subnet ID using the name of the virtual network and subnet in which cluster resides 

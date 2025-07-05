@@ -4,9 +4,10 @@ description: Supported software versions that are used for Azure VMware Solution
 ms.topic: include
 ms.service: azure-vmware
 ms.date: 4/2/2025
-author: suzizuber
-ms.author: v-suzuber
+author: ju-shim
+ms.author: jushiman
 ms.custom: engagement-fy23
+# Customer intent: As a cloud architect, I want to access the supported software version details for Azure VMware Solution, so that I can ensure compatibility and optimize configurations for new deployments in our private cloud environment.
 ---
 
 <!-- Used in faq.md and concepts-private-clouds-clusters#host-maintenance-and-lifecycle-management and introduction#vmware-software-versions-->

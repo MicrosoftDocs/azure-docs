@@ -1,13 +1,13 @@
 ---
 title: Disaster recovery of Dynamics AX with Azure Site Recovery 
 description: Learn how to set up disaster recovery for Dynamics AX with Azure Site Recovery
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ms.service: azure-site-recovery
-manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 
+# Customer intent: As an IT administrator responsible for enterprise applications, I want to implement disaster recovery for Dynamics AX using Azure Site Recovery, so that I can ensure minimal downtime and quick recovery of critical business processes during a disaster.
 ---
 # Set up disaster recovery for a multitier Dynamics AX application   
 

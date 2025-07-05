@@ -7,6 +7,7 @@ ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 01/13/2025
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a web application administrator, I want to configure exclusion lists for my Web Application Firewall, so that I can prevent false positives and ensure legitimate traffic is not blocked by security rules.
 ---
 
 # Web Application Firewall exclusion lists

@@ -4,7 +4,11 @@ description: This quickstart shows you how to use Bicep to deploy an Azure Sprin
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.custom: devx-track-java, mode-other, devx-track-bicep
+ms.custom:
+  - devx-track-java
+  - mode-other
+  - devx-track-bicep
+  - build-2025
 ms.author: karler
 ms.date: 08/28/2024
 ---

@@ -4,6 +4,7 @@ ms.topic: include
 ms.date: 07/07/2022
 author: akashdubey-ms
 ms.author: akashdubey
+# Customer intent: "As a cloud administrator, I want to query storage accounts based on specific case-insensitive or case-sensitive tags, so that I can efficiently manage and locate resources in my environment."
 ---
 
 ### Find storage accounts with a specific case-insensitive tag on the resource group

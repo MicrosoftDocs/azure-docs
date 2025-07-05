@@ -3,9 +3,9 @@ title: Built-in policy definitions for Azure RBAC
 description: Lists Azure Policy built-in policy definitions for Azure RBAC. These built-in policy definitions provide common approaches to managing your Azure resources.
 ms.date: 02/06/2024
 ms.topic: reference
-author: rolyon
-manager: femila
-ms.author: rolyon
+author: jenniferf-skc
+manager: pmwongera
+ms.author: jfields
 ms.service: role-based-access-control
 ms.custom: subject-policy-reference
 ---
@@ -21,7 +21,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure RBAC
 
-[!INCLUDE [azure-policy-reference-rp-authorization](../../includes/policy/reference/byrp/microsoft.authorization.md)]
+[!INCLUDE [azure-policy-reference-rp-authorization](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.authorization.md)]
 
 ## Next steps
 

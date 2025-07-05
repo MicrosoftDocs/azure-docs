@@ -6,9 +6,11 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 04/17/2025
+ms.date: 06/16/2025
 ms.author: danlep
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - build-2025
 ---
 
 # Capacity of an Azure API Management instance
@@ -39,6 +41,9 @@ In the v2 tiers, the following metrics are available:
 * **CPU Percentage of Gateway** - The percentage of CPU capacity used by the gateway units.
 
 * **Memory Percentage of Gateway** - The percentage of memory capacity used by the gateway units.
+
+    > [!NOTE]
+    > Currently, the Memory Percentage of Gateway metric isn't supported in the Premium v2 tier.
 
 Available aggregations for these metrics are as follows.
 

@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: subject-policy-compliancecontrols
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a compliance officer, I want to utilize built-in policy definitions for Azure Backup, so that I can ensure my organization meets regulatory compliance standards efficiently.
 ---
 # Azure Policy Regulatory Compliance controls for Azure Backup
 
@@ -20,7 +21,7 @@ the specific standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-backup](../../includes/policy/standards/byrp/microsoft.recoveryservices.md)]
+[!INCLUDE [azure-policy-compliancecontrols-backup](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.recoveryservices.md)]
 
 ## Next steps
 

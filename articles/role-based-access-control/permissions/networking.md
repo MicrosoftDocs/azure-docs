@@ -3,10 +3,10 @@ title: Azure permissions for Networking - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Networking category.
 ms.service: role-based-access-control
 ms.topic: generated-reference
-author: rolyon
-manager: femila
-ms.author: rolyon
-ms.date: 04/25/2025
+author: jenniferf-skc
+manager: pmwongera
+ms.author: jfields
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -425,7 +425,6 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/checkTrafficManagerNameAvailability/action | Checks the availability of a Traffic Manager Relative DNS name. |
 > | Microsoft.Network/internalNotify/action | DNS alias resource notification |
 > | Microsoft.Network/getDnsResourceReference/action | DNS alias resource dependency request |
-> | Microsoft.Network/queryExpressRoutePortsBandwidth/action | Queries ExpressRoute Ports Bandwidth |
 > | Microsoft.Network/checkFrontDoorNameAvailability/action | Checks whether a Front Door name is available |
 > | Microsoft.Network/privateDnsZonesInternal/action | Executes Private DNS Zones Internal APIs |
 > | Microsoft.Network/adminNetworkSecurityGroups/read | Gets Admin Network Security Group |
@@ -445,6 +444,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/applicationGateways/getListenerCertificateMetadata/action | Gets an application gateway listener certificate metadata |
 > | Microsoft.Network/applicationGateways/prepareMigration/action | Prepare application gateway migration |
 > | Microsoft.Network/applicationGateways/executeMigration/action | Execute application gateway migration |
+> | Microsoft.Network/applicationGateways/v1tov2Migration/action | Application Gateway V1 to V2 Migration Operation |
 > | Microsoft.Network/applicationGateways/commitMigration/action | Commit application gateway migration |
 > | Microsoft.Network/applicationGateways/resolvePrivateLinkServiceId/action | Resolves privateLinkServiceId for application gateway private link resource |
 > | Microsoft.Network/applicationGateways/start/action | Starts an application gateway |
@@ -735,9 +735,6 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/write | Creates or updates a Web Application Firewall Policy |
 > | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/delete | Deletes a Web Application Firewall Policy |
 > | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/join/action | Joins a Web Application Firewall Policy. Not Alertable. |
-> | Microsoft.Network/gatewayLoadBalancerAliases/write | Creates a Gateway LoadBalancer Alias Or Updates An Existing Gateway LoadBalancer Alias |
-> | Microsoft.Network/gatewayLoadBalancerAliases/delete | Delete Gateway LoadBalancer Alias |
-> | Microsoft.Network/gatewayLoadBalancerAliases/read | Get a Gateway LoadBalancer Alias definition |
 > | Microsoft.Network/internalPublicIpAddresses/read | Returns internal public IP addresses in subscription |
 > | Microsoft.Network/ipAllocations/read | Get The IpAllocation |
 > | Microsoft.Network/ipAllocations/write | Creates A IpAllocation Or Updates An Existing IpAllocation |
@@ -1020,6 +1017,8 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/networkVirtualAppliances/write | Create or update a Network Virtual Appliance |
 > | Microsoft.Network/networkVirtualAppliances/getDelegatedSubnets/action | Get Network Virtual Appliance delegated subnets |
 > | Microsoft.Network/networkVirtualAppliances/restart/action | Restart Network Virtual Appliance |
+> | Microsoft.Network/networkVirtualAppliances/getBootDiagnosticLogs/action | Get Network Virtual Appliance Boot Diagnostic Logs |
+> | Microsoft.Network/networkVirtualAppliances/reimage/action | Reimage Network Virtual Appliance |
 > | Microsoft.Network/networkVirtualAppliances/inboundSecurityRules/read | Get a InboundSecurityRule |
 > | Microsoft.Network/networkVirtualAppliances/inboundSecurityRules/write | Create or update a InboundSecurityRule |
 > | Microsoft.Network/networkVirtualAppliances/inboundSecurityRules/delete | Delete a InboundSecurityRule |
@@ -1043,6 +1042,10 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/networkWatchers/connectivityCheck/action | Verifies the possibility of establishing a direct TCP connection from a virtual machine to a given endpoint including another VM or an arbitrary remote server. |
 > | Microsoft.Network/networkWatchers/azureReachabilityReport/action | Returns the relative latency score for internet service providers from a specified location to Azure regions. |
 > | Microsoft.Network/networkWatchers/availableProvidersList/action | Returns all available internet service providers for a specified Azure region. |
+> | Microsoft.Network/networkWatchers/connectionAnalyzers/read | Get Connection Analyzer details |
+> | Microsoft.Network/networkWatchers/connectionAnalyzers/write | Creates a Connection Analyzer |
+> | Microsoft.Network/networkWatchers/connectionAnalyzers/delete | Deletes a Connection Analyzer |
+> | Microsoft.Network/networkWatchers/connectionAnalyzers/queryStatus/action | Query status and details of Connection Analyzer |
 > | Microsoft.Network/networkWatchers/connectionMonitors/start/action | Start monitoring connectivity between specified endpoints |
 > | Microsoft.Network/networkWatchers/connectionMonitors/stop/action | Stop/pause monitoring connectivity between specified endpoints |
 > | Microsoft.Network/networkWatchers/connectionMonitors/query/action | Query monitoring connectivity between specified endpoints |

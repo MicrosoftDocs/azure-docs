@@ -4,10 +4,10 @@ description: This article lists the Azure built-in roles for Azure role-based ac
 ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
-author: rolyon
-manager: femila
-ms.author: rolyon
-ms.date: 04/25/2025
+author: jenniferf-skc
+manager: pmwongera
+ms.author: jfields
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -868,6 +868,10 @@ Can onboard Azure Connected Machines.
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/gateways/read | Reads any Azure Arc gateways |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/privateLinkScopes/read | Read any Azure Arc privateLinkScopes |
 > | [Microsoft.GuestConfiguration](../permissions/management-and-governance.md#microsoftguestconfiguration)/guestConfigurationAssignments/read | Get guest configuration assignment. |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/dataCollectionRuleAssociations/write | Create or update a resource's association with a data collection rule |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/dataCollectionRuleAssociations/delete | Delete a resource's association with a data collection rule |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/dataCollectionRuleAssociations/read | Read a resource's association with a data collection rule |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/addExtensions/action | Setup Extensions on Azure Arc machines |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -892,7 +896,11 @@ Can onboard Azure Connected Machines.
         "Microsoft.HybridCompute/settings/write",
         "Microsoft.HybridCompute/gateways/read",
         "Microsoft.HybridCompute/privateLinkScopes/read",
-        "Microsoft.GuestConfiguration/guestConfigurationAssignments/read"
+        "Microsoft.GuestConfiguration/guestConfigurationAssignments/read",
+        "Microsoft.Insights/dataCollectionRuleAssociations/write",
+        "Microsoft.Insights/dataCollectionRuleAssociations/delete",
+        "Microsoft.Insights/dataCollectionRuleAssociations/read",
+        "Microsoft.HybridCompute/machines/addExtensions/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -1573,7 +1581,9 @@ Lets you read and perform actions on Managed Application resources
 
 Allows the publisher to read resources in the managed resource group for Managed Application and request JIT access for additional operations. This role is only used by the Managed Application service to provide access to publishers.
 
-This role was previously named Managed Applications Reader. [!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
+This role was previously named Managed Applications Reader. 
+
+[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

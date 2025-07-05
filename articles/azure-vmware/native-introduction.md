@@ -4,9 +4,12 @@ description: Learn about Azure VMware Solution Gen 2 private clouds.
 ms.topic: overview
 ms.service: azure-vmware
 ms.date: 4/22/2025
-ms.custom: engagement-fy25
+ms.custom:
+  - engagement-fy25
+  - build-2025
 ms.author: jacobjaygbay
 # customer intent: As a cloud administrator, I want to learn about Azure VMware Solution Gen 2 private clouds so that I can understand the features and benefits of this offering.
+# Customer intent: As a cloud administrator, I want to understand the features and benefits of Azure VMware Solution Generation 2 private clouds so that I can make informed decisions about deploying and managing cost-effective, secure, and high-performance cloud architectures in Azure.
 ---
 
 # Introduction to Azure VMware Solution Generation 2 Private Clouds (preview) 
@@ -21,7 +24,7 @@ The following table summarizes the differences between Gen 1 and Gen 2 private c
 
 | Feature               | Azure VMware Solution Gen 1 private clouds    | Azure VMware Solution Gen 2 private clouds       |
 |-----------------------|-----------------------------------------------|--------------------------------------------------|
-| Supported SKU type    | <ul><li>AV36, AV36P, AV52, AV48</li><li>AV64 (with seed cluster of at least three AV36, AV36P, AV48, or AV52 nodes)</li></ul>| <ul><li>Minimum 3-host AV64 cluste</li></ul>r|
+| Supported SKU type    | <ul><li>AV36, AV36P, AV52, AV48</li><li>AV64 (with seed cluster of at least three AV36, AV36P, AV48, or AV52 nodes)</li></ul>| <ul><li>Minimum 3-host AV64 cluster</li></ul>|
 | Network Attach Model  | <ul><li>ExpressRoute</li></ul>                | <ul><li>Virtual Network</li></ul>                |
 
 ## Benefits

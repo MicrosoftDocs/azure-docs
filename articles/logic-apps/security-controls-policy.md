@@ -17,7 +17,7 @@ with the specific standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-logicapps](../../includes/policy/standards/byrp/microsoft.logic.md)]
+[!INCLUDE [azure-policy-compliancecontrols-logicapps](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.logic.md)]
 
 ## Next steps
 

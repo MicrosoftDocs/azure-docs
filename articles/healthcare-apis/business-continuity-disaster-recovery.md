@@ -7,7 +7,7 @@ ms.author: ounyman
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.custom: subject-policy-compliancecontrols
-ms.date: 09/07/2023
+ms.date: 06/02/2025
 ---
 # Business continuity and disaster recovery considerations
 

@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: engagement-fy24
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to troubleshoot monitoring issues for Azure Backup, so that I can ensure that jobs and alerts are properly reported and managed in the Azure portal."
 ---
 
 # Troubleshoot monitoring issues for Azure Backup

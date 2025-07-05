@@ -27,7 +27,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure Spring Apps
 
-[!INCLUDE [azure-policy-reference-service-spring-cloud](../../../includes/policy/reference/byrp/microsoft.appplatform.md)]
+[!INCLUDE [azure-policy-reference-service-spring-cloud](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.appplatform.md)]
 
 ## Next steps
 
