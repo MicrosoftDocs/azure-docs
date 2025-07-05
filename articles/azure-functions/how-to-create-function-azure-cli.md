@@ -184,17 +184,29 @@ In Azure Functions, a function project is a container for one or more individual
 
 To enable the Functions host to connect to the default storage account using shared secrets, you must replace the `AzureWebJobsStorage` connection string setting with a complex setting, prefixed with `AzureWebJobsStorage`, that uses the user-assigned managed identity to connect to the storage account.
 
-1. Remove the existing `AzureWebJobsStorage` connection string setting:
-
-    :::code language="azurecli" source="~/azure_cli_scripts/azure-functions/create-function-app-flex-plan-identities/create-function-app-flex-plan-identities.md" range="52" :::
-
-    The [az functionapp config appsettings delete](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-delete) command removes this setting from your app.
-
-1. Add equivalent settings, with an `AzureWebJobsStorage__` prefix, that define a user-assigned managed identity connection to the default storage account:
+1. Use this script to get the client ID of the user-assigned managed identity, and with it define a managed identity connections to storage and Application Insights:
  
-    :::code language="azurecli" source="~/azure_cli_scripts/azure-functions/create-function-app-flex-plan-identities/create-function-app-flex-plan-identities.md" range="47-51" :::
+    ```azurecli
+    clientId=$(az identity show --name func-host-storage-user \
+        --resource-group AzureFunctionsQuickstart-rg --query 'clientId' -o tsv)
+    az functionapp config appsettings set --name <APP_NAME> --resource-group "AzureFunctionsQuickstart-rg" \
+        --settings AzureWebJobsStorage__accountName=<STORAGE_NAME> \
+        AzureWebJobsStorage__credential=managedidentity AzureWebJobsStorage__clientId=$clientId \
+        APPLICATIONINSIGHTS_AUTHENTICATION_STRING="ClientId=$clientId;Authorization=AAD"
+    ```
+
+    In this script, replace `<APP_NAME>` and `<STORAGE_NAME>` with the names of your function app and storage account, respectively.
      
-At this point, the Functions host is able to connect to the storage account securely using managed identities. You can now deploy your project code to the Azure resources.
+
+1. Run the [az functionapp config appsettings delete](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-delete) command to remove the existing `AzureWebJobsStorage` connection string setting, which contains a shared secret key:
+
+    ```azurecli
+    az functionapp config appsettings delete --name <APP_NAME> --resource-group "AzureFunctionsQuickstart-rg" --setting-names AzureWebJobsStorage
+    ```
+
+    In this example, replace `<APP_NAME>` with the names of your function app. 
+
+At this point, the Functions host is able to connect to the storage account securely using managed identities instead of shared secrets. You can now deploy your project code to the Azure resources.
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 
