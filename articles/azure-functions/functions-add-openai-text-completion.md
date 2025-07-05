@@ -95,7 +95,10 @@ Use these steps to grant access in your new Azure OpenAI resource to these ident
 
 1. Select **Add** > **Add role assignment**.
 
-1. On the **Role** tab on the next screen, search for and select **Cognitive Services OpenAI User** and then select **Next**.
+1. On the **Role** tab on the next screen, search for and select these two roles and then select **Next**:
+
+    + **Cognitive Services OpenAI User**
+    + **Azure AI User**
 
 1. On the **Members** tab, select **Assign access to** > **Managed identity** then **Select members**.
 
@@ -107,11 +110,11 @@ Use these steps to grant access in your new Azure OpenAI resource to these ident
 
 1. Choose your Azure account used during local development and then **Select** > **Review + assign**.
 
-1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+1. On the **Review + assign** tab, select **Review + assign** to assign the users to the roles.
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Use the [`az role assignment create`](/cli/azure/role/assignment#az-role-assignment-create) command to add your user-assigned managed identity to the `Cognitive Services OpenAI User` role:
+1. Use the [`az role assignment create`](/cli/azure/role/assignment#az-role-assignment-create) command to add your user-assigned managed identity to the `Cognitive Services OpenAI User` and `Azure AI User` roles:
 
     ```azurecli
     # Get the principal ID for the user-assigned managed identity.
@@ -120,14 +123,16 @@ Use these steps to grant access in your new Azure OpenAI resource to these ident
     # Get the fully-qualified ID of the Azure OpenAI resource.
     openaiId=$(az cognitiveservices account show --name `<OPENAI_RESOURCE_NAME>` \
         --resource-group `<RESOURCE_GROUP>` --query "id" --output tsv)
-    # Create the role assignment.
+    # Create the role assignments.
     az role assignment create --assignee $principalId \
         --role "Cognitive Services OpenAI User" --scope $openaiId
+    az role assignment create --assignee $principalId \
+        --role "Azure AI User" --scope $openaiId
     ```
 
     In these commands, replace `<OPENAI_RESOURCE_NAME>` with the name of your new Azure OpenAI resource and `<RESOURCE_GROUP>` the resource group. The [`az identity show`](/cli/azure/identity#az-identity-show) and [`az cognitiveservices account show`](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-show) commands are used to obtain the principal ID of the user-assigned managed identity and the fully-qualified ID of the Azure OpenAI resource, respectively.
 
-1. Use the [`az role assignment create`](/cli/azure/role/assignment#az-role-assignment-create) command again to create the same role assignment for your Azure account, so you can connect during local development:
+1. Use the [`az role assignment create`](/cli/azure/role/assignment#az-role-assignment-create) command again to create the same role assignments for your Azure account, so you can connect during local development:
 
     ```azurecli
     # Get your current Azure account ID.
@@ -135,6 +140,8 @@ Use these steps to grant access in your new Azure OpenAI resource to these ident
     # Add your current Azure account to the 'Cognitive Services OpenAI User' role.
     az role assignment create --assignee $accountId \
         --role "Cognitive Services OpenAI User" --scope $openaiId
+    az role assignment create --assignee $accountId \
+        --role "Azure AI User" --scope $openaiId
     ```
 
     The [`az ad signed-in-user show`](/cli/azure/ad/signed-in-user#az-ad-signed-in-user-show) command is used to obtain your Azure account ID. This code reuses `$openaiId` from the previous step, which is the fully-qualified ID of the Azure OpenAI resource .   
@@ -361,17 +368,15 @@ You can add these settings in one of these ways:
 
 1. In the **App settings** tab, select **+ Add**, and then enter the **Name** and **Value** of the new key-value pair, and select **Apply**.
 
-1. Repeat the previous step to add all of the required settings, and then select **Apply**.
+1. Repeat the previous step to add all of the required settings, and then select **Apply** > **Confirm**.
 
 ### [Azure CLI](#tab/azure-cli)
 
 The [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command adds or updates application settings in your function app.
 
 ```azurecli-interactive
-az functionapp config appsettings set \
-  --name <APP_NAME> \
-  --resource-group <RESOURCE_GROUP_NAME> \
-  --settings \
+az functionapp config appsettings set --name <APP_NAME> \
+  --resource-group <RESOURCE_GROUP_NAME> --settings \
     AzureOpenAI__endpoint=https://<OPENAI_RESOURCE_NAME>.search.windows.net \
     AzureOpenAI__credential=managedidentity \
     AzureOpenAI__managedIdentityResourceId=<USER_RESOURCE_ID> \
