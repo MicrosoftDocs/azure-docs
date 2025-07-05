@@ -17,7 +17,32 @@
         },
         {
             "source_path_from_root": "/articles/azure-functions/create-first-function-cli-csharp.md",
-            "redirect_url": "/azure/azure-functions/how-to-create-function-azure-cli?pivot=programming-language-csharp",
+            "redirect_url": "/azure/azure-functions/how-to-create-function-azure-cli?pivots=programming-language-csharp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/create-first-function-cli-java.md",
+            "redirect_url": "/azure/azure-functions/how-to-create-function-azure-cli?pivots=programming-language-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/create-first-function-cli-javascript.md",
+            "redirect_url": "/azure/azure-functions/how-to-create-function-azure-cli?pivots=programming-language-javascript",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/create-first-function-cli-powershell.md",
+            "redirect_url": "/azure/azure-functions/how-to-create-function-azure-cli?pivots=programming-language-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/create-first-function-cli-python.md",
+            "redirect_url": "/azure/azure-functions/how-to-create-function-azure-cli?pivots=programming-language-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/create-first-function-cli-typescript.md",
+            "redirect_url": "/azure/azure-functions/how-to-create-function-azure-cli?pivots=programming-language-typescript",
             "redirect_document_id": false
         } 
     ]
