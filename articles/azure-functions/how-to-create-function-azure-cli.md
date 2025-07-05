@@ -17,6 +17,8 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 Before you begin, you must have the following:
 
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
 [!INCLUDE [functions-requirements-azure-cli](../../includes/functions-requirements-azure-cli.md)]
 
 + The [`jq` command line JSON processor](https://jqlang.org/download/), used to parse JSON output, and is also available in Azure Cloud Shell.
@@ -29,31 +31,41 @@ In Azure Functions, a function project is a container for one or more individual
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 1. In a terminal or command prompt, run this [`func init`](./functions-core-tools-reference.md#func-init) command to create a function app project in the current folder:  
 ::: zone-end  
-::: zone pivot="programming-language-csharp"  
+::: zone pivot="programming-language-csharp" 
+ 
     ```console
     func init --worker-runtime dotnet-isolated 
     ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-javascript"  
+
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+
     ```console
     func init --worker-runtime node --language javascript 
     ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-powershell"  
+
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
+
     ```console
     func init --worker-runtime powershell 
     ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-python"  
+
+::: zone-end  
+::: zone pivot="programming-language-python"  
+
     ```console
     func init --worker-runtime python 
     ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-typescript"  
+
+::: zone-end  
+::: zone pivot="programming-language-typescript" 
+ 
     ```console
     func init --worker-runtime node --language typescript 
     ```
-    ::: zone-end
+
+::: zone-end
 ::: zone pivot="programming-language-java"
 <!--- The Maven archetype requires it's own create flow...-->  
 1. In an empty folder, run this `mvn` command to generate the code project from an Azure Functions [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html):
@@ -105,7 +117,9 @@ In Azure Functions, a function project is a container for one or more individual
 ::: zone-end  
 
     The project root folder contains various files for the project, including configurations files named [local.settings.json](functions-develop-local.md#local-settings-file) and [host.json](functions-host-json.md). Because _local.settings.json_ can contain secrets downloaded from Azure, the file is excluded from source control by default in the _.gitignore_ file.
-    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
+
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
+
 2. Use this `func new` command to add a function to your project:
 
     ```console

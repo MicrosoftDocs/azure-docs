@@ -148,7 +148,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
 
     + `<STORAGE_NAME>`: the name of the account you used in the previous step.
     + `<REGION>`: your region. 
-    + `<APP_NAME>`: a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app.
+    + `<APP_NAME>`: a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS     domain for the function app.
     + `<USER_NAME>`: the name of the user-assigned managed identity.
     + `<LANGUAGE_VERSION>`: use the [supported language stack version](../articles/azure-functions/supported-languages.md) you verified locally.
 
