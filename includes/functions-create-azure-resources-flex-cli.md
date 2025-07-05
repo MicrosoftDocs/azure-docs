@@ -26,7 +26,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     az login
     ```
 
-    The [az login](/cli/azure/reference-index#az-login) command signs you into your Azure account.
+    The [`az login`](/cli/azure/reference-index#az-login) command signs you into your Azure account.
     <!---
     ### [Azure PowerShell](#tab/azure-powershell) 
     ```azurepowershell
@@ -80,7 +80,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     ---
     -->
 
-    In this example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](../articles/azure-functions/storage-considerations.md#storage-account-requirements). This new account can only be accessed by using Micrososft Entra-authenticated identities that have been granted permissions to specific resources. 
+    In this example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](../articles/azure-functions/storage-considerations.md#storage-account-requirements). This new account can only be accessed by using Microsoft Entra-authenticated identities that have been granted permissions to specific resources. 
 
 1. Create a user-assigned managed identity, then capture and parse the returned JSON properties of the object using `jq`: 
 
@@ -144,7 +144,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
 
     ---
     -->
-    In this example, replace these placholders:
+    In this example, replace these placeholders:
 
     + `<STORAGE_NAME>`: the name of the account you used in the previous step.
     + `<REGION>`: your region. 

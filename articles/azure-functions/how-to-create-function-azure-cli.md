@@ -27,7 +27,7 @@ Before you begin, you must have the following:
 
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-1. In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder:  
+1. In a terminal or command prompt, run this [`func init`](./functions-core-tools-reference.md#func-init) command to create a function app project in the current folder:  
 ::: zone-end  
     ::: zone pivot="programming-language-csharp"  
     ```console
@@ -157,7 +157,7 @@ In Azure Functions, a function project is a container for one or more individual
     </pre>
 
     >[!NOTE]
-    > If HttpExample doesn't appear as shown above, you likely started the host from outside the root folder of the project. In that case, use **Ctrl**+**C** to stop the host, navigate to the project's root folder, and run the previous command again.
+    > If the HttpExample endpoint doesn't appear as expected, you likely started the host from outside the root folder of the project. In that case, use **Ctrl**+**C** to stop the host, navigate to the project's root folder, and run the previous command again.
 
 1. Copy the URL of your `HttpExample` function from this output to a browser and browse to the function URL and you should receive success response with a "hello world" message.
 
@@ -179,7 +179,7 @@ To enable the Functions host to connect to the default storage account using sha
  
     :::code language="azurecli" source="~/azure_cli_scripts/azure-functions/create-function-app-flex-plan-identities/create-function-app-flex-plan-identities.md" range="47-51" :::
      
-At this point, the Functions host is able to connect to the storage account securely using managed identities. You can now deploy your project code to the Azure resources
+At this point, the Functions host is able to connect to the storage account securely using managed identities. You can now deploy your project code to the Azure resources.
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 

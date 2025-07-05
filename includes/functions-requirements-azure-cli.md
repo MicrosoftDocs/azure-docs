@@ -7,7 +7,7 @@
 ::: zone pivot="programming-language-java"  
 + [Java 17 Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure)
     + If you use another [supported version of Java](../articles/azure-functions/supported-languages.md?pivots=programming-language-java#languages-by-runtime-version), you must update the project's pom.xml file. 
-    + The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK.
+    + The `JAVA_HOME` environment variable must be set to the install location of the correct version of the Java Development Kit (JDK).
 + [Apache Maven 3.8.x](https://maven.apache.org)  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
