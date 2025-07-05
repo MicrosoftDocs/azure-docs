@@ -29,32 +29,31 @@ In Azure Functions, a function project is a container for one or more individual
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 1. In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder:  
 ::: zone-end  
-::: zone pivot="programming-language-csharp"  
-
+    ::: zone pivot="programming-language-csharp"  
     ```console
     func init --worker-runtime dotnet-isolated 
     ```
-::: zone-end  
-::: zone pivot="programming-language-javascript"  
+    ::: zone-end  
+    ::: zone pivot="programming-language-javascript"  
     ```console
     func init --worker-runtime node --language javascript 
     ```
-::: zone-end  
-::: zone pivot="programming-language-powershell"  
+    ::: zone-end  
+    ::: zone pivot="programming-language-powershell"  
     ```console
     func init --worker-runtime powershell 
     ```
-::: zone-end  
-::: zone pivot="programming-language-python"  
+    ::: zone-end  
+    ::: zone pivot="programming-language-python"  
     ```console
     func init --worker-runtime python 
     ```
-::: zone-end  
-::: zone pivot="programming-language-typescript"  
+    ::: zone-end  
+    ::: zone pivot="programming-language-typescript"  
     ```console
     func init --worker-runtime node --language typescript 
     ```
-::: zone-end
+    ::: zone-end
 ::: zone pivot="programming-language-java"
 <!--- The Maven archetype requires it's own create flow...-->  
 1. In an empty folder, run this `mvn` command to generate the code project from an Azure Functions [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html):
@@ -103,11 +102,9 @@ In Azure Functions, a function project is a container for one or more individual
     ```console
     cd fabrikam-functions
     ```
-::: zone-end  
-
+    ::: zone-end  
     The project root folder contains various files for the project, including configurations files named [local.settings.json](functions-develop-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
-
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
+    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
 2. Use this `func new` command to add a function to your project:
 
     ```console
