@@ -686,9 +686,9 @@ Azure service: [Azure Communication Services](/azure/communication-services/over
 > | Microsoft.Communication/CommunicationServices/EventGridFilters/Read | Reads EventGrid filters on communication services |
 > | Microsoft.Communication/CommunicationServices/EventGridFilters/Write | Writes EventGrid filters on communication services |
 > | Microsoft.Communication/CommunicationServices/EventGridFilters/Delete | Removes an EventGrid filter on communication services |
-> | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterAssociationProxies/write | Write Network Security Perimeter Assocation |
-> | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterAssociationProxies/read | Read Network Security Perimeter Assocation |
-> | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterAssociationProxies/delete | Delete Network Security Perimeter Assocation |
+> | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterAssociationProxies/write | Write Network Security Perimeter Association |
+> | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterAssociationProxies/read | Read Network Security Perimeter Association |
+> | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterAssociationProxies/delete | Delete Network Security Perimeter Association |
 > | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterConfigurations/read | Read Network Security Perimeter Configuration |
 > | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterConfigurations/reconcile/action | Refresh a Network Security Perimeter Configuration |
 > | Microsoft.Communication/CommunicationServices/SmtpUsernames/read | Get an SMTP username resource. |
