@@ -58,7 +58,7 @@ For more information, see the [Azure Backup components table](../../backup/backu
 Microsoft Entra ID also includes a full suite of [identity management capabilities](./identity-management-overview.md#security-monitoring-alerts-and-machine-learning-based-reports), including these:
 
 - [Multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
-- [Self-service password management](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
+- [Self-service password management](/shows/azure/how-to-configure-self-service-password-reset-users-in-windows-azure-ad)
 - [Self-service group management](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e)
 - [Privileged account management](../../active-directory/privileged-identity-management/pim-configure.md)
 - [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md)
