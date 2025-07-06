@@ -1,5 +1,5 @@
 ---  
-title: Create and manage Jupyter notebook jobs (Preview)
+title: Create and manage Jupyter notebook jobs (preview)
 titleSuffix: Microsoft Security  
 description: This article describes how to explore and interact with lake data using Spark notebooks in Visual Studio Code.
 author: EdB-MSFT  
@@ -12,13 +12,13 @@ ms.date: 06/04/2025
 # Customer intent: As a security engineer or data scientist, I want to explore and analyze security data in the Microsoft Sentinel data lake using Jupyter notebooks, so that I can gain insights and build advanced analytics solutions.
 ---
 
-# Create and manage Jupyter notebook jobs (Preview)
+# Create and manage Jupyter notebook jobs (preview)
  
 You can create schedule jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake. Jobs are also used to process data and write results to custom tables in the lake tier or analytics tier.  
 
 ## Permissions
 
-Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To create and schedule jobs, read tables across all workspaces, write to the analytics and lake tiers, you must have one of the supported Microsoft Entra ID roles. For more information on roles and permissions, see [Roles and permissions in Microsoft Sentinel](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
+Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To create and schedule jobs, read tables across all workspaces, write to the analytics and lake tiers, you must have one of the supported Microsoft Entra ID roles. For more information on roles and permissions, see [Roles and permissions in Microsoft Sentinel](https://aka.ms/sentinel-data-lake-roles).
 
 
 ## Create and schedule a job
@@ -98,11 +98,11 @@ The page shows a list of jobs and their types. Select a notebook job to view its
 
 [!include](../includes/service-limits-notebooks.md)
 
-For information on troubleshooting, see [Run notebooks on the Microsoft Sentinel data lake (Preview)](notebooks.md#service-limits).
+For information on troubleshooting, see [Run notebooks on the Microsoft Sentinel data lake (preview)](notebooks.md#service-limits).
 
 ## Related content
 
-- [Sample notebooks for Microsoft Sentinel data lake (Preview)](./notebook-examples.md)
-- [Microsoft Sentinel Provider class reference (Preview)](./sentinel-provider-class-reference.md)
-- [Microsoft Sentinel data lake overview (Preview)](./sentinel-lake-overview.md)
-- [Roles and permissions in Microsoft Sentinel](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
+- [Sample notebooks for Microsoft Sentinel data lake (preview)](./notebook-examples.md)
+- [Microsoft Sentinel Provider class reference (preview)](./sentinel-provider-class-reference.md)
+- [Microsoft Sentinel data lake overview (preview)](./sentinel-lake-overview.md)
+- [Roles and permissions in Microsoft Sentinel](https://aka.ms/sentinel-data-lake-roles).

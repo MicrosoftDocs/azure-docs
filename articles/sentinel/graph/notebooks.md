@@ -37,7 +37,7 @@ Before you can use the Microsoft Sentinel extension for Visual Studio Code, you 
 
 ### Permissions
 
-Microsoft Entra ID roles provide broad access across all workspaces in the data lake. Alternatively you can grant access to individual workspaces using Azure RBAC roles. Users with Azure RBAC permissions to Microsoft Sentinel workspaces can run notebooks against those workspaces in the lake tier. For more information, see [Roles and permissions in Microsoft Sentinel](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
+Microsoft Entra ID roles provide broad access across all workspaces in the data lake. Alternatively you can grant access to individual workspaces using Azure RBAC roles. Users with Azure RBAC permissions to Microsoft Sentinel workspaces can run notebooks against those workspaces in the lake tier. For more information, see [Roles and permissions in Microsoft Sentinel](https://aka.ms/sentinel-data-lake-roles).
 
 ### Install Visual Studio Code and the Microsoft Sentinel extenstion
   
@@ -170,7 +170,7 @@ Logs can be viewed in the **Output** pane of Visual Studio Code.
 
 You can schedule jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake. Jobs are also used to process data and write results to custom tables in the lake tier or analytics tier. For more information on creating and managing jobs, see [Create and manage Jupyter notebook jobs](./notebook-jobs.md).
 
- 
+## Service limits
 [!INCLUDE [service-limits-notebooks](../includes/service-limits-notebooks.md)]  
 
 
@@ -208,4 +208,4 @@ The following table lists common errors you may encounter when working with note
 - [Sample notebooks for Microsoft Sentinel data lake](./notebook-examples.md)
 - [Microsoft Sentinel Provider class reference](./sentinel-provider-class-reference.md)
 - [Microsoft Sentinel data lake overview](./sentinel-lake-overview.md)
-- [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
+- [Microsoft Sentinel data lake roles and permissions](https://aka.ms/sentinel-data-lake-roles).
