@@ -96,7 +96,7 @@ The page shows a list of jobs and their types. Select a notebook job to view its
 
 ## Service limits and troubleshooting
 
-[!include](../includes/service-limits-notebooks.md)
+[!INCLUDE[service-limits-notebooks] (../includes/service-limits-notebooks.md)]
 
 For information on troubleshooting, see [Run notebooks on the Microsoft Sentinel data lake (preview)](notebooks.md#service-limits).
 
