@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.date: 01/13/2025
 ms.author: jsuri
 
+# Customer intent: As an IT administrator, I want to set up disaster recovery for Azure virtual machines in an Extended Zone using PowerShell, so that I can ensure business continuity by replicating workloads and managing failovers effectively during outages.
 ---
 
 # Replicate virtual machines running in an Azure Extended Zone to an Azure region

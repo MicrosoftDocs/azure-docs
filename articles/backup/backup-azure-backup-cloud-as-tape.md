@@ -7,6 +7,7 @@ ms.date: 12/24/2024
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: "As an IT administrator looking to transition from tape storage, I want to implement Azure Backup for my long-term retention needs, so that I can ensure reliable and flexible data backup and recovery while reducing dependency on physical tape infrastructure."
 ---
 
 # Move your long-term storage from tape to the Azure cloud

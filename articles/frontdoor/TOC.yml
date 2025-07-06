@@ -6,10 +6,12 @@
     href: front-door-overview.md
   - name: Front Door and CDN comparison
     href: front-door-cdn-comparison.md
-  - name: Well-Architected review of Front Door
+  - name: Architecture best practices for Azure Front Door
     href: /azure/well-architected/service-guides/azure-front-door?toc=/azure/frontdoor/toc.json
   - name: Front Door best practices
     href: best-practices.md
+  - name: What is load balancing and content delivery?
+    href: /azure/networking/load-balancer-content-delivery/load-balancing-content-delivery-overview?toc=/azure/frontdoor/TOC.json
   - name: Choosing the right load balancer
     href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/frontdoor/toc.json
   - name: FAQ
@@ -113,12 +115,8 @@
       items:
       - name: Connect to an internal load balancer
         href: standard-premium/how-to-enable-private-link-internal-load-balancer.md
-      - name: Connect to Azure Storage Account
-        items:
-        - name: Azure portal
-          href: standard-premium/how-to-enable-private-link-storage-account.md
-        - name: Azure CLI
-          href: standard-premium/how-to-enable-private-link-storage-account-cli.md
+      - name: Connect to Azure Storage account
+        href: standard-premium/how-to-enable-private-link-storage-account.md
       - name: Connect to Azure Storage static website
         href: how-to-enable-private-link-storage-static-website.md
       - name: Connect to Azure App Service

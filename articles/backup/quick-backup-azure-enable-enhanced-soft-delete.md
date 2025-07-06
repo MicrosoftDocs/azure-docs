@@ -6,6 +6,7 @@ ms.date: 03/27/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a data administrator, I want to enable enhanced soft delete for Azure Backup, so that I can protect my backup data from accidental or malicious deletion and ensure its recoverability."
 ---
 
 # Quickstart: Enable enhanced soft delete in Azure Backup

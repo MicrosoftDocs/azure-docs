@@ -1,123 +1,143 @@
 ---
 title: Azure Functions reliable event processing
-description: Avoid missing Event Hub messages in Azure Functions
-ms.topic: conceptual
-ms.date: 10/01/2020
+description: Learn how to use Azure Event Hubs with Azure Functions to reliably process real-time streaming events at scale, including error-handling and circuit breaker patterns.
+ms.topic: concept-article
+ms.date: 06/12/2025
+ai-usage: ai-assisted
+
+#customer intent: As a developer, I want to understand how Azure Functions works with Azure Event Hubs to consume and process event streams in a world of IoT devices, despite transient failures and potential downstream outages.
 ---
 
-# Azure Functions reliable event processing
+# Reliable event processing with Azure Functions and Event Hubs
 
-Event processing is one of the most common scenarios associated with serverless architecture. This article describes how to create a reliable message processor with Azure Functions to avoid losing messages.
+Learn how to build robust, reliable serverless solutions using Azure Functions with Azure Event Hubs triggers. This article covers best practices for checkpoints, error handling, and implementing circuit breaker patterns to ensure no events are lost and your event-driven applications remain stable and resilient.
 
 ## Challenges of event streams in distributed systems
 
-Consider a system that sends events at a constant rate  of 100 events per second. At this rate, within minutes multiple parallel Functions instances can consume the incoming 100 events every second.
+Consider a system that sends events at a constant rate of 100 events per second. At this rate, within minutes multiple parallel instances can consume the incoming 100 events every second.
 
-However, any of the following less-optimal conditions are possible:
+However, consider these challenges to consuming an event stream:
 
-- What if the event publisher sends a corrupt event?
-- What if your Functions instance encounters unhandled exceptions?
-- What if a downstream system goes offline?
+- An event publisher sends a corrupt event.
+- Your function code encounters an unhandled exception.
+- A downstream system goes offline and blocks event processing.
 
-How do you handle these situations while preserving the throughput of your application?
+Unlike an Azure Queue storage trigger, which locks messages during processing, Azure Event Hubs reads, per partition, from a single point in the stream. This read behavior, which is more like a video player, provides the desired benefits of high-throughput, multiple consumer groups, and replay-ability. Events are read, forward or backward, from a checkpoint, but you must move the pointer to process new events. For more information, see [Checkpoint](../event-hubs/event-processor-balance-partition-load.md#checkpoint) in the Event Hubs documentation.
 
-With queues, reliable messaging comes naturally. When paired with a Functions trigger, the function creates a lock on the queue message. If processing fails, the lock is released to allow another instance to retry processing. Processing then continues until either the message is evaluated successfully, or it is added to a poison queue.
+When errors occur in a stream and you choose not to advance the pointer, further event processing is blocked. In other words, should you stop the pointer to deal with an issue processing a single event, the unprocessed events begin piling up.
 
-Even while a single queue message may remain in a retry cycle, other parallel executions continue to keep to dequeueing remaining messages. The result is that the overall throughput remains largely unaffected by one bad message. However, storage queues don’t guarantee ordering and aren’t optimized for the high throughput demands required by Event Hubs.
+Functions avoids deadlocks by always advancing the stream's pointer, regardless of success or failure. Because the pointer keeps advancing, your functions need to deal with failures appropriately.
 
-By contrast, Azure Event Hubs doesn't include a locking concept. To allow for features like high-throughput, multiple consumer groups, and replay-ability, Event Hubs events behave more like a video player. Events are read from a single point in the stream per partition. From the pointer you can read forwards or backwards from that location, but you have to choose to move the pointer for events to process.
+## How the Event Hubs trigger consumes events
 
-When errors occur in a stream, if you decide to keep the pointer in the same spot, event processing is blocked until the pointer is advanced. In other words, if the pointer is stopped to deal with problems processing a single event, the unprocessed events begin piling up.
-
-Azure Functions avoids deadlocks by advancing the stream's pointer regardless of success or failure. Since the pointer keeps advancing, your functions need to deal with failures appropriately.
-
-## How Azure Functions consumes Event Hubs events
-
-Azure Functions consumes Event Hub events while cycling through the following steps:
+Azure Functions consumes events from an event hub by cycling through the following steps:
 
 1. A pointer is created and persisted in Azure Storage for each partition of the event hub.
-2. When new messages are received (in a batch by default), the host attempts to trigger the function with the batch of messages.
-3. If the function completes execution (with or without exception) the pointer advances and a checkpoint is saved to the storage account.
-4. If conditions prevent the function execution from completing, the host fails to progress the pointer. If the pointer isn't advanced, then later checks end up processing the same messages.
-5. Repeat steps 2–4
+2. New events are received in a batch (by default), and the host tries to trigger the function supplying a the batch of events for processing.
+3. When the function completes execution, with or without exceptions, the pointer is advanced and a checkpoint is saved to the default host storage account.
+4. Should conditions prevent function execution from completing, the host can't advance the pointer. When the pointer can't advance, subsequent executions reprocess the same events.
 
 This behavior reveals a few important points:
 
-- *Unhandled exceptions may cause you to lose messages.* Executions that result in an exception will continue to progress the pointer.  Setting a [retry policy](./functions-bindings-error-pages.md#retry-policies) will delay progressing the pointer until the entire retry policy has been evaluated.
-- *Functions guarantees at-least-once delivery.* Your code and dependent systems may need to [account for the fact that the same message could be received twice](./functions-idempotent.md).
+- Unhandled exceptions might cause you to lose events:  
+
+    Function executions that raise an exception continue to progress the pointer. Setting a [retry policy](#retry-policies) or other retry logic delays advancing the pointer until the entire retry completes.
+
+- Functions guarantees _at-least-once_ delivery: 
+
+    Your code and dependent systems might need to account for the fact that the same event could be processed twice. For more information, see [Designing Azure Functions for identical input](functions-idempotent.md).
 
 ## Handling exceptions
 
-As a general rule, every function should include a [try/catch block](./functions-bindings-error-pages.md) at the highest level of code. Specifically, all functions that consume Event Hubs events should have a `catch` block. That way, when an exception is raised, the catch block handles the error before the pointer progresses.
+While all function code should include a [try/catch block](./functions-bindings-error-pages.md) at the highest level of code, having a `catch` block is even more important for functions that consume Event Hubs events. That way, when an exception is raised, the catch block handles the error before the pointer progresses.
 
-### Retry mechanisms and policies
+## Retry mechanisms and policies
 
-Some exceptions are transient in nature and don't reappear when an operation is attempted again moments later. This is why the first step is always to retry the operation.  You can leverage the function app [retry policies](./functions-bindings-error-pages.md#retry-policies) or author retry logic within the function execution.
+Because many exceptions in the cloud are transient, the first step in error handling is always to retry the operation. You can apply built-in retry policies or define your own retry logic.
 
-Introducing fault-handling behaviors to your functions allow you to define both basic and advanced retry policies. For instance, you could implement a policy that follows a workflow illustrated by the following rules:
+### Retry policies
 
-- Try to insert a message three times (potentially with a delay between retries).
-- If the eventual outcome of all retries is a failure, then add a message to a queue so processing can continue on the stream.
-- Corrupt or unprocessed messages are then handled later.
+Functions provides built-in retry policies for Event Hubs. When using retry policies, you simply raise a new exception and the host try to process the event again based on the defined policy. This retry behavior requires version 5.x or later of the Event Hubs extension. For more information, see [Retry policies](functions-bindings-error-pages.md#retry-policies). 
+
+### Custom retry logic
+
+You can also define your own retry logic in the function itself. For example, you could implement a policy that follows a workflow illustrated by the following rules:
+
+- Try to process an event three times (potentially with a delay between retries).
+- If the eventual outcome of all retries is a failure, then add an event to a queue so processing can continue on the stream.
+- Corrupt or unprocessed events are then handled later.
 
 > [!NOTE]
 > [Polly](https://github.com/App-vNext/Polly) is an example of a resilience and transient-fault-handling library for C# applications.
 
-## Non-exception errors
+## Nonexception errors
 
-Some issues arise even when an error is not present. For example, consider a failure that occurs in the middle of an execution. In this case, if a function doesn’t complete execution, the offset pointer is never progressed. If the pointer doesn't advance, then any instance that runs after a failed execution continues to read the same messages. This situation provides an "at-least-once" guarantee.
+Some issues can occur without an exception being raised. For example, consider a case where a request times out or the instance running the function crashes. When a function fails to complete without an exception, the offset pointer is never advanced. If the pointer doesn't advance, then any instance that runs after a failed execution continues to read the same events. This situation provides an _at-least-once_ guarantee.
 
-The assurance that every message is processed at least one time implies that some messages may be processed more than once. Your function apps need to be aware of this possibility and must be built around the [principles of idempotency](./functions-idempotent.md).
+The assurance that every event is processed at least one time implies that some events could be processed more than once. Your function apps need to be aware of this possibility and must be built around the [principles of idempotency](./functions-idempotent.md).
 
-## Stop and restart execution
+## Handling failure states
 
-While a few errors may be acceptable, what if your app experiences significant failures? You may want to stop triggering on events until the system reaches a healthy state. Having the opportunity to pause processing is often achieved with a circuit breaker pattern. The circuit breaker pattern allows your app to "break the circuit" of the event process and resume at a later time.
+Your app might be able to acceptably handle a few errors in event processing. However, you should also be prepared to handle persistent failure state, which might occur as a result of failures in downstream processing. In such a failure state, such as a downstream data store being offline, your function should stop triggering on events until the system reaches a healthy state. 
 
-There are two pieces required to implement a circuit breaker in an event process:
+### Circuit breaker pattern
 
-- Shared state across all instances to track and monitor health of the circuit
-- Master process that can manage the circuit state (open or closed)
+When you implement the _circuit breaker_ pattern, your app can effectively pause event processing and then resume it at a later time after issues are resolved. 
 
-Implementation details may vary, but to share state among instances you need a storage mechanism. You may choose to store state in Azure Storage, a Redis cache, or any other account that is accessible by a collection of functions.
+There are two components required to implement a circuit breaker in an event stream process:
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) or [durable functions](./durable/durable-functions-overview.md) are a natural fit to manage the workflow and circuit state. Other services may work just as well, but logic apps are used for this example. Using logic apps, you can pause and restart a function's execution giving you the control required to implement the circuit breaker pattern.
+- Shared state across all instances to track and monitor health of the circuit.
+- A primary process that can manage the circuit state, as either `open` or `closed`.
+
+Implementation details can vary, but to share state among instances you need a storage mechanism. You can store state in Azure Storage, a Redis cache, or any other persistent service that can be accessed by your function app instances.
+
+Both [Durable Functions](./durable/durable-functions-overview.md) and [Azure Logic Apps](../logic-apps/logic-apps-overview.md) provide infrastructure to manage workflows and circuit states. This article describes using Logic Apps to pause and restart function executions, giving you the control required to implement the circuit breaker pattern.
 
 ### Define a failure threshold across instances
 
-To account for multiple instances processing events simultaneously, persisting shared external state is needed to monitor the health of the circuit.
+Persisted shared external state is required to monitor the health of the circuit when multiple instances are processing events simultaneously. You can then monitor this persisted state based on rules that indicate a failure state, such as:
 
-A rule you may choose to implement might enforce that:
+>When there are more than 100 event failures within a 30-second period across all instances, break the circuit to stop triggering on new events.
 
-- If there are more than 100 eventual failures within 30 seconds across all instances, then break the circuit and stop triggering on new messages.
+The implementation details for this monitoring logic vary depending on your specific app needs, but in general you must create a system that:
 
-The implementation details will vary given your needs, but in general you can create a system that:
-
-1. Log failures to a storage account (Azure Storage, Redis, etc.)
-1. When new failure is logged, inspect the rolling count to see if the threshold is met (for example, more than 100 in last 30 seconds).
-1. If the threshold is met, emit an event to Azure Event Grid telling the system to break the circuit.
+1. Logs failures to persisted storage.
+1. Inspect the rolling count when new failures are logged to determine if the event failure threshold is met.
+1. When this threshold is met, emit an event telling the system to break the circuit.
 
 ### Managing circuit state with Azure Logic Apps
 
-The following description highlights one way you could create an Azure Logic App to halt a Functions app from processing.
+Azure Logic Apps comes with built-in connectors to different services, features, and stateful orchestrations, and it's a natural choice to manage circuit state. After detecting when a circuit must break, you can build a logic app to implement this workflow:
 
-Azure Logic Apps comes with built-in connectors to different services, features stateful orchestrations, and is a natural choice to manage circuit state. After detecting the circuit needs to break, you can build a logic app to implement the following workflow:
+1. Trigger an Event Grid workflow that stops the function processing. 
+1. Send a notification email that includes an option to restart the workflow.
 
-1. Trigger an Event Grid workflow and stop the Azure Function (with the Azure Resource connector)
-1. Send a notification email that includes an option to restart the workflow
+To learn how to disable and reenable specific functions using app settings, see [How to disable functions in Azure Functions](disable-function.md).  
 
-The email recipient can investigate the health of the circuit and, when appropriate, restart the circuit via a link in the notification email. As the workflow restarts the function, messages are processed from the last Event Hub checkpoint.
+The email recipient can investigate the health of the circuit and, when appropriate, restart the circuit via a link in the notification email. As the workflow restarts the function, events are processed from the last event hub checkpoint.
 
-Using this approach, no messages are lost, all messages are processed in order, and you can break the circuit as long as necessary.
+When you use this approach, no events are lost, events are processed in order, and you can break the circuit as long as necessary.
 
-## Resources
+## Migration strategies for Event Grid triggers
+
+When you migrate an existing function app between regions or between some plans, you must recreate the app during the migration process. In this case, during the migration process, you might have two apps that are both able to consume from the same event stream and write to the same output destination. 
+
+You should consider [using consumer groups](../event-hubs/event-hubs-features.md#consumer-groups) to avoid event data loss or duplication during the migration process:
+
+1. Create a new consumer group for the new target app.
+
+1. Configure the trigger in the new app to use this new consumer group. 
+
+    This allows both apps to process events independently during validation.
+
+1. Validate that the new app is processing events correctly.
+ 
+1. Stop the original app or remove its subscription/consumer group.   
+
+## Related resources
 
 - [Reliable event processing samples](https://github.com/jeffhollan/functions-csharp-eventhub-ordered-processing)
-- [Azure Durable Entity Circuit Breaker](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
-
-## Next steps
-
-For more information, see the following resources:
-
+- [Azure Durable Entity circuit breaker](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
 - [Azure Functions error handling](./functions-bindings-error-pages.md)
 - [Automate resizing uploaded images using Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet)
 - [Create a function that integrates with Azure Logic Apps](./functions-twitter-email.md)

@@ -9,6 +9,7 @@ ms.date: 05/12/2021
 ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+# Customer intent: "As a data manager, I want to explore partner solutions for data governance, management, and migration with cloud storage, so that I can enhance our data strategy and optimize our cloud storage operations."
 ---
 
 # Azure Storage data governance, management, and migration partners

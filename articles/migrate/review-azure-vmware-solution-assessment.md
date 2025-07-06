@@ -8,6 +8,7 @@ ms.service: azure-migrate
 ms.date: 04/17/2025
 ms.custom: engagement-fy24
 monikerRange: migrate
+# Customer intent: "As a cloud architect, I want to review the Azure VMware Solution assessments so that I can determine the readiness, resource requirements, and estimated costs for migrating my on-premises VMs to Azure."
 ---
 
 # Tutorial: Review an Azure VMware Solution (AVS) assessment

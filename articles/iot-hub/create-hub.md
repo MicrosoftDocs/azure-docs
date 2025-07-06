@@ -7,7 +7,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 07/10/2024
+ms.date: 06/25/2025
 ms.custom: ['Role: Cloud Development']
 ---
 
@@ -25,7 +25,7 @@ Prepare the following prerequisites, depending on which tool you use.
 
 ### [Azure CLI](#tab/cli)
 
-* The Azure CLI installed on your development machine. If you don't have the Azure CLI, follow the steps to [Install the Azure CLI](/cli/azure/install-azure-cli).
+* The Azure CLI installed on your development machine. If you don't have the Azure CLI, follow the steps provided in [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 * A resource group in your Azure subscription. If you want to create a new resource group, use the [az group create](/cli/azure/group#az-group-create) command:
 
@@ -35,7 +35,7 @@ Prepare the following prerequisites, depending on which tool you use.
 
 ### [Azure PowerShell](#tab/powershell)
 
-* Azure PowerShell installed on your development machine. If you don't have Azure PowerShell, follow the steps to [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
+* Azure PowerShell installed on your development machine. If you don't have Azure PowerShell, follow the steps provided in  [How to install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 * A resource group in your Azure subscription. If you want to create a new resource group, use the [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup) command:
 
@@ -89,7 +89,7 @@ Provide access permissions to applications and services that use IoT Hub functio
 
 Connection strings are tokens that grant devices and services permissions to connect to IoT Hub based on shared access policies. Connection strings are an easy way to get started with IoT Hub, and are used in many samples and tutorials, but aren't recommended for production scenarios.
 
-For most sample scenarios, the **service** policy is sufficient. The service policy grants **Service Connect** permissions to access service endpoints. For more information about the other built-in shared access policies, see [IoT Hub permissions](./iot-hub-dev-guide-sas.md#access-control-and-permissions).
+For most sample scenarios, the **service** policy is sufficient. The service policy grants **Service Connect** permissions to access service endpoints. For more information about the other built-in shared access policies, see [Access control and permissions](./iot-hub-dev-guide-sas.md#access-control-and-permissions).
 
 To get the IoT Hub connection string for the **service** policy, follow these steps:
 
@@ -97,7 +97,7 @@ To get the IoT Hub connection string for the **service** policy, follow these st
 
 1. In the [Azure portal](https://portal.azure.com), select **Resource groups**. Select the resource group where your hub is located, and then select your hub from the list of resources.
 
-1. On the left-side pane of your IoT hub, select **Shared access policies**.
+1. On the left-side pane of your IoT hub, select **Shared access policies** under **Security settings**.
 
 1. From the list of policies, select the **service** policy.
 

@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 05/12/2025
 ms.custom: vmware-scenario-422, MVC, engagement-fy25
+# Customer intent: As a system administrator, I want to migrate VMware vSphere VMs to Azure using agent-based migration, so that I can leverage cloud capabilities while ensuring minimal downtime and maintaining operational continuity during the transition.
 ---
 
 # Migrate VMware vSphere VMs to Azure (agent-based)

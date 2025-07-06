@@ -2,10 +2,10 @@
 title: Reference the legacy upload indicators API
 titleSuffix: Microsoft Sentinel
 description: This article is a reference for the legacy upload indicators API with an example request and response.
-author: austinmccollum
+author: poliveria
 ms.topic: reference
 ms.date: 05/30/2024
-ms.author: austinmc
+ms.author: pauloliveria 
 
 
 #Customer intent: As a security analyst, I want to use the upload indicators API reference to customize the threat intelligence data from my source into Microsoft Sentinel.

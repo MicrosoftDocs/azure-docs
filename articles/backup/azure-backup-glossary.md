@@ -7,6 +7,7 @@ ms.custom: devx-track-azurepowershell, devx-track-arm-template, devx-track-azure
 ms.date: 12/30/2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to understand key terms related to Azure Backup, so that I can effectively implement and manage backup solutions for my organization's workloads."
 ---
 
 # Azure Backup glossary

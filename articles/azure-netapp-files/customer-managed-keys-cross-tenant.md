@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 04/23/2025
 ms.author: anfdocs
+# Customer intent: As an IT administrator managing Azure resources across multiple tenants, I want to configure cross-tenant customer-managed keys for volume encryption in Azure NetApp Files, so that I can enhance security and control over encryption keys used for sensitive data.
 ---
 
 # Configure cross-tenant customer-managed keys for Azure NetApp Files volume encryption (preview)

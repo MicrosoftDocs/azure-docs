@@ -7,6 +7,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 09/06/2024
 ms.topic: how-to
+# Customer intent: As a systems administrator, I want to enable periodic assessment for my Azure and Azure Arc-enabled machines using policy, so that I can automate update checks and ensure my systems are regularly monitored for compliance without manual intervention.
 ---
 
 # Automate assessment at scale by using Azure Policy

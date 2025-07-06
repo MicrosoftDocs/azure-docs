@@ -6,6 +6,7 @@ ms.date: 06/05/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an IT administrator managing SAP HANA databases on Azure VMs, I want to configure a snapshot-based backup policy, so that I can ensure consistent backups and simplify the recovery process while adhering to SAP's backup requirements.
 ---
 
 # Back up SAP HANA database instance snapshots on Azure VMs

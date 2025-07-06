@@ -7,6 +7,7 @@ ms.service: azure-ddos-protection
 ms.topic: tutorial
 ms.date: 03/17/2025
 ms.author: abell
+# Customer intent: As a network security engineer, I want to conduct DDoS protection simulations, so that I can assess and optimize our incident response procedures in the event of an actual DDoS attack.
 ---
 
 # Tutorial: Azure DDoS Protection simulation testing

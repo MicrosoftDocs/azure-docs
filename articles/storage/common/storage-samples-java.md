@@ -10,6 +10,7 @@ ms.subservice: storage-common-concepts
 ms.topic: sample
 ms.devlang: java
 ai-usage: ai-assisted
+# Customer intent: "As a Java developer, I want to access Azure Storage samples and guides, so that I can implement cloud storage solutions effectively using the Java client libraries."
 ---
 
 # Azure Storage samples using Java client libraries

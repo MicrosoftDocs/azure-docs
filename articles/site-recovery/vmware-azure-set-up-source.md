@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.author: jsuri
 ms.date: 04/26/2025
 
+# Customer intent: As a IT administrator, I want to configure my on-premises VMware environment for replication to the cloud, so that I can ensure disaster recovery and data protection for my virtual machines.
 ---
 
 # Set up the source environment for VMware to Azure replication
