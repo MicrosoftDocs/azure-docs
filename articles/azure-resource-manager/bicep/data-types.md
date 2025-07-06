@@ -325,7 +325,7 @@ var storageName = 'storage${uniqueString(resourceGroup().id)}'
 In Bicep, multi-line strings are defined between three single quotation marks (`'''`) followed optionally by a newline (the opening sequence) and three single quotation marks (`'''` is the closing sequence). Characters that are entered between the opening and closing sequence are read verbatim. Escaping isn't necessary or possible.
 
 > [!NOTE]
-> The Bicep parser reads every characters as it is. Depending on the line endings of your Bicep file, newlines are interpreted as either `\r\n` or `\n`.
+> The Bicep parser reads every character as it is. Depending on the line endings of your Bicep file, newlines are interpreted as either `\r\n` or `\n`.
 >
 > Interpolation isn't currently supported in multi-line strings. Because of this limitation, you might need to use the [`concat`](./bicep-functions-string.md#concat) function instead of using [interpolation](#strings).
 >

@@ -442,7 +442,7 @@ The preceding example is equivalent to:
 type accountKind = 'BlobStorage' | 'BlockBlobStorage' | 'FileStorage' | 'Storage' | 'StorageV2'
 ```
 
-The following example shows how to use `resourceInput<>` to create a strongly-typed parameter based on the `properties` of a storage account resource. This allows you to define a parameter that matches the writable properties of a storage account, such as `accessTier`, `minimumTlsVersion`, and others:
+The following example shows how to use `resourceInput<>` to create a strongly typed parameter based on the `properties` of a storage account resource. This allows you to define a parameter that matches the writable properties of a storage account, such as `accessTier`, `minimumTlsVersion`, and others:
 
 ```bicep
 // Strongly typed variable using the .properties path of a storage account
@@ -465,7 +465,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
 }
 ```
 
-The following example shows how to use `resourceOutput<>` to create a strongly-typed output based on the `primaryEndPoints` of a storage account resource.
+The following example shows how to use `resourceOutput<>` to create a strongly typed output based on the `primaryEndPoints` of a storage account resource.
 
 ```bicep
 output storageEndpoints resourceOutput<'Microsoft.Storage/storageAccounts@2024-01-01'>.properties.primaryEndpoints = ...
