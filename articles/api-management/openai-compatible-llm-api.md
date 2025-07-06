@@ -1,25 +1,25 @@
 ---
-title: Import OpenAI-Compatible Language Model API - Azure API Management
-description: How to import an OpenAI-compatible language model or a non-Azure-provided AI model as a REST API in Azure API Management.
+title: Import Language Model API - Azure API Management
+description: How to import an OpenAI-compatible language model or a non-OpenAI-compatible AI model as a REST API in Azure API Management.
 ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 06/04/2025
+ms.date: 07/06/2025
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ms.custom: template-how-to
 ---
 
-# Import an OpenAI-compatible language model API 
+# Import a language model API 
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-You can import OpenAI-compatible language model endpoints to your API Management instance as APIs. For example, you might want to manage an LLM that you self-host, or that's hosted on an inference provider other than Azure AI services. Use AI gateway policies and other capabilities in API Management to simplify integration, improve observability, and enhance control over the model endpoints.
+You can import OpenAI-compatible language model endpoints to your API Management instance as APIs. You can also import language models that aren't compatible with OpenAI as passthrough APIs, which forward requests to the backend. For example, you might want to manage an LLM that you self-host, or that's hosted on an inference provider other than Azure AI services. Use AI gateway policies and other capabilities in API Management to simplify integration, improve observability, and enhance control over the model endpoints.
 
 Learn more about managing AI APIs in API Management:
 
-* [Generative AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
+* [AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
 
 ## Language model API types
 
@@ -92,4 +92,6 @@ To ensure that your LLM API is working as expected, test it in the API Managemen
 
     When the test is successful, the backend responds with a successful HTTP response code and some data. Appended to the response is token usage data to help you monitor and manage your language model token consumption.
 
-[!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
+## Related content
+
+* [AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)

@@ -242,7 +242,7 @@
       href: azure-ai-foundry-api.md
     - name: Import Azure OpenAI API
       href: azure-openai-api-from-specification.md
-    - name: Import OpenAI-compatible LLM API
+    - name: Import language model API
       href: openai-compatible-llm-api.md
     - name: Import Google Gemini API
       href: openai-compatible-google-gemini-api.md

@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 07/03/2025
+ms.date: 07/06/2025
 ms.collection: ce-skilling-ai-copilot
 ms.custom: template-how-to
 ---
@@ -18,8 +18,8 @@ This article shows you how to import an OpenAI-compatible Google Gemini API to a
 
 Learn more about managing AI APIs in API Management:
 
-* [Generative AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
-* [Import an OpenAI-compatible language model API](openai-compatible-llm-api.md)
+* [AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
+* [Import a language model API](openai-compatible-llm-api.md)
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ Learn more about managing AI APIs in API Management:
 - An API key for the Gemini API. If you don't have one, create it at [Google AI Studio](https://aistudio.google.com/apikey) and store it in a safe location.
 
 
-## Import an OpenAI-compatible Gemini model using the portal
+## Import an OpenAI-compatible Gemini API using the portal
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **APIs** > **+ Add API**.
@@ -37,15 +37,17 @@ Learn more about managing AI APIs in API Management:
     1. In **URL**, enter the following base URL from the [Gemini OpenAI compatibility documentation](https://ai.google.dev/gemini-api/docs/openai):
          `https://generativelanguage.googleapis.com/v1beta/openai`
 
-1. In **Path**, append a path that your API Management instance uses to route requests to the Gemini API endpoints.
-1. In **Type**, select **Create OpenAI API**.
-1. In **Access key**, enter the following:
-    1. **Header name**: *Authorization*.
-    1. **Header value (key)**: `Bearer` followed by your API key for the Gemini API.
-1. On the remaining tabs, optionally configure policies to manage token consumption, semantic caching, and AI content safety. For details, see [Import an OpenAI-compatible language model API](openai-compatible-llm-api.md).
-
+    1. In **Path**, append a path that your API Management instance uses to route requests to the Gemini API endpoints.
+    1. In **Type**, select **Create OpenAI API**.
+    1. In **Access key**, enter the following:
+        1. **Header name**: *Authorization*.
+        1. **Header value (key)**: `Bearer` followed by your API key for the Gemini API.
+    
     :::image type="content" source="media/openai-compatible-google-gemini-api/gemini-import.png" alt-text="Screenshot of importing a Gemini LLM API in the portal.":::
-1. Select **Create**.
+
+1. On the remaining tabs, optionally configure policies to manage token consumption, semantic caching, and AI content safety. For details, see [Import a language model API](openai-compatible-llm-api.md).
+1. Select **Review**
+1. After settings are validated, select **Create**.
 
 API Management creates the API and configures the following:
 
@@ -83,4 +85,6 @@ After importing the API, you can test the chat completions endpoint for the API.
 
     :::image type="content" source="media/openai-compatible-google-gemini-api/gemini-test.png" alt-text="Screenshot of testing a Gemini LLM API in the portal.":::
 
-[!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
+## Related content
+
+* [AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
