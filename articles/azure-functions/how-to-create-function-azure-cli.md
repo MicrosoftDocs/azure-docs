@@ -28,10 +28,8 @@ Before you begin, you must have the following:
 ## Create a local function project and function
 
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-1. In a terminal or command prompt, run this [`func init`](./functions-core-tools-reference.md#func-init) command to create a function app project in the current folder:  
-::: zone-end  
 ::: zone pivot="programming-language-csharp" 
+1. In a terminal or command prompt, run this [`func init`](./functions-core-tools-reference.md#func-init) command to create a function app project in the current folder:  
  
     ```console
     func init --worker-runtime dotnet-isolated 
@@ -39,27 +37,31 @@ In Azure Functions, a function project is a container for one or more individual
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-
+1. In a terminal or command prompt, run this [`func init`](./functions-core-tools-reference.md#func-init) command to create a function app project in the current folder:  
+ 
     ```console
     func init --worker-runtime node --language javascript 
     ```
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-
+1. In a terminal or command prompt, run this [`func init`](./functions-core-tools-reference.md#func-init) command to create a function app project in the current folder:  
+ 
     ```console
     func init --worker-runtime powershell 
     ```
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-
+1. In a terminal or command prompt, run this [`func init`](./functions-core-tools-reference.md#func-init) command to create a function app project in the current folder:  
+ 
     ```console
     func init --worker-runtime python 
     ```
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript" 
+ 1. In a terminal or command prompt, run this [`func init`](./functions-core-tools-reference.md#func-init) command to create a function app project in the current folder:  
  
     ```console
     func init --worker-runtime node --language typescript 
@@ -184,7 +186,7 @@ In Azure Functions, a function project is a container for one or more individual
 
 To enable the Functions host to connect to the default storage account using shared secrets, you must replace the `AzureWebJobsStorage` connection string setting with a complex setting, prefixed with `AzureWebJobsStorage`, that uses the user-assigned managed identity to connect to the storage account.
 
-1. Use this script to get the client ID of the user-assigned managed identity, and with it define a managed identity connections to storage and Application Insights:
+1. Use this script to get the client ID of the user-assigned managed identity and uses it to define managed identity connections to both storage and Application Insights:
  
     ```azurecli
     clientId=$(az identity show --name func-host-storage-user \
