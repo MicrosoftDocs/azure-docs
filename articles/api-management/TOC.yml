@@ -240,8 +240,10 @@
     href: azure-ai-foundry-api.md
   - name: Import Azure OpenAI API
     href: azure-openai-api-from-specification.md
-  - name: Import OpenAI-compatible LLM API
+  - name: Import lanaguage model API
     href: openai-compatible-llm-api.md
+  - name: Import Amazon Bedrock API
+    href: amazon-bedrock-passthrough-llm-api.md
   - name: Authenticate and authorize to Azure OpenAI
     href: api-management-authenticate-authorize-azure-openai.md
   - name: Expose REST API as MCP server
