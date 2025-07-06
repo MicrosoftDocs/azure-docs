@@ -90,14 +90,19 @@ To use the Microsoft Sentinel data lake, your workspace must be [onboarded to th
 
 ### Microsoft Sentinel data lake read permissions
 
-Use the following roles to provide read access to the Microsoft Sentinel data lake, such as for running queries.
+Microsoft Entra ID roles provide broad access across all workspaces in the data lake. Use the following roles to provide read access to all workspaces within the Microsoft Sentinel data lake, such as for running queries.
 
 |Permission type  |Supported roles  |
 |---------|---------|
 |**Read access across all workspaces**     | Use any of the following Microsoft Entra ID roles: <br><br>- [Global reader](/entra/identity/role-based-access-control/permissions-reference#global-reader)<br>- [Security reader](/azure/role-based-access-control/built-in-roles/security#security-reader)<br>- [Security operator](/entra/identity/role-based-access-control/permissions-reference#security-operator)<br>  - [Security administrator](/entra/identity/role-based-access-control/permissions-reference#security-administrator)<br>  - [Global administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator)         |
-|**Read access across specific workspaces other than the default workspace**     |  Use any of the following Azure RBAC built-in roles:  <br>- [Log Analytics Reader](/azure/role-based-access-control/built-in-roles/monitor#log-analytics-reader)<br>- [Reader](/azure/role-based-access-control/built-in-roles/general#reader) <br>- [Contributor](/azure/role-based-access-control/built-in-roles/privileged#contributor) <br>- [Owner](/azure/role-based-access-control/built-in-roles/privileged#owner)        |
 
-Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To read tables across all workspaces in the data lake using interactive notebook queries, you must have one of the supported Microsoft Entra ID roles.
+Alternatively, you might want to assign the ability to read tables from within a specific workspace. In such cases, use one of the following:
+
+|Tasks   |Permissions |
+|---------|---------|
+|**Read permissions on the default workspace**     |  Use a custom Microsoft Defender XDR unified RBAC role with security data basics (read) permissions over the Microsoft Sentinel data collection. For more information, see  [Permissions in Microsoft Defender XDR Unified role-based access control (RBAC)](/defender-xdr/custom-permissions-details#data-operations-preview).      |
+|**Read permissions on any other workspace enabled for Microsoft Sentinel in the data lake**     | Use one of the following built-in roles in Azure RBAC for permissions on that workspace: <br>- [Log Analytics Reader](/azure/role-based-access-control/built-in-roles/monitor#log-analytics-reader) <br>- [Log Analytics Contributor](/azure/role-based-access-control/built-in-roles/monitor#log-analytics-contributor) <br>- [Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-contributor) <br>- [Microsoft Sentinel Reader](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-reader) <br>- [Reader](/azure/role-based-access-control/built-in-roles/general#reader)<br>- [Contributor](/azure/role-based-access-control/built-in-roles/privileged#contributor)<br>- [Owner](/azure/role-based-access-control/built-in-roles/privileged#owner)|
+
 
 ### Microsoft Sentinel data lake write permissions
 
@@ -113,11 +118,11 @@ Alternatively, you might want to assign the ability to write output to a specifi
 |Tasks  |Permissions |
 |---------|---------|
 |**For edit permissions on the default workspace**     |   Use a [custom Microsoft Defender XDR unified RBAC role with *data (manage)*](https://aka.ms/data-lake-custom-urbac) permissions over the Microsoft Sentinel data collection.       |
-|**For any other Microsoft Sentinel workspace in the data lake**     |  Use any built-in or custom role that includes the following Azure RBAC  [Microsoft operational insights](/azure/role-based-access-control/permissions/monitor#microsoftoperationalinsights) permissions on that workspace:<br>    - *Microsoft.operationalinsights/workspaces/write*<br>   - *microsoft.operationalinsights/workspaces/tables/write*<br>    - *microsoft.operationalinsights/workspaces/tables/delete*        |
+|**For any other Microsoft Sentinel workspace in the data lake**     |  Use any built-in or custom role that includes the following Azure RBAC  [Microsoft operational insights](/azure/role-based-access-control/permissions/monitor#microsoftoperationalinsights) permissions on that workspace:<br>    - *microsoft.operationalinsights/workspaces/write*<br>   - *microsoft.operationalinsights/workspaces/tables/write*<br>    - *microsoft.operationalinsights/workspaces/tables/delete* <br><br>For example, built-in roles that include these permissions [Log Analytics Contributor](/azure/role-based-access-control/built-in-roles/monitor#log-analytics-contributor), [Owner](/azure/role-based-access-control/built-in-roles/privileged#owner), and [Contributor](/azure/role-based-access-control/built-in-roles/privileged#contributor).       |
 
-### Schedule jobs in the Microsoft Sentinel data lake
+### Manage jobs in the Microsoft Sentinel data lake
 
-To schedule a job in the Microsoft Sentinel data lake, you must have one of the following Microsoft Entra ID roles:
+To create scheduled jobs or to manage jobs in the Microsoft Sentinel data lake, you must have one of the following Microsoft Entra ID roles:
 
 - [Security operator](/entra/identity/role-based-access-control/permissions-reference#security-operator)
 - [Security administrator](/entra/identity/role-based-access-control/permissions-reference#security-administrator)
