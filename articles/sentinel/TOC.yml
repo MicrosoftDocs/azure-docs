@@ -61,6 +61,9 @@
     href: enable-sentinel-features-content.md
   - name: Onboard to Microsoft Sentinel
     href: quickstart-onboard.md
+  - name: Set up Microsoft Sentinel data lake
+    href: graph/setting-up-sentinel-data-lake.md
+    displayName: data lake
   - name: Connect Microsoft Sentinel to the Defender portal
     href: /unified-secops-platform/microsoft-sentinel-onboard?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Configure content
