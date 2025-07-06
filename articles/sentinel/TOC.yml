@@ -727,6 +727,8 @@
       href: monitor-analytics-rule-integrity.md
   - name: Auditing Microsoft Sentinel with Azure Activity Logs
     href: audit-sentinel-data.md
+  - name: Search the audit log for events in Microsoft Sentinel data lake
+    href: graph/auditing-lake-activities.md
   - name: Remove Microsoft Sentinel from your workspaces
     href: offboard.md
 - name: Build and publish Microsoft Sentinel solutions
