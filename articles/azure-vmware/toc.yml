@@ -353,6 +353,8 @@ items:
     items:
     - name: Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud
       href: deploy-arc-for-azure-vmware-solution.md
+    - name: Enable guest management and install extensions on Arc-enabled VMs
+      href: arc-enable-guest-management.md
     - name: Manage Arc-enabled Azure VMware Solution
       href: manage-arc-enabled-azure-vmware-solution.md
     - name: Remove Arc-enabled Azure VMware Solution vSphere resources from Azure

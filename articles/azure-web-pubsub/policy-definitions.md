@@ -21,7 +21,7 @@ the link in the **Version** column to view the source on the
 ## Policy definitions
 
 
-[!INCLUDE [azure-policy-reference-policies-web-pubsub](../../includes/policy/reference/bycat/policies-web-pubsub.md)]
+[!INCLUDE [azure-policy-reference-policies-web-pubsub](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policies-web-pubsub.md)]
 
 ## Next steps
 

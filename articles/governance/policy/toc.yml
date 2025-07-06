@@ -58,121 +58,121 @@
   items:
   - name: Index
     displayName: list, builtins
-    href: ./samples/index.md
+    href: /azure/governance/policy/samples/index?context=/azure/governance/policy/context/policy-context
   - name: Built-in policies
-    href: ./samples/built-in-policies.md
+    href: /azure/governance/policy/samples/built-in-policies?context=/azure/governance/policy/context/policy-context
   - name: Built-in initiatives
-    href: ./samples/built-in-initiatives.md
+    href: /azure/governance/policy/samples/built-in-initiatives?context=/azure/governance/policy/context/policy-context
   - name: Regulatory Compliance built-ins
     items:
     - name: Azure built-ins
       items:
       - name: Australian Government ISM PROTECTED
-        href: ./samples/australia-ism.md
+        href: /azure/governance/policy/samples/australia-ism?context=/azure/governance/policy/context/policy-context
       - name: Canada Federal PBMM
-        href: ./samples/canada-federal-pbmm.md
+        href: /azure/governance/policy/samples/canada-federal-pbmm?context=/azure/governance/policy/context/policy-context
       - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
-        href: ./samples/cis-azure-1-1-0.md
+        href: /azure/governance/policy/samples/cis-azure-1-1-0?context=/azure/governance/policy/context/policy-context
       - name: CIS Microsoft Azure Foundations Benchmark 1.3.0
-        href: ./samples/cis-azure-1-3-0.md
+        href: /azure/governance/policy/samples/cis-azure-1-3-0?context=/azure/governance/policy/context/policy-context
       - name: CIS Microsoft Azure Foundations Benchmark 1.4.0
-        href: ./samples/cis-azure-1-4-0.md
+        href: /azure/governance/policy/samples/cis-azure-1-4-0?context=/azure/governance/policy/context/policy-context
       - name: CIS Microsoft Azure Foundations Benchmark 2.0.0
-        href: ./samples/cis-azure-2-0-0.md
+        href: /azure/governance/policy/samples/cis-azure-2-0-0?context=/azure/governance/policy/context/policy-context
       - name: CMMC Level 3
-        href: ./samples/cmmc-l3.md
+        href: /azure/governance/policy/samples/cmmc-l3?context=/azure/governance/policy/context/policy-context
       - name: FedRAMP High
-        href: ./samples/fedramp-high.md
+        href: /azure/governance/policy/samples/fedramp-high?context=/azure/governance/policy/context/policy-context
       - name: FedRAMP Moderate
-        href: ./samples/fedramp-moderate.md
+        href: /azure/governance/policy/samples/fedramp-moderate?context=/azure/governance/policy/context/policy-context
       - name: HIPAA HITRUST 9.2
-        href: ./samples/hipaa-hitrust-9-2.md
+        href: /azure/governance/policy/samples/hipaa-hitrust-9-2?context=/azure/governance/policy/context/policy-context
       - name: IRS 1075 September 2016
-        href: ./samples/irs-1075-sept2016.md
+        href: /azure/governance/policy/samples/irs-1075-sept2016?context=/azure/governance/policy/context/policy-context
       - name: ISO 27001:2013
-        href: ./samples/iso-27001.md
+        href: /azure/governance/policy/samples/iso-27001?context=/azure/governance/policy/context/policy-context
       - name: Microsoft cloud security benchmark
-        href: ./samples/azure-security-benchmark.md
+        href: /azure/governance/policy/samples/azure-security-benchmark?context=/azure/governance/policy/context/policy-context
       - name: Microsoft Cloud for Sovereignty Confidential
-        href: ./samples/mcfs-baseline-confidential.md
+        href: /azure/governance/policy/samples/mcfs-baseline-confidential?context=/azure/governance/policy/context/policy-context
       - name: Microsoft Cloud for Sovereignty Global
-        href: ./samples/mcfs-baseline-global.md
+        href: /azure/governance/policy/samples/mcfs-baseline-global?context=/azure/governance/policy/context/policy-context
       - name: NIST SP 800-53 Rev. 4
-        href: ./samples/nist-sp-800-53-r4.md
+        href: /azure/governance/policy/samples/nist-sp-800-53-r4?context=/azure/governance/policy/context/policy-context
       - name: NIST SP 800-53 Rev. 5
-        href: ./samples/nist-sp-800-53-r5.md
+        href: /azure/governance/policy/samples/nist-sp-800-53-r5?context=/azure/governance/policy/context/policy-context
       - name: NIST SP 800-171 R2
-        href: ./samples/nist-sp-800-171-r2.md
+        href: /azure/governance/policy/samples/nist-sp-800-171-r2?context=/azure/governance/policy/context/policy-context
       - name: NL BIO Cloud Theme
-        href: ./samples/nl-bio-cloud-theme.md
+        href: /azure/governance/policy/samples/nl-bio-cloud-theme?context=/azure/governance/policy/context/policy-context
       - name: PCI DSS 3.2.1
-        href: ./samples/pci-dss-3-2-1.md
+        href: /azure/governance/policy/samples/pci-dss-3-2-1?context=/azure/governance/policy/context/policy-context
       - name: PCI DSS 4.0
-        href: ./samples/pci-dss-4-0.md
+        href: /azure/governance/policy/samples/pci-dss-4-0?context=/azure/governance/policy/context/policy-context
       - name: RBI ITF Banks v2016
-        href: ./samples/rbi-itf-banks-2016.md
+        href: /azure/governance/policy/samples/rbi-itf-banks-2016?context=/azure/governance/policy/context/policy-context
       - name: RBI ITF NBFC v2017
-        href: ./samples/rbi-itf-nbfc-2017.md
+        href: /azure/governance/policy/samples/rbi-itf-nbfc-2017?context=/azure/governance/policy/context/policy-context
       - name: RMIT Malaysia
-        href: ./samples/rmit-malaysia.md
+        href: /azure/governance/policy/samples/rmit-malaysia?context=/azure/governance/policy/context/policy-context
       - name: Spain ENS
-        href: ./samples/spain-ens.md
+        href: /azure/governance/policy/samples/spain-ens?context=/azure/governance/policy/context/policy-context
       - name: SOC 2 Type 2
-        href: ./samples/soc-2.md
+        href: /azure/governance/policy/samples/soc-2?context=/azure/governance/policy/context/policy-context
       - name: SWIFT CSP-CSCF 2021
-        href: ./samples/swift-csp-cscf-2021.md
+        href: /azure/governance/policy/samples/swift-csp-cscf-2021?context=/azure/governance/policy/context/policy-context
       - name: SWIFT CSP-CSCF 2022
-        href: ./samples/swift-csp-cscf-2022.md
+        href: /azure/governance/policy/samples/swift-csp-cscf-2022?context=/azure/governance/policy/context/policy-context
       - name: UK OFFICIAL and UK NHS
-        href: ./samples/ukofficial-uknhs.md
+        href: /azure/governance/policy/samples/ukofficial-uknhs?context=/azure/governance/policy/context/policy-context
     - name: Azure Government built-ins
       items:
       - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
-        href: ./samples/gov-cis-azure-1-1-0.md
+        href: /azure/governance/policy/samples/gov-cis-azure-1-1-0?context=/azure/governance/policy/context/policy-context
       - name: CIS Microsoft Azure Foundations Benchmark 1.3.0
-        href: ./samples/gov-cis-azure-1-3-0.md
+        href: /azure/governance/policy/samples/gov-cis-azure-1-3-0?context=/azure/governance/policy/context/policy-context
       - name: CMMC Level 3
-        href: ./samples/gov-cmmc-l3.md
+        href: /azure/governance/policy/samples/gov-cmmc-l3?context=/azure/governance/policy/context/policy-context
       - name: FedRAMP High
-        href: ./samples/gov-fedramp-high.md
+        href: /azure/governance/policy/samples/gov-fedramp-high?context=/azure/governance/policy/context/policy-context
       - name: FedRAMP Moderate
-        href: ./samples/gov-fedramp-moderate.md
+        href: /azure/governance/policy/samples/gov-fedramp-moderate?context=/azure/governance/policy/context/policy-context
       - name: IRS 1075 September 2016
-        href: ./samples/gov-irs-1075-sept2016.md
+        href: /azure/governance/policy/samples/gov-irs-1075-sept2016?context=/azure/governance/policy/context/policy-context
       - name: ISO 27001:2013
-        href: ./samples/gov-iso-27001.md
+        href: /azure/governance/policy/samples/gov-iso-27001?context=/azure/governance/policy/context/policy-context
       - name: Microsoft cloud security benchmark
-        href: ./samples/gov-azure-security-benchmark.md
+        href: /azure/governance/policy/samples/gov-azure-security-benchmark?context=/azure/governance/policy/context/policy-context
       - name: NIST SP 800-53 Rev. 4
-        href: ./samples/gov-nist-sp-800-53-r4.md
+        href: /azure/governance/policy/samples/gov-nist-sp-800-53-r4?context=/azure/governance/policy/context/policy-context
       - name: NIST SP 800-53 Rev. 5
-        href: ./samples/gov-nist-sp-800-53-r5.md
+        href: /azure/governance/policy/samples/gov-nist-sp-800-53-r5?context=/azure/governance/policy/context/policy-context
       - name: NIST SP 800-171 R2
-        href: ./samples/gov-nist-sp-800-171-r2.md
+        href: /azure/governance/policy/samples/gov-nist-sp-800-171-r2?context=/azure/governance/policy/context/policy-context
       - name: SOC 2 Type 2
-        href: ./samples/gov-soc-2.md
+        href: /azure/governance/policy/samples/gov-soc-2?context=/azure/governance/policy/context/policy-context
   - name: Azure Policy resource graph queries
-    href: ./samples/resource-graph-samples.md
+    href: /azure/governance/policy/samples/resource-graph-samples?context=/azure/governance/policy/context/policy-context
   - name: Azure Policy patterns of use
     items:
     - name: Logical operators
-      href: ./samples/pattern-logical-operators.md
+      href: /azure/governance/policy/samples/pattern-logical-operators?context=/azure/governance/policy/context/policy-context
     - name: Fields
-      href: ./samples/pattern-fields.md
+      href: /azure/governance/policy/samples/pattern-fields?context=/azure/governance/policy/context/policy-context
     - name: Parameters
-      href: ./samples/pattern-parameters.md
+      href: /azure/governance/policy/samples/pattern-parameters?context=/azure/governance/policy/context/policy-context
     - name: Effect details
-      href: ./samples/pattern-effect-details.md
+      href: /azure/governance/policy/samples/pattern-effect-details?context=/azure/governance/policy/context/policy-context
     - name: Tags
-      href: ./samples/pattern-tags.md
+      href: /azure/governance/policy/samples/pattern-tags?context=/azure/governance/policy/context/policy-context
     - name: Value operator
-      href: ./samples/pattern-value-operator.md
+      href: /azure/governance/policy/samples/pattern-value-operator?context=/azure/governance/policy/context/policy-context
     - name: Count operator
-      href: ./samples/pattern-count-operator.md
+      href: /azure/governance/policy/samples/pattern-count-operator?context=/azure/governance/policy/context/policy-context
     - name: Group into initiative
-      href: ./samples/pattern-group-with-initiative.md
+      href: /azure/governance/policy/samples/pattern-group-with-initiative?context=/azure/governance/policy/context/policy-context
     - name: Deploy resources
-      href: ./samples/pattern-deploy-resources.md
+      href: /azure/governance/policy/samples/pattern-deploy-resources?context=/azure/governance/policy/context/policy-context
   - name: Guest configuration
     items:
     - name: Built-in packages for guest configuration

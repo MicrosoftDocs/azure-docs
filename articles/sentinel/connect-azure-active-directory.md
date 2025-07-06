@@ -3,7 +3,7 @@ title: Send Microsoft Entra ID data to Microsoft Sentinel
 description: Learn how to collect data from Microsoft Entra ID, and stream Microsoft Entra sign-in, audit, and provisioning logs into Microsoft Sentinel.
 author: guywi-ms
 ms.topic: how-to
-ms.date: 03/16/2025
+ms.date: 07/03/2025
 ms.author: guywild
 
 
@@ -13,11 +13,24 @@ ms.author: guywild
 
 # Send data to Microsoft Sentinel using the Microsoft Entra ID data connector
 
-[Microsoft Entra ID](/entra/fundamentals/what-is-entra) logs provide comprehensive information about users, applications, and networks accessing your Entra tenant. This article explains the types of logs you can collect using the Microsoft Entra ID data connector, how to enable the connector to send data to Microsoft Sentinel, and how to find your data in Microsoft Sentinel.
+[Microsoft Entra ID](/entra/fundamentals/what-is-entra) logs provide comprehensive information about users, applications, and networks accessing your Microsoft Entra tenant. This article explains the types of logs you can collect using the Microsoft Entra ID data connector, how to enable the connector to send data to Microsoft Sentinel, and how to find your data in Microsoft Sentinel.
+
+
+## Prerequisites
+
+- A Microsoft Entra Workload ID Premium license is required to stream **[AADRiskyServicePrincipals](/azure/azure-monitor/reference/tables/aadriskyserviceprincipals)** and **[AADServicePrincipalRiskEvents](/azure/azure-monitor/reference/tables/aadserviceprincipalriskevents)** logs to Microsoft Sentinel.
+
+- A Microsoft Entra ID P1 or P2 license is required to ingest sign-in logs into Microsoft Sentinel. Any Microsoft Entra ID license (Free/O365/P1 or P2) is sufficient to ingest the other log types. Other per-gigabyte charges might apply for Azure Monitor (Log Analytics) and Microsoft Sentinel.
+
+- Your user must be assigned the [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) role on the workspace.
+
+- Your user must have the [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) role on the tenant you want to stream the logs from, or the equivalent permissions.
+
+- Your user must have read and write permissions to the Microsoft Entra diagnostic settings in order to be able to see the connection status.
 
 ## Microsoft Entra ID data connector data types
 
-This table lists the logs you can send from Microsoft Entra ID to Microsoft Sentinel using the Microsoft Entra ID data connector. Sentinel stores these logs in the Log Analytics workspace linked to your Microsoft Sentinel workspace.
+This table lists the logs you can send from Microsoft Entra ID to Microsoft Sentinel using the Microsoft Entra ID data connector. Microsoft Sentinel stores these logs in the Log Analytics workspace linked to your Microsoft Sentinel workspace.
 
 | **Log type** | **Description** | **Log schema** |
 |--------------|-----------------------------------|----------------|
@@ -42,15 +55,6 @@ This table lists the logs you can send from Microsoft Entra ID to Microsoft Sent
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-## Prerequisites
-
-- A Microsoft Entra ID P1 or P2 license is required to ingest sign-in logs into Microsoft Sentinel. Any Microsoft Entra ID license (Free/O365/P1 or P2) is sufficient to ingest the other log types. Other per-gigabyte charges might apply for Azure Monitor (Log Analytics) and Microsoft Sentinel.
-
-- Your user must be assigned the [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) role on the workspace.
-
-- Your user must have the [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) role on the tenant you want to stream the logs from, or the equivalent permissions.
-
-- Your user must have read and write permissions to the Microsoft Entra diagnostic settings in order to be able to see the connection status.
 
 <a name='connect-to-azure-active-directory'></a>
 

@@ -20,7 +20,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure Synapse
 
-[!INCLUDE [azure-policy-reference-rp-synapse](../../includes/policy/reference/byrp/microsoft.synapse.md)]
+[!INCLUDE [azure-policy-reference-rp-synapse](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.synapse.md)]
 
 ## Next steps
 

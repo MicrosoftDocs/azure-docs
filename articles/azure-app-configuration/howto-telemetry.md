@@ -1,5 +1,5 @@
 ---
-title: Enable telemetry for feature flags (preview)
+title: Enable telemetry for feature flags
 titleSuffix: Azure App Configuration
 description: Learn how to enable telemetry for feature flags in Azure App Configuration.
 ms.service: azure-app-configuration
@@ -23,7 +23,7 @@ These types of questions can be answered through the emission and analysis of fe
 
 - The feature flag created in [Use variant feature flags](./howto-variant-feature-flags.md).
 
-## Connect to Application Insights (preview)
+## Connect to Application Insights
 
 1. Open your App Configuration store in the Azure portal.
 1. In the **Telemetry** section, select the **Application Insights (preview)** blade.
@@ -50,3 +50,4 @@ These types of questions can be answered through the emission and analysis of fe
 1. Continue to the following instructions to use telemetry in your application for the language or platform you're using.
 
     * [Python](./howto-telemetry-python.md)
+    * [JavaScript](./howto-telemetry-javascript.md)
