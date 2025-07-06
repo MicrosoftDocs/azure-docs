@@ -430,7 +430,7 @@ resourceOutput<'type@version'>
 
 `resourceOutput<>`: Represents the readable properties of a resource type, stripping away any properties marked as WriteOnly in the ARM template schema. It matches the type of value returned after the resource is provisioned.
 
-You can apply `resourceInput<>` or `resourceOutput<>` to extract only a part of a resource schema. For example, to strongly type a variable or parameter based on just the `kind` or `properties` of a storage account:
+You can apply `resourceInput<>` or `resourceOutput<>` to extract only a part of a resource schema. For example, to type a variable or parameter based on just the `kind` or `properties` of a storage account:
 
 ```bicep
 type accountKind = resourceInput<'Microsoft.Storage/storageAccounts@2024-01-01'>.kind
@@ -442,10 +442,10 @@ The preceding example is equivalent to:
 type accountKind = 'BlobStorage' | 'BlockBlobStorage' | 'FileStorage' | 'Storage' | 'StorageV2'
 ```
 
-The following example shows how to use `resourceInput<>` to create a strongly typed parameter based on the `properties` of a storage account resource. This allows you to define a parameter that matches the writable properties of a storage account, such as `accessTier`, `minimumTlsVersion`, and others:
+The following example shows how to use `resourceInput<>` to create a typed parameter based on the `properties` of a storage account resource. This allows you to define a parameter that matches the writable properties of a storage account, such as `accessTier`, `minimumTlsVersion`, and others:
 
 ```bicep
-// Strongly typed variable using the .properties path of a storage account
+// Typed parameter using the .properties path of a storage account
 param storageAccountProps resourceInput<'Microsoft.Storage/storageAccounts@2023-01-01'>.properties = {
   accessTier: 'Hot'
   minimumTlsVersion: 'TLS1_2'
@@ -453,7 +453,7 @@ param storageAccountProps resourceInput<'Microsoft.Storage/storageAccounts@2023-
   supportsHttpsTrafficOnly: true
 }
 
-// Resource declaration using the strongly typed properties variable
+// Resource declaration using the typed parameter
 resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
   name: 'mystorageacct123'
   location: resourceGroup().location
@@ -465,7 +465,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
 }
 ```
 
-The following example shows how to use `resourceOutput<>` to create a strongly typed output based on the `primaryEndPoints` of a storage account resource.
+The following example shows how to use `resourceOutput<>` to create a typed output based on the `primaryEndPoints` of a storage account resource.
 
 ```bicep
 output storageEndpoints resourceOutput<'Microsoft.Storage/storageAccounts@2024-01-01'>.properties.primaryEndpoints = ...
