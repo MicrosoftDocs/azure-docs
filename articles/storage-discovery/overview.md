@@ -4,37 +4,46 @@ description: Storage Discovery provides insights on storage capacity, transactio
 author: pthippeswamy
 ms.service: azure-storage-mover
 ms.topic: overview
-ms.date: 06/15/2025
+ms.date: 08/01/2025
 ms.author: pthippeswamy
 ---
 
-<!-- 
-!########################################################
-STATUS: DRAFT
+## What is Azure Storage Discovery?
 
-CONTENT: NOT STARTED
+**Azure Storage Discovery** is a fully managed Azure service that provides deep, actionable insights into your object storage estate across subscriptions, regions, and resource groups. It is designed to simplify data management at scale by offering a unified, no-code experience for analyzing storage usage, activity, configuration, and security posture—all from a single pane of glass in the Azure portal.
 
-REVIEW Stephen/Fabian: NOT STARTED
-EDIT PASS: NOT STARTED
+With just a few clicks, users can answer critical questions such as:
+- How much data do I have across all my storage accounts?
+- Which regions or workloads are growing fastest?
+- Where can I reduce costs by adjusting access tiers or deleting stale data?
+- Are my storage configurations aligned with security and compliance best practices?
 
-Document score: not run
+## Azure Storage Discovery delivers value across multiple dimensions:
 
-!########################################################
--->
+### Unified Visibility Across the Storage Estate
+Gain organization-wide visibility into up to 1 million storage accounts. Discovery aggregates insights across subscriptions, resource groups, and regions, enabling users to monitor their entire storage footprint in one place.
 
-# What is Azure Storage Discovery?
+### Actionable Insights Without Engineering Overhead
+Out-of-the-box dashboards surface trends in capacity, transactions, errors, and configuration changes. Users can drill down into specific accounts or filter by tags, regions, or redundancy settings - without writing a single line of code or deploying infrastructure.
 
-Azure Storage Discovery provides a centralized view of storage across subscriptions and regions, aggregating metrics on capacity, activity, and configuration. Discovery Workspaces can be customized to track the storage growth and align with business needs, enabling users to drill into specific areas of storage and understand the changes effectively.
+### AI-Powered Exploration with Copilot
+Integrated with Azure Copilot, Discovery allows users to ask natural language questions like “Which storage accounts have the highest egress this month?” and receive visual, contextual answers powered by KQL behind the scenes.
 
-Multiple scopes can be created within each Discovery Workspace. Each scope can align with the business needs and can be defined per business unit or team to track the growth of storage estate overtime so that long term decisions can be taken 
+### Security and Compliance Monitoring
+Visualize and audit storage configurations to ensure alignment with best practices. Identify accounts with settings that do not align with your business needs and take corrective action.
 
-## Capabilities of Discovery:
-### Visibility into the storage estate
-Users can understand their entire data estate, including capacity, transactions, compliance, and security. You can drill down into different parts of the data estate, derive insights.
-### Data Security and Compliance
-Monitoring the implementation of security and compliance modifications across various subscriptions and regions can be complex. Discovery dashboards help visualize storage configuration effortlessly.
-### Storage Cost Prediction and Optimization
-Discovery advances user’s understanding of storage costs by offering a detailed breakdown of expenses related to storage and transactions, categorized by each operation type at the individual storage account level.
+### Long-Term Trend Analysis
+With up to 18 months of historical data and automatic backfill of the previous month, Discovery supports long-term planning and workload optimization.
+
+### Seamless Integration and Scalability
+Discovery integrates with Azure Storage Center and other data management tools, offering a scalable solution that grows with your data estate.
+
+## Why It Matters
+
+As organizations scale their digital footprint, managing storage across thousands of accounts becomes increasingly complex. Azure Storage Discovery eliminates the need for custom scripts, fragmented dashboards, or manual audits. It empowers storage admins, architects, and governance leads to:
+- Make faster, data-driven decisions
+- Improve operational efficiency
+- Strengthen security posture
 
 ## Key concepts
 
@@ -60,7 +69,7 @@ This configuration means the workspace will monitor storage accounts under the s
 
 
 ### Scope 
-A Scope in Azure Storage Discovery defines a logical grouping of storage accounts based on user-defined criteria such as resource tags. Scopes are nested within the boundaries defined by workspaceRoots and are used to filter and organize data for reporting and insights. Users have flexibility to define:
+A Scope in Azure Storage Discovery represents a logical grouping of storage accounts based on user-defined criteria, such as resource tags. Scopes are configured within the boundaries of a workspace and serve as filters to organize and segment data for reporting and insights. By defining scopes, users can tailor their workspace to align with specific business units, workloads, or any segment of their Azure Storage environment they wish to monitor. This enables more targeted visibility and actionable insights across distinct areas of the storage estate. Users have flexibility to define:
 
 - Scope without any ARM tags will include all storage accounts within the defined scope
 - Scope with tags enables users to selectively choose specific storage accounts based on Azure tags assigned to the storage accounts.
@@ -69,7 +78,7 @@ A Scope in Azure Storage Discovery defines a logical grouping of storage account
 
 The following articles can help you become familiar with the Storage Discovery service.
 
-- [Planning for an Azure Storage Discovery deployment](discovery-deployment-planning.md)
-- [Create Storage Discovery Workspace by using the Azure portal](discovery-create.md)
-- [Pricing and billing](discovery-pricing-billing.md)
-- [Storage Discovery regional coverage](discovery-regionalCoverage.md)
+- [Planning for an Azure Storage Discovery deployment](deployment-planning.md)
+- [Create Storage Discovery Workspace by using the Azure portal](create-workspace.md)
+- [Pricing and billing](pricing.md)
+- [Storage Discovery regional coverage](regionalCoverage.md)

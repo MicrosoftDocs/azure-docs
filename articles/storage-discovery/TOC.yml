@@ -7,18 +7,20 @@ items:
     href: overview.md  
   expanded: true
 - name: Concepts
-  items: 
+  items:
+  - name: Discovery core concepts
+    href: core-concepts.md 
   - name: Planning for deployment
-    href: discovery-deploy-planning.md
+    href: deploy-planning.md
   - name: Understand Discovery Pricing
-    href: discovery-pricing.md 
+    href: pricing.md
 - name: How-To
   items: 
   - name: Deploy
     items:
     - name: Create Storage Discovery Workspace
-      href: discovery-create.md        
+      href: create-workspace.md     
 - name: Resources
   items:
   - name: Release notes
-    href: discovery-release-notes.md
+    href: release-notes.md

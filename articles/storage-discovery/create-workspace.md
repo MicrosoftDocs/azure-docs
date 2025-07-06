@@ -6,7 +6,7 @@ author: pthippeswamy
 ms.service: azure-storage-mover
 ms.topic: how-to
 ms.author: pthippeswamy
-ms.date: 06/10/2025
+ms.date: 08/01/2025
 ---
 
 # Create and manage a storage discovery workspace
@@ -35,8 +35,8 @@ The following table describes each element.
 | `Region` | Azure region where the Discovery resource will be created.<sup>1</sup>|
 | `Pricing plan` | Storage Discovery pricing plan.<sup>2</sup>|
 
-<sup>1</sup> For information on regions covered, see [Storage Discovery Regions](discovery-regionalCoverage.md).
-<sup>2</sup> For information on Storage Discovery pricing plan, see [Understand Storage Discovery Pricing](discovery-pricing.md).
+<sup>1</sup> For information on regions covered, see [Storage Discovery Regions](regionalCoverage.md).
+<sup>2</sup> For information on Storage Discovery pricing plan, see [Understand Storage Discovery Pricing](pricing.md).
 
 ### Define WorkspaceRoots 
 WorkspaceRoots specifies the top-level Azure resource identifiers - such as subscriptions or resource groups - where Storage Discovery initiates its scan for storage accounts. These identifiers serve as the root of the discovery process, defining the overall scope and boundaries of your Azure estate that will be analyzed. Select the subscriptions and/or resource groups that need to be included in the workspace.
@@ -81,7 +81,3 @@ When the access checks completes successfully, resource can be deployed.
 
 > [!NOTE]
 > Please note that it will take upto 24 hours for the metrics to start appearing in the Reports after the scope has been created.
-
-## Next steps
-
-- [View insights on Storage Discovery Reports](discovery-reports.md)

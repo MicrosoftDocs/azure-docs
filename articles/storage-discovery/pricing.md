@@ -4,23 +4,9 @@ description: Storage Discovery provides insights on storage capacity, transactio
 author: pthippeswamy
 ms.service: azure-storage-mover
 ms.topic: overview
-ms.date: 06/15/2025
+ms.date: 08/01/2025
 ms.author: pthippeswamy
 ---
-
-<!-- 
-!########################################################
-STATUS: DRAFT
-
-CONTENT: NOT STARTED
-
-REVIEW Stephen/Fabian: NOT STARTED
-EDIT PASS: NOT STARTED
-
-Document score: not run
-
-!########################################################
--->
 
 # What is Azure Storage Discovery?
 
@@ -48,6 +34,5 @@ In the case of Azure Blob Storage, storage accounts contain objects. The cost of
 |---|---|---| 
 | Storage accounts analyzed  | Free | • $1.00 per storage account, up to 1,000 storage accounts analyzed<br>• $0.60 per storage account, greater than 1,000 and up to 10,000 storage accounts analyzed<br>• $0.20 per storage account, greater than 10,000 storage accounts analyzed |
 | Total objects analyzed  | Free  | • $0.18 per 1 million objects, up to 25 billion objects analyzed<sup>1</sup><br>• $0.16 per 1 million objects, greater than 25 billion and up to 100 billion objects analyzed<br>• $0.12 per 1 million objects, greater than 100 billion objects analyzed |
-| Workspace Early Delete  | Free | • Charged if the workspace is deleted less than 30 days from its creation<br>• Charged only if the workspace is downgraded to the Free pricing plan and if a paid plan was active for less than 30 days<br>• The penalty is charged for the following 30 days. The penalty value is based on the daily average cost of the workspace before the workspace was downgraded or prematurely deleted |
 
 <sup>1</sup> A minimum charge of $0.18 applies when less than 1 million objects are analyzed.

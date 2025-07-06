@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: pthippeswamy
   ms.author: pthippeswamy
-  ms.date: 06/24/2025
+  ms.date: 08/01/2025
 
 
 highlightedContent:
@@ -33,12 +33,12 @@ additionalContent:
         # Card
         - title: Overview
           links:
-          - url: discovery-deploy-planning.md
+          - url: deploy-planning.md
             text: Planning for a Storage Discovery deployment
-          - url: discovery-create.md
+          - url: create-workspace.md
             text: Deploying a Storage Discovery resource
         # Card
         - title: Understand Storage Discovery Pricing
           links:
-          - url: discovery-pricing.md
+          - url: pricing.md
             text: Discovery Pricing
