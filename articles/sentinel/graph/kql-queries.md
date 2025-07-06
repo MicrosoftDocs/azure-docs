@@ -49,7 +49,7 @@ Select **New query** to create a new query tab. Your last query in each tab is s
 
 ### Select workspace
 
-Queries are run against a single workspace. Choose your workspace in the upper right corner of the query editor using the **Selected workspace** dropdown. The workspace you select determines the data available for querying. The *default* workspace contains data from Microsoft Entra, Microsoft 365, and Microsoft Resource Graph. For more information about these data assets, see [Manage data connectors in the Sentinel data lake (preview)](enable-data-connectors.md). 
+Queries are run against a single workspace. Choose your workspace in the upper right corner of the query editor using the **Selected workspace** dropdown. The workspace you select determines the data available for querying. The *default* workspace contains data from Microsoft Entra, Microsoft 365, and Microsoft Resource Graph.
 
 > [!NOTE] 
 > The selected workspace applies to all query tabs in the query editor.  
@@ -111,7 +111,7 @@ For sample queries, see [KQL sample queries for the data lake](kql-samples.md). 
 
 + Queries are run against a single workspace. Make sure you select the correct workspace before running a query.
 + Executing KQL queries on the Microsoft Sentinel data lake incurs charges based on query billing meters. For more information, see [../billing.md#data-lake-tier].
-+ Review data ingestion and table retention policy. Before setting query time range, be aware of data retention on your data lake tables and whether data is available for selected time range. For more information, see [Manage data tiers and retention in Microsoft Defender Portal (preview)](/unified-secops-platform/manage-data-defender-portal-overview) 
++ Review data ingestion and table retention policy. Before setting query time range, be aware of data retention on your data lake tables and whether data is available for selected time range. For more information, see [Manage data tiers and retention in Microsoft Defender Portal (preview)](https://aka.ms/manage-data-defender-portal-overview) 
 + KQL queries against the data lake are lower performant than queries on analytics tier. It’s recommended to use KQL queries against the lake only when exploring historical data or when tables are stored in lake-only mode.
 
 + The following KQL control commands are currently supported: 
