@@ -1,18 +1,18 @@
 ---
-title: Detect threats by using hunting livestream in Microsoft Sentinel 
-description: Learn how to use hunting livestream in Microsoft Sentinel to actively monitor a compromise event.
+title: Detect threats by using hunting livestream in Microsoft Sentinel
+description: Detect threats in real time with hunting livestream in Microsoft Sentinel. Set up sessions, receive notifications, and take action fast.
 ms.topic: how-to
-ms.date: 04/24/2024
+ms.date: 07/06/2025
 ms.author: monaberdugo
 author: mberdugo
 ms.collection: usx-security
 appliesto:
-    - Microsoft Sentinel in the Microsoft Defender portal
-    - Microsoft Sentinel in the Azure portal
-
-
-#Customer intent: As a security analyst, I want to create and manage hunting livestream sessions so that I can detect and respond to threats in real-time.
-
+  - Microsoft Sentinel in the Microsoft Defender portal
+  - Microsoft Sentinel in the Azure portal
+ms.custom:
+  - ai-gen-docs-bap
+  - ai-gen-description
+  - ai-seo-date:07/06/2025
 ---
 
 # Detect threats by using hunting livestream in Microsoft Sentinel
