@@ -15,7 +15,7 @@ ms.collection: ms-security
 
 ---  
  
-#  Manage KQL jobs in the Microsoft Sentinel data lake (Preview)
+#  Manage KQL jobs in the Microsoft Sentinel data lake (preview)
  
 ## Overview  
 A job is an one-time or scheduled task that runs a KQL (Kusto Query Language) query against the data in the lake tier to promote the results to the analytics tier. Once in the analytics tier, use the Advanced hunting KQL editor to query the data. 
@@ -34,7 +34,7 @@ Jobs are managed in the **Jobs** page under **Data lake exploration** in the Def
 
 ## Permissions
 
-Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To read tables across all workspaces, write to the analytics tier, and schedule jobs using KQL queries, you must have one of the supported Microsoft Entra ID roles. For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
+Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To read tables across all workspaces, write to the analytics tier, and schedule jobs using KQL queries, you must have one of the supported Microsoft Entra ID roles. For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](https://aka.ms/sentinel-data-lake-roles).
 
 
 ## Manage jobs
@@ -106,5 +106,5 @@ To delete a job, select the **Delete** button in the job details panel. A confir
 
 - [Overview of the Microsoft Sentinel data lake](sentinel-lake-overview.md)
 - [Create jobs in the Microsoft Sentinel data lake using KQL](kql-jobs.md)
-- [Data lake exploration - KQL queries (Preview).](kql-queries.md)
-- [Microsoft Sentinel lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview)
+- [Data lake exploration - KQL queries (preview).](kql-queries.md)
+- [Microsoft Sentinel lake roles and permissions](https://aka.ms/sentinel-data-lake-roles)

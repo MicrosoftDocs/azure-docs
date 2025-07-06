@@ -1,5 +1,5 @@
 ---  
-title: KQL and the Microsoft Sentinel data lake. (Preview)
+title: KQL and the Microsoft Sentinel data lake. (preview)
 titleSuffix: Microsoft Security  
 description: Exploring and interacting with the Microsoft Sentinel data lake using KQL.
 author: EdB-MSFT  
@@ -16,7 +16,7 @@ ms.collection: ms-security
 ---
 
 
-# KQL and the Microsoft Sentinel data lake (Preview)
+# KQL and the Microsoft Sentinel data lake (preview)
 
 ## Overview
 Microsoft Sentinel Lake is a modern, cloud-native security data lake that enables advanced analytics across all your security data. It brings together logs, alerts, and asset information into a single, unified platform—designed for scale, flexibility, and long-term retention.
@@ -37,7 +37,7 @@ Using KQL Analysts can:
 + Enrich investigations with high-volume logs: Leverage noisy or low-fidelity data stored in the lake to add context and depth to security investigations.
 + Correlate asset and logs data in lake: Query asset inventories and identity logs to connect user activity with resources and uncover broader attack.
 
-Use KQL queries under the Lake exploration in the Defender portal to run ad-hoc interactive KQL queries directly on long-term data.  Lake exploration can be found in the Sentinel menu and is available after the [onboarding](sentinel-lake-onboarding.md) process has been completed. KQL queries are ideal for SOC analysts investigating incidents where data may no longer reside in the Analytics tier. Queries enable forensic analysis using familiar queries without rewriting code. To get started with KQL queries see [Data lake exploration - KQL queries (Preview).](kql-queries.md). 
+Use KQL queries under the Lake exploration in the Defender portal to run ad-hoc interactive KQL queries directly on long-term data.  Lake exploration can be found in the Sentinel menu and is available after the [onboarding](sentinel-lake-onboarding.md) process has been completed. KQL queries are ideal for SOC analysts investigating incidents where data may no longer reside in the Analytics tier. Queries enable forensic analysis using familiar queries without rewriting code. To get started with KQL queries see [Data lake exploration - KQL queries (preview).](kql-queries.md). 
 
 ## KQL jobs 
 
@@ -68,7 +68,7 @@ The following scenarios illustrate how KQL queries in the Microsoft Sentinel Lak
 
 ## Related content
 
-- [Microsoft Sentinel data lake overview (Preview)](sentinel-lake-overview.md)
+- [Microsoft Sentinel data lake overview (preview)](sentinel-lake-overview.md)
 - [Onboarding to Microsoft Sentinel data lake](sentinel-lake-onboarding.md)
 - [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md)
 - [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md)

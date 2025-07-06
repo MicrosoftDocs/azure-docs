@@ -1,5 +1,5 @@
 ---  
-title:  Create jobs in the Microsoft Sentinel data lake (Preview)
+title:  Create jobs in the Microsoft Sentinel data lake (preview)
 titleSuffix: Microsoft Security  
 description: Use the Defender portal's Data lake exploration KQL queries to create and schedule jobs to promote data to the analytics tier.
 author: EdB-MSFT  
@@ -16,7 +16,7 @@ ms.collection: ms-security
 ---  
  
 
-#  Create KQL jobs in the Microsoft Sentinel data lake (Preview)
+#  Create KQL jobs in the Microsoft Sentinel data lake (preview)
  
 
 A job is a one-time or scheduled task that runs a KQL (Kusto Query Language) query against the data in the lake tier to promote the results to the analytics tier. Once in the analytics tier, use the Advanced hunting KQL editor to query the data. Promoting data to the analytics tier has the following benefits:
@@ -36,7 +36,7 @@ You can create a job by selecting the **Create job** button a KQL query tab or d
 
 ## Permissions
 
-Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To read tables across all workspaces, write to the analytics tier, and schedule jobs using KQL queries, you must have one of the supported Microsoft Entra ID roles. For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
+Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To read tables across all workspaces, write to the analytics tier, and schedule jobs using KQL queries, you must have one of the supported Microsoft Entra ID roles. For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](https://aka.ms/sentinel-data-lake-roles).
 
 
 ## Create a job
@@ -101,12 +101,12 @@ In the **Schedule the query job** panel, select whether you want to run the job 
 > [!NOTE]
 >  Partial results may be promoted if the job's query exceeds the one hour limit.
 
-For troubleshooting tips and error messages, see [Troubleshooting KQL queries for the Microsoft Sentinel data lake (Preview)](kql-troubleshooting.md).
+For troubleshooting tips and error messages, see [Troubleshooting KQL queries for the Microsoft Sentinel data lake (preview)](kql-troubleshooting.md).
 
 
 ## Related content
 
 - [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md)
-- [Microsoft Sentinel data lake overview (Preview)](sentinel-lake-overview.md)
+- [Microsoft Sentinel data lake overview (preview)](sentinel-lake-overview.md)
 - [KQL queries in the Microsoft Sentinel data lake](kql-queries.md)
-- [Jupyter notebooks and the Microsoft Sentinel data lake (Preview)](notebooks.md)
+- [Jupyter notebooks and the Microsoft Sentinel data lake (preview)](https://aka.ms/sentinel-lake-notebooks)
