@@ -25,7 +25,7 @@ A _Beta_ feature flag with targeting filter. [Create the feature flag](./howto-t
 
 In this section, you create a web application that uses the [_Beta_ feature flag](./howto-targetingfilter.md) to control the access to the beta version of a web page.
 
-### Initial project setup
+### Setup a Node.js Express project
 
 1. Create a folder called `targeting-filter-tutorial` and initialize the project.
 
@@ -43,10 +43,6 @@ In this section, you create a web application that uses the [_Beta_ feature flag
     npm install express
     ```
 
-### Connect to Azure App Configuration
-
-You connect to Azure App Configuration to load feature flags, enable automatic refresh, and create a `FeatureManager` object for accessing feature flags later. A middleware is added to refresh configuration before each request.
-
 1. Create a new file named *app.js* and add the following code.
 
     ```js
@@ -54,29 +50,37 @@ You connect to Azure App Configuration to load feature flags, enable automatic r
     const server = express();
     const port = "8080";
 
+    server.listen(port, () => {
+        console.log(`Server is running at http://localhost:${port}`);
+    });
+    ```
+
+### Connect to Azure App Configuration
+
+1. Update the *app.js* and add the following code.
+
+    ```js
+    // Existing code ...
     const appConfigEndpoint = process.env.AZURE_APPCONFIG_ENDPOINT;
     const { DefaultAzureCredential } = require("@azure/identity");
     const { load } = require("@azure/app-configuration-provider");
+    const { FeatureManager, ConfigurationMapFeatureFlagProvider } = require("@microsoft/feature-management");
 
     let appConfig;
     let featureManager;
 
     async function initializeConfig() {
-        try {
-            appConfig = await load(appConfigEndpoint, new DefaultAzureCredential(), {
-                featureFlagOptions: {
-                    enabled: true,
-                    refresh: {
-                        enabled: true
-                    }
+        appConfig = await load(appConfigEndpoint, new DefaultAzureCredential(), {
+            featureFlagOptions: {
+                enabled: true,
+                refresh: {
+                    enabled: true
                 }
-            });
-        } catch(error) {
-            console.error("Failed to load configuration:", error);
-            process.exit(1);
-        }
+            }
+        });
 
-        featureManager = new FeatureManager(new ConfigurationMapFeatureFlagProvider(appConfig));
+        const ffProvider = new ConfigurationMapFeatureFlagProvider(appConfig);
+        featureManager = new FeatureManager(ffProvider);
     }
 
     // Use a middleware to refresh the configuration before each request.
@@ -84,34 +88,15 @@ You connect to Azure App Configuration to load feature flags, enable automatic r
         appConfig.refresh();
         next();
     });
+    // Existing code ...
     ```
 
-### Use the feature flag
+    You connect to Azure App Configuration to load feature flags, enable automatic refresh, and create a `FeatureManager` object for accessing feature flags later. A middleware is added to refresh configuration before each request.
 
-1. Add the following code to the *app.js* file. You configure the route handler so that the server will serve different contents based on whether the **Beta** feature flag is enabled.
-
-    ```js
-    server.get("/", async (req, res) => {
-        const isBetaEnabled = await featureManager.isEnabled("Beta");
-        const [title, message] = isBetaEnabled 
-            ? ["Beta Page", "This is a beta page."]
-            : ["Home Page", "Welcome."];
-        
-        res.send(
-            `<!DOCTYPE html>
-            <html>
-                <head><title>${title}</title></head>
-                <body style="display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;">
-                    <h1 style="text-align: center; font-size: 5rem;">${message}</h1>
-                </body>
-            </html>`
-        );
-    });
-    ```
-
-1. Complete the application. It will initialize the configuration and then start the express server.
+1. Update the code to ensure the Express server starts only after the configuration has been successfully initialized.
 
     ```js
+    // Existing code ...
     initializeConfig()
         .then(() => {
             // Start the express server.
@@ -120,6 +105,33 @@ You connect to Azure App Configuration to load feature flags, enable automatic r
             });
         })
     ```
+
+### Use the feature flag
+
+Add the following code to the *app.js* file to configure the route handler for the Express server. The server will serve different contents based on whether the **Beta** feature flag is enabled.
+
+```js
+// Existing code ...
+server.get("/", async (req, res) => {
+    const isBetaEnabled = await featureManager.isEnabled("Beta");
+    const [title, message] = isBetaEnabled 
+        ? ["Beta Page", "This is a beta page."]
+        : ["Home Page", "Welcome."];
+    
+    res.send(
+        `<!DOCTYPE html>
+        <html>
+            <head><title>${title}</title></head>
+            <body style="display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;">
+                <h1 style="text-align: center; font-size: 5rem;">${message}</h1>
+            </body>
+        </html>`
+    );
+});
+
+initializeConfig()
+// Existing code ...
+```
 
 ## Enable targeting for the web application
 
@@ -171,12 +183,12 @@ You use ambient targeting context in this tutorial.
 1. When constructing the `FeatureManager`, pass the targeting context accessor to the `FeatureManagerOptions`.
 
     ```js
-    featureManager = new FeatureManager(featureFlagProvider, {
+    featureManager = new FeatureManager(ffProvider, {
         targetingContextAccessor: targetingContextAccessor
     });
     ```
 
-Your complete application code should look like the following:
+After completing the previous steps, your _app.js_ file should now contain the following complete implementation.
 
 ```js
 const express = require("express");
@@ -227,7 +239,8 @@ async function initializeConfig() {
         }
     });
 
-    featureManager = new FeatureManager(new ConfigurationMapFeatureFlagProvider(appConfig), {
+    const ffProvider = new ConfigurationMapFeatureFlagProvider(appConfig);
+    featureManager = new FeatureManager(ffProvider, {
         targetingContextAccessor: targetingContextAccessor
     });
 }
@@ -263,10 +276,6 @@ initializeConfig()
             console.log(`Server is running at http://localhost:${port}`);
         });
     })
-    .catch((error) => {
-        console.error("Failed to load configuration:", error);
-        process.exit(1);
-    });
 ```
 
 

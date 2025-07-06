@@ -70,7 +70,8 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
         });
 
         // Create a feature manager which will evaluate the feature flag
-        const fm = new FeatureManager(new ConfigurationMapFeatureFlagProvider(appConfig));
+        const ffProvider = new ConfigurationMapFeatureFlagProvider(appConfig);
+        const fm = new FeatureManager(ffProvider);
 
         while (true) {
             await appConfig.refresh(); // Refresh to get the latest feature flag settings
@@ -107,7 +108,8 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
         });
 
         // Create a feature manager which will evaluate the feature flag
-         const fm = new FeatureManager(new ConfigurationMapFeatureFlagProvider(appConfig));
+        const ffProvider = new ConfigurationMapFeatureFlagProvider(appConfig);
+        const fm = new FeatureManager(ffProvider);
 
         while (true) {
             await appConfig.refresh(); // Refresh to get the latest feature flag settings
