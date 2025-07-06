@@ -30,7 +30,7 @@ Preexisting data in the tables isn't mirrored. The retention of in the data lake
 
 The data retained in Archive will still be available and can be restored using Search and Restore functionality. 
 
-To configure retention and tiering for the data connector see [Configure data connector](configure-data-connector.md).
+To configure retention and tiering for the data connector see [Configure data connector](../configure-data-connector.md).
 
  ## Additional data sources
 

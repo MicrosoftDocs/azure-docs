@@ -60,7 +60,7 @@ After you or someone in your organization installs the solution that includes th
   
 ### Configure data retention and tiering.
    
-If you have onboarded to the Microsoft Sentinel data lake, you can configure data retention and tiering for the data connector. The data lake consists of an analytics tier - your current Microsoft Sentinel workspaces, and a data lake tier where you can store data for up to 12 years. For more information on onboarding, see [Onboarding to Microsoft Sentinel data lake](sentinel-lake-onboarding.md). 
+If you have onboarded to the Microsoft Sentinel data lake, you can configure data retention and tiering for the data connector. The data lake consists of an analytics tier - your current Microsoft Sentinel workspaces, and a data lake tier where you can store data for up to 12 years. For more information on onboarding, see [Onboarding to Microsoft Sentinel data lake](graph/sentinel-lake-onboarding.md). 
 
 When you enable a connector, by default the data is sent to the analytics tier and mirrored in the data lake tier. Configure the data retention in each tier, or send the data only to the data lake tier. Retention and tiering are managed from the connector setup pages, or using the **Table management** page in the Defender portal. For more information on table management and retention, see [Manage data tiers and retention in Microsoft Defender Portal (Preview)](https://aka.ms/manage-data-defender-portal-overview). 
 
@@ -115,8 +115,8 @@ For more information about solutions and data connectors in Microsoft Sentinel, 
 - [Microsoft Sentinel data connectors](connect-data-sources.md)
 - [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
 - [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md)
-- [What is Microsoft Sentinel data lake?](sentinel-lake-overview.md)
-- [Onboarding to Microsoft Sentinel data lake](sentinel-lake-onboarding.md)
+- [What is Microsoft Sentinel data lake?](graph/sentinel-lake-overview.md)
+- [Onboarding to Microsoft Sentinel data lake](graph/sentinel-lake-onboarding.md)
 - [Manage data tiers and retention in Microsoft Defender Portal (Preview)](https://aka.ms/manage-data-defender-portal-overview). 
 - [KQL and the Microsoft Sentinel data lake (preview)](https://aka.ms/kql-overview)
 - [Jupyter notebooks and the Microsoft Sentinel data lake (preview)](https://aka.ms/notebooks-overview)
