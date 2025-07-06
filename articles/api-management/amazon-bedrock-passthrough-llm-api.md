@@ -56,7 +56,7 @@ Save your access keys in a safe location. You'll store them as named values in t
 
 ## Store IAM user access keys as named values
 
-Securely store the two IAM user access keys as secret [named values](api-management-howto-properties) in your Azure API Management instance using the configuration recommended in the following table. 
+Securely store the two IAM user access keys as secret [named values](api-management-howto-properties.md) in your Azure API Management instance using the configuration recommended in the following table. 
 
 
 | AWS secret | Name | Secret value | 
