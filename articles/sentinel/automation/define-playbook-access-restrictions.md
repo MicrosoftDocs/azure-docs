@@ -5,7 +5,7 @@ ms.topic: how-to
 author: batamig
 ms.author: bagol
 ms.reviewer: Anat Gilenson
-ms.date: 06/14/2025
+ms.date: 07/1/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
