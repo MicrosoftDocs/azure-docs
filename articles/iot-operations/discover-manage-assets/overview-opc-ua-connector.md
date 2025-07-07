@@ -103,3 +103,16 @@ The subject field contains the name of the asset that the message is related to.
 
 > [!NOTE]
 > For assets created in the operations experience web UI, the subject property for any messages sent by the asset is set to the `externalAssetId` value. In this case, the `subject` property contains a GUID rather than a friendly asset name.
+
+## How does it relate to Azure IoT Operations?
+
+The connector for ONVIF is part of Azure IoT Operations. The connector deploys to an Arc-enabled Kubernetes cluster on the edge as part of an Azure IoT Operations deployment. The connector interacts with other Azure IoT Operations elements, such as:
+
+- [Assets and devices](./concept-assets-devices.md)
+- [The MQTT broker](../connect-to-cloud/overview-dataflow.md)
+- [Azure Device Registry](./overview-manage-assets.md#store-assets-as-azure-resources-in-a-centralized-registry)
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [How to use the connector for OPC UA](./howto-configure-opc-ua.md)
