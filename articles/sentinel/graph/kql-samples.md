@@ -1,5 +1,5 @@
 ---  
-title: Sample KQL queries for the data lake(preview)
+title: Sample KQL queries for the data lake (preview)
 titleSuffix: Microsoft Security  
 description:  Sample KQL queries for the Microsoft Sentinel data lake
 author: EdB-MSFT  
@@ -81,7 +81,7 @@ SigninLogs
 
 ## Enrich investigations using high-volume, low-fidelity logs
 
-Correlate Cisco firewall logs with attacker IPs identified from sign-in failures, enriching network events with domain context to trace lateral movement .
+Correlate Cisco firewall logs with attacker IPs identified from sign-in failures, enriching network events with domain context to trace lateral movement.
 
 ```kql
 let timeframe = 24h;

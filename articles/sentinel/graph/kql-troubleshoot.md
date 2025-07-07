@@ -1,5 +1,5 @@
 ---  
-title: Troubleshoot KQL queries for the data lake(preview).
+title: Troubleshoot KQL queries for the data lake (preview)
 titleSuffix: Microsoft Security   
 description:  Troubleshoot KQL queries for the Microsoft Sentinel data lake.
 author: EdB-MSFT  

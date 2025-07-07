@@ -19,7 +19,7 @@ ms.collection: ms-security
  
 
 A job is a one-time or scheduled task that runs a KQL (Kusto Query Language) query against the data in the lake tier to promote the results to the analytics tier. Once in the analytics tier, use the Advanced hunting KQL editor to query the data. 
-Jobs can be created and in the **KQL queries** editor under **Data lake exploration**  in the Defender portal for Microsoft Sentinel. For more information, see [KQL jobs](kql-jobs.md). 
+Jobs can be created in the **KQL queries** editor under **Data lake exploration**  in the Defender portal for Microsoft Sentinel. For more information, see [KQL jobs](kql-jobs.md). 
 
 Jobs are managed in the **Jobs** page under **Data lake exploration** in the Defender portal for Microsoft Sentinel. The Jobs management page provides the following functions:
 
@@ -70,7 +70,7 @@ To see a job's details, select a job. The job detail panel opens, showing the fo
 
     :::image type="content" source="media/kql-manage-jobs/manage-job-details.png" alt-text="A screenshot showing the job details page." lightbox="media/kql-manage-jobs/manage-job-details.png":::
 
-Select the **Destination table** link to open the table in the KQL query editor in Advanced hunting. The query can be copied by selection the **Copy query** button.  
+Select the **Destination table** link to open the table in the KQL query editor in Advanced hunting. The query can be copied by selecting the **Copy query** button.  
 
 ### Edit a job
 

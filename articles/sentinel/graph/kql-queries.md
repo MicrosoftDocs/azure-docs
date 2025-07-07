@@ -20,12 +20,13 @@ Microsoft Sentinel data lake is a next-generation, cloud-native platform that ex
 
 Data lake exploration in the Defender portal, provides a unified interface for analyzing your data lake, enabling you to run KQL (Kusto Query Language) queries, and create and manage jobs.
 
-
-## KQL queries
-
 The **KQL queries** page under **Data lake exploration** allows you to edit and run KQL queries against data lake resources. You can create jobs to promote data from the lake to the Analytics tier. Jobs can be run on-demand or scheduled. The **Jobs** page provides an interface to manage jobs, enabling, disabling, editing, or deleting jobs. For more information, see [Create jobs in the Microsoft Sentinel data lake (preview)](kql-jobs.md).
 
 ## Prerequisites
+
+The following prerequisites are required to run KQL queries in the Microsoft Sentinel data lake.
+
+### Onboard to the data lake
 
 KQL queries can be run in the Microsoft Defender portal after the onboarding process is complete. For more information on onboarding, see [Onboarding to Microsoft Sentinel data lake](sentinel-lake-onboarding.md).
 
@@ -121,8 +122,7 @@ For sample queries, see [KQL sample queries for the data lake](kql-samples.md). 
 + Calling external data via KQL query against the data lake isn't supported. 
 + `Ingestion_time()` function isn't supported on tables in data lake.
 
-
-[!INCLUDE [Service limits for KQL queries against the data lake](../includes/service-limits-kql-queries.md)]
+For service limits, see [Microsoft Sentinel data lake (preview) service limits](sentinel-lake-service-limits.md#service-limits-for-kql-queries-in-the-lake-tier).
 
 For troubleshooting KQL queries, see [Troubleshoot KQL queries in the Microsoft Sentinel data lake](kql-troubleshoot.md).
 

@@ -34,9 +34,31 @@ When promoting data to the analytics tier, make sure that the destination worksp
 
 You can create a job by selecting the **Create job** button a KQL query tab or directly from the **Jobs** management page or by. For more information on the Jobs management page, see [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md).
 
-## Permissions
+## Prerequisites
+
+The following prerequisites are required to create and manage KQL jobs in the Microsoft Sentinel data lake.
+
+### Onboard to the data lake
+
+To create and manage KQL jobs in the Microsoft Sentinel data lake, you must first onboard to the data lake. For more information on onboarding to the data lake, see [Onboard to the Microsoft Sentinel data lake (preview)](sentinel-lake-onboard.md).
+
+### Permissions
 
 Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To read tables across all workspaces, write to the analytics tier, and schedule jobs using KQL queries, you must have one of the supported Microsoft Entra ID roles. For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](https://aka.ms/sentinel-data-lake-roles).
+
+To create new custom tables in the analytics tier, the data lake managed identity must be assigned the **Log Analytics Contributor** role in the Log Analytics workspace.
+
+To assign the role, follow the steps below:
+
+1. In the Azure portal, navigate to the Log Analytics workspace that you want to assign the role to.
+1. Select **Access control (IAM)** in the left navigation pane.
+1. Select **Add role assignment**.
+1. In the **Role** table, select ***Log Analytics Contributor**, then select **Next**
+1. Select **Managed identity**, then select **Select members**.
+1. Your data lake managed identity is a system assigned managed identity named `msg-resources-<guid>` Select the managed identity, then select **Select**. 
+1. Select **Review and assign**.
+
+For more information on assigning roles to managed identities, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 
 ## Create a job
@@ -52,7 +74,7 @@ To create jobs to run on a schedule or one-time, follow the steps below.
         :::image type="content" source="media/kql-jobs/kql-queries-create-job.png" alt-text="A screenshot showing the create job button in the KQL query editor." lightbox="media/kql-jobs/kql-queries-create-job.png":::
     1. To create a job from the jobs management page, select **Jobs** in the left navigation pane under **Data lake exploration**,  then select the **Create a new job**.
         :::image type="content" source="media/kql-jobs/jobs-page-create-job.png" alt-text="A screenshot showing the create job button in the jobs management page." lightbox="media/kql-jobs/jobs-page-create-job.png":::
-1. Enter a **Job name**.  The job name must be unique for the tenant. Job names can contain up to 256 characters. you can't use a `#` in a job name.      
+1. Enter a **Job name**.  The job name must be unique for the tenant. Job names can contain up to 256 characters. You can't use a `#` in a job name.      
 
 1. Enter a **Job Description** providing the context and purpose of the job. 
 
@@ -63,7 +85,7 @@ To create jobs to run on a schedule or one-time, follow the steps below.
 1. Select the destination table:
     1. To create a new table, select **Create a new table** and enter a table name. Tables created by KQL jobs have the suffix *_KQL_CL* appended to the table name.
     
-    1. To append to an existing table, select **Add to an exiting table** and select the table name form the drop-down list. When adding to an exiting table, the query results must match the schema of the existing table. 
+    1. To append to an existing table, select **Add to an existing table** and select the table name form the drop-down list. When adding to an existing table, the query results must match the schema of the existing table. 
     
 1. Select **Next**.
     :::image type="content" source="media/kql-jobs/enter-job-name-details.png" alt-text="A screenshot showing the new job details page." lightbox="media/kql-jobs/enter-job-name-details.png":::
@@ -80,12 +102,12 @@ To create jobs to run on a schedule or one-time, follow the steps below.
 In the **Schedule the query job** panel, select whether you want to run the job once or on a schedule. If you select **One time**, the job runs as soon as the job definition is complete. If you select **Schedule**, you can specify a date and time for the job to run, or run the job on a recurring schedule.
 
 1. Select **One time** or **Scheduled job**.
-    >[!NOTE
-    > Editing a one-time job will immediately trigger its execution]
+    >[!NOTE]
+    > Editing a one-time job will immediately trigger its execution.
 
 1. If you selected **Schedule**, enter the following details:
     1. Select the run frequency from the **Run every** drop-down. Select *Daily*, Weekly*, or *Monthly*.
-    1. Under **Start running**, enter the **Start running date** and **Start running time** .  The job start time must at least 30 minutes after job creation. The job runs from this date and time according to the frequency select in the **Run every** dropdown.
+    1. Under **Start running**, enter the **Start running date** and **Start running time**.  The job start time must be at least 30 minutes after job creation. The job runs from this date and time according to the frequency select in the **Run every** dropdown.
     1. Select the **Set end date** checkbox to specify an end date and time for the job schedule. If you don't select the end date checkbox, the job runs according to the run frequency until you disable or delete it.
    
 1. Select **Next** to review the job details.
@@ -111,7 +133,8 @@ When creating jobs in the Microsoft Sentinel data lake, consider the following l
 + During public preview, the scope of KQL job is limited to a single workspace.
 
 ### Column names
-+ The following standard columns aren't supported for export. These columns are overwritten in the destination tier during the ingestion:
+The following standard columns aren't supported for export. These columns are overwritten in the destination tier during the ingestion:
+
 + TenantId
 + _TimeReceived
 + Type
@@ -125,9 +148,7 @@ When creating jobs in the Microsoft Sentinel data lake, consider the following l
 
 + `TimeGenerated` will be overwritten if it's older that 2 days. To preserve the original event time, we recommend writing the source timestamp to a separate column.
 
-
-[!INCLUDE [Service limits for KQL jobs](../includes/service-limits-kql-jobs.md)]
-
+For service limits, see [Microsoft Sentinel data lake (preview) service limits](sentinel-lake-service-limits.md#service-limits-for-kql-jobs).
 
 > [!NOTE]
 >  Partial results may be promoted if the job's query exceeds the one hour limit.
