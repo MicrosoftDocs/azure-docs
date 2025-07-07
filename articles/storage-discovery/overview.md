@@ -81,4 +81,3 @@ The following articles can help you become familiar with the Storage Discovery s
 - [Planning for an Azure Storage Discovery deployment](deploy-planning.md)
 - [Create Storage Discovery Workspace by using the Azure portal](create-workspace.md)
 - [Pricing and billing](pricing.md)
-- [Storage Discovery regional coverage](regionalCoverage.md)

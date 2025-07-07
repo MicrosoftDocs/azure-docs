@@ -8,7 +8,7 @@ ms.date: 08/01/2025
 ms.author: pthippeswamy
 ---
 
-# What is Azure Storage Discovery?
+# Azure Storage Discovery pricing
 
 Azure Storage Discovery provides a centralized view of storage across subscriptions and regions, aggregating metrics on capacity, activity, and configuration. This article describes how you plan for and manage costs for Azure Storage Discovery.
 

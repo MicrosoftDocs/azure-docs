@@ -35,7 +35,7 @@ The following table describes each element.
 | `Region` | Azure region where the Discovery resource is created.<sup>1</sup>|
 | `Pricing plan` | Storage Discovery pricing plan.<sup>2</sup>|
 
-<sup>1</sup> For information on regions covered, see [Storage Discovery workspace regions](includes/control-plane-regions.md) and for storage account regions covered by Discovery, see [Storage Discovery regions](includes/data-plane-regions.md)  
+<sup>1</sup> For information on regions covered, see [Storage Discovery workspace regions](deploy-planning.md). 
 <sup>2</sup> For information on Storage Discovery pricing plan, see [Understand Storage Discovery Pricing](pricing.md).
 
 ### Define WorkspaceRoots

@@ -6,8 +6,6 @@ ms.date: 08/01/2025
 ms.service: azure-storage-mover
 ---
 
-# Azure Storage Discovery workspace regions
-
 Azure Storage Discovery is currently in PREVIEW and is available in the select regions. Below is the list of regions where storage discovery workspaces can be created:
 
 - France Central
