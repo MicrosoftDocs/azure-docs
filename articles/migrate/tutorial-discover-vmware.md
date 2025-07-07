@@ -54,17 +54,13 @@ If you created a free Azure account, by default, you're the owner of the Azure s
 
 To set Contributor or Owner permissions in the Azure subscription:
 
-1. In the Azure portal, search for "subscriptions." Under **Services** in the search results, select **Subscriptions**.
+1. In the Azure portal, search for **Subscriptions**. Under **Services** in the search results, select **Subscriptions**.
 
     :::image type="content" source="./media/tutorial-discover-vmware/search-subscription.png" alt-text="Screenshot that shows how to search for an Azure subscription in the search box.":::
 
-1. In **Subscriptions**, select the subscription in which you want to create a project.
-
-1. Select **Access control (IAM)**.
-
+1. In **Subscriptions**, select the subscription in which you want to create a project. 
+1. Select **Access control (IAM)**. 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
-
-
 1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal) .
 
 
@@ -74,7 +70,7 @@ To set Contributor or Owner permissions in the Azure subscription:
     | Assign access to | User |
     | Members | azmigrateuser |
 
-:::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Add role assignment page in Azure portal.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Add role assignment page in Azure portal.":::
 
 To give the account the required permissions to register Microsoft Entra apps:
 
