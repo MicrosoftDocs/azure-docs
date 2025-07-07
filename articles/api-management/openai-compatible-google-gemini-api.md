@@ -32,6 +32,8 @@ Learn more about managing AI APIs in API Management:
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **APIs** > **+ Add API**.
 1. Under **Define a new API**, select **Language Model API**.
+    
+    :::image type="content" source="media/openai-compatible-llm-api/openai-api.png" alt-text="Screenshot of creating a passthrough language model API in the portal." :::
 1. On the **Configure API** tab:
     1. Enter a **Display name** and optional **Description** for the API.
     1. In **URL**, enter the following base URL from the [Gemini OpenAI compatibility documentation](https://ai.google.dev/gemini-api/docs/openai):
