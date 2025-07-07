@@ -1,6 +1,6 @@
 ---
 title: "Data migration"
-description: Learn the best practices and utilites when migrating your data during a migration of high performance computing architecture.
+description: Learn the best practices and utilities when migrating your data during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
 ms.date: 04/10/2025
