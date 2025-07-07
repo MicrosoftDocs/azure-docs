@@ -69,7 +69,7 @@ Client Traffic Control Rules restrict the inbound throughput of client connectio
    This rule limits the inbound throughput of the same claim.
    
 
-## Max Client Lifetime Configuration
+## Max Client Lifetime configuration
 This setting controls the maximum lifetime of a client connection, in seconds. When the client connection lifetime reaches the specified time, the service will automatically clean up the session and close the connection. To disable this limit, set the value to 0.
 
 ## Set up Application Firewall 
