@@ -229,17 +229,19 @@ The following table shows the release stage and change logs for different versio
 
 | Version | Release stage | Change log | 
 | :----------- | :------- | :------- |
-| Google BigQuery V1 | GA version available | / |
+| Google BigQuery V1 | End of support | / |
 | Google BigQuery V2 (version 1.0) | GA version available | • Service authentication is supported by the Azure integration runtime and the self-hosted integration runtime. <br>The properties `trustedCertPath`, `useSystemTrustStore`, `email` and `keyFilePath` are not supported as they are available on the self-hosted integration runtime only. <br><br> • `requestGoogleDriveScope` is not supported. You need additionally apply the permission in Google BigQuery service by referring to [Choose Google Drive API scopes](https://developers.google.com/drive/api/guides/api-specific-auth) and [Query Drive data](https://cloud.google.com/bigquery/docs/query-drive-data). <br><br> • `additionalProjects` is not supported. As an alternative, [query a public dataset with the Google Cloud console](https://cloud.google.com/bigquery/docs/quickstarts/query-public-dataset-console).<br><br> • NUMBER is read as Decimal data type. <br><br> • Timestamp and Datetime are read as DateTimeOffset data type.|
-| Google BigQuery V2 (version 1.1) | GA version available | • When executing multiple statements, the `query` returns the results of the first statement after excluding the evaluation statements.  |
+| Google BigQuery V2 (version 1.1) | GA version available | • Fixed a bug: when executing multiple statements, the `query` now returns the results of the first statement after excluding the evaluation statements, rather than always returning the result of the first statement.  |
 
-### <a name="upgrade-the-google-bigquery-linked-service"></a> Upgrade the Google BigQuery connector from V1 to V2
+### <a name="upgrade-the-google-bigquery-linked-service"></a> Upgrade the Google BigQuery connector
 
-To upgrade the Google BigQuery connector, create a new Google BigQuery linked service and configure it by referring to [Linked service properties](#linked-service-properties).
+To upgrade your Google BigQuery connector:
 
-### Upgrade the Google BigQuery V2 connector from version 1.0 to version 1.1
+- **From V1 to V2:**  
+  Create a new Google BigQuery linked service and configure it by referring to [Linked service properties](#linked-service-properties).
 
-In **Edit linked service** page, select 1.1 for version. For more information, see [Linked service properties](#linked-service-properties).
+- **From V2 version 1.0 to version 1.1:**  
+  In the **Edit linked service** page, select **1.1** for version. For more information, see [Linked service properties](#linked-service-properties).
 
 ## Related content
 
