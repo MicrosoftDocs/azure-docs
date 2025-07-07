@@ -325,14 +325,14 @@ To forward the original host header, you can inject it into the `X-Forwarded-Hos
 
 To enable `X-Forwarded-Host` injection:
 
-    1. Under the **Configuration** tab, select **Backend settings** section of your Application Gateway routing rule:
+1. Under the **Configuration** tab, select **Backend settings** section of your Application Gateway routing rule:
 
-      - Enable **Request Header Rewrite**.
-      - Add a new request header with the following values:
-        - Header name: `X-Forwarded-Host`
-        - Value: `{host}`
- 
-      Your backend app can now read the original request host using the `X-Forwarded-Host` header. 
+    - Enable **Request Header Rewrite**.
+    - Add a new request header with the following values:
+      - Header name: `X-Forwarded-Host`
+      - Value: `{host}`
+
+    Your backend app can now read the original request host using the `X-Forwarded-Host` header.
 
 ## Verify the container app
 
