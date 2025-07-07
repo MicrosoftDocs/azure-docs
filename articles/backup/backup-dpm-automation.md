@@ -7,6 +7,7 @@ ms.date: 11/26/2024
 ms.custom: devx-track-azurepowershell, engagement-fy24
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator using PowerShell, I want to deploy and manage Azure Backup for Data Protection Manager (DPM) workloads, so that I can automate backup processes and ensure data protection with efficient recovery solutions."
 ---
 # Deploy and manage backup to Azure for Data Protection Manager (DPM) servers using PowerShell
 

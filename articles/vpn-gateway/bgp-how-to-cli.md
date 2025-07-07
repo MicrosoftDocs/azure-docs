@@ -8,6 +8,7 @@ ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 01/09/2023
 ms.author: cherylmc
+# Customer intent: "As a network administrator, I want to configure BGP for Azure VPN gateways using CLI, so that I can facilitate efficient routing and connectivity between on-premises and virtual networks."
 ---
 # How to configure BGP for Azure VPN Gateway: CLI
 

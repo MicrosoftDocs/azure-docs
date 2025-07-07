@@ -26,7 +26,8 @@ Advanced network features enhance the virtual networking experience, offering im
 * Canada Central
 * Central US 
 * East US 
-* East US2 
+* East US2
+* South Central US
 * US West  
 * UK South 
 * UK West

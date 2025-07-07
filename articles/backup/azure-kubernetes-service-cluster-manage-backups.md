@@ -10,6 +10,7 @@ ms.custom:
 ms.date: 06/18/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to manage backups for Azure Kubernetes Service clusters using Azure Backup, so that I can ensure data protection and recovery for my applications and services."
 ---
 
 # Manage Azure Kubernetes Service backups using Azure Backup 

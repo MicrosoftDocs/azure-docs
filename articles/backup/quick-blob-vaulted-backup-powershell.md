@@ -7,6 +7,7 @@ ms.date: 06/17/2025
 ms.custom: mvc, devx-track-azurepowershell, mode-api
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an IT admin, I want to configure vaulted backup for Azure Blobs using PowerShell, so that I can ensure my data is securely backed up and easily recoverable.
 ---
 
 # Quickstart: Configure vaulted backup for Azure Blobs using Azure Backup via Azure PowerShell

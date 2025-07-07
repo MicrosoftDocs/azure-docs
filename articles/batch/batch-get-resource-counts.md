@@ -4,6 +4,7 @@ description: Count the state of Azure Batch tasks and compute nodes to help mana
 ms.date: 04/25/2025
 ms.topic: how-to
 ms.devlang: csharp
+# Customer intent: As a cloud engineer managing large-scale Batch solutions, I want to count the states of tasks and compute nodes, so that I can effectively monitor job progress and ensure adequate compute resources are available for optimal performance.
 ---
 # Monitor Batch solutions by counting tasks and nodes by state
 

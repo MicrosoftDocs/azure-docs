@@ -4,6 +4,7 @@ description: How to take advantage of HPC and GPU virtual machine sizes in Azure
 ms.topic: how-to
 ms.custom: linux-related-content
 ms.date: 02/04/2025
+# Customer intent: "As a cloud administrator, I want to configure HPC and GPU instances in Azure Batch pools, so that I can effectively manage and accelerate compute-intensive workloads using high-performance virtual machines."
 ---
 # Use RDMA or GPU instances in Batch pools
 

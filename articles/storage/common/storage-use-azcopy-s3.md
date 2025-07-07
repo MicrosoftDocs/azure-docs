@@ -11,6 +11,7 @@ ms.subservice: storage-common-concepts
 ms.collection:
  - migration
  - aws-to-azure
+# Customer intent: "As a data engineer, I want to transfer data from Amazon S3 to Azure Blob Storage using a command-line tool, so that I can efficiently manage storage resources and assets across cloud platforms."
 ---
 
 # Copy data from Amazon S3 to Azure Storage by using AzCopy

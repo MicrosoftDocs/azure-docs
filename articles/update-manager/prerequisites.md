@@ -7,6 +7,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 09/24/2024
 ms.topic: overview
+# Customer intent: "As a system administrator, I want to understand the prerequisites for Azure Update Manager, so that I can effectively prepare my Linux and Arc-enabled servers for update management."
 ---
 
 # Prerequisites for Azure Update Manager

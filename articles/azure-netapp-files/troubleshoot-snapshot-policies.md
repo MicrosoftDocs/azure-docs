@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: troubleshooting
 ms.date: 09/23/2024
 ms.author: anfdocs
+# Customer intent: As a cloud administrator managing snapshot policies, I want to troubleshoot error messages during policy creation, so that I can ensure the successful implementation of snapshot management for Azure NetApp Files.
 ---
 # Troubleshoot snapshot policy errors
 

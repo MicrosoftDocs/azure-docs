@@ -7,6 +7,7 @@ ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 
+# Customer intent: As an IT administrator, I want to install the Recovery Services agent on my Windows machines, so that I can back up files, folders, and system state data to Azure for data protection and recovery.
 ---
 
 # Install the Azure Backup MARS agent

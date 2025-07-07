@@ -1,11 +1,11 @@
 ---
 ms.author: enricohuang
-title: Azure Communication Calling Web SDK in WebView environment
-titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to integrate Azure Communication Calling WebJS SDK in a WebView environment
+title: Add audio and video calling to your WebView application
+titleSuffix: An Azure Communication Services article
+description: This article describes how to integrate Azure Communication Calling WebJS SDK in a WebView environment
 author: sloanster
 services: azure-communication-services
-ms.date: 01/18/2022
+ms.date: 06/28/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -13,7 +13,7 @@ zone_pivot_groups: acs-plat-ios-android
 ms.custom: mode-other
 ---
 
-# QuickStart: Add video calling to your WebView client app
+# Add audio and video calling to your WebView application
 
 ::: zone pivot="platform-android"
 [!INCLUDE [Android WebView](./includes/webview/get-started-android-webview.md)]

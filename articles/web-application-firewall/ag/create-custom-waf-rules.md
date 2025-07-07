@@ -8,6 +8,7 @@ ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 04/30/2025
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a security engineer, I want to create custom rules for the Web Application Firewall on my application gateway, so that I can effectively block or allow traffic based on specific criteria unique to my web applications.
 ---
 
 # Create and use Web Application Firewall v2 custom rules on Application Gateway

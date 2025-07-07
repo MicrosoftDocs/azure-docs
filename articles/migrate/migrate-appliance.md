@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 02/06/2025
 ms.custom: engagement-fy24
+# Customer intent: "As a system administrator, I want to deploy the Azure Migrate appliance for server discovery and assessment, so that I can evaluate the infrastructure and plan for migration to the cloud."
 ---
 
  
@@ -55,7 +56,8 @@ The appliance has the following services:
 - **Web apps discovery and assessment agent**: sends the web apps configuration data to Azure.
 
 > [!Note]
-> The last 3 services are available in the appliance used for discovery and assessment of servers running in your VMware VMs, Hyper-V VMs, bare-metal servers, and servers running on other public clouds like AWS, GCP etc.
+> - The last 3 services are available in the appliance used for discovery and assessment of servers running in your VMware VMs, Hyper-V VMs, bare-metal servers, and servers running on other public clouds like AWS, GCP etc.
+> - The Azure Migrate appliance stores data from the on-premises environment in the regional Cosmos DB during discovery.
 
 ## Appliance - VMware
 
