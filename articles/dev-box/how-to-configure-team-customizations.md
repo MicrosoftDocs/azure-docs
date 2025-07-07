@@ -15,7 +15,7 @@ ms.date: 05/09/2025
 #customer intent: As a Dev Center admin or project admin, I want to create image definition files so that my development teams can create customized dev boxes.
 ---
 
-# Write an image definition file for Dev Box team customizations
+# Configure team customizations
 
 The Microsoft Dev Box customizations feature helps you streamline the setup of cloud-based development environments. Getting developers started on a new project or with a new team is often complex and time-consuming. With customizations, you can configure ready-to-code workstations with applications, tools, repositories, code libraries, packages, and build scripts. This article guides you through the process of creating, testing, and editing an image definition file for your dev box by using Visual Studio Code.
 
@@ -109,7 +109,7 @@ You can use both system and user tasks in your image definition file. The tasks 
 
 Standard users who configure user customizations can use only user tasks. They can't use system tasks.
 
-## Optional: Customize your dev box by using existing Desired State Configuration files
+## Customize your dev box by using existing Desired State Configuration files
 
 Desired State Configuration (DSC) is a management platform in PowerShell that enables you to manage your development environment with configuration as code. You can use DSC to define the desired state of your dev box, including software installations, configurations, and settings.
 

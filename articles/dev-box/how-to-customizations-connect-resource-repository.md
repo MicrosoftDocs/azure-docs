@@ -1,6 +1,6 @@
 ---
-title: Fetch Azure Key Vault Secrets from Dev Box Customizations Files
-description: Discover how to fetch Azure Key Vault secrets by using team and user customization files to enhance security and simplify workflows.
+title: Use Customizations to Connect to Azure Resources or Clone Private Repositories
+description: Discover how to use fetch Azure Key Vault secrets by using team and user customization files to enhance security and simplify workflows.
 #customer intent: As a platform engineer, I want to configure Azure Key Vault secrets so that my development teams can securely access private repositories during Dev Box customization.
 author: RoseHJM
 ms.author: rosemalcolm
@@ -15,7 +15,7 @@ ms.topic: how-to
 ms.date: 05/10/2025
 ---
 
-# Use Azure Key Vault secrets in customization files
+# Connect to Azure resources or clone private repositories by using customizations
 
 You can use secrets from your Azure key vault in your YAML customizations to clone private repositories, or with any task you author that requires an access token. For example, in a team customization file, you can use a personal access token (PAT) stored in a key vault to access a private repository.
 

@@ -1,5 +1,5 @@
 ---
-title: Write a user Customization File for Your Dev Box
+title: Configure a user Customization File for Your Dev Box
 description: Learn how to upload and validate user customization files for dev boxes directly from your local drive or repository.
 #customer intent: As a Dev Center Admin or Project Admin, I want to create image definition files so that my development teams can create customized dev boxes.
 author: RoseHJM
@@ -15,7 +15,7 @@ ms.topic: how-to
 ms.date: 05/09/2025
 ---
 
-# Write a user customization file for a dev box
+# Configure user customizations for dev boxes
 
 The Dev Box user customizations feature helps you streamline the setup of your dev boxes. Starting a new project or joining a team is often complex and time consuming. With customizations, you can configure your dev boxes with the applications, tools, repositories, code libraries, packages, and build scripts that you need. This article guides you through the process of creating, testing, and editing a user customization file for your dev box using Visual Studio Code (VS Code). 
 

@@ -12,7 +12,7 @@ ms.date: 02/05/2025
 #customer intent: As a Dev Center Admin or Project Admin, I want to configure dev box pools to use image definition files so that my development teams can create customized dev boxes.
 ---
 
-# Configure imaging for Dev Box team customizations
+# Configure Dev Box imaging
 
 Using a customization file simplifies the creation of dev boxes for your team. With dev box customizations, you can create a shared team customization by creating a file called an *image definition*. Creating a reusable image from this image definition optimizes customizations and saves time during dev box creation. In this article, you learn how to configure a pool to use an image definition and build reusable images for your development teams.
 
