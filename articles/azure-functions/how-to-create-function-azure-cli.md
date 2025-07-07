@@ -25,6 +25,8 @@ Before you begin, you must have the following:
 
 [!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)]
 
+[!INCLUDE [functions-cli-create-venv](../../includes/functions-cli-create-venv.md)]
+
 ## Create a local function project and function
 
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
@@ -116,12 +118,9 @@ In Azure Functions, a function project is a container for one or more individual
     ```console
     cd fabrikam-functions
     ```
+
 ::: zone-end  
-
-    The project root folder contains various files for the project, including configurations files named [local.settings.json](functions-develop-local.md#local-settings-file) and [host.json](functions-host-json.md). Because _local.settings.json_ can contain secrets downloaded from Azure, the file is excluded from source control by default in the _.gitignore_ file.
-
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
-
 2. Use this `func new` command to add a function to your project:
 
     ```console
@@ -130,6 +129,9 @@ In Azure Functions, a function project is a container for one or more individual
 
     A new code file is added to your project. In this case, the `--name` argument is the unique name of your function (`HttpExample`) and the `--template` argument specifies an HTTP trigger. 
 ::: zone-end
+
+The project root folder contains various files for the project, including configurations files named [local.settings.json](functions-develop-local.md#local-settings-file) and [host.json](functions-host-json.md). Because _local.settings.json_ can contain secrets downloaded from Azure, the file is excluded from source control by default in the _.gitignore_ file.
+
 ## Run the function locally
 
 1. Run your function by starting the local Azure Functions runtime host from the root folder:
