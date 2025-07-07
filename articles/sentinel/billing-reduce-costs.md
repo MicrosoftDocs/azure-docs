@@ -80,7 +80,7 @@ For more information about dedicated clusters, see [Log Analytics dedicated clus
 
 ## Reduce data retention costs with total retention
 
-Microsoft Sentinel retains analytics tier data by default for the first 90 days in analytics retention. As data ages, it loses its value for real-time analytics and investigation. Security operations center (SOC) users might don't to access older data as frequently, but still want to access the data for wider historical investigations or audit purposes. To help you reduce Microsoft Sentinel data retention costs, total retention is available. Data that ages out of its analytics retention state can still be retained, at a much-reduced cost, and access using Lake exploration capabilities. For more information, see [Lake exploration, KQL queries](https://aka.ms/kql-overview).
+Microsoft Sentinel retains analytics tier data by default for the first 90 days in analytics retention. As data ages, it loses its value for real-time analytics and investigation. Security operations center (SOC) users might not access older data as frequently but still want to access the data for wider historical investigations or audit purposes. To help you reduce Microsoft Sentinel data retention costs, total retention is available. Data that ages out of its analytics retention state can still be retained, at a much-reduced cost, and access using Lake exploration capabilities. For more information, see [Lake exploration, KQL queries](https://aka.ms/kql-overview).
 
 Use **Data management > Tables** to adjust the Analytics and Total retention period.
 
