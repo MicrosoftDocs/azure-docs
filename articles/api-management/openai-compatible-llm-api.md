@@ -15,7 +15,7 @@ ms.custom: template-how-to
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-You can import OpenAI-compatible language model endpoints to your API Management instance as APIs. You can also import language models that aren't compatible with OpenAI as passthrough APIs, which forward requests to the backend. For example, you might want to manage an LLM that you self-host, or that's hosted on an inference provider other than Azure AI services. Use AI gateway policies and other capabilities in API Management to simplify integration, improve observability, and enhance control over the model endpoints.
+You can import OpenAI-compatible language model endpoints to your API Management instance as APIs. You can also import language models that aren't compatible with OpenAI as passthrough APIs, which forward requests directly to the backend endpoints. For example, you might want to manage an LLM that you self-host, or that's hosted on an inference provider other than Azure AI services. Use AI gateway policies and other capabilities in API Management to simplify integration, improve observability, and enhance control over the model endpoints.
 
 Learn more about managing AI APIs in API Management:
 
@@ -39,7 +39,7 @@ API Management supports two types of language model APIs for this scenario. Choo
 - A self-hosted or non-Azure-provided language model deployment with an API endpoint.  
 
 
-## Import language model API using the portalF
+## Import language model API using the portal
 
 When you import the LLM API in the portal, API Management automatically configures:
 

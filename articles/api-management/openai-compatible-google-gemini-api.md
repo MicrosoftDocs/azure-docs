@@ -48,7 +48,7 @@ Learn more about managing AI APIs in API Management:
     :::image type="content" source="media/openai-compatible-google-gemini-api/gemini-import.png" alt-text="Screenshot of importing a Gemini LLM API in the portal.":::
 
 1. On the remaining tabs, optionally configure policies to manage token consumption, semantic caching, and AI content safety. For details, see [Import a language model API](openai-compatible-llm-api.md).
-1. Select **Review**
+1. Select **Review**.
 1. After settings are validated, select **Create**.
 
 API Management creates the API and configures the following:
