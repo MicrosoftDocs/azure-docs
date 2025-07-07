@@ -4,7 +4,7 @@ description: Use VMware HCX to migrate workloads between Azure VMware Solution p
 ms.topic: how-to
 ms.service: azure-vmware
 ms.custom: engagement-fy26
-ms.date: 07/01/2025
+ms.date: 07/07/2025
 ---
 
 # Migrate workloads between Azure VMware Solution private clouds
