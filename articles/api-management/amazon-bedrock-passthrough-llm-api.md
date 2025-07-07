@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 07/06/2025
+ms.date: 07/07/2025
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ms.custom: template-how-to, build-2024
@@ -32,17 +32,6 @@ Learn more about Amazon Bedrock:
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
 - An Amazon Web Services (AWS) account with access to Amazon Bedrock, and access to one or more Amazon Bedrock foundation models. [Learn more](https://docs.aws.amazon.com/bedrock/latest/userguide/getting-started-console.html)
 
-
-<!--
-Outline from Andrei:
-1) Passtrough API (not auth configuration, even URL is not used, but should be setup in the UI anyway)
-2) Named values for aws access key and secret key
- 
-3) policy for signing on API level that uses secret and access keys
- 
-4) do a couple of modification to the code (.NET SDK sample Ethan also shared in the same threaed)
--->
-
 ## Create IAM user access keys
 
 To authenticate your API Management instance to Amazon API Gateway, you need access keys for an AWS IAM user. 
@@ -64,9 +53,9 @@ Securely store the two IAM user access keys as secret [named values](api-managem
 | Access key | *accesskey* | Access key ID retrieved from AWS |
 | Secret access key  | *secretkey* | Secret access key retrieved from AWS |
 
-## Import a passthrough language model API using the portal
+## Import a Bedrock API using the portal
 
-To import an Amazon Bedrock language model API to API Management:
+To import an Amazon Bedrock API to API Management:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **APIs** > **+ Add API**.
@@ -84,7 +73,7 @@ To import an Amazon Bedrock language model API to API Management:
     1. In **Type**, select **Create a passthrough API**.
     1. Leave values in **Access key** blank. 
 
-    :::image type="content" source="media/openai-compatible-llm-api/configure-api.png" alt-text="Screenshot of language model API configuration in the portal.":::
+    :::image type="content" source="media/amazon-bedrock-passthrough-llm-api/configure-api.png" alt-text="Screenshot of language model API configuration in the portal.":::
 
 1. On the remaining tabs, optionally configure policies to manage token consumption, semantic caching, and AI content safety. For details, see [Import an OpenAI-compatible language model API](openai-compatible-llm-api.md).
 1. Select **Review**.
@@ -94,9 +83,9 @@ API Management creates the API and (optionally) policies to help you monitor and
 
 ## Configure policies to authenticate requests to the Amazon Bedrock API
 
-Configure API Management policies to sign requests to the Amazon Bedrock API. [Learn more about signing AWS API requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html).
+Configure API Management policies to sign requests to the Amazon Bedrock API. [Learn more about signing AWS API requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html)
 
-The following example uses the *accesskey* and *secretkey* named values you created earlier for the AWS access key and secret key. Set the `region` variable to the appropriate values for your Amazon Bedrock API. The example uses `us-east-1` for the region.
+The following example uses the *accesskey* and *secretkey* named values you created previously for the AWS access key and secret key. Set the `region` variable to the appropriate value for your Amazon Bedrock API. The example uses `us-east-1` for the region.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **APIs**.    
@@ -135,7 +124,7 @@ The following example uses the *accesskey* and *secretkey* named values you crea
                 var uri = context.Request.Url;
                 var host = uri.Host;
 
-                // create canonical path
+                // Create canonical path
                 var path = uri.Path;
                 var modelSplit = path.Split(new[] { "model/" }, 2, StringSplitOptions.None);
                 var afterModel = modelSplit.Length > 1 ? modelSplit[1] : "";
@@ -147,7 +136,7 @@ The following example uses the *accesskey* and *secretkey* named values you crea
                 var amzDate = ((DateTime)context.Variables["now"]).ToString("yyyyMMddTHHmmssZ");
                 var dateStamp = ((DateTime)context.Variables["now"]).ToString("yyyyMMdd");
 
-                // hash the payload
+                // Hash the payload
                 var body = context.Request.Body.As<string>(preserveContent: true);
                 string hashedPayload;
                 using (var sha256 = System.Security.Cryptography.SHA256.Create())
@@ -156,7 +145,7 @@ The following example uses the *accesskey* and *secretkey* named values you crea
                     hashedPayload = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
                 }
 
-                // create canonical query string
+                // Create canonical query string
                 var queryDict = context.Request.Url.Query;
                 var canonicalQueryString = "";
                 if (queryDict != null && queryDict.Count > 0)
@@ -171,7 +160,7 @@ The following example uses the *accesskey* and *secretkey* named values you crea
                     canonicalQueryString = string.Join("&", encodedParams.OrderBy(p => p));
                 }
 
-                // create signed headers and canonical headers
+                // Create signed headers and canonical headers
                 var headers = context.Request.Headers;
                 var canonicalHeaderList = new List<string[]>();
 
@@ -207,7 +196,7 @@ The following example uses the *accesskey* and *secretkey* named values you crea
                 var canonicalHeaders = string.Join("\n", canonicalHeadersOrdered.Select(h => $"{h[0]}:{h[1].Trim()}")) + "\n";
                 var signedHeaders = string.Join(";", canonicalHeadersOrdered.Select(h => h[0]));
 
-                // create and hash the canonical request
+                // Create and hash the canonical request
                 var canonicalRequest = $"{method}\n{canonicalPath}\n{canonicalQueryString}\n{canonicalHeaders}\n{signedHeaders}\n{hashedPayload}";
                 string hashedCanonicalRequest = "";
                 using (var sha256 = System.Security.Cryptography.SHA256.Create())
@@ -216,11 +205,11 @@ The following example uses the *accesskey* and *secretkey* named values you crea
                     hashedCanonicalRequest = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
                 }
 
-                // build string to sign
+                // Build string to sign
                 var credentialScope = $"{dateStamp}/{region}/{service}/aws4_request";
                 var stringToSign = $"AWS4-HMAC-SHA256\n{amzDate}\n{credentialScope}\n{hashedCanonicalRequest}";
 
-                // sign it using secret key
+                // Sign it using secret key
                 byte[] kSecret = System.Text.Encoding.UTF8.GetBytes("AWS4" + secretKey);
                 byte[] kDate, kRegion, kService, kSigning;
                 using (var h1 = new System.Security.Cryptography.HMACSHA256(kSecret))
@@ -240,8 +229,8 @@ The following example uses the *accesskey* and *secretkey* named values you crea
                     kSigning = h4.ComputeHash(System.Text.Encoding.UTF8.GetBytes("aws4_request"));
                 }
 
-                // auth header
-                string signature;
+                // Auth header
+                string signature; 
                 using (var hmac = new System.Security.Cryptography.HMACSHA256(kSigning))
                 {
                     var sigBytes = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(stringToSign));
@@ -268,11 +257,11 @@ The following example uses the *accesskey* and *secretkey* named values you crea
     ```
     
 
-## Call the LLM API
+## Call the Bedrock API
 
-To call the LLM API through API Management, you can use the AWS Bedrock SDK. This example uses the .NET SDK, but you can use any language that supports the AWS Bedrock API.
+To call the Bedrock API through API Management, you can use the AWS Bedrock SDK. This example uses the .NET SDK, but you can use any language that supports the AWS Bedrock API.
 
-The following example uses a custom HTTP client that instantiates classes defined in the accompanying file `BedrockHttpClientFactory.cs`. The custom HTTP client routes requests to the API Management endpoint and includes the API Management subscription key in the request headers.
+The following example uses a custom HTTP client that instantiates classes defined in the accompanying file `BedrockHttpClientFactory.cs`. The custom HTTP client routes requests to the API Management endpoint and includes the API Management subscription key (if necessary) in the request headers.
 
 ```csharp
 using Amazon;
@@ -281,9 +270,9 @@ using Amazon.BedrockRuntime.Model;
 using Amazon.Runtime;
 using BedrockClient;
 
-// Replace with your AWS access key and secret key.
-var accessKey = "<your-access-key>";
-var secretKey = "<your-secret-key>";
+// Leave accessKey and secretKey values as empty strings.
+var accessKey = "";
+var secretKey = "";
 var credentials = new BasicAWSCredentials(accessKey, secretKey);
 
 // Create custom configuration to route requests through API Management
@@ -345,7 +334,7 @@ catch (AmazonBedrockRuntimeException e)
 
 ### BedrockHttpClientFactory.cs
 
-The following code implements classes to create a custom HTTP client that routes requests to the Bedrock API through API Management, including the necessary subscription key in the headers.
+The following code implements classes to create a custom HTTP client that routes requests to the Bedrock API through API Management, including an API Management subscription key in the headers.
 
 ```csharp
 using Amazon.Runtime;
