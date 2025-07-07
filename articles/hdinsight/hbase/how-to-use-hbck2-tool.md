@@ -118,7 +118,7 @@ Option:
 
 * `i,--inputFiles`: Takes one or more input files of namespace or table names.
 
-Use this option when regions are missing from `hbase:meta` but when directories are still present in HDFS. This command is only a check method. It's designed for reporting purposes and doesn't perform any fixes. It provides a view of which regions (if any) would get readded to `hbase:meta`, grouped by respective table or namespace.
+Use this option when regions are missing from `hbase:meta` but when directories are still present in HDFS. This command is only a check method. It's designed for reporting purposes and doesn't perform any fixes. It provides a view of which regions (if any) would get re-added to `hbase:meta`, grouped by respective table or namespace.
 
 To effectively readd regions in meta, run `addFsRegionsMissingInMeta`. This command needs `hbase:meta` to be online. For each namespace/table passed as a parameter, it performs a diff between regions available in `hbase:meta` against existing regions' dirs on HDFS. Region dirs with no matches are printed grouped under its related table name. Tables with no missing regions show a "no missing regions" message. If no namespace or table is specified, it verifies all existing regions.
 
@@ -397,9 +397,9 @@ HBCK2 `addFsRegionsMissingInMeta` can be used if the message doesn't show any er
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar addFsRegionsMissingInMeta default:tbl_1 n1:tbl_2 n2
 ```
 
-Because it operates independently from Master, after it finishes successfully, more steps are required to have the readded regions assigned. These messages are listed as follows:
+Because it operates independently from Master, after it finishes successfully, more steps are required to have the re-added regions assigned. These messages are listed as follows:
 
-- `addFsRegionsMissingInMeta` outputs an assigns command with all regions that got readded. This command must be executed later, so copy and save it for convenience.
+- `addFsRegionsMissingInMeta` outputs an assigns command with all regions that got re-added. This command must be executed later, so copy and save it for convenience.
 - For HBase versions prior to 2.3.0, after `addFsRegionsMissingInMeta` finished successfully and output has been saved, restart all running HBase Masters.
 
 After Masters are restarted and `hbase:meta` is already online (check if the web UI is accessible), run the assigns command from `addFsRegionsMissingInMeta` output saved earlier.
