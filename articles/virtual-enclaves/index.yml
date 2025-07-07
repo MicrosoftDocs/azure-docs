@@ -58,6 +58,8 @@ landingContent:
             url: what-service-catalog.md
           - text: List of service catalog templates
             url: list-service-catalog-templates.md
+      - linkListType: concept
+        links:
           - text: Understand approvals
             url: understand-approvals.md
           - text: Understand resource groups
