@@ -13,7 +13,7 @@ ms.custom:
 
 ---
 
-# Credentials-Best practices for least privileged accounts in Azure Migrate
+# Credentials-Security best practices for setting up least privileged accounts in Azure Migrate
 
 Azure Migrate Appliance is a lightweight tool that discovers on-premises servers and sends their configuration and performance data to Azure. It also performs software inventory, agentless dependency analysis, and detects workloads like web apps and SQL/MySQL Server instances. To use these features, users add server and guest credentials in the Appliance Config Manager. Following the principle of least privilege helps keep the setup secure and efficient.
 
@@ -48,7 +48,7 @@ To discover the basic settings of servers running in the VMware estate, the foll
     | Guest operations  | Allow creation and management of VM snapshots for replication. | Virtual machines | VirtualMachine.GuestOperations.*  |
     | Interaction Power Off | Allow the VM to be powered off during migration to Azure.  | Virtual machines | VirtualMachine.Interact.PowerOff  |
 
-### Provide server credentials for guest discovery of installed software, dependencies and workloads
+### Guest discovery of installed software, dependencies and workloads
 
 To effectively discover software, application dependencies, and workloads on target servers, the Azure Migrate Appliance requires guest operating system (OS) credentials. These credentials enable the appliance to securely connect to the servers and collect detailed inventory and performance data:
 
@@ -88,7 +88,7 @@ Hyper-V server account: On all the Hyper-V hosts, create a local user that’s p
 
 Use the [script](tutorial-discover-hyper-v.md#prepare-hyper-v-hosts) to prepare Hyper-V hosts.   
 
-For deep discovery of Hyper-V estate and to perform software inventory and dependency analysis, guest account [credentials](#provide-server-credentials-for-guest-discovery-of-installed-software-dependencies-and-workloads) are required. 
+For deep discovery of Hyper-V estate and to perform software inventory and dependency analysis, guest account [credentials](#guest-discovery-of-installed-software-dependencies-and-workloads) are required. 
 
 ## Discovery of physical and Cloud servers
 
@@ -99,7 +99,7 @@ To discover and assess physical servers or servers hosted in other public clouds
 
 ### Quick server discovery
 
-Quick server discovery is a lightweight process in Azure Migrate that collects basic server details—like OS, hardware, and network info—using minimal permissions and without deep access.
+You need the following permissions for Quick discovery of software inventory, server dependencies, and database instances:
 
 | **Use case**  | **Discovered metadata**  | **Credential type** | **Details** | 
 | --- | --- | --- | --- |
