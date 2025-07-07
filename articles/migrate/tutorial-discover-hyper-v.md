@@ -52,7 +52,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. In the Azure portal, search for "subscriptions", and under **Services**, select **Subscriptions**.
 
- :::image type="content" source="./media/tutorial-discover-hyper-v/search-subscription.png" alt-text="Screenshot of Search box to search for the Azure subscription.":::
+:::image type="content" source="./media/tutorial-discover-hyper-v/search-subscription.png" alt-text="Screenshot of Search box to search for the Azure subscription.":::
 
 1. In the **Subscriptions** page, select the subscription in which you want to create a project.
 
@@ -207,7 +207,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 	2. The appliance will verify the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
     3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and open an Azure Login prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
     
-    :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and log in.":::
+   :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and log in.":::
 
     4. In a new tab in your browser, paste the device code and sign in by using your Azure username and password. Signing in with a PIN isn't supported.
 	    > [!NOTE]

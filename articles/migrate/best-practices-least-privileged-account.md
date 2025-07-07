@@ -1,6 +1,6 @@
 ---
-title: Security Best Practices for Least Privileged Accounts in Azure Migrate.
-description: Learn how to securely configure Azure Migrate Appliance with least privilege access by setting up read-only VMware roles with guest operations and scoped permissions, enabling efficient workload discovery, software inventory, and agentless migration..
+title: Security Best Practices for Least Privileged Accounts in Azure Migrate
+description: Learn how to securely configure Azure Migrate Appliance with least privilege access by setting up read-only VMware roles with guest operations and scoped permissions, enabling efficient workload discovery, software inventory, and agentless migration.
 author: molishv
 ms.author: molir
 ms.service: azure-migrate
@@ -13,7 +13,7 @@ ms.custom:
 
 ---
 
-# Credentials-Security best practices for setting up least privileged accounts in Azure Migrate
+# Credentials: Security best practices for setting up least privileged accounts in Azure Migrate
 
 Azure Migrate Appliance is a lightweight tool that discovers on-premises servers and sends their configuration and performance data to Azure. It also performs software inventory, agentless dependency analysis, and detects workloads like web apps and SQL/MySQL Server instances. To use these features, users add server and guest credentials in the Appliance Config Manager. Following the principle of least privilege helps keep the setup secure and efficient.
 
@@ -23,17 +23,17 @@ To discover the basic settings of servers running in the VMware estate, the foll
 
 ### vCenter account permissions 
 
-1. **Discovery of server metadata**: To discover basic server configurations in a VMware environment, you need read-only permissions.
+- **Discovery of server metadata**: To discover basic server configurations in a VMware environment, you need read-only permissions.
     - **Read-only**: Use either the built-in read-only role or create a copy of it.
-1. To discover server metadata and enable software inventory, dependency analysis, and performance assessments.
+- To discover server metadata and enable software inventory, dependency analysis, and performance assessments.
     - **Read-only**- Use the built-in read-only role or create a copy of it. 
     - **Guest operations** - Add guest operations privileges to the read-only role.
-1. Scoped discovery of VMware servers:  
+- Scoped discovery of VMware servers:  
     - To discover specific VMs, **assign read permissions at the individual VMs**. To discover all VMs in a folder, assign read permissions at the folder level and turn on the 'propagate to children' option.
     - Assign guest operations permissions to the vCenter account along with read permissions to enable software inventory, dependency analysis, and performance assessments.
     - Give **read-only access to all parent objects that host the virtual machines**, such as the host, cluster, hosts folder, clusters folder, and data center. You don’t need to apply these permissions to all child objects.
     - In the vSphere client, check that read permissions are set on parent objects in both the Hosts and *Clusters* view and the *VMs & Templates* view.
-1. Perform agentless migration: To perform agentless migration, ensure the vCenter account used by the Azure Migrate appliance has permissions at all required levels—datacenter, cluster, host, VM, and datastore. Apply permissions at each level to avoid replication errors.
+- Perform agentless migration: To perform agentless migration, ensure the vCenter account used by the Azure Migrate appliance has permissions at all required levels—datacenter, cluster, host, VM, and datastore. Apply permissions at each level to avoid replication errors.
 
     | **vSphere privilege name**| **Privilege purpose**| **Required** | **API privilege name** |
     | --- | --- | --- | --- |
@@ -43,7 +43,7 @@ To discover the basic settings of servers running in the VMware estate, the foll
     | Change Configuration - Acquire disk lease  | Allow disk lease operations on a VM to read the disk using the VMware vSphere Virtual Disk Development Kit (VDDK)  | Virtual machines  | VirtualMachine.Config.DiskLease |
     | Provisioning - Allow read-only disk access  | Allow read-only disk access: Allow opening a disk on a VM to read the disk using the VDDK. | Virtual machines  | VirtualMachine.Provisioning.DiskRandomRead  |
     | Provisioning - Allow disk access  | Allow opening a disk on a VM to read the disk using the VDDK.  | Virtual machines  | VirtualMachine.Provisioning.DiskRandomAccess  |
-    | Provisioning - Allow virtual machine download  | AAllow virtual machine download to read VM files, get logs, and troubleshoot failures | Root host or vCenter Server  | VirtualMachine.Provisioning.GetVmFiles  |
+    | Provisioning - Allow virtual machine download  | Allow virtual machine download to read VM files, get logs, and troubleshoot failures | Root host or vCenter Server  | VirtualMachine.Provisioning.GetVmFiles  |
     | Snapshot management  | Allow Discovery, Software Inventory, and Dependency Mapping on VMs.  | Virtual machines  | VirtualMachine.State.*  |
     | Guest operations  | Allow creation and management of VM snapshots for replication. | Virtual machines | VirtualMachine.GuestOperations.*  |
     | Interaction Power Off | Allow the VM to be powered off during migration to Azure.  | Virtual machines | VirtualMachine.Interact.PowerOff  |
@@ -61,7 +61,7 @@ For quick discovery of software inventory, server dependencies, and database ins
 
 | **Use case**  | **Discovered metadata**  | **Credential type** |**Secure permissions** |
 | --- | --- | --- |
-| Quick guest discovery  | Software inventory <br /><br /> Server dependencies (limited data)* <br /><br />Inventory of Database instances  | Windows <br /><br /> Linux | Local guest user account <br /><br /> Any non-sudo guest user account. |
+| Quick guest discovery  | Software inventory <br /><br /> Server dependencies (limited data) <br /><br />Inventory of Database instances  | Windows <br /><br /> Linux | Local guest user account <br /><br /> Any non-sudo guest user account. |
 
 >[!Note] 
 > - Limitations: You can use a Windows guest or a Linux non-sudo user account to get dependency mapping data, but the following limitation can happen.
@@ -74,7 +74,7 @@ For in-depth discovery of software inventory, server dependencies, and web apps 
 | **Use case**  | **Discovered metadata**  | **Credential type**| **Required permissions** |
 | --- | --- | --- | --- |
 | In-depth guest discovery  | Software inventory <br /><br /> Server dependencies (full data)<br /><br /> Inventory of Database instances <br /><br /> We apps like .NET, Java Tomcat  | Windows | Administrator  |
-|In-depth guest discovery | Software inventory <br /><br /> Server dependencies (full data)<br /><br /> Inventory of Database instances <br /><br /> We apps like .NET, Java Tomcat  | Linux  | Following sudo permissions are required to identify server dependencies.  <br /><br /> /usr/bin/netstat, `/usr/bin/ls` <br /><br /> If netstat is not available, sudo permissions on ss is required. <br /><br /> For Java webapps discovery (Tomcat servers), the user should have read and execute (r-x) permissions on all Catalina homes. <br /><br /> Execute the following command to find out all catalina homes: <br /><br /> `ps -ef | grep catalina.home` <br /><br /> Here is a sample command to up least privileged user: <br /><br /> `setfacl -m u:johndoe:rx <catalina/home/path>`  |
+|In-depth guest discovery | Software inventory <br /><br /> Server dependencies (full data)<br /><br /> Inventory of Database instances <br /><br /> We apps like .NET, Java Tomcat  | Linux  | Following sudo permissions are required to identify server dependencies.  <br /><br /> /usr/bin/netstat, `/usr/bin/ls` <br /><br /> If netstat is not available, sudo permissions on is required. <br /><br /> For Java webapps discovery (Tomcat servers), the user should have read and execute (r-x) permissions on all Catalina homes. <br /><br /> Execute the following command to find out all catalina homes: <br /><br /> `ps -ef | grep catalina.home` <br /><br /> Here is a sample command to up least privileged user: <br /><br /> `setfacl -m u:johndoe:rx <catalina/home/path>`  |
 
 ## Discovery of Hyper-V estate
 
@@ -103,8 +103,8 @@ You need the following permissions for Quick discovery of software inventory, se
 
 | **Use case**  | **Discovered metadata**  | **Credential type** | **Details** | 
 | --- | --- | --- | --- |
-| Quick server discovery | Software inventory <br /><br /> Agentless dependency analysis (limited data)* <br /><br /> Workload inventory of databases and web apps| Windows   |[Follow these steps](#windows-servers).|
-| Quick server discovery |Software inventory <br /><br /> Agentless dependency analysis (full data)* <br /><br /> Workload inventory of databases and web apps   | Linux  | [Follow these steps](#linux-servers) |
+| Quick server discovery | Software inventory <br /><br /> Agentless dependency analysis (limited data) <br /><br /> Workload inventory of databases and web apps| Windows   |[Follow these steps](#windows-servers).|
+| Quick server discovery |Software inventory <br /><br /> Agentless dependency analysis (full data) <br /><br /> Workload inventory of databases and web apps   | Linux  | [Follow these steps](#linux-servers) |
 
 #### Windows servers
 
@@ -152,13 +152,13 @@ For in-depth discovery of software inventory, server dependencies, and web apps 
 
 | **Use case** | **Discovered metadata**   | **Credentials type** | **Commands to configure** |
 | --- | --- | --- | --- |
-| In-dept server discovery | In-depth discovery of web apps such as .NET and Java Tomcat <br /><br />Agentless dependency analysis (full data)* <br /><br />In-depth discovery of web apps such as .NET and Java Tomcat. |Windows <br /><br /> Linux | Administrator <br /><br /> To discover Java webapps on Tomcat servers, the user account needs read and execute (r-x) permissions on all Catalina home directories.<br /><br />Execute the following command to find out all catalina homes: `ps -ef | grep catalina.home`<br /><br />Here is a sample command to set up least privileged user: `setfacl -m u:johndoe:rx <catalina/home/path>`  |
+| In-dept server discovery | In-depth discovery of web apps such as .NET and Java Tomcat <br /><br />Agentless dependency analysis (full data) <br /><br />In-depth discovery of web apps such as .NET and Java Tomcat. |Windows <br /><br /> Linux | Administrator <br /><br /> To discover Java webapps on Tomcat servers, the user account needs read and execute (r-x) permissions on all Catalina home directories.<br /><br />Execute the following command to find out all catalina homes: `ps -ef | grep catalina.home`<br /><br />Here is a sample command to set up least privileged user: `setfacl -m u:johndoe:rx <catalina/home/path>`  |
 
 ## Database discovery
 
 Software inventory is required for initiating workload discovery. Ensure that guest credentials are added to enable it. The permissions to discover SQL and MySQL databases are the same for all appliance types—VMware, Hyper-V, and physical servers. 
 
-### Discover SQL server instances and database:    
+### Discover SQL server instances and database  
 
 Create least privileged accounts on individual SQL server instance. Use Windows authentication and assign only the required permissions.
 
