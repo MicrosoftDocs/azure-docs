@@ -5,12 +5,13 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 05/02/2024
+ms.date: 05/27/2025
 ms.author: cshoe
 ms.custom:
   - references_regions
   - ignite-2023
   - ignite-2024
+  - build-2025
 ---
 
 # Workload profiles in Azure Container Apps
@@ -74,7 +75,7 @@ There are different types and sizes of workload profiles available by region. By
 > [!NOTE]
 > The command `az containerapp env workload-profile set` is no longer available for selecting a workload profile. Instead, use [az containerapp env workload-profile add](/cli/azure/containerapp/env/workload-profile#az-containerapp-env-workload-profile-add) or [az containerapp env workload-profile update](/cli/azure/containerapp/env/workload-profile#az-containerapp-env-workload-profile-update).
 
-In addition to different core and memory sizes, workload profiles also have varying image size limits available. To learn more about the image size limits for your container apps, see [hardware reference](hardware.md#image-size-limit).
+In addition to a different core size and memory size, each workload profile is allocated a different storage size. This allocated space is used for the runtime. Do not use this storage for your application data. Instead, use a [storage mount](storage-mounts.md).
 
 The availability of different workload profiles varies by region.
 

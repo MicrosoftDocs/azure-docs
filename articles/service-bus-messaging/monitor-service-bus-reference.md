@@ -77,12 +77,12 @@ The following metrics are *connection metrics*.
 
 ### Resource usage metrics
 
-The following *resource metrics* are available only with the **premium** tier.
+The following *resource metric* is available only with the **premium** tier.
 
 | Metric | Description |
 |:-------|:------------|
 | CPU usage per namespace | The percentage CPU usage of the namespace. |
-| Memory size usage per namespace | The percentage memory usage of the namespace. |
+
 
 The important metrics to monitor for any outages for a premium tier namespace are: **CPU usage per namespace** and **memory size per namespace**. [Set up alerts](/azure/azure-monitor/alerts/alerts-metric) for these metrics using Azure Monitor.
 

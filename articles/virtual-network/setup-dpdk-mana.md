@@ -7,6 +7,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 07/10/2023
 ms.author: mamcgove
+# Customer intent: "As a Linux system administrator, I want to configure the Microsoft Azure Network Adapter for DPDK on Azure VMs, so that I can achieve higher network throughput and reliability for my applications."
 ---
 
 # Microsoft Azure Network Adapter (MANA) and DPDK on Linux

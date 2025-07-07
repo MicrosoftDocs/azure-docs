@@ -7,6 +7,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-virtual-network
 ms.custom: subject-policy-compliancecontrols
+# Customer intent: As a compliance officer, I want to understand the Azure Policy regulatory compliance controls for Azure Virtual Network, so that I can ensure our cloud resources meet necessary regulatory standards and security requirements.
 ---
 
 # Azure Policy Regulatory Compliance controls for Azure Virtual Network

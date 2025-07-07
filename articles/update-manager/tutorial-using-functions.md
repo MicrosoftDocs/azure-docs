@@ -4,9 +4,9 @@ description: In this tutorial, you learn how to create the pre and post events u
 ms.service: azure-update-manager
 ms.date: 07/24/2024
 ms.topic: tutorial 
-author: SnehaSudhirG
-ms.author: sudhirsneha
-#Customer intent: As an IT admin, I want  create pre and post events using Azure Functions.
+author: habibaum
+ms.author: v-uhabiba
+# Customer intent: "As a cloud administrator, I want to create pre and post event triggers using serverless functions, so that I can automate the starting and stopping of virtual machines during scheduled maintenance tasks."
 ---
 
 # Tutorial: Create pre and post events using Azure Functions

@@ -9,6 +9,7 @@ ms.topic: troubleshooting
 ms.date: 06/26/2024
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
+# Customer intent: "As a network engineer, I want to troubleshoot Azure Load Balancer deployment errors, so that I can efficiently resolve issues and ensure optimal load balancing for my applications."
 ---
 
 # Troubleshoot common Azure deployment errors with Azure Load Balancer

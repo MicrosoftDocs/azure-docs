@@ -4,10 +4,15 @@ description: Learn how to quickly configure backup for a Kubernetes cluster usin
 ms.service: azure-backup
 ms.topic: quickstart
 ms.date: 04/01/2025
-ms.custom: devx-track-terraform, devx-track-extended-azdevcli, ignite-2024
+ms.custom:
+  - devx-track-terraform
+  - devx-track-extended-azdevcli
+  - ignite-2024
+  - build-2025
 ms.reviewer: rajats
 ms.author: jsuri
 author: jyothisuri
+# Customer intent: As a Kubernetes administrator, I want to configure vaulted backups for my AKS cluster using the Azure CLI, so that I can ensure reliable data protection and recovery for my containerized applications.
 ---
 
 # Quickstart: Configure vaulted backup for an Azure Kubernetes Service (AKS) cluster using Azure CLI

@@ -52,7 +52,7 @@ The following steps show how to prepare your Azure VMware Solution private cloud
 
 ### Export the source configuration
 
-1. From the source, [export the extended segments, firewall rules, port details, and route tables](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-1-1/administration-guide/security/distributed-firewall/export-or-import-a-firewall-configuration.html).
+1. From the source, [export the extended segments, firewall rules, port details, and route tables](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-1/administration-guide.html).
 
 1. [Export the contents of an inventory list view to a CSV file](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vcenter-and-host-management-8-0/using-the-vsphere-client-host-management/working-with-the-vsphere-client-inventory-host-management.html#GUID-C0E8DD52-677E-464F-A3EA-044EE20B7B92-en).
 
@@ -261,11 +261,11 @@ In this step, use the source NSX-T Data Center configuration to configure the ta
 
 1. [Configure NSX-T Data Center network components](tutorial-nsx-t-network-segment.md) required in the target environment under default Tier-1 gateway.
 
-1. [Create the security group configuration](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-1-1/administration-guide/inventory/add-a-group.html#GUID-9DFF6EE2-2E00-4097-A412-B72472596E4D-en).
+1. [Create the security group configuration](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-1/security-quick-start-guide.html).
 
-1. [Create the distributed firewall policy and rules](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-1-1/administration-guide/security/distributed-firewall/add-a-distributed-firewall.html).
+1. [Create the distributed firewall policy and rules](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-1/security-quick-start-guide.html).
 
-1. [Create the gateway firewall policy and rules](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-1-1/administration-guide/security/gateway-firewall/add-a-gateway-firewall-policy-and-rule.html).
+1. [Create the gateway firewall policy and rules](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-1/administration-guide.html).
 
 1. [Create the DHCP server or DHCP relay service](configure-dhcp-azure-vmware-solution.md). 
 
@@ -273,7 +273,7 @@ In this step, use the source NSX-T Data Center configuration to configure the ta
 
 1. [Configure DNS forwarder](configure-dns-azure-vmware-solution.md).
 
-1. [Configure a new Tier-1 gateway (other than default)](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-1-1/administration-guide/tier-1-gateways/add-an-nsx-tier-1-gateway.html). This configuration is based on the NSX-T Data Center configured on the source. 
+1. [Configure a new Tier-1 gateway (other than default)](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-1/administration-guide.html). This configuration is based on the NSX-T Data Center configured on the source. 
 
 ### Migrate the VMs from the source 
 

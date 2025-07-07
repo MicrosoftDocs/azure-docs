@@ -1,13 +1,14 @@
 ---
 title: DNS Zones and Records Overview - Azure Public DNS
 description: Overview of support for hosting DNS zones and records in Microsoft Azure Public DNS.
-author: greg-lindsay
+author: asudbring
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
 ms.service: azure-dns
 ms.topic: concept-article
 ms.custom: H1Hack27Feb2017
 ms.date: 11/04/2024
-ms.author: greglin
+ms.author: allensu
+# Customer intent: As a domain administrator, I want to manage DNS zones and records in Azure DNS, so that I can maintain control over my domain names and ensure high availability and efficient resolution of DNS queries.
 ---
 
 # Overview of DNS zones and records

@@ -8,6 +8,7 @@ ms.author: akashdubey
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.custom: subject-policy-reference
+# Customer intent: "As a cloud administrator, I want to access built-in policy definitions for Azure Storage, so that I can efficiently manage and enforce compliance for my Azure resources."
 ---
 
 # Azure Policy built-in definitions for Azure Storage

@@ -3,11 +3,12 @@ title: Manage and monitor MARS Agent backups
 description: Learn how to manage and monitor Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service.
 ms.reviewer: srinathv
 ms.topic: how-to
-ms.date: 11/27/2024
+ms.date: 06/20/2025
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator managing data backups, I want to configure and monitor Microsoft Azure Recovery Services Agent backups, so that I can ensure data security and compliance while optimizing backup performance and retention."
 ---
 # Manage Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service
 
@@ -273,7 +274,7 @@ For these machines, the Azure Backup service ensures that the latest recovery po
 Managing the backup policy for MARS is done through the MARS console and not through the portal. If you need to extend retention settings for existing recovery points before they expire, then you need to restore the machine, install the MARS console, and extend the policy.
 
 - To restore the machine, perform the following steps:
-  1. [Restore the VM to an alternate target machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+  1. [Restore the VM to an alternate target machine](backup-azure-restore-windows-server.md#restore-data-to-an-alternate-machine-using-instant-restore)
   1. Recreate the target machine with same host name as the source machine
   1. Install the agent and re-register to the same vault and with the same passphrase
   1. Launch the MARS client to extend the retention duration according to your requirements
@@ -332,5 +333,5 @@ To list recovery points for a data source, follow these steps:
 ## Next steps
 
 - For information about supported scenarios and limitations, refer to the [Support Matrix for the MARS Agent](./backup-support-matrix-mars-agent.md).
-- Learn more about [On demand backup policy retention behavior](backup-windows-with-mars-agent.md#set-up-on-demand-backup-policy-retention-behavior).
+- Learn more about [On demand backup policy retention behavior](backup-windows-with-mars-agent.md#on-demand-backup-policy-retention-behavior).
 - For more frequently asked questions, see the [MARS agent FAQ](backup-azure-file-folder-backup-faq.yml).

@@ -12,7 +12,7 @@ ms.author: junbchen
 
 # Azure App Configuration Kubernetes Provider reference
 
-The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider `v2.1.0` or later. See [release notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/KubernetesProvider.md) for more information on the change.
+The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider `v2.3.0` or later. See [release notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/KubernetesProvider.md) for more information on the change.
 
 ## Properties
 
@@ -103,6 +103,15 @@ The `spec.secret.target` property has the following child property.
 |Name|Description|Required|Type|
 |---|---|---|---|
 |secretName|The name of the Kubernetes Secret to be created.|true|string|
+|secretData|The setting that specifies how the retrieved data should be populated in the generated Secret.|true|string|
+
+If the `spec.secret.target.secretData` property is not set, the generated Secret is populated with the list of key-values retrieved from Key Vaults, which allows the Secret to be consumed as environment variables. Update this property if you wish to consume the Secret as a mounted file. This property has the following child properties.
+
+|Name|Description|Required|Type|
+|---|---|---|---|
+|type|The setting that indicates how the retrieved data is constructed in the generated Secret. The allowed values include `default`, `json`, `yaml` and `properties`.|optional|string|
+|key|The key name of the retrieved data when the `type` is set to `json`, `yaml` or `properties`. Set it to the file name if the Secret is set up to be consumed as a mounted file.|conditional|string|
+|separator|The delimiter that is used to output the Secret data in hierarchical format when the type is set to `json` or `yaml`. The separator is empty by default and the generated Secret contains key-values in their original form. Configure this setting only if the configuration file loader used in your application can't load key-values without converting them to the hierarchical format.|optional|string|
 
 If the `spec.secret.auth` property isn't set, the system-assigned managed identity is used. It has the following child properties.
 

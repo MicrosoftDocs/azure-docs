@@ -4,7 +4,11 @@ description: Quickly learn how to send and receive events from Azure Event Hubs 
 ms.topic: quickstart
 ms.date: 05/14/2025
 ms.devlang: python
-ms.custom: mode-api, passwordless-python, devx-track-python
+ms.custom:
+  - mode-api
+  - passwordless-python
+  - devx-track-python
+  - build-2025
 ---
 
 # Quickstart: Send events to or receive events from event hubs by using Python

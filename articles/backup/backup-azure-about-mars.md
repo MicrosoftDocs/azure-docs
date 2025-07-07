@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: engagement-fy24
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a system administrator, I want to implement the MARS agent for Azure Backup, so that I can efficiently back up and recover files, folders, and system states from on-premises computers to Azure."
 ---
 
 # About the Microsoft Azure Recovery Services (MARS) agent for Azure Backup

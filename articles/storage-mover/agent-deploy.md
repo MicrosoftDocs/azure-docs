@@ -5,21 +5,21 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 07/19/2024
+ms.date: 05/29/2025
 ---
 
 <!-- 
 !########################################################
-STATUS: IN REVIEW
+STATUS: COMPLETE
 
 CONTENT: final       
 
 REVIEW Stephen/Fabian: COMPLETE
 REVIEW Engineering: not reviewed
-EDIT PASS: started
+EDIT PASS: COMPLETE
 
 Initial doc score: 83
-Current doc score: 96 (2093 words and 10 false-positive issues)
+Current doc score: 94 (2110 words and 11 false-positive issues)
 
 !########################################################
 -->
@@ -36,22 +36,20 @@ This article guides you through the steps necessary to successfully deploy a Sto
 
 ## Prerequisites
 
-1. The below Storage Mover endpoints need to have access to https traffic
+1. The following Storage Mover and Arc endpoints must have access to HTTPS traffic:
 -	`mcr.microsoft.com`
 -	`<region>.agentgateway.prd.azsm.azure.com`
 -	`evhns-sm-ur-prd-<region>.servicebus.windows.net`
-
-Azure Arc related network endpoints: 
-- *.his.arc.azure.com 
-- *.guestconfiguration.azure.com 
-- login.microsoftonline.com 
-- pas.windows.net 
-- management.azure.com 
+-	`*.his.arc.azure.com`
+-	`*.guestconfiguration.azure.com`
+-	`login.microsoftonline.com`
+-	`pas.windows.net`
+-	`management.azure.com`
 
 2. A capable Windows Hyper-V or VMware host on which to run the agent VM.<br/> See the [Recommended compute and memory resources](#recommended-compute-and-memory-resources) section in this article for details about resource requirements for the agent VM.
 
 > [!NOTE]
-> At present, Windows Hyper-V and VMware are the only supported virtualization environments for your agent VM. Other virtualization environments have not been tested and are not supported.
+> Currently, Windows Hyper-V and VMware are the only supported virtualization environments for your agent VM. Other virtualization environments aren't tested and are therefore not supported.
 
 ## Determine required resources for the VM
 
@@ -80,7 +78,7 @@ You can get help with [creating a virtual switch for Hyper-V virtual machines](/
 **Number of items** *refers to the total number of files and folders in the source.*
 
 > [!IMPORTANT]
-> While agent VMs below minimal specs may work for your migration, they may not perform optimally and are not supported.
+> While agent VMs below minimal specs might work for your migration, performance is suboptimal and therefore not supported.
 
 The [Performance targets](performance-targets.md) article contains test results from different source namespaces and VM resources.
 
@@ -96,11 +94,11 @@ Images for agent VMs are hosted on Microsoft Download Center as a zip file. Down
 
 The following steps describe the process for creating a VM using Microsoft Hyper-V. Consult the VMware support website for detailed guidance on creating a VMware-based VM.
 
-1. Create a new VM to host the agent. Open **Hyper-V Manager**. In the **Actions** pane, select **New** and **Virtual Machine...** to launch the **New Virtual Machine Wizard**.
+1. Create a new VM on which to host the agent. Open **Hyper-V Manager**. In the **Actions** pane, select **New** and **Virtual Machine...** to launch the **New Virtual Machine Wizard**.
 
    :::image type="content" source="media/agent-deploy/agent-vm-create-sml.png" alt-text="Image showing how to launch the New Virtual Machine Wizard from within the Hyper-V Manager." lightbox="media/agent-deploy/agent-vm-create-lrg.png":::
 
-1. Within the **Specify Name and Location** pane, specify values for the agent VM's **Name** and **Location** fields. The location should match the folder where the VHD is stored, if possible. Select **Next**.
+1. Within the **Specify Name and Location** pane, provide values for the agent VM's **Name** and **Location** fields. The location should match the folder where the VHD is stored, if possible. Select **Next**.
 
    :::image type="content" source="media/agent-deploy/agent-name-select-sml.png" alt-text="Image showing the location of the Name and Location fields within the New Virtual Machine Wizard." lightbox="media/agent-deploy/agent-name-select-lrg.png":::
 
@@ -109,7 +107,7 @@ The following steps describe the process for creating a VM using Microsoft Hyper
    :::image type="content" source="media/agent-deploy/agent-vm-generation-select-sml.png" lightbox="media/agent-deploy/agent-vm-generation-select-lrg.png"  alt-text="Image showing the location of the VM Generation options within the New Virtual Machine Wizard.":::
 
    > [!IMPORTANT]
-   > Only *Generation 1* VMs are supported. This Linux image won't boot as a *Generation 2* VM.
+   > Only *Generation 1* VMs are supported. This Linux image doesn't boot as a *Generation 2* VM.
 
 1. If you haven't already, [determine the amount of memory you need for your VM](#determine-required-resources-for-the-vm). Enter this amount in the **Assign Memory** pane, noting that you need to enter the value in MiB. 1 GiB = 1024 MiB. Using the **Dynamic Memory** feature is fine.
 
@@ -174,7 +172,7 @@ xdmsh> 4
 Select the option **4) Unregister**. You're prompted for confirmation.
 
 > [!WARNING]
-> Unregistration stops any running migration job on the agent and permanently removes the agent from the pool of available migration agents. Re-registration of a previously registered agent VM is not supported. If you need a new agent you should register a new, previously unregistered agent VM. Do not reuse a previously unregistered agent VM.
+> Unregistration stops any running migration job on the agent and permanently removes the agent from the pool of available migration agents. Re-registration of a previously registered agent VM isn't supported. If you need a new agent you should register a new, previously unregistered agent VM. Don't reuse a previously unregistered agent VM.
 
 # [Azure portal](#tab/azure-portal)
 
@@ -185,7 +183,7 @@ You can unregister an agent in the Azure portal by navigating to your storage mo
 - Select **Unregister agent** and wait for the operation to complete.
 
 > [!WARNING]
-> Unregistration stops any running migration job on the agent and permanently removes the agent from the pool of available migration agents. Re-registration of a previously registered agent VM is not supported. If you need a new agent, you must use a new agent image that was never registered before and register this new agent VM. Do not reuse a previously unregistered agent VM.
+> Unregistration stops any running migration job on the agent and permanently removes the agent from the pool of available migration agents. Re-registration of a previously registered agent VM isn't supported. If you need a new agent, you must use a new agent image that was never registered before and register this new agent VM. Don't reuse a previously unregistered agent VM.
 
 # [PowerShell](#tab/powershell)
 
@@ -199,7 +197,7 @@ Unregister-AzStorageMoverAgent -ResourceGroupName <YourResourceGroupName> -Stora
 *-Force* is an optional parameter, suppressing the confirmation prompt.
 
 > [!WARNING]
-> Unregistration stops any running migration job on the agent and permanently removes the agent from the pool of available migration agents. Re-registration of a previously registered agent VM is not supported. If you need a new agent you should register a new, previously unregistered agent VM. Do not reuse a previously unregistered agent VM.
+> Unregistration stops any running migration job on the agent and permanently removes the agent from the pool of available migration agents. Re-registration of a previously registered agent VM isn't supported. If you need a new agent you should register a new, previously unregistered agent VM. Don't reuse a previously unregistered agent VM.
 
 ---
 

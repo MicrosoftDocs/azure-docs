@@ -17,6 +17,7 @@ Before you create a connection, be aware of the following:
 
 * A virtual network can only be connected to one virtual hub at a time.
 * In order to connect it to a virtual hub, the remote virtual network can't have a gateway (ExpressRoute or VPN) or RouteServer.
+* To connect a cross-tenant remote virtual network to the virtual hub, refer to [Connect cross-tenant virtual networks to a Virtual WAN hub](cross-tenant-vnet.md).
 
 * Some configuration settings, such as **Propagate static route**, can only be configured in the Azure portal at this time. See the [Azure portal](howto-connect-vnet-hub.md) version of this article for steps.
 

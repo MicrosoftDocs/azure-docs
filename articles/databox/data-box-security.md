@@ -9,6 +9,7 @@ ms.topic: overview
 ms.date: 03/14/2025
 ms.author: shaas
 zone_pivot_groups: data-box-sku
+# Customer intent: "As a data manager, I want to understand the security features of Azure Data Box, so that I can ensure the protection of sensitive data during transfer and storage."
 ---
 
 # Azure Data Box security and data protection

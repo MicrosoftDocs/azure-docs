@@ -2,12 +2,13 @@
 title: 'About VM connections and features'
 titleSuffix: Azure Bastion
 description: Learn about VM connections and features when connecting using Azure Bastion.
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: concept-article
 ms.date: 03/03/2025
-ms.author: cherylmc
+ms.author: abell
 
+# Customer intent: As a system administrator, I want to understand the features available for connecting to a VM using a secure gateway, so that I can effectively manage remote access and enhance user productivity while ensuring compliance and security.
 ---
 
 # About VM connections and features

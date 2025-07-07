@@ -7,6 +7,7 @@ ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 04/13/2025
 ms.author: varunkalyana
+# Customer intent: "As a network administrator, I want to understand the known issues and limitations of Azure Firewall, so that I can effectively manage and troubleshoot firewall deployments in my organization."
 ---
 
 # Azure Firewall known issues and limitations
@@ -31,6 +32,7 @@ Azure Firewall Standard has the following known issues:
 |Issue  |Description  |Mitigation  |
 |---------|---------|---------|
 |DNAT support for private IP addresses limited to Standard and Premium versions|Support for DNAT on Azure Firewall private IP address is intended for enterprises, so is limited to the Standard and Premium Firewall versions.| None|
+|Azure Firewall deallocation and allocation process isn't supported when private IP DNAT rules are configured| The Azure Firewall allocation process will fail when private DNAT rules are configured | 1. Deallocate the Azure Firewall </br>2. Delete all the private IP DNAT rules </br>3. Allocate the Azure Firewall and wait until the private IP gets populated </br>4. Reconfigure the private IP DNAT rules with the appropriate private IP address |
 |Network filtering rules for non-TCP/UDP protocols (for example ICMP) don't work for Internet bound traffic|Network filtering rules for non-TCP/UDP protocols don't work with SNAT to your public IP address. Non-TCP/UDP protocols are supported between spoke subnets and VNets.|Azure Firewall uses the Standard Load Balancer, [which doesn't support SNAT for IP protocols today](../load-balancer/outbound-rules.md#limitations). We're exploring options to support this scenario in a future release.|
 |When an Azure Firewall is deallocated and then allocated again, sometimes it may be assigned a new private IP address that differs from the previous one.| After the deallocation and application process of the Azure Firewall, a private IP address is assigned dynamically from the Azure Firewall subnet. When a new private IP address is assigned that is different from the previous one, it will cause routing issues. |The existing User Defined Routes (UDRs) configured with the old private IP address will need to be reconfigured to reflect the new private IP address. A fix is being investigated to retain the private IP address after the allocation process.|
 |Azure Firewall DNS proxy server configurations in the parent policy is not inherited by child policies.|Changes made to the Azure Firewall parent policy will result in DNS resolution failures for Fully Qualified Domain Name (FQDN) based rules within the child policies that are linked to the parent policy.| To avoid this issue, configure the DNS proxy settings directly on the child policies instead of relying on inheritance from the parent policy. A fix is being investigated to allow child policies to interhit DNS configurations from the parent policy.|

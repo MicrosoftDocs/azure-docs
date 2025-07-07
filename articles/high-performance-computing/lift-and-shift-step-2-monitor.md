@@ -7,6 +7,7 @@ ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: "As an HPC administrator, I want to configure comprehensive monitoring for my cloud environment, so that I can ensure optimal performance, detect issues promptly, and optimize resource utilization during the migration process."
 ---
 
 # Monitoring configuration

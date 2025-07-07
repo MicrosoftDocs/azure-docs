@@ -8,6 +8,7 @@ ms.service: azure-private-link
 ms.topic: tutorial
 ms.date: 02/18/2025
 ms.custom: template-tutorial
+# Customer intent: As a network administrator, I want to build a private DNS infrastructure using a resolver with a private endpoint for my on-premises workloads, so that I can securely resolve private IPs without managing VMs or DNS records on-premises.
 ---
 
 # Tutorial: Create a private endpoint DNS infrastructure with Azure Private Resolver for an on-premises workload

@@ -4,6 +4,8 @@ ms.service: azure-app-service
 ms.topic: include
 ms.date: 05/07/2025
 ms.author: cephalin
+ms.custom:
+  - build-2025
 ---
 
 ## Frequently asked questions
@@ -23,7 +25,7 @@ For example, the [Phi-3 mini model with a 4K context length from Hugging Face](h
 
 ### How to use my own SLM sidecar?
 
-The sample repository contains a sample SLM container that you can use as a sidecar. It runs a FastAPI application that listens on port 8000, as specified in its [Dockerfile](https://github.com/Azure-Samples/ai-slm-in-app-service-sidecar/blob/main/bring_your_own_slm/src/phi-3-sidecar/Dockerfile). The application uses [ONNX Runtime](https://onnxruntime.ai/docs/) to load the Phi-3 model, then forwards the HTTP POST data to the model and streams the response from the model back to the client. For more information, see [model_api.py](https://github.com/Azure-Samples/ai-slm-in-app-service-sidecar/blob/main/src/phi-3-sidecar/model_api.py).
+The sample repository contains a sample SLM container that you can use as a sidecar. It runs a FastAPI application that listens on port 8000, as specified in its [Dockerfile](https://github.com/Azure-Samples/ai-slm-in-app-service-sidecar/blob/main/bring_your_own_slm/src/phi-3-sidecar/Dockerfile). The application uses [ONNX Runtime](https://onnxruntime.ai/docs/) to load the Phi-3 model, then forwards the HTTP POST data to the model and streams the response from the model back to the client. For more information, see [model_api.py](https://github.com/Azure-Samples/ai-slm-in-app-service-sidecar/blob/main/bring_your_own_slm/src/phi-3-sidecar/model_api.py).
 
 To build the sidecar image yourself, you need to install Docker Desktop locally on your machine.
 
@@ -41,7 +43,7 @@ To build the sidecar image yourself, you need to install Docker Desktop locally 
     huggingface-cli download microsoft/Phi-3-mini-4k-instruct-onnx --local-dir ./Phi-3-mini-4k-instruct-onnx
     ```
     
-    The [Dockerfile](https://github.com/Azure-Samples/ai-slm-in-app-service-sidecar/blob/main/src/phi-3-sidecar/Dockerfile) is configured to copy the model from *./Phi-3-mini-4k-instruct-onnx*.
+    The [Dockerfile](https://github.com/Azure-Samples/ai-slm-in-app-service-sidecar/blob/main/bring_your_own_slm/src/phi-3-sidecar/Dockerfile) is configured to copy the model from *./Phi-3-mini-4k-instruct-onnx*.
     
 1. Build the Docker image. For example:
 

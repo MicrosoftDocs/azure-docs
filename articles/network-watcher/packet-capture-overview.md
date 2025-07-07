@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 03/21/2025
 
 #CustomerIntent: As an administrator, I want to learn about Azure Network Watcher packet capture tool so that I can use it to capture IP packets to and from virtual machines (VMs) and scale sets to diagnose and solve network problems.
+# Customer intent: As an administrator, I want to understand the features and configurations of the packet capture tool in Azure Network Watcher, so that I can effectively diagnose network issues and monitor traffic on my virtual machines.
 ---
 
 # Packet capture overview

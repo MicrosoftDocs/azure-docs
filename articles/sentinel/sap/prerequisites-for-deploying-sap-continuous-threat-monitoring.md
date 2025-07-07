@@ -84,6 +84,10 @@ We recommend that your **SAP BASIS** team verify and ensure SAP system prerequis
 
 :::zone pivot="connection-agentless"
 
+## Sign up for limited preview
+
+To use the agentless data connector for SAP, [sign up for the limited preview](https://forms.cloud.microsoft/r/FeWbvc18MV).
+
 ## Azure prerequisites
 
 Typically, Azure prerequisites are managed by your **security** teams.
@@ -96,7 +100,9 @@ Typically, Azure prerequisites are managed by your **security** teams.
 
 ## SAP prerequisites for the agentless data connector
 
-We recommend that your **SAP BASIS** team verify and ensure SAP system prerequisites. We strongly recommend that any management of your SAP system is carried out by an experienced SAP system administrator.
+We recommend that your **SAP BASIS** team verify and ensure SAP system prerequisites. The SAP BASIS admin should review SAP notes 3390051 and 382318 to ensure that NetWeaver is set up for integration.
+
+We strongly recommend that any management of your SAP system is carried out by an experienced SAP system administrator.
 
 | Prerequisite | Description |
 | ---- | ----------- |

@@ -2,15 +2,16 @@
 title: Create and delete Backup vaults
 description: Learn how to create and delete the Backup vaults.
 ms.topic: how-to
-ms.date: 03/19/2025
+ms.date: 06/23/2025
 ms.custom: references_regions
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to create and delete Backup vaults, so that I can efficiently manage and organize backup data for Azure services while ensuring data security and compliance.
 ---
 # Create and delete Backup vaults
 
-This article describes how to create Backup vaults and delete them.
+This article describes how to create Backup vaults and delete them. You can also [create a Backup vault using REST API](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md).
 
 A Backup vault is a storage entity in Azure that houses backup data for certain newer workloads that Azure Backup supports. You can use Backup vaults to hold backup data for various Azure services, such Azure Database for PostgreSQL servers and newer workloads that Azure Backup will support. Backup vaults make it easy to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides the **Enhanced capabilities to help secure backup data**. With Backup vaults, Azure Backup provides security capabilities to protect cloud backups. The security features ensure you can secure your backups, and safely recover data, even if production and backup servers are compromised. [Learn more](backup-azure-security-feature.md)
 

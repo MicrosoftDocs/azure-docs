@@ -12,6 +12,7 @@ ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+# Customer intent: As a cloud engineer, I want to set up an Azure Application Gateway using Terraform, so that I can efficiently direct web traffic to virtual machines and ensure proper connectivity within my cloud infrastructure.
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Terraform

@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.service: azure-load-balancer
 ms.custom: devx-track-azurepowershell, mode-api, template-quickstart, engagement-fy23
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
+# Customer intent: "As a cloud architect, I want to create a public load balancer using PowerShell, so that I can efficiently distribute internet traffic to multiple virtual machines."
 ---
 
 # Quickstart: Create a public load balancer to load balance VMs using Azure PowerShell

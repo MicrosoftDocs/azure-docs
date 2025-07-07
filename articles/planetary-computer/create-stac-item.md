@@ -3,10 +3,12 @@ title: Creating STAC Items in Microsoft Planetary Computer Pro
 description: Learn how to create A STAC Item for a geospatial data asset for use with Microsoft Planetary Computer Pro. 
 author: prasadko
 ms.author: prasadkomma
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: how-to
 ms.date: 04/08/2025
 
+ms.custom:
+  - build-2025
 # customer intent: As a GeoCatalog user, I want to create a SpatioTemporal Asset Catalog (STAC) Item to describe my geospatial data asset so that I can upload that asset to an Microsoft Planetary Computer Pro GeoCatalog.
 ---
 
@@ -321,6 +323,9 @@ When pointed to a COG file, `rio-stac` automatically extracts and organizes esse
 - **STAC Extensions**
 
 This automation significantly reduces the manual work needed to create valid STAC Items and ensures consistency in metadata 
+
+> [!NOTE]
+> GeoCatalog has limitations on characters that can be used in STAC Item IDs and Asset keys. Ensure that your IDs don't contain the following characters: `-`, `_`, `+`, `(`, `)`, and `.`. You may need to modify the `item_id` generation logic to replace or remove these characters from your filenames.
 
 ```python
 from rio_stac import create_stac_item

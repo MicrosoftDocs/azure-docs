@@ -9,6 +9,7 @@ author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: azure-large-instances
 ms.date: 2/7/2024
+# Customer intent: As a cloud architect, I want to review the available Azure Large Instances SKUs for Epic workloads, so that I can choose the appropriate resources for my organization's high-performance compute and storage needs.
 ---
 
 # Azure Large Instances for Epic workload SKUs

@@ -12,6 +12,7 @@ ms.author: normesta
 ms.reviewer: ozgun
 ms.devlang: csharp
 ms.custom: devx-track-csharp
+# Customer intent: As a software developer integrating storage solutions, I want to implement client-side encryption for blob data using the latest SDK features and Azure Key Vault, so that I can securely manage sensitive information and mitigate security vulnerabilities associated with previous encryption versions.
 ---
 
 # Client-side encryption for blobs

@@ -4,9 +4,10 @@ description: Start here to learn how to monitor Azure Site Recovery.
 ms.date: 01/17/2025
 ms.custom: horz-monitor
 ms.topic: concept-article
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 ms.service: azure-site-recovery
+# Customer intent: "As an IT administrator, I want to monitor Azure Site Recovery performance and health metrics, so that I can ensure data protection and quick recovery in disaster scenarios."
 ---
 
 # Monitor Azure Site Recovery

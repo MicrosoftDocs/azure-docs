@@ -15,11 +15,11 @@ In this article, you learn how to contact support when working with an Informati
 
 1. In the Azure portal, go to your Informatica resource.
 
-1. In Resource menu, under **Support + troubleshooting**, select **New Support Request**.
+1. In service menu, under **Support + troubleshooting**, select **New Support Request**.
 
 1. Select the link to go to the [Informatica support website](https://support.informatica.com/) and raise a request.
 
-   :::image type="content" source="media/informatica-get-support/informatica-support-request.png" alt-text="Screenshot showing new support request selected in resource menu":::
+   :::image type="content" source="media/informatica-get-support/informatica-support-request.png" alt-text="Screenshot showing new support request selected in service menu.":::
 
 ## Related content
 

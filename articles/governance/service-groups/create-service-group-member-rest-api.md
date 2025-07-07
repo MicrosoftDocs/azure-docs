@@ -6,6 +6,8 @@ ms.author: rithorn
 ms.service: azure-policy
 ms.topic: quickstart
 ms.date: 5/19/2025
+ms.custom:
+  - build-2025
 ---
 
 

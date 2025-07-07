@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 04/17/2025
 monikerRange: migrate
+# Customer intent: "As a cloud architect, I want to review the assessment of on-premises VMs for Azure migration, so that I can ensure readiness, optimize sizing, and estimate costs effectively before proceeding with migration."
 ---
 
 # Review Azure VM assessment 
@@ -153,3 +154,9 @@ For servers recommended for Azure VM, if they're ready to run Defender for Serve
 Costs are displayed in the currency specified in the assessment settings. 
 
 For each on-premises server, you can review if there are any data collection issues that might result in a low confidence score of the overall assessment.  
+
+## VM Security type
+
+Azure Migrate determines each VM’s compatibility with **Trusted Launch Virtual Machine (TVM)** requirements and recommends a VM security type, Trusted Launch or Standard. It verifies the supported operating systems, generation type (Gen 2), boot and disk configuration, and other prerequisites defined by Azure for Trusted Launch. If a VM meets the requirements, Azure Migrate recommends **Trusted Launch** by default to provide enhanced security features, such as **secure boot, vTPM**, and integrity monitoring at no extra cost. If the VM doesn't meet the criteria, it is assigned a **Standard security type**, ensuring compatibility while maintaining migration readiness.
+
+For more information on requirements for Trusted Launch Virtual Machines. [Learn more](/azure/virtual-machines/trusted-launch).

@@ -578,7 +578,7 @@ Z2XSK010003000000001017945375000110Z2XSK01000000108030 XR1 13.000 6795.00 CX
 
 ### Add a response action
 
-Now, set up your workflow to return the results from your SAP server to the original requestor. For this task, follow these steps:
+Now, set up your workflow to return the results from your SAP server to the original requester. For this task, follow these steps:
 
 ### [Consumption](#tab/consumption)
 

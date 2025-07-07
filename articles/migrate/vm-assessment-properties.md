@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 04/17/2025
 monikerRange: migrate
+# Customer intent: As a cloud architect, I want to customize VM assessment properties in Azure Migrate, so that I can tailor the assessment to the specific needs of my workloads and optimize resource allocation for migration.
 ---
 
 # Customize VM assessment properties 

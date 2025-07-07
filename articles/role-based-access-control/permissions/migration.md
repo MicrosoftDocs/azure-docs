@@ -3,9 +3,9 @@ title: Azure permissions for Migration - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Migration category.
 ms.service: role-based-access-control
 ms.topic: generated-reference
-author: rolyon
-manager: femila
-ms.author: rolyon
+author: jenniferf-skc
+manager: pmwongera
+ms.author: jfields
 ms.date: 05/25/2025
 ms.custom: generated
 ---
@@ -271,7 +271,7 @@ Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
 > | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/write | Creates a new SQL assessment or updates an existing SQL assessment |
 > | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/delete | Deletes an SQL assessment |
 > | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/downloadurl/action | Downloads an SQL assessment report's URL |
-> | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/assessedSqlDatabases/read | Get the properties of assessed SQL databses |
+> | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/assessedSqlDatabases/read | Get the properties of assessed SQL databases |
 > | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/assessedSqlInstances/read | Get the properties of assessed SQL instances |
 > | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/assessedSqlMachines/read | Get the properties of assessed SQL machines |
 > | Microsoft.Migrate/assessmentProjects/groups/sqlAssessments/recommendedAssessedEntities/read | Get the properties of recommended assessed entity |

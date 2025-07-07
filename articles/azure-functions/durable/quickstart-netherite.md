@@ -16,6 +16,8 @@ Durable Functions offers several [storage providers](durable-functions-storage-p
 
 > [!NOTE]
 >
+> - Support for using the Netherite storage backend with Durable Functions will end 31 March 2028. It is recommended that you start evaluating the Durable Task Scheduler for workloads that you're currently using Netherite for. See [end-of-support announcement](https://azure.microsoft.com/updates/?id=489009).
+>
 > - Netherite was designed and developed by [Microsoft Research](https://www.microsoft.com/research) for [high throughput](https://microsoft.github.io/durabletask-netherite/#/scenarios) scenarios. In some [benchmarks](https://microsoft.github.io/durabletask-netherite/#/throughput?id=multi-node-throughput), throughput increased by more than an order of magnitude compared to the default Azure Storage provider. To learn more about when to use the Netherite storage provider, see the [storage providers](durable-functions-storage-providers.md) documentation.
 >
 > - Migrating [task hub data](durable-functions-task-hubs.md) across storage providers currently isn't supported. Function apps that have existing runtime data start with a fresh, empty task hub after they switch to the Netherite back end. Similarly, the task hub contents that are created by using MSSQL can't be preserved if you switch to a different storage provider.
@@ -44,7 +46,7 @@ If you don't meet these prerequisites, we recommend that you start with one of t
 ## Add the Netherite extension (.NET only)
 
 > [!NOTE]
-> If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), skip this section. Extension Bundles removes the need for manual extension management.
+> If your app uses [Extension Bundles](../extension-bundles.md), skip this section. Extension Bundles removes the need for manual extension management.
 
 First, install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite) storage provider extension from NuGet. For .NET, you usually include a reference to it in your *.csproj* file and building the project.
 
