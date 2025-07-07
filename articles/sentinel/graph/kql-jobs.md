@@ -40,7 +40,7 @@ The following prerequisites are required to create and manage KQL jobs in the Mi
 
 ### Onboard to the data lake
 
-To create and manage KQL jobs in the Microsoft Sentinel data lake, you must first onboard to the data lake. For more information on onboarding to the data lake, see [Onboard to the Microsoft Sentinel data lake (preview)](sentinel-lake-onboard.md).
+To create and manage KQL jobs in the Microsoft Sentinel data lake, you must first onboard to the data lake. For more information on onboarding to the data lake, see [Onboard to the Microsoft Sentinel data lake (preview)](sentinel-lake-onboarding.md).
 
 ### Permissions
 
