@@ -99,7 +99,7 @@ The following diagram summarizes and compares these two log management plans.
 > For more information, see [Microsoft Sentinel data lake (Preview)](https://aka.ms/sentinel-lake-overview).
 > Sentinel Data Lake is currently in public preview and not yet generally available. We advise users to monitor updates and announcements regarding it's availability status.
 
-The **Analytics logs** plan keeps data in the **interactive retention** state for **90 days** by default, extensible for up to two years. This interactive state, while expensive, allows you to query your data in unlimited fashion, with high performance, at no charge per query.
+The **Analytics logs** plan keeps data in the **Analytics retention** state for **90 days** by default, extensible for up to two years. This interactive state, while expensive, allows you to query your data in unlimited fashion, with high performance, at no charge per query.
 
 When the interactive retention period ends, data goes into the **long-term retention** state, while remaining in its original table. The long-term retention period is not defined by default, but you can define it to last up to 12 years. This retention state preserves your data at extremely low cost, for regulatory compliance or internal policy purposes. You can access the data in this state only by using a [**search job**](investigate-large-datasets.md) or [**restore**](restore.md) to pull out limited sets of data into a new table in interactive retention, where you can bring the full query capabilities to bear on it.
 
