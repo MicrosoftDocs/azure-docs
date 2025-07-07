@@ -109,7 +109,7 @@ const user = await graphClient.api("/users/bob@contoso.com").get();
 const org = await graphClient.api("/organization").get();
 const tenant = org.value[0];
 
-//Communication Services resource id
+//Communication Services Resource ID
 const resourceId = "<resource-id-guid>";
 
 // create an identifier
