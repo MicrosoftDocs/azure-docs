@@ -61,7 +61,8 @@ To set Contributor or Owner permissions in the Azure subscription:
 1. In **Subscriptions**, select the subscription in which you want to create a project. 
 1. Select **Access control (IAM)**. 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal) .
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal).
+
 
 
     | Setting | Value |
@@ -74,8 +75,7 @@ To set Contributor or Owner permissions in the Azure subscription:
 
 To give the account the required permissions to register Microsoft Entra apps:
 
-1. In the portal, go to **Microsoft Entra ID** > **Users**.
-
+1. In the portal, go to **Microsoft Entra ID** > **Users**. 
 1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Microsoft Entra app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
 
 ## Prepare VMware

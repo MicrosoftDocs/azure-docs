@@ -195,8 +195,8 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 
     :::image type="content" source="./media/tutorial-discover-vmware/prerequisites.png" alt-text="Screenshot that shows setting up the prerequisites in the appliance configuration manager.":::
 
-> [!NOTE]
-> This is a new user experience in Azure Migrate appliance which is available only if you have set up an appliance using the latest OVA/Installer script downloaded from the portal. The appliances which have already been registered will continue seeing the older version of the user experience and will continue to work without any issues.
+    > [!NOTE]
+    > This is a new user experience in Azure Migrate appliance which is available only if you have set up an appliance using the latest OVA/Installer script downloaded from the portal. The appliances which have already been registered will continue seeing the older version of the user experience and will continue to work without any issues.
 
 1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown. 
 1. The appliance will verify the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server. 
@@ -208,7 +208,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
     > If you close the login tab accidentally without logging in, refresh the browser tab of the appliance configuration manager to display the device code and Copy code & Login button.
 1. After you successfully log in, return to the browser tab that displays the appliance configuration manager. If the Azure user account that you used to log in has the required permissions for the Azure resources that were created during key generation, appliance registration starts.
 
-After the appliance is successfully registered, to see the registration details, select **View details**.
+    After the appliance is successfully registered, to see the registration details, select **View details**.
 
 You can *rerun prerequisites* at any time during appliance configuration to check whether the appliance meets all the prerequisites.
 
