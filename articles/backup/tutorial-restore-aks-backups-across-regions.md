@@ -8,6 +8,7 @@ ms.custom:
   - ignite-2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to enable Vault Tier backups for my AKS clusters and perform cross-region restores, so that I can ensure data protection and recovery during regional disasters."
 ---
 
 # Tutorial: Enable Vault Tier backups for AKS and restore across regions by using Azure Backup

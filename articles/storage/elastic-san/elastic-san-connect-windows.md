@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 06/18/2025
 ms.author: rogarana
 ms.custom: references_regions
+# Customer intent: "As a Windows client user, I want to connect to an Azure Elastic SAN volume using iSCSI, so that I can ensure optimal performance and manage multiple I/O sessions efficiently."
 ---
 
 # Connect to Elastic SAN volumes - Windows

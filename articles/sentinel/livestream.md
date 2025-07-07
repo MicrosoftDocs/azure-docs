@@ -1,23 +1,23 @@
 ---
-title: Detect threats by using hunting livestream in Microsoft Sentinel 
-description: Learn how to use hunting livestream in Microsoft Sentinel to actively monitor a compromise event.
+title: Detect threats by using hunting livestream in Microsoft Sentinel
+description: Detect threats in real time with hunting livestream in Microsoft Sentinel. Set up sessions, receive notifications, and take action fast.
 ms.topic: how-to
-ms.date: 04/24/2024
+ms.date: 07/06/2025
 ms.author: monaberdugo
 author: mberdugo
 ms.collection: usx-security
 appliesto:
-    - Microsoft Sentinel in the Microsoft Defender portal
-    - Microsoft Sentinel in the Azure portal
-
-
-#Customer intent: As a security analyst, I want to create and manage hunting livestream sessions so that I can detect and respond to threats in real-time.
-
+  - Microsoft Sentinel in the Microsoft Defender portal
+  - Microsoft Sentinel in the Azure portal
+ms.custom:
+  - ai-gen-docs-bap
+  - ai-gen-description
+  - ai-seo-date:07/06/2025
 ---
 
 # Detect threats by using hunting livestream in Microsoft Sentinel
 
-Use hunting livestream to create interactive sessions that let you test newly created queries as events occur, get notifications from the sessions when a match is found, and launch investigations if necessary. You can quickly create a livestream session using any Log Analytics query.
+Use hunting livestream to create interactive sessions that let you test newly created queries as events occur, get notifications from the sessions when a match is found, and launch investigations if necessary. You can quickly create a livestream session using any Log Analytics query. This article is about hunting in Microsoft Sentinel which also exists in Defender. For advanced hunting in Microsoft Defender, see [Proactively hunt for threats with advanced hunting in Microsoft Defender](/defender-xdr/advanced-hunting-overview).
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
@@ -25,7 +25,7 @@ Use hunting livestream to create interactive sessions that let you test newly cr
 
 You can create a livestream session from an existing hunting query, or create your session from scratch.
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Hunting**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Hunting**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Hunting**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Hunting**. Make sure you select *Hunting*, and not *Advanced hunting*.
 
 1. To create a livestream session from a hunting query:
     

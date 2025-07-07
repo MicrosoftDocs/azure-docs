@@ -10,6 +10,7 @@ ms.topic: concept-article
 ms.date: 06/06/2025
 ms.author: aschoksh
 ms.custom: compute-evergreen
+# Customer intent: As a cloud services administrator, I want to stay updated on the latest Guest OS releases and their compatibility, so that I can plan timely upgrades and ensure my applications remain secure and functional before any deprecation deadlines.
 ---
 # Azure Guest OS releases and SDK compatibility matrix
 

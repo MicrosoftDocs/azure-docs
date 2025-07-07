@@ -67,6 +67,7 @@ The following are the current limitations and known issues with PowerShell runbo
 > [!NOTE]
 > Currently, PowerShell 7.4 runtime version is supported for both Cloud and Hybrid jobs in all Public regions except Brazil Southeast and Gov clouds.
 
+- Powershell 7.4 is only available in [runtime environment experience](runtime-environment-overview.md).
 - For the PowerShell 7.4 runtime version, the module activities aren't extracted for the imported modules. Use [Azure Automation extension for VS Code](automation-runbook-authoring.md) to simplify runbook authoring experience.
 - PowerShell 7.x doesn't support workflows. For more information, see [PowerShell workflow](/powershell/scripting/whats-new/differences-from-windows-powershell#powershell-workflow) for more details.
 - PowerShell 7.x currently doesn't support signed runbooks.
