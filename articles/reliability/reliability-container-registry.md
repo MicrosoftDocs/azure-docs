@@ -12,7 +12,7 @@ ms.date: 06/16/2025
 
 # Reliability in Azure Container Registry
 
-This article describes reliability support in Azure Container Registry (ACR), covering intra-regional resiliency via [availability zones](#zone-redundancy-reliability) and cross-region resiliency via [geo-replication](#multi-region-reliability).
+This article describes reliability support in Azure Container Registry (ACR), covering intra-regional resiliency via [availability zones](#availability-zone-support) and cross-region resiliency via [geo-replication](#multi-region-support).
 
 Azure Container Registry is a managed container registry service used to store and manage your private Docker container images and related artifacts for your container deployments. For more information, see [What is Azure Container Registry?](/azure/container-registry/container-registry-intro).
 
