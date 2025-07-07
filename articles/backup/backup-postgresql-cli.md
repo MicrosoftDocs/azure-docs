@@ -3,10 +3,13 @@ title: Back Up a PostgreSQL Databases by Using the Azure CLI
 description: Learn how to back up PostgreSQL databases in Azure Virtual Machines by using the Azure CLI.
 ms.topic: how-to
 ms.date: 05/20/2025
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to back up PostgreSQL databases in Azure using the command line, so that I can automate the backup process and ensure data protection in a reliable and efficient manner."
 ---
 
 # Back up PostgreSQL databases by using the Azure CLI

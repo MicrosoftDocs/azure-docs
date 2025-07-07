@@ -2,10 +2,11 @@
 title: Query resources with Azure Resource Graph in Azure Update Manager
 description: This article provides details on how Access Azure Update Manager operations data using Azure Resource Graph.
 ms.service: azure-update-manager
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.date: 09/10/2024
 ms.topic: overview
+# Customer intent: "As a cloud administrator, I want to access Azure Update Manager operation logs via Azure Resource Graph, so that I can analyze and visualize update assessments and installations for effective reporting and maintenance management."
 ---
 
 # Access Azure Update Manager operations data using Azure Resource Graph

@@ -8,6 +8,8 @@ author: KennyDay
 ms.reviewer: macyso
 ms.service: cost-management-billing
 ms.subservice: billing
+ms.custom:
+  - build-2025
 ---
 
 # Create an Azure support request for an Enterprise Agreement issue

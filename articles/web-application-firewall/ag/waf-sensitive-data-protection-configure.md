@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 09/05/2023
+# Customer intent: As a security administrator, I want to enable log scrubbing on the web application firewall, so that I can mask sensitive data in logs to protect user privacy and comply with data protection regulations.
 ---
 
 # How to mask sensitive data on Azure Web Application Firewall
@@ -29,7 +30,7 @@ The following table shows examples of log scrubbing rules that can be used to pr
 | Request JSON Arg Names | Equals | Jsonarg | "data":"Matched Data: ****** found within ARGS:jsonarg: ******" |
 | Request IP Address* | Equals Any | NULL | "clientIp":"******" |
 
-\* Request IP Address rules only support the *equals any* operator and scrubs all instances of the requestor's IP address that appears in the WAF logs.
+\* Request IP Address rules only support the *equals any* operator and scrubs all instances of the requester's IP address that appears in the WAF logs.
 
 For more information, see [What is Azure Web Application Firewall Sensitive Data Protection?](waf-sensitive-data-protection.md)
 

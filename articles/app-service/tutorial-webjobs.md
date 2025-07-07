@@ -181,7 +181,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 
 ## Download the sample WebJob
 
-You can [download a pre-built sample project](https://github.com/Azure-Samples/App-Service-Node-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample includes two files: `webjob.js` and `run.sh`.
+You can [download a pre-built sample project](https://github.com/Azure-Samples/App-Service-NodeJS-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample includes two files: `webjob.js` and `run.sh`.
 
 The JavaScript, `webjob.js`, outputs the current time to the console as shown below:
 

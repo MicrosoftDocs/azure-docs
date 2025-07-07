@@ -93,7 +93,7 @@ The underlying SDK used by extension changed to use the [Azure.Messaging.Service
 
 ## Update the extension bundle
 
-By default, [extension bundles](./functions-bindings-register.md#extension-bundles) are used by non-.NET function apps to install binding extensions. The Azure Service Bus version 5 extension is part of extension bundle version 4.
+By default, [extension bundles](./extension-bundles.md) are used by non-.NET function apps to install binding extensions. The Azure Service Bus version 5 extension is part of extension bundle version 4.
 
 To update your application to use the latest extension bundle, update your `host.json`. The following `host.json` file uses version 4 of the extension bundle.
 

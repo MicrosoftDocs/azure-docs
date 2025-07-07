@@ -4,6 +4,8 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/04/2023
 ms.author: glenga
+ms.custom:
+  - build-2025
 ---
 
 Use the function trigger to respond to an event sent to an event hub event stream. You need read access to the underlying event hub to set up the trigger. When the function is triggered, the message passed to the function is typed as a string.

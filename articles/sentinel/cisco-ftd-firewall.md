@@ -15,7 +15,7 @@ Microsoft Sentinel provides two connectors that collect logs from Cisco Firepowe
 
 ## Collect logs from a Cisco FTD ASA firewall device
 
-To collect logs from FTD ASA firewall devices, use the [Cisco ASA/FTD via AMA (Preview) connector](../sentinel/data-connectors/cisco-asa-ftd-via-ama.md). 
+To collect logs from FTD ASA firewall devices, use the [Cisco ASA/FTD via AMA (Preview) connector](../sentinel/data-connectors-reference.md#cisco-asaftd-via-ama-preview). 
 
 ## Collect logs from a Cisco FTD FXOS firewall device
 

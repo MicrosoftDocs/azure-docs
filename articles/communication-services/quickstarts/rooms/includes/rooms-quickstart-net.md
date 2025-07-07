@@ -7,7 +7,7 @@ manager: alexokun
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 02/27/2025
+ms.date: 05/15/2025
 ms.topic: include
 ms.custom: include file
 ms.author: mayssamm
@@ -21,9 +21,9 @@ ms.author: mayssamm
 
 ## Sample code
 
-You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/RoomsQuickstart).
+Review and download the sample code for from GitHub at [Rooms Quickstart - .NET](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/RoomsQuickstart).
 
-## Setting up
+## Set up
 
 ### Create a new C# application
 
@@ -47,7 +47,8 @@ Install the Azure Communication Rooms client library for .NET with [NuGet][https
 ```console
 dotnet add package Azure.Communication.Rooms
 ```
-You'll need to use the Azure Communication Rooms client library for .NET [version 1.1.0](https://www.nuget.org/packages/Azure.Communication.Rooms/1.1.0) or above.
+
+Use the Azure Communication Rooms client library for .NET [version 1.1.0](https://www.nuget.org/packages/Azure.Communication.Rooms/1.1.0) or later.
 
 ### Set up the app framework
 
@@ -77,7 +78,7 @@ namespace RoomsQuickstart
 
 ## Initialize a room client
 
-Create a new `RoomsClient` object that will be used to create new `rooms` and manage their properties and lifecycle. The connection string of your `Communications Service` will be used to authenticate the request. For more information on connection strings, see [this page](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
+Create a new `RoomsClient` object that you need to create new `rooms` and manage their properties and lifecycle. Use the connection string of your Communications Service to authenticate the request. For more information on connection strings, see [this page](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 
 ```csharp
 
@@ -91,7 +92,7 @@ RoomsClient roomsClient = new RoomsClient(connectionString);
 
 ### Set up room participants
 
-In order to set up who can join a room, you'll need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-csharp) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`. ACS Rooms currently supports a room participant of type CommunicationUserIdentifier only, using other types of CommunicationIdentity will result in a runtime error.
+To set up who can join a room, you need to have the list of the identities of those users. Follow the instructions at [Access tokens](../../identity/access-tokens.md?pivots=programming-language-csharp) to creatieusers and issue access tokens. Alternatively, to create the users on demand, you can create them using the `CommunicationIdentityClient`. Azure Communication Services Rooms currently support a room participant of type `CommunicationUserIdentifier` only, using other types of `CommunicationIdentity` cause a runtime error.
 
 To use the `CommunicationIdentityClient`, install the following package:
 
@@ -105,7 +106,7 @@ Also, import the namespace of the package at the top of your `Program.cs` file:
 using Azure.Communication.Identity;
 ```
 
-Now, the `CommunicationIdentityClient` can be initialized and used to create users:
+Now, you can initialize the `CommunicationIdentityClient` and use it to create users:
 
 ```csharp
 // Create identities for users who will join the room
@@ -125,7 +126,8 @@ List<RoomParticipant> participants = new List<RoomParticipant>()
 ```
 
 ### Initialize the room
-Create a new `room` using the `participants` defined in the code snippet above:
+
+Create a new room using the `participants` defined in the preceding code snippet:
 
 ```csharp
 // Create a room
@@ -148,13 +150,12 @@ CreateRoomOptions createRoomOptions = new CreateRoomOptions()
 createdRoom = await roomsClient.CreateRoomAsync(createRoomOptions, cancellationToken);
 string roomId = createdRoom.Id;
 Console.WriteLine("\nCreated room with id: " + roomId);
-
 ```
 
-Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object.
+Since rooms are server-side entities, you should keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a room object.
 
 ### Enable PSTN dial out capability for a room
-Each `room` has PSTN dial out disabled by default. The PSTN dial out can be enabled for a `room` at creation, by defining the `pstnDialOutEnabled` parameter as true. This capability may also be modified for a `room` by issuing an update request for the `pstnDialOutEnabled` parameter.
+Each room has PSTN dial out disabled by default. You can enable the PSTN dial out for a room at creation, by defining the `pstnDialOutEnabled` parameter as true. You can change this capability  for a room by issuing an update request for the `pstnDialOutEnabled` parameter.
 
 ```csharp
 // Create a room
@@ -184,7 +185,7 @@ Console.WriteLine("\nUpdated a room with PSTN dial out enabled: " + updatedRoom.
 
 ## Get properties of an existing room
 
-Retrieve the details of an existing `room` by referencing the `roomId`:
+To retrieve the details of an existing room, reference the `roomId`:
 
 ```csharp
 
@@ -196,7 +197,7 @@ Console.WriteLine("\nRetrieved room with id: " + room.Id);
 
 ## Update the lifetime of a room
 
-The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters. A room can be valid for a maximum of six months.
+You can change the lifetime of a room by issuing an update request for the `ValidFrom` and `ValidUntil` parameters. A room can be valid for a maximum of six months.
 
 ```csharp
 
@@ -236,7 +237,7 @@ await foreach (CommunicationRoom currentRoom in allRooms)
 
 ### Add new participants or update existing participants
 
-To add new participants to a `room`, use the `AddParticipantsAsync` method exposed on the client.
+To add new participants to a room, use the `AddParticipantsAsync` method exposed on the client.
 
 ```csharp
 
@@ -254,11 +255,11 @@ Console.WriteLine("\nAdded or updated participants to room");
 
 ```
 
-Participants that have been added to a `room` become eligible to join calls. Participants that have been updated will see their new `role` in the call.
+When you add participants to a room, they become eligible to join calls. Updated participants  see their new `role` in the call.
 
 ## Get list of participants
 
-Retrieve the list of participants for an existing `room` by referencing the `roomId`:
+Retrieve the list of participants for an existing room by referencing the `roomId`:
 
 ```csharp
 
@@ -274,7 +275,7 @@ await foreach (RoomParticipant participant in existingParticipants)
 
 ## Remove participants
 
-To remove a participant from a `room` and revoke their access, use the `RemoveParticipantsAsync` method.
+To remove a participant from a room and revoke their access, use the `RemoveParticipantsAsync` method.
 
 ```csharp
 
@@ -288,7 +289,8 @@ Console.WriteLine("\nRemoved participants from room");
 ```
 
 ## Delete room
-If you wish to disband an existing `room`, you may issue an explicit delete request. All `rooms` and their associated resources are automatically deleted at the end of their validity plus a grace period.
+
+If you wish to disband an existing room, issue an explicit delete request. All rooms and their associated resources are automatically deleted at the end of their validity plus a grace period.
 
 ```csharp
 
@@ -299,7 +301,7 @@ Console.WriteLine("\nDeleted room with id: " + roomId);
 
 ## Run the code
 
-To run the code, make sure you are on the directory where your `Program.cs` file is.
+To run the code, make sure you are in the same directory as the `Program.cs` file.
 
 ```console
 

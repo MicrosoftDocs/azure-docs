@@ -23,7 +23,11 @@ This guide provides key concepts and instructions for ASP.NET Core developers. I
 
 ## Show supported .NET Core runtime versions
 
-In App Service, the Windows instances already have all the supported .NET Core versions installed. To see the .NET Core runtime and SDK versions that are available to you, go to `https://<app-name>.scm.azurewebsites.net/DebugConsole` and run the following command in the browser-based console:
+In App Service, the Windows instances already have all the supported .NET Core versions installed. To see the .NET Core runtime and SDK versions that are available to you, go to your Kudu site.
+
+Go to your app in the Azure portal and then select **Development Tools** > **Advanced Tools**. Select **Go**. In Kudu, select **Debug console** for **CMD** or **PowerShell**.
+
+Run the following command in the browser-based console:
 
 ```azurecli-interactive
 dotnet --info

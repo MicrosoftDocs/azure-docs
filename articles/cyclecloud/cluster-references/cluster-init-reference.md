@@ -2,16 +2,16 @@
 title: Azure CycleCloud Cluster-Init Parameter Reference
 description: See a reference for cluster-init objects to be used with Azure CycleCloud. A cluster-init object defines the CycleCloud project specifications to run on a node.
 author: adriankjohnson
-ms.date: 05/31/2024
+ms.date: 06/29/2025
 ms.author: adjohnso
 ms.custom: compute-evergreen
 ---
 
 # Cluster-Init
 
-Cluster-init objects are subordinate in rank to `node` and `nodearray`. The cluster-init object defines the [CycleCloud project](~/articles/cyclecloud/how-to/projects.md) specs to run on a node.
+Cluster-init objects are subordinate to `node` and `nodearray` objects. The cluster-init object defines the [CycleCloud project](~/articles/cyclecloud/how-to/projects.md) specs to run on a node.
 
-Adding a `[[[cluster-init]]]` section to a node will include a project spec. Cluster-init definition can also be written in short-hand notation:
+When you add a `[[[cluster-init]]]` section to a node, you include a project spec. You can also use shorthand notation to define cluster-init:
 
 ``` ini
 [cluster my-cluster]
@@ -35,18 +35,17 @@ Adding a `[[[cluster-init]]]` section to a node will include a project spec. Clu
 
 ```
 
-Attribute values that begin with `$` are referencing parameters.
+Attribute values that start with `$` reference parameters.
 
-The order of the Project specs is respected as provided in the Cluster Template File. In this case `my-proj:default` will run first as it
-comes from the node defaults, followed by `myproject:x.y.x`, and finally `my-proj:my-spec`.
+The CycleCloud project specs run in the order you list them in the Cluster Template File. In this example, `my-proj:default` runs first because it comes from the node defaults. Next, `myproject:x.y.x` runs, and finally, `my-proj:my-spec` runs.
 
-## Attribute Reference
+## Attribute reference
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-Project | String | Name of CycleCloud project.
-Version | String | Version of CycleCloud project spec.
-Spec | String | Name of CycleCloud project spec.
-Locker | String | Name of locker from which to download project spec.
+Project | String | Name of the CycleCloud project.
+Version | String | Version of the CycleCloud project specification.
+Spec | String | Name of the CycleCloud project specification.
+Locker | String | Name of the locker to download the project specification from.
 
-For projects contained in the CycleCloud project, Locker should be set to `cyclecloud`.
+For projects in the CycleCloud project, set the `Locker` attribute to `cyclecloud`.

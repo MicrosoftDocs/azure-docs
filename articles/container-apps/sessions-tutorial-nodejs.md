@@ -7,6 +7,8 @@ ms.service: azure-container-apps
 ms.topic: tutorial
 ms.date: 02/19/2025
 ms.author: iasthana
+ms.custom:
+  - build-2025
 ---
 
 # Tutorial: Run JavaScript code in a code interpreter session in Azure Container Apps (preview)

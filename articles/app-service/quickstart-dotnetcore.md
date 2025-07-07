@@ -4,6 +4,7 @@ description: Learn how to run web apps in Azure App Service by deploying your fi
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 04/17/2025
+ms.update-cycle: 180-days
 zone_pivot_groups: app-service-ide
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
@@ -350,11 +351,7 @@ Follow these steps to create your App Service resources and publish your project
    - Replace `<os>` with either `linux` or `windows`.
    - You can optionally include the argument `--location <location-name>` where `<location-name>` is an available Azure region. To get a list of allowable regions for your Azure account, run the [az account list-locations](/cli/azure/appservice#az-appservice-list-locations) command.
 
-   The command might take a few minutes to complete. While it runs, the command provides messages about creating the resource group, the App Service plan, and hosting app, configuring logging, then performing ZIP deployment. Then it shows a message with the app's URL:
-
-   ```azurecli
-   You can launch the app at http://<app-name>.azurewebsites.net
-   ```
+   The command might take a few minutes to complete. While it runs, the command provides messages about creating the resource group, the App Service plan, and hosting app, configuring logging, then performing ZIP deployment. Then it shows a message with the app's URL.
 
 1. Open a web browser and navigate to the URL. You see the ASP.NET Core 8.0 web app displayed in the page.
 

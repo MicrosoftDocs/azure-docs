@@ -3,10 +3,11 @@ title: Sample query logs and results from Azure Update Manager
 description: The article provides details of sample query logs from Azure Update Manager in Azure using Azure Resource Graph
 ms.service: azure-update-manager
 ms.custom: linux-related-content
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.date: 07/29/2024
 ms.topic: overview
+# Customer intent: "As a systems administrator, I want to query update logs from Azure Update Manager, so that I can monitor the status and details of update installations across my managed machines."
 ---
 
 # Sample Azure Resource Graph queries to access Azure Update Manager operations data

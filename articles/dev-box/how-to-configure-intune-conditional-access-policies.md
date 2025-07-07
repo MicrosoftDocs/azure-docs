@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 09/23/2024
+ms.date: 05/29/2025
 ms.topic: how-to
 
 # Customer intent: As a platform engineer, I want to configure Conditional Access policies in Intune so that I can control access to dev boxes.
@@ -14,10 +14,13 @@ ms.topic: how-to
 ---
 
 # Configure Conditional Access policies for Dev Box
+This article shows how organizations use Conditional Access policies to manage access to dev boxes. 
+
+Microsoft Dev Box uses Microsoft Intune for device management, providing centralized control over device configuration, compliance policies, and app deployment to ensure secure access to corporate resources. To ensure access to resources, Dev Box automatically registers new dev boxes in Intune when you create them. 
+
+To enhance security, you can apply Conditional Access policies to control who can access Dev Boxes and from which locations.
 
 Conditional Access is the protection of regulated content in a system by requiring certain criteria to be met before granting access to the content. Conditional Access policies at their simplest are if-then statements. If a user wants to access a resource, they must complete an action. Conditional Access policies are powerful tools to help keep your organization's devices secure and your environments compliant.
-
-This article provides examples of how organizations can use Conditional Access policies to manage access to dev boxes. For Microsoft Dev Box, it's common to configure Conditional Access policies to restrict who can access the dev boxes, and from which locations they can access their dev boxes.
 
 -   **Device-based Conditional Access**:
 
@@ -61,7 +64,7 @@ Follow these steps:
 
 1. Give your location a name.
 
-1. Provide the IP ranges or select the countries/regions for the location that you're specifying.
+1. Provide the IP ranges or select the country/region for the location that you're specifying.
 
     - If you select **IP ranges**, you can optionally select **Mark as trusted** > **location**.
     - If you select **Countries/Regions**, you can optionally choose to include unknown areas.
@@ -151,8 +154,8 @@ The following table describes the apps that are relevant for Dev Box. You can cu
 |------------------------|-------------------------------|-----------------------------------------------------------|
 | Windows 365            | 0af06dc6-e4b5-4f28-818e-e78e62d137a5 | Used when Microsoft Remote Desktop is opened to retrieve the list of resources for the user, and when users initiate actions on their dev box, like Restart. |
 | Azure Virtual Desktop  | 9cdead84-a844-4324-93f2-b2e6bb768d07 | Used to authenticate to the gateway during the connection and when the client sends diagnostic information to the service. Might also appear as Windows Virtual Desktop. |
-| Microsoft Remote Desktop | a4a365df-50f1-4397-bc59-1a1564b8bb9c | Used to authenticate users to the dev box. It's only needed when you configure single sign-on in a provisioning policy. |
-| Windows Cloud sign-in    | 270efc09-cd0d-444b-a71f-39af4910ec45 | Used to authenticate users to the dev box. This app replaces the Microsoft Remote Desktop app. It's only needed when you configure single sign-on in a provisioning policy. |
+| Microsoft Remote Desktop | a4a365df-50f1-4397-bc59-1a1564b8bb9c | Used to authenticate users to the dev box. Required when you configure single sign-on in a provisioning policy. |
+| Windows Cloud sign-in    | 270efc09-cd0d-444b-a71f-39af4910ec45 | Used to authenticate users to the dev box. This app replaces the Microsoft Remote Desktop app. Required when you configure single sign-on in a provisioning policy. |
 | Windows Azure Service Management API | 797f4846-ba00-4fd7-ba43-dac1f8f63013 | Used to query for DevCenter projects where the user can create dev boxes. |
 | Fidalgo Dataplane Public | e526e72f-ffae-44a0-8dac-cf14b8bd40e2 | Used to manage dev boxes and other DevCenter resources via the DevCenter REST APIs, the Azure CLI, or the Microsoft developer portal. |
 | Microsoft developer portal | 0140a36d-95e1-4df5-918c-ca7ccd1fafc9 | Used to sign in to the Microsoft developer portal web app. |

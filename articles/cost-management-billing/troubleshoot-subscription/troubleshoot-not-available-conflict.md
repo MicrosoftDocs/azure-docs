@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Not available due to conflict error
 description: Provides the solutions for a problem where you can't select a management group for a reservation or a savings plan.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: common

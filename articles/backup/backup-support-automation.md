@@ -6,7 +6,10 @@ ms.topic: reference
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
-ms.custom: engagement-fy24
+ms.custom:
+  - engagement-fy24
+  - build-2025
+# Customer intent: "As a cloud administrator, I want to automate backup and restore operations for various services in Azure, so that I can efficiently manage data protection and recovery processes without manual intervention."
 ---
 
 # Support matrix for automation in Azure Backup

@@ -6,7 +6,9 @@ ms.author: peterwhiting
 ms.date: 03/19/2024
 ms.topic: how-to
 ms.service: azure-operator-service-manager
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 
 ---
 
@@ -14,9 +16,9 @@ ms.custom: devx-track-azurecli
 
 In this how-to guide, Network Function Publishers and Service Designers learn how to use the Azure CLI AOSM extension to onboard a virtualized network function to AOSM. This VNF can subsequently be deployed on [Azure Operator Nexus](/azure/operator-nexus/overview). Onboarding is a multi-step process. Once you meet the prerequisites, you'll use the Azure CLI AOSM extension to:
 
-1. Generate BICEP files that define a Network Function Definition Group and Version (NFD).
+1. Generate Bicep files that define a Network Function Definition Group and Version (NFD).
 2. Publish the NFD and upload the VNF image to an Artifact Store (AOSM-managed Azure Container Registry (ACR)).
-3. Add your published NFD to the BICEP files that define a Network Service Design Group and Version (NSD).
+3. Add your published NFD to the Bicep files that define a Network Service Design Group and Version (NSD).
 4. Publish the NSD.
 
 ## Prerequisites

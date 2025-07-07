@@ -33,10 +33,12 @@ In this article, you learn more about:
 > - How to enable vSAN Compression
 > - How to enable or disable vSAN Data-In-Transit Encryption
 
-## Supported host type
+## Supported host types
 vSAN ESA (Express Storage Architecture) is supported on the following Azure VMware Solution host types:
 
 - AV48
+- AV48 (Stretched Clusters)
+- AV64 (Gen 2)
 
 ## Supported vSAN services
 

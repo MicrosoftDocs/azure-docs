@@ -7,6 +7,8 @@ ms.service: azure-managed-grafana
 ms.topic: reference
 ms.date: 04/30/2025
 ai-usage: ai-assisted
+ms.custom:
+  - build-2025
 ---
 
 # Azure Managed Grafana FAQ

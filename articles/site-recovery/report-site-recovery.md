@@ -4,8 +4,9 @@ description: This article describes how to configure reports for Azure Site Reco
 ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.date: 12/30/2024
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
+# Customer intent: "As a backup and disaster recovery administrator, I want to configure Azure Site Recovery reports, so that I can gain insights on cloud storage consumption, auditing, and backup trends for effective management of my disaster recovery strategy."
 ---
 
 # (Preview) Configure Azure Site Recovery reports

@@ -4,8 +4,12 @@ description: Learn how to build and deploy a Python web app to Azure App Service
 author: jefmarti
 ms.author: jefmarti
 ms.date: 05/19/2025
+ms.update-cycle: 180-days
 ms.topic: tutorial
-ms.custom: devx-track-node, linux-related-content
+ms.custom:
+  - devx-track-node
+  - linux-related-content
+  - build-2025
 ms.collection: ce-skilling-ai-copilot
 ---
 

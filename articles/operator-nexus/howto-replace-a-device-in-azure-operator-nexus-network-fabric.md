@@ -6,7 +6,9 @@ ms.author: sushrao
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 05/16/2025
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - build-2025
 ---
 
 # Replace a device in Azure Operator Nexus Network Fabric (NNF)

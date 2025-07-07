@@ -2,12 +2,13 @@
 title: Using PowerShell to manage Traffic Manager in Azure
 description: With this learning path, get started using Azure PowerShell for Traffic Manager.
 services: traffic-manager
-author: greg-lindsay
+author: asudbring
 ms.service: azure-traffic-manager
 ms.topic: how-to
 ms.date: 08/08/2024
-ms.author: greglin
+ms.author: allensu
 ms.custom: template-how-to, devx-track-azurepowershell
+# Customer intent: "As a cloud administrator, I want to manage Azure Traffic Manager profiles using PowerShell commands, so that I can efficiently configure and monitor traffic routing for my applications."
 ---
 
 # Using PowerShell to manage Traffic Manager
@@ -131,7 +132,7 @@ Set-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile
 ```
 ### Example 2: Adding a publicIpAddress endpoint using `New-AzTrafficManagerEndpoint`
 
-In this example, a public IP address resource is added to the Traffic Manager profile. The public IP address must have a DNS name configured, and can be bound either to the NIC of a VM or to a load balancer.
+In this example, a public IP address resource is added to the Traffic Manager profile. The public IP address must have a DNS name configured and can be bound either to the NIC of a VM or to a load balancer.
 
 ```powershell
 $ip = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyRG

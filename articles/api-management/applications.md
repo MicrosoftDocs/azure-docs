@@ -9,7 +9,8 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/19/2025
 ms.author: danlep
-ms.custom: 
+ms.custom:
+  - build-2025
 ---
 # Securely access products and APIs with Microsoft Entra applications
 

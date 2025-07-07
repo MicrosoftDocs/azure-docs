@@ -8,6 +8,8 @@ ms.subservice: billing
 ms.topic: concept-article
 ms.date: 02/24/2025
 ms.author: zainzaigham
+ms.custom:
+  - build-2025
 ---
 
 # Microsoft Entra ID Free

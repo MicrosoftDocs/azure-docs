@@ -47,7 +47,7 @@ ms:author: mbender
 | Maximum Private Link Configurations| 2 | 1 for public IP, 1 for private IP |
 | Maximum Private Link IP Configurations| 8 | |
 | Maximum WAF custom rules per WAF policy|100||
-| Maximum WAF match conditions per custom rule|10|This limit is not enforced by the WAF. Adding more than 10 match conditions can lead to performance degredation|
+| Maximum WAF match conditions per custom rule|10|This limit is not enforced by the WAF. Adding more than 10 match conditions can lead to performance degradation|
 | WAF IP address ranges per match condition|540<br>600 - with CRS 3.2 or DRS|
 | Maximum WAF exclusions per Application Gateway|40<br>200 - with CRS 3.2 or DRS|
 | WAF string match values per match condition|10||

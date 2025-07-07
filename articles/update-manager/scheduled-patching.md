@@ -4,8 +4,9 @@ description: This article details how to use Azure Update Manager to set update 
 ms.service: azure-update-manager
 ms.date: 10/28/2024
 ms.topic: how-to
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
+# Customer intent: "As an IT administrator, I want to schedule recurring updates for my virtual machines using Azure Update Manager, so that I can ensure they are consistently maintained and secure without manual intervention."
 ---
 
 # Schedule recurring updates for machines by using the Azure portal and Azure Policy

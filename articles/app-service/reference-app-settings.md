@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 03/28/2025
 author: cephalin
 ms.author: cephalin
+ms.custom:
+  - build-2025
 ---
 
 # Environment variables and app settings in Azure App Service
-
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 In [Azure App Service](overview.md), certain settings are available to the deployment or runtime environment as environment variables. You can customize some of these settings when you set them manually as [app settings](configure-common.md#configure-app-settings). This reference shows the variables that you can use or customize.
 
@@ -202,10 +202,18 @@ This section shows the configurable runtime settings for each supported language
 | `AZURE_SITE_HOME` | Value added to the Java arguments as `-Dsite.home`. The default is the value of `HOME`. |
 | `HTTP_PLATFORM_PORT` | Added to Java arguments as `-Dport.http`. The following environment variables used by different Java web frameworks are also set to this value: `SERVER_PORT`, `MICRONAUT_SERVER_PORT`, `RATPACK_PORT`, `QUARKUS_HTTP_PORT`, `PAYARAMICRO_PORT`. |
 | `AZURE_LOGGING_DIR` | For Windows Apps, added to Java arguments as `-Dsite.logdir`. The default is `%HOME%\LogFiles\`. Default value in Linux is `AZURE_LOGGING_DIR=/home/LogFiles`. |
-| `WEBSITE_AUTH_ROLE_CLAIM_TYPE` | For Java web apps using built-in [authentication](overview-authentication-authorization.md), claims defined in Entra are available in the `HttpServletRequest.isUserInRole` API in the following format: `<claimType>\|<claimValue>` (e.g. `team\|contoso`). To add the values of claims with the type `roles` directly as role names in the `HttpServletRequest` implementation, set `WEBSITE_AUTH_ROLE_CLAIM_TYPE` to the value `roles`. |
+| `WEBSITE_AUTH_ROLE_CLAIM_TYPE` | For Java web apps using built-in [authentication](overview-authentication-authorization.md), claims defined in Entra are available in the `HttpServletRequest.isUserInRole` API in the following format: <code>&lt;claimType&gt;&vert;&lt;claimValue&gt;</code> (e.g. <code>team&vert;contoso</code>). To add the values of claims with the type `roles` directly as role names in the `HttpServletRequest` implementation, set `WEBSITE_AUTH_ROLE_CLAIM_TYPE` to the value `roles`. |
 | `WEBSITE_JAVA_GC_LOGGING` | For webapps using Java 11 or later in Linux, set this to `true` or `1` to capture Java Garbage Collector logs in `/home/LogFiles/Application` which can be used to troubleshoot performance issues. |
-| `WEBSITE_SKIP_DUMP_ON_OUT_OF_MEMORY` | Set to `true` or `1` to disable the following error-handling options that are passed as parameters to the JVM: `-XX:ErrorFile=/home/LogFiles/java_error_XXX.log`, `-XX:+CrashOnOutOfMemoryError`, `-XX:+HeapDumpOnOutOfMemoryError` and `-XX:HeapDumpPath=/home/LogFiles/java_memdump_XXX.log` |
+| `WEBSITE_SKIP_DUMP_ON_OUT_OF_MEMORY` | On Linux, set this to `true` or `1` to disable the following error-handling options that, by default, are passed as parameters to the JVM: `-XX:ErrorFile=/home/LogFiles/java_error_XXX.log`, `-XX:+CrashOnOutOfMemoryError`, `-XX:+HeapDumpOnOutOfMemoryError` and `-XX:HeapDumpPath=/home/LogFiles/java_memdump_XXX.log` |
 | `WEBSITE_WORKING_DIR` | On Linux, set this to a path where the bootstrapping process should change before launching Java/Tomcat/JBoss. This is useful for webapps using Java 8, where Java error logs are saved to the same directory where Java was launched. |
+| `WEBSITE_CATALINA_MAXCONNECTIONS` | Applies to Tomcat on Linux. The value is used to configure the `maxConnections` property of the Connector component in Tomcat's configuration. If not set, the value defaults to `10000`. |
+| `WEBSITE_CATALINA_MAXTHREADS` | Applies to Tomcat on Linux. The value is used to configure the `maxThreads` property of the Connector component in Tomcat's configuration. If not set, the value defaults to `200`. |
+| `WEBSITE_JAVA_JAR_FILE_NAME` | If set and the web application is a standalone Java (Java web server) application, this can be used to designate the name of a JAR file if there are multiple JAR files deployed, or the location of the file is not standard (e.g. in the `wwwroot` directory). Defaults to `app.jar`. |
+| `WEBSITE_JAVA_WAR_FILE_NAME` | If set and the web application is a Tomcat application, this can be used to designate the name of a single WAR file if there are multiple WAR files deployed, or the location of the file is not standard (e.g. in the `wwwroot` directory). Defaults to `app.war`. |
+| `WEBSITE_JAVA_KEYSTORE_PASSWORD` | The value of the keystore password used to store certificates with the `keytool` tool. |
+| `WEBSITE_TOMCAT_APPSERVICE_ERROR_PAGE` | On Tomcat webapps, when set to `1` or `true`, the default Tomcat error page is replaced with a custom App Service error page. Defaults to `true`. |
+| `WEBSITE_TOMCAT_ERROR_DETAILS` | Defaults to `false`. On Tomcat webapps, when set to `1` or `true`, the properties `showReport` and `showServerInfo` of the Error Report Valve are set to `true`, causing to show the stack trace of failed requests and the Tomcat version in the error page. |
+| `WEBSITE_SKIP_TROUBLESHOOT_ARCHIVE` | By default, JAR and WAR archives are scanned for common problems during application startup. This includes looking for duplicate/conflicting Java classes inside the archive, which is a common problem that causes Java apps to crash. Setting this value to `true` or `1` will skip the scanning process. Defaults to `false`. |
 
 <!-- 
 WEBSITE_JAVA_COPY_ALL

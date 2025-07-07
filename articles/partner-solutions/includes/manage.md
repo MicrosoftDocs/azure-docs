@@ -7,8 +7,9 @@ ms.author: kkendrick
 
 Begin by signing in to the [Azure portal](https://portal.azure.com/).
 
-1. On the Azure portal's working pane, under **Navigate**, select **All resources**.
+1. In the Azure portal search bar, enter *All resources* and select **All resources** from the results.
 
-1. On the **Resource** menu, choose the resource.
+1. From the **Resources** list, select your resource.
 
-The resource appears with the overview open by default.
+   The Azure portal shows the resource with the **Overview** page open, by default.
+

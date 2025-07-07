@@ -6,7 +6,9 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
-ms.custom: synapse
+ms.custom:
+  - synapse
+  - build-2025
 ms.date: 04/28/2024
 ai-usage: ai-assisted
 ---

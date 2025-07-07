@@ -139,7 +139,7 @@ items:
 - name: Resources
   items:
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=compute
+    href: https://azure.microsoft.com/updates/?filters=%5B%22Cloud+Services%22%5D
   - name: Learning path
     href: /training/paths/az-900-describe-cloud-concepts/
   - name: Microsoft Q&A

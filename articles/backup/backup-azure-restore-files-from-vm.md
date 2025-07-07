@@ -2,11 +2,12 @@
 title: Recover files and folders from Azure VM backup
 description: In this article, learn how to recover files and folders from an Azure virtual machine recovery point.
 ms.topic: how-to
-ms.date: 10/16/2024
+ms.date: 06/18/2025
 ms.custom: references_regions
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to recover specific files and folders from an Azure virtual machine backup, so that I can restore important data without needing to restore the entire virtual machine.
 ---
 # Recover files from Azure virtual machine backup
 
@@ -141,6 +142,7 @@ If you run the script on a computer with restricted access, ensure there's acces
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (For Azure US Government) or `AzureBackup` service tag in NSG
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (For Azure Germany) or `AzureBackup` service tag in NSG
 - Public DNS resolution on port 53 (outbound)
+- The access requirement of the Microsoft Entra ID are `*.microsoft.com`, `*.windowsazure.com`, and `*.windows.net` on port 443 (outbound).
 
 > [!NOTE]
 > Proxies may not support iSCSI protocol or give access to port 3260. Hence it is strongly recommended to run this script on machines which have direct access as required above and not on the machines which will redirect to proxy.

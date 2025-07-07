@@ -10,6 +10,7 @@ ms.date: 09/30/2024
 ms.custom: devx-track-azurecli, mode-api
 
 #Customer intent: I want to diagnose a virtual machine (VM) network traffic filter using IP flow verify to know which security rule is denying the traffic and causing the communication problem to the VM.
+# Customer intent: As a system administrator, I want to diagnose network traffic filter issues on a virtual machine using an IP flow verification tool, so that I can identify and resolve security rules that are blocking communication.
 ---
 
 # Quickstart: Diagnose a virtual machine network traffic filter problem using the Azure CLI

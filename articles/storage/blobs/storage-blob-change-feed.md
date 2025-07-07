@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.service: azure-blob-storage
 ms.reviewer: sadodd 
 ms.custom: engagement-fy23
+# Customer intent: As a data engineer, I want to implement the change feed in Blob Storage, so that I can track and process changes to my blobs efficiently for analytics and compliance purposes.
 ---
 
 # Change feed support in Azure Blob Storage
@@ -54,6 +55,10 @@ Here's a few things to keep in mind when you enable the change feed.
 - The change feed captures *all* of the changes for all of the available events that occur on the account. Client applications can filter out event types as required. (See the [conditions](#conditions) of the current release).
 
 - Only standard general-purpose v2, premium block blob, and Blob storage accounts can enable the change feed. Accounts with a hierarchical namespace enabled are not currently supported. General-purpose v1 storage accounts are not supported but can be upgraded to general-purpose v2 with no downtime, see [Upgrade to a GPv2 storage account](../common/storage-account-upgrade.md) for more information.
+
+- By default, Change Feed retains logs indefinitely. Retention period for Change Feed logs can be configured in terms of days, allowing to define how long the logs are preserved before automatic deletion. This retention behavior can be modified either during the initial configuration of Change Feed or subsequently through the Data Protection option under the Data Management section in the Azure portal.
+
+- To delete all existing Change Feed logs, update the retention period to **1 day**, and subsequently disable the Change Feed feature.
 
 ### [Portal](#tab/azure-portal)
 
@@ -625,7 +630,7 @@ The following example shows a change event record in JSON format that uses event
 
 - The time represented by the segment is **approximate** with bounds of 15 minutes. So to ensure consumption of all records within a specified time, consume the consecutive previous and next hour segment.
 
-- Each segment can have a different number of `chunkFilePaths` due to internal partitioning of the log stream to manage publishing throughput. The log files in each `chunkFilePath` are guaranteed to contain mutually exclusive blobs, and can be consumed and processed in parallel without violating the ordering of modifications per blob during the iteration.
+- Each segment can have a different number of `chunkFilePaths` due to internal partitioning of the log stream to manage publishing throughput. The log files in each `chunkFilePath` are guaranteed to contain mutually exclusive blobs and can be consumed and processed in parallel without violating the ordering of modifications per blob during the iteration.
 
 - The Segments start out in `Publishing` status. Once the appending of the records to the segment is complete, it will be `Finalized`. Log files in any segment that is dated after the date of the `LastConsumable` property in the `$blobchangefeed/meta/Segments.json` file, should not be consumed by your application. Here's an example of the `LastConsumable`property in a `$blobchangefeed/meta/Segments.json` file:
 
@@ -655,7 +660,7 @@ This section describes known issues and conditions in the current release of the
 - The `LastConsumable` property of the segments.json file does not list the very first segment that the change feed finalizes. This issue occurs only after the first segment is finalized. All subsequent segments after the first hour are accurately captured in the `LastConsumable` property.
 - You currently cannot see the **$blobchangefeed** container when you call the ListContainers API. You can view the contents by calling the ListBlobs API on the $blobchangefeed container directly.
 - Storage account failover of geo-redundant storage accounts with the change feed enabled may result in inconsistencies between the change feed logs and the blob data and/or metadata. For more information about such inconsistencies, see [Change feed and blob data inconsistencies](../common/storage-disaster-recovery-guidance.md#change-feed-and-blob-data-inconsistencies).
-- You might see 404 (Not Found) and 412 (Precondition Failed) errors reported on the **$blobchangefeed** and **$blobchangefeedsys** containers. You can safely ignore these errors.
+- You might see 404 (Not Found) and 412 (Precondition Failed) errors reported on the **$blobchangefeed** containers. You can safely ignore these errors.
 - BlobDeleted events are not generated when blob versions or snapshots are deleted. A BlobDeleted event is added only when a base (root) blob is deleted.
 - Event records are added only for changes to blobs that result from requests to the Blob Service endpoint (`blob.core.windows.net`). Changes that result from requests to the Data Lake Storage endpoint (`dfs.core.windows.net`) endpoint aren't logged and won't appear in change feed records.
 

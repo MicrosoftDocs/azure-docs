@@ -14,7 +14,8 @@ zone_pivot_groups: b2c-policy-type
 
 
 #Customer intent: As an Azure AD B2C user, I want to understand the service limits and restrictions, so that I can ensure that my application stays within the allowed usage constraints and request limits.
-
+ms.custom:
+  - build-2025
 ---
 
 # Azure Active Directory B2C service limits and restrictions

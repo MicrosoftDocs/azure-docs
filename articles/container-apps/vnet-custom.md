@@ -25,7 +25,7 @@ You also have the option of deploying a private DNS for your Container Apps envi
 #### Create a virtual network
 
 > [!NOTE]
-> To use a VNet with Container Apps, the VNet must have a dedicated subnet with a CIDR range of `/23` or larger when using the Consumption only environemnt, or a CIDR range of `/27` or larger when using the workload profiles environment. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
+> To use a VNet with Container Apps, the VNet must have a dedicated subnet with a CIDR range of `/23` or larger when using the Consumption only environemnt, or a CIDR range of `/27` or larger when using the workload profiles environment. To learn more about subnet sizing, see the [networking architecture overview](./custom-virtual-networks.md#subnet).
 
 1. Select the **Networking** tab.
 1. Select **Yes** next to *Use your own virtual network*.
@@ -407,7 +407,7 @@ Remove-AzResourceGroup -Name $ResourceGroupName -Force
 
 ## Additional resources
 
-- To use VNet-scope ingress, you must set up [DNS](./networking.md#dns).
+- To use VNet-scope ingress, you must set up [DNS](./private-endpoints-with-dns.md).
 
 ## Next steps
 

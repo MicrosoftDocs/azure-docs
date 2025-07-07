@@ -5,6 +5,7 @@ ms.topic: overview
 ms.date: 12/24/2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to manage backup compliance and resource governance using a central Backup Center, so that I can ensure all data sources in my Azure environment are properly backed up and adhere to organizational policies."
 ---
 
 # Govern your backup estate using Backup Center

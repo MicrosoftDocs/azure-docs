@@ -4,7 +4,7 @@ description: Learn how to troubleshoot specific issues that might occur in your 
 author: batamig
 ms.author: bagol
 ms.topic: troubleshooting
-ms.date: 11/07/2024
+ms.date: 05/26/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -38,6 +38,12 @@ The agentless data connector package, deployed while [performing the initial con
 Some legacy SAP systems may be missing required functionality for the **RFC_READ_TABLE** function module. Make sure that your SAP admin has reviewed SAP notes 3390051 and 382318, and has patched the system accordingly.
 
 For more information, see [Configure SAP Cloud Connector settings](preparing-sap.md#configure-sap-cloud-connector-settings).
+
+## "Deploy required azure resources" error when setting up the data connector
+
+When you set up the Microsoft Sentinel for SAP - agentless data connector, under the **Initial connector configuration > Step 1: Trigger automatic deployment of required Azure resources / SOC Engineer**, after you select **Deploy required resources**, you might see the "Deploy required azure resources" error or similar (errors may vary). This error might indicate that you're missing the required permissions for the Entra ID app registration.
+
+If you don't have the **Entra ID Application Developer** role or higher, you need to work with a colleague that has this permission to finish setting up the Azure resources. For more information, follow the procedure in the [data connector agent connection](deploy-data-connector-agent-container.md#connect-your-agentless-data-connector-limited-preview) step.
 
 ## Missing "Last address routed"
 

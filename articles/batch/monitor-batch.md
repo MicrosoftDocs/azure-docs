@@ -5,6 +5,7 @@ ms.date: 07/19/2024
 ms.custom: horz-monitor
 ms.topic: concept-article
 ms.service: azure-batch
+# Customer intent: As a cloud administrator, I want to monitor Azure Batch metrics and logs, so that I can ensure optimal performance and troubleshoot issues effectively.
 ---
 
 # Monitor Azure Batch

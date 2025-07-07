@@ -18,7 +18,12 @@
         {
             "source_path_from_root": "/articles/partner-solutions/new-relic/new-relic-get-support.md",
             "redirect_url": "/azure/partner-solutions/new-relic/support",
-            "redirect_document_id": true
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/new-relic/support.md",
+            "redirect_url": "/azure/partner-solutions/new-relic/overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/partner-solutions/new-relic/new-relic-troubleshoot.md",

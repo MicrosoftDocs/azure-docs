@@ -9,6 +9,7 @@ ms.date: 09/04/2024
 ms.topic: quickstart
 ms.service: azure-application-gateway
 ms.custom: mvc, mode-ui
+# Customer intent: "As a network engineer, I want to set up an application gateway that directs web traffic to backend virtual machines, so that I can manage traffic efficiently and ensure high availability for my web applications."
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Azure portal
@@ -45,7 +46,10 @@ Create the application gateway using the tabs on the **Create application gatewa
    - **Application gateway name**: Enter *myAppGateway* for the name of the application gateway.
    - Use the default selections for other settings.
 
-     ![Screenshot of create new application gateway: basics.](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
+     ![Screenshot of create new application gateway: basics.](./media/application-gateway-create-gateway-portal/application-gateway-create-zone-redundant.png)
+
+    > [!NOTE]
+    > Application Gateways are zone-redundant by default in regions that support multiple availability zones.
 
 2. For Azure to communicate between the resources that you create, a virtual network is needed. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: One for the application gateway, and another for the backend servers.
 

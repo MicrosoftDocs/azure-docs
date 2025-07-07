@@ -9,6 +9,7 @@ ms.author: mbender
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As an IT administrator, I want to use Azure PowerShell to set up URL path redirection of web traffic to specific pools of servers so I can ensure my customers have access to the information they need.
+# Customer intent: As an IT administrator, I want to configure an application gateway with URL path-based redirection using PowerShell, so that I can efficiently route web traffic to specific server pools based on URL patterns and enhance the user experience.
 ---
 
 # Create an application gateway with URL path-based redirection using Azure PowerShell

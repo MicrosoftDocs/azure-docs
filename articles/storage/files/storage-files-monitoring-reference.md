@@ -7,6 +7,7 @@ ms.topic: reference
 author: khdownie
 ms.author: kendownie
 ms.service: azure-file-storage
+# Customer intent: As a cloud administrator, I want to access monitoring data for Azure Files, so that I can efficiently track performance and diagnose issues within my file shares.
 ---
 
 # Azure Files monitoring data reference

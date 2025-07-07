@@ -26,11 +26,11 @@ The `SMSReceived` event generated when an SMS is sent to an Azure Communication 
 
 ```json
 [{
-  "id": "Incoming_20200918002745d29ebbea-3341-4466-9690-0a03af35228e",
+  "id": "d29ebbea-3341-4466-9690-0a03af35228e",
   "topic": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/acse2e/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
   "subject": "/phonenumber/15555555555",
   "data": {
-    "MessageId": "Incoming_20200918002745d29ebbea-3341-4466-9690-0a03af35228e",
+    "MessageId": "d29ebbea-3341-4466-9690-0a03af35228e",
     "From": "15555555555",
     "To": "15555555555",
     "Message": "Great to connect with Azure Communication Services events",
@@ -42,6 +42,8 @@ The `SMSReceived` event generated when an SMS is sent to an Azure Communication 
   "eventTime": "2020-09-18T00:27:47Z"
 }]
 ```
+> [!NOTE] 
+> The format of `MessageId` returned by this API is considered an internal implementation detail and is subject to change without notice. Clients must treat message IDs as opaque identifiers and must not parse, infer structure, or build logic based on their format or content.
 
 To start generating events, configure Azure Event Grid to use your Azure Communication Services resource.
 

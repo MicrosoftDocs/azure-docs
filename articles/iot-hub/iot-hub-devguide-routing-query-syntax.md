@@ -6,7 +6,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 02/22/2023
+ms.date: 05/22/2025
 ms.custom: ['Role: Cloud Development', 'Role: Data Analytics']
 ---
 
@@ -16,7 +16,7 @@ Message routing enables users to route different data types, including device te
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Message routing allows you to query on the message properties and message body as well as device twin tags and device twin properties. If the message body isn't in JSON format, message routing can still route the message, but queries can't be applied to the message body. Queries are described as Boolean expressions where, if true, the query succeeds and routes all the incoming data; otherwise, the query fails and the incoming data isn't routed. If the expression evaluates to a null or undefined value, it's treated as a Boolean false value, and generates an error in the IoT Hub [routes resource logs](monitor-iot-hub-reference.md#routes-category). The query syntax must be correct for the route to be saved and evaluated.  
+Message routing allows you to query on the message properties and message body as well as device twin tags and device twin properties. If the message body isn't in JSON format, message routing can still route the message, but queries can't be applied to the message body. Queries are described as Boolean expressions where, if true, the query succeeds and routes all the incoming data; otherwise, the query fails and the incoming data isn't routed. If the expression evaluates to a null or undefined value, it's treated as a Boolean false value, and generates an error in the IoT Hub [routing resource logs](monitor-iot-hub-reference.md#routes-category). The query syntax must be correct for the route to be saved and evaluated.  
 
 ## Query based on message properties
 
@@ -50,10 +50,10 @@ System properties help identify the contents and source of the messages, some of
 | -------- | ---- | ----------- |
 | contentType | string | The user specifies the content type of the message. To allow querying on the message body, this value should be set to `application/JSON`. |
 | contentEncoding | string | The user specifies the encoding type of the message. If the contentType property is set to `application/JSON`, then allowed values are `UTF-8`, `UTF-16`, and `UTF-32`. |
-| iothub-connection-device-id | string | This value is set by IoT Hub and identifies the ID of the device. To query, use `$connectionDeviceId`. |
-| iothub-connection-module-id | string | This value is set by IoT Hub and identifies the ID of the edge module. To query, use `$connectionModuleId`. |
-| iothub-enqueuedtime | string | This value is set by IoT Hub and represents the actual time of enqueuing the message in UTC. To query, use `$enqueuedTime`. |
-| dt-dataschema | string |  This value is set by IoT Hub on device-to-cloud messages. It contains the device model ID set in the device connection. To query, use `$dt-dataschema`. |
+| iothub-connection-device-id | string | IoT Hub sets this value, which identifies the ID of the device. To query, use `$connectionDeviceId`. |
+| iothub-connection-module-id | string | IoT Hub sets this value, which identifies the ID of the edge module. To query, use `$connectionModuleId`. |
+| iothub-enqueuedtime | string | IoT Hub sets this value, which represents the actual time of enqueuing the message in UTC. To query, use `$enqueuedTime`. |
+| dt-dataschema | string |  IoT Hub sets this value on device-to-cloud messages. It contains the device model ID set in the device connection. To query, use `$dt-dataschema`. |
 | dt-subject | string | The name of the component that is sending the device-to-cloud messages. To query, use `$dt-subject`. |
 
 For more information about the other available system properties, see [Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md).
@@ -84,7 +84,7 @@ To combine these queries, you can use Boolean expressions and functions:
 $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 ```
 
-A full list of supported operators and functions is provided in the [expression and conditions](iot-hub-devguide-query-language.md#expressions-and-conditions) section of [IoT Hub query language for device and module twins, jobs, and message routing](iot-hub-devguide-query-language.md).
+A full list of supported operators and functions is provided in the [Expressions and conditions](iot-hub-devguide-query-language.md#expressions-and-conditions) section of [IoT Hub query language for device and module twins, jobs, and message routing](iot-hub-devguide-query-language.md).
 
 ## Query based on message body
 
@@ -139,7 +139,7 @@ deviceClient.sendEvent(message, (err, res) => {
 });
 ```
 
-For a message encoding sample in C#, see the [HubRoutingSample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/how%20to%20guides/HubRoutingSample) provided in the Microsoft Azure IoT SDK for .NET. This sample is the same one used in the [Message Routing tutorial](tutorial-routing.md). The Program.cs file also has a method named `ReadOneRowFromFile`, which reads one of the encoded files, decodes it, and writes it back out as ASCII so you can read it.
+For a message encoding sample in C#, see the [HubRoutingSample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/how%20to%20guides/HubRoutingSample) provided in the Microsoft Azure IoT SDK for .NET. This sample is the same one used in the [message routing tutorial](tutorial-routing.md). The Program.cs file also has a method named `ReadOneRowFromFile`, which reads one of the encoded files, decodes it, and writes it back out as ASCII so you can read it.
 
 ### Message body query expressions
 
@@ -213,7 +213,7 @@ Message routing enables you to query on [device twin](iot-hub-devguide-device-tw
 ```
 
 > [!NOTE]
-> Modules do not inherit twin tags from their corresponding devices. Twin queries for messages originating from device modules (for example, from IoT Edge modules) query against the module twin and not the corresponding device twin.
+> Modules don't inherit twin tags from their corresponding devices. Twin queries for messages originating from device modules (for example, from IoT Edge modules) query against the module twin and not the corresponding device twin.
 
 ### Twin query expressions
 

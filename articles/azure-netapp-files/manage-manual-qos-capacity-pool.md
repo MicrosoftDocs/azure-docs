@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 03/24/2025
 ms.author: anfdocs
+# Customer intent: As a cloud administrator, I want to manage a manual QoS capacity pool for Azure NetApp Files, so that I can optimize throughput and ensure performance according to my application's specific requirements.
 ---
 # Manage a manual QoS capacity pool
 

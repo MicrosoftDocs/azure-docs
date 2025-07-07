@@ -35,7 +35,7 @@ Yes, Azure VPN Gateway now supports 32-bit (4-byte) ASNs. To configure by using 
 
 ### What private ASNs can I use?
 
-The useable ranges of private ASNs are:
+The usable ranges of private ASNs are:
 
 * 64512-65514 and 65521-65534
 

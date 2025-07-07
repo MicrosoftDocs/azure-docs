@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 09/05/2023
+# Customer intent: As a web application administrator, I want to implement geo-filtering policies for my application, so that I can restrict access based on the geographic location of users to enhance security and compliance.
 ---
 
 # What is geo-filtering on a domain for Azure Front Door?

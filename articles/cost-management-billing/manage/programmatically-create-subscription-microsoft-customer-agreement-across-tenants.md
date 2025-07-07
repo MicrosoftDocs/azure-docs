@@ -5,7 +5,7 @@ author: kendayMS
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/14/2025
+ms.date: 05/29/2025
 ms.reviewer: macyso
 ms.author: macyso
 ---
