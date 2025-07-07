@@ -103,7 +103,7 @@ Quick server discovery is a lightweight process in Azure Migrate that collects b
 
 | **Use case**  | **Discovered metadata**  | **Credential type** | **Details** | 
 | --- | --- | --- | --- |
-| Quick server discovery || Software inventory <br /><br /> Agentless dependency analysis (limited data)* <br /><br /> Workload inventory of databases and web apps   | Windows |[Follow these steps](#windows-servers).|
+| Quick server discovery | Software inventory <br /><br /> Agentless dependency analysis (limited data)* <br /><br /> Workload inventory of databases and web apps| Windows   |[Follow these steps](#windows-servers).|
 | Quick server discovery |Software inventory <br /><br /> Agentless dependency analysis (full data)* <br /><br /> Workload inventory of databases and web apps   | Linux  | [Follow these steps](#linux-servers) |
 
 #### Windows servers
@@ -126,18 +126,21 @@ The guest user account needs permission to access the CIMV2 namespace and its su
 
   :::image type="content" source="./media/best-practices-least-privileged-accounts/security-for-root.png" alt-text="Screenshot shows the guest user permissions." lightbox="./media/best-practices-least-privileged-accounts/security-for-root.png":::
 
-    - Enable account 
-    - Remote enable 
+  - Enable account 
+  - Remote enable 
     
 1. Select **Apply** to enable the permissions set on the user account. 
 1. Restart WinRM service after you add the new guest user.  
 
 #### Linux servers
 
-The user account should have sudo privileges on the following file paths: <br /><br /> AzMigrateLeastprivuser ALL=(ALL) NOPASSWD: 
+1. Create a user account (e.g., AzMigrateLeastprivuser) on the target Linux server.
+
+2. Grant sudo privileges to the user for only the required commands by adding the following line to the sudoers file using visudo:
 
 ```
-/usr/sbin/dmidecode, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l , /usr/bin/ls -l /proc//exe, /usr/bin/netstat -atnp, /usr/sbin/lvdisplay "" Defaults:AzMigrateLeastprivuser !requiretty`
+/usr/sbin/dmidecode, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l , /usr/bin/ls -l /proc//exe, /usr/bin/netstat -atnp, /usr/sbin/lvdisplay "" Defaults:AzMigrateLeastprivuser !requiretty
+
 ```
 
 ### In-depth server discovery
