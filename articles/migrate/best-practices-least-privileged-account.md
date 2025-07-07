@@ -110,9 +110,10 @@ Quick server discovery is a lightweight process in Azure Migrate that collects b
 
 A Windows user account that belongs to the following user groups:
 
-- Remote Management Users
-- Performance Monitor Users 
-- Performance Log Users 
+- Remote management users
+- Performance monitor users 
+- Performance log users
+ 
 The guest user account needs permission to access the CIMV2 namespace and its sub-namespaces in the WMI Control Panel. Follow the below steps to set the access:
 
 1. On the target Windows server, open the **Start menu**, search for **Run**, and then select it.  1. In the **Run** dialog box, type `wmimgmt.msc` and then press **Enter**.
@@ -124,6 +125,7 @@ The guest user account needs permission to access the CIMV2 namespace and its su
 1. Search for the user account, select it, and then select **OK** to return to the Security for `ROOT\cimv2` dialog. 
 1. In the Group or users names section, select the guest user account. Validate if the following permissions are allowed: 
 
+
   :::image type="content" source="./media/best-practices-least-privileged-accounts/security-for-root.png" alt-text="Screenshot shows the guest user permissions." lightbox="./media/best-practices-least-privileged-accounts/security-for-root.png":::
 
   - Enable account 
@@ -134,9 +136,8 @@ The guest user account needs permission to access the CIMV2 namespace and its su
 
 #### Linux servers
 
-1. Create a user account (e.g., AzMigrateLeastprivuser) on the target Linux server.
-
-2. Grant sudo privileges to the user for only the required commands by adding the following line to the sudoers file using visudo:
+1. Create a user account (e.g., AzMigrateLeastprivuser) on the target Linux server. 
+1. Grant sudo privileges to the user for only the required commands by adding the following line to the sudoers file using visudo:
 
 ```
 /usr/sbin/dmidecode, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l , /usr/bin/ls -l /proc//exe, /usr/bin/netstat -atnp, /usr/sbin/lvdisplay "" Defaults:AzMigrateLeastprivuser !requiretty
