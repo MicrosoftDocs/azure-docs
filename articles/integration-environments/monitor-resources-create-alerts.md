@@ -107,6 +107,16 @@ For more information, see [Manage alert rules](/azure/azure-monitor/alerts/alert
 
    For example, you can select a workflow for a logic app in Azure Logic Apps, an API in API Management, or a queue for Azure Service Bus.
 
+   > [!TIP]
+   >
+   > To create alerts for multiple resources with the same type, follow these steps:
+   >
+   > 1. On the **Alerts** page, under **Resource name**, select resources that have the same type.
+   >
+   > 1. On the **Alerts** toolbar, select **Add alerts in bulk**.
+   >
+   > 1. Skip the next step, and continue with the step starting with the **Alert rules** tab.
+
 1. In the **Edit** column, select **Edit** for the parent or child resource.
 
    :::image type="content" source="media/monitor-resources-create-alerts/edit-alert-rules.png" alt-text="Screenshot shows integration environment, a specific application, Alerts page, and selected Edit icon for a child resource." lightbox="media/monitor-resources-create-alerts/edit-alert-rules.png":::
