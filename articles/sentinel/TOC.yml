@@ -23,7 +23,7 @@
       - name: Overview 
         href: graph/kql-overview.md
         displayName: data lake
-      - name: Run KQL queries(Preview)
+      - name: Run KQL queries (Preview)
         href: graph/kql-queries.md
         displayName: data lake
       - name: Sample data lake queries (Preview)
