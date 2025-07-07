@@ -1,7 +1,7 @@
 ---  
-title: Sample KQL queries for the data lake(preview).
+title: Sample KQL queries for the data lake(preview)
 titleSuffix: Microsoft Security  
-description:  Sample KQL queries for the Microsoft Sentinel data lake.
+description:  Sample KQL queries for the Microsoft Sentinel data lake
 author: EdB-MSFT  
 ms.service:  microsoft-sentinel
 ms.subservice: sentinel-graph  
@@ -55,7 +55,7 @@ let aadNonInt = aadFunc("AADNonInteractiveUserSignInLogs");
 union isfuzzy=true aadSignin, aadNonInt
 ```
 
-## Detect anomalies and build behavioral baselines over time:
+## Detect anomalies and build behavioral baselines over time
 
 Build a time-series baseline of failed sign-ins per user over 180 days and flag deviations using anomaly detection to uncover suspicious login behavior.
 
