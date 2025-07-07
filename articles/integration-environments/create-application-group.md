@@ -4,7 +4,7 @@ description: Learn how to organize and manage Azure resources based on your inte
 ms.service: azure
 ms.topic: how-to
 ms.reviewer: estfan, azla
-ms.date: 06/10/2025
+ms.date: 07/09/2025
 # CustomerIntent: As an integration developer, I want a way to logically organize and manage the Azure resources related to my organization's integration solutions.
 ms.subservice: azure-integration-environments
 ---
@@ -50,8 +50,9 @@ After you create an integration environment, create one or more application grou
    |----------|----------|-------|-------------|
    | **Name** | Yes | <*application-name*> | A name for your application group that uses only alphanumeric characters, hyphens, underscores, or periods. |
    | **Description** | No | <*application-description*> | The purpose for your application group. |
+   | **Default log analytics workspace** | No | <*Log-Analytics-workspace*> | The name for the Log Analytics workspace to use as the central store where your application group sends performance metrics and other telemetry. <br><br>If you don't have a workspace, select **Create new**. For more information, see the following articles: <br><br>- [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-portal) <br>- [Monitor health and performance for Azure resources in applications](monitor-resources-create-alerts.md) |
 
-1. Select the **Resources** tab, and then select **Add resource**.
+1. Select **Next: Resources** or the **Resources** tab, and then select **Add resource**.
 
 1. On the **Add resources to this application** pane that opens, follow these steps:
 

@@ -5,7 +5,7 @@ ms.service: azure
 ms.subservice: azure-integration-environments
 ms.topic: how-to
 ms.reviewer: estfan, divswa, azla
-ms.date: 06/10/2025
+ms.date: 07/08/2025
 # CustomerIntent: As an integration developer, I want to check the performance and health for Azure resources organized as applications based on my organization's integration solutions by creating alerts.
 ---
 
@@ -43,7 +43,7 @@ For the Azure resources that you logically organize as applications in an integr
 
   If you don't have an Application Insights resource, see [Create an Application Insights resource](/azure/azure-monitor/app/create-workspace-resource?tabs=portal#create-an-application-insights-resource). 
 
-- A [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) for your Azure Application Insights resource.
+- A [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) to use as the centralized telemetry store where application groups send their telemetry. Your dashboards use this store to populate charts.
 
   If you don't have a Log Analytics workspace, you can create or select a workspace for a specific application in your integration environment. Or, you can create the workspace in advance. For more information, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-portal).
 
@@ -63,6 +63,20 @@ For the Azure resources that you logically organize as applications in an integr
 
 In some scenarios, traces for Azure Service Bus might not appear.
 
+## Set up application groups with a Log Analytics workspace
+
+Your applications need a centralized telemetry store where they can send the data necessary to populate dashboards. To specify the Log Analytics workspace as the store, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com), open your integration environment resource.
+
+1. On the resource sidebar, under **Environment**, select **Applications**.
+
+1. On the **Applications** page, select the application that you want to set up.
+
+1. On the application sidebar, select **Resources**. Under **Log analytics workspace**, select **Set up**.
+
+1. On the **Add workspace** pane, for **Default log analytics workspace**, select your workspace, and then select **Save**.
+
 ## Set up alerts
 
 Alerts help you find and address issues before your customers notice them. When Azure Monitor collects log data indicating that your infrastructure or application might have a problem, alerts proactively notify you about the problem.
@@ -81,13 +95,13 @@ The following table shows the default severity levels for the available alerts:
 
 For more information, see [Manage alert rules](/azure/azure-monitor/alerts/alerts-manage-alert-rules).
 
-1. In the [Azure portal](https://portal.azure.com), open your integration environment.
+1. In the [Azure portal](https://portal.azure.com), open your integration environment resource.
 
-1. On the integration environment menu, under **Environment**, select **Applications**.
+1. On the resource sidebar, under **Environment**, select **Applications**.
 
 1. Select the application where you want to add alerts.
 
-1. On the application menu, under **Application monitoring**, select **Alerts**.
+1. On the application sidebar, under **Application monitoring**, select **Alerts**.
 
 1. On the **Alerts** page, in the **Resource name** column, find the parent resource or expand the parent to select a child resource.
 
@@ -97,7 +111,7 @@ For more information, see [Manage alert rules](/azure/azure-monitor/alerts/alert
 
    :::image type="content" source="media/monitor-resources-create-alerts/edit-alert-rules.png" alt-text="Screenshot shows integration environment, a specific application, Alerts page, and selected Edit icon for a child resource." lightbox="media/monitor-resources-create-alerts/edit-alert-rules.png":::
 
-1. On the **Alerts** tab, select either **Add rule**, or if no rules exist, select **Start with recommended rules**. Set up the rule that you want for monitoring the resource.
+1. On the **Alert rules** tab, select either **Add rule**, or if no rules exist, select **Start with recommended rules**. Set up the rule that you want for monitoring the resource.
 
    The following example shows some workflow alert rules that trigger based on various threshold conditions:
 
@@ -105,19 +119,49 @@ For more information, see [Manage alert rules](/azure/azure-monitor/alerts/alert
 
    For more information, see [Create alert rules for Azure resources](/azure/azure-monitor/alerts/alert-options).
 
-1. When you're done, save your rules.
+1. When you're done, select **Save**.
+
+1. Continue with the next section to set up notifications when alerts trigger.
+
+## Send notifications when alerts trigger
+
+You can optionally create and map [*action groups*](/azure/azure-monitor/alerts/action-groups) to your alerts based on alert severity, so that you get notifications when alerts trigger. An action group is a collection of notification preferences and actions, which you can map to the alerts that you create.
+
+1. In the [Azure portal](https://portal.azure.com), open your integration environment resource and the application with the alerts where you want to create and set up action groups.
+
+1. On the application sidebar, under **Application monitoring**, select **Alerts**.
+
+1. On the **Alerts** toolbar, select **Manage action groups**.
+
+1. On the **Action groups** toolbar, select **Create**.
+
+1. Follow the [general steps to create an action group](/azure/azure-monitor/alerts/action-groups#create-an-action-group-in-the-azure-portal), for example:
+
+   :::image type="content" source="media/monitor-resources-create-alerts/create-action-groups.png" alt-text="Screenshot shows Azure portal and Create action group wizard." lightbox="media/monitor-resources-create-alerts/create-action-groups.png":::
+
+1. When you're done, return to the **Alerts** page for your application group.
+
+1. On the **Alerts** page, in the **Resource name** column, find the parent resource or expand the parent to select a child resource.
+
+1. In the **Edit** column, select **Edit** for the parent or child resource that has the rules that you want to map.
+
+1. On the **Default action groups** tab, for each alert severity level, select the action group for sending the notifications that you want, for example:
+
+   :::image type="content" source="media/monitor-resources-create-alerts/map-action-groups-alerts.png" alt-text="Screenshot shows Azure portal, application, Alerts page, and Default action groups with mapping." lightbox="media/monitor-resources-create-alerts/map-action-groups-alerts.png":::
+
+1. When you're done, select **Save**.
 
 ## View health for a specific application
 
 The visualizations for application-specific dashboards are built on [Azure Workbooks](/azure/azure-monitor/visualize/workbooks-overview) in Azure Monitor and extensible based on your business needs.
 
-1. In the [Azure portal](https://portal.azure.com), open your integration environment.
+1. In the [Azure portal](https://portal.azure.com), open your integration environment resource.
 
-1. On the resource navigation menu, under **Environment**, select **Applications**.
+1. On the resource sidebar, under **Environment**, select **Applications**.
 
 1. On the **Applications** page, select the application that you want.
 
-1. On the application menu, select **Insights**.
+1. On the application sidebar, select **Insights**.
 
 1. Under the **Insights** toolbar, select the time range that you want to review.
 
