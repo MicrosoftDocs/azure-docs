@@ -1,7 +1,7 @@
 ---
 title: Orchestration Versioning in Durable Functions - Azure
 description: Learn how to use the Orchestration Versioning feature in Durable Functions for zero-downtime deployments with breaking changes.
-author: azfuncdf
+author: AnatoliB
 ms.topic: conceptual
 ms.date: 07/03/2025
 ms.author: azfuncdf
@@ -342,6 +342,10 @@ By default, all new orchestration instances are created with the current `defaul
 
 You can override the default version by providing a specific version value when creating new orchestration instances using the orchestration client APIs. This allows fine-grained control over which version each new orchestration instance uses.
 
+# [C# (In-process)](#tab/csharp)
+
+This feature is not supported in the in-process model.
+
 # [C# (Isolated)](#tab/csharp-isolated)
 
 ```csharp
@@ -428,6 +432,3 @@ Over time, you may want to remove legacy code paths from your orchestrator funct
 
 > [!div class="nextstepaction"]
 > [Learn about general versioning strategies](durable-functions-versioning.md)
-
-> [!div class="nextstepaction"]
-> [Configure host.json settings for Durable Functions](../../../includes/functions-host-json-durabletask.md)
