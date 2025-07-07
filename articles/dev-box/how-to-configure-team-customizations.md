@@ -58,7 +58,7 @@ You can source Dev Box tasks from tasks built in to the platform, or use custom 
 - **Use a catalog to define custom tasks.**
    You can create your own custom tasks. To make custom tasks available to your entire organization, attach a catalog that contains custom task definitions to your dev center. Dev Box supports Azure Repos and GitHub catalogs. Because tasks are defined only at the dev center, store tasks and image definitions in separate repositories.
    
-   To learn more about how to define custom tasks, see [Create tasks for Dev Box team customizations](how-to-create-customization-tasks-catalog.md).
+   To learn more about how to define custom tasks, see [Configure tasks for Dev Box customizations](how-to-configure-customization-tasks.md).
 
 ## Create image definitions at the project level
 
