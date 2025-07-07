@@ -7,6 +7,9 @@ ms.date: 06/30/2025
 
 ## Service limits for tables, data management, and ingestion
 
+> [!NOTE] 
+> During public preview Microsoft Sentinel data lake uses a single region. Your primar and other workspaces must be in the same region as your tenant’s home region. Only workspaces in the same region as your tenant’s home region can be attached to the data lake.
+
 The following table lists the service limits for the Microsoft Sentinel data lake (Preview) service related to table management, data ingestion, and retention. These limits include, but aren't limited to, Azure Resource Graph data, Microsoft 365 data, and data mirroring.
 
 | Description                                         | Limit                        | 

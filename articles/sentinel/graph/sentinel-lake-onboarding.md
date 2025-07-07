@@ -59,7 +59,8 @@ The following roles that are required to set up billing and authorize ingestion 
 + Microsoft Entra Global Administrator, for data ingestion authorization from Microsoft Entra, Microsoft 365, and Azure.
 + Read access to all workspaces so they can be attached to the data lake. 
 
-Your primary workspace and other workspaces must be in the same region as your tenant’s home region. Only workspaces in the same region as your tenant home region can be attached to the data lake.
+> [!NOTE]
+> During public preview, Your primary and other workspaces must be in the same region as your tenant’s home region. Only workspaces in the same region as your tenant home region can be attached to the data lake.
 
 
 ## Existing Microsoft Sentinel workspaces
@@ -127,10 +128,14 @@ If you encounter any issues during the setup process, see the following troubles
 
 + Ensure that you have the required role to onboard to the Microsoft Sentinel data lake.
 + Verify that your selected subscription and resource group are valid and accessible.
-+ Verify that your Microsoft Sentinel workspaces are in the same region as your tenant’s home geographic region.
 + Verify your Azure policies allow for creating new resources to enable your Microsoft Sentinel data lake.
 + Data for newly enabled tables, or tables that have moved between tiers is, available 90 to 120 minutes after the onboarding process is complete.
++ Error DL101: You cannot onboard to MSG since your primary Sentinel workspace is not in the same geo as your tenant.   
 
+    Verify that your Microsoft Sentinel workspaces are in the same region as your tenant’s home geographic region.
++ Error DL102: We could not provision your MSG Data Lake because of high demand causing the unavailability of resources.   
+
+    Retry later. If you continue to see this error, contact Microsoft Support.
 
 
 ## Related content
