@@ -86,7 +86,7 @@ Once you have set up your connector, configure data retention and tiering using 
 :::image type="content" source="media/configure-data-connector/data-lake-tier-only.png" lightbox="media/configure-data-connector/data-lake-tier-only.png" alt-text="A screenshot showing the data lake tier retention only option.":::
 
 
-After you configure the data connector, it might take some time for the data to be ingested into Microsoft Sentinel. It take 90 - 120 minutes for data to be ingested into the data lake. When the data connector is connected, you see a summary of the data in the **Data received** graph, and the connectivity status of the data types.  
+After you configure the data connector, it might take some time for the data to be ingested into Microsoft Sentinel. It takes 90 - 120 minutes for data to be ingested into the data lake. When the data connector is connected, you see a summary of the data in the **Data received** graph, and the connectivity status of the data types.  
 
    :::image type="content" source="media/configure-data-connector/connected-data-connector.png" alt-text="Screenshot of a data connector page with status connected and graph that shows the data received.":::
 
