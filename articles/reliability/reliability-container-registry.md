@@ -37,7 +37,7 @@ Azure Container Registry is built as a distributed service with distinct control
 
 **Key Architecture Components:**
 
-- **Control Plane**: Centralized management in the home region for registry configuration, authentication, and replication policies
+- **Control Plane**: Centralized management in the home region for registry configuration, authentication configuration, and replication policies
 - **Data Plane**: Distributed service that handles container image push and pull operations across regions and availability zones
 - **Storage Layer**: Content-addressable Azure Storage with automatic deduplication, encryption at rest, and built-in replication
 
@@ -145,7 +145,7 @@ During normal multi-region operations, Azure Container Registry synchronizes dat
 
 ### Region failure operations
 
-When a region becomes unavailable, container operations can continue using alternative regional endpoints:
+When a region becomes unavailable, container operations are automatically routed to another replica in a healthy region. Clients do not need to change the endpoint in which they interact with the registry, with routing, failover, and failback automatically handled by Microsoft.
 
 :::image type="content" source="./media/reliability-acr/acr-multi-region-region-failure.png" alt-text="Diagram showing Azure Container Registry behavior during regional failure with automatic Traffic Manager failover routing clients to healthy regions while West Europe is marked as failed, and continued bidirectional replication between operational regions." lightbox="./media/reliability-acr/acr-multi-region-region-failure.png":::
 
@@ -159,7 +159,7 @@ You must use the Premium tier to enable geo-replication. Geo-replication can be 
 
 ### Considerations
 
-Each geo-replicated region functions as an independent registry endpoint that supports read and write operations. Container clients can connect to any regional endpoint for registry operations.
+Each geo-replicated region functions as an independent registry endpoint that supports read and write operations. Container clients can be routed by Microsoft-managed Traffic Manager to any geo-replica for read and write operations.
 
 Geo-replication provides eventual consistency across regions using asynchronous replication. There's no SLA on data replication timing, and replication typically completes within minutes of changes. Large container images or high-frequency updates may take longer to replicate across all regions.
 
@@ -197,7 +197,9 @@ When a region recovers, data plane operations automatically resume for that regi
 
 ### Testing for region failures
 
-Regional failover for data plane operations is fully automated through Traffic Manager and can't be simulated by customers. The service is designed to automatically handle regional failures without impacting registry availability or data integrity for data plane operations.
+Regional failover can be simulated by temporarily disabling geo-replicas, which removes them from Traffic Manager routing. This allows for testing failover scenarios without actually experiencing a regional outage. For details on this process, see [Temporarily disable routing to replication](/azure/container-registry/container-registry-geo-replication#temporarily-disable-routing-to-replication).
+
+When customers re-enable the replica, Traffic Manager routing to the re-enabled replica resumes automatically. Additionally, metadata and images are synchronized with eventual consistency to the re-enabled replica to ensure data consistency across all regions.
 
 ## Backups
 
