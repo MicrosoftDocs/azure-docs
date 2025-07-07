@@ -113,7 +113,7 @@ sections:
           
           [Tutorial](tutorial-alias-tm.md) for creating an alias record for use with a traffic manager profile. 
 
-          [Tutorial](../traffic-manager/traffic-manager-configure-weighted-routing-method.md) for creating a weighted traffic manager profile
+          [Tutorial](../traffic-manager/traffic-manager-configure-weighted-routing-method.md) for creating a weighted traffic manager profile.
           
           
   - name: Alias records
