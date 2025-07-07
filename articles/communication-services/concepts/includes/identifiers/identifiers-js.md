@@ -105,16 +105,23 @@ Alternatively, you can find the object ID as the `oid` claim and the tenant ID a
 // get the Teams user's ID from Graph APIs if only the email is known
 const user = await graphClient.api("/users/bob@contoso.com").get();
 
+// Get the tenant from Graph API
+const org = await graphClient.api("/organization").get();
+const tenant = org.value[0];
+
+//Communication Services resource id
+const resourceId = "";
+
 // create an identifier
-const teamsUser = { microsoftTeamsUserId: user.id };
+const teamsExtensionUser = { userId: user.id, tenantId: tenantId.id, resourceId: resourceId };
 
 // if you're not operating in the public cloud, you must also pass the right Cloud type.
-const gcchTeamsUser = { microsoftTeamsUserId: userId, cloud: "gcch" };
+const gcchTeamsExtensionUser = { userId: user.id, tenantId: tenantId.id, resourceId: resourceId, cloud: "gcch" };
 ```
 
 #### API reference
 
-[MicrosoftTeamsUserIdentifier](/javascript/api/@azure/communication-common/microsoftteamsuseridentifier)
+[MicrosoftTeamsUserIdentifier](/javascript/api/@azure/communication-common/teamsextensionuseridentifier)
 
 ### Unknown
 
