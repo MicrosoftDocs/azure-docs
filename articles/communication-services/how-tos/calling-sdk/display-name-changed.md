@@ -39,7 +39,7 @@ The following table shows display name change support for specific call types an
 
 ### Operations
 
-The following table shows support for individual APIs in the Calling SDK related to individual identity types. The media access feature only supports these operations in Teams meetings.
+The following table shows support for individual APIs in the Calling SDK related to individual identity types. The display name change feature only supports these operations in Teams meetings.
 
 |Operations                     | Communication Services user | Microsoft 365 user | 
 |-----------------------------|---------------|--------------------------|
