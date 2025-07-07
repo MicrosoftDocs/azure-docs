@@ -137,11 +137,12 @@ The guest user account needs permission to access the CIMV2 namespace and its su
 
 #### Linux servers
 
-1. Create a user account (e.g., AzMigrateLeastprivuser) on the target Linux server. 
-1. Grant sudo privileges to the user for only the required commands by adding the following line to the sudoers file using visudo:
+1. Create a user account, for example, AzMigrateLeastprivuser.
+1. Grant sudo privileges to the user for only the required commands by adding the following line:
 
 ```
-/usr/sbin/dmidecode, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l , /usr/bin/ls -l /proc//exe, /usr/bin/netstat -atnp, /usr/sbin/lvdisplay "" Defaults:AzMigrateLeastprivuser !requiretty
+AzMigrateLeastprivuser ALL=(ALL) NOPASSWD: /usr/sbin/dmidecode, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l *, /usr/bin/ls -l /proc/*/exe, /usr/bin/netstat -atnp, /usr/sbin/lvdisplay ""
+Defaults:AzMigrateLeastprivuser !requiretty
 
 ```
 
