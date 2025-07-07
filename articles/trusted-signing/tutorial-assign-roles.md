@@ -11,6 +11,7 @@ ms.date: 03/21/2024
 # Tutorial: Assign roles in Trusted Signing
 
 Trusted Signing uses [Azure role-based access control (RBAC)](../role-based-access-control/overview.md) to control access to verify identities and certificate profiles. The following roles are essential for enabling workflows:
+
 | Role Name                                 | Purpose                                                                                          | Notes                                                                                      |
 |-------------------------------------------|--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
 | **Trusted Signing Identity Verifier**     | Required to manage identity validation requests                                                  | Can only be used in the Azure portal—not supported via Azure CLI                          |
