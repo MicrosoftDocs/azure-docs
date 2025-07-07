@@ -38,6 +38,7 @@
     href: prioritize-data-connectors.md 
   - name: Plan roles and permissions
     href: roles.md
+    displayName: data lake
   - name: Plan interactive and long-term data retention
     href: log-plans.md
   - name: Plan costs
@@ -705,7 +706,7 @@
       href: multiple-workspace-view.md
     - name: Manage your intellectual property in Microsoft Sentinel
       href: mssp-protect-intellectual-property.md
-  - name: Manage workspace access
+  - name: Manage workspace access with resource-context RBAC
     href: resource-context-rbac.md
   - name: Set up customer-managed keys
     href: customer-managed-keys.md
