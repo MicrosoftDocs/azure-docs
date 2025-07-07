@@ -50,7 +50,7 @@ To discover the basic settings of servers running in the VMware estate, the foll
 
 ### Provide server credentials for guest discovery of installed software, dependencies and workloads
 
-To discover software, dependencies, and workloads, Azure Migrate Appliance needs guest OS credentials to connect to target servers and collect data.
+To effectively discover software, application dependencies, and workloads on target servers, the Azure Migrate Appliance requires guest operating system (OS) credentials. These credentials enable the appliance to securely connect to the servers and collect detailed inventory and performance data:
 
 - [Quick guest discovery](#quick-guest-discovery)
 - [In-depth guest discovery](#in-depth-guest-discovery)
@@ -92,7 +92,10 @@ For deep discovery of Hyper-V estate and to perform software inventory and depen
 
 ## Discovery of physical and Cloud servers
 
-To discover and assess physical servers or servers running in other public clouds the Azure Migrate appliance requires credentials with least privilege access.
+To discover and assess physical servers or servers hosted in other public clouds, the Azure Migrate Appliance requires credentials with least privilege access. These credentials allow the appliance to connect securely and gather necessary data without overexposing sensitive system permissions:
+
+- [Quick server discovery](#quick-server-discovery)
+- [In-depth server discovery](#in-depth-server-discovery)
 
 ### Quick server discovery
 
@@ -101,9 +104,9 @@ Quick server discovery is a lightweight process in Azure Migrate that collects b
 | **Use case**  | **Discovered metadata**  | **Credential type** | **Details** | 
 | --- | --- | --- | --- |
 | Quick server discovery || Software inventory <br /><br /> Agentless dependency analysis (limited data)* <br /><br /> Workload inventory of databases and web apps   | Windows |[Follow these steps](#windows-servers).|
-| Quick server discovery |Software inventory <br /><br /> Agentless dependency analysis (full data)* <br /><br /> Workload inventory of databases and web apps   | Linux  | The user account should have sudo privileges on the following file paths: <br /><br /> AzMigrateLeastprivuser ALL=(ALL) NOPASSWD: <br /><br />  `/usr/sbin/dmidecode, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l , /usr/bin/ls -l /proc//exe, /usr/bin/netstat -atnp, /usr/sbin/lvdisplay "" Defaults:AzMigrateLeastprivuser !requiretty` |
+| Quick server discovery |Software inventory <br /><br /> Agentless dependency analysis (full data)* <br /><br /> Workload inventory of databases and web apps   | Linux  | [Follow these steps](#linux-servers) |
 
-#### Windows Servers
+#### Windows servers
 
 A Windows user account that belongs to the following user groups:
 
@@ -121,12 +124,21 @@ The guest user account needs permission to access the CIMV2 namespace and its su
 1. Search for the user account, select it, and then select **OK** to return to the Security for `ROOT\cimv2` dialog. 
 1. In the Group or users names section, select the guest user account. Validate if the following permissions are allowed: 
 
- - Enable account 
- - Remote enable 
+  :::image type="content" source="./media/best-practices-least-privileged-accounts/security-for-root.png" alt-text="Screenshot shows the guest user permissions." lightbox="./media/best-practices-least-privileged-accounts/security-for-root.png":::
 
-   :::image type="content" source="./media/best-practices-least-privileged-accounts/security-for-root.png" alt-text="Screenshot shows the guest user permissions." lightbox="./media/best-practices-least-privileged-accounts/security-for-root.png":::
+    - Enable account 
+    - Remote enable 
+    
 1. Select **Apply** to enable the permissions set on the user account. 
 1. Restart WinRM service after you add the new guest user.  
+
+#### Linux servers
+
+The user account should have sudo privileges on the following file paths: <br /><br /> AzMigrateLeastprivuser ALL=(ALL) NOPASSWD: 
+
+```
+/usr/sbin/dmidecode, /usr/sbin/fdisk -l, /usr/sbin/fdisk -l , /usr/bin/ls -l /proc//exe, /usr/bin/netstat -atnp, /usr/sbin/lvdisplay "" Defaults:AzMigrateLeastprivuser !requiretty`
+```
 
 ### In-depth server discovery
 
@@ -134,12 +146,7 @@ For in-depth discovery of software inventory, server dependencies, and web apps 
 
 | **Use case** | **Discovered metadata**   | **Credentials type** | **Commands to configure** |
 | --- | --- | --- | --- |
-| In-dept server discovery | In-depth discovery of web apps such as .NET and Java Tomcat <br /><br />Agentless dependency analysis (full data)* <br /><br />In-depth discovery of web apps such as .NET and Java Tomcat. |Windows <br /><br /> Linux | Administrator <br /><br />o discover Java webapps on Tomcat servers, the user account needs read and execute (r-x) permissions on all Catalina home directories.<br /><br />Execute the following command to find out all catalina homes: `ps -ef | grep catalina.home`<br /><br />Here is a sample command to set up least privileged user: `setfacl -m u:johndoe:rx <catalina/home/path>`  |
-
-
-| **Use case**  | **Discovered metadata**  | **Credentials**  | **Commands to configure** | 
-| ---  | --- | --- | --- | 
-| In-dept server discovery | In-depth discovery of web apps such as .NET and Java Tomcat <br /><br />Agentless dependency analysis (full data)* <br /><br />In-depth discovery of web apps such as .NET and Java Tomcat | Windows <br /><br /> Linux  | Administrator <br /><br />o discover Java webapps on Tomcat servers, the user account needs read and execute (r-x) permissions on all Catalina home directories.<br /><br />Execute the following command to find out all catalina homes: `ps -ef | grep catalina.home`<br /><br />Here is a sample command to set up least privileged user: `setfacl -m u:johndoe:rx <catalina/home/path>` |
+| In-dept server discovery | In-depth discovery of web apps such as .NET and Java Tomcat <br /><br />Agentless dependency analysis (full data)* <br /><br />In-depth discovery of web apps such as .NET and Java Tomcat. |Windows <br /><br /> Linux | Administrator <br /><br /> To discover Java webapps on Tomcat servers, the user account needs read and execute (r-x) permissions on all Catalina home directories.<br /><br />Execute the following command to find out all catalina homes: `ps -ef | grep catalina.home`<br /><br />Here is a sample command to set up least privileged user: `setfacl -m u:johndoe:rx <catalina/home/path>`  |
 
 ## Database discovery
 
