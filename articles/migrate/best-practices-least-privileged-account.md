@@ -116,14 +116,15 @@ A Windows user account that belongs to the following user groups:
  
 The guest user account needs permission to access the CIMV2 namespace and its sub-namespaces in the WMI Control Panel. Follow the below steps to set the access:
 
-1. On the target Windows server, open the **Start menu**, search for **Run**, and then select it.  1. In the **Run** dialog box, type `wmimgmt.msc` and then press **Enter**.
+1. On the target Windows server, open the **Start menu**, search for **Run**, and then select it
+2. In the **Run** dialog box, type `wmimgmt.msc` and then press **Enter**.
   The **wmimgmt console** opens where you can find **WMI Control** (Local) in the left pane. Right-click it, and then select **Properties** from the menu. 
-1. In the **WMI Control** (Local) **Properties** dialog, and then select the **Securities** tab. 
-1. On the **Securities** tab, expand the **Root** folder in the namespace tree and then select the `cimv2 namespace`. 
-1. Select **Security** to open the Security for `ROOT\cimv2` dialog. 
+3. In the **WMI Control** (Local) **Properties** dialog, and then select the **Securities** tab. 
+4. On the **Securities** tab, expand the **Root** folder in the namespace tree and then select the `cimv2 namespace`. 
+5. Select **Security** to open the Security for `ROOT\cimv2` dialog. 
    Under the **Group** or users names section, select **Add** to open the **Select Users**, Computers, Service Accounts or Groups dialog. 
-1. Search for the user account, select it, and then select **OK** to return to the Security for `ROOT\cimv2` dialog. 
-1. In the Group or users names section, select the guest user account. Validate if the following permissions are allowed: 
+6. Search for the user account, select it, and then select **OK** to return to the Security for `ROOT\cimv2` dialog. 
+7. In the Group or users names section, select the guest user account. Validate if the following permissions are allowed: 
 
 
   :::image type="content" source="./media/best-practices-least-privileged-accounts/security-for-root.png" alt-text="Screenshot shows the guest user permissions." lightbox="./media/best-practices-least-privileged-accounts/security-for-root.png":::
@@ -131,8 +132,8 @@ The guest user account needs permission to access the CIMV2 namespace and its su
   - Enable account 
   - Remote enable 
     
-1. Select **Apply** to enable the permissions set on the user account. 
-1. Restart WinRM service after you add the new guest user.  
+8. Select **Apply** to enable the permissions set on the user account. 
+9. Restart WinRM service after you add the new guest user.  
 
 #### Linux servers
 
