@@ -110,7 +110,7 @@ const org = await graphClient.api("/organization").get();
 const tenant = org.value[0];
 
 //Communication Services resource id
-const resourceId = "";
+const resourceId = "<resource-id-guid>";
 
 // create an identifier
 const teamsExtensionUser = { userId: user.id, tenantId: tenantId.id, resourceId: resourceId };
