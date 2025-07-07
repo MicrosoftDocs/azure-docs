@@ -6,6 +6,7 @@ author: EdB-MSFT
 ms.topic: how-to
 ms.date: 07/07/2025
 ms.author: edbaynash
+
 #customerintent: As a SOC administrator or a billing specialist, I want to know how to buy a pre-purchase plan and whether commit units will benefit us financially.
 ---
 

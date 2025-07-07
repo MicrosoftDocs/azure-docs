@@ -94,18 +94,23 @@ sudo rpm -Uvh https://packages.microsoft.com/config/sles/15/packages-microsoft-p
 sudo yum install blobfuse2
 ```
 
+Similarly, change the package name to `blobfuse2-<version>` to install specific version. 
+
 # [Ubuntu](#tab/Ubuntu)
 
 ```bash
 sudo apt-get install blobfuse2
 ```
+Similarly, change the package name to `blobfuse2=<version>` to install specific version. 
+
 # [SLES](#tab/SLES)
 
 ```bash
 sudo zypper install blobfuse2
 ```
----
+Similarly, change the package name to `blobfuse2-<version>` to install specific version. 
 
+---
 ### Option 2: Build the binaries from source code
 
 To build the BlobFuse2 binaries from source code:

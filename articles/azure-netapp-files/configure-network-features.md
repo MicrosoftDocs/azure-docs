@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/04/2025
 ms.custom: references_regions
 ms.author: anfdocs
+# Customer intent: As an Azure NetApp Files administrator, I want to configure network features for my volumes, so that I can optimize resource allocation and leverage VNet capabilities based on my workload requirements.
 ---
 # Configure network features for an Azure NetApp Files volume
 

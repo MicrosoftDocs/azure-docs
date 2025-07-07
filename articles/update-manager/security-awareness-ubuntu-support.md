@@ -7,6 +7,7 @@ ms.service: azure-update-manager
 ms.topic: overview
 ms.date: 02/26/2025
 
+# Customer intent: "As an IT administrator managing Ubuntu servers, I want to upgrade to Ubuntu Pro or migrate to a newer LTS version, so that I can ensure ongoing security updates and reduce vulnerabilities in my environment."
 ---
 
 # Guidance on security awareness and Ubuntu Pro support

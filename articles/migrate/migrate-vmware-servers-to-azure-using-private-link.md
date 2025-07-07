@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 05/12/2025
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud administrator, I want to securely migrate on-premises VMware VMs to Azure using private endpoints, so that I can ensure data privacy and integrity during the migration process."
 ---
 
 # Migrate VMware servers to Azure using Private Link (agentless)

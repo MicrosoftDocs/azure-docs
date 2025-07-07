@@ -7,6 +7,7 @@ ms.custom:
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to configure and run on-demand snapshot backups for my SAP HANA instance, so that I can ensure data protection and quick recovery options for my database.
 ---
 
 # Tutorial: Configure SAP HANA database instance snapshot backup

@@ -7,6 +7,7 @@ ms.date: 05/22/2025
 author: jyothisuri
 ms.author: jsuri
 
+# Customer intent: "As a cloud administrator, I want to manage and monitor Azure Files backups using the command line, so that I can automate backup processes and ensure data protection efficiently."
 ---
 
 # Manage Azure Files backups with the Azure CLI

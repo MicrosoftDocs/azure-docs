@@ -9,6 +9,7 @@ ms.date: 11/25/2024
 ms.author: anfdocs
 ms.custom:
   - build-2025
+# Customer intent: "As a network engineer, I want to configure Azure NetApp Files within a Virtual WAN environment so that I can ensure secure and efficient access to file storage across multiple sites and branches."
 ---
 # Configure Virtual WAN for Azure NetApp Files
 

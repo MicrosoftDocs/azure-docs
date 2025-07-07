@@ -3,9 +3,9 @@ title: Azure permissions for Migration - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Migration category.
 ms.service: role-based-access-control
 ms.topic: generated-reference
-author: rolyon
-manager: femila
-ms.author: rolyon
+author: jenniferf-skc
+manager: pmwongera
+ms.author: jfields
 ms.date: 05/25/2025
 ms.custom: generated
 ---

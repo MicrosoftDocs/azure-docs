@@ -2,10 +2,10 @@
 title: Customize repository deployments
 titleSuffix: Microsoft Sentinel
 description: This article describes how to customize repository deployments for the repositories feature in Microsoft Sentinel.
-author: austinmccollum
+author: mberdugo 
 ms.topic: how-to
 ms.date: 12/31/2024
-ms.author: austinmc
+ms.author: monaberdugo 
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
