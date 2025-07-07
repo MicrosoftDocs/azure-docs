@@ -39,15 +39,20 @@ In addition to the tables already enabled by the connectors, data lake onboardin
 - Microsoft 365
 - Azure Resources Graph (ARG) 
 
-All tables in your XDR connector are enabled in your lake with 30-day retention without charge if you have only one Microsoft Sentinel workspace in your tenant. Navigate to **Table management** under **Datamangement** in the **System** menu items to extend retention of the XDR tables without having to extend the default retention of your analytics tier table.
+All tables from your Microsoft Sentinel XDR connector are enabled in your lake with 30-day retention period. Navigate to **Table management** under **Data Management** in the **System** menu items to extend retention of the XDR tables without having to extend the default retention of your analytics tier table.
  
+Non-DCR/MMA-based custom tables are not mirrored to the lake. DCR-based custom tables are mirrored.
+
 ## Auxiliary log tables 
 
 When a Defender and Microsoft Sentinel customer onboards to the data lake, auxiliary log tables are no longer be visible in Microsoft Defender’s Advanced hunting or in the Microsoft Sentinel Azure portal. The auxiliary table data is available in the data lake, and can be queried using KQL queries under the **Data lake exploration** menu item in the Defender portal, or using Jupyter notebooks.    
+ 
+
 
 
 
 ## Related articles
+
 - [Onboarding to Microsoft Sentinel data lake](sentinel-lake-onboarding.md)
 - [Manage data tiers and retention in Microsoft Defender Portal (preview)](https://aka.ms/manage-data-defender-portal-overview)
 - [KQL and the Microsoft Sentinel data lake (preview)](https://aka.ms/kql-overview)
