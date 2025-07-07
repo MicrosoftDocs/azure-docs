@@ -31,7 +31,7 @@ Tool changes
   PSRepository.
 - Added [Inspektor Gadget][13] and `kubectl-gadget` packages. Inspektor Gadget offers tools for data
   collection and system inspection on Kubernetes clusters and Linux hosts using eBPF.
-- `msodbcsql18` and `mssql-tools18` were readded to the image.
+- `msodbcsql18` and `mssql-tools18` were re-added to the image.
 
 ## April 2025
 
@@ -39,7 +39,7 @@ The base image for Azure Cloud Shell was updated to use the latest version of **
 3.0**. With this release, the following changes were made:
 
 - Upgraded versions of many packages including Python 3.12.9, PostgreSQL 16.7, and Node.js v20.14.0
-- [Azure Functions Core Tools][02] was readded to the image.
+- [Azure Functions Core Tools][02] was re-added to the image.
 - The following packages were removed:
   - `msodbcsql18` and `mssql-tools18`
   - `Apparmor` is primarily used in Ubuntu and not in Azure Linux.
