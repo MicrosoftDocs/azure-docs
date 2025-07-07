@@ -25,7 +25,7 @@ Azure service: [Container Instances](/azure/container-instances/)
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.ContainerInstance/register/action | Registers the subscription for the container instance resource provider and enables the creation of container groups. |
-> | Microsoft.ContainerInstance/containerGroupProfiles/read | Get all container goup profiles. |
+> | Microsoft.ContainerInstance/containerGroupProfiles/read | Get all container group profiles. |
 > | Microsoft.ContainerInstance/containerGroupProfiles/write | Create or update a specific container group profile. |
 > | Microsoft.ContainerInstance/containerGroupProfiles/delete | Delete the specific container group profile. |
 > | Microsoft.ContainerInstance/containerGroupProfiles/revisions/read | Get container group profile revisions |
