@@ -6,6 +6,8 @@ ms.date: 08/01/2025
 ms.service: azure-storage-mover
 ---
 
+# Azure Storage Discovery regions
+
 List of regions from which storage insights will be aggregated by Storage Discovery is as given below. This list is temporary and will change over time as Public Preview support continues to expand.
 - East US2
 - West Europe

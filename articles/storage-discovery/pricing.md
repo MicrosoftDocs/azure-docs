@@ -1,6 +1,6 @@
 ---
 title: Understand Storage Discovery Pricing | Microsoft Docs
-description: Storage Discovery provides insights on storage capacity, transactions, and configurations - providing visibility into their storage estate at entire organization level and aiding business decisions.
+description: Storage Discovery pricing and features available with each pricing plan.
 author: pthippeswamy
 ms.service: azure-storage-mover
 ms.topic: overview

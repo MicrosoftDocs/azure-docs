@@ -61,8 +61,4 @@ To maximize the value of Azure Storage Discovery:
 4. **Verify access**: Ensure users have Contributor access to the ASDW resource to view reports.
 5. **Allow time for data to populate**: Metrics typically begin appearing within 24 hours of scope configuration.
 
-## Learn More
-
-- [Azure Resource Tagging](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources)
-
 For questions or feedback, contact the team at [StorageDiscovery@microsoft.com](mailto:StorageDiscovery@microsoft.com).

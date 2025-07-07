@@ -14,9 +14,9 @@ Deploying Azure Storage Discovery workspace in one of your Azure subscriptions i
 
 ## Select a subscription and region for Azure Storage Discovery workspace deployment
 
-Azure Storage Discovery workspace can be deployed in a subscription of your choice and in one of the supported regions as listed in [Regional coverage of Azure Storage Discovery](regionalCoverage.md).
+Azure Storage Discovery workspace can be deployed in a subscription of your choice and in one of the supported regions as listed in [Regional coverage of Azure Storage Discovery workspace](includes\control-plane-regions.md).
 
-Once created, a Discovery workspace can aggregate metrics from storage accounts within its "Scope", regardless of whether those accounts reside in different regions. The list of regions from which metrics are aggregated is also provided in the [Regional coverage of Azure Storage Discovery](regionalCoverage.md).
+Once created, a Discovery workspace can aggregate metrics from storage accounts within its "Scope", regardless of whether those accounts reside in different regions. The list of regions from which metrics are aggregated is also provided in the [Regional coverage of Azure Storage Discovery](includes\data-plane-regions.md).
 
 ## Permissions
 

@@ -8,7 +8,7 @@ ms.date: 08/01/2025
 ms.author: pthippeswamy
 ---
 
-## What is Azure Storage Discovery?
+# What is Azure Storage Discovery?
 
 **Azure Storage Discovery** is a fully managed Azure service that provides deep, actionable insights into your object storage estate across subscriptions, regions, and resource groups. It is designed to simplify data management at scale by offering a unified, no-code experience for analyzing storage usage, activity, configuration, and security posture—all from a single pane of glass in the Azure portal.
 
@@ -78,7 +78,7 @@ A Scope in Azure Storage Discovery represents a logical grouping of storage acco
 
 The following articles can help you become familiar with the Storage Discovery service.
 
-- [Planning for an Azure Storage Discovery deployment](deployment-planning.md)
+- [Planning for an Azure Storage Discovery deployment](deploy-planning.md)
 - [Create Storage Discovery Workspace by using the Azure portal](create-workspace.md)
 - [Pricing and billing](pricing.md)
 - [Storage Discovery regional coverage](regionalCoverage.md)
