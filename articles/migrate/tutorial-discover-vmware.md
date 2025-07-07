@@ -100,7 +100,7 @@ In VMware vSphere Web Client, set up a read-only account to use for vCenter Serv
 1. Select the user account, and then select **Read-only** to assign the role to the account. Select **OK**.
 1. To be able to start discovery of installed applications and agentless dependency analysis, in the menu under **Access Control**, select **Roles**. In the **Roles** pane, under **Roles**, select **Read-only**. Under **Privileges**, select **Guest operations**. To propagate the privileges to all objects in the vCenter Server instance, select the **Propagate to children** checkbox.
 
-:::image type="content" source="./media/tutorial-discover-vmware/guest-operations.png" alt-text="Screenshot that shows the vSphere web client and how to create a new account and select user roles and privileges.":::
+    :::image type="content" source="./media/tutorial-discover-vmware/guest-operations.png" alt-text="Screenshot that shows the vSphere web client and how to create a new account and select user roles and privileges.":::
 
 > [!NOTE]
 > - For vCenter Server 7.x and above you must clone the Read Only system role and add the Guest Operations Privileges to the cloned role.  Assign the cloned role to the vCenter Account. Learn how to [create a custom role in VMware vCenter](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-41E5E52E-A95B-4E81-9724-6AD6800BEF78.html). 
