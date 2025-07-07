@@ -49,7 +49,6 @@ To configure the default version for your orchestrations, you need to add or upd
 
 ```json
 {
-  ...
   "extensions": {
     "durableTask": {
       "defaultVersion": "<version>"
@@ -148,7 +147,6 @@ This example shows how to replace one activity with a different activity in the 
 **host.json configuration:**
 ```json
 {
-  ...
   "extensions": {
     "durableTask": {
       "defaultVersion": "1.0"
@@ -200,7 +198,6 @@ public static async Task<string> ProcessOrder(
 **host.json configuration:**
 ```json
 {
-  ...
   "extensions": {
     "durableTask": {
       "defaultVersion": "2.0"
@@ -285,10 +282,9 @@ The `versionMatchStrategy` setting determines how the runtime matches orchestrat
 **Configuration:**
 ```json
 {
-  ...
   "extensions": {
     "durableTask": {
-      "defaultVersion": ...,
+      "defaultVersion": "<version>",
       "versionMatchStrategy": "CurrentOrOlder"
     }
   }
@@ -319,10 +315,9 @@ The `versionFailureStrategy` setting determines what happens when an orchestrati
 **Configuration:**
 ```json
 {
-  ...
   "extensions": {
     "durableTask": {
-      "defaultVersion": ...,
+      "defaultVersion": "<version>",
       "versionFailureStrategy": "Reject"
     }
   }
