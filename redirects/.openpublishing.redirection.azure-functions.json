@@ -26,7 +26,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-functions/create-first-function-cli-javascript.md",
+            "source_path_from_root": "/articles/azure-functions/create-first-function-cli-node.md",
             "redirect_url": "/azure/azure-functions/how-to-create-function-azure-cli?pivots=programming-language-javascript",
             "redirect_document_id": false
         },

@@ -654,7 +654,7 @@ These instructions show you how to convert C# script functions (which run in-pro
 1. Complete the **Create a functions app project** section from your preferred quickstart:
    
    ### [Azure CLI](#tab/azure-cli)
-   [Create a C# function in Azure from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-csharp#create-a-local-function-project)
+   [Create a C# function in Azure from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-csharp#create-a-local-function-project-and-function)
    ### [Visual Studio](#tab/vs)
    [Create your first C# function in Azure using Visual Studio](functions-create-your-first-function-visual-studio.md#create-a-function-app-project)
    ### [Visual Studio Code](#tab/vs-code) 
