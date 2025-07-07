@@ -1,18 +1,18 @@
 ---
-title: Automatically discover OPC UA assets (preview)
-description: How to automatically discover and configure OPC UA assets at the edge
+title: Automatically discover ONVIF assets (preview)
+description: How to automatically discover and configure ONVIF assets at the edge
 author: dominicbetts
 ms.subservice: azure-akri
 ms.author: dobett
 ms.topic: how-to 
 ms.date: 04/02/2025
 
-# CustomerIntent: As an industrial edge IT or operations user, I want to discover and create OPC UA assets in my industrial edge environment so that I can reduce manual configuration overhead. 
+# CustomerIntent: As an industrial edge IT or operations user, I want to discover and create ONVIF assets in my industrial edge environment so that I can reduce manual configuration overhead. 
 ---
 
-# Automatically discover and configure OPC UA assets (preview)
+# Automatically discover and configure ONVIF assets (preview)
 
-In this article, you learn how to automatically discover and configure OPC UA assets connected to your Azure IoT Operations deployment. The automatic discovery process starts when you add an asset endpoint with the **Enable discovery** option selected.
+In this article, you learn how to automatically discover and configure ONVIF assets connected to your Azure IoT Operations deployment. The automatic discovery process starts when you add a device with the **Enable discovery** option selected.
 
 To learn more, see [What is asset discovery (preview)?](overview-akri.md).
 
@@ -64,31 +64,31 @@ To learn more, see [What is asset discovery (preview)?](overview-akri.md).
 
 ## Deploy the preview connectors
 
-Currently, discovery is only enabled in the preview version of the connector for OPC UA.
+Currently, discovery is only enabled in the preview version of the ONVIF connector.
 
 [!INCLUDE [deploy-preview-media-connectors](../includes/deploy-preview-media-connectors.md)]
 
-## Create an asset endpoint
+## Create a device
 
-To create an asset endpoint with discovery enabled:
+To create a device with discovery enabled:
 
 1. Go to your Azure IoT Operations instance in the operations experience web UI.
 
-1. Add a new asset endpoint and select the **Enable discovery** option:
+1. Add a new device and select the **Enable discovery** option:
 
-    :::image type="content" source="media/howto-autodetect-opc-ua-assets-use-akri/enable-auto-discover.png" alt-text="Screenshot that shows how to create an asset endpoint with discovery enabled.":::
+    :::image type="content" source="media/howto-autodetect-onvif-assets-use-akri/enable-auto-discover.png" alt-text="Screenshot that shows how to create a device with discovery enabled.":::
 
-1. Select **Create** to create the asset endpoint.
+1. Select **Create** to create the device.
 
 ## Review the discovered assets
 
-Azure IoT Operations uses the asset endpoint to connect to the OPC UA server and scan for assets. To view the discovered assets:
+Azure IoT Operations uses the device to connect to the ONVIF server and scan for assets. To view the discovered assets:
 
 1. Go to the **Discovery** page for your instance in the operations experience:
 
-    :::image type="content" source="media/howto-autodetect-opc-ua-assets-use-akri/discovered-assets-list.png" alt-text="Screenshot that shows how to view discovered assets.":::
+    :::image type="content" source="media/howto-autodetect-onvif-assets-use-akri/discovered-assets-list.png" alt-text="Screenshot that shows how to view discovered assets.":::
 
-1. You can filter the list by the asset endpoint name, or by keyword. The list shows the discovered assets and their status.
+1. You can filter the list by the device name, or by keyword. The list shows the discovered assets and their status.
 
 ## Import an asset from a discovered asset
 
@@ -98,15 +98,15 @@ From the list of discovered assets, you can import an asset into your Azure IoT 
 
 1. The site takes you to the **Add asset details** page, where you can review the asset details and make any changes. The asset name is automatically populated with the name of the discovered asset, but you can override the name on this page:
 
-    :::image type="content" source="media/howto-autodetect-opc-ua-assets-use-akri/add-asset-details.png" alt-text="Screenshot that shows an asset created from a discovered asset.":::
+    :::image type="content" source="media/howto-autodetect-onvif-assets-use-akri/add-asset-details.png" alt-text="Screenshot that shows an asset created from a discovered asset.":::
 
 1. Step through the rest of the **Create asset** pages and select the imported tags and events that you want to use:
 
-    :::image type="content" source="media/howto-autodetect-opc-ua-assets-use-akri/add-imported-tags.png" alt-text="Screenshot that shows how to modify the tags of an imported asset.":::
+    :::image type="content" source="media/howto-autodetect-onvif-assets-use-akri/add-imported-tags.png" alt-text="Screenshot that shows how to modify the tags of an imported asset.":::
 
 1. The imported asset is created in your Azure IoT Operations instance. You can view the asset in the **Assets** page of the operations experience:
 
-    :::image type="content" source="media/howto-autodetect-opc-ua-assets-use-akri/provisioned-asset.png" alt-text="Screenshot that shows how to view the imported asset.":::
+    :::image type="content" source="media/howto-autodetect-onvif-assets-use-akri/provisioned-asset.png" alt-text="Screenshot that shows how to view the imported asset.":::
 
 To learn more about managing asset configurations, see [Manage asset configurations](howto-manage-assets-devices.md).
 
@@ -114,7 +114,7 @@ To learn more about managing asset configurations, see [Manage asset configurati
 
 Both the discovered asset and the imported asset are visible in your resource group in the Azure portal:
 
-:::image type="content" source="media/howto-autodetect-opc-ua-assets-use-akri/portal-assets.png" alt-text="Screenshot that shows how to view the discovered and imported asset in the Azure portal.":::
+:::image type="content" source="media/howto-autodetect-onvif-assets-use-akri/portal-assets.png" alt-text="Screenshot that shows how to view the discovered and imported asset in the Azure portal.":::
 
 ## Review the custom resource definitions in your cluster (optional)
 

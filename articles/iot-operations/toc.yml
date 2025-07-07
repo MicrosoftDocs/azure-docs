@@ -61,52 +61,66 @@ items:
       items:
       - name: Asset and device management overview
         href: discover-manage-assets/overview-manage-assets.md
-        displayName: operations, experience, connector, OPC UA, ONVIF, media, device, registry, discovery, detect, discover
+        displayName: operations, experience, connector, OPC UA, ONVIF, media, device, registry, discovery, detect, discover, southbound
       - name: Understand assets and devices
         href: discover-manage-assets/concept-assets-devices.md
-        displayName: data points, events, operations, experience
+        displayName: data points, events, operations, experience, southbound
       - name: Understand discovery with Akri services
         href: discover-manage-assets/overview-akri.md
-        displayName: OPC UA, akri, detect, device, registry
+        displayName: OPC UA, akri, detect, device, registry, southbound
       - name: Use the operations experience and CLI
         href: discover-manage-assets/howto-manage-assets-devices.md
-        displayName: operations, experience, site, instance, device, data points, events, CLI, kubectl
+        displayName: operations, experience, site, instance, device, data points, events, CLI, kubectl, southbound
       - name: Connect to OPC UA servers
         items:
         - name: Understand the connector for OPC UA
           href: discover-manage-assets/overview-opc-ua-connector.md
-          displayName: OPC UA server, OPC UA client, payload
-        - name: Configure OPC UA assets and devices
-          href: discover-manage-assets/howto-configure-opc-ua.md
-          displayName: operations, experience, OPC UA, device, data points, events
-        - name: Understand OPC UA application authentication
-          href: discover-manage-assets/overview-opc-ua-connector-certificates-management.md
-          displayName: connector, X.509, certificate, instance, trusted, issuer, cert-manager, auth, authn
-        - name: Configure OPC UA application authentication
-          href: discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md
-          displayName: connector, X.509, certificate, instance, trusted, issuer, cert-manager, enterprise, CA, auth, authn
-        - name: Configure OPC UA user authentication
-          href: discover-manage-assets/howto-configure-opc-ua-authentication-options.md
-          displayName: connector, username, password, Key Vault, secret, sync, synchronize, auth, authn
+          displayName: OPC UA server, OPC UA client, payload, southbound
         - name: Discover OPC UA assets and devices
           href: discover-manage-assets/howto-autodetect-opc-ua-assets-use-akri.md
-          displayName: connector, OPC UA, detect, akri
+          displayName: connector, OPC UA, detect, akri, southbound
+        - name: Configure OPC UA assets and devices
+          href: discover-manage-assets/howto-configure-opc-ua.md
+          displayName: operations, experience, OPC UA, device, data points, events, southbound
+        - name: Understand OPC UA application authentication
+          href: discover-manage-assets/overview-opc-ua-connector-certificates-management.md
+          displayName: connector, X.509, certificate, instance, trusted, issuer, cert-manager, auth, authn, southbound
+        - name: Configure OPC UA application authentication
+          href: discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md
+          displayName: connector, X.509, certificate, instance, trusted, issuer, cert-manager, enterprise, CA, auth, authn, southbound
+        - name: Configure OPC UA user authentication
+          href: discover-manage-assets/howto-configure-opc-ua-authentication-options.md
+          displayName: connector, username, password, Key Vault, secret, sync, synchronize, auth, authn, southbound
       - name: Connect to media sources
         items:
         - name: Understand the media connector
           href: discover-manage-assets/overview-media-connector.md
-          displayName: image, video, camera, stream, snapshot, RTSP, RTCP, RTP, MJPEG, container, storage
+          displayName: image, video, camera, stream, snapshot, RTSP, RTCP, RTP, MJPEG, container, storage, southbound
+        - name: Discover media assets and devices
+          href: discover-manage-assets/howto-autodetect-media-assets-use-akri.md
+          displayName: connector, media source, detect, akri, southbound
         - name: Use the media connector
           href: discover-manage-assets/howto-use-media-connector.md
-          displayName: image, video, camera, stream, snapshot, RTSP, RTCP, RTP, MJPEG, container, storage
+          displayName: image, video, camera, stream, snapshot, RTSP, RTCP, RTP, MJPEG, container, storage, southbound
       - name: Control ONVIF assets
         items:
         - name: Understand the connector for ONVIF
           href: discover-manage-assets/overview-onvif-connector.md
-          displayName: camera, PTZ, pan, tilt, zoom
+          displayName: camera, PTZ, pan, tilt, zoom, southbound
+        - name: Discover ONVIF assets
+          href: discover-manage-assets/howto-autodetect-onvif-assets-use-akri.md
+          displayName: connector, ONVIF, detect, akri, southbound
         - name: Use the connector for ONVIF
           href: discover-manage-assets/howto-use-onvif-connector.md
-          displayName: camera, PTZ, pan, tilt, zoom, DiscoveredAsset, DiscoveredAssetEndpointProfile, media, events, stream
+          displayName: camera, PTZ, pan, tilt, zoom, DiscoveredAsset, DiscoveredAssetEndpointProfile, media, events, stream, southbound
+      - name: Connect to HTTP endpoints
+        items:
+        - name: Understand the HTTP connector
+          href: discover-manage-assets/overview-http-connector.md
+          displayName: HTTP, REST, API, southbound
+        - name: Use the HTTP connector
+          href: discover-manage-assets/howto-use-http-connector.md
+          displayName: HTTP, REST, API, southbound
     - name: Manage MQTT broker
       items:
       - name: Broker overview
@@ -143,33 +157,33 @@ items:
       items:
       - name: What are data flows?
         href: connect-to-cloud/overview-dataflow.md
-        displayName: architecture, data processing, routing, transformation, schema registry, enrich
+        displayName: architecture, data processing, routing, transformation, schema registry, enrich, northbound
       - name: Prepare endpoints
         items:
         - name: Overview
           href: connect-to-cloud/howto-configure-dataflow-endpoint.md
-          displayName: data flow, endpoint, routing, MQTT, Kafka, Data Lake, Fabric, Azure Data Explorer, storage, local storage
+          displayName: data flow, endpoint, routing, MQTT, Kafka, Data Lake, Fabric, Azure Data Explorer, storage, local storage, northbound
         - name: MQTT and Event Grid
           href: connect-to-cloud/howto-configure-mqtt-endpoint.md
-          displayName: data flow, endpoint
+          displayName: data flow, endpoint, northbound
         - name: Kafka and Event Hubs
           href: connect-to-cloud/howto-configure-kafka-endpoint.md
-          displayName: data flow, endpoint
+          displayName: data flow, endpoint, northbound
         - name: ADLSv2 Blob Storage
           href: connect-to-cloud/howto-configure-adlsv2-endpoint.md
-          displayName: data flow, endpoint
+          displayName: data flow, endpoint, northbound
         - name: Microsoft Fabric Real-Time Intelligence
           href: connect-to-cloud/howto-configure-fabric-real-time-intelligence.md
-          displayName: data flow, endpoint
+          displayName: data flow, endpoint, northbound
         - name: Microsoft Fabric OneLake
           href: connect-to-cloud/howto-configure-fabric-endpoint.md
-          displayName: data flow, endpoint
+          displayName: data flow, endpoint, northbound
         - name: Azure Data Explorer
           href: connect-to-cloud/howto-configure-adx-endpoint.md
-          displayName: data flow, endpoint
+          displayName: data flow, endpoint, northbound
         - name: Local storage or ACSA
           href: connect-to-cloud/howto-configure-local-storage-endpoint.md
-          displayName: data flow, endpoint  
+          displayName: data flow, endpoint, northbound
       - name: Create a data flow
         href: connect-to-cloud/howto-create-dataflow.md
         displayName: endpoint, transformation, source, destination, profile, data flow profile, enrich , map, serialize, schema
