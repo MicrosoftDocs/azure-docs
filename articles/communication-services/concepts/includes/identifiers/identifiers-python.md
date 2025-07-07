@@ -117,13 +117,13 @@ resourceId = "<resource-id-guid>"
 # create an identifier
 teams_user = TeamsExtensionUserIdentifier(user_id, tenant_id, resource_id)
 
-# if you're not operating in the public cloud, you must also pass the right Cloud type.
+# if you're not operating in the public cloud, you must also pass the right Cloud type
 gcch_teams_user = TeamsExtensionUserIdentifier(user_id, tenant_id, resource_id, cloud=CommunicationCloudEnvironment.GCCH)
 ```
 
 #### API reference
 
-TO DO!!!!!!!!!!!!!!
+[MicrosoftTeamsUserIdentifier](/python/api/azure-communication-chat/azure.communication.chat.teamsextensionuseridentifier)
 
 ### Unknown
 
