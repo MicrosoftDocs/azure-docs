@@ -437,13 +437,13 @@ The union type has some limitations:
 
 You can use the union type syntax in [user-defined data types](./user-defined-data-types.md).
 
-## Nullable Types
+## Nullable types
 
 You can make any primitive or complex type nullable by appending a `?` to the type name. This allows the parameter, variable, or output to accept null as a valid value. For example:
 
 ```bicep
-param description string? = null
-param config object? = null
+output description string? = null
+output config object? = null
 output optionalValue int? = null
 ```
 

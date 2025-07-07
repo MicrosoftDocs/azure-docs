@@ -293,6 +293,7 @@ items:
   - name: Template best practices
     href: best-practices.md
   - name: Data types
+    displayName: nullable types,union type,secure strings,secure objects,data type assignability
     href: data-types.md
   - name: Frequently asked questions
     href: frequently-asked-questions.yml
