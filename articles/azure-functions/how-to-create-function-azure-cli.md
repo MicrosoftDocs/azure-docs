@@ -1,7 +1,7 @@
 ---
 title: "Create a function in Azure using the Azure CLI"
 description: "Learn how to create an Azure Functions code project from the command line using the Azure CLI, then publish the local project to serverless hosting in Azure Functions."
-ms.date: 07/08/2025
+ms.date: 07/07/2025
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, mode-other, devx-track-dotnet
 zone_pivot_groups: programming-languages-set-functions

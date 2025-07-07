@@ -26,7 +26,7 @@ Use the Azure CLI commands in these steps to create the required resources.
     az login
     ```
 
-    The [`az login`](/cli/azure/reference-index#az-login) command signs you into your Azure account.
+    The [`az login`](/cli/azure/reference-index#az-login) command signs you into your Azure account. Skip this step when running in Azure Cloud Shell.
     <!---
     ### [Azure PowerShell](#tab/azure-powershell) 
     ```azurepowershell
