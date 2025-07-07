@@ -128,5 +128,5 @@ Customization files stored in a repository must be called *workload.yaml*. Custo
 ## Related content
 
 - [Microsoft Dev Box customizations](concept-what-are-dev-box-customizations.md)
-- [Configure imaging for Dev Box team customizations](how-to-configure-customization-imaging.md)
+- [Configure Dev Box imaging](how-to-configure-dev-box-imaging.md)
 - [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md)

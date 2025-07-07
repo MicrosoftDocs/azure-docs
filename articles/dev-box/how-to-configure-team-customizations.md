@@ -192,4 +192,4 @@ You can make adjustments to the customization file and create a new dev box to t
 Now that you have an image definition file, upload it to a catalog and attach the catalog to a project. The image definition file is used to configure and create dev boxes for your development teams.
 
 > [!div class="nextstepaction"]
-> [Configure imaging for Dev Box team customizations](how-to-configure-customization-imaging.md)
+> [Configure Dev Box imaging](how-to-configure-dev-box-imaging.md)
