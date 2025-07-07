@@ -424,8 +424,8 @@ Azure service: [HDInsight](/azure/hdinsight/)
 > | MICROSOFT.HDINSIGHT/CLUSTERS/UPGRADES/READ | Read Upgrades |
 > | MICROSOFT.HDINSIGHT/LOCATIONS/CHECKNAMEAVAILABILITY/ACTION | Check Name Availability |
 > | MICROSOFT.HDINSIGHT/LOCATIONS/VALIDATECREATEREQUEST/ACTION | Validate Create Requests |
-> | MICROSOFT.HDINSIGHT/LOCATIONS/AVAILABLECLUSTERPOOLVERSIONS/READ | Get Avaliable versions for HDInsight on AKS Cluster Pool |
-> | MICROSOFT.HDINSIGHT/LOCATIONS/AVAILABLECLUSTERVERSIONS/READ | Get Avaliable versions for HDInsight on AKS Cluster |
+> | MICROSOFT.HDINSIGHT/LOCATIONS/AVAILABLECLUSTERPOOLVERSIONS/READ | Get Available versions for HDInsight on AKS Cluster Pool |
+> | MICROSOFT.HDINSIGHT/LOCATIONS/AVAILABLECLUSTERVERSIONS/READ | Get Available versions for HDInsight on AKS Cluster |
 > | Microsoft.HDInsight/locations/azureasyncoperations/read | Read Async Operations |
 > | MICROSOFT.HDINSIGHT/LOCATIONS/BILLINGSPECS/READ | Get Billing Specs |
 > | Microsoft.HDInsight/locations/capabilities/read | Get Subscription Capabilities |
