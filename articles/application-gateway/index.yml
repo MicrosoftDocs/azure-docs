@@ -8,9 +8,9 @@ metadata:
   description: Learn about Azure Application Gateway, a web traffic load balancer that enables you to manage traffic to your web applications.
   ms.service: azure-application-gateway
   ms.topic: landing-page
-  author: greg-lindsay
-  ms.author: greglin
-  ms.date: 07/20/2023
+  author: mbender-ms
+  ms.author: mbender
+  ms.date: 10/27/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -28,12 +28,14 @@ landingContent:
             url: ./for-containers/overview.md
       - linkListType: concept
         links:
+          - text: Architecture best practices for Azure Application Gateway v2
+            url: /azure/well-architected/service-guides/azure-application-gateway
           - text: Frequently asked questions
             url: application-gateway-faq.yml
       - linkListType: whats-new
         links:
           - text: What's new
-            url: https://azure.microsoft.com/updates/?category=networking&query=Application%20Gateway
+            url: https://azure.microsoft.com/updates?filters=%5B%22Application+Gateway%22%5D
       - linkListType: learn
         links:
           - text: Intro to Azure Application Gateway
@@ -156,3 +158,17 @@ landingContent:
         links:
           - text: Well-Architected review of Application Gateway
             url: /azure/architecture/framework/services/networking/azure-application-gateway
+
+  # Card
+  - title: Load balancing and content delivery
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Documentation
+            url: https://aka.ms/loadbalancingandcontentdeliverydocs
+      - linkListType: overview
+        links:
+          - text: Azure Front Door
+            url: ../frontdoor/front-door-overview.md
+          - text: Azure Load Balancer
+            url: ../load-balancer/load-balancer-overview.md

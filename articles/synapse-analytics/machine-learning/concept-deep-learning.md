@@ -16,11 +16,6 @@ Apache Spark in Azure Synapse Analytics enables machine learning with big data, 
 > [!NOTE]
 > The Preview for Azure Synapse GPU-enabled pools has now been deprecated.
 
-> [!CAUTION]
-> Deprecation and disablement notification for GPUs on the Azure Synapse Runtime for Apache Spark 3.1 and 3.2
-> - The GPU accelerated preview is now deprecated on the [Apache Spark 3.2 (deprecated) runtime](../spark/apache-spark-32-runtime.md). Deprecated runtimes will not have bug and feature fixes. This runtime and the corresponding GPU accelerated preview on Spark 3.2 has been retired and disabled as of July 8, 2024.
-> - The GPU accelerated preview is now deprecated on the [Azure Synapse 3.1 (deprecated) runtime](../spark/apache-spark-3-runtime.md). Azure Synapse Runtime for Apache Spark 3.1 has reached its end of support as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
-
 ## GPU-enabled Apache Spark pools
 
 To simplify the process for creating and managing pools, Azure Synapse takes care of pre-installing low-level libraries and setting up all the complex networking requirements between compute nodes. This integration allows users to get started with GPU- accelerated pools within just a few minutes. 
@@ -34,11 +29,11 @@ To simplify the process for creating and managing pools, Azure Synapse takes car
 
 Azure Synapse Analytics provides built-in support for deep learning infrastructure. The Azure Synapse Analytics runtimes for Apache Spark 3 include support for the most common deep learning libraries like TensorFlow and PyTorch. The Azure Synapse runtime also includes supporting libraries like Petastorm and Horovod which are commonly used for distributed training.
 
-### Tensorflow
+### TensorFlow
 
 TensorFlow is an open source machine learning framework for all developers. It is used for implementing machine learning and deep learning applications.
 
-For more information about Tensorflow, you can visit the [Tensorflow API documentation](https://www.tensorflow.org/api_docs/python/tf).
+For more information about TensorFlow, you can visit the [TensorFlow API documentation](https://www.tensorflow.org/api_docs/python/tf).
 
 ### PyTorch
 
@@ -52,13 +47,13 @@ Horovod is a distributed deep learning training framework for TensorFlow, Keras,
 
 To learn more about how to run distributed training jobs in Azure Synapse Analytics, you can visit the following tutorials:
     - [Tutorial: Distributed training with Horovod and PyTorch](./tutorial-horovod-pytorch.md)
-    - [Tutorial: Distributed training with Horovod and Tensorflow](./tutorial-horovod-tensorflow.md)
+    - [Tutorial: Distributed training with Horovod and TensorFlow](./tutorial-horovod-tensorflow.md)
 
 For more information about Horovod, you can visit the [Horovod documentation](https://horovod.readthedocs.io/en/stable/),
 
 ### Petastorm
 
-Petastorm is an open source data access library which enables single-node or distributed training of deep learning models. This library enables training directly from datasets in Apache Parquet format and datasets that have already been loaded as an Apache Spark DataFrame. Petastorm supports popular training frameworks such as Tensorflow and PyTorch.
+Petastorm is an open source data access library which enables single-node or distributed training of deep learning models. This library enables training directly from datasets in Apache Parquet format and datasets that have already been loaded as an Apache Spark DataFrame. Petastorm supports popular training frameworks such as TensorFlow and PyTorch.
 
 For more information about Petastorm, you can visit the [Petastorm GitHub page](https://github.com/uber/petastorm) or the [Petastorm API documentation](https://petastorm.readthedocs.io/en/latest/).
 

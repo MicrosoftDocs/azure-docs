@@ -4,6 +4,9 @@ description: Learn how to configure Apache Kafka on HDInsight to automatically c
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 06/14/2024
 ---
 

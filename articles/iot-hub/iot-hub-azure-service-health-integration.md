@@ -1,10 +1,10 @@
 ---
 title: Check Azure IoT Hub service and resource health
 description: Use Azure Service Health and Azure Resource Health to monitor your IoT Hub
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
-ms.service: iot-hub
+ms.author: sonialopez
+ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 04/21/2020
 ms.custom: [amqp, 'Role: Cloud Development', 'Role: Technical Support', devx-track-csharp]

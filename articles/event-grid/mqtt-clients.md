@@ -54,10 +54,10 @@ Use the "Thumbprint Match" option while using self-signed certificate to authent
 
 > [!NOTE]
 > - clientCertificateAuthentication is always required with a valid value of validationScheme.
-> - authenticationName is not required, but after the first create request, authenticatioName value defaults to ARM name, and then it can not be updated.
+> - authenticationName is not required, but after the first create request, authenticationName value defaults to ARM name, and then it can not be updated.
 > - authenticationName can not be updated.
 > - If validationScheme is anything other than ThumbprintMatch, then allowedThumbprints list can not be provided.
-> - allowedThumbprints list can only be provided and must be provided if validationScheme is ThumbprintMatch with atleast one thumbprint.
+> - allowedThumbprints list can only be provided and must be provided if validationScheme is ThumbprintMatch with at least one thumbprint.
 > - allowedThumbprints can only hold maximum of 2 thumbprints.
 > - Allowed validationScheme values are SubjectMatchesAuthenticationName, DnsMatchesAuthenticationName, UriMatchesAuthenticationName, IpMatchesAuthenticationName, EmailMatchesAuthenticationName, ThumbprintMatch
 > - Using thumbprint with allow reuse of the same certificate across multiple clients.  For other types of validation, the authentication name needs to be in the chosen field of the client certificate.

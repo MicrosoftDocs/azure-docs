@@ -1,8 +1,9 @@
 ---
 title: Azure Event Grid - Troubleshooting subscription validation
-description: This article shows you how you can troubleshoot subscription validations. 
-ms.topic: conceptual
-ms.date: 09/28/2021
+description: This article shows you how you can troubleshoot subscription validations for Event Grid events and cloud events. 
+ms.topic: how-to
+ms.date: 01/22/2025
+# Customer intent: I want to know how to troubleshoot issues with event subscriptions in Azure Event Grid. 
 ---
 
 # Troubleshoot Azure Event Grid subscription validations
@@ -21,7 +22,7 @@ During event subscription creation, if you're seeing an error message such as `T
 > [!IMPORTANT]
 > For detailed information on endpoint validation for webhooks, see [Webhook event delivery](end-point-validation-cloud-events-schema.md).
 
-Here is a sample **SubscriptionValidationEvent** JSON you can send using a tool such as CURL: 
+Here's a sample **SubscriptionValidationEvent** JSON you can send using a tool such as CURL: 
 
 ```json
 [
@@ -30,7 +31,7 @@ Here is a sample **SubscriptionValidationEvent** JSON you can send using a tool 
     "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "subject": "",
     "data": {
-      "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
+      "validationCode": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
     },
     "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
     "eventTime": "2018-01-25T22:12:19.4556811Z",
@@ -40,11 +41,11 @@ Here is a sample **SubscriptionValidationEvent** JSON you can send using a tool 
 ]
 ```
 
-Here is the sample successful response:
+Here's the sample successful response:
 
 ```json
 {
-  "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
+  "validationResponse": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
 }
 ```
 
@@ -53,17 +54,15 @@ Here is the sample successful response:
 Here's the sample Curl command for validating a webhook subscription of an Event Grid event: 
 
 ```bash
-curl -X POST -d '[{"id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66","topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","subject": "","data": {"validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"},"eventType": "Microsoft.EventGrid.SubscriptionValidationEvent","eventTime": "2018-01-25T22:12:19.4556811Z", "metadataVersion": "1","dataVersion": "1"}]' -H 'Content-Type: application/json' https://{your-webhook-url.com}
+curl -X POST -d '[{"id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66","topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","subject": "","data": {"validationCode": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"},"eventType": "Microsoft.EventGrid.SubscriptionValidationEvent","eventTime": "2018-01-25T22:12:19.4556811Z", "metadataVersion": "1","dataVersion": "1"}]' -H 'Content-Type: application/json' https://{your-webhook-url.com}
 ```
 
 
 
-To learn more about Event Grid event validation for webhooks, see [Endpoint validation with event grid events](end-point-validation-cloud-events-schema.md).
+To learn more about Event Grid event validation for webhooks, see [Endpoint validation with Event Grid events](end-point-validation-cloud-events-schema.md).
 
 ## Validate cloud event subscription
 Use the **HTTP OPTIONS** method for validation with cloud events. To learn more about cloud event validation for webhooks, see [Endpoint validation with cloud events](end-point-validation-cloud-events-schema.md).
 
-## Troubleshoot event subscription validation
-
-## Next steps
+## Related content
 If you need more help, post your issue in the [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-eventgrid) or open a [support ticket](https://azure.microsoft.com/support/options/). 

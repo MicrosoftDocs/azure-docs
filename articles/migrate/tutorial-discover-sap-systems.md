@@ -6,9 +6,10 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 05/04/2024
+ms.date: 02/07/2025
 ms.custom: engagement-fy24
 
+# Customer intent: "As a system administrator, I want to discover on-premises SAP systems using Azure Migrate, so that I can assess and plan their migration to the cloud effectively."
 ---
 
 # Tutorial: Discover SAP systems with Azure Migrate (preview)

@@ -6,6 +6,7 @@ ms.service: azure-avere-vfxt
 ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
+# Customer intent: As a cloud administrator, I want to connect to the Avere vFXT control panel via SSH tunnel or VPN, so that I can monitor and configure the vFXT cluster settings effectively.
 ---
 
 # Access the vFXT cluster
@@ -55,8 +56,6 @@ This step uses a web browser to connect to the configuration utility on the vFXT
 Depending on your browser, you might need to click **Advanced** and verify that it is safe to proceed to the page.
 
 Enter the username `admin` and the administrative password you provided when creating the cluster.
-
-![Screenshot of the Avere sign in page populated with the username 'admin' and a password](media/avere-vfxt-gui-login.png)
 
 Click **Login** or press enter on your keyboard.
 

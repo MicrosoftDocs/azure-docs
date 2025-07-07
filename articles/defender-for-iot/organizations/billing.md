@@ -23,6 +23,8 @@ To evaluate Defender for IoT, start a free trial as follows:
 
 - **For Enterprise IoT networks**, use a trial, standalone license as an add-on to Microsoft Defender for Endpoint. Trial licenses support 100 devices. For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md) and [Enable Enterprise IoT security with Defender for Endpoint](eiot-defender-for-endpoint.md).
 
+For general information, see [licenses and the trial license](license-and-trial-license-extention.md).
+
 ## Defender for IoT devices
 
 We recommend that you have a sense of how many devices you want to monitor so that you know how many OT sites you need to license, or if you need any standalone licenses for enterprise IoT security.

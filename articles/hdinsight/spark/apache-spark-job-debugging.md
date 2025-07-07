@@ -4,6 +4,9 @@ description: Use YARN UI, Spark UI, and Spark History server to track and debug 
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 09/06/2024
 ---
 

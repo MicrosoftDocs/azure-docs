@@ -26,14 +26,14 @@ landingContent:
             url: durable-functions-overview.md
           - text: Compare serverless options
             url: ../functions-compare-logic-apps-ms-flow-webjobs.md  
+          - text: Usage scenarios
+            url: ../functions-scenarios.md#build-a-serverless-workflow
       - linkListType: concept
         links:
           - text: Durable function types
             url: durable-functions-types-features-overview.md
-      - linkListType: video
-        links:
-          - text: Break through serverless barriers
-            url: https://azure.microsoft.com/resources/videos/break-through-the-serverless-barriers-with-durable-functions/
+          - text: Durable Functions storage providers
+            url: durable-functions-storage-providers.md
 
   # Card (optional)
   - title: Get started
@@ -50,31 +50,7 @@ landingContent:
         links:
           - text: Create a long-running serverless workflow
             url: /training/modules/create-long-running-serverless-workflow-with-durable-functions/
-      - linkListType: video
-        links:
-          - text: Watch how to get started
-            url: https://azure.microsoft.com/resources/videos/azure-friday-durable-functions-in-azure-functions/
-
-  # Card
-  - title: Key concepts
-    linkLists: 
-      - linkListType: concept
-        links:
-          - text: Orchestrations
-            url: durable-functions-orchestrations.md
-          - text: Stateful entities
-            url: durable-functions-entities.md
-          - text: HTTP features
-            url: durable-functions-http-features.md
-          - text: Task hubs
-            url: durable-functions-task-hubs.md
-          - text: Versioning
-            url: durable-functions-versioning.md
-      - linkListType: video
-        links:
-          - text: Serverless entities, orchestrations, and stateful functions
-            url: /Events/dotnetConf/NET-Conf-2019/B206
-          
+        
   # Card
   - title: Application patterns
     linkLists:
@@ -92,33 +68,3 @@ landingContent:
             url: durable-functions-phone-verification.md
           - text: Aggregator
             url: durable-functions-entities.md
-
-  # Card
-  - title: Performance and monitoring
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Diagnostics
-            url: durable-functions-diagnostics.md  
-      - linkListType: concept
-        links:
-          - text: Monitor functions
-            url: ../functions-monitoring.md
-          - text: Networking considerations
-            url: ../functions-networking-options.md
-
-  # Card
-  - title: Samples
-    linkLists:
-      - linkListType: download
-        links:
-          - text: Durable Functions samples
-            url: /samples/browse/?products=azure-functions&term=durable
-          - text: Azure Serverless Community Library
-            url: https://www.serverlesslibrary.net/
-          - text: Azure Resource Manager templates
-            url: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Web&term=functions
-      - linkListType: how-to-guide
-        links:
-          - text: Azure CLI samples
-            url: ../functions-cli-samples.md

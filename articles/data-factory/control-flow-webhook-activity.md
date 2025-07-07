@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: The webhook activity for Azure Data Factory and Synapse Analytics controls the execution of pipelines through custom code.
 author: nabhishek
 ms.author: abnarain
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual

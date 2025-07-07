@@ -4,7 +4,10 @@ description: Install and use the REST SDK for the Phoenix Query Server in Azure 
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: "hdinsightactive, devx-track-csharp"
-ms.date: 02/12/2024
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: nijelsf
+ms.date:  02/03/2025
 ---
 
 # Apache Phoenix Query Server REST SDK

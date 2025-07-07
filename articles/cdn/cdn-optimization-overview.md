@@ -2,11 +2,13 @@
 title: Optimize Azure Content Delivery Network for the type of content delivery
 description: Learn how Azure Content Delivery Network can optimize delivery based on type of content. Optimization best practices improve performance and origin offload.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+ROBOTS: NOINDEX
+# Customer intent: As a content manager, I want to optimize the Azure Content Delivery Network for different types of content delivery, so that I can enhance performance and improve the user experience across various scenarios, such as media streaming and large file downloads.
 ---
 
 # Optimize Azure Content Delivery Network for the type of content delivery
@@ -31,12 +33,6 @@ This article provides an overview of various optimization features and when you 
 > [!NOTE]
 > Dynamic site acceleration from Microsoft is offered via [Azure Front Door](../frontdoor/front-door-overview.md).
 
-**Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles support the following optimizations:
-
-- [General web delivery](#general-web-delivery). This optimization is also used for media streaming and large file download.
-
-- [Dynamic site acceleration](#dynamic-site-acceleration)
-
 ## Optimization for specific scenarios
 
 You can optimize the content delivery network endpoint for one of these scenarios.
@@ -55,15 +51,11 @@ Media streaming is time-sensitive, because packets that arrive late on the clien
 
 This scenario is common for Azure media service customers. When you use Azure Media Services, you get a single streaming endpoint that can be used for both live and on-demand streaming. With this scenario, customers don't need to switch to another endpoint when they change from live to on-demand streaming. General media streaming optimization supports this type of scenario.
 
-For **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Edgio**, and **Azure CDN Premium from Edgio**, use the general web delivery optimization type to deliver general streaming media content.
-
 For more information about media streaming optimization, see [Media streaming optimization](cdn-media-streaming-optimization.md).
 
 ### Video-on-demand media streaming
 
 Video-on-demand media streaming optimization improves video-on-demand streaming content. If you use an endpoint for video-on-demand streaming, use this option.
-
-For **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Edgio**, and **Azure CDN Premium from Edgio** profiles, use the general web delivery optimization type to deliver video-on-demand streaming media content.
 
 For more information about media streaming optimization, see [Media streaming optimization](cdn-media-streaming-optimization.md).
 
@@ -73,16 +65,16 @@ For more information about media streaming optimization, see [Media streaming op
 
 ### Large file download
 
-For **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Edgio**, and **Azure CDN Premium from Edgio** profiles, use the general web delivery optimization type to deliver large file download content. There's no limitation on file download size.
+For **Azure CDN Standard from Microsoft** use the general web delivery optimization type to deliver large file download content. There's no limitation on file download size.
 
 For more information about large file optimization, see [Large file optimization](cdn-large-file-optimization.md).
 
 ### Dynamic site acceleration
 
-Dynamic site acceleration (DSA) is available for **Azure CDN Standard from Edgio**, and **Azure CDN Premium from Edgio** profiles. This optimization involves an extra fee to use; for more information, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
+Dynamic site acceleration (DSA) isn't available for **Azure CDN from Microsoft (classic)**.
 
 > [!NOTE]
-> Dynamic site acceleration from Microsoft is offered via [Azure Front Door](../frontdoor/front-door-overview.md) which is a global [anycast](https://en.wikipedia.org/wiki/Anycast) service using Microsoft's private global network to deliver your app workloads.
+> Dynamic site acceleration from Microsoft is offered through [Azure Front Door](../frontdoor/front-door-overview.md) which is a global [anycast](https://en.wikipedia.org/wiki/Anycast) service using Microsoft's private global network to deliver your app workloads.
 
 DSA includes various techniques that benefit the latency and performance of dynamic content. Techniques include route and network optimization, TCP optimization, and more.
 

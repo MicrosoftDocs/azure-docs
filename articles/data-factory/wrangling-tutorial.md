@@ -26,7 +26,7 @@ The other method is in the activities pane of the pipeline canvas. Open the **Po
 
 ## Author a Power Query data wrangling activity
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWJd3T]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=09ee032a-9660-4f48-a1f4-0b805e18dd5d]
 > 
 Add a **Source dataset** for your Power Query mash-up. You can either choose an existing dataset or create a new one. After you have saved your mash-up, you can then create a pipeline, add the Power Query data wrangling activity to your pipeline and select a sink dataset to tell ADF where to land your data. While you can choose one or more source datasets, only one sink is allowed at this time. Choosing a sink dataset is optional, but at least one source dataset is required.
 

@@ -118,17 +118,17 @@ class Program
 
         // Create or get a Notification Hub in the namespace
         NotificationHubCollection notificationHubs = notificationHubNamespaceResource.GetNotificationHubs();
-        NotificationHubResource? notiticationHubResource = null;
+        NotificationHubResource? notificationHubResource = null;
         bool notificationHubResourceExists = notificationHubs.Exists(notificationHubName);
         if (!notificationHubResourceExists)
         {
             ArmOperation<NotificationHubResource> hubOperation = await notificationHubs.CreateOrUpdateAsync(WaitUntil.Completed, notificationHubName, new NotificationHubData(location));
-            notiticationHubResource = hubOperation.Value;
+            notificationHubResource = hubOperation.Value;
             Console.WriteLine($"Notification Hub '{notificationHubName}' created successfully in Namespace '{namespaceName}'.");
         }
         else
         {
-            notiticationHubResource = notificationHubs.Get(notificationHubName);
+            notificationHubResource = notificationHubs.Get(notificationHubName);
             Console.WriteLine($"NotificationHub '{notificationHubName}' already exists.");
         }
 
@@ -138,11 +138,11 @@ class Program
             FcmV1Credential = new FcmV1Credential("<Replace with your clientEmail>", "<Replace with your privateKey>", "<Replace with your projectid>")
         };
 
-        NotificationHubResource notificationHubResource = await notiticationHubResource.UpdateAsync(updateContent);
+        NotificationHubResource notificationHubResource = await notificationHubResource.UpdateAsync(updateContent);
         Console.WriteLine($"Notification Hub '{notificationHubName}' updated successfully with FCMv1 credentials.");
 
         // Get Notification Hub Credentials
-        var notificationHubCredentials = notiticationHubResource.GetPnsCredentials().Value;
+        var notificationHubCredentials = notificationHubResource.GetPnsCredentials().Value;
         Console.WriteLine($"FCMv1 Credentials Email '{notificationHubCredentials.FcmV1Credential.ClientEmail}'");
     }
 }

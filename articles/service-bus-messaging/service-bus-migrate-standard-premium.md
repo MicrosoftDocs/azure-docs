@@ -11,15 +11,14 @@ Previously, Azure Service Bus offered namespaces only on the standard tier. Name
 
 This article describes how to migrate existing standard tier namespaces to the premium tier.  
 
->[!WARNING]
-> Migration is intended for Service Bus standard namespaces to be upgraded to the premium tier. The migration tool doesn't support downgrading. During migration from the standard to the premium level, a DNS pointer will be created that can be used to access the standard service bus. Please note that during migration an alternateName will be created that represents the pointer to the DNS namespace of the old service bus and the operation cannot be undone. Any sort of testing should be done in a testing environment.
-
+> [!WARNING]
+> Migration is intended for Service Bus standard namespaces to be upgraded to the premium tier. The migration tool doesn't support downgrading. Please note that during migration a post migration name will be created that represents the pointer to the DNS namespace of the standard service bus namespace and the operation cannot be undone. This post migration name can be used to access the standard namespace, post migration. Any sort of testing should be done in a testing environment.
 Some of the points to note:
 
 - This migration is meant to happen in place, meaning that existing sender and receiver applications **don't require any changes to code or configuration**. The existing connection string will automatically point to the new premium namespace.
 - If you're using an existing premium name, the **premium** namespace should have **no entities** in it for the migration to succeed, and should not have [partitioning enabled](enable-partitions-premium.md).
 - All **entities** in the standard namespace are **copied** to the premium namespace during the migration process.
-- Migration supports **1,000 entities per messaging unit** on the premium tier. To identify how many messaging units you need, start with the number of entities that you have on your current standard namespace.
+- Migration supports **1,000 entities (queues and topics) per messaging unit** on the premium tier. To identify how many messaging units you need, start with the number of entities that you have on your current standard namespace.
 - You can't directly migrate from **basic tier** to **premium tier**, but you can do so indirectly by migrating from basic to standard first and then from the standard to premium in the next step.
 - The role-based access control (RBAC) settings aren't migrated, so you'll need to add them manually after the migration. 
 
@@ -45,16 +44,15 @@ To migrate your Service Bus standard namespace to premium by using the Azure CLI
 
 1. Set the following environment variables to simplify the migration commands. You can get the Azure Resource Manager ID for your premium namespace by navigating to the namespace in the Azure portal and copying the portion of the URL that looks like the following sample: `/subscriptions/00000000-0000-0000-0000-00000000000000/resourceGroups/contosoresourcegroup/providers/Microsoft.ServiceBus/namespaces/contosopremiumnamespace`.
 
-   ```
+      ```
    resourceGroup = <resource group for the standard namespace>
    standardNamespace = <standard namespace to migrate>
    premiumNamespaceArmId = <Azure Resource Manager ID of the premium namespace to migrate to>
    postMigrationDnsName = <post migration DNS name entry to access the standard namespace>
    ```
 
-    >[!IMPORTANT]
-    > The Post-migration alias/name (post_migration_dns_name) will be used to access the old standard namespace post migration. Use this to drain the queues and the subscriptions, and then delete the namespace.
-
+   > [!IMPORTANT]
+   > The Post-migration alias/name (postMigrationDnsName) will be used to access the old standard namespace post migration. Use this to drain the queues and the subscriptions, and then delete the namespace.
 1. Pair the standard and premium namespaces and start the sync by using the following command:
 
     ```azurecli-interactive
@@ -148,7 +146,7 @@ If you are using the Azure Resource Manager ID for configuration rather a connec
 
 ### What do I do after the standard to premium migration is complete?
 
-The standard to premium migration ensures that the entity metadata such as topics, subscriptions, and filters are copied from the standard namespace to the premium namespace. The message data that was committed to the standard namespace isn't copied from the standard namespace to the premium namespace.
+The standard to premium migration ensures that the entity metadata such as queues, topics, subscriptions, and filters are copied from the standard namespace to the premium namespace. The message data that was committed to the standard namespace isn't copied from the standard namespace to the premium namespace.
 
 The standard namespace may have some messages that were sent and committed while the migration was underway. Manually drain these messages from the standard namespace and manually send them to the premium namespace. To manually drain the messages, use a console app or a script that drains the standard namespace entities by using the post-migration DNS name that you specified in the migration commands. Send these messages to the premium namespace so that they can be processed by the receivers.
 
@@ -188,7 +186,7 @@ When it's complete, you see the following page:
 :::image type="content" source="./media/service-bus-standard-premium-migration/abort3.png" alt-text="Image showing the Abort complete page.":::
 
 ### What happens when I abort the migration?
-When the migration process is aborted, it aborts the process of copying the entities (topics, subscriptions, and filters) from the standard to the premium namespace and breaks the pairing.
+When the migration process is aborted, it aborts the process of copying the entities (queues, topics, subscriptions, and filters) from the standard to the premium namespace and breaks the pairing.
 
 The connection string isn't updated to point to the premium namespace. Your existing applications continue to work as they did before you started the migration.
 

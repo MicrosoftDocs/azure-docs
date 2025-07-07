@@ -5,8 +5,9 @@ author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/18/2023
+ms.date: 01/08/2025
 ms.custom: engagement-fy23
+# Customer intent: As a database administrator, I want to migrate an SQL Server Always On Availability Group to Azure VMware Solution, so that I can leverage the cloud for better scalability and reliability while minimizing downtime during the transition.
 ---
 # Migrate a SQL Server Always On Availability Group to Azure VMware Solution
 
@@ -139,8 +140,8 @@ For details about configuring and managing the quorum, see [Failover Clustering 
 - [Microsoft SQL Server 2019 Documentation](/sql/sql-server/) 
 - [Microsoft SQL Server 2022 Documentation](/sql/sql-server/) 
 - [Windows Server Technical Documentation](/windows-server/) 
-- [Planning Highly Available, Mission Critical SQL Server Deployments with VMware vSphere](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/vmware-vsphere-highly-available-mission-critical-sql-server-deployments.pdf)
-- [VMware KB 100 2951 – Tips for configuring Microsoft SQL Server in a virtual machine](https://kb.vmware.com/s/article/1002951)
+- [Planning Highly Available, Mission Critical SQL Server Deployments with VMware vSphere](https://www.vmware.com/docs/architecting-mssql-server-for-ha-on-vmware-vsphere-platform-final-0)
+- [VMware KB 100 2951 – Tips for configuring Microsoft SQL Server in a virtual machine](https://knowledge.broadcom.com/external/article?legacyId=1002951)
 - [Microsoft SQL Server 2019 in VMware vSphere 7.0 Performance Study](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/techpaper/performance/vsphere7-sql-server-perf.pdf)
 - [Architecting Microsoft SQL Server on VMware vSphere – Best Practices Guide](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/solutions/sql-server-on-vmware-best-practices-guide.pdf)
-- [Setup for Windows Server Failover Cluster in VMware vSphere 7.0](https://docs.vmware.com/en/VMware-vSphere/7.0/vsphere-esxi-vcenter-server-703-setup-wsfc.pdf)
+- [Setup for Windows Server Failover Cluster in VMware vSphere 7.0](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/setup-for-windows-server-failover-clustering.html)

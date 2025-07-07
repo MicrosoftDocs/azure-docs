@@ -5,11 +5,12 @@ author: an-emma
 ms.author: raan
 ms.service: azure-stream-analytics
 ms.topic: conceptual
-ms.date: 05/08/2023
-ms.custom: build-2023
+ms.date: 04/21/2025
+ms.custom:
+  - build-2025
 ---
 
-# Integrating with Schema Registry in Azure Stream Analytics (Public Preview)
+# Integrating with Schema Registry in Azure Stream Analytics
 
 Azure Event Hubs hosts a [Schema Registry](../event-hubs/schema-registry-overview.md) that acts as a centralized repository for schema. With the integration with the Schema Registry, Azure Stream Analytics can retrieve schema from the Schema Registry and deserialize data from Event Hubs input. By moving schema metadata into the Schema Registry, you can reduce per-message overhead and enables efficient schema validation to ensure the integrity of the data.
 

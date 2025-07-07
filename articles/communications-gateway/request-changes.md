@@ -1,8 +1,6 @@
 ---
 title: Get support or request changes for Azure Communications Gateway
 description: This article guides you through how to submit support requests if you have a problem with your service or require changes to it.
-author: rcdun
-ms.author: rdunstan
 ms.service: azure-communications-gateway
 ms.topic: how-to
 ms.date: 01/08/2023
@@ -43,9 +41,6 @@ If you're providing Zoom service, you'll need to raise a separate support reques
 1. Select **Create a support request**. You might need to describe your issue first.
 
 ## Enter a description of the problem or the change
-
-> [!TIP]
-> If you know the problem or change affects Azure Operator Call Protection Preview, then you should set **Service type** to **Azure Operator Call Protection** instead. If unsure, keep it as **Azure Communications Gateway**.
 
 1. Concisely describe your problem or the change you need in the **Summary** box.
 1. Select an **Issue type** from the drop-down menu.

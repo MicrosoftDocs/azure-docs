@@ -73,12 +73,9 @@ For example, if your growing company has factories and offices in Paris, Lagos, 
 |**Dubai office**     |     - Ground floor (Convention center) <br>- Floor 1 (Sales)<br>- Floor 2 (Offices)     |
 |**Tianjin office**     |   - Ground floor (Offices) <br>- Floors 1-2 (Factory)        |
 
-
 ## Next steps
 
-Create sites and zones as you onboard OT sensors in the Azure portal, and assign site-based access policies to your Azure users. 
-
-If you're working in an air-gapped environment with an on-premises management console, create OT site and zones directly on the on-premises management console.
+Create sites and zones as you onboard OT sensors in the Azure portal, and assign site-based access policies to your Azure users.
 
 Use built-in Defender for IoT workbooks and create custom workbooks of your own to monitor your security perimeter over time.
 
@@ -92,4 +89,3 @@ For more information, see:
 
 - [Azure user roles and permissions for Defender for IoT](roles-azure.md)
 - [Zero Trust Guidance Center](/security/zero-trust/zero-trust-overview)
-- White paper: [Zero Trust Cybersecurity for the Internet of Things](https://azure.microsoft.com/mediahandler/files/resourcefiles/zero-trust-cybersecurity-for-the-internet-of-things/Zero%20Trust%20Security%20Whitepaper_4.30_3pm.pdf)

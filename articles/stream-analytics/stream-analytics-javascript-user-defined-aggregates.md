@@ -8,7 +8,7 @@ ms.custom: devx-track-js
 ---
 # Azure Stream Analytics JavaScript user-defined aggregates
  
-Azure Stream Analytics supports user-defined aggregates (UDA) written in JavaScript, it enables you to implement complex stateful business logic. Within UDA you have full control of the state data structure, state accumulation, state decumulation, and aggregate result computation. The article introduces the two different JavaScript UDA interfaces, steps to create a UDA, and how to use UDA with window-based operations in Stream Analytics query.
+Azure Stream Analytics supports user-defined aggregates (UDA) written in JavaScript, it enables you to implement complex stateful business logic. Within UDA you have full control of the state data structure, state accumulation, state deaccumulation, and aggregate result computation. The article introduces the two different JavaScript UDA interfaces, steps to create a UDA, and how to use UDA with window-based operations in Stream Analytics query.
 
 ## JavaScript user-defined aggregates
 
@@ -16,7 +16,7 @@ A user-defined aggregate is used on top of a time window specification to aggreg
 
 ### AccumulateOnly aggregates
 
-AccumulateOnly aggregates can only accumulate new events to its state, the algorithm doesn’t allow deaccumulation of values. Choose this aggregate type when deaccumulate an event information from the state value is impossible to implement. Following is the JavaScript template for AccumulatOnly aggregates:
+AccumulateOnly aggregates can only accumulate new events to its state, the algorithm doesn’t allow deaccumulation of values. Choose this aggregate type when deaccumulate an event information from the state value is impossible to implement. Following is the JavaScript template for AccumulateOnly aggregates:
 
 ```JavaScript
 // Sample UDA which state can only be accumulated.

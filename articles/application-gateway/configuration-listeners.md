@@ -1,12 +1,18 @@
 ---
 title: Azure Application Gateway listener configuration
-description: This article describes how to configure Azure Application Gateway listeners.
+description: Learn how Application Gateway listeners handle incoming web requests efficiently. Configure protocols, certificates, HTTP2 support, and WebSocket connectivity for optimal performance.
+#customer intent: As a network administrator, I want to understand how to configure Application Gateway listeners so that I can properly handle incoming web requests for my organization's applications.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
-ms.topic: conceptual
-ms.date: 07/19/2023
-ms.author: greglin 
+ms.topic: concept-article
+ms.date: 06/16/2025
+ms.author: mbender
+ms.custom:
+  - ai-gen-docs-bap
+  - ai-gen-description
+  - ai-seo-date:06/16/2025
+# Customer intent: As a network administrator, I want to configure listeners for the Azure Application Gateway, so that I can manage incoming requests effectively based on protocols, ports, and host headers for optimal traffic routing.
 ---
 
 # Application Gateway listener configuration
@@ -23,13 +29,13 @@ When you create a new listener, you choose between [*basic* and *multi-site*](./
 
 - If you want all of your requests (for any domain) to be accepted and forwarded to backend pools, choose basic. Learn [how to create an application gateway with a basic listener](./quick-create-portal.md).
 
-- If you want to forward requests to different backend pools based on the *host* header or host names, choose multi-site listener. Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port.  To differentiate requests on the same port, you must specify a host name that matches with the incoming request. To learn more, see [hosting multiple sites using Application Gateway](multiple-site-overview.md).
+- If you want to forward requests to different backend pools based on the *host* header or host names, choose multi-site listener. Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port. To differentiate requests on the same port, you must specify a host name that matches with the incoming request. To learn more, see [hosting multiple sites using Application Gateway](multiple-site-overview.md).
 
 ### Order of processing listeners
 
 For the v1 SKU, requests are matched according to the order of the rules and the type of listener. If a rule with basic listener comes first in the order, it's processed first and will accept any request for that port and IP combination. To avoid this, configure the rules with multi-site listeners first and push the rule with the basic listener to the last in the list.
 
-For the v2 SKU, multi-site listeners are processed before basic listeners, unless rule priority is defined. If using rule priority, wildcard listeners should be defined a priority with a number greater than non-wildcard listeners, to ensure non-wildcard listeners execute prior to the wildcard listeners.
+For the v2 SKU, rule priority defines the order in which listeners are processed. Wildcard and basic listeners should be defined a priority with a number greater than site-specific and multi-site listeners, to ensure site-specific and multi-site listeners execute prior to the wildcard and basic listeners.
 
 ## Frontend IP address
 
@@ -85,7 +91,11 @@ $gw.EnableHttp2 = $true
 Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
-You can also enable HTTP2 support using the Azure portal by selecting **Enabled** under **HTTP2** in Application gateway > Configuration. 
+> [!IMPORTANT]
+> When creating an application gateway resource through the Azure portal, the default option for **HTTP2** is set as enabled. You can choose **Disabled** during creation, and re-enabled HTTP2 support using the Azure portal by selecting **Enabled** under **HTTP2** in **Application gateway > Configuration**.
+>
+> In instances where HTTP2 isn't supported by a client, HTTP1.1 will be used. Enabling HTTP2 doesn't disable HTTP1.1; it allows support for both.
+>
 
 ### WebSocket support
 

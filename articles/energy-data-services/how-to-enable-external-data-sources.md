@@ -3,7 +3,7 @@ title: "Microsoft Azure Data Manager for Energy - How to enable External Data So
 description: "This article describes how to enable external data sources in Azure Data Manager for Energy."
 author: bharathim
 ms.author: bselvaraj
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: how-to #Don't change
 ms.date: 03/14/2024
 
@@ -66,7 +66,7 @@ We notify you once EDS preview is enabled in your Azure Data Manager for Energy 
         - When an application tries to get an invalid deleted secret. 
 
 ## Limitations
-The Naturalization DAG workflow won't be included in the M23 release.
+Manifest ingestion by Reference DAG ([Sandbox feature](https://osdu.projects.opengroup.org/pmc/work-products/pmc-portal/pmc-policies/main/maturity/maturity-list.html)) is not supported yet. Therefore, you will not be able to ingest manifest payloads larger than 12MB. To work around this issue, you can alter the CSDJ filter condition to retrieve external data in smaller chunks at regular intervals.
  
 ## FAQ
 See [External data sources FAQ.](faq-energy-data-services.yml#external-data-sources)

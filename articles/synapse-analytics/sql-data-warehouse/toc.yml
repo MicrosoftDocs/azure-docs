@@ -82,8 +82,6 @@ items:
     items:
     - name: Overview
       href: workspace-connected-experience.md
-    - name: Supported regions
-      href: workspace-connected-regions.md
   - name: Connectivity
     items: 
     - name: Connectivity architecture
@@ -292,7 +290,7 @@ items:
     items:
     - name: Overview
       href: sql-data-warehouse-overview-manageability-monitoring.md
-    - name: Scale, pause, resume
+    - name: Scale, pause, and resume compute
       href: sql-data-warehouse-manage-compute-overview.md
     - name: Resource utilization & query activity 
       href: sql-data-warehouse-concept-resource-utilization-query-activity.md 
@@ -474,7 +472,7 @@ items:
 - name: Resources
   items:
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=databases
+    href: https://azure.microsoft.com/updates/?category=databases
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-synapse-analytics.html
   - name: Pricing

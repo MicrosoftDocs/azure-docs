@@ -1,5 +1,5 @@
 ---
-title:  Discover and register your Spring Boot applications in Azure Spring Apps
+title:  Discover and Register Your Spring Boot Applications in Azure Spring Apps
 description: Discover and register your Spring Boot applications with managed Spring Cloud Service Registry (OSS) in Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-spring-apps
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌ Enterprise
+**This article applies to:** ✅ Standard consumption and dedicated (Preview) ✅ Basic/Standard ❎ Enterprise
 
 This article shows you how to register your application using Spring Cloud Service Registry.
 
@@ -36,7 +36,7 @@ Service registration and discovery are key requirements for maintaining a list o
 
 ::: zone pivot="programming-language-csharp"
 
-For information about how to set up service registration for a Steeltoe app, see [Prepare a Java Spring application for deployment in Azure Spring Apps](../enterprise/how-to-prepare-app-deployment.md?tabs=basic-standard-plan&pivots=programming-language-csharp&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json).
+For information about how to set up service registration for a Steeltoe app, see [Prepare a Java Spring application for deployment in Azure Spring Apps](how-to-prepare-app-deployment.md?tabs=basic-standard-plan&pivots=programming-language-csharp).
 
 ::: zone-end
 
@@ -44,7 +44,7 @@ For information about how to set up service registration for a Steeltoe app, see
 
 ## Register your application using Spring Cloud Service Registry
 
-Before your application can manage service registration and discovery using Spring Cloud Service Registry, you must include the following dependency for `spring-cloud-starter-netflix-eureka-client` in your *pom.xml* file:
+Before your application can manage service registration and discovery using Spring Cloud Service Registry, you must include the following dependency for `spring-cloud-starter-netflix-eureka-client` in your **pom.xml** file:
 
 ```xml
 <dependency>

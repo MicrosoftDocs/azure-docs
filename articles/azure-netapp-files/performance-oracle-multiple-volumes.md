@@ -4,9 +4,10 @@ description: Migrating highly performant Exadata grade databases to the cloud is
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/20/2024
 ms.author: anfdocs
+# Customer intent: As a database administrator, I want to optimize Oracle database performance on Azure using Azure NetApp Files with multiple volumes, so that I can handle demanding workloads efficiently and ensure scalability in the cloud.
 ---
 
 # Oracle database performance on Azure NetApp Files multiple volumes

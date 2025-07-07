@@ -1,9 +1,8 @@
 ---
 title: "Synapse implementation success methodology: Evaluate Spark pool design"
 description: "Learn how to evaluate your Spark pool design to identify issues and validate that it meets guidelines and requirements."
-author: whhender
-ms.author: whhender
-ms.reviewer: whhender
+author: ms-arali
+ms.author: arali
 ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 05/31/2022
@@ -78,4 +77,4 @@ For security, evaluate the following points.
 
 In the [next article](implementation-success-evaluate-project-plan.md) in the *Azure Synapse success by design* series, learn how to evaluate your modern data warehouse project plan before the project starts.
 
-For more information on best practices, see [Apache Spark for Azure Synapse Guidance](https://azuresynapsestorage.blob.core.windows.net/customersuccess/Guidance%20Video%20Series/EGUI_Synapse_Spark_Guidance.pdf).
+For more information on best practices, see [Apache Spark for Azure Synapse Guidance](/azure/synapse-analytics/spark/apache-spark-overview).

@@ -11,8 +11,6 @@
       href: https://azure.microsoft.com/pricing/details/web-pubsub/
     - name: Region availability
       href: https://azure.microsoft.com/global-infrastructure/services/?products=web-pubsub
-    - name: MQTT in Web PubSub
-      href: overview-mqtt.md
     - name: What's new
       href: whats-new.md
 - name: Quickstarts
@@ -22,8 +20,6 @@
       href: howto-develop-create-instance.md
     - name: PubSub among clients
       href: quickstarts-pubsub-among-clients.md
-    - name: PubSub among MQTT clients
-      href: quickstarts-pubsub-among-mqtt-clients.md
     - name: Push message from server
       href: quickstarts-push-messages-from-server.md
     - name: Event notifications from clients
@@ -31,6 +27,8 @@
 - name: Tutorials
   expanded: false
   items:
+    - name: Use LiveTry to explore
+      href: quickstarts-livetry.md
     - name: Publish and subscribe messages
       href: tutorial-pub-sub-messages.md
     - name: Build a chat app
@@ -52,7 +50,7 @@
       items:
         - name: Create WebSocket clients
           href: howto-websocket-connect.md
-        - name: Create reliable Websocket clients
+        - name: Create reliable WebSocket clients
           href: howto-develop-reliable-clients.md
         - name: How to connect MQTT WebSocket clients
           href: howto-connect-mqtt-websocket-client.md
@@ -150,7 +148,7 @@
     - name: Overview
       href: overview-mqtt.md
     - name: Quickstart for MQTT users
-      href: quickstarts-pubsub-among-mqtt-clients.md
+      href: howto-mqtt-pubsub-among-mqtt-clients.md
     - name: Tutorials
       expanded: true
       items:
@@ -160,6 +158,8 @@
       items:
         - name: Connect MQTT WebSocket clients
           href: howto-connect-mqtt-websocket-client.md
+        - name: PubSub among MQTT clients
+          href: howto-mqtt-pubsub-among-mqtt-clients.md
     - name: Reference
       items:
         - name: MQTT event handler protocol
@@ -322,5 +322,5 @@
       href: resource-faq.md
     - name: Microsoft Q&A
       href: /answers/topics/azure-web-pubsub.html
-    - name: StackOverflow
+    - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-web-pubsub

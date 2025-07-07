@@ -1,20 +1,19 @@
 ---
-title: Troubleshoot time sync issues for Azure Data Box, Azure Data Box Heavy devices
-description: Describes how to troubleshoot time sync issues for Azure Data Box or Azure Data Box Heavy device via the PowerShell interface.
+title: Troubleshoot time sync issues for Azure Data Box, Data Box Next-gen, and Azure Data Box Heavy devices
+description: Describes how to troubleshoot time sync issues for Azure Data Box, Data Box Next-gen, and Azure Data Box Heavy device via the PowerShell interface.
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: pod
-ms.custom:
+ms.service: azure-databox
 ms.topic: troubleshooting
-ms.date: 11/15/2021
+ms.date: 03/06/2025
 ms.author: shaas
+# Customer intent: As a data engineer, I want to troubleshoot time synchronization issues on my Data Box device using PowerShell, so that I can ensure accurate data transfer and prevent errors related to time discrepancies during data operations.
 ---
 
-# Sync device time for Azure Data Box and Azure Data Box Heavy
+# # Sync device time for Azure Data Box, Data Box Next-gen, and Azure Data Box Heavy
 
-This article describes how to diagnose that your Data Box is out of sync and then change the time on your Data Box device. The information in this article applies to import and export orders on both Data Box and Data Box Heavy devices.
+This article describes how to diagnose that your Data Box is out of sync and then change the time on your Data Box device. The information in this article applies to import and export orders on both Data Box, Data Box Next-gen and Data Box Heavy devices.
 
 
 ## About device time sync

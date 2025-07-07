@@ -1,15 +1,15 @@
 ---
 title: "Pattern: Deploy resources with a policy definition"
 description: This Azure Policy pattern provides an example of how to deploy resources with a deployIfNotExists policy definition.
-ms.date: 05/16/2022
+ms.date: 03/04/2025
 ms.topic: sample
 ---
 # Azure Policy pattern: deploy resources
 
-The [deployIfNotExists](../concepts/effects.md#deployifnotexists) effect makes it possible to deploy
+The [deployIfNotExists](../concepts/effect-deploy-if-not-exists.md) effect makes it possible to deploy
 an [Azure Resource Manager template](/azure/azure-resource-manager/templates/overview) (ARM
 template) when creating or updating a resource that isn't compliant. This approach can be preferred
-to using the [deny](../concepts/effects.md#deny) effect as it lets resources continue to be created,
+to using the [deny](../concepts/effect-deny.md) effect as it lets resources continue to be created,
 but ensures the changes are made to make them compliant.
 
 ## Sample policy definition
@@ -71,5 +71,5 @@ three core components:
 ## Next steps
 
 - Review other [patterns and built-in definitions](./index.md).
-- Review the [Azure Policy definition structure](../concepts/definition-structure.md).
-- Review [Understanding policy effects](../concepts/effects.md).
+- Review the [Azure Policy definition structure](../concepts/definition-structure-basics.md).
+- Review [Understanding policy effects](../concepts/effect-basics.md).

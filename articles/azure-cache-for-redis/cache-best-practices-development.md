@@ -1,12 +1,14 @@
 ---
 title: Best practices for development
-titleSuffix: Azure Cache for Redis
 description: Learn how to develop code for Azure Cache for Redis.
 
 
 ms.topic: conceptual
+ms.custom:
+  - ignite-2024
 ms.date: 04/18/2024
-
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ---
 
@@ -88,10 +90,6 @@ The public IP address assigned to your cache can change as a result of a scale o
 ## Choose an appropriate Redis version
 
 The default version of Redis that is used when creating a cache can change over time. Azure Cache for Redis might adopt a new version when a new version of open-source Redis is released. If you need a specific version of Redis for your application, we recommend choosing the Redis version explicitly when you create the cache.
-
-## Specific guidance for the Enterprise tiers
-
-Because the _Enterprise_ and _Enterprise Flash_ tiers are built on Redis Enterprise rather than open-source Redis, there are some differences in development best practices. For more information, see [Best Practices for the Enterprise and Enterprise Flash tiers](cache-best-practices-enterprise-tiers.md).
 
 ## Use TLS encryption
 

@@ -2,13 +2,14 @@
 title: Deploy & configure Azure Firewall using the Azure portal
 description: In this article, you learn how to deploy and configure Azure Firewall using the Azure portal. 
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.topic: how-to
-ms.date: 11/14/2023
-ms.author: victorh
+ms.date: 01/24/2025
+ms.author: duau
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
+# Customer intent: As a network administrator, I want to deploy and configure a firewall in our Azure environment, so that I can control outbound access from our virtual networks and enhance our overall network security.
 ---
 
 # Deploy and configure Azure Firewall using the Azure portal
@@ -88,14 +89,14 @@ This virtual network has two subnets.
 1. For **Name**, type **fw-pip** and select **OK**.
 1. Select **Next**.
 1. For **Address space**, accept the default **10.0.0.0/16**.
-1. Under **Subnet**, select **default** and change the **Name** to **Workload-SN**.
+1. Under **Subnets**, select **default** and change the **Name** to **Workload-SN**.
 1. For **Starting address**, change it to **10.0.2.0/24**.
 1. Select **Save**.
 1. Select **Review + create**.
 1. Select **Create**.
 
 > [!NOTE]
-> Azure Firewall uses public IPs as needed based on available ports. After randomly selecting a public IP to connect outbound from, it will only use the next available public IP after no more connections can be made from the current public IP. In scenarios with high traffic volume and throughput, it is recommended to use a NAT Gateway to provide outbound connectivity. SNAT ports are dynamically allocated across all public IPs associated with NAT Gateway. To learn more see [integrate NAT Gateway with Azure Firewall](/azure/firewall/integrate-with-nat-gateway). 
+> Azure Firewall uses public IPs as needed based on available ports. After randomly selecting a public IP to connect outbound from, it will only use the next available public IP after no more connections can be made from the current public IP. In scenarios with high traffic volume and throughput, it's recommended to use a NAT Gateway to provide outbound connectivity. SNAT ports are dynamically allocated across all public IPs associated with NAT Gateway. To learn more, see [Scale SNAT ports with Azure NAT Gateway](/azure/firewall/integrate-with-nat-gateway). 
 
 ### Create a virtual machine
 
@@ -130,8 +131,8 @@ Now create the workload virtual machine, and place it in the **Workload-SN** sub
 
 ## Examine the firewall
 
-7. Go to the resource group and select the firewall.
-8. Note the firewall private and public IP addresses. You use these addresses later.
+1. Go to the resource group and select the firewall.
+1. Note the firewall private and public IP addresses. You use these addresses later.
 
 ## Create a default route
 
@@ -141,7 +142,7 @@ As a result, there's no need create another user defined route to include the Az
 
 For the **Workload-SN** subnet, configure the outbound default route to go through the firewall.
 
-1. On the Azure portal search for **Route tables**.
+1. On the Azure portal, search for **Route tables**.
 1. Select **Route tables** in the results pane.
 1. Select **Create**.
 1. For **Subscription**, select your subscription.
@@ -204,7 +205,7 @@ This is the network rule that allows outbound access to two IP addresses at port
 2. For **Destination type** select **IP address**.
 3. For **Destination address**, type **209.244.0.3,209.244.0.4**
 
-   These are public DNS servers operated by Level3.
+   These addresses are public DNS servers operated by Level3.
 1. For **Destination Ports**, type **53**.
 2. Select **Add**.
 

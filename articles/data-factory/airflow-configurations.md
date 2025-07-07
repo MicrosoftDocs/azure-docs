@@ -3,9 +3,9 @@ title: Supported Apache Airflow configurations
 description: This article enumerates the Apache Airflow configurations supported by the Workflow Orchestration Manager.
 author: nabhishek
 ms.author: abnarain
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 12/11/2023
+ms.date: 02/13/2025
 ---
 
 # Supported Apache Airflow configurations

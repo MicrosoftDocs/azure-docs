@@ -1,9 +1,8 @@
 ---
 title: Troubleshooting dedicated SQL pool (formerly SQL DW)
 description: Troubleshooting dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: joanpo
+author: joannapea
+ms.author: joanpo
 ms.date: 09/02/2022
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
@@ -77,7 +76,6 @@ For more help in finding solution to your issue, here are some other resources y
 
  - [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
  - [Feature requests](https://feedback.azure.com/forums/307516-sql-data-warehouse)
- - [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
  - [Create support ticket](sql-data-warehouse-get-started-create-support-ticket.md)
  - [Microsoft Q&A question page](/answers/topics/azure-synapse-analytics.html)
  - [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)

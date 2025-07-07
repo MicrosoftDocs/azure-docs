@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 07/09/2024
 ms.author: kendownie
 ms.custom: devx-track-azurecli
+# Customer intent: As a cloud architect, I want to install Azure Container Storage on an AKS cluster using Azure Arc CLI commands so that I can enable scalable and flexible storage solutions for my containerized applications.
 ---
 
 # Tutorial: Install Azure Container Storage using Azure Arc CLI commands
@@ -100,7 +101,7 @@ Before you create your cluster, you should understand which back-end storage opt
 
 ### VM types
 
-To use Azure Container Storage, you'll need a node pool of at least three Linux VMs. If you're using local NVMe for your storage pool, the node pool should contain a minimum of four Linux VMs. Each VM should have a minimum of four virtual CPUs (vCPUs). Azure Container Storage will consume one core for I/O processing on every VM the extension is deployed to.
+To use Azure Container Storage, you'll need a node pool of at least three Linux VMs. Each VM should have a minimum of four virtual CPUs (vCPUs). Azure Container Storage will consume one core for I/O processing on every VM the extension is deployed to.
 
 If you intend to use Azure Elastic SAN or Azure Disks with Azure Container Storage, then you should choose a [general purpose VM type](/azure/virtual-machines/sizes-general) such as **standard_d4s_v5** for the cluster nodes.
 

@@ -1,26 +1,29 @@
 ---
-title: Authorize test console of API Management developer portal using OAuth 2.0
+title: Authorize test console of API Management developer portal - OAuth 2.0
 titleSuffix: Azure API Management
-description: Set up OAuth 2.0 user authorization for the test console in the Azure API Management developer portal. This example uses Microsoft Entra ID as an OAuth 2.0 provider.
+description: Set up OAuth 2.0 user authorization for the test console in Azure API Management developer portal. This example uses Microsoft Entra ID as OAuth 2.0 provider.
 services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
-ms.date: 04/01/2024
+ms.topic: how-to
+ms.date: 01/06/2025
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
 
 # How to authorize test console of developer portal by configuring OAuth 2.0 user authorization
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 Many APIs support [OAuth 2.0](https://oauth.net/2/) to secure the API and ensure that only valid users have access, and they can only access resources to which they're entitled. To use Azure API Management's interactive developer console with such APIs, the service allows you to configure an external provider for OAuth 2.0 user authorization.
 
 Configuring OAuth 2.0 user authorization in the test console of the developer portal provides developers with a convenient way to acquire an OAuth 2.0 access token. From the test console, the token is then passed to the backend with the API call. Token validation must be configured separately - either using a [JWT validation policy](validate-jwt-policy.md), or in the backend service.
 
 ## Prerequisites
+
+- An API Management instance.
+- An OAuth 2.0 provider.
 
 This article shows you how to configure your API Management service instance to use OAuth 2.0 authorization in the developer portal's test console, but it doesn't show you how to configure an OAuth 2.0 provider. 
 
@@ -55,7 +58,7 @@ This configuration supports the following OAuth flow:
 
 1. A developer (user of the developer portal) makes an API call with the authorization header.
 
-1. The token gets validated by using the `validate-jwt` policy in API Management by Microsoft Entra ID.
+1. The token gets validated with the OAuth 2.0 provider by using the `validate-jwt` policy. For the Microsoft Entra ID provider, API Management also provides the `validate-azure-ad-token` policy.
 
 1. Based on the validation result, the developer will receive the response in the developer portal.
 
@@ -81,7 +84,7 @@ Consider how the grant type generates a token, the token's [scope](https://oauth
 
 When configuring OAuth 2.0 user authorization in the test console of the developer portal:
 
-* **Limit the token's scope to the minimum** needed for developers to test the APIs. Limit the scope to the test console, or to the affected APIs. The steps to configure token scope depend on your OAuth 2.0 provider.
+* **Limit the token's scope to the minimum** needed for developers to test the APIs. Limit the scope to the test console, or to the affected APIs. The steps to configure token scope depend on your OAuth 2.0 provider. An example is shown later in this article using Microsoft Entra ID.
 
   Depending on your scenarios, you may configure more or less restrictive token scopes for other client applications that you create to access backend APIs.
 * **Take extra care if you enable the Client Credentials flow**. The test console in the developer portal, when working with the Client Credentials flow, doesn't ask for credentials. An access token could be inadvertently exposed to developers or anonymous users of the developer console. 
@@ -172,11 +175,11 @@ Now that you've registered two applications to represent the API and the test co
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **App registrations**.
 
-1. Choose your client app. Then in the side menu, select **API permissions**.
+1. Choose your client-app. Then in the side menu, select **API permissions**.
 
-1. Select **+ Add a Permission**.
+1. Select **+ Add a permission**.
 
-1. Under **Select an API**, select **My APIs**, and then find and select your backend-app.
+1. Under **Select an API**, select **My APIs**, and then find and select your backend-app (the app registration for your backend API).
 
 1. Select **Delegated Permissions**, then select the appropriate permissions to your backend-app.
 
@@ -287,7 +290,7 @@ After saving the OAuth 2.0 server configuration, configure an API or APIs to use
 
 In the configuration so far, API Management doesn't validate the access token. It only passes the token in the authorization header to the backend API.
 
-To pre-authorize requests, configure a [validate-jwt](validate-jwt-policy.md) policy to validate the access token of each incoming request. If a request doesn't have a valid token, API Management blocks it.
+To pre-authorize requests, configure a [validate-jwt](validate-jwt-policy.md) policy to validate the access token of each incoming request. If a request doesn't have a valid token, API Management blocks it. When you use the Microsoft Entra ID provider, you can also use the [validate-azure-ad-token](validate-azure-ad-token-policy.md) policy.
 
 [!INCLUDE [api-management-configure-validate-jwt](../../includes/api-management-configure-validate-jwt.md)]
 

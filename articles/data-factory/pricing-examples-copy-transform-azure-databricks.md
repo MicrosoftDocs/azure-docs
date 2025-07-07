@@ -3,7 +3,7 @@ title: "Pricing example: Copy data and transform it with Azure Databricks"
 description: This article shows how to estimate pricing for Azure Data Factory to copy data and transform it with Azure Databricks every hour for 30 days.
 author: jianleishen
 ms.author: jianleishen
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: pricing
 ms.topic: conceptual
 ms.date: 06/25/2024

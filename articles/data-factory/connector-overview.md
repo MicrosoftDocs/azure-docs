@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/09/2024
+ms.date: 11/05/2024
 ms.author: jianleishen
 ---
 
@@ -41,6 +41,7 @@ The following file formats are supported. Refer to each article for format-based
 - [Delimited text format](format-delimited-text.md)
 - [Delta format](format-delta.md)
 - [Excel format](format-excel.md)
+- [Iceberg format](format-iceberg.md)
 - [JSON format](format-json.md)
 - [ORC format](format-orc.md)
 - [Parquet format](format-parquet.md)

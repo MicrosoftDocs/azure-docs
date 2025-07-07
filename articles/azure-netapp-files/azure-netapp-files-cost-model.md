@@ -4,9 +4,10 @@ description: Describes the cost model for Azure NetApp Files for managing expens
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/15/2024
 ms.author: anfdocs
+# Customer intent: As a cloud administrator, I want to understand the cost model for Azure NetApp Files, so that I can effectively manage and optimize my storage expenses based on dynamic capacity and performance requirements.
 ---
 # Cost model for Azure NetApp Files 
 

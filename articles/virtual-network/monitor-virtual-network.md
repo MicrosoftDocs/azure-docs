@@ -3,10 +3,11 @@ title: Monitor Azure Virtual Network
 description: Start here to learn how to monitor Azure virtual networks by using Azure Monitor.
 ms.date: 07/21/2024
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: concept-article
 author: asudbring
 ms.author: allensu
 ms.service: azure-virtual-network
+# Customer intent: As a network administrator, I want to monitor Azure Virtual Networks using Azure Monitor, so that I can analyze performance metrics and set alerts for configurations and activities to ensure optimal network performance and security.
 ---
 
 # Monitor Azure Virtual Network

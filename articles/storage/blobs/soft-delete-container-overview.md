@@ -5,10 +5,11 @@ description: Soft delete for containers protects your data so that you can more 
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/22/2022
 ms.author: normesta
 ms.custom: references_regions
+# Customer intent: As a data administrator, I want to enable container soft delete for my storage accounts, so that I can recover deleted containers and their contents easily in case of accidental deletion.
 ---
 
 # Soft delete for containers

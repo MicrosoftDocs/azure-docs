@@ -7,8 +7,9 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/05/2024
+# Customer intent: As a network administrator, I want to bring my own IP address range to Azure, so that I can maintain my established reputation and utilize it seamlessly with Azure resources.
 ---
 
 # Custom IP address prefix (BYOIP)
@@ -56,7 +57,7 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 * Custom IP prefixes don't currently support derivation of IPs with Internet Routing Preference or that use Global Tier (for cross-region load-balancing).
 
-* In regions with [availability zones](../../availability-zones/az-overview.md), a custom IPv4 prefix (or a regional custom prefix) must be specified as either zone-redundant or assigned to a specific zone. It can't be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
+* In regions with [availability zones](../../reliability/availability-zones-overview.md), a custom IPv4 prefix (or a regional custom prefix) must be specified as either zone-redundant or assigned to a specific zone. It can't be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
 
 * The advertisements of IPs from a custom IP prefix over an Azure ExpressRoute Microsoft peering isn't currently supported.
 

@@ -1,7 +1,7 @@
 ---
 author: JanSchietse
 ms.author: janschietse
-ms.date: 01/25/2024
+ms.date: 03/17/2025
 ms.topic: include
 ms.service: azure-health-insights
 ---
@@ -79,7 +79,7 @@ ms.service: azure-health-insights
                       "code": {
                         "coding": [
                           {
-                            "system": "Http://hl7.org/fhir/ValueSet/cpt-all",
+                            "system": "http://hl7.org/fhir/ValueSet/cpt-all",
                             "code": "76856",
                             "display": "USPELVIS - US PELVIS COMPLETE"
                           }

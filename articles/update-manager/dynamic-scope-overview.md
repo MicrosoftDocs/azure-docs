@@ -4,8 +4,9 @@ description: This article provides information about Dynamic Scoping, its purpos
 ms.service: azure-update-manager
 ms.date: 09/06/2024
 ms.topic: overview
-author: SnehaSudhir 
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
+# Customer intent: "As an IT administrator managing multiple virtual machines, I want to utilize dynamic scoping for scheduled patching, so that I can efficiently manage and automate updates across various environments without manual intervention."
 ---
 
 # About Dynamic Scoping

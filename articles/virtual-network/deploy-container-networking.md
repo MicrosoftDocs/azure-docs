@@ -6,6 +6,7 @@ ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 03/24/2023
 ms.author: allensu
+# Customer intent: As a cloud engineer, I want to deploy the Azure Virtual Network CNI plug-in for Kubernetes clusters, so that I can enable virtual network capabilities for my containers and manage their networking efficiently.
 ---
 
 # Deploy the Azure Virtual Network container network interface plug-in
@@ -68,7 +69,7 @@ The json example that follows is for a cluster with the following properties:
       }
     },
     "servicePrincipalProfile": {
-      "clientId": "dd438987-aa12-4754-b47d-375811889714",
+      "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444",
       "secret": "azure123"
     }
   }

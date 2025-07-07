@@ -1,13 +1,10 @@
 ---
- title: include file
- description: include file
- services: frontdoor
- author: duongau
- ms.service: azure-frontdoor
- ms.topic: include
- ms.date: 06/01/2023
- ms.author: duau
- ms.custom: include file
+author: halkazwini
+ms.author: halkazwini
+ms.service: azure-frontdoor
+ms.topic: include
+ms.date: 06/01/2023
+ms.custom: include file
 ---
 
 | Abbreviation | Location | Region |
@@ -15,7 +12,7 @@
 | AKL | Auckland, New Zealand | New Zealand North, Asia |
 | AMS / AM | Amsterdam, Netherlands | West Europe |
 | ASH | Ashburn, Virginia, USA | EAST US, United States |
-| ATA | Atlanta, Georgia, USA | East US, United States |
+| ATA/ATL | Atlanta, Georgia, USA | East US, United States |
 | ATH | Athens, Greece | Greece Central, Europe |
 | BCN | Barcelona, Spain | Spain Central, Europe |
 | BER | Berlin, Germany | Germany West Central, Europe |
@@ -41,6 +38,7 @@
 | CPQ | Campinas, Brazil | South Brazil, Latin America |
 | CPT | Cape Town, South Africa | South Africa North |
 | CVG | Cincinnati, Ohio, USA | US East, United States |
+| CWL | Newport, United Kingdom | UK West, Europe |
 | CYS | Cheyenne, Wyoming, USA | Central US, United States |
 | DB  | Dublin, Ireland | North Europe |
 | DEL | New Delhi, India | West India, Asia |
@@ -66,6 +64,7 @@
 | HYD | Hyderabad, India | Central India, Asia |
 | IST | Istanbul, Türkiye | West Europe |
 | JAX | Jacksonville, Florida, USA | East US, United States |
+| JGA | Jamnagar, India | West India, Asia  |
 | JKT | Jakarta, Indonesia | Indonesia Central, Asia |
 | JNB | Johannesburg, South Africa | South Africa North |
 | KUL | Kuala Lumpur, Malaysia | Malaysia West, Asia |

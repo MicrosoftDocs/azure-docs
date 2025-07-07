@@ -5,12 +5,13 @@ description: Understand how POSIX-like ACLs access control lists work in Azure D
 author: normesta
 
 ms.service: azure-data-lake-storage
-ms.topic: conceptual
-ms.date: 06/06/2024
+ms.topic: concept-article
+ms.date: 12/03/2024
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.devlang: python
 ms.custom: engagement-fy23
+# Customer intent: As a data engineer, I want to manage access control lists in Azure Data Lake Storage, so that I can ensure the right permissions for users and groups when interacting with files and directories.
 ---
 
 # Access control lists (ACLs) in Azure Data Lake Storage
@@ -97,17 +98,17 @@ This table shows a column that represents each level of a fictitious directory h
 > [!IMPORTANT]
 > This table assumes that you are using **only** ACLs without any Azure role assignments. To see a similar table that combines Azure RBAC together with ACLs, see [Permissions table: Combining Azure RBAC, ABAC, and ACLs](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-abac-and-acls).
 
-|    Operation             |    /    | Oregon/ | Portland/ | Data.txt     |
-|--------------------------|---------|----------|-----------|--------------|
-| Read Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Append to Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Delete Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Delete /Oregon/          |   `-WX`   |   `RWX`    |  `RWX`      | `---`          |
-| Delete /Oregon/Portland/ |   `--X`   |   `-WX`    |  `RWX`      | `---`          |
-| Create Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| List /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
-| List /Oregon/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
-| List /Oregon/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
+| Operation                | /     | Oregon/ | Portland/ | Data.txt |
+|--------------------------|-------|---------|-----------|----------|
+| Read Data.txt            | `--X` | `--X`   | `--X`     | `R--`    |
+| Append to Data.txt       | `--X` | `--X`   | `--X`     | `RW-`    |
+| Delete Data.txt          | `--X` | `--X`   | `-WX`     | `---`    |
+| Delete /Oregon/          | `-WX` | `RWX`   | `RWX`     | `---`    |
+| Delete /Oregon/Portland/ | `--X` | `-WX`   | `RWX`     | `---`    |
+| Create / Update Data.txt | `--X` | `--X`   | `-WX`     | `---`    |
+| List /                   | `R-X` | `---`   | `---`     | `---`    |
+| List /Oregon/            | `--X` | `R-X`   | `---`     | `---`    |
+| List /Oregon/Portland/   | `--X` | `--X`   | `R-X`     | `---`    |
 
 ### Deleting files and directories
 
@@ -229,17 +230,7 @@ def access_check( user, desired_perms, path ) :
 
 ### The mask
 
-As illustrated in the Access Check Algorithm, the mask limits access for named users, the owning group, and named groups.
-
-For a new Data Lake Storage container, the mask for the access ACL of the root directory ("/") defaults to **750** for directories and **640** for files. The following table shows the symbolic notation of these permission levels.
-
-|Entity|Directories|Files|
-|--|--|--|
-|Owning user|`rwx`|`rw-`|
-|Owning group|`r-x`|`r--`|
-|Other|`---`|`---`|
-
-Files do not receive the X bit as it is irrelevant to files in a store-only system.
+The mask applies only to the ACL entry of a named user, named group, and the owning group. The mask specifies which of the permissions in the ACL entry are used to authorize access.  These applied permissions are called the _effective_ permissions of the ACL entry. All other permissions in the ACL entry are ignored. By using the mask, you can establish an upper limit on permission levels.
 
 The mask may be specified on a per-call basis. This allows different consuming systems, such as clusters, to have different effective masks for their file operations. If a mask is specified on a given request, it completely overrides the default mask.
 
@@ -248,6 +239,18 @@ The mask may be specified on a per-call basis. This allows different consuming s
 The sticky bit is a more advanced feature of a POSIX container. In the context of Data Lake Storage, it is unlikely that the sticky bit will be needed. In summary, if the sticky bit is enabled on a directory,  a child item can only be deleted or renamed by the child item's owning user, the directory's owner, or the Superuser ($superuser).
 
 The sticky bit isn't shown in the Azure portal. To learn more about the sticky bit and how to set it, see [What is the sticky bit Data Lake Storage?](/troubleshoot/azure/azure-storage/blobs/authentication/adls-gen2-sticky-bit-403-access-denied#what-is-the-sticky-bit-in-adls-gen2).
+
+## Default permissions of the root directory
+
+For a new Data Lake Storage container, the access ACL of the root directory ("/") defaults to **750** for directories and **640** for files. The following table shows the symbolic notation of these permission levels.
+
+|Entity|Directories|Files|
+|--|--|--|
+|Owning user|`rwx`|`rw-`|
+|Owning group|`r-x`|`r--`|
+|Other|`---`|`---`|
+
+Files do not receive the X bit as it is irrelevant to files in a store-only system.
 
 ## Default permissions on new files and directories
 
@@ -335,7 +338,7 @@ Article
 To get the OID for the service principal that corresponds to an app registration, you can use the `az ad sp show` command. Specify the Application ID as the parameter. Here's an example of obtaining the OID for the service principal that corresponds to an app registration with App ID = 00001111-aaaa-2222-bbbb-3333cccc4444. Run the following command in the Azure CLI:
 
 ```azurecli
-az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
+az ad sp show --id 00001111-aaaa-2222-bbbb-3333cccc4444 --query objectId
 ```
 
 OID will be displayed.

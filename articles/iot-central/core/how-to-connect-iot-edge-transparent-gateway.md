@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 03/04/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ms.custom: device-developer
 ---
@@ -230,6 +230,9 @@ IoT Central relies on the Device Provisioning Service (DPS) to provision devices
 In your IoT Central application, verify that the **Device status** for the `thermostat1` device is now **Provisioned**.
 
 ## Configure a downstream device
+
+> [!NOTE]
+> IoT Central does not support X.509 certificate authentication for downstream devices connected to an IoT Edge transparent gateway.
 
 In the previous section, you configured the `edgegateway` virtual machine with the demo certificates to enable it to run as gateway. The `leafdevice` virtual machine is ready for you to install a thermostat simulator that uses the gateway to connect to IoT Central.
 

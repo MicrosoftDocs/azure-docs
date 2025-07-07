@@ -28,13 +28,13 @@ Version 4 of the Node.js programming model requires the following minimum versio
 
 :::zone pivot="programming-language-javascript"
 - [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package v4.0.0
-- [Node.js](https://nodejs.org/en/download/releases/) v18+
+- [Node.js](https://nodejs.org/en/about/previous-releases) v18+
 - [Azure Functions Runtime](./functions-versions.md) v4.25+
 - [Azure Functions Core Tools](./functions-run-local.md) v4.0.5382+ (if running locally)
 :::zone-end
 :::zone pivot="programming-language-typescript"
 - [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package v4.0.0
-- [Node.js](https://nodejs.org/en/download/releases/) v18+
+- [Node.js](https://nodejs.org/en/about/previous-releases) v18+
 - [TypeScript](https://www.typescriptlang.org/) v4+
 - [Azure Functions Runtime](./functions-versions.md) v4.25+
 - [Azure Functions Core Tools](./functions-run-local.md) v4.0.5382+ (if running locally)

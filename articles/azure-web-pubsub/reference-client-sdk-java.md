@@ -24,6 +24,8 @@ As shown in the diagram, your clients establish WebSocket connections with your 
 
 :::image type="content" source="./media/reference-client-sdk-java/flow-overview.png" alt-text="Screenshot showing clients establishing WebSocket connection with a Web PubSub resource":::
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 ## Getting started
 
 ### Prerequisites
@@ -65,6 +67,8 @@ WebPubSubClient client = new WebPubSubClientBuilder()
 #### Use negotiation server to generate `Client Access URL`
 
 In production, a client usually fetches the `Client Access URL` from a negotiation server. The server holds the `connection string` and generates the `Client Access URL` through `WebPubSubServiceClient`. As a sample, the code snippet just demonstrates how to generate the `Client Access URL` inside a single process.
+
+[!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
 
 ```java readme-sample-createClientFromCredential
 // WebPubSubServiceAsyncClient is from com.azure:azure-messaging-webpubsub

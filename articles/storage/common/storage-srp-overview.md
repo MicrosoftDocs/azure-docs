@@ -8,8 +8,9 @@ ms.author: pauljewell
 
 ms.service: azure-storage
 ms.topic: overview
-ms.date: 08/01/2024
+ms.date: 11/19/2024
 ms.custom: devguide-csharp, devguide-java, devguide-javascript, devguide-python, devguide-go
+# Customer intent: "As a developer, I want to understand the Azure Storage client libraries, so that I can effectively manage and access Azure Storage resources in my applications using the appropriate libraries for data and resource management."
 ---
 
 # Overview of the Azure Storage client libraries

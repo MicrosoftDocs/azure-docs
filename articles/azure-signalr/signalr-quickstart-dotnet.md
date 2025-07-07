@@ -18,8 +18,9 @@ Refer to the [version differences doc](/aspnet/core/signalr/version-differences?
 
 In this quickstart, you learn how to get started with the ASP.NET and Azure SignalR Service for a similar [Chat Room application](./signalr-quickstart-dotnet-core.md).
 
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note-dotnet.md)]
+
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
 
 ## Prerequisites
 
@@ -68,6 +69,8 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 1. Select and copy the primary connection string.
 
 1. Now set the connection string in the *web.config* file.
+
+    [!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
     ```xml
     <configuration>

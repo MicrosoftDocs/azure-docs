@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.subservice: synapse-link
 ms.date: 08/10/2020
 ms.author: rosouz
-ms.reviewer: whhender, wiassaf, sidandrews
+ms.reviewer:  sidandrews
 ms.custom: cosmos-db, mode-other
 ---
 

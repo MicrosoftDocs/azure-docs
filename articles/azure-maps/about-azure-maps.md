@@ -3,7 +3,7 @@ title: Overview for Microsoft Azure Maps
 description: Learn about services and capabilities in Microsoft Azure Maps and how to use them in your applications.
 author: faterceros
 ms.author: aterceros
-ms.date: 10/21/2022
+ms.date: 03/31/2025
 ms.topic: overview
 ms.service: azure-maps
 ms.subservice: general
@@ -40,18 +40,6 @@ The Azure Maps Web SDK lets you customize interactive maps with your own content
 
 :::image type="content" source="./media/about-azure-maps/intro_web_map_control.png" lightbox="./media/about-azure-maps/intro_web_map_control.png" alt-text="Example map of population change created by using Azure Maps Web SDK.":::
 
-### Android SDK
-
-> [!NOTE]
->
-> **Azure Maps Android SDK retirement**
->
-> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
-
-Use the Azure Maps Android SDK to create mobile mapping applications.
-
-:::image type="content" source="./media/about-azure-maps/android_sdk.png" lightbox="./media/about-azure-maps/android_sdk.png" border="false" alt-text="Map examples on a mobile device.":::
-
 ## Services in Azure Maps
 
 Azure Maps consists of the following services that can provide geographic context to your Azure applications.
@@ -72,7 +60,7 @@ For more information, see [Geolocation] in the Azure Maps REST API documentation
 >
 > **Azure Maps Render v1 service retirement**
 >
-> The Azure Maps [Render v1] service is now deprecated and will be retired on 9/17/26. To avoid service disruptions, all calls to Render v1 API will need to be updated to use [Render v2] API by 9/17/26.
+> The Azure Maps Render v1 service is now deprecated and will be retired on 9/17/26. To avoid service disruptions, all calls to Render v1 API will need to be updated to use the [latest version] by 9/17/26.
 
 ### Route service
 
@@ -216,8 +204,7 @@ Stay up to date on Azure Maps:
 [Get Map Tile]: /rest/api/maps/render/get-map-tile
 [Get Weather along route API]: /rest/api/maps/weather/getweatheralongroute
 [Render]: /rest/api/maps/render
-[Render v1]: /rest/api/maps/render?view=rest-maps-1.0
-[Render v2]: /rest/api/maps/render
+[latest version]: /rest/api/maps/render
 [REST APIs]: /rest/api/maps/
 [Route]: /rest/api/maps/route
 [Search]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true

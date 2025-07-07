@@ -11,7 +11,7 @@ ms.author: midesa
 
 # Load data with Petastorm (deprecated)
 
-Petastorm is an open source data access library, which enables single-node or distributed training of deep learning models. This library enables training directly from datasets in Apache Parquet format and datasets that are loaded as an Apache Spark DataFrame. Petastorm supports popular training frameworks such as Tensorflow and PyTorch.
+Petastorm is an open source data access library, which enables single-node or distributed training of deep learning models. This library enables training directly from datasets in Apache Parquet format and datasets that are loaded as an Apache Spark DataFrame. Petastorm supports popular training frameworks such as TensorFlow and PyTorch.
 
 For more information about Petastorm, you can visit the [Petastorm GitHub page](https://github.com/uber/petastorm) or the [Petastorm API documentation](https://petastorm.readthedocs.io/en/latest).
 
@@ -22,12 +22,6 @@ For more information about Petastorm, you can visit the [Petastorm GitHub page](
 
 > [!NOTE]
 > The Preview for Azure Synapse GPU-enabled pools has now been deprecated.
-
-> [!CAUTION]
-> Deprecation and disablement notification for GPUs on the Azure Synapse Runtime for Apache Spark 3.1 and 3.2
-> - The GPU accelerated preview is now deprecated on the [Apache Spark 3.2 (deprecated) runtime](../spark/apache-spark-32-runtime.md). Deprecated runtimes will not have bug and feature fixes. This runtime and the corresponding GPU accelerated preview on Spark 3.2 has been retired and disabled as of July 8, 2024.
-> - The GPU accelerated preview is now deprecated on the [Azure Synapse 3.1 (deprecated) runtime](../spark/apache-spark-3-runtime.md). Azure Synapse Runtime for Apache Spark 3.1 has reached its end of support as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
-
 
 ## Configure the Apache Spark session
 
@@ -103,7 +97,7 @@ generate_petastorm_dataset(output_url)
 
 ### Read dataset from a primary storage account
 
-The ```petastorm.reader.Reader``` class is the main entry point for user code that accesses the data from an ML framework such as Tensorflow or Pytorch. You can read a dataset using the ```petastorm.reader.Reader``` class and the ```petastorm.make_reader``` factory method.
+The ```petastorm.reader.Reader``` class is the main entry point for user code that accesses the data from an ML framework such as TensorFlow or PyTorch. You can read a dataset using the ```petastorm.reader.Reader``` class and the ```petastorm.make_reader``` factory method.
 
 In the example, you can see how you can pass an ```abfs``` URL protocol.
 

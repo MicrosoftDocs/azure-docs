@@ -1,18 +1,15 @@
 ---
 title: Create an App Service Environment (ASE) v3 with Azure Resource Manager
 description: Learn how to create an external or ILB App Service Environment v3 by using an Azure Resource Manager template.
-author: madsd
+author: seligj95
 ms.topic: how-to
 ms.custom: devx-track-arm-template
 ms.date: 03/09/2023
-ms.author: madsd
+ms.author: jordanselig
 ---
 # Create an App Service Environment by using an Azure Resource Manager template
 
 App Service Environment can be created using an Azure Resource Manager template allowing you to do repeatable deployment.
-
-> [!NOTE]
-> This article is about App Service Environment v3, which is used with Isolated v2 App Service plans.
 
 ## Overview
 

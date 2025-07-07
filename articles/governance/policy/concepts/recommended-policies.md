@@ -1,7 +1,7 @@
 ---
 title: Recommended policies for Azure virtual machines
 description: Describes recommended policies for Azure virtual machines.
-ms.date: 04/15/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
 ---
 

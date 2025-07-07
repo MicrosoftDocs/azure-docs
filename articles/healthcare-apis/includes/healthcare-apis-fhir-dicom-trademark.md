@@ -1,10 +1,10 @@
 ---
 title: FHIR and DICOM trademarks statements
-author: msjasteppe
+author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.topic: include
 ms.date: 10/9/2023
-ms.author: jasteppe
+ms.author: kesheth
 ---
 
 > [!NOTE]

@@ -5,10 +5,11 @@ description: Learn how to configure container, directory, and file-level access 
 author: normesta
 
 ms.service: azure-data-lake-storage
-ms.topic: conceptual
-ms.date: 04/24/2023
+ms.topic: concept-article
+ms.date: 12/03/2024
 ms.author: normesta
 ms.custom: engagement-fy23
+# Customer intent: As a data administrator, I want to configure access controls for directories and files in Azure Data Lake Storage, so that I can manage permissions effectively and ensure secure data access for users and applications.
 ---
 
 # Access control model in Azure Data Lake Storage
@@ -21,7 +22,7 @@ Data Lake Storage supports the following authorization mechanisms:
 - Attribute-based access control (Azure ABAC)
 - Access control lists (ACL)
 
-[Shared Key and SAS authorization](#shared-key-and-shared-access-signature-sas-authorization) grants access to a user (or application) without requiring them to have an identity in Microsoft Entra ID. With these two forms of authentication, Azure RBAC, Azure ABAC, and ACLs have no effect.
+ Shared Key, account SAS, and service SAS authorization grants access to a user (or application) without requiring them to have an identity in Microsoft Entra ID. With these forms of authentication, Azure RBAC, Azure ABAC, and ACLs have no effect. ACLs can be applied to user delegated SAS tokens because those tokens are secured with Microsoft Entra credentials. See [Shared Key and SAS authorization](#shared-key-and-shared-access-signature-sas-authorization).
 
 Azure RBAC and ACL both require the user (or application) to have an identity in Microsoft Entra ID. Azure RBAC lets you grant "coarse-grain" access to storage account data, such as read or write access to **all** of the data in a storage account. Azure ABAC allows you to refine RBAC role assignments by adding conditions. For example, you can grant read or write access to all data objects in a storage account that have a specific tag. ACLs let you grant "fine-grained" access, such as write access to a specific directory or file.
 
@@ -85,36 +86,36 @@ The following diagram shows the permission flow for three common operations: lis
 
 The following table shows you how to combine Azure roles, conditions, and ACL entries so that a security principal can perform the operations listed in the **Operation** column. This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`/`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. Appearing in those columns are [short form](data-lake-storage-access-control.md#short-forms-for-permissions) representations of the ACL entry required to grant permissions. **N/A** (_Not applicable_) appears in the column if an ACL entry is not required to perform the operation.
 
-| Operation                | Assigned Azure role (with or without conditions) | /        | Oregon/  | Portland/ | Data.txt |
-|--------------------------|----------------------------------|----------|----------|-----------|----------|
-| Read Data.txt            |   Storage Blob Data Owner        | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob Data Contributor  | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob Data Reader       | N/A      | N/A      | N/A       | N/A    |
-|                          |   None                           | `--X`    | `--X`    | `--X`     | `R--`  |
-| Append to Data.txt       |   Storage Blob Data Owner        | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob Data Contributor  | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob Data Reader       | `--X`    | `--X`    | `--X`     | `-W-`  |
-|                          |   None                           | `--X`    | `--X`    | `--X`     | `RW-`  |
-| Delete Data.txt          |   Storage Blob Data Owner        | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob Data Contributor  | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob Data Reader       | `--X`    | `--X`    | `-WX`     | N/A    |
-|                          |   None                           | `--X`    | `--X`    | `-WX`     | N/A    |
-| Create Data.txt          |   Storage Blob Data Owner        | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob Data Contributor  | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob Data Reader       | `--X`    | `--X`    | `-WX`     | N/A    |
-|                          |   None                           | `--X`    | `--X`    | `-WX`     | N/A    |
-| List /                   |   Storage Blob Data Owner        | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob Data Contributor  | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob Data Reader       | N/A      | N/A      | N/A       | N/A    |
-|                          |   None                           | `R-X`    | N/A      | N/A       | N/A    |
-| List /Oregon/            |   Storage Blob Data Owner        | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob Data Contributor  | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob Data Reader       | N/A      | N/A      | N/A       | N/A    |
-|                          |   None                           | `--X`    | `R-X`    | N/A       | N/A    |
-| List /Oregon/Portland/   |   Storage Blob Data Owner        | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob Data Contributor  | N/A      | N/A      | N/A       | N/A    |
-|                          |   Storage Blob Data Reader       | N/A      | N/A      | N/A       | N/A    |
-|                          |   None                           | `--X`    | `--X`    | `R-X`     | N/A    |
+| Operation                | Assigned Azure role (with or without conditions) | /     | Oregon/ | Portland/ | Data.txt |
+|--------------------------|--------------------------------------------------|-------|---------|-----------|----------|
+| Read Data.txt            | Storage Blob Data Owner                          | N/A   | N/A     | N/A       | N/A      |
+|                          | Storage Blob Data Contributor                    | N/A   | N/A     | N/A       | N/A      |
+|                          | Storage Blob Data Reader                         | N/A   | N/A     | N/A       | N/A      |
+|                          | None                                             | `--X` | `--X`   | `--X`     | `R--`    |
+| Append to Data.txt       | Storage Blob Data Owner                          | N/A   | N/A     | N/A       | N/A      |
+|                          | Storage Blob Data Contributor                    | N/A   | N/A     | N/A       | N/A      |
+|                          | Storage Blob Data Reader                         | `--X` | `--X`   | `--X`     | `-W-`    |
+|                          | None                                             | `--X` | `--X`   | `--X`     | `RW-`    |
+| Delete Data.txt          | Storage Blob Data Owner                          | N/A   | N/A     | N/A       | N/A      |
+|                          | Storage Blob Data Contributor                    | N/A   | N/A     | N/A       | N/A      |
+|                          | Storage Blob Data Reader                         | `--X` | `--X`   | `-WX`     | N/A      |
+|                          | None                                             | `--X` | `--X`   | `-WX`     | N/A      |
+| Create / Update Data.txt | Storage Blob Data Owner                          | N/A   | N/A     | N/A       | N/A      |
+|                          | Storage Blob Data Contributor                    | N/A   | N/A     | N/A       | N/A      |
+|                          | Storage Blob Data Reader                         | `--X` | `--X`   | `-WX`     | N/A      |
+|                          | None                                             | `--X` | `--X`   | `-WX`     | N/A      |
+| List /                   | Storage Blob Data Owner                          | N/A   | N/A     | N/A       | N/A      |
+|                          | Storage Blob Data Contributor                    | N/A   | N/A     | N/A       | N/A      |
+|                          | Storage Blob Data Reader                         | N/A   | N/A     | N/A       | N/A      |
+|                          | None                                             | `R-X` | N/A     | N/A       | N/A      |
+| List /Oregon/            | Storage Blob Data Owner                          | N/A   | N/A     | N/A       | N/A      |
+|                          | Storage Blob Data Contributor                    | N/A   | N/A     | N/A       | N/A      |
+|                          | Storage Blob Data Reader                         | N/A   | N/A     | N/A       | N/A      |
+|                          | None                                             | `--X` | `R-X`   | N/A       | N/A      |
+| List /Oregon/Portland/   | Storage Blob Data Owner                          | N/A   | N/A     | N/A       | N/A      |
+|                          | Storage Blob Data Contributor                    | N/A   | N/A     | N/A       | N/A      |
+|                          | Storage Blob Data Reader                         | N/A   | N/A     | N/A       | N/A      |
+|                          | None                                             | `--X` | `--X`   | `R-X`     | N/A      |
 
 > [!NOTE]
 > To view the contents of a container in Azure Storage Explorer, security principals must [sign in to Storage Explorer by using Microsoft Entra ID](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource), and (at a minimum) have read access (R--) to the root folder (`\`) of a container. This level of permission does give them the ability to list the contents of the root folder. If you don't want the contents of the root folder to be visible, you can assign them [Reader](../../role-based-access-control/built-in-roles.md#reader) role. With that role, they'll be able to list the containers in the account, but not container contents. You can then grant access to specific directories and files by using ACLs.
@@ -131,11 +132,9 @@ By using groups, you're less likely to exceed the maximum number of role assignm
 
 ## Shared Key and Shared Access Signature (SAS) authorization
 
-Azure Data Lake Storage also supports [Shared Key](/rest/api/storageservices/authorize-with-shared-key) and [SAS](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json) methods for authentication. A characteristic of these authentication methods is that no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.
+Azure Data Lake Storage also supports [Shared Key](/rest/api/storageservices/authorize-with-shared-key) and [SAS](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json) methods for authentication. 
 
-In the case of Shared Key, the caller effectively gains 'super-user' access, meaning full access to all operations on all resources including data, setting owner, and changing ACLs.
-
-SAS tokens include allowed permissions as part of the token. The permissions included in the SAS token are effectively applied to all authorization decisions, but no additional ACL checks are performed.
+In the case of Shared Key, the caller effectively gains 'super-user' access, meaning full access to all operations on all resources including data, setting owner, and changing ACLs. ACLs don't apply to users who use Shared Key authorization because no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed. The same is true for shared access signature (SAS) tokens except when a user delegated SAS token is used. In that case, Azure Storage performs a POSIX ACL check against the object ID before it authorizes the operation as long as the optional parameter suoid is used. To learn more, see [Construct a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas#construct-a-user-delegation-sas).
 
 ## Next steps
 

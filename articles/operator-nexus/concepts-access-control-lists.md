@@ -1,8 +1,8 @@
 ---
 title: Azure Operator Nexus Access Control Lists Overview
 description: Get an overview of Access Control Lists for Azure Operator Nexus.
-author: joemarshallmsft
-ms.author: joemarshall
+author: scottsteinbrueck
+ms.author: ssteinbrueck
 ms.service: azure-operator-nexus
 ms.topic: conceptual
 ms.date: 02/09/2024
@@ -52,6 +52,21 @@ The action property of an ACL statement can have one of the following types:
 - **Permit**: Allows packets that match specified conditions.
 - **Drop**: Discards packets that match specified conditions.
 - **Count**: Counts the number of packets that match specified conditions.
+
+## Control plane traffic policy (CP-TP)
+
+Additionally to add an additional layer of control plane protection for enhancing network security, users can also configure and modify control plane traffic policies on supported devices via APIs. 
+
+•	A Traffic Policy (TP) solution for securing the Fabric device Control Plane (packets destined to or originating from the Fabric device) of the supported devices in AON.
+
+•	The device control plane (which includes Policing/Rate Limiting) can be implemented as Traffic Policies based on source/destination IP, source/destination ports, and protocols.
+•	API supports create, update, and delete the TP entries/rules/Policing/Rate Limiting.
+
+To implement the functionality for Control Plane ACL - Traffic Policy: 
+
+•	For existing deployments, users must create a CPTP ACL resource, associate it with the Network Fabric (NF), and perform a patch operation.
+
+•	For new deployments, users should create the CPTP ACL resource either during Fabric creation or after the Fabric has been provisioned, followed by patching it to the NF resource. Since the CPTP ACL resource is not created by default, users must manually create it before attaching it to the NF.
 
 ## Next steps:
 

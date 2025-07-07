@@ -4,9 +4,10 @@ description: Learn how to create import and export jobs in the Azure portal for 
 author: stevenmatthew
 services: storage
 ms.service: azure-import-export
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/31/2023
 ms.author: shaas
+# Customer intent: As a data administrator, I want to securely transfer large datasets to and from Azure Storage using the Import/Export service, so that I can efficiently manage data migration, backups, and recovery without relying on slow network transfers.
 ---
 # What is Azure Import/Export service?
 
@@ -136,7 +137,7 @@ For import jobs, drives are encrypted in two ways.
 
 * Enable BitLocker encryption manually on the drive. Specify the encryption key in the *driveset.csv* when running WAImportExport tool command line during drive preparation. The BitLocker encryption key can be further protected by using an external key protector (also known as the Microsoft managed key) or a customer managed key. For more information, see how to [Use a customer managed key to protect your BitLocker key](storage-import-export-encryption-key-portal.md).
 
-For export jobs, after your data is copied to the drives, the service encrypts the drive using BitLocker before shipping it back to you. The encryption key is provided to you via the Azure portal. The drive needs to be unlocked using the WAImporExport tool using the key.
+For export jobs, after your data is copied to the drives, the service encrypts the drive using BitLocker before shipping it back to you. The encryption key is provided to you via the Azure portal. The drive needs to be unlocked using the WAImportExport tool using the key.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../includes/storage-import-export-delete-personal-info.md)]
 

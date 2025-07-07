@@ -1,14 +1,14 @@
 ---
-author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: include
-ms.date: 04/30/2024
-ms.author: cshoe
+ms.date: 02/03/2025
+author: v1212
+ms.author: wujia
 ---
 
 ## Set environment variables
 
-Set the following environment variables. Replace \<PLACEHOLDERS\> with your values:
+Set the following environment variables. Replace the `<PLACEHOLDERS>` with your values:
 
 # [Bash](#tab/bash)
 
@@ -18,7 +18,7 @@ LOCATION="<LOCATION>"
 CONTAINERAPPS_ENVIRONMENT="<CONTAINERAPPS_ENVIRONMENT>"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 $ResourceGroupName = '<RESOURCE_GROUP>'

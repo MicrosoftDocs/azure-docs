@@ -3,12 +3,13 @@ title: Internal redirection using CLI
 titleSuffix: Azure Application Gateway
 description: Learn how to create an application gateway that redirects internal web traffic to the appropriate pool using the Azure CLI.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2023
-ms.author: greglin
+ms.author: mbender
+# Customer intent: "As a cloud architect, I want to configure an application gateway for internal web traffic redirection using a command-line interface, so that I can effectively manage traffic across multiple domains and backend resources within my network."
 ---
 
 # Create an application gateway with internal redirection using the Azure CLI
@@ -115,7 +116,7 @@ az network application-gateway http-listener create \
 
 ### Add the redirection configuration
 
-Add the redirection configuration that sends traffic from *www\.consoto.org* to the listener for *www\.contoso.com* in the application gateway using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
+Add the redirection configuration that sends traffic from *www\.contoso.org* to the listener for *www\.contoso.com* in the application gateway using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \

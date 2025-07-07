@@ -21,8 +21,7 @@ The Log Analytics agent is [retired as of 31 August, 2024](https://azure.microso
 
 - Start with the [Azure Monitor documentation](/azure/azure-monitor/agents/azure-monitor-agent-migration), which provides an agent comparison and general information for this migration process. This article provides specific details and differences for Microsoft Sentinel.
 
-
-## Recommended migration plan
+## Migrate to the Azure Monitor Agent
 
 Each organization will have different metrics of success and internal migration processes. This section provides suggested guidance to consider when migrating from the Log Analytics MMA/OMS agent to the AMA, specifically for Microsoft Sentinel.
 
@@ -34,7 +33,7 @@ Each organization will have different metrics of success and internal migration 
 
     1. In Microsoft Sentinel, install the **Windows Security Events** Microsoft Sentinel solution. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
-    1. To connect your Windows machines to the [Windows Security Event connector](data-connectors/windows-security-events-via-ama.md), start with the **Windows Security Events via AMA** data connector page in Microsoft Sentinel. For more information, see [Windows agent-based connections](connect-services-windows-based.md).
+    1. To connect your Windows machines to the [Windows Security Event connector](data-connectors-reference.md#windows-security-events-via-ama), start with the **Windows Security Events via AMA** data connector page in Microsoft Sentinel. For more information, see [Windows agent-based connections](connect-services-windows-based.md).
 
     1. Continue with the **Security Events via Legacy Agent** data connector page. On the **Instructions** tab, under **Configuration** > **Step 2** > **Select which events to stream**, select **None**. This configures your system so that you won't receive any security events through the MMA/OMS, but other data sources relying on this agent will continue to work. This step affects all machines reporting to your current Log Analytics workspace.
 

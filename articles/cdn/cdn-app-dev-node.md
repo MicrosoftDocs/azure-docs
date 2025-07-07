@@ -4,12 +4,13 @@ description: Learn how to create a simple Node.js console application that demon
 services: cdn
 author: zhangmanling
 manager: erikre
-ms.assetid: c4bb6a61-de3d-4f0c-9dca-202554c43dfa
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
+ms.date: 03/31/2025
 ms.author: erikre
 ms.custom: devx-track-js
+ROBOTS: NOINDEX
+# Customer intent: As a developer, I want to create and manage Azure CDN profiles and endpoints using Node.js, so that I can automate content delivery network operations in my applications.
 ---
 
 # Get started with Azure CDN development

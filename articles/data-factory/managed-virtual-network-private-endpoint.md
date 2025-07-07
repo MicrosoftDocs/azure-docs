@@ -6,7 +6,7 @@ author: lrtoyou1223
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurepowershell
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ---
 
 # Azure Data Factory managed virtual network
@@ -76,6 +76,9 @@ Only a managed private endpoint in an approved state can send traffic to a speci
 > [!NOTE]
 > Custom DNS is not supported in managed virtual network.
 
+> [!NOTE]
+> Both managed virtual network and managed private endpoint are under Microsoft subscription.
+
 ## Interactive authoring
 
 Interactive authoring capabilities are used for functionalities like test connection, browse folder list and table list, get schema, and preview data. You can enable interactive authoring when creating or editing an Azure integration runtime, which is in Azure Data Factory managed virtual network. The backend service will pre-allocate compute for interactive authoring functionalities. Otherwise, the compute will be allocated every time any interactive operation is performed which will take more time. The time to live (TTL) for interactive authoring is 60 minutes by default, which means it will automatically become disabled after 60 minutes of the last interactive authoring operation. You can change the TTL value according to your actual needs.
@@ -115,7 +118,7 @@ You can utilize the table below as a reference to determine the optimal number o
 
 | Activity Type | Capacity |
 | --------------------------- | --------------------------------------------- |
-| Pipeline activity | Approximately 50 per node <br> Script activity and Lookup activity with SQL alwaysEncrypted tend to consume more resources compared to other pipeline activities, with the suggested number being around 10 per node |
+| Pipeline activity | Approximately 50 per node <br> Script activity and Lookup activity with SQL alwaysEncrypted tend to consume more resources compared to other pipeline activities, with the suggested number being around 4 per node |
 | External activity | Approximately 800 per node |
 
 

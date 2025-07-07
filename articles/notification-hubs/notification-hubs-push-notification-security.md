@@ -3,7 +3,7 @@ title: Notification Hubs security model
 description: Learn about the security model for Azure Notification Hubs.
 services: notification-hubs
 author: sethmanheim
-manager: femila
+manager: lizross
 editor: jwargo
 
 ms.service: azure-notification-hubs

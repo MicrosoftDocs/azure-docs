@@ -4,8 +4,8 @@ description: Schema reference guide for Workflow Definition Language trigger and
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: reference
-ms.date: 05/20/2024
+ms.topic: conceptual
+ms.date: 03/27/2025
 ms.custom:
 ---
 
@@ -1717,7 +1717,7 @@ This action stops the run for a workflow instance, cancels any actions in progre
 
 *Optional*
 
-The properties for the "runStatus" object apply only 
+The properties for the "runError" object apply only 
 when the "runStatus" property is set to "Failed" status.
 
 | Value | Type | Description |
@@ -2340,7 +2340,7 @@ You can change the default runtime behavior for triggers and actions by adding t
 | `runtimeConfiguration.concurrency.repetitions` | Integer | Change the [*default limit*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) on the number of "for each" loop iterations that can run at the same time (concurrently or in parallel). <br><br>Setting the `repetitions` property to `1` works the same way as setting the `operationOptions` property to `SingleInstance`. You can set either property, but not both. <br><br>To change the default limit, see [Change "for each" concurrency](#change-for-each-concurrency) or [Run "for each" loops sequentially](#sequential-for-each). | Action: <br><br>[Foreach](#foreach-action) |
 | `runtimeConfiguration.paginationPolicy.minimumItemCount` | Integer | For specific actions that support and have pagination turned on, this value specifies the *minimum* number of results to retrieve. <br><br>To turn on pagination, see [Get bulk data, items, or results by using pagination](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Action: Varied |
 | `runtimeConfiguration.secureData.properties` | Array | On many triggers and actions, these settings hide inputs, outputs, or both from the logic app's run history. <br><br>To learn more about safeguarding this data, see [Hide inputs and outputs from run history](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view). | Most triggers and actions |
-| `runtimeConfiguration.staticResult` | JSON Object | For actions that support and have the [static result](../logic-apps/test-logic-apps-mock-data-static-results.md) setting turned on, the `staticResult` object has these attributes: <br><br>- `name`, which references the current action's static result definition name, which appears inside the `staticResults` attribute in your logic app workflow's `definition` attribute. For more information, see [Static results - Schema reference for Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#static-results). <br><br> - `staticResultOptions`, which specifies whether static results are `Enabled` or not for the current action. <br><br>To turn on static results, see [Test logic apps with mock data by setting up static results](../logic-apps/test-logic-apps-mock-data-static-results.md) | Action: Varied |
+| `runtimeConfiguration.staticResult` | JSON Object | For actions that support and have the [static result](../logic-apps/testing-framework/test-logic-apps-mock-data-static-results.md) setting turned on, the `staticResult` object has these attributes: <br><br>- `name`, which references the current action's static result definition name, which appears inside the `staticResults` attribute in your logic app workflow's `definition` attribute. For more information, see [Static results - Schema reference for Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#static-results). <br><br> - `staticResultOptions`, which specifies whether static results are `Enabled` or not for the current action. <br><br>To turn on static results, see [Test logic apps with mock data by setting up static results](../logic-apps/testing-framework/test-logic-apps-mock-data-static-results.md) | Action: Varied |
 
 <a name="operation-options"></a>
 

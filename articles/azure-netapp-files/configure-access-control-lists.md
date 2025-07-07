@@ -1,11 +1,12 @@
 ---
 title: Configure access control lists with Azure NetApp Files | Microsoft Docs
-description: This article shows you how to configure access control lists (ACLs) on NFSv4.1 with Azure NetApp Files.
+description: Learn how to configure access control lists (ACLs) on NFSv4.1 with Azure NetApp Files.
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 12/20/2022
+ms.date: 12/20/2024
 ms.author: anfdocs
+# Customer intent: "As a system administrator, I want to configure access control lists on NFSv4.1 volumes in Azure NetApp Files, so that I can manage fine-grained file permissions for users and groups to enhance security and control over shared resources."
 ---
 # Configure access control lists on NFSv4.1 volumes for Azure NetApp Files
 

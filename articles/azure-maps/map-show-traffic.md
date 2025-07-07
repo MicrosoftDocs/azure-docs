@@ -54,15 +54,15 @@ The [Traffic Overlay Options] tool lets you switch between the different traffic
 
 ## Add traffic controls
 
-There are two different traffic controls that can be added to the map. The first control, `TrafficControl`, adds a toggle button that can be used to turn traffic on and off. Options for this control allow you to specify when traffic settings to use when show traffic. By default this control displays relative traffic flow and incident data, however, you could change this behavior and show absolute traffic flow and no incidents if desired. The second control, `TrafficLegendControl`, adds a traffic flow legend to the map that helps user understand what the color code road highlights mean. This control only appears on the map when traffic flow data is displayed on the map and is hidden at all other times.
+There are two different traffic controls that can be added to the map. The first control, `TrafficControl`, adds a toggle button that can be used to turn traffic on and off. The options in this control allow you to specify which parameters to use when displaying traffic. By default, this control displays relative traffic flow and incident data, but you can change this behavior to display absolute traffic flow and no incidents if desired. The second control, `TrafficLegendControl`, adds a traffic legend to the map to help the user understand what the color highlighted roads mean. This control appears on the map only when traffic flow data is displayed, and is hidden in all other cases.
 
 The following code shows how to add the traffic controls to the map.
 
 ```JavaScript
-//Att the traffic control toogle button to the top right corner of the map.
+//Add the traffic control toggle button to the top right corner of the map.
 map.controls.add(new atlas.control.TrafficControl(), { position: 'top-right' });
 
-//Att the traffic legend control to the bottom left corner of the map.
+//Add the traffic legend control to the bottom left corner of the map.
 map.controls.add(new atlas.control.TrafficLegendControl(), { position: 'bottom-left' });
 ```
 

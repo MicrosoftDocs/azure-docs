@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 02/21/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
@@ -20,6 +20,7 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Custom email verification with Mailjet
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -33,7 +34,7 @@ Use custom email in Azure Active Directory B2C (Azure AD B2C) to send customized
 
 ::: zone pivot="b2c-custom-policy"
 
-Custom email verification requires the use of a third-party email provider like [Mailjet](https://www.mailjet.com/), [SendGrid](./custom-email-sendgrid.md), or [SparkPost](https://messagebird.com/email/cloud-sending?sp=true), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses Mailjet.
+Custom email verification requires the use of a third-party email provider like [Mailjet](https://www.mailjet.com/), [SendGrid](./custom-email-sendgrid.md), or [SparkPost](https://messagebird.com/support-center/omnichannel-and-connectivity/sms/sending-email-to-sms?sp=true), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses Mailjet.
 
 ## Create a Mailjet account
 
@@ -44,7 +45,7 @@ If you don't already have one, start by setting up a Mailjet account (Azure cust
 2. Navigate to the [API Key Management page](https://dev.mailjet.com/email/guides/senders-and-domains/#use-a-sender-on-all-api-keys-(metasender)). Record the **API Key** and **Secret Key** for use in a later step. Both keys are generated automatically when your account is created.
 
 > [!IMPORTANT]
-> Mailjet offers customers the ability to send emails from shared IP and [dedicated IP addresses](https://documentation.mailjet.com/hc/articles/360043101973-What-is-a-dedicated-IP). When using dedicated IP addresses, you need to build your own reputation properly with an IP address warm-up. For more information, see [How do I warm up my IP ?](https://documentation.mailjet.com/hc/articles/1260803352789-How-do-I-warm-up-my-IP-).
+> Mailjet offers customers the ability to send emails from shared IP and [dedicated IP addresses](https://documentation.mailjet.com/hc/en-us/articles/1260803352789-Dedicated-IPs-What-They-Are-and-How-to-Warm-Them-Up). When using dedicated IP addresses, you need to build your own reputation properly with an IP address warm-up. For more information, see [How do I warm up my IP ?](https://documentation.mailjet.com/hc/articles/1260803352789-How-do-I-warm-up-my-IP-).
 
 ## Create Azure AD B2C policy key
 
@@ -74,7 +75,7 @@ With a Mailjet account created and the Mailjet API key stored in an Azure AD B2C
 1. On the Mailjet site, open the [transactional templates](https://app.mailjet.com/templates/transactional) page and select **Create a new template**.
 1. Select **By coding it in HTML**, and then select **Code from scratch**.
 1. Enter a unique template name like `Verification email`, and then select **Create**.
-1. In the HTML editor, paste following HTML template or use your own. The `{{var:otp:""}}` and `{{var:email:""}}` parameters will be replaced dynamically with the one-time password value and the user email address.
+1. In the HTML editor, paste following HTML template or use your own. The `{{var:otp:""}}` and `{{var:email:""}}` parameters are replaced dynamically with the one-time password value and the user email address.
 
     ```HTML
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -210,7 +211,7 @@ These claims types are necessary to generate and verify the email address using 
 
 ## Add the claims transformation
 
-Next, you need a claims transformation to output a JSON string claim that will be the body of the request sent to Mailjet.
+Next, you need a claims transformation to output a JSON string claim that's the body of the request sent to Mailjet.
 
 The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims. Numbers in the dot notation imply arrays. The values come from the InputClaims' values and the InputParameters' "Value" properties. For more information about JSON claims transformations, see [JSON claims transformations](json-transformations.md).
 
@@ -572,7 +573,7 @@ The Localization element allows you to support multiple locales or languages in 
 ```
 
 
-## Next steps
+## Related content
 
 - You can find an example of a [Custom email verification - DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol/policy/Mailjet) custom policy on GitHub.
 - For information about using a custom REST API or any HTTP-based SMTP email provider, see [Define a RESTful technical profile in an Azure AD B2C custom policy](restful-technical-profile.md).

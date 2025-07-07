@@ -19,13 +19,24 @@ Here are the high level steps from the script:
 1. Add service principal of event subscription writer Microsoft Entra app to the AzureEventGridSecureWebhookSubscriber role 
 1. Add service principal of Microsoft.EventGrid to the AzureEventGridSecureWebhookSubscriber role as well
 
+## Get Microsoft.EventGrid application ID
+
+1. Navigate to [Azure portal](https://portal.azure.com).
+1. In the search bar, type `Microsoft.EventGrid`, and then select **Microsoft.EventGrid (Service Principal)** in the drop-down list. 
+    
+    :::image type="content" source="../media/event-grid-app-id/select-microsoft-event-grid.png" alt-text="Screenshot that shows the selection of Microsoft Event Grid from the drop-down list.":::
+1. On the **Microsoft.EventGrid** page, note down or copy the **Application ID** to the clipboard.
+1. In the following script, set the `$eventGridAppId` variable to this value before running it.  
+
 ## Sample script - stable
 
 ```azurepowershell
 # NOTE: Before run this script ensure you are logged in Azure by using "az login" command.
 
+$eventGridAppId = "[REPLACE_WITH_EVENT_GRID_APP_ID]"
 $webhookAppObjectId = "[REPLACE_WITH_YOUR_ID]"
 $eventSubscriptionWriterAppId = "[REPLACE_WITH_YOUR_ID]"
+
 
 # Start execution
 try {
@@ -51,8 +62,6 @@ try {
     # You don't need to modify this id
     # But Azure Event Grid Entra Application Id is different for different clouds
 
-    $eventGridAppId = "4962773b-9cdb-44cf-a8bf-237846a00ab7" # Azure Public Cloud
-    # $eventGridAppId = "54316b56-3481-47f9-8f30-0300f5542a7b" # Azure Government Cloud
     $eventGridSP = Get-MgServicePrincipal -Filter ("appId eq '" + $eventGridAppId + "'")
     if ($eventGridSP.DisplayName -match "Microsoft.EventGrid")
     {
@@ -64,7 +73,7 @@ try {
 
     # Creates the Azure app role for the webhook Microsoft Entra application
     $eventGridRoleName = "AzureEventGridSecureWebhookSubscriber" # You don't need to modify this role name
-    $app = Get-MgApplication -ObjectId $webhookAppObjectId
+    $app = Get-MgApplication -ApplicationId $webhookAppObjectId
     $appRoles = $app.AppRoles
 
     Write-Host "Microsoft Entra App roles before addition of the new role..."

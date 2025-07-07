@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api, passwordless-js, devx-track-extended-azdevcli
 zone_pivot_groups: azure-blob-storage-quickstart-options
+# Customer intent: "As a JavaScript developer, I want to quickly set up and manage Azure Blob Storage, so that I can efficiently store and retrieve unstructured data within my applications."
 ---
 
 # Quickstart: Azure Blob Storage client library for Node.js
@@ -50,14 +51,14 @@ In this article, you use the [Azure Developer CLI](/azure/developer/azure-develo
 
 - Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - Azure Storage account - [Create a storage account](../common/storage-account-create.md)
-- [Node.js LTS](https://nodejs.org/en/download/)
+- [Node.js LTS](https://nodejs.org/en/download/package-manager/)
 
 ::: zone-end
 
 ::: zone pivot="blob-storage-quickstart-template"
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- [Node.js LTS](https://nodejs.org/en/download/)
+- [Node.js LTS](https://nodejs.org/en/download/package-manager/)
 - [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
 
 ::: zone-end

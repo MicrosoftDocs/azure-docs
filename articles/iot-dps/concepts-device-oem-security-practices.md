@@ -1,13 +1,14 @@
 ---
 title: Security practices for manufacturers - Azure IoT Device Provisioning Service
 description: Overviews common security practices for OEMs and device manufactures who prepare devices to enroll in Azure IoT Device Provisioning Service (DPS). 
-author: timlt
-ms.author: timlt
-ms.date: 10/11/2024
+author: dominicbetts
+ms.author: dobett
+ms.date: 1/10/2025
 ms.topic: conceptual
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 ms.custom: iot-p0-scenario, iot-devices-deviceOEM
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Security practices for Azure IoT device manufacturers
@@ -25,7 +26,7 @@ Three widely used authentication types are X.509 certificates, Trusted Platform 
 
 ### X.509 certificate
 X.509 certificates are a type of digital identity you can use for authentication. The X.509 certificate standard is documented in [IETF RFC 5280](https://tools.ietf.org/html/rfc5280). In Azure IoT, there are two ways to authenticate certificates:
-- Thumbprint. A thumbprint algorithm is run on a certificate to generate a hexadecimal string. The generated string is a unique identifer for the certificate. 
+- Thumbprint. A thumbprint algorithm is run on a certificate to generate a hexadecimal string. The generated string is a unique identifier for the certificate. 
 - CA authentication based on a full chain. A certificate chain is a hierarchical list of all certificates needed to authenticate an end-entity (EE) certificate. To authenticate an EE certificate, it's necessary to authenticate each certificate in the chain including a trusted root CA. 
 
 Pros for X.509:
@@ -93,7 +94,6 @@ Consider the following variables, and how each one impacts the overall manufactu
 It can be costly and complex to manage a public key infrastructure (PKI).  Especially if your company doesn't have any experience managing a PKI. Your options are:
 - Use a third-party PKI. You can buy intermediate signing certificates from a third-party certificate vendor. Or you can use a private Certificate Authority (CA). 
 - Use a self-managed PKI. You can maintain your own PKI system and generate your own certificates.
-- Use the [Azure Sphere](https://azure.microsoft.com/services/azure-sphere/) security service. This option  applies only to Azure Sphere devices. 
 
 #### Where certificates are stored
 There are a few factors that affect the decision on where certificates are stored. These factors include the type of device, expected profit margins (whether you can afford secure storage), device capabilities, and existing security technology on the device that you might be able to use. Consider the following options:
@@ -113,9 +113,7 @@ Depending on the type of devices you produce, you might have a regulatory requir
 - Sensitive industry. Certificates should be installed in a secure room according to compliance certification requirements. If you need a secure room to install certificates, you're likely already aware of how certificates get installed in your devices. And you probably already have an audit system in place. 
 
 #### Length of certificate validity
-Like a driver's license, certificates have an expiration date that is set when they're created. Here are the options for length of certificate validity:
-- Renewal not required.  This approach uses a long renewal period, so you'll never need to renew the certificate during the device's lifetime. While such an approach is convenient, it's also risky. You can reduce the risk by using secure storage like an HSM on your devices. However, the recommended practice is to avoid using long-lived certificates.
-- Renewal required.  You need to renew the certificate during the lifetime of the device. The length of the certificate validity depends on context, and you need a strategy for renewal.  The strategy should include where you're getting certificates, and what type of over-the-air functionality your devices have to use in the renewal process. 
+Like a driver's license, certificates have an expiration date that is set when they're created. You need to renew the certificate during the lifetime of the device. The length of the certificate validity depends on context, and you need a strategy for renewal.  The strategy should include where you're getting certificates, and what type of over-the-air functionality your devices have to use in the renewal process. 
 
 ### When to generate certificates
 The internet connectivity capabilities at your factory impact your process for generating certificates. You have several options for when to generate certificates: 

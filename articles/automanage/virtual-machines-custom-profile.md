@@ -1,19 +1,21 @@
 ---
 title: Create a custom profile in Azure Automanage for VMs
 description: Learn how to create a custom profile in Azure Automanage and select your services and settings.
-author: johnmarco
 ms.service: azure-automanage
 ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 07/01/2023
-ms.author: johnmarc
+# Customer intent: As a cloud administrator, I want to create a custom profile in my cloud management tool for virtual machines, so that I can configure specific services and settings tailored to my organization's needs before the retirement of the current service.
 ---
 
 
 # Create a custom profile in Azure Automanage for VMs
 
 > [!CAUTION]
-> On 31 August 2024, both Automation Update Management and the Log Analytics agent it uses will be retired. Migrate to Azure Update Manager before that. Refer to guidance on migrating to Azure Update Manager [here](/azure/update-manager/guidance-migration-automation-update-management-azure-update-manager?WT.mc_id=Portal-Microsoft_Azure_Automation). [Migrate Now](https://portal.azure.com/).
+> On September 30, 2027, the Azure Automanage Best Practices service will be retired. As a result, attempting to create a new configuration profile or onboarding a new subscription to the service will result in an error. Learn more [here](https://aka.ms/automanagemigration/) about how to migrate to Azure Policy before that date. 
+
+> [!CAUTION]
+> Starting February 1st 2025, Azure Automanage will begin rolling out changes to halt support and enforcement for all services dependent on the deprecated Microsoft Monitoring Agent (MMA). To continue using Change Tracking and Management, VM Insights, Update Management, and Azure Automation, [migrate to the new Azure Monitor Agent (AMA)](https://aka.ms/mma-to-ama/).
 
 Azure Automanage for Virtual Machines includes default best practice profiles that can't be edited. However, if you need more flexibility, you can pick and choose the set of services and settings by creating a custom profile.
 
@@ -157,7 +159,7 @@ The `location` value is the region where you would like to store this custom con
 The `azureSecurityBaselineAssignmentType` is the audit mode that you can choose for the Azure server security baseline. Your options are
 
 * ApplyAndAutoCorrect : This setting applies the Azure security baseline through the Guest Configuration extension, and if any setting within the baseline drifts, we'll auto-remediate the setting so it stays compliant.
-* ApplyAndMonitor : This setting applies the Azure security baseline through the Guest Configuration extention when you first assign this profile to each machine. After it's applied, the Guest Configuration service will monitor the server baseline and report any drift from the desired state. However, it will not auto-remdiate.
+* ApplyAndMonitor : This setting applies the Azure security baseline through the Guest Configuration extension when you first assign this profile to each machine. After it's applied, the Guest Configuration service will monitor the server baseline and report any drift from the desired state. However, it will not auto-remediate.
 * Audit : This setting installs the Azure security baseline using the Guest Configuration extension. You're able to see where your machine is out of compliance with the baseline, but noncompliance isn't automatically remediated.
 
 The `LogAnalytics/UseAma` value is where you can specify to use Azure Monitor Agent or not.

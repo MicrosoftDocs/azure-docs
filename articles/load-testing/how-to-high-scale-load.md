@@ -24,13 +24,14 @@ In this article, you learn how to configure your load test for high-scale with A
 
 To simulate user traffic for your application, you can configure the load pattern and the number of virtual users you want to simulate load for. By running the load test across many parallel test engine instances, Azure Load Testing can scale out the number of virtual users that simulate traffic to your application. The load pattern determines how the load is distributed over the duration of the load test. Examples of load patterns are linear, stepped, or spike load.
 
-Depending on the type of load test, URL-based or JMeter-based, you have different options to configure the target load and the load pattern. The following table lists the differences between the two test types.
+Depending on the type of load test, URL-based, JMeter-based or Locust-based, you have different options to configure the target load and the load pattern. The following table lists the differences between the test types.
 
 | Test type | Number of virtual users | Load pattern |
 |-|-|-|
 | URL-based (basic)    | Specify the target number of virtual users in the load test configuration. | Linear load pattern, based on the ramp-up time and number of virtual users. |
 | URL-based (advanced) | Specify the number of test engines and the number of virtual users per instance in the load test configuration. | Configure the load pattern (linear, step, spike). |
-| JMeter-based         | Specify the number of test engines in the load test configuration. Specify the number of virtual users in the test script. | Configure the load pattern in the test script. |
+| JMeter-based         | Specify the number of virtual users per instance in the test script. Specify the number of test engines in the load test configuration. | Configure the load pattern in the test script. |
+| Locust-based         | Specify the total number of users in the load test configuration, the locust configuration file, or the test script. Specify the number of test engines in the load test configuration.  | Configure the load pattern in the test script. |
 
 ### Configure load parameters for URL-based tests
 
@@ -148,7 +149,7 @@ To specify the load parameters for a JMeter-based load test:
 
 1. On the **Edit test** page, select the **Load** tab. Use the **Engine instances** slider control to update the number of test engine instances, or enter the value directly in the input box.
 
-    :::image type="content" source="media/how-to-high-scale-load/edit-test-load.png" alt-text="Screenshot of the 'Load' tab on the 'Edit test' pane." lightbox="media/how-to-high-scale-load/edit-test-load.png":::
+    :::image type="content" source="media/how-to-high-scale-load/edit-test-load.png" alt-text="Screenshot of the 'Load' tab on the 'Edit test' pane for JMeter-based tests." lightbox="media/how-to-high-scale-load/edit-test-load.png":::
 
 1. Select **Apply** to modify the test and use the new configuration when you rerun it.
 
@@ -174,6 +175,60 @@ For CI/CD workflows, you configure the number of engine instances in the [YAML t
 1. Save the YAML configuration file, and commit the changes to source control.
 
 ---
+
+### Configure load parameters for Locust-based tests
+
+To specify the load parameters for a Locust-based load test:
+
+# [Azure portal](#tab/portal)
+
+1. In the [Azure portal](https://portal.azure.com/), go to your Azure Load Testing resource.
+
+1. In the left navigation, select **Tests** to view all tests.
+
+1. In the list, select your load test, and then select **Edit**.
+
+    :::image type="content" source="media/how-to-high-scale-load/edit-test.png" alt-text="Screenshot that shows the list of load tests and the 'Edit' button." lightbox="media/how-to-high-scale-load/edit-test.png":::
+
+    Alternately, you can also edit the test configuration from the test details page. To do so, select **Configure**, and then select **Test**.
+
+1. On the **Edit test** page, select the **Load** tab. Enter the values for the overall users required and overall spawn rate in the respective input boxes. 
+The engine instance count required to generate this load automatically populates. If your test script is complex and resource intensive, use the **Engine instances** slider control to update the number of test engine instances, or enter the value directly in the input box.
+
+    :::image type="content" source="media/how-to-high-scale-load/edit-test-load-locust.png" alt-text="Screenshot of the 'Load' tab on the 'Edit test' pane for Locust-based tests." lightbox="media/how-to-high-scale-load/edit-test-load-locust.png":::
+
+Alternatively, you can configure the number of users and spawn rate in the test script or Locust configuration file and provide the number of engine instances required. 
+
+1. Select **Apply** to modify the test and use the new configuration when you rerun it.
+
+# [Azure Pipelines / GitHub Actions](#tab/pipelines+github)
+
+For CI/CD workflows, you configure the number of engine instances in the [YAML test configuration file](./reference-test-config-yaml.md). You can configure the overall users and spawn rate as environment variables in the YAML file. Alternatively, you can configure those in the test script or Locust configuration file. You store the load test configuration file alongside the Locust test script file in the source control repository.
+
+1. Open the YAML test configuration file for your load test in your editor of choice.
+
+1. Configure the number of test engine instances in the `engineInstances` setting. Configure the overall users and spawn rate as environment variables. 
+
+    The following example configures a load test that runs across 10 parallel test engine instances.
+
+    ```yaml
+    version: v0.1
+    testId: SampleTestCICD
+    displayName: Sample test from CI/CD
+    testPlan: SampleTest.jmx
+    description: Load test website home page
+    engineInstances: 4
+    env:
+      - name: LOCUST_USERS
+        value: 2000
+      - name: LOCUST_SPAWN_RATE
+        value: 100
+      - name: LOCUST_RUN_TIME
+        value: 20
+    ```
+
+1. Save the YAML configuration file, and commit the changes to source control.
+
 
 ## Monitor engine instance metrics
 
@@ -222,7 +277,7 @@ To achieve a target number of requests per second, configure the total number of
 > [!NOTE]
 > Apache JMeter only reports requests that made it to the server and back, either successful or not. If Apache JMeter is unable to connect to your application, the actual number of requests per second will be lower than the maximum value. Possible causes might be that the server is too busy to handle the request, or that a TLS/SSL certificate is missing. To diagnose connection problems, you can check the **Errors** chart in the load testing dashboard and [download the load test log files](./how-to-diagnose-failing-load-test.md).
 
-## Test engine instances and virtual users
+## Test engine instances and virtual users for JMeter-based tests
 
 In the Apache JMeter script, you can specify the number of parallel threads. Each thread represents a virtual user that accesses the application endpoint. We recommend that you keep the number of threads in a script below a maximum of 250.
 
@@ -233,6 +288,20 @@ The total number of virtual users for a load test is then: VUs = (# threads) * (
 To simulate a target number of virtual users, you can configure the parallel threads in the JMeter script, and the engine instances for the load test accordingly. [Monitor the test engine metrics](#monitor-engine-instance-metrics) to optimize the number of instances.
 
 For example, to simulate 1,000 virtual users, set the number of threads in the Apache JMeter script to 250. Then configure the load test with four test engine instances (that is, 4 x 250 threads).
+
+The location of the Azure Load Testing resource determines the location of the test engine instances. All test engine instances within a Load Testing resource are hosted in the same Azure region.
+
+## Test engine instances and virtual users for Locust-based tests
+
+Configure the total number of users required for your load test. This represents the peak number of concurrent Locust users. You can configure this in the load configuration while creating a test in Azure Load Testing. You can also configure this in your test script or the Locust configuration file. We recommend running up to 500 users from a test engine instance.
+
+In Azure Load Testing, *test engine* instances are responsible for running the Locust script. All test engine instances run in parallel. You can configure the number of instances for a load test.
+
+The total number of engines required for a load test is then: number of engines = (total number of users) / 500. 
+
+If you configure the total users in load configuration, Azure Load Testing populates the engine count automatically. If needed, you can update the number of engines. [Monitor the test engine metrics](#monitor-engine-instance-metrics) to optimize the number of instances.
+
+For example, to simulate 2,000 users, set the *Total number of users* in load configuration to 2,000. Azure Load Testing automatically populates the engine count as 4. Update the engine count if required. If you configured the users in your test script or Locust configuration file as 2,000, set the engine instances to 4 in the load configuration. 
 
 The location of the Azure Load Testing resource determines the location of the test engine instances. All test engine instances within a Load Testing resource are hosted in the same Azure region.
 

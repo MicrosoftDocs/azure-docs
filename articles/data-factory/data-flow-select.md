@@ -38,7 +38,7 @@ Fixed mappings can be used to map a subcolumn of a hierarchical column to a top-
 ## Rule-based mapping
 
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xiXz]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=f1d4575c-e0e0-4827-bc0b-6e85bca986b5]
 
 If you wish to map many columns at once or pass drifted columns downstream, use rule-based mapping to define your mappings using column patterns. Match based on the `name`, `type`, `stream`, and `position` of columns. You can have any combination of fixed and rule-based mappings. By default, all projections with greater than 50 columns will default to a rule-based mapping that matches on every column and outputs the inputted name. 
 

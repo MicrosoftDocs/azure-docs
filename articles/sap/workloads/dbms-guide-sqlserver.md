@@ -7,7 +7,7 @@ keywords: 'Azure, SQL Server, SAP, AlwaysOn, Always On'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 10/07/2024
+ms.date: 10/25/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -47,6 +47,17 @@ There's some SQL Server in IaaS specific information you should know before cont
 *  **Multiple SAP databases in one single SQL Server instance in a single VM**: Configurations like these are supported. Considerations of multiple SAP databases sharing the shared resources of a single SQL Server instance are the same as for on-premises deployments. Keep other limits like number of disks that can be attached to a specific VM type in mind. Or network and storage quota limits of specific VM types as detailed [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes). 
 
 
+## New M-series VMs and SQL Server
+Azure released a few new families of M-series SKUs under the family of Mv3. Some of the VM types in this family shouldn't be used for SQL Server, including SQL Server 2022 without disabling SMT (Hyperthreading) in the Windows Server guest OS. Reason is the number of NUMA nodes presented into the Windows Server guest OS which with larger than 64 vCPUs is too large for SQL Server to accommodate. By disabling SMT in the Windows Server guest OS, the number of vCPUs is getting reduced. So, that the number of vCPUs is less than 64 in each NUMA node. The way how to disable SMT is described [here](/sql/sql-server/compute-capacity-limits-by-edition-of-sql-server?view=sql-server-ver16&preserve-view=true#disable-smt-in-an-azure-virtual-machine). The specific VM types are:
+- M176(d)s_3_v3 - disable SMT or use M176bds_4_v3 or M176bds_4_v3 as alternative
+- M176(d)s_4_v3 - disable SMT or use M176bds_4_v3 as alternative
+- M624(d)s_12_v3 - disable SMT or use M416ms_v2 as alternative
+- M832(d)s_12_v3 - disable SMT or use M416ms_v2 as alternative
+- M832i(d)s_16_v3 - disable SMT or use M416ms_v2 as alternative
+
+> [!NOTE]
+> With some of the new M(b)v3 VM types, the usage of read cached Premium SSD v1 storage could result in lower read and write IOPS rates and throughput than you would get if you don't use read cache. 
+
 ## Recommendations on VM/VHD structure for SAP-related SQL Server deployments
 In accordance with the general description, Operating system, SQL Server executables, the SAP executables should be located or installed separate Azure disks. Typically, most of the SQL Server system databases aren't utilized at a high level with SAP NetWeaver workload. Nevertheless the system databases of SQL Server should be, together with the other SQL Server directories on a separate Azure disk. SQL Server tempdb should be either located on the nonperisisted D:\ drive or on a separate disk.
 
@@ -65,7 +76,7 @@ A VM configuration, which runs SQL Server with an SAP database and where tempdb 
 
 The diagram displays a simple case. As eluded to in the article [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md), Azure storage type, number, and size of disks is dependent from different factors. But in general we recommend:
 
-- For smaller and mid-range deployments, using one large volume, which contains the SQL Server data files. Reason behind this configuration is that it's easier to deal with different I/O workloads in case the SQL Server data files don't have the same free space. Whereas in large deployments, especially deployments where the customer moved with a heterogenous database migration to SQL Server in Azure, we used separate disks and then distributed the data files across those disks. Such an architecture is only successful when each disk has the same number of data files, all the data files are the same size, and roughly have the same free space.
+- For smaller and mid-range deployments, using one large volume, which contains the SQL Server data files. Reason behind this configuration is that it's easier to deal with different I/O workloads in case the SQL Server data files don't have the same free space. Whereas in large deployments, especially deployments where the customer moved with a heterogeneous database migration to SQL Server in Azure, we used separate disks and then distributed the data files across those disks. Such an architecture is only successful when each disk has the same number of data files, all the data files are the same size, and roughly have the same free space.
 - Use the D:\drive for tempdb as long as performance is good enough. If the overall workload is limited in performance of tempdb located on the D:\ drive, you need to move tempdb to Azure premium storage v1 or v2, or Ultra disk as recommended in [this article](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist).
 
 SQL Server proportional fill mechanism distributes reads and writes to all datafiles evenly provided all SQL Server data files are the same size and have the same frees pace. SAP on SQL Server delivers the best performance when reads and writes are distributed evenly across all available datafiles. If a database has too few datafiles or the existing data files are highly unbalanced, the best method to correct is an R3load export and import.  An R3load export and import involves downtime and should only be done if there's an obvious performance problem that needs to be resolved. If the datafiles are only moderately different sizes, increase all datafiles to the same size, and SQL Server is rebalancing data over time. SQL Server automatically grows datafiles evenly if trace flag 1117 is set or if SQL Server 2016 or higher is used without trace flag. 
@@ -73,6 +84,9 @@ SQL Server proportional fill mechanism distributes reads and writes to all dataf
 
 ### Special for M-Series VMs
 For Azure M-Series VM, the latency writing into the transaction log can be reduced, compared to Azure premium storage performance v1, when using Azure Write Accelerator. If the premium storage v1 provided latency is limiting scalability of the SAP workload, the disk that stores the SQL Server transaction log file can be enabled for Write Accelerator. Details can be read in the document [Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator). Azure Write Accelerator doesn't work with Azure premium storage v2 and Ultra disk. In both cases, the latency is better than what Azure premium storage v1 delivers. Write Accelerator is not supporting Premium SSD v2.
+
+> [!NOTE]
+> With some of the new M(b)v3 VM types, the usage of read cached Premium SSD v1 storage could result in lower read and write IOPS rates and throughput than you would get if you don't use read cache. 
   
 
 ### Formatting the disks

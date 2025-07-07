@@ -20,7 +20,7 @@ the link in the **Version** column to view the source on the
 
 ## Data Factory
 
-[!INCLUDE [azure-policy-reference-rp-datafactory](../../includes/policy/reference/byrp/microsoft.datafactory.md)]
+[!INCLUDE [azure-policy-reference-rp-datafactory](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.datafactory.md)]
 
 ## Related content
 

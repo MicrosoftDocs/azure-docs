@@ -2,12 +2,11 @@
 metadata:
   title: Azure Web Application Firewall on Application Gateway - frequently asked questions
   description: This article provides answers to frequently asked questions about Web Application Firewall on Application Gateway
-  services: web-application-firewall
-  author: vhorne
+  author: halkazwini
+  ms.author: halkazwini
   ms.service: azure-web-application-firewall
   ms.topic: faq
   ms.date: 08/25/2023
-  ms.author: victorh
 title: Frequently asked questions for Azure Web Application Firewall on Application Gateway
 summary: This article answers common questions about Azure Web Application Firewall (WAF)  on Application Gateway features and functionality. 
 

@@ -6,10 +6,11 @@ services: storage
 author: pauljewellmsft
 
 ms.service: azure-queue-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/09/2023
 ms.author: pauljewell
 ms.reviewer: nachakra
+# Customer intent: As a cloud administrator, I want to understand the supported actions and attributes for role assignment conditions in Azure Queue Storage, so that I can effectively manage access control and permissions for my storage resources.
 ---
 
 # Actions and attributes for Azure role assignment conditions for Azure Queue Storage
@@ -149,7 +150,7 @@ The following table summarizes the available attributes by source:
 > | **Attribute** | `Microsoft.Network/privateEndpoints` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
-> | **Examples** | `@Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'`<br/>[Example: Allow read access to a container only from a specific private endpoint](../blobs/storage-auth-abac-examples.md#example-allow-access-to-a-container-only-from-a-specific-private-endpoint) |
+> | **Examples** | `@Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'`<br/>[Example: Allow read access to a container only from a specific private endpoint](../blobs/storage-auth-abac-examples.md#example-allow-access-to-a-container-only-from-a-specific-private-endpoint) |
 > | **Learn more** | [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md) |
 
 ### Queue name
@@ -173,7 +174,7 @@ The following table summarizes the available attributes by source:
 > | **Attribute** | `Microsoft.Network/virtualNetworks/subnets` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
-> | **Examples** | `@Environment[Microsoft.Network/virtualNetworks/subnets] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/virtualNetworks/virtualnetwork1/subnets/default'`<br/>[Example: Allow access to blobs in specific containers from a specific subnet](../blobs/storage-auth-abac-examples.md#example-allow-access-to-blobs-in-specific-containers-from-a-specific-subnet) |
+> | **Examples** | `@Environment[Microsoft.Network/virtualNetworks/subnets] StringEqualsIgnoreCase '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/example-group/providers/Microsoft.Network/virtualNetworks/virtualnetwork1/subnets/default'`<br/>[Example: Allow access to blobs in specific containers from a specific subnet](../blobs/storage-auth-abac-examples.md#example-allow-access-to-blobs-in-specific-containers-from-a-specific-subnet) |
 > | **Learn more** | [Subnets](../../virtual-network/concepts-and-best-practices.md) |
 
 ### UTC now

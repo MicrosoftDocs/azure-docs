@@ -21,7 +21,7 @@ Before you begin, make sure that:
 
 1. You've access to a client system with a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device). If using a Windows client, the system should run PowerShell 5.0 or later to access the device.
 
-1. Save the following deployment `json` on your local system. You'll use information from this file to run the IoT Edge deployment. This deployment is based on [Simple CUDA containers](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#running-simple-containers) that are publicly available from Nvidia. 
+1. Save the following deployment `json` on your local system. You'll use information from this file to run the IoT Edge deployment. This deployment is based on [Simple CUDA containers](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#running-simple-containers) that are publicly available from NVIDIA. 
 
     ```json
     {
@@ -118,7 +118,7 @@ The first step is to verify that your device is running required GPU driver and 
 
     `Get-HcsGpuNvidiaSmi`
 
-1. In the Nvidia smi output, make a note of the GPU version and the CUDA version on your device. If you are running Azure Stack Edge 2102 software, this version would correspond to the following driver versions:
+1. In the NVIDIA smi output, make a note of the GPU version and the CUDA version on your device. If you are running Azure Stack Edge 2102 software, this version would correspond to the following driver versions:
 
     - GPU driver version: 460.32.03
     - CUDA version: 11.2
@@ -152,7 +152,7 @@ The first step is to verify that your device is running required GPU driver and 
     [10.100.10.10]: PS>  
     ```
 
-1. Keep this session open as you will use it to view the Nvidia smi output throughout the article.
+1. Keep this session open as you will use it to view the NVIDIA smi output throughout the article.
 
 
 ## Deploy without context-sharing
@@ -216,7 +216,7 @@ For detailed instructions, see [Connect to and manage a Kubernetes cluster via k
 
 ### Deploy modules via portal
 
-Deploy IoT Edge modules via the Azure portal. You'll deploy publicly available Nvidia CUDA sample modules that run n-body simulation.
+Deploy IoT Edge modules via the Azure portal. You'll deploy publicly available NVIDIA CUDA sample modules that run n-body simulation.
 
 1. Make sure that the IoT Edge service is running on your device.
 
@@ -316,7 +316,7 @@ Deploy IoT Edge modules via the Azure portal. You'll deploy publicly available N
     ```
     There are two pods, `cuda-sample1-97c494d7f-lnmns` and `cuda-sample2-d9f6c4688-2rld9` running on your device.
 
-1. While both the containers are running the n-body simulation, view the GPU utilization from the Nvidia smi output. Go to the PowerShell interface of the device and run `Get-HcsGpuNvidiaSmi`.
+1. While both the containers are running the n-body simulation, view the GPU utilization from the NVIDIA smi output. Go to the PowerShell interface of the device and run `Get-HcsGpuNvidiaSmi`.
 
     Here is an example output when both the containers are running the n-body simulation:
 
@@ -349,7 +349,7 @@ Deploy IoT Edge modules via the Azure portal. You'll deploy publicly available N
     ```
     As you can see, there are two containers running with n-body simulation on GPU 0. You can also view their corresponding memory usage.
 
-1. Once the simulation has completed, the Nvidia smi output will show that there are no processes running on the device.
+1. Once the simulation has completed, the NVIDIA smi output will show that there are no processes running on the device.
 
     ```powershell
     [10.100.10.10]: PS>Get-HcsGpuNvidiaSmi
@@ -460,7 +460,7 @@ You can now deploy the n-body simulation on two CUDA containers when MPS is runn
     Created nvidia-mps.service
     [10.100.10.10]: PS>    
     ```
-1. Get the Nvidia smi output from the PowerShell interface of the device. You can see the `nvidia-cuda-mps-server` process or the MPS service is running on the device.
+1. Get the NVIDIA smi output from the PowerShell interface of the device. You can see the `nvidia-cuda-mps-server` process or the MPS service is running on the device.
 
     Here is an example output:
 
@@ -548,7 +548,7 @@ You can now deploy the n-body simulation on two CUDA containers when MPS is runn
     PS C:\WINDOWS\system32>    
     ```      
 
-1. Get the Nvidia smi output from the PowerShell interface of the device when both the containers are running the n-body simulation. Here is an example output. There are three processes, the `nvidia-cuda-mps-server` process (type C) corresponds to the MPS service and the `/tmp/nbody` processes (type M + C) correspond to the n-body workloads deployed by the modules. 
+1. Get the NVIDIA smi output from the PowerShell interface of the device when both the containers are running the n-body simulation. Here is an example output. There are three processes, the `nvidia-cuda-mps-server` process (type C) corresponds to the MPS service and the `/tmp/nbody` processes (type M + C) correspond to the n-body workloads deployed by the modules. 
 
     ```powershell
     [10.100.10.10]: PS>Get-HcsGpuNvidiaSmi

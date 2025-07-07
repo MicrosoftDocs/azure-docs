@@ -4,7 +4,10 @@ description: Learn how to use Apache Spark Structured Streaming to read data fro
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
-ms.date: 12/05/2023
+ms.date: 12/02/2024
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ---
 
 # Use Apache Spark Structured Streaming with Apache Kafka and Azure Cosmos DB

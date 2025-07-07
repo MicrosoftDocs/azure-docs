@@ -2,23 +2,19 @@
 title: Azure Communication Services troubleshooting VoIP call quality
 titleSuffix: An Azure Communication Services concept article
 description: Learn how to troubleshoot web VoIP call quality with Azure Communication Services.
-author: Cardiohater1
-ms.author: drohmetra
-manager: dacarte
+author: sloanster
+ms.author: micahvivion
 
 services: azure-communication-services
-ms.date: 3/6/2024
+ms.date: 10/17/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-
 # Troubleshoot VoIP call quality 
 
-This article describes how to troubleshoot and improve web Voice over Internet Protocol (VoIP) call quality in Azure Communication Services.
-
-Voice and video calling experiences are an essential communication tool for businesses, organizations, and individuals in today's world. However, customers can experience quality problems. Four network parameters can affect quality in calls: available bandwidth, round-trip time (RTT), packet loss, and jitter.
+This article describes how to troubleshoot and improve web Voice over Internet Protocol (VoIP) call quality in Azure Communication Services. Voice and video calling experiences are an essential communication tool for businesses, organizations, and individuals in today's world. However, customers can experience quality problems. Four network parameters can affect quality in calls: available bandwidth, round-trip time (RTT), packet loss, and jitter.
 
 If quality problems arise with VoIP calling in Azure Communication Services, follow the troubleshooting guidance in this article to ensure the best-possible user experience.
 
@@ -54,7 +50,7 @@ When a caller or callee reports audio interference or background noise on a call
 
 Also, make sure that the application you're using for web calling is hosted on the latest SDK. For more information, see [Azure Communication Services Calling Web (JavaScript) SDK - Release History](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md).
 
-## Pre-call checkups
+## Precall checkups
 
 When you're using the internet at various locations, you experience different internet speeds. Factors like the following examples can affect internet speed and reliability:
 
@@ -90,18 +86,14 @@ If you tried all the previous actions and still face quality problems, [create a
 
 ## End of Call Survey
 
-Enable the End of Call Survey feature to give Azure Communication Services users the option to submit qualitative feedback about their call experience.
+Enable the End of Call Survey feature to give Azure Communication Services users the option to submit qualitative feedback about their call experience. By enabling end of call survey you can learn more about end users calling experience and get insight of how you might improve that experience.
 
 For more information, see [End of Call Survey overview](end-of-call-survey-concept.md) and the related tutorial [Use the End of Call Survey to collect user feedback](../../tutorials/end-of-call-survey-tutorial.md).
 
 ## Related content
-
+- For detailed deep dive inspection on how to trouble shoot call quality and reliability see [here](../../resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/overview.md).
+- For information about Calling SDK error codes, see [Troubleshooting in Azure Communication Services](../../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md). Use these codes to help determine why a call ended and how to mitigate the issue.
 - For information about using Call Quality Dashboard (CQD) to view interoperability call logs, see [Use CQD to manage call and meeting quality in Microsoft Teams](/microsoftteams/quality-of-experience-review-guide).
-
-- For information about Calling SDK error codes, see [Troubleshooting in Azure Communication Services](../../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md). Use these codes to help determine why a call ended.
-
 - To ensure smooth functioning of the application and provide better user experience, app developers should follow a checklist. For more information, see the blog post [Checklist for advanced calling experiences in web browsers](https://techcommunity.microsoft.com/t5/azure-communication-services/checklist-for-advanced-calling-experiences-in-web-browsers/ba-p/3266312).
-
 - For more information about preparing your network or your customer's network, see [Network recommendations](network-requirements.md).
-
 - For best practices regarding Azure Communication Services web calling, see [Best practices: Azure Communication Services calling SDKs](../best-practices.md).

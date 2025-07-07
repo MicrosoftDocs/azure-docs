@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 07/30/2024
+  ms.date: 03/31/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -62,7 +62,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Configure point-to-site VPN Certificate authentication
-            url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
+            url: point-to-site-certificate-gateway.md
           - text: Configure point-to-site VPN Microsoft Entra ID authentication
             url: point-to-site-entra-gateway.md
           - text: Configure point-to-site VPN using Multiple authentication types
@@ -83,8 +83,8 @@ landingContent:
             url: bgp-howto.md
           - text: Configure forced tunneling
             url: vpn-gateway-forced-tunneling-rm.md
-          - text: Configure active-active gateways
-            url: active-active-portal.md
+          - text: Change a gateway to active-active mode
+            url: gateway-change-active-active.md
 
   # Card
   - title: VPN devices
@@ -141,7 +141,22 @@ landingContent:
         links:
           - text: Monitoring and alerts
             url: monitor-vpn-gateway.md
-            
+  # Card
+  - title: Related hybrid connectivity services
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What is hybrid connectivity?
+            url: /azure/networking/hybrid-connectivity/hybrid-connectivity
+          - text: Learn more about hybrid connectivity
+            url: /azure/networking/hybrid-connectivity/
+      - linkListType: overview
+        links:
+          - text: Azure Virtual WAN
+            url: ../virtual-wan/virtual-wan-about.md
+          - text: Azure ExpressRoute
+            url: ../expressroute/expressroute-introduction.md       
+  
   # Card
   - title: Reference
     linkLists:

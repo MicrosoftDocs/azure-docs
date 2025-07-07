@@ -80,7 +80,7 @@ With additional configuration, this sample supports connecting to an **Microsoft
    - [Register your app under Microsoft Entra ID (using Android platform settings)](/entra/identity-platform/tutorial-v2-android) 
    - [Configure your App Service or Azure Functions app to use Microsoft Entra login](../../../app-service/configure-authentication-provider-aad.md)
 
-2. Go to your registered app overview page under Microsoft Entra App Registrations. Take note of the `Package name`, `Signature hash`, `MSAL Configutaion`.
+2. Go to your registered app overview page under Microsoft Entra App Registrations. Take note of the `Package name`, `Signature hash`, `MSAL Configuration`.
 
 :::image type="content" source="../media/calling/aad-overview-android.png" alt-text="Microsoft Entra configuration on Azure portal.":::
 

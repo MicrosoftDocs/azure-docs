@@ -2,7 +2,7 @@
 title: 'Quickstart: Create a Data Explorer pool using the Azure portal (Preview)'
 description: Create a Data Explorer pool using the Azure portal by following the steps in this guide.
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 03/24/2025
 author: shsagir
 ms.author: shsagir
 ms.reviewer: shsagir
@@ -12,6 +12,8 @@ ms.custom: mode-ui
 ---
 
 # Quickstart: Create a Data Explorer pool using the Azure portal (Preview)
+
+[!INCLUDE [data-explorer-deprecation-notice](includes/data-explorer-deprecation-notice.md)]
 
 Azure Synapse Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Data Explorer, you first create a Data Explorer pool.
 

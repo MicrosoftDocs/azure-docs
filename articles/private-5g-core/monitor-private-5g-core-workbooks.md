@@ -1,8 +1,8 @@
 ---
 title: Monitor Azure Private 5G Core with Azure Monitor Workbooks
 description: Information on using Azure Monitor Workbooks to monitor activity and analyze statistics in your private mobile network. 
-author: robswain
-ms.author: robswain
+author: anzaman
+ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: conceptual
 ms.date: 08/09/2023

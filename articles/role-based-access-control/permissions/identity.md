@@ -2,11 +2,11 @@
 title: Azure permissions for Identity - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Identity category.
 ms.service: role-based-access-control
-ms.topic: reference
-author: rolyon
-manager: amycolannino
-ms.author: rolyon
-ms.date: 09/20/2024
+ms.topic: generated-reference
+author: jenniferf-skc
+manager: pmwongera
+ms.author: jfields
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 

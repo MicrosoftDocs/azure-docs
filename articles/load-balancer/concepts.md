@@ -4,10 +4,10 @@ description: Overview of Azure Load Balancer concepts.
 services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/26/2024
 ms.author: mbender
-ms.custom: template-concept
+# Customer intent: As a cloud architect, I want to understand the load balancing algorithm used by Azure Load Balancer so that I can effectively distribute traffic and ensure high availability for my applications.
 ---
 
 # Azure Load Balancer algorithm

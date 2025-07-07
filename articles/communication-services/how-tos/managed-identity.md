@@ -1,6 +1,7 @@
 ---
-title: Azure Communication Services support for Managed Identity 
-description: Learn about using Managed Identity with Azure Communication Services
+title: Enable managed identity
+titleSuffix: An Azure Communication Services article
+description: This article describes how to use managed identity with Azure Communication Services
 author: joeleniqs
 manager: ankitarorabit
 services: azure-communication-services
@@ -11,22 +12,23 @@ ms.service: azure-communication-services
 ms.custom: managed-identity
 ---
 
-# How to use Managed Identity with Azure Communication Services
-Azure Communication Services is a fully managed communication platform that enables developers to build real-time communication features into their applications. By using Managed Identity with Azure Communication Services, you can simplify the authentication process for your application, while also increasing its security. This document covers how to use Managed Identity with Azure Communication Services.
+# Enable managed identity
 
-## Using Managed Identity with Azure Communication Services
+Azure Communication Services is a fully managed communication platform that enables developers to build real-time communication features into their applications. By using managed identity with Azure Communication Services, you can simplify the authentication process for your application, while also increasing its security. This document covers how to use managed identity with Azure Communication Services.
 
-Azure Communication Services supports using Managed Identity to authenticate with the service. By using Managed Identity, you can eliminate the need to manage your own access tokens and credentials.
+## Using managed identity with Azure Communication Services
+
+Azure Communication Services supports using managed identity to authenticate with the service. By using managed identity, you can eliminate the need to manage your own access tokens and credentials.
 
 Your Azure Communication Services resource can be assigned two types of identity:
 1. A **System Assigned Identity** which is tied to your resource and is deleted when your resource is deleted.
    Your resource can only have one system-assigned identity.
 2. A **User Assigned Identity** which is an Azure resource that can be assigned to your Azure Communication Services resource. This identity isn't deleted when your resource is deleted. Your resource can have multiple user-assigned identities.
 
-To use Managed Identity with Azure Communication Services, follow these steps:
+To use managed identity with Azure Communication Services, follow these steps:
 
-1. Grant your Managed Identity access to the Communication Services resource. This assignment can be through the Azure portal, Azure CLI and the Azure Communication Management SDKs.
-2. Use the Managed Identity to authenticate with Azure Communication Services. Authentication can be done through the Azure SDKs or REST APIs that support Managed Identity.
+1. Grant your managed identity access to the Communication Services resource. This assignment can be through the Azure portal, Azure CLI, and the Azure Communication Management SDKs.
+2. Use the managed identity to authenticate with Azure Communication Services. Authentication can be done through the Azure SDKs or REST APIs that support managed identity.
 
 -----
 
@@ -84,11 +86,14 @@ az communication identity assign --name myApp --resource-group myResourceGroup -
 
 -----
 
-## Managed Identity using Azure Communication Services management SDKs
-Managed Identity can also be assigned to your Azure Communication Services resource using the Azure Communication Management SDKs. 
-This assignment can be achieved by introducing the identity property in the resource definition either on creation or when updating the resource.
+## Managed identity using Azure Communication Services management SDKs
+
+You can also assign managed identity to your Azure Communication Services resource using the Azure Communication Management SDKs.
+
+You can achieve this assignment by introducing the identity property in the resource definition either on creation or when updating the resource.
 
 # [.NET](#tab/dotnet)
+
 You can assign your managed identity to your Azure Communication Services resource using the Azure Communication Management SDK for .NET by setting the `Identity` property on the `CommunicationServiceResourceData `.
 
 For example:
@@ -122,44 +127,42 @@ public async Task CreateResourceWithSystemAssignedManagedIdentity()
     var resource = communicationServiceLro.Value;
 }
 ```
-For more information on using the .NET Management SDK, see [Azure Communication Management SDK for .NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.ResourceManager.Communication/README.md).
 
-For more information specific to managing your resource instance, see [Managing your Communication Service Resource instance](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.ResourceManager.Communication/samples/Sample1_ManagingCommunicationService.md)
+For more information about using the .NET Management SDK, see [Azure Communication Management SDK for .NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.ResourceManager.Communication/README.md).
 
+For more information specific to managing your resource instance, see [Managing your Communication Service Resource instance](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.ResourceManager.Communication/samples/Sample1_ManagingCommunicationService.md).
 
 # [JavaScript](#tab/javascript)
 
-For Node.js apps and JavaScript functions, samples on how to create or update your Azure Communication Services resource with a managed identity can be found in the [Azure Communication Management Developer Samples for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/arm-communication/samples-dev/communicationServicesCreateOrUpdateSample.ts)
+For Node.js apps and JavaScript functions, samples on how to create or update your Azure Communication Services resource with a managed identity can be found in the [Azure Communication Management Developer Samples for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/arm-communication/samples-dev/communicationServicesCreateOrUpdateSample.ts).
 
-For more information on using the JavaScript Management SDK, see [Azure Communication Management SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/arm-communication/README.md)
+For more information about using the JavaScript Management SDK, see [Azure Communication Management SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/arm-communication/README.md).
 
 # [Python](#tab/python)
 
-For Python apps and functions, Code Samples on how to create or update your Azure Communication Services resource  with a managed identity can be found in the [Azure Communication Management Developer Samples for Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-mgmt-communication/generated_samples/communication_services/create_or_update_with_system_assigned_identity.py)
+For Python apps and functions, Code Samples on how to create or update your Azure Communication Services resource  with a managed identity can be found in the [Azure Communication Management Developer Samples for Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-mgmt-communication/generated_samples/communication_services/create_or_update_with_system_assigned_identity.py).
 
-For more information on using the python Management SDK, see [Azure Communication Management SDK for Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-mgmt-communication/README.md)
+For more information about using the python Management SDK, see [Azure Communication Management SDK for Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-mgmt-communication/README.md).
+
 # [Java](#tab/java)
 
 For Java apps and functions, Code Samples on how to create or update your Azure Communication Services resource  with a managed identity can be found in the [Azure Communication Management Developer Samples for Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/communication/azure-resourcemanager-communication/src/samples/java/com/azure/resourcemanager/communication/generated/CommunicationServicesCreateOrUpdateSamples.java).
 
-For more information on using the java Management SDK, see [Azure Communication Management SDK for Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/communication/azure-resourcemanager-communication/README.md)
+For more information about using the java Management SDK, see [Azure Communication Management SDK for Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/communication/azure-resourcemanager-communication/README.md).
 
-# [GoLang](#tab/go)
+# [Golang](#tab/go)
 
 For Golang apps and functions, Code Samples on how to create or update your Azure Communication Services resource  with a managed identity can be found in the [Azure Communication Management Developer Samples for Golang](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/resourcemanager/communication/armcommunication/services_client_example_test.go).
 
-For more information on using the golang Management SDK, see [Azure Communication Management SDK for Golang](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/resourcemanager/communication/armcommunication/README.md)
-
+For more information about the Golang Management SDK, see [Azure Communication Management SDK for Golang](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/resourcemanager/communication/armcommunication/README.md).
 
 -----
 > [!NOTE]
-> A resource can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`.
+> A resource can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property is `SystemAssigned,UserAssigned`.
 >
->Removing all managed identity assignments from a resource can also be acheived by specifying the `type` property as `None`.
-
+> You can also remove all managed identity assignments from a resource by specifying the `type` property as `None`.
 
 ## Next steps
-Now that you have learned how to enable Managed Identity with Azure Communication Services. Consider implementing this feature in your own applications to simplify your authentication process and improve security. 
 
-- [Managed Identities](/entra/identity/managed-identities-azure-resources/overview)
+- [Managed identities](/entra/identity/managed-identities-azure-resources/overview)
 - [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities)

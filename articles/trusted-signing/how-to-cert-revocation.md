@@ -1,11 +1,13 @@
 ---
-title: Revoke a certificate profile in Trusted Signing 
-description: Learn how to revoke a Trusted Signing certificate in the Azure portal. 
-author: mehasharma 
-ms.author: mesharm 
-ms.service: trusted-signing 
-ms.topic: how-to 
-ms.date: 04/12/2024 
+title: Revoke a certificate profile in Trusted Signing
+description: Learn how to revoke a Trusted Signing certificate in the Azure portal.
+author: TacoTechSharma
+ms.author: mesharm
+ms.service: trusted-signing
+ms.custom:
+  - ignite-2024
+ms.topic: how-to
+ms.date: 04/12/2024
 ---
 
 
@@ -22,7 +24,7 @@ If the certificate that's issued to you doesn’t match your intended values or 
 1. For assistance revoking a certificate, contact Microsoft.
 
    - If you encounter any issues revoking a certificate by using the Azure portal (especially for scenarios that don't involve misuse or abuse), contact Microsoft.
-   - For any misuse or abuse of certificates that are issued to you by Trusted Signing, contact Microsoft immediately at `acsrevokeadmins@microsoft.com`.
+   - For any misuse or abuse of certificates that are issued to you by Trusted Signing, contact Microsoft immediately at `azcodesignrevoke@microsoft.com`.
 
 1. Continue signing by using Trusted Signing.
 

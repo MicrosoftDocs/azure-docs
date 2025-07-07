@@ -9,6 +9,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 01/26/2023
 ms.custom: engagement-fy23, linux-related-content
+# Customer intent: As a Linux user, I want to mount an Azure Blob Storage container using BlobFuse2, so that I can efficiently access and manage blob data as if it were part of the local file system.
 ---
 
 # How to mount an Azure Blob Storage container on Linux with BlobFuse2
@@ -56,13 +57,13 @@ Configure the [Linux Package Repository for Microsoft Products](/windows-server/
 
 # [RHEL](#tab/RHEL)
 
-As an example, on a Redhat Enterprise Linux 8 distribution:
+As an example, on a Red Hat Enterprise Linux 8 distribution:
 
 ```bash
 sudo rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-prod.rpm
 ```
 
-Similarly, change the URL to `.../rhel/7/...` to point to a Redhat Enterprise Linux 7 distribution.
+Similarly, change the URL to `.../rhel/7/...` to point to a Red Hat Enterprise Linux 7 distribution.
 
 # [Ubuntu](#tab/Ubuntu)
 
@@ -93,18 +94,23 @@ sudo rpm -Uvh https://packages.microsoft.com/config/sles/15/packages-microsoft-p
 sudo yum install blobfuse2
 ```
 
+Similarly, change the package name to `blobfuse2-<version>` to install specific version. 
+
 # [Ubuntu](#tab/Ubuntu)
 
 ```bash
 sudo apt-get install blobfuse2
 ```
+Similarly, change the package name to `blobfuse2=<version>` to install specific version. 
+
 # [SLES](#tab/SLES)
 
 ```bash
 sudo zypper install blobfuse2
 ```
----
+Similarly, change the package name to `blobfuse2-<version>` to install specific version. 
 
+---
 ### Option 2: Build the binaries from source code
 
 To build the BlobFuse2 binaries from source code:
@@ -182,8 +188,6 @@ stream:
     max-buffers: The total number of buffers to store blocks in
     buffer-size-mb: The size for each buffer
 ```
-
-To get started quickly with some settings for a basic streaming scenario, see the [sample streaming configuration file](https://github.com/Azure/azure-storage-fuse/blob/main/sampleStreamingConfig.yaml).
 
 #### Configure caching for smaller files
 

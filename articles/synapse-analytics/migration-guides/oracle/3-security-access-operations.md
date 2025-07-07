@@ -6,8 +6,8 @@ ms.subservice: sql-dw
 ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
-ms.reviewer: wiassaf
-ms.date: 08/11/2022
+
+ms.date: 12/09/2024
 ---
 
 # Security, access, and operations for Oracle migrations
@@ -40,6 +40,9 @@ The Oracle system offers these authentication methods for database users:
   - **Network authentication**: several network authentication mechanisms are available, such as smart cards, fingerprints, Kerberos, and the operating system. Many network authentication services, such as Kerberos, support single sign-on so users have fewer passwords to remember.
 
 - **Global authentication and authorization**: with global authentication and authorization, you can centralize management of user-related information, including authorizations, in an LDAP-based directory service. Users are identified in the database as global users, which means they're authenticated by TLS/SSL and user management occurs outside the database. The centralized directory service performs user management. This approach provides strong authentication using TLS/SSL, Kerberos, or Windows-native authentication, and enables centralized management of users and privileges across the enterprise. Administration is easier because it's not necessary to create a schema for every user in every database in the enterprise. Single sign-on is also supported, so that users only need to sign in once to access multiple databases and services.
+
+   > [!IMPORTANT]
+   > Azure will begin to retire older TLS versions (TLS 1.0 and 1.1) starting in November 2024. Use TLS 1.2 or higher. After March 31, 2025, you will no longer be able to set the minimal TLS version for Azure Synapse Analytics client connections below TLS 1.2.  After this date, sign-in attempts from connections using a TLS version lower than 1.2 will fail. For more information, see [Announcement: Azure support for TLS 1.0 and TLS 1.1 will end](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/).
 
 - **Proxy authentication and authorization**: you can designate a middle-tier server to proxy clients in a secure fashion. Oracle provides various options for proxy authentication, such as:
   
@@ -286,7 +289,7 @@ Azure Synapse automatically takes snapshots throughout the day and creates resto
 
 Azure Synapse supports user-defined restore points, which are created from manually triggered snapshots. By creating restore points before and after large data warehouse modifications, you ensure that the restore points are logically consistent. The user-defined restore points augment data protection and reduce recovery time if there are workload interruptions or user errors.
 
-In addition to snapshots, Azure Synapse performs a standard geo-backup once per day to a [paired data center](../../../availability-zones/cross-region-replication-azure.md). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any region where Azure Synapse is supported. A geo-backup ensures that a data warehouse can be restored if restore points in the primary region aren't available.
+In addition to snapshots, Azure Synapse performs a standard geo-backup once per day to a [paired data center](../../../reliability/cross-region-replication-azure.md). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any region where Azure Synapse is supported. A geo-backup ensures that a data warehouse can be restored if restore points in the primary region aren't available.
 
 >[!TIP]
 >Microsoft Azure provides automatic backups to a separate geographical location to enable DR.

@@ -9,6 +9,7 @@ ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: golang
 ms.custom: mode-api, passwordless-go, devx-track-go
+# Customer intent: "As a Go developer, I want to use the Azure Blob Storage client module so that I can create, manage, and manipulate blobs and containers effectively in my applications."
 ---
 
 # Quickstart: Azure Blob Storage client module for Go
@@ -80,7 +81,7 @@ You can authorize access to data in your storage account using the following ste
     az login
     ```
 
-2. To use `DefaultAzureCredential` in a Go application, install the [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) module using the following command::
+2. To use `DefaultAzureCredential` in a Go application, install the [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) module using the following command:
 
     ```console
     go get github.com/Azure/azure-sdk-for-go/sdk/azidentity

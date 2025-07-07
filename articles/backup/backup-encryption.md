@@ -5,8 +5,9 @@ ms.topic: reference
 ms.date: 09/11/2024
 ms.custom: references_regions, engagement-fy23 
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
+# Customer intent: As a data security officer, I want to understand the encryption features in Azure Backup, so that I can ensure our backup data is protected and compliant with industry standards.
 ---
 
 # Encryption in Azure Backup

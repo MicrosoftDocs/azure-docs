@@ -6,7 +6,7 @@ services: azure-app-configuration
 author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 04/10/2024
+ms.date: 03/24/2025
 ms.author: malev
 ms.custom: "devx-track-csharp, mvc"
 
@@ -15,7 +15,7 @@ ms.custom: "devx-track-csharp, mvc"
 
 # Quickstart: Manage feature flags in Azure App Configuration
 
-Azure App Configuration includes feature flags, which you can use to enable or disable a functionality, and variant feature flags (preview), which allow multiple variations of a feature flag.
+Azure App Configuration includes feature flags, which you can use to enable or disable a functionality, and variant feature flags, which allow multiple variations of a feature flag.
 
 The Feature manager in the Azure portal provides a UI for creating and managing the feature flags and the variant feature flags that you use in your applications.
 
@@ -59,9 +59,9 @@ az appconfig feature set --name <name> --feature Beta
 
 ---
 
-## Create a variant feature flag (preview)
+## Create a variant feature flag
 
-Add a new variant feature flag (preview) by opening your Azure App Configuration store in the Azure portal and from the **Operations** menu, select **Feature manager** > **Create**. Then select **Variant feature flag (Preview)**.
+Add a new variant feature flag by opening your Azure App Configuration store in the Azure portal and from the **Operations** menu, select **Feature manager** > **Create**. Then select **Variant feature flag**.
 
 :::image type="content" source="media\manage-feature-flags\variant-feature-flags-menu.png" alt-text="Screenshot of the Azure platform. Create a variant feature flag.":::
 
@@ -159,6 +159,9 @@ To start using feature flags with Azure App Configuration, continue to the follo
 
 > [!div class="nextstepaction"]
 > [Python](./quickstart-feature-flag-python.md)
+
+> [!div class="nextstepaction"]
+> [JavaScript](./quickstart-feature-flag-javascript.md)
 
 > [!div class="nextstepaction"]
 > [Azure Kubernetes Service](./quickstart-feature-flag-azure-kubernetes-service.md)

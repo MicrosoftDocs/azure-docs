@@ -2,13 +2,15 @@
 title: Monitoring, metrics, and raw logs for Azure CDN
 description: This article describes how to set up and use Azure CDN monitoring, metrics, and raw logs.
 services: cdn
-author: duongau
+author: halkazwini
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
+ms.date: 03/31/2025
 ms.author: yuajia 
 ms.custom: devx-track-azurepowershell
+ROBOTS: NOINDEX
+# Customer intent: "As a CDN administrator, I want to set up and configure real-time monitoring and logging for Azure CDN, so that I can effectively troubleshoot performance issues and analyze traffic patterns for better resource management."
 ---
 
 # Real-time Monitoring, metrics, and access Logs for Azure CDN
@@ -57,8 +59,6 @@ To configure Raw logs for your Azure CDN from Microsoft profile:
         - Select the **Subscription** and the **Storage Account**.
     - **Stream to an event hub**
         - Select the **Subscription**, **Event hub namespace**, **Event hub name (optional)**, and **Event hub policy name**.
-
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Configure destination for log settings." border="true":::
 
 7. Select **Save**.
 
@@ -158,7 +158,7 @@ Azure CDN from Microsoft Service currently provides Raw logs. Raw logs provide i
 | ClientIp | The IP address of the client that made the request. If there was an X-Forwarded-For header in the request, then the Client IP is picked from the same. |
 | ClientPort | The IP port of the client that made the request. |
 | HttpMethod | HTTP method used by the request. |
-| HttpStatusCode | The HTTP status code returned from the proxy. If a request to the origin timeouts the value for HttpStatusCode is set to **0**.|
+| HttpStatusCode | The HTTP status code returned from the proxy. If a request to the origin timeouts, the value for HttpStatusCode is set to **0**.|
 | HttpStatusDetails | Resulting status on the request. Meaning of this string value can be found at a Status reference table. |
 | HttpVersion | Type of the request or connection. |
 | POP | Short name of the edge where the request landed. |
@@ -244,8 +244,6 @@ Scenarios excluded in bytes hit ratio calculation:
 
 2. Under **Monitoring**, select **Metrics**:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Metrics for CDN profile." border="true":::
-
 3. Select **Add metric**, select the metric to add:
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Add and select metric for CDN profile." border="true":::
@@ -280,15 +278,10 @@ You can enable more metrics using Azure Log Analytics and raw logs for an extra 
 
 2. Select the Log Analytics workspace you created:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Screenshot of the select Log Analytics workspace menu." border="true":::
-
 3. Select **Logs** under **General** in the Log Analytics workspace. Then select **Get Started**:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Screenshot of the Log Analytics resource workspace." border="true":::
 
 4. Select **CDN Profiles**. Select an example query to RUN or close the example screen to enter a custom query:
-
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Screenshot of example query screen." border="true":::
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Screenshot of the query execution." border="true":::
 

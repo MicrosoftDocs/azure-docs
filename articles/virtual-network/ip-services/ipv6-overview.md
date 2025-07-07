@@ -4,9 +4,10 @@ description: IPv6 description of IPv6 endpoints and data paths in an Azure virtu
 services: virtual-network
 author: mbender-ms
 ms.author: mbender
-ms.date: 08/24/2023
+ms.date: 10/16/2024
 ms.service: azure-virtual-network
 ms.topic: concept-article
+# Customer intent: "As a network administrator, I want to implement dual stack (IPv4/IPv6) connectivity in Azure Virtual Network, so that I can support modern applications and IoT devices while ensuring compatibility with existing IPv4 infrastructure."
 ---
 
 # What is IPv6 for Azure Virtual Network?
@@ -89,13 +90,11 @@ IPv6 for Azure Virtual Network is a foundational feature set that enables custom
 
 The current IPv6 for Azure Virtual Network release has the following limitations:
 
-- VPN gateways currently support IPv4 traffic only, but they still can be deployed in a dual-stacked virtual network using Azure PowerShell and Azure CLI commands only.
-
 - The Azure platforms, such as Azure Container Instances and Azure Container Apps, do not support IPv6 communication for containers 
 
 - IPv6-only Virtual Machines or Virtual Machines Scale Sets aren't supported, each NIC must include at least one IPv4 IP configuration. 
 
-- To add IPv6 to existing IPv4 deployments, you can't add IPv6 ranges to a virtual network that has existing resource navigation links.
+- To add IPv6 to existing IPv4 deployments, you can't add IPv6 ranges to a virtual network that has existing resource in use.
 
 - While it's possible to create NSG rules for IPv4 and IPv6 within the same NSG, it isn't currently possible to combine an IPv4 subnet with an IPv6 subnet in the same rule when specifying IP prefixes.
 

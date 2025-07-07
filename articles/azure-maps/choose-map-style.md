@@ -27,7 +27,7 @@ var map = new atlas.Map('map', {
     style: 'road'
 
     //Additional map options.
-};
+});
 
 //Update the style options at anytime using `setStyle` function.
 map.setStyle({
@@ -36,8 +36,6 @@ map.setStyle({
     showFeedbackLink: false
 });
 ```
-
-For a fully functional sample that shows how the different styles affect how the map is rendered, see [Map style options] in the [Azure Maps Samples]. For the source code for this sample, see [Map style options source code].
 
 <!-----------------------------------------------------------------------------------------------
 <br/>
@@ -57,7 +55,7 @@ var map = new atlas.Map('map', {
     style: 'grayscale_dark',
 
     //Additional map options
-);
+});
 ```
 
 :::image type="content" source="./media/choose-map-style/set-base-map-style-on-initialization.png" alt-text="Screenshot showing the grayscale dark style being set during the map load process.":::
@@ -84,6 +82,74 @@ map.setStyle({ style: 'satellite' });
 
 > [!VIDEO //codepen.io/azuremaps/embed/yqXYzY/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ----------------------------------------------------------------------------------------------->
+
+## Customize the base map
+The [styleOverrides] options enable users to streamline the base map by turning off specific map elements like country/region borders, administrative district borders, building footprints, and road detail layers. This allows for a cleaner and simpler map view, making it easier to visualize geometry data.
+
+The following code shows how to disable country/region borders and building footprints on the map.
+
+```javascript
+var map = new atlas.Map('map', {
+    styleOverrides: {
+        countryRegion: { borderVisible: false },
+        buildingFootprint: { visible: false },
+    },
+
+    //Additional map options
+});
+```
+
+Here are examples of all five available `styleOverrides` options:
+
+- Country/region borders
+   
+```javascript
+styleOverrides: {
+    countryRegion: { borderVisible: false }
+}
+```
+:::image type="content" source="./media/choose-map-style/country-region.gif" alt-text="An animated GIF that shows country/region borders on a map.":::
+
+- Admin district borders
+
+```javascript
+styleOverrides: {
+    adminDistrict: { borderVisible: false }
+}
+```
+:::image type="content" source="./media/choose-map-style/admin-district.gif" alt-text="An animated GIF that shows admin district borders.":::
+
+- Second admin district borders
+
+```javascript
+styleOverrides: {
+    adminDistrict2: { borderVisible: false }
+}
+```
+:::image type="content" source="./media/choose-map-style/admin-district-2.gif" alt-text="An animated GIF that shows second admin district borders.":::
+
+- Building footprints
+
+```javascript
+styleOverrides: {
+    buildingFootprint: { visible: false }
+}
+```
+:::image type="content" source="./media/choose-map-style/building-footprint.gif" alt-text="An animated GIF that shows building footprints.":::
+
+- Road details
+
+```javascript
+styleOverrides: {
+    roadDetails: { visible: false }
+}
+```
+:::image type="content" source="./media/choose-map-style/road-details.gif" alt-text="An animated GIF that shows road details.":::
+
+> [!NOTE]
+> For more information on the supported map styles on each `styleOverrides` option, see the [styleOverrides] API documentation.
+
+For a sample showing the different styles and how they affect how the map is rendered, see [Map style options] in the [Azure Maps Samples]. For this sample's source code, see [Map style options source code].
 
 ## Add the style picker control
 
@@ -154,6 +220,7 @@ See the following articles for more code samples to add to your maps:
 > [Add a bubble layer]
 
 [style options]: /javascript/api/azure-maps-control/atlas.styleoptions
+[styleOverrides]: /javascript/api/azure-maps-control/atlas.styleoverrides
 [base map styles]: supported-map-styles.md
 
 [Add a bubble layer]: map-add-bubble-layer.md

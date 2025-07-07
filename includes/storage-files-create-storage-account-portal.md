@@ -5,7 +5,7 @@
  author: khdownie
  ms.service: azure-file-storage
  ms.topic: include
- ms.date: 08/28/2024
+ ms.date: 04/08/2025
  ms.author: kendownie
  ms.custom: include file
 ---
@@ -21,6 +21,7 @@ To create a storage account using the Azure portal:
 1. In **Region**, select the region you want to create your storage account in.
 1. In **Primary service**, select **Azure Files**.
 1. In **Performance**, keep the default value of **Standard**.
+1. In **File share billing**, keep the default value of **Pay-as-you-go file shares**.
 1. In **Redundancy**, select **Locally redundant storage (LRS)**.
 
    :::image type="content" source="media/storage-files-create-storage-account-portal/create-storage-account.png" alt-text="Screenshot showing how to enter the project and instance details for a storage account using the Azure portal." lightbox="media/storage-files-create-storage-account-portal/create-storage-account.png":::

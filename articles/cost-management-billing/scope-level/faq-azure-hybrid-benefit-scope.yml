@@ -3,13 +3,13 @@ metadata:
   title: Centrally managed Azure Hybrid Benefit FAQ
   titleSuffix: Cost Management + Billing
   description: Frequently asked questions and answers.
-  author: bandersmsft
-  ms.reviewer: chrisrin
+  author: pri-mittal
+  ms.reviewer: primittal
   ms.service: cost-management-billing
   ms.subservice: ahb
   ms.topic: faq
-  ms.date: 07/01/2024
-  ms.author: banders
+  ms.date: 04/07/2025
+  ms.author: primittal
 title: Centrally managed Azure Hybrid Benefit FAQ
 summary: |
 sections:
@@ -58,9 +58,9 @@ sections:
 
           Microsoft sends email notifications:
 
-          - Ninety days before expiration
-          - Thirty days before expiration
-          - Seven days before expiration
+          - Ninety days before review date
+          - Thirty days before review date
+          - Seven days before review date
 
           Before the license assignment expires, you can set the review date to a future date so that you continue to receive the benefit. When the license assignment expires, you're charged with pay-as-you-go prices. To change the review date, use the following steps:
 

@@ -33,7 +33,7 @@ A Graphics Processing Unit (GPU) is included on every device that enables Kubern
 
 | Specification           | Value                      |
 |-------------------------|----------------------------|
-| GPU   | One nVidia T4 GPU <br> For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/). | 
+| GPU   | One NVIDIA T4 GPU <br> For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/). | 
 
 ## Power supply unit specifications
 

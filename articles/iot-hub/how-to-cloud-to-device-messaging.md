@@ -1,12 +1,12 @@
 ---
 title: Send cloud-to-device messages
 titleSuffix: Azure IoT Hub
-description: How to send cloud-to-device messages from a back-end app and receive them on a device app using the Azure IoT SDKs for C#, Python, Java, Node.js, and C.
-author: kgremban
-ms.author: kgremban
-ms.service: iot-hub
+description: How to send cloud-to-device messages from a back-end app and receive them on a device app using the Azure IoT SDKs for C#, Python, Java, and Node.js.
+author: SoniaLopezBravo
+ms.author: sonialopez
+ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 06/20/2024
+ms.date: 1/6/2025
 zone_pivot_groups: iot-hub-howto-c2d-1
 ms.custom: [amqp, mqtt, "Role: Cloud Development", "Role: IoT Device"]
 ---

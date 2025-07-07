@@ -4,6 +4,9 @@ description: Learn how to run queries on Azure Monitor logs to monitor jobs runn
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 09/06/2024
 ---
 

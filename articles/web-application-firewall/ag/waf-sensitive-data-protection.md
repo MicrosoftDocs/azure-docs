@@ -1,11 +1,12 @@
 ---
 title: Azure Web Application Firewall Sensitive Data Protection
 description: Learn about Azure Web Application Firewall Sensitive Data Protection.
-author: vhorne
-ms.author: victorh
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/10/2024
+# Customer intent: "As a security administrator, I want to configure log scrubbing in the Web Application Firewall, so that I can ensure sensitive data is protected from exposure in our logs."
 ---
 
 # What is Azure Web Application Firewall Sensitive Data Protection?

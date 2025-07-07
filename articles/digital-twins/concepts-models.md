@@ -1,19 +1,12 @@
 ---
-# Mandatory fields.
 title: DTDL models
 titleSuffix: Azure Digital Twins
 description: Learn how Azure Digital Twins uses custom models to describe entities in your environment and how to define these models using the Digital Twin Definition Language (DTDL).
 author: baanders
-ms.author: baanders # Microsoft employees only
-ms.date: 1/3/2024
-ms.topic: conceptual
+ms.author: baanders
+ms.date: 01/27/2025
+ms.topic: concept-article
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
-
 ms.custom: fasttrack-edit
 ---
 
@@ -51,7 +44,7 @@ Azure Digital Twins also supports using a mix of v2 and v3 models within the sam
 
 You can also migrate existing v2 models to v3. For instructions on how to do this, see [Convert v2 models to v3](how-to-manage-model.md#convert-v2-models-to-v3).
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
+[!INCLUDE [digital-twins-explorer-dtdl](includes/digital-twins-explorer-dtdl.md)]
 
 ## Model overview
 
@@ -90,7 +83,7 @@ Here are the attributes available in DTDL that are supported in Azure Digital Tw
 The [DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md) also defines *Commands* and *Telemetry*, but neither of these are used in Azure Digital Twins. Commands are not supported, and Telemetry—although it's allowed in model definitions—has no unique use case in Azure Digital Twins modeling. Instead of using DTDL telemetry, you should use DTDL properties for storing twin state information.
 
 > [!NOTE]
-> Although there's no need to define Telemetry fields in your DTDL models to store incoming device data, Azure Digital Twins can emit events as telemetry using the [SendTelemetry API](concepts-event-notifications.md#digital-twin-telemetry-messages). This triggers a [Digital Twin Telemetry Message event](concepts-event-notifications.md#digital-twin-telemetry-messages) that can be received by an event handler to take actions on other twins or trigger downstream services.
+> While there's no need to define Telemetry fields in your DTDL models to store incoming device data, Azure Digital Twins can emit events as telemetry using the [SendTelemetry API](concepts-event-notifications.md#digital-twin-telemetry-messages). This triggers a [Digital Twin Telemetry Message event](concepts-event-notifications.md#digital-twin-telemetry-messages) that can be received by an event handler to take actions on other twins or trigger downstream services.
 
 ## Properties
 
@@ -166,7 +159,7 @@ Sometimes, you might want to define a relationship without a specific target, so
 
 Here's an example of a relationship on a DTDL model that doesn't have a target. In this example, the relationship is for defining what sensors a Room might have, and the relationship can connect to any type.
 
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="2-27" highlight="20-25":::
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="2-30" highlight="22-27":::
 
 ### Properties of relationships
 
@@ -186,7 +179,7 @@ For a comprehensive list of the fields that may appear as part of a component, s
 
 Here's a basic example of a component on a DTDL model. This example shows a Room model that makes use of a thermostat model as a component.
 
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" highlight="15-19, 28-41":::
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" highlight="18-22, 31-47":::
 
 If other models in this solution should also contain a thermostat, they can reference the same thermostat model as a component in their own definitions, just like Room does.
 
@@ -212,7 +205,7 @@ The following example re-imagines the Home model from the earlier DTDL example a
 
 In this case, Core contributes an ID and name to Home. Other models can also extend the Core model to get these properties as well. Here's a Room model extending the same parent interface:
 
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="2-9" highlight="6":::
+:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="2-10" highlight="9":::
 
 Once inheritance is applied, the extending interface exposes all properties from the entire inheritance chain.
 
@@ -312,7 +305,7 @@ While designing models to reflect the entities in your environment, it can be us
 
 ### Validate models
 
-[!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
+[!INCLUDE [Azure Digital Twins: validate models info](includes/digital-twins-validate.md)]
 
 ### Upload and delete models in bulk
 
@@ -324,13 +317,13 @@ An alternative to the Import Jobs API is the [Model uploader sample](https://git
 
 If you need to delete all models in an Azure Digital Twins instance at once, you can use the [Model Deleter sample](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#deletemodels). This is a project that contains recursive logic to handle model dependencies through the deletion process. It currently only works with [version 2 of DTDL](concepts-models.md#supported-dtdl-versions).
 
-Or, if you want to clear out the data in an instance by deleting all the models **along with** all twins and relationships, you can use the [Delete Jobs API](concepts-apis-sdks.md#bulk-delete-with-the-delete-jobs-api).
+Or, if you want to clear out the data in an instance by deleting all the models **along with all twins and relationships**, you can use the [Delete Jobs API](concepts-apis-sdks.md#bulk-delete-with-the-delete-jobs-api).
 
 ### Visualize models
 
 Once you have uploaded models into your Azure Digital Twins instance, you can use [Azure Digital Twins Explorer](https://explorer.digitaltwins.azure.net/) to view them. The explorer contains a list of all models in the instance, as well as a **model graph** that illustrates how they relate to each other, including any inheritance and model relationships.
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
+[!INCLUDE [digital-twins-explorer-dtdl](includes/digital-twins-explorer-dtdl.md)]
 
 Here's an example of what a model graph might look like:
 

@@ -1,20 +1,20 @@
 ---
-title: Troubleshoot the FTP, SFTP and HTTP connectors
+title: Troubleshoot the FTP, SFTP, and HTTP connectors
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to troubleshoot issues with the FTP, SFTP and HTTP connectors in Azure Data Factory and Azure Synapse Analytics. 
+description: Learn how to troubleshoot issues with the FTP, SFTP, and HTTP connectors in Azure Data Factory and Azure Synapse Analytics. 
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
 
-# Troubleshoot the FTP, SFTP and HTTP connectors in Azure Data Factory and Azure Synapse
+# Troubleshoot the FTP, SFTP, and HTTP connectors in Azure Data Factory and Azure Synapse
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article provides suggestions to troubleshoot common problems with the FTP, SFTP and HTTP connectors in Azure Data Factory and Azure Synapse.
+This article provides suggestions to troubleshoot common problems with the FTP, SFTP, and HTTP connectors in Azure Data Factory and Azure Synapse.
 
 ## FTP
 
@@ -30,7 +30,7 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
 
 - **Message**: `Failed to read data from ftp: The remote server returned an error: 227 Entering Passive Mode (*,*,*,*,*,*).`
 
-- **Cause**: Port range between 1024 to 65535 is not open for data transfer under passive mode supported by the data factory or Synapse pipeline.
+- **Cause**: Port range between 1024 to 65535 isn't open for data transfer under passive mode supported by the data factory or Synapse pipeline.
 
 - **Recommendation**:  Check the firewall settings of the target server. Open port 1024-65535 or port range specified in FTP server to SHIR/Azure IR IP address.
 
@@ -58,7 +58,7 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
 
 - **Message**: `Invalid SFTP credential provided for '%type;' authentication type.`
 
-- **Cause**: Private key content is fetched from the Azure key vault or SDK, but it's not encoded correctly.
+- **Cause**: Private key content is fetched from the Azure Key Vault or SDK, but it's not encoded correctly.
 
 - **Recommendation**:  
 
@@ -126,13 +126,13 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
 
 - **Recommendation**:  Check the port of the target server. By default, SFTP uses port 22.
 
-- **Cause**: If the error message contains the string "Server response does not contain SSH protocol identification", one possible cause is that the SFTP server throttled the connection. Multiple connections are created to download from the SFTP server in parallel, and sometimes it will encounter SFTP server throttling. Ordinarily, different servers return different errors when they encounter throttling.
+- **Cause**: If the error message contains the string "Server response doesn't contain SSH protocol identification", one possible cause is that the SFTP server throttled the connection. Multiple connections are created to download from the SFTP server in parallel, and sometimes it encounters SFTP server throttling. Ordinarily, different servers return different errors when they encounter throttling.
 
 - **Recommendation**:  
 
     Specify the maximum number of concurrent connections of the SFTP dataset as 1 and rerun the copy activity. If the activity succeeds, you can be sure that throttling is the cause.
 
-    If you want to promote the low throughput, contact your SFTP administrator to increase the concurrent connection count limit, or you can do one of the following:
+    If you want to promote the low throughput, contact your SFTP administrator to increase the concurrent connection count limit, or you can take one of the following actions:
 
     * If you're using Self-hosted IR, add the Self-hosted IR machine's IP to the allowlist.
     * If you're using Azure IR, add [Azure Integration Runtime IP addresses](./azure-integration-runtime-ip-addresses.md). If you don't want to add a range of IPs to the SFTP server allowlist, use Self-hosted IR instead.
@@ -142,7 +142,7 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
 
 - **Message**: `Permission denied to access '%path;'`
 
-- **Cause**: The specified user does not have read or write permission to the folder or file when operating.
+- **Cause**: The specified user doesn't have read or write permission to the folder or file when operating.
 
 - **Recommendation**:  Grant the user with permission to read or write to the folder or files on SFTP server.
  
@@ -154,7 +154,7 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
 
 - **Recommendation**: Check your credential.
 
-- **Cause**: The specified authentication type is not allowed or not sufficient to complete the authentication in your SFTP server.
+- **Cause**: The specified authentication type isn't allowed or not sufficient to complete the authentication in your SFTP server.
 
 - **Recommendation**: Apply the following options to use the correct authentication type:
     - If your server requires a password, use "Basic".
@@ -165,17 +165,17 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
 
 - **Recommendation**: 
 
-    "keyboard-interactive" is a special authentication method, which is different from "password". It means that when logging into a server, you must enter the password manually, and you cannot use the previously saved password. But Azure Data Factory (ADF) is a scheduled data transfer service, and there is no pop-up input box allowing you to provide the password at the runtime. <br/> 
+    "keyboard-interactive" is a special authentication method, which is different from "password". It means that when logging into a server, you must enter the password manually, and you can't use the previously saved password. But Azure Data Factory (ADF) is a scheduled data transfer service, and there's no pop-up input box allowing you to provide the password at the runtime. <br/> 
     
     As a compromise, an option is provided to simulate the input in the background instead of your real manual input, which is equivalent to changing the "keyboard-interactive" to "password". If you can accept this security concern, follow the steps below to enable it:<br/> 
     1. On the ADF portal, hover on the SFTP linked service, and open its payload by selecting the code button.
     1. Add `"allowKeyboardInteractiveAuth": true` in the "typeProperties" section.
 
-### Unable to connect to SFTP due to key exchange algorithms provided by SFTP are not supported in ADF
+### Unable to connect to SFTP due to key exchange algorithms provided by SFTP aren't supported in ADF
 
-- **Symptoms**: You are unable to connect to SFTP via ADF and meet the following error message: `Failed to negotiate key exchange algorithm.`
+- **Symptoms**: You're unable to connect to SFTP via ADF and meet the following error message: `Failed to negotiate key exchange algorithm.`
 
-- **Cause**: The key exchange algorithms provided by the SFTP server are not supported in ADF. The key exchange algorithms supported by ADF are:
+- **Cause**: The key exchange algorithms provided by the SFTP server aren't supported in ADF. The key exchange algorithms supported by ADF are:
     - curve25519-sha256
     - curve25519-sha256@libssh.org
     - ecdh-sha2-nistp256
@@ -203,13 +203,13 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
     - ecdsa-sha2-nistp384
     - ecdsa-sha2-nistp521
 
-- **Recommendation**: Get a valid fingerprint using the Host Key Name in `real finger-print` from the error message in the SFTP server. You can run the command to get the fingerprint on your SFTP server. For example: run `ssh-keygen -E md5 -lf <keyFilePath>` in Linux server to get the fingerprint. The command may vary among different server types.
+- **Recommendation**: Get a valid fingerprint using the Host Key Name in `real finger-print` from the error message in the SFTP server. You can run the command to get the fingerprint on your SFTP server. For example: run `ssh-keygen -E md5 -lf <keyFilePath>` in Linux server to get the fingerprint. The command could vary among different server types.
 
 ### Error code: UnsupportedCompressionTypeWhenDisableChunking
 
 - **Message**: `"Disable chunking" is not compatible with "ZipDeflate" decompression.`
 
-- **Cause**: **Disable chunking** is not compatible with **ZipDeflate** decompression.
+- **Cause**: **Disable chunking** isn't compatible with **ZipDeflate** decompression.
 
 - **Recommendation**: Load the binary data to a staging area (for example: Azure Blob Storage) and decompress them in another copy activity.
 
@@ -238,7 +238,7 @@ For more troubleshooting help, try these resources:
 - [Connector troubleshooting guide](connector-troubleshoot-guide.md)
 - [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
-- [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+- [Azure videos](/shows/data-exposed/?products=azure&terms=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 - [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 - [X information about Data Factory](https://x.com/hashtag/DataFactory)

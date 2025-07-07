@@ -1,11 +1,12 @@
 ---
 title: Azure HPC Cache data ingest - manual copy
 description: How to use cp commands to move data to a Blob storage target in Azure HPC Cache
-author: femila
+author: ronhogue
 ms.service: azure-hpc-cache
 ms.topic: how-to
 ms.date: 10/30/2019
-ms.author: femila
+ms.author: rohogue
+# Customer intent: As a data engineer, I want to optimize the manual transfer of data to Azure Blob storage for HPC Cache, so that I can improve the speed and efficiency of my data ingest processes.
 ---
 
 # Azure HPC Cache data ingest - manual copy method

@@ -3,7 +3,7 @@ title: Linter rule - prefer unquoted property names
 description: Linter rule - prefer unquoted property names
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 02/12/2025
 ---
 
 # Linter rule - prefer unquoted property names

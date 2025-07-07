@@ -44,7 +44,7 @@ You must have previously published your app to Azure. If you haven't already don
 
 1. On the **Publish** page, select the ellipses (`...`) in the **Hosting** area, and choose **Manage Azure App Service settings**. 
 
-    ![Manage App Service settings for the function app.](./media/functions-scenario-database-table-cleanup/publish-new-resource.png)
+    :::image type="content" source="./media/functions-scenario-database-table-cleanup/publish-new-resource.png" alt-text="Manage App Service settings for the function app.":::
 
 1. In **Application Settings** select **Add setting**, in **New app setting name** type `sqldb_connection`, and select **OK**.
 

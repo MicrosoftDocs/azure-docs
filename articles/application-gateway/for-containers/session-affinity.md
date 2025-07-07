@@ -2,11 +2,12 @@
 title: Session affinity overview for Azure Application Gateway for Containers
 description: Learn how to configure session affinity for Azure Application Gateway for Containers.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 5/9/2024
-ms.author: greglin
+ms.date: 7/2/2025
+ms.author: mbender
+# Customer intent: As a cloud administrator, I want to configure session affinity in the application gateway for my containers, so that I can ensure user requests are consistently routed to the same server for improved data management and application performance.
 ---
 
 # Application Gateway for Containers session affinity overview
@@ -70,7 +71,7 @@ spec:
     sessionAffinity: 
       affinityType: "application-cookie"
       cookieName: "nomnom"
-      cookieDuration: 3600
+      cookieDuration: 3600s
 EOF
 ```
 
@@ -78,7 +79,7 @@ EOF
 
 Session affinity can be defined in an [IngressExtension](api-specification-kubernetes.md#alb.networking.azure.io/v1.IngressExtensionSpec) resource. You must specify `sessionAffinity` with an `affinityType` of either `application-cookie` or `managed-cookie`. In this example, we use `application-cookie` as the affinityType and explicitly define a cookie name and lifetime.
 
-Example command to create a new IngressExtension with a defined cookie called `nomnom` with a lifetime of 3,600 seconds (1 hour).
+Example command to create a new IngressExtension with a defined cookie called `nomnom` with a lifetime of 3,600 seconds (1 hour) targetting a backend service called `echo`.
 
 ```bash
 kubectl apply -f - <<EOF
@@ -89,11 +90,11 @@ metadata:
   namespace: test-infra
 spec:
   backendSettings:
-    - service: echo
+    - service: echo # replace with your service name
       sessionAffinity:
         affinityType: "application-cookie"
         cookieName: "nomnom"
-        cookieDuration: 3600
+        cookieDuration: 3600s
 EOF
 ```
 

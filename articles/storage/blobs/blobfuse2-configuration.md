@@ -8,6 +8,7 @@ ms.author: akashdubey
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
+# Customer intent: "As a cloud administrator, I want to configure settings for BlobFuse2, so that I can effectively manage access, logging, caching, and permissions in my deployment."
 ---
 
 # How to configure settings for BlobFuse2
@@ -42,7 +43,7 @@ blobfuse2 mount ./mount --config-file=./config.yaml
 
 The [BlobFuse2 base configuration file](https://github.com/Azure/azure-storage-fuse/blob/main/setup/baseConfig.yaml) contains a list of all settings and a brief explanation of each setting.
 
-Use the [sample file cache configuration file](https://github.com/Azure/azure-storage-fuse/blob/main/sampleFileCacheConfig.yaml) or the [sample streaming configuration file](https://github.com/Azure/azure-storage-fuse/blob/main/sampleStreamingConfig.yaml) to get started quickly by using some basic settings for each of those scenarios.
+Use the [sample file cache configuration file](https://github.com/Azure/azure-storage-fuse/blob/main/sampleFileCacheConfig.yaml) to get started quickly by using some basic settings for each of those scenarios.
 
 ## Environment variables
 

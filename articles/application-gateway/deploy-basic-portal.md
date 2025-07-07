@@ -3,12 +3,13 @@ title: Deploy Application Gateway Basic (Preview)
 titleSuffix: Azure Application Gateway
 description: Learn how to deploy Application Gateway Basic. 
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.topic: how-to
 ms.date: 05/06/2024
-ms.author: greglin
+ms.author: mbender
 ms.service: azure-application-gateway
 ms.custom: mvc, mode-ui, devx-track-azurepowershell
+# Customer intent: As a cloud administrator, I want to deploy an Application Gateway using the Basic SKU, so that I can efficiently manage web traffic and route requests to my backend resources while ensuring a scalable and secure service architecture.
 ---
 
 # Deploy Application Gateway Basic (Preview)
@@ -225,7 +226,7 @@ Use IIS to test the application gateway:
 2. Copy the public IP address, and then paste it into the address bar of your browser to browse that IP address.
 3. Check the response. A valid response verifies that the application gateway was successfully created and can successfully connect with the backend.
 
-   ![A screenshow displaying a successful test of the application gateway.](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
+   ![A screenshot displaying a successful test of the application gateway.](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
    Refresh the browser multiple times and you should see connections to both myVM and myVM2.
 

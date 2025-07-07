@@ -5,8 +5,9 @@ ms.topic: how-to
 ms.date: 07/22/2024
 ms.service: azure-backup
 ms.custom: engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
+# Customer intent: "As a SharePoint administrator, I want to configure Azure Backup Server to back up my SharePoint farm, so that I can ensure data protection and enable quick recovery of my SharePoint data in the event of loss or corruption."
 ---
 
 # Back up a SharePoint farm to Azure using Microsoft Azure Backup Server

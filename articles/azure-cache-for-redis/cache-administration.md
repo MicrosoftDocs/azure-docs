@@ -1,21 +1,23 @@
 ---
-title: How to administer Azure Cache for Redis
-description: Learn how to perform administration tasks such as reboot and schedule updates for Azure Cache for Redis
+title: Reboot, Flush, and Schedule Updates Azure Cache for Redis
+description: Learn how to reboot, flush a cache, and schedule updates for Azure Cache for Redis
 
 ms.topic: conceptual
-ms.date: 05/29/2024
+ms.date: 04/30/2025
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ---
-# How to administer Azure Cache for Redis
+# Administration tasks for Azure Cache for Redis
 
-This article describes how to do administration tasks such as [rebooting](#reboot) and [Update channel and Schedule updates](#update-channel-and-schedule-updates) for your Azure Cache for Redis instances.
+This article describes tasks such as [rebooting](#reboot), [flushing](#flush-data) a cache,  and [Update channel and Schedule updates](#update-channel-and-schedule-updates) for your Azure Cache for Redis instances.
 
 ## Reboot
 
-On the left, **Reboot** allows you to reboot one or more nodes of your cache. This reboot capability enables you to test your application for resiliency if there's a failure of a cache node.
+When using the Basic, Standard, or Premium tiers of Azure Cache for Redis, you see  **Reboot** on the resource menu. Use the **Reboot** to restart one or more nodes of your cache. Rebooting enables you to test your application for resiliency if there's a failure of a cache node.
 
 > [!IMPORTANT]
-> Reboot is not yet available for the Enterprise tier. Reboot is available for all other tiers.
+> Reboot isn't yet available for the Enterprise tier. Reboot is available for all other tiers.
 >
 
 :::image type="content" source="media/cache-administration/cache-administration-reboot-2.png" alt-text="Screenshot that highlights the Reboot menu option":::
@@ -37,7 +39,7 @@ The effect on your client applications varies depending on which nodes you reboo
 * **Both primary and replica** - When both cache nodes are rebooted, Azure Cache for Redis attempts to gracefully reboot both nodes, waiting for one to finish before rebooting the other. Typically, data loss doesn't occur. However, data loss can still occur do to unexpected maintenance events or failures. Rebooting your cache many times in a row increases the odds of data loss.
 * **Nodes of a premium cache with clustering enabled** - When you reboot one or more nodes of a premium cache with clustering enabled, the behavior for the selected nodes is the same as when you reboot the corresponding node or nodes of a nonclustered cache.
 
-## Reboot FAQ
+### Reboot FAQ
 
 * [Which node should I reboot to test my application?](#which-node-should-i-reboot-to-test-my-application)
 * [Can I reboot the cache to clear client connections?](#can-i-reboot-the-cache-to-clear-client-connections)
@@ -45,20 +47,20 @@ The effect on your client applications varies depending on which nodes you reboo
 * [Can I reboot my cache using PowerShell, CLI, or other management tools?](#can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools)
 * [Can I reboot my Enterprise cache?](#can-i-reboot-my-enterprise-cache)
 
-### Which node should I reboot to test my application?
+#### Which node should I reboot to test my application?
 
 To test the resiliency of your application against failure of the primary node of your cache, reboot the **Primary** node. To test the resiliency of your application against failure of the replica node, reboot the **Replica** node.
 
-### Can I reboot the cache to clear client connections?
+#### Can I reboot the cache to clear client connections?
 
 Yes, if you reboot the cache, all client connections are cleared. Rebooting can be useful in the case where all client connections are used because of a logic error or a bug in the client application. Each pricing tier has different [client connection limits](cache-configure.md#default-redis-server-configuration) for the various sizes, and once these limits are reached, no more client connections are accepted. Rebooting the cache provides a way to clear all client connections.
 
 > [!IMPORTANT]
-> If you reboot your cache to clear client connections, StackExchange.Redis automatically reconnects once the Redis node is back online. If the underlying issue is not resolved, the client connections may continue to be used up.
+> If you reboot your cache to clear client connections, StackExchange.Redis automatically reconnects once the Redis node is back online. If the underlying issue isn't resolved, the client connections might remain used up.
 >
 >
 
-### Will I lose data from my cache if I do a reboot?
+#### Will I lose data from my cache if I do a reboot?
 
 If you reboot both the **Primary** and **Replica** nodes, all data in the cache, or all data in that shard when you're using a premium cache with clustering enabled should be safe. However, the data can be lost in some cases. Rebooting both nodes should be taken with caution.
 
@@ -66,28 +68,28 @@ If you reboot just one of the nodes, data isn't typically lost, but it still mig
 
 You should also know that rebooting both nodes doesn't result in data flush. If you want to clear data, use the [flush procedure](#flush-data) from portal console.
 
-### Can I reboot my cache using PowerShell, CLI, or other management tools?
+#### Can I reboot my cache using PowerShell, CLI, or other management tools?
 
-Yes, for PowerShell instructions see [To reboot an Azure Cache for Redis](cache-how-to-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
+Yes, for PowerShell instructions see [To reboot an Azure Cache for Redis](../redis/how-to-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
 
-### Can I reboot my Enterprise cache?
+#### Can I reboot my Enterprise cache?
 
  No. Reboot isn't available for the Enterprise tier yet. Reboot is available for Basic, Standard, and Premium tiers. The settings that you see on the Resource menu under **Administration** depend on the tier of your cache. You don't see **Reboot** when using a cache from the Enterprise tier.
 
 ## Flush data
 
-When using the Basic, Standard, or Premium tiers of Azure Cache for Redis, you see **Flush data** on the resource menu. The **Flush data** operation allows you to delete or _flush_ all data in your cache. This _flush_ operation can be used before scaling operations to potentially reduce the time required to complete the scaling operation on your cache. You can also configure to run the _flush_ operation periodically on your dev/test caches to keep memory usage in check.
+When using the Basic, Standard, or Premium tiers of Azure Cache for Redis, you see **Flush data** on the resource menu. Use **Flush data**  to delete or _flush_ all data in your cache. Flushing can be used before scaling operations to potentially reduce the time required to complete the scaling operation on your cache. You can also configure to run the _flush_ operation periodically on your dev/test caches to keep memory usage in check.
 
 The _flush_ operation, when executed on a clustered cache, clears data from all shards at the same time.
 
 > [!IMPORTANT]
-> Previously, the _flush_ operation was only available for geo-replicated Enterprise tier caches. Now, it is available in Basic, Standard and Premium tiers.
+> Previously, the _flush_ operation was only available for geo-replicated Enterprise tier caches. Now, it's available in Basic, Standard, and Premium tiers.
 >
 :::image type="content" source="media/cache-administration/cache-flush.png" alt-text="Screenshot showing flush data selected in the resource menu of a cache instance. ":::
 
-## Update channel and Schedule updates
+## Update channel and schedule updates
 
-On the left, **Schedule updates** allows you to choose an update channel and a maintenance window for your cache instance.
+When using the Basic, Standard, or Premium tiers of Azure Cache for Redis, you see **Schedule updates** on the resource menu. Use schedule updates to choose an update channel and a maintenance window for your cache instance.
 
 Any cache instance using the **Stable** update channel receives updates a few weeks later than cache instances using **Preview** update channel. We recommend choosing the **Preview** update channel for your nonproduction and less critical workloads. Choose the **Stable** update channel for your most critical, production workloads. All caches default to the **Stable** update channel by default.
 
@@ -98,7 +100,7 @@ Any cache instance using the **Stable** update channel receives updates a few we
 A maintenance window allows you to control the days and times of a week during which the VMs hosting your cache can be updated. Azure Cache for Redis makes a best effort to start and finish updating Redis server software within the specified time window you define.
 
 > [!IMPORTANT]
-> The update channel and maintenance window applies to Redis server updates and updates to the Operating System of the VMs hosting the cache. The update channel and maintenance window does not apply to Host OS updates to the Hosts hosting the cache VMs or other Azure Networking components. In rare cases, where caches are hosted on older models the maintenance window won't apply to Guest OS updates either. You can tell if your cache is on an older model if the DNS name of the cache resolves to a suffix of `cloudapp.net`, `chinacloudapp.cn`, `usgovcloudapi.net` or `cloudapi.de`.
+> The update channel and maintenance window apply to Redis server updates and updates to the Operating System of the VMs hosting the cache. The update channel and maintenance window doesn't apply to Host OS updates to the Hosts hosting the cache VMs or other Azure Networking components. In rare cases where caches are hosted on older models, the maintenance window doesn't apply to Guest OS updates either. You can tell if your cache is on an older model if the DNS name of the cache resolves to a suffix of `cloudapp.net`, `chinacloudapp.cn`, `usgovcloudapi.net`, or `cloudapi.de`.
 >
 Currently, no option is available to configure an update channel or scheduled updates for an Enterprise tier cache.
 

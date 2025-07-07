@@ -5,21 +5,22 @@ author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-opcua-connector
 ms.topic: conceptual
-ms.date: 08/05/2024
+ms.date: 10/22/2024
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to understand the structure of the messages that the connector for OPC UA publishes so that I can process the messages.
+ms.service: azure-iot-operations
 ---
 
 # Connector for OPC UA message format
 
-The connector for OPC UA publishes messages from OPC UA servers to the MQTT broker in JSON format. Each message has a payload and a collection of properties that are a part of the MQTT user properties section. The payload contains the telemetry data from the OPC UA server, and the properties provide metadata about the message.
+The connector for OPC UA publishes messages from OPC UA servers to the MQTT broker in JSON format. Each message has a payload and a collection of properties that are a part of the MQTT user properties section. The payload contains the messages from the OPC UA server, and the properties provide metadata about the message.
 
 ## Payload
 
-The payload of an OPC UA message is a JSON object that contains the telemetry data from the OPC UA server. The following example shows the payload of a message from the sample thermostat asset used in the quickstarts. Use the following command to subscribe to messages in the `azure-iot-operations/data` topic:
+The payload of an OPC UA message is a JSON object that contains the messages from the OPC UA server. The following example shows the payload of a message from the sample thermostat asset used in the quickstarts. Use the following command to subscribe to messages in the `azure-iot-operations/data` topic:
 
 ```console
-mosquitto_sub --host aio-broker --port 18883 --topic "azure-iot-operations/data/#" -v --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
+mosquitto_sub --host aio-broker --port 18883 --topic "azure-iot-operations/data/#" -v --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
 ```
 
 The output from the previous command looks like the following example:
@@ -42,7 +43,7 @@ Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (
 The headers in the messages published by the connector for OPC UA are based on the [CloudEvents specification for OPC UA](https://github.com/cloudevents/spec/blob/main/cloudevents/extensions/opcua.md). The headers from an OPC UA message become user properties in a message published to the MQTT broker. The following example shows the user properties of a message from the sample thermostat asset used in the quickstarts. Use the following command to subscribe to messages in the `azure-iot-operations/data` topic:
 
 ```console
-mosquitto_sub --host aio-broker --port 18883 --topic "azure-iot-operations/data/#" -V mqttv5 -F %P --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
+mosquitto_sub --host aio-broker --port 18883 --topic "azure-iot-operations/data/#" -V mqttv5 -F %P --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
 ```
 
 The output from the previous command looks like the following example:

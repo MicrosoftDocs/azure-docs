@@ -1,34 +1,28 @@
 ---
-# Mandatory fields.
 title: Monitor your instance
 titleSuffix: Azure Digital Twins
 description: Monitor Azure Digital Twins instances with metrics, alerts, and diagnostics.
 author: baanders
-ms.author: baanders # Microsoft employees only
-ms.date: 05/17/2023
+ms.author: baanders
+ms.date: 06/19/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
 ms.custom: engagement-fy23
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Monitor Azure Digital Twins with metrics, alerts, and diagnostics
 
-Azure Digital Twins integrates with [Azure Monitor](/azure/azure-monitor/overview) to provide metrics and diagnostic information that you can use to monitor your Azure Digital Twins resources. **Metrics** are enabled by default, and give you information about the state of Azure Digital Twins resources in your Azure subscription. **Alerts** can proactively notify you when certain conditions are found in your metrics data. You can also collect **diagnostic logs** for your service instance to monitor its performance, access, and other data. 
+Azure Digital Twins integrates with [Azure Monitor](/azure/azure-monitor/overview) to provide metrics and diagnostic information that you can use to monitor your Azure Digital Twins resources. *Metrics* are enabled by default, and give you information about the state of Azure Digital Twins resources in your Azure subscription. *Alerts* can proactively notify you when certain conditions are found in your metrics data. You can also collect *diagnostic logs* for your service instance to monitor its performance, access, and other data. 
 
-These monitoring features can help you assess the overall health of the Azure Digital Twins service and the resources connected to it. You can use them to understand what is happening in your Azure Digital Twins instance, and analyze root causes on issues without needing to contact Azure support.
+These monitoring features can help you assess the overall health of the Azure Digital Twins service and the resources connected to it. You can use them to understand what is happening in your Azure Digital Twins instance, and analyze root causes without needing to contact Azure support.
 
-They can be accessed from the [Azure portal](https://portal.azure.com), grouped under the **Monitoring** heading for the Azure Digital Twins resource.
+All of these monitoring features can be accessed from the [Azure portal](https://portal.azure.com), grouped under the **Monitoring** heading for the Azure Digital Twins resource.
 
 :::image type="content" source="media/how-to-monitor/monitoring.png" alt-text="Screenshot of the Azure portal showing the Monitoring options.":::
 
 ## Metrics and alerts
 
-For general information about viewing Azure resource **metrics**, see [Get started with metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started) in the Azure Monitor documentation. For general information about configuring **alerts** for Azure metrics, see [Create a new alert rule](/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric).
+For general information about viewing Azure resource *metrics*, see [Get started with metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started) in the Azure Monitor documentation. For general information about configuring *alerts* for Azure metrics, see [Create a new alert rule](/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric).
 
 The rest of this section describes the metrics tracked by each Azure Digital Twins instance, and how each metric relates to the overall status of your instance.
 
@@ -45,7 +39,7 @@ To set up tracking, use the [alerts](/azure/azure-monitor/alerts/alerts-overview
 
 ### API request metrics
 
-Metrics having to do with API requests:
+Metrics for API requests:
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
@@ -55,19 +49,19 @@ Metrics having to do with API requests:
 
 ### Billing metrics
 
-Metrics having to do with billing:
+Metrics for billing:
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | Billing API Operations | Count | Total | Billing metric for the count of all API requests made against the Azure Digital Twins service. | Meter ID |
-| BillingMessagesProcessed | Billing Messages Processed | Count | Total | Billing metric for the number of messages sent out from Azure Digital Twins to external endpoints.<br><br>To be considered a single message for billing purposes, a payload must be no larger than 1 KB. Payloads larger than this limit will be counted as additional messages in 1 KB increments (so a message between 1 KB and 2 KB will be counted as 2 messages, between 2 KB and 3 KB will be 3 messages, and so on).<br>This restriction also applies to responses—so a call that returns 1.5 KB in the response body, for example, will be billed as 2 operations. | Meter ID |
+| BillingMessagesProcessed | Billing Messages Processed | Count | Total | Billing metric for the number of messages sent out from Azure Digital Twins to external endpoints.<br><br>To be considered a single message for billing purposes, a payload must be no larger than 1 KB. Payloads larger than this limit are counted as additional messages in 1 KB increments (so a message between 1 KB and 2 KB is counted as two messages, between 2 KB and 3 KB is three messages, and so on).<br>This restriction also applies to responses—so a call that returns 1.5 KB in the response body, for example, is billed as two operations. | Meter ID |
 | BillingQueryUnits | Billing Query Units | Count | Total | The number of Query Units, an internally computed measure of service resource usage, consumed to execute queries. There's also a helper API available for measuring Query Units: [QueryChargeHelper Class](/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet&preserve-view=true) | Meter ID |
 
 For more information on the way Azure Digital Twins is billed, see [Azure Digital Twins pricing](https://azure.microsoft.com/pricing/details/digital-twins/).
 
 ### Ingress metrics
 
-Metrics having to do with data ingress:
+Metrics for data ingress:
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
@@ -77,7 +71,7 @@ Metrics having to do with data ingress:
 
 ### Bulk operation metrics (from the Jobs APIs)
 
-Metrics having to do with bulk operations from the [Jobs APIs](/rest/api/digital-twins/dataplane/jobs):
+Metrics for bulk operations from the [Jobs APIs](/rest/api/digital-twins/dataplane/jobs):
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
@@ -88,7 +82,7 @@ Metrics having to do with bulk operations from the [Jobs APIs](/rest/api/digital
 
 ### Routing metrics
 
-Metrics having to do with routing:
+Metrics for routing:
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
@@ -98,7 +92,7 @@ Metrics having to do with routing:
 
 ### Metric dimensions
 
-Dimensions help identify more details about the metrics. Some of the routing metrics provide information per endpoint. The table below lists possible values for these dimensions.
+Dimensions help identify more details about metrics. Some of the routing metrics provide information per endpoint. The following table lists possible values for these dimensions.
 
 | Dimension | Values |
 | --- | --- |
@@ -113,7 +107,7 @@ Dimensions help identify more details about the metrics. Some of the routing met
 
 ## Diagnostics logs
 
-For general information about Azure **diagnostics settings**, including how to enable them, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings). For information about querying diagnostic logs using **Log Analytics**, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview).
+For general information about Azure *diagnostics settings*, including how to enable them, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings). For information about querying diagnostic logs using Log Analytics, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview).
 
 The rest of this section describes the diagnostic log categories that Azure Digital Twins can collect, and their schemas.
 
@@ -137,10 +131,10 @@ Each log category consists of operations of write, read, delete, and action. The
 | Delete | DELETE |
 | Action | POST |
 
-Here's a comprehensive list of the operations and corresponding [Azure Digital Twins REST API calls](/rest/api/azure-digitaltwins/) that are logged in each category. 
+The following table contains a comprehensive list of the operations and corresponding [Azure Digital Twins REST API calls](/rest/api/azure-digitaltwins/) that are logged in each category. 
 
 >[!NOTE]
-> Each log category contains several operations/REST API calls. In the table below, each log category maps to all operations/REST API calls underneath it until the next log category is listed. 
+> Each log category contains several operations/REST API calls. In the following table, each log category maps to all operations/REST API calls underneath it until the next log category is listed. 
 
 | Log category | Operation | REST API calls and other events |
 | --- | --- | --- |
@@ -160,7 +154,7 @@ Here's a comprehensive list of the operations and corresponding [Azure Digital T
 
 ### Log schemas 
 
-Each log category has a schema that defines how events in that category are reported. Each individual log entry is stored as text and formatted as a JSON blob. The fields in the log and example JSON bodies are provided for each log type below. 
+Each log category has a schema that defines how events in that category are reported. Each individual log entry is stored as text and formatted as a JSON blob. The fields in the log and example JSON bodies are provided for each log type in the following sections. 
 
 `ADTDigitalTwinsOperation`, `ADTModelsOperation`, and `ADTQueryOperation` use a consistent API log schema. `ADTEventRoutesOperation` extends the schema to contain an `endpointName` field in properties.
 
@@ -180,7 +174,7 @@ Here are the field and property descriptions for API logs.
 | `OperationVersion` | String | The API Version used during the event |
 | `Category` | String | The type of resource being emitted |
 | `ResultType` | String | Outcome of the event |
-| `ResultSignature` | String | Http status code for the event |
+| `ResultSignature` | String | HTTP status code for the event |
 | `ResultDescription` | String | Additional details about the event |
 | `DurationMs` | String | How long it took to perform the event in milliseconds |
 | `CallerIpAddress` | String | A masked source IP address for the event |
@@ -195,14 +189,14 @@ Here are the field and property descriptions for API logs.
 | `TraceFlags` | String | `TraceFlags` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). Controls tracing flags such as sampling, trace level, and so on. |
 | `TraceState` | String | `TraceState` as part of [W3C's Trace Context](https://www.w3.org/TR/trace-context/). Additional vendor-specific trace identification information to span across different distributed tracing systems. |
 
-Below are example JSON bodies for these types of logs.
+The following sections show example JSON bodies for these types of logs.
 
 ##### ADTDigitalTwinsOperation
 
 ```json
 {
   "time": "2020-03-14T21:11:14.9918922Z",
-  "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+  "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/digitaltwins/write",
   "operationVersion": "2020-10-31",
   "category": "DigitalTwinOperation",
@@ -211,10 +205,10 @@ Below are example JSON bodies for these types of logs.
   "resultDescription": "",
   "durationMs": 8,
   "callerIpAddress": "13.68.244.*",
-  "correlationId": "2f6a8e64-94aa-492a-bc31-16b9f0b16ab3",
+  "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
   "identity": {
     "claims": {
-      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
+      "appId": "00001111-aaaa-2222-bbbb-3333cccc4444"
     }
   },
   "level": "4",
@@ -236,7 +230,7 @@ Below are example JSON bodies for these types of logs.
 ```json
 {
   "time": "2020-10-29T21:12:24.2337302Z",
-  "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+  "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/models/write",
   "operationVersion": "2020-10-31",
   "category": "ModelsOperation",
@@ -245,10 +239,10 @@ Below are example JSON bodies for these types of logs.
   "resultDescription": "",
   "durationMs": "80",
   "callerIpAddress": "13.68.244.*",
-  "correlationId": "9dcb71ea-bb6f-46f2-ab70-78b80db76882",
+  "correlationId": "bbbb1111-cc22-3333-44dd-555555eeeeee",
   "identity": {
     "claims": {
-      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
+      "appId": "00001111-aaaa-2222-bbbb-3333cccc4444"
     }
   },
   "level": "4",
@@ -270,7 +264,7 @@ Below are example JSON bodies for these types of logs.
 ```json
 {
   "time": "2020-12-04T21:11:44.1690031Z",
-  "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+  "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/query/action",
   "operationVersion": "2020-10-31",
   "category": "QueryOperation",
@@ -279,10 +273,10 @@ Below are example JSON bodies for these types of logs.
   "resultDescription": "",
   "durationMs": "314",
   "callerIpAddress": "13.68.244.*",
-  "correlationId": "1ee2b6e9-3af4-4873-8c7c-1a698b9ac334",
+  "correlationId": "cccc2222-dd33-4444-55ee-666666ffffff",
   "identity": {
     "claims": {
-      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
+      "appId": "00001111-aaaa-2222-bbbb-3333cccc4444"
     }
   },
   "level": "4",
@@ -306,7 +300,7 @@ Here's an example JSON body for an `ADTEventRoutesOperation` that isn't of `Micr
 ```json
   {
     "time": "2020-10-30T22:18:38.0708705Z",
-    "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
     "operationName": "Microsoft.DigitalTwins/eventroutes/write",
     "operationVersion": "2020-10-31",
     "category": "EventRoutesOperation",
@@ -315,10 +309,10 @@ Here's an example JSON body for an `ADTEventRoutesOperation` that isn't of `Micr
     "resultDescription": "",
     "durationMs": 42,
     "callerIpAddress": "212.100.32.*",
-    "correlationId": "7f73ab45-14c0-491f-a834-0827dbbf7f8e",
+    "correlationId": "dddd3333-ee44-5555-66ff-777777aaaaaa",
     "identity": {
       "claims": {
-        "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
+        "appId": "00001111-aaaa-2222-bbbb-3333cccc4444"
       }
     },
     "level": "4",
@@ -362,7 +356,7 @@ Here's an example JSON body for an `ADTEventRoutesOperation` that of `Microsoft.
 ```json
 {
   "time": "2020-11-05T22:18:38.0708705Z",
-  "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+  "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/eventroutes/action",
   "operationVersion": "",
   "category": "EventRoutesOperation",
@@ -371,10 +365,10 @@ Here's an example JSON body for an `ADTEventRoutesOperation` that of `Microsoft.
   "resultDescription": "Unable to send EventHub message to [myPath] for event Id [f6f45831-55d0-408b-8366-058e81ca6089].",
   "durationMs": -1,
   "callerIpAddress": "",
-  "correlationId": "7f73ab45-14c0-491f-a834-0827dbbf7f8e",
+  "correlationId": "dddd3333-ee44-5555-66ff-777777aaaaaa",
   "identity": {
     "claims": {
-      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
+      "appId": "00001111-aaaa-2222-bbbb-3333cccc4444"
     }
   },
   "level": "4",

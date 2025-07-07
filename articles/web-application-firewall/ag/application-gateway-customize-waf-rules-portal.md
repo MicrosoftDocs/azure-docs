@@ -1,13 +1,13 @@
 ---
-title: Customize rules using portal - Azure Web Application Firewall
+title: Customize rules using portal
+titleSuffix: Azure Web Application Firewall
 description: This article provides information on how to customize Web Application Firewall rules in Application Gateway with the Azure portal.
-services: web-application-firewall
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
-ms.date: 11/07/2022
-ms.author: victorh
 ms.topic: how-to
-ms.custom: FY23-content-maintenance
+ms.date: 11/07/2022
+# Customer intent: As a web application administrator, I want to customize Web Application Firewall rules in the management portal, so that I can optimize security while minimizing false positives affecting legitimate traffic.
 ---
 
 # Customize Web Application Firewall rules using the Azure portal

@@ -116,7 +116,7 @@ Twilio.init(accountSid, authToken);
 
 #### Azure Communication Services
 
-To create a chat client, use the Communications Service endpoint and the access token that was generated as part of prerequisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the        `CommunicationTokenCredentia`l class from the Common SDK to pass the token to your chat client.
+To create a chat client, use the Communications Service endpoint and the access token that was generated as part of prerequisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the        `CommunicationTokenCredential` class from the Common SDK to pass the token to your chat client.
 
 Learn more about [Chat Architecture](../../concepts/chat/concepts.md)
 

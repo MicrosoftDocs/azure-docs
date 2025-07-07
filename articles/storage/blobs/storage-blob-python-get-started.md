@@ -10,13 +10,16 @@ ms.topic: how-to
 ms.date: 10/02/2024
 ms.custom: devx-track-python, devguide-python
 ai-usage: ai-assisted
+# Customer intent: As a Python developer, I want to integrate my application with Azure Blob Storage, so that I can efficiently manage and interact with data resources using the client library.
 ---
 
 # Get started with Azure Blob Storage and Python
 
 [!INCLUDE [storage-dev-guide-selector-getting-started](../../../includes/storage-dev-guides/storage-dev-guide-selector-getting-started.md)]
 
-This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library for Python. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
+This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library for Python. Once connected, use the [developer guides](#build-your-app) to learn how your code can operate on containers, blobs, and features of the Blob Storage service.
+
+If you're looking to start with a complete example, see [Quickstart: Azure Blob Storage client library for Python](storage-quickstart-blobs-python.md).
 
 [API reference](/python/api/azure-storage-blob) | [Package (PyPi)](https://pypi.org/project/azure-storage-blob/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [Samples](../common/storage-samples-python.md?toc=/azure/storage/blobs/toc.json#blob-samples) | [Give feedback](https://github.com/Azure/azure-sdk-for-python/issues)
 

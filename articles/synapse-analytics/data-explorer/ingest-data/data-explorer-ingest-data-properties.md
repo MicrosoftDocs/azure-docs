@@ -2,7 +2,7 @@
 title: Data ingestion properties for Azure Synapse Data Explorer (Preview)
 description: Learn about the various data ingestion properties supported by Azure Synapse Data Explorer.
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 03/24/2025
 author: shsagir
 ms.author: shsagir
 ms.reviewer: tzgitlin
@@ -11,6 +11,8 @@ ms.subservice: data-explorer
 ---
 
 # Azure Synapse Data Explorer data ingestion properties (Preview)
+
+[!INCLUDE [data-explorer-deprecation-notice](../includes/data-explorer-deprecation-notice.md)]
 
 Data ingestion is the process by which data is added to a table and is made available for query in Data Explorer. You add properties to the ingestion command after the `with` keyword.
 

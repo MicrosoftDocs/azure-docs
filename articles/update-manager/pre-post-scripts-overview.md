@@ -4,8 +4,9 @@ description: This article provides an overview on pre and post events and its re
 ms.service: azure-update-manager
 ms.date: 09/06/2024
 ms.topic: overview
-author: SnehaSudhir 
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
+# Customer intent: As an IT administrator managing scheduled updates, I want to configure pre and post events in Azure Update Manager so that I can automate tasks before and after maintenance windows, ensuring seamless updates and minimizing downtime.
 ---
 
 # About pre and post events 

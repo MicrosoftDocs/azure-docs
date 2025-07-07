@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Event notifications
 titleSuffix: Azure Digital Twins
 description: Learn to interpret various event types and their different notification messages.
 author: baanders
-ms.author: baanders # Microsoft employees only
-ms.date: 11/10/2022
-ms.topic: conceptual
+ms.author: baanders
+ms.date: 01/27/2025
+ms.topic: concept-article
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Event notifications
@@ -25,7 +19,7 @@ There are several types of notifications that can be generated, and notification
 
 This chart shows the different notification types:
 
-[!INCLUDE [digital-twins-notifications.md](../../includes/digital-twins-notifications.md)]
+[!INCLUDE [digital-twins-notifications.md](includes/digital-twins-notifications.md)]
 
 ## Notification structure
 

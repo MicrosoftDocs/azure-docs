@@ -7,6 +7,7 @@ ms.topic: reference
 author: asudbring
 ms.author: allensu
 ms.service: azure-virtual-network
+# Customer intent: As a network administrator, I want to access detailed monitoring metrics and logs for Azure Virtual Network, so that I can effectively analyze performance and troubleshoot issues in my network infrastructure.
 ---
 
 # Azure Virtual Network monitoring data reference

@@ -39,7 +39,7 @@ A typical negotiation response has this format:
 ```json
 {
   "url": "https://<service_name>.service.signalr.net/client/?hub=<hub_name>",
-  "accessToken": "<a typical JWT token>"
+  "accessToken": "<a typical JWT>"
 }
 ```
 

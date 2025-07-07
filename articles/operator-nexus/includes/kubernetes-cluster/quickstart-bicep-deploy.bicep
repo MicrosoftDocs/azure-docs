@@ -93,7 +93,7 @@ param ipAddressPools array = []
 // Cluster Configuration Parameters
 
 @description('The version of Kubernetes to be used in the Nexus Kubernetes cluster')
-param kubernetesVersion string = 'v1.24.9'
+param kubernetesVersion string = 'v1.27.1'
 
 @description('The number of control plane nodes to be deployed in the cluster')
 param controlPlaneCount int = 1
@@ -161,8 +161,17 @@ param taints array = []
 //   key: 'string'
 //   value: 'string:NoSchedule|PreferNoSchedule|NoExecute'
 // }
+@description('The association of IP address pools to the communities and peers, allowing for announcement of IPs.')
+param bgpAdvertisements array = []
 
-resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2023-07-01' = {
+@description('"The list of additional BgpPeer entities that the Kubernetes cluster will peer with. All peering must be explicitly defined.')
+param bgpPeers array = []
+
+@description('The indicator to specify if the load balancer peers with the network fabric.')
+param fabricPeeringEnabled string = 'False'
+
+
+resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2025-02-01' = {
   name: kubernetesClusterName
   location: location
   tags: tags
@@ -228,6 +237,9 @@ resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2023-07-01
         trunkedNetworks: empty(trunkedNetworks) ? null : trunkedNetworks
       }
       bgpServiceLoadBalancerConfiguration: {
+        bgpAdvertisements: empty(bgpAdvertisements) ? null : bgpAdvertisements
+        bgpPeers: empty(bgpPeers) ? null : bgpPeers
+        fabricPeeringEnabled: fabricPeeringEnabled
         ipAddressPools: empty(ipAddressPools) ? null : ipAddressPools
       }
     }

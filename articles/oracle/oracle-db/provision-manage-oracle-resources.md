@@ -34,10 +34,9 @@ The following management functions are available for all resources from the Micr
    1. Select the **Refresh** icon at the top of the blade.
    1. Wait for the blade to reload.
 * **Remove the resource.**
-   1. Follow the steps to access the resource blade.
-   1. You can remove a single or multiple resources from the blade by selecting the checkbox on the left side of the table. Once you have selected the resource(s) to remove, you can then select the **Delete** icon at the top of the blade.
-   1. You can also remove a single resource by selecting the link to the resource from the **Name** field in the table. From the resource's detail page, select the **Delete** icon at the top of the blade.
-
+  1. Follow the steps to access the resource blade.
+  1. You can remove a single or multiple resources from the blade by selecting the checkbox on the left side of the table. Once you have selected the resource(s) to remove, you can then select the **Delete** icon at the top of the blade.
+  1. You can also remove a single resource by selecting the link to the resource from the **Name** field in the table. From the resource's detail page, select the **Delete** icon at the top of the blade.
 ## Manage resource allocation for Oracle Autonomous Database Serverless instances
 
 The following management functions are available for Oracle Autonomous Database Serverless instances from the Microsoft Azure blade for that resource.
@@ -47,7 +46,7 @@ The following management functions are available for Oracle Autonomous Database 
 
 Follow the following steps to access the Oracle Autonomous Database@Azure blade.
 
-   1. Select the link to the resource from the **Name** field in the table.
+1. Select the link to the resource from the **Name** field in the table.
    1. From the resource's overview page, select the **Setting** link left-menu, and then the **Resource allocation** link.
    1. Select the **Manage** button at the top of the Resource allocation page.
    1. From the **Manage resource allocation** window, you can set the **ECPU count** from 2 to 512. The **Compute auto scaling** checkbox allows you to enable your Oracle Autonomous Database to scale its computing allocation automatically up to 512. The **Storage** is a slider UI that allows setting the Storage allocation from 1 TB to 384 TB. The **Storage auto scaling** checkbox allows you to enable your Oracle Autonomous Database to scale its storage allocation automatically up to 384 TB.

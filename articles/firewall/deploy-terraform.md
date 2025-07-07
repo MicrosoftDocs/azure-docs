@@ -2,15 +2,16 @@
 title: 'Quickstart: Create an Azure Firewall with Availability Zones - Terraform'
 description: In this quickstart, you deploy Azure Firewall using Terraform. The virtual network has one VNet with three subnets. Two Windows Server virtual machines, a jump box, and a server are deployed.
 services: firewall
-author: cshea-msft
+author: duongau
 ms.service: azure-firewall
 ms.topic: quickstart
 ms.custom: devx-track-terraform
 ms.date: 10/15/2023
-ms.author: victorh
+ms.author: duau
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+# Customer intent: "As a cloud engineer, I want to deploy Azure Firewall using Terraform, so that I can create a secure network environment with high availability across multiple zones."
 ---
 
 # Quickstart: Deploy Azure Firewall with Availability Zones - Terraform

@@ -2,13 +2,14 @@
 title: Authenticate Azure Batch services with Microsoft Entra ID
 description: Learn how to authenticate Azure Batch service applications with Microsoft Entra ID by using integrated authentication or a service principal.
 ms.topic: how-to
-ms.date: 06/27/2024
+ms.date: 04/02/2025
 ms.custom: has-adal-ref, subject-rbac-steps
+# Customer intent: As a cloud developer, I want to authenticate my Azure Batch applications using Microsoft Entra ID, so that I can securely manage access permissions for both integrated and unattended applications.
 ---
 
 # Authenticate Azure Batch services with Microsoft Entra ID
 
-Azure Batch supports authentication with [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis), Microsoft's multi-tenant cloud based directory and identity management service. Azure uses Microsoft Entra ID to authenticate its own customers, service administrators, and organizational users.
+Azure Batch supports authentication with [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis), Microsoft's multitenant cloud based directory and identity management service. Azure uses Microsoft Entra ID to authenticate its own customers, service administrators, and organizational users.
 
 This article describes two ways to use Microsoft Entra authentication with Azure Batch:
 
@@ -95,81 +96,17 @@ Follow these steps to create and copy the secret key to use in your code:
 
 ### Assign Azure RBAC to your application
 
-Follow these steps to assign an Azure RBAC role to your application. For detailed steps, see [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+Follow these steps to assign an Azure RBAC role to your application. For more information, see [Role-based access control for Azure Batch service](./batch-role-based-access-control.md).
 
 1. In the Azure portal, navigate to the Batch account your application uses.
 1. Select **Access control (IAM)** from the left navigation.
 1. On the **Access control (IAM)** page, select **Add role assignment**.
-1. On the **Add role assignment** page, select the **Role** tab, and then select either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) or [Reader](/azure/role-based-access-control/built-in-roles#reader) role for your app.
+1. On the **Add role assignment** page, select the **Role** tab, and then select one of [Azure Batch built-in RBAC roles](./batch-role-based-access-control.md#azure-batch-built-in-rbac-roles) the role for your app.
 1. Select the **Members** tab, and select **Select members** under **Members**.
 1. On the **Select members** screen, search for and select your application, and then select **Select**.
 1. Select **Review + assign** on the **Add role assignment** page.
 
 Your application should now appear on the **Role assignments** tab of the Batch account's **Access control (IAM)** page.
-
-### Assign a custom role
-
-A custom role grants granular permission to a user for submitting jobs, tasks, and more. You can use custom roles to prevent users from performing operations that affect cost, such as creating pools or modifying nodes.
-
-You can use a custom role to grant or deny permissions to a Microsoft Entra user, group, or service principal for the following Azure Batch RBAC operations:
-
-- Microsoft.Batch/batchAccounts/pools/write
-- Microsoft.Batch/batchAccounts/pools/delete
-- Microsoft.Batch/batchAccounts/pools/read
-- Microsoft.Batch/batchAccounts/jobSchedules/write
-- Microsoft.Batch/batchAccounts/jobSchedules/delete
-- Microsoft.Batch/batchAccounts/jobSchedules/read
-- Microsoft.Batch/batchAccounts/jobs/write
-- Microsoft.Batch/batchAccounts/jobs/delete
-- Microsoft.Batch/batchAccounts/jobs/read
-- Microsoft.Batch/batchAccounts/certificates/write
-- Microsoft.Batch/batchAccounts/certificates/delete
-- Microsoft.Batch/batchAccounts/certificates/read
-- Microsoft.Batch/batchAccounts/read, for any read operation
-- Microsoft.Batch/batchAccounts/listKeys/action, for any operation
-
-Custom roles are for users authenticated by Microsoft Entra ID, not for the Batch shared key account credentials. The Batch account credentials give full permission to the Batch account. Jobs that use [autopool](nodes-and-pools.md#autopools) require pool-level permissions.
-
-> [!NOTE]
-> Certain role assignments need to be specified in the `actions` field, whereas others need to be specified in the `dataActions` field. For more information, see [Azure resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftbatch).
-
-The following example shows an Azure Batch custom role definition:
-
-```json
-{
- "properties":{
-    "roleName":"Azure Batch Custom Job Submitter",
-    "type":"CustomRole",
-    "description":"Allows a user to submit jobs to Azure Batch but not manage pools",
-    "assignableScopes":[
-      "/subscriptions/88888888-8888-8888-8888-888888888888"
-    ],
-    "permissions":[
-      {
-        "actions":[
-          "Microsoft.Batch/*/read",
-          "Microsoft.Authorization/*/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Support/*",
-          "Microsoft.Insights/alertRules/*"
-        ],
-        "notActions":[
-
-        ],
-        "dataActions":[
-          "Microsoft.Batch/batchAccounts/jobs/*",
-          "Microsoft.Batch/batchAccounts/jobSchedules/*"
-        ],
-        "notDataActions":[
-
-        ]
-      }
-    ]
-  }
-}
-```
-
-For more information on creating a custom role, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 ## Code examples
 

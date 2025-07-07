@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 04/16/2024
+ms.date: 06/12/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 
@@ -19,6 +19,8 @@ ms.subservice: b2c
 ---
 
 # Page layout versions
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Page layout packages are periodically updated to include fixes and improvements in their page elements. The following change log specifies the changes introduced in each version.
 
@@ -62,6 +64,24 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 |            |< 1.2.0 | 1.12.4 |
 
 ## Self-asserted page (selfasserted)
+
+**2.1.35**
+- Enhanced CAPTCHA error handling now ensures that any validation failures—such as “unmatched challenge”—returned by the backend are consistently captured and displayed in the UI.
+  
+**2.1.34**
+- Input labels are now consistently visible and accessible, enhancing user experience and clarity. A new `enableInputLabel` feature flag has been introduced, which is enabled by default, allowing clients to toggle the visibility of input labels according to their preferences.
+- Resolved a problem with CAPTCHA input boxes to ensure smoother and more accurate interactions for Finnish language users.
+
+**2.1.33**
+- Enhanced error handling for CAPTCHA, providing clearer error messages and improving the user flow when CAPTCHA validation fails.
+    
+**2.1.32**
+- Enhanced error handling for CAPTCHA, providing clearer error messages.
+
+**2.1.31**
+- Resolved an issue where audio would overlap when CAPTCHA was refreshed, improving accessibility and user interaction.
+- Fixed a bug that caused certain Finnish characters to incorrectly trigger validation actions, ensuring accurate form processing and validation.
+- Implemented exception message logging for server-side failures, allowing for better tracking, debugging, and handling of server errors.
 
 **2.1.30**
 - Removed Change Email for readonly scenarios (i.e. Change Phone Number). You will no longer be able to change the email if you are trying to change your phone number, it will now be read only.
@@ -207,6 +227,26 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 > [!TIP]
 > If you localize your page to support multiple locales, or languages in a user flow. The [localization IDs](localization-string-ids.md) article provides the list of localization IDs that you can use for the page version you select.
 
+**2.1.23**
+- Enhanced CAPTCHA error handling now ensures that any validation failures—such as “unmatched challenge”—returned by the backend are consistently captured and displayed in the UI.
+  
+**2.1.22**
+- Input labels are now consistently visible and accessible, enhancing user experience and clarity. A new `enableInputLabel` feature flag has been introduced, which is enabled by default, allowing clients to toggle the visibility of input labels according to their preferences.
+- Resolved a problem with CAPTCHA input boxes to ensure smoother and more accurate interactions for Finnish language users.
+  
+**2.1.21**
+- Enhanced error handling for CAPTCHA, providing clearer error messages and improving the user flow when CAPTCHA validation fails.
+  
+**2.1.20**
+- Enhanced error handling for CAPTCHA, providing clearer error messages.
+
+**2.1.19**
+- Introduced support for the read-only attribute, allowing certain form fields to be marked as read-only for better user control.
+- Addressed an issue with delayed rendering in the Handlebar framework, ensuring faster and smoother page loads.
+- Resolved the overlapping audio issue when CAPTCHA was refreshed, improving accessibility and user interaction.
+- Fixed a bug that caused certain Finnish characters to trigger validation actions incorrectly, improving form validation accuracy.
+- Implemented exception message logging for server-side failures, improving tracking, debugging, and error handling.
+
 **2.1.18**
 - Implementation of Captcha Control
  
@@ -289,6 +329,25 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 - Initial release
 
 ## MFA page (multifactor)
+
+**1.2.21**
+- Enhanced CAPTCHA error handling now ensures that any validation failures—such as “unmatched challenge”—returned by the backend are consistently captured and displayed in the UI. 
+
+**1.2.20**
+- Resolved a problem with CAPTCHA input boxes to ensure smoother and more accurate interactions for Finnish language users.
+ 
+**1.2.19**
+- Addressed a problem where the "send a new code" functionality was not working for VoiceOver users, ensuring better accessibility for screen reader users.
+- Enhanced error handling for CAPTCHA, providing clearer error messages and improving the user flow when CAPTCHA validation fails.
+            
+**1.2.18**
+- Enhanced error handling for CAPTCHA, providing clearer error messages.
+ 
+**1.2.17**
+- Implemented ARIA labels for the progress bar, improving accessibility for screen reader users to track progress.
+- Resolved an issue where audio would overlap during CAPTCHA refresh, improving accessibility and user experience.
+- Fixed a bug causing certain Finnish characters to incorrectly trigger validation actions, improving form processing and validation accuracy.
+- Implemented exception message logging for server-side failures, allowing better tracking, debugging, and handling of server errors.
 
 **1.2.16**
 - Fixes enter key for 'Phone only' mode.

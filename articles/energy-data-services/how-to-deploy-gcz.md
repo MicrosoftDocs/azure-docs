@@ -1,7 +1,7 @@
 ---
 title: Deploy Geospatial Consumption Zone on top of Azure Data Manager for Energy
 description: Learn how to deploy Geospatial Consumption Zone on top of your Azure Data Manager for Energy instance.
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.author: eihaugho
@@ -12,27 +12,24 @@ zone_pivot_groups: gcz-aks-or-windows
 
 # Deploy Geospatial Consumption Zone
 
-This guide shows you how to deploy the Geospatial Consumption Zone (GCZ) service integrated with Azure Data Manager for Energy (ADME).
-
-> [!IMPORTANT]
-> While the Geospatial Consumption Zone (GCZ) service is a graduated service in the OSDU Forum, it has limitations in terms of security and usage. We will deploy some additional services and policies to secure the environment, but encourage you to follow the service's development on the [OSDU Gitlab](https://community.opengroup.org/osdu/platform/consumption/geospatial/-/wikis/home).
-
-## Description
-
 The OSDU Geospatial Consumption Zone (GCZ) is a service that enables enhanced management and utilization of geospatial data. The GCZ streamlines the handling of location-based information. It abstracts away technical complexities, allowing software applications to access geospatial data without needing to deal with intricate details. By providing ready-to-use map services, the GCZ facilitates seamless integration with OSDU-enabled applications.
+
+This guide shows you how to deploy the Geospatial Consumption Zone (GCZ) service integrated with Azure Data Manager for Energy (ADME).
 
 ## Create an App Registration in Microsoft Entra ID
 
-To deploy the GCZ, you need to create an App Registration in Microsoft Entra ID. The App Registration is to authenticate the GCZ APIs with Azure Data Manager for Energy to be able to generate the cache of the geospatial data.
+To deploy the GCZ, you need to create an App Registration in Microsoft Entra ID. The App Registration is used to authenticate the GCZ APIs with Azure Data Manager for Energy to be able to generate the cache of the geospatial data.
 
 1. See [Create an App Registration in Microsoft Entra ID](/azure/active-directory/develop/quickstart-register-app) for instructions on how to create an App Registration.
+
 1. Grant the App Registration permission to read the relevant data in Azure Data Manager for Energy. See [How to add members to an OSDU group](./how-to-manage-users.md#add-members-to-an-osdu-group-in-a-data-partition) for further instructions.
 
 ## Setup
 
 There are two main deployment options for the GCZ service:
-- **Azure Kubernetes Service (AKS)**: Deploy the GCZ service on an AKS cluster. This deployment option is recommended for production environments. It requires more setup, configuration, and maintenance. It also has some limitations in the provided container images.
-- **Windows**: Deploy the GCZ service on a Windows. This deployment option recommended for development and testing environments, as it's easier to set up and configure, and requires less maintenance.
+
+- **Azure Kubernetes Service (AKS)**: Deploy the GCZ service on an AKS cluster. This deployment option is recommended for production environments. It requires more effort to set up, configure, and maintain.
+- **Windows**: Deploy the GCZ service on a Windows. This deployment option recommended for development and testing environments.
 
 ::: zone pivot="gcz-aks"
 
@@ -65,14 +62,15 @@ Through APIM we can add policies to secure, monitor, and manage the APIs.
 #### Download the GCZ OpenAPI specifications
 
 1. Download the two OpenAPI specification to your local computer.
-    - [GCZ Provider](https://github.com/microsoft/adme-samples/blob/main/services/gcz/gcz-openapi-provider.yaml)
-    - [GCZ Transformer](https://github.com/microsoft/adme-samples/blob/main/services/gcz/gcz-openapi-transformer.yaml)
-1. Open each OpenAPI specification file in a text editor and replace the `servers` section with the corresponding IPs of the AKS GCZ Services' Load Balancer (External IP).
+   - [GCZ Provider](https://github.com/microsoft/adme-samples/blob/main/services/gcz/gcz-openapi-provider.yaml)
+   - [GCZ Transformer](https://github.com/microsoft/adme-samples/blob/main/services/gcz/gcz-openapi-transformer.yaml)
 
-    ```yaml
-    servers:
-    - url: "http://<GCZ-Service-External-IP>/ignite-provider"
-    ```
+1. Open each OpenAPI specification file in a text editor and replace the `servers` section with the corresponding IPs of the AKS GCZ Services' Load Balancer.
+
+   ```yaml
+   servers:
+     - url: "http://<GCZ-Service-LoadBalancer-IP>/ignite-provider"
+   ```
 
 ##### [Azure portal](#tab/portal)
 
@@ -86,15 +84,18 @@ Through APIM we can add policies to secure, monitor, and manage the APIs.
 
 ## Testing the GCZ service
 
-1. Download the API client collection from the [OSDU GitLab](https://community.opengroup.org/osdu/platform/consumption/geospatial/-/blob/master/docs/test-assets/postman/Geospatial%20Consumption%20Zone%20-%20Provider%20Postman%20Tests.postman_collection.json?ref_type=heads) and import it into your API client of choice (for example, Postman).
+1. Download the API client collection from the [OSDU GitLab](https://community.opengroup.org/osdu/platform/consumption/geospatial/-/blob/master/docs/test-assets/postman/Geospatial%20Consumption%20Zone%20-%20Provider%20Postman%20Tests.postman_collection.json?ref_type=heads) and import it into your API client of choice (i.e. Bruno, Postman).
+
 1. Add the following environment variables to your API client:
-    - `PROVIDER_URL` - The URL to the GCZ Provider API.
-    - `AMBASSADOR_URL` - The URL to the GCZ Transformer API.
-    - `access_token` - A valid ADME access token.
+
+   - `PROVIDER_URL` - The URL to the GCZ Provider API.
+   - `AMBASSADOR_URL` - The URL to the GCZ Transformer API.
+   - `access_token` - A valid ADME access token.
 
 1. To verify that the GCZ is working as expected, run the API calls in the collection.
 
 ## Next steps
+
 After you have a successful deployment of GCZ, you can:
 
 - Visualize your GCZ data using the GCZ WebApps from the [OSDU GitLab](https://community.opengroup.org/osdu/platform/consumption/geospatial/-/tree/master/docs/test-assets/webapps?ref_type=heads).
@@ -106,7 +107,7 @@ You can also ingest data into your Azure Data Manager for Energy instance:
 
 - [Tutorial on CSV parser ingestion](tutorial-csv-ingestion.md).
 - [Tutorial on manifest ingestion](tutorial-manifest-ingestion.md).
-    
+
 ## References
 
 - For information about Geospatial Consumption Zone, see [OSDU GitLab](https://community.opengroup.org/osdu/platform/consumption/geospatial/).

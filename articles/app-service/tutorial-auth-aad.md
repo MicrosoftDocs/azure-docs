@@ -233,7 +233,7 @@ The commands effectively add a `loginParameters` property with additional custom
 
 - `openid` is requested by App Service by default already. For information, see [OpenID Connect Scopes](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes).
 - [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access) is included here for convenience (in case you want to [refresh tokens](#what-happens-when-the-frontend-token-expires)).
-- `api://<back-end-client-id>/user_impersonation` is an exposed API in your backend app registration. It's the scope that gives you a JWT token that includes the backend app as a [token audience](https://wikipedia.org/wiki/JSON_Web_Token). 
+- `api://<back-end-client-id>/user_impersonation` is an exposed API in your backend app registration. It's the scope that gives you a JWT that includes the backend app as a [token audience](https://wikipedia.org/wiki/JSON_Web_Token). 
 
 > [!TIP]
 > - To view the `api://<back-end-client-id>/user_impersonation` scope in the Azure portal, go to the **Authentication** page for the backend app, click the link under **Identity provider**, then click **Expose an API** in the left menu.
@@ -261,10 +261,6 @@ You can set this via the same Azure CLI process you used in the previous step.
 ```azurecli-interactive
 authSettings=$(az webapp auth show -g myAuthResourceGroup -n <back-end-app-name>)
 authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.azureActiveDirectory.validation.defaultAuthorizationPolicy.allowedApplications += ["<front-end-app-id>"]')
-az webapp auth set --resource-group myAuthResourceGroup --name <back-end-app-name> --body "$authSettings"
-
-authSettings=$(az webapp auth show -g myAuthResourceGroup  -n <back-end-app-name>)
-authSettings=$(echo "$authSettings" | jq '.properties' | jq '.identityProviders.azureActiveDirectory.validation.jwtClaimChecks += { "allowedClientApplications": ["<front-end-app-id>"]}')
 az webapp auth set --resource-group myAuthResourceGroup --name <back-end-app-name> --body "$authSettings"
 ```
 

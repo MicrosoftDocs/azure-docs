@@ -4,8 +4,9 @@ description: This article explains how to use Azure Update Manager in the Azure 
 ms.service: azure-update-manager
 ms.date: 08/22/2024
 ms.topic: how-to
-author: SnehaSudhir 
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
+# Customer intent: "As an IT administrator, I want to assess update compliance for all my virtual machines using a centralized tool, so that I can ensure they are up-to-date and secure."
 ---
 
 # Check update compliance with Azure Update Manager

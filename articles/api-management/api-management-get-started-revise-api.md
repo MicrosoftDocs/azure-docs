@@ -7,7 +7,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom: mvc, devx-track-azurecli, devdivchpfy22
 ms.topic: tutorial
-ms.date: 07/31/2024
+ms.date: 11/27/2024
 ms.author: danlep
 
 ---
@@ -22,6 +22,8 @@ In Azure API Management, use *revisions* to make nonbreaking API changes so you 
 
 For background, see [Versions](api-management-versions.md) and [Revisions](api-management-revisions.md).
 
+[!INCLUDE [api-management-workspace-try-it](../../includes/api-management-workspace-try-it.md)]
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -31,7 +33,7 @@ In this tutorial, you learn how to:
 > * Browse the developer portal to see changes and change log
 > * Access an API revision
 
-:::image type="content" source="media/api-management-getstarted-revise-api/azure-portal.png" alt-text="Screenshot of API revisions in the Azure portal." lightbox="media/api-management-getstarted-revise-api/azure-portal.png":::
+:::image type="content" source="media/api-management-get-started-revise-api/azure-portal.png" alt-text="Screenshot of API revisions in the Azure portal." lightbox="media/api-management-get-started-revise-api/azure-portal.png":::
 
 ## Prerequisites
 
@@ -43,11 +45,11 @@ In this tutorial, you learn how to:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and go to your API Management instance.
 1. In the left menu, under **APIs**, select **APIs**.
-2. Select **Demo Conference API** from the API list (or another API to which you want to add revisions).
+2. Select **Swagger Petstore** from the API list (or another API to which you want to add revisions).
 3. Select the **Revisions** tab.
 4. Select **+ Add revision**.
 
-   :::image type="content" source="media/api-management-getstarted-revise-api/07-add-revisions-01-add-new-revision.png" alt-text="Screenshot of adding an API revision in the portal.":::
+   :::image type="content" source="media/api-management-get-started-revise-api/07-add-revisions-01-add-new-revision.png" alt-text="Screenshot of adding an API revision in the portal.":::
 
     > [!TIP]
     > You can also select **Add revision** in the context menu (**...**) of the API.
@@ -61,7 +63,7 @@ In this tutorial, you learn how to:
 
 ## Make nonbreaking changes to your revision
 
-1. Select **Demo Conference API** from the API list.
+1. Select **Swagger Petstore** from the API list.
 1. Select the **Design** tab near the top of the screen.
 1. Notice that the **revision selector** (directly above the design tab) shows **Revision 2** as currently selected.
 
@@ -71,7 +73,7 @@ In this tutorial, you learn how to:
 1. Set your new operation to **POST**, and the  **Display name**, **Name**, and **URL** of the operation as **test**.
 1. **Save** your new operation.
 
-   :::image type="content" source="media/api-management-getstarted-revise-api/07-add-revisions-02-make-changes.png" alt-text="Screenshot showing how to add an operation in a revision in the portal.":::
+   :::image type="content" source="media/api-management-get-started-revise-api/07-add-revisions-02-make-changes.png" alt-text="Screenshot showing how to add an operation in a revision in the portal.":::
 1. You've now made a change to **Revision 2**. Use the **revision selector** near the top of the page to switch back to **Revision 1**.
 1. Notice that your new operation doesn't appear in **Revision 1**. 
 
@@ -85,7 +87,7 @@ In this tutorial, you learn how to:
 1. Select the **Post to Public Change log for this API** checkbox, if you want to post notes about this change. Provide a description for your change that the developers can see, for example: **Testing revisions. Added new "test" operation.**
 1. **Revision 2** is now current.
 
-    :::image type="content" source="media/api-management-getstarted-revise-api/revisions-menu.png" alt-text="Screenshot of revision menu in Revisions window in the portal." lightbox="media/api-management-getstarted-revise-api/revisions-menu.png":::
+    :::image type="content" source="media/api-management-get-started-revise-api/revisions-menu.png" alt-text="Screenshot of revision menu in Revisions window in the portal." lightbox="media/api-management-get-started-revise-api/revisions-menu.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -95,7 +97,7 @@ To begin using Azure CLI:
 
 Use this procedure to create and update a release.
 
-1. Run the [az apim api list](/cli/azure/apim/api#az-apim-api-list) command to see your API IDs:
+1. Run the [az api list](/cli/azure/apim/api#az-apim-api-list) command to see your API IDs:
 
    ```azurecli
    az apim api list --resource-group apim-hello-word-resource-group \
@@ -108,7 +110,7 @@ Use this procedure to create and update a release.
 
    ```azurecli
    az apim api release create --resource-group apim-hello-word-resource-group \
-       --api-id demo-conference-api --api-revision 2 --service-name apim-hello-world \
+       --api-id swagger-petstore --api-revision 2 --service-name apim-hello-world \
        --notes 'Testing revisions. Added new "test" operation.'
    ```
 
@@ -118,7 +120,7 @@ Use this procedure to create and update a release.
 
    ```azurecli
    az apim api release list --resource-group apim-hello-word-resource-group \
-       --api-id echo-api --service-name apim-hello-world --output table
+       --api-id swagger-petstore --service-name apim-hello-world --output table
    ```
 
    The notes you specify appear in the change log. You can see them in the output of the previous command.
@@ -127,7 +129,7 @@ Use this procedure to create and update a release.
 
    ```azurecli
    az apim api release update --resource-group apim-hello-word-resource-group \
-       --api-id demo-conference-api --release-id 00000000000000000000000000000000 \
+       --api-id swagger-petstore --release-id 00000000000000000000000000000000 \
        --service-name apim-hello-world --notes "Revised notes."
    ```
 
@@ -137,7 +139,7 @@ You can remove any release by running the [az apim api release delete ](/cli/azu
 
 ```azurecli
 az apim api release delete --resource-group apim-hello-word-resource-group \
-    --api-id demo-conference-api --release-id 00000000000000000000000000000000 
+    --api-id swagger-petstore --release-id 00000000000000000000000000000000 
     --service-name apim-hello-world
 ```
 
@@ -150,7 +152,7 @@ If you've tried the [developer portal](api-management-howto-developer-portal-cus
 1. In the Azure portal, navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **APIs**.
 1. Select **Developer portal** from the top menu.
-1. In the developer portal, select **APIs**, and then select **Demo Conference API**.
+1. In the developer portal, select **APIs**, and then select **Swagger Petstore**.
 1. Notice your new **test** operation is now available.
 1. Select **Changelog** near the API name.
 1. Notice that your change log entry appears in the list.
@@ -158,13 +160,13 @@ If you've tried the [developer portal](api-management-howto-developer-portal-cus
 
 ## Access an API revision
 
-Each revision to your API can be accessed using a specially formed URL. Add `;rev={revisionNumber}` at the end of your API URL path, but before the query string, to access a specific revision of that API. For example, you might use this URL to access revision 2 of the Demo Conference API:
+Each revision to your API can be accessed using a specially formed URL. Add `;rev={revisionNumber}` at the end of your API URL path, but before the query string, to access a specific revision of that API. For example, you might use a URL similar to the following to access revision 2 of the Swagger Petstore API:
 
-`https://apim-hello-world.azure-api.net/conf;rev=2/speakers`
+`https://apim-hello-world.azure-api.net/store/pet/1;rev=2/`
 
 You can find the URL paths for your API's revisions on the **Revisions** tab in the Azure portal.
 
-:::image type="content" source="media/transform-api/revision-url-path.png" alt-text="Screenshot of revision URLs in the portal.":::
+:::image type="content" source="media/api-management-get-started-revise-api/revision-url-path.png" alt-text="Screenshot of revision URLs in the portal.":::
 
 > [!TIP]
 > You can access the *current* revision of your API using the API path without the `;rev` string, in addition to the full URL that appends `;rev={revisionNumber}` to your API path.

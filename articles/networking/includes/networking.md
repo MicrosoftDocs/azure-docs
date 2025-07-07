@@ -4,6 +4,7 @@ ms.topic: include
 ms.date: 07/07/2022
 author: asudbring
 ms.author: allensu
+# Customer intent: As a network administrator, I want to count and list public IP addresses and analyze network security groups, so that I can effectively manage and optimize our cloud networking resources.
 ---
 
 ### Count resources that have IP addresses configured by subscription

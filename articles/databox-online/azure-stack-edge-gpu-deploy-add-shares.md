@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: azure-stack-edge
 ms.topic: tutorial
-ms.date: 05/09/2022
+ms.date: 02/04/2025
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ---
@@ -55,12 +55,21 @@ To create a share, do the following procedure:
     Depending upon whether you choose SMB or NFS shares, the rest of the options vary slightly. 
 
     c. Provide a storage account where the share will reside.
+   
+   > [!IMPORTANT]
+   > Tiering data from an Azure Stack Edge Pro device to the mapped Azure Storage account uses Managed Service Identity to authorize the data access. Make sure that the Azure Storage account that you use has the following roles being assigned to the Managed identities for Azure Stack Edge resource:
+   >
+   > * Storage Blob Data Contributor
+   > * Storage File Data Privileged Contributor
+   > * Contributor
+   > 
+   > For more information, see [Assign an Azure role for access to blob data](../storage/blobs/assign-azure-role-data-access.md?tabs=portal#assign-an-azure-role).
 
     d. In the **Storage service** drop-down list, select **Block Blob**, **Page Blob**, or **Files**.  
     The type of service you select depends on which format you want the data to use in Azure. In this example, because we want to store the data as block blobs in Azure, we select **Block Blob**. If you select **Page Blob**, make sure that your data is 512 bytes aligned. For example, a VHDX is always 512 bytes aligned.
 
    > [!IMPORTANT]
-   > Make sure that the Azure Storage account that you use does not have immutability policies or archiving policies set on it if you are using it with an Azure Stack Edge Pro or Data Box Gateway device.  If the blob policies are immutable or if the blobs are aggressively archived, you'll experience upload errors when the blob is changed in the share. For more information, see [Set and manage immutability policies for blob storage](../storage/blobs/immutable-policy-configure-version-scope.md).
+   > Make sure that the Azure Storage account that you use does not have immutability policies or archiving policies set on it if you are using it with an Azure Stack Edge Pro device.  If the blob policies are immutable or if the blobs are aggressively archived, you'll experience upload errors when the blob is changed in the share. For more information, see [Set and manage immutability policies for blob storage](../storage/blobs/immutable-policy-configure-version-scope.md).
 
     e. Create a new blob container or use an existing one from the dropdown list. If creating a blob container, provide a container name. If a container doesn't already exist, it's created in the storage account with the newly created share name.
    

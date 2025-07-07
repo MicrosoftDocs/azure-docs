@@ -5,12 +5,12 @@ author: sidontha
 ms.author: sidontha
 ms.service: azure-data-share
 ms.topic: how-to
-ms.date: 12/19/2023
+ms.date: 02/12/2025
 ---
 
 # How to add datasets to an existing share in Azure Data Share
 
-This article explains how to add datasets to a pre-existing data share using Azure Data Share. This allows you to share more data with the same recipients without having to create a new share.
+This article explains how to add datasets to a preexisting data share using Azure Data Share. This allows you to share more data with the same recipients without having to create a new share.
 
 For information on how to add datasets as you create a share, see the [Share data](share-your-data.md) tutorial.
 
@@ -32,6 +32,6 @@ Once you select **Add Datasets**, the datasets are added to your share.
 Without snapshot settings configured, the consumer must manually trigger a full or incremental copy of the data to receive the updates.
 For more information on snapshots, see [Snapshots](terminology.md#snapshot).
 
-## Next steps
+## Related content
 
 Learn more about how to [add recipients to an existing data share](how-to-add-recipients.md).

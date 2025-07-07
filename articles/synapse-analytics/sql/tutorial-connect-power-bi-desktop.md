@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
-ms.reviewer: whhender 
+ 
 ---
 
 # Tutorial: Use serverless SQL pool with Power BI Desktop & create a report
@@ -65,7 +65,7 @@ A data source is necessary for the serverless SQL pool service to access files i
 Create the data source by running the following Transact-SQL (T-SQL) script:
 
 ```sql
--- There is no credential in data surce. We are using public storage account which doesn't need a secret.
+-- There is no credential in data source. We are using public storage account which doesn't need a secret.
 CREATE EXTERNAL DATA SOURCE AzureOpenData
 WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/')
 ```

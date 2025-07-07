@@ -4,9 +4,9 @@ description: Enrich your data with artificial intelligence (AI) in Azure Synapse
 ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: overview
-ms.reviewer: whhender, garye, negust, ruxu, jessiwang
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+ms.reviewer:  negust, ruxu, jessiwang
+author: NelGson
+ms.author: negust
 ms.date: 05/13/2024
 ---
 
@@ -92,7 +92,7 @@ The tutorial, [Pre-requisites for using Azure AI services in Azure Synapse](/azu
 
 ### Search
 
-* [**Bing Image search**](https://azure.microsoft.com/services/services-services/bing-image-search-api/) ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/bing/BingImageSearch.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.bing.html#module-synapse.ml.services.bing.BingImageSearch))
+* [**Bing Image search**](https://www.microsoft.com/bing/apis/bing-image-search-api) ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/bing/BingImageSearch.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.bing.html#module-synapse.ml.services.bing.BingImageSearch))
 * [**Azure Cognitive search**](/azure/search/search-what-is-azure-search) ([Scala](https://mmlspark.blob.core.windows.net/docs/1.0.4/scala/com/microsoft/azure/synapse/ml/services/search/AzureSearchWriter$.html), [Python](https://mmlspark.blob.core.windows.net/docs/1.0.4/pyspark/synapse.ml.services.search.html#module-synapse.ml.services.search.AzureSearchWriter))
 
 ## Prepare your system
@@ -211,7 +211,7 @@ display(healthcare.transform(df))
 
 ## Translate text into a different language
 
-[Translator](https://azure.microsoft.com/services/ai-services/translator/) is a cloud-based machine translation service and is part of the Azure AI services family of AI APIs used to build intelligent apps. Translator is easy to integrate in your applications, websites, tools, and solutions. It allows you to add multi-language user experiences in 90 languages and dialects and can be used to translate text without hosting your own algorithm.
+[Translator](https://azure.microsoft.com/products/ai-services/ai-translator) is a cloud-based machine translation service and is part of the Azure AI services family of AI APIs used to build intelligent apps. Translator is easy to integrate in your applications, websites, tools, and solutions. It allows you to add multi-language user experiences in 90 languages and dialects and can be used to translate text without hosting your own algorithm.
 
 The following code sample does a simple text translation by providing the sentences you want to translate and target languages you want to translate them to.
 
@@ -459,7 +459,7 @@ df = spark.createDataFrame(
 ).withColumn("group", lit("series1"))
 
 # Run the Anomaly Detector service to look for irregular data
-anamoly_detector = (
+anomaly_detector = (
     SimpleDetectAnomalies()
     .setSubscriptionKey(anomaly_key)
     .setLocation(anomaly_loc)
@@ -472,14 +472,14 @@ anamoly_detector = (
 
 # Show the full results of the analysis with the anomalies marked as "True"
 display(
-    anamoly_detector.transform(df).select("timestamp", "value", "anomalies.isAnomaly")
+    anomaly_detector.transform(df).select("timestamp", "value", "anomalies.isAnomaly")
 )
 
 ```
 
 ## Get information from arbitrary web APIs
 
-With HTTP on Spark, any web service can be used in your big data pipeline. In this example, we use the [World Bank API](http://api.worldbank.org/v2/country/) to get information about various countries around the world.
+With HTTP on Spark, any web service can be used in your big data pipeline. In this example, we use the [World Bank API](http://api.worldbank.org/v2/country/) to get information about various countries/regions around the world.
 
 ```python
 # Use any requests from the python requests library
@@ -489,7 +489,7 @@ def world_bank_request(country):
         "GET", "http://api.worldbank.org/v2/country/{}?format=json".format(country)
     )
 
-# Create a dataframe with specifies which countries we want data on
+# Create a dataframe with specifies which countries/regions we want data on
 df = spark.createDataFrame([("br",), ("usa",)], ["country"]).withColumn(
     "request", http_udf(world_bank_request)(col("country"))
 )
@@ -504,7 +504,7 @@ client = (
 def get_response_body(resp):
     return resp.entity.content.decode()
 
-# Show the details of the country data returned
+# Show the details of the country/region data returned
 display(
     client.transform(df).select(
         "country", udf(get_response_body)(col("response")).alias("response")

@@ -1,7 +1,7 @@
 ---
-title: Create and run your own custom policies in Azure Active Directory B2C
+title: Create and run your own custom policies in Azure AD B2C
 titleSuffix: Azure AD B2C
-description: Learn how to create and run your own custom policies in Azure Active Directory B2C. Learn how to create Azure Active Directory B2C custom policies from scratch in a how-to guide series.
+description: Learn how to create and run custom policies in Azure AD B2C. Follow a how-to guide series to build custom policies from scratch for complex user journeys.
 
 author: kengaderdus
 manager: CelesteDG
@@ -10,7 +10,7 @@ ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 10/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: b2c
@@ -21,6 +21,7 @@ ms.subservice: b2c
 ---
 
 # Create and run your own custom policies in Azure Active Directory B2C 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In Azure Active Directory B2C (Azure AD B2C), you can create user experiences by using [user flows or custom policies](user-flow-overview.md). You use custom policies when you want to create your own user journeys for complex identity experience scenarios that aren't supported by user flows.
 
@@ -38,7 +39,7 @@ This how-to guide series consists of multiple articles. We recommend that you st
 
 |Article  | What you'll learn  |
 |---------|---------|
-|[Write your first Azure Active Directory B2C custom policy - Hello World!](custom-policies-series-hello-world.md) | Write your first Azure AD B2C custom policy. You return the message *Hello World!* in the JWT token. |
+|[Write your first Azure Active Directory B2C custom policy - Hello World!](custom-policies-series-hello-world.md) | Write your first Azure AD B2C custom policy. You return the message *Hello World!* in the JWT. |
 |[Collect and manipulate user inputs by using Azure AD B2C custom policy](custom-policies-series-collect-user-input.md) | Learn how to collect inputs from users, and how to manipulate them.|
 |[Validate user inputs by using Azure Active Directory B2C custom policy](custom-policies-series-validate-user-input.md) | Learn how to validate user inputs by using techniques such as limiting user input options, regular expressions, predicates, and validation technical profiles|
 |[Create branching in user journey by using Azure Active Directory B2C custom policy](custom-policies-series-branch-user-journey.md) | Learn how to create different user experiences for different users based on the value of a claim.|
@@ -48,7 +49,7 @@ This how-to guide series consists of multiple articles. We recommend that you st
 |[Set up a sign-up and sign-in flow by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in.md). | Learn how to configure a sign-up and sign-in flow for a local account(using email and password) by using Azure Active Directory B2C custom policy. You show a user a sign-in interface for them to sign in by using their existing account, but they can create a new account if they don't already have one.|
 | [Set up a sign-up and sign-in flow with a social account by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in-federation.md) | Learn how to configure a sign-up and sign-in flow for a social account, Facebook. You also learn to combine local and social sign-up and sign-in flow.|
 
-## Next steps 
+## Related content
 
 - Learn about [Azure AD B2C TrustFrameworkPolicy BuildingBlocks](buildingblocks.md)
  

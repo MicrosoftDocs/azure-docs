@@ -16,7 +16,7 @@ Azure Event Hubs offers the following options for authorizing access to secure r
 - Shared access signature
 
 > [!NOTE]
-> This article applies to both Event Hubs and [Apache Kafka](azure-event-hubs-kafka-overview.md) scenarios. 
+> This article applies to both Event Hubs and [Apache Kafka](azure-event-hubs-apache-kafka-overview.md) scenarios. 
 
 
 ## Microsoft Entra ID

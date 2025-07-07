@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 09/30/2024
 
 #CustomerIntent: As an Azure administrator, I want learn about IP flow verify so I can use it to check the security rules applied on the VMs to confirm if traffic is allowed or denied.
+# Customer intent: As an Azure administrator, I want to understand how to use IP flow verify, so that I can troubleshoot and confirm if network traffic is allowed or denied for my virtual machines based on security rules.
 ---
 
 # IP flow verify overview
@@ -29,8 +30,8 @@ IP flow verify returns **Access denied** or **Access allowed**, the name of the 
 
 - You must have a Network Watcher instance in the Azure subscription and region of the virtual machine. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md).
 - You must have the necessary permissions to access the feature. For more information, see [RBAC permissions required to use Network Watcher capabilities](required-rbac-permissions.md).
-- IP flow verify only tests TCP and UDP rules. To test ICMP traffic rules, use [NSG diagnostics](network-watcher-network-configuration-diagnostics-overview.md).
-- IP flow verify only tests security and admin rules applied to a virtual machine's network interface. To test rules applied to virtual machine scale sets, use [NSG diagnostics](network-watcher-network-configuration-diagnostics-overview.md).
+- IP flow verify only tests TCP and UDP rules. To test ICMP traffic rules, use [NSG diagnostics](nsg-diagnostics-overview.md).
+- IP flow verify only tests security and admin rules applied to a virtual machine's network interface. To test rules applied to virtual machine scale sets, use [NSG diagnostics](nsg-diagnostics-overview.md).
 
 ## Next step
 

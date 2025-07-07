@@ -2,8 +2,8 @@
 title: Export and share traces
 titleSuffix: Azure Private 5G Core 
 description: In this how-to guide, learn how to export and share your detailed traces for diagnostics.
-author: robswain
-ms.author: robswain
+author: anzaman
+ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 05/31/2023

@@ -11,6 +11,7 @@ ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
+# Customer intent: As a Go developer, I want to list blobs in my Azure Storage account so that I can retrieve and manage my data efficiently, using both flat and hierarchical listing options as needed.
 ---
 
 # List blobs with Go
@@ -70,7 +71,7 @@ If you name your blobs using a delimiter, then you can choose to list blobs hier
 
 By default, a listing operation returns blobs in a flat listing. In a flat listing, blobs aren't organized by virtual directory.
 
-The following example lists the blobs in the specified container using a flat listing. This example   blob snapshots and blob versions, if they exist:
+The following example lists the blobs in the specified container using a flat listing. This example includes blob snapshots and blob versions, if they exist:
 
 :::code language="go" source="~/blob-devguide-go/cmd/list-blobs/list_blobs.go" id="snippet_list_blobs_flat":::
 

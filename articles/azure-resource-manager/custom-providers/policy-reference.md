@@ -20,7 +20,7 @@ link in the **Version** column to view the source on the
 
 ## Azure Custom Resource Providers
 
-[!INCLUDE [azure-policy-reference-category-customrp](../../../includes/policy/reference/bycat/policies-custom-provider.md)]
+[!INCLUDE [azure-policy-reference-category-customrp](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policies-custom-provider.md)]
 
 ## Next steps
 

@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 12/02/2022
 ms.author: akashdubey
 ms.custom: engagement-fy23, linux-related-content
+# Customer intent: "As a Linux system administrator, I want to mount Azure Blob Storage using BlobFuse v1, so that I can easily access and manage my blob data through the Linux file system."
 ---
 
 # How to mount Azure Blob Storage as a file system with BlobFuse v1
@@ -40,13 +41,13 @@ Configure the [Linux Package Repository for Microsoft Products](/windows-server/
 
 # [RHEL](#tab/RHEL)
 
-As an example, on a Redhat Enterprise Linux 8 distribution:
+As an example, on a Red Hat Enterprise Linux 8 distribution:
 
 ```bash
 sudo rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-prod.rpm
 ```
 
-Similarly, change the URL to `.../rhel/7/...` to point to a Redhat Enterprise Linux 7 distribution.
+Similarly, change the URL to `.../rhel/7/...` to point to a Red Hat Enterprise Linux 7 distribution.
 
 # [Ubuntu](#tab/Ubuntu)
 

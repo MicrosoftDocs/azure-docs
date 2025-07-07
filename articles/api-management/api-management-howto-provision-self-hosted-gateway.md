@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 manager: gwallace
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: danlep
 ---
@@ -39,7 +39,7 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 
 Now the gateway resource has been provisioned in your API Management instance. You can proceed to deploy the gateway.
 
-## Next steps
+## Related content
 
 * To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md)
 - Learn more about how to [Deploy a self-hosted gateway to an Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md)

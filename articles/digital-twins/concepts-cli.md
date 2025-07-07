@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Azure Digital Twins CLI command set
 titleSuffix: Azure Digital Twins
 description: Learn about the Azure Digital Twins CLI command set.
 author: baanders
-ms.author: baanders # Microsoft employees only
-ms.date: 03/31/2022
-ms.topic: conceptual
+ms.author: baanders
+ms.date: 04/09/2025
+ms.topic: concept-article
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Azure Digital Twins CLI command set
@@ -42,18 +36,18 @@ The Azure Digital Twins commands are part of the [Azure IoT extension for Azure 
 
 ### CLI version requirements
 
-If you're using the Azure CLI with PowerShell, your Azure CLI version should be 2.3.1 or above as a requirement of the extension package.
+If you're using the Azure CLI with PowerShell, your Azure CLI version should be 2.3.1 or greater as a requirement of the extension package.
 
 You can check the version of your Azure CLI with this CLI command:
 ```azurecli
 az --version
 ```
 
-For instructions on how to install or update the Azure CLI to a newer version, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+For instructions on how to install or update the Azure CLI to a newer version, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 ### Get the extension
 
-The Azure CLI will automatically prompt you to install the extension on the first use of a command that requires it.
+The Azure CLI automatically prompts you to install the extension on the first use of a command that requires it.
 
 Otherwise, you can use the following command to install the extension yourself at any time (or update it if it turns out that you already have an older version). The command can be run in either the [Azure Cloud Shell](../cloud-shell/overview.md) or a [local Azure CLI](/cli/azure/install-azure-cli).
 
@@ -63,7 +57,7 @@ az extension add --upgrade --name azure-iot
 
 ## Use special characters in different shells
 
-Some `az dt` commands use special characters that may have to be escaped for proper parsing in certain shell environments. Use the tips in this section to help you know when to do this in your shell of choice.
+Some `az dt` commands use special characters that might have to be escaped for proper parsing in certain shell environments. Use the tips in this section to help you know when to escape special characters in your shell of choice.
 
 ### Bash
 
@@ -73,7 +67,7 @@ Use these special character tips for Bash environments.
 
 In many twin queries, the `$` character is used to reference the `$dtId` property of a twin. When using the [az dt twin query](/cli/azure/dt/twin#az-dt-twin-query) command to query in the Cloud Shell Bash environment, escape the `$` character with a backslash (`\`).
 
-Here is an example of querying for a twin with a CLI command in the Cloud Shell Bash environment:
+Here's an example of querying for a twin with a CLI command in the Cloud Shell Bash environment:
 
 ```azurecli
 az dt twin query --dt-name <instance-hostname-or-name> --query-command "SELECT * FROM DigitalTwins T Where T.\$dtId = 'room0'"
@@ -87,7 +81,7 @@ Use these special character tips for PowerShell environments.
 
 Some commands, like [az dt twin create](/cli/azure/dt/twin#az-dt-twin-create), allow you to enter twin information in the form of inline JSON. When entering inline JSON in the PowerShell environment, escape double quote characters (`"`) inside the JSON with a backslash (`\`). 
 
-Here is an example of creating a twin with a CLI command in PowerShell:
+Here's an example of creating a twin with a CLI command in PowerShell:
 
 ```azurecli
 az dt twin create --dt-name <instance-hostname-or-name> --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{\"Temperature\": 0.0}'
@@ -100,7 +94,8 @@ az dt twin create --dt-name <instance-hostname-or-name> --dtmi "dtmi:contosocom:
 
 In many twin queries, the `$` character is used to reference the `$dtId` property of a twin. When using the [az dt twin query](/cli/azure/dt/twin#az-dt-twin-query) command to query in a PowerShell environment, escape the `$` character with a backtick character.
 
-Here is an example of querying for a twin with a CLI command in PowerShell:
+Here's an example of querying for a twin with a CLI command in PowerShell:
+
 ```azurecli
 az dt twin query --dt-name <instance-hostname-or-name> --query-command "SELECT * FROM DigitalTwins T Where T.`$dtId = 'room0'"
 ```
@@ -113,7 +108,7 @@ Use these special character tips for the local Windows CMD.
 
 Some commands, like [az dt twin create](/cli/azure/dt/twin#az-dt-twin-create), allow you to enter twin information in the form of inline JSON. When entering inline JSON in a local Windows CMD window, enclose the parameter value with double quotes (`"`) instead of single quotes (`'`), and escape double quote characters inside the JSON with a backslash (`\`). 
 
-Here is an example of creating a twin with a CLI command in the local Windows CMD:
+Here's an example of creating a twin with a CLI command in the local Windows CMD:
 
 ```azurecli
 az dt twin create --dt-name <instance-hostname-or-name> --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties "{\"Temperature\": 0.0}"

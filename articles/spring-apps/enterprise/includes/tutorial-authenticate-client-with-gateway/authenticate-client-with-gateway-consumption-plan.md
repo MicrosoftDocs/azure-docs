@@ -58,12 +58,12 @@ Use the following steps to create a service instance:
 
    | Setting                    | Suggested value                              | Description                                                                                                                                                                                                                                                                                        |
    |----------------------------|----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | Subscription               | Your subscription name                       | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.                                                                                                                        |
-   | Resource group             | *myresourcegroup*                            | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
-   | Name                       | *myasa*                                      | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
-   | Plan                       | **Standard consumption & dedicated (preview)** | The pricing plan determines the resources and cost associated with your instance.                                                                                                                                                                                                                  |
-   | Region                     | The region closest to your users             | The location that is closest to your users.                                                                                                                                                                                                                                                        |
-   | Container Apps Environment | *myacaenv*                                   | Select which Container Apps environment instance to share the same virtual network with other services and resources.                                                                                                                                                                              |
+   | **Subscription**               | Your subscription name                       | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.                                                                                                                        |
+   | **Resource group**             | **myresourcegroup**                            | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
+   | **Name**                       | **myasa**                                      | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
+   | **Plan**                       | **Standard consumption & dedicated (preview)** | The pricing plan determines the resources and cost associated with your instance.                                                                                                                                                                                                                  |
+   | **Region**                     | The region closest to your users             | The location that is closest to your users.                                                                                                                                                                                                                                                        |
+   | **Container Apps Environment** | **myacaenv**                                   | Select which Container Apps environment instance to share the same virtual network with other services and resources.                                                                                                                                                                              |
 
    :::image type="content" source="../../media/tutorial-authenticate-client-with-gateway/create-consumption-service-basics.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Spring Apps consumption plan page." lightbox="../../media/tutorial-authenticate-client-with-gateway/create-consumption-service-basics.png":::
 
@@ -71,9 +71,9 @@ Use the following steps to create a service instance:
 
    | Setting          | Suggested value | Description                                                                              |
    |------------------|-----------------|------------------------------------------------------------------------------------------|
-   | Environment name | *myacaenv*      | A unique name that identifies your Azure Container Apps Environment service.             |
-   | Plan             | **Consumption**   | The pricing plan determines the resources and cost associated with your instance.        |
-   | Zone Redundant   | **Disabled**      | Whether to create your Container Apps Environment service in an Azure availability zone. |
+   | **Environment name** | **myacaenv**      | A unique name that identifies your Azure Container Apps Environment service.             |
+   | **Plan**             | **Consumption**   | The pricing plan determines the resources and cost associated with your instance.        |
+   | **Zone Redundant**   | **Disabled**      | Whether to create your Container Apps Environment service in an Azure availability zone. |
 
    :::image type="content" source="../../media/tutorial-authenticate-client-with-gateway/create-apps-container-environment-basics.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Container Apps page." lightbox="../../media/tutorial-authenticate-client-with-gateway/create-apps-container-environment-basics.png":::
 
@@ -106,7 +106,7 @@ This section provides the steps to register an application to add app roles in M
 
 1. Under **Manage**, select **App registrations** > **New registration**.
 
-1. Enter a name for your application in the **Name** field, for example *Books*. Users of your app might see this name, and you can change it later.
+1. Enter a name for your application in the **Name** field, for example **Books**. Users of your app might see this name, and you can change it later.
 
 1. For **Supported account types**, select **Accounts in this organizational directory only**.
 
@@ -120,10 +120,10 @@ This section provides the steps to register an application to add app roles in M
 
 1. Under **Manage**, select **App roles** > **Create app role**, and then enter the following information:
 
-   - For **Display name**, enter *Write*.
+   - For **Display name**, enter **Write**.
    - For **Allowed member types**, select **Applications**.
-   - For **Value**, enter *Books.Write*.
-   - For **Description**, enter *Adding books*.
+   - For **Value**, enter **Books.Write**.
+   - For **Description**, enter **Adding books**.
 
 1. Repeat the previous step to add another app role: `Books.Read`.
 
@@ -159,7 +159,7 @@ The Books RESTful API app acts as a resource server, which is protected by Micro
 
 ### 3.5. Update the configuration of Books Service app
 
-Locate *books-service/src/main/resources/application.yml* file for the `books-service` app. Update the configuration in the `spring.cloud.azure.active-directory` section to match the following example. Be sure to replace the placeholders with the values you created previously.
+Locate **books-service/src/main/resources/application.yml** file for the `books-service` app. Update the configuration in the `spring.cloud.azure.active-directory` section to match the following example. Be sure to replace the placeholders with the values you created previously.
 
 ```yaml
 spring:
@@ -197,7 +197,7 @@ Use the following steps to deploy the apps to Azure Spring Apps using the [Maven
    - **OAuth2 login**: Authorize the login to Azure based on the OAuth2 protocol.
    - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press <kbd>Enter</kbd> directly.
    - **Select Azure Spring Apps for deployment**: Select the list number of the Azure Spring Apps instance you created. If you use the default number, press <kbd>Enter</kbd> directly.
-   - **Select apps to expose public access: (input numbers separated by comma, eg: [1-2,4,6], ENTER to select NONE)**: Enter *1* for `gateway-service`.
+   - **Select apps to expose public access: (input numbers separated by comma, eg: [1-2,4,6], ENTER to select NONE)**: Enter **1** for `gateway-service`.
    - **Confirm to save all the above configurations (Y/n)**: Enter <kbd>y</kbd>. If you enter <kbd>n</kbd>, the configuration isn't saved in the POM files.
 
 1. Use the following command to deploy the app:
@@ -227,7 +227,7 @@ Use the following steps to deploy the apps to Azure Spring Apps using the [Maven
 
 ### 4.2. Run the SPA app locally
 
-Update the configuration in the `SPA` application script file *spa/server.js* to match the following example. Be sure to replace the placeholders with your own values you created in the previous step.
+Update the configuration in the `SPA` application script file **spa/server.js** to match the following example. Be sure to replace the placeholders with your own values you created in the previous step.
 
 ```javascript
 const SpringCloudGatewayURL = "<URL exposed by app gateway-service>"

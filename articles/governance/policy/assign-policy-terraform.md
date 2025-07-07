@@ -1,207 +1,103 @@
 ---
-title: "Quickstart: New policy assignment with Terraform"
-description: In this quickstart, you use Terraform and Hashicorp Configuration Language (HCL) syntax to create a policy assignment to identify non-compliant resources.
-ms.date: 03/25/2024
+title: 'Quickstart: New policy assignment with Terraform'
+description: In this quickstart, you use Terraform and Hashicorp Configuration Language (HCL) syntax to create a policy assignment to identify noncompliant resources.
+ms.date: 03/26/2025
 ms.topic: quickstart
 ms.custom: devx-track-terraform
 ms.tool: terraform
+#customer intent: As a Terraform user, I want to see how to assign an Azure policy
+content_well_notification: 
+  - AI-contribution
 ---
 
-# Quickstart: Create a policy assignment to identify non-compliant resources using Terraform
+# Quickstart: Create a policy assignment to identify noncompliant resources using Terraform
 
-The first step in understanding compliance in Azure is to identify the status of your resources.
-This quickstart steps you through the process of creating a policy assignment to identify virtual
-machines that aren't using managed disks.
-
-At the end of this process, you identify virtual machines that aren't using managed disks across subscription. They're _non-compliant_ with the policy assignment.
+The first step in understanding compliance in Azure is to identify the status of your resources. This quickstart steps you through the process of creating a policy assignment to identify virtual
+machines that are not using managed disks.
 
 [!INCLUDE [azure-policy-version-default](../includes/policy/policy-version-default.md)]
 
+[!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
+
+In this article, you learn how to:
+
+> [!div class="checklist"]
+> * Retrieve the current Azure client configuration.
+> * Create a Azure resource group with the generated random name.
+> * Create Subscription Policy Assignment to identify virtual machines that aren't using managed disks
+
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/)
-  account before you begin.
-- [Terraform](https://www.terraform.io/) version 0.12.0 or higher configured in your environment.
-  For instructions, see
-  [Configure Terraform using Azure Cloud Shell](/azure/developer/terraform/get-started-cloud-shell).
-- This quickstart requires that you run Azure CLI version 2.13.0 or later. To find the version, run
-  `az --version`. If you need to install or upgrade, see
-  [Install Azure CLI](/cli/azure/install-azure-cli).
+- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Create the Terraform configuration, variable, and output file
+- [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
 
-In this quickstart, you create a policy assignment and assign the [Audit VMs that do not use managed disks](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMRequireManagedDisk_Audit.json) definition. This policy definition identifies resources that aren't compliant to the conditions set in the policy definition.
+## Implement the Terraform code
 
-Configure the Terraform configuration, variable, and output files. The Terraform resources
-for Azure Policy use the [Azure Provider](https://www.terraform.io/docs/providers/azurerm/index.html).
+The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-policy). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-policy/TestRecord.md). See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
-1. Create a new folder named `policy-assignment` and change directories into it.
+1. Create a directory in which to test and run the sample Terraform code, and make it the current directory.
 
-1. Create `main.tf` with the following code:
+1. Create a file named `providers.tf` and insert the following code.
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-policy/providers.tf":::
 
-    > [!NOTE]
-    > To create a Policy Assignment at a Management Group use the [azurerm_management_group_policy_assignment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group_policy_assignment) resource, for a Resource Group use the [azurerm_resource_group_policy_assignment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group_policy_assignment) and for a Subscription use the [azurerm_subscription_policy_assignment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subscription_policy_assignment) resource.
+1. Create a file named `main.tf` and insert the following code.
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-policy/main.tf":::
 
+1. Create a file named `variables.tf` and insert the following code.
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-policy/variables.tf":::
 
-    ```terraform
-      provider "azurerm" {
-        features {}
-      }
+1. Create a file named `outputs.tf` and insert the following code.
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-policy/outputs.tf":::
 
-      terraform {
-      required_providers {
-          azurerm = {
-              source = "hashicorp/azurerm"
-              version = ">= 2.96.0"
-          }
-        }
-      }
+## Specify scope
 
-      resource "azurerm_subscription_policy_assignment" "auditvms" {
-      name = "audit-vm-manageddisks"
-      subscription_id = var.cust_scope
-      policy_definition_id = "/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d"
-      description = "Shows all virtual machines not using managed disks"
-      display_name = "Audit VMs without managed disks assignment"
-      }
+A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a management group to an individual resource. To use any of the following scopes, update the `scope` variable in the `variables.tf` file. If you leave the `scope` variable value blank, the "subscription" scope is used.
+
+- Subscription: `/subscriptions/<subscription_id>`
+- Resource group: `/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>`
+- Resource: `/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/<resource_provider_namespace>/[{parentResourcePath}/]`
+
+## Initialize Terraform
+
+> [!IMPORTANT]
+> If you are using the 4.x azurerm provider, you must [explicitly specify the Azure subscription ID](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#specifying-subscription-id-is-now-mandatory) to authenticate to Azure before running the Terraform commands.
+>
+> One way to specify the Azure subscription ID without putting it in the `providers` block is to specify the subscription ID in an environment variable named `ARM_SUBSCRIPTION_ID`.
+>
+> For more information, see the [Azure provider reference documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#argument-reference).
+
+[!INCLUDE [terraform-init.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-init.md)]
+
+## Create a Terraform execution plan
+
+[!INCLUDE [terraform-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan.md)]
+
+## Apply a Terraform execution plan
+
+[!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
+
+## Verify the results
+
+1. Get the `_assignment\_id_` returned by `terraform apply`.
+
+1. run the following command to view the resources that are not compliant under your new policy assignment.
+
+    ```console
+    armclient post "/subscriptions/<subscription_id>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
     ```
-
-1. Create `variables.tf` with the following code:
-
-    ```terraform
-    variable "cust_scope" {
-        default = "{scope}"
-    }
-    ```
-
-   A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a management group to an individual  resource. Be sure to replace `{scope}` with one of the following patterns based on the declared resource:
-
-   - Subscription: `/subscriptions/{subscriptionId}`
-   - Resource group: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
-   - Resource: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]`
-
-1. Create `output.tf` with the following code:
-
-    ```terraform
-    output "assignment_id" {
-        value = azurerm_subscription_policy_assignment.auditvms.id
-    }
-    ```
-
-## Initialize Terraform and create plan
-
-Initialize Terraform to download the necessary providers and then create a plan.
-
-1. Run the [terraform init](https://www.terraform.io/docs/commands/init.html) command. This command
-   downloads the Azure modules required to create the Azure resources in the Terraform
-   configuration.
-
-   ```bash
-   terraform init
-   ```
-
-   :::image type="content" source="./media/assign-policy-terraform/terraform-initialize.png" alt-text="Screenshot of running the terraform init command that shows downloading the azurerm module and a success message.":::
-
-1. Authenticate with [Azure CLI](/cli/azure/) for Terraform. For more information, see
-   [Azure Provider: Authenticating using the Azure CLI](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html).
-
-   ```azurecli
-   az login
-   ```
-
-1. Create the execution plan with the
-   [terraform plan](https://www.terraform.io/docs/commands/plan.html) command and **out** parameter.
-
-   ```bash
-   terraform plan -out assignment.tfplan
-   ```
-
-   :::image type="content" source="./media/assign-policy-terraform/terraform-plan-out.png" alt-text="Screenshot of running the terraform plan command and out parameter to show the Azure resource that would be created.":::
-
-   > [!NOTE]
-   > For information about persisting execution plans and security, see
-   > [Terraform Plan: Security Warning](https://www.terraform.io/docs/commands/plan.html#security-warning).
-
-## Apply the Terraform execution plan
-
-Apply the execution plan.
-
-Run the [terraform apply](https://www.terraform.io/docs/commands/apply.html) command and specify the
-`assignment.tfplan` already created.
-
-```bash
-terraform apply assignment.tfplan
-```
-
-:::image type="content" source="./media/assign-policy-terraform/terraform-apply.png" alt-text="Screenshot of running the terraform apply command and the resulting resource creation.":::
-
-With the `Apply complete! Resources: 1 added, 0 changed, 0 destroyed.` message, the policy
-assignment is now created. Since we defined the `outputs.tf` file, the _assignment\_id_ is also
-returned.
-
-## Identify non-compliant resources
-
-To view the resources that aren't compliant under this new assignment, use the _assignment\_id_
-returned by ```terraform apply```. With it, run the following command to get the resource IDs of the
-non-compliant resources that are output into a JSON file:
-
-```console
-armclient post "/subscriptions/<subscriptionID>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
-```
-
-Your results resemble the following example:
-
-```json
-{
-  "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
-  "@odata.count": 3,
-  "value": [
-    {
-      "@odata.id": null,
-      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-      "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachineId>"
-    },
-    {
-      "@odata.id": null,
-      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-      "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine2Id>"
-    },
-    {
-      "@odata.id": null,
-      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-      "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine3ID>"
-    }
-  ]
-}
-```
-
-The results are comparable to what you'd typically see listed under **Non-compliant resources** in
-the Azure portal view.
+    
+1. The results are comparable to what you see listed under **Noncompliant resources** in the Azure portal view.
 
 ## Clean up resources
 
-To remove the assignment created, use Azure CLI or reverse the Terraform execution plan with
-`terraform destroy`.
+[!INCLUDE [terraform-plan-destroy.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan-destroy.md)]
 
-- Azure CLI
+## Troubleshoot Terraform on Azure
 
-  ```azurecli-interactive
-  az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
-  ```
-
-- Terraform
-
-  ```bash
-  terraform destroy
-  ```
+[Troubleshoot common problems when using Terraform on Azure](/azure/developer/terraform/troubleshoot).
 
 ## Next steps
-
-In this quickstart, you assigned a policy definition to identify non-compliant resources in your
-Azure environment.
-
-To learn more about assigning policies to validate that new resources are compliant, continue to the
-tutorial for:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create and manage policies to enforce compliance](./tutorials/create-and-manage.md)

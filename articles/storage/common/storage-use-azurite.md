@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, ai-video-demo
 ai-usage: ai-assisted
+# Customer intent: "As a developer, I want to use the Azurite emulator for local Azure Storage development, so that I can test my Blob, Queue, and Table Storage applications in a free and controlled environment before deployment."
 ---
 
 # Use the Azurite emulator for local Azure Storage development
@@ -487,6 +488,14 @@ azurite --extentMemoryLimit <megabytes>
 There's no restriction on the value specified for this option, but virtual memory might be used if the limit exceeds the amount of available physical memory as provided by the operating system. A high limit might eventually lead to out of memory errors or reduced performance. This option is rejected when `--inMemoryPersistence` isn't specified.
 
 To learn more, see [Use in-memory storage](https://github.com/Azure/Azurite#use-in-memory-storage).
+
+#### Disable telemetry collection
+
+**Optional**. By default, Azurite collects telemetry data to help improve the product. Use the `--disableTelemetry` option to disable telemetry data collection for the current Azurite execution, like following command:
+
+```console
+azurite --disableTelemetry
+```
 
 ## Connect to Azurite with SDKs and tools
 

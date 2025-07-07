@@ -16,10 +16,10 @@
     href: quickstart-onboard-iot-hub.md
   - name: Upload Firmware using Azure CLI
     displayName: Azure CLI, upload, firmware
-    href: quickstart-upload-firmware-using-azure-command-line-interface.md
+    href: /azure/firmware-analysis/quickstart-upload-firmware-using-azure-command-line-interface
   - name: Upload Firmware using Azure PowerShell
     displayName: Azure PowerShell, upload, firmware
-    href: quickstart-upload-firmware-using-powershell.md
+    href: /azure/firmware-analysis/quickstart-upload-firmware-using-powershell
   expanded: true
 - name: Tutorials
   items:
@@ -36,7 +36,7 @@
   - name: Investigate security alerts
     href: tutorial-investigate-security-alerts.md
   - name: Analyze an IoT/OT firmware image
-    href: tutorial-analyze-firmware.md
+    href: /azure/firmware-analysis/tutorial-analyze-firmware
 - name: Concepts
   items:
   - name: Agent portfolio overview and OS support
@@ -69,10 +69,10 @@
     href: concept-recommendations.md
   - name: Firmware analysis (preview)
     displayName: IoT, OT, firmware, analysis
-    href: overview-firmware-analysis.md
+    href: /azure/firmware-analysis/overview-firmware-analysis
   - name: Azure role-based access control for Defender for IoT Firmware analysis
     displayName: RBAC, role, access, control, firmware, analysis
-    href: defender-iot-firmware-analysis-rbac.md
+    href: /azure/firmware-analysis/firmware-analysis-rbac
 - name: How-to guides
   items:
   - name: Install Defender for IoT micro agent for Edge
@@ -124,7 +124,7 @@
     displayName: FAQ, embedded, dependencies, data, quota, internet,
     href: resources-agent-frequently-asked-questions.md
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
+    href: https://azure.microsoft.com/updates/?category=security-identity
   - name: Defender for IoT glossary
     href: references-defender-for-iot-glossary.md
   - name: Feature support and retirement
@@ -143,4 +143,4 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-defender/
   - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
+    href: /shows/microsoft-sentinel-defender-xdr-virtual-ninja-training

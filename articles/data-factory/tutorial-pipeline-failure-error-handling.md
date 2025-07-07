@@ -4,7 +4,7 @@ description: Understand how pipeline failure status and error message are determ
 ms.subservice: orchestration
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: tutorial
 ms.date: 09/25/2024
 ---

@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 01/03/2024
 ms.topic: quickstart
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ms.custom: mvc, mode-other
 

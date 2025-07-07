@@ -5,9 +5,11 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: reference
 ms.date: 07/23/2024
 ms.author: danlep
+ms.custom:
+  - build-2025
 ---
 
 # Get from cache
@@ -18,6 +20,9 @@ Use the `cache-lookup` policy to perform cache lookup and return a valid cached 
 
 > [!NOTE]
 > This policy must have a corresponding [Store to cache](cache-store-policy.md) policy.
+
+> [!IMPORTANT]
+> This policy is not supported inside a policy fragment.
 
 [!INCLUDE [api-management-cache-volatile](../../includes/api-management-cache-volatile.md)]
 
@@ -51,7 +56,6 @@ Use the `cache-lookup` policy to perform cache lookup and return a valid cached 
 | vary-by-developer              | Set to `true` to cache responses per developer account that owns [subscription key](./api-management-subscriptions.md) included in the request. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                 | Yes      |         `false`          |
 | vary-by-developer-groups       | Set to `true` to cache responses per [user group](./api-management-howto-create-groups.md). Policy expressions are allowed.                                                                                                                                                                                                                                                                                                            | Yes      |       `false`            |
 
-
 ## Elements
 
 |Name|Description|Required|
@@ -62,7 +66,7 @@ Use the `cache-lookup` policy to perform cache lookup and return a valid cached 
 ## Usage
 
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
@@ -71,6 +75,7 @@ Use the `cache-lookup` policy to perform cache lookup and return a valid cached 
 - API Management only performs cache lookup for HTTP GET requests.
 * When using `vary-by-query-parameter`, you might want to declare the parameters in the rewrite-uri template or set the attribute `copy-unmatched-params` to `false`. By deactivating this flag, parameters that aren't declared are sent to the backend.
 - This policy can only be used once in a policy section.
+- This policy is not supported with policy fragments.
 
 
 ## Examples

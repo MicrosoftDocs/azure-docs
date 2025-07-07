@@ -121,7 +121,7 @@ sections:
       - question: |
           What is the limit on the number of integration runtimes?
         answer: |
-          There is no hard limit on the number of integration runtime instances you can have in a data factory. There is, however, a limit on the number of VM cores that the integration runtime can use per subscription for SSIS package execution. For more information, see [Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
+          There is no hard limit on the number of integration runtime instances you can have in a data factory. There is, however, a limit on the number of VM cores that the integration runtime can use per subscription for SSIS package execution. For more information, see [Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits).
           
       - question: |
           What are the top-level concepts of Azure Data Factory?
@@ -225,10 +225,6 @@ sections:
           ### How do I gracefully handle null values in an activity output?
           
           You can use the `@coalesce` construct in the expressions to handle null values gracefully.
-
-          ### How many pipeline activities can be executed simultaneously?
-          
-          A maximum of 50 concurrent pipeline activities is allowed. The 51st pipeline activity will be queued until a free slot is opened up. A maximum of 800 concurrent external activities will be allowed, after which they will be queued in the same way.
           
       - question: |
           Mapping data flows
@@ -238,6 +234,10 @@ sections:
           When Microsoft provides help or troubleshooting with data flows, please provide the ADF pipeline support files.
           This Zip file contains the code-behind script from your data flow graph. From the ADF UI, select **...** next to pipeline, and then select **Download support files**.
           
+          ### How many concurrent mapping data flow pipeline activities can be executed simultaneously?
+          
+          A maximum of 50 concurrent mapping data flow pipeline activities is allowed.
+
           ### How do I access data by using the other 90 dataset types in Data Factory?
           
           The mapping data flow feature currently allows Azure SQL Database, Azure Synapse Analytics, delimited text files from Azure Blob storage or Azure Data Lake Storage Gen2, and Parquet files from Blob storage or Data Lake Storage Gen2 natively for source and sink. 

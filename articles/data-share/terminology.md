@@ -4,8 +4,8 @@ description: Learn about common terms used to describe resources used in Azure D
 ms.service: azure-data-share
 author:  sidontha
 ms.author: sidontha
-ms.topic: conceptual
-ms.date: 12/19/2023
+ms.topic: concept-article
+ms.date: 02/12/2025
 ---
 
 # Azure Data Share Concepts
@@ -56,6 +56,6 @@ Invitations can be resent up to five times a day.
 
 A recipient is someone that receives an invitation to a data share. Typically, a data provider will add recipients to data share that they create. Once the recipient of an invitation accepts the invitation, they become a data consumer.  
 
-## Next steps
+## Related content
 
 To learn how to start sharing data, continue to the [share your data](share-your-data.md) tutorial.

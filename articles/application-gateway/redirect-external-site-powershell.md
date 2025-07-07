@@ -3,12 +3,13 @@ title: External redirection using PowerShell
 titleSuffix: Azure Application Gateway
 description: Learn how to create an application gateway that redirects web traffic to an external site using Azure PowerShell.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 09/24/2020
-ms.author: greglin 
+ms.author: mbender 
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud architect, I want to configure an application gateway for external web traffic redirection using PowerShell, so that I can efficiently manage and route traffic to external sites from my Azure environment.
 ---
 
 # Create an application gateway with external redirection using Azure PowerShell

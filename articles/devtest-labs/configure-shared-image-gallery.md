@@ -124,7 +124,7 @@ You can use an ARM template to attach a shared image gallery to your lab. You ne
         "name":"myGallery",
         "type":"sharedGalleries",
         "properties": {
-            "galleryId":"/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/mySharedGalleryRg/providers/Microsoft.Compute/galleries/mySharedGallery",
+            "galleryId":"/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/mySharedGalleryRg/providers/Microsoft.Compute/galleries/mySharedGallery",
             "allowAllImages": "Enabled"
         }
     }

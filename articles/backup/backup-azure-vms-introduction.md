@@ -2,9 +2,10 @@
 title: About Azure VM backup
 description: In this article, learn how the Azure Backup service backs up Azure Virtual machines, and how to follow best practices.
 ms.topic: overview
-ms.date: 09/11/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 06/17/2025
+author: jyothisuri
+ms.author: jsuri
+# Customer intent: "As an IT admin managing Azure VMs, I want to implement effective backup strategies using Azure Backup, so that I can ensure data protection and quick recovery for my virtual machines while minimizing downtime and costs."
 ---
 
 # An overview of Azure VM backup
@@ -15,7 +16,9 @@ Azure Backup provides independent and isolated backups to guard against unintend
 
 As part of the backup process, a [snapshot is taken](#snapshot-creation), and the data is transferred to the Recovery Services vault with no impact on production workloads. The snapshot provides different levels of consistency, as described [here](#snapshot-consistency). You can opt for an agent-based application-consistent/file-consistent backup or an agentless crash-consistent backup in the backup policy.
 
-Azure Backup also has specialized offerings for database workloads like [SQL Server](backup-azure-sql-database.md) and [SAP HANA](sap-hana-db-about.md) that are workload-aware, offer 15 minute RPO (recovery point objective), and allow backup and restore of individual databases.
+Azure Backup also has specialized offerings for database workloads like [SQL Server](backup-azure-sql-database.md) and [SAP HANA](sap-hana-db-about.md) that are workload-aware, offer 15 minute RPO (recovery point objective), and allow backup and restore of individual databases. 
+
+You can now also back up your virtual machines with Azure Backup in Azure Extended Zones (preview). [Azure Extended Zones](../extended-zones/overview.md) (preview) provide enhanced resiliency by distributing resources across multiple physical locations within an Azure region. This approach minimizes the impact of potential failures for critical infrastructure. By using Extended Zones, your organizations can achieve higher availability and fault tolerance for their applications. Learn how to [back up an Azure VM in Azure Extended Zones (preview)](./backup-azure-vms-extended-zones.md).
 
 ## Backup process
 
@@ -51,6 +54,9 @@ If you have opted for application or file-system-consistent backups, the VM need
   - Azure Backup invokes only the pre/post scripts written by you.
   - If the pre-scripts and post-scripts execute successfully, Azure Backup marks the recovery point as application-consistent. However, when you're using custom scripts, you're ultimately responsible for the application consistency.
   - [Learn more](backup-azure-linux-app-consistent.md) about how to configure scripts.
+
+>[!Note]
+>The snapshot process starts with invoking the backup extension (agent-based), using tools such as VSS for Windows or freeze for Linux to ensure data consistency. When consistent, the Restore Point Collection monitors the extension and initiates snapshot creation. Afterward, metadata is updated with restore point paths and commit details to finalize the backup for restoration.
 
 ## Snapshot consistency
 

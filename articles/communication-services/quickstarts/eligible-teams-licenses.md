@@ -87,7 +87,7 @@ For more information, see [Microsoft Entra Product names and service plan identi
 
 You can find your current service plans and licenses using [licenseDetails](/graph/api/resources/licensedetails) Microsoft Graph API that returns licenses assigned to a user. Or you can find product names in [the Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) or the [Microsoft 365 admin center](https://admin.microsoft.com).
 
-For more information on verification for eligibility, see [Verification of Teams license eligibility](../concepts/troubleshooting-info.md#verification-of-teams-license-eligibility-to-use-azure-communication-services-support-for-teams-users).
+For more information on verification for eligibility, see [Verify Teams license eligibility](../concepts/troubleshooting-info.md#verify-teams-license-eligibility-to-use-azure-communication-services-support-for-teams-users).
 
 ## Next steps
 

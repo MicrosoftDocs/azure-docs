@@ -27,15 +27,18 @@ DevTest Labs is targeted at enterprise customers. The primary scenario for which
 
 - Customer requires extensive cost controls, including user quota and limits on the number of VMs a user can have. DevTest Labs doesn't have any ability to restrict access to a VM based on a quota granted per student.
 - Customer requires complex start and stop schedules. DevTest Labs is designed for enterprise developers; it supports daily start and stop schedules.
-- Customer requires flexible login methods. DevTest Labs requires that the user exists in the Microsoft Entra ID tenant for the subscription in which the lab is hosted. RBAC permissions are used to control who has access to labs and VMs.
+- Customer requires flexible sign-in methods. DevTest Labs requires that the user exists in the Microsoft Entra ID tenant for the subscription in which the lab is hosted. Azure role-based access control (RBAC) permissions are used to control who has access to labs and VMs.
 
 ## Frequently Asked Questions
 
 **What is the cost model?**
-There are no costs for using the service; it's free to use. Customers are charged for resources used by the DevTest Labs service. This cost includes, but isn't limited to, the cost of storage, networking, and running time for any VMs in a lab.
+There are no costs for using the DevTest Labs service; it's free to use. Customers are charged for resources used by the DevTest Labs service. This cost includes, but isn't limited to, the cost of storage, networking, and running time for any VMs in a lab.
 
 **Does DevTest Labs provide cost reporting?**
-DevTest Labs is integrated into [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management) for cost budgeting and analysis.  [Allow tag inheritance and add tags to lab resource](/azure/devtest-labs/devtest-lab-configure-cost-management) to track per-lab costs.
+DevTest Labs is integrated into [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management) for cost budgeting and analysis. To track per-lab costs, [allow tag inheritance and add tags to lab resources](/azure/devtest-labs/devtest-lab-configure-cost-management).
+
+**Does DevTest Labs provide quota management?**
+DevTest Labs is integrated into [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management). Cost Management can [monitor costs for virtual machines](/azure/virtual-machines/cost-optimization-monitor-costs) and [automatically execute actions based on a budget](/azure/cost-management-billing/manage/cost-management-budget-scenario). There's no management of VM usage quota within the DevTest Labs service.
 
 **Does DevTest Labs support nested virtualization?**
 Yes. Check the [VM series](/azure/virtual-machines/sizes/overview) documentation to verify nested virtualization is included in the list of supported features.
@@ -44,9 +47,6 @@ Yes. Check the [VM series](/azure/virtual-machines/sizes/overview) documentation
 Yes. We recommend [connecting your DevTest Labs to a Shared Image Gallery](/azure/devtest-labs/configure-shared-image-gallery). The Shared Image Gallery can be the same one that is connected to your Azure Lab Services lab account or lab plan.
 
 We recommend using a Shared Image Gallery over the DTL [custom images feature](/azure/devtest-labs/devtest-lab-create-custom-image-from-vm-using-portal)  and [formulas](/azure/devtest-labs/devtest-lab-manage-formulas) features. Shared Image Galleries are compatible with several other Azure services and can be used in multiple labs.
-
-**Does DevTest Labs support multi-VM environments?**
-[Azure Deployment Environments](https://azure.microsoft.com/products/deployment-environments/) is recommended for multi-VM environments.
 
 **Does DevTest Labs support schedules?**
 DevTest Labs supports an optional daily start and/or stop schedule.

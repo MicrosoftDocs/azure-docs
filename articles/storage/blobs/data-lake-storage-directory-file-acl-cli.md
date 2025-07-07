@@ -7,11 +7,12 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: how-to
-ms.date: 02/17/2021
+ms.date: 11/18/2024
 ms.author: normesta
 ms.reviewer: prishet
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
+# Customer intent: As a data engineer, I want to manage files and directories in a hierarchical storage system using command-line tools, so that I can efficiently organize and manipulate large datasets in Azure Data Lake Storage.
 ---
 
 # Manage directories and files in Azure Data Lake Storage via the Azure CLI
@@ -34,7 +35,7 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
 1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
-2. Verify that the version of Azure CLI that have installed is `2.6.0` or higher by using the following command.
+2. Verify that the version of Azure CLI that you have installed is `2.6.0` or higher by using the following command.
 
    ```azurecli
     az --version
@@ -56,7 +57,7 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
    To learn more about different authentication methods, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md).
 
-2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that will host your static website.
+2. If your identity is associated with more than one subscription, and you are not prompted to select the subscription, then set your active subscription to the subscription of the storage account that you want to operate upon. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
    ```azurecli
    az account set --subscription <subscription-id>
@@ -69,7 +70,7 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
 ## Create a container
 
-A container acts as a file system for your files. You can create one by using the `az storage fs create` command.
+A container acts as a file system for your files. You can create one by using the [az storage fs create](/cli/azure/storage/fs#az-storage-fs-create) command.
 
 This example creates a container named `my-file-system`.
 
@@ -79,7 +80,7 @@ az storage fs create -n my-file-system --account-name mystorageaccount --auth-mo
 
 ## Show container properties
 
-You can print the properties of a container to the console by using the `az storage fs show` command.
+You can print the properties of a container to the console by using the [az storage fs show](/cli/azure/storage/fs#az-storage-fs-show) command.
 
 ```azurecli
 az storage fs show -n my-file-system --account-name mystorageaccount --auth-mode login
@@ -87,7 +88,7 @@ az storage fs show -n my-file-system --account-name mystorageaccount --auth-mode
 
 ## List container contents
 
-List the contents of a directory by using the `az storage fs file list` command.
+List the contents of a directory by using the [az storage fs file list](/cli/azure/storage/fs/file#az-storage-fs-file-list) command.
 
 This example lists the contents of a container named `my-file-system`.
 
@@ -97,7 +98,7 @@ az storage fs file list -f my-file-system --account-name mystorageaccount --auth
 
 ## Delete a container
 
-Delete a container by using the `az storage fs delete` command.
+Delete a container by using the [az storage fs delete](/cli/azure/storage/fs#az-storage-fs-delete) command.
 
 This example deletes a container named `my-file-system`.
 
@@ -107,7 +108,7 @@ az storage fs delete -n my-file-system --account-name mystorageaccount --auth-mo
 
 ## Create a directory
 
-Create a directory reference by using the `az storage fs directory create` command.
+Create a directory reference by using the [az storage fs directory create](/cli/azure/storage/fs/directory#az-storage-fs-directory-create) command.
 
 This example adds a directory named `my-directory` to a container named `my-file-system` that is located in an account named `mystorageaccount`.
 
@@ -117,7 +118,7 @@ az storage fs directory create -n my-directory -f my-file-system --account-name 
 
 ## Show directory properties
 
-You can print the properties of a directory to the console by using the `az storage fs directory show` command.
+You can print the properties of a directory to the console by using the [az storage fs directory show](/cli/azure/storage/fs/directory#az-storage-fs-directory-show) command.
 
 ```azurecli
 az storage fs directory show -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
@@ -125,7 +126,7 @@ az storage fs directory show -n my-directory -f my-file-system --account-name my
 
 ## Rename or move a directory
 
-Rename or move a directory by using the `az storage fs directory move` command.
+Rename or move a directory by using the [az storage fs directory move](/cli/azure/storage/fs/directory#az-storage-fs-directory-move) command.
 
 This example renames a directory from the name `my-directory` to the name `my-new-directory` in the same container.
 
@@ -141,7 +142,7 @@ az storage fs directory move -n my-directory -f my-file-system --new-directory "
 
 ## Delete a directory
 
-Delete a directory by using the `az storage fs directory delete` command.
+Delete a directory by using the [az storage fs directory delete](/cli/azure/storage/fs/directory#az-storage-fs-directory-delete) command.
 
 This example deletes a directory named `my-directory`.
 
@@ -151,7 +152,7 @@ az storage fs directory delete -n my-directory -f my-file-system  --account-name
 
 ## Check if a directory exists
 
-Determine if a specific directory exists in the container by using the `az storage fs directory exists` command.
+Determine if a specific directory exists in the container by using the [az storage fs directory exists](/cli/azure/storage/fs/directory#az-storage-fs-directory-exists) command.
 
 This example reveals whether a directory named `my-directory` exists in the `my-file-system` container.
 
@@ -161,7 +162,7 @@ az storage fs directory exists -n my-directory -f my-file-system --account-name 
 
 ## Download from a directory
 
-Download a file from a directory by using the `az storage fs file download` command.
+Download a file from a directory by using the [az storage fs file download](/cli/azure/storage/fs/file#az-storage-fs-file-download) command.
 
 This example downloads a file named `upload.txt` from a directory named `my-directory`.
 
@@ -171,7 +172,7 @@ az storage fs file download -p my-directory/upload.txt -f my-file-system -d "C:\
 
 ## List directory contents
 
-List the contents of a directory by using the `az storage fs file list` command.
+List the contents of a directory by using the [az storage fs file list](/cli/azure/storage/fs/file#az-storage-fs-file-list) command.
 
 This example lists the contents of a directory named `my-directory` that is located in the `my-file-system` container of a storage account named `mystorageaccount`.
 
@@ -181,7 +182,7 @@ az storage fs file list -f my-file-system --path my-directory --account-name mys
 
 ## Upload a file to a directory
 
-Upload a file to a directory by using the `az storage fs file upload` command.
+Upload a file to a directory by using the [az storage fs file upload](/cli/azure/storage/fs/file#az-storage-fs-file-upload) command.
 
 This example uploads a file named `upload.txt` to a directory named `my-directory`.
 
@@ -191,7 +192,7 @@ az storage fs file upload -s "C:\myFolder\upload.txt" -p my-directory/upload.txt
 
 ## Show file properties
 
-You can print the properties of a file to the console by using the `az storage fs file show` command.
+You can print the properties of a file to the console by using the [az storage fs file show](/cli/azure/storage/fs/file#az-storage-fs-file-show) command.
 
 ```azurecli
 az storage fs file show -p my-file.txt -f my-file-system --account-name mystorageaccount --auth-mode login
@@ -199,7 +200,7 @@ az storage fs file show -p my-file.txt -f my-file-system --account-name mystorag
 
 ## Rename or move a file
 
-Rename or move a file by using the `az storage fs file move` command.
+Rename or move a file by using the [az storage fs file move](/cli/azure/storage/fs/file#az-storage-fs-file-move) command.
 
 This example renames a file from the name `my-file.txt` to the name `my-file-renamed.txt`.
 
@@ -209,7 +210,7 @@ az storage fs file move -p my-file.txt -f my-file-system --new-path my-file-syst
 
 ## Delete a file
 
-Delete a file by using the `az storage fs file delete` command.
+Delete a file by using the [az storage fs file delete](/cli/azure/storage/fs/file#az-storage-fs-file-delete) command.
 
 This example deletes a file named `my-file.txt`
 

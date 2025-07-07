@@ -1,8 +1,8 @@
 ---
 title: Azure Functions custom handlers
 description: Learn to use Azure Functions with any language or runtime version.
-author: anthonychu
-ms.author: antchu
+author: ggailey777
+ms.author: glenga
 ms.date: 12/1/2020
 ms.topic: article
 ms.devlang: golang
@@ -264,7 +264,7 @@ At the root of the app, the *host.json* file is configured to run an executable 
   },
   "extensionBundle": {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[1.*, 2.0.0)"
+    "version": "[4.*, 5.0.0)"
   }
 }
 ```

@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/25/2024
+ms.date: 03/21/2025
 ms.author: jianleishen
 ---
 # Schema and data type mapping in copy activity
@@ -289,7 +289,7 @@ The following data type conversions are supported between the interim types from
 | String      | ✓       | ✓          | ✓             | ✓       |                 | ✓    | ✓            | ✓      | ✓        |
 | TimeSpan    |         |            |               |         |                 |      |              | ✓      | ✓        |
 
-(1) Date/Time includes DateTime and DateTimeOffset.
+(1) Date/Time includes DateTime, DateTimeOffset, Date and Time.
 
 (2) Float-point includes Single and Double.
 
@@ -308,9 +308,11 @@ The following properties are supported in copy activity for data type conversion
 | *Under `typeConversionSettings`* |                                                              |          |
 | allowDataTruncation              | Allow data truncation when converting source data to sink with different type during copy, for example, from decimal to integer, from DatetimeOffset to Datetime. <br>Default value is true. | No       |
 | treatBooleanAsNumber             | Treat booleans as numbers, for example, true as 1.<br>Default value is false. | No       |
+| dateFormat                   | Format string when converting between dates and strings, e.g. `yyyy-MM-dd`. Refer to [Custom Date and Time Format Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings) for detailed information. | No       |
 | dateTimeFormat                   | Format string when converting between dates without time zone offset and strings, for example, `yyyy-MM-dd HH:mm:ss.fff`.  Refer to [Custom Date and Time Format Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings) for detailed information. | No       |
 | dateTimeOffsetFormat             | Format string when converting between dates with time zone offset and strings, for example, `yyyy-MM-dd HH:mm:ss.fff zzz`.  Refer to [Custom Date and Time Format Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings) for detailed information. | No       |
 | timeSpanFormat                   | Format string when converting between time periods and strings, for example, `dd\.hh\:mm`. Refer to [Custom TimeSpan Format Strings](/dotnet/standard/base-types/custom-timespan-format-strings) for detailed information. | No       |
+| timeFormat                   | Format string when converting between time and strings, e.g. `HH:mm:ss.fff`. Refer to [Custom Date and Time Format Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings) for detailed information. | No       |
 | culture                          | Culture information to be used when convert types, for example, `en-us` or `fr-fr`. | No       |
 
 **Example:**

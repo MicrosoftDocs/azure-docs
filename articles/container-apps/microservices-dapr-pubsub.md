@@ -282,9 +282,19 @@ Start by running the `order-processor` subscriber service.
 
 1. Run the `order-processor` service.
 
-   ```bash
-   dapr run --app-id order-processor --resources-path ../components/ --app-port 5001 -- python3 app.py
-   ```
+   # [Windows](#tab/windows)
+   
+      ```bash
+      dapr run --app-id order-processor --resources-path ../components/ --app-port 5001 -- python app.py
+      ```
+   
+   # [Linux](#tab/linux)
+   
+      ```bash
+      dapr run --app-id order-processor --resources-path ../components/ --app-port 5001 -- python3 app.py
+      ```
+
+   ---
 
 1. In a new terminal window, from the sample's root directory, navigate to the `checkout` publisher service.
 
@@ -300,9 +310,19 @@ Start by running the `order-processor` subscriber service.
 
 1. Run the `checkout` service.
 
-   ```bash
-   dapr run --app-id checkout --resources-path ../components/ -- python3 app.py
-   ```
+   # [Windows](#tab/windows)
+   
+      ```bash
+      dapr run --app-id checkout --resources-path ../components/ -- python app.py
+      ```
+   
+   # [Linux](#tab/linux)
+   
+      ```bash
+      dapr run --app-id checkout --resources-path ../components/ -- python3 app.py
+      ```
+
+   ---
 
    #### Expected output
 

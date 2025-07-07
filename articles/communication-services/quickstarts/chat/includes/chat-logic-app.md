@@ -92,7 +92,7 @@ To verify that you sent a message correctly:
 
 ## Test your logic app
 
-To manually start your workflow, on the designer toolbar, select **Run**. The workflow creates a user, issues an access token for that user, and then removes the token and deletes the user. For more information, review [How to run your workflow](../../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-workflow).
+To manually start your workflow, on the designer toolbar, select **Run**. The workflow creates a user, issues an access token for that user, and then removes the token and deletes the user. For more information, see [How to run your workflow](../../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-workflow).
 
 Now, select **List chat thread messages**. In the action outputs, check for the message that was sent.
 
@@ -100,5 +100,5 @@ Now, select **List chat thread messages**. In the action outputs, check for the 
 
 ## Clean up workflow resources
 
-To clean up your logic app workflow and related resources, review [how to clean up Logic Apps resources](../../../../logic-apps/quickstart-create-first-logic-app-workflow.md#clean-up-resources).
+To clean up your logic app workflow and related resources, see [how to clean up Logic Apps resources](../../../../logic-apps/quickstart-create-first-logic-app-workflow.md#clean-up-resources).
 

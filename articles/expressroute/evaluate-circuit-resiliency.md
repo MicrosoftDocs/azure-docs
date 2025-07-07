@@ -12,7 +12,7 @@ ms.custom: ai-usage
 
 # Evaluate the resiliency of multi-site redundant ExpressRoute circuits
 
-The [guided portal experience](expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview) assists in the configuration of ExpressRoute circuits for maximum resiliency. The subsequent diagram illustrates the logical architecture of an ExpressRoute circuit designed for maximum resiliency."
+The [guided portal experience](expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview) assists in the configuration of ExpressRoute circuits for maximum resiliency. The subsequent diagram illustrates the logical architecture of an ExpressRoute circuit designed for maximum resiliency.
 
 :::image type="content" source=".\media\evaluate-circuit-resiliency\maximum-resiliency.png" alt-text="Diagram of ExpressRoute circuits configured with maximum resiliency.":::
 
@@ -44,8 +44,6 @@ To manually failover an ExpressRoute circuit that is configured with maximum res
 1. In the **ExpressRoute circuits** page, identity and select the ExpressRoute circuit for which you intend to disable peering, to facilitate a failover to the second ExpressRoute circuit.
 
 1. Navigate to the **Overview** page and select the private peering that is to be disabled.
-
-    :::image type="content" source="./media/evaluate-circuit-resiliency/primary-circuit.png" alt-text="Screenshot of the peering section of an ExpressRoute circuit on the overview page.":::
 
 1.  Deselect the checkbox next to **Enable IPv4 Peering** or **Enable IPv6 Peering** to disconnect the Border Gateway Protocol (BGP) peering and then select **Save**. When you disable the peering, Azure disconnects the private peering connection on the first circuit, and the secondary circuit assumes the role of the active connection."
 

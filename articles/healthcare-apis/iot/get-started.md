@@ -12,6 +12,9 @@ ms.custom: mode-api
 
 # Get started with the MedTech service 
 
+> [!IMPORTANT]
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+
 This article and diagram outlines the basic steps to get started with the MedTech service in the [Azure Health Data Services](../healthcare-apis-overview.md). These steps might help you to assess the [MedTech service deployment methods](deploy-choose-method.md) and determine which deployment method is best for you.
 
 As a prerequisite, you need an Azure subscription and granted the proper permissions to deploy Azure resource groups and resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in Azure PowerShell, Azure CLI, or REST API scripts.

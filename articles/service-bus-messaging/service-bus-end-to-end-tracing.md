@@ -1,18 +1,18 @@
 ---
-title: Azure Service Bus end-to-end tracing and diagnostics | Microsoft Docs
+title: End-to-end tracing and diagnostics
 description: Overview of Service Bus client diagnostics and end-to-end tracing (client through all the services that are involved in processing.)
-ms.topic: article
-ms.date: 12/21/2022
+ms.topic: concept-article
+ms.date: 12/19/2024
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-dotnet
+ms.custom: devx-track-csharp, devx-track-dotnet"
+# Customer intent: I want o learn how to trace operations from a client through all the services that are involving in processing. 
 ---
 
 # Distributed tracing and correlation through Service Bus messaging
 
-One of the common problems in micro services development is the ability to trace operation from a client through all the services that are involved in processing. It's useful for debugging, performance analysis, A/B testing, and other typical diagnostics scenarios.
-One part of this problem is tracking logical pieces of work. It includes message processing result and latency and external dependency calls. Another part is correlation of these diagnostics events beyond process boundaries.
+One of the common problems in micro services development is the ability to trace operation from a client through all the services that are involved in processing. It's useful for debugging, performance analysis, A/B testing, and other typical diagnostics scenarios. One part of this problem is tracking logical pieces of work, which includes message processing result and latency and external dependency calls. Another part is correlation of these diagnostics events beyond process boundaries.
 
-When a producer sends a message through a queue, it typically happens in the scope of some other logical operation, initiated by some other client or service. The same operation is continued by consumer once it receives a message. Both producer and consumer (and other services that process the operation), presumably emit telemetry events to trace the operation flow and result. In order to correlate such events and trace operation end-to-end, each service that reports telemetry has to stamp every event with a trace context. One library that can help developers have all of this telemetry emitted by default is [NServiceBus](https://docs.particular.net/nservicebus/operations/opentelemetry).
+When a producer sends a message through a queue, it typically happens in the scope of some other logical operation, initiated by some other client or service. The same operation is continued by consumer once it receives a message. Both producer and consumer (and other services that process the operation), presumably emit telemetry events to trace the operation flow and result. In order to correlate such events and trace operation end-to-end, each service that reports telemetry has to stamp every event with a trace context. 
 
 Microsoft Azure Service Bus messaging has defined payload properties that producers and consumers should use to pass such trace context.
 The protocol is based on the [W3C Trace-Context](https://www.w3.org/TR/trace-context/).
@@ -20,14 +20,14 @@ The protocol is based on the [W3C Trace-Context](https://www.w3.org/TR/trace-con
 # [Azure.Messaging.ServiceBus SDK (Latest)](#tab/net-standard-sdk-2)
 | Property Name        | Description                                                 |
 |----------------------|-------------------------------------------------------------|
-|  Diagnostic-Id       | Unique identifier of an external call from producer to the queue. Refer to [W3C Trace-Context traceparent header](https://www.w3.org/TR/trace-context/#traceparent-header) for the format |
+|  `Diagnostic-Id`       | Unique identifier of an external call from producer to the queue. Refer to [W3C Trace-Context trace parent header](https://www.w3.org/TR/trace-context/#traceparent-header) for the format |
 
 ## Service Bus .NET Client autotracing
 The `ServiceBusProcessor` class of [Azure Messaging Service Bus client for .NET](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) provides tracing instrumentation points that can be hooked by tracing systems, or piece of client code. The instrumentation allows tracking all calls to the Service Bus messaging service from client side. If message processing is done by using [`ProcessMessageAsync` of `ServiceBusProcessor`](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) (message handler pattern), the message processing is also instrumented.
 
 ### Tracking with Azure Application Insights
 
-[Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) provides rich performance monitoring capabilities including automagical request and dependency tracking.
+[Microsoft Application Insights](/azure/azure-monitor/app/app-insights-overview) provides rich performance monitoring capabilities including automagical request and dependency tracking.
 
 Depending on your project type, install Application Insights SDK:
 - [ASP.NET](/azure/azure-monitor/app/asp-net) - install version 2.5-beta2 or higher
@@ -81,7 +81,7 @@ It doesn't mean that there was a delay in receiving the message. In this scenari
 Service Bus .NET Client library version 7.5.0 and later supports OpenTelemetry in experimental mode. For more information, see [Distributed tracing in .NET SDK](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md#opentelemetry-with-azure-monitor-zipkin-and-others).
 
 ### Tracking without tracing system
-In case your tracing system doesn't support automatic Service Bus calls tracking you may be looking into adding such support into a tracing system or into your application. This section describes diagnostics events sent by Service Bus .NET client.  
+In case your tracing system doesn't support automatic Service Bus calls tracking you might be looking into adding such support into a tracing system or into your application. This section describes diagnostics events sent by Service Bus .NET client.  
 
 Service Bus .NET Client is instrumented using .NET tracing primitives [System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) and [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md).
 
@@ -139,10 +139,10 @@ All events will have the following properties that conform with the open telemet
 - `message_bus.destination` – queue/topic/subscription path
 - `peer.address` – fully qualified namespace
 - `kind` – either producer, consumer, or client. Producer is used when sending messages, consumer when receiving, and client when settling.
-- `component` – `servicebus`
+- `messaging.system` – `servicebus`
 
 All events also have `Entity` and `Endpoint` properties.
-  * `Entity` -  - Name of the entity (queue, topic, and so on.)
+* `Entity` -  - Name of the entity (queue, topic, and so on.)
   * `Endpoint` - Service Bus endpoint URL
 
 ### Instrumented operations
@@ -172,7 +172,7 @@ Here's the full list of instrumented operations:
 In some cases, it's desirable to log only part of the events  to reduce performance overhead or storage consumption. You could log 'Stop' events only (as in preceding example) or sample percentage of the events. 
 `DiagnosticSource` provide way to achieve it with `IsEnabled` predicate. For more information, see [Context-Based Filtering in DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md#context-based-filtering).
 
-`IsEnabled` may be called multiple times for a single operation to minimize performance impact.
+`IsEnabled` might be called multiple times for a single operation to minimize performance impact.
 
 `IsEnabled` is called in following sequence:
 
@@ -198,8 +198,8 @@ In presence of multiple `DiagnosticSource` listeners for the same source, it's e
 
 | Property Name        | Description                                                 |
 |----------------------|-------------------------------------------------------------|
-|  Diagnostic-Id       | Unique identifier of an external call from producer to the queue. Refer to [Request-Id in HTTP protocol](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) for the rationale, considerations, and format |
-|  Correlation-Context | Operation context, which is propagated across all services involved in operation processing. For more information, see [Correlation-Context in HTTP protocol](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) |
+|  `Diagnostic-Id`       | Unique identifier of an external call from producer to the queue. Refer to [Request-Id in HTTP protocol](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) for the rationale, considerations, and format |
+|  `Correlation-Context` | Operation context, which is propagated across all services involved in operation processing. For more information, see [Correlation-Context in HTTP protocol](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) |
 
 ## Service Bus .NET Client autotracing
 
@@ -258,7 +258,7 @@ If you're running any external code in addition to the Application Insights SDK,
 It doesn't mean that there was a delay in receiving the message. In this scenario, the message has already been received since the message is passed in as a parameter to the SDK code. And, the **name** tag in the App Insights logs (**Process**) indicates that the message is now being processed by your external event processing code. This issue isn't Azure-related. Instead, these metrics refer to the efficiency of your external code given that the message has already been received from Service Bus. See [this file on GitHub](https://github.com/Azure/azure-sdk-for-net/blob/4bab05144ce647cc9e704d46d3763de5f9681ee0/sdk/servicebus/Microsoft.Azure.ServiceBus/src/ServiceBusDiagnosticsSource.cs) to see where the **Process** tag is generated and assigned once the message has been received from Service Bus. 
 
 ### Tracking without tracing system
-In case your tracing system doesn't support automatic Service Bus calls tracking you may be looking into adding such support into a tracing system or into your application. This section describes diagnostics events sent by Service Bus .NET client.  
+In case your tracing system doesn't support automatic Service Bus calls tracking you might be looking into adding such support into a tracing system or into your application. This section describes diagnostics events sent by Service Bus .NET client.  
 
 Service Bus .NET Client is instrumented using .NET tracing primitives [System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) and [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md).
 
@@ -313,13 +313,13 @@ In this example, listener logs duration, result, unique identifier, and start ti
 
 #### Events
 
-For every operation, two events are sent: 'Start' and 'Stop'. 
-Most probably, you're only interested in 'Stop' events. They provide the result of operation, and start time and duration as Activity properties.
+For every operation, two events are sent: Start and Stop. 
+Most probably, you're only interested in Stop events. They provide the result of operation, and start time and duration as Activity properties.
 
-Event payload provides a listener with the context of the operation, it replicates API incoming parameters and return value. 'Stop' event payload has all the properties of 'Start' event payload, so you can ignore 'Start' event completely.
+Event payload provides a listener with the context of the operation. It replicates API incoming parameters and return value. 'Stop' event payload has all the properties of 'Start' event payload, so you can ignore 'Start' event completely.
 
 All events also have 'Entity' and 'Endpoint' properties.
-  * `string Entity` -  - Name of the entity (queue, topic, etc.)
+* `string Entity` -  - Name of the entity (queue, topic, etc.)
   * `Uri Endpoint` - Service Bus endpoint URL
 
 Each 'Stop' event has `Status` property with `TaskStatus` async operation was completed with, that is also omitted in the following table for simplicity.
@@ -357,8 +357,8 @@ In every event, you can access `Activity.Current` that holds current operation c
 `Activity.Current` provides detailed context of current operation and its parents. For more information, see [Activity documentation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md).
 Service Bus instrumentation provides more information in the `Activity.Current.Tags` - they hold `MessageId` and `SessionId` whenever they're available.
 
-Activities that track 'Receive', 'Peek' and 'ReceiveDeferred' event also may have `RelatedTo` tag. It holds distinct list of `Diagnostic-Id`(s) of messages that were received as a result.
-Such operation may result in several unrelated messages to be received. Also, the `Diagnostic-Id` isn't known when operation starts, so 'Receive' operations could be correlated to 'Process' operations using this Tag only. It's useful when analyzing performance issues to check how long it took to receive the message.
+Activities that track Receive, Peek, and ReceiveDeferred event also might have `RelatedTo` tag. It holds distinct list of `Diagnostic-Id`(s) of messages that were received as a result.
+Such operation might result in several unrelated messages to be received. Also, the `Diagnostic-Id` isn't known when operation starts, so 'Receive' operations could be correlated to 'Process' operations using this Tag only. It's useful when analyzing performance issues to check how long it took to receive the message.
 
 Efficient way to log Tags is to iterate over them, so adding Tags to the preceding example looks like 
 
@@ -380,7 +380,7 @@ serviceBusLogger.LogInformation($"{currentActivity.OperationName} is finished, D
 In some cases, it's desirable to log only part of the events  to reduce performance overhead or storage consumption. You could log 'Stop' events only (as in preceding example) or sample percentage of the events. 
 `DiagnosticSource` provide way to achieve it with `IsEnabled` predicate. For more information, see [Context-Based Filtering in DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md#context-based-filtering).
 
-`IsEnabled` may be called multiple times for a single operation to minimize performance impact.
+`IsEnabled` might be called multiple times for a single operation to minimize performance impact.
 
 `IsEnabled` is called in following sequence:
 
@@ -400,8 +400,7 @@ In presence of multiple `DiagnosticSource` listeners for the same source, it's e
 
 ---
 
-## Next steps
-
+## Related content
+* One library that can help developers have the telemetry emitted by default is [NServiceBus](https://docs.particular.net/nservicebus/operations/opentelemetry).
 * [Application Insights Correlation](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation)
-* [Application Insights Monitor Dependencies](/azure/azure-monitor/app/asp-net-dependencies) to see if REST, SQL, or other external resources are slowing you down.
 * [Track custom operations with Application Insights .NET SDK](/azure/azure-monitor/app/custom-operations-tracking)

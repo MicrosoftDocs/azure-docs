@@ -7,10 +7,13 @@ ms.subservice: azure-confidential-computing
 ms.topic: quickstart
 ms.date: 11/06/2023
 ms.author: ananyagarg
-ms.custom: devx-track-azurecli, mode-api
+ms.custom: devx-track-azurecli, mode-api, innovation-engine
+# Customer intent: As a developer, I want to deploy an AKS cluster with enclave-aware confidential computing nodes using the command line, so that I can run secure applications in isolated environments.
 ---
 
 # Quickstart: Deploy an AKS cluster with confidential computing Intel SGX agent nodes by using the Azure CLI
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://go.microsoft.com/fwlink/?linkid=2303213)
 
 In this quickstart, you'll use the Azure CLI to deploy an Azure Kubernetes Service (AKS) cluster with enclave-aware (DCsv2/DCSv3) VM nodes. You'll then run a simple Hello World application in an enclave. You can also provision a cluster and add confidential computing nodes from the Azure portal, but this quickstart focuses on the Azure CLI.
 
@@ -202,8 +205,8 @@ spec:
               - key: agentpool
                 operator: In
                 values:
-                - acc # this is the name of your confidential computing nodel pool
-                - acc_second # this is the name of your confidential computing nodel pool
+                - acc # this is the name of your confidential computing node pool
+                - acc_second # this is the name of your confidential computing node pool
       containers:
       - name: oe-helloworld
         image: mcr.microsoft.com/acc/samples/oe-helloworld:latest

@@ -7,6 +7,8 @@ ms.date: 09/10/2024
 ms.topic: how-to 
 ms.custom:
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Migrate from an existing Run As account to Managed identities
@@ -186,7 +188,7 @@ foreach ($ResourceGroup in $ResourceGroups)
 
     :::image type="content" source="./media/migrate-run-as-account-managed-identity/activity-parameter-configuration.png" alt-text="Screenshot that shows examining the parameters used by a cmdlet.":::
 
-    For use with the Run As account, the cmdlet uses the `ServicePrinicipalCertificate` parameter set to `ApplicationId`. `CertificateThumbprint` will be from `RunAsAccountConnection`.
+    For use with the Run As account, the cmdlet uses the `ServicePrincipalCertificate` parameter set to `ApplicationId`. `CertificateThumbprint` will be from `RunAsAccountConnection`.
 
     :::image type="content" source="./media/migrate-run-as-account-managed-identity/parameter-sets-inline.png" alt-text="Screenshot that shows parameter sets." lightbox="./media/migrate-run-as-account-managed-identity/parameter-sets-expanded.png":::
  

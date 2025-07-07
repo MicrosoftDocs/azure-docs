@@ -1,12 +1,13 @@
 ---
 title: What is Azure Public DNS?
 description: Overview of DNS hosting service on Microsoft Azure. Host your domain on Microsoft Azure.
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: overview
 ms.date: 08/09/2024
-ms.author: greglin
+ms.author: allensu
 #Customer intent: As an administrator, I want to evaluate Azure Public DNS so I can determine if I want to use it instead of my current DNS service.
+# Customer intent: As an IT administrator, I want to evaluate Azure Public DNS as a potential DNS hosting solution, so that I can ensure it meets my organization's requirements for reliability, security, and ease of management.
 ---
 
 # What is Azure Public DNS?
@@ -33,7 +34,7 @@ For more information, see [How to protect DNS zones and records](dns-protect-zon
 
 ## DNSSEC
 
-Azure Public DNS doesn't currently support DNSSEC. In most cases, you can reduce the need for DNSSEC by consistently using HTTPS/TLS in your applications. If DNSSEC is a critical requirement for your DNS zones, you can host these zones with third-party DNS hosting providers.
+Azure Public DNS supports DNSSEC. For more information, see [DNSSEC overview](dnssec.md).
 
 ## Ease of use
 

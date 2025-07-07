@@ -6,7 +6,8 @@ ms.author: vijain
 ms.custom: subject-rbac-steps, engagement-fy23
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 12/14/2022
+ms.date: 02/06/2024
+# Customer intent: "As a cloud architect, I want to use Azure Migrate with private endpoints, so that I can securely discover, assess, and migrate servers without relying on public networks."
 ---
 
 # Support requirements and considerations for Private endpoint connectivity
@@ -23,7 +24,7 @@ Review the following required permissions and the supported scenarios and tools.
 
 ### Supported geographies
 
-The functionality is now in GA in supported [public cloud](./migrate-support-matrix.md#public-cloud) and [government cloud geographies.](./migrate-support-matrix.md#azure-government)
+The functionality is now in GA in supported [public cloud](supported-geographies.md#public-cloud) and [government cloud geographies.](supported-geographies.md#azure-government)
 
 ### Required permissions
 
@@ -40,7 +41,7 @@ You must have Contributor + User Access Administrator or Owner permissions on th
 
 #### Other integrated tools
 
-Other migration tools might not be able to upload usage data to the Azure Migrate project if the public network access is disabled. The Azure Migrate project should be configured to allow traffic from all networks to receive data from other Microsoft or external [independent software vendor (ISV)](./migrate-services-overview.md#isv-integration) offerings.
+Other migration tools might not be able to upload usage data to the Azure Migrate project if the public network access is disabled. The Azure Migrate project should be configured to allow traffic from all networks to receive data from other Microsoft or external offerings.
 
 To enable public network access for the Azure Migrate project, sign in to the Azure portal, go to the **Azure Migrate Properties** page in the portal, and select **No** > **Save**.
 

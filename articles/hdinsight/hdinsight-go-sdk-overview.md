@@ -5,6 +5,9 @@ ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-go
 ms.devlang: golang
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: hgowrisankar
 ms.date: 07/12/2024
 ---
 

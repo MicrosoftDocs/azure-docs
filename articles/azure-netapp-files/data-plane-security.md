@@ -4,9 +4,10 @@ description: Learn about the different data plane security features in Azure Net
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 09/30/2024
+ms.topic: concept-article
+ms.date: 10/25/2024
 ms.author: anfdocs
+# Customer intent: "As a data engineer, I want to understand the data plane security features of Azure NetApp Files, so that I can implement robust permissions, encryption, and network security measures to protect sensitive data effectively."
 ---
 
 # Understand Azure NetApp Files data plane security 
@@ -114,9 +115,10 @@ For more information on data encryption at rest, see [Understand data encryption
 The data plane manages the encryption keys used to encrypt and decrypt data. These keys can be either platform-managed or customer-managed:
 
 - **Platform-managed keys** are automatically managed by Azure, ensuring secure storage and rotation of keys.
-- **Customer-managed keys** are stored in Azure Key Vault, allowing you to manage the lifecycle, usage permissions, and auditing of your encryption keys.
+- [**Customer-managed keys**](configure-customer-managed-keys.md) are stored in Azure Key Vault, allowing you to manage the lifecycle, usage permissions, and auditing of your encryption keys.
+- [**Customer-managed keys with managed Hardware Security Module (HSM)**](configure-customer-managed-keys-hardware.md) is an extension to customer-managed keys for Azure NetApp Files volume encryption feature. This HSM extension allows you to store your encryptions keys in a more secure FIPS 140-2 Level 3 HSM instead of the FIPS 140-2 Level 1 or Level 2 service used by Azure Key Vault (AKV).
 
-For more information about Azure NetApp Files key management, see [How are encryption keys managed](faq-security.md#how-are-encryption-keys-managed) or [Configure customer-managed keys](configure-customer-managed-keys.md).
+For more information about Azure NetApp Files key management, see [How are encryption keys managed](faq-security.md#how-are-encryption-keys-managed), [Configure customer-managed keys](configure-customer-managed-keys.md), or [customer-managed keys with managed HSM](configure-customer-managed-keys-hardware.md).
 
 ## Lightweight directory access protocol (LDAP) encryption
 
@@ -145,7 +147,7 @@ Private endpoints are specialized network interfaces that facilitate a secure an
 
 ### Network security groups (NSGs)
 
-NSGs are collections of security rules that govern inbound and outbound traffic to network interfaces, virtual machines (VMs), and subnets within Azure. These rules are instrumental in defining the access controls and traffic patterns within your network. NSGs are only supported when using the Standard network feature in Azure NetApp Files.
+NSGs are collections of security rules that govern inbound and outbound traffic to network interfaces, virtual machines (VMs), and subnets within Azure. These rules are instrumental in defining the access controls and traffic patterns within your network. NSGs are only supported when using Standard network features in Azure NetApp Files.
 
 #### Security benefits
 

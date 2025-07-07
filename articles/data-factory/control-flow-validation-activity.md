@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: The Validation activity in Azure Data Factory and Synapse Analytics delays execution of the pipeline until a dataset is validated with user-defined criteria.
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual

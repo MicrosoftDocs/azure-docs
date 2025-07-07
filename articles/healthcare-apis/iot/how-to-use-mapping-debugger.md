@@ -13,6 +13,9 @@ ms.author: chrupa
 # How to use the MedTech service Mapping debugger (Preview)
 
 > [!IMPORTANT]
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+
+> [!IMPORTANT]
 > This capability is currently available for Public Preview and is subject to change. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In this article, learn how to use the MedTech service Mapping debugger. The Mapping debugger is a self-service tool that is used for creating, updating, and troubleshooting the MedTech service [device](overview-of-device-mapping.md) and [FHIR&reg; destination](overview-of-fhir-destination-mapping.md) mappings. The Mapping debugger enables you to easily view and make inline adjustments in real-time, without ever having to leave the Azure portal. The Mapping debugger can also be used for uploading test device messages to see how they'll look after being processed into normalized messages and transformed into FHIR Observations.

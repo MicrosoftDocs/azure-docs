@@ -48,6 +48,8 @@
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/traffic-manager-security-baseline?toc=/azure/traffic-manager/toc.json
+    - name: Network security blog
+      href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
   - name: Nested Traffic Manager profiles
     href: traffic-manager-nested-profiles.md
   - name: Endpoint types
@@ -136,9 +138,9 @@
     href: /azure/templates/microsoft.network/trafficmanagerprofiles
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Blog
+  - name: Networking blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
+  - name: Azure networking blog
     href: https://azure.microsoft.com/blog/topics/networking/
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-virtual-network.html
@@ -147,7 +149,7 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service Limits
-    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#traffic-manager-limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-traffic-manager-limits
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=traffic-manager
   - name: SLA

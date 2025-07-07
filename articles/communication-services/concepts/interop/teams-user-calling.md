@@ -96,10 +96,10 @@ The following list presents the set of features that are currently available in 
 |                   | Custom background image                                                                                             | ✔️ | ❌ | ❌ | ❌ |
 | Recording & transcription | Manage Teams cloud recording                                                                                | ❌ | ❌ | ❌ | ❌ |
 |                   | Receive information of call being cloud recorded                                                                    | ✔️ | ✔️ | ✔️ | ✔️ |
-|                   | Manage Teams local recording                                                                                        | ❌ | ❌ | ❌ | ❌ |
-|                   | Receive information of call being locally recorded                                                                  | ✔️ | ✔️ | ✔️ | ✔️ |
+|                   | Give explicit consent to Teams cloud recording                                                                     | ✔️ | ❌ | ❌ | ❌ |
 |                   | Manage Teams transcription                                                                                          | ❌ | ❌ | ❌ | ❌ |
 |                   | Receive information of call being transcribed                                                                       | ✔️ | ✔️ | ✔️ | ✔️ |
+|                   | Give explicit consent to Teams transcription                                                                        | ✔️ | ❌ | ❌ | ❌ |
 |                   | Manage Teams closed captions                                                                                        | ✔️ | ✔️ | ✔️ | ✔️ |
 |                   | Support for compliance recording                                                                                    | ✔️ | ✔️ | ✔️ | ✔️ |
 | Engagement        | Raise and lower hand                                                                                                | ✔️ | ✔️ | ✔️ | ✔️ |

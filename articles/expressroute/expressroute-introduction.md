@@ -19,7 +19,8 @@ Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethern
 
 > [!NOTE]
 > In the context of ExpressRoute, the Microsoft Edge describes the edge routers on the Microsoft side of the ExpressRoute circuit. This is the ExpressRoute circuit's point of entry into Microsoft's network.
-> 
+>
+> Azure ExpressRoute is one of the services that make up the Hybrid Connectivity category in Azure. Other services in this category include [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) and [Virtual WAN](../virtual-wan/virtual-wan-about.md). Each service has its own unique features and use cases. For more information on this service category, see [Hybrid Connectivity](../networking/hybrid-connectivity/hybrid-connectivity.md).
 
 ## Key benefits
 
@@ -145,7 +146,7 @@ For frequently asked questions about ExpressRoute, see [ExpressRoute FAQ](expres
 
 ## <a name="new"></a>What's new?
 
-Subscribe to the RSS feed and view the latest ExpressRoute feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=ExpressRoute) page.
+Subscribe to the RSS feed and view the latest ExpressRoute feature updates on the [Azure Updates](https://azure.microsoft.com/updates?filters=%5B%22Azure+ExpressRoute%22%5D) page.
 
 ## Next steps
 

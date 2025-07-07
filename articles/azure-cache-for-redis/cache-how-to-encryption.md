@@ -6,6 +6,8 @@ description: Learn about disk encryption when using Azure Cache for Redis.
 
 ms.topic: how-to
 ms.date: 02/28/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 
 
 ---
@@ -75,7 +77,7 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted by defau
 
 ### Use the portal to create a new cache with CMK enabled
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and start the [Create a Redis Enterprise cache](quickstart-create-redis-enterprise.md) quickstart guide.
+1. Create a Redis Enterprise cache.
 
 1. On the **Advanced** page, go to the section titled **Customer-managed key encryption at rest** and enable the **Use a customer-managed key** option.
 
@@ -87,7 +89,7 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted by defau
 
 1. Select your chosen user assigned managed identity, and then choose the key input method to use.
 
-1. If using the **Select Azure key vault and key** input method, choose the Key Vault instance that holds your customer managed key. This instance must be in the same region as your cache.
+1. If using the **Select Azure Key Vault and key** input method, choose the Key Vault instance that holds your customer managed key. This instance must be in the same region as your cache.
 
     > [!NOTE]
     > For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](/azure/key-vault/secrets/quick-create-portal). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Vault instance. Remember that both purge protection and soft delete must be enabled in your Key Vault instance.
@@ -113,7 +115,7 @@ In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted by defau
 
 1. Select your chosen user assigned managed identity, and then choose which key input method to use.
 
-1. If using the **Select Azure key vault and key** input method, choose the Key Vault instance that holds your customer managed key. This instance must be in the same region as your cache.
+1. If using the **Select Azure Key Vault and key** input method, choose the Key Vault instance that holds your customer managed key. This instance must be in the same region as your cache.
 
     > [!NOTE]
     > For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](/azure/key-vault/secrets/quick-create-portal). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Vault instance.  

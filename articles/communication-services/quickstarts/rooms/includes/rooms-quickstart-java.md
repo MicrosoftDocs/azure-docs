@@ -2,14 +2,14 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: mrayyan
+author: mayssamm
 manager: alexokun
 
 ms.service: azure-communication-services
-ms.date: 07/20/2023
+ms.date: 05/15/2025
 ms.topic: include
 ms.custom: include file
-ms.author: t-siddiquim
+ms.author: mayssamm
 ---
 
 ## Prerequisites
@@ -21,9 +21,9 @@ ms.author: t-siddiquim
 
 ## Sample code
 
-You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/rooms-quickstart-java).
+Review and download the sample code for from GitHub at [Azure Communication Services - Rooms - Java](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/rooms-quickstart-java).
 
-## Setting up
+## Set up
 
 ### Create a new Java application
 
@@ -40,7 +40,8 @@ You need to use the Azure Communication Rooms client library for Java [version 1
 #### Include the BOM file
 
 Include the `azure-sdk-bom` to your project to take dependency on the General Availability (GA) version of the library. In the following snippet, replace the {bom_version_to_target} placeholder with the version number.
-To learn more about the BOM, see the [Azure SDK BOM readme](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/boms/azure-sdk-bom/README.md).
+
+To learn more about the Bill of Materials (BOM), see the [Azure SDK BOM readme](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/boms/azure-sdk-bom/README.md).
 
 ```xml
 <dependencyManagement>
@@ -55,7 +56,7 @@ To learn more about the BOM, see the [Azure SDK BOM readme](https://github.com/A
     </dependencies>
 </dependencyManagement>
 ```
-and then include the direct dependency in the dependencies section without the version tag.
+Then include the direct dependency in the dependencies section without the version tag.
 
 ```xml
 <dependencies>
@@ -67,6 +68,7 @@ and then include the direct dependency in the dependencies section without the v
 ```
 
 #### Include direct dependency
+
 If you want to take dependency on a particular version of the library that isn't present in the BOM, add the direct dependency to your project as follows.
 
 [//]: # ({x-version-update-start;com.azure:azure-communication-rooms;current})
@@ -80,7 +82,7 @@ If you want to take dependency on a particular version of the library that isn't
 
 ### Set up app framework
 
-Go to the /src/main/java/com/communication/quickstart directory and open the `App.java` file. Add the following code:
+Go to the `/src/main/java/com/communication/quickstart` directory and open the `App.java` file. Add the following code:
 
 ```java
 
@@ -109,7 +111,7 @@ public class App
 
 ## Initialize a room client
 
-Create a new `RoomsClient` object that will be used to create new `rooms` and manage their properties and lifecycle. The connection string of your `Communications Service` will be used to authenticate the request. For more information on connection strings, see [this page](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
+Create a new `RoomsClient` object that you need to create new rooms and manage their properties and lifecycle. Use the connection string of your Communications Service to authenticate the request. For more information on connection strings, see [Create communication resource](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 
 ```java
 
@@ -123,7 +125,8 @@ RoomsClient roomsClient = new RoomsClientBuilder().connectionString(connectionSt
 ## Create a room
 
 ### Set up room participants
-In order to set up who can join a room, you need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-java) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`. ACS Rooms currently supports a room participant of type CommunicationUserIdentifier only, using other types of CommunicationIdentity will result in a runtime error.
+
+To set up who can join a room, you need to have the list of the identities of those users. Follow the instructions at [Access tokens](../../identity/access-tokens.md?pivots=programming-language-java) to create users and issue access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`. Azure Communication Services Rooms currently supports a room participant of type `CommunicationUserIdentifier` only, using other types of `CommunicationIdentity` causes a runtime error.
 
 To use `CommunicationIdentityClient`, add the following package:
 
@@ -140,7 +143,8 @@ import com.azure.communication.identity.CommunicationIdentityClient;
 import com.azure.communication.identity.CommunicationIdentityClientBuilder;
 ```
 
-Now, the `CommunicationIdentityClient` can be initialized and used to create users:
+Now, initialize `CommunicationIdentityClient` and use it to create users:
+
 ```java
 CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
     .connectionString(connectionString)
@@ -152,6 +156,7 @@ CommunicationUserIdentifier user3 = communicationClient.createUser();
 ```
 
 Then, create the list of room participants by referencing those users:
+
 ```java
 //The default participant role is ParticipantRole.Attendee
 RoomParticipant participant_1 = new RoomParticipant(user1);
@@ -165,7 +170,8 @@ roomParticipants.add(participant_2.setRole(ParticipantRole.CONSUMER));
 ```
 
 ### Initialize the room
-Create a new `room` using the `roomParticipants` defined in the code snippet above:
+
+Create a new room using the `roomParticipants` defined in the preceding code snippet:
 
 ```java
 OffsetDateTime validFrom = OffsetDateTime.now();
@@ -184,10 +190,11 @@ System.out.println("\nCreated a room with id: " + roomCreated.getRoomId());
 
 ```
 
-Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object.
+Rooms are server-side entities, so you should keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a room object.
 
 ### Enable PSTN dial out capability for a room
-Each `room` has PSTN dial out disabled by default. The PSTN dial out can be enabled for a `room` at creation, by defining the `pstnDialOutEnabled` parameter as true. This capability may also be modified for a `room` by issuing an update request for the `pstnDialOutEnabled` parameter.
+
+Each room has PSTN dial out disabled by default. The PSTN dial out can be enabled for a room at creation, by defining the `pstnDialOutEnabled` parameter as true. You can change this capability  for a room by issuing an update request for the `pstnDialOutEnabled` parameter.
 
 ```java
 boolean pstnDialOutEnabled = true;
@@ -210,7 +217,7 @@ System.out.println("\nUpdated a room with PSTN dial out enabled: " + roomUpdated
 
 ## Get properties of an existing room
 
-Retrieve the details of an existing `room` by referencing the `roomId`:
+Retrieve the details of an existing room by referencing the `roomId`:
 
 ```java
 
@@ -222,7 +229,7 @@ System.out.println("Retrieved room with id: " + roomResult.getRoomId());
 
 ## Update the lifetime of a room
 
-The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters. A room can be valid for a maximum of six months.
+You can change the lifetime of a room by issuing an update request for the `ValidFrom` and `ValidUntil` parameters. A room can be valid for a maximum of six months.
 
 ```java
 
@@ -242,17 +249,17 @@ System.out.println("Updated room with validFrom: " + roomResult.getValidFrom() +
 
 ## Add or update participants
 
-To add or update participants to a `room`, use the `addOrUpdateParticipants` method exposed on the client.
+To add or update participants to a room, use the `addOrUpdateParticipants` method exposed on the client.
 
 ```java
 
 List<RoomParticipant> participantsToAddAOrUpdate = new ArrayList<>();
 
-// Adding new participant
- participantsToAddAOrUpdate.add(participant_3.setRole(ParticipantRole.CONSUMER));
-
 // Updating current participant
-participantsToAddAOrUpdate.add(participant_2.setRole(ParticipantRole.PRESENTER));
+participantsToAddAOrUpdate.add(participant_1.setRole(ParticipantRole.PRESENTER));
+
+// Adding new participant
+ participantsToAddAOrUpdate.add(participant_3.setRole(ParticipantRole.COLLABORATOR));
 
 AddOrUpdateParticipantsResult addOrUpdateParticipantsResult = roomsClient.addOrUpdateParticipants(roomId, participantsToAddAOrUpdate);
 
@@ -260,11 +267,11 @@ System.out.println("Participant(s) added/updated");
 
 ```
 
-Participants that have been added to a `room` become eligible to join calls.
+Once you add participants to a room, they're eligible to join calls.
 
 ## Get list of participants
 
-Retrieve the list of participants for an existing `room` by referencing the `roomId`:
+Retrieve the list of participants for an existing room by referencing the `roomId`:
 
 ```java
 
@@ -286,7 +293,7 @@ for (RoomParticipant participant : participants) {
 
 ## Remove participants
 
-To remove a participant from a `room` and revoke their access, use the `removeParticipants` method.
+To remove a participant from a room and revoke their access, use the `removeParticipants` method.
 
 ```java
 
@@ -303,7 +310,7 @@ System.out.println("Participant(s) removed");
 
 ### List all active rooms
 
-Retrieve all active `rooms` under your Azure Communication Services resource.
+Retrieve all active rooms under your Azure Communication Services resource.
 
 ```java
 try {
@@ -329,7 +336,7 @@ try {
 
 ## Delete room
 
-If you wish to disband an existing `room`, you may issue an explicit delete request. All `rooms` and their associated resources are automatically deleted at the end of their validity plus a grace period.
+To disband an existing room, issue an explicit delete request. All rooms and their associated resources are automatically deleted at the end of their validity plus a grace period.
 
 ```java
 
@@ -345,17 +352,13 @@ System.out.println("\nDeleted the room with ID: " + roomId);
 To run the code, go to the directory that contains the `pom.xml` file and compile the program.
 
 ```console
-
 mvn compile
-
 ```
 
 Then, build the package:
 
 ```console
-
 mvn package
-
 ```
 
 Execute the app.
@@ -367,7 +370,6 @@ mvn exec:java -D"exec.mainClass"="com.communication.rooms.quickstart" -D"exec.cl
 The expected output describes each completed action:
 
 ```console
-
 Azure Communication Services - Rooms Quickstart
 
 Created a room with id:  99445276259151407
@@ -379,8 +381,9 @@ Updated room with validFrom: 2023-05-11T22:11:46.784Z, validUntil: 2023-05-11T22
 Participant(s) added/updated
 
 Participants:
-8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e901 (Attendee)
+8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e901 (Presenter)
 8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e902 (Consumer)
+8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7c76-35f3-343a0d00e903 (Collaborator)
 
 Participant(s) removed
 
@@ -390,9 +393,8 @@ Listing all the rooms IDs in the first two pages of the list of rooms:
 99445276259151409
 
 Deleted the room with ID:  99445276259151407
-
 ```
 
-## Reference documentation
+## Reference articles
 
 Read about the full set of capabilities of Azure Communication Services rooms from the [Java SDK reference](/java/api/overview/azure/communication-rooms-readme) or [REST API reference](/rest/api/communication/rooms/rooms).

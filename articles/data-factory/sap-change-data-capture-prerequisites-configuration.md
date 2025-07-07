@@ -5,7 +5,7 @@ description: Learn about the prerequisites and setup for the SAP CDC connector i
 author: ukchrist
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ms.author: ulrichchrist
 ---
 

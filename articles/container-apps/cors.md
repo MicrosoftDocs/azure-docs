@@ -6,16 +6,14 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 04/21/2023
+ms.date: 04/11/2025
 ms.author: cshoe
 zone_pivot_groups: container-apps-portal-or-cli
 ---
 
 # Configure cross-origin resource sharing (CORS) for Azure Container Apps
 
-By default, requests made through the browser to a domain that doesn't match the page's origin domain are blocked. To avoid this restriction for services deployed to Container Apps, you can enable [CORS](https://developer.mozilla.org/docs/Web/HTTP/CORS).
-
-This article shows you how to enable and configure CORS in your container app.
+This article shows you how to enable and configure [CORS](https://developer.mozilla.org/docs/Web/HTTP/CORS) in your container app running in one domain to access resources from a server in a different domain. By default, browsers block such cross-origin requests as a security measure. When you need to allow client applications hosted on different domains to access your container app, you can configure CORS to explicitly permit these requests.
 
 As you enable CORS, you can configure the following settings:
 
@@ -28,7 +26,7 @@ As you enable CORS, you can configure the following settings:
 | Allowed origins | List of the origins allowed for cross-origin requests (for example, `https://www.contoso.com`). Controls the [`Access-Control-Allow-Origin`](https://developer.mozilla.org/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) response header. Use `*` to allow all. |
 | Allowed methods | List of HTTP request methods allowed in cross-origin requests. Controls the [`Access-Control-Allow-Methods`](https://developer.mozilla.org/docs/Web/HTTP/Headers/Access-Control-Allow-Methods) response header. Use `*` to allow all. |
 | Allowed headers | List of the headers allowed in cross-origin requests. Controls the [`Access-Control-Allow-Headers`](https://developer.mozilla.org/docs/Web/HTTP/Headers/Access-Control-Allow-Headers) response header. Use `*` to allow all. |
-| Expose headers | By default, not all response headers are exposed to client-side JavaScript code in a cross-origin request. Exposed headers are extra headers servers can include in a response. Controls the [`Access-Control-Expose-Headers`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers) response header. Use `*` to expose all. |
+| Expose headers | By default, not all response headers are exposed to client-side JavaScript code in a cross-origin request. Exposed headers are extra headers servers can include in a response. Controls the [`Access-Control-Expose-Headers`](https://developer.mozilla.org/docs/Web/HTTP/Headers/Access-Control-Expose-Headers) response header. Use `*` to expose all. |
 
 ::: zone-end
 
@@ -53,7 +51,7 @@ For more information, see the Web Hypertext Application Technology Working Group
 
 1. Go to your container app in the Azure portal.
 
-1. Under the settings menu, select *CORS*.
+1. From the settings menu, under *Networking*, select **CORS**.
 
     :::image type="content" source="media/cors/azure-container-apps-enable-cors.png" alt-text="Screenshot showing how to enable CORS in the Azure portal.":::
 

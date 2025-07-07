@@ -2,13 +2,13 @@
 title: Manage billing across multiple tenants
 titleSuffix: Microsoft Cost Management
 description: Describes how to use associated billing tenants to manage billing across tenants and move subscriptions in different tenants.
-author: bandersmsft
-ms.reviewer: amberb
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/28/2024
-ms.author: banders
+ms.date: 01/22/2025
+ms.author: jkinma
 ---
 
 # Manage billing across multiple tenants using associated billing tenants
@@ -50,10 +50,13 @@ Before you begin, make sure you have either the tenant ID, or the primary domain
 1. On the Associated billing tenants page, select **Add** at the top of the page.
     :::image type="content" source="./media/manage-billing-across-tenants/associated-tenants-list-add.png" alt-text="Screenshot showing the Add option for Associated billing tenants." lightbox="./media/manage-billing-across-tenants/associated-tenants-list-add.png" :::
 1. On the Add tenant page, enter a tenant ID or domain name, provide a friendly name and then select one or both options for access settings. For more information about access settings, see [Access settings for associated billing tenant](#access-settings-for-associated-billing-tenants).  
+    >[!NOTE]
+    > The Tenant ID is case sensitive.  
+
     :::image type="content" source="./media/manage-billing-across-tenants/associated-tenants-add.png" alt-text="Screenshot showing associated billing tenants form." lightbox="./media/manage-billing-across-tenants/associated-tenants-add.png" :::
     > [!NOTE]
     > The friendly name of an associated billing tenant is used to easily identify the tenant in the Cost management + Billing section. The name is different from the display name of the tenant in Microsoft Entra ID.
-1. Select **Save**.
+3. Select **Save**.
 
 If the Provisioning access setting is turned on, a unique link is created for you to send to the global administrator of the associated billing tenant. They must accept the request before you can move subscriptions to their tenant.
 

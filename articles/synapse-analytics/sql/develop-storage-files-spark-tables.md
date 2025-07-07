@@ -7,7 +7,7 @@ ms.subservice: sql
 ms.date: 02/15/2022
 author: juluczni
 ms.author: juluczni
-ms.reviewer: whhender, wiassaf
+
 ---
 
 # Synchronize Apache Spark for Azure Synapse external table definitions in serverless SQL pool

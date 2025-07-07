@@ -1,5 +1,5 @@
 ---
-title:  How to monitor Spring Boot apps with Elastic APM Java Agent
+title:  How to Monitor Spring Boot Apps with Elastic APM Java Agent
 description: How to use Elastic APM Java Agent to monitor Spring Boot applications running in Azure Spring Apps
 author: KarlErickson
 ms.author: karler
@@ -13,14 +13,14 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Basic/Standard ❌ Enterprise
+**This article applies to:** ✅ Basic/Standard ❎ Enterprise
 
 This article explains how to use Elastic APM Agent to monitor Spring Boot applications running in Azure Spring Apps.
 
 With the Elastic Observability Solution, you can achieve unified observability to:
 
 * Monitor apps using the Elastic APM Java Agent and using persistent storage with Azure Spring Apps.
-* Use diagnostic settings to ship Azure Spring Apps logs to Elastic. For more information, see [Analyze logs with Elastic (ELK) using diagnostics settings](../enterprise/how-to-elastic-diagnostic-settings.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json).
+* Use diagnostic settings to ship Azure Spring Apps logs to Elastic. For more information, see [Analyze logs with Elastic (ELK) using diagnostics settings](how-to-elastic-diagnostic-settings.md).
 
 The following video introduces unified observability for Spring Boot applications using Elastic.
 
@@ -54,7 +54,7 @@ This article uses the Spring Petclinic sample to walk through the required steps
 
 Use the following steps to enable custom persistent storage:
 
-1. Follow the steps in [How to enable your own persistent storage in Azure Spring Apps](../enterprise/how-to-custom-persistent-storage.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json).
+1. Follow the steps in [How to enable your own persistent storage in Azure Spring Apps](how-to-custom-persistent-storage.md).
 
 1. Use the following Azure CLI command to add persistent storage for your Azure Spring Apps apps.
 
@@ -89,7 +89,7 @@ Before proceeding, you need your Elastic APM server connectivity information han
 
    :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/upload-files-microsoft-azure.png" alt-text="Screenshot of the Azure portal that shows the Upload files pane of the File share page." lightbox="media/how-to-elastic-apm-java-agent-monitor/upload-files-microsoft-azure.png":::
 
-1. After you have the Elastic APM endpoint and secret token, use the following command to activate Elastic APM Java agent when deploying applications. The placeholder *`<agent-location>`* refers to the mounted storage location of the Elastic APM Java Agent.
+1. After you have the Elastic APM endpoint and secret token, use the following command to activate Elastic APM Java agent when deploying applications. The placeholder `<agent-location>` refers to the mounted storage location of the Elastic APM Java Agent.
 
    ```azurecli
    az spring app deploy \
@@ -108,7 +108,7 @@ You can also run a provisioning automation pipeline using Terraform, Bicep, or a
 
 ### Automate provisioning using Terraform
 
-To configure the environment variables in a Terraform template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Manages an Active Azure Spring Apps Deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment).
+To configure the environment variables in a Terraform template, add the following code to the template, replacing the `<...>` placeholders with your own values. For more information, see [Manages an Active Azure Spring Apps Deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment).
 
 ```terraform
 resource "azurerm_spring_cloud_java_deployment" "example" {
@@ -126,7 +126,7 @@ resource "azurerm_spring_cloud_java_deployment" "example" {
 
 ### Automate provisioning using a Bicep file
 
-To configure the environment variables in a Bicep file, add the following code to the file, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=bicep).
+To configure the environment variables in a Bicep file, add the following code to the file, replacing the `<...>` placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=bicep).
 
 ```bicep
 deploymentSettings: {
@@ -143,7 +143,7 @@ deploymentSettings: {
 
 ### Automate provisioning using an ARM template
 
-To configure the environment variables in an ARM template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
+To configure the environment variables in an ARM template, add the following code to the template, replacing the `<...>` placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
 
 ```json
 "deploymentSettings": {
@@ -170,7 +170,7 @@ Use the following steps to monitor applications and metrics:
 
    :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-get-kibana-link.png" alt-text="Screenshot of the Azure portal that shows the Elasticsearch page with the Deployment URL Kibana link highlighted." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-get-kibana-link.png":::
 
-1. After Kibana is open, search for *APM* in the search bar, then select **APM**.
+1. After Kibana is open, search for **APM** in the search bar, then select **APM**.
 
    :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-kibana-search-apm.png" alt-text="Screenshot of Elastic / Kibana that shows the APM search results." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-kibana-search-apm.png":::
 
@@ -192,5 +192,5 @@ Using the inbuilt AI engine in the Elastic solution, you can also enable Anomaly
 
 ## Next steps
 
-* [Quickstart: Deploy your first Spring Boot app in Azure Spring Apps](../enterprise/quickstart.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
+* [Quickstart: Deploy your first Spring Boot app in Azure Spring Apps](quickstart.md?pivots=sc-standard)
 * [Deploy Elastic on Azure](https://www.elastic.co/blog/getting-started-with-the-azure-integration-enhancement)

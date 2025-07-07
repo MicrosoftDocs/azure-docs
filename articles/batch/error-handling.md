@@ -1,8 +1,9 @@
 ---
 title: Error handling and detection in Azure Batch
 description: Learn about error handling in Batch service workflows from a development standpoint.
-ms.topic: article
+ms.topic: concept-article
 ms.date: 04/13/2023
+# Customer intent: "As a cloud developer, I want to understand error handling and detection in Batch service workflows, so that I can effectively troubleshoot and resolve application and task failures in my cloud-based solutions."
 ---
 
 # Error handling and detection in Azure Batch

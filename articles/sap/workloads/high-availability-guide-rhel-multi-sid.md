@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 06/18/2024
+ms.date: 04/29/2025
 ms.author: radeltch
 ---
 
@@ -321,7 +321,7 @@ This article assumes that:
      Start_Program_01 = local $(_EN) pf=$(_PF)
 
      # Add the keep alive parameter, if using ENSA1
-     enque/encni/set_so_keepalive = true
+     enque/encni/set_so_keepalive = TRUE
      ```
 
      For both ENSA1 and ENSA2, make sure that the `keepalive` OS parameters are set as described in SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736).
@@ -440,7 +440,6 @@ This article assumes that:
     sudo pcs resource meta rsc_sap_NW2_ERS12  resource-stickiness=3000
 
     sudo pcs constraint colocation add g-NW2_AERS with g-NW2_ASCS -5000
-    sudo pcs constraint order start g-NW2_ASCS then start g-NW2_AERS kind=Optional symmetrical=false
     sudo pcs constraint order start g-NW2_ASCS then stop g-NW2_AERS kind=Optional symmetrical=false
 
     sudo pcs resource create rsc_sap_NW3_ASCS20 SAPInstance \
@@ -462,7 +461,6 @@ This article assumes that:
     sudo pcs resource meta rsc_sap_NW3_ERS22  resource-stickiness=3000
 
     sudo pcs constraint colocation add g-NW3_AERS with g-NW3_ASCS -5000
-    sudo pcs constraint order start g-NW3_ASCS then start g-NW3_AERS kind=Optional symmetrical=false
     sudo pcs constraint order start g-NW3_ASCS then stop g-NW3_AERS kind=Optional symmetrical=false
 
     sudo pcs property set maintenance-mode=false

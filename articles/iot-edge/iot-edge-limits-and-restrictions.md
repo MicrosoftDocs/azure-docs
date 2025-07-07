@@ -4,8 +4,8 @@ description: Understand the limits and restrictions when using Azure IoT Edge
 author: PatAltimore
 ms.author: patricka
 ms.date: 06/05/2024
-ms.topic: conceptual
-ms.service: iot-edge
+ms.topic: concept-article
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 

@@ -6,8 +6,9 @@ author: normesta
 ms.author: normesta
 ms.date: 05/01/2024
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: references_regions
+# Customer intent: "As a data engineer, I want to apply index tags to my blob storage objects, so that I can dynamically categorize and efficiently query my data across multiple containers, improving my data management and discovery processes."
 ---
 
 # Manage and find Azure Blob data with blob index tags
@@ -66,7 +67,7 @@ You can apply multiple tags on your blob to be more descriptive of the data.
 > "Status" = 'Unprocessed'
 > "Priority" = '01'
 
-To modify the existing index tag attributes, retrieve the existing tag attributes, modify the tag attributes, and replace with the [Set Blob Tags](/rest/api/storageservices/set-blob-tags) operation. To remove all index tags from the blob, call the `Set Blob Tags` operation with no tag attributes specified. As blob index tags are a subresource to the blob data contents, `Set Blob Tags` doesn't modify any underlying content and doesn't change the blob's last-modified-time or eTag. You can create or modify index tags for all current base blobs. Index tags are also preserved for previous versions but they aren't passed to the blob index engine, so you cannot query index tags to retrieve previous versions. Tags on snapshots or soft-deleted blobs cannot be modified.
+To modify the existing index tag attributes, retrieve the existing tag attributes, modify the tag attributes, and replace with the [Set Blob Tags](/rest/api/storageservices/set-blob-tags) operation. To remove all index tags from the blob, call the `Set Blob Tags` operation with no tag attributes specified. As blob index tags are a subresource to the blob data contents, `Set Blob Tags` doesn't modify any underlying content and doesn't change the blob's last-modified-time or eTag. You can create or modify index tags for all current base blobs. Index tags are also preserved for previous versions but they aren't passed to the blob index engine, so you cannot query index tags to retrieve previous versions. Tags on soft-deleted blobs cannot be modified.
 
 The following limits apply to blob index tags:
 
@@ -335,6 +336,8 @@ This section describes known issues and conditions.
 - Uploading page blobs with index tags doesn't persist the tags. Set the tags after uploading a page blob.
 
 - If Blob storage versioning is enabled, you can still use index tags on the current version. Index tags are preserved for previous versions, but those tags aren't passed to the blob index engine, so you cannot use them to retrieve previous versions. If you promote a previous version to the current version, then the tags of that previous version become the tags of the current version. Because those tags are associated with the current version, they are passed to the blob index engine and you can query them.
+
+- Similarly, Index tags are preserved for soft-deleted blobs and snapshots, but those tags aren't passed to the blob index engine, so you cannot use them to retrieve soft-deleted blobs and snapshots. If you restore the soft-deleted blobs and snapshots, their tags are passed to the blob index engine and you can query them.
 
 - There is no API to determine if index tags are indexed.
 

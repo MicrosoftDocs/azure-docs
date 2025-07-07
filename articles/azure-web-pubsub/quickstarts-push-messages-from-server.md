@@ -20,6 +20,8 @@ This quickstart guide demonstrates how to
 > * **subscribe** to messages from an application server
 > * **push data** from an application server to **all** connected clients
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 ## Prerequisites
 
 - A Web PubSub resource. If you haven't created one, you can follow the guidance: [Create a Web PubSub resource](./howto-develop-create-instance.md)
@@ -178,7 +180,7 @@ python -m venv env
 source ./env/bin/activ
 
 pip install azure-messaging-webpubsubservice
-pip install websock
+pip install websockets
 ```
 
 #### Use the WebSocket API to connect to your Web PubSub resource. Create a `subscribe.py` file with the following code
@@ -211,8 +213,8 @@ if __name__ == '__main__':
 
     try:
         asyncio.get_event_loop().run_until_complete(connect(token['url']))
-        except KeyboardInterrupt:
-            pass
+    except KeyboardInterrupt:
+        pass
     
 ```
 
@@ -388,6 +390,8 @@ For this quickstart guide, we'll get it from Azure portal as shown below.
 #### Run the server program
 Run the following commands in a ***new*** command shell.
 
+[!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
+
 ```bash
 # Set the environment variable for your connection string.
 export WebPubSubConnectionString="<Put your connection string here>" 
@@ -455,7 +459,7 @@ dotnet run $connection_string "myHub1" "Hello World"
 
 ```text
 # On the command shell used for running the "subscribe" program, you should see the received the messaged logged there. 
-# Try running the same "subscribe" program in multiple command shells, which simluates more than clients. 
+# Try running the same "subscribe" program in multiple command shells, which simulates more than clients. 
 # Try running the "publish" program several times and you see messages being delivered in real-time to all these clients.   
 Message received: Hello World
 ```

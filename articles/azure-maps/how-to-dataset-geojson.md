@@ -1,6 +1,6 @@
 ---
-title: How to create a dataset using a GeoJson package
-description: Learn how to create a dataset using a GeoJson package.
+title: How to create a dataset using a GeoJSON package
+description: Learn how to create a dataset using a GeoJSON package.
 author: faterceros
 ms.author: aterceros
 ms.date: 11/01/2021
@@ -9,7 +9,7 @@ ms.service: azure-maps
 ms.subservice: creator
 ---
 
-# Create a dataset using a GeoJson package (Preview)
+# Create a dataset using a GeoJSON package (Preview)
 
 > [!NOTE]
 >
@@ -36,7 +36,7 @@ Azure Maps Creator enables users to import their indoor map data in GeoJSON form
 
 ## Create dataset using the GeoJSON package
 
-For more information on the GeoJSON package, see the [Geojson zip package requirements] section.
+For more information on the GeoJSON package, see the [GeoJSON zip package requirements] section.
 
 ### Upload the GeoJSON package
 
@@ -95,7 +95,7 @@ https://us.atlas.microsoft.com/datasets?api-version=2023-03-01-preview&conversio
 | conversionId | The ID returned when converting your drawing package.                              |
 | datasetId    | The dataset ID returned when creating the original dataset from a GeoJSON package. |
 
-## Geojson zip package requirements
+## GeoJSON zip package requirements
 
 The GeoJSON zip package consists of one or more [RFC 7946] compliant GeoJSON files, one for each feature class, all in the root directory (subdirectories aren't supported), compressed with standard Zip compression and named using the `.ZIP` extension.
 
@@ -137,7 +137,7 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
 [dataset]: creator-indoor-maps.md#datasets
 [Facility Ontology 2.0]: creator-facility-ontology.md?pivots=facility-ontology-v2
 [facility]: creator-facility-ontology.md?pivots=facility-ontology-v2#facility
-[Geojson zip package requirements]: #geojson-zip-package-requirements
+[GeoJSON zip package requirements]: #geojson-zip-package-requirements
 [How to create data registry]: how-to-create-data-registries.md
 [level]: creator-facility-ontology.md?pivots=facility-ontology-v2#level
 [line]: creator-facility-ontology.md?pivots=facility-ontology-v2#lineelement

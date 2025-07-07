@@ -1,13 +1,13 @@
 ---
 title: Direct EA billing invoice documents
 description: Learn how to understand the invoice files associated with your direct enterprise agreement.
-author: bandersmsft
+author: sahilkhurana
 ms.reviewer: sahilkhurana
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 03/21/2024
-ms.author: banders
+ms.date: 04/02/2025
+ms.author: sahilkhurana
 ---
 
 # Direct EA billing invoice documents
@@ -120,7 +120,7 @@ The transactions file is a CSV file that includes the same information as the in
 | Extended Amount | The quantity multiplied by the unit price. |
 | Commitment Usage | The amount of monetary commitment that has been used. |
 | Net Amount | The extended amount minus the commitment usage. |
-| Tax Rate | The tax rate applicable to the product based on the country of billing. |
+| Tax Rate | The tax rate applicable to the product based on the country/region of billing. |
 | Tax Amount | The net amount multiplied by tax rate. |
 | Total | The sum of the net amount and tax amount. |
 | Is Third Party | Indicates whether the product or service is a third-party product. |

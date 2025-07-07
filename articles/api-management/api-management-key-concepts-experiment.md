@@ -28,7 +28,7 @@ This article provides an overview of common scenarios and key components of Azur
 
 APIs enable digital experiences, simplify application integration, underpin new digital products, and make data and services reusable and universally accessible. ​With the proliferation and increasing dependency on APIs, organizations need to manage them as first-class assets throughout their lifecycle.​
 
-:::image type="content" source="media/api-management-key-concepts-experiment/apis-connected-experiences.png" alt-text="Diagram showing role of APIs in connected experiences.":::
+:::image type="content" source="media/api-management-key-concepts/apis-connected-experiences.png" alt-text="Diagram showing role of APIs in connected experiences.":::
 
 
 Azure API Management helps customers meet these challenges:
@@ -49,7 +49,7 @@ Common scenarios include:
 
 Azure API Management is made up of an API *gateway*, a *management plane*, and a *developer portal*. These components are Azure-hosted and fully managed by default. API Management is available in various [tiers](api-management-features.md) differing in capacity and features.
 
-:::image type="content" source="media/api-management-key-concepts-experiment/api-management-components.png" alt-text="Diagram showing key components of Azure API Management.":::
+:::image type="content" source="media/api-management-key-concepts/api-management-components.png" alt-text="Diagram showing key components of Azure API Management.":::
 
 ## API gateway
 
@@ -58,7 +58,7 @@ All requests from client applications first reach the API gateway, which then fo
 The API gateway:
   
   * Accepts API calls and routes them to configured backends
-  * Verifies API keys, JWT tokens, certificates, and other credentials
+  * Verifies API keys, JWTs, certificates, and other credentials
   * Enforces usage quotas and rate limits
   * Optionally transforms requests and responses as specified in [policy statements](#policies)
   * If configured, caches responses to improve response latency and minimize the load on backend services
@@ -89,7 +89,7 @@ Use the management plane to:
 
 The open-source [developer portal][Developer portal] is an automatically generated, fully customizable website with the documentation of your APIs. 
 
-:::image type="content" source="media/api-management-key-concepts-experiment/cover.png" alt-text="Screenshot of API Management developer portal - administrator mode." border="false":::
+:::image type="content" source="media/api-management-key-concepts/cover.png" alt-text="Screenshot of API Management developer portal - administrator mode." border="false":::
 
 API providers can customize the look and feel of the developer portal by adding custom content, customizing styles, and adding their branding. Extend the developer portal further by [self-hosting](developer-portal-self-host.md).
 
@@ -135,7 +135,7 @@ Operations in API Management are highly configurable, with control over URL mapp
 
 ### Products
 
-Products are how APIs are surfaced to developers. Products in API Management have one or more APIs, and can be *open* or *protected*. Protected products require a subscription key, while open products can be consumed freely. 
+Products are how APIs are surfaced to developers. Products in API Management have one or more APIs and can be *open* or *protected*. Protected products require a subscription key, while open products can be consumed freely.
 
 When a product is ready for use by developers, it can be published. Once published, it can be viewed or subscribed to by developers. Subscription approval is configured at the product level and can either require an administrator's approval or be automatic.
 
@@ -182,7 +182,7 @@ Policies can be applied at different scopes, depending on your needs: global (al
 * [Transform and protect your API][How to create and configure advanced product settings].
 * [Policy expressions](./api-management-policy-expressions.md)
 
-## Next steps
+## Related content
 
 Complete the following quickstart and start using Azure API Management:
 

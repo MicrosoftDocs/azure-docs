@@ -157,7 +157,7 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 | --------- | --------- | --------- | 
 | samplingSettings | n/a | See [applicationInsights.samplingSettings](#applicationinsightssamplingsettings). |
 | dependencyTrackingOptions | n/a | See [applicationInsights.dependencyTrackingOptions](#applicationinsightsdependencytrackingoptions). |
-| enableLiveMetrics | true | Enables live metrics collection. |
+| enableLiveMetrics | true | Enables live metrics collection. You can filter live metrics using [applicationInsights.samplingSettings.excludedTypes](#applicationinsightssamplingsettings), For more information, see see [Select and filter your metrics](/azure/azure-monitor/app/live-stream#select-and-filter-your-metrics). |
 | enableDependencyTracking | true | Enables dependency tracking. |
 | enablePerformanceCountersCollection | true | Enables Kudu performance counters collection. |
 | liveMetricsInitializationDelay | 00:00:15 | For internal use only. |
@@ -309,7 +309,7 @@ Property that returns an object that contains all of the binding-specific settin
 
 ## extensionBundle 
 
-Extension bundles let you add a compatible set of Functions binding extensions to your function app. To learn more, see [Extension bundles for local development](functions-bindings-register.md#extension-bundles).
+Extension bundles let you add a compatible set of Functions binding extensions to your function app. To learn more, see [Extension bundles for local development](extension-bundles.md).
 
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
@@ -325,22 +325,15 @@ A list of functions that the job host runs. An empty array means run all functio
 
 ## functionTimeout
 
-Indicates the timeout duration for all function executions. It follows the timespan string format. 
-
-| Plan type | Default (min) | Maximum (min) |
-| -- | -- | -- |
-| Consumption | 5 | 10 |
-| Premium<sup>1</sup> | 30 | -1 (unbounded)<sup>2</sup> |
-| Dedicated (App Service) | 30 | -1 (unbounded)<sup>2</sup> |
-
-<sup>1</sup> Premium plan execution is only guaranteed for 60 minutes, but technically unbounded.   
-<sup>2</sup> A value of `-1` indicates unbounded execution, but keeping a fixed upper bound is recommended.
+Indicates the timeout duration for all function executions. It follows the timespan string format. A value of `-1` indicates unbounded execution, but keeping a fixed upper bound is recommended.
 
 ```json
 {
     "functionTimeout": "00:05:00"
 }
 ```
+
+For more information on the default and maximum values for specific plans, see [Function app timeout duration](./functions-scale.md#timeout).
 
 ## healthMonitor
 

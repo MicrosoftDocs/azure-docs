@@ -3,7 +3,7 @@ title: Bicep numeric operators
 description: Describes Bicep numeric operators that calculate values.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 06/23/2023
+ms.date: 02/12/2025
 ---
 
 # Bicep numeric operators

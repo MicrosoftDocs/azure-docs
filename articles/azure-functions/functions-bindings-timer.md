@@ -3,7 +3,7 @@ title: Timer trigger for Azure Functions
 description: Understand how to use timer triggers in Azure Functions.
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
-ms.date: 02/19/2024
+ms.date: 04/16/2025
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
@@ -42,7 +42,7 @@ This example shows a C# function that executes each time the minutes have a valu
 
 # [Isolated worker model](#tab/isolated-process)
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Timer/TimerFunction.cs" range="11-17":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Timer/TimerFunction.cs" id="docsnippet_fixed_delay_retry_example" :::
 
 # [In-process model](#tab/in-process)
 
@@ -61,6 +61,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 ---
 
 ::: zone-end
+
 ::: zone pivot="programming-language-java"
 
 The following example function triggers and executes every five minutes. The `@TimerTrigger` annotation on the function defines the schedule using the same string format as [CRON expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression).
@@ -76,7 +77,8 @@ public void keepAlive(
 }
 ```
 
-::: zone-end  
+::: zone-end
+
 ::: zone pivot="programming-language-python"  
 
 The following example shows a timer trigger binding and function code that uses the binding, where an instance representing the timer is passed to the function. The function writes a log indicating whether this function invocation is due to a missed schedule occurrence. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
@@ -93,7 +95,7 @@ app = func.FunctionApp()
 @app.function_name(name="mytimer")
 @app.timer_trigger(schedule="0 */5 * * * *", 
               arg_name="mytimer",
-              run_on_startup=True) 
+              run_on_startup=False) 
 def test_function(mytimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.datetime.utcnow().replace(
         tzinfo=datetime.timezone.utc).isoformat()
@@ -135,7 +137,8 @@ def main(mytimer: func.TimerRequest) -> None:
 
 ---
 
-::: zone-end  
+::: zone-end
+
 ::: zone pivot="programming-language-typescript"  
 
 The following example shows a timer trigger [TypeScript function](functions-reference-node.md?tabs=typescript).
@@ -150,7 +153,8 @@ TypeScript samples are not documented for model v3.
 
 ---
 
-::: zone-end  
+::: zone-end
+
 ::: zone pivot="programming-language-javascript"  
 
 The following example shows a timer trigger [JavaScript function](functions-reference-node.md).
@@ -188,7 +192,8 @@ module.exports = async function (context, myTimer) {
 
 ---
 
-::: zone-end  
+::: zone-end
+
 ::: zone pivot="programming-language-powershell"  
 
 Here's the binding data in the *function.json* file:
@@ -220,7 +225,8 @@ if ($myTimer.IsPastDue) {
 Write-Host "PowerShell timer trigger function ran! TIME: $currentUTCtime"
 ```
 
-::: zone-end  
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
@@ -244,7 +250,7 @@ Write-Host "PowerShell timer trigger function ran! TIME: $currentU
 
 ---
 
-::: zone-end  
+::: zone-end
 
 ::: zone pivot="programming-language-python"
 ## Decorators
@@ -261,6 +267,7 @@ For Python v2 functions defined using a decorator, the following properties on t
 | `use_monitor` | Set to `true` or `false` to indicate whether the schedule should be monitored. Schedule monitoring persists schedule occurrences to aid in ensuring the schedule is maintained correctly even when function app instances restart. If not set explicitly, the default is `true` for schedules that have a recurrence interval greater than or equal to 1 minute. For schedules that trigger more than once per minute, the default is `false`. |
 
 For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
+
 ::: zone-end
 
 ::: zone pivot="programming-language-java"  
@@ -272,7 +279,8 @@ The `@TimerTrigger` annotation on the function defines the `schedule` using the 
 + [name](/java/api/com.microsoft.azure.functions.annotation.timertrigger.name)
 + [schedule](/java/api/com.microsoft.azure.functions.annotation.timertrigger.schedule)
 
-::: zone-end  
+::: zone-end
+
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
  
 ## Configuration
@@ -309,7 +317,8 @@ The following table explains the binding configuration properties that you set i
 
 ---
 
-::: zone-end  
+::: zone-end
+
 ::: zone pivot="programming-language-powershell,programming-language-python"  
 
 
@@ -326,7 +335,7 @@ The following table explains the binding configuration properties that you set i
 
 <!--The following Include and Caution are from the original file and I wasn't sure if these need to be here-->
 
-::: zone-end  
+::: zone-end
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -340,6 +349,7 @@ See the [Example section](#example) for complete examples.
 When a timer trigger function is invoked, a timer object is passed into the function. The following JSON is an example representation of the timer object.
 
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-powershell,programming-language-python"
+
 ```json
 {
     "Schedule":{
@@ -353,7 +363,8 @@ When a timer trigger function is invoked, a timer object is passed into the func
     "IsPastDue":false
 }
 ```
-::: zone-end  
+::: zone-end
+
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 ```json
 {
@@ -368,7 +379,7 @@ When a timer trigger function is invoked, a timer object is passed into the func
     "isPastDue":false
 }
 ```
-::: zone-end  
+::: zone-end
 
 The `isPastDue` property is `true` when the current function invocation is later than scheduled. For example, a function app restart might cause an invocation to be missed.
 
@@ -410,7 +421,7 @@ Here are some examples of NCRONTAB expressions you can use for the timer trigger
 
 #### NCRONTAB time zones
 
-The numbers in a NCRONTAB expression refer to a time and date, not a time span. For example, a 5 in the `hour` field refers to 5:00 AM, not every 5 hours.
+The numbers in an NCRONTAB expression refer to a time and date, not a time span. For example, a 5 in the `hour` field refers to 5:00 AM, not every 5 hours.
 
 [!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
 
@@ -418,7 +429,7 @@ The numbers in a NCRONTAB expression refer to a time and date, not a time span. 
 
  A `TimeSpan` can be used only for a function app that runs on an App Service Plan.
 
-Unlike a NCRONTAB expression, a `TimeSpan` value specifies the time interval between each function invocation. When a function completes after running longer than the specified interval, the timer immediately invokes the function again.
+Unlike an NCRONTAB expression, a `TimeSpan` value specifies the time interval between each function invocation. When a function completes after running longer than the specified interval, the timer immediately invokes the function again.
 
 Expressed as a string, the `TimeSpan` format is `hh:mm:ss` when `hh` is less than 24. When the first two digits are 24 or greater, the format is `dd:hh:mm`. Here are some examples:
 
@@ -464,6 +475,9 @@ Please refer to [manually run a non HTTP-triggered function](./functions-manuall
 
 For information about what to do when the timer trigger doesn't work as expected, see [Investigating and reporting issues with timer triggered functions not firing](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing).
 
+## Connections
+
+Timer triggers have an implicit dependency on blob storage, except when run locally through the Azure Functions Core Tools. The system uses blob storage to coordinate across multiple instances [when the app scales out](#scale-out). It accesses blob storage using the host storage (`AzureWebJobsStorage`) connection. If you configure the host storage to use an [identity-based connection](./functions-reference.md#connecting-to-host-storage-with-an-identity), the identity should have the [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role, which is the default requirement for host storage.
 
 ## Next steps
 

@@ -227,8 +227,7 @@ az netappfiles snapshot create -g mygroup --account-name myaccname --pool-name m
 BACKUP DATA FOR FULL SYSTEM CLOSE SNAPSHOT BACKUP_ID 47110815 SUCCESSFUL SNAPSHOT-2020-08-18:11:00';
 ```
 
-This snapshot backup procedure can be managed in various ways, using various tools. One example is the Python script “ntaphana_azure.py” available on GitHub [https://github.com/netapp/ntaphana](https://github.com/netapp/ntaphana)
-This is sample code, provided “as-is” without any maintenance or support.
+This snapshot backup procedure can be managed in various ways, using various tools. 
 
 
 
@@ -238,7 +237,7 @@ This is sample code, provided “as-is” without any maintenance or support.
 Available solutions for storage snapshot based application consistent backup:
 
 - Microsoft [What is Azure Application Consistent Snapshot tool](../../azure-netapp-files/azacsnap-introduction.md) is a command-line tool that enables data protection for third-party databases. It handles all the orchestration required to put the databases into an application consistent state before taking a storage snapshot. After the storage snapshot has been taken, the tool returns the databases to an operational state. AzAcSnap supports snapshot based backups for HANA Large Instance and Azure NetApp Files. for more details, read the article [What is Azure Application Consistent Snapshot tool](../../azure-netapp-files/azacsnap-introduction.md) 
-- For users of Commvault backup products, another option is Commvault IntelliSnap V.11.21 and later. This or later versions of Commvault offer Azure NetApp Files snapshot support. The article [Commvault IntelliSnap 11.21](https://documentation.commvault.com/v11/essential/getting_started_with_backup_and_restore_operations_for_azure_netapp_file_services_smb_shares_and_nfs_shares.html) provides more information.
+- For users of Commvault backup products, another option is Commvault IntelliSnap V.11.21 and later. This or later versions of Commvault offer Azure NetApp Files snapshot support. The article [Commvault IntelliSnap 11.21](https://documentation.commvault.com/v11/essential/getting_started_with_azure_netapp_files.html) provides more information.
 
 
 

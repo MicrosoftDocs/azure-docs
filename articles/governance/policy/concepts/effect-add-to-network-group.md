@@ -1,13 +1,13 @@
 ---
 title: Azure Policy definitions addToNetworkGroup effect
 description: Azure Policy definitions addToNetworkGroup effect determines how compliance is managed and reported.
-ms.date: 04/08/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
 ---
 
 # Azure Policy definitions addToNetworkGroup effect
 
-The `addToNetworkGroup` effect is used in Azure Virtual Network Manager to define dynamic network group membership. This effect is specific to `Microsoft.Network.Data` [policy mode](./definition-structure.md#resource-provider-modes) definitions only.
+The `addToNetworkGroup` effect is used in Azure Virtual Network Manager to define dynamic network group membership. This effect is specific to `Microsoft.Network.Data` [policy mode](./definition-structure-basics.md#resource-provider-modes) definitions only.
 
 With network groups, your policy definition includes your conditional expression for matching virtual networks meeting your criteria, and specifies the destination network group where any matching resources are placed. The `addToNetworkGroup` effect is used to place resources in the destination network group.
 

@@ -1,8 +1,8 @@
 ---
 title: Generative AI in Azure Data Manager for Agriculture
 description: Learn how to use generative AI features in Azure Data Manager for Agriculture. 
-author: gourdsay
-ms.author: angour
+author: BlackRider97
+ms.author: ramithar
 ms.service: azure-data-manager-agriculture
 ms.topic: conceptual
 ms.date: 3/19/2024

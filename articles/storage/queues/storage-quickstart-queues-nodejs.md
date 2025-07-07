@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.service: azure-queue-storage
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api, passwordless-js
+# Customer intent: "As a JavaScript developer, I want to implement the Azure Queue Storage client library to manage message queues, so that I can efficiently store, retrieve, and process large volumes of messages in my applications."
 ---
 
 # Quickstart: Azure Queue Storage client library for JavaScript
@@ -31,7 +32,7 @@ Use the Azure Queue Storage client library for JavaScript to:
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Azure Storage account - [create a storage account](../common/storage-account-create.md)
-- Current [Node.js](https://nodejs.org/en/download/) for your operating system.
+- Current [Node.js](https://nodejs.org/en/download/package-manager/) for your operating system.
 
 ## Setting up
 

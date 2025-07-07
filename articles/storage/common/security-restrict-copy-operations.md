@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 01/10/2023
 ms.reviewer: santoshc 
 ms.custom: template-how-to, engagement-fy23
+# Customer intent: As a storage administrator, I want to restrict the source of copy operations by configuring the permitted scope in storage accounts, so that I can enhance security by preventing unwanted data from untrusted tenants or networks.
 ---
 
 # Restrict the source of copy operations to a storage account
@@ -30,7 +31,7 @@ The **AllowedCopyScope** property of a storage account is used to specify the en
 - **Microsoft Entra ID**: Permits copying only from accounts within the same Microsoft Entra tenant as the destination account.
 - **PrivateLink**:  Permits copying only from storage accounts that have private links to the same virtual network as the destination account.
 
-The setting applies to [Copy Blob](/rest/api/storageservices/copy-blob) and [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) operations. Examples of tools that use Copy Blob are AzCopy and Azure Storage Explorer.
+The setting applies to [Copy Blob](/rest/api/storageservices/copy-blob) and [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) operations.
 
 When the source of a copy request does not meet the requirements specified by this setting, the request fails with HTTP status code 403 (Forbidden).
 

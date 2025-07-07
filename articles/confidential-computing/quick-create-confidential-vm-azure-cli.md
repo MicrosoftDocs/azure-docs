@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.date: 12/01/2023
 ms.author: simranparkhe
 ms.custom: devx-track-azurecli
+# Customer intent: As a cloud administrator, I want to create a confidential virtual machine using the command-line interface, so that I can ensure enhanced security for sensitive data and applications running in the cloud.
 ---
 
 # Quickstart: Create a confidential VM with the Azure CLI
@@ -26,7 +27,7 @@ Azure Cloud Shell is a free interactive shell that you can use to run the steps 
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also open Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and select **Enter** to run it.
 
-If you prefer to install and use the CLI locally, this quickstart requires Azure CLI version 2.38.0 or later. Run `az--version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you prefer to install and use the CLI locally, this quickstart requires Azure CLI version 2.38.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ### Create a resource group
 

@@ -6,8 +6,9 @@ author: abell
 ms.author: abell
 ms.service: azure-private-link
 ms.topic: how-to 
-ms.date: 07/25/2021
+ms.date: 01/06/2025
 ms.custom: template-how-to
+# Customer intent: As a cloud administrator, I want to export DNS records for a private endpoint in the portal, so that I can ensure proper name resolution for my Azure resources.
 ---
 
 # Export DNS records for a private endpoint by using the Azure portal
@@ -42,8 +43,8 @@ In this section, you sign in to the Azure portal and search for the Private Link
     ```text
     # Exported from the Azure portal "2021-07-26 11:26:03Z"
     # Private IP    FQDN    Private Endpoint Id
-    10.1.0.4    mywebapp8675.scm.azurewebsites.net    #/subscriptions/7cc654c6-760b-442f-bd02-1a8a64b17413/resourceGroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/mywebappendpoint
-    10.1.0.4    mywebapp8675.azurewebsites.net    #/subscriptions/7cc654c6-760b-442f-bd02-1a8a64b17413/resourceGroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/mywebappendpoint
+    10.1.0.4    mywebapp8675.scm.azurewebsites.net    #/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/mywebappendpoint
+    10.1.0.4    mywebapp8675.azurewebsites.net    #/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/mywebappendpoint
     ```
 
 ## Next steps

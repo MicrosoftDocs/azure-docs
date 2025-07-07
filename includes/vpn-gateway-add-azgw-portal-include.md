@@ -18,7 +18,9 @@
    * **Name**: This is the name of the gateway object you're creating. This is different than the gateway subnet to which gateway resources will be deployed.
    * **Region**: Select the region in which you want to create this resource. The region for the gateway must be the same as the virtual network.
    * **Gateway type**: Select **VPN**. VPN gateways use the virtual network gateway type **VPN**.
-   * **SKU**: From the dropdown list, select the gateway SKU that supports the features you want to use. For more information about SKUs, see [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). To configure a Basic SKU gateway instead, see the [PowerShell](../articles/vpn-gateway/create-gateway-basic-sku-powershell.md) steps.
+   * **SKU**: From the dropdown list, select a [gateway SKU](../articles/vpn-gateway/about-gateway-skus.md) that supports the features you want to use.
+      * We recommend that you select a SKU that ends in AZ when possible. AZ SKUs support [availability zones](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
+      * The Basic SKU isn't available in the portal. To configure a Basic SKU gateway, you must use [PowerShell](../articles/vpn-gateway/create-gateway-basic-sku-powershell.md) or CLI.
    * **Generation**: Select **Generation2** from the dropdown.
    * **Virtual network**: From the dropdown list, select the virtual network to which you want to add this gateway. If you can't see the virtual network you want to use, make sure you selected the correct subscription and region in the previous settings.
    * **Gateway subnet address range** or **Subnet**: The gateway subnet is required to create a VPN gateway.

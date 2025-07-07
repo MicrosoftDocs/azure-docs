@@ -31,7 +31,7 @@ In this article, you use the Azure Communication Services UI Library to get esse
 ::: zone pivot="platform-web"
 For detailed documentation and quickstarts about the Web UI Library, see the [Web UI Library Storybook](https://azure.github.io/communication-ui-library).
 
-To learn more, see [Troubleshooting](https://azure.github.io/communication-ui-library/?path=/docs/troubleshooting--page) in the Web UI Library.
+To learn more, see [Troubleshooting](https://azure.github.io/communication-ui-library/?path=/docs/concepts-troubleshooting--docs) in the Web UI Library.
 ::: zone-end
 
 ::: zone pivot="platform-android"

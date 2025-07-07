@@ -2,12 +2,12 @@
 title: Review pull requests in pre-production environments
 description: Learn how to use pre-production environments to review pull requests changes in Azure Static Web Apps.
 services: static-web-apps
-author: sinedied
+author: v1212
 ms.service: azure-static-web-apps
 ms.custom: engagement-fy23
 ms.topic:  conceptual
 ms.date: 10/27/2022
-ms.author: yolasors
+ms.author: wujia
 ---
 
 # Review pull requests in pre-production environments

@@ -3,7 +3,7 @@ title: Configure a virtual network for express injection of Azure-SSIS integrati
 description: Learn how to configure a virtual network for express injection of Azure-SSIS integration runtime. 
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 01/08/2025
 author: chugugrace
 ms.author: chugu 
 ---
@@ -12,31 +12,31 @@ ms.author: chugu
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 > [!NOTE]
-> Express virtual network injection feature is not supported for SSIS integration runtime in below regions yet:
+> Express virtual network injection feature isn't supported for SSIS integration runtime in below regions yet:
 >
 >- Jio India West or Switzerland West
 >- US Gov Texas or US Gov Arizona
 >- China North 2 or China East 2
 
-When using SQL Server Integration Services (SSIS) in Azure Data Factory (ADF) or Synapse Pipelines, there are two methods for you to join your Azure-SSIS integration runtime (IR) to a virtual network: standard and express. If you use the express method, you need to configure your virtual network to meet these requirements: 
+When you use SQL Server Integration Services (SSIS) in Azure Data Factory (ADF) or Synapse Pipelines, there are two methods for you to join your Azure-SSIS integration runtime (IR) to a virtual network: standard and express. If you use the express method, you need to configure your virtual network to meet these requirements: 
 
 - Make sure that *Microsoft.Batch* is a registered resource provider in Azure subscription that has the virtual network for your Azure-SSIS IR to join. For detailed instructions, see the [Register Azure Batch as a resource provider](azure-ssis-integration-runtime-virtual-network-configuration.md#registerbatch) section.
 
 - Make sure that there's no resource lock in your virtual network.
 
-- Select a proper subnet in the virtual network for your Azure-SSIS IR to join. For more information, see the [Select a subnet](#subnet) section below.
+- Select a proper subnet in the virtual network for your Azure-SSIS IR to join. For more information, see the [Select a subnet](#subnet) section that follows.
 
-- Make sure that the user creating Azure-SSIS IR is granted the necessary role-based access control (RBAC) permissions to join the virtual network/subnet.  For more information, see the [Select virtual network permissions](#perms) section below.
+- Make sure that the user creating Azure-SSIS IR is granted the necessary role-based access control (RBAC) permissions to join the virtual network/subnet.  For more information, see the [Select virtual network permissions](#perms) section that follows.
 
-Depending on your specific scenario, you can optionally configure the following:
+Depending on your specific scenario, you can optionally configure the following settings:
 
-- If you want to use a static public IP address for the outbound traffic of your Azure-SSIS IR, see the [Configure a static public IP address](#ip) section below.
+- If you want to use a static public IP address for the outbound traffic of your Azure-SSIS IR, see the [Configure a static public IP address](#ip) section that follows.
 
-- If you want to use your own domain name system (DNS) server in the virtual network, see the [Configure a custom DNS server](#dns) section below.
+- If you want to use your own domain name system (DNS) server in the virtual network, see the [Configure a custom DNS server](#dns) section that follows.
 
-- If you want to use a network security group (NSG) to limit outbound traffic on the subnet, see the [Configure an NSG](#nsg) section below.
+- If you want to use a network security group (NSG) to limit outbound traffic on the subnet, see the [Configure an NSG](#nsg) section that follows.
 
-- If you want to use user-defined routes (UDRs) to audit/inspect outbound traffic, see the [Configure UDRs](#udr) section below.
+- If you want to use user-defined routes (UDRs) to audit/inspect outbound traffic, see the [Configure UDRs](#udr) section that follows.
 
 This diagram shows the required connections for your Azure-SSIS IR:
 
@@ -58,7 +58,7 @@ To enable express virtual network injection, you must select a proper subnet for
 
 To enable express virtual network injection, the user creating Azure-SSIS IR must be granted the necessary RBAC permissions to join the virtual network/subnet. You have two options:
 
-- Use the built-in *Network Contributor* role. This role comes with the _Microsoft.Network/\*_ permission, which has a much larger scope than necessary.
+- Use the built-in *Network Contributor* role. This role comes with the _Microsoft.Network/\*_ permission, which has a larger scope than necessary.
 
 - Create a custom role that includes only the necessary *Microsoft.Network/virtualNetworks/subnets/join/action* permission.
 
@@ -76,7 +76,7 @@ We recommend you configure your own DNS server to forward unresolved DNS request
 
 For more information, see the [DNS server name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) section.
 
-At present, for Azure-SSIS IR to use your own DNS server, you need to configure it with a standard custom setup following these steps:
+Now, for Azure-SSIS IR to use your own DNS server, you need to configure it with a standard custom setup following these steps:
 
 1. Download a custom setup script main.cmd + its associated file setupdnsserver.ps1.
 
@@ -85,7 +85,7 @@ At present, for Azure-SSIS IR to use your own DNS server, you need to configure 
 1. Upload main.cmd + setupdnsserver.ps1 into your own Azure Storage blob container for standard custom setup and enter its SAS URI when provisioning Azure-SSIS IR, see the [Customizing Azure-SSIS IR](how-to-configure-azure-ssis-ir-custom-setup.md) article.
 
 > [!NOTE]
-> Please use a Fully Qualified Domain Name (FQDN) for your private hostname (for example, use `<your_private_server>.contoso.com` instead of `<your_private_server>`). Alternatively, you can use a standard custom setup on your Azure-SSIS IR to automatically append your own DNS suffix (for example `contoso.com`) to any unqualified single label domain name and turn it into an FQDN before using it in DNS queries, see the [Standard custom setup samples](how-to-configure-azure-ssis-ir-custom-setup.md#standard-custom-setup-samples) section. 
+> Use a Fully Qualified Domain Name (FQDN) for your private hostname (for example, use `<your_private_server>.contoso.com` instead of `<your_private_server>`). Alternatively, you can use a standard custom setup on your Azure-SSIS IR to automatically append your own DNS suffix (for example `contoso.com`) to any unqualified single label domain name and turn it into an FQDN before using it in DNS queries, see the [Standard custom setup samples](how-to-configure-azure-ssis-ir-custom-setup.md#standard-custom-setup-samples) section. 
 
 ## <a name="nsg"></a>Configure an NSG
 

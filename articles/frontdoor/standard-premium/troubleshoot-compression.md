@@ -1,65 +1,65 @@
 ---
-title: Troubleshooting file compression in Azure Front Door
+title: Troubleshoot File Compression
+titleSuffix: Azure Front Door
 description: Learn how to troubleshoot issues with file compression in Azure Front Door. This article covers several possible causes.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 12/05/2023
-ms.author: duau
+ms.date: 11/18/2024
 ---
 
-# Troubleshooting Azure Front Door file compression
+# Troubleshoot Azure Front Door file compression
 
-This article helps you troubleshoot Azure Front Door file compression issues.
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
+This article helps you troubleshoot file compression issues in Azure Front Door.
 
 ## Symptom
 
-Compression for your route is enabled, but files are being returned uncompressed.
+Compression is enabled for your route, but files are being returned uncompressed.
 
 > [!TIP]
-> To check whether your files are being returned compressed, you need to use a tool like [Fiddler](https://www.telerik.com/fiddler) or your browser's [developer tools](/microsoft-edge/devtools-guide-chromium/overview).  Check the HTTP response headers returned with your cached CDN content.  If there is a header named `Content-Encoding` with a value of **gzip**, **bzip2**, or **deflate**, your content is compressed.
+> To check if your files are compressed, use a tool like [Fiddler](https://www.telerik.com/fiddler) or your browser's [developer tools](/microsoft-edge/devtools-guide-chromium/overview). Look for the `Content-Encoding` header in the HTTP response. If it has a value of **gzip**, **bzip2**, or **deflate**, your content is compressed.
 > 
 > ![Content-Encoding header](../media/troubleshoot-compression/content-header.png)
-> 
 
 ## Cause
 
-There are several possible causes, including:
+Possible causes include:
 
-* The requested content isn't eligible for compression.
-* Compression isn't enabled for the requested file type.
-* The HTTP request didn't include a header requesting a valid compression type.
-* Origin is sending chunked content.
+* The content isn't eligible for compression.
+* Compression isn't enabled for the file type.
+* The HTTP request lacks a valid compression type header.
+* The origin is sending chunked content.
 
 ## Troubleshooting steps
 
 > [!TIP]
-> As with deploying new endpoints, Azure Front Door configuration changes take some time to propagate through the network. Usually, changes are applied within 10 minutes.  If this is the first time you've set up compression for your CDN endpoint, you should consider waiting 1-2 hours to be sure the compression settings have propagated to the POPs. 
-> 
+> Azure Front Door configuration changes can take up to 10 minutes to propagate. If this is your first time setting up compression, wait 1-2 hours to ensure settings have propagated to the POPs.
 
 ### Verify the request
 
-First, we should double check on the request. You can use your browser's **[developer tools](/microsoft-edge/devtools-guide-chromium/overview)** to view the requests being made.
+Use your browser's **[developer tools](/microsoft-edge/devtools-guide-chromium/overview)** to check the requests:
 
-* Verify the request is being sent to your endpoint URL,`<endpointname>.z01.azurefd.net`, and not your origin.
-* Verify the request contains an **Accept-Encoding** header, and the value for that header contains **gzip**, **deflate**, or **bzip2**.
+* Ensure the request is sent to `<endpointname>.z01.azurefd.net`, not your origin.
+* Ensure the request includes an **Accept-Encoding** header with **gzip**, **deflate**, or **bzip2**.
 
 ![CDN request headers](../media/troubleshoot-compression/request-headers.png)
 
 ### Verify compression settings
 
-Navigate to your endpoint in the [Azure portal](https://portal.azure.com) and select the **Configure** button in the Routes panel. Verify compression is **enabled**.
+In the [Azure portal](https://portal.azure.com), navigate to your endpoint and select **Configure** in the Routes panel. Ensure compression is **enabled**.
 
 ![CDN compression settings](../media/troubleshoot-compression/compression-settings.png)
 
 ### Check the request at the origin server for a **Via** header
 
-The **Via** HTTP header indicates to the web server that the request is being passed by a proxy server.  Microsoft IIS web servers by default don't compress responses when the request contains a **Via** header.  To override this behavior, do the following steps for the respective IIS versions:
+The **Via** header indicates a proxy server. By default, Microsoft IIS servers don't compress responses with a **Via** header. To override this:
 
-* **IIS 6**: Set HcNoCompressionForProxies="FALSE" in the IIS Metabase properties. For more information, see [IIS 6 Compression](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90)).
-* **IIS 7 and up**: Set both **noCompressionForHttp10** and **noCompressionForProxies** to *False* in the server configuration. For more information, see, [HTTP Compression](https://www.iis.net/configreference/system.webserver/httpcompression).
+* **IIS 6**: Set HcNoCompressionForProxies="FALSE" in the IIS Metabase properties. See [IIS 6 Compression](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90)).
+* **IIS 7 and up**: Set **noCompressionForHttp10** and **noCompressionForProxies** to *False* in the server configuration. See [HTTP Compression](https://www.iis.net/configreference/system.webserver/httpcompression).
 
 ## Next steps
 
-For answers to Azure Front Door common questions, see [Azure Front Door FAQ](../front-door-faq.yml).
+For more information, see [Azure Front Door FAQ](../front-door-faq.yml).

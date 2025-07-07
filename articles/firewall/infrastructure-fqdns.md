@@ -2,11 +2,12 @@
 title: Infrastructure FQDN for Azure Firewall
 description: Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default.
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 11/19/2019
-ms.author: victorh
+ms.author: duau
+# Customer intent: "As a network administrator, I want to understand the built-in rule collection for infrastructure FQDNs in Azure Firewall, so that I can configure the firewall effectively and ensure proper access to essential services while maintaining security."
 ---
 
 # Infrastructure FQDNs

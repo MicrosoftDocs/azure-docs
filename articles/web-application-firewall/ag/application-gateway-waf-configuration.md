@@ -1,13 +1,13 @@
 ---
 title: Web application firewall exclusion lists in Azure Application Gateway - Azure portal
 description: This article provides information on Web Application Firewall exclusion lists configuration in Application Gateway with the Azure portal.
-services: web-application-firewall
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
-ms.date: 05/17/2023
-ms.author: victorh
 ms.topic: concept-article
+ms.date: 01/13/2025
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a web application administrator, I want to configure exclusion lists for my Web Application Firewall, so that I can prevent false positives and ensure legitimate traffic is not blocked by security rules.
 ---
 
 # Web Application Firewall exclusion lists
@@ -37,9 +37,9 @@ You can specify an exact request header, body, cookie, or query string attribute
 - **Starts with**: This operator matches all fields that start with the specified selector value.
 - **Ends with**:  This operator matches all request fields that end with the specified selector value.
 - **Contains**: This operator matches all request fields that contain the specified selector value.
-- **Equals any**: This operator matches all request fields. * will be the selector value. For example, you would use this operator when you don't know the exact values for a given match variable but want to make sure that the request traffic still gets excluded from rules evaluation.
+- **Equals any**: This operator matches all request fields. * is the selector value. For example, you would use this operator when you don't know the exact values for a given match variable but want to make sure that the request traffic still gets excluded from rules evaluation.
 
-When processing exclusions the WAF engine performs a case sensitive/insensitive match based on the below table. Additionally, regular expressions aren't allowed as selectors and XML request bodies aren't supported.
+When processing exclusions the WAF engine performs a case sensitive/insensitive match based on the following table. Additionally, regular expressions aren't allowed as selectors and XML request bodies aren't supported.
 
 | Request Body Part | CRS 3.1 and Earlier | CRS 3.2 and Later |
 |-|-|-|
@@ -77,7 +77,7 @@ In contrast, if your WAF detects the header's name (`My-Header`) as an attack, y
 
 #### Request attribute examples
 
-The below table shows some examples of how you might structure your exclusion for a given match variable.
+The following table shows some examples of how you might structure your exclusion for a given match variable.
 
 | Attribute to Exclude | matchVariable | selectorMatchOperator | Example selector | Example request | What gets excluded |
 |-|-|-|-|-|-|
@@ -526,7 +526,7 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
 
 ---
 
-So if the URL `http://www.contoso.com/?user%3c%3e=joe` is scanned by the WAF, it won't evaluate the string **joe**, but it still evaluates the parameter name **user%3c%3e**. 
+So if the URL `http://www.contoso.com/?user%3c%3e=joe` is scanned by the WAF, it doesn't evaluate the string **joe**, but it still evaluates the parameter name **user%3c%3e**. 
 
 ## Next steps
 

@@ -2,14 +2,15 @@
 title: Get started with the Azure CDN Library for .NET
 description: Learn how to write .NET applications to manage Azure CDN using Visual Studio.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
-ms.assetid: 63cf4101-92e7-49dd-a155-a90e54a792ca
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
 ms.custom: has-adal-ref, devx-track-csharp, devx-track-dotnet
+ROBOTS: NOINDEX
+# Customer intent: "As a .NET developer, I want to create a console application to manage Azure CDN profiles and endpoints, so that I can automate CDN operations using familiar development tools and libraries."
 ---
 
 # Get started with the Azure CDN Library for .NET
@@ -299,8 +300,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 ```
 
 > [!NOTE]
-> In the example previously, the string `/*` denotes that I want to purge everything in the root of the endpoint path. This is equivalent to checking **Purge All** in the Azure portal's "purge" dialog. In the `CreateCdnProfile` method, I created our profile as an **Azure CDN from Edgio** profile using the code `Sku = new Sku(SkuName.StandardVerizon)`, so this will be successful.
->
+> In the example previously, the string `/*` denotes that I want to purge everything in the root of the endpoint path. This is equivalent to checking **Purge All** in the Azure portal's "purge" dialog.
 >
 
 ## Delete CDN profiles and endpoints
@@ -346,8 +346,6 @@ We can then confirm the prompts to run the rest of the program.
 ![Program completing](./media/cdn-app-dev-net/cdn-program-running-2.png)
 
 ## Next Steps
-
-To see the completed project from this walkthrough, [download the sample](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
 
 To find more documentation on the Azure CDN Management Library for .NET, view the [reference on MSDN](/dotnet/api/overview/azure/cdn).
 

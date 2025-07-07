@@ -6,11 +6,12 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: how-to
-ms.date: 03/09/2023
+ms.date: 11/26/2024
 ms.author: normesta
 ms.reviewer: prishet
 ms.devlang: powershell
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud administrator, I want to use PowerShell to manage directories and files in Azure Data Lake Storage, so that I can efficiently organize and control access to data stored in a hierarchical namespace.
 ---
 
 # Use PowerShell to manage directories and files in Azure Data Lake Storage
@@ -51,24 +52,17 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
 ## Connect to the account
 
-Choose how you want your commands to obtain authorization to the storage account.
-
-<a name='option-1-obtain-authorization-by-using-azure-active-directory-azure-ad'></a>
-
-### Option 1: Obtain authorization by using Microsoft Entra ID
-
-With this approach, the system ensures that your user account has the appropriate Azure role-based access control (Azure RBAC) assignments and ACL permissions.
-
-1. Open a Windows PowerShell command window, and then sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
+1. Open a Windows PowerShell command window, and then sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions.
 
    ```powershell
    Connect-AzAccount
    ```
 
-2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that you want create and manage directories in. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
+2. If your identity is associated with more than one subscription, and you are not prompted to select the subscription, then set your active subscription to the subscription of the storage account that you want to operate upon. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
    ```powershell
    Select-AzSubscription -SubscriptionId <subscription-id>
+   ```
    ```
 
 3. Get the storage account context.
@@ -77,17 +71,9 @@ With this approach, the system ensures that your user account has the appropriat
    $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
    ```
 
-### Option 2: Obtain authorization by using the storage account key
-
-With this approach, the system doesn't check Azure RBAC or ACL permissions. Get the storage account context by using an account key.
-
-```powershell
-$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -StorageAccountKey '<storage-account-key>'
-```
-
 ## Create a container
 
-A container acts as a file system for your files. You can create one by using the `New-AzStorageContainer` cmdlet.
+A container acts as a file system for your files. You can create one by using the [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) cmdlet.
 
 This example creates a container named `my-file-system`.
 
@@ -98,7 +84,7 @@ New-AzStorageContainer -Context $ctx -Name $filesystemName
 
 ## Create a directory
 
-Create a directory reference by using the `New-AzDataLakeGen2Item` cmdlet.
+Create a directory reference by using the [New-AzDataLakeGen2Item](/powershell/module/az.storage/new-azdatalakegen2item) cmdlet.
 
 This example adds a directory named `my-directory` to a container.
 
@@ -116,7 +102,7 @@ $dir = New-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $d
 
 ## Show directory properties
 
-This example gets a directory by using the `Get-AzDataLakeGen2Item` cmdlet, and then prints property values to the console.
+This example gets a directory by using the [Get-AzDataLakeGen2Item](/powershell/module/az.storage/get-azdatalakegen2item) cmdlet, and then prints property values to the console.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -135,7 +121,7 @@ $dir.Properties.Metadata
 
 ## Rename or move a directory
 
-Rename or move a directory by using the `Move-AzDataLakeGen2Item` cmdlet.
+Rename or move a directory by using the [Move-AzDataLakeGen2Item](/powershell/module/az.storage/move-azdatalakegen2item) cmdlet.
 
 This example renames a directory from the name `my-directory` to the name `my-new-directory`.
 
@@ -160,7 +146,7 @@ Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
 
 ## Delete a directory
 
-Delete a directory by using the `Remove-AzDataLakeGen2Item` cmdlet.
+Delete a directory by using the [Remove-AzDataLakeGen2Item](/powershell/module/az.storage/remove-azdatalakegen2item) cmdlet.
 
 This example deletes a directory named `my-directory`.
 
@@ -174,7 +160,7 @@ You can use the `-Force` parameter to remove the file without a prompt.
 
 ## Download from a directory
 
-Download a file from a directory by using the `Get-AzDataLakeGen2ItemContent` cmdlet.
+Download a file from a directory by using the [Get-AzDataLakeGen2ItemContent](/powershell/module/az.storage/get-azdatalakegen2itemcontent) cmdlet.
 
 This example downloads a file named `upload.txt` from a directory named `my-directory`.
 
@@ -187,7 +173,7 @@ Get-AzDataLakeGen2ItemContent -Context $ctx -FileSystem $filesystemName -Path $f
 
 ## List directory contents
 
-List the contents of a directory by using the `Get-AzDataLakeGen2ChildItem` cmdlet. You can use the optional parameter `-OutputUserPrincipalName` to get the name (instead of the object ID) of users.
+List the contents of a directory by using the [Get-AzDataLakeGen2ChildItem](/powershell/module/az.storage/get-azdatalakegen2childitem) cmdlet. You can use the optional parameter `-OutputUserPrincipalName` to get the name (instead of the object ID) of users.
 
 This example lists the contents of a directory named `my-directory`.
 
@@ -214,7 +200,7 @@ $properties.Owner
 
 ## Upload a file to a directory
 
-Upload a file to a directory by using the `New-AzDataLakeGen2Item` cmdlet.
+Upload a file to a directory by using the [New-AzDataLakeGen2Item](/powershell/module/az.storage/new-azdatalakegen2item) cmdlet.
 
 This example uploads a file named `upload.txt` to a directory named `my-directory`.
 
@@ -241,7 +227,7 @@ $file1.Properties.Metadata
 
 ## Show file properties
 
-This example gets a file by using the `Get-AzDataLakeGen2Item` cmdlet, and then prints property values to the console.
+This example gets a file by using the [Get-AzDataLakeGen2Item](/powershell/module/az.storage/get-azdatalakegen2item) cmdlet, and then prints property values to the console.
 
 ```powershell
 $filepath =  "my-directory/upload.txt"
@@ -258,7 +244,7 @@ $file.Properties.Metadata
 
 ## Delete a file
 
-Delete a file by using the `Remove-AzDataLakeGen2Item` cmdlet.
+Delete a file by using the [Remove-AzDataLakeGen2Item](/powershell/module/az.storage/remove-azdatalakegen2item) cmdlet.
 
 This example deletes a file named `upload.txt`.
 

@@ -107,7 +107,7 @@ Azure Resource Manager allows you to fully automate the deployment of your Strea
 2. After the job is created, use Azure Resource Manager to retrieve the job's full definition.
 
     ```azurecli
-    az resource show --ids /subscriptions/<subsription-id>/resourceGroups/<resource-group>/providers/Microsoft.StreamAnalytics/StreamingJobs/<resource-name>
+    az resource show --ids /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.StreamAnalytics/StreamingJobs/<resource-name>
     ```
 
     The above command will return a response like the below:

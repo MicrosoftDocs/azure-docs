@@ -175,7 +175,7 @@ You might notice that not all of your textures are listed in the Asset Tracking 
 1. In the **Specify Asset Path** box, select the local path to your textures and replace it with `.\`.  Select **OK**. 
 
     The Asset Tracking window will update as shown in the following screenshot. This update might take a while, depending on how many textures are in your scene and on how large your scene is.
-![Screensthot that shows the updated Asset Tracking window.](media/3dsmax/resolve-textures.jpg)
+![Screenshot that shows the updated Asset Tracking window.](media/3dsmax/resolve-textures.jpg)
 
 Notice that the **Full Path** column is now blank. This means that the scene is no longer looking for the relevant textures in a specific (absolute) location. It will always find them as long as the .max file or related FBX file is in the same folder as the textures. 
 

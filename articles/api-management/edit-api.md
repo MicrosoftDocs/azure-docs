@@ -4,7 +4,7 @@ description: Learn how to use API Management to edit an API. Add, delete, or ren
 services: api-management
 author: dlepow
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/19/2022
 ms.author: danlep
 ---
@@ -66,9 +66,3 @@ You can update your backend API from the Azure portal by following these steps:
 > `Can't change property for non-current revision` will be displayed.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [APIM policy samples](./policy-reference.md)
-> [Transform and protect a published API](transform-api.md)

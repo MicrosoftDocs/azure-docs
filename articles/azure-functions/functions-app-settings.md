@@ -3,7 +3,7 @@ title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables used to configure functions apps.
 ms.topic: conceptual
 ms.custom: devx-track-extended-java, devx-track-python, ignite-2023, build-2024, linux-related-content
-ms.date: 07/11/2024
+ms.date: 06/04/2025
 ---
 
 # App settings reference for Azure Functions
@@ -14,7 +14,7 @@ Application settings in a function app contain configuration options that affect
 
 In this article, example connection string values are truncated for readability.
 
-Because Azure Functions leverages the Azure App Service platform for hosting, you might find some settings relevant to your function app hosting documented in [Environment variables and app settings in Azure App Service](../app-service/reference-app-settings.md).
+Because Azure Functions uses the Azure App Service platform for hosting, you might find some settings relevant to your function app hosting documented in [Environment variables and app settings in Azure App Service](../app-service/reference-app-settings.md).
 
 ## App setting considerations
 
@@ -75,8 +75,8 @@ This authentication requirement is applied to connections from the Functions hos
 
 The connection string for Application Insights. Don't use both `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING`. While the use of `APPLICATIONINSIGHTS_CONNECTION_STRING` is recommended in all cases, it's required in the following cases:
 
-+ When your function app requires the added customizations supported by using the connection string.  
-+ When your Application Insights instance runs in a sovereign cloud, which requires a custom endpoint.
++ When your function app requires the added customizations supported by using the connection string  
++ When your Application Insights instance runs in a sovereign cloud, which requires a custom endpoint
 
 For more information, see [Connection strings](/azure/azure-monitor/app/sdk-connection-string).
 
@@ -189,7 +189,7 @@ When this app setting is omitted or set to `false`, a page similar to the follow
 
 ## AzureWebJobsDotNetReleaseCompilation
 
-`true` means use Release mode when compiling .NET code; `false` means use Debug mode. Default is `true`.
+`true` means use `Release` mode when compiling .NET code; `false` means use Debug mode. Default is `true`.
 
 |Key|Sample value|
 |---|------------|
@@ -203,15 +203,27 @@ A comma-delimited list of beta features to enable. Beta features enabled by thes
 |---|------------|
 |AzureWebJobsFeatureFlags|`feature1,feature2,EnableProxies`|
 
-Add `EnableProxies` to this list to re-enable proxies on version 4.x of the Functions runtime while you plan your migration to Azure API Management. For more information, see [Re-enable proxies in Functions v4.x](./legacy-proxies.md#re-enable-proxies-in-functions-v4x). 
+If your app currently has this setting, add new flags to the end of the comma-delineated list. 
+
+Currently-supported feature flags:
+
+|Flag value | Description |
+| ----- | ----- |
+| `EnableProxies` | Re-enables proxies on version 4.x of the Functions runtime while you plan your migration to Azure API Management. For more information, see [Re-enable proxies in Functions v4.x](./legacy-proxies.md#re-enable-proxies-in-functions-v4x). |
+| `EnableAzureMonitorTimeIsoFormat` | Enables the `ISO 8601` time format in Azure Monitor logs for Linux apps running on a Dedicated (App Service) plan. |
 
 ## AzureWebJobsKubernetesSecretName 
 
-Indicates the Kubernetes Secrets resource used for storing keys. Supported only when running in Kubernetes. This setting requires you to set `AzureWebJobsSecretStorageType` to `kubernetes`. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read only. In this case, the values must be generated before deployment. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.
+Indicates the Kubernetes Secrets resource used for storing keys. Supported only when running in Kubernetes. 
 
 |Key|Sample value|
 |---|------------|
 |AzureWebJobsKubernetesSecretName|`<SECRETS_RESOURCE>`|
+
+Considerations when use a Kubernetes Secrets resource:
++ You must also set `AzureWebJobsSecretStorageType` to `kubernetes`. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read only. In this case, the values must be generated before deployment. 
++ The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.
++ [Immutable secrets](https://kubernetes.io/docs/concepts/configuration/secret/#secret-immutable) aren't supported and using them results in runtime errors.
 
 To learn more, see [Manage key storage](function-keys-how-to.md#manage-key-storage).
 
@@ -269,7 +281,9 @@ The vault must have an access policy corresponding to the system-assigned manage
 |---|------------|
 |AzureWebJobsSecretStorageKeyVaultUri|`https://<VAULT_NAME>.vault.azure.net`|
 
-To learn more, see [Use Key Vault references for Azure Functions](../app-service/app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json).
+[!INCLUDE [functions-key-vault-secrets-storage-warning](../../includes/functions-key-vault-secrets-storage-warning.md)]
+
+To learn more, see [Manage Key Storage](../azure-functions/function-keys-how-to.md#manage-key-storage).
 
 ## AzureWebJobsSecretStorageSas
 
@@ -438,7 +452,7 @@ For Node.js v18 or lower, the app setting is used, and the default behavior depe
 
 ## FUNCTIONS\_REQUEST\_BODY\_SIZE\_LIMIT
 
-Overrides the default limit on the body size of requests sent to HTTP endpoints. The value is given in bytes, with a default maximum request size of 104857600 bytes. 
+Overrides the default limit on the body size of requests sent to HTTP endpoints. The value is given in bytes, with a default maximum request size of 104,857,600 bytes. 
 
 |Key|Sample value|
 |---|------------|
@@ -486,6 +500,18 @@ This setting enables the Python worker to use shared memory to improve throughpu
 |FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED|`1`|
 
 With this setting enabled, you can use the [DOCKER_SHM_SIZE](#docker_shm_size) setting to set the shared memory size. To learn more, see [Shared memory](functions-reference-python.md#shared-memory).
+
+## JAVA_ENABLE_SDK_TYPES
+
+Enables your function app to use native Azure SDK types in bindings.
+
+[!INCLUDE [functions-java-sdk-types-preview-note](../../includes/functions-java-sdk-types-preview-note.md)]
+
+|Key|Sample value|
+|---|------------|
+|JAVA_ENABLE_SDK_TYPES|`true`|
+
+For more information, see [SDK types](functions-reference-java.md#sdk-types) in the Java reference article
 
 ## JAVA_OPTS
 
@@ -812,6 +838,21 @@ Indicates whether the `/home` directory is shared across scaled instances, with 
 
 Some configurations must be maintained at the App Service level as site settings, such as language versions. These settings are managed in the portal, by using REST APIs, or by using Azure CLI or Azure PowerShell. The following are site settings that could be required, depending on your runtime language, OS, and versions: 
 
+## AcrUseManagedIdentityCreds
+
+Indicates whether the image is obtained from an Azure Container Registry instance using managed identity authentication. A value of `true` requires that managed identity be used, which is recommended over stored authentication credentials as a security best practice. 
+
+## AcrUserManagedIdentityID 
+
+Indicates the managed identity to use when obtaining the image from an Azure Container Registry instance. Requires that `AcrUseManagedIdentityCreds` is set to `true`. These are the valid values:   
+
+| Value | Description |
+| ---- | ---- |
+| `system` | The system assigned managed identity of the function app is used. |
+| `<USER_IDENTITY_RESOURCE_ID>` | The fully qualified resource ID of a user-assigned managed identity. | 
+
+The identity that you specify must be added to the `ACRPull` role in the container registry. For more information, see [Create and configure a function app on Azure with the image](functions-deploy-container-apps.md?tabs=acr#create-and-configure-a-function-app-on-azure-with-the-image).
+
 ## alwaysOn
 
 On a function app running in a [Dedicated (App Service) plan](./dedicated-plan.md), the Functions runtime goes idle after a few minutes of inactivity, a which point only requests to an HTTP trigger _wakes up_ your function app. To make sure that your non-HTTP triggered functions run correctly, including Timer trigger functions, enable Always On for the function app by setting the `alwaysOn` site setting to a value of `true`. 
@@ -894,7 +935,8 @@ In the [Flex Consumption plan](./flex-consumption-plan.md), these site propertie
 | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` |Replaced by functionAppConfig's deployment section|
 | `WEBSITE_CONTENTOVERVNET` |Not used for networking in Flex Consumption|
 | `WEBSITE_CONTENTSHARE` |Replaced by functionAppConfig's deployment section|
-| `WEBSITE_DNS_SERVER` |DNS is inherited from the integrated VNet in Flex|
+| `WEBSITE_DNS_SERVER` |DNS is inherited from the integrated virtual network in Flex|
+| `WEBSITE_MAX_DYNAMIC_APPLICATION_SCALE_OUT` |Replaced by `maximumInstanceCount` in `properties.functionAppConfig.scaleAndConcurrency`|
 | `WEBSITE_NODE_DEFAULT_VERSION` |Replaced by `version` in `properties.functionAppConfig.runtime`|
 | `WEBSITE_RUN_FROM_PACKAGE`|Not used for deployments in Flex Consumption|
 | `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` |Content share is not used in Flex Consumption|

@@ -7,9 +7,16 @@ ms.custom: devx-track-python
 ms.topic: tutorial
 ms.date: 08/25/2022
 ms.author: andrsmith
+# Customer intent: As a cloud administrator, I want to create a virtual machine and assign a best practices configuration profile using Python, so that I can automate the management and optimization of the VM according to recommended guidelines.
 ---
 
 # Tutorial: Create a virtual machine and assign an Automanage profile to it
+
+> [!CAUTION]
+> On September 30, 2027, the Azure Automanage Best Practices service will be retired. As a result, attempting to create a new configuration profile or onboarding a new subscription to the service will result in an error. Learn more [here](https://aka.ms/automanagemigration/) about how to migrate to Azure Policy before that date. 
+
+> [!CAUTION]
+> Starting February 1st 2025, Azure Automanage will begin rolling out changes to halt support and enforcement for all services dependent on the deprecated Microsoft Monitoring Agent (MMA). To continue using Change Tracking and Management, VM Insights, Update Management, and Azure Automation, [migrate to the new Azure Monitor Agent (AMA)](https://aka.ms/mma-to-ama/).
 
 In this tutorial, you'll create a resource group and a virtual machine. You'll then assign an Automanage Best Practices configuration profile to the new machine using the Python SDK.
 

@@ -46,6 +46,8 @@ If you're creating the project on a local machine, you need to install the depen
 
 ---
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 ## Prepare your environment
 
 # [Local Azure CLI](#tab/LocalBash)
@@ -77,7 +79,7 @@ Each Web PubSub resource must have a unique name. Replace &lt;your-unique-resour
 az webpubsub create --resource-group myResourceGroup --name <your-unique-resource-name> --location EastUS --sku Free_F1
 ```
 
-The output of this command shows properties of the newly created resource. Take note of the following roperties:
+The output of this command shows properties of the newly created resource. Take note of the following properties:
 
 * **name**: The Web PubSub name you provided in the `--name` parameter above.
 * **hostName**: In the example, the host name is `<your-unique-resource-name>.webpubsub.azure.com/`.
@@ -92,12 +94,14 @@ At this point, your Azure account is the only one authorized to perform any oper
 
 Clients connect to the Azure Web PubSub service through the standard WebSocket protocol using [JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) authentication. The service SDK provides helper methods to generate the token. In this tutorial, the subscriber directly generates the token from *ConnectionString*. In real applications, a server-side application usually handles the authentication/authorization workflow. To better understand the workflow, see the tutorial [Build a chat app](./tutorial-build-chat.md).
 
+[!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
+
 # [C#](#tab/csharp)
 
 1. First, create a project directory named `subscriber` for this project and install required dependencies:
 
     * The package [Websocket.Client](https://github.com/Marfusios/websocket-client) is a third-party package supporting WebSocket connections. You can use any API/library that supports WebSocket.
-    * The SDK package `Azure.Messaging.WebPubSub` helps to generate the JWT token. 
+    * The SDK package `Azure.Messaging.WebPubSub` helps to generate the JWT. 
 
     ```bash
     mkdir subscriber

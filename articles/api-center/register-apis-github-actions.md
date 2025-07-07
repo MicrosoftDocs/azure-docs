@@ -3,7 +3,7 @@ title: Register APIs using GitHub Actions - Azure API Center
 description: Learn how to automate the registration of APIs in your API center using a CI/CD workflow based on GitHub Actions.
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 07/24/2024
+ms.date: 12/23/2024
 ms.author: danlep
 author: dlepow
 ms.custom: devx-track-azurecli
@@ -20,9 +20,9 @@ The following diagram shows how API registration in your API center can be autom
 
 :::image type="content" source="media/register-apis-github-actions/scenario-overview.svg" alt-text="Diagram showing steps to trigger a GitHub actions workflow to register an API in an Azure API center." lightbox="media/register-apis-github-actions/scenario-overview.svg":::
 
-1. Set up a GitHub Actions workflow in your repository that triggers when a pull request that adds an API definition file is merged.
+1. Set up a GitHub Actions workflow in your repository that triggers when a pull request adding an API definition file is merged.
 1. Create a branch from the main branch in your GitHub repository.
-1. Add an API definition file, commit the changes, and push them to the new branch.
+1. Add an API definition file, commit the changes, and push to the new branch.
 1. Create a pull request to merge the new branch into the main branch.
 1. Merge the pull request.
 1. The merge triggers a GitHub Actions workflow that registers the API in your API center.
@@ -53,9 +53,9 @@ In this section, you set up the GitHub Actions workflow for this scenario:
 In the following steps, create a Microsoft Entra ID service principal, which will be used to add credentials to the workflow to authenticate with Azure.
 
 > [!NOTE]
-> Configuring a service principal is shown for demonstration purposes. The recommended way to authenticate with Azure for GitHub Actions is with OpenID Connect, an authentication method that uses short-lived tokens. Setting up OpenID Connect with GitHub Actions is more complex but offers hardened security. [Learn more](../app-service/deploy-github-actions.md?tabs=openid%2Caspnetcore#1-generate-deployment-credentials)
+> Configuring a service principal is shown for demonstration purposes. The recommended way to authenticate with Azure for GitHub Actions is with OpenID Connect, an authentication method that uses short-lived tokens. Setting up OpenID Connect with GitHub Actions is more complex but offers hardened security. [Learn more](../app-service/deploy-github-actions.md?tabs=openid%2Caspnetcore#generate-deployment-credentials)
 
-Create a service principal using the [az ad sp create-for-rbac](/cli/azure/ad#az-ad-sp-create-for-rbac) command. The following example first uses the [az apic show](/cli/azure/apic#az-apic-show) command to retrieve the resource ID of the API center. The service principal is then created with the Contributor role for the API center.
+Create a service principal using the [az ad sp create-for-rbac](/cli/azure/ad#az-ad-sp-create-for-rbac) command. The following example first uses the [az apic show](/cli/azure/apic#az-apic-show) command to retrieve the resource ID of the API center. The service principal is then created with the Azure API Center Service Contributor role for the API center.
 
 #### [Bash](#tab/bash)
 
@@ -67,7 +67,7 @@ spName=<service-principal-name>
 
 apicResourceId=$(az apic show --name $apiCenter --resource-group $resourceGroup --query "id" --output tsv)
 
-az ad sp create-for-rbac --name $spName --role Contributor --scopes $apicResourceId --json-auth
+az ad sp create-for-rbac --name $spName --role "Azure API Center Service Contributor" --scopes $apicResourceId --json-auth
 ```
 
 #### [PowerShell](#tab/powershell)
@@ -80,7 +80,7 @@ $spName = "<service-principal-name>"
 
 $apicResourceId = $(az apic show --name $apiCenter --resource-group $resourceGroup --query "id" --output tsv)
 
-az ad sp create-for-rbac --name $spName --role Contributor --scopes $apicResourceId --json-auth
+az ad sp create-for-rbac --name $spName --role "Azure API Center Service Contributor" --scopes $apicResourceId --json-auth
 ```
 ---
 
@@ -133,37 +133,32 @@ In this example:
 To configure the workflow file:
 
 1. Copy and save the file under a name such as `register-api.yml`.
-1. Update the values for the environment variables to match your API center in Azure.
 1. Confirm or update the name of the repository folder (`APIs`) where you'll add the API definition file.
 1. Add this workflow file in the  `/.github/workflows/` path in your GitHub repository.
+1. Set the [Actions variables](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables) `SERVICE_NAME` and `RESOURCE_GROUP` in your repo for your API center name and resource group name in Azure.
 
 > [!TIP]
-> Using the [Visual Studio Code extension](build-register-apis-vscode-extension.md) for Azure API Center, you can generate a starting workflow file by running an extension command. In the Command Palette, select **Azure API Center: Register APIs**. Select **CI/CD** > **GitHub**. You can then modify the file for your scenario.
+> Using the [Visual Studio Code extension](build-register-apis-vscode-extension.md) for Azure API Center, you can generate a starting workflow file by running an extension command. In the Command Palette, select **Azure API Center: Register APIs**. Select **CI/CD** > **GitHub**. You can then modify or extend the file for your scenario.
 
 ```yml
 name: Register API Definition to Azure API Center
 on:
   pull_request:
-    types: [closed]
+    types: [ closed ]
     branches:
-      - main
+      - [ "main" ]
     paths:
       - "APIs/**/*.json"
 permissions:
   contents: read
   pull-requests: read
-env:
-  # set this to your Azure API Center resource group name
-  RESOURCE_GROUP: <YOUR_RESOURCE_GROUP>
-  # set this to your Azure API Center service name
-  SERVICE_NAME: <YOUR_API_CENTER>
 jobs:
   register:
     runs-on: ubuntu-latest
     environment: production
     steps:
       - uses: actions/checkout@v2
-    
+      
       - name: Get specification file path in the PR
         id: get-file-location
         uses: actions/github-script@v5
@@ -180,23 +175,24 @@ jobs:
             });
             if (files.data.length === 1) {
               const filename = files.data[0].filename;
-              core.exportVariable('API_FILE_LOCATION', hfilename);
+              core.exportVariable('API_FILE_LOCATION', filename);
               console.log(`API_FILE_LOCATION: ${{ env.API_FILE_LOCATION }}`);
             }
             else {
               console.log('The PR does not add exactly one specification file.');
             }
+
       - name: Azure login
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-          
+
       - name: Register to API Center
         uses: azure/CLI@v2
         with:
           azcliversion: latest
           inlineScript: |
-            az apic api register -g ${{ env.RESOURCE_GROUP }} -n ${{ env.SERVICE_NAME }} --api-location ${{ env.API_FILE_LOCATION }}
+            az apic api register -g ${{ vars.RESOURCE_GROUP }} -n ${{ vars.SERVICE_NAME }} --api-location ${{ env.API_FILE_LOCATION }}
 ```
 
 
@@ -258,7 +254,7 @@ You can extend the GitHub Actions workflow to include other steps, such as addin
         with:
           azcliversion: latest
           inlineScript: |
-            az apic api update -g ${{ env.RESOURCE_GROUP }} -n ${{ env.SERVICE_NAME }} --api-id {{ env.API_ID }} --custom-properties {{ env.METADATA_FILE }}
+            az apic api update -g ${{ vars.RESOURCE_GROUP }} -n ${{ vars.SERVICE_NAME }} --api-id {{ env.API_ID }} --custom-properties {{ env.METADATA_FILE }}
     ```
 
 ## Related content

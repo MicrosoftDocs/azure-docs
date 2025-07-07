@@ -2,12 +2,12 @@
 title: Manage device reconnections to create resilient applications
 titleSuffix: Azure IoT
 description: Manage the device connection and reconnection process to ensure resilient applications by using the Azure IoT Hub device SDKs.
-services: iot-develop
-author: timlt
-ms.author: timlt
-ms.date: 04/04/2024
+services: azure-iot
+author: dominicbetts
+ms.author: dobett
+ms.date: 1/10/2025
 ms.topic: conceptual
-ms.service: iot
+ms.service: azure-iot
 ms.custom: [amqp, mqtt, devx-track-csharp]
 ---
 
@@ -33,7 +33,7 @@ A high number of connection attempts per second can cause a condition similar to
 
 ### Hub failure or reconfiguration could disconnect many devices
 
-After an IoT hub experiences a failure, or after you reconfigure service settings on an IoT hub, devices might be disconnected. For proper failover, disconnected devices require reprovisioning.  To learn more about failover options, see [IoT Hub high availability and disaster recovery](../iot-hub/iot-hub-ha-dr.md).
+After an IoT hub experiences a failure, or after you reconfigure service settings on an IoT hub, devices might be disconnected. For proper failover, disconnected devices require reprovisioning.  To learn more about failover options, see [Reliability in Azure IoT Hub](/azure/reliability/reliability-iot-hub).
 
 ### Reprovisioning many devices could increase costs
 

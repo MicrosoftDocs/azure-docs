@@ -19,6 +19,7 @@ ms.subservice: b2c
 ---
 
 # Define a technical profile for a SAML token issuer in an Azure Active Directory B2C custom policy
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -51,7 +52,7 @@ The following example shows a technical profile for `Saml2AssertionIssuer`:
 
 ## Input, output, and persist claims
 
-The **InputClaims**, **OutputClaims**, and **PersistClaims** elements are empty or absent. The **InutputClaimsTransformations** and **OutputClaimsTransformations** elements are also absent.
+The **InputClaims**, **OutputClaims**, and **PersistClaims** elements are empty or absent. The **InputClaimsTransformations** and **OutputClaimsTransformations** elements are also absent.
 
 ## Metadata
 

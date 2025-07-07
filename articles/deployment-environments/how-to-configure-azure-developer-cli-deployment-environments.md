@@ -5,13 +5,13 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.topic: how-to
-ms.date: 10/11/2024
+ms.date: 11/27/2024
 
 # Customer intent: As a developer, I want to use ADE and `azd` together to provision application infrastructure and deploy application code to the new infrastructure.
 
 ---
 
-# Configure Azure Developer CLI with Azure Deployment Environments
+# Create an environment from an Azure Developer CLI template
 
 In this article, you create a new environment from an existing Azure Developer CLI (`azd`) compatible template by using `azd`. You learn how to configure Azure Deployment Environments (ADE) and `azd` to work together to provision application infrastructure and deploy application code to the new infrastructure.
 
@@ -73,9 +73,9 @@ When you install `azd`, the `azd` tools are installed within an `azd` scope rath
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
-To enable Azure Developer CLI features in Visual Studio Code, install the Azure Developer CLI extension, version v0.8.0-alpha.1-beta.3173884. Select the **Extensions** icon in the Activity bar, search for **Azure Developer CLI**, and then select **Install**.
+To enable Azure Developer CLI features in Visual Studio Code, install the Azure Developer CLI extension. Select the **Extensions** icon in the Activity bar, search for **Azure Developer CLI**, and then select **Install**.
 
-:::image type="content" source="media/how-to-create-environment-with-azure-developer/install-azure-developer-cli-small.png" alt-text="Screenshot of Visual Studio Code, showing the Sign in command in the command palette." lightbox="media/how-to-create-environment-with-azure-developer/install-azure-developer-cli-large.png":::
+:::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/install-azure-developer-cli-small.png" alt-text="Screenshot of Visual Studio Code, showing the Sign in command in the command palette." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/install-azure-developer-cli-large.png":::
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
 
@@ -93,11 +93,11 @@ Sign in to `azd` using the command palette:
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
-:::image type="content" source="media/how-to-create-environment-with-azure-developer/azure-developer-sign-in.png" alt-text="Screenshot of Visual Studio Code, showing the Extensions pane with the Azure Developer CLI and Install highlighted." lightbox="media/how-to-create-environment-with-azure-developer/azure-developer-sign-in.png":::
+:::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/azure-developer-sign-in.png" alt-text="Screenshot of Visual Studio Code, showing the Extensions pane with the Azure Developer CLI and Install highlighted." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/azure-developer-sign-in.png":::
 
 The output of commands issued from the command palette is displayed in an **azd dev** terminal like the following example:
 
-:::image type="content" source="media/how-to-create-environment-with-azure-developer/press-any-key.png" alt-text="Screenshot of the AZD developer terminal, showing the press any key to close message." lightbox="media/how-to-create-environment-with-azure-developer/press-any-key.png":::
+:::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/press-any-key.png" alt-text="Screenshot of the AZD developer terminal, showing the press any key to close message." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/press-any-key.png":::
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
 
@@ -107,7 +107,7 @@ Sign in to Azure at the CLI using the following command:
  azd auth login
 ```
 
-:::image type="content" source="media/how-to-create-environment-with-azure-developer/login.png" alt-text="Screenshot showing the azd auth login command and its result in the terminal." lightbox="media/how-to-create-environment-with-azure-developer/login.png":::
+:::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/login.png" alt-text="Screenshot showing the azd auth login command and its result in the terminal." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/login.png":::
 
 ---
 
@@ -117,7 +117,7 @@ When `platform.type` is set to `devcenter`, all `azd` remote environment state a
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
-:::image type="content" source="media/how-to-create-environment-with-azure-developer/azure-developer-enable-support.png" alt-text="Screenshot of Visual Studio Code, showing the Enable support command in the command palette." lightbox="media/how-to-create-environment-with-azure-developer/azure-developer-enable-support.png":::
+:::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/azure-developer-enable-support.png" alt-text="Screenshot of Visual Studio Code, showing the Enable support command in the command palette." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/azure-developer-enable-support.png":::
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
 
@@ -136,7 +136,7 @@ Now you're ready to create an environment to work in. You begin with an existing
 
 1. Open the command palette, enter *Azure Developer CLI init*, and then from the list, select **Azure Developer CLI (azd): init**.
  
-    :::image type="content" source="media/how-to-create-environment-with-azure-developer/command-palette-azure-developer-initialize.png" alt-text="Screenshot of the Visual Studio Code command palette with Azure Developer CLI (azd): init highlighted." lightbox="media/how-to-create-environment-with-azure-developer/command-palette-azure-developer-initialize.png":::
+    :::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/command-palette-azure-developer-initialize.png" alt-text="Screenshot of the Visual Studio Code command palette with Azure Developer CLI (azd): init highlighted." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/command-palette-azure-developer-initialize.png":::
  
 1. In the list of templates, select **Function-App-with-Cosmos_AZD-template**.
 
@@ -217,12 +217,9 @@ To learn more about the settings you can configure, see [Configure dev center se
 
 You can use `azd` to provision and deploy resources to your deployment environments using commands like `azd up` or `azd provision`. 
 
-To learn more about provisioning your environment, see [Create an environment by using the Azure Developer CLI](how-to-create-environment-with-azure-developer.md#provision-infrastructure-to-azure-deployment-environment).
-
-To how common `azd` commands work with ADE, see [Work with Azure Deployment Environments](/azure/developer/azure-developer-cli/ade-integration?branch=main#work-with-azure-deployment-evironments).
+To learn more about provisioning your environment, see [Work with Azure Deployment Environments](/azure/developer/azure-developer-cli/ade-integration?branch=main#work-with-azure-deployment-evironments).
 
 
 ## Related content
 
-- [Add and configure an environment definition](./configure-environment-definition.md)
-- [Create an environment by using the Azure Developer CLI](./how-to-create-environment-with-azure-developer.md)
+- [Azure Developer CLI and Azure Deployment Environments](concept-azure-developer-cli-with-deployment-environments.md)

@@ -9,9 +9,13 @@ ms.date: 09/19/2023
 
 Microsoft Defender for IoT helps organizations achieve and maintain compliance of their OT environment by providing a comprehensive solution for threat detection and management, including coverage across parallel networks. Defender for IoT supports organizations across the industrial, energy, and utility fields, and compliance organizations like NERC CIP or IEC62443.
 
+> [!IMPORTANT]
+> The legacy on-premises management console won't be supported or available for download after January 1st, 2025. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [On-premises management console retirement](on-premises-management-console-retirement.md).
+>
+
 Certain industries, such as governmental organizations, financial services, nuclear power operators, and industrial manufacturing, maintain air-gapped networks. Air-gapped networks are physically separated from other, unsecured networks like enterprise networks, guest networks, or the internet. Defender for IoT helps these organizations comply with global standards for threat detection and management, network segmentation, and more.
 
-While digital transformation has helped businesses to streamline their operations and improve their bottom lines, they often face friction with air-gapped networks. The isolation in air-gapped networks provides security but also complicates digital transformation. For example, architectural designs such as Zero Trust, which include the use of multi-factor authentication, are challenging to apply across air-gapped networks.
+While digital transformation has helped businesses to streamline their operations and improve their bottom lines, they often face friction with air-gapped networks. The isolation in air-gapped networks provides security but also complicates digital transformation. For example, architectural designs such as Zero Trust, which include the use of multifactor authentication, are challenging to apply across air-gapped networks.
 
 Air-gapped networks are often used to store sensitive data or control cyber physical systems that are not connected to any external network, making them less vulnerable to cyberattacks. However, air-gapped networks are not completely secure and can still be breached. It's therefore imperative to monitor air-gapped networks to detect and respond to any potential threats.
 
@@ -61,52 +65,8 @@ Use the following steps to deploy a Defender for IoT system in an air-gapped or 
 
     - **Configure a backup server**, including configurations to save your backup to an external server. For more information, see [Back up and restore OT network sensors from the sensor console](../back-up-restore-sensor.md).
 
-## Transitioning from a legacy on-premises management console
-
-> [!IMPORTANT]
-> The [legacy on-premises management console](../legacy-central-management/legacy-air-gapped-deploy.md) won't be supported or available for download after January 1st, 2025. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date.
->
-
-Our [current architecture guidance](#architecture-recommendations) is designed to be more efficient, secure, and reliable than using the legacy on-premises management console. The updated guidance has fewer components, which makes it easier to maintain and troubleshoot. The smart sensor technology used in the new architecture allows for on-premises processing, reducing the need for cloud resources and improving performance. The updated guidance keeps your data within your own network, providing better security than cloud computing.
-
-If you're an existing customer using an on-premises management console to manage your OT sensors, we recommend transitioning to the updated architecture guidance. The following image shows a graphical representation of the transition steps to the new recommendations:
-
-:::image type="content" source="../media/on-premises-architecture/transition.png" alt-text="Diagram of the transition from a legacy on-premises management console to the newer recommendations." border="false" lightbox="../media/on-premises-architecture/transition.png":::
-
-- **In your legacy configuration**, all sensors are connected to the on-premises management console.
-- **During the transition period**, your sensors remain connected to the on-premises management console while you connect any sensors possible to the cloud.
-- **After fully transitioning**, you'll remove the connection to the on-premises management console, keeping cloud connections where possible. Any sensors that must remain air-gapped are accessible directly from the sensor UI.
-
-**Use the following steps to transition your architecture:**
-
-1. For each of your OT sensors, identify the legacy integrations in use and the permissions currently configured for on-premises security teams. For example, what backup systems are in place? Which user groups access the sensor data?
-
-1. Connect your sensors to on-premises, Azure, and other cloud resources, as needed for each site. For example, connect to an on-premises SIEM, proxy servers, backup storage, and other partner systems. You may have multiple sites and adopt a hybrid approach, where only specific sites are kept completely air-gapped or isolated using data-diodes.
-
-    For more information, see the information linked in the [air-gapped deployment procedure](#deployment-steps), as well as the following cloud resources:
-
-    - [Provision sensors for cloud management](provision-cloud-management.md)
-    - [OT threat monitoring in enterprise SOCs](../concept-sentinel-integration.md)
-    - [Securing IoT devices in the enterprise](../concept-enterprise.md)
-
-1. Set up permissions and update procedures for accessing your sensors to match the new deployment architecture.
-
-1. Review and validate that all security use cases and procedures have transitioned to the new architecture.
-
-1. After your transition is complete, decommission the on-premises management console.
-
-
-### Retirement timeline
-
-The on-premises management console retirement includes the following details:
-
-- Sensor versions released after **January 1, 2025** won't be able to be managed by an on-premises management console.
-- Sensor software versions released between **January 1st, 2024 – January 1st, 2025** will continue to support an on-premises management console release.
-- Air-gapped sensors that cannot connect to the cloud can be managed directly via the sensor console, CLI, or API.
-
-For more information, see [OT monitoring software versions](../release-notes.md).
 
 ## Next steps
 
 > [!div class="step-by-step"]
-> [Maintain OT network sensors from the sensor console](../how-to-manage-individual-sensors.md)
+> [Transition from a legacy on-premises management console to the cloud](transition-on-premises-management-console-to-cloud.md)

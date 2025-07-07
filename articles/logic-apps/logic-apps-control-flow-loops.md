@@ -1,6 +1,6 @@
 ---
-title: Add loops to repeat actions
-description: Create loops to repeat actions in workflows using Azure Logic Apps.
+title: Repeat actions in workflows with loops
+description: Repeat actions with loops in workflows for Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -8,17 +8,23 @@ ms.topic: how-to
 ms.date: 09/13/2023
 ---
 
-# Create loops to repeat actions in workflows with Azure Logic Apps
+# Add loops to repeat actions in workflows for Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-Azure Logic Apps includes the following loop actions that you can use in your workflow:
+To repeat actions in a logic app workflow, Azure Logic Apps supports adding loop actions to your workflow for this task.
 
-* To repeat one or more actions on items in an array, add the [**For each** action](#foreach-loop) to your workflow.
+> [!NOTE]
+>
+> Looking for Power Automate documentation about loops? See [Using loops](/power-automate/desktop-flows/use-loops).
+
+Based on your use case, you can choose from the following types of loop actions:
+
+* To repeat one or more actions on items in an array or collection, add the [**For each** action](#foreach-loop) to your workflow.
 
   Alternatively, if you have a trigger that receives an array and want to run an iteration for each array item, you can *debatch* that array with the [**SplitOn** trigger property](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
-* To repeat one or more actions until a condition gets met or a state changes, add the [Until action](#until-loop) to your workflow.
+* To repeat one or more actions until a condition is met or a specific state changes, add the [**Until** action](#until-loop) to your workflow.
 
   Your workflow first runs all the actions inside the loop, and then checks the condition or state. If the condition is met, the loop stops. Otherwise, the loop repeats. For the default and maximum limits on the number of **Until** loops that a workflow can have, see [Concurrency, looping, and debatching limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
@@ -232,12 +238,41 @@ The following list contains some common scenarios where you can use an **Until**
 
 * Create a record in a database. Wait until a specific field in that record gets approved. Continue processing.
 
-In the following example workflow, starting at 8:00 AM each day, the **Until** action increments a variable until the variable's value equals 10. The workflow then sends an email that confirms the current value.
+By default, the **Until** loop succeeds or fails in the following ways:
 
-> [!NOTE]
->
-> This example uses Office 365 Outlook, but you can use [any email provider that Azure Logic Apps supports](/connectors/). 
-> If you use another email account, the general steps stay the same, but your UI might look slightly different.
+- The **Until** loop succeeds if all the actions inside the loop succeed, and if the loop limit is reached, based on the run after behavior.
+
+- If all actions in last iteration of the **Until** loop succeed, the entire **Until** loop is marked as **Succeeded**.
+
+- If any action fails in the last iteration of the **Until** loop, the entire **Until** loop is marked as **Failed**.
+
+- If any action fails in an iteration other than the last iteration, the next iteration continues to run, and the entire **Until** loop isn't marked as **Failed**.
+
+  To make the loop fail instead, you can change the default behavior in the loop's JSON definition by adding the parameter named **`operationOptions`**, and setting the value to **`FailWhenLimitsReached`**, for example:
+
+  ```json
+  "Until": {
+     "actions": {
+       "Execute_stored_procedure": {
+         <...>
+         }
+       },
+       "expression": "@equals(variables('myUntilStop'), true)",
+       "limit": {
+         "count": 5,
+         "timeout": "PT1H"
+       },
+       "operationOptions": "FailWhenLimitsReached",
+       "runAfter": {
+       "Initialize_variable_8": [
+         "Succeeded"
+       ]
+     },
+  "type": "Until"
+  }
+  ```
+
+In the following example workflow, starting at 8:00 AM each day, the **Until** action increments a variable until the variable's value equals 10. The workflow then sends an email that confirms the current value. The example uses Office 365 Outlook, but you can use [any email provider that Azure Logic Apps supports](/connectors/). If you use another email account, the general steps stay the same, but your UI might look slightly different.
 
 ### [Consumption](#tab/consumption)
 
@@ -489,16 +524,13 @@ if any of the following conditions happen:
                "body": {
                   "resourceId": "@triggerBody()"
                },
-               "url": "https://domain.com/provisionResource/create-resource",
-               "body": {
-                  "resourceId": "@triggerBody()"
-               }
+               "url": "https://domain.com/provisionResource/create-resource"
             },
             "runAfter": {},
             "type": "ApiConnection"
          }
       },
-      "expression": "@equals(triggerBody(), 'Completed')",
+      "expression": "@equals(body('Create_new_resource'), 'Completed')",
       "limit": {
          "count": 10,
          "timeout": "PT2H"

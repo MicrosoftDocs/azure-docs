@@ -3,11 +3,11 @@ metadata:
   title: Azure Private DNS FAQ
   description: In this article, learn frequently asked questions about Azure Private DNS
   services: dns
-  author: greg-lindsay
+  author: asudbring
   ms.service: azure-dns
   ms.topic: faq
   ms.date: 09/23/2024
-  ms.author: greglin
+  ms.author: allensu
 title: Azure Private DNS FAQ
 summary: The following are frequently asked questions about Azure private DNS.
 

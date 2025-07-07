@@ -75,14 +75,14 @@ The following table lists the fields that can appear in the HTTP response when r
 
 | Bing Maps response field                | Azure Maps response field       | Description |
 |-----------------------------------------|---------------------------------|-------------|
-| imageHeight (Json)<BR>ImageWidth (XML)  | Not supported  | Azure Maps Get Map Tile API provides the map tile image directly in the HTML response (binary image string) and offers 256 x 256 and 512 x 512 pixel tile sizes.  |
-| imageUrl (Json)<BR>ImageUrl (XML)       | Not supported  | Azure Maps Get Map Tile API provides the map tile image directly in the HTML response (binary image string), as opposed to an image URL. |
-| imageUrlSubdomains (Json)<BR>ImageUrlSubdomains (XML)  | Not supported  | Azure Maps Get Map Tile API provides the map tile image directly in the HTML response (binary image string), as opposed to an image URL. |
-| imageWidth (Json)<BR>ImageWidth (XML)   | Not supported  | Azure Maps Get Map Tile API provides the map tile image directly in the HTML response (binary image string) and offers 256 x 256 and 512 x 512 pixel tile sizes.  |
-| vintageEnd (Json)<BR>VintageEnd (XML)    | Not supported  | Azure Maps Get Map Tile API provides map tile vintage information in the response header (Data-Capture-Date-Range<SUP>**1**</SUP>), rather than in the response body. |
-| vintageStart (Json)<BR>VintageStart (XML)| Not supported  | Azure Maps Get Map Tile API provides map tile vintage information in the response header (Data-Capture-Date-Range<SUP>**1**</SUP>), rather than in the response body. |
-| zoomMax (Json)<BR>ZoonMax (XML)          | Not supported  | For information on zoom levels and maximum zoom supported by map tile styles, see [Zoom levels and tile grid] and [TilesetID].|
-| zoomMin (Json)<BR>ZoomMin (XML)          | Not supported  | For information on zoom levels and maximum zoom supported by map tile styles, see [Zoom levels and tile grid] and [TilesetID].  |
+| imageHeight (JSON)<BR>ImageWidth (XML)  | Not supported  | Azure Maps Get Map Tile API provides the map tile image directly in the HTML response (binary image string) and offers 256 x 256 and 512 x 512 pixel tile sizes.  |
+| imageUrl (JSON)<BR>ImageUrl (XML)       | Not supported  | Azure Maps Get Map Tile API provides the map tile image directly in the HTML response (binary image string), as opposed to an image URL. |
+| imageUrlSubdomains (JSON)<BR>ImageUrlSubdomains (XML)  | Not supported  | Azure Maps Get Map Tile API provides the map tile image directly in the HTML response (binary image string), as opposed to an image URL. |
+| imageWidth (JSON)<BR>ImageWidth (XML)   | Not supported  | Azure Maps Get Map Tile API provides the map tile image directly in the HTML response (binary image string) and offers 256 x 256 and 512 x 512 pixel tile sizes.  |
+| vintageEnd (JSON)<BR>VintageEnd (XML)    | Not supported  | Azure Maps Get Map Tile API provides map tile vintage information in the response header (Data-Capture-Date-Range<SUP>**1**</SUP>), rather than in the response body. |
+| vintageStart (JSON)<BR>VintageStart (XML)| Not supported  | Azure Maps Get Map Tile API provides map tile vintage information in the response header (Data-Capture-Date-Range<SUP>**1**</SUP>), rather than in the response body. |
+| zoomMax (JSON)<BR>ZoonMax (XML)          | Not supported  | For information on zoom levels and maximum zoom supported by map tile styles, see [Zoom levels and tile grid] and [TilesetID].|
+| zoomMin (JSON)<BR>ZoomMin (XML)          | Not supported  | For information on zoom levels and maximum zoom supported by map tile styles, see [Zoom levels and tile grid] and [TilesetID].  |
 
 <SUP>**1**</SUP> When using Azure Maps API to obtain RGB satellite images, you can also retrieve information about the acquisition date. The HTTP response includes a header called **Data-Capture-Date-Range**, which provides a date range indicating when the image was captured. For instance, it might appear as “7/31/2022-9/1/2023”. Keep in mind that satellite imagery often spans a date range due to batch processing and the stitching together of multiple images from different dates to create seamless maps. So, while a single date isn’t always applicable, the date range gives you insight into when the image data was collected.
 

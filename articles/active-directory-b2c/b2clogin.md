@@ -1,7 +1,7 @@
 ---
 title: Migrate applications and APIs to b2clogin.com
 titleSuffix: Azure AD B2C
-description: Learn about using b2clogin.com in your redirect URLs for Azure Active Directory B2C.
+description: Learn how to update redirect URLs in Azure AD B2C applications to use b2clogin.com or a custom domain for authentication endpoints.
 
 author: kengaderdus
 manager: CelesteDG
@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 02/26/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 
@@ -19,6 +19,7 @@ ms.subservice: b2c
 ---
 
 # Set redirect URLs to b2clogin.com for Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 When you set up an identity provider for sign-up and sign-in in your Azure Active Directory B2C (Azure AD B2C) applications, you need to specify the endpoints of the Azure AD B2C identity provider. You should no longer reference *login.microsoftonline.com* in your applications and APIs for authenticating users with Azure AD B2C. Instead, use *b2clogin.com* or a [custom domain](./custom-domain.md) for all applications.
 
@@ -40,9 +41,9 @@ With Azure AD B2C [custom domain](./custom-domain.md) the corresponding updated 
 - <code>https://<b>login.contoso.com</b>/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/authorize</code> or <code>https://<b>login.contoso.com</b>/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/authorize?<b>p=\<policy-name\></b></code> for the `/authorize` endpoint.
 - <code>https://<b>login.contoso.com</b>/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/logout</code> or <code>https://<b>login.contoso.com</b>/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/logout?<b>p=\<policy-name\></b></code> for the `/logout` endpoint.
 
-## Endpoints that are not affected
+## Endpoints that aren't affected
 
-Some customers use the shared capabilities of Microsoft Entra enterprise tenants. For example, acquiring an access token to call the [MS Graph API](microsoft-graph-operations.md#code-discussion) of the Azure AD B2C tenant.
+Some customers use the shared capabilities of Microsoft Entra enterprise tenants. For example, acquiring an access token to call the [MS Graph API](microsoft-graph-operations.md) of the Azure AD B2C tenant.
 
 This change doesn't affect all endpoints, which don't contain a policy parameter in the URL. They're accessed only with the Microsoft Entra ID's login.microsoftonline.com endpoints, and can't be used with the *b2clogin.com*, or custom domains. The following example shows a valid token endpoint of the Microsoft identity platform:
 
@@ -63,7 +64,6 @@ There are several modifications you might need to make to migrate your applicati
 * Change the redirect URL in your identity provider's applications to reference *b2clogin.com*, or custom domain. For more information, follow the [change identity provider redirect URLs](#change-identity-provider-redirect-urls) guidance.
 * Update your Azure AD B2C applications to use *b2clogin.com*, or custom domain in their user flow and token endpoint references. The change may include updating your use of an authentication library like Microsoft Authentication Library (MSAL).
 * Update any **Allowed Origins** that you define in the CORS settings for [user interface customization](customize-ui-with-html.md).
-
 
 ## Change identity provider redirect URLs
 
@@ -146,7 +146,7 @@ this.clientApplication = new UserAgentApplication(
 );
 ```
 
-## Next steps
+## Related content
 
 For information about migrating OWIN-based web applications to b2clogin.com, see [Migrate an OWIN-based web API to b2clogin.com](multiple-token-endpoints.md).
 

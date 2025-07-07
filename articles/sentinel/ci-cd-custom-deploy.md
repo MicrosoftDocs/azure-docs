@@ -2,11 +2,14 @@
 title: Customize repository deployments
 titleSuffix: Microsoft Sentinel
 description: This article describes how to customize repository deployments for the repositories feature in Microsoft Sentinel.
-author: austinmccollum
+author: mberdugo 
 ms.topic: how-to
-ms.date: 3/13/2024
-ms.author: austinmc
-
+ms.date: 12/31/2024
+ms.author: monaberdugo 
+appliesto:
+    - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
+ms.collection: usx-security
 
 #Customer intent: As a SOC collaborator or MSSP analyst, I want to customize repository deployment workflows and pipelines so that I can control deployment triggers, paths, and parameter mappings for efficient and tailored content deployment to cloud workspaces.
 
@@ -16,30 +19,30 @@ ms.author: austinmc
 
 There are two primary ways to customize the deployment of your repository content to Microsoft Sentinel workspaces. Each method uses different files and syntax, so consider these examples to get you started.
 
-- Modify the GitHub workflow or DevOps pipeline to customize deployment options such as your connection's deployment trigger, deployment path, or usage of smart deployments.
-
-- Utilize the newly introduced configuration file to control the prioritized order of your content deployments, choose to *exclude* specific content files from those deployments, or map parameter files to specific content files. 
+| Customization method | Deployment options covered |
+|---|---|
+| GitHub workflow<br>DevOps pipeline | Customize your connection's deployment trigger<br>Customize your deployment path<br>Smart deployments enablement|
+| Configuration files | Control the prioritized order of your content deployments<br>Choose to *exclude* specific content files from deployments<br>Scale deployments across different workspaces by mapping parameter files to specific content files|
 
 > [!IMPORTANT]
 >
-> The Microsoft Sentinel **Repositories** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Microsoft Sentinel **Repositories** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for more legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 
-## Prerequisites and scope
+## Prerequisites
 
-Microsoft Sentinel currently supports connections to GitHub and Azure DevOps repositories. Before connecting your Microsoft Sentinel workspace to your source control repository, make sure that you have:
+In order to customize a repositories deployment, a repository connection must exist. For more information on creating the connection, see [Deploy custom content from your repository](ci-cd.md#prerequisites).
+After the connection is made, the following prerequisites apply:
 
-- An **Owner** role in the resource group that contains your Microsoft Sentinel workspace *or* a combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection
 - Collaborator access to your GitHub repository or Project Administrator access to your Azure DevOps repository
 - Actions enabled for GitHub and Pipelines enabled for Azure DevOps
-- Ensure custom content files you want to deploy to your workspaces are in relevant [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/index.yml)
+- Ensure custom content files you want to deploy to your workspaces are in a supported format. For supported formats, see [Plan your repository content](ci-cd-custom-content.md#plan-your-repository-content).
 
-For more information, see [Validate your content](ci-cd-custom-content.md#validate-your-content).
-
+For more information on deployable content types, see [Validate your content](ci-cd-custom-content.md#validate-your-content).
 
 ## Customize the workflow or pipeline
 
-The default workflow only deploys content modified since the last deployment, based on commits to the repository. But you may need other customizations such as to configure different deployment triggers, or to deploy content exclusively from a specific root folder.
+The default workflow only deploys content modified since the last deployment, based on commits to the repository. Customize to configure different deployment triggers, or to deploy content exclusively from a specific root folder.
 
 Select one of the following tabs depending on your connection type:
 
@@ -69,7 +72,7 @@ Select one of the following tabs depending on your connection type:
                 - `.github/workflows/sentinel-deploy-<deployment-id>.yml`
         ```
 
-        You may want to change these settings, for example, to schedule the workflow to run periodically, or to combine different workflow events together.
+        Change these settings, for example, to schedule the workflow to run periodically, or to combine different workflow events together.
 
         For more information, see the [GitHub documentation](https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#configuring-workflow-events) on configuring workflow events.
 
@@ -132,7 +135,7 @@ For more information, see the [GitHub documentation](https://docs.github.com/en/
 
         This default configuration means that a deployment pipeline is triggered anytime that content is pushed to any part of the `main` branch.
 
-        To deploy content from a specific folder path only, add the folder name to the `include` section, for the trigger, and the `steps` section, for the deployment path, below as needed.
+        To deploy content from a specific folder path only, add the folder name to the `include` section for the trigger and the deployment path to the `steps` section.
 
         For example, to deploy content only from a root folder named `SentinelContent` in your `main` branch, add `include` and `workingDirectory` settings to your code as follows:
 
@@ -161,41 +164,49 @@ For more information, see the [Azure DevOps documentation](/azure/devops/pipelin
 
 ## Scale your deployments with parameter files
 
-Rather than passing parameters as inline values in your content files, consider [using a JSON file that contains the parameter values](../azure-resource-manager/templates/parameter-files.md). Then map those parameter JSON files to their associated Sentinel content files to better scale your deployments across different workspaces. There are several ways to map parameter files to Sentinel files, and the repositories deployment pipeline considers them in the following order: 
- 
-:::image type="content" source="media/ci-cd-custom-deploy/deploy-parameter-file-precedence.svg" alt-text="A diagram showing the precedence of parameter file mappings.":::
+Rather than passing parameters as inline values in your content files, consider [using a Bicep parameter file](../azure-resource-manager/bicep/parameter-files.md) or a [JSON file that contains the parameter values](../azure-resource-manager/templates/parameter-files.md). Then map those parameter files to their associated Microsoft Sentinel content files to better scale your deployments across different workspaces. 
 
-1. Is there a mapping in the *sentinel-deployment.config*? For more information, see [Customize your connection configuration](ci-cd-custom-deploy.md#customize-your-connection-configuration).
-1. Is there a workspace-mapped parameter file? Yes it is a parameter file in the same directory as the content files that ends with *.parameters-\<WorkspaceID>.json*
-1. Is there a default parameter file? Yes, any parameter file in the same directory as the content files that ends with *.parameters.json*
+There are several ways to map parameter files to the content files. Keep in mind, Bicep parameter files only support Bicep file templates, but JSON parameter files support both. The repositories deployment pipeline considers parameter files in the following order: 
+ 
+:::image type="content" source="media/ci-cd-custom-deploy/deploy-parameter-file-precedence-with-bicep.svg" alt-text="A diagram showing the precedence of parameter file mappings.":::
+
+1. Is there a mapping in the *sentinel-deployment.config*?</br>For more information, see [Customize your connection configuration](ci-cd-custom-deploy.md#customize-your-connection-configuration).
+
+1. Is there a workspace-mapped parameter file? Yes, the content files are in the same directory with a workspace-mapped parameter file matching one of these patterns:
+   </br>*.\<WorkspaceID>.bicepparam*
+   </br>*.parameters-\<WorkspaceID>.json*
+
+1. Is there a default parameter file? Yes, the content files are in the same directory with a parameter file matching one of these patterns:
+   </br>*.bicepparam*
+   </br>*.parameters.json*
      
-It is encouraged to map your parameter files through the configuration file or by specifying the workspace ID in the file name to avoid clashes in scenarios with multiple deployments.
+Avoid clashes with multiple workspace deployments by mapping your parameter files through the configuration file or specifying the workspace ID in the file name.
 
 > [!IMPORTANT]
-> Once a parameter file match is determined based on the above mapping precedence, the pipeline will ignore any remaining mappings.
+> Once a parameter file match is determined based on the mapping precedence, the pipeline ignores any remaining mappings.
 > 
 
-Modifying the mapped parameter file listed in the sentinel-deployment.config triggers the deployment of its paired content file. Adding or modifying a *.parameters-\<WorkspaceID\>.json* file or *.parameters.json* file also triggers a deployment of the paired content files along with the newly modified parameters, unless a higher precedence parameter mappings is in place. Other content files aren't deployed as long as the smart deployments feature is still enabled in the workflow/pipeline definition file.
+Modifying the mapped parameter file listed in the *sentinel-deployment.config* triggers the deployment of its paired content file. Adding or modifying a workspace-mapped parameter file or a default parameter file also triggers a deployment of the paired content files along with the newly modified parameters, unless a higher precedence parameter mapping is in place. Other content files aren't deployed as long as the smart deployments feature is still enabled in the workflow/pipeline definition file.
 
 ## Customize your connection configuration
 
 The deployment script for repositories supports the usage of a deployment configuration file for each repository branch as of July 2022. The configuration JSON file helps you map parameter files to relevant content files, prioritize specific content in deployments, and exclude specific content from deployments.
 
 
-1. Create the file *sentinel-deployment.config* at the root of your repository. Adding, deleting, or modifying this configuration file will cause a full deployment of all the content in the repository according to the updated configuration.
+1. Create the file *sentinel-deployment.config* at the root of your repository. Adding, deleting, or modifying this configuration file triggers a full deployment of all the content in the repository according to the updated configuration.
 
      :::image type="content" source="media/ci-cd-custom-deploy/deployment-config.png" alt-text="Screenshot of a repository root directory. The RepositoriesSampleContent is shown with the location of the sentinel-deployment.config file." lightbox="media/ci-cd-custom-deploy/deployment-config.png":::
 
-1. Include JSON structured content in three optional sections, `"prioritizedcontentfiles":`, `"excludecontentfiles":`, and `"parameterfilemappings":`. If no sections are included or the .config file is omitted, the deployment process still runs. Invalid or unrecognized sections are ignored.
+1. Include your structured content in three optional sections, `"prioritizedcontentfiles":`, `"excludecontentfiles":`, and `"parameterfilemappings":`. If no sections are included or the .config file is omitted, the deployment process still runs. Invalid or unrecognized sections are ignored.
 
-Here's an example of the entire contents of a valid *sentinel-deployment.config* file. This sample can also be found at the [Sentinel CICD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent). 
+Here's an example of the entire contents of a valid *sentinel-deployment.config* file. This sample can also be found at the [Microsoft Sentinel CICD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent). 
 
 ```json
 {
   "prioritizedcontentfiles": [
     "parsers/Sample/ASimAuthenticationAWSCloudTrail.json",
     "workbooks/sample/TrendMicroDeepSecurityAttackActivity_ARM.json",
-    "Playbooks/PaloAlto-PAN-OS/PaloAltoCustomConnector/azuredeploy.json"
+    "Playbooks/PaloAlto-PAN-OS/PaloAltoCustomConnector/azuredeploy.bicep"
   ], 
   "excludecontentfiles": [
      "Detections/Sample/PaloAlto-PortScanning.json",
@@ -203,7 +214,7 @@ Here's an example of the entire contents of a valid *sentinel-deployment.config*
   ],
   "parameterfilemappings": {
     "879001c8-2181-4374-be7d-72e5dc69bd2b": {
-      "Playbooks/PaloAlto-PAN-OS/Playbooks/PaloAlto-PAN-OS-BlockIP/azuredeploy.json": "parameters/samples/parameter-file-1.json"
+      "Playbooks/PaloAlto-PAN-OS/Playbooks/PaloAlto-PAN-OS-BlockIP/azuredeploy.bicep": "parameters/samples/auzredeploy.bicepparam"
     },
     "9af71571-7181-4cef-992e-ef3f61506b4e": {
       "Playbooks/Enrich-SentinelIncident-GreyNoiseCommunity-IP/azuredeploy.json": "path/to/any-parameter-file.json"
@@ -221,20 +232,21 @@ Here's an example of the entire contents of a valid *sentinel-deployment.config*
  
     As the amount of content in your repository grows, deployment times may increase. Add time sensitive content to this section to prioritize its deployment when a trigger occurs. 
     
-    Add full path names to the `"prioritizedcontentfiles":` section. Wildcard matching is not supported at this time.
+    Add full path names to the `"prioritizedcontentfiles":` section. Wildcard matching isn't supported at this time.
 
 - **To exclude content files**, modify the `"excludecontentfiles":` section with full path names of individual .json content files.
 
 - **To map parameters**:
 
-    The deployment script accepts three methods of mapping parameters as described in [Scale your deployments with parameter files](ci-cd-custom-deploy.md#scale-your-deployments-with-parameter-files). Mapping parameters through the sentinel-deployment.config takes the highest precedence and guarantees that a given parameter file is mapped to its associated content files. Simply modify the `"parameterfilemappings":` section with your target connection's workspace ID and full path names of individual .json files.
+    The deployment script accepts three methods of mapping parameters as described in [Scale your deployments with parameter files](ci-cd-custom-deploy.md#scale-your-deployments-with-parameter-files). Mapping parameters through the *sentinel-deployment.config* takes the highest precedence and guarantees that a given parameter file is mapped to its associated content files. Modify the `"parameterfilemappings":` section with your target connection's workspace ID and full path names of individual .json files.
 
 
-## Next steps
+## Related content
 
-A sample repository is available demonstrating the deployment config file and all three parameter mapping methods. For more information, see [Sentinel CICD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent).
+A sample repository is available demonstrating the deployment config file and all three parameter mapping methods. For more information, see [Microsoft Sentinel CICD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent).
 
-Consider these resources for more information about ARM templates:
-
+- [Understand the structure and syntax of Bicep files](../azure-resource-manager/bicep/file.md)
+- [Parameters in Bicep](../azure-resource-manager/bicep/parameters.md)
 - [Create Resource Manager parameter file](../azure-resource-manager/templates/parameter-files.md)
 - [Parameters in ARM templates](../azure-resource-manager/templates/parameters.md)
+

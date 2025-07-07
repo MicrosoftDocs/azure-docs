@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: spelluru
   ms.author: spelluru
-  ms.date: 02/15/2024
+  ms.date: 03/13/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -25,7 +25,7 @@ landingContent:
           - text: What is Event Hubs?
             url: event-hubs-about.md
           - text: Event Hubs for Apache Kafka
-            url: azure-event-hubs-kafka-overview.md
+            url: azure-event-hubs-apache-kafka-overview.md
           - text: Schema Registry
             url: schema-registry-overview.md
           - text: Event Hubs Capture
@@ -81,7 +81,7 @@ landingContent:
       - linkListType: overview      
         links:
           - text: What is Event Hubs for Apache Kafka?
-            url: azure-event-hubs-kafka-overview.md    
+            url: azure-event-hubs-apache-kafka-overview.md    
       - linkListType: quickstart
         links:
           - text: Stream into Event Hubs for Apache Kafka

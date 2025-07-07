@@ -8,6 +8,8 @@ ms.date: 10/16/2023
 ms.topic: conceptual
 ms.custom: references_regions 
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Availability zones support for Azure Automation
@@ -31,7 +33,7 @@ In the event when a zone is down, there's no action required by you to recover f
 
 ## Supported regions with availability zones
 
-See [Regions and Availability Zones in Azure](../reliability/availability-zones-service-support.md) for the Azure regions that have availability zones. 
+See [Azure regions with availability zone support](../reliability/availability-zones-region-support.md) for the Azure regions that have availability zones. 
 Automation accounts currently support the following regions: 
  
 - Australia East
@@ -82,4 +84,4 @@ There is no change to the [Service Level Agreement](https://azure.microsoft.com/
 
 ## Next steps
 
-- Learn more about [regions that support availability zones](../reliability/availability-zones-service-support.md).
+- Learn more about [regions that support availability zones](../reliability/availability-zones-region-support.md).

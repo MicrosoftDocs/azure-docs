@@ -1,11 +1,12 @@
 ---
 title: Use Azure Policy to help secure your Azure Firewall deployments
 description: You can use Azure Policy to help secure your Azure Firewall deployments.
-author: vhorne
-ms.author: victorh
+author: duau
+ms.author: duau
 ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 09/05/2024
+# Customer intent: "As a network administrator, I want to apply Azure Policies to govern Azure Firewall configurations, so that I can ensure compliance with security best practices and organizational standards."
 ---
 
 # Use Azure Policy to help secure your Azure Firewall deployments
@@ -107,8 +108,6 @@ Now you attempt to create a Firewall Policy with Threat Intelligence disabled.
 1. Select **Review + create**.
 
 You should see an error that says your resource was disallowed by policy, confirming that your Azure Policy doesn't allow firewall policies that have Threat Intelligence disabled.
-
-:::image type="content" source="media/firewall-azure-policy/azure-policy.png" lightbox="media/firewall-azure-policy/azure-policy.png" alt-text="Screenshot showing policy create denial.":::
 
 ## Related content
 

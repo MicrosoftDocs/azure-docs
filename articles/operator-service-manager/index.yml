@@ -92,6 +92,8 @@ landingContent:
         links:
           - text: Control Upgrade Behavior on Failure
             url: safe-upgrades-nf-level-rollback.md
+          - text: Run Tests After Install or Upgrade
+            url: safe-upgrades-helm-test.md
 
  # Card
   - title: Edge Registry and Private Link
@@ -101,14 +103,21 @@ landingContent:
           - text: Get Started with Cluster Registry
             url: get-started-with-cluster-registry.md
           - text: Get Started with Private Link
-            url: get-started-with-private-link.md           
+            url: get-started-with-private-link.md    
+      - linkListType: how-to-guide
+        links:
+          - text: Manage Network Function Operator Extension
+            url: manage-network-function-operator.md
+            
   # Card
   - title: Additional Resources
     linkLists:
       - linkListType: architecture
         links:
-          - text: Best Practices onboard and deploy
+          - text: Best Practices Onboard and Deploy
             url: best-practices-onboard-deploy.md
+          - text: Workload Configuration Management
+            url: configuration-guide.md
       - linkListType: reference
         links:
           - text: Glossary

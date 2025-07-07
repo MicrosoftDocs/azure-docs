@@ -1,6 +1,6 @@
 ---
 title: Overview of tokens - Azure Active Directory B2C
-description: Learn about the tokens used in Azure Active Directory B2C.
+description: Understand the different types of tokens used in Azure AD B2C, including ID tokens, access tokens, and refresh tokens, for secure user authentication.
 
 author: kengaderdus
 manager: CelesteDG
@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: concept-article
-ms.date: 01/11/2024
+ms.date: 02/17/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 ms.custom: b2c-support
@@ -19,6 +19,7 @@ ms.custom: b2c-support
 ---
 
 # Overview of tokens in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Azure Active Directory B2C (Azure AD B2C) emits different types of security tokens as it processes each [authentication flow](application-types.md). This article describes the format, security characteristics, and contents of each type of token.
 
@@ -55,8 +56,8 @@ The following table lists the claims that you can expect in ID tokens and access
 
 | Name | Claim | Example value | Description |
 | ---- | ----- | ------------- | ----------- |
-| Audience | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifies the intended recipient of the token. For Azure AD B2C, the audience is the application ID. Your application should validate this value and reject the token if it doesn't match. Audience is synonymous with resource. |
-| Issuer | `iss` |`https://<tenant-name>.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifies the security token service (STS) that constructs and returns the token. It also identifies the directory in which the user was authenticated. Your application should validate the issuer claim to make sure that the token came from the appropriate endpoint. |
+| Audience | `aud` | `00001111-aaaa-2222-bbbb-3333cccc4444` | Identifies the intended recipient of the token. For Azure AD B2C, the audience is the application ID. Your application should validate this value and reject the token if it doesn't match. Audience is synonymous with resource. |
+| Issuer | `iss` |`https://<tenant-name>.b2clogin.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/v2.0/` | Identifies the security token service (STS) that constructs and returns the token. It also identifies the directory in which the user was authenticated. Your application should validate the issuer claim to make sure that the token came from the appropriate endpoint. |
 | Issued at | `iat` | `1438535543` | The time at which the token was issued, represented in epoch time. |
 | Expiration time | `exp` | `1438539443` | The time at which the token becomes invalid, represented in epoch time. Your application should use this claim to verify the validity of the token lifetime. |
 | Not before | `nbf` | `1438535543` | The time at which the token becomes valid, represented in epoch time. This time is usually the same as the time the token was issued. Your application should use this claim to verify the validity of the token lifetime. |
@@ -64,7 +65,7 @@ The following table lists the claims that you can expect in ID tokens and access
 | Code hash | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | A code hash included in an ID token only when the token is issued together with an OAuth 2.0 authorization code. A code hash can be used to validate the authenticity of an authorization code. For more information about how to perform this validation, see the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html).  |
 | Access token hash | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | An access token hash included in an ID token only when the token is issued together with an OAuth 2.0 access token. An access token hash can be used to validate the authenticity of an access token. For more information about how to perform this validation, see the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | Nonce | `nonce` | `12345` | A nonce is a strategy used to mitigate token replay attacks. Your application can specify a nonce in an authorization request by using the `nonce` query parameter. The value you provide in the request is emitted unmodified in the `nonce` claim of an ID token only. This claim allows your application to verify the value against the value specified on the request. Your application should perform this validation during the ID token validation process. |
-| Subject | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | The principal about which the token asserts information, such as the user of an application. This value is immutable and can't be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. |
+| Subject | `sub` | `aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb` | The principal about which the token asserts information, such as the user of an application. This value is immutable and can't be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. |
 | Authentication context class reference | `acr` | Not applicable | Used only with older policies. |
 | Trust framework policy | `tfp` | `b2c_1_signupsignin1` | The name of the policy that was used to acquire the ID token. |
 | Authentication time | `auth_time` | `1438535543` | The time at which a user last entered credentials, represented in epoch time. There's no discrimination between that authentication being a fresh sign-in, a single sign-on (SSO) session, or another sign-in type. The `auth_time` is the last time the application (or user) initiated an authentication attempt against Azure AD B2C. The method used to authenticate isn't differentiated. |
@@ -75,7 +76,7 @@ The following table lists the claims that you can expect in ID tokens and access
 
 The following properties are used to [manage lifetimes of security tokens](configure-tokens.md) emitted by Azure AD B2C:
 
-- **Access & ID token lifetimes (minutes)** - The lifetime of the OAuth 2.0 bearer token used to gain access to a protected resource. The default is 60 minutes. The minimum (inclusive) is 5 minutes. The maximum (inclusive) is 1440 minutes.
+- **Access & ID token lifetimes (minutes)** - The lifetime of the OAuth 2.0 bearer token used to gain access to a protected resource. The default is 60 minutes. The minimum (inclusive) is 5 minutes. The maximum (inclusive) is 1,440 minutes.
 
 - **Refresh token lifetime (days)** - The maximum time period before which a refresh token can be used to acquire a new access or ID token. The time period also covers acquiring a new refresh token if your application has been granted the `offline_access` scope. The default is 14 days. The minimum (inclusive) is one day. The maximum (inclusive) is 90 days.
 
@@ -137,7 +138,7 @@ The metadata document for the `B2C_1_signupsignin1` policy in the `contoso.onmic
 https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/v2.0/.well-known/openid-configuration
 ```
 
-To determine which policy was used to sign a token (and where to go to request the metadata), you've two options. First, the policy name is included in the `tfp` (default) or `acr` claim (as configured) in the token. You can parse claims out of the body of the JWT by base-64 decoding the body and deserializing the JSON string that results. The `tfp` or `acr` claim is the name of the policy that was used to issue the token. The other option is to encode the policy in the value of the `state` parameter when you issue the request, and then decode it to determine which policy was used. Either method is valid.
+To determine which policy was used to sign a token (and where to go to request the metadata), you have two options. First, the policy name is included in the `tfp` (default) or `acr` claim (as configured) in the token. You can parse claims out of the body of the JWT by base-64 decoding the body and deserializing the JSON string that results. The `tfp` or `acr` claim is the name of the policy that was used to issue the token. The other option is to encode the policy in the value of the `state` parameter when you issue the request, and then decode it to determine which policy was used. Either method is valid.
 
 Azure AD B2C uses the RS256 algorithm, which is based on the [RFC 3447](https://www.rfc-editor.org/rfc/rfc3447#section-3.1) specification. The public key consists of two components: the RSA modulus (`n`) and the RSA public exponent (`e`). You can programmatically convert `n` and `e` values to a certificate format for token validation.
 
@@ -154,7 +155,6 @@ When your applications or API receives an ID token, it should also perform sever
 
 For a full list of validations your application should perform, refer to the [OpenID Connect specification](https://openid.net).
 
-## Next steps
+## Related content
 
 Learn more about how to [use access tokens](access-tokens.md).
-

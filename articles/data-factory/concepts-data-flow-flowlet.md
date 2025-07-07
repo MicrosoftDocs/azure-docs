@@ -18,7 +18,7 @@ ms.date: 10/20/2023
  
  With flowlets you can create logic to do things such as address cleaning or string trimming. You can then map the input and outputs to columns in the calling data flow for a dynamic code reuse experience.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWQK3m]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=18076f34-9a6b-41bb-a2a8-88b2f279307f]
 
 ## Getting started
 To create a flowlet, select the new flowlet action from the mapping data flow menu options.
@@ -62,7 +62,7 @@ For a single transformation activity, you can right-click the mapping data flow 
 
 ![Screenshot showing creating a flowlet from an existing activity using the right-click menu option.](./media/data-flow-flowlet/flowlet-context-create.png)
 
-If you have mulit-select turned on, you can also select multiple mapping data flow activities. This can be done by either lassoing multiple activities by drawing a rectangle to select them or using shift+select to select multiple activities. Then you'll right-click and select Create a new flowlet.
+If you have multi-select turned on, you can also select multiple mapping data flow activities. This can be done by either lassoing multiple activities by drawing a rectangle to select them or using shift+select to select multiple activities. Then you'll right-click and select Create a new flowlet.
 
 ![Screenshot showing multiple selection from existing activities.](./media/data-flow-flowlet/flowlet-context-multi.png)
 

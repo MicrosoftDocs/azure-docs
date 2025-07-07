@@ -4,8 +4,9 @@ description: Step-by-step guidance to diagnose private endpoint connectivity
 author: abell
 ms.service: azure-private-link
 ms.topic: troubleshooting
-ms.date: 03/28/2023
+ms.date: 02/18/2025
 ms.author: abell
+# Customer intent: As a network administrator, I want to troubleshoot Azure Private Endpoint connectivity issues, so that I can ensure secure and reliable access to Azure services from my virtual network.
 ---
 
 # Troubleshoot Azure Private Endpoint connectivity problems
@@ -31,12 +32,8 @@ Review these steps to make sure all the usual configurations are as expected to 
 1. Review private endpoint configuration by browsing the resource.
 
     a. Go to [Private Link Center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/overview).
-      
-      :::image type="content" source="./media/private-endpoint-tsg/private-link-center.png" alt-text="Screenshot of Private Link Center.":::
 
     b. On the left pane, select **Private endpoints**.
-    
-      :::image type="content" source="./media/private-endpoint-tsg/private-endpoints.png" alt-text="Screenshot of private endpoints.":::
 
     c. Filter and select the private endpoint that you want to diagnose.
 
@@ -47,8 +44,6 @@ Review these steps to make sure all the usual configurations are as expected to 
      - Make sure the VM has connectivity to the virtual network that hosts the private endpoints.
 
      - Check that the FQDN information (copy) and Private IP address are assigned.
-        
-       :::image type="content" source="./media/private-endpoint-tsg/vnet-dns-configuration.png" alt-text="Screenshot of virtual network and DNS configuration.":::
     
 1. Use [Azure Monitor](/azure/azure-monitor/overview) to see if data is flowing.
 
@@ -57,8 +52,6 @@ Review these steps to make sure all the usual configurations are as expected to 
      - Select **Bytes In** or **Bytes Out**. 
 
      - See if data is flowing when you attempt to connect to the private endpoint. Expect a delay of approximately 10 minutes.
-    
-      :::image type="content" source="./media/private-endpoint-tsg/private-endpoint-monitor.png" alt-text="Screenshot of verify private endpoint monitor.":::
 
 1.  Use **VM Connection troubleshoot** from Azure Network Watcher.
 
@@ -66,11 +59,7 @@ Review these steps to make sure all the usual configurations are as expected to 
 
     b. Select **Connection troubleshoot**, and then select the **Outbound connections** tab.
     
-      :::image type="content" source="./media/private-endpoint-tsg/network-watcher-outbound-connection.png" alt-text="Screenshot of Network Watcher - Test outbound connections.":::
-    
     c. Select **Use Network Watcher for detailed connection tracing**.
-    
-      :::image type="content" source="./media/private-endpoint-tsg/network-watcher-connection-troubleshoot.png" alt-text="Screenshot of Network Watcher - Connection troubleshoot.":::
 
     d. Select **Test by FQDN**.
 
@@ -78,9 +67,7 @@ Review these steps to make sure all the usual configurations are as expected to 
 
      - Provide a port. Typically, use 443 for Azure Storage or Azure Cosmos DB and 1336 for SQL.
 
-    e. Select **Test**, and validate the test results.
-
-      :::image type="content" source="./media/private-endpoint-tsg/network-watcher-test-results.png" alt-text="Screenshot of Network Watcher - Test results.":::    
+    e. Select **Test**, and validate the test results. 
         
 1. DNS resolution from the test results must have the same private IP address assigned to the private endpoint.
 
@@ -99,8 +86,6 @@ Review these steps to make sure all the usual configurations are as expected to 
 
     b. If connectivity is failing because of network security groups (NSGs) or user-defined routes:
      - Review the NSG outbound rules, and create the appropriate outbound rules to allow traffic.
-
-       :::image type="content" source="./media/private-endpoint-tsg/nsg-outbound-rules.png" alt-text="Screenshot of NSG outbound rules.":::
 
 1. Source virtual machine should have the route to private endpoint IP next hop as InterfaceEndpoints in the network interface effective routes. 
 

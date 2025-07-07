@@ -18,6 +18,9 @@ When using SQL Server Integration Services (SSIS) in Azure Data Factory (ADF) or
 
 Here’s a table highlighting the differences between standard and express virtual network injection methods:
 
+> [!NOTE]
+> The Azure-SSIS IR starting duration usually applies to most situations. However, the actual startup time might be longer in some cases, such as if the SSIS-IR has a custom setup that requires extra processing time or uses specific node types.
+
 | Comparison | Standard virtual network injection | Express virtual network injection |
 |------------|------------------------------------|-----------------------------------|
 | **Azure-SSIS IR starting duration** | Around 30 minutes. | Around 5 minutes. | 

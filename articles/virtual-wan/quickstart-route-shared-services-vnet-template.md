@@ -5,7 +5,7 @@ description: Learn about how to set up routes to access a shared service VNet wi
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: quickstart
-ms.date: 03/03/2023
+ms.date: 03/27/2025
 ms.author: cherylmc
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
@@ -16,14 +16,14 @@ This quickstart describes how to use an Azure Resource Manager template (ARM tem
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
 :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fvirtual-wan-with-route-tables%2fazuredeploy.json":::
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* Public key certificate data is required for this configuration. Sample data is provided in the article. However, the sample data is provided only to satisfy the template requirements in order to create a P2S gateway. After the template completes and the resources are deployed, you must update this field with your own certificate data in order for the configuration to work. See [User VPN certificates](certificates-point-to-site.md#cer).
+* Public key certificate data is required for this configuration. Sample data is provided in the article. However, the sample data is provided only to satisfy the template requirements in order to create a P2S gateway. After the template completes and the resources are deployed, you must update this field with your own certificate data in order for the configuration to work. See [Generate and export certificates](certificates-point-to-site.md#cer).
 
 ## <a name="review"></a>Review the template
 
@@ -56,9 +56,8 @@ Multiple Azure resources are defined in the template:
 * [**Microsoft.Network/expressroutegateways**](/azure/templates/microsoft.network/expressroutegateways)
 * [**Microsoft.Network/vpnserverconfigurations**](/azure/templates/microsoft.network/vpnServerConfigurations)
 
->[!NOTE]
+> [!NOTE]
 > This ARM template doesn't create the customer-side resources required for hybrid connectivity. After you deploy the template, you still need to create and configure the P2S VPN clients, VPN branches (Local Sites), and connect ExpressRoute circuits.
->
 
 To find more templates, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
@@ -74,30 +73,10 @@ To deploy this template properly, you must use the button to Deploy to Azure but
 
    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fvirtual-wan-with-route-tables%2fazuredeploy.json":::
 1. To view the template, click **Edit template**. On this page, you can adjust some of the values such as address space or the name of certain resources. **Save** to save your changes, or **Discard**.
-1. On the template page, enter the values. For this template, the P2S public certificate data is required. The following example shows the certificate data. You can use the same certificate data for both hubs. Note that while it may be possible to use this example data to run the steps for this exercise, in order to connect properly, you must supply your own certificate data for your hubs. For more information, see [certificate data](certificates-point-to-site.md#cer).
-
-   ```certificate-data
-   MIIC5zCCAc+gAwIBAgIQGxd3Av1q6LJDZ71e3TzqcTANBgkqhkiG9w0BAQsFADAW
-   MRQwEgYDVQQDDAtQMlNSb290Q2VydDAeFw0yMDExMDkyMjMxNTVaFw0yMTExMDky
-   MjUxNTVaMBYxFDASBgNVBAMMC1AyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEF
-   AAOCAQ8AMIIBCgKCAQEA33fFra/E0YmGuXLKmYcdvjsYpKwQmw8DjjDkbwhE9jcc
-   Dp50e7F1P6Rxo1T6Hm3dIhEji+0QkP4Ie0XPpw0eW77+RWUiG9XJxGqtJ3Q4tyRy
-   vBfsHORcqMlpV3VZOXIxrk+L/1sSm2xAc2QGuOqKaDNNoKmjrSGNVAeQHigxbTQg
-   zCcyeuhFxHxAaxpW0bslK2hEZ9PhuAe22c2SHht6fOIDeXkadzqTFeV8wEZdltLr
-   6Per0krxf7N2hFo5Cfz0KgWlvgdKLL7dUc9cjHo6b6BL2pNbLh8YofwHQOQbwt6H
-   miAkEnx1EJ5N8AWuruUTByR2jcWyCnEAUSH41+nk4QIDAQABozEwLzAOBgNVHQ8B
-   Af8EBAMCAgQwHQYDVR0OBBYEFJMgnJSYHH5AJ+9XB11usKRwjbjNMA0GCSqGSIb3
-   DQEBCwUAA4IBAQBOy8Z5FBd/nvgDcjvAwNCw9h5RHzgtgQqDP0qUjEqeQv3ALeC+
-   k/F2Tz0OWiPEzX5N+MMrf/jiYsL2exXuaPWCF5U9fu8bvs89GabHma8MGU3Qua2x
-   Imvt0whWExQMjoyU8SNUi2S13fnRie9ZlSwNh8B/OIUUEtVhQsd4OfuZZFVH4xGp
-   ibJMSMe5JBbZJC2tCdSdTLYfYJqrLkVuTjynXOjmz2JXfwnDNqEMdIMMjXzlNavR
-   J8SNtAoptMOK5vAvlySg4LYtFyXkl0W0vLKIbbHf+2UszuSCijTUa3o/Y1FoYSfi
-   eJH431YTnVLuwdd6fXkXFBrXDhjNsU866+hE
-   ```
-
+1. On the template page, enter the values. For this template, the P2S public certificate data is required. You need to input the public key certificate data from the root certificate that you want to use (as mentioned in the prerequisites). For more information, see [Generate and export certificates](certificates-point-to-site.md).
 1. When you have finished entering values, select **Review + create**.
 1. On the **Review + create** page, after validation passes, select **Create**.
-1. It takes about 75 minutes for the deployment to complete. You can view the progress on the template **Overview** page. If you close the portal, deployment will continue.
+1. It takes about 75 minutes for the deployment to complete. You can view the progress on the template **Overview** page. If you close the portal, deployment continues.
 
    :::image type="content" source="./media/quickstart-route-shared-services-template/template.png" alt-text="Example of deployment complete":::
 
@@ -109,7 +88,6 @@ To deploy this template properly, you must use the button to Deploy to Azure but
    :::image type="content" source="./media/quickstart-route-shared-services-template/resources.png" alt-text="Example of resources" lightbox="./media/quickstart-route-shared-services-template/resources.png":::
 
 1. Click the virtual WAN to view the hubs. On the virtual WAN page, click each hub to view connections and other hub information.
-   :::image type="content" source="./media/quickstart-route-shared-services-template/hub.png" alt-text="Example of hubs" lightbox="./media/quickstart-route-shared-services-template/hub.png":::
 
 ## <a name="complete"></a>Complete the hybrid configuration
 

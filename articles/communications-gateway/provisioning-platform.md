@@ -1,10 +1,9 @@
 ---
 title: Provisioning Azure Communications Gateway
 description: Learn about customer and number configuration with the Provisioning API and Number Management Portal for Azure Communications Gateway.
-author: rcdun
-ms.author: rdunstan
 ms.service: azure-communications-gateway
 ms.topic: concept-article
+ms.date: 10/22/2024
 
 #CustomerIntent: As someone learning about Azure Communications Gateway, I want to understand the Provisioning Platform, so that I know whether I need to integrate with it
 ---
@@ -15,7 +14,7 @@ You can configure Azure Communications Gateway with the details of your customer
 
 - Associate numbers with backend services.
 - Provision backend services with customer configuration (sometimes called _flow-through provisioning_).
-- Add custom header configuration (available for all communications services except Azure Operator Call Protection Preview and Teams Phone Mobile).
+- Add custom header configuration (available for all communications services except Teams Phone Mobile).
 
 You can provision Azure Communications Gateway with the:
 
@@ -30,7 +29,6 @@ The following table shows how you can provision Azure Communications Gateway for
 |Operator Connect | Automatically set up if you use the API for flow-through provisioning or you use the Number Management Portal | Recommended (with API) | Supported |
 |Teams Phone Mobile | Automatically set up if you use the API for flow-through provisioning or you use the Number Management Portal | Recommended (with API) | Not Supported |
 |Zoom Phone Cloud Peering | Required | Not supported | Supported |
-| Azure Operator Call Protection Preview | Required | Automatic | Not supported |
 
 Flow-through provisioning of Operator Connect and Teams Phone Mobile with the Provisioning API interoperates with the Operator Connect APIs. It therefore allows you to meet the requirements for API-based provisioning from the Operator Connect and Teams Phone Mobile programs.
 
@@ -39,7 +37,7 @@ Flow-through provisioning of Operator Connect and Teams Phone Mobile with the Pr
 
 ## Associating numbers with specific communications services
 
-For Microsoft Teams Direct Routing, Zoom Phone Cloud Peering, and Azure Operator Call Protection, you must provision Azure Communications Gateway with the numbers that you want to assign to each of your customers and enable each number for the chosen communications service. This information allows Azure Communications Gateway to:
+For Microsoft Teams Direct Routing and Zoom Phone Cloud Peering, you must provision Azure Communications Gateway with the numbers that you want to assign to each of your customers and enable each number for the chosen communications service. This information allows Azure Communications Gateway to:
 
 - Route calls to the correct communications service.
 - Update SIP messages for Microsoft Teams Direct Routing with the information that Microsoft Phone System requires to match calls to tenants. For more information, see [Identifying the customer tenant for Microsoft Phone System](interoperability-teams-direct-routing.md#identifying-the-customer-tenant-for-microsoft-phone-system).

@@ -17,9 +17,13 @@ When developing serverless applications, we provide an Azure SignalR Local Emula
 * Latest Rest API support
 * Upstream
 
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
+
 ## Walkthrough
 
 We use [this serverless sample](https://github.com/Azure/azure-functions-signalrservice-extension/tree/3e87c3ce277265866ca9d0bf51bb9c7ecea39e14/samples/bidirectional-chat) to show how to use the emulator.
+
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
 1. Clone the sample repo to local
     ```
@@ -69,9 +73,7 @@ We use [this serverless sample](https://github.com/Azure/azure-functions-signalr
     asrs-emulator start
     ```
 
-    After the emulator is successfully started, it generates the ConnectionString to be used later, for example, the ConnectionString is `Endpoint=http://localhost;Port=8888;AccessKey=ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ABCDEFGH;Version=1.0;` as the below screenshot shows.
-    
-    :::image type="content" source="./media/signalr-howto-emulator/emulator-command-running.png" alt-text="Screenshot of the emulator command is running.":::
+    After the emulator is successfully started, it generates the ConnectionString to be used later.
 
     The emulator also provides advanced options when start, for example, you can use `asrs-emulator start -p 8999` to customize the port the emulator used. Type `asrs-emulator start --help` to check the options available.
 

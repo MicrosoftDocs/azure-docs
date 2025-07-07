@@ -1,9 +1,9 @@
 ---
 title: "Quickstart: Create a serverless Apache Spark pool using Synapse Studio"
 description: Create a serverless Apache Spark pool using Synapse Studio by following the steps in this guide.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: whhender, eskot
+author: ms-arali
+ms.author: arali
+ms.reviewer:  eskot
 ms.date: 03/11/2024
 ms.service: azure-synapse-analytics
 ms.subservice: spark
@@ -20,6 +20,9 @@ This quickstart describes the steps to create an Apache Spark pool in a Synapse 
 
 > [!IMPORTANT]
 > Billing for Spark instances is prorated per minute, whether you are using them or not. Be sure to shutdown your Spark instance after you have finished using it, or set a short timeout. For more information, see the **Clean up resources** section of this article.
+
+> [!NOTE]
+> Synapse Studio will continue to support terraform or bicep-based configuration files.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
 

@@ -2,7 +2,7 @@
 title: Built-in policy definitions for Azure Logic Apps
 description: Lists Azure Policy built-in policy definitions for Azure Logic Apps. These built-in policy definitions provide common approaches to managing your Azure resources.
 ms.date: 02/06/2024
-ms.topic: reference
+ms.topic: conceptual
 ms.suite: integration
 ms.custom: subject-policy-reference
 ---
@@ -18,7 +18,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure Logic Apps
 
-[!INCLUDE [azure-policy-reference-rp-logicapps](../../includes/policy/reference/byrp/microsoft.logic.md)]
+[!INCLUDE [azure-policy-reference-rp-logicapps](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.logic.md)]
 
 ## Next steps
 

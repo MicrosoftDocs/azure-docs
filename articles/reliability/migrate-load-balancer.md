@@ -6,7 +6,7 @@ ms.service: azure
 ms.topic: conceptual
 ms.date: 05/09/2022
 ms.author: anaharris
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 CustomerIntent: As a cloud architect/engineer, I need general guidance on migrating load balancers to using availability zones.
 ---
 <!-- CHANGE AUTHOR BEFORE PUBLISH -->

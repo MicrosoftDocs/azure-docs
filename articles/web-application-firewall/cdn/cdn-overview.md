@@ -2,11 +2,12 @@
 title: What is Azure web application firewall on Azure CDN?
 description: Learn how Azure web application firewall on Azure CDN service protects your web applications from malicious attacks.  
 services: web-application-firewall
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/16/2023
-ms.author: victorh
+# Customer intent: As a web application administrator, I want to implement a web application firewall on my content delivery network, so that I can protect my web applications from malicious attacks and ensure compliance while maintaining high availability.
 ---
 
 # Azure Web Application Firewall on Azure Content Delivery Network from Microsoft

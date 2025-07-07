@@ -1,7 +1,7 @@
-Get started with the Phone Numbers client library for C# to look up operator information for phone numbers, which can be used to determine whether and how to communicate with that phone number. Follow these steps to install the package and look up operator information about a phone number.
+Get started with the Phone Numbers client library for C# to look up operator information for phone numbers. Use the operator information to determine whether and how to communicate with that phone number. Follow these steps to install the package and look up operator information about a phone number.
 
 > [!NOTE]
-> Find the code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/LookupNumber).
+> To view the source code for this example, see [Manage Phone Numbers - C# | GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/LookupNumber).
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ More detailed information and other options for connecting to the dev feed can b
 While still in the application directory, install the Azure Communication Services PhoneNumbers client library for .NET package by using the following command.
 
 ```console
-dotnet add package Azure.Communication.PhoneNumbers --version 1.3.0-beta.5
+dotnet add package Azure.Communication.PhoneNumbers --version 1.3.0
 ```
 
 Add a `using` directive to the top of **Program.cs** to include the `Azure.Communication` namespace.
@@ -114,7 +114,7 @@ OperatorInformationResult searchResult = await client.SearchOperatorInformationA
 ```
 
 > [!WARNING]
-> Using this functionality will incur a charge to your account.
+> Using this function incurs a charge to your account.
 
 ### Use operator information
 
@@ -134,7 +134,7 @@ OperatorInformation operatorInformation = searchResult.Values[0];
 Console.WriteLine($"{operatorInformation.PhoneNumber} is a {operatorInformation.NumberType ?? "unknown"} number, operated in {operatorInformation.IsoCountryCode} by {operatorInformation.OperatorDetails.Name ?? "an unknown operator"}");
 ```
 
-You may also use the operator information to determine whether to send an SMS. For more information on sending an SMS, see the [SMS Quickstart](../../sms/send.md).
+You can also use the operator information to determine whether to send an SMS. For more information about sending an SMS, see [Send an SMS message](../../sms/send.md).
 
 ## Run the code
 
@@ -146,4 +146,4 @@ dotnet run --interactive
 
 ## Sample code
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/LookupNumber).
+You can download the sample app from [Manage Phone Numbers - C# | GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/LookupNumber).

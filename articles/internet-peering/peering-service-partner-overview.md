@@ -5,7 +5,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: concept-article
-ms.date: 08/18/2023
+ms.date: 10/23/2024
+# Customer intent: As an Internet Service Provider, I want to understand the technical requirements and types of connections for becoming an Azure Peering Service partner, so that I can offer reliable and redundant peering solutions to my customers.
 ---
 
 # Azure Peering Service partner overview
@@ -47,7 +48,7 @@ In addition, Peering Service partners are able to see received routes reported i
 
 :::image type="content" source="./media/peering-service-partner-overview/peering-service-partner-latency-report.png" alt-text="Diagram showing monitoring platform for Peering Service.":::
 
-## Next steps
+## Related content
 
 - To establish a Direct interconnect for Peering Service, see [Internet peering for Peering Service walkthrough](walkthrough-peering-service-all.md).
 - To establish a Direct interconnect for Peering Service Voice, see [Internet peering for Peering Service Voice walkthrough](walkthrough-communications-services-partner.md).

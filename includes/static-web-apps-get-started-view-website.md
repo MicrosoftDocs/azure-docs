@@ -1,9 +1,9 @@
 ---
-author: craigshoemaker
 ms.service: azure-static-web-apps
 ms.topic: include
 ms.date: 05/13/2020
-ms.author: cshoe
+author: v1212
+ms.author: wujia
 ---
 
 ## View the website

@@ -90,7 +90,7 @@ IBM Db2 for SAP NetWeaver Applications is supported on any VM type listed in SAP
 Following is a baseline configuration for various sizes and uses of SAP on Db2 deployments from small to x-large.  
 
 >[!IMPORTANT]
-> The VM types listed below are examples that meet the vCPU and memory critiera of each of the categories. The storage configuration is based on Azure premium storage v1. Premium SSD v2 and Azure Ultra disk is fully supported with IBM Db2 as well and can be used for deployments. Use the values for capacity, burst throughput, and burst IOPS to define the Ultra disk or Premium SSD v2 configuration. You can limit the IOPS for the /db2/```<SID>```/log_dir at around 5000 IOPS. Adjust the throughput and IOPS to the specific workload if these baseline recommendations don't meet the requirements
+> The VM types listed below are examples that meet the vCPU and memory criteria of each of the categories. The storage configuration is based on Azure premium storage v1. Premium SSD v2 and Azure Ultra disk is fully supported with IBM Db2 as well and can be used for deployments. Use the values for capacity, burst throughput, and burst IOPS to define the Ultra disk or Premium SSD v2 configuration. You can limit the IOPS for the /db2/```<SID>```/log_dir at around 5000 IOPS. Adjust the throughput and IOPS to the specific workload if these baseline recommendations don't meet the requirements
 
 #### Extra small SAP system: database size 50 - 200 GB: example Solution Manager
 | VM Size / Examples |Db2 mount point |Azure Premium Disk |# of Disks |IOPS |Through-<br />put [MB/s] |Size [GB] |Burst IOPS |Burst Through-<br />put [GB] | Stripe size | Caching |
@@ -242,7 +242,7 @@ For Db2 deployments on Windows, we highly recommend using the Azure functionalit
 As long as the current IOPS quota per disk is sufficient, it's possible to store all the database files on one single disk. Whereas you always should separate the data files and transaction log files on different disks.
 
 If the IOPS or I/O throughput of a single Azure VHD isn't sufficient, you can use LVM (Logical Volume Manager) or MDADM as described in the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) to create one large logical device over multiple disks.
-For the disks containing the Db2 storage paths for your `sapdata` and `saptmp` directories, you must specify a physical disk sector size of 512 KB.
+For the disks containing the Db2 storage paths for your `sapdata` and `saptmp` directories, ensure a physical disk sector size of 4 KB is used. When using LVM or MDADM to create a striped volume across multiple disks, configure the stripe size (or chunk size) to 512 KB to optimize I/O throughput for large database workloads.
 
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 

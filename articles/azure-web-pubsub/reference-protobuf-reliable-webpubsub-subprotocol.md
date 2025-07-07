@@ -47,6 +47,8 @@ message UpstreamMessage {
         EventMessage event_message = 5;
         JoinGroupMessage join_group_message = 6;
         LeaveGroupMessage leave_group_message = 7;
+        SequenceAckMessage sequence_ack_message = 8;
+        PingMessage ping_message = 9;
     }
 
     message SendToGroupMessage {
@@ -74,6 +76,9 @@ message UpstreamMessage {
 
     message SequenceAckMessage {
         uint64 sequence_id = 1;
+    }
+
+    message PingMessage {
     }
 }
 
@@ -104,6 +109,7 @@ message DownstreamMessage {
         AckMessage ack_message = 1;
         DataMessage data_message = 2;
         SystemMessage system_message = 3;
+        PongMessage pong_message = 4;
     }
     
     message AckMessage {
@@ -140,6 +146,9 @@ message DownstreamMessage {
             string reason = 2;
         }
     }
+
+    message PongMessage {
+    }
 }
 ```
 
@@ -170,7 +179,11 @@ The sender's `dataType` will cause one of the following messages to be sent:
 
 ### System response
 
-The Web PubSub service can also send system-related responses to the client. 
+The Web PubSub service can also send system-related responses to the client.
+
+### Pong response
+
+The Web PubSub service sends a `PongMessage` to the client when it receives a `PingMessage` from the client.
 
 #### Connected
 

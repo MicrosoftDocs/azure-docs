@@ -1,12 +1,12 @@
 ---
 title: Create Web Application Firewall (WAF) policies for Application Gateway  
 description: Learn how to create Web Application Firewall policies for Application Gateway.
-services: web-application-firewall
-ms.topic: conceptual
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
-ms.date: 08/24/2023
-ms.author: victorh 
+ms.topic: concept-article
+ms.date: 01/15/2025
+# Customer intent: "As a cloud administrator, I want to create and manage Web Application Firewall policies for the Application Gateway, so that I can customize security settings for multiple sites efficiently and ensure each site is protected according to its specific requirements."
 ---
 
 # Create Web Application Firewall policies for Application Gateway
@@ -15,14 +15,14 @@ Associating a WAF policy with listeners allows for multiple sites behind a singl
 
 You can make as many policies as you want. Once you create a policy, it must be associated to an Application Gateway to go into effect, but it can be associated with any combination of Application Gateways and listeners. 
 
-If your Application Gateway has an associated policy, and then you associate a different policy to a listener on that Application Gateway, the listener's policy takes effect, but just for the listener(s) that they're assigned to. The Application Gateway policy still applies to all other listeners that don't have a specific policy assigned to them. 
+If your Application Gateway has an associated policy, and then you associate a different policy to a listener on that Application Gateway, the listener's policy takes effect, but just for the listeners that they're assigned to. The Application Gateway policy still applies to all other listeners that don't have a specific policy assigned to them. 
 
    > [!NOTE]
-   > Once a Firewall Policy is associated to a WAF, there must always be a policy associated to that WAF. You may overwrite that policy, but disassociating a policy from the WAF entirely isn't supported. 
+   > Once a Firewall Policy is associated to a WAF, there must always be a policy associated to that WAF. You can overwrite that policy, but disassociating a policy from the WAF entirely isn't supported. 
 
-All new Web Application Firewall's WAF settings (custom rules, managed ruleset configurations, exclusions, etc.) live inside of a WAF Policy. If you have an existing WAF, these settings may still exist in your WAF config. For steps on how to move to the new WAF Policy, see [Upgrade your WAF Config to a WAF Policy](#upgrade) later in this article. 
+All new Web Application Firewall's WAF settings (custom rules, managed ruleset configurations, exclusions, etc.) live inside of a WAF Policy. If you have an existing WAF, these settings might still exist in your WAF config. For steps on how to move to the new WAF Policy, see [Upgrade your WAF Config to a WAF Policy](#upgrade) later in this article. 
 
-WAF policies need to be in the enabled state to inspect request traffic, log events and take action on requests. WAF policies in detection mode will log events when WAF rules are triggered but won't take any other action. Policies in prevention mode will take action on requests as well as log the event in the logs.
+WAF policies need to be in the enabled state to inspect request traffic, log events and take action on requests. WAF policies in detection mode log events when WAF rules are triggered, but doesn't take any other action. Policies in prevention mode take action on requests and log the event in the logs.
 
 ## Create a policy
 
@@ -37,6 +37,7 @@ First, create a basic WAF policy with a managed Default Rule Set (DRS) using the
    |Subscription     |Select your subscription name|
    |Resource group     |Select your resource group|
    |Policy name     |Type a unique name for your WAF policy.|
+
 3. On the **Association** tab, select **Add association**, then select one of the following settings:
 
    |Setting  |Value  |
@@ -49,27 +50,21 @@ First, create a basic WAF policy with a managed Default Rule Set (DRS) using the
    > If you assign a policy to your Application Gateway (or listener) that already has a policy in place, the original policy is overwritten and replaced by the new policy.
 4. Select **Review + create**, then select **Create**.
 
-   ![WAF policy basics](../media/create-waf-policy-ag/waf-policy-basics.png)
-
 ## Configure WAF rules (optional)
 
 When you create a WAF policy, by default it is in *Detection* mode. In Detection mode, WAF doesn't block any requests. Instead, the matching WAF rules are logged in the WAF logs. To see WAF in action, you can change the mode settings to *Prevention*. In Prevention mode, matching rules defined in the Microsoft Managed Rulesets you selected are blocked and/or logged in the WAF logs.
 
 ## Managed rules
 
-Azure-managed OWASP rules are enabled by default. To disable an individual rule within a rule group, expand the rules within that rule group, select the check box in front of the rule number, and select **Disable** on the tab above.
-
-[ ![Managed rules](../media/create-waf-policy-ag/managed-rules.png) ](../media/create-waf-policy-ag/managed-rules-lrg.png#lightbox)
+Azure-managed OWASP rules are enabled by default. To disable an individual rule within a rule group, expand the rules within that rule group, select the check box in front of the rule number, and select **Disable**.
 
 ## Custom rules
 
-To create a custom rule, select **Add custom rule** under the **Custom rules** tab. This opens the custom rule configuration page. The following screenshot shows an example custom rule configured to block a request if the query string contains the text *blockme*.
-
-[ ![Edit custom rule](../media/create-waf-policy-ag/edit-custom-rule.png) ](../media/create-waf-policy-ag/edit-custom-rule-lrg.png#lightbox)
+To create a custom rule, select **Add custom rule** under the **Custom rules** tab. This opens the custom rule configuration page. The following screenshot shows an example custom rule configured to block a request if the query string contains the text `blockme`.
 
 ## <a name="upgrade"></a>Upgrade your WAF Config to a WAF Policy
 
-If you have an existing WAF, you may have noticed some changes in the portal. First you need to identify what kind of Policy you've enabled on your WAF. There are three potential states:
+If you have an existing WAF, you might notice some changes in the portal. First you need to identify what kind of Policy you've enabled on your WAF. There are three potential states:
 
 1. No WAF Policy
 2. Custom Rules only Policy
@@ -85,15 +80,15 @@ If you select **Web Application Firewall** and it shows you an associated policy
 
 If it also shows Policy Settings and Managed Rules, then it's a full Web Application Firewall policy. 
 
-![WAF policy settings](../media/create-waf-policy-ag/waf-policy-settings.png)
+![Screenshot showing WAF policy settings.](../media/create-waf-policy-ag/waf-policy-settings.png)
 
 ## Upgrade to WAF Policy
 
-If you have a Custom Rules only WAF Policy, then you may want to move to the new WAF Policy. Going forward, the firewall policy supports WAF policy settings, managed rulesets, exclusions, and disabled rule-groups. Essentially, all the WAF configurations that were previously done inside the Application Gateway are now done through the WAF Policy. 
+If you have a Custom Rules only WAF Policy, then you might want to move to the new WAF Policy. A policy supports WAF policy settings, managed rulesets, exclusions, and disabled rule-groups. Essentially, all the WAF configurations that were previously done inside the Application Gateway are now done through the WAF Policy. 
 
 Edits to the custom rule only WAF policy are disabled. To edit any WAF settings such as disabling rules, adding exclusions, etc. you have to upgrade to a new top-level firewall policy resource.
 
-To do so, create a *Web Application Firewall Policy* and associate it to your Application Gateway(s) and listener(s) of choice. This new Policy must be exactly the same as the current WAF config, meaning every custom rule, exclusion, disabled rule, etc. must be copied into the new Policy you're creating. Once you have a Policy associated with your Application Gateway, then you can continue to make changes to your WAF rules and settings. You can also do this with Azure PowerShell. For more information, see [Associate a WAF policy with an existing Application Gateway](associate-waf-policy-existing-gateway.md).
+To do so, create a *Web Application Firewall Policy* and associate it to your Application Gateways and listeners of choice. This new Policy must be exactly the same as the current WAF config, meaning every custom rule, exclusion, disabled rule, etc. must be copied into the new Policy you're creating. Once you have a Policy associated with your Application Gateway, then you can continue to make changes to your WAF rules and settings. You can also do this with Azure PowerShell. For more information, see [Associate a WAF policy with an existing Application Gateway](associate-waf-policy-existing-gateway.md).
 
 Optionally, you can use a migration script to upgrade to a WAF policy. For more information, see [Upgrade Web Application Firewall policies using Azure PowerShell](migrate-policy.md).
 
@@ -108,6 +103,6 @@ $appgw.ForceFirewallPolicyAssociation = $true
 
 Then proceed with the steps to associate a WAF Policy to your application gateway. For more information, see [Associate a WAF Policy with an existing Application Gateway.](associate-waf-policy-existing-gateway.md)
 
-## Next steps
+## Next step
 
 Learn more about [Web Application Firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md).

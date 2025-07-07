@@ -3,8 +3,9 @@ title: "Tutorial: Run a parallel workload using the .NET API"
 description: Learn how to transcode media files in parallel using ffmpeg in Azure Batch with the Batch .NET client library.
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 04/19/2023
+ms.date: 04/02/2025
 ms.custom: mvc, devx-track-csharp, devx-track-dotnet
+# Customer intent: As a developer, I want to implement a parallel media transcoding process using the .NET API with Azure Batch, so that I can efficiently convert multiple media files from MP4 to MP3 format.
 ---
 
 # Tutorial: Run a parallel workload with Azure Batch using the .NET API
@@ -144,7 +145,7 @@ BatchClient _batchClient = new BatchClient(batchUri, new DefaultAzureCredential(
 
 ### Upload input files
 
-The app passes the `blobServerClient` object to the `CreateContainerIfNotExistc` method to create a storage container for the input files (MP4 format) and a container for the task output.
+The app passes the `blobServerClient` object to the `CreateContainerIfNotExist` method to create a storage container for the input files (MP4 format) and a container for the task output.
 
 ```csharp
 CreateContainerIfNotExist(blobClient, inputContainerName);
@@ -229,7 +230,7 @@ if (collection.Exists(poolId) == false)
             },
             ApplicationPackages =
             {
-                    new Azure.ResourceManager.Batch.Models.BatchApplicationPackageReference(new ResourceIdentifier(appPacakgeResourceID))
+                    new Azure.ResourceManager.Batch.Models.BatchApplicationPackageReference(new ResourceIdentifier(appPackageResourceID))
                     {
                         Version = appPackageVersion,
                     }

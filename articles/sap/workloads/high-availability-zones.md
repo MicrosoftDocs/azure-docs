@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 # SAP workload configurations with Azure Availability Zones
 
-Deployment of the different SAP architecture layers across [Azure Availability Zones](../../availability-zones/az-overview.md) is the recommended architecture for SAP workload deployments on Azure. An Azure Availability Zone is defined as: "Unique physical locations within a region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking". Azure Availability Zones aren't available in all regions. For Azure regions that provide Availability Zones, check the [Azure region map](https://azure.microsoft.com/global-infrastructure/geographies/). The article lists which regions provide Availability Zones. Most of the Azure regions that are equipped to host larger SAP workload are providing Availability Zones. New Azure regions are providing Availability Zones from the start. Some of older regions were or are  in the process getting retrofitted with Availability Zones. 
+Deployment of the different SAP architecture layers across [Azure Availability Zones](../../reliability/availability-zones-overview.md) is the recommended architecture for SAP workload deployments on Azure. An Azure Availability Zone is defined as: "Unique physical locations within a region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking". Azure Availability Zones aren't available in all regions. For Azure regions that provide Availability Zones, check the [Azure region map](https://azure.microsoft.com/global-infrastructure/geographies/). The article lists which regions provide Availability Zones. Most of the Azure regions that are equipped to host larger SAP workload are providing Availability Zones. New Azure regions are providing Availability Zones from the start. Some of older regions were or are  in the process getting retrofitted with Availability Zones. 
 
 As of the typical SAP NetWeaver or S/4HANA architecture, you need to protect three different layers:
 
@@ -34,7 +34,7 @@ As another resiliency deployment functionality, Azure introduced [Virtual machin
 
 Consider the following when you use Availability Zones:
 
-- More information about Azure Availability Zones is presented in the document [Regions and availability zones](../../availability-zones/az-overview.md).
+- More information about Azure Availability Zones is presented in the document [Regions and availability zones](../../reliability/availability-zones-overview.md).
 - The experienced network roundtrip latency isn't necessarily indicative to the real geographical distance of the datacenters that form the different zones. The network roundtrip latency is also influenced by the cable connectivities and the routing of the cables between these different datacenters. 
 - If you use Availability Zones as small distance DR solution, keep in mind that we experienced natural disasters causing widespread damage in different regions of the world, including heavy and widespread damage to power infrastructures. The distances between various zones might not always be large enough to compensate for such larger natural disasters.
 - The network latency across Availability Zones isn't the same in all Azure regions. Even within an Azure region, the network latencies between the different zones may vary. Though even in the worst case, synchronous replication on the database level based on HANA System Replication or SQL Server Always On is going to work without impacting the scalability of the workload. 
@@ -83,7 +83,7 @@ Based on your measurements and the availability of your VM SKUs in the Availabil
 - Determine whether you want to deploy an active/passive configuration or an active/active configuration, from an application point of view. (These configurations are explained later in this article.)
 
 > [!IMPORTANT]
-> The measurements and decisions you make are valid for the Azure subscription you used when you took the measurements. If you use another Azure subscription, the mapping of enumerated zones might be different for another Azure subscription. As a result, you need to repeat the measurements or find out the mapping of the new subscription realitve to the old subscription the tool [Avzone-Mapping script](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/AvZone-Mapping). 
+> The measurements and decisions you make are valid for the Azure subscription you used when you took the measurements. If you use another Azure subscription, the mapping of enumerated zones might be different for another Azure subscription. As a result, you need to repeat the measurements or find out the mapping of the new subscription relative to the old subscription the tool [Avzone-Mapping script](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/AvZone-Mapping). 
 
 > [!IMPORTANT]
 > It's expected that the measurements described earlier provide different results in every Azure region that supports [Availability Zones](https://azure.microsoft.com/global-infrastructure/geographies/). Even if your network latency requirements are the same, you might need to adopt different deployment strategies in different Azure regions because the network latency between zones can be different. In some Azure regions, the network latency among the three different zones can be vastly different. In other regions, the network latency among the three different zones might be more uniform. The claim that there's always a network latency  between 1 and 2 milliseconds  isn't correct. The network latency across Availability Zones in Azure regions can't be generalized.
@@ -117,9 +117,6 @@ The following considerations apply for this configuration:
 - To achieve run time consistency for critical business processes, you can try directing certain batch jobs and users to application instances that are in-zone with the active database instance by using SAP batch server groups, SAP logon groups, or RFC groups. However, in zonal failover process, you would need to manually move these groups to instances running on VMs that are in-zone with the active DB VM.  
 - You might want to deploy dormant dialog instances in each of the zones. 
 
-> [!IMPORTANT]
-> In this active/active scenario charges for cross zone traffic apply. Check the document [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/). The data transfer between the SAP application layer and SAP database layer is quite intensive. Therefore the active/active scenario can contribute to costs.
-
 ## Active/Passive deployment
 
 If you can't find a configuration that mitigates the potential delta in runtime of SAP business processes or if you want to deploy a short distance disaster recovery configuration, you can deploy an architecture that has an active/passive character from the SAP application layer point of view. You define an *active* zone, which is the zone where you deploy the complete application layer and where you attempt to run both the active database instance and the SAP Central Services instance. With such a configuration, you need to make sure you don't have extreme run time variations, depending on whether a job runs in-zone with the active database instance or not, in business transactions and batch jobs.
@@ -151,7 +148,7 @@ The following considerations apply for this configuration:
 Microsoft doesn't share any information about geographical distances between the facilities that host different Azure Availability Zones in an Azure region. Still, some customers are using zones for a combined HA and DR configuration (short distance DR) that promises a recovery point objective (RPO) of zero. An RPO of zero  means that you shouldn't lose any committed database transactions even in disaster recovery cases. 
 
 > [!NOTE]
-> If you use Availability Zones as small distance DR solution, eep in mind that we experienced natural disasters causing widespread damage in diferent regions of the world, including heavy and widespread damage to power infrastructures. The distances between various zones might not always be large enough to compensate for such larger natural disasters.
+> If you use Availability Zones as small distance DR solution, eep in mind that we experienced natural disasters causing widespread damage in different regions of the world, including heavy and widespread damage to power infrastructures. The distances between various zones might not always be large enough to compensate for such larger natural disasters.
 
 Here's one example of how such a configuration might look:
 

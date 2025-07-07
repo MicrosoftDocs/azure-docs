@@ -1,20 +1,20 @@
 ---
 title: Troubleshoot Hyper-V disaster recovery with Azure Site Recovery 
-description: Describes how to troubleshoot disaster recovery issues with Hyper-V to Azure replication using Azure Site Recovery
-services: site-recovery
-author: ankitaduttaMSFT
+description: Describes how to troubleshoot disaster recovery issues with Hyper-V to Azure replication using Azure Site Recovery.
+author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
-ms.date: 03/02/2023
-ms.author: ankitadutta
+ms.date: 12/20/2024
+ms.author: jsuri
 ms.custom: engagement-fy23
 
+# Customer intent: "As an IT administrator managing Hyper-V disaster recovery, I want to troubleshoot replication issues to Azure, so that I can ensure seamless backup and recovery of virtual machines."
 ---
 # Troubleshoot Hyper-V to Azure replication and failover
 
 This article describes common issues that you might come across when replicating on-premises Hyper-V VMs to Azure, using [Azure Site Recovery](site-recovery-overview.md).
 
-## Enable protection issues
+## Enable protection issues 
 
 If you experience issues when you enable protection for Hyper-V VMs, check the following recommendations:
 
@@ -23,7 +23,7 @@ If you experience issues when you enable protection for Hyper-V VMs, check the f
 3. Check that the Hyper-V Virtual Machine Management service is running on Hyper-V hosts.
 4. Check for issues that appear in the Hyper-V-VMMS\Admin sign in to the VM. This log is located in **Applications and Services Logs** > **Microsoft** > **Windows**.
 5. On the guest VM, verify that WMI is enabled and accessible.
-   - [Learn about](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf) basic WMI testing.
+   - [Learn about](https://techcommunity.microsoft.com/blog/askperf/basic-wmi-testing/372423) basic WMI testing.
    - [Troubleshoot](/windows/win32/wmisdk/wmi-troubleshooting) WMI.
    - [Troubleshoot](/previous-versions/tn-archive/ff406382(v=msdn.10)#H22) problems with WMI scripts and services.
 6. On the guest VM, ensure that the latest version of Integration Services is running.
@@ -48,7 +48,7 @@ When trying to enable replication, you may face an error informing that enable r
 
 Troubleshoot issues with initial and ongoing replication as follows:
 
-1. Make sure you're running the [latest version](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) of Site Recovery services.
+1. Make sure you're running the [latest version](./site-recovery-whats-new.md) of Site Recovery services.
 2. Verify whether replication is paused:
    - Check the VM health status in the Hyper-V Manager console.
    - If it's critical, right-click the VM > **Replication** > **View Replication Health**.
@@ -75,7 +75,7 @@ Network bandwidth limitations can affect replication. Troubleshoot issues as fol
 3. After running the profiler, follow the [bandwidth](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) and [storage](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation) recommendations.
 4. Check [data churn limitations](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits). If you see high data churn on a VM, do the following:
    - Check if your VM is marked for resynchronization.
-   - Follow [these steps](https://techcommunity.microsoft.com/t5/virtualization/bg-p/Virtualization) to investigate the source of the churn.
+   - Follow [these steps](./monitoring-high-churn.md) to investigate the source of the churn.
    - Churn can occur when the HRL log files exceed 50% of the available disk space. If this is the issue, provision more storage space for all VMs on which the issue occurs.
    - Check that replication isn't paused. If it is, it continues writing the changes to the hrl file, which can contribute to its increased size.
  
@@ -140,7 +140,7 @@ An app-consistent snapshot is a point-in-time snapshot of the application data i
 2. To generate VSS snapshots for the VM, check that Hyper-V Integration Services is installed on the VM, and that the Backup (VSS) Integration Service is enabled.
     - Ensure that the Integration Services VSS service/daemons are running on the guest, and are in an **OK** state.
     - You can check this from an elevated PowerShell session on the Hyper-V host with command **Get-VMIntegrationService -VMName\<VMName>-Name VSS** You can also get this information by logging into the guest VM. [Learn more](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
-    - Ensure that the Backup/VSS integration Services on the VM is running and in healthy state. If not, restart these services, and the Hyper-V Volume Shadow Copy requestor service on the Hyper-V host server.
+    - Ensure that the Backup/VSS integration Services on the VM is running and in healthy state. If not, restart these services, and the Hyper-V Volume Shadow Copy requester service on the Hyper-V host server.
 
 ### Common errors
 
@@ -178,4 +178,4 @@ All Hyper-V replication events are logged in the Hyper-V-VMMS\Admin log, located
 This tool can help with advanced troubleshooting:
 
 -	For VMM, perform Site Recovery log collection using the [Support Diagnostics Platform (SDP) tool](https://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx).
--	For Hyper-V without VMM, [download this tool](https://answers.microsoft.com/en-us/windows/forum/all/unable-to-open-diagcab-files/e7f8e4e5-b442-4e53-af7a-90e74985a73f), and run it on the Hyper-V host to collect the logs.
+- [Enable logging](/troubleshoot/azure/site-recovery/backup/asr-enable-debug-logging) for the Azure Site Recovery in Hyper-V Site Protection. 

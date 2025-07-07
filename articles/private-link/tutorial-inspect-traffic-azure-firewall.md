@@ -6,7 +6,8 @@ ms.author: abell
 ms.service: azure-private-link
 ms.topic: tutorial
 ms.custom: mvc, linux-related-content
-ms.date: 10/13/2023
+ms.date: 02/18/2025
+# Customer intent: "As a network administrator, I want to configure Azure Firewall to inspect traffic to private endpoints, so that I can enhance security and ensure only authorized access to Azure resources."
 ---
 # Tutorial: Inspect private endpoint traffic with Azure Firewall
 

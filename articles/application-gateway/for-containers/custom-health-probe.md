@@ -2,11 +2,12 @@
 title: Custom health probe for Azure Application Gateway for Containers
 description: Learn how to configure a custom health probe for Azure Application Gateway for Containers.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
-ms.topic: conceptual
-ms.date: 9/16/2024
-ms.author: greglin
+ms.topic: concept-article
+ms.date: 10/28/2024
+ms.author: mbender
+# Customer intent: "As a cloud administrator, I want to configure a custom health probe for my application gateway, so that I can efficiently monitor the health of backend services and ensure optimal traffic distribution."
 ---
 
 # Custom health probe for Application Gateway for Containers
@@ -29,13 +30,13 @@ The following properties make up custom health probes:
 | timeout | How long in seconds the request should wait until it's marked as a failure. The minimum interval must be > 0 seconds. |
 | healthyThreshold | Number of health probes before marking the target endpoint healthy. The minimum interval must be > 0. |
 | port | The port number used when probing the backend target. |
-| unhealthyTreshold | Number of health probes to fail before the backend target should be labeled unhealthy. The minimum interval must be > 0. |
+| unhealthyThreshold | Number of health probes to fail before the backend target should be labeled unhealthy. The minimum interval must be > 0. |
 | grpc | Specified if the backend service is expecting gRPC connections. The value must be `{}`. |
 | (http) | Specified if the backend service is expecting http connections. |
 | (http) host | The hostname specified in the request to the backend target. |
 | (http) path | The specific path of the request. If a single file should be loaded, the path might be /index.html. |
 | (http -> match) statusCodes | Contains two properties, `start` and `end`, that define the range of valid HTTP status codes returned from the backend. |
-| UseTLS | UseTLS indicates whether health check should enforce TLS. If not specified, health check uses the same protocol as the service if the same port is used for health check. If the port is different, health check is cleartext. |
+| useTLS | Specifies if the health check should enforce TLS. If not specified, health check uses the same protocol as the service if the same port is used for health check. If the port is different, health check is cleartext. |
 
 [![A diagram showing the Application Gateway for Containers using custom health probes to determine backend health.](./media/custom-health-probe/custom-health-probe.png)](./media/custom-health-probe/custom-health-probe.png#lightbox)
 
@@ -51,12 +52,12 @@ When the default health probe is used, the following values for each health prob
 | -------- | ------------- |
 | interval | 5 seconds |
 | timeout | 30 seconds |
-| healthyTrehshold | 1 probe |
-| unhealthyTreshold | 3 probes |
+| healthyThreshold | 1 probe |
+| unhealthyThreshold | 3 probes |
 | port | The port number used is defined by the backend port number in the Ingress resource or HttpRoute backend port in the HttpRoute resource. |
 | (http) host | localhost |
 | (http) path | / |
-| UseTLS | HTTP for HTTP and HTTPS when TLS is specified. |
+| useTLS | HTTP for HTTP and HTTPS when TLS is specified. |
 
 <sup>1</sup> HTTPS is used when a backendTLSPolicy references a target backend service (for Gateway API implementation) or IngressExtension with a backendSetting protocol of HTTPS (for Ingress API implementation) is specified.
 
@@ -96,6 +97,6 @@ spec:
         statusCodes: 
         - start: 200
           end: 299
-    UseTLS: true
+    useTLS: true
 EOF
 ```

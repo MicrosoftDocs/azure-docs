@@ -5,10 +5,11 @@ keywords: azure, devops, terraform, device provisioning service, DPS, IoT, IoT H
 ms.topic: quickstart
 ms.date: 11/03/2022
 ms.custom: devx-track-terraform
-author: kgremban
-ms.author: kgremban
-ms.service: iot-dps
+author: SoniaLopezBravo
+ms.author: sonialopez
+ms.service: azure-iot-hub
 services: iot-dps
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Quickstart: Use Terraform to create an Azure IoT Device Provisioning Service

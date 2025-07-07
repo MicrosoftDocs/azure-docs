@@ -3,7 +3,8 @@ title: Use compute-intensive Azure VMs with Batch
 description: How to take advantage of HPC and GPU virtual machine sizes in Azure Batch pools. Learn about OS dependencies and see several scenario examples.
 ms.topic: how-to
 ms.custom: linux-related-content
-ms.date: 06/07/2024
+ms.date: 02/04/2025
+# Customer intent: "As a cloud administrator, I want to configure HPC and GPU instances in Azure Batch pools, so that I can effectively manage and accelerate compute-intensive workloads using high-performance virtual machines."
 ---
 # Use RDMA or GPU instances in Batch pools
 
@@ -33,7 +34,7 @@ The RDMA or GPU capabilities of compute-intensive sizes in Batch are supported o
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr](/azure/virtual-machines/sizes-hpc)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) | RDMA | Ubuntu 22.04 LTS <br/> (Azure Marketplace) | Intel MPI 5<br/><br/>Linux RDMA drivers | Enable inter-node communication, disable concurrent task execution |
 | [NCv3, NDv2, NDv4, NDv5 series](/azure/virtual-machines/linux/n-series-driver-setup) | NVIDIA Tesla GPU (varies by series) | Ubuntu 22.04 LTS  <br/> (Azure Marketplace) | NVIDIA CUDA or CUDA Toolkit drivers | N/A |
-| [NVv3, NVv4, NVv5 series](/azure/virtual-machines/linux/n-series-driver-setup) | Accelerated Visualization GPU | Ubuntu 22.04 LTS <br/> (Azure Marketplace) | NVIDIA GRID drivers (if required) | N/A |
+| [NVv3, NVv4, NVv5 series](/azure/virtual-machines/linux/n-series-driver-setup) | Accelerated Visualization GPU | Ubuntu 22.04 LTS <br/> (Azure Marketplace) | NVIDIA GRID drivers or AMD GPU drivers | N/A |
 
 <sup>*</sup>RDMA-capable N-series sizes also include NVIDIA Tesla GPUs
 
@@ -69,13 +70,15 @@ To configure a specialized VM size for your Batch pool, you have several options
 
 * For pools in the virtual machine configuration, choose a preconfigured [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) VM image that has drivers and software preinstalled. Examples:
 
-* [Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview) for Linux or Windows - includes NVIDIA CUDA drivers
+    * [Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview) for Linux or Windows - includes NVIDIA CUDA drivers
 
-* Linux images for Batch container workloads that also include GPU and RDMA drivers:
+    * Linux images for Batch container workloads that also include GPU and RDMA drivers:
 
-* [Ubuntu Server (with GPU and RDMA drivers) for Azure Batch container pools](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-batch.ubuntu-server-container-rdma?tab=Overview)
+    * [Ubuntu Server (with GPU and RDMA drivers) for Azure Batch container pools](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-batch.ubuntu-server-container-rdma?tab=Overview)
 
 * Create a [custom Windows or Linux VM image](batch-sig-images.md) with installed drivers, software, or other settings required for the VM size.
+
+* [Install GPU and RDMA drivers by VM extension](create-pool-extensions.md).
 
 * Create a Batch [application package](batch-application-packages.md) from a zipped driver or application installer. Then, configure Batch to deploy this package to pool nodes and install once when each node is created. For example, if the application package is an installer, create a [start task](jobs-and-tasks.md#start-task) command line to silently install the app on all pool nodes. Consider using an application package and a pool start task if your workload depends on a particular driver version.
 
@@ -85,7 +88,7 @@ To configure a specialized VM size for your Batch pool, you have several options
 
 ## Example: NVIDIA GPU drivers on Windows NC VM pool
 
-To run CUDA applications on a pool of Windows NC nodes, you need to install NVDIA GPU drivers. The following sample steps use an application package to install the NVIDIA GPU drivers. You might choose this option if your workload depends on a specific GPU driver version.
+To run CUDA applications on a pool of Windows NC nodes, you need to install NVIDIA GPU drivers. The following sample steps use an application package to install the NVIDIA GPU drivers. You might choose this option if your workload depends on a specific GPU driver version.
 
 1. Download a setup package for the GPU drivers on Windows Server 2016 from the [NVIDIA website](https://www.nvidia.com/Download/index.aspx) - for example, [version 411.82](https://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Save the file locally using a short name like *GPUDriverSetup.exe*.
 2. Create a zip file of the package.

@@ -6,12 +6,13 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: tutorial
-ms.date: 03/07/2023
+ms.date: 11/26/2024
 ms.author: normesta
 ms.reviewer: sumameh
 ms.devlang: csharp
 # ms.devlang: csharp, python
 ms.custom: devx-track-csharp
+# Customer intent: "As a data engineer, I want to implement an event-driven solution to update a Delta table in Databricks, so that I can automate data ingestion from files uploaded to Azure Data Lake Storage."
 ---
 
 # Tutorial: Implement the data lake capture pattern to update a Databricks Delta table
@@ -306,7 +307,7 @@ Create an Azure Function that runs the Job.
       }
     ```
 
-   This code parses information about the storage event that was raised, and then creates a request message with url of the file that triggered the event. As part of the message, the function passes a value to the **source_file** widget that you created earlier. the function code sends the message to the Databricks Job and uses the token that you obtained earlier as authentication.
+   This code parses information about the storage event that was raised, and then creates a request message with url of the file that triggered the event. As part of the message, the function passes a value to the **source_file** widget that you created earlier. The function code sends the message to the Databricks Job and uses the token that you obtained earlier as authentication.
 
 ## Create an Event Grid subscription
 

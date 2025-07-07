@@ -2,13 +2,15 @@
 title: Tutorial - Add Azure Content Delivery Network to an Azure App Service web app
 description: In this tutorial, Azure Content Delivery Network is added to an Azure App Service web app to cache and deliver your static files from servers close to your customers around the world.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
 ms.custom: mvc
+ROBOTS: NOINDEX
+# Customer intent: "As a web developer, I want to integrate a Content Delivery Network with my Azure App Service web app, so that I can cache and deliver static files more efficiently to users globally."
 ---
 
 # Tutorial: Add Azure Content Delivery Network to an Azure App Service web app
@@ -48,43 +50,35 @@ Open a browser and sign in to the [Azure portal](https://portal.azure.com).
 ### Dynamic site acceleration optimization
 
 If you want to optimize your content delivery network endpoint for dynamic site acceleration (DSA), you should use the [content delivery network portal](cdn-create-new-endpoint.md) to create your profile and endpoint. With [DSA optimization](cdn-dynamic-site-acceleration.md), the performance of web pages with dynamic content is measurably improved. For instructions about how to optimize a content delivery network endpoint for DSA from the content delivery network portal, see [content delivery network endpoint configuration to accelerate delivery of dynamic files](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files).
-Otherwise, if you don't want to optimize your new endpoint, you can use the web app portal to create it by following the steps in the next section. For **Azure CDN from Edgio** profiles, you can't change the optimization of a content delivery network endpoint after it has been created.
+Otherwise, if you don't want to optimize your new endpoint, you can use the web app portal to create it by following the steps in the next section.
 
 <a name='create-a-cdn-profile-and-endpoint'></a>
 
 ## Create a content delivery network profile and endpoint
 
-In the left navigation, select **App Services**, and then select the app that you created in the [static HTML quickstart](../app-service/quickstart-html.md).
+1. In the left navigation, select **App Services**, and then select the app that you created in the [static HTML quickstart](../app-service/quickstart-html.md).
 
-:::image type="content" source="./media/cdn-add-to-web-app/portal-select-app-services.png" alt-text="Screenshot of select an App Service app in the portal.":::
+1. In the **App Service** page, in the **Settings** section, select **Networking > Azure CDN**.
 
-In the **App Service** page, in the **Settings** section, select **Networking > Azure CDN**.
+    :::image type="content" source="./media/cdn-add-to-web-app/portal-select-cdn.png" alt-text="Screenshot of select Azure Content Delivery Network from networking setting of an App Service.":::
 
-:::image type="content" source="./media/cdn-add-to-web-app/portal-select-cdn.png" alt-text="Screenshot of select Azure Content Delivery Network from networking setting of an App Service.":::
+1. In the **Azure Content Delivery Network** page, provide the **New endpoint** settings as specified in the table.
 
-In the **Azure Content Delivery Network** page, provide the **New endpoint** settings as specified in the table.
+    | Setting | Suggested value | Description |
+    | ------- | --------------- | ----------- |
+    | **content delivery network profile** | myCDNProfile | A content delivery network profile is a collection of content delivery network endpoints with the same pricing tier. |
+    | **Pricing tier** | Microsoft content delivery network (classic) | The [pricing tier](cdn-features.md) specifies the provider and available features. |
+    | **content delivery network endpoint name** | Any name that is unique in the azureedge.net domain | You access your cached resources at the domain *&lt;endpointname&gt;*.azureedge.net.
 
-:::image type="content" source="./media/cdn-add-to-web-app/portal-new-endpoint.png" alt-text="Screenshot of create Azure Content Delivery Network profile and endpoint in the portal.":::
+1. Select **Create** to create a content delivery network profile. Azure creates the profile and endpoint. The new endpoint appears in the **Endpoints** list, and when it's provisioned, the status is **Running**.
 
-| Setting | Suggested value | Description |
-| ------- | --------------- | ----------- |
-| **content delivery network profile** | myCDNProfile | A content delivery network profile is a collection of content delivery network endpoints with the same pricing tier. |
-| **Pricing tier** | Microsoft content delivery network (classic) | The [pricing tier](cdn-features.md) specifies the provider and available features. |
-| **content delivery network endpoint name** | Any name that is unique in the azureedge.net domain | You access your cached resources at the domain *&lt;endpointname&gt;*.azureedge.net.
-
-Select **Create** to create a content delivery network profile.
-
-Azure creates the profile and endpoint. The new endpoint appears in the **Endpoints** list, and when it's provisioned, the status is **Running**.
-
-:::image type="content" source="./media/cdn-add-to-web-app/portal-new-endpoint-in-list.png" alt-text="Screenshot of new Azure Content Delivery Network endpoint in list.":::
+    :::image type="content" source="./media/cdn-add-to-web-app/portal-new-endpoint-in-list.png" alt-text="Screenshot of new Azure Content Delivery Network endpoint in list.":::
 
 <a name='test-the-cdn-endpoint'></a>
 
 ### Test the content delivery network endpoint
 
-Because it takes time for the registration to propagate, the endpoint isn't immediately available for use:
-   - For **Azure CDN Standard from Microsoft (classic)** profiles, propagation usually completes in 10 minutes.
-   - For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes within 90 minutes.
+Because it takes time for the registration to propagate, the endpoint isn't immediately available for use. For **Azure CDN Standard from Microsoft (classic)** profiles, propagation usually completes within 10 minutes.
 
 The sample app has an *index.html* file and *css*, *img*, and *js* folders that contain other static assets. The content paths for all of these files are the same at the content delivery network endpoint. For example, both of the following URLs access the *bootstrap.css* file in the *css* folder:
 
@@ -146,23 +140,17 @@ If you browse to the content delivery network endpoint URL for the home page, yo
 
 To trigger the content delivery network to update its cached version, purge the content delivery network.
 
-In the portal left navigation, select **Resource groups**, and then select the resource group that you created for your web app (myResourceGroup).
+1. In the portal left navigation, select **Resource groups**, and then select the resource group that you created for your web app (myResourceGroup).
 
-:::image type="content" source="./media/cdn-add-to-web-app/portal-select-group.png" alt-text="Screenshot of selecting resource group from left menu pane in the portal.":::
+1. In the list of resources, select your content delivery network endpoint.
 
-In the list of resources, select your content delivery network endpoint.
+1. At the top of the **Endpoint** page, select **Purge**.
 
-:::image type="content" source="./media/cdn-add-to-web-app/portal-select-endpoint.png" alt-text="Screenshot of Azure Content Delivery Network endpoint from resource group.":::
+    :::image type="content" source="./media/cdn-add-to-web-app/portal-select-purge.png" alt-text="Screenshot of purge button in an Azure Content Delivery Network profile.":::
 
-At the top of the **Endpoint** page, select **Purge**.
+1. Enter the content paths you want to purge. You can pass a complete file path to purge an individual file, or a path segment to purge and refresh all content in a folder. Because you changed *index.html*, ensure that is in one of the paths. At the bottom of the page, select **Purge**.
 
-:::image type="content" source="./media/cdn-add-to-web-app/portal-select-purge.png" alt-text="Screenshot of purge button in an Azure Content Delivery Network profile.":::
-
-Enter the content paths you want to purge. You can pass a complete file path to purge an individual file, or a path segment to purge and refresh all content in a folder. Because you changed *index.html*, ensure that is in one of the paths.
-
-At the bottom of the page, select **Purge**.
-
-:::image type="content" source="./media/cdn-add-to-web-app/app-service-web-purge-cdn.png" alt-text="Screenshot of purge page in an Azure Content Delivery Network profile.":::
+    :::image type="content" source="./media/cdn-add-to-web-app/app-service-web-purge-cdn.png" alt-text="Screenshot of purge page in an Azure Content Delivery Network profile.":::
 
 <a name='verify-that-the-cdn-is-updated'></a>
 
@@ -194,13 +182,13 @@ In this section of the tutorial, you change the caching behavior to cache every 
 
 ### Change the cache behavior
 
-In the Azure portal **CDN Endpoint** page, select **Cache**.
+1. In the Azure portal **CDN Endpoint** page, select **Cache**.
 
-Select **Cache every unique URL** from the **Query string caching behavior** dropdown list.
+1. Select **Cache every unique URL** from the **Query string caching behavior** dropdown list.
 
-Select **Save**.
+1. Select **Save**.
 
-:::image type="content" source="./media/cdn-add-to-web-app/portal-select-caching-behavior.png" alt-text="Screenshot of cache rules settings for an Azure Content Delivery Network profile.":::
+    :::image type="content" source="./media/cdn-add-to-web-app/portal-select-caching-behavior.png" alt-text="Screenshot of cache rules settings for an Azure Content Delivery Network profile.":::
 
 ### Verify that unique URLs are cached separately
 

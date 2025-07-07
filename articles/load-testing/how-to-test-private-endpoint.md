@@ -94,7 +94,7 @@ To configure outbound access for Azure Load Testing:
 
 ## Configure your load test script
 
-The test engine VMs, which run the JMeter script, are injected in the virtual network that contains the application endpoint. You can now refer directly to the endpoint in the JMX file by using the private IP address or use [name resolution in your network](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
+The test engine VMs, which run the test script, are injected in the virtual network that contains the application endpoint. You can now refer directly to the endpoint in the test script by using the private IP address or use [name resolution in your network](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
 For example, for an endpoint with IP address 10.179.0.7, in a virtual network with subnet range 10.179.0.0/18, the JMX file could have this information:
 
@@ -129,7 +129,7 @@ You can specify the virtual network configuration settings in the load test crea
 
 1. Open the load test creation/update wizard in either of two ways:
 
-    - Select **+ Create > Upload a JMeter script**, if you want to create a new test.
+    - Select **+ Create > Upload a script**, if you want to create a new test.
 
         :::image type="content" source="media/how-to-test-private-endpoint/create-new-test.png" alt-text="Screenshot that shows the Tests page, highlighting the button for creating a new test.":::
     

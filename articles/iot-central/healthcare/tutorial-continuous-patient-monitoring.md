@@ -3,9 +3,9 @@ title: "Tutorial: Azure IoT continuous patient monitoring"
 description: In this tutorial, you deploy and use the continuous patient monitoring application template for IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/10/2023
+ms.date: 10/14/2024
 ms.topic: tutorial
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ---
 

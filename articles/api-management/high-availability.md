@@ -35,8 +35,7 @@ Enabling [zone redundancy](../reliability/migrate-api-mgt.md) for an API Managem
 
 When you enable zone redundancy in a region, consider the number of API Management scale [units](upgrade-and-scale.md) that need to be distributed. Minimally, configure the same number of units as the number of availability zones, or a multiple so that the units are distributed evenly across the zones. For example, if you select 3 availability zones in a region, you could have 3 units so that each zone hosts one unit.
 
-> [!NOTE]
-> Use the [capacity](api-management-capacity.md) metric and your own testing to decide the number of scale units that will provide the gateway performance for your needs. Learn more about [scaling and upgrading](upgrade-and-scale.md) your service instance.
+[!INCLUDE [api-management-az-notes](../../includes/api-management-az-notes.md)]
 
 ## Multi-region deployment
 
@@ -85,7 +84,7 @@ API Management [backend](backends.md) entities allow you to manage and apply bac
 * Distribute and load-balance traffic to a [pool of URLs](backends.md#load-balanced-pool)
 * Configure [circuit breaker rules](backends.md#circuit-breaker) to apply the circuit breaker pattern to protect the backend from too many requests
 
-## Next steps
+## Related content
 
 * Learn more about [reliability in Azure](../reliability/overview.md)
 * Learn more about [designing reliable Azure applications](/azure/architecture/framework/resiliency/app-design)

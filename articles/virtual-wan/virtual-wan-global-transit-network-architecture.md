@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: azure-virtual-wan
 ms.topic: conceptual
-ms.date: 09/25/2023
+ms.date: 03/26/2025
 ms.author: cherylmc
 
 ---
@@ -51,7 +51,7 @@ An Enterprise cloud footprint can span multiple cloud regions and it's optimal (
 
 **Figure 3: Virtual WAN cross-region connectivity**
 
-When multiple hubs are enabled in a single virtual WAN, the hubs are automatically interconnected via hub-to-hub links, thus enabling global connectivity between branches and Vnets that are distributed across multiple regions. 
+When multiple hubs are enabled in a single virtual WAN, the hubs are automatically interconnected via hub-to-hub links, thus enabling global connectivity between branches and VNets that are distributed across multiple regions. 
 
 Additionally, hubs that are all part of the same virtual WAN, can be associated with different regional access and security policies. For more information, see [Security and policy control](#security) later in this article.
 
@@ -87,7 +87,7 @@ ExpressRoute is a private and resilient way to connect your on-premises networks
 
 There are two options to enable ExpressRoute to ExpressRoute transit connectivity when using Azure Virtual WAN:
 
-* You can enable ExpressRoute to ExpressRoute transit connectivity by enabling ExpressRoute Global Reach on your ExpressRoute circuits. [Global Reach](../expressroute/expressroute-global-reach.md) is an ExpressRoute add-on feature that allows you to link ExpressRoute circuits in different peering locations together to make a private network. ExpressRoute to ExpressRoute transit connectivity between circuits with the Global Reach add-on will not transit the Virtual WAN hub because Global Reach enables a more optimal path over the global backbone.
+* You can enable ExpressRoute to ExpressRoute transit connectivity by enabling ExpressRoute Global Reach on your ExpressRoute circuits. [Global Reach](../expressroute/expressroute-global-reach.md) is an ExpressRoute add-on feature that allows you to link ExpressRoute circuits in different peering locations together to make a private network. ExpressRoute to ExpressRoute transit connectivity between circuits with the Global Reach add-on won't transit the Virtual WAN hub because Global Reach enables a more optimal path over the global backbone.
 
 * You can use the Routing Intent feature with private traffic routing policies to enable ExpressRoute transit connectivity via a security appliance deployed in the Virtual WAN Hub. This option doesn't require Global Reach. For more information, see the [ExpressRoute section](how-to-routing-policies.md#expressroute) in routing intent documentation.
 
@@ -99,7 +99,7 @@ This option lets enterprises leverage the Azure backbone to connect branches. Ho
 
 > [!NOTE]
 > Disabling Branch-to-Branch Connectivity in Virtual WAN -
-> Virtual WAN can be configured to disable Branch-to-Branch connectivity. This configuration will block route propagation between VPN (S2S and P2S) and Express Route connected sites. This configuration will not affect branch-to-Vnet and Vnet-to-Vnet route propagation and connectivity. To configure this setting using Azure Portal: Under Virtual WAN Configuration menu, Choose Setting: Branch-to-Branch - Disabled. 
+> Virtual WAN can be configured to disable Branch-to-Branch connectivity. This configuration will block route propagation between VPN (S2S and P2S) and Express Route connected sites. This configuration won't affect branch-to-VNet and VNet-to-VNet route propagation and connectivity. To configure this setting using the Azure portal: Under the Virtual WAN Configuration menu, choose setting: Branch-to-Branch - Disabled.
 
 ### Remote User-to-VNet (c)
 
@@ -111,7 +111,7 @@ The Remote User-to-branch path lets remote users who are using a point-to-site c
 
 ### VNet-to-VNet transit (e) and VNet-to-VNet cross-region (h)
 
-The VNet-to-VNet transit enables VNets to connect to each other in order to interconnect multi-tier applications that are implemented across multiple VNets. Optionally, you can connect VNets to each other through VNet Peering and this may be suitable for some scenarios where transit via the VWAN hub isn't necessary.
+The VNet-to-VNet transit enables VNets to connect to each other in order to interconnect multi-tier applications that are implemented across multiple VNets. Optionally, you can connect VNets to each other through VNet Peering and this might be suitable for some scenarios where transit via the VWAN hub isn't necessary.
 
 
 ## <a name="DefaultRoute"></a>Forced tunneling and default route
@@ -152,7 +152,7 @@ The VNet-to-VNet secured transit enables VNets to connect to each other via secu
 
 ### VNet-to-Internet or third-party Security Service (i)
 
-The VNet-to-Internet enables VNets to connect to the internet via the security appliances (Azure Firewall, select NVA and SaaS) in the virtual WAN hub. Traffic to internet via supported third-party security services doesn't flow through a security appliance and is routed straight to the third-party security service. You can configure Vnet-to-Internet path via supported third-party security service using Azure Firewall Manager.  
+The VNet-to-Internet enables VNets to connect to the internet via the security appliances (Azure Firewall, select NVA and SaaS) in the virtual WAN hub. Traffic to internet via supported third-party security services doesn't flow through a security appliance and is routed straight to the third-party security service. You can configure VNet-to-Internet path via supported third-party security service using Azure Firewall Manager.  
 
 ### Branch-to-Internet or third-party Security Service (j)
 
@@ -172,21 +172,21 @@ The Branch-to-VNet secured transit enables branches to communicate with virtual 
 
 ### How do I enable default route (0.0.0.0/0) in a Secured Virtual Hub
 
-Azure Firewall deployed in a Virtual WAN hub (Secure Virtual Hub) can be configured as default router to the Internet or Trusted Security Provider for all branches (connected by VPN or Express Route), spoke Vnets and Users (connected via P2S VPN). 
-This configuration must be done using Azure Firewall Manager.  See Route Traffic to your hub to configure all traffic from branches (including Users) as well as Vnets to Internet via the Azure Firewall. 
+Azure Firewall deployed in a Virtual WAN hub (Secure Virtual Hub) can be configured as default router to the Internet or Trusted Security Provider for all branches (connected by VPN or Express Route), spoke VNets and Users (connected via P2S VPN). 
+This configuration must be done using Azure Firewall Manager.  See Route Traffic to your hub to configure all traffic from branches (including Users) as well as VNets to Internet via the Azure Firewall. 
 
 This is a two step configuration:
 
-1. Configure Internet traffic routing using Secure Virtual Hub Route Setting menu. Configure Vnets and Branches that can send traffic to the internet via the Firewall.
+1. Configure Internet traffic routing using Secure Virtual Hub Route Setting menu. Configure VNets and Branches that can send traffic to the internet via the Firewall.
 
-2. Configure which Connections (Vnet and Branch) can route traffic to the internet (0.0.0.0/0) via the Azure FW in the hub or Trusted Security Provider. This step ensures that the default route is propagated to selected branches and Vnets that are attached to the Virtual WAN hub via the Connections. 
+2. Configure which Connections (VNet and Branch) can route traffic to the internet (0.0.0.0/0) via the Azure FW in the hub or Trusted Security Provider. This step ensures that the default route is propagated to selected branches and VNets that are attached to the Virtual WAN hub via the Connections. 
 
 ### Force tunneling traffic to on-premises firewall in a Secured Virtual Hub
 
-If there is already a default route learned (via BGP) by the Virtual Hub from one of the Branches (VPN or ER sites), this default route is overridden by the default route learned from Azure Firewall Manager setting. In this case, all traffic that is entering the hub from Vnets and branches destined to internet, will be routed to the Azure Firewall or Trusted Security Provider.
+If there is already a default route learned (via BGP) by the Virtual Hub from one of the Branches (VPN or ER sites), this default route is overridden by the default route learned from Azure Firewall Manager setting. In this case, all traffic that is entering the hub from VNets and branches destined to internet, will be routed to the Azure Firewall or Trusted Security Provider.
 
 > [!NOTE]
-> Currently there is no option to select on-premises firewall or Azure Firewall (and Trusted Security Provider) for internet bound traffic originating from Vnets, Branches or Users. The default route learned from the Azure Firewall Manager setting is always preferred over the default route learned from one of the branches.
+> Currently there is no option to select on-premises firewall or Azure Firewall (and Trusted Security Provider) for internet bound traffic originating from VNets, Branches or Users. The default route learned from the Azure Firewall Manager setting is always preferred over the default route learned from one of the branches.
 
 
 ## Next steps

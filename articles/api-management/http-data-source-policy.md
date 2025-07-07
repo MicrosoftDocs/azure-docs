@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: reference
 ms.date: 07/23/2024
 ms.author: danlep
 ---
@@ -128,7 +128,7 @@ type User {
 </http-data-source>
 ```
 
-### Resolver for a GraqhQL query that returns a list, using a liquid template
+### Resolver for a GraphQL query that returns a list, using a liquid template
 
 The following example uses a liquid template, supported for use in the [set-body](set-body-policy.md) policy, to return a list in the HTTP response to a query.  It also renames the `username` field in the response from the REST API to `name` in the GraphQL response.
 

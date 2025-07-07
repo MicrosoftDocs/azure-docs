@@ -17,6 +17,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Enable age gating in Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 Age gating in Azure Active Directory B2C (Azure AD B2C) enables you to identify minors that want to use your application, with, or without parental consent. You can choose to block the minor from sign-in into the application. Or allow uses to complete the sign-in, and provide the application the minor status. 
@@ -25,7 +27,7 @@ Age gating in Azure Active Directory B2C (Azure AD B2C) enables you to identify 
 >This feature is in public preview. Do not use feature for production applications.
 >
 
-When age gating is enabled for a user flow, users are asked for their date of birth, and country of residence. If a user signs in that hasn't previously entered the information, they'll need to enter it the next time they sign in. The rules are applied every time a user signs in.
+When age gating is enabled for a user flow, users are asked for their date of birth, and country/region of residence. If a user signs in that hasn't previously entered the information, they'll need to enter it the next time they sign in. The rules are applied every time a user signs in.
 
 ![Screenshot of age gating information gather flow](./media/age-gating/age-gating-information-gathering.png)
 
@@ -69,7 +71,7 @@ After your tenant is set up to use age gating, you can then use this feature in 
 1. To test your policy, select **Run user flow**.
 1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run user flow** button.
-1. Sign-in with a local or social account. Then select your country of residence, and date of birth that simulate a minor. 
+1. Sign-in with a local or social account. Then select your country/region of residence, and date of birth that simulate a minor. 
 1. Repeat the test, and select a date of birth that simulates an adult.  
 
 When you sign-in as a minor, you should see the following error message: *Unfortunately, your sign on has been blocked. Privacy and online safety laws in your country prevent access to accounts belonging to children.*

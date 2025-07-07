@@ -58,9 +58,9 @@ configure push credentials in your notification hub. Even if you have no prior e
 
 5. Add the Azure Notification Hubs SDK modules.
 
-   You can integrate the Azure Notification Hubs SDK into your app by using [Cocoapods](https://cocoapods.org/) or by manually adding the binaries to your project.
+   You can integrate the Azure Notification Hubs SDK into your app by using [CocoaPods](https://cocoapods.org/) or by manually adding the binaries to your project.
 
-   - Integration via Cocoapods: Add the following dependencies to your podfile to include Azure Notification Hubs SDK in your app:
+   - Integration via CocoaPods: Add the following dependencies to your podfile to include Azure Notification Hubs SDK in your app:
 
       ```ruby
       pod 'AzureNotificationHubs-iOS'
@@ -68,7 +68,7 @@ configure push credentials in your notification hub. Even if you have no prior e
 
       - Run pod install to install your newly defined pod and open your .xcworkspace.
 
-         If you see an error such as **Unable to find a specification for AzureNotificationHubs-iOS** while running pod install, run `pod repo update` to get the latest pods from the Cocoapods repository, and then run pod install.
+         If you see an error such as **Unable to find a specification for AzureNotificationHubs-iOS** while running pod install, run `pod repo update` to get the latest pods from the CocoaPods repository, and then run pod install.
 
    - Integration via Carthage: Add the following dependencies to your Cartfile to include the Azure Notification Hubs SDK in your app:
 

@@ -7,8 +7,8 @@ manager: rdeltcheva
 ms.author: depadia
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.topic: conceptual
-ms.date: 05/08/2024
+ms.topic: concept-article
+ms.date: 04/29/2025
 ---
 
 # Disaster recovery guidelines for SAP application
@@ -121,11 +121,7 @@ On Windows, the high availability configuration of SAP central services (ASCS an
 | ------------------------- | ------------------------------------------------------------ |
 | SMB on Azure Files        | [Robocopy](../../storage/files/storage-files-migration-robocopy.md) |
 | SMB on Azure NetApp Files | [Cross Region Replication](../../azure-netapp-files/cross-region-replication-introduction.md) |
-| Azure Shared Disk         | [Azure Site Recovery with Shared Disks (preview)](../../site-recovery/shared-disk-support-matrix.md) |
-
-> [!NOTE]
->
-> Azure Site Recovery with shared disk is currently in public preview. So, we don't recommend implementing the scenario for most critical SAP production workloads
+| Azure Shared Disk         | [Azure Site Recovery with Shared Disks](../../site-recovery/shared-disk-support-matrix.md) |
 
 ---
 

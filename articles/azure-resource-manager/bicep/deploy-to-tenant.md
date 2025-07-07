@@ -3,7 +3,7 @@ title: Use Bicep to deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in a Bicep file.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 09/26/2024
+ms.date: 02/10/2025
 ---
 
 # Tenant deployments with Bicep file
@@ -120,18 +120,18 @@ For each deployment name, the location is immutable. You can't create a deployme
 
 ## Deployment scopes
 
-When deploying to a tenant, you can deploy resources to:
+In a Bicep file, all resources declared with the [`resource`](./resource-declaration.md) keyword must be deployed at the same scope as the deployment. For a tenant deployment, this means all `resource` declarations in the Bicep file must be deployed to the same tenant or as a child or extension resource of a resource in the same tenant as the deployment.  
 
-* the tenant
-* management groups within the tenant
-* subscriptions
-* resource groups
+However, this restriction doesn't apply to [`existing`](./existing-resource.md) resources. You can reference existing resources at a different scope than the deployment.  
 
-An [extension resource](scope-extension-resources.md) can be scoped to a target that is different than the deployment target.
+To deploy resources at multiple scopes within a single deployment, use [modules](./modules.md). Deploying a module triggers a "nested deployment," allowing you to target different scopes. The user deploying the parent Bicep file must have the necessary permissions to initiate deployments at those scopes.
 
-The user deploying the template must have access to the specified scope.
+You can deploy a resource from within a tenant scope Bicep file at the following scopes:
 
-This section shows how to specify different scopes. You can combine these different scopes in a single template.
+* [The tenant](#scope-to-tenant)
+* [The management group](#scope-to-management-group)
+* [The subscription](#scope-to-subscription)
+* [The resource group](#scope-to-resource-group)
 
 ### Scope to tenant
 

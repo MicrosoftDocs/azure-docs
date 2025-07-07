@@ -7,6 +7,8 @@ ms.date: 08/20/2024
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, devx-track-python
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Manage connections in Azure Automation

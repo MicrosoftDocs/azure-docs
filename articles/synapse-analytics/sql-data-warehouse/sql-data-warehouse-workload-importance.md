@@ -1,9 +1,8 @@
 ---
 title: Workload importance
 description: Guidance for setting importance for dedicated SQL pool queries in Azure Synapse Analytics.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: whhender
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 02/04/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw

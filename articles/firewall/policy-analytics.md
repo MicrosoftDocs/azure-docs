@@ -2,11 +2,12 @@
 title: Azure Firewall Policy Analytics
 description: Learn about Azure Firewall Policy Analytics
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/09/2023
-ms.author: victorh
+ms.author: duau
+# Customer intent: "As an IT administrator managing network security, I want to utilize Policy Analytics for Azure Firewall, so that I can optimize and automate firewall rules and policies, reducing the risks of misconfiguration and enhancing the security posture of the organization."
 ---
 
 # Azure Firewall Policy Analytics
@@ -18,7 +19,7 @@ For large, geographically dispersed organizations, manually managing Firewall ru
 
 You can now refine and update Firewall rules and policies with confidence in just a few steps in the Azure portal. You have granular control to define your own custom rules for an enhanced security and compliance posture. You can automate rule and policy management to reduce the risks associated with a manual process.<br><br>
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE57NCC]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=850e850c-7485-46a0-aa26-8588027a3e84]
 
 ## Pricing
 

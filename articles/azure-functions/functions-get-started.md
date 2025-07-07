@@ -3,7 +3,7 @@ title: Getting started with Azure Functions
 description: Take the first steps toward working with Azure Functions.
 ms.topic: overview
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 09/18/2024
+ms.date: 03/17/2025
 zone_pivot_groups: programming-languages-set-functions-full
 ---
 
@@ -113,6 +113,19 @@ These sites let you browse existing functions reference projects and samples in 
 + [Azure Community Library](https://www.serverlesslibrary.net/?technology=Functions%202.x&language=Python) 
 + [Azure Samples Browser](/samples/browse/?expanded=azure&languages=python&products=azure-functions)
 ::: zone-end  
+
+## Scenarios
+
+While Functions provides compute resources to run your code in any Azure-based topology, here are some scenario ideas to help you get started: 
+
++ [Process file uploads](functions-scenarios.md#process-file-uploads)
++ [Real-time stream and event processing](functions-scenarios.md#real-time-stream-and-event-processing)
++ [Machine learning and AI](functions-scenarios.md#machine-learning-and-ai)
++ [Run scheduled tasks](functions-scenarios.md#run-scheduled-tasks)
++ [Build a scalable web API](functions-scenarios.md#build-a-scalable-web-api)
++ [Build a serverless workflow](functions-scenarios.md#build-a-serverless-workflow)
++ [Respond to database changes](functions-scenarios.md#respond-to-database-changes)
++ [Create reliable message systems](functions-scenarios.md#create-reliable-message-systems)
 
 ## Explore an interactive tutorial
 

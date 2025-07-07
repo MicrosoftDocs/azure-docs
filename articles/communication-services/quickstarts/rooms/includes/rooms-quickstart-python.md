@@ -2,15 +2,15 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: peiliu
+author: mayssamm
 manager: alexokun
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 04/27/2023
+ms.date: 05/15/2025
 ms.topic: include
 ms.custom: include file
-ms.author: peiliu
+ms.author: mayssamm
 ---
 
 ## Prerequisites
@@ -21,9 +21,9 @@ ms.author: peiliu
 
 ## Sample code
 
-You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/rooms-quickstart).
+Review and download the sample code for from GitHub at [Rooms Quickstart - Python](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/rooms-quickstart).
 
-## Setting up
+## Set up
 
 ### Create a new Python application
 
@@ -68,7 +68,7 @@ if __name__ == '__main__':
 
 ## Initialize a room client
 
-Create a new `RoomsClient` object that will be used to create new `rooms` and manage their properties and lifecycle. The connection string of your `Communications Service` will be used to authenticate the request. For more information on connection strings, see [this page](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
+Create a new `RoomsClient` object that you need to create new rooms and manage their properties and lifecycle. Use the connection string of your Communications Service to authenticate the request. For more information on connection strings, see [Create communications resource](../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 
 ```python
 #Find your Communication Services resource in the Azure portal
@@ -79,7 +79,8 @@ rooms_client = RoomsClient.from_connection_string(connection_string)
 ## Create a room
 
 ### Set up room participants
-In order to set up who can join a room, you'll need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-python) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`. ACS Rooms currently supports a room participant of type CommunicationUserIdentifier only, using other types of CommunicationIdentity will result in a runtime error.
+
+To set up who can join a room, you need a list of the identities of those users. Follow the instructions at [Access tokens](../../identity/access-tokens.md?pivots=programming-language-python) to create users and issue access tokens. Alternatively, to create the users on demand, you can create them using the `CommunicationIdentityClient`. Azure Communication Services rooms currently only support a room participant of type `CommunicationUserIdentifier`. Using other types of `CommunicationIdentity` causes a runtime error.
 
 To use the `CommunicationIdentityClient`, install the following package:
 
@@ -95,7 +96,7 @@ from azure.communication.identity import (
 )
 ```
 
-Now, the `CommunicationIdentityClient` can be initialized and used to create users:
+Now, initialize the `CommunicationIdentityClient` and use it to create users:
 
 ```python
 # Create identities for users who will join the room
@@ -114,7 +115,8 @@ participants = [participant_1, participant_2]
 ```
 
 ### Initialize the room
-Create a new `room` using the `participants` defined in the code snippet above:
+
+Create a new room using the `participants` defined in the preceding code snippet:
 
 ```python
 # Create a room
@@ -134,10 +136,11 @@ except HttpResponseError as ex:
     print(ex)
 ```
 
-Since `rooms` are server-side entities, you may want to keep track of and persist the `room.id` in the storage medium of choice. You can reference the `id` to view or update the properties of a `room` object.
+Since rooms are server-side entities, you should keep track of and persist the `room.id` in the storage medium of choice. You can reference the `id` to view or update the properties of a room object.
 
 ### Enable PSTN dial out capability for a room
-Each `room` has PSTN dial out disabled by default. The PSTN dial out can be enabled for a `room` at creation, by defining the `pstn_dial_out_enabled` parameter as true. This capability may also be modified for a `room` by issuing an update request for the `pstn_dial_out_enabled` parameter.
+
+Each room has PSTN dial out disabled by default. You can enable the PSTN dial out for a room at creation, by defining the `pstn_dial_out_enabled` parameter as true. You can change this capability for a room by issuing an update request for the `pstn_dial_out_enabled` parameter.
 
 ```python
 # Create a room with PSTN dial out capability
@@ -168,7 +171,7 @@ except HttpResponseError as ex:
 
 ## Update the lifetime of a room
 
-The lifetime of a `room` can be modified by issuing an update request for the `valid_from` and `valid_until` parameters. A room can be valid for a maximum of six months.
+You can change the lifetime of a room by issuing an update request for the `valid_from` and `valid_until` parameters. A room can be valid for a maximum of six months.
 
 ```python
 # Update the lifetime of a room
@@ -208,7 +211,7 @@ except HttpResponseError as ex:
 
 ## Add or update participants
 
-To add new participants or update existing participants in a `room`, use the `add_or_update_participants` method exposed on the client.
+To add new participants or update existing participants in a room, use the `add_or_update_participants` method exposed on the client.
 
 ```python
 # Add or update participants in a room
@@ -218,7 +221,7 @@ try:
     participants.append(RoomParticipant(communication_identifier=user2, role=ParticipantRole.ATTENDEE))
 
     # Add new participant user3
-    participants.append(RoomParticipant(communication_identifier=user3, role=ParticipantRole.CONSUMER))
+    participants.append(RoomParticipant(communication_identifier=user3, role=ParticipantRole.COLLABORATOR))
     rooms_client.add_or_update_participants(room_id=room_id, participants=participants)
     print("\nAdd or update participants in room")
 
@@ -226,11 +229,11 @@ except HttpResponseError as ex:
     print('Error in adding or updating participants to room.', ex)
 ```
 
-Participants that have been added to a `room` become eligible to join calls.
+When you add participants to a room, they become eligible to join calls.
 
 ## List participants in a room
 
-Retrieve the list of participants for an existing `room` by referencing the `room_id`:
+Retrieve the list of participants for an existing room by referencing the `room_id`:
 
 ```python
 # Get list of participants in room
@@ -246,7 +249,7 @@ except HttpResponseError as ex:
 
 ## Remove participants
 
-To remove a participant from a `room` and revoke their access, use the `remove_participants` method.
+To remove a participant from a room and revoke their access, use the `remove_participants` method.
 
 ```python
 # Remove Participants
@@ -261,7 +264,8 @@ except HttpResponseError as ex:
 ```
 
 ## Delete room
-If you wish to disband an existing `room`, you may issue an explicit delete request. All `rooms` and their associated resources are automatically deleted at the end of their validity plus a grace period.
+
+To disband an existing room, issue an explicit delete request. All rooms and associated resources are automatically deleted at the end of their validity plus a grace period.
 
 ```python
 # Delete Room
@@ -273,18 +277,15 @@ print("\nDeleted room with id: " + room_id)
 
 ## Run the code
 
-To run the code, make sure you are on the directory where your `rooms-quickstart.py` file is.
+To run the code, make sure you are in the same directory as your `rooms-quickstart.py` file.
 
 ```console
-
 python rooms-quickstart.py
-
 ```
 
 The expected output describes each completed action:
 
 ```console
-
 Azure Communication Services - Rooms Quickstart
 
 Created a room with id:  99445276259151407
@@ -305,12 +306,11 @@ Add or update participants in room
 Participants in Room Id : 99445276259151407
 8:acs:42a0ff0c-356d-4487-a288-ad0aad95d504_00000018-ef00-6042-a166-563a0d0051c1 Presenter
 8:acs:42a0ff0c-356d-4487-a288-ad0aad95d504_00000018-ef00-6136-a166-563a0d0051c2 Consumer
-8:acs:42a0ff0c-356d-4487-a288-ad0aad95d504_00000018-ef00-61fd-a166-563a0d0051c3 Attendee
+8:acs:42a0ff0c-356d-4487-a288-ad0aad95d504_00000018-ef00-61fd-a166-563a0d0051c3 Collaborator
 
 Removed participants from room
 
 Deleted room with id: 99445276259151407
-
 ```
 
 ## Reference documentation

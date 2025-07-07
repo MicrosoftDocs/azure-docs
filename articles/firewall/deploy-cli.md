@@ -2,13 +2,14 @@
 title: Deploy and configure Azure Firewall using Azure CLI
 description: In this article, you learn how to deploy and configure Azure Firewall using the Azure CLI. 
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.custom: devx-track-azurecli
 ms.date: 10/31/2022
-ms.author: victorh
+ms.author: duau
 ms.topic: how-to
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
+# Customer intent: As an administrator deploying network security solutions, I want to configure Azure Firewall using the command-line interface, so that I can control outbound access and manage network traffic effectively within my Azure environment.
 ---
 
 # Deploy and configure Azure Firewall using Azure CLI
@@ -35,7 +36,7 @@ In this article, you learn how to:
 * Set up a test network environment
 * Deploy a firewall
 * Create a default route
-* Configure an application rule to allow access to www.google.com
+* Configure an application rule to allow access to www.microsoft.com
 * Configure a network rule to allow access to external DNS servers
 * Test the firewall
 
@@ -116,7 +117,7 @@ az network nic create \
    --vnet-name Test-FW-VN \
    --subnet Workload-SN \
    --public-ip-address "" \
-   --dns-servers 209.244.0.3 209.244.0.4
+   --dns-servers <replace with External DNS ip #1> <replace with External DNS ip #2>
 ```
 
 Now create the workload virtual machine.
@@ -203,16 +204,16 @@ az network vnet subnet update \
 
 ## Configure an application rule
 
-The application rule allows outbound access to www.google.com.
+The application rule allows outbound access to www.microsoft.com.
 
 ```azurecli-interactive
 az network firewall application-rule create \
    --collection-name App-Coll01 \
    --firewall-name Test-FW01 \
-   --name Allow-Google \
+   --name Allow-Microsoft \
    --protocols Http=80 Https=443 \
    --resource-group Test-FW-RG \
-   --target-fqdns www.google.com \
+   --target-fqdns www.microsoft.com \
    --source-addresses 10.0.2.0/24 \
    --priority 200 \
    --action Allow
@@ -222,12 +223,12 @@ Azure Firewall includes a built-in rule collection for infrastructure FQDNs that
 
 ## Configure a network rule
 
-The network rule allows outbound access to two IP addresses at port 53 (DNS).
+The network rule allows outbound access to two public DNS IP addresses of your choosing at port 53 (DNS).
 
 ```azurecli-interactive
 az network firewall network-rule create \
    --collection-name Net-Coll01 \
-   --destination-addresses 209.244.0.3 209.244.0.4 \
+   --destination-addresses <replace with DNS ip #1> <replace with DNS ip #2> \
    --destination-ports 53 \
    --firewall-name Test-FW01 \
    --name Allow-DNS \
@@ -264,14 +265,14 @@ Now, test the firewall to confirm that it works as expected.
 1. Run the following commands:
 
    ```
-   Invoke-WebRequest -Uri https://www.google.com
-   Invoke-WebRequest -Uri https://www.google.com
+   Invoke-WebRequest -Uri https://www.microsoft.com
+   Invoke-WebRequest -Uri https://www.microsoft.com
 
-   Invoke-WebRequest -Uri https://www.microsoft.com
-   Invoke-WebRequest -Uri https://www.microsoft.com
+   Invoke-WebRequest -Uri <Replace with external website>
+   Invoke-WebRequest -Uri <Replace with external website>
    ```
 
-   The `www.google.com` requests should succeed, and the `www.microsoft.com` requests should fail. This demonstrates that your firewall rules are operating as expected.
+   The `www.microsoft.com` requests should succeed, and the other `External Website` requests should fail. This demonstrates that your firewall rules are operating as expected.
 
 So now you've verified that the firewall rules are working:
 

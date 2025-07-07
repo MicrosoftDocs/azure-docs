@@ -4,6 +4,9 @@ description: Learn techniques for controlling inbound and outbound traffic to Az
 ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.date: 06/15/2024
+author: rkottackal
+ms.author: rkottackal
+ms.reviewer: sairamyeturi 
 ---
 
 # Control network traffic in Azure HDInsight

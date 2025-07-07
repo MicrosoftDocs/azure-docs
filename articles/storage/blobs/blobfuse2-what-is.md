@@ -9,6 +9,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
 ms.custom: engagement-fy23, linux-related-content
+# Customer intent: "As a Linux user, I want to mount Azure Blob Storage as a file system using BlobFuse2, so that I can perform standard file operations and improve access to my data in a familiar environment."
 ---
 
 # What is BlobFuse? - BlobFuse2
@@ -45,7 +46,7 @@ Other key features in BlobFuse2 include:
 - Multiple mounts to the same container for read-only workloads
 
 > [!IMPORTANT]
-> If you are using versions 2.2.0, 2.2.1, or 2.3.0, refrain from using the `Block-cache` mode and switch to the `file-cache` mode till [known issues](https://github.com/Azure/azure-storage-fuse/wiki/Blobfuse2-Known-issues) are fixed.
+> Due to known data consistency issues when using older versions of Blobfuse2 in streaming with `block-cache` mode, it is strongly recommended that all Blobfuse2 installations be upgraded to version 2.3.2 or higher. For more information, see [this](https://github.com/Azure/azure-storage-fuse/wiki/Blobfuse2-Known-issues).
 
 
 ## BlobFuse2 enhancements from BlobFuse v1

@@ -1,9 +1,12 @@
 ---
 title: Configure Apache Ranger policies for Spark SQL in HDInsight with Enterprise Security Package.
 description: This article describes how to configure Ranger policies for Spark SQL with Enterprise Security Package.
-ms.service: azure-hdinsight-on-aks
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 03/07/2024
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
+ms.date: 02/14/2025
 ---
 
 # Configure Apache Ranger policies for Spark SQL in HDInsight with Enterprise Security Package

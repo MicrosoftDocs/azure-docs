@@ -8,6 +8,7 @@ ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 09/30/2024
 ms.custom: template-tutorial
+# Customer intent: "As a network administrator, I want to set up inbound NAT rules using an Azure Load Balancer, so that I can efficiently manage connections to multiple virtual machines in my virtual network."
 ---
 
 # Tutorial: Create inbound NAT rule V2 using the Azure portal
@@ -147,7 +148,7 @@ You create a load balancer in this section. The frontend IP, backend pool, load-
 11. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
-    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
+    > In regions with [Availability Zones](../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../reliability/availability-zones-overview.md).
 
 12. Leave the default of **Microsoft Network** for **Routing preference**.
 

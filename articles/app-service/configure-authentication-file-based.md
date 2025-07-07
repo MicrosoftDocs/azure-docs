@@ -81,7 +81,7 @@ The following exhausts possible configuration options within the file:
             "url_scheme_of_your_app://easyauth.callback"
         ],
         "cookieExpiration": {
-            "convention": "FixedTime|IdentityDerived",
+            "convention": "FixedTime|IdentityProviderDerived",
             "timeToExpiration": "<timespan>"
         },
         "nonce": {

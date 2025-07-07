@@ -2,7 +2,7 @@
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: include
-ms.date: 05/11/2022
+ms.date: 02/03/2025
 ms.author: cshoe
 ---
 
@@ -27,7 +27,7 @@ Next, define a container registry name unique to you.
 ACR_NAME="acaalbums"$GITHUB_USERNAME
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 Define the following variables in your PowerShell console.
 

@@ -7,7 +7,7 @@ ms.topic: how-to
 ---
 # Create and manage users on an OT network sensor
 
-Microsoft Defender for IoT provides tools for managing on-premises user access in the OT network sensor, and the legacy on-premises management console. Azure users are managed [at the Azure subscription level](manage-users-overview.md) using Azure RBAC.
+Microsoft Defender for IoT provides tools for managing on-premises user access in the OT network sensor. Azure users are managed [at the Azure subscription level](manage-users-overview.md) using Azure RBAC.
 
 This article describes how to manage on-premises users directly on an OT network sensor.
 
@@ -127,7 +127,7 @@ This procedure describes how **Admin** users can change local user passwords. **
 
 ## Recover privileged access to a sensor
 
-This procedure descries how to recover privileged access to a sensor, for the *cyberx*, *admin*, or *cyberx_host* users. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+This procedure describes how to recover privileged access to a sensor, for the *cyberx*, *admin*, or *cyberx_host* users. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 **Prerequisites**: This procedure is available only for the *cyberx*, *admin*, or *cyberx_host* users.
 

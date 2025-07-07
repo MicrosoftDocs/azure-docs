@@ -14,7 +14,7 @@ ms.custom: template-overview
 In this quickstart, you learn how to create an Azure Programmable Connectivity (APC) gateway and subscribe to API plans in the Azure portal.
 
 > [!NOTE]
-> Deleting and modifying existing APC Gateways is not supported during the preview. Please open a support ticket in the Azure Portal if you need to delete an APC Gateway.
+> Modifying existing APC Gateways is not supported during the preview. If you need to modify an APC Gateway, you must delete it and recreate it.
 >
 
 > [!NOTE]
@@ -45,7 +45,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 ### Select APIs
 
 1. Click on the API that you want to use.
-1. Select the country.
+1. Select the country/region.
 1. **Add** the plans you want to subscribe to.  
   
    :::image type="content" source="media/select.jpg" alt-text="Screenshot of the select APIs page in the Azure portal." lightbox="media/select.jpg":::  

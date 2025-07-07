@@ -2,11 +2,11 @@
 title: Overview of API support in Azure Static Web Apps
 description: Learn what API features Azure Static Web Apps supports
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic:  conceptual
 ms.date: 10/02/2024
-ms.author: cshoe
+ms.author: wujia
 ---
 
 # Overview of API support in Azure Static Web Apps

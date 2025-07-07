@@ -12,24 +12,28 @@ metadata:
   author: duongau
   ms.author: duau
   manager: kumudD
-  ms.date: 06/14/2024
+  ms.date: 05/30/2025
+  ms.custom: portfolio-consolidation-2025
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
   items:
+    - title: Hybrid connectivity overview
+      itemType: concept
+      url: /azure/networking/hybrid-connectivity/hybrid-connectivity
     - title: Introduction to Azure hybrid connectivity services
       itemType: training
       url: /training/paths/intro-to-azure-hybrid-connectivity-services/
-    - title: Azure Networking blogs
+    - title: Azure networking blogs
       itemType: concept
-      url: https://azure.microsoft.com/en-us/blog/?s=&k%5B0%5D=Virtual%20WAN&k%5B1%5D=ExpressRoute&k%5B2%5D=VPN
+      url: https://azure.microsoft.com/blog/category/networking/
     - title: Azure network security documentation
       itemType: overview
       url: ../security/index.yml
     - title: Hub-spoke network topology in Azure
       itemType: architecture
       url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-    - title: Azure networking services overview
+    - title: Azure networking services
       itemType: overview
       url: ../fundamentals/networking-overview.md
 
@@ -86,7 +90,7 @@ conceptualContent:
             - url: ../../vpn-gateway/vpn-gateway-about-point-to-site-routing.md
               itemType: concept
               text: About Point-to-site VPN routing
-            - url: ../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
+            - url: ../../vpn-gateway/point-to-site-certificate-gateway.md
               itemType: how-to-guide
               text: Configure point-to-site VPN - Azure certificate authentication
             - url: ../../vpn-gateway/point-to-site-how-to-radius-ps.md
@@ -148,7 +152,7 @@ conceptualContent:
               text: Extend on-premises network to Azure with ExpressRoute
             - url: /azure/well-architected/service-guides/azure-expressroute
               itemType: architecture
-              text: ExpressRoute - Well-Architected Framework
+              text: Architecture best practices for Azure ExpressRoute - Azure Well-Architected Framework
         # Card
         - title: Virtual WAN
           links:
@@ -167,7 +171,7 @@ additionalContent:
         - title: Network foundation
           url: ../foundations/index.yml
         - title: Load balancing and content delivery
-          url: ../load-balancer-content-delivery/index.yml
+          url: ../load-balancer-content-delivery/index.yml?wt.mc_id=aznetportfolioconsolidation_lbcdscenariohub_content_cnl
         - title: Network security
           url: ../security/index.yml
         - title: Network monitoring and management

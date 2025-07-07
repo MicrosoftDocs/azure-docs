@@ -2,7 +2,7 @@
 author: cnwankwo
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 08/06/2023
+ms.date: 06/15/2025
 ms.author: cnwankwo
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-ios.md)]
@@ -79,7 +79,7 @@ To get information about all participants with spotlight state changes on the cu
 // event : { added: SpotlightedParticipant[]; removed: SpotlightedParticipant[] }
 // SpotlightedParticipant = { identifier: CommunicationIdentifier }
 // where: 
-//  identifier: ID of participant whos spotlight state is changed
+//  identifier: ID of participant whose spotlight state is changed
 
 spotlightFeature = self.call!.feature(Features.spotlight)
 spotlightFeature!.delegate = self.SpotlightDelegate

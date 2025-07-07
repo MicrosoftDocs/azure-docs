@@ -2,7 +2,7 @@
 title: Warning Contributor Access | Microsoft Docs
 description: This article is a static warning for a number of articles that need a warning in iot-central
 services: iot-central
-ms.service: iot-central
+ms.service: azure-iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 04/05/2024

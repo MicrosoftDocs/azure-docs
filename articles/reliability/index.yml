@@ -1,16 +1,18 @@
 ### YamlMime:Landing
 
 title: Azure reliability documentation
-summary: Azure reliability documentation for availability zones, cross-regional disaster recovery, availability of services for sovereign clouds, regions, and category.
+summary: Azure reliability documentation, which includes guidance for reliability in Azure services, Azure platform reliability such as availability zones and multi-region support, and fundamental cloud reliability concepts.
 
 metadata:
   title: Azure reliability documentation
-  description: Azure reliability documentation for availability zones, cross-regional disaster recovery, availability of services for sovereign clouds, regions, and category.
+  description: Azure reliability documentation, which includes guidance for reliability in Azure services, Azure platform reliability such as availability zones and multi-region support, and fundamental cloud reliability concepts.
+  keywords: Azure reliability, business continuity, high availability, disaster recovery, redundancy, replication, backup, failover, failback, shared responsibility, availability zones, paired regions, nonpaired regions, multi-region support.
   ms.topic: landing-page
   ms.author: anaharris
   author: anaharris-ms
-  ms.service: reliability
-  ms.date: 07/12/2022
+  ms.service: azure
+  ms.date: 02/27/2025
+  ms.subservice: azure-reliability
 
 landingContent: 
   # Card
@@ -19,50 +21,53 @@ landingContent:
       - linkListType: overview
         links:
           - text: Azure reliability overview
-            url: overview.md
-          - text: Azure reliability guidance by service
-            url: reliability-guidance-overview.md
-          - text: Azure Service Manager Retirement
-            url: asm-retirement.md    
+            url: overview.md          
   # Card
-  - title: Availability zone support
+  - title: Reliability guides by service
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Reliability guidance for Azure services
+            url: overview-reliability-guidance.md
+  # Card
+  - title: Azure regions
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What are Azure regions?
+            url: regions-overview.md
+          - text: Paired and nonpaired regions
+            url: regions-paired.md
+          - text: Multi-region solutions in nonpaired regions
+            url: regions-multi-region-nonpaired.md
+          - text: Nonregional Azure services
+            url: regions-nonregional-services.md
+          - text: Azure regions list
+            url: regions-list.md
+  # Card
+  - title: Azure availability zones
     linkLists:
       - linkListType: concept
         links:
           - text: What are Azure availability zones and regions?
             url: availability-zones-overview.md
-          - text: Services and regions with availability zone support
+          - text: Services with availability zone support
             url: availability-zones-service-support.md
-          - text: Azure availability zone migration baseline
-            url: availability-zones-baseline.md
+          - text: Azure availability zone migration
+            url: availability-zones-migration-overview.md
       - linkListType: how-to-guide
         links:
           - text: Migrate to availability zone support
             url: availability-zones-migration-overview.md
-  # Card
-  - title: Disaster recovery
+  - title: Reliability concepts
     linkLists:
       - linkListType: concept
         links:
-          - text: What is disaster recovery?
-            url: disaster-recovery-overview.md
-          - text: Business continuity management program
-            url: business-continuity-management-program.md
-          - text: Cross-region replication
-            url: cross-region-replication-azure.md
-          - text: Cross-region replication for non-paired regions
-            url: cross-region-replication-azure.md
-  
-  # Service availability
-  - title: Service availability
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Service availability by category
-            url: availability-service-by-category.md
-          - text: Service availability for US Government
-            url: ../azure-government/compare-azure-government-global-azure.md#service-availability
-          - text: Service availability for Azure in China
-            url: sovereign-cloud-china.md   
-          - text: Service availability by region
-            url: https://azure.microsoft.com/global-infrastructure/services/
+          - text: Business continuity, high availability, and disaster recovery
+            url: concept-business-continuity-high-availability-disaster-recovery.md
+          - text: Redundancy, replication, and backup
+            url: concept-redundancy-replication-backup.md
+          - text: Failover and failback
+            url: concept-failover-failback.md
+          - text: Shared responsibility for resiliency
+            url: concept-shared-responsibility.md

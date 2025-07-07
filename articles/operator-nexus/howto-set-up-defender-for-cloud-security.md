@@ -22,7 +22,7 @@ To aid your understanding of Defender for Cloud and its many security features, 
 To successfully complete the actions in this guide:
 - You must have an Azure Operator Nexus subscription.
 - You must have a deployed Azure Arc-connected Operator Nexus instance running in your on-premises environment.
-- You must use an Azure portal user account in your subscription with Owner, Contributor or Reader role.     
+- You must use an Azure portal user account in your subscription with Owner, Contributor, or Reader role.     
 
 ## Enable Defender for Cloud
 
@@ -55,6 +55,75 @@ To set up a Defender for Servers plan:
     * Ensure that **Endpoint protection** is set to Off.
       :::image type="content" source="media/security/nexus-defender-for-servers-plan-settings.png" alt-text="Screenshot of Defender for Servers plan settings for Operator Nexus." lightbox="media/security/nexus-defender-for-servers-plan-settings.png":::
     * Click Continue to save any changed settings.
+
+### Grant MDE Onboarding Permissions
+
+To enable the Microsoft Defender for Endpoint (MDE) agent on bare metal machines within your Nexus Cluster, you must grant the nc-platform-extension identity of the cluster permission to onboard the MDE agent on your behalf.
+
+The nc-platform-extension identity does not exist prior to deploying the Operator Nexus cluster. The following example must be performed after the Cluster is deployed.
+
+The required permission is ```Microsoft.Security/mdeOnboardings/read```. Assign this permission to the nc-platform-extension identity using the built-in role ```Security Reader``` or a custom role with the same permission.
+
+> [!IMPORTANT]
+> The user or identity creating the role assignment must have the ```Microsoft.Authorization/roleAssignments/write``` permission at the subscription level.
+
+Below is an example bash script using the Azure CLI for granting the nc-platform-extension identity permission to onboard the MDE agent on your behalf.
+
+```bash
+#!/usr/bin/env bash
+
+# Usage: ./script.sh /subscriptions/<subID>/resourceGroups/<rgName>/providers/Microsoft.NetworkCloud/clusters/<clusterName>
+
+CLUSTER_ID="$1"
+
+if [ -z "$CLUSTER_ID" ]; then
+  echo "Usage: $0 <Full Azure Network Cloud Cluster Resource ID>"
+  exit 1
+fi
+
+# 1. Extract Subscription ID by splitting on '/' and taking the 3rd field:
+SUBSCRIPTION_ID=$(echo "$CLUSTER_ID" | cut -d'/' -f3)
+echo "Subscription ID: $SUBSCRIPTION_ID"
+
+# 2. Extract the actual cluster name from the last segment in the resource ID
+CLUSTER_NAME=$(basename "$CLUSTER_ID")
+echo "Cluster name: $CLUSTER_NAME"
+
+# 3. Retrieve the Managed Resource Group name
+MRG_NAME=$(az networkcloud cluster show \
+  --ids "$CLUSTER_ID" \
+  --query "managedResourceGroupConfiguration.name" \
+  --output tsv)
+echo "Managed Resource Group name: $MRG_NAME"
+
+# 4. Retrieve the extension's principal ID
+PRINCIPAL_ID=$(az k8s-extension show \
+  --name nc-platform-extension \
+  --cluster-name "$CLUSTER_NAME" \
+  --resource-group "$MRG_NAME" \
+  --cluster-type connectedClusters \
+  --query "identity.principalId" \
+  --output tsv)
+echo "Extension Principal ID: $PRINCIPAL_ID"
+
+# 5. Create a Security Reader role assignment at subscription level
+echo "Creating Security Reader role assignment at subscription level"
+az role assignment create \
+  --role "Security Reader" \
+  --subscription "$SUBSCRIPTION_ID" \
+  --assignee-object-id "$PRINCIPAL_ID" \
+  --assignee-principal-type ServicePrincipal \
+  --scope "/subscriptions/$SUBSCRIPTION_ID"
+
+echo "Done. Security Reader role assignment created"
+```
+
+While the required permissions are not assigned, the MDE onboarding reconciliation logic will continue to attempt to onboard the MDE agent until the permissions are granted. After permission assignment is complete, the MDE onboarding reconciliation will complete successfully with no additional action required.
+
+Reconciliation of the MDE onboarding status is an exponential backoff process. The first retry attempt will be made after 10 minutes, the second after 20 minutes, and the third after 40 minutes. If three failures occur, the reconciliation will wait 10 minutes before attempting to onboard the MDE agent again (which will restart the exponential backoff process).
+
+> [!IMPORTANT]
+> MDE Agent reconciliation runs independently on each of the bare metal machines in the cluster. As such the exact time it takes to onboard the MDE agent on all bare metal machines in the cluster will vary depending on the number of bare metal machines in the cluster and the initial time of the first onboarding attempt.
 
 ### Operator Nexus-specific requirement for enabling Defender for Endpoint
  

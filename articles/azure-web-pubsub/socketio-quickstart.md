@@ -15,6 +15,8 @@ This quickstart demonstrates how to create a Web PubSub for Socket.IO resource a
 
 Code shown in this quickstart is in CommonJS. If you want to use an ECMAScript module, see the [chat demo for Socket.IO with Azure Web PubSub](https://aka.ms/awps/sio/sample/quickstart-esm).
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 ## Prerequisites
 
 > [!div class="checklist"]
@@ -65,6 +67,8 @@ npm install @azure/web-pubsub-socket.io socket.io-client
 ### Write server code
 
 Create a `server.js` file and add following code to create a Socket.IO server and integrate with Web PubSub for Socket.IO.
+
+[!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
 
 ```javascript
 /*server.js*/

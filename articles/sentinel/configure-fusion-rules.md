@@ -31,7 +31,7 @@ This detection is enabled by default in Microsoft Sentinel. To check or change i
 
 1. Select the **Active rules** tab, and then locate **Advanced Multistage Attack Detection** in the **NAME** column by filtering the list for the **Fusion** rule type. Check the **STATUS** column to confirm whether this detection is enabled or disabled.
 
-    :::image type="content" source="./media/fusion/selecting-fusion-rule-type.png" alt-text="Screenshot of Fusion analytics rule." lightbox="./media/fusion/selecting-fusion-rule-type.png":::
+    :::image type="content" source="./media/configure-fusion-rules/selecting-fusion-rule-type.png" alt-text="Screenshot of Fusion analytics rule." lightbox="./media/configure-fusion-rules/selecting-fusion-rule-type.png":::
 
 1. To change the status, select this entry and on the **Advanced Multistage Attack Detection** preview pane, select **Edit**.
 

@@ -1,13 +1,14 @@
 ---
 title: IoT Hub Device Provisioning Service libraries and SDKs
 description: Information about the device and service libraries available for developing solutions with Device Provisioning Service (CPS).
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.date: 08/03/2022
 ms.topic: reference
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
 ms.custom: mvc
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Microsoft SDKs for IoT Hub Device Provisioning Service

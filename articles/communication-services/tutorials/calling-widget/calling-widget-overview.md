@@ -15,7 +15,7 @@ ms.subservice: calling
 
 # Get started with Azure Communication Services UI library Calling to Teams Voice Applications
 
-This project aims to guide developers to initiate a call from the Azure Communication Services Calling Web SDK to [Teams Call Queue](/microsoftteams/create-a-phone-system-call-queue?tabs=general-info) and [Auto Attendant](/microsoftteams/create-a-phone-system-auto-attendant?tabs=general-info) using the Azure Communication Services [UI Library](https://azure.github.io/communication-ui-library/?path=/docs/overview--page).
+This project aims to guide developers to initiate a call from the Azure Communication Services Calling Web SDK to [Teams Call Queue](/microsoftteams/create-a-phone-system-call-queue?tabs=general-info) and [Auto Attendant](/microsoftteams/create-a-phone-system-auto-attendant?tabs=general-info) using the Azure Communication Services [UI Library](https://azure.github.io/communication-ui-library/?path=/docs/overview--docs).
 
 As per your requirements, you might need to offer your customers an easy way to reach out to you without any complex setup like emailing a meeting link. Calling to Teams Call Queue and Auto Attendant is a simple yet effective concept that facilitates instant interaction with customer support, financial advisors, or other customer-facing teams. By reducing the time that it takes to have your customers connect with you the faster you can address their requests.
 

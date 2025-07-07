@@ -4,10 +4,11 @@ titleSuffix: Azure NAT Gateway
 description: In this tutorial, learn how to integrate a NAT gateway with a public load Balancer using the Azure portal.
 author: asudbring
 ms.author: allensu
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: tutorial
 ms.date: 01/30/2024
 ms.custom: template-tutorial, linux-related-content
+# Customer intent: "As a cloud architect, I want to integrate a NAT gateway with a public load balancer, so that I can ensure secure and efficient outbound connectivity for my backend resources."
 ---
 
 # Tutorial: Integrate a NAT gateway with a public load balancer using the Azure portal

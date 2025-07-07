@@ -12,9 +12,9 @@ ms.subservice: calling
 zone_pivot_groups: acs-js-csharp-java-python
 ms.custom: mode-api, devx-track-extended-java, devx-track-js, devx-track-python
 ---
-# Call Recording Quickstart
+# Call recording quickstart
 
-This quickstart gets you started with Call Recording for voice and video calls. To start using the Call Recording APIs, you must have a call in place. Make sure you're familiar with [Calling client SDK](get-started-with-video-calling.md) and/or [Call Automation](../call-automation/callflows-for-customer-interactions.md#build-a-customer-interaction-workflow-using-call-automation) to build the end-user calling experience.
+This article describes call recording for voice and video calls. To start using the Call Recording APIs, you must have a call in place. To build the end-user calling experience, make sure you're familiar with [Calling client SDK](get-started-with-video-calling.md) and [Call Automation](../call-automation/callflows-for-customer-interactions.md#build-a-customer-interaction-workflow-using-call-automation).
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Test Call Recording with C#](./includes/call-recording-samples/call-recording-csharp.md)]
@@ -32,7 +32,6 @@ This quickstart gets you started with Call Recording for voice and video calls. 
 [!INCLUDE [Test Call Recording with JavaScript](./includes/call-recording-samples/call-recording-javascript.md)]
 ::: zone-end
 
-
 ## Clean up resources
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
@@ -41,6 +40,6 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 For more information, see the following articles:
 
-- Download our [Java](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/ServerRecording), [Python](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/call-recording), and [JavaScript](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/call-recording) call recording sample apps
-- Learn more about [Call Recording](../../concepts/voice-video-calling/call-recording.md)
-- Learn more about [Call Automation](../../concepts/call-automation/call-automation.md)
+- Download our [Java](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/ServerRecording), [Python](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/call-recording), and [JavaScript](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/call-recording) call recording sample apps.
+- Learn more about [Call Recording](../../concepts/voice-video-calling/call-recording.md).
+- Learn more about [Call Automation](../../concepts/call-automation/call-automation.md).

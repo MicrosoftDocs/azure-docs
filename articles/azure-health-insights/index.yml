@@ -5,7 +5,7 @@ summary: Azure AI Health Insights
 metadata:
   title: Azure AI Health Insights
   description: This article contains documentation regarding the different Health Decision Models of Azure Health Insights
-  ms.service: Azure AI Health Insights
+  ms.service: azure-health-insights
   ms.topic: landing-page 
   author: iBoonZ
   ms.author: behoorne

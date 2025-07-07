@@ -1,10 +1,12 @@
 ---
-title: Restore VMs using Cloud Backup for Virtual Machines (preview)
+title: Restore VMs using Cloud Backup for Virtual Machines
 description: Learn how to restore virtual machines from a cloud backup to the vCenter. 
 ms.topic: how-to
+ms.author: anfdocs
 ms.service: azure-vmware
-ms.date: 12/19/2023
+ms.date: 12/03/2024
 ms.custom: engagement-fy23
+# Customer intent: "As a virtual machine administrator, I want to restore VMs and their disks from cloud backups, so that I can recover lost or damaged VMs efficiently and maintain my systems' integrity."
 ---
 
 # Restore VMs using Cloud Backup for Virtual Machines (preview)
@@ -20,8 +22,13 @@ This article covers how to:
 ## Restore VMs from backups
 
 When you restore a VM, you can overwrite the existing content with the backup copy that you select or you can restore a deleted VM from a backup copy. 
-
-You can restore VMs to the original datastore mounted on the original ESXi host, which overwrites the original VM.
+You can restore VMs to the following locations:
+* Restore to original location
+    * To the original datastore mounted on the original ESXi host (this overwrites the original VM)    
+* Restore to alternate location
+* To a different datastore mounted on the original ESXi host
+* To the original datastore mounted on a different ESXi host that is managed by the same vCenter
+* To a different datastore mounted on a different ESXi host that is managed by the same vCenter
 
 ## Prerequisites to restore VMs
 

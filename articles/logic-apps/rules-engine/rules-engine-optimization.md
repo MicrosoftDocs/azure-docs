@@ -7,18 +7,17 @@ author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 06/10/2024
+ms.date: 01/27/2025
 
 #CustomerIntent: As a developer, I want to understand how the Azure Logic Apps Rules Engine works and ways to optimize operation.
+ms.custom:
+  - build-2025
 ---
 
-# Optimization for Azure Logic Apps Rules Engine execution (Preview)
+# Optimization for Azure Logic Apps Rules Engine execution
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
-> [!IMPORTANT]
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 The Azure Logic Apps Rules Engine provides the execution context for a ruleset, which you can create with the Microsoft Rules Composer. This guide explains the core concepts around how the rules engine works and provides optimization recommendations for operations and execution.
 
@@ -135,7 +134,7 @@ To understand how the Azure Logic Apps Rules Engine evaluates rules and executes
 
 The rules engine's agenda is a schedule that queues rules for execution. The agenda exists for an engine instance and acts on a single ruleset, not a series of rulesets. When a fact is asserted into working memory, and a rule's conditions are met, the engine places the rule on the agenda and executes that rule based on priority. The engine executes a rule's actions from top to bottom priority, and then executes the actions for the next rule on the agenda.
 
-The rules engine treats the actions in a rule as a block, so all actions run before the engine moves to the next rule. All actions in a rule block execute regardless of other actions in the block. For more information about assertion, see [Optimize your rules engine with control functions ](add-rules-control-functions.md).
+The rules engine treats the actions in a rule as a block, so all actions run before the engine moves to the next rule. All actions in a rule block execute regardless of other actions in the block. For more information about assertion, see [Optimize your rules engine with control functions](add-rules-control-functions.md).
 
 The following example shows how the agenda works:
 

@@ -3,7 +3,7 @@ title: Azure Service Bus JMS 2.0 developer guide
 description: How to use the Java Message Service (JMS) 2.0 API to communicate with Azure Service Bus
 ms.topic: article
 ms.custom: devx-track-extended-java
-ms.date: 05/02/2023
+ms.date: 06/16/2025
 ---
 
 # Azure Service Bus JMS 2.0 developer guide
@@ -114,7 +114,7 @@ TokenCredential tokenCredential = new ClientSecretCredentialBuilder()
                 .tenantId("")
                 .clientId("")
                 .clientSecret("")
-                .build();;
+                .build();
 ```
 
 The Connection factory can then be instantiated with the below parameters.
@@ -294,7 +294,7 @@ QueueBrowser browser = context.createBrowser(queue);
 > [!NOTE]
 > JMS API doesn't provide an API to browse a topic.
 >
-> This is because the topic itself doesn't store the messages. As soon as the message is sent to the topic, it is forwarded to the appropriate subscriptions.
+> This is because the topic itself doesn't store the messages. As soon as the message is sent to the topic, it's forwarded to the appropriate subscriptions.
 >
 
 ### JMS Message selectors
@@ -306,7 +306,11 @@ Selectors can be utilized when creating any of the below consumers -
    * Unshared durable subscription
    * Shared non-durable subscription
    * Unshared non-durable subscription
+   * Queue consumer
    * Queue browser
+
+> [!NOTE]
+> Service Bus selectors don't support "LIKE" and "BETWEEN" SQL keywords.
 
 ## AMQP disposition and Service Bus operation mapping
 

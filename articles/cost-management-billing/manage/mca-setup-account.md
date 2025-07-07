@@ -1,13 +1,13 @@
 ---
 title: Set up billing for Microsoft Customer Agreement - Azure
 description: Learn how to set up your billing account for a Microsoft Customer Agreement. See prerequisites for the setup and view other available resources.
-author: bandersmsft
-ms.reviewer: amberb
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/21/2024
-ms.author: banders
+ms.date: 05/22/2025
+ms.author: jkinma
 ---
 
 # Set up your billing account for a Microsoft Customer Agreement
@@ -142,6 +142,9 @@ Your new billing account simplifies billing for your organization and provides e
 3. You use an invoice section to organize your costs based on your needs, similar to departments in your Enterprise Agreement enrollment. Department becomes invoice sections and department administrators become owners of the respective invoice sections. To learn more about invoice sections, see [understand invoice sections](../understand/mca-overview.md#invoice-sections).
 4. The accounts that were created in your Enterprise Agreement aren't supported in the new billing account. The account's subscriptions belong to the respective invoice section for their department. Account owners can create and manage subscriptions for their invoice sections.
 
+> [!NOTE]
+> When you have SQL Server licenses applied with centrally managed SQL Azure Hybrid Benefit in your Enterprise Agreement and then transfer the agreement to a Microsoft Customer Agreement (enterprise), the licenses don’t automatically transfer. After your new agreement migration completes, you must manually assign licenses with centrally managed SQL Hybrid Benefit. For more information about planning and getting started, see [Transition to centrally managed Azure Hybrid Benefit](../scope-level/transition-existing.md). For more information about centrally managed Azure Hybrid Benefit, see [What is centrally managed Azure Hybrid Benefit for SQL Server](../scope-level/overview-azure-hybrid-benefit-scope.md).
+
 ## Changes to billing administrator access
 
 Depending on their access, billing administrators on your Enterprise Agreement enrollment get access to the billing scopes on the new account. The following lists explain the changes to access that result from setup:
@@ -259,7 +262,7 @@ Close the Exchange savings plan page and then select the **I have viewed and agr
 
 ### Azure Marketplace products
 
-Any Azure Marketplace products in your Enterprise agreement enrollment are moved along with the subscriptions. There are no changes to the service access of the Marketplace products during the transition.
+Any Azure Marketplace consumption-based products in your Enterprise agreement enrollment are moved along with the subscriptions. There are no changes to the service access of the Marketplace products during the transition. Purchases continue to remain in the source agreement.
 
 ### Support plan
 
@@ -297,7 +300,7 @@ To complete the setup, you need access to both the new billing account and the E
 
 3. Select **Start transition** in the last step of the setup. Once you select start transition:
 
-    :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/ea-microsoft-customer-agreement-set-up-wizard.png" alt-text="Screenshot that shows the setup wizard.":::
+    :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/ea-microsoft-customer-agreement-set-up-wizard.png" alt-text="Screenshot that shows the setup wizard." lightbox="./media/microsoft-customer-agreement-setup-account/ea-microsoft-customer-agreement-set-up-wizard.png":::
 
     - A billing hierarchy corresponding to your Enterprise Agreement hierarchy is created in the new billing account. For more information, see [understand changes to your billing hierarchy](#understand-changes-to-your-billing-hierarchy).
     - Administrators from your Enterprise Agreement enrollment are given access to the new billing account so that they continue to manage billing for your organization.
@@ -307,7 +310,7 @@ To complete the setup, you need access to both the new billing account and the E
 4. You can monitor the status of the transition on the **Transition status** page. Canceled savings plans are shown in the Transition details.
     - If you had a savings plan that was repurchased, select the **new savings plan** link to view its details and to verify that it was created successfully.
 
-   :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/ea-microsoft-customer-agreement-set-up-status.png" alt-text="Screenshot that shows the transition status.":::
+   :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/ea-microsoft-customer-agreement-set-up-status.png" alt-text="Screenshot that shows the transition status." lightbox="./media/microsoft-customer-agreement-setup-account/ea-microsoft-customer-agreement-set-up-status.png":::
 
 ## Validate billing account setup
 
@@ -319,13 +322,13 @@ To complete the setup, you need access to both the new billing account and the E
 
 2. Search for **Cost Management + Billing**.
 
-   :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/search-cmb.png" alt-text="Screenshot that shows Azure portal search.":::
+   :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/search-cmb.png" alt-text="Screenshot that shows Azure portal search." lightbox="./media/microsoft-customer-agreement-setup-account/search-cmb.png":::
 
 3. Select the billing account. The billing account type is **Microsoft Customer Agreement**.
 
 4. Select **Azure subscriptions** from the left side.
 
-   :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-subscriptions-post-transition.png" alt-text="Screenshot that shows a list of subscriptions.":::
+   :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-subscriptions-post-transition.png" alt-text="Screenshot that shows a list of subscriptions." lightbox="./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-subscriptions-post-transition.png":::
 
 Azure subscriptions that are transitioned from your Enterprise Agreement enrollment to the new billing account are displayed on the Azure subscriptions page. If you believe any subscription is missing, transition the billing of the subscription manually in the Azure portal. For more information, see [get billing ownership of Azure subscriptions from other users](mca-request-billing-ownership.md).
 
@@ -335,13 +338,13 @@ Azure subscriptions that are transitioned from your Enterprise Agreement enrollm
 
 2. Search for **Cost Management + Billing**.
 
-   :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/search-cmb.png" alt-text="Screenshot that shows Azure portal search.":::
+   :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/search-cmb.png" alt-text="Screenshot that shows Azure portal search." lightbox="./media/microsoft-customer-agreement-setup-account/search-cmb.png":::
 
 3. Select the billing account for your **Microsoft Customer Agreement**.
 
 4. Select **Access control (IAM)** from the left side.
 
-   :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-ea-admins-ba-access-post-transition.png" alt-text="Screenshot that shows access of enterprise administrators listed as billing account owners post transition.":::
+   :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-ea-admins-ba-access-post-transition.png" alt-text="Screenshot that shows access of enterprise administrators listed as billing account owners post transition." lightbox="./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-ea-admins-ba-access-post-transition.png":::
 
 Enterprise administrators are listed as billing account owners while the enterprise administrators with read-only permissions are listed as billing account readers. If you believe the access for any enterprise administrators is missing, you can give them access in the Azure portal. For more information, see [manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
@@ -351,13 +354,13 @@ Enterprise administrators are listed as billing account owners while the enterpr
 
 2. Search for **Cost Management + Billing**.
 
-   :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/search-cmb.png" alt-text="Screenshot that shows Azure portal search.":::
+   :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/search-cmb.png" alt-text="Screenshot that shows Azure portal search." lightbox="./media/microsoft-customer-agreement-setup-account/search-cmb.png":::
 
 3. Select the billing profile created for your enrollment. Depending on your access, you might need to select a billing account. From the billing account, select Billing profiles and then the billing profile.
 
 4. Select **Access control (IAM)** from the left side.
 
-   :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-ea-admins-bp-access-post-transition.png" alt-text="Screenshot that shows the access of enterprise administrators listed as billing profile owners post transition.":::
+   :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-ea-admins-bp-access-post-transition.png" alt-text="Screenshot that shows the access of enterprise administrators listed as billing profile owners post transition." lightbox="./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-ea-admins-bp-access-post-transition.png":::
 
 Enterprise administrators are listed as billing profile owners while the enterprise administrators with read-only permissions are listed as billing profile readers. If you believe the access for any enterprise administrators is missing, you can give them access in the Azure portal. For more information, see [manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
@@ -367,17 +370,69 @@ Enterprise administrators are listed as billing profile owners while the enterpr
 
 2. Search for **Cost Management + Billing**.
 
-   :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/search-cmb.png" alt-text="Screenshot that shows Azure portal search.":::
+   :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/search-cmb.png" alt-text="Screenshot that shows Azure portal search." lightbox="./media/microsoft-customer-agreement-setup-account/search-cmb.png":::
 
 3. Select an invoice section. Invoice sections have the same name as their respective departments in Enterprise Agreement enrollments. Depending on your access, you might need to select a billing account. From the billing account, select **Billing profiles** and then select **Invoice sections**. From the invoice sections list, select an invoice section.
 
-   :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-invoice-sections-post-transition.png" alt-text="Screenshot that shows a list of invoice section post transition.":::
+   :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-invoice-sections-post-transition.png" alt-text="Screenshot that shows a list of invoice section post transition." lightbox="./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-invoice-sections-post-transition.png":::
 
 4. Select **Access control (IAM)** from the left side.
 
-    :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-department-account-admins-access-post-transition.png" alt-text="Screenshot that shows access of department and account admins post transition.":::
+    :::image type="content" border="true" source="./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-department-account-admins-access-post-transition.png" alt-text="Screenshot that shows access of department and account admins post transition." lightbox="./media/microsoft-customer-agreement-setup-account/microsoft-customer-agreement-department-account-admins-access-post-transition.png":::
 
 Enterprise administrators and department administrators are listed as invoice section owners or invoice section readers while account owners in the department are listed as Azure subscription creators. Repeat the step for all invoice sections to check access for all departments in your Enterprise Agreement enrollment. Account owners that weren't part of any department get permission on an invoice section named **Default invoice section**. If you believe the access for any administrators is missing, you can give them access in the Azure portal. For more information, see [manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+
+### Changes after migration
+
+- MCA remit-to information differs - The MCA remit-to information differs from the EA remit-to information. Your accounts payable need to create two records: one for EA invoices and another for MCA invoices. For more information about MCA payment details, see [Bank details used to send wire transfer payments](../understand/pay-bill.md#wire-bank-details)
+- Custom or shared views under Cost Management - Custom views and shared views aren't migrated to the MCA. You need to recreate them in the new scope.
+- Budgets - You need to recreate them.
+- Azure usage file enhancement - The MCA Azure usage file has more columns and slight changes in naming conventions compared to the EA file. For more information, see:
+    - [Changes from Azure EA usage and charges](../understand/mca-understand-your-usage.md#changes-from-azure-ea-usage-and-charges)
+    - [List of fields and descriptions](../automate/understand-usage-details-fields.md#list-of-fields-and-descriptions)
+- Power BI integration - The billing parameters for MCA differ from EA. When using the Azure Cost Management connector in Power BI, you need to choose `Billing Profile ID` instead of the enrollment number in the `Scope` list. Then enter the 14-character Billing profile ID. For more information, see:
+    - [Connect to Cost Management data in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
+    - [Tutorial: Shape and combine data in Power BI Desktop](/power-bi/connect-data/desktop-shape-and-combine-data)
+- Changes to subscription vending using Terraform - For more information, see:
+    - [Azure/lz-vending/azurerm | Terraform Registry](https://registry.terraform.io/modules/Azure/lz-vending/azurerm/latest?tab=inputs)
+    - [Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending)
+    - [Azure Landing Zones Subscription Vending with Terraform, Terraform Cloud, and GitHub](/samples/azure-samples/alz-terraform-sub-vending-demo-with-terraform-cloud-and-github/alz-terraform-sub-vending/)
+- Cost Management using third-party providers like Cloud health and Cloud easier - Organizations transitioning to MCA need to update their provider that they're transitioning to MCA. Most of them have a documented process to pull the MCA cost data.
+- Historical data – It isn’t available to account owners or users with the Subscription owner Azure role-based access control (RBAC) role after migration. Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) isn't affected during the transition.
+    - Cost data transition - Cost data before the transition remains in the EA scope. It doesn't move to the MCA scope. You can access the data by switching scopes.
+- Reservations - When there's a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of the next monthly payment for an individual reservation. The cancellation is intentional and only affects monthly reservation purchases. You can repurchase them after migration.
+- Savings Plans - If they were purchased in a non-USD currency, they get canceled during migration. You can repurchase them after migration.
+- API changes - API endpoints differ between EA and MCA. Existing EA API calls don't work with MCA. You need to use Microsoft Cost Management APIs instead if using consumption APIs. For more information, see:
+    - [Migrate EA to Microsoft Customer Agreement APIs](../costs/migrate-cost-management-api.md)
+    - [Azure Billing REST API](/rest/api/billing/)
+- EA API keys - Azure Enterprise Reporting APIs are retired aren't available on MCA. Instead, you use Microsoft Cost Management APIs. For more information, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](../automate/migrate-ea-reporting-arm-apis-overview.md).
+- Automatic purchases - If used under your old EA enrollment, you need to set them up under your new Microsoft Customer Agreement.
+- Management groups – Subscriptions in management groups under a Microsoft Customer Agreement aren’t supported in Cost Management yet. Cost Management + Billing is managed with APIs and Azure portal functionality. For more information, see [Azure RBAC scopes](../costs/understand-work-scopes.md#azure-rbac-scopes).
+- Tax exemption certificates - If your EA account has a tax exemption certificate, you need to create an Azure support request to have a support representative associate your existing tax exempt certificate to your new Microsoft Customer Agreement account. Create a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+Here are some points to consider after migration.
+
+| Consideration | EA  | MCA | Notes |
+| --- | --- | --- | --- |
+| Agreement duration | Expires and gets a new enrollment number at renewal | Doesn’t expire | Billing profile IDs never change |
+| Power BI Cost Management connector | Available | Available | The scope differs. There are more attributes in MCA. You can create a combined view using common elements. |
+| API | OAuth authentication using an API key | OAuth2 authentication using service principal | More attributes are available in MCA. Common data elements can get used to combine data sets for continuity. |
+| Invoicing | One invoice per enrollment number | Can be configured to receive more than one invoice for the same MCA by adding billing profiles |     |
+
+| Consideration | EA  | MCA |
+| --- | --- | --- |
+| Billing roles | - Enterprise Admin  <br>- Department Admin  <br>- Account owner  <br>- Service Admin  <br>- Notification contact | - Owner  <br>- Contributor  <br>- Reader for Billing Account  <br>- Billing profile  <br>- Invoice Section  <br>- Invoice manager (for billing profile)  <br>- Subscription creator (for invoice section) |
+| Multi-tenancy | - Multiple enrollments.  <br>- Sharing Microsoft Azure Consumption Commitment (MACC) benefit and Azure Consumption Discount (ACD) across multiple enrollments is complex. | - A single MCA supports multiple tenants.  <br>- Associate multiple tenants to a billing account in the primary tenant.  <br>- Provides access to MCA for users in associated tenants without guesting users into the primary tenant.  <br>- MACC and ACD can be shared. |
+| Historical charges | Cost data stays under your EA enrollment billing scope. | MCA scope shows cost data starting from the migration date. |
+| EA accounts | They’re supported by your EA. | - Not supported in MCA. <br>- The account’s subscriptions belong to the invoice section created for their respective departments. <br>- Account owners become Azure subscription creators. They can create and manage subscriptions for their invoice sections. |
+| Marketplace | Marketplace offers can be purchased with an EA | - Marketplace offers can be purchased with an MCA.  <br>- Invoices can be configured to show Marketplace purchases on the same invoice with Azure or on a separate invoice. |
+
+For more information, see the following articles:
+
+- [Cost Management + Billing documentation](../index.yml)
+- [Azure Product Transfer Hub](subscription-transfer.md)
+- [Migrate from EA to MCA APIs](../costs/migrate-cost-management-api.md)
+- [Migrate from an EA to an MCA](../microsoft-customer-agreement/onboard-microsoft-customer-agreement.md#migrate-from-an-ea-to-an-mca)
 
 ## Need help? Contact support
 

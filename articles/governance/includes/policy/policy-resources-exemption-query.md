@@ -1,9 +1,9 @@
 ---
 ms.service: azure-policy
 ms.topic: include
-ms.date: 06/04/2024
-author: davidsmatlak
-ms.author: davidsmatlak
+ms.date: 03/19/2025
+author: jasongroce
+ms.author: jasongroce
 ---
 
 ### Policy exemptions per assignment
@@ -43,7 +43,7 @@ Search-AzGraph -Query "policyresources | where type == 'microsoft.authorization/
 
 ### Policy exemptions that expire within 90 days
 
-Lists the name and expiration date.
+Lists the name (exemption ID), display name, and expiration date.
 
 ```kusto
 PolicyResources
@@ -51,25 +51,25 @@ PolicyResources
 | extend expiresOnC = todatetime(properties.expiresOn)
 | where isnotnull(expiresOnC)
 | where expiresOnC >= now() and expiresOnC < now(+90d)
-| project name, expiresOnC
+| project name, properties.displayName, expiresOnC
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az graph query -q "policyresources | where type == 'microsoft.authorization/policyexemptions' | extend expiresOnC = todatetime(properties.expiresOn) | where isnotnull(expiresOnC) | where expiresOnC >= now() and expiresOnC < now(+90d) | project name, expiresOnC"
+az graph query -q "PolicyResources | where type == 'microsoft.authorization/policyexemptions' | extend expiresOnC = todatetime(properties.expiresOn) | where isnotnull(expiresOnC) | where expiresOnC >= now() and expiresOnC < now(+90d) | project name, properties.displayName, expiresOnC"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "policyresources | where type == 'microsoft.authorization/policyexemptions' | extend expiresOnC = todatetime(properties.expiresOn) | where isnotnull(expiresOnC) | where expiresOnC >= now() and expiresOnC < now(+90d) | project name, expiresOnC"
+Search-AzGraph -Query "PolicyResources | where type == 'microsoft.authorization/policyexemptions' | extend expiresOnC = todatetime(properties.expiresOn) | where isnotnull(expiresOnC) | where expiresOnC >= now() and expiresOnC < now(+90d) | project name, properties.displayName, expiresOnC"
 ```
 
 # [Portal](#tab/azure-portal)
 
-- Azure portal: <a href="https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/policyresources%0D%0A%7C%20where%20type%20%3D%3D%20%27microsoft.authorization%2Fpolicyexemptions%27%0D%0A%7C%20extend%20expiresOnC%20%3D%20todatetime%28properties.expiresOn%29%0D%0A%7C%20where%20isnotnull%28expiresOnC%29%0D%0A%7C%20where%20expiresOnC%20%3E%3D%20now%28%29%20and%20expiresOnC%20%3C%20now%28%2B90d%29%0D%0A%7C%20project%20name%2C%20expiresOnC" target="_blank">portal.azure.com</a>
-- Azure Government portal: <a href="https://portal.azure.us/#blade/HubsExtension/ArgQueryBlade/query/policyresources%0D%0A%7C%20where%20type%20%3D%3D%20%27microsoft.authorization%2Fpolicyexemptions%27%0D%0A%7C%20extend%20expiresOnC%20%3D%20todatetime%28properties.expiresOn%29%0D%0A%7C%20where%20isnotnull%28expiresOnC%29%0D%0A%7C%20where%20expiresOnC%20%3E%3D%20now%28%29%20and%20expiresOnC%20%3C%20now%28%2B90d%29%0D%0A%7C%20project%20name%2C%20expiresOnC" target="_blank">portal.azure.us</a>
-- Microsoft Azure operated by 21Vianet portal: <a href="https://portal.azure.cn/#blade/HubsExtension/ArgQueryBlade/query/policyresources%0D%0A%7C%20where%20type%20%3D%3D%20%27microsoft.authorization%2Fpolicyexemptions%27%0D%0A%7C%20extend%20expiresOnC%20%3D%20todatetime%28properties.expiresOn%29%0D%0A%7C%20where%20isnotnull%28expiresOnC%29%0D%0A%7C%20where%20expiresOnC%20%3E%3D%20now%28%29%20and%20expiresOnC%20%3C%20now%28%2B90d%29%0D%0A%7C%20project%20name%2C%20expiresOnC" target="_blank">portal.azure.cn</a>
+- Azure portal: <a href="https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/PolicyResources%0D%0A%7C%20where%20type%20%3D%3D%20%27microsoft.authorization%2Fpolicyexemptions%27%0D%0A%7C%20extend%20expiresOnC%20%3D%20todatetime%28properties.expiresOn%29%0D%0A%7C%20where%20isnotnull%28expiresOnC%29%0D%0A%7C%20where%20expiresOnC%20%3E%3D%20now%28%29%20and%20expiresOnC%20%3C%20now%28%2B90d%29%0D%0A%7C%20project%20name%2C%20properties.displayName%2C%20expiresOnC" target="_blank">portal.azure.com</a>
+- Azure Government portal: <a href="https://portal.azure.us/#blade/HubsExtension/ArgQueryBlade/query/PolicyResources%0D%0A%7C%20where%20type%20%3D%3D%20%27microsoft.authorization%2Fpolicyexemptions%27%0D%0A%7C%20extend%20expiresOnC%20%3D%20todatetime%28properties.expiresOn%29%0D%0A%7C%20where%20isnotnull%28expiresOnC%29%0D%0A%7C%20where%20expiresOnC%20%3E%3D%20now%28%29%20and%20expiresOnC%20%3C%20now%28%2B90d%29%0D%0A%7C%20project%20name%2C%20properties.displayName%2C%20expiresOnC" target="_blank">portal.azure.us</a>
+- Microsoft Azure operated by 21Vianet portal: <a href="https://portal.azure.cn/#blade/HubsExtension/ArgQueryBlade/query/PolicyResources%0D%0A%7C%20where%20type%20%3D%3D%20%27microsoft.authorization%2Fpolicyexemptions%27%0D%0A%7C%20extend%20expiresOnC%20%3D%20todatetime%28properties.expiresOn%29%0D%0A%7C%20where%20isnotnull%28expiresOnC%29%0D%0A%7C%20where%20expiresOnC%20%3E%3D%20now%28%29%20and%20expiresOnC%20%3C%20now%28%2B90d%29%0D%0A%7C%20project%20name%2C%20properties.displayName%2C%20expiresOnC" target="_blank">portal.azure.cn</a>
 
 ---

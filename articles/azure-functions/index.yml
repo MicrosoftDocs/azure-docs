@@ -1,16 +1,17 @@
 ### YamlMime:Landing
 
 title: Azure Functions documentation 
-summary: Azure Functions is a cloud service available on-demand that provides all the continually updated infrastructure and resources needed to run your applications. You focus on the code that matters most to you, in the most productive language for you, and Functions handles the rest. Functions provides serverless compute for Azure. You can use Functions to build web APIs, respond to database changes, process IoT streams, manage message queues, and more.  
+summary: Azure Functions is a managed platform-as-a-service (PaaS) provider that provides event-driven and scheduled compute resources for Azure cloud services. You can focus on the code that matters most to you and Functions handles the rest. Functions can provide scalable and serverless hosting for your code projects written in the most productive language for you. You can use Functions to build web APIs, respond to database changes, process IoT streams, manage message queues, and more.  
 
 metadata:
   title: Azure Functions documentation
-  description: Azure Functions is a cloud service available on-demand that provides all the continually updated infrastructure and resources needed to run your applications. You focus on the code that matters most to you, in the most productive language for you, and Functions handles the rest. Functions provides serverless compute for Azure. You can use Azure Functions to build web APIs, respond to database changes, process IoT streams, manage message queues, and more.
+  description: Azure Functions is a managed platform-as-a-service (PaaS) provider that provides event-driven and scheduled compute resources for Azure cloud services. You can focus on the code that matters most to you and Functions handles the rest. Functions can provide scalable and serverless hosting for your code projects written in the most productive language for you. You can use Functions to build web APIs, respond to database changes, process IoT streams, manage message queues, and more.
   ms.service: azure-functions
   ms.topic: landing-page
   author: ggailey777
   ms.author: glenga
-  ms.date: 12/27/2021
+  ms.date: 02/23/2025
+  ms.custom: build-2025
 landingContent:
   - title: About Azure Functions
     linkLists:
@@ -21,11 +22,11 @@ landingContent:
       - linkListType: concept
         links:
           - text: Azure Functions hosting options
-            url: functions-scale.md
-          - text: Choose the right integration and automation services in Azure
-            url: functions-compare-logic-apps-ms-flow-webjobs.md 
-          - text: What are Durable Functions?
-            url: durable/durable-functions-overview.md
+            url: functions-scale.md  
+          - text: Scenarios
+            url: functions-scenarios.md 
+          - text: Migrate from AWS Lambda
+            url: ./migration/migrate-aws-lambda-to-azure-functions.md
   - title: Create your first function
     linkLists:
       - linkListType: get-started
@@ -35,27 +36,45 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: C# 
-            url: functions-create-your-first-function-visual-studio.md
+            url: create-first-function-azure-developer-cli.md?pivots=programming-language-csharp
           - text: Java
-            url: create-first-function-cli-java.md
+            url: create-first-function-azure-developer-cli.md?pivots=programming-language-java
           - text: JavaScript
-            url: create-first-function-vs-code-node.md
+            url: create-first-function-azure-developer-cli.md?pivots=programming-language-javascript
           - text: PowerShell
-            url: create-first-function-vs-code-powershell.md
+            url: create-first-function-azure-developer-cli.md?pivots=programming-language-powershell
           - text: Python
-            url: create-first-function-vs-code-python.md
-          - text: Rust/Go
-            url: create-first-function-vs-code-other.md
+            url: create-first-function-azure-developer-cli.md?pivots=programming-language-python
           - text: TypeScript
-            url: create-first-function-vs-code-typescript.md
+            url: create-first-function-azure-developer-cli.md?pivots=programming-language-typescript
+  - title: Languages
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Supported languages in Azure Functions
+            url: supported-languages.md
+      - linkListType: how-to-guide
+        links:
+          - text: C#
+            url: dotnet-isolated-process-guide.md
+          - text: Java
+            url: functions-reference-java.md
+          - text: JavaScript
+            url: functions-reference-node.md?tabs=javascript
+          - text: PowerShell
+            url: functions-reference-powershell.md
+          - text: Python
+            url: functions-reference-python.md
+          - text: TypeScript
+            url: functions-reference-node.md?tabs=typescript
+          - text: Other languages (Rust/Go)
+            url: create-first-function-vs-code-other.md
   - title: Develop functions
     linkLists:
       - linkListType: concept
         links:
           - text: Azure Functions developer guide
             url: functions-reference.md
-          - text: Supported languages in Azure Functions
-            url: supported-languages.md
           - text: Azure Functions triggers and bindings concepts
             url: functions-triggers-bindings.md
           - text: Code and test Azure Functions locally
@@ -76,3 +95,39 @@ landingContent:
             url: create-first-function-vs-code-python.md
           - text: Create serverless APIs using Visual Studio
             url: openapi-apim-integrate-visual-studio.md
+  - title: Deployment
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Azure Developer CLI (azd)
+            url: create-first-function-azure-developer-cli.md
+          - text: Azure Pipelines
+            url: functions-how-to-azure-devops.md
+          - text: Containers
+            url: container-concepts.md
+          - text: Continuous deployment
+            url: functions-continuous-deployment.md
+          - text: GitHub Actions
+            url: functions-how-to-github-actions.md
+          - text: Infrastructure as Code (IaC)
+            url: functions-infrastructure-as-code.md
+  - title: Durable Functions
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What are Durable Functions?
+            url: durable/durable-functions-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Create a C# app 
+            url: ./durable/durable-functions-isolated-create-first-csharp.md
+          - text: Create a Python app 
+            url: ./durable/quickstart-python-vscode.md
+      - linkListType: sample
+        links:
+          - text: Durable Functions samples 
+            url: https://learn.microsoft.com/samples/browse/?products=azure-functions&term=durable
+      - linkListType: training
+        links:
+          - text: Create a long-running serverless workflow 
+            url: /training/modules/create-long-running-serverless-workflow-with-durable-functions/

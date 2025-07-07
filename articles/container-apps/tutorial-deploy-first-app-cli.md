@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: tutorial
-ms.date: 03/21/2022
+ms.date: 05/05/2025
 ms.author: cshoe
 ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
@@ -18,7 +18,7 @@ The Azure Container Apps service enables you to run microservices and containeri
 In this tutorial, you create a secure Container Apps environment and deploy your first container app.
 
 > [!NOTE]
-> You can also deploy this app using the [az containerapp up](/cli/azure/containerapp#az_containerapp_up) by following the instructions in the [Quickstart: Deploy your first container app with containerapp up](get-started.md) article.  The `az containerapp up` command is a fast and convenient way to build and deploy your app to Azure Container Apps using a single command.  However, it doesn't provide the same level of customization for your container app.
+> You can also deploy this app using the [az containerapp up](/cli/azure/containerapp#az_containerapp_up) by following the instructions in the [Quickstart: Deploy your first container app with containerapp up](get-started.md) article. The `az containerapp up` command is a fast and convenient way to build and deploy your app to Azure Container Apps using a single command. However, it doesn't provide the same level of customization for your container app.
 
 
 ## Prerequisites
@@ -57,7 +57,7 @@ az containerapp create \
 
 By setting `--ingress` to `external`, you make the container app available to public requests.
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 $ImageParams = @{
@@ -94,7 +94,7 @@ By setting `IngressExternal` to `$true`, you make the container app available to
 
 The `create` command returns the fully qualified domain name for the container app. Copy this location to a web browser.
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 Get the fully qualified domain name for the container app.
 
@@ -115,7 +115,7 @@ Copy this location to a web browser.
 If you're not going to continue to use this application, run the following command to delete the resource group along with all the resources created in this tutorial.
 
 >[!CAUTION]
-> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they will also be deleted.
+> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this tutorial exist in the specified resource group, they're also deleted.
 
 # [Bash](#tab/bash)
 
@@ -123,7 +123,7 @@ If you're not going to continue to use this application, run the following comma
 az group delete --name $RESOURCE_GROUP
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Remove-AzResourceGroup -Name $ResourceGroupName -Force

@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ms.author: jianleishen
 ---
 
@@ -21,7 +21,7 @@ You can use the Get Metadata activity to retrieve the metadata of any data in Az
 To use a Get Metadata activity in a pipeline, complete the following steps:
 
 1. Search for _Get Metadata_ in the pipeline Activities pane, and drag a Fail activity to the pipeline canvas.
-1. Select the new Get Metadata activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+1. Select the new Get Metadata activity on the canvas if it isn't already selected, and its  **Settings** tab, to edit its details.
 1. Choose a dataset, or create a new one with the New button.  Then you can specify filter options and add columns from the available metadata for the dataset.
 
    :::image type="content" source="media/control-flow-get-metadata-activity/get-metadata-activity.png" alt-text="Shows the UI for a Get Metadata activity.":::
@@ -58,22 +58,22 @@ The Get Metadata activity takes a dataset as an input and returns metadata infor
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x	| x/x | √ | x | √ | √ | √/√ |
 
 <sup>1</sup> Metadata `lastModified`:
-- For Amazon S3, Amazon S3 Compatible Storage, Google Cloud Storage and Oracle Cloud Storage, `lastModified` applies to the bucket and the key but not to the virtual folder, and `exists` applies to the bucket and the key but not to the prefix or virtual folder. 
+- For Amazon S3, Amazon S3 Compatible Storage, Google Cloud Storage, and Oracle Cloud Storage, `lastModified` applies to the bucket and the key but not to the virtual folder, and `exists` applies to the bucket and the key but not to the prefix or virtual folder. 
 - For Azure Blob storage, `lastModified` applies to the container and the blob but not to the virtual folder.
 
-<sup>2</sup> Metadata `structure` and `columnCount` are not supported when getting metadata from Binary, JSON, or XML files.
+<sup>2</sup> Metadata `structure` and `columnCount` aren't supported when getting metadata from Binary, JSON, or XML files.
 
-<sup>3</sup> Metadata `exists`: For Amazon S3, Amazon S3 Compatible Storage, Google Cloud Storage and Oracle Cloud Storage, `exists` applies to the bucket and the key but not to the prefix or virtual folder.
+<sup>3</sup> Metadata `exists`: For Amazon S3, Amazon S3 Compatible Storage, Google Cloud Storage, and Oracle Cloud Storage, `exists` applies to the bucket and the key but not to the prefix or virtual folder.
 
-Note the following:
+Note the following points:
 
 - When using Get Metadata activity against a folder, make sure you have LIST/EXECUTE permission to the given folder.
-- Wildcard filter on folders/files is not supported for Get Metadata activity.
+- Wildcard filter on folders/files isn't supported for Get Metadata activity.
 - `modifiedDatetimeStart` and `modifiedDatetimeEnd` filter set on connector:
 
-    - These two properties are used to filter the child items when getting metadata from a folder. It does not apply when getting metadata from a file.
+    - These two properties are used to filter the child items when getting metadata from a folder. It doesn't apply when getting metadata from a file.
     - When such filter is used, the `childItems` in output includes only the files that are modified within the specified range but not folders.
-    - To apply such filter, GetMetadata activity will enumerate all the files in the specified folder and check the modified time. Avoid pointing to a folder with a large number of files even if the expected qualified file count is small. 
+    - To apply such filter, GetMetadata activity enumerates all the files in the specified folder and check the modified time. Avoid pointing to a folder with a large number of files even if the expected qualified file count is small. 
 
 **Relational database**
 
@@ -100,13 +100,13 @@ You can specify the following metadata types in the Get Metadata activity field 
 | contentMD5 | MD5 of the file. Applicable only to files. |
 | structure | Data structure of the file or relational database table. Returned value is a list of column names and column types. |
 | columnCount | Number of columns in the file or relational table. |
-| exists| Whether a file, folder, or table exists. If `exists` is specified in the Get Metadata field list, the activity won't fail even if the file, folder, or table doesn't exist. Instead, `exists: false` is returned in the output. |
+| exists| Whether a file, folder, or table exists. If `exists` is specified in the Get Metadata field list, the activity doesn't fail even if the file, folder, or table doesn't exist. Instead, `exists: false` is returned in the output. |
 
 > [!TIP]
-> When you want to validate that a file, folder, or table exists, specify `exists` in the Get Metadata activity field list. You can then check the `exists: true/false` result in the activity output. If `exists` isn't specified in the field list, the Get Metadata activity will fail if the object isn't found.
+> When you want to validate that a file, folder, or table exists, specify `exists` in the Get Metadata activity field list. You can then check the `exists: true/false` result in the activity output. If `exists` isn't specified in the field list, the Get Metadata activity fails if the object isn't found.
 
 > [!NOTE]
-> When you get metadata from file stores and configure `modifiedDatetimeStart` or `modifiedDatetimeEnd`, the `childItems` in the output includes only files in the specified path that have a last modified time within the specified range. Items in subfolders are not included.
+> When you get metadata from file stores and configure `modifiedDatetimeStart` or `modifiedDatetimeEnd`, the `childItems` in the output include only files in the specified path that have a last modified time within the specified range. Items in subfolders aren't included.
 
 > [!NOTE]
 > For the **Structure** field list to provide the actual data structure for delimited text and Excel format datasets, you must enable the `First Row as Header` property, which is supported only for these data sources.
@@ -185,7 +185,7 @@ Currently, the Get Metadata activity can return the following types of metadata 
 Property | Description | Required
 -------- | ----------- | --------
 fieldList | The types of metadata information required. For details on supported metadata, see the [Metadata options](#metadata-options) section of this article. | Yes 
-dataset | The reference dataset whose metadata is to be retrieved by the Get Metadata activity. See the [Capabilities](#supported-capabilities) section for information on supported connectors. Refer to the specific connector topics for dataset syntax details. | Yes
+dataset | The reference dataset whose metadata is to be retrieved by the Get Metadata activity. See the [Capabilities](#supported-capabilities) section for information on supported connectors. Refer to the specific connector articles for dataset syntax details. | Yes
 formatSettings | Apply when using format type dataset. | No
 storeSettings | Apply when using format type dataset. | No
 

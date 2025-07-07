@@ -20,6 +20,8 @@ ms.subservice: b2c
 
 # Integrating Twilio Verify App with Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 In this walkthrough, learn how to integrate a sample online payment app in Azure Active Directory B2C (Azure AD B2C) with the Twilio Verify API. By using Twilio Verify App, Azure AD B2C customers can comply with PSD2 (Payment Services Directive 2) transaction requirements through dynamic linking and strong customer authentication.
 
 ## Prerequisites
@@ -66,8 +68,8 @@ The following components make up the Twilio solution:
 
     ```xml
     <add key="ida:Tenant" value="yourtenant.onmicrosoft.com" />
-    <add key="ida:TenantId" value="d6f33888-0000-4c1f-9b50-1590f171fc70" />
-    <add key="ida:ClientId" value="6bd98cc8-0000-446a-a05e-b5716ef2651b" />
+    <add key="ida:TenantId" value="aaaabbbb-0000-cccc-1111-dddd2222eeee" />
+    <add key="ida:ClientId" value="00001111-aaaa-2222-bbbb-3333cccc4444" />
     <add key="ida:ClientSecret" value="secret" />
     <add key="ida:AadInstance" value="https://yourtenant.b2clogin.com/tfp/{0}/{1}" />
     <add key="ida:RedirectUri" value="https://your hosted psd2 demo app url/" />

@@ -4,9 +4,10 @@ description: Learn about forced tunneling methods for VPN Gateway site-to-site c
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: azure-vpn-gateway
-ms.topic: conceptual
-ms.date: 09/22/2023
+ms.topic: concept-article
+ms.date: 03/31/2025
 ms.author: cherylmc
+# Customer intent: "As a network administrator, I want to implement forced tunneling for site-to-site VPN connections, so that I can ensure all Internet-bound traffic is inspected and audited for compliance with enterprise security policies."
 ---
 
 # About forced tunneling for site-to-site configurations
@@ -38,7 +39,7 @@ You can configure forced tunneling by setting the Default Site for your route-ba
 
 By default, all Internet-bound traffic goes directly to the Internet if you don't have forced tunneling configured. When forced tunneling is configured, all Internet-bound traffic is sent to your on-premises location.
 
-In some cases, you may want Internet-bound traffic only from certain subnets (but not all subnets) to traverse from the Azure network infrastructure directly out to the Internet, rather than to your on-premises location. This scenario can be configured using a combination of forced tunneling and virtual network custom user-defined routes (UDRs). For steps, see [Route Internet-bound traffic for specific subnets](site-to-site-tunneling.md#udr).
+In some cases, you might want Internet-bound traffic only from certain subnets (but not all subnets) to traverse from the Azure network infrastructure directly out to the Internet, rather than to your on-premises location. This scenario can be configured using a combination of forced tunneling and virtual network custom user-defined routes (UDRs). For steps, see [Route Internet-bound traffic for specific subnets](site-to-site-tunneling.md#udr).
 
 ## Next steps
 

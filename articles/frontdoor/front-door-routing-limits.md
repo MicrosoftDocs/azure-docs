@@ -3,14 +3,16 @@ title: Routing limits
 titleSuffix: Azure Front Door
 description: This article helps you understand the composite limits around routing for Azure Front Door.
 services: front-door
-author: duongau
+author: halkazwini
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/28/2023
 ms.author: jodowns
 ---
 
 # Front Door routing limits
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium :heavy_check_mark: Front Door (classic)
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 

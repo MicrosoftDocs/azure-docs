@@ -1,31 +1,36 @@
 ---
 title: Policies in Azure API Management 
-description: Introduction to API Management policies, which change API behavior through configuration. Policy statements run sequentially on an API request or response.
+description: Learn about API Management policies, which change API behavior through configuration. Policy statements run sequentially on an API request or response.
 services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
-ms.date: 10/18/2023
+ms.topic: concept-article
+ms.date: 05/13/2025
 ms.author: danlep
 
+#customer intent: As an API publisher, I want to learn about API Management policies so that I can use them to change API behavior. 
+
 ---
+
 # Policies in Azure API Management
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-In Azure API Management, API publishers can change API behavior through configuration using *policies*. Policies are a collection of statements that are run sequentially on the request or response of an API. API Management provides more than 50 policies out of the box that you can configure to address common API scenarios such as authentication, rate limiting, caching, and transformation of requests or responses. For a complete list, see [API Management policy reference](api-management-policies.md).
+In Azure API Management, API publishers can change API behavior through configuration by using *policies*. This article describes how to use policies. 
+
+Policies are a collection of statements that are run sequentially on the request or response of an API. API Management provides more than 75 policies out of the box that you can configure to address common API scenarios like authentication, rate limiting, caching, and transformation of requests or responses. For a complete list, see [API Management policy reference](api-management-policies.md).
 
 Popular policies include:
 
-* Format conversion from XML to JSON
-* Call rate limiting to restrict the number of incoming calls from a developer 
-* Filtering requests that come from certain IP addresses
+* Format conversion from XML to JSON.
+* Call rate limiting to restrict the number of incoming calls from a developer. 
+* Filtering of requests that come from certain IP addresses.
 
 
-Policies are applied inside the gateway between the API consumer and the managed API. While the gateway receives requests and forwards them, unaltered, to the underlying API, a policy can apply changes to both the inbound request and outbound response.
+Policies are applied inside the gateway between the API consumer and the managed API. Although the gateway receives requests and forwards them, unaltered, to the underlying API, a policy can apply changes to both the inbound request and the outbound response.
 
-## <a name="sections"> </a>Understanding policy configuration
+## Understanding policy configuration
 
 Policy definitions are simple XML documents that describe a sequence of statements to apply to requests and responses. To help you configure policy definitions, the portal provides these options:
 
@@ -34,7 +39,7 @@ Policy definitions are simple XML documents that describe a sequence of statemen
 
 For more information about configuring policies, see [Set or edit policies](set-edit-policies.md).
 
-The policy XML configuration is divided into `inbound`, `backend`, `outbound`, and `on-error` sections. This series of specified policy statements is executed in order for a request and a response.
+The policy XML configuration is divided into `inbound`, `backend`, `outbound`, and `on-error` sections. This series of specified policy statements runs in order for a request and a response. Here's what it looks like: 
 
 ```xml
 <policies>
@@ -49,7 +54,7 @@ The policy XML configuration is divided into `inbound`, `backend`, `outbound`, a
     <!-- statements to be applied to the response go here -->
   </outbound>
   <on-error>
-    <!-- statements to be applied if there is an error condition go here -->
+    <!-- statements to be applied if there's an error condition go here -->
   </on-error>
 </policies> 
 ```
@@ -63,18 +68,18 @@ If an error occurs during the processing of a request:
 * Execution jumps to the statements in the `on-error` section.
 
 By placing policy statements in the `on-error` section, you can:
-* Review the error using the `context.LastError` property.
-* Inspect and customize the error response using the `set-body` policy.
+* Review the error by using the `context.LastError` property.
+* Inspect and customize the error response by using the `set-body` policy.
 * Configure what happens if an error occurs. 
 
 For more information, see [Error handling in API Management policies](./api-management-error-handling-policies.md). 
 
 ## Policy expressions
 
-Unless the policy specifies otherwise, [policy expressions](api-management-policy-expressions.md) can be used as attribute values or text values in any of the API Management policies. A policy expression is either:
+Unless the policy specifies otherwise, [policy expressions](api-management-policy-expressions.md) can be used as attribute values or text values in any of the API Management policies. A policy expression is one of the following:
 
-* a single C# statement enclosed in `@(expression)`, or 
-* a multi-statement C# code block, enclosed in `@{expression}`, that returns a value
+* A single C# statement enclosed in `@(expression)`
+* A multi-statement C# code block, enclosed in `@{expression}`, that returns a value
 
 Each expression has access to the implicitly provided `context` variable and an allowed subset of .NET Framework types.
 
@@ -82,23 +87,23 @@ Policy expressions provide a sophisticated means to control traffic and modify A
 
 ## Scopes
 
-API Management allows you to define policies at the following *scopes*, from most broad to most narrow:
+API Management enables you to define policies at the following scopes, presented here from broadest to narrowest:
 
 * Global (all APIs)
 * Workspace (all APIs associated with a selected workspace)
 * Product (all APIs associated with a selected product)
 * API (all operations in an API)
-* Operation (single operation in an API) 
+* Operation (a single operation in an API) 
 
 When configuring a policy, you must first select the scope at which the policy applies. 
 
-:::image type="content" source="media/api-management-howto-policies/policy-scopes.png" alt-text="Policy scopes":::
+:::image type="content" source="media/api-management-howto-policies/policy-scopes.png" alt-text="Diagram that illustrates the five policy scopes." lightbox="media/api-management-howto-policies/policy-scopes.png":::
 
 ### Things to know
 
-* For fine-grained control for different API consumers, you can configure policy definitions at more than one scope
-* Not all policies are supported at each scope and policy section
-* When configuring policy definitions at more than one scope, you control policy inheritance and the policy evaluation order in each policy section by placement of the `base` element
+* For fine-grained control for different API consumers, you can configure policy definitions at more than one scope.
+* Not all policies are supported at each scope and policy section.
+* When configuring policy definitions at more than one scope, you control policy inheritance and the policy evaluation order in each policy section by placement of the `base` element.
 * Policies applied to API requests are also affected by the request context, including the presence or absence of a subscription key used in the request, the API or product scope of the subscription key, and whether the API or product requires a subscription. 
 
     [!INCLUDE [api-management-product-policy-alert](../../includes/api-management-product-policy-alert.md)]
@@ -110,11 +115,11 @@ For more information, see:
 
 ### GraphQL resolver policies
 
-In API Management, a [GraphQL resolver](configure-graphql-resolver.md) is configured using policies scoped to a specific operation type and field in a [GraphQL schema](graphql-apis-overview.md#resolvers).
+In API Management, a [GraphQL resolver](configure-graphql-resolver.md) is configured with policies scoped to a specific operation type and field in a [GraphQL schema](graphql-apis-overview.md#resolvers).
 
-* Currently, API Management supports GraphQL resolvers that specify either HTTP API, Cosmos DB, or Azure SQL data sources. For example, configure a single [`http-data-source`](http-data-source-policy.md) policy with elements to specify a request to (and optionally response from) an HTTP data source.
-* You can't include a resolver policy in policy definitions at other scopes such as API, product, or all APIs. It also doesn't inherit policies configured at other scopes.
-* The gateway evaluates a resolver-scoped policy *after* any configured `inbound` and `backend` policies in the policy execution pipeline.
+* Currently, API Management supports GraphQL resolvers that specify either HTTP API, Azure Cosmos DB, or Azure SQL data sources. For example, you can configure a single [`http-data-source`](http-data-source-policy.md) policy with elements to specify a request to (and optionally response from) an HTTP data source.
+* You can't include a resolver policy in policy definitions at other scopes, such as API, product, or all APIs. The policy also doesn't inherit policies configured at other scopes.
+* The gateway evaluates a resolver-scoped policy after any configured `inbound` and `backend` policies in the policy execution pipeline.
 
 For more information, see [Configure a GraphQL resolver](configure-graphql-resolver.md).
 
@@ -138,16 +143,16 @@ Example policy definition at API scope:
 </policies>
 ```
 
-In the example policy definition above:
-* The `cross-domain` statement would execute first.
-* The [`find-and-replace` policy](find-and-replace-policy.md) would execute after any policies at a broader scope. 
+In the preceding example policy definition:
+* The `cross-domain` statement runs first.
+* The [`find-and-replace` policy](find-and-replace-policy.md) runs after any policies at a broader scope. 
 
 >[!NOTE]
-> If you remove the `base` element at the API scope, only policies configured at the API scope will be applied. Neither product nor global scope policies would be applied.
+> If you remove the `base` element at the API scope, only policies configured at the API scope will be applied. Policies configured at product and broader scopes won't be applied.
 
 ### Use policy expressions to modify requests
 
-The following example uses [policy expressions][Policy expressions] and the [`set-header`](set-header-policy.md) policy to add user data to the incoming request. The added header includes the user ID associated with the subscription key in the request, and the region where the gateway processing the request is hosted.
+The following example uses [policy expressions][Policy expressions] and the [`set-header`](set-header-policy.md) policy to add user data to incoming requests. The added header includes the user ID that's associated with the subscription key in the request, and the region where the gateway processing the request is hosted.
 
 ```xml
 <policies>

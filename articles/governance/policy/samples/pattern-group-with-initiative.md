@@ -1,7 +1,7 @@
 ---
 title: "Pattern: Group policy definitions with initiatives"
 description: This Azure Policy pattern provides an example of how to group policy definitions into an initiative.
-ms.date: 08/17/2021
+ms.date: 03/04/2025
 ms.topic: sample
 ---
 # Azure Policy pattern: group policy definitions
@@ -42,5 +42,5 @@ passthrough of values improves reuse.
 ## Next steps
 
 - Review other [patterns and built-in definitions](./index.md).
-- Review the [Azure Policy definition structure](../concepts/definition-structure.md).
-- Review [Understanding policy effects](../concepts/effects.md).
+- Review the [Azure Policy definition structure](../concepts/definition-structure-basics.md).
+- Review [Understanding policy effects](../concepts/effect-basics.md).

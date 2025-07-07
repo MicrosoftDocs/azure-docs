@@ -1,8 +1,8 @@
 ---
 title: "Access data in Azure Cosmos DB using Mongoose with Azure Static Web Apps"
 description: Learn to access data in Azure Cosmos DB using Mongoose from an Azure Static Web Apps API function.
-author: GeekTrainer
-ms.author: chrhar
+author: v1212
+ms.author: wujia
 ms.service: azure-static-web-apps
 ms.topic: tutorial
 ms.date: 10/10/2022

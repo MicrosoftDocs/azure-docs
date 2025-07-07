@@ -16,6 +16,8 @@ ms.subservice: b2c
 
 # Configure Grit's biometric authentication with Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 In this sample tutorial, learn how to integrate [Grit's](https://www.gritiam.com) Biometric authentication with Azure Active Directory B2C (Azure AD B2C). Biometric authentication provides  users the option to sign in using finger print, face ID or [Windows Hello](https://support.microsoft.com/windows/learn-about-windows-hello-and-set-it-up-dae28983-8242-bb2a-d3d1-87c9d265a5f0). It works both on desktop and mobile applications, provided the device is capable of doing biometric authentication.
 
 Biometric authentication has the following benefits:
@@ -32,7 +34,7 @@ Biometric authentication has the following benefits:
 
 To get started, you'll need:
 
-- License to [Grit's Visual IEF builder](https://www.gritiefedit.com/). Contact [Grit support](mailto:info@gritsoftwaresystems.com) for licensing details. For this tutorial you don't need a license.
+- License to [Grit's Visual IEF builder](/azure/active-directory-b2c/partner-grit-editor). Contact [Grit support](mailto:info@gritsoftwaresystems.com) for licensing details. For this tutorial you don't need a license.
 
 - An Azure subscription. If you don't have one, get a [free account](https://azure.microsoft.com/free/).
 
@@ -62,7 +64,7 @@ Contact [Grit support](mailto:info@gritsoftwaresystems.com) for details to get o
 
 ### Configure Grit's biometric authentication with Azure AD B2C
 
-1. Navigate to <https://www.gritiefedit.com> and enter your email if you're asked for it.
+1. Navigate to </azure/active-directory-b2c/partner-grit-editor> and enter your email if you're asked for it.
 
 1. Press cancel in the quick start wizard.
 

@@ -20,11 +20,13 @@ In this tutorial, you learn how to:
 > * Work together with Web PubSub function input and output bindings and Azure IoT hub
 > * Run the sample functions locally
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 ## Prerequisites
 
 * A code editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 
-* [Node.js](https://nodejs.org/en/download/), version 18.x or above.
+* [Node.js](https://nodejs.org/en/download/package-manager/), version 18.x or above.
    > [!NOTE]
    > For more information about the supported versions of Node.js, see [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages).
 
@@ -381,6 +383,9 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
     ---
 
 6. Create a `messagehandler` function to generate notifications by using the `"IoT Hub (Event Hub)"` template.
+
+    [!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
+
    ```bash
     func new --template "Azure Event Hub trigger" --name messagehandler
     ```

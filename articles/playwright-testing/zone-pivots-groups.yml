@@ -1,0 +1,10 @@
+# YamlMime:ZonePivotGroups
+groups:
+- id: microsoft-playwright-testing
+  title: Test runner
+  prompt: Choose a test runner
+  pivots:
+  - id: playwright-test-runner
+    title: Playwright Test Runner
+  - id: nunit-test-runner
+    title: NUnit

@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how you can use the Execute Pipeline Activity to invoke one pipeline from another pipeline in Azure Data Factory or Synapse Analytics.
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
@@ -260,7 +260,7 @@ The master pipeline forwards these values to the invoked pipeline as shown in th
 ```
 
 > [!WARNING]
->Execute Pipeline activity passes array parameter as string to the child pipeline.This is due to the fact that the payload is passed from the parent pipeline to the >child as string. We can see it when we check the input passed to the child pipeline. Plese check this [section](./data-factory-troubleshoot-guide.md#execute-pipeline-passes-array-parameter-as-string-to-the-child-pipeline) for more details. 
+>Execute Pipeline activity passes array parameter as string to the child pipeline.This is due to the fact that the payload is passed from the parent pipeline to the >child as string. We can see it when we check the input passed to the child pipeline. Please check this [section](./data-factory-troubleshoot-guide.md#execute-pipeline-passes-array-parameter-as-string-to-the-child-pipeline) for more details. 
 
 ## Related content
 See other supported control flow activities: 

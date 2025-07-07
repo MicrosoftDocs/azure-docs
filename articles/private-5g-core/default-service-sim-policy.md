@@ -2,8 +2,8 @@
 title: Default service and allow-all SIM policy
 titleSuffix: Azure Private 5G Core
 description: Information on the default service and allow-all SIM policy that can be created as part of deploying a private mobile network.
-author: robswain
-ms.author: robswain
+author: anzaman
+ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: conceptual
 ms.date: 03/18/2022

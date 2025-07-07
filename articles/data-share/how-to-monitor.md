@@ -5,14 +5,14 @@ author: sidontha
 ms.author: sidontha
 ms.service: azure-data-share
 ms.topic: how-to
-ms.date: 02/29/2024
+ms.date: 02/12/2025
 ---
 
 # Monitor Azure Data Share status and history
 
 This article explains how you can monitor your Azure Data Share status and history.
 
-- As a data provider, you can monitor various aspects of your data sharing relationships. Details such as whether your data consumers have accepted your invitation to the data share, and whether they have created a share subscription and started to use your data, are all available to monitor.
+- As a data provider, you can monitor various aspects of your data sharing relationships. Details such as whether your data consumers accepted your invitation to the data share, and whether they created a share subscription and started to use your data, are all available to monitor.
 
 - As a data consumer, you can monitor the snapshots that have been triggered into your Azure subscription.
 
@@ -27,11 +27,11 @@ View the status of your data share invitations by navigating to Sent shares -> I
 There are three states that your invitation can be in:
 
 * Pending - Data share recipient hasn't yet accepted the invitation.
-* Accepted - Data share recipient has accepted the invitation.
-* Rejected - Data share recipient has rejected the invitation.
+* Accepted - Data share recipient accepted the invitation.
+* Rejected - Data share recipient rejected the invitation.
 
 > [!IMPORTANT]
-> If you delete an invitation after it has already been accepted, it is not equivalent to revoking access. If you would like to stop future snapshots from being copied into your data consumers storage account, you must revoke access through the *Share subscriptions* tab.
+> If you delete an invitation after it was accepted, it isn't equivalent to revoking access. If you would like to stop future snapshots from being copied into your data consumers storage account, you must revoke access through the *Share subscriptions* tab.
 
 ## Monitor share subscriptions
 
@@ -39,7 +39,7 @@ View the status of your share subscriptions by navigating to Sent Shares -> Shar
 
 ## Snapshot history
 
-In the **History** tab of a share, you're able to view when data is copied from data provider to data consumer's data store. You're able to monitor the frequency, duration and status of each snapshot.
+In the **History** tab of a share, you're able to view when data is copied from data provider to data consumer's data store. You're able to monitor the frequency, duration, and status of each snapshot.
 
 ![Screenshot shows Sent Shares in the Azure portal.](./media/sent-shares.png "Snapshot history")
 
@@ -47,7 +47,7 @@ You can view more details about each snapshot run by selecting the run start dat
 
 Up to 30 days of snapshot history is displayed. If you need to save and see more than 30 days worth of history, you can use diagnostic setting.
 
-## Next steps
+## Related content
 
 - Learn more about [Azure Data Share terminology](terminology.md).
 - See [Monitor Data Share](monitor-data-share.md) for more details about monitoring Data Share.

@@ -1,13 +1,12 @@
 ---
 title: Monitor your dedicated SQL pool workload using DMVs
 description: Learn how to monitor your Azure Synapse Analytics dedicated SQL pool workload and query execution using DMVs.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: kecona
-ms.date: 11/09/2022
+author: joannapea
+ms.author: joanpo
+ms.date: 01/22/2025
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: synapse-analytics
 ---
 
@@ -25,7 +24,7 @@ GRANT VIEW DATABASE STATE TO myuser;
 
 ## Monitor connections
 
-All logins to your data warehouse are logged to [sys.dm_pdw_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-sessions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  This DMV contains the last 10,000 logins.  The `session_id` is the primary key and is assigned sequentially for each new login.
+All logins to your data warehouse are logged to [sys.dm_pdw_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-sessions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). This DMV contains the last 10,000 logins. The `session_id` is the primary key and is assigned sequentially for each new login.
 
 ```sql
 -- Other Active Connections
@@ -34,10 +33,10 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed' and session_id <
 
 ## Monitor query execution
 
-All queries executed on SQL pool are logged to [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  This DMV contains the last 10,000 queries executed.  The `request_id` uniquely identifies each query and is the primary key for this DMV.  The `request_id` is assigned sequentially for each new query and is prefixed with QID, which stands for query ID.  Querying this DMV for a given `session_id` shows all queries for a given login.
+All queries executed on SQL pool are logged to [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). This DMV contains the last 10,000 queries executed. The `request_id` uniquely identifies each query and is the primary key for this DMV. The `request_id` is assigned sequentially for each new query and is prefixed with QID, which stands for query ID. Querying this DMV for a given `session_id` shows all queries for a given login.
 
 > [!NOTE]  
-> Stored procedures use multiple Request IDs.  Request IDs are assigned in sequential order.
+> Stored procedures use multiple Request IDs. Request IDs are assigned in sequential order.
 
 Here are steps to follow to investigate query execution plans and times for a particular query.
 
@@ -59,7 +58,7 @@ ORDER BY total_elapsed_time DESC;
 
 From the preceding query results, **note the Request ID** of the query that you would like to investigate.
 
-Queries in the **Suspended** state can be queued due to a large number of active running queries. These queries also appear in the [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). In that case, look for waits such as UserConcurrencyResourceType. For information on concurrency limits, see [Memory and concurrency limits](memory-concurrency-limits.md) or [Resource classes for workload management](resource-classes-for-workload-management.md). Queries can also wait for other reasons such as for object locks.  If your query is waiting for a resource, see [Investigating queries waiting for resources](#monitor-waiting-queries) further down in this article.
+Queries in the **Suspended** state can be queued due to a large number of active running queries. These queries also appear in the [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). In that case, look for waits such as UserConcurrencyResourceType. For information on concurrency limits, see [Memory and concurrency limits](memory-concurrency-limits.md) or [Resource classes for workload management](resource-classes-for-workload-management.md). Queries can also wait for other reasons such as for object locks. If your query is waiting for a resource, see [Investigating queries waiting for resources](#monitor-waiting-queries) further down in this article.
 
 To simplify the lookup of a query in the [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) table, use [LABEL](/sql/t-sql/queries/option-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to assign a comment to your query, which can be looked up in the `sys.dm_pdw_exec_requests` view.
 
@@ -90,7 +89,7 @@ WHERE request_id = 'QID####'
 ORDER BY step_index;
 ```
 
-When a DSQL plan is taking longer than expected, the cause can be a complex plan with many DSQL steps or just one step taking a long time.  If the plan is many steps with several move operations, consider optimizing your table distributions to reduce data movement. The [Table distribution](sql-data-warehouse-tables-distribute.md) article explains why data must be moved to solve a query. The article also explains some distribution strategies to minimize data movement.
+When a DSQL plan is taking longer than expected, the cause can be a complex plan with many DSQL steps or just one step taking a long time. If the plan is many steps with several move operations, consider optimizing your table distributions to reduce data movement. The [Table distribution](sql-data-warehouse-tables-distribute.md) article explains why data must be moved to solve a query. The article also explains some distribution strategies to minimize data movement.
 
 To investigate further details about a single step, inspect the `operation_type` column of the long-running query step and note the **Step Index**:
 
@@ -99,7 +98,7 @@ To investigate further details about a single step, inspect the `operation_type`
 
 ### Step 3: Investigate SQL on the distributed databases
 
-Use the Request ID and the Step Index to retrieve details from [sys.dm_pdw_sql_requests](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), which contains execution information of the query step on all of the distributed databases.
+Use the Request ID and the Step Index to retrieve details from [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?view=azure-sqldw-latest&preserve-view=true), which contains execution information of the query step on all of the distributed databases.
 
 ```sql
 -- Find the distribution run times for a SQL step.
@@ -146,7 +145,7 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 
 ## Monitor waiting queries
 
-If you discover that your query is not making progress because it is waiting for a resource, here is a query that shows all the resources a query is waiting for.
+If you discover that your query isn't making progress because it's waiting for a resource, here's a query that shows all the resources a query is waiting for.
 
 ```sql
 -- Find queries
@@ -168,11 +167,11 @@ WHERE waits.request_id = 'QID####'
 ORDER BY waits.object_name, waits.object_type, waits.state;
 ```
 
-If the query is actively waiting on resources from another query, then the state will be **AcquireResources**.  If the query has all the required resources, then the state will be **Granted**.
+If the query is actively waiting on resources from another query, then the state will be **AcquireResources**. If the query has all the required resources, then the state will be **Granted**.
 
 ## Monitor tempdb
 
-The `tempdb` database is used to hold intermediate results during query execution. High utilization of the `tempdb` database can lead to slow query performance. For every DW100c configured, 399 GB of `tempdb` space is allocated (DW1000c would have 3.99 TB of total `tempdb` space).  Below are tips for monitoring `tempdb` usage and for decreasing `tempdb` usage in your queries.
+The `tempdb` database is used to hold intermediate results during query execution. High utilization of the `tempdb` database can lead to slow query performance. For every DW100c configured, 399 GB of `tempdb` space is allocated (DW1000c would have 3.99 TB of total `tempdb` space). Below are tips for monitoring `tempdb` usage and for decreasing `tempdb` usage in your queries.
 
 ### Monitor tempdb with views
 
@@ -212,14 +211,14 @@ ORDER BY sr.request_id;
 
 > [!NOTE]  
 > Data Movement uses the `tempdb`. To reduce the usage of `tempdb` during data movement, ensure that your table is using a distribution strategy that [distributes data evenly](sql-data-warehouse-tables-distribute.md#choose-a-distribution-column-with-data-that-distributes-evenly). 
-> Use [Azure Synapse SQL Distribution Advisor](../sql/distribution-advisor.md) to get recommendations on the distrbution method suited for your workloads.
+> Use [Azure Synapse SQL Distribution Advisor](../sql/distribution-advisor.md) to get recommendations on the distribution method suited for your workloads.
 > Use the [Azure Synapse Toolkit](https://github.com/microsoft/Azure_Synapse_Toolbox/tree/master/TSQL_Queries/TempDB) to monitor `tempdb` using T-SQL queries.
 
-If you have a query that is consuming a large amount of memory or have received an error message related to the allocation of `tempdb`, it could be due to a very large [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) or [INSERT SELECT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) statement running that is failing in the final data movement operation. This can usually be identified as a ShuffleMove operation in the distributed query plan right before the final INSERT SELECT.  Use [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to monitor ShuffleMove operations.
+If you have a query that is consuming a large amount of memory or have received an error message related to the allocation of `tempdb`, it could be due to a very large [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) or [INSERT SELECT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) statement running that is failing in the final data movement operation. This can usually be identified as a ShuffleMove operation in the distributed query plan right before the final INSERT SELECT. Use [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to monitor ShuffleMove operations.
 
-The most common mitigation is to break your CTAS or INSERT SELECT statement into multiple load statements so that the data volume will not exceed the 399 GB per 100DWUc `tempdb` limit. You can also scale your cluster to a larger size to increase how much `tempdb` space you have.
+The most common mitigation is to break your CTAS or INSERT SELECT statement into multiple load statements so that the data volume won't exceed the 399 GB per 100DWUc `tempdb` limit. You can also scale your cluster to a larger size to increase how much `tempdb` space you have.
 
-In addition to CTAS and INSERT SELECT statements, large, complex queries running with insufficient memory can spill into `tempdb` causing queries to fail.  Consider running with a larger [resource class](resource-classes-for-workload-management.md) to avoid spilling into `tempdb`.
+In addition to CTAS and INSERT SELECT statements, large, complex queries running with insufficient memory can spill into `tempdb` causing queries to fail. Consider running with a larger [resource class](resource-classes-for-workload-management.md) to avoid spilling into `tempdb`.
 
 ## Monitor memory
 
@@ -340,11 +339,13 @@ The following query provides the query text and identifier for the waiting and b
 SELECT waiting.session_id AS WaitingSessionId,
        waiting.request_id AS WaitingRequestId,
        COALESCE(waiting_exec_request.command,waiting_exec_request.command2) AS WaitingExecRequestText,
+       waiting.object_name AS Waiting_Object_Name,
+       waiting.object_type AS Waiting_Object_Type,
        blocking.session_id AS BlockingSessionId,
        blocking.request_id AS BlockingRequestId,
        COALESCE(blocking_exec_request.command,blocking_exec_request.command2) AS BlockingExecRequestText,
-       waiting.object_name AS Blocking_Object_Name,
-       waiting.object_type AS Blocking_Object_Type,
+       blocking.object_name AS Blocking_Object_Name,
+       blocking.object_type AS Blocking_Object_Type,
        waiting.type AS Lock_Type,
        waiting.request_time AS Lock_Request_Time,
        datediff(ms, waiting.request_time, getdate())/1000.0 AS Blocking_Time_sec
@@ -361,6 +362,6 @@ WHERE waiting.state = 'Queued'
 ORDER BY Lock_Request_Time DESC;
 ```
 
-## Next steps
+## Related content
 
 - For more information about DMVs, see [System views](../sql/reference-tsql-system-views.md).

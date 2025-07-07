@@ -4,12 +4,13 @@ title: Azure Update Manager documentation
 metadata:
   title: Azure Update Manager documentation
   description: Learn how to use Update Manager in Azure to manage updates on machines across Azure and hybrid environments.
-  author: SnehaSudhir
+  author: habibaum
+  ms.author: v-uhabiba
   manager: jsuri
   ms.service: azure-update-manager
   ms.topic: landing-page
   ms.date: 07/04/2023
-  ms.author: sudhirsneha
+  
 
 landingContent:
   # Card (optional)
@@ -105,4 +106,10 @@ landingContent:
           - text: Create pre and post events
             url: pre-post-events-schedule-maintenance-configuration.md
           - text: Manage pre and post events maintenance configuration events
-            url: manage-pre-post-events.md     
+            url: manage-pre-post-events.md    
+  - title: Architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Plan deployment for updating Windows VMs in Azure
+            url: /azure/architecture/example-scenario/wsus#azure-update-manager

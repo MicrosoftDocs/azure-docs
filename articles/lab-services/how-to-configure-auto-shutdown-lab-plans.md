@@ -49,7 +49,7 @@ Azure Lab Services supports automatic shutdown for both Windows-based and Linux-
 
 ## Supported Linux distributions for automatic shutdown
 
-Azure Lab Services supports automatic shutdown for many Linux distristributions and versions. 
+Azure Lab Services supports automatic shutdown for many Linux distributions and versions. 
 
 [!INCLUDE [supported linux distributions for automatic shutdown](./includes/lab-services-auto-shutdown-linux-support.md)]
 
