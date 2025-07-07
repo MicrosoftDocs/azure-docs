@@ -3,6 +3,7 @@ title:
 titleSuffix: Azure Deployment Environments
 description: Learn how to configure administrative access for dev team leads by using the built-in DevCenter Project Admin role.
 ms.service: azure-deployment-environments
+ms.custom: peer-review
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/30/2025
@@ -13,14 +14,21 @@ ms.topic: how-to
 
 # Provide access to projects
 
-In Azure Deployment Environments, a dev center may be linked to multiple projects to correspond with the needs of different developer teams.
-Development team members need access to a project before they can create deployment environments. 
+In Azure Deployment Environments, resources are organized into projects to meet the requirements of development teams. A dev center can be linked to multiple projects to match the needs of different developer teams. 
+
+Deployment Environments provides three roles that let you give users access for different purposes: 
+
+- **Deployment Environments User:** Lets users access a project so they can create and manage their own deployment environments.
+- **DevCenter Project Admin:** Lets users manage the project and its resources.
+- **Deployment Environments Reader:** Lets users view other users' deployment environments
+
+
 
 ## Prerequisites 
 
 - To assign permissions to a project, you must have the **Owner** or **User Access Administrator** role on the project, resource group, or subscription.
 
-## Role assignments
+
 
 
 
@@ -36,7 +44,7 @@ Deployment Environments
 | Deployment Environments User | Environment-type level | Perform the same actions as project level, but only on the respective environment types |
 | Deployment Environments Reader | Any level | Read environments that other users created |
 
-
+[!INCLUDE [note-deployment-environments-user](includes/note-deployment-environments-user.md)]
 
 ## Assign permissions to dev team leads for a project
 
@@ -79,9 +87,11 @@ The users can now view the project and manage all the environment types that you
 
 The users can now view the project and manage only the specific environment type that you've granted them access to. DevCenter Project Admin users can also [create environments by using the Azure CLI](how-to-create-access-environments.md).
 
-[!INCLUDE [note-deployment-environments-user](includes/note-deployment-environments-user.md)]
+
 
 
 
 
 ## Related resources
+
+- [Azure role-based access control in Azure Deployment Environments](concept-deployment-environments-role-based-access-control.md)
