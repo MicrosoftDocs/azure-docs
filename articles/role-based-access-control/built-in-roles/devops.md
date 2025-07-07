@@ -579,8 +579,6 @@ Read, write, delete and perform actions on Managed DevOps Pools
 }
 ```
 
-> | [Microsoft.DevOpsInfrastructure](./permissions/devops.md#microsoftdevopsinfrastructure) |  | [Managed DevOps Pools](/azure/devops/managed-devops-pools/overview) |
-
 ## DevTest Labs User
 
 Lets you connect, start, restart, and shutdown your virtual machines in your Azure DevTest Labs.
