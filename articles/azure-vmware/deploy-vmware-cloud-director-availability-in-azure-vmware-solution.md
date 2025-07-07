@@ -112,7 +112,7 @@ VMware Cloud Director Availability is a VMware owned and supported product on Az
 
 ### What are Run commands in Azure VMware Solution? 
 
-For more information, go to [Run Command in Azure VMware Solution]([/azure/azure-vmware/concepts-run-command](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/cloud-director-availability/4-7/availability-in-avs-4-7/availability-run-commands-in-avs.html)).
+For more information, go to [Run Command in Azure VMware Solution](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/cloud-director-availability/4-7/availability-in-avs-4-7/availability-run-commands-in-avs.html).
 
 ### How can I add more Replicators in my existing VMware Cloud Director Availability instance in Azure VMware Solution?
 
