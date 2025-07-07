@@ -86,11 +86,11 @@ items:
       - name: Configure user customizations
         href: how-to-configure-user-customizations.md
         displayName: customizations, image definition, personal customization, individual
-      - name: Configure imaging for customizations
+      - name: Configure Dev Box imaging
         href: how-to-configure-dev-box-imaging.md
-      - name: Create customization tasks
-        href: how-to-create-customization-tasks-catalog.md
-      - name: Connect to Azure resources or clone private repositories by using customizations
+      - name: Configure tasks for customizations
+        href: how-to-configure-customization-tasks.md
+      - name: Connect to resources and repositories
         href: how-to-customizations-connect-resource-repository.md
   - name: Create & connect to dev boxes
     items:
