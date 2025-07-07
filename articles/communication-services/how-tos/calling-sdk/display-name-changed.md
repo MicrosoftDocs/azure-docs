@@ -9,9 +9,8 @@ ms.subservice: calling
 ms.topic: how-to 
 ms.date: 05/06/2025
 ms.custom: template-how-to
-zone_pivot_groups: acs-plat-web-ios-android-windows
 
-#Customer intent: As a developer, I want to learn how to send and receive Media access state using SDK.
+#Customer intent: As a developer, I want to learn how to receive display name changed events using SDK.
 ---
 
 # Display name changed
