@@ -2,7 +2,7 @@
 title: When to use data lake in Microsoft Sentinel
 description: Learn what log sources might be appropriate for the Microsoft Sentinel data lake and what  attributes to look for, to decide about other sources.
 author: EdB-MSFT
-ms.author: ebaynash
+ms.author: edbaynash
 ms.topic: conceptual
 ms.date: 07/07/2025
 appliesto:
