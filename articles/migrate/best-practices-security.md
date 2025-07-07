@@ -1,5 +1,5 @@
 ---
-title: Security Best Practices for Deploying Azure Migrate Appliance.
+title: Security Best Practices for Deploying Azure Migrate Appliance
 description: Learn the top security best practices for deploying the Azure Migrate appliance. This guide covers tips on resource group isolation, RBAC, and securing your Azure Migrate project to ensure a safe and efficient migration process.
 author: molishv
 ms.author: molir
