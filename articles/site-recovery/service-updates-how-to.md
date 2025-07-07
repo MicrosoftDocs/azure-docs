@@ -6,6 +6,7 @@ ms.service: azure-site-recovery
 ms.topic: overview
 ms.author: jsuri
 ms.date: 08/11/2021
+# Customer intent: As a cloud operations manager, I want to keep the Azure Site Recovery components up to date, so that I can ensure optimal performance, support, and security for our disaster recovery processes.
 ---
 # Service updates in Site Recovery
 

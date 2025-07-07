@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 07/01/2025
 ms.devlang: csharp
 ms.custom: devx-track-csharp
+# Customer intent: "As a developer using the Batch service API, I want to persist task output data to Azure Storage, so that I can easily manage and access the results of my batch processing tasks without altering the application code."
 ---
 
 # Persist task data to Azure Storage with the Batch service API

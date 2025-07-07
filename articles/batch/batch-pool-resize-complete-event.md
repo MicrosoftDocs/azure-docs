@@ -3,6 +3,7 @@ title: Azure Batch pool resize complete event
 description: Reference for Batch pool resize complete event. See an example of a pool that increased in size and completed successfully.
 ms.topic: reference
 ms.date: 07/01/2025
+# Customer intent: "As a cloud operations manager, I want to receive notifications for pool resize events, so that I can monitor and manage compute resource allocations effectively."
 ---
 
 # Pool resize complete event

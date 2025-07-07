@@ -10,6 +10,7 @@ ms.date: 12/13/2024
 ms.collection:
  - migration
  - aws-to-azure
+# Customer intent: As a network engineer, I want to configure a BGP-enabled VPN connection between Azure and AWS so that I can establish an active-active setup for seamless data transfer across cloud environments.
 ---
 
 # How to connect AWS and Azure using a BGP-enabled VPN gateway

@@ -19,7 +19,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure App Service
 
-[!INCLUDE [azure-policy-reference-rp-appservice](../../includes/policy/reference/byrp/microsoft.web.md)]
+[!INCLUDE [azure-policy-reference-rp-appservice](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.web.md)]
 
 ## Release notes
 

@@ -6,6 +6,7 @@ ms.author: jsuri
 ms.topic: how-to
 ms.service: azure-site-recovery
 ms.date: 05/02/2024
+# Customer intent: As an IT administrator, I want to troubleshoot network connectivity issues for Azure-to-Azure disaster recovery, so that I can ensure seamless replication and recovery of virtual machines during failover events.
 ---
 
 # Troubleshoot Azure-to-Azure VM network connectivity issues

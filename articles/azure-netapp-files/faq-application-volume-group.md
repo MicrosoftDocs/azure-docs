@@ -6,6 +6,7 @@ ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
 ms.date: 04/22/2025
+# Customer intent: As a cloud architect, I want to understand the best practices for creating application volume groups in Azure NetApp Files, so that I can optimize performance and cost for my database workloads like SAP HANA and Oracle.
 ---
 # Azure NetApp Files application volume group FAQs
 

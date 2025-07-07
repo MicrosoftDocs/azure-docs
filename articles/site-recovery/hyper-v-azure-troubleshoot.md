@@ -8,6 +8,7 @@ ms.date: 12/20/2024
 ms.author: jsuri
 ms.custom: engagement-fy23
 
+# Customer intent: "As an IT administrator managing Hyper-V disaster recovery, I want to troubleshoot replication issues to Azure, so that I can ensure seamless backup and recovery of virtual machines."
 ---
 # Troubleshoot Hyper-V to Azure replication and failover
 

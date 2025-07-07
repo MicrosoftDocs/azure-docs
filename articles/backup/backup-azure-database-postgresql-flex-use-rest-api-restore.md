@@ -6,6 +6,7 @@ ms.date: 02/28/2025
 ms.assetid: 759ee63f-148b-464c-bfc4-c9e640b7da6b
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to restore a PostgreSQL flexible server using REST API, so that I can recover data from a specific recovery point efficiently and ensure business continuity."
 ---
 
 # Restore Azure Database for PostgreSQL - Flexible servers using REST API

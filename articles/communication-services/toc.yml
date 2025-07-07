@@ -526,13 +526,13 @@ items:
       href: quickstarts/voice-video-calling/local-preview-mirroring.md
     - name: Optimize video placement on your web app
       href: quickstarts/voice-video-calling/optimizing-video-placement.md
-      displayName: Optimal Video Count, OVC, dual pin
-    - name: Simulcast
+      displayName: Optimal Video Count, OVC, dual pin, 1080P
+    - name: Understanding Simulcast
       href: concepts/voice-video-calling/simulcast.md
-      displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-    - name: Enable audio noise suppression improvements
+      displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues, simulcast
+    - name: Add audio quality improvements
       href: tutorials/audio-quality-enhancements/add-noise-supression.md
-      displayName: noise suppression, audio quality, noise removal, background noise, deep noise, voice isolation
+      displayName: noise suppression, audio quality, noise removal, background noise, deep noise, voice isolation, echo cancellation
     - name: Enable video background effects
       href: quickstarts/voice-video-calling/get-started-video-effects.md
       displayName: background blur, background replace, background replacement, frosted glass

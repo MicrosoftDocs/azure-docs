@@ -7,6 +7,7 @@ ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 05/23/2024
 ms.custom: engagement-fy23
+# Customer intent: "As a VMware administrator, I want to migrate replicated items from classic to modernized disaster recovery architecture, so that I can benefit from enhanced protection and efficiency without redoing the entire replication process."
 ---
 
 # How to move from classic to modernized VMware disaster recovery  

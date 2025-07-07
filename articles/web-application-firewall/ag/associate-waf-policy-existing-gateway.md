@@ -7,6 +7,7 @@ ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 10/25/2019
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As an IT admin managing an Application Gateway, I want to associate a Web Application Firewall policy with it, so that I can enhance security and control over web traffic to my applications."
 ---
 
 # Associate a WAF policy with an existing Application Gateway

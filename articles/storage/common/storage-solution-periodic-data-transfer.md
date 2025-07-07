@@ -9,6 +9,7 @@ ms.subservice: storage-common-concepts
 ms.topic: concept-article
 ms.date: 07/21/2021
 ms.author: shaas
+# Customer intent: As an IT professional, I want to choose the appropriate Azure solution for periodic data transfer, so that I can ensure efficient and reliable data movement according to my organization's needs.
 ---
 
 # Solutions for periodic data transfer
