@@ -73,7 +73,7 @@ To set Contributor or Owner permissions in the Azure subscription:
 
     :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Add role assignment page in Azure portal.":::
 
-To give the account the required permissions to register Microsoft Entra apps:
+    To give the account the required permissions to register Microsoft Entra apps:
 
 1. In the portal, go to **Microsoft Entra ID** > **Users**. 
 1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Microsoft Entra app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
