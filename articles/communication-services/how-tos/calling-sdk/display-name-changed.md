@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 05/06/2025
 ms.custom: template-how-to
 
-#Customer intent: As a developer, I want to learn how to receive display name changed events using SDK.
+#Customer intent: As a developer, I want to learn how to subscribe events that participants' display name change using SDK.
 ---
 
 # Display name changed
