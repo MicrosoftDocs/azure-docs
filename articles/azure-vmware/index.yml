@@ -217,7 +217,7 @@ additionalContent:
           - text: VMware HCX Mobility Optimized Networking (MON) guidance
             url: vmware-hcx-mon-guidance.md
           - text: Migrate workloads between Azure VMware Solution private clouds
-            url: migrate-between-avs-private-clouds.md
+            url: migrate-between-private-clouds.md
         # Card
         - title: Operate and monitor
           links:
