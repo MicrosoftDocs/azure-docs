@@ -67,9 +67,11 @@ The following limits apply to case management in Microsoft Sentinel.
 |
 | Description        | Limit                                   | Dependency |
 |--------------------|-----------------------------------------|------------|
-| Number of cases    | 100,000 cases per tenant                | None       |
-| Linked incidents   | 100 incidents linked to each case       | None       |
-| Attachments        | 500 GB of attachments per tenant        | None       |
+| Cases per tenant   | 100,000 cases                 | None       |
+| Attachments per tenant    | 500 GB         | None       |
+| Linked incidents per case  | 100 incidents       | None       |
+| Case retention period | 180 days | None       |
+
 
 **Number of incidents per day:** There isn't a formal, hard limit on the number of incidents that can be created per day. A workspace's actual capacity for incidents depends on the storage capacity of the incident database, so the size of the incidents is as much a factor as their number.
 
