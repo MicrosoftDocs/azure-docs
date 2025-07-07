@@ -419,7 +419,7 @@ Application name | `dpkg` or `rpm`
 
 ## Storage metadata
 
-The appliance collects storage releated data about configuration, roles, and features from Windows servers
+The appliance collects storage related data about configuration, roles, and features from Windows servers.
 Here's the full list of metadata that the appliance collects and sends to Azure:
 
 ### Windows server metadata
