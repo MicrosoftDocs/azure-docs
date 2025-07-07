@@ -222,9 +222,9 @@ sections:
       - question: |
           How do I set up an IDN in Azure DNS?
         answer: |
-          Internationalized domain names (IDNs) encode each DNS name by using [punycode](https://en.wikipedia.org/wiki/Punycode). DNS queries are made by using these punycode-encoded names.
+          Internationalized domain names (IDNs) encode each DNS name by using [Punycode](https://en.wikipedia.org/wiki/Punycode). DNS queries are made by using these Punycode-encoded names.
           
-          To configure IDNs in Azure DNS, convert the zone name or record set name to punycode. Azure DNS doesn't currently support built-in conversion to or from punycode.
+          To configure IDNs in Azure DNS, convert the zone name or record set name to Punycode. Azure DNS doesn't currently support built-in conversion to or from Punycode.
           
 additionalContent: |
 
