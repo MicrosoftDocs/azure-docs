@@ -12,7 +12,7 @@ ms.subservice: hpc
 
 # Job scheduler configuration
 
-A key aspect of your high performance computing migration is the configration of job schedulers. Job schedulers are responsible for scheduling user jobs, that is, determining where and when jobs should be executed. In the context of the cloud, job schedulers interact with resource orchestrators to acquire/release resources on-demand, which is different from an on-premises environment where resources are fixed and fully available all the time. This part of the guide covers the needs, tools, services, and best practices associated with your job schedulers.
+A key aspect of your high performance computing migration is the configuration of job schedulers. Job schedulers are responsible for scheduling user jobs, that is, determining where and when jobs should be executed. In the context of the cloud, job schedulers interact with resource orchestrators to acquire/release resources on-demand, which is different from an on-premises environment where resources are fixed and fully available all the time. This part of the guide covers the needs, tools, services, and best practices associated with your job schedulers.
 
 The most common HPC job schedulers are Slurm, OpenPBS, PBSPro, and LSF.
 
