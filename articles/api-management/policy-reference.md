@@ -22,7 +22,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure API Management
 
-[!INCLUDE [azure-policy-reference-rp-apimanagement](../../includes/policy/reference/byrp/microsoft.apimanagement.md)]
+[!INCLUDE [azure-policy-reference-rp-apimanagement](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.apimanagement.md)]
 
 ## Related content
 
