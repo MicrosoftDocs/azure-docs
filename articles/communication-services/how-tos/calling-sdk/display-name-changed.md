@@ -57,7 +57,7 @@ The following tables show support for the display name change in individual Azur
 | Is Supported   | ✔️  |        |        |        |          |        |         |		
 
 
-[!INCLUDE [Display name changed Client-side JavaScript](./includes/displayname-changed/displayname-changed-web.md)]
+[!INCLUDE [Display name changed Client-side JavaScript](./includes/display-name-changed/display-name-changed-web.md)]
 
 
 ## Next steps
