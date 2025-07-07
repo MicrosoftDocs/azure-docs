@@ -225,6 +225,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 1. After you successfully sign in, return to the browser tab that displays the appliance configuration manager. If the Azure user account that you used to sign in has the required permissions for the Azure resources that were created during key generation, appliance registration starts.
 
 After the appliance is successfully registered, to see the registration details, select **View details**. 
+
 1. **Install the VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. Download VDDK 6.7, 7, or 8(depending on the compatibility of VDDK and ESXi versions) from VMware. Extract the downloaded zip file contents to the specified location on the appliance, the default path is *C:\Program Files\VMware\VMware Virtual Disk Development Kit* as indicated in the *Installation instructions*.
 
 The Migration and modernization tool uses the VDDK to replicate servers during migration to Azure.
