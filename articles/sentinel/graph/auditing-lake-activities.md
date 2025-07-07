@@ -1,7 +1,7 @@
 ---
 title: Search the audit log for events in Microsoft Sentinel data lake
 description: Learn how to use the audit log to search for Microsoft Sentinel data lake activities to help with investigation.
-ms.service: mircosoft-sentinel
+ms.service: microsoft-sentinel
 ms.subservice: sentinel-graph
 ms.author: edbaynash
 author: EdB-MSFT
