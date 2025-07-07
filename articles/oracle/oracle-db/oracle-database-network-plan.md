@@ -37,7 +37,7 @@ Advanced network features enhance the virtual networking experience, offering im
 > Advanced network features are currently supported only for new Oracle Database@Azure deployments. 
 > Existing virtual networks with previously created Oracle Database@Azure delegated subnets will not support these features at this time. Support for existing deployments is planned for later this year. 
 > ### Registration required for delegated subnets
->To use advanced network features, use the following commands (via AZCLI) to register before creating new delegated subnet  for the Oracle Database@Azure deployment.
+>To use advanced network features, use the following commands (via AZCLI) to register before creating a new delegated subnet  for the Oracle Database@Azure deployment.
 >
 > ```Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Baremetal" ```
 >
