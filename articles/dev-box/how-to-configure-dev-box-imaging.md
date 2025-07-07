@@ -1,5 +1,5 @@
 ---
-title: Imaging for Dev Box Team Customizations
+title: Configure Imaging for Dev Box Team Customizations
 description: Configure dev box pools to use image definition files so that you can optimize customizations and create reusable images for your team.
 author: RoseHJM
 ms.author: rosemalcolm
@@ -69,7 +69,7 @@ For more information about attaching catalogs, see [Add and configure a catalog 
 
 ## Configure a dev box pool to use an image definition
 
-Make customizations available to your development teams by configuring a dev box pool to use a customization file (imagedefinition.yaml). Store the customization file in a repository that's linked to a catalog in your dev center or project. Specify this file as the image definition for the pool, and the customizations are applied to new dev boxes.
+Make customizations available to your development teams by configuring a dev box pool to use a customization file (imagedefinition.yaml). Store the customization file in a repository linked to a catalog in your dev center or project. Specify this file as the image definition for the pool, and the customizations are applied to new dev boxes.
 
 The following steps show you how to create a dev box pool and specify an image definition:
 
@@ -86,7 +86,7 @@ The following steps show you how to create a dev box pool and specify an image d
    | **Network connection** | Select **Deploy to a Microsoft hosted network**, or use an existing network connection. |
    |**Enable single sign-on** | Select **Yes** to enable single sign-on for the dev boxes in this pool. Single sign-on must be configured for the organization. For more information, see [Enable single sign-on for dev boxes](https://aka.ms/dev-box/single-sign-on). |
    | **Dev box Creator Privileges** | Select **Local Administrator** or **Standard User**. |
-   | **Enable Auto-stop** | **Yes** is the default. Select **No** to disable an auto-stop schedule. You can configure an auto-stop schedule after the pool is created. |
+   | **Enable Auto-stop** | **Yes** is the default. Select **No** to disable an autostop schedule. You can configure an autostop schedule after the pool is created. |
    | **Stop time** | Select a time to shut down all the dev boxes in the pool. |
    | **Time zone** | Select the time zone that the stop time is in. |
    | **Licensing** | Select this checkbox to confirm that your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
@@ -119,7 +119,7 @@ In order to generate an image, you need to assign the DevCenter service the requ
 
 1. Under that resource group, navigate to Access Control, and give the **Windows 365** and **Project Fidalgo** applications the roles **Storage Account Contributor**, **Storage Blob Data Contributor**, and **Reader**.
 
-During the process of building an image, Dev Box creates a temporary storage account in your subscription to store a snapshot, from which Dev Box generates an image. This storage account does not allow anonymous blob access and can only be accessed by identities with the Storage Blob Reader access. This storage account must be accessible from public networks, so that the Dev Box service can export your snapshot to it. If you have Azure policies that block the creation of storage accounts with public network access, create an exception for the subscription your DevCenter project is in.
+During the process of building an image, Dev Box creates a temporary storage account in your subscription to store a snapshot, from which Dev Box generates an image. This storage account doesn't allow anonymous blob access and can only be accessed by identities with the Storage Blob Reader access. This storage account must be accessible from public networks, so that the Dev Box service can export your snapshot to it. If you have Azure policies that block the creation of storage accounts with public network access, create an exception for the subscription your DevCenter project is in.
 
 ### Build the image
  
