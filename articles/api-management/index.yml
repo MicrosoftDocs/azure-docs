@@ -94,7 +94,7 @@ landingContent:
           - text: Networking options
             url: virtual-network-concepts.md
           - text: Reliability
-            url: /azure/reliability/reliability-api-management?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+            url: /azure/reliability/reliability-api-management
       - linkListType: reference
         links:
           - text: API Management policy reference
