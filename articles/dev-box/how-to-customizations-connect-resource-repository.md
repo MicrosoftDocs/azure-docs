@@ -85,6 +85,6 @@ To learn how to let trusted Microsoft services bypass the firewall, see [Configu
 
 ## Related content
 
-- [Microsoft Dev Box team customizations](concept-what-are-team-customizations.md)
+- [Microsoft Dev Box customizations](concept-what-are-dev-box-customizations.md)
 - [Configure imaging for Dev Box team customizations](how-to-configure-customization-imaging.md)
 - Learn how to [add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md).
