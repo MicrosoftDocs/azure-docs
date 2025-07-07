@@ -133,4 +133,4 @@ This AI-powered workflow streamlines the process of setting up Dev Box customiza
 ## Related content
 
 - [Dev Box customizations overview](concept-what-are-dev-box-customizations.md)
-- [Write an image definition file for Dev Box team customizations](how-to-write-image-definition-file.md)
+- [Configure team customizations](how-to-configure-team-customizations.md)

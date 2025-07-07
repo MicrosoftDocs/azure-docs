@@ -98,7 +98,7 @@ To set up Dev Box to support team customizations, follow these steps:
    - Optimize your image definition into a custom image.
 1. Create your dev box from the configured pool by using the developer portal.
 
-To learn more about team customization and writing image definitions, see [Write an image definition file for Dev Box team customizations](how-to-write-image-definition-file.md).
+To learn more about team customization and writing image definitions, see [Configure team customizations](how-to-configure-team-customizations.md).
 Then, to learn how to optimize your image definition into a custom image, see [Configure imaging for Dev Box team customizations](how-to-configure-customization-imaging.md).
 
 # [User customizations](#tab/user-customizations)
