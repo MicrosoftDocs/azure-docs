@@ -278,7 +278,7 @@ items:
   - name: Import (import)
     href: bicep-import.md
   - name: User-defined data types (type)
-    displayName: custom
+    displayName: custom,resourceInput,resourceOutput,resource-derived types
     href: user-defined-data-types.md
   - name: User-defined functions (func)
     displayName: custom

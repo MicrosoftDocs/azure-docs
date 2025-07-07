@@ -67,7 +67,7 @@ sections:
           - Note: creating additional identity validation requests for the same entity that is in progress does not help. Identity Validation requests cannot be expedited.
       - question: What if email validation link has expired?
         answer: | 
-          - If you missed to click on the email verification within 7 dyas, you need to start a new identity validation request. A new link cannot be resent on the same request.
+          - If you missed to click on the email verification within 7 days, you need to start a new identity validation request. A new link cannot be resent on the same request.
       - question: What if email validation says "Failed" and you think you never received the email validation link?
         answer: | 
           - Create another identity validation request. Ensure that the email address used is not a distribution list and the email address can receive links from external email addresses.

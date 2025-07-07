@@ -242,7 +242,7 @@ https://eastus.management.azure.com/subscriptions/XXXXXXXX/providers/Microsoft.M
 If you try to implement a configuration command on the device and the configuration is  incorrect, the configuration isn't enforced on the device. The prompt yields a typical error response, indicating a gNMI SET failure. To rectify this error, reapply the correct configuration. There's no change to the state of the device.
 
 ```azurecli
-az networkfabric device run-rw --resource-name <ResourceName> --resource-group <ResourceGroupName> --rw-command "router bgp 4444\n vrf gfab1-isd\n niehgbor 10.100.30.18 shudown"
+az networkfabric device run-rw --resource-name <ResourceName> --resource-group <ResourceGroupName> --rw-command "router bgp 4444\n vrf gfab1-isd\n neighbor 10.100.30.18 shutdown"
 ```
 
 | Parameter                | Description                                                                                                                   |
@@ -250,7 +250,7 @@ az networkfabric device run-rw --resource-name <ResourceName> --resource-group <
 | `az networkfabric device run-rw` | Azure CLI command for executing a read-write operation on a network device within Azure Network Fabric.                         |
 | `--resource-name`   | Specifies the name of the resource (network device) on which the RW operation is performed.                                 |
 | `--resource-group` | Specifies the name of the resource group that contains the network device.                                                       |
-| `--rw-command "router bgp 4444\n vrf gfab1-isd\n niehgbor 10.100.30.18 shudown"` | Specifies the RW commands to be executed on the network device. These commands configure BGP settings to shut down the neighbor with IP address 10.100.30.18 within the VRF named "gfab1-isd". |
+| `--rw-command "router bgp 4444\n vrf gfab1-isd\n neighbor 10.100.30.18 shutdown"` | Specifies the RW commands to be executed on the network device. These commands configure BGP settings to shut down the neighbor with IP address 10.100.30.18 within the VRF named "gfab1-isd". |
 
 
 Expected output:

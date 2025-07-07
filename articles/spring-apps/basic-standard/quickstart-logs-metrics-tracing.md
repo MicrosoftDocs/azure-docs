@@ -241,7 +241,7 @@ Navigate to the **Performance** page:
 
 Navigate to the **Dependencies** tab, where you can see the performance number for dependencies, particularly SQL calls:
 
-:::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-insights-on-dependencies.jpg" alt-text="Screenshot of the Azure portal that shows the Application Insights Performance page with the Depencies table highlighted." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-insights-on-dependencies.jpg":::
+:::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-insights-on-dependencies.jpg" alt-text="Screenshot of the Azure portal that shows the Application Insights Performance page with the Dependencies table highlighted." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-insights-on-dependencies.jpg":::
 
 Select a SQL call to see the end-to-end transaction in context:
 

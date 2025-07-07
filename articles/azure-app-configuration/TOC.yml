@@ -226,6 +226,8 @@
       href: howto-telemetry.md
     - name: Python
       href: howto-telemetry-python.md
+    - name: JavaScript
+      href: howto-telemetry-javascript.md
 - name: CI/CD integration
   items:
   - name: Use configuration files

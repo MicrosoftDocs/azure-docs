@@ -7,7 +7,7 @@ author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.service: azure-app-configuration
 ms.devlang: javascript
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 06/06/2025
 ---
 

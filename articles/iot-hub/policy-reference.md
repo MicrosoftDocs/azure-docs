@@ -25,7 +25,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure IoT Hub
 
-[!INCLUDE [azure-policy-reference-rp-iot](../../includes/policy/reference/byrp/microsoft.devices.md)]
+[!INCLUDE [azure-policy-reference-rp-iot](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.devices.md)]
 
 ## Next steps
 

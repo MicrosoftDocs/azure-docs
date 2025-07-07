@@ -21,7 +21,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure networking services
 
-[!INCLUDE [azure-policy-reference-rp-network](../../includes/policy/reference/byrp/microsoft.network.md)]
+[!INCLUDE [azure-policy-reference-rp-network](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.network.md)]
 
 ## Next steps
 

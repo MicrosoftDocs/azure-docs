@@ -20,7 +20,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure SignalR
 
-[!INCLUDE [azure-policy-reference-rp-signalr](../../includes/policy/reference/byrp/microsoft.signalrservice.md)]
+[!INCLUDE [azure-policy-reference-rp-signalr](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.signalrservice.md)]
 
 ## Next steps
 

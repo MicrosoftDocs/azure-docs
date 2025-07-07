@@ -12,7 +12,7 @@ ms.subservice: hpc
 
 # Network access configuration
 
-A key aspect of your high performance computing migration is the configuration of network access. Proper network access configration ensures secure, efficient, and uninterrupted communication between computational resources. This part of the guide covers the needs, tools, services, and best practices associated with your network access configuration.
+A key aspect of your high performance computing migration is the configuration of network access. Proper network access configuration ensures secure, efficient, and uninterrupted communication between computational resources. This part of the guide covers the needs, tools, services, and best practices associated with your network access configuration.
 
 It's a common practice in production environments to have resources with private IP addresses, and with rules to define how resources should be accessed.
 

@@ -63,7 +63,7 @@ Azure Spring Apps previously provided built-in integration with Tanzu Applicatio
    ```java
    @SpringBootApplication
    @Configuration
-   @EnableAutoConfiguration // Use a discovery service instead of Spring Boot Admin Clinet. The rest is done by our AutoConfiguration.
+   @EnableAutoConfiguration // Use a discovery service instead of Spring Boot Admin Client. The rest is done by our AutoConfiguration.
    @EnableDiscoveryClient  // Enables the service to register with a discovery service
    @EnableAdminServer
    public class SpringBootAdminApplication {

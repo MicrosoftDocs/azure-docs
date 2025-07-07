@@ -20,7 +20,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure Service Bus Messaging
 
-[!INCLUDE [azure-policy-reference-rp-servicebusmsg](../../includes/policy/reference/byrp/microsoft.servicebus.md)]
+[!INCLUDE [azure-policy-reference-rp-servicebusmsg](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.servicebus.md)]
 
 ## Next steps
 

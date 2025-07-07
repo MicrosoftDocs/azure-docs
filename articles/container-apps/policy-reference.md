@@ -21,7 +21,7 @@ the link in the **Version** column to view the source on the
 ## Policy definitions
 
 
-[!INCLUDE [azure-policy-reference-rp-container-apps](../../includes/policy/reference/bycat/policies-container-apps.md)]
+[!INCLUDE [azure-policy-reference-rp-container-apps](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policies-container-apps.md)]
 
 
 ## Next steps
