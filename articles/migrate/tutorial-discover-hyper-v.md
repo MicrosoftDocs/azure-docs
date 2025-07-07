@@ -50,14 +50,14 @@ To create a project and register the Azure Migrate appliance, you need an accoun
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
 
-1. In the Azure portal, search for "subscriptions", and under **Services**, select **Subscriptions**.
+1. In the Azure portal, search for "subscriptions", and under **Services**, select **Subscriptions**. 
+    :::image type="content" source="./media/tutorial-discover-hyper-v/search-subscription.png" alt-text="Screenshot of Search box to search for the Azure subscription.":::
 
-:::image type="content" source="./media/tutorial-discover-hyper-v/search-subscription.png" alt-text="Screenshot of Search box to search for the Azure subscription.":::
-
-1. In the **Subscriptions** page, select the subscription in which you want to create a project.
+1. In the **Subscriptions** page, select the subscription in which you want to create a project. 
 1. Select **Access control (IAM)**.
-1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page. 
 1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+ 
 
     | Setting | Value |
     | --- | --- |
@@ -65,7 +65,7 @@ If you just created a free Azure account, you're the owner of your subscription.
     | Assign access to | User |
     | Members | azmigrateuser |
 
-:::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot of add role assignment page in Azure portal.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot of add role assignment page in Azure portal.":::
 
 1. To register the appliance, your Azure account needs **permissions to register Microsoft Entra apps.** 
 1. In the portal, go to **Microsoft Entra ID** > **Users**.
