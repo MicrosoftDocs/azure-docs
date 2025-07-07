@@ -170,8 +170,8 @@ To support the Hybrid Connections it's configured with, the Hybrid Connection Ma
 
 - TCP access to Azure over port 443.
 - TCP access to the Hybrid Connection endpoint.
-- Windows clients must have ports 5000-5002 available.
-- Linux clients must have port 5000 available.
+- Windows clients must have ports 4999-5001 available.
+- Linux clients must have port 5001 available.
 - The ability to do DNS look-ups on the endpoint host and the Service Bus namespace. In other words, the hostname in the Azure relay connection should be resolvable from the machine that hosts the Hybrid Connection Manager.
 
 ### Getting started with the Hybrid Connection Manager GUI
