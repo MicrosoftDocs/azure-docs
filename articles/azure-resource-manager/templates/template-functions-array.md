@@ -227,7 +227,7 @@ The output from the preceding example with the default values is:
 
 `indexFromEnd(sourceArray, reverseIndex)`
 
-Returns an element of the array by counting backwards from the end. This is useful when you want to reference elements starting from the end of a list, rather than the beginning. The [`tryIndexFromEnd()`](#tryindexfromend) function is a safe version of `indexFromEnd()`.
+Returns an element of the array by counting backwards from the end. This is useful when you want to reference elements starting from the end of a list, rather than the beginning. The [`tryIndexFromEnd`](#tryindexfromend) function is a safe version of `indexFromEnd`.
 
 In Bicep, use the [Reserved index accessor](../bicep/operators-access.md#reverse-index-accessor) operator.
 
@@ -244,7 +244,7 @@ A single element from an array, selected by counting backward from the end of th
 
 ### Example
 
-The following example shows how to use the first function with an array and string.
+The following example shows how to use the `indexFromEnd` function.
 
 ```json
 {
@@ -748,7 +748,7 @@ The output from the preceding example with the default values is:
 
 `tryndexFromEnd(sourceArray, reverseIndex)`
 
-The `tryIndexFromEnd()` function is a safe version of [`indexFromEnd()`](#indexFromEnd). It retrieves a value from an array by counting backward from the end without throwing an error if the index is out of range.
+The `tryIndexFromEnd` function is a safe version of [`indexFromEnd`](#indexfromend). It retrieves a value from an array by counting backward from the end without throwing an error if the index is out of range.
 
 In Bicep, use the [Reserved index accessor](../bicep/operators-access.md#reverse-index-accessor) operator and the [Safe dereference](../bicep/operator-safe-dereference.md#safe-dereference) operator.
 
@@ -815,7 +815,7 @@ The following example shows an out-of-bound scenario:
   },
   "resources": {},
   "outputs": {
-    "secondToLast": {
+    "outOfBound": {
       "type": "string",
       "nullable": true,
       "value": "[tryIndexFromEnd(parameters('items'), 5)]"
@@ -828,7 +828,7 @@ The output from the preceding example with the default values is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| secondToLast | String | (null) |
+| outOfBound | String | (null) |
 
 ## union
 

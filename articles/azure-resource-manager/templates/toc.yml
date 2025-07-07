@@ -469,7 +469,7 @@ items:
     - name: All functions
       href: template-functions.md
     - name: Array functions
-      displayName: array,concat,contains,createArray,empty,first,indexOf,intersection,last,lastIndexOf,length,max,min,range,skip,take,union
+      displayName: array,concat,contains,createArray,empty,first,indexFromEnd,indexOf,intersection,last,lastIndexOf,length,max,min,range,skip,take,tryIndexFromEdn,union
       href: template-functions-array.md
     - name: CIDR functions
       displayName: parseCidr,cidrSubnet,cidrHost
