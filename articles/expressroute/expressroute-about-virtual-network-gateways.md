@@ -81,7 +81,7 @@ The following table shows the features that each gateway type supports and the m
 
 ### <a name="aggthroughput"></a>Estimated performances by gateway SKU
 
-[!INCLUDE [expressroute-gateway-preformance-include](../../includes/expressroute-gateway-performance-include.md)]
+[!INCLUDE [expressroute-gateway-performance-include](../../includes/expressroute-gateway-performance-include.md)]
 
 
 ## Hosted-On-Behalf-Of (HOBO) Public IP

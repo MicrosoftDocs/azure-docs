@@ -260,7 +260,7 @@ When copying data from PostgreSQL, the following mappings are used from PostgreS
 |`Integer`|`Int32`|`Int32`|
 |`BigInt`|`Int64`|`Int64`|
 |`Decimal` (Precision <= 28)|`Decimal`|`Decimal`|
-|`Decimal` (Precision > 28)|Unsupport |`String`|
+|`Decimal` (Precision > 28)|Unsupported |`String`|
 |`Numeric`|`Decimal`|`Decimal`|
 |`Real`|`Single`|`Single`|
 |`Double`|`Double`|`Double`|
