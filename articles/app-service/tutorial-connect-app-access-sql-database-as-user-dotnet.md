@@ -8,7 +8,7 @@ ms.author: cephalin
 ms.devlang: csharp
 ms.custom: devx-track-azurecli, devx-track-dotnet, AppServiceConnectivity
 ms.topic: tutorial
-ms.date: 07/03/2025
+ms.date: 07/07/2025
 ---
 # Tutorial: Connect an App Service app to SQL Database on behalf of the signed-in user
 
@@ -43,7 +43,9 @@ When you finish, your sample app securely connects authenticated users to SQL Da
 
 - [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-- Have an Azure App Service app that uses Azure SQL Database with SQL authentication as the back end. You can use the app from either of the following tutorials:
+- Have access to a Microsoft Entra tenant populated with users and groups.
+
+- Have an Azure App Service app that uses Azure SQL Database with SQL authentication as the back end. You can use the sample app from either of the following tutorials:
 
   - [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
   - [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md).
@@ -65,7 +67,7 @@ Enable Microsoft Entra authentication to the Azure SQL database by assigning a M
 - For more information on allowed Microsoft Entra users for SQL Database, see [Microsoft Entra features and limitations in SQL Database](/azure/azure-sql/database/authentication-aad-overview#limitations).
 - For more information on adding an Azure SQL server admin, see [Provision a Microsoft Entra administrator for your server](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
 
-To add the Microsoft Entra ID user as admin of the Azure SQL server, run the following commands in the Bash environment of Azure Cloud Shell, or after signing in to Azure CLI locally.
+To add the Microsoft Entra ID user as admin of the Azure SQL server, run the following Azure CLI commands.
 
 1. Use [`az ad user list`](/cli/azure/ad/user#az-ad-user-list) with the `display-name`, `filter`, or `upn` parameter to get the object ID for the Microsoft Entra ID user you want to make admin. You can run `az ad user list` standalone to show information for all the users in the Microsoft Entra directory.
 
@@ -132,7 +134,7 @@ The app registration in Microsoft Entra ID now has the required permissions to c
 
 ## 4. Configure App Service to return a usable access token
 
-To configure your app to provide a usable access token for SQL Database, add a `scope` for `https://database.windows.net/user_impersonation` to the Entra ID provider's `loginParameters`. The following command uses `jq` for JSON processing, which is already installed in the Cloud Shell.
+To configure your app to provide a usable access token for SQL Database, add a `scope` for `https://database.windows.net/user_impersonation` to the Entra ID provider's `loginParameters`. The following command uses `jq` for JSON processing, which is already installed in Cloud Shell.
 
 ```azurecli
 authSettings=$(az webapp auth show --resource-group <group-name> --name <app-name>)
@@ -145,17 +147,15 @@ The preceding commands add a `loginParameters` property with custom scopes to th
 App Service already requests `openid`, `profile`, and `email` scopes by default. For more information, see [OpenID Connect scopes](/azure/active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes). The [`offline_access`](/azure/active-directory/develop/v2-permissions-and-consent.md#offline_access) scope is included for convenience if you want to [refresh tokens](#what-happens-when-access-tokens-expire).
 
 > [!TIP]
-> To configure the required scopes using a web interface instead of Azure CLI, see [Configure the Microsoft Entra provider to supply refresh tokens](configure-authentication-oauth-tokens.md#configure-the-microsoft-entra-provider-to-supply-refresh-tokens). Add `https://database.windows.net/user_impersonation` to the specified scopes.
+> To configure the required scopes using a web interface instead of Azure CLI, see [Configure the Microsoft Entra provider to supply refresh tokens](configure-authentication-oauth-tokens.md#configure-the-microsoft-entra-provider-to-supply-refresh-tokens). Add `https://database.windows.net/user_impersonation` to the specified scopes in that procedure.
 
 Your app is now configured to generate an access token that SQL Database accepts.
 
 ## 5. Update your application code
 
-Your Azure SQL database-backed web app uses a database context to connect with the database. To use Microsoft Entra authentication with the app, you must update the database context to refer to the Entity Framework SQL Server provider, which depends on the modern [Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient) ADO.NET provider.
+Your Azure SQL database-backed web app uses a database context to connect with the database. To use Microsoft Entra authentication with the app, you must update the database context to refer to the Entity Framework SQL Server provider, which depends on the modern [Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient) ADO.NET provider. For more information, see [Microsoft.EntityFramework.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFramework.SqlServer).
 
-The Entity Framework provider replaces the built-in `System.Data.SqlClient` SQL Server provider, and includes support for Microsoft Entra ID authentication methods. For more information, see [Microsoft.EntityFramework.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFramework.SqlServer).
-
-Because `System.Data.SqlClient` is hardcoded as the provider in Azure App Service, you must extend `MicrosoftSqlDbConfiguration` to redirect `System.Data.SqlClient` references to `Microsoft.Data.SqlClient` instead. The steps differ depending on whether you have an ASP.NET or ASP.NET Core app.
+The Entity Framework provider replaces the built-in `System.Data.SqlClient` SQL Server provider, and includes support for Microsoft Entra ID authentication methods. Because `System.Data.SqlClient` is hardcoded as the provider in Azure App Service, you must extend `MicrosoftSqlDbConfiguration` to redirect `System.Data.SqlClient` references to `Microsoft.Data.SqlClient` instead.
 
 Update your code to add the Microsoft Entra ID access token to the connection object. The steps to follow differ depending on whether you have an ASP.NET Core or ASP.NET app.
 
@@ -248,7 +248,7 @@ An ASP.NET app uses [Entity Framework](/ef/ef6/) by default.
 
 If you edited your code in your GitHub fork using Visual Studio Code, select **Source Control** from the left menu, enter a commit message, and select **Commit**. The commit triggers a GitHub Actions deployment to App Service. Wait a few minutes for the deployment to finish.
 
-Or, publish your changes using the following Git commands:
+You can also publish your changes by using the following Git commands:
 
 ```bash
 git commit -am "configure managed identity"
@@ -269,74 +269,62 @@ When the new app page shows your updated app, your app is connecting to the Azur
 
 ## 7. Clean up resources
 
-In the preceding steps, you created Azure resources in a resource group. If you no longer need these resources, delete the resource group by running the following command in the Cloud Shell:
+In the preceding steps, you created Azure resources in a resource group. If you no longer need these resources, delete the resource group by running the following command:
 
 ```azurecli
 az group delete --name <group-name>
 ```
 
-This command may take a minute to run.
+This command may take some time to run.
 
 ## Frequently asked questions
 
 - [Why do I get a `Login failed for user '<token-identified principal>'.` error?](#why-do-i-get-a-login-failed-for-user-token-identified-principal-error)
 - [How do I add other Microsoft Entra users or groups in Azure SQL Database?](#how-do-i-add-other-azure-ad-users-or-groups-in-azure-sql-database)
-- [How do I debug locally when using App Service authentication?](#how-do-i-debug-locally-when-using-app-service-authentication)
+- [How do I debug locally when I use App Service authentication?](#how-do-i-debug-locally-when-using-app-service-authentication)
 - [What happens when access tokens expire?](#what-happens-when-access-tokens-expire)
 
-#### Why do I get a `Login failed for user '<token-identified principal>'.` error?
+#### Why do I get a "Login failed for user '<token-identified principal>'." error?
 
 The most common causes of this error are:
 
-- You're running the code locally, and there's no valid token in the `X-MS-TOKEN-AAD-ACCESS-TOKEN` request header. See [How do I debug locally when using App Service authentication?](#how-do-i-debug-locally-when-using-app-service-authentication).
-- Microsoft Entra authentication isn't configured on your SQL Database.
-- The signed-in user isn't permitted to connect to the database. See [How do I add other Microsoft Entra users or groups in Azure SQL Database?](#how-do-i-add-other-azure-ad-users-or-groups-in-azure-sql-database).
+- You ran the code locally, and there's no valid token in the `X-MS-TOKEN-AAD-ACCESS-TOKEN` request header. See [How do I debug locally when using App Service authentication](#how-do-i-debug-locally-when-using-app-service-authentication).
+- Microsoft Entra authentication isn't configured on your Azure SQL database.
+- The signed-in user doesn't have permission to connect to the database. See [How do I add other Microsoft Entra users or groups in Azure SQL Database](#how-do-i-add-other-azure-ad-users-or-groups-in-azure-sql-database).
 
 <a name='how-do-i-add-other-azure-ad-users-or-groups-in-azure-sql-database'></a>
-
 #### How do I add other Microsoft Entra users or groups in Azure SQL Database?
 
-1. Connect to your database server, such as with [sqlcmd](/azure/azure-sql/database/authentication-aad-configure#sqlcmd) or [SSMS](/azure/azure-sql/database/authentication-aad-configure#connect-to-the-database-using-ssms-or-ssdt).
-1. [Create contained users mapped to Microsoft Entra identities](/azure/azure-sql/database/authentication-aad-configure#create-contained-users-mapped-to-azure-ad-identities) in SQL Database documentation.
+1. Connect to your database server, such as with [sqlcmd](/azure/azure-sql/database/authentication-microsoft-entra-connect-to-azure-sql#sqlcmd) or [SSMS](/azure/azure-sql/database/authentication-microsoft-entra-connect-to-azure-sql#connect-with-ssms-or-ssdt).
+1. Create [contained database users](/azure/azure-sql/database/authentication-aad-configure#contained-database-users) mapped to Microsoft Entra identities.
 
-    The following Transact-SQL example adds a Microsoft Entra identity to SQL Server and gives it some database roles:
+The following Transact-SQL example adds a Microsoft Entra identity to SQL Server and gives the identity some database roles:
 
-    ```sql
-    CREATE USER [<user-or-group-name>] FROM EXTERNAL PROVIDER;
-    ALTER ROLE db_datareader ADD MEMBER [<user-or-group-name>];
-    ALTER ROLE db_datawriter ADD MEMBER [<user-or-group-name>];
-    ALTER ROLE db_ddladmin ADD MEMBER [<user-or-group-name>];
-    GO
-    ```
+```sql
+CREATE USER [<user-or-group-name>] FROM EXTERNAL PROVIDER;
+ALTER ROLE db_datareader ADD MEMBER [<user-or-group-name>];
+ALTER ROLE db_datawriter ADD MEMBER [<user-or-group-name>];
+ALTER ROLE db_ddladmin ADD MEMBER [<user-or-group-name>];
+GO
+```
 
 #### How do I debug locally when using App Service authentication?
 
-Because App Service authentication is a feature in Azure, it's not possible for the same code to work in your local environment. Unlike the app running in Azure, your local code doesn't benefit from the authentication middleware from App Service. You have a few alternatives:
+Because App Service authentication is an Azure feature, the same code can't work in your local environment. Unlike an app running in Azure, your local code doesn't benefit from the App Service authentication middleware. You can use the following alternatives for local debugging:
 
-- Connect to SQL Database from your local environment with [`Active Directory Interactive`](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-interactive-authentication). The authentication flow doesn't sign in the user to the app itself, but it does connect to the back-end database with the signed-in user, and allows you to test database authorization locally.
-- Manually copy the access token into your code, in place of the `X-MS-TOKEN-AAD-ACCESS-TOKEN` request header.
+- Connect to SQL Database from your local environment with [`Active Directory Interactive`](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-active-directory-interactive-authentication). The authentication flow doesn't sign in the user to the app itself, but it connects to the back-end database with the signed-in user, and lets you test database authorization locally.
+- Manually copy the access token into your code in place of the `X-MS-TOKEN-AAD-ACCESS-TOKEN` request header.
 - If you deploy from Visual Studio, use remote debugging of your App Service app.
 
 #### What happens when access tokens expire?
 
-Your access token expires after some time. For information on how to refresh your access tokens without requiring users to reauthenticate with your app, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
+Your access token expires after some time. For information on how to refresh your access tokens without requiring users to reauthenticate with your app, see [Refresh auth tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
 
-## Next steps
+## Related content
 
-What you learned:
-
-> [!div class="checklist"]
-> * Enable built-in authentication for Azure SQL Database
-> * Disable other authentication options in Azure SQL Database
-> * Enable App Service authentication
-> * Use Microsoft Entra ID as the identity provider
-> * Access Azure SQL Database on behalf of the signed-in Microsoft Entra user
-
-> [!div class="nextstepaction"]
-> [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md)
-
-> [!div class="nextstepaction"]
-> [Tutorial: Access Microsoft Graph from a secured .NET app as the app](scenario-secure-app-access-microsoft-graph-as-app.md)
-
-> [!div class="nextstepaction"]
-> [Tutorial: Isolate back-end communication with Virtual Network integration](tutorial-networking-isolate-vnet.md)
+- [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+- [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md).
+- [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md)
+- [Tutorial: Access Microsoft Graph from a secured .NET app as the app](scenario-secure-app-access-microsoft-graph-as-app.md)
+- [Tutorial: Isolate back-end communication with Virtual Network integration](tutorial-networking-isolate-vnet.md)
+- [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md)
