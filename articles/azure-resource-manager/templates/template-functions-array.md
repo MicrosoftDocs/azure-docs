@@ -765,7 +765,7 @@ If the index is valid (within array bounds), returns the array element at that r
 
 ### Example
 
-The following example shows how to use the `tryIndexFromEnd` function with an array and string.
+The following example shows how to use the `tryIndexFromEnd` function:
 
 ```json
 {
