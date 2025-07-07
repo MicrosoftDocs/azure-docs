@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 03/17/2025
 ms.author: abell
 ms.custom: fasttrack-edit, linux-related-content
+# Customer intent: "As a network architect, I want to understand Azure DDoS Protection reference architectures, so that I can effectively design resilient and secure cloud applications against DDoS attacks."
 ---
 
 # Azure DDoS Protection reference architectures

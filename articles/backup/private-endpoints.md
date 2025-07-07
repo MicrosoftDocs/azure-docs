@@ -7,6 +7,7 @@ ms.custom: devx-track-azurepowershell
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to create and manage private endpoints for Azure Backup, so that I can ensure secure communication and access to my backup resources within a virtual network."
 ---
 
 # Create and use private endpoints (v1 experience) for Azure Backup

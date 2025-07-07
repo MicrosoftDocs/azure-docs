@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: devx-track-azurepowershell
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an Azure administrator, I want to use a PowerShell script to undelete an accidentally deleted file share, so that I can restore critical data within the retention period provided by the soft delete feature.
 ---
 
 # PowerShell script to undelete an accidentally deleted File share

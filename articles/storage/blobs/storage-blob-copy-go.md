@@ -11,6 +11,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
+# Customer intent: "As a developer using the Go client library, I want to learn how to copy blobs within Azure Storage, so that I can efficiently manage and migrate data in my applications."
 ---
 
 # Copy a blob with Go

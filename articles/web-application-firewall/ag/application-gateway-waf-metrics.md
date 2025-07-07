@@ -12,6 +12,7 @@ ms.custom:
   - ai-gen-docs-bap
   - ai-gen-description
   - ai-seo-date:06/16/2025
+# Customer intent: As a network administrator, I want to configure and monitor Azure Application Gateway WAF metrics, so that I can track security threats and enhance protection for my web applications.
 ---
 
 # Azure Web Application Firewall Monitoring and Logging

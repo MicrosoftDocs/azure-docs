@@ -11,6 +11,7 @@ ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud administrator, I want to configure the network routing preferences for my storage account, so that I can optimize traffic routing based on my organization's requirements and ensure compatibility with dependent services.
 ---
 
 # Configure network routing preference for Azure Storage

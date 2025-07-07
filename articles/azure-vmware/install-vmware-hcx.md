@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.custom: engagement-fy23
 ms.date: 02/26/2025
+# Customer intent: As a cloud administrator, I want to install VMware HCX in Azure VMware Solution, so that I can efficiently manage application migration and workload optimization across my cloud and on-premises environments.
 ---
 
 # Install VMware HCX in Azure VMware Solution

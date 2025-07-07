@@ -9,7 +9,7 @@ ms.topic: concept-article
 ms.custom:
   - references_regions
   - build-2025
-ms.date: 06/27/2025
+ms.date: 06/30/2025
 ---
 
 # Connector upgrade advisor in Azure Data Factory and Azure Synapse Analytics
@@ -40,6 +40,8 @@ The Connector upgrade advisor is a comprehensive tool that helps upgrade pipelin
 - MySQL
 - Oracle
 - Presto
+- Teradata
+- Vertica
 
 ## How to use
 

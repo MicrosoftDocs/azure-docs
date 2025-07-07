@@ -103,7 +103,7 @@ Following are steps to configure your API Management instance to use a managed i
     ```
 
 > [!TIP]
-> An alternative to using the `authentication-managed-identity` and `set-header` policies shown in this example is to configure a [backend](backends.md) resource that directs API requests to the Azure OpenAI Service endpoint. In the backend configuration, enable managed identity authentication to the Azure OpenAI Service. Azure API Management automates these steps when importing an API directly from Azure OpenAI Service. For more information, see [Import API from Azure OpenAI Service](azure-openai-api-from-specification.md#option-1-import-api-from-azure-openai-service). 
+> An alternative to using the `authentication-managed-identity` and `set-header` policies shown in this example is to configure a [backend](backends.md) resource that directs API requests to the Azure OpenAI Service endpoint. In the backend configuration, enable managed identity authentication to the Azure OpenAI Service. Azure API Management automates these steps when importing an API directly from Azure OpenAI Service. For more information, see [Import API from Azure OpenAI Service](azure-openai-api-from-specification.md#option-1-import-api-from-azure-openai). 
 
 ## OAuth 2.0 authorization using identity provider
 

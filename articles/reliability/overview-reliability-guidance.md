@@ -82,8 +82,8 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Health Data Services: De-identification service (preview)|[Reliability in Azure Health Data Services: De-Identification service](reliability-health-data-services-deidentification.md)||
 |Azure Health Data Services: Workspace services (FHIR®, DICOM®, MedTech) | | [Business continuity and disaster recovery considerations](/azure/healthcare-apis/business-continuity-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure HDInsight| [Reliability in Azure HDInsight](reliability-hdinsight.md)||
-|Azure IoT Hub|| [Reliability in Azure IoT Hub](reliability-iot-hub.md). |
-|Azure Key Vault|| [Azure Key Vault availability and redundancy](/azure/key-vault/general/disaster-recovery-guidance?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
+|Azure IoT Hub|| [Reliability in Azure IoT Hub](reliability-iot-hub.md) |
+|Azure Key Vault|| [Reliability in Azure Key Vault](./reliability-key-vault.md) |
 |Azure Kubernetes Service (AKS)| [Reliability in Azure Kubernetes Service (AKS)](reliability-aks.md)||
 |Azure Load Balancer| [Reliability in Azure Load Balancer](reliability-load-balancer.md )||
 |Azure Logic Apps|[Reliability in Azure Logic Apps](reliability-logic-apps.md) ||

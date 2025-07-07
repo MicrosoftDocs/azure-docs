@@ -348,8 +348,12 @@
       href: normalization-manage-parsers.md
     - name: Modify content to use ASIM
       href: normalization-modify-content.md
-  - name: Aggregate data with summary rules
-    href: summary-rules.md
+  - name: Aggregate data
+    items:
+    - name: Aggregate data with summary rules
+      href: summary-rules.md
+    - name: Aggregate insights from raw data into an Auxiliary table
+      href: summary-rules-tutorial.md
 - name: Integrate threat intelligence
   items:
   - name: Overview
