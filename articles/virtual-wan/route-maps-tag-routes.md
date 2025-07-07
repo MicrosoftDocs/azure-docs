@@ -55,7 +55,7 @@ In this scenario, the goal is to tag route 10.5.0.192/26 form virtual network 3 
 
    :::image type="content" source="./media/route-maps-tag-routes/db-before.png" alt-text="Screenshot that shows routes before Route-map." lightbox="./media/route-maps-tag-routes/db-before.png"::: 
 
-   look at the Route-Map dashboard for the VPN Brach to verify the BGP community on the route for 10.5.0.192/26. The goal is to vary what routes are being sent on premises.
+   Look at the Route-Map dashboard for the VPN Branch to verify the BGP community on the route for 10.5.0.192/26. The goal is to vary what routes are being sent on-premises.
 
    :::image type="content" source="./media/route-maps-tag-routes/db-before-two.png" alt-text="Screenshot that shows routes for VPN branch." lightbox="./media/route-maps-tag-routes/db-before-two.png":::   
 
