@@ -14,13 +14,11 @@ ms.subservice: sms
 ms.custom: references_regions
 ---
 
-# Ten digit long code (10DLC) registration guidelines
+# 10DLC (10 digit long code) registration guidelines
 
 To send Application-to-Person (A2P) SMS messages using 10 digit long codes (10DLC), businesses must complete **brand registration** and **campaign registration**. Registering ensures compliance with carrier and Cellular Telecommunications Industry Association (CTIA) guidelines while enabling high-quality message delivery.
 
 This article describes how to complete the required fields for **brand registration** and **campaign registration**.
-
-[!INCLUDE [Notice](../../includes/public-preview-include.md)]
 
 ## Schedule constraints
 
@@ -32,6 +30,11 @@ You need to complete brand registration and receive approval first. Then you can
 ## Brand registration
 
 A brand represents your business entity and establishes your credibility with carriers. The information provided must match your official business details. Incorrect details can result in rejected brand submissions. Brand registrations are handled through The Campaign Registry (TCR), which is the centralized registry used by carriers to manage 10DLC numbers for A2P messaging. TCR verifies and stores the details about your business and the campaigns you run, allowing carriers to assess and approve your messaging for compliance and delivery.
+
+### Type of Brands supported
+
+ - **Standard:** For most businesses and organizations that have an EIN. Supports multiple campaigns and higher throughput.
+ - **Sole Proprietor:** For individuals or small businesses that don’t have an EIN (Employer Identification Number). Limited to one campaign and low message volume. Requires alternative identity verification like a mobile phone bill.
 
 ### Approval time
 
@@ -48,6 +51,8 @@ Brand registration typically takes 2 to 3 business days with TCR (The Campaign R
 | **Vertical**       | Industry in which your business operates. | E-commerce |
 | **Email Address**  | Contact email for registration-related updates. | contact@contoso.com |
 
+For complete step-by-step guidance, see [How to apply for 10DLC brand and campaign registration](../../quickstarts/sms/apply-for-ten-digit-long-code.md).
+
 ### Tips for successful registration
 
 - Ensure the **EIN/Tax ID** matches official IRS records.
@@ -60,6 +65,18 @@ Campaign registration enables you to specify the purpose of your messaging (such
 
 Campaign details must accurately reflect the content and intent of your messages. Providing false or misleading information could lead to rejections or delays in the approval of your campaign.
 
+### Campaign Types supported
+
+Currently, Azure Communication Services supports:
+ - **Standard campaigns:** The most common campaign type for general A2P messaging, such as 2FA, alerts, marketing, or customer care.
+ - **Low Volume:** For limited or test messaging with low daily traffic. Ideal for small businesses or developers.
+ - **UCaaS (Low Volume):** A sub-type of Low Volume used by approved Unified Communications as a Service applications. Used when each phone number is tied to a human (e.g., employee texting).
+ - **Enhanced:** A higher-throughput campaign type for larger brands or automated communications. May require vetting.
+ - **Emergency:** For public safety alerts from government agencies, schools, or utilities. Strictly regulated.
+ - **Franchise:** For businesses with multiple locations or agents/franchisees sending similar but localized content. Requires disclosure of all subentities.
+ - **Charity:** For 501(c)(3) non-profit organizations sending service-related or fundraising messages. Requires proof of tax-exempt status.
+ - **Political:** Not supported at the moment.
+
 ### Approval time
 
 Campaign registration with TCR typically takes 3 to 5 business days for approval. However, the timeline may vary depending on the accuracy of the information submitted and the complexity of your use case. You may need to provide more documentation or clarification, which could extend the approval time.
@@ -67,18 +84,21 @@ Campaign registration with TCR typically takes 3 to 5 business days for approval
 ### Fields in campaign registration
 
 
-| Field Name | Description | Example |
-| --- | --- | --- |
-| **Campaign Name**        | Name identifying your campaign. | Contoso Marketing Campaign |
-| **Campaign Description** | A detailed description of the campaign’s purpose.  | Send promotional offers and updates to customers who opt in to Contoso's SMS notifications. |
-| **Use Case**             | The primary purpose of the campaign (such as marketing or customer care). | Marketing |
-| **Message Samples**      | Provide examples of the messages your campaign plans to send. | “Hello! Thank you for subscribing to Contoso updates. Reply STOP to opt out.” |
-| **Subscriber Opt-in**     | Confirms that recipients explicitly consent to receive messages. | “Thank you for subscribing to Contoso Alerts. Reply HELP for help, STOP to unsubscribe.” |
-| **Subscriber Opt-out**    | Allows recipients to stop receiving messages at any time. | “You have unsubscribed from Contoso Alerts. Reply START to resubscribe.” |
-| **Subscriber Help**       | Provides instructions or assistance to users. | “For assistance, visit `https://www.contoso.com` or call 1-800-CONTOSO.” |
-| **Embedded Links**        | Indicates if messages include URLs. | Yes |
-| **Embedded Phone Numbers**| Indicates if messages include phone numbers. | Yes |
-| **Age-gated Content**     | Indicates if messages are age-restricted. | No |
+| Field Name               | Description                                                       | Example                                                                                  |
+|--------------------------|-------------------------------------------------------------------|------------------------------------------------------------------------------------------|
+| **Campaign Name**        | Name identifying your campaign.                                   | "Contoso Marketing Campaign"                                                             |
+| **Campaign Description** | A detailed description of the campaign’s purpose.                 | "Send promotional offers and updates to customers who opt in to Contoso's SMS notifications." |
+| **Use Case**             | The primary purpose of the campaign (such as marketing or customer care). | "Marketing"                                                                         |
+| **Message Samples**      | Provide examples of the messages your campaign plans to send.     | "Hello! Thank you for subscribing to Contoso updates. Reply STOP to opt out."           |
+| **Subscriber Opt-in**    | Confirms that recipients explicitly consent to receive messages.  | "Thank you for subscribing to Contoso Alerts. Reply HELP for help, STOP to unsubscribe." |
+| **Subscriber Opt-out**   | Allows recipients to stop receiving messages at any time.         | "You have unsubscribed from Contoso Alerts. Reply START to resubscribe."                |
+| **Subscriber Help**      | Provides instructions or assistance to users.                     | "For assistance, visit https://www.contoso.com or call 1-800-CONTOSO."                  |
+| **Embedded Links**       | Indicates if messages include URLs.                               | "Yes"                                                                                    |
+| **Embedded Phone Numbers**| Indicates if messages include phone numbers.                     | "Yes"                                                                                    |
+| **Age-gated Content**    | Indicates if messages are age-restricted.                         | "No"                                                                                     |
+
+
+For complete step-by-step guidance, see [How to apply for 10DLC brand and campaign registration](../../quickstarts/sms/apply-for-ten-digit-long-code.md).
 
 ### FAQ
 

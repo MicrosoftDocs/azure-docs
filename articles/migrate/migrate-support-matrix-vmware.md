@@ -19,7 +19,6 @@ ms.collection:
 This article summarizes prerequisites and support requirements for using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md) tool to discover and assess servers in a VMware environment for migration to Azure.
 
 
-
 To assess servers, first, create an Azure Migrate project. The Azure Migrate: Discovery and assessment tool is automatically added to the project. Then, deploy the Azure Migrate appliance. The appliance continuously discovers on-premises servers and sends configuration and performance metadata to Azure. When discovery is finished, gather the discovered servers into groups and run assessments per group.
 
 As you plan your migration of VMware servers to Azure, see the [migration support matrix](migrate-support-matrix-vmware-migration.md).
@@ -308,8 +307,8 @@ Support | Details
 --- | ---
 Supported servers | You can enable agentless dependency analysis on up to 1,000 servers (across multiple vCenter Servers) discovered per appliance.
 Windows servers | Windows Server 2022 <br/> Windows Server 2019<br /> Windows Server 2016<br /> Windows Server 2012 R2<br /> Windows Server 2012<br /> Windows Server 2008 R2 (64-bit)<br /> Windows Server 2008 (32-bit)
-Linux servers | Red Hat Enterprise Linux 5.1, 5.3, 5.11, 6.x, 7.x, 8.x, 9.x, 9.5 <br /> Ubuntu 24.04, 22.04, 12.04, 14.04, 16.04, 18.04, 20.04, 22.04 <br /> OracleLinux 6.1, 6.7, 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.3, 8.5 <br /> SUSE Linux 10, 11 SP4, 12 SP1, 12 SP2, 12 SP3, 12 SP4, 15 SP2, 15 SP3 <br /> Debian 7, 8, 9, 10, 11 <br /> Alma Linux 8.x, 9.x <br /> Rocky Linux 8.x, 9.x
-Server requirements | VMware Tools (10.2.1 and later) must be installed and running on servers you want to analyze.<br /><br /> Servers must have PowerShell version 2.0 or later installed.<br /><br /> WMI should be enabled and available on Windows servers.
+Linux servers | Red Hat Enterprise Linux 6.x, 7.x, 8.x, 9.x, 9.5 <br /> Ubuntu 24.04, 22.04, 12.04, 14.04, 16.04, 18.04, 20.04, 22.04 <br /> OracleLinux 6.1, 6.7, 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.3, 8.5 <br /> SUSE Linux 10, 11 SP4, 12 SP1, 12 SP2, 12 SP3, 12 SP4, 15 SP2, 15 SP3 <br /> Debian 7, 8, 9, 10, 11 <br /> Alma Linux 8.x, 9.x <br /> Rocky Linux 8.x, 9.x
+Server requirements | VMware Tools (10.2.1 and later) must be installed and running on servers you want to analyze.<br /><br /> Windows Servers have PowerShell version 2.0 or later.<br /><br /> Linux Servers have Bash version 4.0 or later installed. <br /><br/> WMI should be enabled and available on Windows servers.
 vCenter Server account | The read-only account used by Azure Migrate and Modernize for assessment must have privileges for guest operations on VMware VMs.
 Windows server access |  A user account (local or domain) with administrator permissions on servers.
 Linux server access | A sudo user account with permissions to execute ls and netstat commands. If you're providing a sudo user account, ensure that you enable **NOPASSWD** for the account to run the required commands without prompting for a password every time a sudo command is invoked. <br /><br /> Alternatively, you can create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files set by using the following commands:<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat</code>|

@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 02/21/2023
+ms.date: 02/21/2025
 ---
 # Re-establish deleted volume replication relationships in Azure NetApp Files (preview)
 

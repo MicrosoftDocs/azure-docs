@@ -5,6 +5,7 @@ author: jyothisuri
 ms.service: azure-resource-mover
 ms.topic: how-to
 ms.date: 04/22/2025
+ms.update-cycle: 180-days
 ms.author: jsuri
 ms.custom: engagement-fy23, UpdateFrequency.5, linux-related-content
 ---

@@ -4,8 +4,10 @@
   items:
     - name: What is ExpressRoute?
       href: expressroute-introduction.md
-    - name: Well-Architected for ExpressRoute
-      href: /azure/well-architected/service-guides/azure-expressroute
+    - name: Architecture best practices for Azure ExpressRoute
+      href: /azure/well-architected/service-guides/azure-expressroute?toc=/azure/expressroute/toc.jso
+    - name: What is hybrid connectivity?
+      url: ../networking/hybrid-connectivity/hybrid-connectivity.md
     - name: Before you start using ExpressRoute
       items:
         - name: Prerequisites
@@ -176,28 +178,30 @@
       items:
         - name: Overview
           href: expressroute-about-virtual-network-gateways.md
+        - name: About Scalable Gateway
+          href: scalable-gateway.md
         - name: Configure a virtual network gateway
           items:
             - name: Azure portal
               href: expressroute-howto-add-gateway-portal-resource-manager.md
             - name: Azure PowerShell
               href: expressroute-howto-add-gateway-resource-manager.md
-    - name: Zone-redundant gateway
-      items:
-        - name: Overview
-          href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/expressroute/toc.json
-        - name: Deploy a zone-redundant gateway
-          href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/expressroute/toc.json
-        - name: Migrate to zone-redundant gateway
+        - name: Zone-redundant gateway
           items:
             - name: Overview
-              href: gateway-migration.md
-            - name: Migrate
+              href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/expressroute/toc.json
+            - name: Deploy a zone-redundant gateway
+              href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/expressroute/toc.json
+            - name: Migrate to zone-redundant gateway
               items:
-                - name: Azure portal
-                  href: expressroute-howto-gateway-migration-portal.md
-                - name: Azure PowerShell
-                  href: expressroute-howto-gateway-migration-powershell.md
+                - name: Overview
+                  href: gateway-migration.md
+                - name: Migrate
+                  items:
+                    - name: Azure portal
+                      href: expressroute-howto-gateway-migration-portal.md
+                    - name: Azure PowerShell
+                      href: expressroute-howto-gateway-migration-powershell.md
     - name: Traffic collector
       items:
         - name: Overview
@@ -226,8 +230,6 @@
       href: resiliency-validation.md
 - name: Security
   items:
-    - name: Secure your Expressroute
-      href: secure-expressroute.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/expressroute-security-baseline?toc=/azure/expressroute/TOC.json
     - name: Roles and permissions
@@ -351,14 +353,22 @@
       href: expressroute-for-cloud-solution-providers.md
     - name: Videos
       items:
-        - name: Videos
-          href: /shows/Inside-Azure-for-IT/?products=azure-expressroute
-        - name: Microsoft Azure hybrid connectivity overview
-          href: /shows/inside-azure-for-it/microsoft-azure-hybrid-connectivity-overview
+        - name: Connect a virtual network gateway to a circuit
+          href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/
+        - name: Create a virtual network for ExpressRoute
+          href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-virtual-network/
+        - name: Create a virtual network gateway for ExpressRoute
+          href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network/
+        - name: Create an ExpressRoute circuit
+          href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/
         - name: Evolve your network infrastructure for connectivity
           href: /events/ignite-2015/brk2481
-        - name: 'Hybrid partnerships: Enabling on-premises scenarios'
+        - name: How to set up private peering for your circuit
+          href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/
+        - name: "Hybrid partnerships: Enabling on-premises scenarios"
           href: /events/ignite-2015/brk1454
+        - name: Set up Microsoft peering for your circuit
+          href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/
     - name: Classic and legacy articles
       items:
         - name: Modify a circuit

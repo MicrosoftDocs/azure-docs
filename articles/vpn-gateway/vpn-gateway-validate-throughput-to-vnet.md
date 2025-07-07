@@ -7,7 +7,7 @@ manager: dcscontentpm
 ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: troubleshooting
-ms.date: 03/31/2025
+ms.date: 06/24/2025
 ms.author: radwiv
 ms.reviewer: chadmat;genli
 ---
@@ -42,7 +42,7 @@ The following diagram shows the logical connectivity of an on-premises network t
 1. Determine your Internet Service Provider (ISP) bandwidth.
 1. Calculate your expected throughput by taking the least bandwidth of either the VM, VPN Gateway, or ISP; which is measured in Megabits-per-second (/) divided by eight (8). This calculation gives you Megabytes-per-second.
 
-If your calculated throughput doesn't meet your application's baseline throughput requirements, you must increase the bandwidth of the resource that you identified as the bottleneck. To resize an Azure VPN Gateway, see [Changing a gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku). To resize a virtual machine, see [Resize a VM](/azure/virtual-machines/resize-vm). If you aren't experiencing the expected Internet bandwidth, you may also contact your ISP.
+If your calculated throughput doesn't meet your application's baseline throughput requirements, you must increase the bandwidth of the resource that you identified as the bottleneck. To upgrade an Azure VPN Gateway, see [Upgrade a gateway SKU](gateway-sku-upgrade.md). To resize a virtual machine, see [Resize a VM](/azure/virtual-machines/resize-vm). If you aren't experiencing the expected Internet bandwidth, you can also contact your ISP.
 
 > [!NOTE]
 > VPN Gateway throughput is an aggregate of all Site-to-Site\VNET-to-VNET, or Point-to-Site connections.
@@ -51,7 +51,7 @@ If your calculated throughput doesn't meet your application's baseline throughpu
 
 This validation should be performed during nonpeak hours, as VPN tunnel throughput saturation during testing doesn't give accurate results.
 
-The tool we use for this test is iPerf, which works on both Windows and Linux and has both client and server modes. It is limited to 3 Gbps for Windows VMs.
+The tool we use for this test is iPerf, which works on both Windows and Linux and has both client and server modes. It's limited to 3 Gbps for Windows VMs.
 
 This tool doesn't perform any read/write operations to disk. It solely produces self-generated TCP traffic from one end to the other. It generates statistics based on experimentation that measures the bandwidth available between client and server nodes. When testing between two nodes, one node acts as the server, and the other node acts as a client. Once this test is completed, we recommend that you reverse the roles of the nodes to test both upload and download throughput on both nodes.
 
@@ -80,7 +80,7 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). For
    netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
    ```
 
-   **Azure Linux:** Azure Linux images have permissive firewalls. If there's an application listening on a port, the traffic is allowed through. Custom images that are secured may need ports opened explicitly. Common Linux OS-layer firewalls include `iptables`, `ufw`, or `firewalld`.
+   **Azure Linux:** Azure Linux images have permissive firewalls. If there's an application listening on a port, the traffic is allowed through. Custom images that are secured might need ports opened explicitly. Common Linux OS-layer firewalls include `iptables`, `ufw`, or `firewalld`.
 
 1. On the server node, change to the directory where iperf3.exe is extracted. Then run iPerf in server mode, and set it to listen on port 5001 as the following commands:
 
@@ -124,7 +124,7 @@ Download the latest version of [Latte.exe](https://github.com/microsoft/latte/re
 
 Consider putting Latte.exe in separate folder, such as `c:\tools`
 
-### Allow Latte.exe through the Windows firewall
+### Allow Latte.exe through the Windows Firewall
 
 On the receiver, create an Allow rule on the Windows Firewall to allow the Latte.exe traffic to arrive. It's easiest to allow the entire Latte.exe program by name rather than to allow specific TCP ports inbound.
 
@@ -192,7 +192,7 @@ From bash command line (assumes git is installed)
 `./autogen.sh`
 `./configure --prefix=`
 
-Make is slower, may take several minutes
+Make is slower, and might take several minutes
 
 `make`
 
@@ -214,11 +214,11 @@ Make install is fast
 > Make sure there are no intermediate hops (e.g. Virtual Appliance) during the throughput testing in between the VM and Gateway.
 > If there are poor results (in terms of overall throughput) coming from the iPERF/NTTTCP tests above, please refer to [this article](../virtual-network/virtual-network-tcpip-performance-tuning.md) to understand the key factors behind the possible root causes of the problem:
 
-In particular, analysis of packet capture traces (Wireshark/Network Monitor) collected in parallel from client and server during those tests help in the assessments of bad performance. These traces can include packet loss, high latency, MTU size. fragmentation, TCP 0 Window, Out of Order fragments, and so on.
+In particular, analysis of packet capture traces (Wireshark/Network Monitor) collected in parallel from client and server during those tests help in the assessments of bad performance. These traces can include packet loss, high latency, MTU size. Fragmentation, TCP 0 Window, Out of Order fragments, and so on.
 
 ## Address slow file copy issues
 
-Even if the overall throughput assessed with the previous steps (iPERF/NTTTCP/etc.) was good, you may experience slow file coping when either using Windows Explorer, or dragging and dropping through an RDP session. This problem is normally due to one or both of the following factors:
+Even if the overall throughput assessed with the previous steps (iPERF/NTTTCP/etc.) was good, you might experience slow file coping when either using Windows Explorer, or dragging and dropping through an RDP session. This problem is normally due to one or both of the following factors:
 
 * File copy applications, such as Windows Explorer and RDP, don't use multiple threads when copying files. For better performance, use a multi-threaded file copy application such as [Richcopy](/previous-versions/technet-magazine/dd547088(v=msdn.10)) to copy files by using 16 or 32 threads. To change the thread number for file copy in Richcopy, click **Action** > **Copy options** > **File copy**.
 
@@ -232,7 +232,7 @@ Even if the overall throughput assessed with the previous steps (iPERF/NTTTCP/et
 
 ## On-premises device external facing interface
 
-Mentioned the subnets of on-premises ranges that you would like Azure to reach via VPN on Local Network Gateway. Simultaneously, define the VNET address space in Azure to the on-premises device.
+Mentioned the subnets of on-premises ranges that you would like Azure to reach via VPN on Local Network Gateway. Simultaneously, define the virtual network address space in Azure to the on-premises device.
 
 * **Route Based Gateway**: The policy or traffic selector for route-based VPNs are configured as any-to-any (or wild cards).
 
@@ -240,7 +240,7 @@ Mentioned the subnets of on-premises ranges that you would like Azure to reach v
 
 * **UsePolicyBasedTrafficSelector** connections: ("UsePolicyBasedTrafficSelectors" to $True on a connection configures the Azure VPN gateway to connect to policy-based VPN firewall on premises. If you enable PolicyBasedTrafficSelectors, you need to ensure your VPN device has the matching traffic selectors defined with all combinations of your on-premises network (local network gateway) prefixes to and from the Azure virtual network prefixes, instead of any-to-any.
 
-Inappropriate configuration may lead to frequent disconnects within the tunnel, packet drops, bad throughput, and latency.
+Inappropriate configuration might lead to frequent disconnects within the tunnel, packet drops, bad throughput, and latency.
 
 ## Check latency
 
@@ -252,7 +252,7 @@ You can check latency by using the following tools:
 
 ![Check Latency](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
 
-If you notice a high latency spike at any of the hops before entering MS Network backbone, you may want to proceed with further investigations with your Internet Service Provider.
+If you notice a high latency spike at any of the hops before entering MS Network backbone, you might want to proceed with further investigations with your Internet Service Provider.
 
 If a large, unusual latency spike is noticed from hops within "msn.net", contact MS support for further investigations.
 

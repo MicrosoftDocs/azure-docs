@@ -24,6 +24,8 @@
             href: set-up-api-center-bicep.md
           - name: Create an API center - ARM template
             href: set-up-api-center-arm-template.md
+          - name: Create an API center - Visual Studio Code
+            href: set-up-api-center-vs-code-extension.md
     - name: Tutorials
       items:
           - name: 1 - Define custom metadata

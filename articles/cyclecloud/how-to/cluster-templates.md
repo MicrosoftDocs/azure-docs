@@ -266,7 +266,7 @@ all of the available machine types. The other ParameterType values are:
 
 ## Chef Server Support
 
-Azure CycleCloud suports [ChefServer](https://docs.chef.io/server_components.html).
+Azure CycleCloud supports [ChefServer](https://docs.chef.io/server_components.html).
 
 Create the file `chefserver.json` and add your credentials. `ValidationKey`
 corresponds to the validation.pem file for your chef server. You also must prove the

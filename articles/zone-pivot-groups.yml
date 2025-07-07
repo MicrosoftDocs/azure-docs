@@ -1127,7 +1127,7 @@ groups:
     title: Managed
   - id: aca-vnet-custom
     title: Custom
-# Onwer: cshoe
+# Owner: cshoe
 - id: azure-azd-cli-portal
   title: Interface
   prompt: Choose your interface

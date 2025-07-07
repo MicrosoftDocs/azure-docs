@@ -7,6 +7,7 @@ ms.subservice: azure-confidential-computing
 ms.topic: overview
 ms.date: 06/09/2023
 ms.author: jushiman
+# Customer intent: As an IT security professional, I want to evaluate Azure's confidential computing offerings, so that I can ensure robust data protection and compliance for sensitive workloads in the cloud.
 ---
 
 # Azure offerings

@@ -8,6 +8,7 @@ ms.service: azure-application-gateway
 ms.topic: troubleshooting
 ms.date: 01/24/2022
 ms.author: mbender
+# Customer intent: As a DevOps engineer, I want to diagnose and resolve session affinity issues with application traffic, so that I can ensure consistent user sessions and optimal application performance.
 ---
 
 # Troubleshoot Azure Application Gateway session affinity issues

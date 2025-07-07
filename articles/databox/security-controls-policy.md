@@ -7,6 +7,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-databox
 ms.custom: subject-policy-compliancecontrols
+# Customer intent: "As a cloud resource manager, I want to leverage Azure Policy built-in compliance controls for Azure Data Box, so that I can ensure my resources meet regulatory standards and maintain compliance effectively."
 ---
 # Azure Policy Regulatory Compliance controls for Azure Data Box
 

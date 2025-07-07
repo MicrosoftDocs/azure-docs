@@ -2,7 +2,7 @@
 title: Azure Backup - Archive tier overview 
 description: Learn about Archive tier support for Azure Backup.
 ms.topic: overview
-ms.date: 05/13/2025
+ms.date: 06/24/2025
 ms.custom: references_regions
 ms.service: azure-backup
 author: jyothisuri
@@ -61,7 +61,8 @@ The amount of storage increase depends on the churn pattern of the Virtual Machi
 To resolve this, Azure Backup provides recommendation set. The recommendation set returns a list of recovery points, which if moved together to Archive tier ensures cost savings.
 
 >[!Note]
->The cost savings depends on various reasons and might differ for every instance.
+>- The cost savings depends on various reasons and might differ for every instance.
+>- The recommendation algorithm for IaaS virtual machines doesn't consider changes in disk configuration. If you add or remove disks from a virtual machine, the backup storage recommendations might not accurately show your updated requirements.
 
 ## Modify protection
 

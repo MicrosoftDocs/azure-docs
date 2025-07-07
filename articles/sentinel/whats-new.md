@@ -22,6 +22,7 @@ The listed features were released in the last six months. For information about 
 
 - [Codeless Connector Platform (CCP) renamed.](#codeless-connector-platform-ccp-renamed-to-codeless-connector-framework-ccf)
 - [Connector Documentation consolidation](#connector-documentation-consolidation)
+- [Summary rule templates now in public preview](#summary-rule-templates-now-in-public-preview)
 
 ### Codeless Connector Platform (CCP) renamed to Codeless Connector Framework (CCF)
 
@@ -35,6 +36,9 @@ We have consolidated the connector reference documentation, merging the separate
 
 Select the connector name to expand the row and see the details.
 
+### Summary rule templates now in public preview
+
+You can now use summary rule templates to deploy pre-built summary rules tailored to common security scenarios. These templates help you aggregate and analyze large datasets efficiently, don't require deep expertise, reduce setup time, and ensure best practices. For more information, see [Aggregate Microsoft Sentinel data with summary rules (Preview)](summary-rules.md#deploy-pre-built-summary-rule-templates).
 
 ## May 2025
 
@@ -44,7 +48,7 @@ Select the connector name to expand the row and see the details.
 
 ### All Microsoft Sentinel use cases generally available in the Defender portal
 
-All Microsoft Sentinel use cases that are in general availability, including [multi-tenant](/unified-secops-platform/mto-overview) and [multi-workspace](workspaces-defender-portal.md) capabilities and support for all government and commercial clouds, are now also supported for general availability in the Defender portal.
+All Microsoft Sentinel use cases that are in general availability, including [multitenant](/unified-secops-platform/mto-overview) and [multi-workspace](workspaces-defender-portal.md) capabilities and support for all government and commercial clouds, are now also supported for general availability in the Defender portal.
 
 We recommend that you [onboard your workspaces to the Defender portal](/unified-secops-platform/microsoft-sentinel-onboard?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json) to take advantage of unified security operations. For more information, see:
 

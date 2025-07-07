@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 02/10/2025
 ms.author: kendownie
 recommendations: false
+# Customer intent: As a storage administrator, I want to enable Microsoft Entra Kerberos authentication for hybrid user identities on Azure Files, so that users can securely access file shares with their existing credentials without requiring constant connectivity to on-premises domain controllers.
 ---
 
 # Enable Microsoft Entra Kerberos authentication for hybrid identities on Azure Files
@@ -205,9 +206,16 @@ Use one of the following three methods:
 
 Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/CloudKerberosTicketRetrievalEnabled](/windows/client-management/mdm/policy-csp-kerberos#cloudkerberosticketretrievalenabled), set to 1
 
+> > [!NOTE]
+> > When configuring **CloudKerberosTicketRetrievalEnabled** via Intune, use the **Settings Catalog** instead of the OMA-URI method.  
+> The OMA-URI method does **not** work on **Azure Virtual Desktop (AVD) multi-session** devices. AVD multi-session is a common deployment scenario for **Entra Kerberos with hybrid identities**, including configurations involving **Entra ID Join**, **FSLogix**, and **Azure Files**.  
+
+
 # [Group Policy](#tab/gpo)
 
 Configure this group policy on the client(s) to "Enabled": `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
+
+This setting allows the client to retrieve a cloud-based Kerberos Ticket Granting Ticket (TGT) during user logon.
 
 # [Registry Key](#tab/regkey)
 

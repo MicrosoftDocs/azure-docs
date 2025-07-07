@@ -76,6 +76,7 @@ defaults {
     failback immediate			# For immediate failback to highest priority path group with active paths
     no_path_retry 3			# To disable I/O queueing after retrying once when all paths are down
     polling_interval 5         # Set path check polling interval to 5 seconds
+    find multipaths yes        # To allow multipath to take control of only those devices that have multiple paths 
 }
 devices {
   device {

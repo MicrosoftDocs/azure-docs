@@ -5,8 +5,10 @@ items:
   items:
   - name: What is Azure Firewall?
     href: overview.md
-  - name: Well-Architected review of Azure Firewall
-    href: /azure/architecture/framework/services/networking/azure-firewall?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
+  - name: Architecture best practices for Azure Firewall
+    href: /azure/well-architected/service-guides/azure-firewall?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
+  - name: What is Azure network security?
+    href: /azure/networking/security/network-security.md?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
   - name: SKU comparison
     href: choose-firewall-sku.md
   - name: Preview features
@@ -167,15 +169,7 @@ items:
     href: sql-fqdn-filtering.md
   - name: SNAT private ranges
     href: snat-private-range.md
-- name: Migration and upgrades
-  items:
-  - name: Migrate to Azure Firewall Premium
-    href: premium-migrate.md
-  - name: Migrate to Premium using Terraform
-    href: /azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
-  - name: Easy upgrade/downgrade
-    href: easy-upgrade.md
-- name: Security
+- name: Secure
   items:
   - name: Security baseline
     href: /security/benchmark/azure/baselines/firewall-security-baseline?toc=/azure/firewall/toc.json
@@ -197,6 +191,14 @@ items:
       href: detect-malware-with-sentinel.md
   - name: Network security blog
     href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
+- name: Migration and upgrades
+  items:
+  - name: Migrate to Azure Firewall Premium
+    href: premium-migrate.md
+  - name: Migrate to Premium using Terraform
+    href: /azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
+  - name: Easy upgrade/downgrade
+    href: easy-upgrade.md
 - name: Operational excellence
   items:
   - name: Monitoring

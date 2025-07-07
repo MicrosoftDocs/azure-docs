@@ -6,6 +6,7 @@ ms.service: azure-resource-mover
 ms.custom: engagement-fy23, UpdateFrequency.5
 ms.topic: faq
 ms.date: 12/27/2024
+ms.update-cycle: 180-days
 ms.author: jsuri
 ---
 

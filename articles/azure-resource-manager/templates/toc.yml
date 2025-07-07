@@ -286,8 +286,6 @@ items:
       href: ../../app-service/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Notification Hubs
       href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-    - name: Redis Web App
-      href: ../../redis/web-app-arm-with-redis-cache-provision.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: SignalR Service
       href: ../../azure-signalr/signalr-quickstart-azure-signalr-service-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Concepts

@@ -1,13 +1,14 @@
 ---
-title: What's new in Azure Files and Azure File Sync
+title: What's New in Azure Files and Azure File Sync
 description: Learn about new features and enhancements in Azure Files and Azure File Sync.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 05/21/2025
+ms.date: 06/30/2025
 ms.author: kendownie
 ms.custom:
   - build-2025
+# Customer intent: As a cloud storage administrator, I want to stay informed about the latest features and enhancements in Azure Files and Azure File Sync, so that I can leverage new capabilities for improved security, performance, and data management in my organization.
 ---
 
 # What's new in Azure Files and Azure File Sync
@@ -18,7 +19,7 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 
 ### 2025 quarter 2 (April, May, June)
 
-#### Encryption in Transit (EiT) for NFS file shares is now in public preview
+#### Encryption in Transit (EiT) for NFS file shares is now generally available
 
 With the launch of Encryption in Transit for NFSv4.1 shares, Azure Files now delivers enterprise-grade security on par with industry standards, closing a key security gap for enterprise workloads. [Learn more](encryption-in-transit-for-nfs-shares.md).
 

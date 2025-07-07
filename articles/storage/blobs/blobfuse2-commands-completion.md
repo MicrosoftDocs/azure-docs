@@ -7,6 +7,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
 ms.author: akashdubey
+# Customer intent: As a developer using BlobFuse2, I want to generate the autocompletion script for my preferred shell, so that I can streamline my command-line workflow and enhance my productivity while working with Azure Blob Storage.
 ---
 
 # BlobFuse2 completion command

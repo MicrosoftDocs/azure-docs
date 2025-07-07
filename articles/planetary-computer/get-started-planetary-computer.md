@@ -71,7 +71,7 @@ The recommended and most secure method for ingesting data is to have the data st
 
 ### Get your data ready for Ingestion
 > [!div class="checklist"]
-> * [Setup Managed Identity Access to your Azure Blob Storage](./set-up-ingestion-credentials-managed-identity.md)
+> * [Set up Managed Identity Access to your Azure Blob Storage](./set-up-ingestion-credentials-managed-identity.md)
 > * [Create STAC Items for your data](./create-stac-item.md)
 > * Ingest Your Data a [single item at a time](./add-stac-item-to-collection.md) or through [bulk ingestion](./bulk-ingestion-api.md)
 
@@ -91,7 +91,7 @@ Planetary Computer Pro's Tiler service [requires configuration](./collection-con
 > [!div class="checklist"]
 > * [Review Supported Data Types](./supported-data-types.md)
 > * [Configure Mosaic Settings](./mosaic-configurations-for-collections.md)
-> * [Setup Rendering](./render-configuration.md)
+> * [Set up Rendering](./render-configuration.md)
 > * [Adjust Tile Settings](./tile-settings.md)
 
 

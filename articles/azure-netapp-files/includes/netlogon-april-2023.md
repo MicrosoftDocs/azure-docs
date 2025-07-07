@@ -1,10 +1,8 @@
 ---
-title: include file
-description: include file
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: include
-ms.date: 04/06/2023
+ms.date: 12/06/2024
 ms.author: anfdocs
 ms.custom: include file
 

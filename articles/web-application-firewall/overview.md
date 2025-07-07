@@ -21,6 +21,9 @@ Preventing such attacks in application code is challenging. It can require rigor
 
 A WAF solution can  react to a security threat faster by centrally patching a known vulnerability, instead of securing each individual web application.
 
+> [!NOTE]
+> Azure Web Application Firewall is one of the services that make up the Network Security category in Azure. Other services in this category include [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md) and [Azure Firewall](../firewall/overview.md). Each service has its own unique features and use cases. For more information on this service category, see [Network Security](../networking/security/network-security.md).
+
 ## Supported service
 
 WAF can be deployed with Azure Application Gateway,  Azure Front Door, and Azure Content Delivery Network (CDN) service from Microsoft. WAF on Azure CDN is currently under public preview. WAF has features that are customized for each specific service. For more information about WAF features for each service, see the overview for each service.

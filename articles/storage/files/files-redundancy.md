@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 05/20/2025
 ms.author: kendownie
 ms.custom: references_regions
+# Customer intent: "As a data engineer, I want to select the appropriate data redundancy option for Azure file shares, so that I can ensure optimal availability and disaster recovery tailored to my application's needs."
 ---
 
 # Azure Files data redundancy

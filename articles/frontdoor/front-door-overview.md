@@ -6,7 +6,7 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: overview
 ms.date: 11/12/2024
-
+ms.custom: portfolio-consolidation-2025
 # Customer intent: As an IT admin, I want to learn about Front Door and what I can use it for.
 ---
 
@@ -19,6 +19,9 @@ Azure Front Door is Microsoft's advanced cloud Content Delivery Network (CDN) de
 :::image type="content" source="./media/overview/front-door-overview.png" alt-text="Diagram of Azure Front Door routing user traffic to endpoints." lightbox="./media/overview/front-door-overview-expanded.png":::
 
 [!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
+
+>[!NOTE]
+> Azure Front Door is one of the services that make up the Load Balancing and Content Delivery category in Azure. Other services in this category include [Azure Load Balancer](../load-balancer/load-balancer-overview.md) and [Azure Application Gateway](../application-gateway/overview.md). Each service has its own unique features and use cases. For more information on this service category, see [Load Balancing and Content Delivery](../networking/load-balancer-content-delivery/load-balancing-content-delivery-overview.md).
 
 ## Why use Azure Front Door?
 

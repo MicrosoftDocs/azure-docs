@@ -96,7 +96,7 @@ For more information about tag inheritance and billing tags, see [Apply billing 
 
 ## Cost allocation rules
 
-With cost allocation rules, you can split the costs of shared services by moving costs between subscriptions, resource groups, and tags. Splitting costs is especially useful in scenarios where you have central subscriptions hosting shared infrastructure services used by different teams within your organization. Creating the right cost allocation rules ensures that the teams consuming the shared services get visibility into their portion of the costs. And, they can also be accountable for those costs.
+With cost allocation rules, you can split the costs of shared services by moving costs between subscriptions, resource groups, and tags. Splitting costs is especially useful in scenarios where you have central subscriptions hosting shared infrastructure services used by different teams within your organization. Creating the right set of cost allocation rules ensures that the teams consuming the shared services get visibility into their portion of the costs. And, they can also be accountable for those costs.
 
 For more information about how to manage and allocate shared costs, see [Allocate costs](allocate-costs.md).
 
