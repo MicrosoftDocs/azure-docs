@@ -18,6 +18,26 @@
   items:  
   - name: Data lake exploration
     items:
+    - name: KQL for the Microsoft Sentinel data lake (Preview)
+      items:
+      - name: Overview 
+        href: graph/kql-overview.md
+        displayName: data lake
+      - name: Run KQL queries (Preview)
+        href: graph/kql-queries.md
+        displayName: data lake
+      - name: Sample data lake queries (Preview)
+        href: graph/kql-samples.md
+        displayName: data lake  
+      - name: Create KQL jobs (Preview)
+        href: graph/kql-jobs.md 
+        displayName: data lake 
+      - name: Manage KQL jobs (Preview)
+        href: graph/kql-manage-jobs.md  
+        displayName: data lake      
+      - name: Troubleshoot KQL for the lake (Preview)
+        href: graph/kql-troubleshoot.md
+        displayName: data lake  
     - name: Machine learning in the Microsoft Sentinel data lake (Preview)  
       href: graph/machine-learning.md
 - name: Plan
