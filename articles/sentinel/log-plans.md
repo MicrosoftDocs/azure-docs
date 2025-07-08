@@ -32,7 +32,7 @@ Microsoft recommends classifying data ingested into Microsoft Sentinel into two 
 
 ### Primary security data
 
-This category consists of logs that hold critical security value for your organization. Primary security data can be described by the following use cases for security operations:
+This category consists of logs that hold critical security value for your organization. Primary security data are described by the following use cases for security operations:
 
 - **Frequent monitoring**. [Threat detection (analytics) rules](threat-detection.md) are run on this data at frequent intervals or in near real time.
 
@@ -44,9 +44,14 @@ This category consists of logs that hold critical security value for your organi
 
 - **Behavior analytics**. Data from these sources is used to build baseline behavior profiles for your users and devices, enabling you to identify outlying behaviors as suspicious.
 
-Some examples of primary data sources include logs from antivirus or enterprise detection and response (EDR) systems, authentication logs, audit trails from cloud platforms, threat intelligence feeds, and alerts from external systems.
+Some examples of primary data sources include:
++ Logs from antivirus or enterprise detection and response (EDR) systems
++ Authentication logs
++ Audit trails from cloud platforms
++ Threat intelligence feeds
++ Alerts from external systems
 
-Logs containing primary security data should be stored using the [**Analytics logs**](#analytics-logs-plan) plan described later in this article. 
+Logs containing primary security data should be stored using the [**Analytics logs**](#analytics-logs-plan) plan. 
 
 ### Secondary security data
 

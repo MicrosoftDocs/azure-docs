@@ -38,7 +38,7 @@ For more information, see [Microsoft Sentinel data lake (Preview)](https://aka.m
 
 Microsoft Sentinel is empowered by the components that send data to your workspace, and is made stronger through integrations with other Microsoft services. Any logs ingested into products, such as Microsoft Defender for Cloud Apps, Microsoft Defender for Endpoint, and Microsoft Defender for Identity, allow these services to create detections, and in turn provide those detections to Microsoft Sentinel. Logs can also be ingested directly into Microsoft Sentinel to provide a fuller picture for events and incidents.
 
-For example, the following image shows how Microsoft Sentinel ingests data from other Microsoft services and multi-cloud and partner platforms to provide coverage for your environment:
+For example, the following image shows how Microsoft Sentinel ingests data from other Microsoft services and multicloud and partner platforms to provide coverage for your environment:
 
 :::image type="content" source="media/best-practices/azure-sentinel-and-other-services.png"  lightbox="media/best-practices/azure-sentinel-and-other-services.png" alt-text="Microsoft Sentinel integrating with other Microsoft and partner services.":::
 
