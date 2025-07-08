@@ -54,7 +54,7 @@ For additional limits for Spark pools, see [Concurrency and API rate limits for 
 | Concurrent authoring operations per workspace per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br>Including test connection, browse folder list and table list, preview data. This limit does not apply to Self-hosted IR. | 200 | 200                                                          |
 | Concurrent Data Integration Units<sup>1</sup> consumption per workspace per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Region group 1<sup>2</sup>: 6,000<br>Region group 2<sup>2</sup>: 3,000<br>Region group 3<sup>2</sup>: 1,500<br>Managed virtual network<sup>2</sup>: 2,400 | Region group 1<sup>2</sup>: 6,000<br/>Region group 2<sup>2</sup>: 3,000<br/>Region group 3<sup>2</sup>: 1,500 |
 | Concurrent Data Integration Units<sup>1</sup> consumption per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) in managed virtual network| 2,400 | 2,400 |
-| Maximum activities per pipeline, which includes inner activities for containers | 40 | 40 |
+| Maximum activities per pipeline, which includes inner activities for containers | 120 | 120 |
 | Maximum number of linked integration runtimes that can be created against a single self-hosted integration runtime | 100 | 100 |
 | Maximum parameters per pipeline | 50 | 50 |
 | ForEach items | 100,000 | 100,000 |
