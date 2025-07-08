@@ -101,69 +101,7 @@ plt.ylabel('Number of Failed Sign ins')
 plt.title('Top 20 Users with Failed Sign ins')
 plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
-plt.show()# Import necessary libraries
-import matplotlib.pyplot as plt
-from sentinel_lake.providers import MicrosoftSentinelProvider
-from pyspark.sql.functions import col, when, count, from_json, desc
-from pyspark.sql.types import StructType, StructField, StringType
-
-data_provider = MicrosoftSentinelProvider(spark)
-
-# Function to process data
-def process_data(table_name,workspace_name):
-    # Load data into DataFrame
-    df = data_provider.read_table(table_name, workspace_name)
-    
-    # Define schema for parsing the 'Status' JSON field
-    status_schema = StructType([StructField("errorCode", StringType(), True)])
-    # Parse the 'Status' JSON field to extract 'errorCode'
-    df = df.withColumn("Status_json", from_json(col("Status"), status_schema)) \
-           .withColumn("ResultType", col("Status_json.errorCode"))
-    # Define success codes
-    success_codes = ["0", "50125", "50140", "70043", "70044"]
-    
-    # Determine FailureOrSuccess based on ResultType
-    df = df.withColumn("FailureOrSuccess", when(col("ResultType").isin(success_codes), "Success").otherwise("Failure"))
-    
-    # Summarize FailureCount and SuccessCount
-    df = df.groupBy("UserPrincipalName", "UserDisplayName", "IPAddress") \
-           .agg(count(when(col("FailureOrSuccess") == "Failure", True)).alias("FailureCount"),
-                count(when(col("FailureOrSuccess") == "Success", True)).alias("SuccessCount"))
-    
-    # Filter where FailureCount > 100 and SuccessCount > 0
-    df = df.filter((col("FailureCount") > 100) & (col("SuccessCount") > 0))
-    
-    # Order by FailureCount descending
-    df = df.orderBy(desc("FailureCount"))
-         
-    return df
-
-# Process the tables to a common schema
-workspace_name = "your-workspace-name"  # Replace with your actual workspace name
-aad_signin = process_data("SignInLogs", workspace_name)
-aad_non_int = process_data("AADNonInteractiveUserSignInLogs", workspace_name)
-
-# Union the DataFrames
-result_df = aad_signin.unionByName(aad_non_int)
-
-# Show the result
-result_df.show()
-
-# Convert the Spark DataFrame to a Pandas DataFrame
-result_pd_df = result_df.toPandas()
-
-# Filter to show table with top 20 users with the highest failed sign ins attempted
-top_20_df = result_pd_df.nlargest(20, 'FailureCount')
-
-# Create bar chart to show users by highest failed sign ins attempted
-plt.figure(figsize=(12, 6))
-plt.bar(top_20_df['UserDisplayName'], top_20_df['FailureCount'], color='skyblue')
-plt.xlabel('Users')
-plt.ylabel('Number of Failed Sign ins')
-plt.title('Top 20 Users with Failed Sign ins')
-plt.xticks(rotation=45, ha='right')
-plt.tight_layout()
-plt.show()
+plt.show()  
 ```
 
 The following screenshot shows a sample of the output of the code above, displaying the top 20 users with the highest number of failed sign in attempts in a bar chart format.
