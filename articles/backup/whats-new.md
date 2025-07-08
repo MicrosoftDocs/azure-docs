@@ -8,6 +8,7 @@ ms.custom:
   - ignite-2023
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to stay informed about new features and enhancements in Azure Backup, so that I can effectively manage data protection and ensure compliance within my organization's cloud infrastructure."
 ---
 
 # What's new in Azure Backup

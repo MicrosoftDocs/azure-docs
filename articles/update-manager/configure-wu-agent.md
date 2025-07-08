@@ -7,6 +7,7 @@ ms.topic: how-to
 author: habibaum
 ms.author: v-uhabiba
 ms.custom: engagement-fy24
+# Customer intent: As a system administrator, I want to configure Windows Update settings for Azure Update Manager, so that I can ensure all Windows servers are consistently updated with the latest patches and maintain compliance across the environment.
 ---
 
 # Configure Windows update settings for Azure Update Manager

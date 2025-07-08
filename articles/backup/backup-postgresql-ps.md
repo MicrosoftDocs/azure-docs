@@ -9,6 +9,7 @@ ms.custom:
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to back up PostgreSQL databases using PowerShell so that I can ensure data protection and manage backup policies efficiently."
 ---
 
 # Back up PostgreSQL databases by using Azure PowerShell

@@ -7,6 +7,7 @@ ms.custom: references_regions
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a backup administrator, I want to utilize Backup vaults to manage and secure my backup data across various Azure services, so that I can ensure data integrity, facilitate easy recovery, and minimize management overhead in our cloud environment.
 ---
 # Backup vaults overview
 

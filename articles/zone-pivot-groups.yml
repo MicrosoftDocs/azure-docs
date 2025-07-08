@@ -1264,8 +1264,8 @@ groups:
     title: Network security group
 # Owner: hmb
 - id: front-door-dev-exp-portal-ps-cli
-  title: Front Door Developer experience
-  prompt: "Select the developer experience:"
+  title: Front Door deployment method
+  prompt: "Select the deployment method:"
   pivots:
   - id: front-door-portal
     title: Azure portal
@@ -1274,16 +1274,16 @@ groups:
   - id: front-door-cli
     title: Azure CLI
 - id: front-door-dev-exp-portal-cli
-  title: Front Door Developer experience
-  prompt: "Select the developer experience:"
+  title: Front Door deployment method
+  prompt: "Select the deployment method:"
   pivots:
   - id: front-door-portal
     title: Azure portal
   - id: front-door-cli
     title: Azure CLI
 - id: front-door-dev-exp-ps-cli
-  title: Front Door Developer experience
-  prompt: "Select the developer experience:"
+  title: Front Door deployment method
+  prompt: "Select the deployment method:"
   pivots:
   - id: front-door-ps
     title: Azure PowerShell
@@ -1504,75 +1504,6 @@ groups:
     title: ASE Pro 2
   - id: ase-pro-gpu
     title: ASE Pro
-# Owner: daknappe (Azure Virtual Desktop)
-- id: azure-virtual-desktop-app-attach
-  title: Azure Virtual Desktop app attach version
-  prompt: "Choose an app attach version:"
-  pivots:
-  - id: app-attach
-    title: App attach
-  - id: msix-app-attach
-    title: MSIX app attach
-- id: azure-virtual-desktop-windows-client-troubleshoot
-  title: Remote Desktop client for Windows troubleshoot
-  prompt: "Choose the product you're connecting to:"
-  pivots:
-  - id: azure-virtual-desktop
-    title: Azure Virtual Desktop
-  - id: windows-365
-    title: Windows 365
-  - id: dev-box
-    title: Microsoft Dev Box
-- id: azure-virtual-desktop-windows-clients
-  title: Remote Desktop clients for Windows
-  prompt: "Choose the version of the Remote Desktop client for Windows you want to use:"
-  pivots:
-  - id: remote-desktop-msi
-    title: Remote Desktop client (MSI)
-  - id: avd-store
-    title: Azure Virtual Desktop Store app
-  - id: rd-store
-    title: Remote Desktop Store app
-- id: remote-desktop-clients
-  title: Remote Desktop clients
-  prompt: "Choose what you want to connect to:"
-  pivots:
-  - id: azure-virtual-desktop
-    title: Azure Virtual Desktop
-  - id: windows-365
-    title: Windows 365
-  - id: dev-box
-    title: Microsoft Dev Box
-  - id: remote-desktop-services
-    title: Remote Desktop Services
-  - id: remote-pc
-    title: Remote PC
-- id: rdp-products-features
-  title: Products and features using the Remote Desktop Protocol (RDP)
-  prompt: "Choose a product or feature:"
-  pivots:
-  - id: azure-virtual-desktop
-    title: Azure Virtual Desktop
-  - id: windows-365
-    title: Windows 365
-  - id: dev-box
-    title: Microsoft Dev Box
-- id: azure-virtual-desktop-host-pool-management-approaches
-  title: Host pool management approaches
-  prompt: "Choose a host pool management approach:"
-  pivots:
-  - id: host-pool-standard
-    title: Standard
-  - id: host-pool-session-host-configuration
-    title: Session host configuration (preview)
-- id: autoscale
-  title: Create and assign an autoscale scaling plan
-  prompt: "Choose an autoscaling method:"
-  pivots:
-  - id: power-management
-    title: Power management autoscaling
-  - id: dynamic
-    title: Dynamic autoscaling (preview)
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods

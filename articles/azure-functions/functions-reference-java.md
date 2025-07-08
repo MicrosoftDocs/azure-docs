@@ -2,7 +2,7 @@
 title: Java developer reference for Azure Functions
 description: Understand how to develop functions with Java.
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 06/04/2025
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
@@ -142,7 +142,7 @@ Here's the generated corresponding `function.json` by the [azure-functions-maven
 
 ## Java versions
 
-The version of Java on which your app runs in Azure is specified in the pom.xml file. The Maven archetype currently generates a pom.xml for Java 8, which you can change before publishing. The Java version in pom.xml should match the version on which you've locally developed and tested your app. 
+The version of Java on which your app runs in Azure is specified in the pom.xml file. The Maven archetype currently generates a pom.xml for Java 8, which you can change before publishing. The Java version in pom.xml should match the version of Java on which you develop and test your app locally. 
 
 ### Supported versions
 
@@ -158,7 +158,7 @@ Unless you specify a Java version for your deployment, the Maven archetype defau
 
 ### Specify the deployment version
 
-You can control the version of Java targeted by the Maven archetype by using the `-DjavaVersion` parameter. The value of this parameter can be either `8`, `11`, `17` or `21`. 
+You can control the version of Java targeted by the Maven archetype by using the `-DjavaVersion` parameter. This parameter must match [supported Java versions](supported-languages.md?pivots=programming-language-java#languages-by-runtime-version). 
 
 The Maven archetype generates a pom.xml that targets the specified Java version. The following elements in pom.xml indicate the Java version to use:
 
@@ -269,7 +269,9 @@ The `com.microsoft.azure.functions:azure-functions-java-library` dependency is p
 
 ## Data type support
 
-You can use Plain old Java objects (POJOs), types defined in `azure-functions-java-library`, or primitive data types such as String and Integer to bind to input or output bindings.
+You can use plain-old Java objects (POJOs), types defined in `azure-functions-java-library`, or primitive data types such as `String` and `Integer` to bind to input or output bindings.
+
+[!INCLUDE [functions-java-sdk-types-preview-note](../../includes/functions-java-sdk-types-preview-note.md)]
 
 ### POJOs
 
@@ -292,6 +294,96 @@ Bind binary inputs or outputs to `byte[]`, by setting the `dataType` field in yo
 ```
 
 If you expect null values, use `Optional<T>`.
+
+### <a name="sdk-types"></a>SDK types (preview)
+
+You can currently use these Blob Storage SDK types in your bindings: `BlobClient` and `BlobContainerClient`.
+<!--- replace when more than one extension...
++ Blob Storage SDK: `BlobClient` and `BlobContainerClient`
+-->
+With SDK types support enabled, your functions can use Azure SDK client types to access blobs as streams directly from storage, which provides these benefits over POJOs or binary types:
+
++ Lower latency
++ Reduced memory requirements 
++ Removes request-based size limits (uses service defaults)
++ Provides access to the full SDK surface: metadata, ACLs, legal holds, and other SDK-specific data.
+
+#### Requirements
+
+* Set the [`JAVA_ENABLE_SDK_TYPES`](./functions-app-settings.md#java_enable_sdk_types) app setting to `true` to enable SDK types.
+* `azure-functions-maven-plugin` (or Gradle plug-in) version `1.38.0` or a higher version.
+
+#### Examples
+
+Blob trigger that uses `BlobClient` to access properties of the blob.
+
+```java
+@FunctionName("processBlob")
+public void run(
+        @BlobTrigger(
+                name = "content",
+                path = "images/{name}",
+                connection = "AzureWebJobsStorage") BlobClient blob,
+        @BindingName("name") String file,
+        ExecutionContext ctx)
+{
+    ctx.getLogger().info("Size = " + blob.getProperties().getBlobSize());
+}
+```
+
+Blob trigger that uses `BlobContainerClient` to access info about blobs in the container.
+
+```java
+@FunctionName("containerOps")
+public void run(
+        @BlobTrigger(
+                name = "content",
+                path = "images/{name}",
+                connection = "AzureWebJobsStorage") BlobContainerClient container,
+        ExecutionContext ctx)
+{
+    container.listBlobs()
+            .forEach(b -> ctx.getLogger().info(b.getName()));
+}
+```
+
+Blob input binding that uses `BlobClient` to get information about the blob that triggered the execution. 
+
+```java
+@FunctionName("checkAgainstInputBlob")
+public void run(
+        @BlobInput(
+                name = "inputBlob",
+                path = "inputContainer/input.txt") BlobClient inputBlob,
+        @BlobTrigger(
+                name = "content",
+                path = "images/{name}",
+                connection = "AzureWebJobsStorage",
+                dataType = "string") String triggerBlob,
+        ExecutionContext ctx)
+{
+    ctx.getLogger().info("Size = " + inputBlob.getProperties().getBlobSize());
+}
+```
+
+#### Considerations
+
++ The `dataType` setting on `@BlobTrigger` is ignored when binding to an SDK type.
++ Currently, only one SDK type can be used at a time in a given function definition. When a function has both a Blog trigger or input binding and a Blob output binding, one binding can use an SDK type (such as `BlobClient`) and the others must use a native type or POJO.
++ You can use managed identities with SDK types.
+
+#### Troubleshooting
+
+These are potential errors that might occur when using SDK types: 
+
+| Exception | Meaning  |
+| ----- | ----- |
+| `SdkAnalysisException`     | Build plug-in couldn’t create metadata. This might be due to duplicate SDK-types in a single function definition, an unsupported parameter type, or some other misconfiguration. |
+| `SdkRegistryException`     | Runtime doesn’t recognize the stored FQCN, which can be caused by mismatched library versions. |
+| `SdkHydrationException`    | Middleware failed to build the SDK client, which can occur due to missing environment variables, reflection errors, credential failures, and similar runtime issues. |
+| `SdkTypeCreationException` | Factory couldn’t turn metadata into the final SDK type, which is usually caused by a casting issues. |
+
+Check the inner message for more details about the exact cause. Most SDK types issues are caused by misspelled environment variable names or missing dependencies.
 
 ## Bindings
 
@@ -415,7 +507,7 @@ You invoke this function on an `HttpRequest` object. It writes multiple values t
 
 ## HttpRequestMessage and HttpResponseMessage
 
- These are defined in `azure-functions-java-library`. They're helper types to work with HttpTrigger functions.
+ These helper types, which are designed to work with HTTP Trigger functions, are defined in `azure-functions-java-library`: 
 
 | Specialized type      |       Target        | Typical usage                  |
 | --------------------- | :-----------------: | ------------------------------ |
@@ -465,7 +557,7 @@ In the preceding example, the `queryValue` is bound to the query string paramete
 
 ## Execution context
 
-`ExecutionContext`, defined in the `azure-functions-java-library`, contains helper methods to communicate with the functions runtime. For more information, see the [ExecutionContext reference article](/java/api/com.microsoft.azure.functions.executioncontext).
+`ExecutionContext`, defined in the `azure-functions-java-library`, contains helper methods that are used to communicate with the functions runtime. For more information, see the [ExecutionContext reference article](/java/api/com.microsoft.azure.functions.executioncontext).
 
 ### Logger
 
@@ -532,7 +624,7 @@ To download the log files as a single ZIP file by using the Azure CLI, open a ne
 az webapp log download --resource-group resourcegroupname --name functionappname
 ```
 
-You must have enabled file system logging in the Azure portal or the Azure CLI before running this command.
+You must enable file system logging in the Azure portal or the Azure CLI before running this command.
 
 ## Environment variables
 
@@ -552,7 +644,7 @@ public class Function {
 ```
 ## Use dependency injection in Java Functions
 
-Azure Functions Java supports the dependency injection (DI) software design pattern, which is a technique to achieve [Inversion of Control (IoC)](/dotnet/architecture/modern-web-apps-azure/architectural-principles#dependency-inversion) between classes and their dependencies. Java Azure Functions provides a hook to integrate with popular Dependency Injection frameworks in your Functions Apps.  [Azure Functions Java SPI](https://github.com/Azure/azure-functions-java-additions/tree/dev/azure-functions-java-spi) contains an interface [FunctionInstanceInjector](https://github.com/Azure/azure-functions-java-additions/blob/dev/azure-functions-java-spi/src/main/java/com/microsoft/azure/functions/spi/inject/FunctionInstanceInjector.java). By implementing this interface, you can return an instance of your function class and your functions will be invoked on this instance. This gives frameworks like [Spring](/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=%2Fazure%2Fazure-functions%2Ftoc.json), [Quarkus](/azure/azure-functions/functions-create-first-quarkus), Google Guice, Dagger, etc. the ability to create the function instance and register it into their IOC container. This means you can use those Dependency Injection frameworks to manage your functions naturally. 
+Azure Functions Java supports the dependency injection (DI) software design pattern, which is a technique to achieve [Inversion of Control (IoC)](/dotnet/architecture/modern-web-apps-azure/architectural-principles#dependency-inversion) between classes and their dependencies. Java Azure Functions provides a hook to integrate with popular Dependency Injection frameworks in your Functions Apps.  [Azure Functions Java SPI](https://github.com/Azure/azure-functions-java-additions/tree/dev/azure-functions-java-spi) contains an interface [FunctionInstanceInjector](https://github.com/Azure/azure-functions-java-additions/blob/dev/azure-functions-java-spi/src/main/java/com/microsoft/azure/functions/spi/inject/FunctionInstanceInjector.java). By implementing this interface, you can return an instance of your function class and your functions are invoked on this instance. This gives frameworks like [Spring](/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=%2Fazure%2Fazure-functions%2Ftoc.json), [Quarkus](/azure/azure-functions/functions-create-first-quarkus), Google Guice, Dagger, etc. the ability to create the function instance and register it into their IOC container. This means you can use those Dependency Injection frameworks to manage your functions naturally. 
 
 > [!NOTE]
 > Microsoft Azure Functions Java SPI Types ([azure-function-java-spi](https://mvnrepository.com/artifact/com.microsoft.azure.functions/azure-functions-java-spi/1.0.0)) is a package that contains all SPI interfaces for third parties to interact with Microsoft Azure functions runtime.

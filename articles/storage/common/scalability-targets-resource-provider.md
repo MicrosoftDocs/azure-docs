@@ -10,6 +10,7 @@ ms.date: 12/18/2019
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
+# Customer intent: As a cloud architect, I want to understand the scalability and performance targets for the Azure Storage resource provider, so that I can ensure my architecture meets the required service levels and effectively support resource management.
 ---
 
 # Scalability and performance targets for the Azure Storage resource provider

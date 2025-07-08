@@ -8,6 +8,7 @@ ms.date: 06/02/2023
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: dineshm
+# Customer intent: As a cloud administrator, I want to optimize the performance of AzCopy v10 for Azure Storage transfers, so that I can efficiently manage large data movements while minimizing resource consumption and improving throughput.
 ---
 
 # Optimize the performance of AzCopy with Azure Storage

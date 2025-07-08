@@ -30,7 +30,7 @@ Simulcast streaming from a web endpoint supports a maximum two video qualities. 
 
 ## Available video resolutions
 
-When a participant is streaming with simulcast, there are no set resolutions for high or low quality simulcast video streams. Instead, based on many different variables, either a single or multiple video steams are delivered. If every subscriber to video is requesting and capable of receiving maximum resolution what publisher can provide, only that it sends maximum resolution.
+When a participant is streaming with simulcast, there are no set resolutions for high or low quality simulcast video streams. Instead, based on many different variables, either a single or multiple video streams are delivered. If every subscriber to video is requesting and capable of receiving maximum resolution what publisher can provide, only that it sends maximum resolution.
 
 Simulcast supports the following resolutions:
 
