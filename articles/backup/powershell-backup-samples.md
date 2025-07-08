@@ -6,6 +6,7 @@ ms.date: 05/20/2025
 ms.custom: mvc
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a system administrator, I want to access PowerShell script samples for Azure Backup, so that I can effectively back up and restore my data while optimizing my workflow."
 ---
 # Azure Backup PowerShell script samples
 

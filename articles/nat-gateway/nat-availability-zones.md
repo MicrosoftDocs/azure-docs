@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 02/15/2024
 ms.author: allensu
 #Customer intent: For customers who want to understand how to use NAT gateway with availability zones.
+# Customer intent: "As a network architect, I want to understand how to deploy NAT gateway with availability zones, so that I can ensure resilient outbound connectivity for my virtual networks against potential zonal outages."
 ---
 
 # NAT gateway and availability zones

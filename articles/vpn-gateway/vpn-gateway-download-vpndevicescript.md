@@ -9,6 +9,7 @@ ms.date: 03/31/2025
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
+# Customer intent: "As a network administrator, I want to download VPN device configuration scripts for site-to-site connections, so that I can configure my on-premises VPN device to securely connect with Azure VPN Gateway."
 ---
 # Download VPN device configuration scripts for S2S VPN connections
 

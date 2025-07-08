@@ -2,9 +2,10 @@
 author: DaybreakQuip
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 05/21/2024
+ms.date: 06/20/2025
 ms.author: zehangzheng
 ---
+
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-windows.md)]
 
 The ability to view capabilities is an extended feature of the core `Call` API. It enables you to obtain the capabilities of the local participant in the current call.
@@ -22,7 +23,7 @@ capabilitiesCallFeature = call.Features.Capabilities;
 
 ## Get the capabilities of the local participant
 
-Capabilities object has the capabilities of the local participants and is of type `ParticipantCapability`. Properties of Capabilities include:
+The capabilities object has the capabilities of the local participants and is of type `ParticipantCapability`. Properties of capabilities include:
 
 - *isAllowed* indicates if a capability can be used.
 - *reason* indicates capability resolution reason.

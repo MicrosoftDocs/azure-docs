@@ -51,7 +51,7 @@ If there's a problem that needs to further investigation by the VM Console servi
    :::image type="content" source="media/vm-console-ple-ip-2.png" alt-text="Screenshot that shows the details of the Private endpoint network interface.":::
 4. In that screen, you find the `Private IPv4 address`, for example, `10.1.0.5`
    :::image type="content" source="media/vm-console-ple-ip-3.png" alt-text="Screenshot that shows the details of the Private IPV4 address.":::
-5. Confirm with customer that whit IP address was in the `ssh` command, for example, `ssh -p 2222 <virtual machine access id>@10.1.0.5`
+5. Confirm with customer that with IP address was in the `ssh` command, for example, `ssh -p 2222 <virtual machine access id>@10.1.0.5`
 
 Another way to retrieve the Private endpoint IP addresses is using Azure CLI, as shown here.
 

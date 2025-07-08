@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 06/12/2025
+ms.date: 06/24/2025
 
 #CustomerIntent: As an Azure administrator, I want to know the required Azure role-based access control (Azure RBAC) permissions to use each of the Network Watcher capabilities, so I can assign them correctly to users using any of those capabilities.
 # Customer intent: As an Azure administrator, I want to understand the Azure RBAC permissions required for Network Watcher capabilities, so that I can effectively manage user access and ensure they can utilize the features needed for their roles.
@@ -73,6 +73,7 @@ Since traffic analytics is enabled as part of the flow log resource, the followi
 > | ---- | ---- |
 > | Microsoft.Network/applicationGateways/read | Get an application gateway |
 > | Microsoft.Network/connections/read | Get VirtualNetworkGatewayConnection |
+> | Microsoft.Network/expressRouteCircuits/read | Get an ExpressRouteCircuit |
 > | Microsoft.Network/loadBalancers/read | Get a load balancer definition |
 > | Microsoft.Network/localNetworkGateways/read | Get LocalNetworkGateway |
 > | Microsoft.Network/networkInterfaces/read | Get a network interface definition |
@@ -81,7 +82,8 @@ Since traffic analytics is enabled as part of the flow log resource, the followi
 > | Microsoft.Network/routeTables/read | Get a route table definition |
 > | Microsoft.Network/virtualNetworkGateways/read | Get a VirtualNetworkGateway |
 > | Microsoft.Network/virtualNetworks/read | Get a virtual network definition |
-> | Microsoft.Network/expressRouteCircuits/read | Get an ExpressRouteCircuit |
+> | Microsoft.Compute/virtualMachines/read | Get the properties of a virtual machine |
+> | Microsoft.Compute/virtualMachineScaleSets/read | Get the properties of a Virtual Machine Scale Set |
 > | Microsoft.OperationalInsights/workspaces/read | Get an existing workspace |
 > | Microsoft.OperationalInsights/workspaces/sharedkeys/action | Retrieve the shared keys for the workspace |
 > | Microsoft.Insights/dataCollectionRules/read <sup>1</sup> | Read a data collection rule |

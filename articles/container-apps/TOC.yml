@@ -201,11 +201,11 @@
     - name: Troubleshoot and resolve issues with an agent
       items:
         - name: Overview
-          href: ../app-service/sre-agent-overview.md
+          href: ../sre-agent/overview.md
         - name: Use an SRE agent
-          href: ../app-service/sre-agent-usage.md
+          href: ../sre-agent/usage.md
         - name: Fix app issues with an SRE agent
-          href: sre-agent-troubleshoot.md
+          href: ../sre-agent/troubleshoot-azure-container-apps.md
     - name: Application logging
       href: logging.md
     - name: Real time data
@@ -356,12 +356,10 @@
           href: microservices-dapr-bindings.md
         - name: Microservices communication using Dapr Service Invocation
           href: microservices-dapr-service-invoke.md
-- name: Networking, ingress, and network security
+- name: Networking and ingress
   items:
-    - name: Architecture overview
+    - name: Overview
       href: networking.md
-    - name: Use a custom virtual network
-      href: vnet-custom.md
     - name: Ingress
       items:
         - name: Overview
@@ -385,8 +383,18 @@
         - name: CORS
           href: cors.md
           displayName: Cross origin resource sharing
-    - name: Security
+    - name: Virtual network configuration
+      href: custom-virtual-networks.md
+    - name: Managing outbound connections with Azure Firewall
+      href: use-azure-firewall.md
+    - name: Private endpoints and DNS
+      href: private-endpoints-with-dns.md
+    - name: Securing a custom VNET with an NSG
+      href: firewall-integration.md
+    - name: Tutorials
       items:
+        - name: Use a custom virtual network
+          href: vnet-custom.md
         - name: Configure WAF Application Gateway
           href: waf-app-gateway.md
         - name: Enable User Defined Routes (UDR)
@@ -395,10 +403,8 @@
           items:
           - name: Use rule-based routing
             href: rule-based-routing.md
-          - name: Configure a custom domain
+          - name: Use a custom domain with rule-based routing
             href: rule-based-routing-custom-domain.md
-        - name: Securing a custom VNET with an NSG
-          href: firewall-integration.md
         - name: Use a private endpoint
           href: how-to-use-private-endpoint.md
         - name: Use mTLS

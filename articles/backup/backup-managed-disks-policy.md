@@ -6,6 +6,7 @@ ms.date: 08/26/2024
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a Backup Admin, I want to configure Azure Policies to enforce backup for Managed Disks, so that I can ensure compliance and protect business-critical data across my organization's resources.
 ---
 
 # Audit and enforce backup for Managed Disks using Azure Policy 

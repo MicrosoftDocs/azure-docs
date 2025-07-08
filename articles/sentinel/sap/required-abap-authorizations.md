@@ -4,7 +4,7 @@ description: Understand the ABAP authorizations required if you want to manually
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 09/16/2024
+ms.date: 12/11/2024
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -15,16 +15,12 @@ ms.collection: usx-security
 
 # Required ABAP authorizations
 
-This article lists the ABAP authorizations required to ensure that the SAP user account used by Microsoft Sentinel's SAP data connector can correctly retrieve logs from the SAP systems and [run attack disruption response actions](/defender-xdr/automatic-attack-disruption).
+This article lists the ABAP authorizations required to ensure that the SAP user account used by Microsoft Sentinel's SAP data connector can correctly retrieve logs from the SAP systems.
 
-The required authorizations are listed here by their purpose. You only need the authorizations that are listed for the kinds of logs you want to bring into Microsoft Sentinel and the attack disruption response actions you want to apply.
+The required authorizations are listed here by their purpose. You only need the authorizations that are listed for the kinds of logs you want to bring into Microsoft Sentinel.
 
-> [!TIP]
-> To create a role with all the required authorizations, load the role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file.
->
-> Alternately, to enable only log retrieval, without attack disruption response actions, deploy the SAP *NPLK900271* CR on the SAP system to create the **/MSFTSEN/SENTINEL_CONNECTOR** role, or load the role authorizations from the [**/MSFTSEN/SENTINEL_CONNECTOR**](https://aka.ms/SAP_Sentinel_Connector_Role) file.
-
-If needed, you can [remove the user role and any optional CR installed on your ABAP system](stop-collection.md#remove-the-user-role-and-any-optional-cr-installed-on-your-abap-system).
+- To create a role with all the required authorizations, load the role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file.
+- If needed, you can [remove the user role and any optional CR installed on your ABAP system](stop-collection.md#remove-the-user-role-and-any-optional-cr-installed-on-your-abap-system).
 
 ## ABAP application log
 
@@ -139,20 +135,6 @@ If needed, you can [remove the user role and any optional CR installed on your A
 | S_TCODE | TCD | SM51 |
 | S_TABU_NAM | ACTVT | Display |
 | S_TABU_NAM | TABLE | T000 |
-
-## Attack disruption response actions
-
-<a name=attack-disrupt></a>
-
-| Authorization object | Field | Value |
-| -------------------- | ----- | ----- |
-|S_RFC |RFC_TYPE |Function Module |
-|S_RFC |RFC_NAME |BAPI_USER_LOCK |
-|S_RFC |RFC_NAME |BAPI_USER_UNLOCK |
-|S_RFC |RFC_NAME |TH_DELETE_USER <br>In contrast to its name, this function doesn't delete users, but ends the active user session. |
-|S_USER_GRP |CLASS |* <br>We recommend replacing S_USER_GRP CLASS with the relevant classes in your organization that represent dialog users. |
-|S_USER_GRP |ACTVT |03 |
-|S_USER_GRP |ACTVT |05 |
 
 ## Configuration history
 

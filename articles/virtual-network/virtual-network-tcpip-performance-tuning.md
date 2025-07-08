@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 04/21/2025
 ms.author: allensu
+# Customer intent: "As a network administrator managing Azure VMs, I want to implement TCP/IP performance tuning techniques, so that I can optimize network throughput and minimize latency for my virtual machines."
 ---
 
 # TCP/IP performance tuning for Azure VMs

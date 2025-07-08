@@ -1,15 +1,16 @@
 ---
 title: Restore Azure Data Lake Storage using Azure Portal (preview)
-description: Learn how to restore Azure Data Lake Storage vaulted  backups using Azure portal.
+description: Learn how to restore Azure Data Lake Storage vaulted  backups (preview) using Azure portal.
 ms.topic: how-to
-ms.date: 06/19/2025
+ms.date: 04/16/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to restore vaulted backups for Azure Data Lake Storage using the Azure portal, so that I can effectively recover lost or corrupted data while ensuring compliance with storage management practices."
 ---
 
 # Restore Azure Data Lake Storage using Azure portal (preview)
 
-This article describes how to restore Azure Data Lake Storage vaulted  backups using Azure portal.
+This article describes how to restore Azure Data Lake Storage vaulted  backups (preview) using Azure portal.
 
 ## Prerequisites
 
@@ -23,7 +24,7 @@ Before you restore Azure Data Lake Storage, ensure the following prerequisites a
 >[!Note]
 >Vaulted backups only support restoring data to another storage account, which is different from the one that was backed up.
 
-Learn more about the [supported scenarios, limitations, and region availability for Azure Data Lake Storage backup/restore](azure-data-lake-storage-backup-support-matrix.md).
+Learn more about the [supported scenarios, limitations, and region availability for Azure Data Lake Storage backup/restore (preview)](azure-data-lake-storage-backup-support-matrix.md).
 
 ## Restore the storage data from vaulted backups
 

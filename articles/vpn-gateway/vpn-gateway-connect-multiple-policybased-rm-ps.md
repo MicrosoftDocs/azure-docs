@@ -8,6 +8,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 10/15/2024
 ms.author: cherylmc
+# Customer intent: As a network engineer, I want to configure a route-based VPN gateway to connect multiple on-premises policy-based VPN devices, so that I can enable secure communication between them and our Azure virtual network.
 ---
 # Connect a VPN gateway to multiple on-premises policy-based VPN devices
 

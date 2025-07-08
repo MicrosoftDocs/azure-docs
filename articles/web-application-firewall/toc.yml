@@ -22,6 +22,8 @@ items:
     items:
     - name: Web Application Firewall on Azure CDN
       href: ./cdn/cdn-overview.md
+  - name: What is Azure network security?
+    href: /azure/networking/security/network-security.md?toc=/azure/web-application-firewall/toc.json
 - name: Deploy
   items:
   - name: Application Gateway
@@ -148,7 +150,7 @@ items:
     href: ./afds/protect-api-hosted-apim-by-waf.md
   - name: Protect Azure OpenAI
     href: ./afds/protect-azure-open-ai.md
-- name: Security
+- name: Secure
   items:
   - name: Security baseline
     href: /security/benchmark/azure/baselines/web-application-firewall-security-baseline?toc=/azure/web-application-firewall/toc.json

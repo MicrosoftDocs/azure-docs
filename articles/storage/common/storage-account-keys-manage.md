@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 11/12/2024
 ms.reviewer: nachakra 
 ms.custom: engagement-fy23, devx-track-azurecli
+# Customer intent: "As a cloud administrator, I want to manage and rotate storage account access keys, so that I can ensure secure and uninterrupted access to my storage resources."
 ---
 
 # Manage storage account access keys

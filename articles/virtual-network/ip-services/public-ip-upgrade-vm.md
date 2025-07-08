@@ -8,6 +8,7 @@ ms.date: 01/08/2025
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
+# Customer intent: "As a system administrator, I want to upgrade Basic SKU public IP addresses attached to my VMs to Standard SKU, so that I can ensure compliance with the upcoming retirement of Basic SKUs and enhance the security and performance of my network configurations."
 ---
 
 # Upgrade public IP addresses attached to VM from Basic to Standard

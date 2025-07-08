@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.topic: troubleshooting
 ms.date: 04/15/2025
 ms.author: allensu
+# Customer intent: As a cloud administrator, I want to troubleshoot outbound SMTP connectivity issues in Azure, so that I can ensure reliable email delivery from my virtual machines without interruptions.
 ---
 
 # Troubleshoot outbound SMTP connectivity problems in Azure

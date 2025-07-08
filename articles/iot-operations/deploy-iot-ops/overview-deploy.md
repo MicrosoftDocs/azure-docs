@@ -16,13 +16,7 @@ When you deploy Azure IoT Operations, you install a suite of services on an Azur
 
 ## Supported environments
 
-Microsoft supports the following environments for Azure IoT Operations deployments.
-
-| Environment | Minimum version | Availability |
-| ----------- | --------------- | ------------ |
-| K3s on Ubuntu 24.04 | K3s version 1.31.1 | General availability |
-| Azure Kubernetes Service (AKS) Edge Essentials on Windows 11 IoT Enterprise | AksEdge-K3s-1.29.6-1.8.202.0 | Public preview |
-| Azure Kubernetes Service (AKS) on Azure Local | Azure Stack HCI OS, version 23H2, build 2411 | Public preview |
+[!INCLUDE [supported-environments-table](../includes/supported-environments-table.md)]
 
 >[!NOTE]
 >Billing usage records are collected on any environment where Azure IoT Operations is installed, regardless of support or availability levels.
@@ -34,6 +28,9 @@ To install Azure IoT Operations, have the following hardware requirements availa
 | Hardware memory capacity (RAM) | 16-GB | 32-GB |
 | Available memory for Azure IoT Operations (RAM) | 10-GB | Depends on usage |
 | CPU  | 4 vCPUs | 8 vCPUs     |
+
+>[!NOTE]
+>The minimum configuration is appropriate when running AIO only.
 
 ## Choose your features
 
@@ -72,7 +69,7 @@ The following table describes Azure IoT Operations deployment and management tas
 | Register resource providers | Microsoft.ExtendedLocation/register/action Microsoft.SecretSyncController/register/action Microsoft.Kubernetes/register/action Microsoft.KubernetesConfiguration/register/action Microsoft.IoTOperations/register/action Microsoft.DeviceRegistry/register/action| Only required to do once per subscription. |
 | Create a schema registry. | **Microsoft.Authorization/roleAssignments/write** permissions at the resource group level. |  |
 | Create secrets in Key Vault | **Key Vault Secrets Officer** role at the resource level. | Only required for secure settings deployment. |
-| Enable resource sync rules on an Azure IoT Operations instance | **Microsoft.Authorization/roleAssignments/write** permissions at the resource group level. | Resource sync rules are disabled by default, but can be enabled as part of the [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command. |
+| Enable resource sync rules on an Azure IoT Operations instance | **Microsoft.Authorization/roleAssignments/write** permissions at the resource group level. | Resource sync rules are disabled by default, but can be enabled as part of the [az iot ops rsync](/cli/azure/iot/ops#az-iot-ops-rsync) command. |
 
 > [!TIP]
 > You must enable resource sync rules on the Azure IoT Operations instance to use the automatic asset discovery capabilities of the Akri services. To learn more, see [What is OPC UA asset discovery (preview)?](../discover-manage-assets/overview-akri.md).

@@ -7,6 +7,7 @@ ms.date: 03/18/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to configure automatic backups for Azure Database for PostgreSQL server, so that I can ensure data protection and recoverability in case of data loss or corruption."
 ---
 
 # Back up Azure Database for PostgreSQL server in Azure

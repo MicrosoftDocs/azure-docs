@@ -13,22 +13,24 @@
   - name: Best Practices
     expanded: false
     items:
-      - name: Onboard and deploy a Network Function
-        href: best-practices-onboard-deploy.md
-      - name: Roles and Interfaces
+      - name: Role-Based Persona Model
         href: roles-interfaces.md
+      - name: Publisher Tenants, Subscriptions and Regions
+        href: publisher-resource-preview-management.md
       - name: Helm Package Requirements
         href: helm-requirements.md
-      - name: Publisher Tenants, subscriptions, regions and preview management
-        href: publisher-resource-preview-management.md
+      - name: Onboarding and Deployment Considerations
+        href: best-practices-onboard-deploy.md
+      - name: Workload Configuration Management 
+        href: configuration-guide.md
   - name: Azure Operator Service Manager CLI Extension
     expanded: false
     items:
       - name: About the Azure Operator Service Manager CLI extension
         href: concepts-about-azure-operator-service-manager-cli.md
-      - name: CLI container image onboarding
+      - name: Container image onboarding using CLI
         href: concepts-cli-containerized-network-function-image-upload.md
-      - name: Exposing parameters in a configuration group schema
+      - name: Exposing parameters via CGS using CLI
         href: concepts-expose-parameters-configuration-group-schema.md
   - name: Safe Upgrade Practices
     expanded: false
@@ -93,7 +95,7 @@
         href: how-to-create-custom-role.md
       - name: Assign a custom role
         href: how-to-assign-custom-role.md
-      - name: Create a user assigned managed identity
+      - name: Create, assign and use a user assigned managed identity
         href: how-to-create-user-assigned-managed-identity.md
   - name: Onboard network functions and Azure resources
     expanded: false

@@ -11,6 +11,7 @@ ms.date: 06/01/2023
 ms.author: akashdubey
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
+# Customer intent: As a developer, I want a checklist of proven practices for optimizing Blob storage performance, so that I can ensure my application scales efficiently and meets performance targets while avoiding throttling and errors.
 ---
 
 # Performance and scalability checklist for Blob storage
