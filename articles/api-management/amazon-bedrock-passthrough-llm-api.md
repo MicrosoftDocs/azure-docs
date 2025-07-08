@@ -75,7 +75,7 @@ To import an Amazon Bedrock API to API Management:
 
     :::image type="content" source="media/amazon-bedrock-passthrough-llm-api/configure-api.png" alt-text="Screenshot of language model API configuration in the portal.":::
 
-1. On the remaining tabs, optionally configure policies to manage token consumption, semantic caching, and AI content safety. For details, see [Import an OpenAI-compatible language model API](openai-compatible-llm-api.md).
+1. On the remaining tabs, optionally configure policies to manage token consumption, semantic caching, and AI content safety. For details, see [Import a language model API](openai-compatible-llm-api.md).
 1. Select **Review**.
 1. After settings are validated, select **Create**. 
 
