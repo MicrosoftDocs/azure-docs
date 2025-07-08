@@ -7,6 +7,7 @@ ms.topic: quickstart
 ms.author: padmalathas
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 tags: azure-resource-manager, bicep
+# Customer intent: As a cloud developer, I want to create a Batch account using a Bicep file, so that I can deploy compute resources and manage workloads efficiently.
 ---
 
 # Quickstart: Create a Batch account by using a Bicep file

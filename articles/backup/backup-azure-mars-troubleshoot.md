@@ -2,11 +2,14 @@
 title: Troubleshoot the Azure Backup agent
 description: In this article, learn how to troubleshoot the installation and registration of the Azure Backup agent.
 ms.topic: troubleshooting
-ms.date: 05/28/2024
+ms.date: 06/20/2025
 ms.service: azure-backup
-ms.custom: engagement-fy24
+ms.custom:
+  - engagement-fy24
+  - build-2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to troubleshoot the Azure Backup agent installation and registration issues, so that I can ensure successful backup operations and maintain data integrity."
 ---
 
 # Troubleshoot the Microsoft Azure Recovery Services (MARS) agent
@@ -35,7 +38,7 @@ We recommend that you check the following before you start troubleshooting Micro
 - For offline backups, ensure Azure PowerShell 3.7.0 is installed on both the source and the copy computer before you start the backup.
 - If the Backup agent is running on an Azure virtual machine, see [this article](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-backup-agent-running-on-an-azure-virtual-machine).
 
-## Troubleshoot errors
+## Common MARS configuration errors
 
 This section explains the process to troubleshoot errors that you might encounter.
 
@@ -49,7 +52,7 @@ This section explains the process to troubleshoot errors that you might encounte
 | Causes | Recommended actions |
 | ---     | ---    |
 | **Vault credentials aren't valid** <br/> <br/> Vault credential files might be corrupt, might have expired, or they might have a different file extension than `.vaultCredentials`. (For example, they might have been downloaded more than 10 days before the time of registration.) | [Download new credentials](backup-azure-file-folder-backup-faq.yml#where-can-i-download-the-vault-credentials-file-) from the Recovery Services vault on the Azure portal. Then take these steps, as appropriate: <br><br>- If you've already installed and registered MARS, open the Microsoft Azure Backup Agent MMC console. Then select **Register Server** in the **Actions** pane to complete the registration with the new credentials. <br> - If the new installation fails, try reinstalling with the new credentials. <br><br> **Note**: If multiple vault credential files have been downloaded, only the latest file is valid for the next 10 days. We recommend that you download a new vault credential file. <br><br> - To prevent errors during vault registration, ensure that the MARS agent version 2.0.9249.0 or above is installed. If not, we recommend you to install it [from here](https://aka.ms/azurebackup_agent).|
-| **Proxy server/firewall is blocking registration** <br/>Or <br/>**No internet connectivity** <br/><br/> If your machine has limited internet access, and you don't ensure the firewall, proxy, and network settings allow access to the FQDNS and public IP addresses, the registration will fail.| Follow these steps:<br/> <br><br>- Work with your IT team to ensure the system has internet connectivity.<br>- If you don't have a proxy server, ensure the proxy option isn't selected when you register the agent. [Check your proxy settings](#verifying-proxy-settings-for-windows).<br>- If you do have a firewall/proxy server, work with your networking team to allow access to the following FQDNs and public IP addresses. Access to all of the URLs and IP addresses listed below uses the HTTPS protocol on port 443.<br/> <br> **URLs**<br> `*.microsoft.com` <br> `*.windowsazure.com` <br> `*.microsoftonline.com` <br> `*.windows.net` <br> `*blob.core.windows.net` <br> `*queue.core.windows.net` <br> `*blob.storage.azure.net`<br><br><br>- If you're a US Government customer, ensure that you have access to the following URLs:<br><br> `www.msftncsi.com` <br> `*.microsoft.com` <br> `*.windowsazure.us` <br> `*.microsoftonline.us` <br> `*.windows.net` <br> `*.usgovcloudapi.net` <br> `*blob.core.windows.net` <br> `*queue.core.windows.net` <br> `*blob.storage.azure.net` <br><br> Try registering again after you complete the preceding troubleshooting steps.<br></br> If your connection is via Azure ExpressRoute, make sure the settings are configured as described in Azure [ExpressRoute support](../backup/backup-support-matrix-mars-agent.md#azure-expressroute-support). <br/> <br/> If you are using the [Entra Tenant Restrictions](/entra/identity/enterprise-apps/tenant-restrictions) feature with your proxy, ensure that the tenant id of Recovery Services Vault used to register the MARS agent is added to the list of allowed tenants in the `Restrict-Access-To-Tenants` header. This tenant id is unique per Azure region. You can find the tenant id by opening the vault credential file and locating the `<AadTenantId>` element.|
+| **Proxy server/firewall is blocking registration** <br/>Or <br/>**No internet connectivity** <br/><br/> If your machine has limited internet access, and you don't ensure the firewall, proxy, and network settings allow access to the FQDNS and public IP addresses, the registration will fail.| Follow these steps:<br/> <br><br>- Work with your IT team to ensure the system has internet connectivity.<br>- If you don't have a proxy server, ensure the proxy option isn't selected when you register the agent. [Check your proxy settings](#verifying-proxy-settings-for-windows).<br>- If you do have a firewall/proxy server, work with your networking team to allow access to the following FQDNs and public IP addresses. Access to all of the URLs and IP addresses listed below uses the HTTPS protocol on port 443.<br/> <br> **URLs**<br> `*.microsoft.com` <br> `*.windowsazure.com` <br> `*.microsoftonline.com` <br> `*.windows.net` <br> `*blob.core.windows.net` <br> `*queue.core.windows.net` <br> `*blob.storage.azure.net`<br><br><br>- If you're a US Government customer, ensure that you have access to the following URLs:<br><br> `www.msftncsi.com` <br> `*.microsoft.com` <br> `*.windowsazure.us` <br> `*.microsoftonline.us` <br> `*.windows.net` <br> `*.usgovcloudapi.net` <br> `*blob.core.windows.net` <br> `*queue.core.windows.net` <br> `*blob.storage.azure.net` <br><br> Try registering again after you complete the preceding troubleshooting steps.<br></br> If your connection is via Azure ExpressRoute, make sure the settings are configured as described in Azure [ExpressRoute support](../backup/backup-support-matrix-mars-agent.md#azure-expressroute-support). <br/> <br/> If you are using the [Entra Tenant Restrictions](/entra/identity/enterprise-apps/tenant-restrictions) feature with your proxy, ensure that the tenant ID of Recovery Services Vault used to register the MARS agent is added to the list of allowed tenants in the `Restrict-Access-To-Tenants` header. This tenant ID is unique per Azure region. You can find the tenant ID by opening the vault credential file and locating the `<AadTenantId>` element.|
 | **Antivirus software is blocking registration** |  If you have antivirus software installed on the server, add the exclusion rules to the antivirus scan for: <br><br> - Every file and folder under the *scratch* and *bin* folder locations - `<InstallPath>\Scratch\*` and `<InstallPath>\Bin\*`. <br> - cbengine.exe   |
 
 #### Additional recommendations
@@ -89,6 +92,28 @@ This section explains the process to troubleshoot errors that you might encounte
 | ---     | ---     | ---    |
 | The specified vault credential file cannot be used as it is not downloaded from the vault associated with this server. (ID: 100110) Please provide appropriate vault credentials. | The vault credential file is from a different vault than the one this server is already registered to. | Ensure that the target machine and the source machine are registered to the same Recovery Services vault. If the target server has already been registered to a different vault, use the **Register Server** option to register to the correct vault.
 
+### Failed to set the encryption key for secure backups
+
+| Error | Possible causes | Recommended actions |
+| ---     | ---     | ---    |
+| Failed to set the encryption key for secure backups. Activation did not succeed completely but the encryption passphrase was saved to the following file. | - The server is already registered with another vault. <br><br> - During configuration, the passphrase was corrupted.| Unregister the server from the vault and register it again with a new passphrase. |
+
+### The activation did not complete successfully
+
+| Error  | Possible causes | Recommended actions |
+|---------|---------|---------|
+| The activation did not complete successfully. The current operation failed due to an internal service error [0x1FC07]. Retry the operation after some time. If the issue persists, please contact Microsoft support.     | - The scratch folder is located on a volume that doesn't have enough space. <br><br> - The scratch folder has been incorrectly moved. <br><br> - The OnlineBackup.KEK file is missing.         | - Upgrade to the [latest version](https://aka.ms/azurebackup_agent) of the MARS agent. <br><br> - Move the scratch folder or cache location to a volume with free space that's between 5% and 10% of the total size of the backup data. To correctly move the cache location, refer to the steps in [Common questions about backing up files and folders](./backup-azure-file-folder-backup-faq.yml). <br><br> - Ensure that the OnlineBackup.KEK file is present. <br>*The default location for the scratch folder or the cache path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
+
+### Encryption passphrase not correctly configured
+
+| Error  | Possible causes | Recommended actions |
+|---------|---------|---------|
+| Error 34506. The encryption passphrase stored on this computer is not correctly configured.    | - The scratch folder is located on a volume that doesn't have enough space. <br><br> - The scratch folder has been incorrectly moved. <br><br> - The OnlineBackup.KEK file is missing.        | - Upgrade to the [latest version](https://aka.ms/azurebackup_agent) of the MARS Agent. <br><br> - Move the scratch folder or cache location to a volume with free space that's between 5% and 10% of the total size of the backup data. To correctly move the cache location, refer to the steps in [Common questions about backing up files and folders](./backup-azure-file-folder-backup-faq.yml). <br><br> - Ensure that the OnlineBackup.KEK file is present. <br>*The default location for the scratch folder or the cache path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*. <br><br> - If you've recently moved your scratch folder, ensure that the path of your scratch folder location matches the values of the registry key entries shown below: <br><br> **Registry path**: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` <br> **Registry Key**: ScratchLocation <br> **Value**: *New cache folder location* <br><br>**Registry path**: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` <br> **Registry Key**: ScratchLocation <br> **Value**: *New cache folder location*        |
+
+## Backup issues
+
+This section provides the troubleshooting steps to resolve backup issues.
+
 ### Backup jobs completed with warning
 
 - When the MARS agent iterates over files and folders during backup, it might encounter various conditions that can cause the backup to be marked as completed with warnings. During these conditions, a job shows as completed with warnings. That's fine, but it means that at least one file wasn't able to be backed up. So the job skipped that file, but backed up all other files in question on the data source. Also, not having the latest agent installed on VM can cause a warning state.
@@ -114,24 +139,6 @@ This section explains the process to troubleshoot errors that you might encounte
 - You can use [Add Exclusion rules to existing policy](./backup-azure-manage-mars.md#add-exclusion-rules-to-existing-policy) to exclude unsupported, missing, or deleted files from your backup policy to ensure successful backups.
 
 - Avoid deleting and recreating protected folders with the same names in the top-level folder. Doing so could result in the backup completing with warnings with the error: *A critical inconsistency was detected, therefore changes cannot be replicated.*  If you need to delete and recreate folders, then consider doing so in subfolders under the protected top-level folder.
-
-### Failed to set the encryption key for secure backups
-
-| Error | Possible causes | Recommended actions |
-| ---     | ---     | ---    |
-| Failed to set the encryption key for secure backups. Activation did not succeed completely but the encryption passphrase was saved to the following file. | - The server is already registered with another vault. <br><br> - During configuration, the passphrase was corrupted.| Unregister the server from the vault and register it again with a new passphrase. |
-
-### The activation did not complete successfully
-
-| Error  | Possible causes | Recommended actions |
-|---------|---------|---------|
-| The activation did not complete successfully. The current operation failed due to an internal service error [0x1FC07]. Retry the operation after some time. If the issue persists, please contact Microsoft support.     | - The scratch folder is located on a volume that doesn't have enough space. <br><br> - The scratch folder has been incorrectly moved. <br><br> - The OnlineBackup.KEK file is missing.         | - Upgrade to the [latest version](https://aka.ms/azurebackup_agent) of the MARS agent. <br><br> - Move the scratch folder or cache location to a volume with free space that's between 5% and 10% of the total size of the backup data. To correctly move the cache location, refer to the steps in [Common questions about backing up files and folders](./backup-azure-file-folder-backup-faq.yml). <br><br> - Ensure that the OnlineBackup.KEK file is present. <br>*The default location for the scratch folder or the cache path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
-
-### Encryption passphrase not correctly configured
-
-| Error  | Possible causes | Recommended actions |
-|---------|---------|---------|
-| Error 34506. The encryption passphrase stored on this computer is not correctly configured.    | - The scratch folder is located on a volume that doesn't have enough space. <br><br> - The scratch folder has been incorrectly moved. <br><br> - The OnlineBackup.KEK file is missing.        | - Upgrade to the [latest version](https://aka.ms/azurebackup_agent) of the MARS Agent. <br><br> - Move the scratch folder or cache location to a volume with free space that's between 5% and 10% of the total size of the backup data. To correctly move the cache location, refer to the steps in [Common questions about backing up files and folders](./backup-azure-file-folder-backup-faq.yml). <br><br> - Ensure that the OnlineBackup.KEK file is present. <br>*The default location for the scratch folder or the cache path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*. <br><br> - If you've recently moved your scratch folder, ensure that the path of your scratch folder location matches the values of the registry key entries shown below: <br><br> **Registry path**: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` <br> **Registry Key**: ScratchLocation <br> **Value**: *New cache folder location* <br><br>**Registry path**: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` <br> **Registry Key**: ScratchLocation <br> **Value**: *New cache folder location*        |
 
 ### Backups don't run according to schedule
 
@@ -168,7 +175,7 @@ Set-ExecutionPolicy Unrestricted
   1. From any machine that has a MARS agent that's working properly, copy the MSOnlineBackup folder from C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules.
   1. On the problematic machine, paste the copied files at the same folder location (C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules).
 
-    If there's already an MSOnlineBackup folder on the machine, paste the files into it or replace any existing files.
+    If there's already a MSOnlineBackup folder on the machine, paste the files into it or replace any existing files.
 
 > [!TIP]
 > To ensure changes are applied consistently, restart the server after performing the preceding steps.
@@ -187,7 +194,7 @@ If you notice a warning message in the **MARS console** > **Job history**, sayin
 
 To resolve this issue:
 
-1. Launch the Task Scheduler snap-in by typing *taskschd.msc* in the Run window
+1. Launch the Task Scheduler snap-in by typing `taskschd.msc` in the Run window
 1. In the left pane, navigate to **Task Scheduler Library** -> **Microsoft** -> **OnlineBackup**.
 1. For each task in this library, double-click on the task to open properties and perform the following steps:
     1. Switch to the **Settings** tab.
@@ -198,7 +205,7 @@ To resolve this issue:
 
          ![Change the rule to do not start new instance](./media/backup-azure-mars-troubleshoot/change-rule.png)
 
-### Troubleshoot restore problems
+## Restore issues
 
 Azure Backup might not successfully mount the recovery volume, even after several minutes. And you might receive error messages during the process. To begin recovering normally, take these steps:
 
@@ -224,9 +231,9 @@ Azure Backup might not successfully mount the recovery volume, even after severa
 
 9. Retry recovery by using [Instant Restore](backup-instant-restore-capability.md).
 
-If the recovery still fails, restart your server or client. If you don't want to restart, or if the recovery still fails even after you restart the server, try [recovering from another machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+If the recovery still fails, restart your server or client. If you don't want to restart, or if the recovery still fails even after you restart the server, try [recovering from another machine](backup-azure-restore-windows-server.md#restore-data-to-an-alternate-machine-using-instant-restore).
 
-### Troubleshoot Cache problems
+## Cache issues
 
 Backup operation may fail if the cache folder (also referred as scratch folder) is incorrectly configured, missing prerequisites or has restricted access.
 
@@ -255,9 +262,9 @@ Backup operations could fail if there isn't sufficient shadow copy storage space
 
 #### Backup or restore job is displayed as *in progress* in Azure for many days but is not visible in the console
 
-If a MARS Agent backup or restore job crashes during execution, it is marked as failed in the MARS console, but the status might not get propagated to Azure. Hence, the job might be displayed as "in progress" in the Azure Portal even when it is not running. This stale job entry will be removed from the Azure Portal automatically after 30 days.
+If a MARS Agent backup or restore job crashes during execution, it is marked as failed in the MARS console, but the status might not get propagated to Azure. Hence, the job might be displayed as "in progress" in the Azure portal even when it is not running. This stale job entry will be removed from the Azure portal automatically after 30 days.
 
-### Common issues
+## Common issues
 
 This section covers the common errors that you encounter while using MARS agent.
 

@@ -3,10 +3,10 @@ title: Azure permissions for Web and Mobile - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Web and Mobile category.
 ms.service: role-based-access-control
 ms.topic: generated-reference
-author: rolyon
-manager: femila
-ms.author: rolyon
-ms.date: 04/25/2025
+author: jenniferf-skc
+manager: pmwongera
+ms.author: jfields
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 
@@ -251,7 +251,7 @@ Azure service: [Azure SignalR Service](/azure/azure-signalr/)
 > | Microsoft.SignalRService/SignalR/auth/clientToken/action | Generate an AccessToken for client to connect to ASRS, the token will expire in 5 minutes by default |
 > | Microsoft.SignalRService/SignalR/auth/accessKey/action | Generate an AccessKey for signing AccessTokens, the key will expire in 90 minutes by default |
 > | Microsoft.SignalRService/SignalR/auth/accessToken/action | Generate an AccessToken for client to connect to ASRS, the token will expire in 5 minutes by default |
-> | Microsoft.SignalRService/SignalR/clientConnection/generateToken/action | Generate a JWT for client to connect to the service |
+> | Microsoft.SignalRService/SignalR/clientConnection/generateToken/action | Generate a JWT Token for client to connect to the service |
 > | Microsoft.SignalRService/SignalR/clientConnection/send/action | Send messages directly to a client connection |
 > | Microsoft.SignalRService/SignalR/clientConnection/read | Check client connection existence |
 > | Microsoft.SignalRService/SignalR/clientConnection/write | Close client connection |
@@ -269,7 +269,7 @@ Azure service: [Azure SignalR Service](/azure/azure-signalr/)
 > | Microsoft.SignalRService/SignalR/user/write | Modify a user |
 > | Microsoft.SignalRService/WebPubSub/auth/accessKey/action | Generate an AccessKey for signing AccessTokens, the key will expire in 90 minutes by default |
 > | Microsoft.SignalRService/WebPubSub/auth/accessToken/action | Generate an AccessToken for client to connect to AWPS, the token will expire in 5 minutes by default |
-> | Microsoft.SignalRService/WebPubSub/clientConnection/generateToken/action | Generate a JWT for client to connect to the service |
+> | Microsoft.SignalRService/WebPubSub/clientConnection/generateToken/action | Generate a JWT Token for client to connect to the service |
 > | Microsoft.SignalRService/WebPubSub/clientConnection/send/action | Send messages directly to a client connection |
 > | Microsoft.SignalRService/WebPubSub/clientConnection/read | Check client connection existence |
 > | Microsoft.SignalRService/WebPubSub/clientConnection/write | Close client connection |
@@ -466,11 +466,6 @@ Azure service: [App Service](/azure/app-service/), [Azure Functions](/azure/azur
 > | Microsoft.Web/serverfarms/eventGridFilters/delete | Delete Event Grid Filter on server farm. |
 > | Microsoft.Web/serverfarms/eventGridFilters/read | Get Event Grid Filter on server farm. |
 > | Microsoft.Web/serverfarms/eventGridFilters/write | Put Event Grid Filter on server farm. |
-> | microsoft.web/serverfarms/firstpartyapps/keyvaultsettings/read | Get first party Azure Key vault referenced settings for App Service Plan. |
-> | microsoft.web/serverfarms/firstpartyapps/keyvaultsettings/write | Create or Update first party Azure Key vault referenced settings for App Service Plan. |
-> | microsoft.web/serverfarms/firstpartyapps/settings/delete | Delete App Service Plans First Party Apps Settings. |
-> | microsoft.web/serverfarms/firstpartyapps/settings/read | Get App Service Plans First Party Apps Settings. |
-> | microsoft.web/serverfarms/firstpartyapps/settings/write | Update App Service Plans First Party Apps Settings. |
 > | microsoft.web/serverfarms/hybridconnectionnamespaces/relays/read | Get App Service Plans Hybrid Connection Namespaces Relays. |
 > | microsoft.web/serverfarms/hybridconnectionnamespaces/relays/delete | Delete App Service Plans Hybrid Connection Namespaces Relays. |
 > | microsoft.web/serverfarms/hybridconnectionnamespaces/relays/sites/read | Get App Service Plans Hybrid Connection Namespaces Relays Web Apps. |

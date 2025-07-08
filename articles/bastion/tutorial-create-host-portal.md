@@ -1,11 +1,12 @@
 ---
 title: 'Tutorial: Deploy Azure Bastion using specified settings: Azure portal'
 description: Learn how to deploy a dedicated Azure Bastion bastion host using settings that you specify in the Azure portal. Use these steps when you want to specify features and settings. 
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: tutorial
 ms.date: 01/22/2025
-ms.author: cherylmc
+ms.author: abell
+# Customer intent: As a cloud administrator, I want to deploy Azure Bastion with customized settings in my virtual network, so that I can establish secure connections to my virtual machines without exposing public IP addresses.
 ---
 
 # Tutorial: Deploy Azure Bastion by using specified settings

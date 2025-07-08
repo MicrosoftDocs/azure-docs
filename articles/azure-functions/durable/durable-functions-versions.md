@@ -87,7 +87,7 @@ Install the latest 2.x version of the Durable Functions bindings extension in yo
 
 #### JavaScript, Python, and PowerShell
 
-Durable Functions 2.x is available starting in version 2.x of the [Azure Functions extension bundle](../functions-bindings-register.md#extension-bundles).
+Durable Functions 2.x is available starting in version 2.x of the [Azure Functions extension bundle](../extension-bundles.md).
 
 Python support in Durable Functions requires Durable Functions 2.x or greater.
 
@@ -108,7 +108,7 @@ To update the extension bundle version in your project, open host.json and updat
 
 #### Java 
 
-Durable Functions 2.x is available starting in version 4.x of the [Azure Functions extension bundle](../functions-bindings-register.md#extension-bundles). You must use the Azure Functions 4.0 runtime to execute Java functions.
+Durable Functions 2.x is available starting in version 4.x of the [Azure Functions extension bundle](../extension-bundles.md). You must use the Azure Functions 4.0 runtime to execute Java functions.
 
 To update the extension bundle version in your project, open host.json and update the `extensionBundle` section to use version 4.x (`[4.*, 5.0.0)`). 
 ```json

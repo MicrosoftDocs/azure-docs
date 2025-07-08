@@ -5,8 +5,9 @@ ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 04/26/2025
 ms.custom: MVC
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
+# Customer intent: "As an IT administrator managing on-premises VMware VMs, I want to set up disaster recovery to Azure using a replication appliance, so that I can ensure business continuity and protect against data loss in the event of a disaster."
 ---
 # Set up disaster recovery to Azure for on-premises VMware VMs - Modernized
 

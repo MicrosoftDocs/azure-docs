@@ -5,7 +5,7 @@ services: azure-communication-services
 author: arifibrahim4
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 01/28/2025
+ms.date: 05/01/2025
 ms.topic: include
 ms.custom: include file
 ms.author: armohamed
@@ -64,9 +64,9 @@ Follow these steps to add required code snippets to the main function of your `A
 Follow these steps to add required code snippets to the main function of your `App.java` file.
 - [Send an Interactive List options message to a WhatsApp user](#send-an-interactive-reply-button-message-to-a-whatsapp-user).
 - [Send an Interactive Reply Button message to a WhatsApp user](#send-an-interactive-reply-button-message-to-a-whatsapp-user).
-- [Send an Interactive Click-to-action Url based message to a WhatsApp user](#send-an-interactive-call-to-action-url-based-message-to-a-whatsapp-user)
+- [Send an Interactive Click-to-action Url based message to a WhatsApp user](#send-an-interactive-call-to-action-url-based-message-to-a-whatsapp-user).
 
-### Send an Interactive List options message to a WhatsApp user
+### Send an interactive list options message to a WhatsApp user
 
 The Messages SDK enables Contoso to send interactive WhatsApp messages, when initiated by a WhatsApp users. To send interactive messages:
 - [WhatsApp Channel ID](#set-channel-registration-id).
@@ -113,9 +113,10 @@ for (MessageReceipt messageReceipt : textMessageResult.getReceipts()) {
 }
 ```
 
-### Send an Interactive Reply Button message to a WhatsApp user
+### Send an interactive reply button message to a WhatsApp user
 
 The Messages SDK enables Contoso to send interactive WhatsApp messages, when initiated by a WhatsApp users. To send interactive messages:
+
 - [WhatsApp Channel ID](#set-channel-registration-id).
 - [Recipient Phone Number in E16 format](#set-recipient-list).
 - Interactive message to be sent.
@@ -144,9 +145,10 @@ for (MessageReceipt messageReceipt : textMessageResult.getReceipts()) {
 }
 ```
 
-### Send an Interactive Call-To-Action Url based message to a WhatsApp user
+### Send an interactive call-to-action URL based message to a WhatsApp user
 
 The Messages SDK enables Contoso to send interactive WhatsApp messages, when initiated by a WhatsApp users. To send interactive messages:
+
 - [WhatsApp Channel ID](#set-channel-registration-id).
 - [Recipient Phone Number in E16 format](#set-recipient-list).
 - Interactive message to be sent.
@@ -173,7 +175,6 @@ for (MessageReceipt messageReceipt : textMessageResult.getReceipts()) {
 }
 ```
 
-
 ### Run the code
 
 1. Open to the directory that contains the `pom.xml` file and compile the project using the `mvn` command.
@@ -190,4 +191,4 @@ for (MessageReceipt messageReceipt : textMessageResult.getReceipts()) {
 
 ## Full sample code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication/azure-communication-messages/src/samples/java/com/azure/communication/messages).
+Find the finalized code for this sample on GitHub at [Azure Messages client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/communication/azure-communication-messages/src/samples/java/com/azure/communication/messages).

@@ -7,6 +7,7 @@ ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 08/01/2022
 ms.author: duau
+# Customer intent: As a network security administrator, I want to enable threat intelligence-based filtering on my firewall, so that I can proactively alert and deny traffic from known malicious IP addresses and domains to enhance the security of my network.
 ---
 
 # Azure Firewall threat intelligence-based filtering

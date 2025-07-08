@@ -3,10 +3,10 @@ title: Azure permissions for General - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the General category.
 ms.service: role-based-access-control
 ms.topic: generated-reference
-author: rolyon
-manager: femila
-ms.author: rolyon
-ms.date: 04/25/2025
+author: jenniferf-skc
+manager: pmwongera
+ms.author: jfields
+ms.date: 05/25/2025
 ms.custom: generated
 ---
 

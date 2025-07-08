@@ -1,6 +1,6 @@
 ---
 title: Import a gRPC API to Azure API Management
-description: Learn how to import a gRPC service definition as an API to an API Management instance using the Azure portal, ARM template, or bicep template.
+description: Learn how to import a gRPC service definition as an API to an API Management instance using the Azure portal, ARM template, or Bicep file.
 services: api-management
 author: dlepow
 
@@ -8,7 +8,12 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/06/2024
 ms.author: danlep
-ms.custom: devx-track-arm-template, devx-track-bicep, build-2024, devx-track-dotnet
+ms.custom:
+  - devx-track-arm-template
+  - devx-track-bicep
+  - build-2024
+  - devx-track-dotnet
+  - build-2025
 ---
 # Import a gRPC API
 

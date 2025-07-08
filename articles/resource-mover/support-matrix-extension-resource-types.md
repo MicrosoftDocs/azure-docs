@@ -1,13 +1,15 @@
 ---
 title: Support of Extension resource types in Azure Resource Mover
 description: Supported Extension resource types in Azure Resource Mover.
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.service: azure-resource-mover
 ms.topic: concept-article
 ms.date: 12/27/2024
-ms.author: aarthiv
+ms.update-cycle: 180-days
+ms.author: jsuri
 ms.custom: UpdateFrequency.5
 
+# Customer intent: "As a cloud architect, I want to understand which extension resource types are supported during region migrations, so that I can plan and execute effective resource relocations without encountering unsupported configurations."
 ---
 
 # Support for moving extension resource types between Azure regions

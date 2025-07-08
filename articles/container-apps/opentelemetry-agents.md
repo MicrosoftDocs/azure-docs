@@ -1,15 +1,17 @@
 ---
-title: Collect and read OpenTelemetry data in Azure Container Apps (preview)
-description: Learn to record and query data collected using OpenTelemetry in Azure Container Apps.
+title: Collect and read OpenTelemetry data in Azure Container Apps
+description: Learn to record and query data collected using OpenTelemetry in Azure Container Apps (preview).
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.date: 05/07/2025
+ms.date: 06/16/2025
 ms.author: cshoe
 ms.topic: how-to
+ms.custom:
+  - build-2025
 ---
 
-# Collect and read OpenTelemetry data in Azure Container Apps (preview)
+# Collect and read OpenTelemetry data in Azure Container Apps
 
 Using an [OpenTelemetry](https://opentelemetry.io/) data agent with your Azure Container Apps environment, you can choose to send observability data in an OpenTelemetry format by:
 
@@ -51,7 +53,7 @@ The following table shows you what type of data you can send to each destination
 | Destination | Logs | Metrics | Traces |
 |---|------|---------|--------|
 | [Azure App Insights](/azure/azure-monitor/app/app-insights-overview) | Yes | No | Yes |
-| [Datadog](https://datadoghq.com/) | No | Yes | Yes |
+| [Datadog](https://datadoghq.com/) | Yes | Yes | Yes |
 | [OpenTelemetry](https://opentelemetry.io/) protocol (OTLP) configured endpoint | Yes | Yes | Yes |
 
 ## Azure Monitor Application Insights
@@ -267,7 +269,7 @@ param datadogapikey = az.getSecret('<SUBSCRIPTION_ID>', '<RESOURCE_GROUP_NAME>',
 
 The subscription ID has the form `123e4567-e89b-12d3-a456-426614174000`. The secret version ID has the form `123e4567e89b12d3a456426614174000`.
 
-You can now reference the `datadogapikey` parameter in your Bicep template.
+You can now reference the `datadogapikey` parameter in your Bicep file.
 
 ```bicep
 @secure()
@@ -774,10 +776,10 @@ See the destination service for their billing structure and terms. For example, 
 
 ## Known limitations
 
-- OpenTelemetry agents are in preview.
 - System data, such as system logs or Container Apps standard metrics, isn't available to be sent to the OpenTelemetry agent.
 - The Application Insights endpoint doesn't accept metrics.
 - Configuration settings live at the environment level. You can send different data types to different destinations, but you can't split up your data by app. For example, in the same app you can send metrics to Datadog, and traces to App Insights.
+- The managed agent only supports the gRPC transport protocol for telemetry data.
 
 ## Frequently asked questions
 

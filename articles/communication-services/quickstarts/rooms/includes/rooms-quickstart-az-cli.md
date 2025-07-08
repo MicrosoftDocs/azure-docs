@@ -6,7 +6,7 @@ author: mikehang-msft
 manager: alexokun
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 07/01/2023
+ms.date: 05/15/2025
 ms.topic: include
 ms.custom: include file, devx-track-azurecli
 ms.author: mikehang-msft
@@ -22,6 +22,7 @@ ms.author: mikehang-msft
 ## Setting up 
 
 ### Add the extension
+
 Add the Azure Communication Services extension for Azure CLI by using the `az extension` command.
 
 ```azurecli-interactive
@@ -29,6 +30,7 @@ az extension add --name communication
 ```
 
 ### Sign in to Azure CLI
+
 You need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in by running the ```az login``` command from the terminal and providing your credentials.
 
 
@@ -62,7 +64,7 @@ Edit your **`.bash_profile`**, and add the environment variable:
 export AZURE_COMMUNICATION_CONNECTION_STRING="<connectionString>"
 ```
 
-After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective. If you created the environment variable with your IDE open, you might need to close and reopen the editor, IDE, or shell in order to access the variable. 
+After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective. If you created the environment variable with your IDE open, you might need to close and reopen the editor, IDE, or shell to access the variable. 
 
 ---
 
@@ -82,14 +84,15 @@ az communication rooms create --presenter-participants "<participantId>" --consu
 - Use `<valid-until>` optionally to specify the timestamp when the room can no longer be joined, in ISO8601 format, ex: 2022-07-14T10:21. 
 - Use `<pstn-dial-out-enabled>` optionally by setting this flag ("True" or "False") to enable or disable PSTN dial out for a room. By default, this flag is set to "False" when creating a room.
 
-If you've stored the connection string in environment variables as stated above, you won't need to pass them to the command.
+If you store the connection string in environment variables, you don't need to pass them to the command.
 
 ```azurecli-interactive
 az communication rooms create 
 ```
 
 ### Enable PSTN dial out capability for a room
-The PSTN dial out can be enabled during `rooms create` by defining the `--pstn-dial-out-enabled` parameter as "True". This capability can also be modified during `rooms update` by specifying the `--pstn-dial-out-enabled` parameter.
+
+You can enable the PSTN dial out during `rooms create` by defining the `--pstn-dial-out-enabled` parameter as `True`. You can change this capability during q `rooms update` by specifying the `--pstn-dial-out-enabled` parameter.
 
 ```azurecli-interactive
 az communication rooms create --pstn-dial-out-enabled "<pstn-dial-out-enabled>" --connection-string "<connection-string>"
@@ -99,7 +102,7 @@ az communication rooms create --pstn-dial-out-enabled "<pstn-dial-out-enabled>" 
 az communication rooms update --pstn-dial-out-enabled "<pstn-dial-out-enabled>" --room "<roomId>"
 ```
 
-- To enable or disable PSTN dial out for a room, set `<pstn-dial-out-enabled>` flag ("True" or "False").
+- To enable or disable PSTN dial out for a room, set `<pstn-dial-out-enabled>` flag (`True` or `False`).
 
 ### Get the rooms 
 
@@ -113,7 +116,7 @@ az communication rooms get --room "<roomId>"
 
 ### Update the timeframe of a room 
 
-You can update the timestamp of a room. Before calling the `room update` command, ensure that you've acquired a new room with a valid timeframe. 
+You can update the timestamp of a room. Before calling the `room update` command, ensure that you acquired a new room with a valid timeframe. 
 
 ```azurecli-interactive
 az communication rooms update --valid-from "<valid-from>" --valid-until "<valid-until>" --pstn-dial-out-enabled "<pstn-dial-out-enabled>" --room "<roomId>"
@@ -134,7 +137,7 @@ az communication rooms list
 
 ### Add new participants or update existing participants
 
-When you create a room, you can update the room by adding new participant or updating an existing participant in it. Before calling the `room participant add-or-update` command, ensure that you've acquired a new user. 
+When you create a room, you can update the room by adding new participant or updating an existing participant in it. Before calling the `room participant add-or-update` command, ensure that you acquired a new user. 
 
 Use the `identity user create` command to create a new participant, identified by `participantId`.
 
@@ -148,7 +151,7 @@ Add a user as a participant to the room.
 az communication rooms participant add-or-update --attendee-participant "<participantId>" --room "<roomId>"
 ```
 
-- Replace `<participantId>` with your participant ID. If the `<participantId>` doesn't exist in the room, the participant will be added to the room as an attendee role. Otherwise, the participant's role is updated to an attendee role.
+- Replace `<participantId>` with your participant ID. If the `<participantId>` doesn't exist in the room, the participant is added to the room as an attendee role. Otherwise, the participant's role is updated to an attendee role.
 - Replace `<roomId>` with your room ID.
 
 ### Get list of participants in a room

@@ -11,6 +11,7 @@ ms.topic: overview
 ms.date: 03/31/2025
 ms.custom: mvc
 ROBOTS: NOINDEX
+# Customer intent: "As a web developer, I want to implement a content delivery network, so that I can improve the performance and user experience of my applications by delivering high-bandwidth content efficiently to end users."
 ---
 
 # What is a content delivery network on Azure?
@@ -39,7 +40,7 @@ For a list of current content delivery network node locations, see [Azure Conten
 
 3. The origin server returns the file to an edge server in the POP.
 
-4. An edge server in the POP caches the file and returns the file to the original requestor (Alice). The file remains cached on the edge server in the POP until the time to live (TTL) specified by its HTTP headers expires. If the origin server didn't specify a TTL, the default TTL is seven days.
+4. An edge server in the POP caches the file and returns the file to the original requester (Alice). The file remains cached on the edge server in the POP until the time to live (TTL) specified by its HTTP headers expires. If the origin server didn't specify a TTL, the default TTL is seven days.
 
 5. More users can then request the same file by using the same URL that Alice used, and gets directed to the same POP.
 

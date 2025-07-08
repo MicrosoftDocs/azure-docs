@@ -1,13 +1,16 @@
 ---
-title: Tutorial - Monitor published APIs in Azure API Management | Microsoft Docs
+title: Tutorial - Monitor APIs in Azure API Management | Microsoft Docs
 description: Learn how to use metrics, alerts, activity logs, and resource logs to monitor your APIs in Azure API Management.
 services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.custom: engagement-fy23, devdivchpfy22
+ms.custom:
+  - engagement-fy23
+  - devdivchpfy22
+  - build-2025
 ms.topic: tutorial
-ms.date: 11/01/2024
+ms.date: 05/14/2025
 ms.author: danlep
 ---
 # Tutorial: Monitor published APIs
@@ -16,7 +19,7 @@ ms.author: danlep
 
 With Azure Monitor, you can visualize, query, route, archive, and take actions on the metrics or logs coming from your Azure API Management service. For an overview of Azure Monitor for API Management, see [Monitor API Management](monitor-api-management.md).
 
-[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
+[!INCLUDE [api-management-workspace-try-it](../../includes/api-management-workspace-try-it.md)]
 
 In this tutorial, you learn how to:
 
@@ -42,9 +45,12 @@ API Management emits [metrics](/azure/azure-monitor/essentials/data-platform-met
 * **Capacity** - helps you make decisions about upgrading/downgrading your API Management services. The metric is emitted per minute and reflects the estimated gateway capacity at the time of reporting. The metric ranges from 0-100 calculated based on gateway resources such as CPU and memory utilization and other factors.
 
     > [!TIP]
-    > In the [v2 service tiers](v2-service-tiers-overview.md), API Management has replaced the capacity metric with separate CPU and memory utilization metrics. These metrics can also be used for scaling decisions and troubleshooting. [Learn more](api-management-capacity.md)
+    > In the [v2 service tiers](v2-service-tiers-overview.md) and in [workspace gateways](workspaces-overview.md#workspace-gateway), API Management has replaced the gateway capacity metric with separate CPU and memory utilization metrics. These metrics can also be used for scaling decisions and troubleshooting. [Learn more](api-management-capacity.md)
 
 * **Requests** - helps you analyze API traffic going through your API Management services. The metric is emitted per minute and reports the number of gateway requests with dimensions. Filter requests by response codes, location, hostname, and errors.
+
+> [!NOTE]
+> The Requests metric is not available in workspaces.
 
 > [!IMPORTANT]
 > The following metrics have been retired: Total Gateway Requests, Successful Gateway Requests, Unauthorized Gateway Requests, Failed Gateway Requests, Other Gateway Requests. Please migrate to the Requests metric which provides closely similar functionality.
@@ -57,6 +63,9 @@ To access metrics:
 1. To investigate metrics in detail, select **Monitoring** > **Metrics** from the left menu.
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-metrics-blade.png" alt-text="Screenshot of Metrics item in Monitoring menu in the portal.":::
+
+    > [!TIP]
+    > In a workspace, you can view capacity metrics scoped to a workspace gateway. Navigate to **Monitoring** > **Metrics** in the left menu of a workspace gateway.
 
 1. From the drop-down, select metrics you're interested in. For example, **Requests**.
 1. The chart shows the total number of API calls. Adjust the time range to focus on periods of interest.
@@ -132,77 +141,22 @@ Resource logs (Azure Monitor logs) provide rich information about API Management
 > [!NOTE]
 > The Consumption tier doesn't support the collection of resource logs.
 
-To configure resource logs:
+> [!TIP]
+> In API Management instances with [workspaces](workspaces-overview.md), federated logs across the API Management service can be accessed by the API platform team for centralized API monitoring, while workspace teams can access the logs specific to their workspace's APIs. [Learn more about Azure Monitor logging with workspaces](how-to-create-workspace.md#enable-diagnostic-settings-for-monitoring-workspace-apis)
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-2. Select **Monitoring** > **Diagnostic settings**.
-
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-diagnostic-logs-blade.png" alt-text="Screenshot of Diagnostic settings item in Monitoring menu in the portal.":::
-
-1. Select **+ Add diagnostic setting**.
-1. Select the logs or metrics that you want to collect.
-
-   You have several options about where to send the logs and metrics. For example, archive resource logs along with metrics to a storage account, stream them to an event hub, or send them to a Log Analytics workspace.
-
-   > [!TIP]
-   > If you select a Log Analytics workspace, you can choose to store the data in the resource-specific ApiManagementGatewayLogs table or store in the general AzureDiagnostics table. We recommend using the resource-specific table for log destinations that support it. [Learn more](/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace)
-
-1. After configuring details for the log destination or destinations, select **Save**. 
-
-> [!NOTE]
-> Adding a diagnostic setting object might result in a failure if the [MinApiVersion property](/dotnet/api/microsoft.azure.management.apimanagement.models.apiversionconstraint.minapiversion) of your API Management service is set to any API version higher than 2022-09-01-preview. 
-
-For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](/azure/azure-monitor/essentials/diagnostic-settings).
+[!INCLUDE [api-management-diagnostic-settings](../../includes/api-management-diagnostic-settings.md)]
  
-## View logs and metrics in Azure Monitor
+## View logs and metrics in Azure Log Analytics
 
-If you enable collection of logs or metrics in a Log Analytics workspace, it can take a few minutes for data to appear in Azure Monitor. 
-
-To view the data:
-
-1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. Select **Logs** from the left menu.
-
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Screenshot of Logs item in Monitoring menu in the portal.":::
-
-1. Run queries to view the data. Several [sample queries](/azure/azure-monitor/logs/queries) are provided, or run your own. For example, the following query retrieves the most recent 24 hours of data from the ApiManagementGatewayLogs table:
-
-    ```kusto
-    ApiManagementGatewayLogs
-    | where TimeGenerated > ago(1d) 
-    ```
-
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/query-resource-logs.png" alt-text="Screenshot of querying ApiManagementGatewayLogs table in the portal." lightbox="media/api-management-howto-use-azure-monitor/query-resource-logs.png":::
+[!INCLUDE [api-management-log-analytics](../../includes/api-management-log-analytics.md)]
 
 For more information about using resource logs for API Management, see:
-
 * [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
-
 * [Overview of log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview).
-
-* [API Management resource log schema reference](gateway-log-schema-reference.md). 
 
 ## Modify API logging settings
 
-By default, when you create a diagnostic setting to enable collection of resource logs, logging is enabled for all APIs, with default settings. You can adjust the logging settings for all APIs, or override them for individual APIs. For example, adjust the sampling rate or the verbosity of the data, enable logging of headers or request or response payloads, or disable logging for some APIs.
-
-For details about the logging settings, see [Diagnostic logging settings reference](diagnostic-logs-reference.md).
-
-To configure logging settings for all APIs:
-
-1. In the left menu of your API Management instance, select **APIs** > **APIs** > **All APIs**.
-1. Select the **Settings** tab from the top bar.
-1. Scroll down to the **Diagnostic Logs** section, and select the **Azure Monitor** tab.
-1. Review the settings and make changes if needed. Select **Save**. 
-
-To configure logging settings for a specific API:
-
-1. In the left menu of your API Management instance, select **APIs** > **APIs** and then the name of the API.
-1. Select the **Settings** tab from the top bar.
-1. Scroll down to the **Diagnostic Logs** section, and select the **Azure Monitor** tab.
-1. Review the settings and make changes if needed. Select **Save**. 
-
-[!INCLUDE [api-management-log-entry-size-limit](../../includes/api-management-log-entry-size-limit.md)]
+[!INCLUDE [api-management-api-logging](../../includes/api-management-api-logging.md)]
 
 ## Next steps
 

@@ -1,14 +1,17 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Managed Redis (preview) management FAQs
+  title: Azure Managed Redis management FAQs
   description: Learn the answers to common questions that help you manage Azure Managed Redis
-  ms.date: 11/15/2024
+  ms.date: 05/18/2025
   ms.topic: faq
-  ms.custom: devx-track-csharp, ignite-2024
+  ms.custom:
+    - devx-track-csharp
+    - ignite-2024
+    - build-2025
   appliesto:
-  - ✅ Azure Managed Redis
-  
-title: Azure Managed Redis (preview) management FAQs
+    - ✅ Azure Managed Redis
+
+title: Azure Managed Redis management FAQs
 summary: This article provides answers to common questions about how to manage Azure Managed Redis.
 
 sections:
@@ -18,11 +21,6 @@ sections:
           When should I enable the non-TLS/SSL port for connecting to Redis?
         answer: |
           Using TLS is recommended as a best practice across virtually all Redis use-cases. The option to connect without TLS is included for backwards compatibility purposes. 
-          
-          >[!NOTE]
-          >The non-TLS port is disabled by default for new Azure Managed Redis (preview) instances. If your client doesn't support TLS, then you must enable the non-TLS port by following the directions in the [Access ports](configure.md#access-ports) section of the [Configure a cache in Azure Managed Redis](configure.md) article.
-          >
-          >
           
       - question: |
           What are some production best practices?
@@ -151,7 +149,7 @@ sections:
         answer: |
           Different SKUs might have different limits for client connections, memory, and bandwidth. While each size of cache allows up to some number of connections, each connection to Redis has overhead associated with it. An example of such overhead would be CPU and memory usage because of TLS/SSL encryption. The maximum connection limit for a given cache size assumes a lightly loaded cache. If load from connection overhead plus load from client operations exceeds capacity for the system, the cache can experience capacity issues even if you don't exceed the connection limit for the current cache size.
           
-          For more information about the different connections limits for each tier, see [Azure Managed Redis pricing](https://azure.microsoft.com/pricing/details/cache/). For more information about connections and other default configurations, see [Default Redis server configuration](configure.md#default-redis-server-configuration).
+          For more information about the different connections limits for each tier, see [Azure Managed Redis pricing](https://azure.microsoft.com/pricing/details/cache/).
           
 additionalContent: |
 

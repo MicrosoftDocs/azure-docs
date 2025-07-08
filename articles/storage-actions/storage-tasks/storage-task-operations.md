@@ -8,7 +8,8 @@ ms.service: azure-storage-actions
 ms.topic: conceptual
 ms.date: 05/05/2025
 ms.author: normesta
-
+ms.custom:
+  - build-2025
 ---
 
 # Storage task operations
@@ -90,7 +91,7 @@ The following table shows the supported operations, parameters, and parameter va
 
 | Operation                    | Parameters           | Values                                         |
 |------------------------------|----------------------|------------------------------------------------|
-| SetBlobTier                | tier                 | Hot \| Cool \| Archive |
+| SetBlobTier                | tier                 | Hot \| Cool \| Cold \| Archive |
 | SetBlobExpiry              | expiryTime, expiryOption                 |(expiryTime): Number of milliseconds<br>(expiryOption): Absolute \| NeverExpire \| RelativeToCreation \| RelativeToNow |
 | DeleteBlob                  | None                 | None                                           |
 | UndeleteBlob                | None                 | None                                           |

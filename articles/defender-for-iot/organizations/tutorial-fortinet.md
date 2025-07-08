@@ -14,6 +14,10 @@ Microsoft Defender for IoT mitigates IIoT, ICS, and SCADA risk with ICS-aware se
 
 Defender for IoT and Fortinet have established a technological partnership that detects and stop attacks on IoT and ICS networks.
 
+>[!Note]
+>
+>Defender for IoT plans to retire the Fortinet integration on December 1, 2025
+
 Fortinet and Microsoft Defender for IoT prevent:
 
 - Unauthorized changes to programmable logic controllers (PLC).

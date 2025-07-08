@@ -2,11 +2,12 @@
 title: Configure listener-specific SSL policies on Azure Application Gateway through portal
 description: Learn how to configure listener-specific SSL policies on Application Gateway through portal 
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 02/18/2022
-ms.author: greglin
+ms.author: mbender
+# Customer intent: As a cloud administrator, I want to configure listener-specific SSL policies on my Application Gateway, so that I can enhance security and performance by applying different SSL settings for each listener based on my application requirements.
 ---
 
 # Configure listener-specific SSL policies on Application Gateway through portal

@@ -2,12 +2,12 @@
 title: Troubleshoot a declined card
 description: Resolve declined credit card problems in the Azure portal.
 author: lindseyshep
+ms.author: lishepar
 ms.reviewer: lishepar, jobailey
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting 
-ms.date: 04/30/2025
-ms.author: lishepar
+ms.date: 05/01/2025
 ---
 
 # Troubleshoot a declined card

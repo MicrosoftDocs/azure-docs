@@ -2,16 +2,17 @@
 title: Restore Azure Files
 description: Learn how to use the Azure portal to restore an entire File Share or specific files from a restore point created by Azure Backup.
 ms.topic: how-to
-ms.date: 03/05/2025
+ms.date: 05/22/2025
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to restore Azure Files from backup points using the portal, so that I can recover full shares or specific files as needed to ensure data availability and minimize downtime."
 ---
 
 # Restore Azure Files
 
-This article describes how to use the Azure portal to restore an entire File Share or specific files from a restore point created by [Azure Backup](./backup-overview.md).
+This article describes how to use the Azure portal to restore an entire File Share or specific files from a restore point created by [Azure Backup](./backup-overview.md). You can also restore Azure Files using [Azure PowerShell](restore-afs-powershell.md), [Azure CLI](restore-afs-cli.md), [REST API](restore-azure-file-share-rest-api.md).
 
 Azure Backup offers a simple, reliable, and secure way to protect your enterprise File Shares using [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups, ensuring data recovery for accidental or malicious deletion.
 
@@ -163,4 +164,4 @@ Learn more [about monitoring jobs across your business continuity estate](../bus
 
 ## Next steps
 
-* [Manage Azure files backups](manage-afs-backup.md).
+Manage Azure Files backups using [Azure portal](manage-afs-backup.md), [Azure PowerShell](manage-afs-powershell.md), [Azure CLI](manage-afs-backup-cli.md), [REST API](manage-azure-file-share-rest-api.md).

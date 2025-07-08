@@ -3,11 +3,11 @@ metadata:
   title: Frequently asked questions about Azure Application Gateway for Containers
   description: Find answers to frequently asked questions about Azure Application Gateway for Containers.
   services: application-gateway
-  author: greg-lindsay
+  author: mbender-ms
   ms.service: azure-appgw-for-containers
   ms.topic: concept-article
   ms.date: 3/31/2025
-  ms.author: greglin
+  ms.author: mbender
     
 title: Frequently asked questions about Application Gateway for Containers
 summary: The following are common questions asked about Azure Application Gateway for Containers.
@@ -34,7 +34,7 @@ sections:
     questions:
       - question: How does Application Gateway for Containers support high availability and scalability?
         answer: |
-          Application Gateway for Containers automatically ensures underlying components are spread across availability zones for increased resiliency, if the Azure region supports it.  If the region doesn't support zones, fault domains and update domains be used to help mitigate impact during planned maintainence and unexpected failures. 
+          Application Gateway for Containers automatically ensures underlying components are spread across availability zones for increased resiliency, if the Azure region supports it.  If the region doesn't support zones, fault domains and update domains be used to help mitigate impact during planned maintenance and unexpected failures. 
         
           > [!WARNING] 
           > Ensure the Application Gateway for Containers subnet is a /24 prior to upgrading. Upgrading from CNI to CNI Overlay with a larger subnet (i.e., /23) will lead to an outage and require the Application Gateway for Containers subnet to be recreated with a /24 subnet size.

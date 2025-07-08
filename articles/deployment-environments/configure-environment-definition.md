@@ -8,7 +8,10 @@ ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.topic: how-to
 ms.date: 05/03/2024
-ms.custom: devdivchpfy22, build-2023
+ms.custom:
+  - devdivchpfy22
+  - build-2023
+  - build-2025
 
 #customer intent: As a platform engineer, I want to add and configure an environment definition in a catalog so that I can provide my development teams with a curated set of predefined infrastructure as code templates to deploy environments in Azure.
 ---
@@ -23,7 +26,7 @@ An environment definition is composed of at least two files:
 
 - A template from an IaC framework. For example:
     - An Azure Resource Manager (ARM) template might use a file called *azuredeploy.json*.
-    - A Bicep template might use a file called *main.bicep*.
+    - A Bicep file might use a file called *main.bicep*.
     - A Terraform template might use a file called *azuredeploy.tf*.
 - A configuration file that provides metadata about the template. This file should be named *environment.yaml*.
 

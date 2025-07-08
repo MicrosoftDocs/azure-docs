@@ -1,23 +1,24 @@
 ---
-title: Restore SAP ASE databases on Azure VMs
+title: Restore SAP ASE database on Azure VMs using Azure portal
 description: In this article, learn how to restore SAP ASE databases that are running on Azure virtual machines. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: how-to
-ms.date: 11/19/2024
+ms.date: 05/13/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to restore SAP ASE databases on Azure virtual machines, so that I can recover data for development, testing, or to return the system to a previous state as needed.
 ---
 
-# Restore SAP ASE databases on Azure VMs (preview)
+# Restore SAP ASE database on Azure VMs using Azure portal
 
-This article describes how to restore SAP ASE databases that are running on Azure virtual machines (VMs). You can use the restored data to create copies for development and test scenarios or to return to a previous state.
+This article describes how to restore SAP ASE databases (running on Azure virtual machines) using Azure portal. You can use the restored data to create copies for development and test scenarios or to return to a previous state.
 
 >[!Note]
 >The master database can't be restored using original or alternate locations directly because the SAP ASE instance must be started in single-user/single-server mode. Instead, you should use the **restore as files** method to recover and apply the dump files. 
 
-## Recover the SAP ASE (Sybase) database (preview)
+## Recover the SAP ASE (Sybase) database
 
 To recover the SAP ASE (Sybase) database, follow these steps:
 
@@ -42,7 +43,7 @@ To recover the SAP ASE (Sybase) database, follow these steps:
 
 ## Restore to a point in time or to a recovery point 
 
-Azure Backup restores SAP ASE user databases that are running on Azure VMs. It can: 
+Azure Backup restores SAP ASE user databases that are running on Azure Virtual Machines (VMs). It can: 
 
 - Restore them to a specific date or time (to the second) by using log backups. Azure Backup automatically determines the appropriate full backups, differential backups, and chain of log backups that are required to restore based on the selected time. 
 
@@ -64,15 +65,15 @@ Ensure that you have the following permissions to restore a database:
 
 To restore a user database, follow these steps:
 
-1. Go to the **Recovery Services vault**, select **Backup items** > **SAP ASE (Sybase) in Azure VM (preview)** under the **Backup Management Type**. 
+1. Go to the **Recovery Services vault**, and then select **Backup items** > **SAP ASE (Sybase) in Azure VM** under the **Backup Management Type**. 
 
     :::image type="content" source="media/sap-adaptive-server-enterprise-db-restore/select-backup-items.png" alt-text="Screenshot showing how to select backup items." lightbox="media/sap-adaptive-server-enterprise-db-restore/select-backup-items.png":::
 
-2. On the **Backup Items** blade, select **View Details** for the database to perform operations such as **Backup** or **Restore**.
+2. On the **Backup Items** pane, select **View Details** for the database to perform operations such as **Backup** or **Restore**.
 
     :::image type="content" source="media/sap-adaptive-server-enterprise-db-restore/view-details.png" alt-text="Screenshot showing how to view details." lightbox="media/sap-adaptive-server-enterprise-db-restore/view-details.png":::
 
-3. On the *database specific* blade, select **Restore**.
+3. On the *database specific* pane, select **Restore**.
 
     :::image type="content" source="media/sap-adaptive-server-enterprise-db-restore/select-restore.png" alt-text="Screenshot showing how to select restore." lightbox="media/sap-adaptive-server-enterprise-db-restore/select-restore.png":::
 
@@ -83,7 +84,7 @@ To restore a user database, follow these steps:
 To restore the SAP ASE database to an alternate location, follow these steps: 
 
 1. Go to the **Recovery Services vault**.
-1. On the **Restore** blade, under **Where and how to restore**, select **Alternate location**.
+1. On the **Restore** pane, under **Where and how to restore**, select **Alternate location**.
 
     :::image type="content" source="media/sap-adaptive-server-enterprise-db-restore/select-alternate-location.png" alt-text="Screenshot showing how to select alternate location." lightbox="media/sap-adaptive-server-enterprise-db-restore/select-alternate-location.png":::
 
@@ -93,7 +94,7 @@ To restore the SAP ASE database to an alternate location, follow these steps:
 
 4. If applicable, select the **Overwrite if the DB with the same name already exists on selected ASE instance** checkbox.
 
-5. On the **Select restore point** blade, select **Logs (Point in Time) to** restore to a specific point in time. Or select **Full & Differential** to restore to a specific recovery point.
+5. On the **Select restore point** pane, select **Logs (Point in Time) to** restore to a specific point in time. Or select **Full & Differential** to restore to a specific recovery point.
 
     :::image type="content" source="media/sap-adaptive-server-enterprise-db-restore/select-restore-point.png" alt-text="Screenshot showing how to select restore point." lightbox="media/sap-adaptive-server-enterprise-db-restore/select-restore-point.png":::
 
@@ -110,7 +111,7 @@ For an in-place restore, if the database is corrupted and you want to restore it
 
 To restore the backup data as files instead of a database, select **Restore as Files**. After the files are dumped to a specified path, you can take them to any SAP ASE machine where you want to restore them as a database. Because you can move the files to any machine, you can now restore the data across subscriptions and regions.
 
-1.	On the **Restore** blade, under **Where and how to restore**, select **Restore as files**.
+1.	On the **Restore** pane, under **Where and how to restore**, select **Restore as files**.
 
 2.	Select the host or ASE server name to which you want to restore the backup files.
 
@@ -120,7 +121,7 @@ The files that are dumped are:
 - Database backup files
 - JSON metadata files (for each backup file involved)
 
-Typically, a network share path, or the path of a mounted Azure file share specified as the destination path, enables easier access to these files by other machines in the same network or with the same Azure file share mounted on them.
+When you set a network share path or a mounted Azure Files as the destination, other machines can then access the files seamlessly.
 
    :::image type="content" source="media/sap-adaptive-server-enterprise-db-restore/restore-files.png" alt-text="Screenshot showing how to restore files." lightbox="media/sap-adaptive-server-enterprise-db-restore/restore-files.png":::
 
@@ -129,7 +130,7 @@ Typically, a network share path, or the path of a mounted Azure file share speci
 
 4. All the backup files associated with the selected restore point are dumped into the destination path.
 
-5. Depending on the type of restore point you've chosen (**Point in time** or **Full & Differential**), you'll see one or more folders created in the destination path. One of the folders, *Data_\<date and time of restore\>* contains the full backups, and the other folder, *Log* contains the log backups and other backups (such as differential).
+5. Depending on the selected restore point (**Point in time** or **Full & Differential**), you see one or more folders created in the destination path. One of the folders, *Data_\<date and time of restore\>* contains the full backups, and the other folder, *Log* contains the log backups and other backups (such as differential).
 
 >[!Note]
 > If you've selected **Restore to a point in time**, the log files, which were dumped to the target VM, might sometimes contain logs beyond the point in time that were chosen for restore. Azure Backup does this to ensure that log backups for all ASE services are available for consistent and successful restore to the chosen point in time.
@@ -148,7 +149,7 @@ If CRR is enabled, you can view the backup items in the secondary region.
 
 ## Restore in the secondary region
 
-The secondary region restore user experience is similar to the primary region restore user experience. When you configure the details on the **Restore Configuration** blade, you're prompted to provide only secondary region parameters. A vault should exist in the secondary region, and the SAP ASE server should be registered to the vault in the secondary region.
+The secondary region restore user experience is similar to the primary region restore user experience. When you configure the details on the **Restore Configuration** pane, you're prompted to provide only secondary region parameters. A vault should exist in the secondary region, and the SAP ASE server should be registered to the vault in the secondary region.
 
 >[!Note]
 > After the restore is triggered and in the data transfer phase, the restore job can't be cancelled.<br>
@@ -158,7 +159,28 @@ The secondary region restore user experience is similar to the primary region re
 Learn about the [minimum role requirements for cross-region restore](/azure/backup/backup-rbac-rs-vault#minimum-role-requirements-for-azure-workload-backups-sql-and-hana-db-backups).
 
 
+## Restore to a private endpoint enabled vault in a different subscription
+
+Before you do Cross Subscription Restore (CSR), ensure that the Recovery Services vault has the necessary [Azure role-based access control (Azure RBAC) permissions](backup-rbac-rs-vault.md#minimum-role-requirements-for-sap-ase-sybase-database--cross-subscription-restore).
+
+To trigger Cross Subscription Restore to a private endpoint enabled vault, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com/), go to the source **Recovery Services vault** , and then [create private endpoints](private-endpoints.md#create-private-endpoints-for-azure-backup).
+
+   During private endpoint creation, ensure that you enter the following details:
+
+   - Select the subscription of the target vault in which you want to restore.
+   - Select the VNet of the target VM that you want to restore across subscription.
+
+1. After the private endpoint is created, [trigger restore](#restore-a-user-database).
+
+>[!Note]
+>By default, CSR is enabled on the Recovery Services vault. To update the Recovery Services vault restore settings, go to the **Recovery Services vault** > **Properties** > **Cross Subscription Restore** and then select **Update** to implement the required changes.
+>
+> :::image type="content" source="./media/sap-hana-db-restore/cross-subscription-restore-settings-for-database.png" alt-text="Screenshot shows how to update Cross Subscription settings for a vault." lightbox="./media/sap-hana-db-restore/cross-subscription-restore-settings-for-database.png":::
+
 ## Next steps
 
-- [Manage SAP ASE databases by using Azure Backup](sap-ase-database-manage.md)
-- [About backing up SAP ASE databases on Azure VMs](sap-ase-database-about.md)
+- [Manage and monitor backed-up SAP ASE database using Azure portal](sap-ase-database-manage.md).
+- [Troubleshoot SAP ASE (Sybase) database backup](troubleshoot-sap-ase-sybase-database-backup.md).
+

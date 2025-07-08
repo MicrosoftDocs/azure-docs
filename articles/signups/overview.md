@@ -1,5 +1,4 @@
 ---
-
 title: Get $1,000 in Azure Credits for Startups | Microsoft Learn
 description: Eligible startups can receive $1,000 in Azure credits to explore AI models and start building on Azure. Learn how to qualify, redeem your credits, and maximize your benefits within the first 90 days.
 author: jesscraze
@@ -79,6 +78,11 @@ No, startup credits can’t be transferred between accounts. Once your credits a
 ### Can I apply my startup credits to multiple accounts?
 
 No, Azure benefits are applied on an account level and can't be shared or merged with multiple accounts.
+
+### I'm seeing the startup homepage but prefer the default view. How can I switch?
+
+The startup homepage is designed to help founders quickly discover and develop AI solutions. To switch to the default view, go to the Azure portal settings > Appearance, and set the Homepage type to Home (preview). You can also toggle off the new Azure experience from the homepage to access other views.
+
 
 ### How can I get help accessing my Microsoft Account (MSA)?
 

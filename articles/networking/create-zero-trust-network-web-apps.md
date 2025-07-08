@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 12/31/2022
 ms.custom: template-how-to
 # Customer Intent: As a cloud architect, I want to deploy a web app based on Zero Trust principles so that my applications & traffic are always secure.
+# Customer intent: As a cloud architect, I want to deploy a Zero Trust virtual network for web applications so that I can ensure robust security mechanisms are in place to protect app traffic against threats and data breaches.
 ---
 # Deploy a zero trust network for web applications
 

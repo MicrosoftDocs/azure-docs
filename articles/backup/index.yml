@@ -10,7 +10,8 @@ metadata:
   ms.topic: landing-page
   author: jyothisuri
   ms.author: jsuri
-  ms.date: 04/17/2025
+  ms.date: 07/02/2025
+
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -64,6 +65,10 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Azure Elastic SAN backup (preview)
+            url: azure-elastic-storage-area-network-backup-overview.md
+          - text: SAP ASE (Sybase) database backup support
+            url: sap-ase-database-about.md        
           - text: Azure Data Lake Storage backup support (preview)
             url: azure-data-lake-storage-backup-overview.md
           - text: Azure Files vaulted backup support
@@ -74,8 +79,6 @@ landingContent:
             url: secure-by-default.md
           - text: WORM enabled Immutable Storage for Recovery Services vaults
             url: backup-azure-immutable-vault-concept.md  
-          - text: SAP ASE (Sybase) database backup support (preview)
-            url: sap-ase-database-about.md
           - text: Vaulted backup and Cross Region Restore support for AKS
             url: azure-kubernetes-service-backup-overview.md          
 
@@ -174,6 +177,14 @@ landingContent:
             url: backup-azure-dpm-azure-server-faq.yml
           - text: Install and upgrade MABS
             url: backup-azure-microsoft-azure-backup.md
+      - linkListType: how-to-guide
+        links:
+          - text: Offline backup using Azure Data Box
+            url: offline-backup-azure-data-box.md
+          - text: Offline backup using Azure Data Box for DPM and MABS  
+            url: offline-backup-azure-data-box-dpm-mabs.md
+          - text: Offline backup for MARS with customer-owned disks
+            url: backup-azure-backup-import-export.md
 # Card
   - title: Manage at scale
     linkLists:
@@ -181,6 +192,8 @@ landingContent:
         links:
           - text: Manage at scale with Backup Center
             url: backup-center-monitor-operate.md
+          - text: Manage backup operations at scale using Azure CLI
+            url: create-manage-azure-services-using-azure-command-line-interface.md  
           - text: Govern at scale with Azure Policy
             url: backup-azure-auto-enable-backup.md
           - text: Monitor and operate at scale with Backup Explorer
@@ -195,7 +208,7 @@ landingContent:
           - text: Azure Backup pricing 
             url: azure-backup-pricing.md
           - text: Azure Backup service updates
-            url: https://azure.microsoft.com/updates/?product=backup
+            url: https://azure.microsoft.com/updates/?searchterms=Azure+Backup
           - text: Azure Backup Microsoft Q&A question page
             url: /answers/topics/azure-backup.html
           - text: Azure Backup sample queries for reporting  

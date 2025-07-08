@@ -1,5 +1,5 @@
 ---
-title: How Azure NetApp Files snapshots work | Microsoft Docs
+title: How Azure NetApp Files snapshots work
 description: Explains how Azure NetApp Files snapshots work, including ways to create snapshots, ways to restore snapshots, how to use snapshots in cross-region replication settings.
 services: azure-netapp-files
 author: b-hchen
@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 01/28/2025
 ms.author: anfdocs
+# Customer intent: As a data administrator, I want to create and manage snapshots in Azure NetApp Files, so that I can ensure efficient data protection, quick recovery options, and scalable storage management for my organization's critical data.
 ---
 # How Azure NetApp Files snapshots work
 
@@ -74,7 +75,7 @@ The high performance, scalability, and stability of Azure NetApp Files snapshot 
 You can use several methods to create and maintain snapshots:
 
 * Manually (on-demand), by using:   
-    * The [Azure portal](azure-netapp-files-manage-snapshots.md#create-an-on-demand-snapshot-for-a-volume), [REST API](/rest/api/netapp/snapshots), [Azure CLI](/cli/azure/netappfiles/snapshot), or [PowerShell](/powershell/module/az.netappfiles/new-aznetappfilessnapshot) tools
+    * The [Azure portal](azure-netapp-files-manage-snapshots.md), [REST API](/rest/api/netapp/snapshots), [Azure CLI](/cli/azure/netappfiles/snapshot), or [PowerShell](/powershell/module/az.netappfiles/new-aznetappfilessnapshot) tools
     * Scripts (see [examples](https://techcommunity.microsoft.com/t5/azure-architecture-blog/managing-sql-server-2022-t-sql-snapshot-backup-with-azure-netapp/ba-p/3654798))
 
 * Automated, by using:

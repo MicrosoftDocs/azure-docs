@@ -5,7 +5,7 @@ services: azure-communication-services
 author: shamkh
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 12/15/2024
+ms.date: 05/01/2025
 ms.topic: include
 ms.custom: include file
 ms.author: shamkh
@@ -35,7 +35,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Common configuration
 
-Follow these steps to add required code snippets to the messages-quickstart.py python program.
+Follow these steps to add the required code snippets to the Main method in your `Program.cs` file.
 
 - [Authenticate the client](#authenticate-the-client).
 - [Set channel registration ID](#set-channel-registration-id).
@@ -53,7 +53,9 @@ Follow these steps to add required code snippets to the Main function of your `P
 > To send a sticker message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
 ### Send a sticker messages to a WhatsApp user
+
 The Messages SDK enables Contoso to send sticker WhatsApp messages, when initiated by WhatsApp users. To send sticker messages:
+
 - [Authenticated NotificationMessagesClient](#authenticate-the-client).
 - [WhatsApp channel ID](#set-channel-registration-id).
 - [Recipient phone number in E16 format](#set-recipient-list).
@@ -62,12 +64,14 @@ The Messages SDK enables Contoso to send sticker WhatsApp messages, when initiat
 In this example, the business sends sticker message to the WhatsApp user:
 
 Assemble the sticker content:
+
 ```csharp
 var stickerLink = new Uri("https://example.com/sticker.webp");
 var stickerNotificationContent = new StickerNotificationContent(channelRegistrationId, recipientList, stickerLink);
 ```
 
 Send the sticker message:
+
 ```csharp
 var stickerResponse = await notificationMessagesClient.SendAsync(stickerNotificationContent);
 ```

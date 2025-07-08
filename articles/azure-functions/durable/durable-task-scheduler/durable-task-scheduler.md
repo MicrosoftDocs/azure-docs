@@ -120,7 +120,7 @@ curl -s https://mcr.microsoft.com/v2/dts/dts-emulator/tags/list
 
 ### Autopurge retention policies
 
-Large volumes of completed orchestration instance data can lead to storage bloat, incur higher storage costs, and degrade performance. The autopurge feature for Durable Task Scheduler provides a streamlined, configurable solution to manage orchestration instance clean-up automatically. [Learn more about setting autopurge retention policies for Durable Task Scheduler.](./durable-task-scheduler-auto-purge.md)
+Stale orchestration data should be purged periodically to ensure efficient storage usage. The autopurge feature for Durable Task Scheduler provides a streamlined, configurable solution to manage orchestration instance clean-up automatically. [Learn more about setting autopurge retention policies for Durable Task Scheduler.](./durable-task-scheduler-auto-purge.md)
 
 ## Limitations and considerations
 
@@ -156,10 +156,9 @@ Large volumes of completed orchestration instance data can lead to storage bloat
 
     - [Orchestration rewind](../durable-functions-instance-management.md#rewind-instances-preview)
     - [Extended sessions](../durable-functions-azure-storage-provider.md#extended-sessions)
-    - [Management operations using the Azure Functions Core Tools](../durable-functions-instance-management.md#azure-functions-core-tools)
 
     > [!NOTE]
-    > Feature availability is subject to change as the Durable Task Scheduler backend approaches general availability. To report problems or request new features, submit an issue in the [Durable Task Scheduler samples GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler/).
+    > Feature availability is subject to change as the Durable Task Scheduler backend approaches general availability. To report problems or request new features, submit an issue in the [Durable Task Scheduler GitHub repository](https://github.com/azure/Durable-Task-Scheduler).
 
 ## Next steps
 

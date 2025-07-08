@@ -1,13 +1,13 @@
 ---
 title: Create, query, and delete a cache using Azure CLI
 description: Use the Azure CLI to create an Azure Redis instance, get cache details like status, hostname, ports, and keys, and delete the cache.
-
-
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 05/08/2025
+ms.date: 05/18/2025
 zone_pivot_groups: redis-type
-ms.custom: devx-track-azurecli, ignite-2024
+ms.custom:
+  - devx-track-azurecli, ignite-2024, build-2025
+  - build-2025
 appliesto:
   - ✅ Azure Managed Redis
   - ✅ Azure Cache for Redis
@@ -36,14 +36,15 @@ This article describes how to create and delete an Azure Redis cache instance by
 :::code language="azurecli" source="~/azure_cli_scripts/redis-cache/create-cache/create-manage-cache.sh" id="FullScript"::: 
 This sample is broken. When it is fixed, we can fix this include.
 -->
+
 To create an Azure Managed Redis cache by using Azure CLI, the `name`, `location`, `resourceGroup`, and `sku` parameters are required. Other parameters are optional and have defaults.
 
 You can use the Azure CLI script in this section to create an Azure Managed Redis cache with default settings. You can also use the following other methods to create a cache:
 
 - [Azure portal](../quickstart-create-managed-redis.md)
 - [Azure PowerShell](../how-to-manage-redis-cache-powershell.md?pivots=azure-managed-redis)
-- [ARM template](../redis-cache-arm-provision.md#azure-managed-redis-preview)
-- [Bicep template](../redis-cache-bicep-provision.md#azure-managed-redis-preview)
+- [ARM template](../redis-cache-arm-provision.md#azure-managed-redis)
+- [Bicep template](../redis-cache-bicep-provision.md#azure-managed-redis)
 
 The cache `name`  must be a string of 1-63 characters that's unique in the [Azure region](https://azure.microsoft.com/regions/). The name can contain only numbers, letters, and hyphens, must start and end with a number or letter, and can't contain consecutive hyphens.
 
@@ -140,7 +141,6 @@ To create an Azure Cache for Redis Basic, Standard, or Premium cache by using Az
 You can use the Azure CLI script in this section to create an Azure Cache for Redis Basic cache with default settings. You can also use the following other methods to create a cache:
 
 - [Azure portal (Basic, Standard, or Premium)](../../azure-cache-for-redis/quickstart-create-redis.md)
-- [Azure portal (Enterprise)](../../azure-cache-for-redis/quickstart-create-redis-enterprise.md)
 - [Azure PowerShell](../how-to-manage-redis-cache-powershell.md?pivots=azure-cache-redis)
 - [ARM template](../redis-cache-arm-provision.md#azure-cache-for-redis)
 - [Bicep template](../redis-cache-bicep-provision.md#azure-cache-for-redis)

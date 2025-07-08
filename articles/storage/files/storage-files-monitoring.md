@@ -7,6 +7,7 @@ ms.topic: concept-article
 author: khdownie
 ms.author: kendownie
 ms.service: azure-file-storage
+# Customer intent: As a cloud administrator, I want to monitor Azure Files using metrics and logs, so that I can ensure optimal performance, availability, and troubleshoot any issues effectively.
 ---
 
 # Monitor Azure Files

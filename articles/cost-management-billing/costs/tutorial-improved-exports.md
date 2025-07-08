@@ -3,11 +3,13 @@ title: Tutorial - Create and manage Cost Management exports
 description: This tutorial helps you create automatic exports for your actual and amortized costs.
 author: jojohpm
 ms.author: jojoh
-ms.date: 03/30/2025
+ms.date: 06/26/2025
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: jojoh
+ms.custom:
+  - build-2025
 ---
 
 # Tutorial: Create and manage Cost Management exports
@@ -327,8 +329,35 @@ The exports experience currently has the following limitations.
 
 Here are some frequently asked questions and answers about exports.
 
-### Why is file partitioning enabled in exports?
-The file partitioning is a feature that is activated by default to facilitate the management of large files. This functionality divides larger files into smaller segments, which enhances the ease of file transfer, download, ingestion, and overall readability. It's advantageous for customers whose cost files increase in size over time. The specifics of the file partitions are described in a manifest.json file provided with each export run, enabling you to rejoin the original file.
+### Understanding file partitioning in Cost Management Exports
+
+#### Why and when file partitioning is applied
+
+To improve reliability and scalability, Cost Management exports automatically partition large files into smaller chunks. Partitioning helps address challenges with downloading or opening large single files, especially over unreliable networks or in tools with file size or row count limitations, such as Microsoft Excel.
+
+In exports experience, partitioning is always enabled. Files are split based on size—not row count—with each uncompressed file kept under 1 GB. For compressed formats like Gzip, actual file sizes may vary depending on compression efficiency.
+
+Partitioning is applied consistently, even for small exports. This ensures compatibility with downstream systems, supports enterprise-scale automation, and avoids inconsistencies or failures in reporting workflows.
+
+#### Working with partitioned files
+
+Each export includes a **manifest.json** file that lists all partitioned file names and their metadata. To work with partitioned files:
+
+- Always refer to the manifest file to retrieve correct file names and sequence.
+- Avoid hardcoding or guessing partition names, as file naming conventions may change.
+- Use tools that support multi-file ingestion, such as **Power BI**, **Apache Spark**, or **Microsoft Fabric Delta Lake**.
+
+**Why is my small export still partitioned?**  
+Partitioning is applied by default to ensure consistent processing and avoid edge-case failures. Even small exports are partitioned to align with platform standards.
+
+**Can I disable partitioning?**  
+No. Partitioning is a default behavior in exports experience and cannot be disabled. This ensures consistent reliability across all customer scenarios.
+
+**How do I identify which file to use?**  
+Use the **manifest.json** file included with every export. It lists all partitioned files in sequence and provides relevant metadata.
+
+**How can I open partitioned files in Excel?**  
+If your export is partitioned, you'll need to combine the files using tools like **Power BI**, scripts, or data processing pipelines. Be aware that large datasets may exceed Excel's row limits.
 
 ### How does the enhanced export experience handle missing attributes like subscription IDs?
 

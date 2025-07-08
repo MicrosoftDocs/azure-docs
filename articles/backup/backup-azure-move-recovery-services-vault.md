@@ -2,12 +2,13 @@
 title: How to move Azure Backup Recovery Services vaults 
 description: Instructions on how to move a Recovery Services vault across Azure subscriptions and resource groups.
 ms.topic: how-to
-ms.date: 11/30/2024
+ms.date: 06/17/2025
 ms.custom: references_regions, engagement-fy24
 ms.reviewer: caishwarya
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to move Recovery Services vaults between subscriptions and resource groups, so that I can effectively manage my backup resources and maintain compliance with organizational policies."
 ---
 
 # Move a Recovery Services vault across Azure subscriptions and resource groups
@@ -275,6 +276,9 @@ If you need to keep the current protected data in the old vault and continue the
   - You'll need to pay to keep the recovery points in the old vault (see [Azure Backup pricing](azure-backup-pricing.md) for details).
   - You'll be able to restore the VM, if needed, from the old vault.
   - The first backup on the new vault of the VM in the new resource will be an initial replica.
+
+>[!Note]
+>With the  Enhanced soft delete capabilities, you can move a VM backup to a new Recovery Services vault while retaining the existing data, without the need to move the VM to a new resource group.
 
 ## Next steps
 

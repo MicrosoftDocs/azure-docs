@@ -2,11 +2,12 @@
 title: Alias records overview - Azure DNS
 description: In this article, learn about support for alias records in Microsoft Azure DNS.
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: concept-article
 ms.date: 09/24/2024
-ms.author: greglin
+ms.author: allensu
+# Customer intent: "As a DNS administrator, I want to use alias records in Azure DNS, so that I can dynamically reference Azure resources and prevent dangling DNS records while ensuring quick updates to DNS entries when underlying resources change."
 ---
 
 # Azure DNS alias records overview
@@ -33,7 +34,7 @@ In the following example, an alias named **vm1** is added that points to the pub
 
 ## Capabilities
 
-- **Point to a public IP resource from a DNS A/AAAA record set.** You can create an A/AAAA record set and make it an alias record set to point to a public IP resource (standard or basic). The DNS record set changes automatically if the public IP address changes or is deleted. Dangling DNS records that point to incorrect IP addresses are avoided.
+- **Point to a Standard SKU public IP resource from a DNS A/AAAA record set.** You can create an A/AAAA record set and make it an alias record set to point to a Standard SKU public IP resource. The DNS record set changes automatically if the public IP address changes or is deleted. Dangling DNS records that point to incorrect IP addresses are avoided.
 
    > [!NOTE]
    > There's a current limit of 20 alias records sets per resource.

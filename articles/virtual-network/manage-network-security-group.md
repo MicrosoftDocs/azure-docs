@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 04/07/2025
 ms.author: allensu
 ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: As a network administrator, I want to create, change, or delete network security groups so that I can control the flow of network traffic and enhance the security of my virtual networks.
 ---
 
 # Create, change, or delete a network security group
@@ -386,6 +387,7 @@ az network nsg rule create \
     --protocol Tcp \
     --description "Allow RDP"
 ```
+---
 
 #### Duplicate security rules
 

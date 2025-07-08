@@ -9,6 +9,8 @@ ms.service: azure-app-configuration
 ms.topic: overview
 ms.date: 01/22/2025
 #Customer intent: I want to learn about the configuration provider libraries of different languages, specifically to track their feature development status.
+ms.custom:
+  - build-2025
 ---
 
 # Configuration Provider Overview
@@ -33,6 +35,7 @@ Module | Platform | Sample | Release Notes
 [spring-cloud-azure-appconfiguration-config-web](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-appconfiguration-config-web)<br/>[![Maven: spring-cloud-azure-appconfiguration-config-web](https://img.shields.io/maven-central/v/com.azure.spring/spring-cloud-azure-appconfiguration-config-web.svg?color=blue)](https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-appconfiguration-config-web) | Java Spring | [Sample](https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/appconfiguration/spring-cloud-azure-starter-appconfiguration-config/spring-cloud-azure-starter-appconfiguration-config-sample) | [Release Notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/SpringCloudAzureAppConfigurationConfig.md)
 [azure-appconfiguration-provider](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration-provider)<br/>[![Pypi](https://img.shields.io/pypi/v/azure-appconfiguration-provider.svg?color=blue)](https://pypi.org/project/azure-appconfiguration-provider/) | Python | [Sample](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration-provider/samples) | [Release Notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/AzureAppConfigurationProviderPython.md)
 [@azure/app-configuration-provider](https://github.com/Azure/AppConfiguration-JavaScriptProvider)<br/>[![Npm](https://img.shields.io/npm/v/@azure/app-configuration-provider?color=blue)](https://www.npmjs.com/package/@azure/app-configuration-provider) | JavaScript | [Sample](https://github.com/Azure/AppConfiguration-JavaScriptProvider/tree/main/examples) | [Release Notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/JavaScriptProvider.md)
+[azureappconfiguration](https://github.com/Azure/AppConfiguration-GoProvider)<br/><a href="https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration"><img src="media/go-provider.png" alt="Go" width="90" height="20"></a> | Go | [Sample](https://github.com/Azure/AppConfiguration-GoProvider/tree/main/example) | [Release Notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/GoProvider.md)
 
 ## Feature Development Status
 
@@ -43,24 +46,32 @@ This is an overview of each feature and its current status for different framewo
 - **WIP (Work in Progress)**: The feature is actively being developed and not yet ready for release.
 - **N/A (Not Available)**: It is not planned to offer the feature for the specified framework or language.
 
-Feature | .NET | Spring | Kubernetes | Python | JavaScript
+Feature | .NET | Spring | Kubernetes | Python | JavaScript | Go |
 ------- | ---- | ------ | ---------- | ------ | ----------
-Connection String Authentication | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#load-configuration)
-Entra ID Authentication | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#load-configuration)
-Dynamic Refresh (Poll Mode) | GA | GA | GA | GA | GA
-Dynamic Refresh (Push Mode) | GA | GA | N/A | N/A | N/A
-Dynamic Refresh (Collection Monitoring) | WIP | WIP | GA | WIP | [GA](./reference-javascript-provider.md#configuration-refresh)
-JSON Content Type Handling | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#json-content-type-handling)
-Configuration Setting Mapping | GA | N/A | N/A | N/A | N/A
-Key Vault References | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#key-vault-reference)
-Key Vault Secret Refresh | GA | WIP | GA | WIP | WIP
-Custom Key Vault Secret Resolution | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#key-vault-reference)
-Feature Flags | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#feature-flag)
-Variant Feature Flags | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#feature-flag)
-Feature Flag Telemetry | GA | GA | WIP | GA | GA
-Key Prefix Trim | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#trim-prefix-from-keys)
-Configurable Startup Time-out | GA | WIP | N/A | WIP | WIP
-Replica Auto Discovery | GA | GA | GA | WIP | [GA](./reference-javascript-provider.md#geo-replication)
-Replica Failover | GA | GA | GA | WIP | [GA](./reference-javascript-provider.md#geo-replication)
-Replica Load Balancing | GA | WIP | GA | WIP | [GA](./reference-javascript-provider.md#geo-replication)
-Snapshots | GA | GA | GA | WIP | WIP
+Connection String Authentication | [GA](./reference-dotnet-provider.md#load-configuration) | GA | GA | GA | [GA](./reference-javascript-provider.md#load-configuration) | GA 
+Entra ID Authentication | [GA](./reference-dotnet-provider.md#load-configuration) | GA | GA | GA | [GA](./reference-javascript-provider.md#load-configuration) | GA 
+Dynamic Refresh (Poll Mode) | [GA](./reference-dotnet-provider.md#refresh-on-sentinel-key) | GA | GA | GA | [GA](./reference-javascript-provider.md#refresh-on-sentinel-key) | GA
+Dynamic Refresh (Push Mode) | GA | GA | N/A | N/A | N/A | N/A
+Dynamic Refresh (Collection Monitoring) | [GA](./reference-dotnet-provider.md#configuration-refresh) | WIP | GA | WIP | [GA](./reference-javascript-provider.md#configuration-refresh) | GA
+JSON Content Type Handling | [GA](./reference-dotnet-provider.md#json-content-type-handling) | GA | GA | GA | [GA](./reference-javascript-provider.md#json-content-type-handling) | GA
+Configuration Setting Mapping | [GA](./reference-dotnet-provider.md#configuration-setting-mapping) | N/A | N/A | N/A | N/A | N/A
+Key Vault References | [GA](./reference-dotnet-provider.md#key-vault-reference) | GA | GA | GA | [GA](./reference-javascript-provider.md#key-vault-reference) | GA
+Key Vault Secret Refresh | [GA](./reference-dotnet-provider.md#key-vault-secret-refresh) | WIP | GA | WIP | WIP | GA
+Custom Key Vault Secret Resolution | [GA](./reference-dotnet-provider.md#key-vault-reference) | GA | GA | GA | [GA](./reference-javascript-provider.md#key-vault-reference) | GA
+Parallel Secret Resolution | WIP | WIP | WIP | WIP | [GA](./reference-javascript-provider.md#parallel-secret-resolution) | GA
+Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | GA | GA | GA | [GA](./reference-javascript-provider.md#feature-flag) | WIP
+Variant Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | GA | GA | GA | [GA](./reference-javascript-provider.md#feature-flag) | WIP
+Feature Flag Telemetry | GA | GA | WIP | GA | GA | WIP
+Key Prefix Trim | [GA](./reference-dotnet-provider.md#trim-prefix-from-keys) | GA | GA | GA | [GA](./reference-javascript-provider.md#trim-prefix-from-keys) | GA
+Configurable Startup Time-out | [GA](./reference-dotnet-provider.md#startup-retry) | WIP | N/A | WIP | [GA](./reference-javascript-provider.md#startup-retry) | WIP
+Replica Auto Discovery | [GA](./reference-dotnet-provider.md#geo-replication) | GA | GA | WIP | [GA](./reference-javascript-provider.md#geo-replication) | WIP
+Replica Failover | [GA](./reference-dotnet-provider.md#geo-replication) | GA | GA | WIP | [GA](./reference-javascript-provider.md#geo-replication) | WIP
+Replica Load Balancing | [GA](./reference-dotnet-provider.md#geo-replication) | WIP | GA | WIP | [GA](./reference-javascript-provider.md#geo-replication) | WIP
+Snapshots | [GA](./reference-dotnet-provider.md#snapshot) | GA | GA | WIP | [GA](./reference-javascript-provider.md#snapshot) | WIP
+Distributed Tracing | [GA](./reference-dotnet-provider.md#distributed-tracing) | WIP | WIP | WIP | WIP | WIP
+Health Check | WIP | WIP | WIP | WIP | WIP | WIP 
+Select by Tag Filters | [GA](./reference-dotnet-provider.md#load-specific-key-values-using-selectors) | WIP | WIP | WIP | WIP | WIP 
+
+## Support policy
+
+Details on the support policy for configuration provider libraries can be found [here](./client-library-support-policy.md).

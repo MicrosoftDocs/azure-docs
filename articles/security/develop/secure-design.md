@@ -4,7 +4,7 @@ description: This article discusses best practices to consider during the requir
 author: msmbaldwin
 manager: rkarlin
 ms.author: mbaldwin
-ms.date: 09/29/2024
+ms.date: 05/28/2025
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -242,7 +242,7 @@ Use platform-supplied authentication and authorization mechanisms instead of cus
 
 * [Microsoft identity platform](../../active-directory/develop/index.yml) is a set of components that developers use to build apps that securely sign in users. The platform assists developers who are building single-tenant, line-of-business (LOB) apps and developers who are looking to develop multitenant apps. In addition to basic sign-in, apps built by using the Microsoft identity platform can call Microsoft APIs and custom APIs. The Microsoft identity platform supports industry-standard protocols like OAuth 2.0 and OpenID Connect.
 
-* [Azure Active Directory B2C](../../active-directory-b2c/index.yml) (Azure AD B2C) is an identity management service you use to customize and control how customers sign up, sign in, and manage their profiles when they use your applications. This includes applications that are developed for iOS, Android, and .NET, among others. Azure AD B2C enables these actions while protecting customer identities.
+* [Microsoft Entra External ID in external tenants](/entra/external-id/customers/overview-customers-ciam) is an identity management service you use to customize and control how customers sign up, sign in, and manage their profiles when they use your applications. This includes applications that are developed for iOS, Android, and .NET, among others. Azure AD B2C enables these actions while protecting customer identities.
 
 #### Apply the principle of least privilege
 

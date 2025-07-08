@@ -186,6 +186,9 @@ You can use the following settings to configure individual tasks:
 
 The following examples show how to deploy assets for each task type.
 
+> [!TIP]
+> The media pods aren't created in Kubernetes until you deploy an asset that uses the media connector. If you try to run the `kubectl get pods` command before deploying an asset, you see no media pods.
+
 ## Snapshot to MQTT
 
 To configure an asset that captures snapshots from a camera and publishes them to an MQTT topic:

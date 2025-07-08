@@ -6,8 +6,11 @@ ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
-ms.date: 04/28/2025
+ms.date: 05/21/2025
+ms.update-cycle: 180-days
 #CustomerIntent: I want a guide that introduces starting points, building blocks, examples, samples, and other resources to help me learn about using AI in my integration solutions using Standard and Consumption workflows in Azure Logic Apps.
+ms.custom:
+  - build-2025
 ---
 
 # AI playbook, examples, and other resources for workflows in Azure Logic Apps
@@ -18,15 +21,48 @@ AI capabilities play a fast and growing role in applications and other software 
 
 This guide provides building blocks, examples, samples, and other resources that help show how to use AI services, such as Azure OpenAI and Azure AI Search, alongside other services, systems, apps, and data that work together in integration solutions built as automated workflows in Azure Logic Apps.
 
+## AI agent and model-powered workflows (Preview)
+
+Azure Logic Apps supports Standard logic app workflows that complete tasks by using *agents* with *large language models* (LLMs) in Azure OpenAI Service. An agent uses an iterative looped process to solve complex, multi-step problems. A large language model is a program that's trained to recognize patterns and perform jobs without human interaction, for example:
+
+- Analyze, interpret, and reason about information such as instructions, prompts, inputs, and other data.
+- Make decisions, based on results and available data.
+- Formulate and return answers back to the prompter, based on the agent's instructions.
+
+After you create your Standard logic app, add a workflow that uses the **Agent** workflow type. The **Agent** type creates a partial workflow that includes a default agent. This agent works autonomously, but you can set up the agent to interact with you through a chat interface. The agent uses natural language to communicate with you and the connected model. The agent also uses model-generated outputs to do work - with or without human interaction. The model helps the agent provide the following capabilities:
+
+- Accept information about what the agent does, how to operate, and how to respond.
+- Receive and respond to requests (prompts) autonomously or through chat.
+- Process inputs, analyze data, and make choices, based on available information.
+- Choose tools to complete the tasks necessary to fulfill requests. Basically, a *tool* is a sequence with one or more actions that complete a task. A tool can use only actions, not triggers.
+- Adapt to environments that require flexibility and are fluid, dynamic, unpredictable, or unstable.
+
+With [1,400+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use to build tools in an agent, agent workflows support a vast range of scenarios that can greatly benefit from agent and model capabilities. Based on your use cases, the agent can perform work with or without human interaction.
+
+For more information, see the following resources:
+
+| Resource type | Link |
+|---------------|------|
+| **Documentation** | - [Workflows with AI agents and models in Azure Logic Apps](agent-workflows-concepts.md) <br><br>- [Create workflows that use AI agents and models to complete tasks in Azure Logic Apps](create-agent-workflows.md) |
+| **Blog article** | [Announcing agent loop: Build AI Agents in Azure Logic Apps](https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%93%A2announcing-agent-loop-build-ai-agents-in-azure-logic-apps-%F0%9F%A4%96/4415052) |
+| **Blog article** | [Agent Loop Demos for Azure Logic Apps](https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%A4%96-agent-loop-demos-%F0%9F%A4%96/4414770) |
+| **Video overview** | [Getting Ready for Agents in Azure Logic Apps](https://youtu.be/EMXLB4thdhg) |
+| **Video demo** | [Loan Approval - Autonomous Agent Loop](https://youtu.be/rR1QjQTfCCg) |
+| **Video demo** | [Product Return - Autonomous Agent Loop](https://youtu.be/ilSGRUpjMdU) |
+| **Video demo** | [Grocery Return with IBM Mainframe and Midrange System Integration - Autonomous Agent Loop](https://youtu.be/vPxFjJUP494) |
+| **Video demo** | [Operations Conversational Agent - Repair and Resubmit with ServiceNow](https://youtu.be/-V4n9VMcN0k) |
+| **Video demo** | [Operations Autonomous Agent - Repair and Resubmit with ServiceNow](https://youtu.be/uciB7jtDpyk) |
+| **Video demo** | [Codeful and Declarative Multiple Agents](https://youtu.be/sQaAzhkzT6E) |
+
+## Building blocks for AI solutions
+
+This section describes built-in operations and links to documentation that you can use to build Standard workflows for AI integration scenarios, such as document ingestion, making it possible for customers to "chat with the data."
+
 > [!NOTE]
 >
 > AI building blocks, such as built-in operations and connectors, are available for both Consumption and 
 > Standard workflows. However, the examples, samples, and resources use Standard workflows as examples. 
 > Stay tuned as this article evolves over time with more guidance.
-
-## Building blocks for AI solutions
-
-This section describes built-in operations and links to documentation that you can use to build Standard workflows for AI integration scenarios, such as document ingestion and making it possible for customers to "chat with the data."
 
 For example, the **Azure OpenAI** and **Azure AI Search** connectors provide operations that simplify backend processes with codeless setup and reduce complexity around integrating AI capabilities into your workflows. These operations don't require any custom code, logic, or configuration to use. This no-code approach helps you automate complex workflows whether the task is document parsing, data chunking, or powering generative AI models, which helps you unlock your data's full potential with minimal effort.
 
@@ -187,7 +223,7 @@ The following table describes some example workflow templates:
 | Azure Blob Storage | Standard: <br>- Ingest and index files using the RAG pattern <br>- Ingest and vectorize documents into Azure Cosmos DB for NoSQL using the RAG pattern | - Azure OpenAI <br>- Azure AI Search |
 | Azure File Storage | Standard: <br>- Ingest documents on a schedule into AI Search <br>- Ingest and index files on a schedule using the RAG pattern <br>- Ingest and index files using the RAG pattern | - Azure OpenAI <br>- Azure AI Search |
 | Request-based | Standard: <br>- Chat with your documents using the RAG pattern <br>- Ingest and index documents using the RAG pattern | - Azure OpenAI <br>- Azure AI Search |
-| OneDrive for Business | Consumption: <br>- Vectorize files on a schedule from OneDrive for Busines to AI Search <br><br>Standard: <br>- Ingest and index files using the RAG pattern <br>- Ingest documents on a schedule from OneDrive to AI Search | - Azure OpenAI <br>- Azure AI Search |
+| OneDrive for Business | Consumption: <br>- Vectorize files on a schedule from OneDrive for Business to AI Search <br><br>Standard: <br>- Ingest and index files using the RAG pattern <br>- Ingest documents on a schedule from OneDrive to AI Search | - Azure OpenAI <br>- Azure AI Search |
 | SAP | Consumption: <br>- Synch business partners to SharePoint folder using OData |
 | SFTP | Standard: <br>- Ingest and index files using the RAG pattern | - Azure OpenAI <br>- Azure AI Search |
 | SharePoint Online | Consumption: <br>-Vectorize files on request from SharePoint Online to AI Search <br><br>Standard: <br>- Ingest and index files using the RAG pattern <br>- Index documents to AI Search, retrieve and reason with Azure OpenAI LLMs using the RAG pattern | - Azure OpenAI <br>- Azure AI Search |

@@ -29,5 +29,3 @@ az webapp log tail --name <app-name> --resource-group <resource-group-name>
 If console logs don't appear immediately, check again in 30 seconds.
 
 To stop log streaming at any time, select **Ctrl**+**C**.
-
-You can also inspect the log files in a browser at `https://<app-name>.scm.azurewebsites.net/api/logs/docker`. For recently created apps, use `https://<app-name>-<random-hash>.scm.<region>.azurewebsites.net/`.

@@ -15,9 +15,9 @@ You can get support for your NGINXaaS deployment through a **New Support request
 
 ## Getting support  
 
-1. To contact support about an NGINXaaS resource, select the resource in the Resource menu.
+1. To contact support about an NGINXaaS resource, select the resource in the service menu.
 
-1. Select the **New Support request** in Resource menu on the left.
+1. Select the **New Support request** in service menu on the left.
 
 1. Select **Raise a support ticket** and fill out the details.
 

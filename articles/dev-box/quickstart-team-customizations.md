@@ -15,8 +15,6 @@ ms.date: 11/06/2024
   
 # Quickstart: Create a dev box by using team customizations
 
-[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
-  
 In this quickstart, you create a dev box by using Microsoft Dev Box team customizations. The feature uses an image definition file so that you can create consistently customized dev boxes for your development team and provide a tailored environment for your projects.
   
 ## Prerequisites

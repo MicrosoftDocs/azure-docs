@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/07/2025
+ms.date: 05/15/2025
 ---
 
 # Copy and transform data in Snowflake V1 using Azure Data Factory or Azure Synapse Analytics
@@ -562,6 +562,28 @@ By setting the pipeline Logging Level to None, we exclude the transmission of in
 
 > [!NOTE]
 > We don’t support temporary tables in Snowflake, as they are local to the session or user who creates them, making them inaccessible to other sessions and prone to being overwritten as regular tables by Snowflake. While Snowflake offers transient tables as an alternative, which are accessible globally, they require manual deletion, contradicting our primary objective of using Temp tables which is to avoid any delete operations in source schema.
+
+## Data type mapping for Snowflake V1
+
+When you copy data from Snowflake, the following mappings are used from Snowflake data types to interim data types within the service internally. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+
+| Snowflake data type      | Service interim data type |
+|--------------------|---------------------------------------------|
+| NUMBER (p,0)       | Int64                                       |
+| NUMBER (p,s where s>0) | Decimal                                 |
+| FLOAT              | Double                                      |
+| VARCHAR            | String                                      |
+| CHAR               | String                                      |
+| BINARY             | Byte[]                                      |
+| BOOLEAN            | Boolean                                     |
+| DATE               | DateTime                                    |
+| TIME               | TimeSpan                                    |
+| TIMESTAMP_LTZ      | DateTime                                    |
+| TIMESTAMP_NTZ      | DateTime                                    |
+| TIMESTAMP_TZ       | DateTime                                    |
+| VARIANT            | String                                      |
+| OBJECT             | String                                      |
+| ARRAY              | String                                      |
 
 ## Lookup activity properties
 

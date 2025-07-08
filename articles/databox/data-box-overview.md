@@ -11,6 +11,7 @@ ms.author: shaas
 ms.custom: references_regions
 zone_pivot_groups: data-box-sku
 #Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure or export data from Azure.
+# Customer intent: "As a data administrator, I want to leverage Azure Data Box for transferring large volumes of data into and out of Azure, so that I can efficiently manage data migrations and backups in scenarios with limited network connectivity."
 ---
 # What is Azure Data Box?
 

@@ -46,7 +46,7 @@ The systems listed in the following tables are supported by Microsoft, either ge
 
 Device Update for IoT Hub release assets and release notes are available on the [Device Update Release](https://github.com/Azure/iot-hub-device-update/releases) page. Support for the APIs, PnP Models, and device update reference agents is covered in the table. 
 
-Device Update for IoT Hub 1.0 is the first major release and will continue to receive security fixes and fixes to regressions.  
+Device Update for IoT Hub 1.0 is the first major release and continues to receive security fixes and fixes to regressions.  
 
 Device Update (DU) agents use IoT Plug and Play models to send and receive properties and messages from the DU service. Each DU agent requires specific models to be used. Learn more about how device update uses these models and how they can be extended.  
 
@@ -54,17 +54,19 @@ Newer REST Service API versions support older agents unless specified. Device Up
 
 | Release notes and assets | deviceupdate-agent | Upgrade Supported from agent version | DU PnP Models supported | API Versions|
 | ------------------------ | ------------------ | ------------------------------------ | ----------------------- |-------------|
-| 1.0.0 | 1.0.0 <br /> 1.0.1 <br /> 1.0.2 | 0.8.x | dtmi:azure:iot:deviceUpdateContractModel;2 <br /> dtmi:azure:iot:deviceUpdateModel;2  | 2022-10-01 |
-|0.0.8 (Preview)(Deprecated) | 0.8.0 <br /> 0.8.1 <br /> 0.8.2 |  | dtmi:azure:iot:deviceUpdateContractModel;1 <br /> dtmi:azure:iot:deviceUpdateModel;1 | 2022-10-01 <br /> 2021-06-01-preview (Deprecated)|
+| 1.2.0 | 1.2.0 <br /> | 1.1.0 | dtmi:azure:iot:deviceUpdateContractModel; 3 <br /> dtmi:azure:iot:deviceUpdateModel; 3  | 2022-10-01 |
+| 1.1.0 | 1.1.0|1.0.x | dtmi:azure:iot:deviceUpdateContractModel; 3 <br /> dtmi:azure:iot:deviceUpdateModel; 3| 2022-10-01 |
+| 1.0.0 | 1.0.0 <br /> 1.0.1 <br /> 1.0.2 | 0.8.x | dtmi:azure:iot:deviceUpdateContractModel; 2 <br /> dtmi:azure:iot:deviceUpdateModel; 2  | 2022-10-01 |
+|0.0.8 (Preview)(Deprecated) | 0.8.0 <br /> 0.8.1 <br /> 0.8.2 |  | dtmi:azure:iot:deviceUpdateContractModel; 1 <br /> dtmi:azure:iot:deviceUpdateModel; 1 | 2022-10-01 <br /> 2021-06-01-preview (Deprecated)|
 
-The latest API version, 2022-10-01 will be supported until the next stable release and the latest agent version, 1.0.x, will receive bug fixes and security fixes until the next stable release. 
+The latest API version, 2022-10-01 will be supported until the next stable release and the latest agent version, 1.x.x, will receive bug fixes and security fixes until the next stable release. 
 
 > [!NOTE]
-> Users, that have extended from the reference agent and customized the agent, are responsible for ensuring the bug fixes and security fixes are incorporated. You will also need to ensure the agent is built and configured correctly as defined by the service to connect service, perform updates, and manage devices from the IoT hub. 
+> Users that have extended from the reference agent and customized the agent are responsible for ensuring the bug fixes and security fixes are incorporated. You will also need to ensure the agent is built and configured correctly as defined by the service to connect service, perform updates, and manage devices from the IoT hub. 
 
 > [!IMPORTANT]
 > Every Microsoft product has a lifecycle. The lifecycle begins when a product is released and ends when it's no longer supported. Knowing key dates in this lifecycle helps you make informed decisions about when to upgrade or make other changes to your software.  
-> For Device Update for IoT Hub, no stable API or agent version will be deprecated without a replacing version. Deprecated stable versions will be available for no less than 3 years after deprecation is announced to allow users to migrate to in-support agent and API versions. 
-> Preview releases (Pre-releases) agents and APIs are not serviced after the release of the stable version. Preview versions are released to test new functionality, gather feedback, and discover and fix issues. Previews are available under Supplemental Terms of Use, and aren't recommended for production workloads. 
-> 0.7.0 (Pre-release) is not supported by the latest service and API versions.  
+> For Device Update for IoT Hub, no stable API or agent version will be deprecated without a replacing version. Deprecated stable versions will be available for no less than three years after deprecation is announced to allow users to migrate to in-support agent and API versions. 
+> Preview releases (Prereleases) agents and APIs are not serviced after the release of the stable version. Preview versions are released to test new functionality, gather feedback, and discover and fix issues. Previews are available under Supplemental Terms of Use, and aren't recommended for production workloads. 
+> 0.7.0 (Prerelease) is not supported by the latest service and API versions.  
 > With the latest stable release, we recommend that all current customers running 0.x.x upgrade their devices to 1.0.x to receive ongoing support. 

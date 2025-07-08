@@ -3,12 +3,13 @@ title: Configure end-to-end TLS encryption using the portal
 titleSuffix: Azure Application Gateway
 description: Learn how to use the Azure portal to create an application gateway with end-to-end TLS encryption.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 03/28/2023
-ms.author: greglin
+ms.author: mbender
 ms.custom: mvc
+# Customer intent: As a network engineer, I want to configure end-to-end TLS encryption for an application gateway, so that I can ensure secure communication between clients and backend servers.
 ---
 
 # Configure end-to-end TLS by using Application Gateway with the portal

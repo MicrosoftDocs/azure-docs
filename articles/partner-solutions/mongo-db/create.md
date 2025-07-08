@@ -1,13 +1,13 @@
 ---
-title: "Quickstart: Get started with MongoDB Atlas (preview)"
+title: "Quickstart: Get Started with MongoDB Atlas Preview"
 description: Learn how to create a MongoDB Atlas resource in the Azure portal.
 ms.topic: quickstart
 ms.date: 04/28/2025
 ---
 
-# Quickstart: Get started with MongoDB Atlas (preview)
+# Quickstart: Get started with MongoDB Atlas Preview
 
-In this quickstart, you create a MongoDB Atlas resource in the Azure portal. 
+In this quickstart, you create a MongoDB Atlas resource in the Azure portal.
 
 ## Prerequisites
 
@@ -20,39 +20,33 @@ In this quickstart, you create a MongoDB Atlas resource in the Azure portal.
 
 ### Basics tab
 
-The *Basics* tab has three sections:
+The **Basics** tab has sections for details about the project, the Azure resource, and the MongoDB Atlas organization. Red asterisks identify required settings.
 
-- Project details
-- Azure resource details
-- MongoDB Atlas organization details
+:::image type="content" source="media/create/basics-tab.png" alt-text="Screenshot of basic settings for creating a MongoDB Atlas organization in the Azure portal.":::
 
-:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create MongoDB Atlas Organization options inside of the Azure portal's working pane with the Basics tab displayed.":::
+1. Under **Project details**, enter these values:
 
-There are required fields (identified with a red asterisk) in each section that you need to fill out.
-
-1. Enter the values for each required setting under *Project details*.
-
-    | Field               | Action                                                    |
+    | Setting               | Action                                                    |
     |---------------------|-----------------------------------------------------------|
-    | Subscription        | Select a subscription from your existing subscriptions.   |
-    | Resource group      | Use an existing resource group or create a new one.       |
+    | **Subscription**        | Select a subscription from your existing subscriptions.   |
+    | **Resource group**      | Use an existing resource group or create a new one.       |
 
-1. Enter the values for each required setting under *Azure Resource details*.
+1. Under **Azure Resource Details**, enter these values:
 
-    | Field              | Action                                    |
+    | Setting              | Action                                    |
     |--------------------|-------------------------------------------|
-    | Resource name      | Specify a unique name for the resource.   |
-    | Region             | Select a region to deploy your resource.  |
+    | **Resource name**      | Specify a unique name for the resource.   |
+    | **Region**             | Select a region to deploy your resource.  |
 
-1. Enter the values for each required setting under *MongoDB Atlas Organization details*.
+1. Under **MongoDB Atlas Organization details**, enter this value:
 
-    | Field                  | Action                                                                                           |
+    | Setting                  | Action                                                                                           |
     |------------------------|--------------------------------------------------------------------------------------------------|
-    | Organization Name      | Specify the name of the MongoDB Atlas organization                                               |
+    | **Organization name**      | Specify the name of the MongoDB Atlas organization.                                               |
 
-    The remaining fields update to reflect the details of the plan you selected for this new organization.
+    The remaining settings update themselves to reflect the details of the plan that you selected for this new organization.
 
-1. Select the **Next** button at the bottom of the page.
+1. Select **Next**.
 
 ### Tags tab (optional)
 
@@ -64,7 +58,5 @@ There are required fields (identified with a red asterisk) in each section that 
 
 ## Next step
 
-> [!div class"nextstepaction"]
+> [!div class="nextstepaction"]
 > [Manage a resource](manage.md)
-
-

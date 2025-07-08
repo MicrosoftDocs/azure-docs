@@ -7,6 +7,7 @@ ms.topic: concept-article
 author: duongau
 ms.author: duau
 ms.service: azure-firewall
+# Customer intent: As a network administrator, I want to access Azure Firewall logs and metrics so that I can monitor traffic, analyze performance, and ensure compliance with security protocols effectively.
 ---
 # Monitor Azure Firewall
 

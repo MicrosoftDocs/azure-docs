@@ -18,7 +18,7 @@ When you're submitting cluster creation requests by using Azure Resource Manager
 
 ## Troubleshooting steps
 
-When you're using [templates or automation tools](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#cluster-setup-methods) to create HDInsight clusters, choose one of the bellow versions (Major.minor) as `componentVersion`: 
+When you're using [templates or automation tools](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#cluster-setup-methods) to create HDInsight clusters, choose one of the below versions (Major.minor) as `componentVersion`: 
 
 
 | Cluster type| HDInsight 4.0 | HDInsight 5.0| HDInsight 5.1|

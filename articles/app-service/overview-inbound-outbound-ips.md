@@ -5,7 +5,10 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: article
 ms.date: 03/10/2025
-ms.custom: UpdateFrequency3
+ms.update-cycle: 1095-days
+ms.custom:
+  - UpdateFrequency3
+  - build-2025
 ---
 
 # Inbound and outbound IP addresses in Azure App Service
@@ -19,6 +22,9 @@ ms.custom: UpdateFrequency3
 An App Service app runs in an App Service plan, and App Service plans are deployed into one of the deployment units in the Azure infrastructure (internally called a webspace). Each deployment unit is assigned a set of virtual IP addresses, which includes one public inbound IP address and a set of [outbound IP addresses](#find-outbound-ips). All App Service plans in the same deployment unit, and app instances that run in them, share the same set of virtual IP addresses. For an App Service Environment (an App Service plan in [Isolated tier](https://azure.microsoft.com/pricing/details/app-service/)), the App Service plan is the deployment unit itself, so the virtual IP addresses are dedicated to it as a result.
 
 Because you're not allowed to move an App Service plan between deployment units, the virtual IP addresses assigned to your app usually remain the same, but there are exceptions.
+
+> [!NOTE]
+> The Premium V4 tier does not provide a stable set of outbound IP addresses.  This behavior is intentional.  Although applications running on the Premium V4 tier can make outbound calls to internet-facing endpoints, the App Service platform does not provide a stable set of outbound IP addresses for the Premium V4 tier.  This is a change in behavior from previous App Service pricing tiers.  The portal will show "Dynamic" for outbound IP addresses and additional outbound IP addresses information for applications using Premium V4.  ARM and CLI calls will return empty strings for the values of *outboundIpAddresses* and *possibleOutboundIpAddresses*.  If applications running on Premium V4 require a stable outbound IP address(es), developers will need to use a solution like [Azure NAT Gateway](overview-nat-gateway-integration.md) to get a predictable IP address for outbound internet-facing traffic.
 
 ## When inbound IP changes
 

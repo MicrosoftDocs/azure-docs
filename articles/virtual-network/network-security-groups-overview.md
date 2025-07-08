@@ -10,6 +10,7 @@ ms.date: 03/31/2025
 ms.author: allensu
 ms.reviewer: kumud
 ms.custom: FY23 content-maintenance
+# Customer intent: "As a network administrator, I want to configure network security groups to filter traffic between Azure resources, so that I can control access and enhance security across our virtual network."
 ---
 
 # Network security groups
@@ -100,6 +101,10 @@ For more information, see [Azure service tags](service-tags-overview.md). For an
 #### Application security groups
 
 Application security groups enable you to configure network security as a natural extension of an application's structure, allowing you to group virtual machines and define network security policies based on those groups. You can reuse your security policy at scale without manual maintenance of explicit IP addresses. To learn more, see [Application security groups](application-security-groups.md).
+
+## Flow timeout
+
+Flow timeout settings determine how long a flow record remains active before expiring. You can configure this setting using the Azure portal or through the command line. For more details, see [NSG flow logs overview](../network-watcher/nsg-flow-logs-overview.md?tabs=Americas#non-default-inbound-tcp-rules).
 
 ## Azure platform considerations
 

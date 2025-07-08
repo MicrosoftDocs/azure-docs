@@ -2,11 +2,12 @@
 title: Back up Azure Files in the Azure portal
 description: Learn how to use the Azure portal to back up Azure Files in the Recovery Services vault
 ms.topic: how-to
-ms.date: 05/06/2025
+ms.date: 05/22/2025
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to configure backups for Azure Files, so that I can ensure data protection against accidental or malicious deletions while minimizing on-premises maintenance."
 ---
 
 # Back up Azure Files
@@ -184,4 +185,5 @@ Once the backup configuration is complete, you can [run an on-demand backup](tut
 ## Next steps
 
 * [Restore Azure Files using Azure portal](restore-afs.md).
-* [Manage Azure Files backups using Azure portal](manage-afs-backup.md).
+* Restore Azure Files using [Azure PowerShell](restore-afs-powershell.md), [Azure CLI](restore-afs-cli.md), [REST API](restore-azure-file-share-rest-api.md).
+* Manage Azure Files backups using [Azure portal](manage-afs-backup.md), [Azure PowerShell](manage-afs-powershell.md), [Azure CLI](manage-afs-backup-cli.md), [REST API](manage-azure-file-share-rest-api.md).

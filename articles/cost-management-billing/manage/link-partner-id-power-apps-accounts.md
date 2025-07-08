@@ -6,7 +6,7 @@ ms.reviewer: macyso
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/22/2025
+ms.date: 05/21/2025
 ms.author: macyso
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli

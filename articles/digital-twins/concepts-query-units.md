@@ -5,7 +5,7 @@ description: Learn about the billing concept of Query Units in Azure Digital Twi
 author: baanders
 ms.author: baanders
 ms.date: 04/11/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-digital-twins
 ---
 

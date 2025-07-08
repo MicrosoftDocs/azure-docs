@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 03/07/2023
+# Customer intent: As a web application administrator, I want to configure exclusion lists in my web application firewall, so that I can prevent legitimate requests from being blocked by false positives.
 ---
 
 # Web Application Firewall with Azure Front Door exclusion lists

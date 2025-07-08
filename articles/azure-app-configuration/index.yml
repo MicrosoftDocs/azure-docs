@@ -9,6 +9,7 @@ metadata:
   ms.service: azure-app-configuration
   ms.custom:
     - build-2024
+    - build-2025
   ms.topic: landing-page
   ms.date: 04/16/2025
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -74,8 +75,6 @@ landingContent:
           url: quickstart-dotnet-core-app.md
         - text: Code a .NET Framework app
           url: quickstart-dotnet-app.md
-        - text: Code a .NET app in Visual Studio
-          url: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
         - text: Code an Azure Functions app in C#
           url: quickstart-azure-functions-csharp.md
         - text: Code a Java Spring app
@@ -84,8 +83,10 @@ landingContent:
           url: quickstart-python-provider.md
         - text: Code a JavaScript app
           url: quickstart-javascript-provider.md
-        - text: Azure Container Apps
-          url: quickstart-container-apps.md
+        - text: Code a Go app
+          url: quickstart-go-console-app.md
+        - text: Code a Go web app using Gin
+          url: quickstart-go-web-app.md
       - linkListType: tutorial
         links:  
         - text: Use dynamic config in ASP.NET Core
@@ -102,10 +103,10 @@ landingContent:
           url: enable-dynamic-configuration-java-spring-app.md
         - text: Use dynamic config in Python
           url: enable-dynamic-configuration-python.md
-        - text: Integrating dynamic config using the push model in .NET
-          url: enable-dynamic-configuration-dotnet-core-push-refresh.md
-        - text: Integrating dynamic config using the push model in Java Spring
-          url: enable-dynamic-configuration-java-spring-push-refresh.md
+        - text: Use dynamic config in Go
+          url: enable-dynamic-configuration-go-console-app.md
+        - text: Use dynamic config in Go Gin
+          url: enable-dynamic-configuration-gin-web-app.md
       - linkListType: tutorial
         links:
         - text: Import data using Azure Pipelines
@@ -164,6 +165,8 @@ landingContent:
           url: howto-variant-feature-flags.md
         - text: Use variant feature flags in Python
           url: howto-variant-feature-flags-python.md
+        - text: Use variant feature flags in JavaScript
+          url: howto-variant-feature-flags-javascript.md
       - linkListType: reference
         links:
         - text: Overview
@@ -188,7 +191,7 @@ landingContent:
         - text: Overview
           url: configuration-provider-overview.md
         - text: .NET provider
-          url: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
+          url: reference-dotnet-provider.md
         - text: Java Spring provider
           url: https://go.microsoft.com/fwlink/?linkid=2180917
         - text: Python provider
@@ -197,6 +200,8 @@ landingContent:
           url: reference-javascript-provider.md
         - text: Kubernetes provider
           url: reference-kubernetes-provider.md
+        - text: Go provider
+          url: https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration
       - linkListType: reference
         links:      
         - text: Azure SDK for .NET

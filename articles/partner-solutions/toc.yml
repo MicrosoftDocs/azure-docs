@@ -22,7 +22,7 @@ items:
     href: ./elastic/index.yml
   - name: Informatica 
     href: ./informatica/index.yml
-  - name: LambdaTest - HyperExecute (preview)
+  - name: LambdaTest - HyperExecute
     href: ./lambda-test/index.yml
   - name: MongoDB Atlas (preview)
     href: ./mongo-db/index.yml

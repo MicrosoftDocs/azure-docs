@@ -4,9 +4,10 @@ description: Start here to learn how to monitor Azure Bastion by using Azure Mon
 ms.date: 12/02/2024
 ms.custom: horz-monitor
 ms.topic: concept-article
-author: cherylmc
-ms.author: cherylmc
+author: abell
+ms.author: abell
 ms.service: azure-bastion
+# Customer intent: As a cloud administrator, I want to monitor Azure Bastion using Azure Monitor so that I can collect and analyze performance data and logs to ensure system reliability and optimize resource management.
 ---
 
 # Monitor  Azure Bastion

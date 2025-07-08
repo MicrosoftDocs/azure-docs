@@ -4,8 +4,8 @@ description: Create test certificates and learn how to install them on an Azure 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 06/03/2024
-ms.topic: conceptual
+ms.date: 06/06/2025
+ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
 ---
@@ -14,18 +14,18 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-IoT Edge devices require certificates for secure communication between the runtime, the modules, and any downstream devices.
-If you don't have a certificate authority to create the required certificates, you can use demo certificates to try out IoT Edge features in your test environment.
-This article describes the functionality of the certificate generation scripts that IoT Edge provides for testing.
+IoT Edge devices need certificates for secure communication between the runtime, the modules, and any downstream devices.
+If you don't have a certificate authority to create the required certificates, use demo certificates to try out IoT Edge features in your test environment.
+This article explains the certificate generation scripts that IoT Edge provides for testing.
 
 > [!WARNING]
-> These certificates expire in 30 days, and should not be used in any production scenario.
+> These certificates expire in 30 days, and you shouldn't use them in any production scenario.
 
-You can create certificates on any machine and then copy them over to your IoT Edge device, or generate the certificates directly on the IoT Edge device.
+Create certificates on any machine and then copy them to your IoT Edge device, or generate the certificates directly on the IoT Edge device.
 
 ## Prerequisites
 
-A development machine with Git installed.
+Use a development machine that has Git installed.
 
 ## Download test certificate scripts and set up working directory
 
@@ -34,18 +34,18 @@ This section provides instructions for preparing the scripts to run on your comp
 
 # [Windows](#tab/windows)
 
-To create demo certificates on a Windows device, you need to install OpenSSL and then clone the generation scripts and set them up to run locally in PowerShell.
+To create demo certificates on a Windows device, install OpenSSL, then clone the generation scripts and set them up to run locally in PowerShell.
 
 #### Install OpenSSL
 
-Install OpenSSL for Windows on the machine that you're using to generate the certificates.
-If you already have OpenSSL installed on your Windows device, ensure that openssl.exe is available in your PATH environment variable.
+Install OpenSSL for Windows on the device you use to generate the certificates.
+If OpenSSL is already installed, make sure that openssl.exe is available in your PATH environment variable.
 
-There are several ways to install OpenSSL, including the following options:
+You can install OpenSSL in different ways:
 
 * **Easier:** Download and install any [third-party OpenSSL binaries](https://wiki.openssl.org/index.php/Binaries), for example, from [OpenSSL on SourceForge](https://sourceforge.net/projects/openssl/). Add the full path to openssl.exe to your PATH environment variable.
 
-* **Recommended:** Download the OpenSSL source code and build the binaries on your machine by yourself or via [vcpkg](https://github.com/Microsoft/vcpkg). The instructions listed below use vcpkg to download source code, compile, and install OpenSSL on your Windows machine with easy steps.
+* **Recommended:** Download the OpenSSL source code and build the binaries on your device, or use [vcpkg](https://github.com/Microsoft/vcpkg). The following instructions use vcpkg to download source code, compile, and install OpenSSL on your Windows device.
 
    1. Navigate to a directory where you want to install vcpkg. Follow the instructions to download and install [vcpkg](https://github.com/Microsoft/vcpkg).
 
@@ -60,17 +60,16 @@ There are several ways to install OpenSSL, including the following options:
 #### Prepare scripts in PowerShell
 
 The Azure IoT Edge git repository contains scripts that you can use to generate test certificates.
-In this section, you clone the IoT Edge repo and execute the scripts.
+In this section, you clone the IoT Edge repository and execute the scripts.
 
-1. Open a PowerShell window in administrator mode.
-
-2. Clone the IoT Edge git repo, which contains scripts to generate demo certificates. Use the `git clone` command or [download the ZIP](https://github.com/Azure/iotedge/archive/master.zip).
+1. Open PowerShell in administrator mode.
+2. Clone the IoT Edge git repository, which has scripts to generate demo certificates. Use the `git clone` command or [download the ZIP](https://github.com/Azure/iotedge/archive/master.zip).
 
    ```powershell
    git clone https://github.com/Azure/iotedge.git
    ```
 
-2. Create a directory in which you want to work and copy the certificate scripts there. All certificate and key files will be created in this directory.
+3. Create a directory and copy the certificate scripts there. All certificate and key files are created in this directory.
   
    ```powershell
    mkdir wrkdir
@@ -79,23 +78,24 @@ In this section, you clone the IoT Edge repo and execute the scripts.
    cp ..\iotedge\tools\CACertificates\ca-certs.ps1 .
    ```
 
-   If you downloaded the repo as a ZIP, then the folder name is `iotedge-master` and the rest of the path is the same.
+   If you downloaded the repository as a ZIP, the folder name is `iotedge-master` and the rest of the path is the same.
 
-3. Enable PowerShell to run the scripts.
+3. Set the PowerShell execution policy to run the scripts.
 
    ```powershell
    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
    ```
 
-4. Bring the functions used by the scripts into PowerShell's global namespace.
+4. Import the functions used by the scripts into PowerShell's global namespace.
 
    ```powershell
    . .\ca-certs.ps1
    ```
 
-   The PowerShell window will display a warning that the certificates generated by this script are only for testing purposes, and should not be used in production scenarios.
+   The PowerShell window shows a warning that the certificates generated by this script are only for testing, and shouldn't be used in production scenarios.
 
 5. Verify that OpenSSL has been installed correctly and make sure that there won't be name collisions with existing certificates. If there are problems, the script output should describe how to fix them on your system.
+
 
    ```powershell
    Test-CACertsPrerequisites
@@ -105,13 +105,13 @@ In this section, you clone the IoT Edge repo and execute the scripts.
 
 To create demo certificates on a Linux device, you need to clone the generation scripts and set them up to run locally in bash.
 
-1. Clone the IoT Edge git repo, which contains scripts to generate demo certificates.
+1. Clone the IoT Edge git repository, which contains scripts to generate demo certificates.
 
    ```bash
    git clone https://github.com/Azure/iotedge.git
    ```
 
-2. Create a directory in which you want to work and copy the certificate scripts there. All certificate and key files will be created in this directory.
+2. Create a directory and copy the certificate scripts there. All certificate and key files are created in this directory.
   
    ```bash
    mkdir wrkdir
@@ -120,44 +120,33 @@ To create demo certificates on a Linux device, you need to clone the generation 
    cp ../iotedge/tools/CACertificates/certGen.sh .
    ```
 
-<!--
-4. Configure OpenSSL to generate certificates using the provided script. 
-
-   ```bash
-   chmod 700 certGen.sh 
-   ```
--->
-
 ---
 
 ## Create root CA certificate
 
-Run this script to generate a root CA that is required for each step in this article.
+Run this script to generate a root CA certificate. You need this certificate for each step in this article.
 
-The root CA certificate is used to make all the other demo certificates for testing an IoT Edge scenario.
-You can keep using the same root CA certificate to make demo certificates for multiple IoT Edge or downstream devices.
+Use the root CA certificate to create other demo certificates for testing an IoT Edge scenario. You can use the same root CA certificate to create demo certificates for multiple IoT Edge or downstream devices.
 
-If you already have one root CA certificate in your working folder, don't create a new one.
-The new root CA certificate will overwrite the old, and any downstream certificates made from the old one will stop working.
-If you want multiple root CA certificates, be sure to manage them in separate folders.
+If you already have a root CA certificate in your working folder, don't create a new one. Creating a new root CA certificate overwrites the old one, and any downstream certificates created from the old certificate stop working. If you need multiple root CA certificates, manage them in separate folders.
 
 # [Windows](#tab/windows)
 
-1. Navigate to the working directory `wrkdir` where you placed the certificate generation scripts.
+1. Go to the working directory `wrkdir` where you put the certificate generation scripts.
 
-1. Create the root CA certificate and have it sign one intermediate certificate. The certificates are all placed in your working directory. 
+1. Create the root CA certificate and sign one intermediate certificate. The certificates are placed in your working directory.
 
    ```powershell
    New-CACertsCertChain rsa
    ```
 
-   This script command creates several certificate and key files, but when articles ask for the **root CA certificate**, use the following file:
+   This script creates several certificate and key files. When articles ask for the **root CA certificate**, use this file:
 
    `certs\azure-iot-test-only.root.ca.cert.pem`
 
 # [Linux](#tab/linux)
 
-1. Navigate to the working directory `wrkdir` where you placed the certificate generation scripts.
+1. Go to the working directory `wrkdir` where you put the certificate generation scripts.
 
 1. Create the root CA certificate and one intermediate certificate.
 
@@ -165,13 +154,13 @@ If you want multiple root CA certificates, be sure to manage them in separate fo
    ./certGen.sh create_root_and_intermediate
    ```
 
-   This script command creates several certificate and key files, but when articles ask for the **root CA certificate**, use the following file:
+   This script creates several certificate and key files. When articles ask for the **root CA certificate**, use this file:
 
-   `certs/azure-iot-test-only.root.ca.cert.pem`  
+   `certs/azure-iot-test-only.root.ca.cert.pem`
 
 ---
 
-This certificate is required before you can create more certificates for your IoT Edge devices and downstream devices as described in the next sections.
+You need this certificate before you create more certificates for your IoT Edge devices and downstream devices, as described in the next sections.
 
 ## Create identity certificate for the IoT Edge device
 
@@ -183,7 +172,7 @@ Device identity certificates go in the **Provisioning** section of the config fi
 
 # [Windows](#tab/windows)
 
-1. Navigate to the working directory `wrkdir` that has the certificate generation scripts and root CA certificate.
+1. Go to the working directory `wrkdir` that has the certificate generation scripts and root CA certificate.
 
 1. Create the IoT Edge device identity certificate and private key with the following command:
 
@@ -191,7 +180,7 @@ Device identity certificates go in the **Provisioning** section of the config fi
     New-CACertsEdgeDeviceIdentity "<device-id>"
     ```
     
-    The name that you pass in to this command is the device ID for the IoT Edge device in IoT Hub.
+    The name you enter for this command is the device ID for the IoT Edge device in IoT Hub.
 
 1. The new device identity command creates several certificate and key files:
 
@@ -225,21 +214,21 @@ Device identity certificates go in the **Provisioning** section of the config fi
 
 ## Create Edge CA certificates
 
-These certificates are required for **gateway scenarios** because the Edge CA certificate is how the IoT Edge device verifies its identity to downstream devices. You can skip this section if you're not connecting any downstream devices to IoT Edge.
+You need these certificates for **gateway scenarios** because the Edge CA certificate lets the IoT Edge device verify its identity to downstream devices. Skip this section if you aren't connecting any downstream devices to IoT Edge.
 
-The **Edge CA** certificate is also responsible for creating certificates for modules running on the device, but IoT Edge runtime can create temporary certificates if Edge CA isn't configured. Edge CA certificates go in the **Edge CA** section of the `config.toml` file on the IoT Edge device. To learn more, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md). 
+The **Edge CA** certificate also creates certificates for modules running on the device, but the IoT Edge runtime can create temporary certificates if Edge CA isn't set up. Place Edge CA certificates in the **Edge CA** section of the `config.toml` file on the IoT Edge device. To learn more, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
 
 # [Windows](#tab/windows)
 
 1. Navigate to the working directory `wrkdir` that has the certificate generation scripts and root CA certificate.
 
-2. Create the IoT Edge CA certificate and private key with the following command. Provide a name for the CA certificate. The name passed to the **New-CACertsEdgeDevice** command should *not* be the same as the hostname parameter in the config file or the device's ID in IoT Hub.
+2. Create the IoT Edge CA certificate and private key with the following command. Enter a name for the CA certificate. Don't use the same name as the hostname parameter in the config file or the device's ID in IoT Hub for the **New-CACertsEdgeDevice** command.
 
    ```powershell
    New-CACertsEdgeDevice "<CA cert name>"
    ```
 
-3. This command creates several certificate and key files. The following certificate and key pair need to be copied over to an IoT Edge device and referenced in the config file:
+3. This command creates several certificate and key files. Copy the following certificate and key pair to the IoT Edge device and reference them in the config file:
 
    * `certs\iot-edge-device-<CA cert name>-full-chain.cert.pem`
    * `private\iot-edge-device-<CA cert name>.key.pem`
@@ -249,13 +238,13 @@ The **Edge CA** certificate is also responsible for creating certificates for mo
 
 1. Navigate to the working directory that has the certificate generation scripts and root CA certificate.
 
-2. Create the IoT Edge CA certificate and private key with the following command. Provide a name for the CA certificate. The name passed to the **create_edge_device_ca_certificate** command should *not* be the same as the hostname parameter in the config file or the device's ID in IoT Hub.
+2. Create the IoT Edge CA certificate and private key with the following command. Enter a name for the CA certificate. Don't use the same name as the hostname parameter in the config file or the device's ID in IoT Hub for the **create_edge_device_ca_certificate** command.
 
    ```bash
    ./certGen.sh create_edge_device_ca_certificate "<CA cert name>"
    ```
 
-3. This script command creates several certificate and key files. The following certificate and key pair need to be copied over to an IoT Edge device and referenced in the config file:
+3. This script command creates several certificate and key files. Copy the following certificate and key pair to the IoT Edge device and reference them in the config file:
 
    * `certs/iot-edge-device-ca-<CA cert name>-full-chain.cert.pem`
    * `private/iot-edge-device-ca-<CA cert name>.key.pem`

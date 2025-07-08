@@ -2,9 +2,10 @@
 title: Manage Azure Recovery Services vaults and servers
 description: In this article, learn how to use the Recovery Services vault Overview dashboard to monitor and manage your Recovery Services vaults. 
 ms.topic: how-to
-ms.date: 03/07/2025
+ms.date: 06/23/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to use the Overview dashboard of the Recovery Services vault to monitor backup jobs and alerts, so that I can ensure the reliability and effectiveness of our backup and recovery processes."
 ---
 # Monitor and manage Recovery Services vaults
 
@@ -204,8 +205,20 @@ The Backup Storage tile in the dashboard shows the storage consumed in Azure. St
 * Cloud LRS storage usage associated with the vault
 * Cloud GRS storage usage associated with the vault
 
+## Optimize backup and recovery with Azure Business Continuity Center Copilot
+
+Azure Business Continuity Center Copilot introduces new capabilities in the Recovery Services vaults pane, enabling you to configure/manage a secure, resilient backup and recovery environment:
+
+- [Increase security level](../business-continuity-center/tutorial-manage-data-using-copilot.md#increase-security-level-of-recovery-service-vault-and-backup-vault) to strengthen protection for backup data and disaster recovery operations.
+- [Analyze job failures](../business-continuity-center/tutorial-manage-data-using-copilot.md#analyze-job-failures-for-recovery-service-vault-and-backup-vault) to gain insights into failures for precise analysis and faster resolution.
+- [Troubleshoot common errors efficiently](../business-continuity-center/tutorial-manage-data-using-copilot.md#troubleshoot-error-codes-for-recovery-service-vaults-and-backup-vaults).
+
+Learn more about [managing the Business Continuity and Disaster Recovery estate using Copilot (preview)](../business-continuity-center/tutorial-manage-data-using-copilot.md).
+
+
 ## Next steps
 
-* [Restore Windows Server or Windows Client from Azure](backup-azure-restore-windows-server.md).
-* [Troubleshoot monitoring issues](backup-azure-monitor-troubleshoot.md).
-* To learn more about Azure Backup, see [Azure Backup Overview](./backup-overview.md).
+- [Restore Windows Server or Windows Client from Azure](backup-azure-restore-windows-server.md).
+- [Update the soft delete state for Recovery Services vault using REST API](use-restapi-update-vault-properties.md).
+- [Troubleshoot monitoring issues](backup-azure-monitor-troubleshoot.md).
+- To learn more about Azure Backup, see [Azure Backup Overview](./backup-overview.md).

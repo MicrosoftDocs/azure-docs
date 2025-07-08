@@ -7,6 +7,7 @@ ms.topic: reference
 author: khdownie
 ms.author: kendownie
 ms.service: azure-file-storage
+# Customer intent: "As a cloud administrator, I want to access monitoring metrics for Azure File Sync, so that I can effectively track and manage data synchronization and performance across my storage resources."
 ---
 
 # Azure File Sync monitoring data reference

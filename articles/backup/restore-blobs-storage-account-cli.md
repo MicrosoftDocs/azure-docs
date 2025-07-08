@@ -3,9 +3,10 @@ title: Restore Azure Blobs via Azure CLI
 description: Learn how to restore Azure Blobs to any point-in-time using Azure CLI.
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 04/17/2025
+ms.date: 06/17/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to restore Azure Blobs using Azure CLI so that I can recover data efficiently to a specific point-in-time when it was last consistent."
 ---
 
 # Restore Azure Blobs using Azure CLI
@@ -14,7 +15,7 @@ This article describes how to restore [blobs](blob-backup-overview.md) using Azu
 
 You can restore Azure Blobs to point-in-time using *operational backups* and *vaulted backups* for Azure Blobs via Azure CLI. Here, let's use an existing Backup vault `TestBkpVault`, under the resource group `testBkpVaultRG` in the examples.
 
-You can also [restore Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).
+You can also restore Azure Blobs by Azure Backup using [Azure portal](blob-restore.md), [Azure PowerShell](restore-blobs-storage-account-ps.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).
 
 > [!IMPORTANT]
 > Before you restore Azure Blobs using Azure Backup, see [important points](blob-restore.md#before-you-start).

@@ -7,7 +7,9 @@ ms.subservice: azure-reliability
 ms.topic: conceptual
 ms.date: 01/15/2025
 ms.author: anaharris
-ms.custom: subject-reliability
+ms.custom:
+  - subject-reliability
+  - build-2025
 ---
 
 # Multi-region solutions in nonpaired regions
@@ -62,7 +64,7 @@ For geo-replication of Event Grid topics in nonpaired regions, you can implement
 
 ## Azure IoT Hub 
 
-For geo-replication in nonpaired regions, use the [concierge pattern](/azure/iot-hub/iot-hub-ha-dr#achieve-cross-region-ha) for routing to a secondary IoT Hub. 
+To learn about how to create multi-region solutions using Azure IoT Hub, see [Reliability in Azure IoT Hub](./reliability-iot-hub.md).
 
 ## Azure Kubernetes Service (AKS)
 
@@ -129,7 +131,7 @@ For geo-replication in nonpaired regions for Azure Virtual Desktop, you need to 
 
 - For storage, see [Azure Storage](#azure-storage).
 
-For more information, see [Multiregion Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#active-active-vs-active-passive) and [Azure Virtual Desktop service architecture and resilience](../virtual-desktop/service-architecture-resilience.md).
+For more information, see [Multiregion Business Continuity and Disaster Recovery (BCDR) for Azure Virtual Desktop](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr#active-active-vs-active-passive) and [Azure Virtual Desktop service architecture and resilience](/azure/virtual-desktop/service-architecture-resilience).
 
 ## Azure Virtual Machines
 

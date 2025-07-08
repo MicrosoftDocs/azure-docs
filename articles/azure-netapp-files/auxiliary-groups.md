@@ -5,8 +5,11 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 11/13/2023
+ms.date: 02/13/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
+# Customer intent: As a storage administrator, I want to configure auxiliary groups with NFS in Azure NetApp Files, so that I can manage user access control and leverage extended group memberships efficiently.
 ---
 
 # Understand auxiliary/supplemental groups with NFS in Azure NetApp Files
@@ -37,13 +40,13 @@ Any GID beyond the limit of 16 is dropped by the protocol. Extended GIDs in Azur
 
 Extended groups have a minimal performance penalty, generally in the low single digit percentages. Higher metadata NFS workloads would likely have more effect, particularly on the system’s caches. Performance can also be affected by the speed and workload of the name service servers. Overloaded name service servers are slower to respond, causing delays in prefetching the GID. For best results, use multiple name service servers to handle large numbers of requests.
 
-## “Allow local users with LDAP” option
+## "Allow local users with LDAP" option
 
 When a user attempts to access an Azure NetApp Files volume via NFS, the request comes in a numeric ID. By default, Azure NetApp Files supports extended group memberships for NFS users (to go beyond the standard 16 group limit to 1,024). As a result, Azure NetApp files attempts to look up the numeric ID in LDAP in an attempt to resolve the group memberships for the user rather than passing the group memberships in an RPC packet.
 
 Due to that behavior, if that numeric ID can't be resolved to a user in LDAP, the lookup fails and access is denied, even if the requesting user has permission to access the volume or data structure.
 
-The [Allow local NFS users with LDAP option](configure-ldap-extended-groups.md) in Active Directory connections is intended to disable those LDAP lookups for NFS requests by disabling the extended group functionality. It doesn't provide “local user creation/management” within Azure NetApp Files.
+The [Allow local NFS users with LDAP option](configure-ldap-extended-groups.md) in Active Directory connections is intended to disable those LDAP lookups for NFS requests by disabling the extended group functionality. It doesn't provide local user creation/management within Azure NetApp Files.
 
 For more information about the option, including how it behaves with different volume security styles in Azure NetApp files, see [Understand the use of LDAP with Azure NetApp Files](lightweight-directory-access-protocol.md).
 

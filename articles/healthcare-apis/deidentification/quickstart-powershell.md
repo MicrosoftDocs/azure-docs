@@ -7,7 +7,7 @@ ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.date: 11/11/2024
+ms.date: 06/19/2025
 ---
 
 # Quickstart: Deploy the Azure Health Data Services de-identification service with Azure PowerShell

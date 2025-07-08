@@ -10,6 +10,7 @@ ms.service: azure-cdn
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.date: 03/31/2025
+# Customer intent: "As a cloud engineer, I want to deploy an Azure Content Delivery Network profile and endpoint using a Bicep file, so that I can efficiently manage content delivery and performance for my applications."
 ---
 
 # Quickstart: Create an Azure Content Delivery Network profile and endpoint - Bicep

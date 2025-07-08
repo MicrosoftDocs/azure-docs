@@ -4,9 +4,10 @@ description: This article details how to use Azure Update Manager in the Azure p
 ms.service: azure-update-manager
 ms.date: 03/07/2025
 ms.topic: how-to
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.custom: references_regions
+# Customer intent: "As a system administrator, I want to deploy updates across multiple virtual machines, so that I can ensure they are secure and compliant with the latest software requirements."
 ---
 
 # Deploy updates now and track results with Azure Update Manager

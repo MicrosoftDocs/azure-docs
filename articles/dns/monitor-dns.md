@@ -4,9 +4,10 @@ description: Learn how to monitor Azure DNS using Azure Monitor, including data 
 ms.date: 01/06/2025
 ms.custom: horz-monitor
 ms.topic: concept-article
-author: greg-lindsay
-ms.author: greglin
+author: asudbring
+ms.author: allensu
 ms.service: azure-dns
+# Customer intent: "As a cloud administrator, I want to monitor Azure DNS using Azure Monitor, so that I can collect data and set up alerts to ensure optimal performance and availability of my DNS services."
 ---
 
 # Monitor Azure DNS

@@ -1,27 +1,18 @@
 ---
-title: Create an NFS Azure file share and mount it on a Linux VM
-description: This tutorial covers how to use the Azure portal to deploy a Linux virtual machine (VM), create an Azure file share using the NFS protocol, and mount the file share.
+title: Create an NFS Azure File Share
+description: This article covers how to use the Azure portal to deploy a Linux virtual machine (VM), create an Azure file share using the NFS protocol, and mount the file share.
 author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: tutorial
-ms.date: 05/07/2025
+ms.date: 07/01/2025
 ms.author: kendownie
-#Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share using NFS and Linux so I can determine whether I want to subscribe to the service.
+# Customer intent: "As an IT admin evaluating Azure Files, I want to create an NFS file share and mount it on a Linux VM, so that I can assess its performance and integration with my existing workflows."
 ---
 
-# Tutorial: Create an NFS Azure file share and mount it on a Linux VM using the Azure portal
+# Create an NFS Azure file share using the Azure portal
 
-Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) or [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). Both NFS and SMB protocols are supported on Azure virtual machines (VMs) running Linux. This tutorial shows you how to create an Azure file share using the NFS protocol and connect it to a Linux VM.
-
-In this tutorial, you will:
-
-> [!div class="checklist"]
-> * Create a storage account
-> * Deploy a Linux VM
-> * Create an NFS file share
-> * Connect to your VM
-> * Mount the file share to your VM
+Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) or [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). Both NFS and SMB protocols are supported on Azure virtual machines (VMs) running Linux. This article shows you how to create an Azure file share using the NFS protocol and connect it to a Linux VM.
 
 ## Applies to
 | Management model | Billing model | Media tier | Redundancy | SMB | NFS |
@@ -50,7 +41,7 @@ Before you can work with an NFS file share, you have to create a storage account
 1. On the Azure portal menu, select **All services**. In the list of resources, type **Storage Accounts**. As you begin typing, the list filters based on your input. Select **Storage Accounts**.
 1. On the **Storage Accounts** window that appears, choose **+ Create**.
 1. Under **Project details**, select the subscription in which to create the storage account.
-1. Under the **Resource group** field, select **Create new** to create a new resource group to use for this tutorial. Or you can choose an existing resource group.
+1. Under the **Resource group** field, select **Create new** to create a new resource group. Or you can choose an existing resource group.
 1. Under **Instance details**, enter a name for your storage account. The name must be unique across Azure. The name also must be between 3 and 24 characters in length, and may include only numbers and lowercase letters.
 1. Select a region for your storage account, or use the default region. Azure supports NFS file shares in all the same [regions that support SSD file shares](redundancy-premium-file-shares.md).
 1. Under **Primary service**, select **Azure Files**.
@@ -125,7 +116,7 @@ Next, set up a private endpoint for your storage account. This gives your storag
 
 1. Select the file share *qsfileshare*. You should see a dialog that says *Connect to this NFS share from Linux*. Under **Network configuration**, select **Review options**
 
-    :::image type="content" source="media/storage-files-quick-create-use-linux/connect-from-linux.png" alt-text="Screenshot showing how to configure network and secure transfer settings to connect the N F S share from Linux." lightbox="media/storage-files-quick-create-use-linux/connect-from-linux.png" border="true":::
+    :::image type="content" source="media/storage-files-quick-create-use-linux/connect-from-linux.png" alt-text="Screenshot showing how to configure network settings to connect to the N F S share from Linux." lightbox="media/storage-files-quick-create-use-linux/connect-from-linux.png" border="true":::
 
 1. Next, select **Setup a private endpoint**.
 
@@ -157,31 +148,13 @@ Next, set up a private endpoint for your storage account. This gives your storag
 
 1. Azure will attempt to validate the private endpoint. When validation is complete, select **Create**. You'll see a notification that deployment is in progress. After a few minutes, you should see a notification that deployment is complete.
 
-### Disable secure transfer
-
-Azure Files doesn't currently support encryption-in-transit with the NFS protocol and relies instead on network-level security. Therefore, you'll need to disable secure transfer.
-
-1. Select **Home** and then **Storage accounts**.
-
-1. Select the storage account you created.
-
-1. In the service menu, under **Data storage**, select **File shares**.
-
-1. Select the NFS file share that you created. Under **Secure transfer setting**, select **Change setting**.
-
-    :::image type="content" source="media/storage-files-quick-create-use-linux/secure-transfer-setting.png" alt-text="Screenshot showing how to change the secure transfer setting." lightbox="media/storage-files-quick-create-use-linux/secure-transfer-setting.png" border="true":::
-
-1. Change the **Secure transfer required** setting to **Disabled**, and select **Save**. The setting change can take up to 30 seconds to take effect.
-
-    :::image type="content" source="media/storage-files-quick-create-use-linux/disable-secure-transfer.png" alt-text="Screenshot showing how to disable the secure transfer setting." lightbox="media/storage-files-quick-create-use-linux/disable-secure-transfer.png" border="true":::
-
 ## Connect to your VM
 
 Create an SSH connection with the VM.
 
 1. Select **Home** and then **Virtual machines**.
 
-1. Select the Linux VM you created for this tutorial and ensure that its status is **Running**. Take note of the VM's public IP address and copy it to your clipboard.
+1. Select the Linux VM you created and ensure that its status is **Running**. Take note of the VM's public IP address and copy it to your clipboard.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/connect-to-vm.png" alt-text="Screenshot showing how to confirm that the V M is running and find its public I P address." lightbox="media/storage-files-quick-create-use-linux/connect-to-vm.png" border="true":::
 
@@ -208,7 +181,7 @@ Now that you've created an NFS share, you have to mount it on your Linux client.
 
 1. In the service menu, under **Data storage**, select **File shares**, and then select the NFS file share you created.
 
-1. You should see **Connect to this NFS share from Linux** along with sample commands to use NFS on your Linux distribution and a mounting script that contains the required mount options. For other recommended mount options, see [Mount NFS Azure file share on Linux](storage-files-how-to-mount-nfs-shares.md#mount-options).
+1. You should see **Connect to this NFS share from Linux** along with sample commands to use NFS on your Linux distribution and a mounting script that contains the required mount options. For other recommended mount options, see [Mount NFS Azure file share on Linux](storage-files-how-to-mount-nfs-shares.md#mount-options). Azure portal offers a step-by-step, ready-to-use installation script tailored to your selected Linux distribution for installing the AZNFS mount helper package. Once installed, you can use the provided AZNFS mount script to securely mount the share using [Encyption in Transit](encryption-in-transit-for-nfs-shares.md).
 
    > [!IMPORTANT]
    > The provided mounting script will mount the NFS share only until the Linux machine is rebooted. To automatically mount the share every time the machine reboots, see [Mount an NFS share using /etc/fstab](storage-files-how-to-mount-nfs-shares.md#mount-an-nfs-share-using-etcfstab).
@@ -221,12 +194,16 @@ Now that you've created an NFS share, you have to mount it on your Linux client.
 
 You have now mounted your NFS share, and it's ready to store files.
 
+> [!NOTE]
+> Alternatively, you can also mount the NFS share using [NFS client mount in command line](storage-files-how-to-mount-nfs-shares.md#mount-an-nfs-share-using-the-nfs-client-mount-in-command-line).
+
+
 ## Clean up resources
 
 When you're done, delete the resource group. Deleting the resource group deletes the storage account, the Azure file share, and any other resources that you deployed inside the resource group.
 
 1. Select **Home** and then **Resource groups**.
-1. Select the resource group you created for this tutorial.
+1. Select the resource group you created.
 1. Select **Delete resource group**. A window opens and displays a warning about the resources that will be deleted with the resource group.
 1. Enter the name of the resource group, and then select **Delete**.
 
