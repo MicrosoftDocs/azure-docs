@@ -38,6 +38,22 @@
       - name: Troubleshoot KQL for the lake (Preview)
         href: graph/kql-troubleshoot.md
         displayName: data lake  
+    - name: Notebooks for data lake exploration (Preview)
+      items:
+      - name: Overview
+        href: graph/notebooks-overview.md
+        displayName: data lake
+      - name: Run notebooks (Preview)
+        href: graph/notebooks.md
+        displayName: data lake
+      - name: Microsoft Sentinel provider class reference (Preview)
+        href: graph/sentinel-provider-class-reference.md
+        displayName: data lake
+      - name: Create and manage notebook jobs (Preview)
+        href: graph/notebook-jobs.md
+        displayName: data lake
+      - name: Notebook examples for data lake exploration (Preview)
+        href: graph/notebook-examples.md 
     - name: Machine learning in the Microsoft Sentinel data lake (Preview)  
       href: graph/machine-learning.md
 - name: Plan
