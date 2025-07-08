@@ -114,7 +114,7 @@ When an availability zone becomes unavailable, Azure Table Storage automatically
 
 ### Region support
 
-Azure Table Storage geo-redundant configurations use Azure paired regions for secondary region replication. The secondary region is automatically determined based on your primary region selection and cannot be customized. For a complete list of Azure paired regions, see [Azure regions list](./regions-list.md).
+[!INCLUDE [Storage - Multi-region support region support](includes/storage/reliability-storage-multi-region-region-support-include.md)]
 
 ### Requirements
 
