@@ -127,7 +127,7 @@ ExpressRoute Direct provides the same enterprise-grade SLA with Active/Active re
 For details on how ExpressRoute Direct is billed, see [ExpressRoute FAQ](expressroute-faqs.md#when-does-billing-start-and-stop-for-the-expressroute-direct-port-pairs). For pricing details, see [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 
 > [!NOTE]
-> Upgrading or downgrading between metered and unlimited plans is supported with ExpressRoute Direct.
+> ExpressRoute Direct Ports can be upgraded or downgraded between metered and unlimited billing type.
 
 ## Next steps
 
