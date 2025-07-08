@@ -186,7 +186,7 @@ For more information about exporting billing data, see [Create and manage export
 ### Automate cost data retrieval and analysis
 
 For Enterprise Agreement (EA) and Microsoft Customer Agreement
-(MCA) accounts, use the [Cost Details API](/rest/api/cost-management/generate-cost-details-report) to programmatically generate and download detailed, unaggregated cost data. For Pay-As-You-Go subscriptions, use the [Usage Details API](/rest/api/consumption/usagedetails). For custom, on-demand analysis and dashboards, use the [Query API](/rest/api/cost-management/query).
+(MCA) accounts, use the [Cost Details API](/rest/api/cost-management/generate-cost-details-report) to programmatically generate and download detailed, unaggregated cost data. For Pay-As-You-Go subscriptions, use the [Exports API](/rest/api/cost-management/exports). If you need to download small datasets and you don't want to use Azure Storage, you can also use the Consumption Usage Details API. See instructions on how to do this [here](/automate/get-usage-details-legacy-customer.md). For custom, on-demand analysis and dashboards, use the [Query API](/rest/api/cost-management/query).
 
 For more information, see [Get small cost datasets on demand](../automate/get-small-usage-datasets-on-demand.md) and [Query cost data](../costs/cost-analysis-common-uses.md).
 

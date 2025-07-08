@@ -49,7 +49,7 @@ Consider using the [Cost Details API](/rest/api/cost-management/costdetails) if 
 The [Cost Details API](/rest/api/cost-management/costdetails) enables you to programmatically generate and download detailed, unaggregated cost data for your Microsoft Customer Agreement (MCA) billing account. Unlike the legacy Usage Details API, the Cost Details API is asynchronous and report-based: you submit a request to generate a report, poll for its completion, and then download the resulting file from a secure URL.
 
 > [!IMPORTANT]
-> The Cost Details API is only supported for Enteroruse Agreement (EA) or Microsoft Customer Agreement (MCA) scopes. For other account types, we suggest using Exports. If you need to download small datasets and you don't want to use Azure Storage, you can also use the Consumption Usage Details API. See instructions on how to do this [here](/automate/get-usage-details-legacy-customer.md)
+> The Cost Details API is only supported for Enterprise Agreement (EA) or Microsoft Customer Agreement (MCA) scopes. For other account types, we suggest using Exports. If you need to download small datasets and you don't want to use Azure Storage, you can also use the Consumption Usage Details API. See instructions on how to do this [here](/automate/get-usage-details-legacy-customer.md)
 
 ### How the Cost Details API works
 
@@ -127,9 +127,6 @@ For customers with a Microsoft Customer Agreement, use the following call:
 ```http
 GET https://management.azure.com/{scope}/providers/Microsoft.CostManagement/costDetails?startDate=2024-06-01&endDate=2024-06-30&$top=1000&api-version=2024-05-01
 ```
-
-> [!NOTE]
-> The Cost Details API supports only Microsoft Customer Agreement scopes. For legacy Enterprise Agreement (EA) or pay-as-you-go subscriptions, use Exports or the Query API.
 
 ### Get amortized cost details
 
