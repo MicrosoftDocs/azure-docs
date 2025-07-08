@@ -45,7 +45,6 @@ When you select regions, consider the following factors:
 - **Data residency:** Ensure that any regions you select are within a data residency boundary that your organization requires.
 
 
-For multi-region considerations, see [Paired and nonpaired regions](#paired-and-nonpaired-regions) later in this article. 
 
 For more detailed information on how to select regions, see [Select Azure regions](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions).
 
