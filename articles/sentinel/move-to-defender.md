@@ -218,7 +218,6 @@ Some differences exist, such as:
 - Bookmarks aren't supported in **Advanced hunting**. Instead, bookmarks are supported in the Defender portal under **Microsoft Sentinel > Threat management > Hunting**.
 - While the **SecurityAlert** table doesn't appear in **Advanced hunting** > **Schema** list of tables, it's still supported in your queries.
 
-
 For more information, see [Advanced hunting with Microsoft Sentinel data in Microsoft Defender](/defender-xdr/advanced-hunting-microsoft-defender), especially the list of [known issues](/defender-xdr/advanced-hunting-microsoft-defender), and [Keep track of data during hunting with Microsoft Sentinel](/azure/sentinel/bookmarks).
 
 ### Investigate with entities in the Defender portal
