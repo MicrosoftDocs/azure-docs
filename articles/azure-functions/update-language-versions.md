@@ -27,30 +27,34 @@ To ensure your apps continue to receive support, follow the instructions in this
 
 ## Prerequisites
 
-Before you update the stack configuration for your function app in Azure, you should complete these tasks:
+Before you update the stack configuration for your function app in Azure, complete these tasks:
 
-- Test and verify your function code locally on the new target version.
+### Verify your functions locally
+
+Make sure that you test and verify your function code locally on the new target version.
 
 ::: zone pivot="programming-language-csharp"
-  Use these steps to update the project on your local computer:
+Use these steps to update the project on your local computer:
 
-  1. Ensure you [installed the target version of the .NET SDK](https://dotnet.microsoft.com/download/dotnet).
+1. Ensure you [installed the target version of the .NET SDK](https://dotnet.microsoft.com/download/dotnet).
 
-     If you're targeting a preview version, see [Functions guidance for preview .NET versions](./dotnet-isolated-process-guide.md#preview-net-versions) to ensure that the version is supported. Using .NET previews might require more steps.
+   If you're targeting a preview version, see [Functions guidance for preview .NET versions](./dotnet-isolated-process-guide.md#preview-net-versions) to ensure that the version is supported. Using .NET previews might require more steps.
 
-  1. Update your references to the latest versions of [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) and [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/).
+1. Update your references to the latest versions of [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) and [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/).
 
-  1. Update your project's target framework to the new version. For C# projects, you must update the `<TargetFramework>` element in the `.csproj` file. For more information about your version, see [Target frameworks](/dotnet/standard/frameworks).
+1. Update your project's target framework to the new version. For C# projects, you must update the `<TargetFramework>` element in the `.csproj` file. For more information about your version, see [Target frameworks](/dotnet/standard/frameworks).
 
-     Changing your project's target framework might also require changes to parts of your toolchain, outside of project code. For example, in Visual Studio Code, you might need to update the `azureFunctions.deploySubpath` extension setting through user settings or your project's `.vscode/settings.json` file. Check for any dependencies on the framework version that exist outside of your project code, as part of build steps or a CI/CD pipeline.
+   Changing your project's target framework might also require changes to parts of your toolchain, outside of project code. For example, in Visual Studio Code, you might need to update the `azureFunctions.deploySubpath` extension setting through user settings or your project's `.vscode/settings.json` file. Check for any dependencies on the framework version that exist outside of your project code, as part of build steps or a CI/CD pipeline.
 
-  1. Make any updates to your project code that the new .NET version requires. Check the version's release notes for specifics. You can also use the [.NET Upgrade Assistant](/dotnet/core/porting/upgrade-assistant-overview) to help update your code in response to changes across major versions.
+1. Make any updates to your project code that the new .NET version requires. Check the version's release notes for specifics. You can also use the [.NET Upgrade Assistant](/dotnet/core/porting/upgrade-assistant-overview) to help update your code in response to changes across major versions.
 
-  After you make those changes, rebuild your project and test it to confirm your app runs as expected.
+After you make those changes, rebuild your project and test it to confirm your app runs as expected.
 
 ::: zone-end  
 
-- Make sure your function app is running on the latest version of the Functions runtime (version 4.x). You can determine the runtime version either in the Azure portal or by using the Azure CLI.
+### Move to the latest Functions runtime
+
+Make sure that your function app runs on the latest version of the Functions runtime (version 4.x). You can determine the runtime version either in the Azure portal or by using the Azure CLI.
 
 ### [Azure portal](#tab/azure-portal)
 
