@@ -130,12 +130,15 @@ If you encounter any issues during the setup process, see the following troubles
 + Verify that your selected subscription and resource group are valid and accessible.
 + Verify your Azure policies allow for creating new resources to enable your Microsoft Sentinel data lake.
 + Data for newly enabled tables, or tables that have moved between tiers is, available 90 to 120 minutes after the onboarding process is complete.
-+ Error DL101: You cannot onboard to MSG since your primary Sentinel workspace is not in the same geo as your tenant.   
 
-    Verify that your Microsoft Sentinel workspaces are in the same region as your tenant’s home geographic region.
-+ Error DL102: We could not provision your MSG Data Lake because of high demand causing the unavailability of resources.   
+The table below lists errors that you might encounter during the onboarding process.
 
-    Retry later. If you continue to see this error, contact Microsoft Support.
+| Error Code | Error                 | Description             | Resolution                  |
+|------------|-----------------------|-------------------------|-----------------------------|
+| DL101      | Can’t complete setup. | Your primary Microsoft Sentinel workspace region and your Microsoft Entra tenant home geographic are different. | For public preview, the geographic regions must be the same. Ensure that you have a primary workspace in the same geographic region as your Microsoft Entra tenant. |
+| DL102      | Can’t complete setup. | There's a lack of Azure resources in the region at the time of provisioning. |  Select the retry button to start the setup again. |
+| DL103      | Can’t complete setup. | There are policies enabled that prevent the creation of the Azure managed resources needed to enable the data lake.  | Check your Azure policies to allow for creation of Azure managed resources. |
+
 
 
 ## Related content
