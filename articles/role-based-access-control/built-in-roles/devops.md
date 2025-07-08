@@ -532,7 +532,7 @@ Read, write, delete and perform actions on Managed DevOps Pools
 > | [Microsoft.DevOpsInfrastructure](../permissions/devops.md#microsoftdevopsinfrastructure)/register/action | Register the subscription for Microsoft.DevOpsInfrastructure |
 > | [Microsoft.DevOpsInfrastructure](../permissions/devops.md#microsoftdevopsinfrastructure)/unregister/action | Unregister the subscription for Microsoft.DevOpsInfrastructure |
 > | [Microsoft.DevOpsInfrastructure](../permissions/devops.md#microsoftdevopsinfrastructure)/*/read |  |
-> | [Microsoft.DevOpsInfrastructure](../permissions/devops.md#microsoftdevopsinfrastructure)/Locations/OperationStatuses/write | write OperationStatuses |
+> | [Microsoft.DevOpsInfrastructure](../permissions/devops.md#microsoftdevopsinfrastructure)/Locations/OperationStatuses/write | Write OperationStatuses |
 > | [Microsoft.DevOpsInfrastructure](../permissions/devops.md#microsoftdevopsinfrastructure)/pools/write | Update a Pool |
 > | [Microsoft.DevOpsInfrastructure](../permissions/devops.md#microsoftdevopsinfrastructure)/pools/delete | Delete a Pool |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
