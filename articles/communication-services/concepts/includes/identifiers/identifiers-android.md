@@ -96,7 +96,7 @@ MicrosoftTeamsAppIdentifier gcchTeamsAppIdentifier = new MicrosoftTeamsAppIdenti
 
 #### API reference
 
-[MicrosoftTeamsAppIdentifier](https://azure.github.io/azure-sdk-for-android/azure-communication-common/com/azure/android/communication/common/TeamsExtensionUserIdentifier.html)
+[MicrosoftTeamsAppIdentifier](https://azure.github.io/azure-sdk-for-android/azure-communication-common/com/azure/android/communication/common/MicrosoftTeamsAppIdentifier.html)
 
 ### Teams Extension user
 
