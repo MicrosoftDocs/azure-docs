@@ -27,7 +27,7 @@ To assign the role, follow the steps below:
 1. In the Azure portal, navigate to the Log Analytics workspace that you want to assign the role to.
 1. Select **Access control (IAM)** in the left navigation pane.
 1. Select **Add role assignment**.
-1. In the **Role** table, select ***Log Analytics Contributor**, then select **Next**
+1. In the **Role** table, select **Log Analytics Contributor**, then select **Next**
 1. Select **Managed identity**, then select **Select members**.
 1. Your data lake managed identity is a system assigned managed identity named `msg-resources-<guid>`. Select the managed identity, then select **Select**. 
 1. Select **Review and assign**.
@@ -99,7 +99,7 @@ To edit a published job follow the steps below:
 
 ## View jobs in the Microsoft Defender portal
 
-In addition ot viewing jobs in VS Code, you can also view your notebook jobs in the Defender portal. To view your jobs:
+In addition to viewing jobs in VS Code, you can also view your notebook jobs in the Defender portal. To view your jobs:
 
 1. In the Defender portal, navigate to the **Microsoft Sentinel** menu item.
 1. Select the **Data lake explorer**.
