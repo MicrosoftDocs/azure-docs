@@ -116,8 +116,8 @@ Azure Maps offers localization in a wide range of languages across its various s
 | af             | Afrikaans                                  | ✓      | ✓     |         | ✓           |
 | sq             | Albanian                                   | ✓      |       |         |             |
 | am             | Amharic                                    | ✓      |       |         |             |
-| ar-sa          | Arabic (Saudi Arabia)                      | ✓      |       |         | ✓           |
-| hy             | Armenian                                   | ✓      | ✓     | ✓       |             |
+| ar-sa          | Arabic (Saudi Arabia)                      | ✓      | ✓     | ✓       | ✓           |
+| hy             | Armenian                                   | ✓      |       |         |             |
 | as             | Assamese                                   | ✓      |       |         |             |
 | az-Latn        | Azerbaijani (Latin)                        | ✓      |       |         |             |
 | bn-BD          | Bangla (Bangladesh)                        | ✓      |       |         |             |
