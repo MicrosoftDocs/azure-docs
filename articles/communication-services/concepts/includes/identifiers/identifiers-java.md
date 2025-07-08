@@ -130,7 +130,7 @@ var gcchTeamsExtensionUser = new TeamsExtensionUserIdentifier(user.id, tenantId,
 
 #### API reference
 
-[MicrosoftTeamsUserIdentifier](/java/api/com.azure.communication.common.teamsextensionuseridentifier)
+[TeamsExtensionUserIdentifier](/java/api/com.azure.communication.common.teamsextensionuseridentifier)
 
 ### Unknown
 
