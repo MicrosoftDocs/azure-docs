@@ -52,7 +52,33 @@ landingContent:
         links:
           - text: Install solutions and content
             url: sentinel-solutions-deploy.md  
-            
+  # Card
+  - title: Microsoft Sentinel data lake
+    linkLists:
+      - linkListType: overview
+        links:           
+          - text: "What is Microsoft Sentinel data lake"
+            url: graph/sentinel-lake-overview.md
+      - linkListType: deploy
+        links:
+          - text: "Onboarding to Microsoft Sentinel data lake"
+            url: graph/sentinel-lake-onboarding.md
+          - text: "Set up Microsoft Sentinel data lake (Preview)"
+            url: graph/set-up-sentinel-data-lake.md
+      - linkListType: concept
+        links:
+          - text: KQL and Microsoft Sentinel data lake (Preview)  
+            url: graph/kql-overview.md
+          - text: Notebooks and Microsoft Sentinel data lake (Preview)
+            url: graph/notebooks-overview.md
+          - text: Machine learning in the Microsoft Sentinel data lake (Preview)
+            url: graph/machine-learning
+      - linkListType: how-to-guide
+        links:
+          - text: Run KQL queries (Preview)
+            url: graph/kql-queries.md
+          - text: Running notebooks (Preview)
+            url: graph/notebooks.md
   # Card
   - title: Unified security operations
     linkLists:
