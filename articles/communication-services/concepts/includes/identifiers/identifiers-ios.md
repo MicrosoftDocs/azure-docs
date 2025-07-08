@@ -114,7 +114,7 @@ let gcchTeamsExtensionUser = TeamsExtensionUserIdentifier(userId: userId, tenant
 
 #### API reference
 
-[MicrosoftTeamsUserIdentifier](https://azure.github.io/azure-sdk-for-ios/AzureCommunicationCommon/Classes/TeamsExtensionUserIdentifier.html)
+[TeamsExtensionUserIdentifier](https://azure.github.io/azure-sdk-for-ios/AzureCommunicationCommon/Classes/TeamsExtensionUserIdentifier.html)
 
 ### Unknown
 
