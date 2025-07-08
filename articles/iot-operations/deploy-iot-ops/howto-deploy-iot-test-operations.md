@@ -56,8 +56,6 @@ A cluster host:
 
 * (Optional) Prepare your cluster for observability before deploying Azure IoT Operations: [Configure observability](../configure-observability-monitoring/howto-configure-observability.md).
 
-* (Optional) Configure your own certificate authority issuer before deploying Azure IoT Operations: [Bring your own issuer](../secure-iot-ops/howto-manage-certificates.md#bring-your-own-issuer).
-
 ## Deploy in Azure portal
 
 The Azure portal deployment experience is a helper tool that generates a deployment command based on your resources and configuration. The final step is to run an Azure CLI command, so you still need the Azure CLI prerequisites described in the previous section.
@@ -144,7 +142,7 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
 
     This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
-1. To deploy Azure IoT Operations, copy and run the provided [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command.
+1. To deploy Azure IoT Operations, copy and run the provided [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command. This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
     * If you want to use the preview connector configuration, add the following parameter to the `create` command:
 
@@ -154,18 +152,11 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
 
     * If you followed the optional prerequisites to prepare your cluster for observability, add the following parameters to the `create` command:
 
-    | Parameter | Value | Description |
-    | --------- | ----- | ----------- |
-    | `--ops-config` | `observability.metrics.openTelemetryCollectorAddress=<FULLNAMEOVERRIDE>.azure-iot-operations.svc.cluster.local:<GRPC_ENDPOINT>` | Provide the OpenTelemetry (OTel) collector address you configured in the otel-collector-values.yaml file.<br><br>The sample values used in [Configure observability](../configure-observability-monitoring/howto-configure-observability.md) are **fullnameOverride=aio-otel-collector** and **grpc.endpoint=4317**. |
-    | `--ops-config` | `observability.metrics.exportInternalSeconds=<CHECK_INTERVAL>` | Provide the **check_interval** value you configured in the otel-collector-values.yaml file.<br><br>The sample value used in [Configure observability](../configure-observability-monitoring/howto-configure-observability.md) is **check_interval=60**. |
+        | Parameter | Value | Description |
+        | --------- | ----- | ----------- |
+        | `--ops-config` | `observability.metrics.openTelemetryCollectorAddress=<FULLNAMEOVERRIDE>.azure-iot-operations.svc.cluster.local:<GRPC_ENDPOINT>` | Provide the OpenTelemetry (OTel) collector address you configured in the otel-collector-values.yaml file.<br><br>The sample values used in [Configure observability](../configure-observability-monitoring/howto-configure-observability.md) are **fullnameOverride=aio-otel-collector** and **grpc.endpoint=4317**. |
+        | `--ops-config` | `observability.metrics.exportInternalSeconds=<CHECK_INTERVAL>` | Provide the **check_interval** value you configured in the otel-collector-values.yaml file.<br><br>The sample value used in [Configure observability](../configure-observability-monitoring/howto-configure-observability.md) is **check_interval=60**. |
 
-    * If you followed the optional prerequisites to set up your own certificate authority issuer, add the `--trust-settings` parameters to the `create` command:
-
-    ```bash
-    --trust-settings configMapName=<CONFIGMAP_NAME> configMapKey=<CONFIGMAP_KEY_WITH_PUBLICKEY_VALUE> issuerKind=<CLUSTERISSUER_OR_ISSUER> issuerName=<ISSUER_NAME>
-    ```
-
-    This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
 1. Once all of the Azure CLI commands complete successfully, you can close the **Install Azure IoT Operations** wizard.
 
