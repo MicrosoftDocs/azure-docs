@@ -86,7 +86,7 @@ The expansion into Italy North brings the service closer to organizations in the
 
 **Granular Role-Based Access Control (RBAC) for Azure File Sync ​​​​​​**
 
-Azure File Sync now includes two dedicated built-in RBAC roles [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator) and [Azure File Sync Reader](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-reader), designed to strengthen security and streamline operations for organizations managing file synchronization between on-premises and cloud environments. These roles offer more granular access control than broader roles like Owner or Contributor, enabling organizations to enforce the principle of least privilege more effectively.
+Azure File Sync now includes two dedicated built-in RBAC roles. [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator) and [Azure File Sync Reader](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-reader) are designed to strengthen security and streamline operations for organizations managing file synchronization between on-premises and cloud environments. These roles offer more granular access control than broader roles like Owner or Contributor, enabling organizations to enforce the principle of least privilege more effectively.
 
 **Miscellaneous reliability and telemetry improvements for cloud tiering and sync​​​​​​​**
 
