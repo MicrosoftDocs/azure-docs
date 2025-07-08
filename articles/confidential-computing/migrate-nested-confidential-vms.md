@@ -32,8 +32,6 @@ ms.author: ananyagarg
 
 :::image type="content" source="./media/migrate-nested-cvms/image 1.png" alt-text="Screenshot of Azure portal showing the Capture option, circled in green, and the Status, also circled in green.":::
 
-:::image type="content" source="media/confidential-vm-node-pools-on-aks/snp-on-aks-architecture-image.png" alt-text="Graphic of VM nodes in AKS with encrypted code and data in confidential VM node pools 1 and 2, on top of the hypervisor":::
-
 
 **Step 6**: Find the **Capture** drop down in the overview tab of the VM, then select **Image**
 
