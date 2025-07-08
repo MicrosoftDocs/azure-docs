@@ -28,10 +28,10 @@ items:
       - name: Scalability, high availability
         href: iot-overview-scalability-high-availability.md
 
-  - name: Choose Azure IoT service
+  - name: Choose an Azure IoT service
     href: iot-services-and-technologies.md
 
-  - name: Develop with IoT devices
+  - name: Develop IoT devices
     items:
     - name: Overview
       href: concepts-iot-device-development.md
@@ -59,7 +59,7 @@ items:
     items:
     - name: Overview
       href: overview-iot-plug-and-play.md
-    - name: Turn smartphone into an IoT device
+    - name: Turn your smartphone into an IoT device
       href: iot-phone-app-how-to.md
     - name: Test your IoT Plug and Play device
       href: howto-use-iot-explorer.md
@@ -90,7 +90,7 @@ items:
     - name: Tutorial - Connect a device with MQTT
       href: tutorial-use-mqtt.md
     
-  - name: Deliver solution
+  - name: Deliver industrial solutions
     items:
     - name: Implement industrial IoT reference solution
       href: tutorial-iot-industrial-solution-architecture.md
