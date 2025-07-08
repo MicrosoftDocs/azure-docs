@@ -129,7 +129,7 @@ var gcchTeamsExtensionUser = new TeamsExtensionUserIdentifier(user.id, tenantId,
 
 #### API reference
 
-[MicrosoftTeamsUserIdentifier](https://azure.github.io/azure-sdk-for-android/azure-communication-common/com/azure/android/communication/common/MicrosoftTeamsUserIdentifier.html)
+[MicrosoftTeamsUserIdentifier](https://azure.github.io/azure-sdk-for-android/azure-communication-common/com/azure/android/communication/common/TeamsExtensionUserIdentifier.html)
 
 ### Unknown
 
