@@ -74,7 +74,7 @@ The QuickBooks connector now supports version 2.0 (Preview). Refer to this [sect
 - [Version 2.0 (Preview)](#version-20)
 - [Version 1.0](#version-10)
 
-### Version 2.0 (Preview)
+### <a name="version-20"></a>Version 2.0 (Preview)
 
 The QuickBooks linked service supports the following properties when apply version 2.0 (Preview):
 
