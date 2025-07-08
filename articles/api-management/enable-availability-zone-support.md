@@ -26,11 +26,11 @@ For more detailed information about reliability features of API Management, such
 
 * If you don't have an API Management instance, create one by following the [Create a new Azure API Management instance by using the Azure portal](../api-management/get-started-create-service-instance.md) quickstart. Select the **Premium** service tier.
 
-* If you have an existing API Management instance, make sure that it's in the **Premium (classic)** tier. If it isn't, [upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
+* If you have an existing API Management instance, make sure that it's in the **Premium** (classic) tier. If it isn't, [upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
 
 ## Default availability zone support
 
-When you create a new API Management instance in the **Premium** tier in a region that supports availability zones, or you [deploy API Management to a new region](api-management-howto-deploy-multi-region.md), availability zones are enabled automatically **by default**. With automatic availability zone support, the Azure API Management platform makes a best-effort attempt to spread your instance's units among the region's availability zones. There's no way to determine which availability zones your units are placed into.
+When you create a new API Management instance in the **Premium** tier in a region that supports availability zones, or you [deploy API Management to a new region](api-management-howto-deploy-multi-region.md), availability zones are automatically enabled **by default**. With automatic availability zone support, the Azure API Management platform makes a best-effort attempt to spread your instance's units among the region's availability zones. There's no way to determine which availability zones your units are placed into.
 
 Under normal operating conditions, all scale units in all enabled zones are active and serve gateway traffic.
 
@@ -48,7 +48,7 @@ While automatic availability zone configuration is recommended, you can manually
 
 To manually enable availability zone support on an existing location of an API Management instance that's not injected in a virtual network:
 
-1. Thoroughly understand all requirements and considerations for enabling zone redundancy in API Management by reading [Reliability in API Management](../reliability/reliability-api-management.md).
+1. Thoroughly understand all requirements and considerations for availability zones in API Management by reading [Reliability in API Management](../reliability/reliability-api-management.md).
 
 1. In the Azure portal, go to your API Management instance.
 
@@ -62,7 +62,7 @@ To manually enable availability zone support on an existing location of an API M
 
 1. Select **Apply**, and then select **Save**.
 
-:::image type="content" alt-text="Screenshot that shows selections for migrating an existing location of API Management instance that's not injected in a virtual network." source ="media/enable-availability-zone-support/option-one-not-injected-in-vnet.png":::
+:::image type="content" alt-text="Screenshot that shows availability zone configuration for an existing location of API Management instance that's not injected in a virtual network." source ="media/enable-availability-zone-support/option-one-not-injected-in-vnet.png":::
 
 ### Gateway injected in a virtual network
 
@@ -86,13 +86,13 @@ To manually enable availability zone support on an existing location of an API M
 
 1. Select **Apply**, and then select **Save**.
 
-:::image type="content" alt-text="Screenshot that shows selections to enable existing location of API Management instance (stv2 platform) that's injected in a virtual network." source ="media/enable-availability-zone-support/option-three-stv2-injected-in-vnet.png":::
+:::image type="content" alt-text="Screenshot that shows availability zone configuration for an existing location of API Management instance that's injected in a virtual network." source ="media/enable-availability-zone-support/option-three-stv2-injected-in-vnet.png":::
 
 ## New gateway location
 
 To add a new location to your API Management instance and to manually enable availability support in that location:
 
-1. Thoroughly understand all requirements and considerations for enabling zone redundancy in API Management by reading [Reliability in API Management](../reliability/reliability-api-management.md).
+1. Thoroughly understand all requirements and considerations for enabling availability zones in API Management by reading [Reliability in API Management](../reliability/reliability-api-management.md).
 
 1. If your API Management instance is deployed in a virtual network in the primary location, set up a [virtual network](../api-management/api-management-using-with-vnet.md), subnet, and optional public IP address in the new location where you plan to enable availability zones.
 

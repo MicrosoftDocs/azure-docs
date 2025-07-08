@@ -45,7 +45,7 @@ When adding a region, you configure:
 1. Select **+ Add** in the top bar.
 1. Select the added location from the dropdown list.
 1. Select the number of scale **[Units](upgrade-and-scale.md)** in the location.
-1. If the region supports availability zones, leave the **Automatic** setting (recommended), or optionally select one or more [**Availability zones**](enable-availability-zone-support.md). If you select specific zones, the number of units that you selected must distribute evenly across the availability zones. For example, if you selected three units, you would select three zones so that each zone hosts one unit. 
+1. If the region supports [**Availability zones**](enable-availability-zone-support.md), leave the **Automatic** setting (recommended), or optionally select one or more zones. If you select specific zones, the number of units that you selected must distribute evenly across the availability zones. For example, if you selected three units, you would select three zones so that each zone hosts one unit. 
 1. If the API Management instance is deployed in a [virtual network](api-management-using-with-vnet.md), configure virtual network settings in the location, including virtual network, subnet, and public IP address.
 1. Select **Add** to confirm.
 1. Repeat this process until you configure all locations.

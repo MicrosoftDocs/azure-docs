@@ -6,7 +6,7 @@ ms.author: danlep
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-api-management
-ms.date: 06/26/2025
+ms.date: 07/08/025
 ---
 
 # Reliability in Azure API Management
@@ -59,7 +59,7 @@ Azure API Management provides *automatic* availability zone support when you:
 With automatic availability zone support by default, the Azure API Management platform makes a best-effort attempt to spread your instance's units among the region's availability zones. There's no way to determine which availability zones your units are placed into. 
 
 > [!NOTE]
-> If your instance uses automatic availability zone support and has a single unit, the unit's underlying VMs are distributed to two availability zones. While this configuration achieves zone redundancy, for maximum benefit of availability zones, we recommend that you deploy a minimum of three units, which can be distributed across all available zones.
+> If your instance uses automatic availability zone support and has a single unit, the unit's underlying VMs are distributed to two availability zones. While this configuration achieves zone redundancy, for maximum benefit of availability zones, we recommend that you deploy a minimum of three units, which can be distributed across all available zones in a region
 
 If you want to explicitly select the availability zones to use, you can choose between zone-redundant and zonal configurations:
 
@@ -72,11 +72,11 @@ If you want to explicitly select the availability zones to use, you can choose b
 
 ### Region support
 
-Azure API Management supports availability zones for Premium (classic) tier in all of the [Azure regions that support availability zones](./regions-list.md).
+Azure API Management supports availability zones for the Premium (classic) tier in all of the [Azure regions that support availability zones](./regions-list.md).
 
 ### Requirements
 
-You must use the Premium (classic) tier to configure availability zone support. Azure API Management doesn't support availability zones in the classic Consumption, Developer, Basic, and Standard tiers, nor in the Basic v2, Standard v2, or Premium v2 tiers. To upgrade your instance to the Premium (classic) tier, see [Upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
+You must use the Premium (classic) tier to configure availability zone support. Azure API Management doesn't support availability zones in the classic Consumption, Developer, Basic, and Standard tiers, nor currently in the Basic v2, Standard v2, or Premium v2 tiers. To upgrade your instance to the Premium (classic) tier, see [Upgrade to the Premium tier](../api-management/upgrade-and-scale.md#change-your-api-management-service-tier).
 
 > [!NOTE]
 > **The Premium v2 tier** with enterprise capabilities is in preview. To determine whether your design should rely on early access features or generally available capabilities, evaluate your design and implementation timelines in relation to the available information about Premium v2's release and migration paths.
@@ -116,7 +116,7 @@ Regardless of your availability zone configuration, if you add more units, it in
 In a zone-down scenario, there's no guarantee that requests for additional capacity in another availability zone will succeed. The back-filling of lost units occurs on a best-effort basis. If you need guaranteed capacity when an availability zone is lost, you should create and configure your API Management instance to account for losing a zone. You can do that by:
 
 - Over-provisioning the units of your API Management instance
-- Using automatic or zone redundant availability zone configuration
+- Using automatic or zone-redundant availability zone configuration
 
 To learn more about the principle of over-provisioning, see [Manage capacity with over-provisioning](./concept-redundancy-replication-backup.md#manage-capacity-with-over-provisioning).
 
@@ -139,9 +139,7 @@ This section describes what to expect when Azure API Management instances are co
 
 - **Detection and response:** Responsibility for detection and response depends on the availability zone configuration your instance uses.
 
-    - *Automatic:* For instances that use automatic availability zone support, the Azure API Management platform is responsible for detecting a failure in an availability zone and responding. You don't need to do anything to initiate a zone failover.
-
-    - *Zone-redundant:* For instances that are configured to be zone-redundant, the Azure API Management platform is responsible for detecting a failure in an availability zone and responding. You don't need to do anything to initiate a zone failover.
+    - *Automatic and zone-redundant:* For instances that are configured to use automatic availability zone support or manually configured to use zone redundancy, the Azure API Management platform is responsible for detecting a failure in an availability zone and responding. You don't need to do anything to initiate a zone failover.
 
     - *Zonal:* For instances that are configured to be zonal, you need to detect the loss of an availability zone and initiate a failover to a secondary instance that you create in another availability zone.
 
@@ -308,7 +306,8 @@ The service provides its own SLA, but you also need to account for the anticipat
 ## Related content
 
 - [Disaster recovery and business continuity for API Management](/azure/api-management/api-management-howto-disaster-recovery-backup-restore)
-- [Use availability zones in Azure API Management](/azure/api-management/zone-redundancy)
+- [Use availability zones in Azure API Management](/azure/api-management/enable-availability-zone-support)
 - [Multi-region deployment of API Management](/azure/api-management/api-management-howto-deploy-multi-region)
 - [Monitoring Azure API Management](/azure/api-management/api-management-howto-use-azure-monitor)
 - [Azure API Management capacity planning](/azure/api-management/api-management-capacity)
+- [Architecture best practices for API Management](/azure/well-architected/service-guides/azure-api-management)
