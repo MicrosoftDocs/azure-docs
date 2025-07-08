@@ -121,7 +121,7 @@ const gcchTeamsExtensionUser = { userId: user.id, tenantId: tenantId, resourceId
 
 #### API reference
 
-[MicrosoftTeamsUserIdentifier](/javascript/api/@azure/communication-common/teamsextensionuseridentifier)
+[TeamsExtensionUserIdentifier](/javascript/api/@azure/communication-common/teamsextensionuseridentifier)
 
 ### Unknown
 
