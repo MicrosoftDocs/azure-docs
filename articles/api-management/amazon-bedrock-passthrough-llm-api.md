@@ -270,13 +270,13 @@ using Amazon.BedrockRuntime.Model;
 using Amazon.Runtime;
 using BedrockClient;
 
-// Leave accessKey and secretKey values as empty strings.
+// Leave accessKey and secretKey values as empty strings. Authentication to AWS API is handled through policies in API Management.
 var accessKey = "";
 var secretKey = "";
 var credentials = new BasicAWSCredentials(accessKey, secretKey);
 
 // Create custom configuration to route requests through API Management
-// apimUrl is the API Management endpoint, such as https://apim-helo-word.azure-api.net/bedrock
+// apimUrl is the API Management endpoint, such as https://apim-hello-word.azure-api.net/bedrock
 var apimUrl = "<api-management-endpoint">;
 // Provide name and value for the API Management subscription key header.
 var apimSubscriptionHeaderName = "api-key";
@@ -284,6 +284,7 @@ var apimSubscriptionKey = "<your-apim-subscription-key>";
 var config = new AmazonBedrockRuntimeConfig()
 {
     HttpClientFactory = new BedrockHttpClientFactory(apimUrl, apimSubscriptionHeaderName, apimSubscriptionKey),
+    // Set the AWS region where your Bedrock model is hosted.
     RegionEndpoint = RegionEndpoint.USEast1
 };
 
