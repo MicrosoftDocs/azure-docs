@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: concept-article
-ms.date: 04/01/2024
+ms.date: 07/08/2025
 ms.reviewer: nachakra
 # Customer intent: As a security administrator, I want to implement attribute-based access control on Azure Blob Storage, so that I can fine-tune access permissions based on specific attributes and conditions for enhanced security management and streamlined role assignments.
 ---
