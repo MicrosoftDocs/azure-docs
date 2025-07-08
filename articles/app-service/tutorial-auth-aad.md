@@ -197,7 +197,7 @@ If you stop here, you have a self-contained app that the App Service authenticat
 
 1. The **Authentication** page opens. Copy the client ID of the Microsoft Entra application to Notepad. You need this value later.
 
-### Grant front-end app access to  
+### Grant front-end app access to back-end app
 
 You enabled authentication and authorization to both of your apps. To complete the authentication, you need to do three things:
 
