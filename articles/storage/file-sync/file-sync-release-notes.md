@@ -374,7 +374,7 @@ For more information on how to install and configure the Azure File Sync agent w
 - The Storage Sync Agent (FileSyncSvc) service doesn't support server endpoints located on a volume that has the system volume information (SVI) directory compressed. This configuration will lead to unexpected results.
 - All supported Azure File Sync agent versions use TLS 1.2 by default and TLS 1.0 and 1.1 are not supported. Starting with v18 agent version TLS 1.3 will be supported for Windows Server 2022.
 - Agent installation can fail with error **0x80c84111** if required Windows security updates are missing. To prevent this issue, make sure the following updates are installed based on your server version:
-  - WS 2016 [Microsoft Update Catalog](https://catalog.update.microsoft.com/Search.aspx?q=cumulative%20windows%20server%202016) (latest cumulative update)
+  - Windows Server 2016 [Microsoft Update Catalog](https://catalog.update.microsoft.com/Search.aspx?q=cumulative%20windows%20server%202016) (latest cumulative update)
   - WS 2019 [Microsoft Update Catalog](https://catalog.update.microsoft.com/Search.aspx?q=cumulative%20windows%20server%202019) (latest cumulative update)
 > [!NOTE] ​​​​​​​Cumulative updates are released monthly. To deploy the latest one, users can either use Windows Update or manually download it from the [Microsoft Update Catalog](https://catalog.update.microsoft.com).
 > If installing manually, users should review the associated KB article to ensure all prerequisites are met.​ ​​If the Windows Updates are not installed prior to installing the Azure File Sync agent, the Storage Sync Agent
