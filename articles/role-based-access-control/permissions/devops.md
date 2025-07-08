@@ -344,11 +344,11 @@ Azure service: [Managed DevOps Pools](/azure/devops/managed-devops-pools/overvie
 > | Microsoft.DevOpsInfrastructure/register/action | Register the subscription for Microsoft.DevOpsInfrastructure |
 > | Microsoft.DevOpsInfrastructure/unregister/action | Unregister the subscription for Microsoft.DevOpsInfrastructure |
 > | Microsoft.DevOpsInfrastructure/images/versions/read | List ImageVersion resources by Image |
-> | Microsoft.DevOpsInfrastructure/Locations/OperationStatuses/read | read OperationStatuses |
-> | Microsoft.DevOpsInfrastructure/Locations/OperationStatuses/write | write OperationStatuses |
+> | Microsoft.DevOpsInfrastructure/Locations/OperationStatuses/read | Read OperationStatuses |
+> | Microsoft.DevOpsInfrastructure/Locations/OperationStatuses/write | Write OperationStatuses |
 > | Microsoft.DevOpsInfrastructure/locations/skus/read | List ResourceSku resources by subscription ID |
 > | Microsoft.DevOpsInfrastructure/locations/usages/read | List Quota resources by subscription ID |
-> | Microsoft.DevOpsInfrastructure/Operations/read | read Operations |
+> | Microsoft.DevOpsInfrastructure/Operations/read | Read Operations |
 > | Microsoft.DevOpsInfrastructure/pools/read | List Pool resources by subscription ID |
 > | Microsoft.DevOpsInfrastructure/pools/read | List Pool resources by resource group |
 > | Microsoft.DevOpsInfrastructure/pools/read | Get a Pool |
