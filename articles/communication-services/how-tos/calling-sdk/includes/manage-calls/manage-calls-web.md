@@ -279,7 +279,7 @@ Remote participants have a set of associated properties and collections:
 ### Mute other participants
 
 > [!NOTE]
-> To mute other WebJS participants, you must use Azure Communication Services Calling Web SDK version 1.26.1 GA version or higher. To mute PSTN endpoints, you must use GA 1.33.1 of the WebJS (or higher).
+> To mute other VoIP participants, you must use Azure Communication Services Calling Web SDK version 1.26.1 GA version or higher. To mute PSTN endpoints, you must use GA 1.33.1 of the WebJS (or higher).
 
 > [!NOTE]
 > Muting others on a 1:1 call isn't supported.
