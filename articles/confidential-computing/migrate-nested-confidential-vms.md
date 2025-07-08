@@ -36,7 +36,7 @@ ms.author: ananyagarg
 
 **When you get to the image creation page**:
 * Ensure you select *Automatically delete this Virtual Machine after creating the image* (check image 2)
-:::image type="simple" source="./media/migrate-nested-cvms/image 2.png" lightbox="./media/migrate-nested-cvms/image 2.png" alt-text="Screenshot of the Azure portal showing the options to 'Automatically delete the virtual machine after creating the image", "Create new" for "Target Azure compute gallery", "Create new" for "Target VM image definition", and "Version number", in green circles.":::
+:::image type="simple" source="./media/migrate-nested-cvms/image 2.png" lightbox="./media/migrate-nested-cvms/image 2.png" alt-text="Screenshot of the Azure portal showing the options to 'Automatically delete the virtual machine after creating the image', 'Create new' for 'Target Azure compute gallery', 'Create new' for 'Target VM image definition', and 'Version number', in green circles.":::
 :::image-end:::
 
 
@@ -47,7 +47,7 @@ ms.author: ananyagarg
 * Read the descriptions for specialized vs generalized images and choose your option. (If not sure, generalized should work for most cases.)
 
 * Continue to fill other options. In the replication portion of the image capture option, add the region you wish to *relocate* your VM to.  You need to select the target region drop-down
-:::image type="simple" source="./media/migrate-nested-cvms/image 3.png" lightbox="./media/migrate-nested-cvms/image 3.png" alt-text="Screenshot of the Azure portal showing the options "Target regions.":::
+:::image type="simple" source="./media/migrate-nested-cvms/image 3.png" lightbox="./media/migrate-nested-cvms/image 3.png" alt-text="Screenshot of the Azure portal showing the options 'Target regions'.":::
 :::image-end:::
 
 **Fill in all other options and hit *Review + create***
