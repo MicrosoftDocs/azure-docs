@@ -16,7 +16,7 @@ ms.custom: references_regions
 
 # 10DLC registration guidelines
 
-To send application-to-person (A2P) SMS messages by using 10-digit long code (10DLC), businesses must complete *brand registration* and *campaign registration*. Registering ensures compliance with carrier and CTIA (formerly called Cellular Telecommunications Industry Association) guidelines while enabling high-quality message delivery.
+To send application-to-person (A2P) SMS messages by using a 10-digit long code (10DLC), businesses must complete *brand registration* and *campaign registration*. Registering ensures compliance with carrier and CTIA (formerly called Cellular Telecommunications Industry Association) guidelines while enabling high-quality message delivery.
 
 This article describes how to complete the required fields for brand registration and campaign registration. You need to complete brand registration and receive approval first. Then you can continue with campaign registration.
 
@@ -40,7 +40,7 @@ Approval for brand registration with TCR typically takes two to three business d
 | Field name | Description | Example |
 | --- | --- | --- |
 | **Brand Name**     | Official name of your organization | **Contoso Inc.** |
-| **EIN/Tax ID**   | Employer identification number or Tax ID (required for non-Sole Proprietor entities) | **12-3456789** |
+| **EIN/Tax ID**   | Employer identification number or tax ID (required for non-Sole Proprietor entities) | **12-3456789** |
 | **Business Type**  | Type of brand, such as sole proprietor, LLC, or corporation | **Corporation** |
 | **Website**        | Website URL associated with your business (used for verification) | `https://www.contoso.com` |
 | **Vertical**       | Industry in which your business operates | **E-commerce** |

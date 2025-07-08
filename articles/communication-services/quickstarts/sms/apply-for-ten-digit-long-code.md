@@ -59,7 +59,7 @@ Begin your brand registration by filling in the details on the **Application Typ
 On the **Company Details** tab, provide details about your company:
 
 - **Company Name**: Enter your registered business name.
-- **DBA or Brand Name, if different**: Enter your Doing Business As (DBA) or brand name, if it's different from your registered business name.
+- **DBA or Brand Name, if different**: Enter your *doing business as* (DBA) or brand name, if it's different from your registered business name.
 - **Website**: Enter a website URL that represents your business.
 - **Type of legal form**: Select the legal structure of your company (such as **Private Company**).
 - **EIN issuing country/region**: Select the country or region where your employer identification number (EIN) was issued.
@@ -71,7 +71,7 @@ On the **Company Details** tab, provide details about your company:
 - **City**: Enter the city of the business location.
 - **State or province**: Select the state or province of the business location.
 - **Zip code or postal code**: Enter the ZIP Code or postal code for the business location.
-- **Country/Region**: Select the country where the business is located.
+- **Country/Region**: Select the country or region where the business is located.
 - **Stock symbol**: Enter the stock symbol, if it's publicly listed.
 - **Stock exchange**: Select the name of the stock exchange where your business is listed, if applicable.
 - **Vertical Type**: Select the business category (such as **Education** or **Finance**).
@@ -124,8 +124,8 @@ On the **Campaign details** tab, enter these values:
 
   - Brand name
   - Types of messages that the consumer can expect to receive
-  - Message frequency disclosure (for example, "Msg frequency varies")
-  - Message and data rates disclosure (for example, "Msg & data rates may apply")
+  - Disclosure of message frequency (for example, "Msg frequency varies")
+  - Disclosure of message and data rates (for example, "Msg & data rates may apply")
   - Opt-in information, as described in the following table
   - Help information (for example, "send HELP for help")
   - Opt-out information (for example, "send STOP to unsubscribe")
@@ -139,16 +139,16 @@ On the **Campaign details** tab, enter these values:
   | Text message keyword | Users opt in by texting a keyword (for example, **START**) to a specific number.                    | Explain how users learn about the keyword, such as a webpage link or a screenshot.                  | "By texting START to [phone number], you consent to receive text messages from [Brand Name]. Msg & data rates may apply. Msg frequency varies. Unsubscribe by replying STOP. Reply HELP for help. Phone numbers won't be shared with third parties. Privacy Policy [link] & Terms [link]." |
   | Verbal             | Users opt in verbally at a physical location or over the phone.                                   | Provide a copy of the script that informs users about the opt-in.                                   | "[Brand name] collects opt-in verbally at their locations or over the phone. Customers provide their number and are informed that 'Message and data rates may apply', 'Message frequency varies', and they can 'text HELP for support or STOP to unsubscribe.' Phone numbers won't be shared with third parties. Privacy Policy [link] & Terms [link]." |
 
-- **Privacy Policy URL**: Provide a link to your brand's privacy policy related to SMS. The URL can be a webpage or an online file that's publicly accessible.
+- **Privacy policy URL**: Provide a link to your brand's privacy policy related to SMS. The URL can be a webpage or an online file that's publicly accessible.
 
 - **Terms and conditions URL**: Provide a link to your brand's terms and conditions related to SMS. The URL can be a webpage or an online file that's publicly accessible.
 
-  The terms and conditions must have an SMS disclosure that includes the types of messages that consumers can expect to receive, texting cadence, message and data rates notices, privacy policy links, help information, and opt-out instructions. The terms and conditions must include at least the following information:
+  The terms and conditions must have an SMS disclosure that includes at least the following information:
 
   - Brand name
   - Types of messages the consumer can expect to receive
-  - Message frequency disclosure (for example, "Msg frequency varies")
-  - Message and data rates disclosure (for example, "Msg & data rates may apply")
+  - Disclosure of message frequency (for example, "Msg frequency varies")
+  - Disclosure of message and data rates (for example, "Msg & data rates may apply")
   - Support contact information (for example, "send HELP for support," "contact `help@contoso.com` for support")
   - Opt-out information (for example, "Send STOP to unsubscribe")
 
@@ -161,7 +161,7 @@ SMS senders in the United States are required to include a link to reference ter
 If your company doesn't have a privacy statement related to SMS messaging, you can use the following Microsoft-provided template and complete it with your company's information. This template includes relevant SMS terms and placeholders where you can insert links to your general terms and conditions, privacy policy, and help information.
 
 > [!NOTE]
-> This template is for informational purposes only. It isn't intended as, and should not be substituted for, consultation with appropriate legal counsel and/or your organization's regulatory compliance team. This template is applicable only to approved uses of SMS from Azure Communication Services. Appropriate terms might vary depending on how you use this service and the nature of your business. We recommend that you seek legal counsel to ensure compliance with all applicable regulatory and legal obligations.
+> This template is for informational purposes only. It isn't intended as, and shouldn't be a substitute for, consultation with appropriate legal counsel and/or your organization's regulatory compliance team. This template is applicable only to approved uses of SMS from Azure Communication Services. Appropriate terms might vary depending on how you use this service and the nature of your business. We recommend that you seek legal counsel to ensure compliance with all applicable regulatory and legal obligations.
 
 ```
    TEMPLATE: SMS Terms of use
@@ -214,7 +214,7 @@ If your company doesn't have a privacy statement related to SMS messaging, you c
 On the **Use case** tab, enter the following information:
 
 - **Content Type**: Select the type of content that you intend to send (such as **Marketing** or **Customer Care**).
-- **Sub-content Type**: Choose a more specific content category if applicable.
+- **Sub-content Type**: Choose a more specific content category, if applicable.
 - **Sample messages**: Provide sample messages that align with the campaign's use case. You can add multiple sample messages, if necessary, by selecting **Add sample message**. Sample messages must include the following information:
 
   - Brand name
@@ -231,14 +231,14 @@ On the upper part of the **Campaign and content attributes** tab, fill in the fo
 - **Subscriber opt-in message**: If you selected **Yes** for **Subscriber opt-in**, enter the message for subscribers to receive when they opt in to the campaign. This message must include the following information:
 
   - Brand name
-  - Message frequency disclosure (for example, "Msg frequency varies")
-  - Message and data rates disclosure (for example, "Msg & data rates may apply")
+  - Disclosure of message frequency (for example, "Msg frequency varies")
+  - Disclosure of message and data rates (for example, "Msg & data rates may apply")
   - Help information (for example, "send HELP for help")
   - Opt-out information (for example, "send STOP to unsubscribe")
 
   An example might look like this:
 
-  *Thank you for opting in to receive [type of messages] from [Brand Name]. Msg frequency varies. Msg & data rates may apply. Reply HELP for help. Reply STOP to opt out from receiving messages from this number. Send START to resume a conversation.*
+  "Thank you for opting in to receive [type of messages] from [Brand Name]. Msg frequency varies. Msg & data rates may apply. Reply HELP for help. Reply STOP to opt out from receiving messages from this number. Send START to resume a conversation."
 - **Subscriber opt-out**: Select **Yes** or **No** to indicate if subscribers can opt out.
 - **Subscriber opt-out message**: If you selected **Yes** for **Subscriber opt-out**, enter the response message for subscribers to receive when they opt out. This message must include the following information:
 
@@ -247,7 +247,7 @@ On the upper part of the **Campaign and content attributes** tab, fill in the fo
 
   An example might look like this:
 
-  *You have successfully opted out of messages from this [Brand Name] number. You'll receive no further messages. Reply START to resume. Msg & data rates may apply.*
+  "You have successfully opted out of messages from this [Brand Name] number. You'll receive no further messages. Reply START to resume. Msg & data rates may apply."
 - **Subscriber help**: Select **Yes** or **No** to indicate if subscriber help is available.
 - **Subscriber help answer**: If you selected **Yes** for **Subscriber help**, provide the message for subscribers who seek assistance. The help message must include the following information:
 
@@ -256,7 +256,7 @@ On the upper part of the **Campaign and content attributes** tab, fill in the fo
 
   An example might look like this:
 
-  *Thank you for contacting [Brand Name] support. Please email us at [email address] for support. Reply STOP to opt-out from receiving messages from this number. Msg & data rates may apply.*
+  "Thank you for contacting [Brand Name] support. Please email us at [email address] for support. Reply STOP to opt-out from receiving messages from this number. Msg & data rates may apply."
 
 > [!NOTE]
 > Make opt-in, opt-out, and help messages clear and compliant. Only the keywords **START**, **HELP**, and **STOP**, **QUIT**, **END**, **REVOKE**, **OPT OUT**, **CANCEL**, and **UNSUBSCRIBE** are monitored and enforced.
@@ -266,7 +266,7 @@ On the upper part of the **Campaign and content attributes** tab, fill in the fo
 On the lower part of the **Campaign and content attributes** tab, fill in these attributes:
 
 - **Direct lending or Loan arrangement**: Select **Yes** or **No** to indicate if the campaign involves any lending or loan arrangements.
-- **Embedded link**: Select **Yes** or **No** to indicate if embedded links are sent in messages. Public URL shorteners (Bitly and TinyURL) aren't accepted. If you select **Yes**, at least one sample message must include an embedded link.
+- **Embedded link**: Select **Yes** or **No** to indicate if embedded links are sent in messages. Public URL shorteners (for example, Bitly and TinyURL) aren't accepted. If you select **Yes**, at least one sample message must include an embedded link.
 - **Embedded phone number**: Select **Yes** or **No** to indicate if embedded phone numbers are sent in messages, excluding the help contact. If you select **Yes**, at least one sample message must include an embedded phone number.
 - **Age-gated content**: Select **Yes** or **No** to indicate if the content is age-restricted.
 - **Terms and conditions**: Affiliate marketing isn't permitted on 10DLC numbers. Select the checkbox to confirm that you won't use the campaign for affiliate marketing.
