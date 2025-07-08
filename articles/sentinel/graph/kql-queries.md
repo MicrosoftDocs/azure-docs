@@ -32,7 +32,7 @@ KQL queries can be run in the Microsoft Defender portal after the onboarding pro
 
 ### Permissions
 
-Microsoft Entra ID roles provide broad access across all workspaces in the data lake. Alternatively you can grant access to individual workspaces using Azure RBAC roles. Users with Azure RBAC permissions to Microsoft Sentinel workspaces can run KQL queries against those workspaces in the lake tier. For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](https://aka.ms/sentinel-data-lake-roles).
+Microsoft Entra ID roles provide broad access across all workspaces in the data lake. Alternatively you can grant access to individual workspaces using Azure RBAC roles. Users with Azure RBAC permissions to Microsoft Sentinel workspaces can run KQL queries against those workspaces in the lake tier. For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
 
 
 ## Write KQL queries

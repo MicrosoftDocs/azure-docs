@@ -55,5 +55,5 @@ When a Defender and Microsoft Sentinel customer onboards to the data lake, auxil
 
 - [Onboarding to Microsoft Sentinel data lake](sentinel-lake-onboarding.md)
 - [Manage data tiers and retention in Microsoft Defender Portal (preview)](https://aka.ms/manage-data-defender-portal-overview)
-- [KQL and the Microsoft Sentinel data lake (preview)](https://aka.ms/kql-overview)
-- [Jupyter notebooks and the Microsoft Sentinel data lake (preview)](https://aka.ms/notebooks-overview)
+- [KQL and the Microsoft Sentinel data lake (preview)](kql-overview.md)
+- [Jupyter notebooks and the Microsoft Sentinel data lake (preview)](notebooks-overview.md)

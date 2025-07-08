@@ -25,7 +25,7 @@ The audit log helps you investigate specific activities across Microsoft service
 Auditing is automatically turned on for Microsoft Sentinel data lake. Features that are audited are logged in the audit log automatically.
 
 ## Prerequisites
-Microsoft Sentinel Data Lake uses the [Microsoft Purview auditing solution](/purview/audit-solutions-overview). Before you can look at the audit data, you need to turn on auditing in the Microsoft Purview portal. For more information, see [Turn auditing on or off](/purview/audit-log-enable-disable). 
+Microsoft Sentinel data lake uses the [Microsoft Purview auditing solution](/purview/audit-solutions-overview). Before you can look at the audit data, you need to turn on auditing in the Microsoft Purview portal. For more information, see [Turn auditing on or off](/purview/audit-log-enable-disable). 
  
 To access the audit log, you need to have the **View-Only Audit Logs** or **Audit Logs** role in Exchange Online. By default, those roles are assigned to the Compliance Management and Organization Management role groups.
 

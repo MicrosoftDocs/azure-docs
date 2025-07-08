@@ -18,7 +18,7 @@ ms.subservice: sentinel-graph
 
 The Microsoft Sentinel data lake (Preview), available in the Microsoft Defender portal, is a tenant-wide, centralized repository designed to store and manage vast amounts of security-related data from various sources. It enables your organization to collect, ingest, and analyze security data in a unified manner, providing a comprehensive view of your security landscape. Leveraging advanced analytics, machine learning, and artificial intelligence, the Microsoft Sentinel data lake helps in detecting threats, investigate and responding to incidents, and improving overall security posture.
 
-For more information, see [Microsoft Sentinel data lake (Preview)](https://aka.ms/sentinel-lake-overview).
+For more information, see [Microsoft Sentinel data lake (Preview)](sentinel-lake-overview.md).
 
 The onboarding process makes the following changes once onboarding is complete:
 
@@ -26,7 +26,7 @@ The onboarding process makes the following changes once onboarding is complete:
 + Microsoft Defender connected and unconnected workspaces are attached to your Microsoft Sentinel data lake. Unconnected workspaces have limited functionality, which can be resolved by connecting the workspaces to Microsoft Defender. For more information, see [Existing Microsoft Sentinel workspaces](#existing-microsoft-sentinel-workspaces).
 + Once Microsoft Sentinel data lake is enabled, data in the Microsoft Sentinel analytics tier is also available in the Microsoft Sentinel data lake tier from that point forward without extra charge. You can use existing Microsoft Sentinel workspace connectors to ingest new data to both the analytics and the lake tiers, or just the lake tier. 
 + When you enable ingestion for the first time or switch ingestion between tiers, it takes 90-120 minutes to take effect. Once the ingestion is enabled for the lake tier, the data in lake appears at the same time as it appears in your analytics tier.
-+ Entitled data pertaining to your Microsoft related assets are ingested into the Microsoft Sentinel data lake. For more information, see [Asset data ingestion](https://aka.ms/enable-data-connectors). The asset data includes 
++ Entitled data pertaining to your Microsoft related assets are ingested into the Microsoft Sentinel data lake. The asset data includes 
     + Microsoft Entra
     + Microsoft 365 
     + Azure. 
@@ -38,9 +38,9 @@ The onboarding process makes the following changes once onboarding is complete:
 
 Once you're onboarded to the Microsoft Sentinel data lake, you can use the following features in the Defender portal:
 
-+ [Lake exploration KQL queries](https://aka.ms/kql-overview) 
-+ [Microsoft Sentinel lake notebooks](https://aka.ms/notebooks-overview)
-+ [Microsoft Sentinel lake jobs](https://aka.ms/kql-jobs)
++ [Lake exploration KQL queries](kql-overview.md) 
++ [Microsoft Sentinel lake notebooks](notebooks-overview.md)
++ [Microsoft Sentinel lake jobs](kql-jobs.md)
 + Workspace and lake data [management and retention](/unified-secops-platform/manage-data-defender-portal-overview)
 + Microsoft Sentinel Cost Management
   
@@ -118,7 +118,7 @@ Use the following steps to onboard to the Microsoft Sentinel data lake from the 
  
     :::image type="content" source="./media/sentinel-lake-onboarding/onboarding-in-progress.png" lightbox="./media/sentinel-lake-onboarding/onboarding-in-progress.png" alt-text="A screenshot showing the onboarding in progress banner.":::
 
-1. Once the onboarding process is complete, a new banner is shown containing information cards on how to start using the new data lake experiences. For example, select **Query data lake** to open the Data lake exploration KQL queries editor. KQL queries are a new feature in the Defender portal that allows you to explore and analyze data in the Microsoft Sentinel data lake using KQL. For more information, see [Data lake exploration, KQL queries](https://aka.ms/kql-queries).
+1. Once the onboarding process is complete, a new banner is shown containing information cards on how to start using the new data lake experiences. For example, select **Query data lake** to open the Data lake exploration KQL queries editor. KQL queries are a new feature in the Defender portal that allows you to explore and analyze data in the Microsoft Sentinel data lake using KQL. For more information, see [Data lake exploration, KQL queries](kql-queries.md).
 
     :::image type="content" source="./media/sentinel-lake-onboarding/onboarding-complete.png" lightbox="./media/sentinel-lake-onboarding/onboarding-complete.png" alt-text="A screenshot showing the onboarding process complete banner.":::
 
@@ -129,7 +129,7 @@ If you encounter any issues during the setup process, see the following troubles
 + Ensure that you have the required role to onboard to the Microsoft Sentinel data lake.
 + Verify that your selected subscription and resource group are valid and accessible.
 + Verify your Azure policies allow for creating new resources to enable your Microsoft Sentinel data lake.
-+ Data for newly enabled tables, or tables that have moved between tiers is, available 90 to 120 minutes after the onboarding process is complete.
++ Data for newly enabled tables, or tables that have moved between tiers are, available 90 to 120 minutes after the onboarding process is complete.
 
 The table below lists errors that you might encounter during the onboarding process.
 
@@ -143,7 +143,7 @@ The table below lists errors that you might encounter during the onboarding proc
 
 ## Related content
 
-- [Microsoft Sentinel data lake overview (Preview)](https://aka.ms/sentinel-lake-overview)
-- [Microsoft Sentinel data lake roles and permissions](https://aka.ms/sentinel-data-lake-roles)
+- [Microsoft Sentinel data lake overview (Preview)](sentinel-lake-overview.md)
+- [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview)
 - [Microsoft Sentinel data lake billing](../billing.md)
 - [Create custom roles with Microsoft Defender XDR Unified role-based access control (RBAC)](/defender-xdr/create-custom-rbac-roles)

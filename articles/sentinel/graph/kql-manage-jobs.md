@@ -25,7 +25,7 @@ Jobs are managed in the **Jobs** page under **Data lake exploration** in the Def
 
 + View all jobs in the Microsoft Sentinel data lake. You can view jobs created in the KQL queries editor or jobs created for notebooks. 
 + Create a new job to run a KQL query. For more information on creating jobs, see [Create jobs in the Microsoft Sentinel data lake using KQL](kql-jobs.md).
-+ Edit job details. You can view but can't edit a notebook job from the jobs page. For more information on editing notebook jobs, see [Notebook notebooks](https://aka.ms/notebook-jobs).
++ Edit job details. You can view but can't edit a notebook job from the jobs page. For more information on editing notebook jobs, see [Notebook notebooks](notebook-jobs.md).
 + Disable a job, preventing it from running until you enable it again.
 + Enable a job, allowing it to run again after being disabled.
 + View job history, including the run times, and statuses of the job.
@@ -34,7 +34,7 @@ Jobs are managed in the **Jobs** page under **Data lake exploration** in the Def
 
 ## Permissions
 
-Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To read tables across all workspaces, write to the analytics tier, and schedule jobs using KQL queries, you must have one of the supported Microsoft Entra ID roles. For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](https://aka.ms/sentinel-data-lake-roles).
+Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To read tables across all workspaces, write to the analytics tier, and schedule jobs using KQL queries, you must have one of the supported Microsoft Entra ID roles. For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
 
 
 ## Manage jobs
@@ -111,4 +111,4 @@ For  information on considerations and limitations when managing KQL jobs in the
 - [Overview of the Microsoft Sentinel data lake](sentinel-lake-overview.md)
 - [Create jobs in the Microsoft Sentinel data lake using KQL](kql-jobs.md)
 - [Data lake exploration - KQL queries (preview).](kql-queries.md)
-- [Microsoft Sentinel lake roles and permissions](https://aka.ms/sentinel-data-lake-roles)
+- [Microsoft Sentinel lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview)

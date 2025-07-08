@@ -34,7 +34,7 @@ To use notebooks in the Microsoft Sentinel data lake, you must first onboard to 
 
 ### Permissions
 
-Microsoft Entra ID roles provide broad access across all workspaces in the data lake. Alternatively you can grant access to individual workspaces using Azure RBAC roles. Users with Azure RBAC permissions to Microsoft Sentinel workspaces can run notebooks against those workspaces in the lake tier. For more information, see [Roles and permissions in Microsoft Sentinel](https://aka.ms/sentinel-data-lake-roles).
+Microsoft Entra ID roles provide broad access across all workspaces in the data lake. Alternatively you can grant access to individual workspaces using Azure RBAC roles. Users with Azure RBAC permissions to Microsoft Sentinel workspaces can run notebooks against those workspaces in the lake tier. For more information, see [Roles and permissions in Microsoft Sentinel](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
 
 To create new custom tables in the analytics tier, the data lake managed identity must be assigned the **Log Analytics Contributor** role in the Log Analytics workspace.
 
@@ -213,4 +213,4 @@ The following table lists common errors you may encounter when working with note
 - [Sample notebooks for Microsoft Sentinel data lake](./notebook-examples.md)
 - [Microsoft Sentinel Provider class reference](./sentinel-provider-class-reference.md)
 - [Microsoft Sentinel data lake overview](./sentinel-lake-overview.md)
-- [Microsoft Sentinel data lake roles and permissions](https://aka.ms/sentinel-data-lake-roles).
+- [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).

@@ -5,7 +5,7 @@ description: An overview of Microsoft Sentinel data lake, a cloud-native platfor
 author: EdB-MSFT  
 ms.service: microsoft-sentinel  
 ms.topic: conceptual
-ms.custom: sentinel-lake-graph
+ms.custom: references_regions
 ms.date: 05/29/2025
 ms.author: edbaynash  
 
@@ -78,13 +78,15 @@ KQL queries offer the following key features:
 + Full support for KQL: Use the full range of KQL capabilities, including machine learning functions and advanced analytics.
 + Job Creation: Create one-time or scheduled jobs to promote data from the lake to the analytics tier.
 
-For more information, see [KQL and the Microsoft Sentinel data lake (preview)](https://aka.ms/kql-overview)
+For more information, see [KQL and the Microsoft Sentinel data lake (preview)](kql-overview.md)
+
+:::image type="content" source="media/sentinel-lake-overview/data-lake-exploration.png" lightbox="media/sentinel-lake-overview/data-lake-exploration.png" alt-text="A screenshot showing the KQL query editor in the Microsoft Sentinel data lake.":::
 
 ### Powerful analytics using Jupyter notebooks
 
 Jupyter notebooks in the Microsoft Sentinel data lake provide a powerful environment for data analysis and machine learning. Use Python libraries to build and run machine learning models, conduct advanced analytics, and visualize your data. The notebooks support rich visualizations, enabling you to gain insights from your security data. Schedule notebooks to summarize data, run machine learning models, and promote data from the lake tier to the analytics tier.
 
-For more information, see [Jupyter notebooks in the Microsoft Sentinel data lake (preview)](https://aka.ms/notebooks-overview).
+For more information, see [Jupyter notebooks in the Microsoft Sentinel data lake (preview)](notebooks-overview.md).
 
 :::image type="content" source="media/sentinel-lake-overview/notebook.png" lightbox="media/sentinel-lake-overview/notebook.png" alt-text="A screenshot showing a Jupyter notebook."::: 
 
@@ -121,9 +123,9 @@ Microsoft Sentinel data lake is supported in the following regions during public
  
 ## Get started
 
-To get started with Microsoft Sentinel data lake, follow these steps in the [onboarding guide](https://aka.ms/sentinel-lake-onboarding). 
+To get started with Microsoft Sentinel data lake, follow these steps in the [onboarding guide](sentinel-lake-onboarding.md). 
 For more information on using the Microsoft Sentinel data lake, see the following articles:
-+ [Jupyter notebooks in the Microsoft Sentinel data lake (preview)](https://aka.ms/notebooks-overview).
-+ [KQL and the Microsoft Sentinel data lake (preview)](https://aka.ms/kql-overview)
-+ [Permissions for the Microsoft Sentinel data lake (preview)](https://aka.ms/sentinel-data-lake-roles) 
++ [Jupyter notebooks in the Microsoft Sentinel data lake (preview)](notebooks-overview.md).
++ [KQL and the Microsoft Sentinel data lake (preview)](kql-overview.md)
++ [Permissions for the Microsoft Sentinel data lake (preview)](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview) 
 + [Manage data tiers and retention in Microsoft Defender Portal (preview)](https://aka.ms/manage-data-defender-portal-overview) 

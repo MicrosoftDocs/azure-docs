@@ -18,7 +18,7 @@ You can create schedule jobs to run at specific times or intervals using the Mic
 
 ## Permissions
 
-Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To create and schedule jobs, read tables across all workspaces, write to the analytics and lake tiers, you must have one of the supported Microsoft Entra ID roles. For more information on roles and permissions, see [Roles and permissions in Microsoft Sentinel](https://aka.ms/sentinel-data-lake-roles).
+Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To create and schedule jobs, read tables across all workspaces, write to the analytics and lake tiers, you must have one of the supported Microsoft Entra ID roles. For more information on roles and permissions, see [Roles and permissions in Microsoft Sentinel](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
 
 To create new custom tables in the analytics tier, the data lake managed identity must be assigned the **Log Analytics Contributor** role in the Log Analytics workspace.
 
@@ -122,4 +122,4 @@ For information on troubleshooting, see [Run notebooks on the Microsoft Sentinel
 - [Sample notebooks for Microsoft Sentinel data lake (preview)](./notebook-examples.md)
 - [Microsoft Sentinel Provider class reference (preview)](./sentinel-provider-class-reference.md)
 - [Microsoft Sentinel data lake overview (preview)](./sentinel-lake-overview.md)
-- [Roles and permissions in Microsoft Sentinel](https://aka.ms/sentinel-data-lake-roles).
+- [Roles and permissions in Microsoft Sentinel](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
