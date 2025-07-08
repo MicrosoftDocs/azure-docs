@@ -2,7 +2,7 @@
 
 title: How to migrate a Nested Confidential VM from one region to another
 
-description: Migraten nested confidential VMs from one region to another
+description: Migrate nested confidential VMs from one region to another
 
 services: virtual-machines
 
@@ -18,6 +18,7 @@ ms.date: 07/07/2025
 
 ms.author: ananyagarg
 ---
+# How to move a Nested Confidential VM from one region to another
 
 **Step1**: Identify the target region
 
@@ -27,27 +28,27 @@ ms.author: ananyagarg
 
 **Step 4**: Navigate to VM you wish to resize in the portal
 
-**Step 5**: Click the stop button and wait for status of the VM to be Stopped (deallocated)
-:::image type="complex" source=".\media\migrate-nested-cvms\image 1.png":::
+**Step 5**: Select the stop button and wait for status of the VM to be Stopped (deallocated)
+:::image type="complex" source=".\media\migrate-nested-cvms\image 1.png". alt-text="Screenshot of Azure Portal showing the 'Capture' option, circled in geeen, and the 'Status', also circled in green.":::
 
 **Step 6**: Find the **Capture** drop down in the overview tab of the VM, then select **Image**
 
 **When you get to the image creation page**:
 * Ensure you select *Automatically delete this Virtual Machine after creating the image* (check image 2)
-:::image type="complex" source=".\media\migrate-nested-cvms\image 2.png":::
+:::image type="complex" source=".\media\migrate-nested-cvms\image 2.png". alt-text="Screenshot of the Azure Portal showing the options to 'Automatically delete the virtual machine after creating the image", "Create new" for "Target Azure compute gallery", "Create new" for "Target VM image definition", and "Version number", in green circles.".:::
 
-* If you do not have a gallery, in the gallery option, select *Create new* and name your gallery
+* If you don't have a gallery, in the gallery option, select *Create new* and name your gallery
 
-* Fill in name and other options, create an image definition if none are usable
+* Fill in name and other options, create an image definition if none is usable
 
-* Read the descriptions for specialized vs generalized images and choose your option.  (If not sure, generalized should work for most cases.)
+* Read the descriptions for specialized vs generalized images and choose your option. (If not sure, generalized should work for most cases.)
 
-* Continue to fill other options.  In the replication portion of the image capture option, add the region you wish to *relocate* your VM to.  You will need to select the target region drop down
-:::image type="complex" source=".\media\migrate-nested-cvms\image 3.png":::
+* Continue to fill other options. In the replication portion of the image capture option, add the region you wish to *relocate* your VM to.  You'll need to select the target region drop-down
+:::image type="complex" source=".\media\migrate-nested-cvms\image 3.png". alt-text="Screenshot of the Azure Portal showing the options "Target regions.".:::
 
 **Fill in all other options and hit *Review + create***
 
-**Step 7**: Go to your gallery and select the image you captured.  In the top left, select **Create a vm**
+**Step 7**: Go to your gallery and select the image you captured. In the top left, select **Create a vm**
 
-**Step 8**: Fill in all options and ensure you select the new region and new size.  If you do not see the size you wish to have, ensure no infrastructure redundancy is required is selected and that your requested region supports the size you wish to have.
+**Step 8**: Fill in all options and ensure you select the new region and new size. If you don't see the size you wish to have, ensure 'no infrastructure redundancy is required' is selected and that your requested region supports the size you wish to have.
 
