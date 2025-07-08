@@ -153,7 +153,7 @@ items:
 - name: Secure
   items:
   - name: Secure your Azure Web Application Firewall
-    href: /security/benchmark/azure/baselines/web-application-firewall-security-baseline?toc=/azure/web-application-firewall/toc.json
+    href: secure-web-application-firewall.md
   - name: Security baseline
     href: /security/benchmark/azure/baselines/web-application-firewall-security-baseline?toc=/azure/web-application-firewall/toc.json
   - name: Azure Network Security Blog
