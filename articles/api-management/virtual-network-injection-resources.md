@@ -47,7 +47,7 @@ The minimum size of the subnet in which API Management can be deployed is /29, w
 
 The following table shows subnet sizing examples for API Management virtual network injection, illustrating how different CIDR blocks affect the number of scale-out units possible:
 
-| Subnet CIDR | Total IP Addresses | Azure Reserved IPs | API Management Instance IPs | Internal Load Balancer IP | Remaining IPs for Scale-out | Max Scale-out Units | Total Max Units |
+| Subnet CIDR | Total IP addresses | Azure reserved IPs | API Management instance IPs | Internal load balancer IP | Remaining IPs for scale-out | Max scale-out units | Total max units |
 |------------:|-------------------:|-------------------:|----------------------------:|--------------------------:|----------------------------:|--------------------:|----------------:|
 |        /29  |                  8 |                  5 |                           2 |                         1 |                           0 |                   0 |               1 |
 |        /28  |                 16 |                  5 |                           2 |                         1 |                           8 |                   4 |               5 |
