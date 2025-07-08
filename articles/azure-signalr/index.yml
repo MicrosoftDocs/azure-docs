@@ -120,7 +120,7 @@ landingContent:
         links:
           - text: Use private endpoints
             url: howto-private-endpoints.md
-          - text: Manage network acess
+          - text: Manage network access
             url: howto-network-access-control.md
           - text: Custom domain
             url: howto-custom-domain.md

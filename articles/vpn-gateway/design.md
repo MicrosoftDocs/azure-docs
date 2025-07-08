@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 01/15/2025
 ms.author: cherylmc
 
+# Customer intent: "As a network architect, I want to understand different VPN Gateway topologies and designs, so that I can effectively connect on-premises locations to virtual networks while ensuring optimal performance and availability."
 ---
 # VPN Gateway topology and design
 

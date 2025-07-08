@@ -11,6 +11,7 @@ ms.author: shaas
 ms.custom: references_regions
 zone_pivot_groups: data-box-sku
 #Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure or export data from Azure.
+# Customer intent: "As a data administrator, I want to leverage Azure Data Box for transferring large volumes of data into and out of Azure, so that I can efficiently manage data migrations and backups in scenarios with limited network connectivity."
 ---
 # What is Azure Data Box?
 
@@ -66,8 +67,13 @@ Azure providers and non-Azure providers can ingest data from Azure Data Box. The
 
 You can use your Data Box data with many non-Azure service providers. For instance:
 
-- **[Veeam](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html?ver=100)** - allows you to back up and replicate large amounts of data from your Hyper-V machine to your Data Box.
-- **[Commvault](/azure/storage/solution-integration/validated-partners/backup-archive-disaster-recovery/commvault/commvault-solution-guide)** - leverages Azure Data Box to migrate petabyte scale backup and archive data from on-premises to Azure for network constrained environments.
+- **[Veeam](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html)** - Veeam leverages Azure Data Box to help seed backup repository data to Azure Blob. Veeam offers data protection for various on-premises and cloud-based workloads, including Hyper-V VMs, Azure Local, VMware vSphere VMs, Nutanix AHV, Proxmox, agent-based backup for Windows and Linux, cloud-based backup for Azure VMs, and much more.
+	
+- **[Commvault](/azure/storage/solution-integration/validated-partners/backup-archive-disaster-recovery/commvault/commvault-solution-guide)** - Commvault® supports Microsoft Azure Data Box, enabling enterprise customers to accelerate data movement to and from Azure with optimal security, speed, and control. Whether migrating data to Azure for backup or recovering from it during a disaster scenario, Commvault’s tight integration with Azure Data Box delivers unmatched flexibility in bandwidth-constrained or high-volume environments.
+	
+- **[OpenText](https://www.carbonite.com/resources/datasheet/carbonite-migrate-for-microsoft-azure-data-box)** - By integrating OpenText Migrate and Availability with Azure Data Box, organizations can significantly enhance their data onboarding process to Azure. This enables a hybrid approach of offline data seeding to Azure and then followed by delta synchronization with OpenText solutions for a seamless cutover.
+
+
 ## Benefits
 
 Data Box is designed to move large amounts of data to Azure with little to no impact to network. The solution has the following benefits:

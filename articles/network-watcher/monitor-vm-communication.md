@@ -8,7 +8,7 @@ ms.service: azure-network-watcher
 ms.topic: tutorial
 ms.date: 09/30/2024
 
-#CustomerIntent: As an Azure administrator, I want to monitor the communication between two virtual machines in Azure so I can be alerted if the communication fails to take actions. I alow want to know why the communication failed, so that I can resolve the problem. 
+#CustomerIntent: As an Azure administrator, I want to monitor the communication between two virtual machines in Azure so I can be alerted if the communication fails to take actions. I want to know why the communication failed so that I can resolve the problem. 
 # Customer intent: As an Azure administrator, I want to monitor network communication between virtual machines so that I can identify and troubleshoot any connection failures promptly to maintain operational continuity.
 ---
 

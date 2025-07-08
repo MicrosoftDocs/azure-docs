@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 05/22/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to use the REST API to backup Azure Files stored in a Recovery Services vault, so that I can automate the protection and management of file shares without relying solely on graphical interfaces.
 ---
 
 # Backup Azure Files using Azure Backup via REST API

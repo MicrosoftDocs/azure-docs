@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 10/17/2024
 ms.author: anfdocs
+# Customer intent: As a cloud architect, I want to understand how to manage quota and throughput for Azure NetApp Files, so that I can optimize storage performance based on my workload requirements.
 ---
 # General performance considerations for Azure NetApp Files
 
@@ -15,6 +16,9 @@ ms.author: anfdocs
 > For *large volumes*, see [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md#requirements-and-considerations). 
 
 The combination of the quota assigned to the volume and the selected service level determines the [throughput limit](azure-netapp-files-service-levels.md) for a volume with automatic QoS. For volumes with manual QoS, the throughput limit can be defined individually. When you make performance plans about Azure NetApp Files, you need to understand several considerations. 
+
+> [!NOTE]   
+> Azure NetApp Files is built on NetApp's bare metal with ONTAP storage OS running inside the Azure datacenter. ANF is a PaaS and does not present the storage efiiciencies to the customer, it is transparent and self-managed. 
 
 ## Quota and throughput  
 

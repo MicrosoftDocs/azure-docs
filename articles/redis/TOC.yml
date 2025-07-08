@@ -220,13 +220,6 @@ items:
     items:
     - name: Use Spring Boot Initializer
       href: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
-  - name: Create Web App with Redis cache - Bicep
-    displayName: ARM, Resource Manager, Template
-    href: web-app-bicep-with-redis-cache-provision.md
-  - name: Create Web App with Redis cache - ARM template
-    displayName: Resource Manager
-    href: web-app-arm-with-redis-cache-provision.md
-
 - name: Reference
   items:
     - name: .NET
@@ -253,7 +246,7 @@ items:
   - name: Videos
     href: https://www.youtube.com/results?search_query=azure+managed+redis
   - name: Microsoft Q&A question page
-    href: https://learn.microsoft.com/search/?terms=azure%20managed%20redis&category=QnA
+    href: /search/?terms=azure%20managed%20redis&category=QnA
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/managed-redis/
 

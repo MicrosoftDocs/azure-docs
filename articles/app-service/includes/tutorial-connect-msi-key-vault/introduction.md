@@ -2,7 +2,7 @@
 ms.topic: include
 ms.date: 10/26/2021
 
-ms.reviewer: madsd 
+ms.reviewer: jordanselig 
 ms.custom: devx-track-azurecli
 ---
 

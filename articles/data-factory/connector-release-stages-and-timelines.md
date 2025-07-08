@@ -44,6 +44,8 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [Greenplum](connector-greenplum.md)                        | version 2.0    | GA                   | /                   | /                   |
 |                                    | version 1.0    | End of support announced                                | August 31, 2025     | September 30, 2025                    |
 | [HBase](connector-hbase.md)                              | /              | End of support                    | December 31, 2024     | December 31, 2024     |
+| [Hive](connector-hive.md)                          | version 2.0    | GA                                | /                   | /                   |
+|                                    | version 1.0    | End of support announced          | September 30, 2025         | October 31, 2025    |
 | [Impala](connector-impala.md)                          | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | End of support announced          | September 30, 2025         | October 31, 2025    |
 | [Magento (Preview)](connector-magento.md)                  | /              | End of support                    | December 31, 2024     | December 31, 2024     |

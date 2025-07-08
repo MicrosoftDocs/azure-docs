@@ -17,6 +17,9 @@ Azure Firewall is a cloud-native, intelligent network firewall security service 
 
 Azure Firewall is available in three SKUs: Basic, Standard, and Premium.
 
+> [!NOTE]
+> Azure Firewall is one of the services that make up the Network Security category in Azure. Other services in this category include [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md) and [Azure Web Application Firewall](../web-application-firewall/overview.md). Each service has its own unique features and use cases. For more information on this service category, see [Network Security](../networking/security/network-security.md).
+
 ## Azure Firewall Basic
 
 Azure Firewall Basic is designed for small and medium-sized businesses (SMBs) to secure their Azure cloud environments. It provides essential protection at an affordable price.
