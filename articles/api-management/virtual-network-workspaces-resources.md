@@ -5,7 +5,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 06/18/2025
+ms.date: 07/08/2025
 ms.author: danlep
 ---
 
@@ -66,28 +66,14 @@ For virtual network injection, the subnet needs to be delegated to the **Microso
 ---
 
 
-## Network security group (NSG) rules
+## Network security group
 
-A network security group (NSG) must be attached to the subnet to explicitly allow certain inbound or outbound connectivity. Configure the following rules in the NSG. Set the priority of these rules higher than that of the default rules.
+[!INCLUDE [api-management-virtual-network-v2-nsg-rules](../../includes/api-management-virtual-network-v2-nsg-rules.md)]
 
-Configure other NSG rules to meet your organization's network access requirements.
+> [!IMPORTANT]
+> * Inbound NSG rules do not apply when you integrate a workspace gateway in a virtual network for private outbound access. To enforce inbound NSG rules, use virtual network injection instead of integration.
+> * This differs from networking in the classic Premium tier, where inbound NSG rules are enforced in both external and internal virtual network injection modes. [Learn more](virtual-network-injection-resources.md)
 
-#### [Virtual network integration](#tab/external)
-
-| Direction | Source  | Source port ranges | Destination | Destination port ranges | Protocol |  Action | Purpose | 
-|-------|--------------|----------|---------|------------|-----------|-----|--------|
-| Inbound | AzureLoadBalancer | * | Workspace gateway subnet range  | 80 | TCP | Allow | Allow internal health ping traffic |
-| Inbound | Internet | * | Workspace gateway subnet range  | 80,443 | TCP | Allow | Allow inbound traffic |
-
-#### [Virtual network injection](#tab/internal)
-
-| Direction | Source  | Source port ranges | Destination | Destination port ranges | Protocol |  Action | Purpose | 
-|-------|--------------|----------|---------|------------|-----------|-----|--------|
-| Inbound | AzureLoadBalancer | * | Workspace gateway subnet range  | 80 | TCP | Allow | Allow internal health ping traffic |
-| Inbound | VirtualNetwork | * | Workspace gateway subnet range  | 80,443 | TCP | Allow | Allow inbound traffic |
-| Outbound | VirtualNetwork | * | Storage | 443 | TCP | Allow | Dependency on Azure Storage |
-
----
 
 ## DNS settings for virtual network injection
 

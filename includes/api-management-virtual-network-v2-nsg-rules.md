@@ -2,11 +2,10 @@
 author: dlepow
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 06/25/2025
+ms.date: 07/08/2025
 ms.author: danlep
 ---
 
-### Network security group
 
 A network security group (NSG) must be associated with the subnet. To set up a network security group, see [Create a network security group](../articles/virtual-network/manage-network-security-group.md). 
 
