@@ -48,9 +48,9 @@ from pyspark.sql.types import StructType, StructField, StringType
 data_provider = MicrosoftSentinelProvider(spark)
 
 # Function to process data
-def process_data(table_name):
+def process_data(table_name,workspace_name):
     # Load data into DataFrame
-    df = data_provider.read_table(table_name)
+    df = data_provider.read_table(table_name, workspace_name)
     
     # Define schema for parsing the 'Status' JSON field
     status_schema = StructType([StructField("errorCode", StringType(), True)])
@@ -77,8 +77,9 @@ def process_data(table_name):
     return df
 
 # Process the tables to a common schema
-aad_signin = process_data("microsoft.entra.id.SignInLogs")
-aad_non_int = process_data("microsoft.entra.id.AADNonInteractiveUserSignInLogs")
+workspace_name = "your-workspace-name"  # Replace with your actual workspace name
+aad_signin = process_data("SignInLogs", workspace_name)
+aad_non_int = process_data("AADNonInteractiveUserSignInLogs", workspace_name)
 
 # Union the DataFrames
 result_df = aad_signin.unionByName(aad_non_int)
@@ -100,7 +101,7 @@ plt.ylabel('Number of Failed Sign ins')
 plt.title('Top 20 Users with Failed Sign ins')
 plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
-plt.show()
+plt.show()  
 ```
 
 The following screenshot shows a sample of the output of the code above, displaying the top 20 users with the highest number of failed sign in attempts in a bar chart format.
@@ -110,13 +111,13 @@ The following screenshot shows a sample of the output of the code above, display
 ## Access lake tier Entra ID Group table  
 
 
-The following code sample demonstrates how to access the Entra ID `Group` table in the Microsoft Sentinel data lake. It retrieves various fields such as displayName, groupTypes, mail, mailNickname, description, and tenantId. 
+The following code sample demonstrates how to access the `EntraGroups` table in the Microsoft Sentinel data lake. It displays various fields such as displayName, groupTypes, mail, mailNickname, description, and tenantId. 
 
 ```python  
 from sentinel_lake.providers import MicrosoftSentinelProvider
 data_provider = MicrosoftSentinelProvider(spark)
  
-table_name = "microsoft.entra.id.group"  
+table_name = "EntraGroups"  
 df = data_provider.read_table(table_name)  
 df.select("displayName", "groupTypes", "mail", "mailNickname", "description", "tenantId").show(100, truncate=False)   
 ```  
@@ -133,10 +134,11 @@ The following code sample demonstrates how to access the Entra ID `SignInLogs` t
 from sentinel_lake.providers import MicrosoftSentinelProvider
 data_provider = MicrosoftSentinelProvider(spark)
  
-table_name = "microsoft.entra.id.SignInLogs"  
-df = data_provider.read_table(table_name)  
+table_name = "SignInLogs"  
+workspace_name = "your-workspace-name"  # Replace with your actual workspace name
+df = data_provider.read_table(table_name, workspace_name)  
 df.select("UserDisplayName", "UserPrincipalName", "UserId", "CorrelationId", "UserType", 
- "ResourceTenantId", "RiskLevel", "ResourceProvider", "IPAddress", "AppId", "AADTenantId")\
+ "ResourceTenantId", "RiskLevelDuringSignIn", "ResourceProvider", "IPAddress", "AppId", "AADTenantId")\
     .filter(df.UserPrincipalName == "bploni5@contoso.com")\
     .show(100, truncate=False) 
 ```  
@@ -152,8 +154,9 @@ from pyspark.sql.functions import from_json, col
 from pyspark.sql.types import StructType, StructField, StringType  
  
 data_provider = MicrosoftSentinelProvider(spark)  
-table_name = "microsoft.entra.id.signinlogs"  
-df = data_provider.read_table(table_name)  
+workspace_name = "your-workspace-name"  # Replace with your actual workspace name
+table_name = "SignInLogs"  
+df = data_provider.read_table(table_name, workspace_name)  
  
 location_schema = StructType([  
   StructField("city", StringType(), True),  
@@ -180,8 +183,9 @@ from pyspark.sql.functions import from_json, col
 from pyspark.sql.types import StructType, StructField, StringType
 
 data_provider = MicrosoftSentinelProvider(spark)
-table_name = "microsoft.entra.id.signinlogs"
-df = data_provider.read_table(table_name)
+table_name = "signinlogs"
+workspace_name = "your-workspace-name"  # Replace with your actual workspace name
+df = data_provider.read_table(table_name, workspace_name)
 
 location_schema = StructType([
     StructField("city", StringType(), True),
@@ -216,8 +220,8 @@ from pyspark.sql.types import StructType, StructField, StringType
 
 data_provider = MicrosoftSentinelProvider(spark)
 
-def process_data(table_name):
-    df = data_provider.read_table(table_name)
+def process_data(table_name, workspace_name):
+    df = data_provider.read_table(table_name, workspace_name)
     status_schema = StructType([StructField("errorCode", StringType(), True)])
     df = df.withColumn("Status_json", from_json(col("Status"), status_schema)) \
            .withColumn("ResultType", col("Status_json.errorCode"))
@@ -232,9 +236,9 @@ def process_data(table_name):
     df = df.withColumn("AccountCustomEntity", col("UserPrincipalName")) \
            .withColumn("IPCustomEntity", col("IPAddress"))
     return df
-
-aad_signin = process_data("microsoft.entra.id.SignInLogs")
-aad_non_int = process_data("microsoft.entra.id.AADNonInteractiveUserSignInLogs")
+workspace_name = "your-workspace-name"  # Replace with your actual workspace name
+aad_signin = process_data("SignInLogs", workspace_name)
+aad_non_int = process_data("AADNonInteractiveUserSignInLogs",workspace_name)
 result_df = aad_signin.unionByName(aad_non_int)
 result_df.show()
 ```
@@ -248,10 +252,9 @@ from sentinel_lake.providers import MicrosoftSentinelProvider
 from pyspark.sql.functions import col, count, countDistinct, desc
 
 deviceNetworkEventTable = "DeviceNetworkEvents"
-workspace_id = "<your-workspace-name>"
-
+workspace_name = "<your-workspace-name>"  # Replace with your actual workspace name
 data_provider = MicrosoftSentinelProvider(spark)
-device_network_events = data_provider.read_table(deviceNetworkEventTable, workspace_id)
+device_network_events = data_provider.read_table(deviceNetworkEventTable, workspace_name)
 
 # Define internal IP address range (example: 10.x.x.x, 192.168.x.x, 172.16.x.x - 172.31.x.x)
 internal_ip_regex = r"^(10\.\d{1,3}\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3}|172\.(1[6-9]|2[0-9]|3[0-1])\.\d{1,3}\.\d{1,3})$"
