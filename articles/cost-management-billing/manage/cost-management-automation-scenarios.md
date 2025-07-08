@@ -6,7 +6,7 @@ ms.reviewer: maminn
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 01/22/2025
+ms.date: 07/08/2025
 ms.author: maminn
 ---
 
