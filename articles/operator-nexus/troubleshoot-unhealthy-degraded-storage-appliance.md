@@ -24,7 +24,7 @@ You can see the current usage of the appliance by navigating to the Storage Appl
 navigating to the `Monitoring > Metrics` tab, and selecting `Nexus Storage Array Space Utilization` from
 the `Metric` dropdown.
 
-:::image type="content" source="media/storage-metrics-utilization.png" alt-text="Screenshot of a metric showing the percentage utilization of a Storage Appliance." ligthbox="media/storage-metrics-utilization.png":::
+:::image type="content" source="media/storage-metrics-utilization.png" alt-text="Screenshot of a metric showing the percentage utilization of a Storage Appliance." lightbox="media/storage-metrics-utilization.png":::
 
 These issues can be addressed by reducing the load on the Storage Appliance. This outcome can be
 achieved by:
