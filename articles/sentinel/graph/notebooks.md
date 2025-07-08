@@ -78,11 +78,11 @@ After installing the Microsoft Sentinel extension, you can start exploring lake-
 
 1. A dialog appears with the following text **The extension "Microsoft Sentinel" wants to sign in using Microsoft**. Select **Allow**.
 
-:::image type="content" source="./media/notebooks/sign-in.png" lightbox="./media/notebooks/sign-in.png" alt-text="A screenshot showing the sign in dialog."::: 
+   :::image type="content" source="./media/notebooks/sign-in.png" lightbox="./media/notebooks/sign-in.png" alt-text="A screenshot showing the sign in dialog."::: 
 
 1. Select your account name to complete the sign in.
  
-:::image type="content" source="./media/notebooks/select-account.png" lightbox="./media/notebooks/select-account.png" alt-text="A screenshot showing the account selection list at the top of the page."::: 
+   :::image type="content" source="./media/notebooks/select-account.png" lightbox="./media/notebooks/select-account.png" alt-text="A screenshot showing the account selection list at the top of the page."::: 
 
 ### View lake tables and jobs
 
@@ -154,7 +154,7 @@ There are three runtime pools available to run your Jupyter notebooks in the Mic
 | Runtime Pool | Recommended Use Cases |Characteristics |
 |--------------|-----------------------|----------------|
 | **Small**  | Development, testing, and lightweight exploratory analysis. <br>Small workloads with simple transformations. <br>Cost efficiency prioritized. | Suitable for small workloads <br> Simple transformations. <br>Lower cost, longer execution time.  |
-| **Medium** | ETL jobs with joins, aggregations, and ML model training. <br>Moderate workloads with complex transformations .| Improved performance over Small. <br>Handles parallelism and moderate memory-intensive operations.  |
+| **Medium** | ETL jobs with joins, aggregations, and ML model training. <br>Moderate workloads with complex transformations. | Improved performance over Small. <br>Handles parallelism and moderate memory-intensive operations.  |
 | **Large**  |  Deep learning and ML workloads. <br> Extensive data shuffling, large joins, or real-time processing.<br> Critical execution time. | High memory and compute power. <br>Minimal delays. <br> Best for large, complex, or time-sensitive workloads.  |
 
 > [!NOTE]
