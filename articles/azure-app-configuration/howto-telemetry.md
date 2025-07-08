@@ -54,11 +54,11 @@ These types of questions can be answered through the emission and analysis of fe
 
 ## Review telemetry for the feature flag
 
-1. Navigate to the **Application Insights** blade in the App Configuration portal. You'll see a graph displaying all events from your application. This provides an initial overview of activity patterns.
+1. Navigate to the **Application Insights** blade in the App Configuration portal. You should see a graph displaying all events from your application. This graph provides an initial overview of activity patterns.
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, viewing events in application insights blade of App Configuration resource.](./media/howto-telemetry/app-insights-view-events.png)
 
-1. Use the time range selector to focus on specific periods. This helps identify trends or investigate particular timeframes of interest.
+1. Use the time range selector to focus on specific periods to identify trends or investigate particular timeframes of interest.
 
 1. Filter by feature Flag
     - Click on the dropdown menu above the event graph
@@ -85,7 +85,7 @@ These types of questions can be answered through the emission and analysis of fe
 
     **Verify variant assignments**
     
-    In order to show the distribution of users and number of evaluations across Simple, Long, and None variants, group the metrics by Variant. This will enable you see whether the configured allocations are working as expected, and that all expected variants are being served to users. 
+    In order to show the distribution of users and number of evaluations across Simple, Long, and None variants, group the metrics by Variant. This grouping enables you to see whether the configured allocations are working as expected, and that all expected variants are being served to users. 
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, view unique users by variant in telemetry tab.](./media/howto-telemetry/unique-user-count-by-variant.png)
@@ -93,15 +93,15 @@ These types of questions can be answered through the emission and analysis of fe
     In this example, we see that the number of users assigned the "None" variant is almost twice that of the "Simple" and "Long" variants given the configured 50-25-25 percentile split between "None", "Simple" and "Long" respectively. 
 
 
-    **Confirm overrides and behaviour based on flag state**
-    - Users may be assigned a variant for different reasons so you would want to ensure that your variant assignments are not only in the right proportion, but also for the right reason. You can view this by grouping metrics by assignment reason. In this example, we will see that the only assignment reason is solely due to Percentile allocations.
+    **Confirm overrides and behavior based on flag state**
+    - Users may receive a variant for different reasons. You want to ensure that your variant assignments aren't only in the right proportion, but also for the right reason. You can group metrics by assignment reason. In this example, we see that the only assignment reason is solely due to Percentile allocations.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, view total events by assignment reason in telemetry tab.](./media/howto-telemetry/unique-user-count-by-assignmentreason.png)
 
     - Disable the feature flag by going to the feature manager and toggling the feature flag "Enable" switch. 
-    - In the  telemetry column click "View events" to go to telemetry tab in read-only mode. 
-    - View Unique user count by Variant. You will see that all assignments for Long and Simple go to zero, and only the default variant (which is None in our case) is the only variant being assigned to users.
+    - In the  telemetry column, click **View events** to go to telemetry tab in read-only mode. 
+    - View Unique user count by Variant. You should see that all assignments for Long and Simple go to zero. Only the None variant, which is the default in our case, is assigned to users.
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, view unique user count by variant in telemetry tab.](./media/howto-telemetry/unique-user-count-by-variant-disabled.png)
 
@@ -114,7 +114,7 @@ These types of questions can be answered through the emission and analysis of fe
 
 ## Analyze in Application Insights
 
-Now that we have confirmed the feature flag allocations are working as expected, we would want to dive deeper into the telemetry events to see how different variants are performing based on the likes emitted for users.
+Now that you have confirmed the feature flag allocations are working as expected, you can dive deeper into the telemetry events to see how different variants are performing based on the likes emitted for users.
 
 1. Open your Application Insights resource in the Azure portal and select **Logs** under **Monitoring**. In the query window, run the following query to see the telemetry events:
 
