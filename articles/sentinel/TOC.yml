@@ -731,6 +731,8 @@
     href: sentinel-analytic-rules-creation.md
   - name: Creating hunting queries
     href: sentinel-hunting-rules-creation.md
+  - name: Creating summary rules
+    href: sentinel-summary-rules-creation.md
   - name: Creating workbooks
     href: sentinel-workbook-creation.md
   - name: Creating playbooks

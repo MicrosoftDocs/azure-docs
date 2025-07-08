@@ -6,7 +6,6 @@ ms.author: molir
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 05/13/2025
-monikerRange: migrate
 ms.custom:
   - build-2025
 # Customer intent: As a cloud migration specialist, I want to implement security best practices for deploying the migration appliance, so that I can ensure a secure and efficient migration process while protecting sensitive data.
