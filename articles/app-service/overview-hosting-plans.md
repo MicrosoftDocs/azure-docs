@@ -75,8 +75,7 @@ In other tiers, an app runs and scales as follows:
 - If multiple apps are in the same App Service plan, they all share the same VM instances.
 - If you have multiple deployment slots for an app, all deployment slots also run on the same VM instances.
 - If you enable diagnostic logs, perform backups, or run [WebJobs](webjobs-create.md), they also use CPU cycles and memory on these VM instances.
-
-In this way, the App Service plan is the scale unit of the App Service apps. If the plan is configured to run five VM instances, then all apps in the plan run on all five instances. If the plan is configured for autoscaling, then all apps in the plan are scaled out together, based on the autoscale settings.
+- All apps in an App Service plan scale together, because they share the same underlying compute resources (VM instances). Scaling the plan — whether manually or through autoscale rules — affects all apps in the plan.
 
 For more information on scaling out an app, see [Get started with autoscale in Azure](/azure/azure-monitor/autoscale/autoscale-get-started).
 
