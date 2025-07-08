@@ -1,14 +1,14 @@
 ---
-title: Reference guide for expression functions
-description: Reference guide to workflow expression functions for Azure Logic Apps and Power Automate.
+title: Reference for functions in workflow expressions
+description: Learn about expression functions for workflows in Azure Logic Apps and Power Automate.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, niding, azla
 ms.topic: conceptual
-ms.date: 03/27/2025
+ms.date: 07/08/2025
 ---
 
-# Reference guide to workflow expression functions in Azure Logic Apps and Power Automate
+# Reference guide to functions in expressions for workflows in Azure Logic Apps and Power Automate
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
@@ -16,10 +16,11 @@ For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview
 
 > [!NOTE]
 >
-> This reference page applies to both Azure Logic Apps and Power Automate, but appears in the 
-> Azure Logic Apps documentation. Although this page refers specifically to logic app workflows, 
-> these functions work for both flows and logic app workflows. For more information about functions 
-> and expressions in Power Automate, review [Use expressions in conditions](/power-automate/use-expressions-in-conditions).
+> This reference guide applies to both Azure Logic Apps and Power Automate, but exists in the 
+> Azure Logic Apps documentation. Although guide refers specifically to logic app workflows, 
+> these functions work for both flows in Power Automate and workflows in Azure Logic Apps. 
+> For more information about functions and expressions in Power Automate, see 
+> [Use expressions in conditions](/power-automate/use-expressions-in-conditions).
 
 For example, you can calculate values by using math functions, such as the [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) function, when you want the sum from integers or floats. Here are other example tasks that you can perform with functions:
 
@@ -1670,12 +1671,7 @@ This example returns the binary version for this data URI:
 decodeDataUri('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 ```
 
-And returns this result:
-
-`"01100100011000010111010001100001001110100111010001100101011110000111010000101111011100000
-1101100011000010110100101101110001110110110001101101000011000010111001001110011011001010111
-0100001111010111010101110100011001100010110100111000001110110110001001100001011100110110010
-10011011000110100001011000110000101000111010101100111001101100010010001110011100000111101"`
+And returns this result: `"hello"`
 
 <a name="decodeUriComponent"></a>
 
@@ -4596,12 +4592,7 @@ This example creates the binary version for this URI-encoded string:
 uriComponentToBinary('https%3A%2F%2Fcontoso.com')
 ```
 
-And returns this result:
-
-`"001000100110100001110100011101000111000000100101001100
-11010000010010010100110010010001100010010100110010010001
-10011000110110111101101110011101000110111101110011011011
-110010111001100011011011110110110100100010"`
+And returns this result: `"aHR0cHM6Ly9jb250b3NvLmNvbQ=="`
 
 <a name="uriComponentToString"></a>
 
