@@ -97,7 +97,7 @@ These types of questions can be answered through the emission and analysis of fe
     - Users may receive a variant for different reasons. You want to ensure that your variant assignments aren't only in the right proportion, but also for the right reason. You can group metrics by assignment reason. In this example, we see that the only assignment reason is solely due to Percentile allocations.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, view total events by assignment reason in telemetry tab.](./media/howto-telemetry/unique-user-count-by-assignmentreason.png)
+    > ![Screenshot of the Azure portal, view total events by assignment reason in telemetry tab.](./media/howto-telemetry/unique-user-count-by-assignment-reason.png)
 
     - Disable the feature flag by going to the feature manager and toggling the feature flag "Enable" switch. 
     - In the  telemetry column, click **View events** to go to telemetry tab in read-only mode. 
@@ -109,7 +109,7 @@ These types of questions can be answered through the emission and analysis of fe
     Confirm from the graph that the Percentile allocations fall to zero and DefaultWhenDisabled is the only reason for which users are being assigned variants.
     - Other possible reasons include "Group Override" or "User Override" if configured.
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, view unique user count by assignment reason in telemetry tab.](./media/howto-telemetry/unique-user-count-by-assignmentreason-disabled.png)
+    > ![Screenshot of the Azure portal, view unique user count by assignment reason in telemetry tab.](./media/howto-telemetry/unique-user-count-by-assignment-reason-disabled.png)
 
 
 ## Analyze in Application Insights
