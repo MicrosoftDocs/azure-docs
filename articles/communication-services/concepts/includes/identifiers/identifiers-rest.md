@@ -225,7 +225,7 @@ Alternatively, you can find the object ID as the `oid` claim and the tenant ID a
 
 #### API reference
 
-[MicrosoftTeamsUserIdentifierModel](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/communication/data-plane/Common/stable/2025-06-30/common.json#L195)
+[TeamsExtensionUserIdentifierModel](https://github.com/Azure/azure-rest-api-specs/blob/79436d1724498ebd679471e4fd9356ae8f8d689e/specification/communication/data-plane/Common/stable/2025-06-30/common.json#L195)
 
 
 ### Unknown
