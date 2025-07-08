@@ -61,27 +61,27 @@ If you're new to Azure Files and File Sync or looking to deepen your understandi
 
 :::row:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/watch?v=dyqQkheaHYg]
+        > [!VIDEO https://www.youtube.com/embed/dyqQkheaHYg?si=sCrJV7A2hAb0fw7c]
     :::column-end:::
     :::column:::
-        **This video provides a comprehensive overview of the differences between various Azure Files billing models, including pay-as-you-go, provisioned v1, and provisioned v2.**
+        **This video provides a comprehensive overview of the differences between various Azure Files billing models, including pay-as-you-go, provisioned v1, and provisioned v2**
    :::column-end:::
 :::row-end:::
 
 :::row:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/watch?v=fnxEFw4mMyQ&list=WL&index=2]
+        > [!VIDEO https://www.youtube.com/embed/fnxEFw4mMyQ?si=Q13e4IMeWsBd-x4m]
     :::column-end:::
     :::column:::
-        **This video dives deep into the Azure Files provisioned v2 billing model, offering setup instructions and recommendations to reduce total cost of ownership.**
+        **This video dives deep into the Azure Files provisioned v2 HDD billing model, offering setup instructions and recommendations to reduce total cost of ownership**
    :::column-end:::
 :::row-end:::
 
 :::row:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/watch?v=fYs8Nh8KpeM]
+        > [!VIDEO https://www.youtube.com/embed/fYs8Nh8KpeM?si=gVsHfBw1hmhGT31J]
     :::column-end:::
     :::column:::
-        **The video highlights several new performance features made specifically around SMB workloads.**
+        **The video highlights several new performance features made specifically around SMB workloads**
    :::column-end:::
 :::row-end:::
