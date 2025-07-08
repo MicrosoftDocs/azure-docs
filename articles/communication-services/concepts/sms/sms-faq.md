@@ -26,7 +26,7 @@ A 10-digit long code (10DLC) number is a standard 10-digit phone number used for
 
 ### Can I use 10DLC numbers in any country?
 
-No, 10DLC is primarily supported in the United States. Availability depends on the subscription billing location and eligibility. For more information about supported countries, see [Phone number management for the United States](../../concepts/numbers/phone-number-management-for-united-states.md).
+No. 10DLC is primarily supported in the United States. Availability depends on the subscription billing location and eligibility. For more information about supported countries, see [Phone number management for the United States](../../concepts/numbers/phone-number-management-for-united-states.md).
 
 ### I already have a local US number. Can I use it for SMS?
 
@@ -40,7 +40,7 @@ Yes. If you already have a local US number, you can use it for SMS messaging. Yo
 
 ### Can 10DLC numbers be used for voice calls?
 
-Yes, 10DLC numbers are local numbers that are voice-enabled. When they're registered, they can be used for SMS. 10DLC registration applies only to SMS enablement and isn't required for calling.
+Yes. 10DLC numbers are local numbers that are voice-enabled. When they're registered, they can be used for SMS. 10DLC registration applies only to SMS enablement and isn't required for calling.
 
 ### What kinds of messages can be sent from a 10DLC number?
 
@@ -173,7 +173,7 @@ Shortened URLs are a good way to keep messages short and readable. However, US c
 
 When you send messages in the United States, we encourage you to use custom URL shorteners to create URLs with a dedicated domain that belongs to your brand. Many US carriers block SMS traffic if they contain publicly available URL shorteners.
 
-To increase your chances of message delivery, avoid the following list of common URL shorteners:
+To increase your chances of message delivery, avoid these common URL shorteners:
 
 - bit.ly
 - goo.gl
@@ -196,7 +196,7 @@ US carriers mandate and enforce the following opt-outs for US toll-free numbers.
 - **STOP**: A text message recipient who wants to opt out can send **STOP** to the toll-free number. The carrier sends the following default response for **STOP**: "NETWORK MSG: You replied with the word STOP, which blocks all texts sent from this number. Text back UNSTOP to receive messages again."
 - **START**, **UNSTOP**: A recipient who wants to resubscribe to text messages from a toll-free number can send **START** or **UNSTOP** to the toll-free number. The carrier sends the following default response for **START** or **UNSTOP**: "NETWORK MSG: You have replied UNSTOP and will begin receiving messages again from this number."
 
-Azure Communication Services detects **STOP** messages and blocks all further messages to the recipient. The delivery report indicates a failed delivery with status message as "Sender blocked for given recipient."
+Azure Communication Services detects **STOP** messages and blocks all further messages to the recipient. The delivery report indicates a failed delivery with the status message "Sender blocked for given recipient."
 
 The **STOP**, **UNSTOP**, and **START** messages are relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message-sending attempts are made to recipients who opt out of your communications.
 
@@ -236,13 +236,13 @@ Azure Communication Services doesn't control or implement opt-out mechanisms for
 
 The availability of short codes is restricted to paid Azure subscriptions that have a billing address in the United States. Short codes can't be acquired on trial accounts or via Azure free credits. For more information, see the [article about subscription eligibility](../numbers/sub-eligibility-number-capability.md).
 
-### Can you text to a toll-free number from a short code?
+### Can someone text to a toll-free number from a short code?
 
 Azure Communication Services toll-free numbers are enabled to receive messages from short codes. However, short codes aren't typically enabled to send messages to toll-free numbers. If your messages from short codes to Azure Communication Services toll-free numbers are failing, ask your short-code provider if the short code is enabled to send messages to toll-free numbers.
 
 ### How should a short code be formatted?
 
-Short codes don't fall under E.164 formatting guidelines. They don't have a country code or a plus sign (**+**) prefix. In the SMS API request, your short code should be passed as the five-digit or six-digit number that appears on your page for short codes, without any prefix.
+Short codes don't fall under E.164 formatting guidelines. They don't have a country code or a plus sign (+) prefix. In the SMS API request, your short code should be passed as the five-digit or six-digit number that appears on your page for short codes, without any prefix.
 
 ### How long does it take to get a short code? What happens after an application for a short-code program brief is submitted?
 
@@ -310,7 +310,7 @@ The SMS rate limits are still applicable in addition to these limits. For more i
 
 ### What happens after I submit the toll-free verification form?
 
-After you submit the form, we coordinate with our downstream peer to get the toll-free messaging aggregator to verify the application. While we're reviewing your application, we might reach out to you for more information. Here are the status timeframes:
+After you submit the form, we coordinate with our downstream peer to get the toll-free messaging aggregator to verify the application. While we review your application, we might reach out to you for more information. Here are the status timeframes:
 
 - From **Application Submitted** to **Pending**: One to five business days.
 - From **Pending** to **Verdict** (**Verified**, **Rejected**, or **More info needed**): Four to five weeks.
@@ -380,7 +380,7 @@ This table shows the maximum number of characters that you can send per SMS segm
 
 Azure Communication Services supports sending and receiving long messages over SMS. However, some wireless carriers or devices might act differently when they receive long messages. To ensure maximum delivery, we recommend that you keep SMS messages to a length of 320 characters and reduce the use of accents.
 
-For US short code, there's a known limit of four segments when you're sending or receiving a message with non-ASCII characters. Beyond four segments, the message might not be delivered with the right formatting.
+For US short codes, there's a known limit of four segments when you're sending or receiving a message with non-ASCII characters. Beyond four segments, the message might not be delivered with the right formatting.
 
 ### Are there any limits on sending messages?
 
