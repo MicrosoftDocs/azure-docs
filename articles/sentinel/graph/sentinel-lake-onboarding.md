@@ -68,20 +68,8 @@ The following roles that are required to set up billing and authorize ingestion 
 
 ## Existing Microsoft Sentinel workspaces
 
-The Microsoft Sentinel data lake mirrors data from Microsoft Sentinel workspaces. You can choose to connect your Microsoft Sentinel workspaces to the Microsoft Defender portal. You don't have to have Microsoft Sentinel workspaces connected to the Microsoft Defender portal to set up the data lake, but we recommend connecting your Microsoft Sentinel workspaces to Defender to enable the best experience. 
+The Microsoft Sentinel data lake mirrors data from Microsoft Sentinel workspaces that are connected to the Defender portal. You must connect your Sentinel workspaces to the Defender portal to include them in the data lake.  If you have connected Sentinel to the Defender portal, to onboard to the data lake, the primary workspace must be in the tenant's home geographic region. If you haven't connected Microsoft Sentinel to the Defender portal, you can connect your Microsoft Sentinel workspaces to the Defender portal after onboarding and the data will be mirrored to the data lake. For more information, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard).
 
-If you haven't connected Microsoft Sentinel to the Defender portal, the onboarding process includes your unconnected Microsoft Sentinel workspace in your tenant's home geographic region, but doesn't connect them to the Defender portal. You can connect your Microsoft Sentinel workspaces to the Defender portal after onboarding to the Microsoft Sentinel data lake. 
-
-Microsoft Sentinel workspaces that are attached to lake but aren't connected to Defender are subject to the following limitations:
-
-+ You can't manage unconnected workspace's tables in Defender portal.
-+ You can't manage connectors for unconnected workspaces in the Defender portal.
-+ There's no role-based access control support in Defender portal for the workspace's tables.
-+ You can't analyze unconnected workspace tables in Advanced Hunting.
-+ Output from data lake notebooks and jobs can't be written to unconnected workspaces.
-+ Scheduled jobs can't run on unconnected workspaces
-
-These limitations can be resolved by connecting the workspaces to Defender. For more information, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard).  
 
 ## Onboarding to the Microsoft Sentinel data lake
 
