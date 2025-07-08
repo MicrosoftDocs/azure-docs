@@ -1194,6 +1194,8 @@ items:
       href: how-tos/calling-sdk/together-mode.md
     - name: Control media access
       href: how-tos/calling-sdk/media-access.md
+    - name: Display name changed
+      href: how-tos/calling-sdk/display-name-changed.md
 - name: Teams Phone extensibility
   items:
   - name: Overview
