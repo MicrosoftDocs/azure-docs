@@ -74,6 +74,10 @@ To control the distribution of runbooks on Hybrid Runbook Workers and when or ho
 
 To install, see [Deploy an extension-based Windows or Linux user Hybrid Runbook Worker in Automation](./extension-based-hybrid-runbook-worker-install.md).
 
+|Operating System | Deployment Types |
+|- |-|
+|Windows/Linux |For user Hybrid Runbook Workers, see [Deploy an extension-based Windows or Linux user Hybrid Runbook Worker in Automation](./extension-based-hybrid-runbook-worker-install.md). This is the recommended method.|
+
 >[!NOTE]
 > Hybrid Runbook Worker is currently not supported on Azure Virtual Machine Scale Sets.
 
@@ -122,4 +126,4 @@ Since they access non-Azure resources, runbooks running on a user Hybrid Runbook
 
 * To learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment, see [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
 
-* To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshoot Hybrid Runbook Worker issues](troubleshoot/extension-based-hybrid-runbook-worker).
+* To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshoot Hybrid Runbook Worker issues](troubleshoot/extension-based-hybrid-runbook-worker.md).
