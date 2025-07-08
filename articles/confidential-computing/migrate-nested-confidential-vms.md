@@ -24,18 +24,19 @@ ms.author: ananyagarg
 
 **Step 2**: Prepare the Source Nested Confidential VM by ensuring all data is backed up
 
-**Step 3**:  Verify that your subscription has sufficient quota for the target VM in the target region. Request a quota through the [Azure portal](https://learn.microsoft.com/en-us/azure/azure-portal/supportability/per-vm-quota-requests) if needed.
+**Step 3**:  Verify that your subscription has sufficient quota for the target VM in the target region. Request a quota through the [Azure portal](/azure/azure-portal/supportability/per-vm-quota-requests) if needed.
 
 **Step 4**: Navigate to VM you wish to resize in the portal
 
 **Step 5**: Select the stop button and wait for status of the VM to be Stopped (deallocated)
-:::image type="complex" source=".\media\migrate-nested-cvms\image 1.png". alt-text="Screenshot of Azure Portal showing the 'Capture' option, circled in geeen, and the 'Status', also circled in green.":::
+:::image type="complex" source="./media/migrate-nested-cvms/image 1.png" lightbox="./media/migrate-nested-cvms/image 1.png" alt-text="Screenshot of Azure portal showing the 'Capture' option, circled in green, and the 'Status', also circled in green.":::
+:::image-end:::
 
 **Step 6**: Find the **Capture** drop down in the overview tab of the VM, then select **Image**
 
 **When you get to the image creation page**:
 * Ensure you select *Automatically delete this Virtual Machine after creating the image* (check image 2)
-:::image type="complex" source=".\media\migrate-nested-cvms\image 2.png". alt-text="Screenshot of the Azure Portal showing the options to 'Automatically delete the virtual machine after creating the image", "Create new" for "Target Azure compute gallery", "Create new" for "Target VM image definition", and "Version number", in green circles.".:::
+:::image type="complex" source=".\media\migrate-nested-cvms\image 2.png". alt-text="Screenshot of the Azure portal showing the options to 'Automatically delete the virtual machine after creating the image", "Create new" for "Target Azure compute gallery", "Create new" for "Target VM image definition", and "Version number", in green circles.".:::
 
 * If you don't have a gallery, in the gallery option, select *Create new* and name your gallery
 
@@ -43,8 +44,8 @@ ms.author: ananyagarg
 
 * Read the descriptions for specialized vs generalized images and choose your option. (If not sure, generalized should work for most cases.)
 
-* Continue to fill other options. In the replication portion of the image capture option, add the region you wish to *relocate* your VM to.  You'll need to select the target region drop-down
-:::image type="complex" source=".\media\migrate-nested-cvms\image 3.png". alt-text="Screenshot of the Azure Portal showing the options "Target regions.".:::
+* Continue to fill other options. In the replication portion of the image capture option, add the region you wish to *relocate* your VM to.  You need to select the target region drop-down
+:::image type="complex" source=".\media\migrate-nested-cvms\image 3.png". alt-text="Screenshot of the Azure portal showing the options "Target regions.".:::
 
 **Fill in all other options and hit *Review + create***
 
