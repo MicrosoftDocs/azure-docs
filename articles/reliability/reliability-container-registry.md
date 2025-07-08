@@ -56,8 +56,6 @@ Azure Container Registry handles transient faults internally through several mec
 
 For client applications using Azure Container Registry, implement appropriate retry policies with exponential backoff when performing registry operations. Use the official Docker client or Azure Container Registry SDKs which include built-in retry mechanisms for common transient failures.
 
-When using geo-replicated registries, implement failover logic in your applications to automatically switch to alternative registry endpoints if the primary endpoint becomes temporarily unavailable. Geo-replication provides resilience against transient faults that might affect a specific regional endpoint.
-
 ## Availability zone support
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
@@ -203,7 +201,7 @@ When a region becomes unavailable, container operations can continue using alter
 
 - **Expected data loss**. Any recent writes that were made in the faulty region may not have been replicated to other regions, which means they might be lost until the region recovers. Typically the data loss is expected to be less than 15 minutes, but that's not guaranteed. <!-- Chase: Please verify this. -->
 
-- **Expected downtime**. No downtime for data plane operations when using alternative regional endpoints. Applications benefit from automatic Traffic Manager routing to available regions.
+- **Expected downtime**. A small amount of downtime is expected for data plane operations while failover completes, which typically takes 1-2 minutes. Applications benefit from automatic Traffic Manager routing to available regions.
 
 - **Traffic rerouting:** When a region becomes unavailable, container operations are automatically routed to another replica in a healthy region. Clients do not need to change the endpoint in which they interact with the registry, with routing, failover, and failback automatically handled by Microsoft. <!-- Please verify -->
 
