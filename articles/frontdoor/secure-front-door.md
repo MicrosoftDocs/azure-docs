@@ -4,9 +4,9 @@ description: Learn how to secure Azure Front Door, with best practices for netwo
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: horz-security
-ms.date: 06/24/2025
+ms.date: 07/08/2025
 ai-usage: ai-assisted
 ---
 
