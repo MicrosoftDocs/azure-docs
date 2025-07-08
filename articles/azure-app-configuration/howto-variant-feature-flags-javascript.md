@@ -62,8 +62,8 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
             }
         });
 
-        const ffProvider = new ConfigurationMapFeatureFlagProvider(appConfig);
-        featureManager = new FeatureManager(ffProvider);
+        featureManager = new FeatureManager(
+            new ConfigurationMapFeatureFlagProvider(appConfig));
     }
 
     function startServer() {

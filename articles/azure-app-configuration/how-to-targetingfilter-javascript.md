@@ -17,8 +17,8 @@ In this guide, you'll use the targeting filter to roll out a feature to targeted
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-A _Beta_ feature flag with targeting filter. [Create the feature flag](./howto-targetingfilter.md).
+- An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- A _Beta_ feature flag with targeting filter. [Create the feature flag](./howto-targetingfilter.md).
 - [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule).
 
 ## Create a web application with a feature flag
@@ -70,6 +70,7 @@ In this section, you create a web application that uses the [_Beta_ feature flag
     let featureManager;
 
     async function initializeConfig() {
+        // Load feature flags from App Configuration.
         appConfig = await load(appConfigEndpoint, new DefaultAzureCredential(), {
             featureFlagOptions: {
                 enabled: true,
@@ -79,8 +80,9 @@ In this section, you create a web application that uses the [_Beta_ feature flag
             }
         });
 
-        const ffProvider = new ConfigurationMapFeatureFlagProvider(appConfig);
-        featureManager = new FeatureManager(ffProvider);
+        // Create feature manager with feature flag provider that accesses feature flags from App Configuration.
+        featureManager = new FeatureManager(
+            new ConfigurationMapFeatureFlagProvider(appConfig));
     }
 
     // Use a middleware to refresh the configuration before each request.
@@ -183,9 +185,11 @@ You use ambient targeting context in this tutorial.
 1. When constructing the `FeatureManager`, pass the targeting context accessor to the `FeatureManagerOptions`.
 
     ```js
-    featureManager = new FeatureManager(ffProvider, {
-        targetingContextAccessor: targetingContextAccessor
-    });
+    featureManager = new FeatureManager(
+        new ConfigurationMapFeatureFlagProvider(appConfig),
+        {
+            targetingContextAccessor: targetingContextAccessor
+        });
     ```
 
 After completing the previous steps, your _app.js_ file should now contain the following complete implementation.
@@ -230,6 +234,7 @@ let appConfig;
 let featureManager;
 
 async function initializeConfig() {
+    // Load feature flags from App Configuration.
     appConfig = await load(appConfigEndpoint, new DefaultAzureCredential(), {
         featureFlagOptions: {
             enabled: true,
@@ -239,10 +244,12 @@ async function initializeConfig() {
         }
     });
 
-    const ffProvider = new ConfigurationMapFeatureFlagProvider(appConfig);
-    featureManager = new FeatureManager(ffProvider, {
-        targetingContextAccessor: targetingContextAccessor
-    });
+    // Create feature manager with feature flag provider that accesses feature flags from App Configuration and targeting context accessor.
+    featureManager = new FeatureManager(
+        new ConfigurationMapFeatureFlagProvider(appConfig),
+        {
+            targetingContextAccessor: targetingContextAccessor
+        });
 }
 
 // Use a middleware to refresh the configuration before each request
@@ -311,7 +318,7 @@ initializeConfig()
 
     :::image type="content" source="media/how-to-targetingfilter-javascript/beta-disabled.png" alt-text="Screenshot of the app, showing the default greeting message.":::
 
-1. Use `userId` query parameter in the url to specify the user ID. Visit `localhost:8080/?userId=test@contoso.com`. You see the beta page, because `test@contoso.com` is specified as a targeted user.
+1. 1. Add `userId` as a query parameter in the URL to specify the user ID. Visit `localhost:8080/?userId=test@contoso.com`. You see the beta page, because `test@contoso.com` is specified as a targeted user.
 
     :::image type="content" source="media/how-to-targetingfilter-javascript/beta-enabled.png" alt-text="Screenshot of the app, showing the beta page.":::
 
