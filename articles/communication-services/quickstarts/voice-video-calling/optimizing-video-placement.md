@@ -177,20 +177,21 @@ However, this scalability introduces a trade-off between the number of video str
 This adaptive behavior is crucial for maintaining a smooth user experience. For example, in a 2x2 grid (4 participants), each video can be rendered at a relatively high resolution. But in a 5x5 grid (25 participants), each tile becomes significantly smaller, and the SDK may downscale the incoming video streams to match the reduced display size. This prevents unnecessary bandwidth consumption and reduces the likelihood of dropped frames or lag.
 
 The following table illustrates how video resolution changes based on the number of participants displayed in the incoming video grid at any one time.
-| 🧑 Participants | 📺 Video Resolution (p) |
-|----------------|-------------------------|
-| 1              | 1080                    |
-| 2              | 720                     |
-| 3              | 540                     |
-| 4–9            | 360                     |
-| 10–16          | 240                     |
-| 17 or more     | 180                     |
+
+| **Number of incoming streams** | **Incoming video resolution** |
+|------------------|----------------------|
+| 1                | 1080                 |
+| 2                | 720                  |
+| 3                | 540                  |
+| 4–9              | 360                  |
+| 10–16            | 240                  |
+| 17 or more       | 180                  |
 
 > [!NOTE]  
-> The GA version of the calling WebJS SDK allows for up to 16 incoming video streams (4x4 grid).
+> The GA version of the calling WebJS SDK allows for up to **16** incoming video streams (4x4 grid).
 
 > [!NOTE]  
-> The public preview of the WebJS calling SDK currently supports up to 25 incoming video for Desktop browsers (5x5 grid).
+> The public preview of the WebJS calling SDK currently supports up to **25** incoming video for Desktop browsers (5x5 grid).
 
 ## Conclusion
 
