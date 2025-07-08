@@ -136,11 +136,11 @@ Configure your project to sync image definitions from the catalog. With this set
 1. Select **Catalogs**.
 1. Select **Sync settings**.
 
-   :::image type="content" source="./media/how-to-write-image-definition-file/customizations-project-sync-settings-small.png" alt-text="Screenshot that shows the Catalogs pane in the Azure portal, with the button for sync settings highlighted." lightbox="./media/how-to-write-image-definition-file/customizations-project-sync-settings.png":::
+   :::image type="content" source="./media/how-to-configure-team-customizations/customizations-project-sync-settings-small.png" alt-text="Screenshot that shows the Catalogs pane in the Azure portal, with the button for sync settings highlighted." lightbox="./media/how-to-configure-team-customizations/customizations-project-sync-settings.png":::
 
 1. On the **Sync settings** pane, select **Image definitions**, and then select **Save**.
 
-   :::image type="content" source="./media/how-to-write-image-definition-file/customizations-project-sync-image-definitions.png" alt-text="Screenshot that shows the pane for sync settings in the Azure portal, with the checkbox for image definitions highlighted." lightbox="./media/how-to-write-image-definition-file/customizations-project-sync-image-definitions.png":::
+   :::image type="content" source="./media/how-to-configure-team-customizations/customizations-project-sync-image-definitions.png" alt-text="Screenshot that shows the pane for sync settings in the Azure portal, with the checkbox for image definitions highlighted." lightbox="./media/how-to-configure-team-customizations/customizations-project-sync-image-definitions.png":::
 
 ## Attach a catalog that contains the definition file
 
@@ -148,7 +148,7 @@ Before you can use a customization file as an image definition, you must attach 
 
 The **Image definitions** pane lists the image definitions that your project can access.
 
-:::image type="content" source="media/how-to-write-image-definition-file/team-customizations-image-definitions-small.png" alt-text="Screenshot that shows the Azure portal pane that lists accessible image definitions for a project." lightbox="media/how-to-write-image-definition-file/team-customizations-image-definitions.png":::
+:::image type="content" source="media/how-to-configure-team-customizations/team-customizations-image-definitions-small.png" alt-text="Screenshot that shows the Azure portal pane that lists accessible image definitions for a project." lightbox="media/how-to-configure-team-customizations/team-customizations-image-definitions.png":::
 
 For more information about how to attach catalogs, see [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md).
 
@@ -176,7 +176,7 @@ The following steps show you how to create a dev box pool and specify an image d
    | **Time zone** | Select the time zone that the stop time is in. |
    | **Licensing** | Select this checkbox to confirm that your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
 
-   :::image type="content" source="./media/how-to-write-image-definition-file/pool-specify-image-definition.png" alt-text="Screenshot that shows the pane for creating a dev box pool." lightbox="./media/how-to-write-image-definition-file/pool-specify-image-definition.png":::
+   :::image type="content" source="./media/how-to-configure-team-customizations/pool-specify-image-definition.png" alt-text="Screenshot that shows the pane for creating a dev box pool." lightbox="./media/how-to-configure-team-customizations/pool-specify-image-definition.png":::
 
 1. Select **Create**.
 1. Verify that the new dev box pool appears in the list. You might need to refresh the screen.

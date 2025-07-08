@@ -73,7 +73,7 @@ Team customizations also offer a built-in way to optimize your team's Dev Box cu
 
 Configuring Dev Box team customizations for your organization requires careful planning and informed decision-making. The following diagram provides an overview of the process and highlights key decision points.
 
-:::image type="content" source="media/concept-what-are-team-customizations/dev-box-customizations-workflow.svg" alt-text="Diagram that shows the workflow for Dev Box team customizations, including steps for planning, configuring, and deploying customizations." lightbox="media/concept-what-are-team-customizations/dev-box-customizations-workflow.svg":::
+:::image type="content" source="media/concept-what-are-dev-box-customizations/dev-box-customizations-workflow.svg" alt-text="Diagram that shows the workflow for Dev Box team customizations, including steps for planning, configuring, and deploying customizations." lightbox="media/concept-what-are-dev-box-customizations/dev-box-customizations-workflow.svg":::
 
 #### Configure Dev Box for team customizations
 
@@ -107,7 +107,7 @@ Then, to learn how to optimize your image definition into a custom image, see [C
 
 Individual developers can attach a YAML-based customization file when they create their dev box to control the development environment. Developers use user customizations only for personal settings and apps.
 
-:::image type="content" source="media/concept-what-are-team-customizations/dev-box-user-customizations-workflow.svg" alt-text="Diagram that shows the workflow for Dev Box user customizations, including steps for planning, configuring, and deploying customizations." lightbox="media/concept-what-are-team-customizations/dev-box-user-customizations-workflow.svg":::
+:::image type="content" source="media/concept-what-are-dev-box-customizations/dev-box-user-customizations-workflow.svg" alt-text="Diagram that shows the workflow for Dev Box user customizations, including steps for planning, configuring, and deploying customizations." lightbox="media/concept-what-are-dev-box-customizations/dev-box-user-customizations-workflow.svg":::
 
 #### Configure Dev Box for user customizations
 
