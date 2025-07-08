@@ -21,8 +21,9 @@ Once all the relevant permissions are set, configure the blob backup by running 
     az dataprotection backup-instance create -g testBkpVaultRG --vault-name TestBkpVault --backup-instance backup_instance.json
     ```
 
+   The following JSON configures a blob backup for a specified storage account with specified policy and container list.
 
-    ```
+    ```JSON
     {
 
       "backup_instance_name": "sample-backup-instance",
