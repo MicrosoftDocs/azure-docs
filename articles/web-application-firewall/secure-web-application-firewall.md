@@ -4,7 +4,7 @@ description: Learn how to secure Azure Web Application Firewall, with best pract
 author: halkazwini
 ms.author: halkazwini
 ms.service: web-application-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: horz-security
 ms.date: 07/08/2025
 ai-usage: ai-assisted
