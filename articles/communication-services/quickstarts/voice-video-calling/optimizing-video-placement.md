@@ -5,7 +5,7 @@ description: This article describes how to place video on a web page based on re
 author: sloanster
 ms.author: micahvivion
 services: azure-communication-services
-ms.date: 06/26/2025
+ms.date: 07/08/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -168,6 +168,29 @@ getSupportedResolutions();
 | 360p | 30 | 30 | 1 M |
 | 240p | 15 | 15 | 650 K |
 | 180p | 7.5 | 15 | 250 K(350 K if 15 FPS)|
+
+### How many videos to place in a grid at a time
+As the Azure Communication Services WebJS Calling SDK continues to evolve, one of its key capabilities is supporting many incoming video streams in a grid layout on desktop and mobile browsers. This feature is particularly valuable for scenarios like virtual classrooms, large team meetings, or customer support centers where multiple participants need to be visible simultaneously.
+
+However, this scalability introduces a trade-off between the number of video streams rendered and the visual quality of each stream. Since the total screen real estate is fixed, increasing the number of video tiles means each individual video renderer must occupy a smaller portion of the screen. To maintain performance and avoid overloading the browser’s rendering pipeline, the SDK dynamically adjusts the resolution of each incoming video stream based on its rendered size. This ensures that bandwidth and CPU usage remain within acceptable limits, but it also means that as more participants join, the resolution of each video may decrease to accommodate the grid.
+
+This adaptive behavior is crucial for maintaining a smooth user experience. For example, in a 2x2 grid (4 participants), each video can be rendered at a relatively high resolution. But in a 5x5 grid (25 participants), each tile becomes significantly smaller, and the SDK may downscale the incoming video streams to match the reduced display size. This prevents unnecessary bandwidth consumption and reduces the likelihood of dropped frames or lag.
+
+The following table illustrates how video resolution changes based on the number of participants displayed in the incoming video grid at any one time.
+| 🧑 Participants | 📺 Video Resolution (p) |
+|----------------|-------------------------|
+| 1              | 1080                    |
+| 2              | 720                     |
+| 3              | 540                     |
+| 4–9            | 360                     |
+| 10–16          | 240                     |
+| 17 or more     | 180                     |
+
+> [!NOTE]  
+> The GA version of the calling WebJS SDK allows for up to 16 incoming video streams (4x4 grid).
+
+> [!NOTE]  
+> The public preview of the WebJS calling SDK currently supports up to 25 incoming video for Desktop browsers (5x5 grid).
 
 ## Conclusion
 
