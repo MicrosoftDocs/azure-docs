@@ -6,7 +6,7 @@ ms.author: halkazwini
 ms.service: web-application-firewall
 ms.topic: conceptual
 ms.custom: horz-security
-ms.date: 06/30/2025
+ms.date: 07/08/2025
 ai-usage: ai-assisted
 ---
 
@@ -142,5 +142,6 @@ Policy compliance and governance ensure that your Web Application Firewall deplo
 
 ## Next steps
 
+- [Security baseline](/security/benchmark/azure/baselines/web-application-firewall-security-baseline?toc=/azure/web-application-firewall/toc.json)
 - [Azure Well-Architected Framework: Security pillar](/azure/well-architected/security/)
 - [Cloud Adoption Framework: Secure overview](/azure/cloud-adoption-framework/secure/overview)
