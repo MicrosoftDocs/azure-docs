@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Connect a web app to SQL Database on behalf of the user'
-description: Use the signed-in user to secure database connectivity from .NET web app using Microsoft Entra authentication. Learn how to apply it to other Azure services.
+description: Use Microsoft Entra built-in authentication to connect securely to Azure SQL or other Azure services from a .NET web app on behalf of the signed-in user.
 author: cephalin
 
 ms.service: azure-app-service
@@ -8,7 +8,7 @@ ms.author: cephalin
 ms.devlang: csharp
 ms.custom: devx-track-azurecli, devx-track-dotnet, AppServiceConnectivity
 ms.topic: tutorial
-ms.date: 07/07/2025
+ms.date: 07/08/2025
 ---
 # Tutorial: Connect an App Service app to SQL Database on behalf of the signed-in user
 
@@ -69,9 +69,7 @@ Enable Microsoft Entra authentication to the Azure SQL database by assigning a M
 
 To add the Microsoft Entra ID user as admin of the Azure SQL server, run the following Azure CLI commands.
 
-1. Use [`az ad user list`](/cli/azure/ad/user#az-ad-user-list) with the `display-name`, `filter`, or `upn` parameter to get the object ID for the Microsoft Entra ID user you want to make admin. You can run `az ad user list` standalone to show information for all the users in the Microsoft Entra directory.
-
-   For example, the following command lists information for a Microsoft Entra ID user with the `display-name` of Firstname Lastname.
+1. Use [`az ad user list`](/cli/azure/ad/user#az-ad-user-list) with the `display-name`, `filter`, or `upn` parameter to get the object ID for the Microsoft Entra ID user you want to make admin. For example, the following command lists information for a Microsoft Entra ID user with the `display-name` of Firstname Lastname.
 
    ```azurecli
    az ad user list --display-name "Firstname Lastname"
@@ -79,7 +77,10 @@ To add the Microsoft Entra ID user as admin of the Azure SQL server, run the fol
 
    Copy the `id` value from the output to use in the next step.
    
-1. Add the Microsoft Entra ID user as an admin on your Azure SQL server by using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) with the `object-id` parameter. In the following command, replace `<group-name>` with your server's resource group name, `<server-name>` with your server's name minus the `.database.windows.net` suffix, and `<entra-id>` with the `id` output from the preceding `az ad user list` command.
+   >[!TIP]
+   >You can run `az ad user list` standalone to show information for all the users in the Microsoft Entra directory.
+ 
+ 1. Add the Microsoft Entra ID user as an admin on your Azure SQL server by using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) with the `object-id` parameter. In the following command, replace `<group-name>` with your server's resource group name, `<server-name>` with your server's name minus the `.database.windows.net` suffix, and `<entra-id>` with the `id` output from the preceding `az ad user list` command.
 
    ```azurecli
    az sql server ad-admin create --resource-group <group-name> --server-name <server-name> --display-name ADMIN --object-id <entra-id>
@@ -258,7 +259,7 @@ Because `System.Data.SqlClient` is hardcoded as the provider in Azure App Servic
      "Server=tcp:<server-name>.database.windows.net;Authentication=Active Directory Default; Database=<database-name>;"
      ```
 
-   1. Remove the `entityFramework/providers/provider` section and line: `<provider invariantName="System.Data.SqlClient" .../>`.
+   - Remove the `entityFramework/providers/provider` section and line: `<provider invariantName="System.Data.SqlClient" .../>`.
 
 -----
 
@@ -285,7 +286,7 @@ When the new app page shows your app, the app is connecting to the Azure SQL dat
 
 ![Screenshot that shows the web app after publishing.](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
-## Clean up resources
+## 8. Clean up resources
 
 In the preceding steps, you created Azure resources in a resource group. When you no longer need these resources, delete the resource group by running the following command:
 
@@ -301,7 +302,7 @@ The most common causes for a `Login failed for user '<token-identified principal
 
 - Microsoft Entra authentication not configured for the Azure SQL database. See [Configure database server with Microsoft Entra authentication](#1-configure-database-server-with-azure-ad-authentication).
 - No valid token in the `X-MS-TOKEN-AAD-ACCESS-TOKEN` request header. This code doesn't work in local environments. For more information and alternatives, see [Debug locally when you use App Service authentication](#debug-locally-when-you-use-app-service-authentication).
-- User doesn't have permission to connect to the database. To add users and permissions, see [Add other Microsoft Entra users or groups to Azure SQL Database](#add-other-microsoft-entra-users-or-groups-to-azure-sql-database).
+- User doesn't have permission to connect to the database. To add users and permissions, see [Add other Microsoft Entra users or groups in Azure SQL Database](#add-other-microsoft-entra-users-or-groups-in-azure-sql-database).
 
 ### Debug locally when you use App Service authentication
 
