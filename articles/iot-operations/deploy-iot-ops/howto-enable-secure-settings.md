@@ -193,4 +193,11 @@ Some Azure IoT Operations components, like data flow endpoints, use a user-assig
 
     ---
 
+
+1. Restart the schema registry pods to apply the new identity. 
+
+   ```azurecli
+   kubectl delete pods adr-schema-registry-0 adr-schema-registry-1 -n azure-iot-operations
+   ```
+
 Now you can use this managed identity in data flow endpoints for cloud connections.
