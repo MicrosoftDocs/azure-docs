@@ -103,7 +103,7 @@ let userId = await getUserIdFromGraph("bob@contoso.com")
 let tenantId = await getTenantIdFromGraph()
 
 // Communication Services Resource ID
-let resourceId = "<resource-id-guid>";
+let resourceId = "<resource-id-guid>"
 
 // create an identifier
 let teamsExtensionUser = TeamsExtensionUserIdentifier(userId: userId, tenantId: tenantId, resourceId: resourceId)
