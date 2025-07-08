@@ -37,7 +37,7 @@ Before you start, note:
  
 Review all planning guidance and finish all prerequisites before you onboard your workspace to the Defender portal. For more information, see the following articles:
 
-- [**Plan for unified security operations in the Defender portal**](/unified-secops-platform/overview-plan)
+- [**Plan for unified security operations in the Defender portal**](/unified-secops-platform/overview-plan). After onboarding to the Defender portal, the **[Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-contributor) role is assigned to the **Microsoft Threat Protection** and **WindowsDefenderATP** apps in your subscription.
 
 - [**Deploy for unified security operations in the Defender portal**](/unified-secops-platform/overview-deploy). While this article is for new customers who don't yet have a workspace for Microsoft Sentinel or other services onboarded to the Defender portal, use it as a reference if you're moving to the Defender portal.
 
@@ -211,12 +211,13 @@ For more information, see [Incidents and alerts in the Microsoft Defender portal
 
 ### Note changes for investigations with Advanced hunting
 
-After onboarding Microsoft Sentinel to the Defender portal, access and use all your existing Kusto Query Language (KQL) queries and functions in the **Advanced hunting** page.
+After onboarding Microsoft Sentinel to the Defender portal, access and use all your existing log tables, Kusto Query Language (KQL) queries, and functions in the **Advanced hunting** page. All Microsoft Sentinel alerts that are tied to incidents are ingested into the `AlertInfo` table, accessible from the **Advanced hunting** page.
 
 Some differences exist, such as:
 
 - Bookmarks aren't supported in **Advanced hunting**. Instead, bookmarks are supported in the Defender portal under **Microsoft Sentinel > Threat management > Hunting**.
 - While the **SecurityAlert** table doesn't appear in **Advanced hunting** > **Schema** list of tables, it's still supported in your queries.
+
 
 For more information, see [Advanced hunting with Microsoft Sentinel data in Microsoft Defender](/defender-xdr/advanced-hunting-microsoft-defender), especially the list of [known issues](/defender-xdr/advanced-hunting-microsoft-defender), and [Keep track of data during hunting with Microsoft Sentinel](/azure/sentinel/bookmarks).
 
