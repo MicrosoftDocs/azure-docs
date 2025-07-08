@@ -43,7 +43,7 @@ To assign the role, follow the steps below:
 1. In the Azure portal, navigate to the Log Analytics workspace that you want to assign the role to.
 1. Select **Access control (IAM)** in the left navigation pane.
 1. Select **Add role assignment**.
-1. In the **Role** table, select ***Log Analytics Contributor**, then select **Next**
+1. In the **Role** table, select **Log Analytics Contributor**, then select **Next**
 1. Select **Managed identity**, then select **Select members**.
 1. Your data lake managed identity is a system assigned managed identity named `msg-resources-<guid>`. Select the managed identity, then select **Select**. 
 1. Select **Review and assign**.
