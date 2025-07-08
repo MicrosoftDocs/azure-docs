@@ -10,7 +10,6 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 
-
 #Customer intent: As a security analyst, I want to create and manage hunting bookmarks so that I can preserve and collaborate on relevant threat investigation data.
 
 ---
@@ -19,13 +18,16 @@ appliesto:
 
 Hunting bookmarks in Microsoft Sentinel helps you preserve the queries and query results that you deem relevant. You can also record your contextual observations and reference your findings by adding notes and tags. Bookmarked data is visible to you and your teammates for easy collaboration. For more information, see [Bookmarks](hunting.md#bookmarks-to-keep-track-of-data).
 
+>[!NOTE]
+> Bookmarks can only be created in the Azure portal. While you can't add bookmarks in the Microsoft Defender portal, you can see bookmarks that were already created.
+
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
-## Add a bookmark
+## Add a bookmark (Azure portal only)
 
 Create a bookmark to preserve the queries, results, your observations, and findings.
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**  select **Hunting**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Hunting**.
+1. Under **Threat management**, select **Hunting**.
 1. From the **Queries** tab, select one or more of the hunting queries.
 1. From the top command bar, select **Run selected queries**.
 
@@ -83,7 +85,7 @@ Visualize your bookmarked data by launching the investigation experience in whic
 
 For instructions to use the investigation graph, see [Use the investigation graph to deep dive](investigate-cases.md#use-the-investigation-graph-to-deep-dive).
 
-## Add bookmarks to a new or existing incident
+## Add bookmarks to a new or existing incident (Azure portal only)
 
 Add bookmarks to an incident from the bookmarks tab on the **Hunting** page.
 
@@ -102,7 +104,6 @@ Add bookmarks to an incident from the bookmarks tab on the **Hunting** page.
    1. Go to **Microsoft Sentinel** > **Threat management** > **Incidents**.
    1. Select the incident with your bookmark and **View full details**.
    1. On the incident page, in the left pane, select the **Bookmarks**.
-
 
 ## View bookmarked data in logs
 
