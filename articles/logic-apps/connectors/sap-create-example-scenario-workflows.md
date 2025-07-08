@@ -159,7 +159,7 @@ The SAP built-in trigger is a non-polling, Azure Functions-based trigger, not a 
 
 To receive IDoc packets, which are batches or groups of IDocs, the SAP trigger doesn't need extra configuration. However, to process each item in an IDoc packet after the trigger receives the packet, you have to implement a few more steps to split the packet into individual IDocs by setting up SAP to [send IDocs in packets](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/4ab38886549a6d8ce10000000a42189c.html). 
 
-The following example workflow shows how to extract individual IDocs from a packet by using the [`xpath()` function](../workflow-definition-language-functions-reference.md#xpath):
+The following example workflow shows how to extract individual IDocs from a packet by using the [`xpath()` function](../expression-functions-reference.md#xpath):
 
 1. Before you start, you need a Consumption or Standard logic app workflow with an SAP trigger. If your workflow doesn't already start with this trigger, follow the previous steps in this guide to [add the SAP trigger that can receive messages to your workflow](#receive-messages-sap).
 
@@ -191,7 +191,7 @@ The following example workflow shows how to extract individual IDocs from a pack
 
    1. In the action, select inside the **Value** edit box to show the options for the dynamic content list (lightning icon) and expression editor (function icon).
    
-   1. Select the function icon to open expression editor, and create the following expression using the [`xpath()` function](../workflow-definition-language-functions-reference.md#xpath):
+   1. Select the function icon to open expression editor, and create the following expression using the [`xpath()` function](../expression-functions-reference.md#xpath):
 
       `xpath(xml(triggerBody()?['Content']), 'namespace-uri(/*)')`
 
