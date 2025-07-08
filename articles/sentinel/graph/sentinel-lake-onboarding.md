@@ -18,15 +18,15 @@ ms.subservice: sentinel-graph
 
 The Microsoft Sentinel data lake (Preview), available in the Microsoft Defender portal, is a tenant-wide, centralized repository designed to store and manage vast amounts of security-related data from various sources. It enables your organization to collect, ingest, and analyze security data in a unified manner, providing a comprehensive view of your security landscape. Leveraging advanced analytics, machine learning, and artificial intelligence, the Microsoft Sentinel data lake helps in detecting threats, investigate and responding to incidents, and improving overall security posture.
 
-For more information, see [Microsoft Sentinel data lake (Preview)](https://aka.ms/sentinel-lake-overview).
+For more information, see [Microsoft Sentinel data lake (Preview)](sentinel-lake-overview.md).
 
 The onboarding process makes the following changes once onboarding is complete:
 
 + Your Microsoft Sentinel data lake is provisioned for your selected subscription and resource group.
-+ Microsoft Defender connected and unconnected workspaces are attached to your Microsoft Sentinel data lake. Unconnected workspaces have limited functionality, which can be resolved by connecting the workspaces to Microsoft Defender. For more information, see [Existing Microsoft Sentinel workspaces](#existing-microsoft-sentinel-workspaces).
++ All of your Microsoft Defender connected workspaces that are in the same region as your Entra tenant home region are attached to your Microsoft Sentinel data lake. Unconnected workspaces won't be attached to the data lake.
 + Once Microsoft Sentinel data lake is enabled, data in the Microsoft Sentinel analytics tier is also available in the Microsoft Sentinel data lake tier from that point forward without extra charge. You can use existing Microsoft Sentinel workspace connectors to ingest new data to both the analytics and the lake tiers, or just the lake tier. 
 + When you enable ingestion for the first time or switch ingestion between tiers, it takes 90-120 minutes to take effect. Once the ingestion is enabled for the lake tier, the data in lake appears at the same time as it appears in your analytics tier.
-+ Entitled data pertaining to your Microsoft related assets are ingested into the Microsoft Sentinel data lake. For more information, see [Asset data ingestion](https://aka.ms/enable-data-connectors). The asset data includes 
++ Entitled data pertaining to your Microsoft related assets are ingested into the Microsoft Sentinel data lake. The asset data includes 
     + Microsoft Entra
     + Microsoft 365 
     + Azure. 
@@ -38,9 +38,9 @@ The onboarding process makes the following changes once onboarding is complete:
 
 Once you're onboarded to the Microsoft Sentinel data lake, you can use the following features in the Defender portal:
 
-+ [Lake exploration KQL queries](https://aka.ms/kql-overview) 
-+ [Microsoft Sentinel lake notebooks](https://aka.ms/notebooks-overview)
-+ [Microsoft Sentinel lake jobs](https://aka.ms/kql-jobs)
++ [Data lake exploration KQL queries](kql-overview.md) 
++ [Microsoft Sentinel lake notebooks](notebooks-overview.md)
++ [Microsoft Sentinel lake jobs](kql-jobs.md)
 + Workspace and lake data [management and retention](/unified-secops-platform/manage-data-defender-portal-overview)
 + Microsoft Sentinel Cost Management
   
@@ -52,11 +52,14 @@ To onboard to the Microsoft Sentinel data lake Public Preview, you must be an ex
 
 + You must have Microsoft Defender (security.microsoft.com) and Microsoft Sentinel to onboard to the data lake. You can be licensed for both Microsoft Defender and Microsoft Sentinel SIEM or be licensed for Microsoft Sentinel SIEM, using it in the Microsoft Defender portal.
 + You must have existing Azure subscription and resource group to set up billing for the data lake. You can use your existing Azure subscription and resource group that you use for Microsoft Sentinel SIEM, or create a new one.
++ You must have a Microsoft Sentinel primary workspace connected to Microsoft Defender portal.
++ You must have a Microsoft Sentinel primary workspace and other workspaces in the same region as your tenant’s home region.
++ You must have read privileges to the primary and other workspaces so they can be attached to the data lake. For public preview, attaching a primary and all workspaces to the data lake is only supported if they're in the same region as your tenant home region.
 
 The following roles that are required to set up billing and authorize ingestion of asset data into the data lake:
 
 + Azure Subscription owner or Billing Administrator, for billing setup
-+ Microsoft Entra Global Administrator, for data ingestion authorization from Microsoft Entra, Microsoft 365, and Azure.
++ Microsoft Entra Global Administrator, or Security Administrator for data ingestion authorization from Microsoft Entra, Microsoft 365, and Azure.
 + Read access to all workspaces so they can be attached to the data lake. 
 
 > [!NOTE]
@@ -65,20 +68,8 @@ The following roles that are required to set up billing and authorize ingestion 
 
 ## Existing Microsoft Sentinel workspaces
 
-The Microsoft Sentinel data lake mirrors data from Microsoft Sentinel workspaces. You can choose to connect your Microsoft Sentinel workspaces to the Microsoft Defender portal. You don't have to have Microsoft Sentinel workspaces connected to the Microsoft Defender portal to set up the data lake, but we recommend connecting your Microsoft Sentinel workspaces to Defender to enable the best experience. 
+The Microsoft Sentinel data lake mirrors data from Microsoft Sentinel workspaces that are connected to the Defender portal. You must connect your Sentinel workspaces to the Defender portal to include them in the data lake.  If you have connected Sentinel to the Defender portal, to onboard to the data lake, the primary workspace must be in the tenant's home geographic region. If you haven't connected Microsoft Sentinel to the Defender portal, you can connect your Microsoft Sentinel workspaces to the Defender portal after onboarding and the data will be mirrored to the data lake. For more information, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard).
 
-If you haven't connected Microsoft Sentinel to the Defender portal, the onboarding process includes your unconnected Microsoft Sentinel workspace in your tenant's home geographic region, but doesn't connect them to the Defender portal. You can connect your Microsoft Sentinel workspaces to the Defender portal after onboarding to the Microsoft Sentinel data lake. 
-
-Microsoft Sentinel workspaces that are attached to lake but aren't connected to Defender are subject to the following limitations:
-
-+ You can't manage unconnected workspace's tables in Defender portal.
-+ You can't manage connectors for unconnected workspaces in the Defender portal.
-+ There's no role-based access control support in Defender portal for the workspace's tables.
-+ You can't analyze unconnected workspace tables in Advanced Hunting.
-+ Output from data lake notebooks and jobs can't be written to unconnected workspaces.
-+ Scheduled jobs can't run on unconnected workspaces
-
-These limitations can be resolved by connecting the workspaces to Defender. For more information, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard).  
 
 ## Onboarding to the Microsoft Sentinel data lake
 
@@ -118,7 +109,7 @@ Use the following steps to onboard to the Microsoft Sentinel data lake from the 
  
     :::image type="content" source="./media/sentinel-lake-onboarding/onboarding-in-progress.png" lightbox="./media/sentinel-lake-onboarding/onboarding-in-progress.png" alt-text="A screenshot showing the onboarding in progress banner.":::
 
-1. Once the onboarding process is complete, a new banner is shown containing information cards on how to start using the new data lake experiences. For example, select **Query data lake** to open the Data lake exploration KQL queries editor. KQL queries are a new feature in the Defender portal that allows you to explore and analyze data in the Microsoft Sentinel data lake using KQL. For more information, see [Data lake exploration, KQL queries](https://aka.ms/kql-queries).
+1. Once the onboarding process is complete, a new banner is shown containing information cards on how to start using the new data lake experiences. For example, select **Query data lake** to open the Data lake exploration KQL queries editor. KQL queries are a new feature in the Defender portal that allows you to explore and analyze data in the Microsoft Sentinel data lake using KQL. For more information, see [Data lake exploration, KQL queries](kql-queries.md).
 
     :::image type="content" source="./media/sentinel-lake-onboarding/onboarding-complete.png" lightbox="./media/sentinel-lake-onboarding/onboarding-complete.png" alt-text="A screenshot showing the onboarding process complete banner.":::
 
@@ -129,18 +120,21 @@ If you encounter any issues during the setup process, see the following troubles
 + Ensure that you have the required role to onboard to the Microsoft Sentinel data lake.
 + Verify that your selected subscription and resource group are valid and accessible.
 + Verify your Azure policies allow for creating new resources to enable your Microsoft Sentinel data lake.
-+ Data for newly enabled tables, or tables that have moved between tiers is, available 90 to 120 minutes after the onboarding process is complete.
-+ Error DL101: You cannot onboard to MSG since your primary Sentinel workspace is not in the same geo as your tenant.   
++ Data for newly enabled tables, or tables that have moved between tiers are, available 90 to 120 minutes after the onboarding process is complete.
 
-    Verify that your Microsoft Sentinel workspaces are in the same region as your tenant’s home geographic region.
-+ Error DL102: We could not provision your MSG Data Lake because of high demand causing the unavailability of resources.   
+The table below lists errors that you might encounter during the onboarding process.
 
-    Retry later. If you continue to see this error, contact Microsoft Support.
+| Error Code | Error                 | Description             | Resolution                  |
+|------------|-----------------------|-------------------------|-----------------------------|
+| DL101      | Can’t complete setup. | Your primary Microsoft Sentinel workspace region and your Microsoft Entra tenant home geographic are different. | For public preview, the geographic regions must be the same. Ensure that you have a primary workspace in the same geographic region as your Microsoft Entra tenant. |
+| DL102      | Can’t complete setup. | There's a lack of Azure resources in the region at the time of provisioning. |  Select the retry button to start the setup again. |
+| DL103      | Can’t complete setup. | There are policies enabled that prevent the creation of the Azure managed resources needed to enable the data lake.  | Check your Azure policies to allow for creation of Azure managed resources. |
+
 
 
 ## Related content
 
-- [Microsoft Sentinel data lake overview (Preview)](https://aka.ms/sentinel-lake-overview)
-- [Microsoft Sentinel data lake roles and permissions](https://aka.ms/sentinel-data-lake-roles)
+- [Microsoft Sentinel data lake overview (Preview)](sentinel-lake-overview.md)
+- [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview)
 - [Microsoft Sentinel data lake billing](../billing.md)
 - [Create custom roles with Microsoft Defender XDR Unified role-based access control (RBAC)](/defender-xdr/create-custom-rbac-roles)

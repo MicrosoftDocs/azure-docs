@@ -44,7 +44,7 @@ To create and manage KQL jobs in the Microsoft Sentinel data lake, you must firs
 
 ### Permissions
 
-Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To read tables across all workspaces, write to the analytics tier, and schedule jobs using KQL queries, you must have one of the supported Microsoft Entra ID roles. For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](https://aka.ms/sentinel-data-lake-roles).
+Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To read tables across all workspaces, write to the analytics tier, and schedule jobs using KQL queries, you must have one of the supported Microsoft Entra ID roles. For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
 
 To create new custom tables in the analytics tier, the data lake managed identity must be assigned the **Log Analytics Contributor** role in the Log Analytics workspace.
 
@@ -161,4 +161,4 @@ For troubleshooting tips and error messages, see [Troubleshooting KQL queries fo
 - [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md)
 - [Microsoft Sentinel data lake overview (preview)](sentinel-lake-overview.md)
 - [KQL queries in the Microsoft Sentinel data lake](kql-queries.md)
-- [Jupyter notebooks and the Microsoft Sentinel data lake (preview)](https://aka.ms/sentinel-lake-notebooks)
+- [Jupyter notebooks and the Microsoft Sentinel data lake (preview)](notebooks.md)
