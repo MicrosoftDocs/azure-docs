@@ -6,7 +6,7 @@ ms.service: azure-app-configuration
 author: mrm9084
 ms.author: mametcal
 ms.topic: how-to
-ms.date: 06/19/2025
+ms.date: 07/08/2025
 ---
 
 # Enable telemetry for feature flags
@@ -71,6 +71,11 @@ These types of questions can be answered through the emission and analysis of fe
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, navigate to telemetry tab from app insights blade of App Configuration resource.](./media/howto-telemetry/app-insights-view-details-link.png)
 
+    You can also access this tab by going to the feature manager and clicking **"View events"** in the telemetry column for the feature flag of interest.
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of the Azure portal, view events from feature manager.](./media/howto-telemetry/feature-manager-view-events.png)
+
+
     In the telemetry tab, you can view:
 
     - **Total events**: Total number of evaluation events emitted by your application
@@ -83,36 +88,33 @@ These types of questions can be answered through the emission and analysis of fe
     In order to show the distribution of users and number of evaluations across Simple, Long, and None variants, group the metrics by Variant. This will enable you see whether the configured allocations are working as expected, and that all expected variants are being served to users. 
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, view total events by variant in telemetry tab.](./media/howto-telemetry/total-events-by-variant.png)
+    > ![Screenshot of the Azure portal, view unique users by variant in telemetry tab.](./media/howto-telemetry/unique-user-count-by-variant.png)
 
-    In this example, we see that the number of events for the "None" variant is almost twice that of the "Simple" and "Long" variants given the configured 50-25-25 percentile split between "None", "Simple" and "Long" respectively. 
+    In this example, we see that the number of users assigned the "None" variant is almost twice that of the "Simple" and "Long" variants given the configured 50-25-25 percentile split between "None", "Simple" and "Long" respectively. 
 
 
     **Confirm overrides and behaviour based on flag state**
-    - Users may be assigned a variant for different reasons so you would want to ensure that your variant assignments are not only in the right proprtion, but also for the right reason. You can view this by grouping metrics by assignment reason. In this example, we will see that the only assignment reason is solely due to Percentile allocations.
+    - Users may be assigned a variant for different reasons so you would want to ensure that your variant assignments are not only in the right proportion, but also for the right reason. You can view this by grouping metrics by assignment reason. In this example, we will see that the only assignment reason is solely due to Percentile allocations.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, view total events by assignment reason in telemetry tab.](./media/howto-telemetry/total-events-by-assignment-reason.png)
+    > ![Screenshot of the Azure portal, view total events by assignment reason in telemetry tab.](./media/howto-telemetry/unique-user-count-by-assignmentreason.png)
 
-    - Disable the feature flag by going to the feature manager and toggling the feature flag off. Visit your feature flag telemetry tab and view Unique user count by Variant. You will see that all assignments for Long and Simple go to zero, and only the default variant (which is None in our case) is the only variant being assigned to users.
-        > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, view unique user count by variant in telemetry tab.]()
+    - Disable the feature flag by going to the feature manager and toggling the feature flag "Enable" switch. 
+    - In the  telemetry column click "View events" to go to telemetry tab in read-only mode. 
+    - View Unique user count by Variant. You will see that all assignments for Long and Simple go to zero, and only the default variant (which is None in our case) is the only variant being assigned to users.
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of the Azure portal, view unique user count by variant in telemetry tab.](./media/howto-telemetry/unique-user-count-by-variant-disabled.png)
+
     - Switch to group by unique user count by assignment reason.
-    Confirm from the graph that the Percentile allocations fall to zero and DefaultWhenDisabled is the only reason for which users are being assing variants.
+    Confirm from the graph that the Percentile allocations fall to zero and DefaultWhenDisabled is the only reason for which users are being assigned variants.
     - Other possible reasons include "Group Override" or "User Override" if configured.
-        > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, view unique user count by assignment reason in telemetry tab.]()
-
-
-
-1. You can also access telemetry directly from the Feature Manager blade:
-    - Navigate to your Feature Manager
-    - Locate your feature flag in the displayed grid
-    - Click **"View events"** in the Telemetry column
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, view events from feature manager.](./media/howto-telemetry/feature-manager-view-events.png)
+    > ![Screenshot of the Azure portal, view unique user count by assignment reason in telemetry tab.](./media/howto-telemetry/unique-user-count-by-assignmentreason-disabled.png)
+
 
 ## Analyze in Application Insights
+
+Now that we have confirmed the feature flag allocations are working as expected, we would want to dive deeper into the telemetry events to see how different variants are performing based on the likes emitted for users.
 
 1. Open your Application Insights resource in the Azure portal and select **Logs** under **Monitoring**. In the query window, run the following query to see the telemetry events:
 
@@ -160,8 +162,9 @@ These types of questions can be answered through the emission and analysis of fe
     combined_data
     | union (total_sum)
     ```
-![Screenshot of the Azure portal, view results of application insights analysis.](./media/howto-telemetry/application-insights-query-results.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of the Azure portal, view results of application insights analysis.](./media/howto-telemetry/application-insights-query-results.png)
 
 You see one "FeatureEvaluation" event for each time the quote page was loaded and one "Liked" event for each time the like button was clicked. The "FeatureEvaluation" event have a custom property called `FeatureName` with the name of the feature flag that was evaluated. Both events have a custom property called `TargetingId` with the name of the user that liked the quote.
 
-In this example, we can see that, even though there were roughly the same number of users getting the Long variant vs Simple, the Simple variant appears to be performing better by a margin of 20%. 
+In this example, we can see that, even though there were roughly the same number of users getting the Long variant vs Simple, the Simple variant appears to be performing better by a margin of 22%. 
