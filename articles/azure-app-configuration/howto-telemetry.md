@@ -52,26 +52,26 @@ These types of questions can be answered through the emission and analysis of fe
     * [Python](./howto-telemetry-python.md)
     * [JavaScript](./howto-telemetry-javascript.md)
 
-## Review telemetry for feature flag
+## Review telemetry for the feature flag
 
-1. Navigate to the Application Insights blade in your Azure portal or monitoring dashboard. You'll see a graph displaying all events from your application. This provides an initial overview of activity patterns.
+1. Navigate to the **Application Insights** blade in the App Configuration portal. You'll see a graph displaying all events from your application. This provides an initial overview of activity patterns.
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, viewing events in application insights blade of App Configuration resource.](./media/howto-telemetry/app-insights-view-events.png)
 
 1. Use the time range selector to focus on specific periods. This helps identify trends or investigate particular timeframes of interest.
 
-1. Filter by Feature Flag
+1. Filter by feature Flag
     - Click on the dropdown menu above the event graph
-    - Under **"Feature flags with events"** select your feature flag
+    - Under **Feature flags with events** select your feature flag
     - The graph will now display only events related to the feature flag's evaluations
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, selecting specific feature flag in application insights blade of App Configuration resource.](./media/howto-telemetry/app-insights-ff-dropdown.png)
 
-1. To access more detailed telemetry, click **"View details"** to open the telemetry tab.
+1. To access more detailed telemetry, click **View details** to open the telemetry tab.
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, navigate to telemetry tab from app insights blade of App Configuration resource.](./media/howto-telemetry/app-insights-view-details-link.png)
 
-    You can also access this tab by going to the feature manager and clicking **"View events"** in the telemetry column for the feature flag of interest.
+    You can also access this tab by going to the **Feature manager** and clicking **View events** in the telemetry column for the feature flag of interest.
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, view events from feature manager.](./media/howto-telemetry/feature-manager-view-events.png)
 
