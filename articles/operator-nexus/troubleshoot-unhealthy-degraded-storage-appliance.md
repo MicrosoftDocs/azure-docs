@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.service: azure-operator-nexus
 ---
 
-# Troubleshooting an Unhealthy or Degraded Storage Appliance
+# Troubleshooting an unhealthy or degraded storage appliance
 
 This article provides troubleshooting advice and escalation methods for Storage Appliances that are
 unhealthy or degraded.
 
-## Capacity Threshold Reached
+## Capacity threshold reached
 
 The health events in this list indicate that the appliance is nearing capacity:
 
@@ -24,7 +24,7 @@ You can see the current usage of the appliance by navigating to the Storage Appl
 navigating to the `Monitoring > Metrics` tab, and selecting `Nexus Storage Array Space Utilization` from
 the `Metric` dropdown.
 
-:::image type="content" source="media/storage-metrics-utilization.png" alt-text="Metric showing the percentage utilization of a Storage Appliance":::
+:::image type="content" source="media/storage-metrics-utilization.png" alt-text="Screenshot of a metric showing the percentage utilization of a Storage Appliance.":::
 
 These issues can be addressed by reducing the load on the Storage Appliance. This outcome can be
 achieved by:
@@ -43,7 +43,7 @@ You can confirm that utilization is reduced by checking the metric again.
 Note that any volume deletions may take up to 24 hours to eradicate from the appliance, and that
 any deletions should be carried out slowly to avoid worsening the problem.
 
-## Active Alerts
+## Active alerts
 
 The health events in this list indicate that the appliance has active alerts:
 
@@ -71,7 +71,7 @@ You can find more details of the specific alert(s), using the following instruct
   select all of the boxes. You will see a summary of the alert, and the vendor alert code. Use this information
   to search your vendor documentation for further details of the alert.
 
-:::image type="content" source="media/storage-metrics-alerts.png" alt-text="Metric showing an active alert on a Storage Appliance":::
+:::image type="content" source="media/storage-metrics-alerts.png" alt-text="Screenshot of a metric showing an active alert on a Storage Appliance.":::
 
 Once you have this information, use it to determine the appropriate next action. You should either:
 
@@ -101,14 +101,14 @@ is the cause:
 - Click `+ New Chart`, and select the `Nexus Storage Array Performance Throughput Iops (Avg)` metric.
   Click `Apply Splitting`, and select `Dimension` as the dimension to split on.
 
-:::image type="content" source="media/storage-metrics-latency-throughput.png" alt-text="Metric showing the latency and throughput on a Storage Appliance":::
+:::image type="content" source="media/storage-metrics-latency-throughput.png" alt-text="Screenshot of a metric showing the latency and throughput on a Storage Appliance.":::
 
 By comparing the resulting graphs, you can determine whether high load is the cause. If so, reduce the
 load to resolve the health event.
 
 If the issue is _not_ high load, you should raise a ticket with your Storage Appliance vendor.
 
-## Network Interface Errors
+## Network interface errors
 
 The health event in this list indicates that the appliance has network interface errors:
 
@@ -123,9 +123,9 @@ that starts shortly before the start time of the resource health alert. After id
 unhealthy network interface(s), and error types, you should raise a ticket with your Storage Appliance
 vendor.
 
-:::image type="content" source="media/storage-metrics-network-errors.png" alt-text="Metric showing network interface errors on a Storage Appliance":::
+:::image type="content" source="media/storage-metrics-network-errors.png" alt-text="Screenshot of a metric showing network interface errors on a Storage Appliance.":::
 
-## Network Latency
+## Network latency
 
 The health events in this list indicate that the appliance has high networking latency:
 
