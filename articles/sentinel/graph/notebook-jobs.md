@@ -59,7 +59,7 @@ To create schedule a job, you must save your notebook as a file.
 
     :::image type="content" source="./media/notebook-jobs/job-configuration.png" lightbox="./media/notebook-jobs/job-configuration.png" alt-text="A screenshot showing the job configuration page."  :::
 
-1. To view your jobs, select the Microsoft Sentinel shield icon in the left toolbar. Jobs are displayed the **Jobs** panel.
+1. To view your jobs, select the Microsoft Sentinel shield icon in the left toolbar. Jobs are displayed on the **Jobs** panel.
 
 1. Select the job then select **Run now** to run a job immediately. If your job is a scheduled job, it runs at the specified time and frequency. 
 
