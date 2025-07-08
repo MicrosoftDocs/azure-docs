@@ -10,6 +10,7 @@ ms.author: tarcher
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+# Customer intent: "As a cloud engineer, I want to create an Azure Batch account using Terraform, so that I can quickly set up compute resources and manage large workloads efficiently."
 ---
 
 # Quickstart: Create an Azure Batch account using Terraform

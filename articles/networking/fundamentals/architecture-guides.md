@@ -6,6 +6,7 @@ ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 06/13/2023
 ms.author: allensu
+# Customer intent: "As a cloud architect, I want to understand the Azure networking architecture options, so that I can design efficient and secure connections between cloud resources and on-premises networks for my applications."
 ---
 # Azure Networking architecture documentation
 

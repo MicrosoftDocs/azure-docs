@@ -7,6 +7,7 @@ ms.topic: quickstart
 ms.date: 05/27/2025
 ms.author: abell
 ms.custom: references_regions
+# Customer intent: As a cloud administrator, I want to connect to virtual machines securely using a browser-based solution, so that I can manage resources without exposing public IP addresses or installing additional software.
 ---
 
 # Quickstart: Connect with Azure Bastion Developer

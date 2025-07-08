@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 05/28/2025
 ms.author: kendownie
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
+# Customer intent: "As a cloud administrator, I want to create and manage SMB Azure file shares using the portal, PowerShell, or CLI, so that I can efficiently store and access data with configurable performance and redundancy options."
 ---
 
 # Create an SMB Azure file share
@@ -298,7 +299,7 @@ After you create a storage account, you can create a file share. This process is
 
 ### Create a provisioned v2 file share
 
-When you create a file share using the provisioned v2 billing model, you specify how much storage, IOPS, and throughput your file share needs. The amount of each quantity that you provision determines your total bill. By default, when you create a new file share using the provisioned v2 model, we provide a recommendation for how many IOPS and how much throughput you need based on the amount of provisioned storage you specify. Depending on your individual file share requirements, you may find that you require more or less IOPS or throughput than our recommendations, and can optionally override these recommendations with your own values as desired. To learn more about the provisioned v2 model, see [Understanding the provisioned v2 billing model](./understanding-billing.md#provisioned-v2-model).
+When you create a file share using the provisioned v2 billing model, you specify how much storage, IOPS, and throughput your file share needs. The amount of each quantity that you provision determines your total bill. By default, when you create a new file share using the provisioned v2 model, we provide a recommendation for how many IOPS and how much throughput you need based on the amount of provisioned storage you specify. Depending on your individual file share requirements, you might find that you require more or less IOPS or throughput than our recommendations, and can optionally override these recommendations with your own values as desired. To learn more about the provisioned v2 model, see [Understanding the provisioned v2 billing model](./understanding-billing.md#provisioned-v2-model).
 
 # [Portal](#tab/azure-portal)
 Follow these instructions to create a new Azure file share using the Azure portal.
@@ -391,9 +392,7 @@ Follow these instructions to create a new Azure file share using the Azure porta
 
     - **Provisioned storage (GiB)**: The amount of storage to provision on the share. The provisioned storage capacity is the amount that you're billed for regardless of actual usage. 
 
-    - **Protocol**: The file sharing protocol to use on the share. By default, new shares use the SMB protocol. Select the NFS protocol for NFS v4.1 shares.
-
-    - **Root Squash**: When NFS is selected as the chosen protocol, toggling the root squash behavior reduces the rights of the root user for NFS file shares.
+    - **Protocol**: The file sharing protocol to use on the share. By default, new shares use the SMB protocol. Select the NFS protocol to create an NFS v4.1 share.
 
 4. Select the **Backup** tab. By default, [backup is enabled](../../backup/backup-azure-files.md) when you create an Azure file share using the Azure portal. If you want to disable backup for the file share, uncheck the **Enable backup** checkbox. If you want backup enabled, you can either leave the defaults or create a new Recovery Services Vault in the same region and subscription as the storage account. To create a new backup policy, select **Create a new policy**. NFS shares don't support Azure Backup.
 
@@ -518,7 +517,7 @@ az storage share-rm create \
 
 ## Change the cost and performance characteristics of a file share
 
-After creating your file share, you may need to adjust the provisioning (provisioned models) or access tier (pay-as-you-go model) of the share. The following sections show you how to adjust the relevant properties for your share.
+After creating your file share, you might need to adjust the provisioning (provisioned models) or access tier (pay-as-you-go model) of the share. The following sections show you how to adjust the relevant properties for your share.
 
 ### Change the cost and performance characteristics of a provisioned v2 file share
 
@@ -713,7 +712,7 @@ az storage share-rm update \
 
 ### Change the cost and performance characteristics of a pay-as-you-go file share
 
-After you've created your pay-as-you-go file share, there are two properties you may want to change:
+After you've created your pay-as-you-go file share, there are two properties you might want to change:
 
 - **Access tier**: The access tier of the file share dictates to the ratio of storage to IOPS/throughput costs (in the form of transactions). There are three access tiers: *transaction optimized*, *hot*, and *cool*. Changing the tier of the Azure file share results in transaction costs for the movement to the new access tier. For more information, see [switching between access tiers](./understanding-billing.md#switching-between-access-tiers).
 

@@ -9,6 +9,7 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.custom: template-how-to, devx-track-azurepowershell, devx-track-arm-template
+# Customer intent: "As a cloud administrator, I want to migrate a classic reserved IP address to an Azure Resource Manager public IP address, so that I can leverage the enhanced capabilities and management features available in the newer deployment model."
 ---
 
 # Migrate a classic reserved IP address to a public IP address

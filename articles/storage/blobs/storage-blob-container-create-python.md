@@ -11,6 +11,7 @@ ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: As a developer using Python, I want to create a blob container in Azure Storage, so that I can organize and manage my data effectively before uploading blobs.
 ---
 
 # Create a blob container with Python

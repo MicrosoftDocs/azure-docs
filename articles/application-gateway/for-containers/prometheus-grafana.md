@@ -7,6 +7,7 @@ ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 10/21/2024
 ms.author: mbender
+# Customer intent: As an operations engineer, I want to configure Application Gateway for Containers to send metrics to Prometheus and display them in Grafana, so that I can monitor traffic and optimize performance while enhancing security measures for my application.
 ---
 
 # Configure Application Gateway for Containers for Prometheus and Grafana

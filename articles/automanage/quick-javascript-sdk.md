@@ -7,6 +7,7 @@ ms.custom: devx-track-js
 ms.topic: quickstart
 ms.date: 08/24/2022
 ms.author: andrsmith
+# Customer intent: As a cloud developer, I want to utilize the JavaScript SDK to enable Azure Automanage for my virtual machines, so that I can apply best practices efficiently to optimize management and compliance across my resources.
 ---
 
 # Quickstart: Enable Azure Automanage for virtual machines using JavaScript

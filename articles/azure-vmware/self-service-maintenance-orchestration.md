@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 06/25/2024
 ms.custom: engagement-fy24
+# Customer intent: As a cloud administrator, I want to reschedule planned maintenance for my Azure VMware Solution, so that I can manage my resources effectively and minimize downtime during critical business periods.
 ---
 
 # Self service maintenance orchestration (public preview)

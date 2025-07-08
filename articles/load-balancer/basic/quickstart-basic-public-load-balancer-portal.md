@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.date: 03/12/2024
 ROBOTS: NOINDEX, NOFOLLOW
 ms.custom: template-quickstart
+# Customer intent: As a cloud administrator, I want to create a basic public load balancer and virtual machines using the portal, so that I can efficiently distribute traffic and ensure high availability for my applications.
 ---
 
 # Quickstart: Create a basic public load balancer using the Azure portal

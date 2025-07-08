@@ -7,6 +7,7 @@ ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 10/23/2024
 ms.author: halkazwini
+# Customer intent: As a network administrator, I want to use open-source tools to visualize packet capture data from my VMs, so that I can identify traffic patterns and anomalies effectively for better network management and forensics.
 ---
 
 # Visualize network traffic patterns to and from your VMs by using open-source tools

@@ -11,6 +11,7 @@ ms.reviewer: fryu
 ms.devlang: powershell
 # ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: "As a cloud storage user, I want to set and manage blob access tiers during upload and afterward, so that I can optimize my storage costs and performance based on data access patterns."
 ---
 
 # Set a blob's access tier

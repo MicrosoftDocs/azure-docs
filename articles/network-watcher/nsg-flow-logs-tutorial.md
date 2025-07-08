@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.date: 09/30/2024
 
 # CustomerIntent: As an Azure administrator, I need to log the network traffic to and from a virtual machine (VM) so I can analyze the data for anomalies.
+# Customer intent: As an Azure administrator, I want to log network traffic flow to and from a virtual machine, so that I can analyze the data for anomalies and improve security monitoring.
 ---
 
 # Tutorial: Log network traffic to and from a virtual machine using the Azure portal

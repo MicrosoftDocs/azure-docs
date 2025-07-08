@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 12/15/2023
 ms.author: normesta
 ms.subservice: storage-common-concepts
+# Customer intent: As a user of a cloud file storage service, I want to transfer files to and from storage accounts using a command-line tool, so that I can efficiently manage and synchronize large amounts of data between my local environment and the cloud.
 ---
 
 # Transfer data with AzCopy and file storage

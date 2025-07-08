@@ -45,7 +45,7 @@ Microsoft might drop the current Enterprise Agreement price for individual Azure
 
 Enterprise Agreement (EA) customers are billed in their designated billing currency as per the terms of their agreement. Therefore, foreign exchange (FX) rates do not apply and are not available for EA customers.
 
-As a result, the *cost in pricing currency* field is not included in EA usage report. For more information see, [Understand cost details field](https://learn.microsoft.com/azure/cost-management-billing/automate/understand-usage-details-fields#list-of-fields-and-descriptions) 
+As a result, the *cost in pricing currency* field is not included in EA usage report. For more information see, [Understand cost details field](/azure/cost-management-billing/automate/understand-usage-details-fields#list-of-fields-and-descriptions) 
 
 If Microsoft anticipates any pricing changes due to currency exchange rate fluctuations, customers are notified in advance before those changes take effect.
 

@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 03/31/2025
 ms.author: allensu
+# Customer intent: "As a network administrator, I want to configure service endpoints in Azure virtual networks, so that I can ensure secure, direct connectivity to Azure services and optimize routing while minimizing management complexity."
 ---
 
 # Virtual Network service endpoints

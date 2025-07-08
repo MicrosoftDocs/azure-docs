@@ -102,6 +102,11 @@
       href: concepts-security-access-identity.md
     - name: Availability
       href: concepts-nexus-availability.md
+    - name: Credential
+      expanded: false
+      items:
+        - name: Baseboard Management Controller Credential Rotation Overview
+          href: concepts-baseboard-management-controller-credential-rotation.md
 - name: Quickstarts
   items:
     - name: Before you start workload deployment
@@ -244,7 +249,7 @@
           href: howto-restrict-serial-port-access-and-set-timeout-on-terminal-server.md
         - name: How to configure BGP prefix limit on Customer Edge (CE) devices for Azure Operator Nexus
           href: howto-configure-bgp-prefix-limit-on-customer-edge-devices.md
-        - name: BMP log streaming in Azure Operator Nexus Network Fabric 
+        - name: BMP log streaming in Azure Operator Nexus Network Fabric
           href: concepts-bmp-log-streaming.md
         - name: How to enable / disable BMP log streaming Azure Operator Nexus
           href: howto-enable-log-streaming.md
@@ -305,7 +310,6 @@
           href: howto-kubernetes-cluster-install-microsoft-defender.md
         - name: Kubernetes cluster features
           href: howto-kubernetes-cluster-features.md
-
     - name: Nexus Virtual Machine
       expanded: false
       items:
@@ -362,6 +366,11 @@
 - name: Troubleshooting
   expanded: true
   items:
+    - name: Resource Health
+      expanded: false
+      items:
+        - name: Troubleshoot Resource Health alerts
+          href: troubleshoot-resource-health-alerts.md
     - name: Network Fabric
       expanded: false
       items:
@@ -373,7 +382,16 @@
           href: troubleshoot-dns-issues.md
         - name: Troubleshoot TWAMP (UDP) not working
           href: troubleshoot-twamp-udp-not-working.md
-    - name: Cluster or BMM
+    - name: Cluster
+      expanded: false
+      items:
+        - name: Troubleshoot Accepted Cluster Resource
+          href: troubleshoot-accepted-cluster-hydration.md
+        - name: Troubleshoot Control Plane Quorum
+          href: troubleshoot-control-plane-quorum.md
+        - name: Troubleshoot Cluster heartbeat connection status disconnected
+          href: troubleshoot-cluster-heartbeat-connection-status-disconnected.md
+    - name: Bare Metal Machine
       expanded: false
       items:
         - name: Troubleshoot Bare Metal Server Problems
@@ -386,10 +404,6 @@
           href: troubleshoot-bare-metal-machine-degraded.md
         - name: Troubleshoot Warning status
           href: troubleshoot-bare-metal-machine-warning.md
-        - name: Troubleshoot Control Plane Quorum
-          href: troubleshoot-control-plane-quorum.md
-        - name: Troubleshoot Accepted Cluster Resource
-          href: troubleshoot-accepted-cluster-hydration.md
         - name: Troubleshoot Out of Memory Pods
           href: troubleshoot-memory-limits.md
     - name: Tenant Workload
@@ -423,6 +437,8 @@
           items:
             - name: Due To Bare Metal Machine Power Failure
               href: troubleshoot-kubernetes-cluster-stuck-workloads-due-to-power-failure.md
+        - name: Troubleshoot a Kubernetes Cluster Node in NotReady,Scheduling Disabled after Runtime Upgrade
+          href: troubleshoot-kubernetes-cluster-node-cordoned.md
     - name: Storage Appliance
       expanded: false
       items:
@@ -483,6 +499,8 @@
           href: reference-acl-examples.md
     - name: Operator Nexus SKUs
       href: reference-operator-nexus-skus.md
+    - name: Password By Key Vault Reference
+      href: reference-key-vault-credential.md
 - name: Release Notes
   items:
     - name: 2024

@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 11/21/2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to configure and manage backup policies for Azure Database for MySQL Flexible Server, so that I can ensure data protection and meet compliance requirements through scheduled and on-demand backups."
 ---
 
 # Back up an Azure Database for MySQL flexible server by using Azure Backup (preview)
