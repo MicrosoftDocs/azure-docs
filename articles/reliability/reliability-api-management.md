@@ -6,7 +6,7 @@ ms.author: danlep
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-api-management
-ms.date: 07/08/025
+ms.date: 07/08/2025
 ---
 
 # Reliability in Azure API Management
@@ -240,9 +240,9 @@ In multi-region deployments, automatic scaling applies only to the primary regio
 
 This section describes what to expect when Azure API Management instances are configured with multi-region support and all regions are operational.
 
-- **Traffic routing between regions:** Azure API Management automatically routes incoming requests to a regional gateway. A request is routed to the regional gateway with the lowest latency from the client. If you need to use a different routing approach, you can configure your own Traffic Manager with custom routing rules. For more information, see [Use custom routing to API Management regional gateways](../api-management/api-management-howto-deploy-multi-region.md#-use-custom-routing-to-api-management-regional-gateways).
+- **Traffic routing between regions:** Azure API Management automatically routes incoming requests to a regional gateway. A request is routed to the regional gateway with the lowest latency from the client. If you need to use a different routing approach, you can configure your own Traffic Manager with custom routing rules. For more information, see [Use custom routing to API Management regional gateways](../api-management/api-management-howto-deploy-multi-region.md#use-custom-routing-to-api-management-regional-gateways).
 
-    When a request reaches an Azure API Management regional gateway, it's usually routed to the backend API (unless a policy returns a response directly from the gateway, such as a cached response or an error code). In a multi-region solution, you need to take care to route to an instance of the backend API that meets your performance requirements. For more information, see [Route API calls to regional backend services](../api-management/api-management-howto-deploy-multi-region.md#-route-api-calls-to-regional-backend-services).
+    When a request reaches an Azure API Management regional gateway, it's usually routed to the backend API (unless a policy returns a response directly from the gateway, such as a cached response or an error code). In a multi-region solution, you need to take care to route to an instance of the backend API that meets your performance requirements. For more information, see [Route API calls to regional backend services](../api-management/api-management-howto-deploy-multi-region.md#route-api-calls-to-regional-backend-services).
 
 - **Data replication between regions:** Gateway configuration, such as APIs and policy definitions, are regularly synchronized between the primary and secondary regions you add. Propagation of updates to the regional gateways normally takes less than 10 seconds.
 
