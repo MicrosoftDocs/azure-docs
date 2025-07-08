@@ -30,16 +30,16 @@ ms.author: ananyagarg
 
 **Step 5**: Select the stop button and wait for status of the VM to be Stopped (deallocated)
 
-:::image type="complex" source="./media/migrate-nested-cvms/image 1.png" lightbox="./media/migrate-nested-cvms/image 1.png" alt-text="Screenshot of Azure portal showing the 'Capture' option, circled in green, and the 'Status', also circled in green.":::
-:::image-end:::
+:::image type="content" source="./media/migrate-nested-cvms/image 1.png" alt-text="Screenshot of Azure portal showing the Capture option, circled in green, and the Status, also circled in green.":::
+
 
 **Step 6**: Find the **Capture** drop down in the overview tab of the VM, then select **Image**
 
 **When you get to the image creation page**:
 * Ensure you select *Automatically delete this Virtual Machine after creating the image* (check image 2)
 
-:::image type="complex" source="./media/migrate-nested-cvms/image 2.png" lightbox="./media/migrate-nested-cvms/image 2.png" alt-text="Screenshot of the Azure portal showing the options to 'Automatically delete the virtual machine after creating the image', 'Create new' for 'Target Azure compute gallery', 'Create new' for 'Target VM image definition', and 'Version number', in green circles.":::
-:::image-end:::
+:::image type="content" source="./media/migrate-nested-cvms/image 2.png" alt-text="Screenshot of the Azure portal showing the options to Automatically delete the virtual machine after creating the image, Create new for Target Azure compute gallery, Create new for Target VM image definition, and Version number, in green circles.":::
+
 
 
 * If you don't have a gallery, in the gallery option, select *Create new* and name your gallery
@@ -50,8 +50,8 @@ ms.author: ananyagarg
 
 * Continue to fill other options. In the replication portion of the image capture option, add the region you wish to *relocate* your VM to.  You need to select the target region drop-down
 
-:::image type="complex" source="./media/migrate-nested-cvms/image 3.png" lightbox="./media/migrate-nested-cvms/image 3.png" alt-text="Screenshot of the Azure portal showing the options 'Target regions'.":::
-:::image-end:::
+:::image type="content" source="./media/migrate-nested-cvms/image 3.png" alt-text="Screenshot of the Azure portal showing the options Target regions.":::
+
 
 **Fill in all other options and hit *Review + create***
 
