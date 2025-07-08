@@ -36,6 +36,8 @@ Azure Communication Services emits the following chat event types:
 | [Microsoft.Communication.ChatThreadPropertiesUpdated](#microsoftcommunicationchatthreadpropertiesupdated-event)| `Thread` | Published when a chat thread's properties are updated |    
 | [Microsoft.Communication.ChatMessageEditedInThread](#microsoftcommunicationchatmessageeditedinthread-event) |  `Thread` |Published when a message is edited in a chat thread |  
 | [Microsoft.Communication.ChatMessageDeletedInThread](#microsoftcommunicationchatmessagedeletedinthread-event) |  `Thread` |Published when a message is deleted in  a chat thread  |  
+| [Microsoft.Communication.ChatTypingIndicatorReceivedInThread](#microsoftcommunicationchattypingindicatorreceivedinthread-event) |  `Thread` |Published when a typing indicator is received in a chat thread  |  
+| [Microsoft.Communication.ChatAzureBotCommandReceivedInThread](#microsoftcommunicationchatazurebotcommandreceivedinthread-event) |  `Thread` |Published when a bot command message is received in a chat thread  |  
 
 ## Event responses
 
@@ -667,3 +669,71 @@ This section contains an example of what that data would look like for each even
 ]
 ```
 
+### Microsoft.Communication.ChatTypingIndicatorReceivedInThread event
+
+```json
+[
+  {
+    "id": "fc89755c-f941-4222-8f83-e3cb957066e8",
+    "topic": "/subscriptions/{subscription-id}/resourcegroups/{group-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
+    "subject": "thread/{thread-id}/sender/{rawId}/typingIndicator",
+    "data": {
+      "messageBody": "",
+      "messageId": "1752004764113",
+      "type": "Control/Typing",
+      "version": 1752004764113,
+      "senderDisplayName": "Scott",
+      "senderCommunicationIdentifier": {
+        "kind": "communicationUser",
+        "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-5cbb-38a0-88f7-084822002453",
+        "communicationUser": {
+          "id": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-5cbb-38a0-88f7-084822002453"
+        }
+      },
+      "composeTime": "2025-07-08T19:59:24.113+00:00",
+      "threadId": "{thread-id}",
+      "transactionId": "GrViVwBunE22eGm6iLwm6Q.1.1.1.1.1508848177.1"
+    },
+    "eventType": "Microsoft.Communication.ChatTypingIndicatorReceivedInThread",
+    "dataVersion": "1.0",
+    "metadataVersion": "1",
+    "eventTime": "2025-07-08T19:59:24.2269822Z"
+  }
+]
+```
+
+### Microsoft.Communication.ChatAzureBotCommandReceivedInThread event
+
+```json
+[
+  {
+    "id": "5c95e673-52e0-4ed6-81ce-c6223761d353",
+    "topic": "/subscriptions/{subscription-id}/resourcegroups/{group-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
+    "subject": "thread/{thread-id}/sender/{rawId}/azurebotcommand/microsoft.communication.chat.sendactivitytobots",
+    "data": {
+      "messageBody": "{\"name\":\"application/microsoft.communication.chat.sendactivitytobots\",\"activity\":{\"type\":\"event\",\"name\":\"endOfConversation\",\"value\":{\"field1\":\"value1\",\"field2\":{\"nestedField\":\"nestedValue\"}}}}",
+      "metadata": {
+        "microsoft.azure.communication.chat.bot.contenttype": "azurebotservice.command",
+      },
+      "messageId": "1752005273698",
+      "type": "Control/Command",
+      "version": 1752005273698,
+      "senderDisplayName": "Scott",
+      "senderCommunicationIdentifier": {
+        "kind": "communicationUser",
+        "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-5cbb-38a0-88f7-084822002453",
+        "communicationUser": {
+          "id": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-5cbb-38a0-88f7-084822002453"
+        }
+      },
+      "composeTime": "2025-07-08T20:07:53.698+00:00",
+      "threadId": "{thread-id}",
+      "transactionId": "n200CRPVaU+xbZwwL1E/TQ.2.1.1.1.1528801040.1"
+    },
+    "eventType": "Microsoft.Communication.ChatAzureBotCommandReceivedInThread",
+    "dataVersion": "1.0",
+    "metadataVersion": "1",
+    "eventTime": "2025-07-08T20:07:53.8463766Z"
+  }
+]
+```
