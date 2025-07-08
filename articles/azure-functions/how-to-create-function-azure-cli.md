@@ -9,7 +9,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Quickstart: Create a function in Azure from the command line
 
-In this article, you use command-line tools locally to create a function that responds to HTTP requests. After verifying your code locally, you deploy it to a serverless hosting plan in Azure Functions. 
+In this article, you use local command-line tools to create a function that responds to HTTP requests. After verifying your code locally, you deploy it to a serverless hosting plan in Azure Functions. 
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -27,9 +27,9 @@ Before you begin, you must have the following:
 
 [!INCLUDE [functions-cli-create-venv](../../includes/functions-cli-create-venv.md)]
 
-## Create a local function project and function
+## Create a local code project and function
 
-In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
+In Azure Functions, your code project is an app that contains one or more individual functions that each responds to a specific trigger. All functions in a project share the same configurations and are deployed as a unit to Azure. In this section, you create a code project that contains a single function.
 ::: zone pivot="programming-language-csharp" 
 1. In a terminal or command prompt, run this [`func init`](./functions-core-tools-reference.md#func-init) command to create a function app project in the current folder:  
  
@@ -134,9 +134,9 @@ The project root folder contains various files for the project, including config
 
 ## Run the function locally
 
-1. Run your function by starting the local Azure Functions runtime host from the root folder:
+Verify your new function by running the project locally and calling the function endpoint. 
 
-   To test the function locally, start the local Azure Functions runtime host in the root of the project folder.
+1. Use this command to start the local Azure Functions runtime host in the root of the project folder:
     ::: zone pivot="programming-language-csharp"  
     ```console
     func start  
