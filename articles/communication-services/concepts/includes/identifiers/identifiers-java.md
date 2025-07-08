@@ -118,7 +118,7 @@ OrganizationCollectionPage organizations = graphClient.organization()
     .get();
 String tenantId = organizations.getCurrentPage().get(0).id;
 
-//Communication Services Resource ID
+// Communication Services Resource ID
 var resourceId = "<resource-id-guid>";
 
 // create an identifier
