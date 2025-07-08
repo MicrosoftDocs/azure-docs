@@ -140,7 +140,7 @@ Policy compliance and governance ensure that your Web Application Firewall deplo
 
 * **Implement automated compliance monitoring**: Use Microsoft Defender for Cloud and Azure Policy to continuously monitor WAF compliance and receive recommendations for unprotected web applications. Configure automated alerts for policy violations and compliance drift. See [Azure Web Application Firewall and Azure Policy](./shared/waf-azure-policy.md).
 
-## Next steps
+## Related content
 
 - [Security baseline](/security/benchmark/azure/baselines/web-application-firewall-security-baseline?toc=/azure/web-application-firewall/toc.json)
 - [Azure Well-Architected Framework: Security pillar](/azure/well-architected/security/)
