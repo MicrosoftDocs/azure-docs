@@ -154,10 +154,10 @@ The new Cost Management experience, currently in preview, under **Microsoft Sent
 
 On the overview page, you can find entry points to relevant cost tracking capabilities, and a direct link to usage reports and settings, to help you navigate to the cost management action most relevant to you.
 
-1. Usage reports - visualize your usage by capability over time. Can be found under **Currently billed capabilities**.
-2. Cost management - leads you to the **Cost Management + Billing** blade in the Azure portal to help track costs and create budgets. For more information on how to use Cost Management + Billing in the Azure portal, see [Start using cost analysis](../cost-management/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-3. Cost forecast - leads you to a forecast report in the **Cost Management + Billing** blade in the Azure portal. For more information on how to use the forecast functionality, see [View forecast costs](/azure/cost-management-billing/costs/cost-analysis-common-uses#view-forecast-costs).
-4. Microsoft Sentinel settings - opens the Microsoft Sentinel settings to show your relevant billing information, such as subscription and resource group selected for the data lake.
++ Usage reports - visualize your usage by capability over time. Can be found under **Currently billed capabilities**.
++ Cost management - leads you to the **Cost Management + Billing** blade in the Azure portal to help track costs and create budgets. For more information on how to use Cost Management + Billing in the Azure portal, see [Start using cost analysis](../cost-management/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
++ Cost forecast - leads you to a forecast report in the **Cost Management + Billing** blade in the Azure portal. For more information on how to use the forecast functionality, see [View forecast costs](/azure/cost-management-billing/costs/cost-analysis-common-uses#view-forecast-costs).
++ Microsoft Sentinel settings - opens the Microsoft Sentinel settings to show your relevant billing information, such as subscription and resource group selected for the data lake.
 
 #### Usage reports
 

@@ -40,7 +40,7 @@ Microsoft Sentinel is empowered by the components that send data to your workspa
 
 For example, the following image shows how Microsoft Sentinel ingests data from other Microsoft services and multicloud and partner platforms to provide coverage for your environment:
 
-:::image type="content" source="media/best-practices/azure-sentinel-and-other-services.png"  lightbox="media/best-practices/azure-sentinel-and-other-services.png" alt-text="Microsoft Sentinel integrating with other Microsoft and partner services.":::
+:::image type="content" source="media/best-practices/azure-sentinel-and-other-services.png"  lightbox="media/best-practices/azure-sentinel-and-other-services.png" alt-text="A diagram showing the Microsoft Sentinel integrating with other Microsoft and partner services.":::
 
 More than ingesting alerts and logs from other sources, Microsoft Sentinel also:
 
@@ -62,7 +62,7 @@ Consider onboarding Microsoft Sentinel to the Microsoft Defender portal to unify
 
 The following image shows recommended steps in an incident management and response process.
 
-:::image type="content" source="media/best-practices/incident-handling.png" alt-text="Diagram of incident management process: Triage. Preparation. Remediation. Eradication. Post incident activities.":::
+:::image type="content" source="media/best-practices/incident-handling.png" alt-text="Diagram showing incident management process: Triage. Preparation. Remediation. Eradication. Post incident activities.":::
 
 The following table provides high-level descriptions for how to use Microsoft Sentinel features for incident management and response. For more information, see [Investigate incidents with Microsoft Sentinel](investigate-cases.md).
 

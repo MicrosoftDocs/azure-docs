@@ -32,7 +32,7 @@ Microsoft recommends classifying data ingested into Microsoft Sentinel into two 
 
 ### Primary security data
 
-This category consists of logs that hold critical security value for your organization. Primary security data are described by the following use cases for security operations:
+This category consists of logs that hold critical security value for your organization. Primary security data use cases for security operations include:
 
 - **Frequent monitoring**. [Threat detection (analytics) rules](threat-detection.md) are run on this data at frequent intervals or in near real time.
 
@@ -67,15 +67,14 @@ This category encompasses logs whose individual security value is limited but ar
 
 Some examples of secondary data log sources are cloud storage access logs, NetFlow logs, TLS/SSL certificate logs, firewall logs, proxy logs, and IoT logs. To learn more about how each of these sources brings value to security detections without being needed all the time, see [Log sources to use for Auxiliary Logs ingestion](basic-logs-use-cases.md).
 
-Logs containing secondary security data should be stored using the [**Auxiliary logs**](#auxiliary-logs-plan) plan described later in this article.
+For logs containing secondary security data, use the [**Auxiliary logs**](#auxiliary-logs-plan) plan. 
 
 > [!IMPORTANT]
-> We recommend that users consider Microsoft Sentinel data lake as the preferred solution for storing secondary and long-term data. Sentinel data lake is designed to offer enhanced scalability, flexibility, and integration capabilities for advanced security and compliance scenarios.
+> We recommend that users consider Microsoft Sentinel data lake as the preferred solution for storing secondary and long-term data. Microsoft Sentinel data lake is designed to offer enhanced scalability, flexibility, and integration capabilities for advanced security and compliance scenarios.
 > For more information, see [Microsoft Sentinel data lake (Preview)](https://aka.ms/sentinel-lake-overview).
-> Sentinel Data Lake is currently in public preview and not yet generally available. We advise users to monitor updates and announcements regarding it's availability status.
+> Microsoft Sentinel Data Lake is currently in public preview and not yet generally available. We advise users to monitor updates and announcements regarding its availability status.
 
 
-(The existing **Basic logs** plan also serves this purpose, but it costs more and is not recommended for new instances.)
 
 ## Log management plans
 
@@ -83,7 +82,7 @@ Microsoft Sentinel provides two different log storage plans, or types, to accomm
 
 - The [**Analytics logs**](#analytics-logs-plan) plan is designed to store primary security data and make it easily and constantly accessible at high performance.
 
-- The [**Auxiliary logs**](#auxiliary-logs-plan) plan is designed to store secondary security data at very low cost for long periods of time, while still allowing for limited accessibility.
+- The [**Auxiliary logs**](#auxiliary-logs-plan) plan is designed to store secondary security data at low cost for long periods of time, while still allowing for limited accessibility.
 
 **Each of these plans preserves data in two different states:**
 
@@ -99,20 +98,20 @@ The following diagram summarizes and compares these two log management plans.
 
 ### Analytics logs plan
 
-> [!IMPORTANT]
-> We recommend that users consider Microsoft Sentinel data lake as the preferred solution for storing secondary and long-term data. Sentinel data lake is designed to offer enhanced scalability, flexibility, and integration capabilities for advanced security and compliance scenarios.
-> For more information, see [Microsoft Sentinel data lake (Preview)](https://aka.ms/sentinel-lake-overview).
-> Sentinel Data Lake is currently in public preview and not yet generally available. We advise users to monitor updates and announcements regarding it's availability status.
-
 The **Analytics logs** plan keeps data in the **interactive retention** state for **90 days** by default, extensible for up to two years. This interactive state, while expensive, allows you to query your data in unlimited fashion, with high performance, at no charge per query.
 
-When the interactive retention period ends, data goes into the **long-term retention** state, while remaining in its original table. The long-term retention period is not defined by default, but you can define it to last up to 12 years. This retention state preserves your data at extremely low cost, for regulatory compliance or internal policy purposes. You can access the data in this state only by using a [**search job**](investigate-large-datasets.md) or [**restore**](restore.md) to pull out limited sets of data into a new table in interactive retention, where you can bring the full query capabilities to bear on it.
+When the interactive retention period ends, data goes into the **long-term retention** state, while remaining in its original table. The long-term retention period isn't defined by default, but you can define it to last up to 12 years. This retention state preserves your data at low cost, for regulatory compliance or internal policy purposes. You can access the data in this state only by using a [**search job**](investigate-large-datasets.md) or [**restore**](restore.md) to pull out limited sets of data into a new table in interactive retention, where you can bring the full query capabilities to bear on it.
 
 ### Auxiliary logs plan
 
-The **Auxiliary logs** plan keeps data in the **interactive retention** state for **30 days**. In the Auxiliary plan, this state has very low retention costs as compared to the Analytics plan. However, the query capabilities are limited: queries are charged per gigabyte of data scanned and are limited to a single table, and performance is significantly lower. While this data remains in the interactive retention state, you can run [summary rules](/azure/azure-monitor/logs/summary-rules) on this data to create tables of aggregate, summary data in the Analytics logs plan, so that you have the full query capabilities on this aggregate data.
+> [!IMPORTANT]
+> We recommend that users consider Microsoft Sentinel data lake as the preferred solution for storing secondary and long-term data. Microsoft Sentinel data lake is designed to offer enhanced scalability, flexibility, and integration capabilities for advanced security and compliance scenarios.
+> For more information, see [Microsoft Sentinel data lake (Preview)](https://aka.ms/sentinel-lake-overview).
+> Microsoft Sentinel Data Lake is currently in public preview and not yet generally available. We advise users to monitor updates and announcements regarding its availability status.
 
-When the interactive retention period ends, data goes into the **long-term retention** state, remaining in its original table. Long-term retention in the auxiliary logs plan is similar to long-term retention in the analytics logs plan, except that the only option to access the data is with a [**search job**](investigate-large-datasets.md). [Restore](restore.md) is not supported for the auxiliary logs plan.
+The **Auxiliary logs** plan keeps data in the **interactive retention** state for **30 days**. In the Auxiliary plan, this state has low retention costs as compared to the Analytics plan. However, the query capabilities are limited: queries are charged per gigabyte of data scanned and are limited to a single table, and performance is significantly lower. While this data remains in the interactive retention state, you can run [summary rules](/azure/azure-monitor/logs/summary-rules) on this data to create tables of aggregate, summary data in the Analytics logs plan, so that you have the full query capabilities on this aggregate data.
+
+When the interactive retention period ends, data goes into the **long-term retention** state, remaining in its original table. Long-term retention in the auxiliary logs plan is similar to long-term retention in the analytics logs plan, except that the only option to access the data is with a [**search job**](investigate-large-datasets.md). [Restore](restore.md) isn't supported for the auxiliary logs plan.
 
 
 

@@ -61,7 +61,7 @@ These activities must be configured manually by the customer and don't happen au
 
 A customer-enabled BCDR setup ensures that if an Azure regional outage occurs in one of the customer's regions, the other paired region, which is geographically and physically separate from the impacted region, remains unaffected. As a result, continuous business operations can proceed without any downtime or data loss.
 
-## Enabling BCDR for Microsoft Data Lake
+## Enable BCDR for Microsoft Data Lake
 
 Before setting up BCDR for Microsoft Sentinel data lake, ensure that BCDR is already enabled for Microsoft Sentinel, and that customers have two identical Log Analytics workspaces in the primary and secondary regions. 
 
