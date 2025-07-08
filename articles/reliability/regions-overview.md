@@ -36,7 +36,7 @@ For a list of Azure regions, see [List of Azure regions](./regions-list.md). If 
 
 ## Choosing Azure regions
 
-When you design a solution, you need to choose the Azure regions that you want to use. The regions you choose can affect the resiliency of your solution, and they can also affect the performance of your solution. 
+When you design a solution, you need to choose the Azure regions that you want to use. The regions you choose can affect the resiliency of your solution, as well as many other aspects of your solution.
 
 When you select regions, consider the following factors:
 
