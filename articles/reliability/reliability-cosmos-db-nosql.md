@@ -91,7 +91,7 @@ To enable availability zone support you can use:
 
 * [Azure Resource Manager templates](/azure/cosmos-db/manage-with-templates)
 
-<a name="migrate-to-availability-zone-support">
+<a name="migrate-to-availability-zone-support"></a>
 
 #### Enable availability zone support
 
