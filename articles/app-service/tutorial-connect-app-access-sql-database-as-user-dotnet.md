@@ -41,8 +41,6 @@ When you complete the tutorial, your app securely connects to SQL Database on be
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
-
 - Have access to a Microsoft Entra tenant populated with users and groups.
 
 - Have an Azure App Service app that uses Azure SQL Database with SQL authentication as the back end. You can use the sample app from either of the following tutorials:
@@ -63,10 +61,6 @@ When you complete the tutorial, your app securely connects to SQL Database on be
 
 Enable Microsoft Entra authentication to the Azure SQL database by assigning a Microsoft Entra user as the admin of the Azure SQL server. The Microsoft Entra admin must be a user that is created, imported, synced, or invited into Microsoft Entra ID. The Microsoft Entra user might not be the same as the Microsoft account user for the Azure subscription.
 
-- For more information on creating a Microsoft Entra user, see [Add or delete users using Microsoft Entra ID](/entra/fundamentals/how-to-create-delete-users).
-- For more information on allowed Microsoft Entra users for SQL Database, see [Microsoft Entra features and limitations in SQL Database](/azure/azure-sql/database/authentication-aad-overview#limitations).
-- For more information on adding an Azure SQL server admin, see [Provision a Microsoft Entra administrator for your server](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
-
 To add the Microsoft Entra ID user as admin of the Azure SQL server, run the following Azure CLI commands.
 
 1. Use [`az ad user list`](/cli/azure/ad/user#az-ad-user-list) with the `display-name`, `filter`, or `upn` parameter to get the object ID for the Microsoft Entra ID user you want to make admin. For example, the following command lists information for a Microsoft Entra ID user with the `display-name` of Firstname Lastname.
@@ -79,8 +73,8 @@ To add the Microsoft Entra ID user as admin of the Azure SQL server, run the fol
    
    >[!TIP]
    >You can run `az ad user list` standalone to show information for all the users in the Microsoft Entra directory.
- 
- 1. Add the Microsoft Entra ID user as an admin on your Azure SQL server by using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) with the `object-id` parameter. In the following command, replace `<group-name>` with your server's resource group name, `<server-name>` with your server's name minus the `.database.windows.net` suffix, and `<entra-id>` with the `id` output from the preceding `az ad user list` command.
+
+1. Add the Microsoft Entra ID user as an admin on your Azure SQL server by using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) with the `object-id` parameter. In the following command, replace `<group-name>` with your server's resource group name, `<server-name>` with your server's name minus the `.database.windows.net` suffix, and `<entra-id>` with the `id` output from the preceding `az ad user list` command.
 
    ```azurecli
    az sql server ad-admin create --resource-group <group-name> --server-name <server-name> --display-name ADMIN --object-id <entra-id>
@@ -92,6 +86,9 @@ To add the Microsoft Entra ID user as admin of the Azure SQL server, run the fol
    az sql server ad-only-auth enable --resource-group <group-name> --name <server-name>
    ```
 
+- For more information on creating a Microsoft Entra user, see [Add or delete users using Microsoft Entra ID](/entra/fundamentals/how-to-create-delete-users).
+- For more information on allowed Microsoft Entra users for SQL Database, see [Microsoft Entra features and limitations in SQL Database](/azure/azure-sql/database/authentication-aad-overview#limitations).
+- For more information on adding an Azure SQL server admin, see [Provision a Microsoft Entra administrator for your server](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
 ## 2. Enable Microsoft Entra ID authentication for your app
 
 Add Microsoft Entra ID as an identity provider for your app. For more information, see [Configure Microsoft Entra authentication for your App Services application](configure-authentication-provider-aad.md).
