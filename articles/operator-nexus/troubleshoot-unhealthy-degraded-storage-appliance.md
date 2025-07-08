@@ -24,7 +24,7 @@ You can see the current usage of the appliance by navigating to the Storage Appl
 navigating to the `Monitoring > Metrics` tab, and selecting `Nexus Storage Array Space Utilization` from
 the `Metric` dropdown.
 
-:::image type="content" source="media/storage-metrics-utilization.png" alt-text="Screenshot of a metric showing the percentage utilization of a Storage Appliance.":::
+:::image type="content" source="media/storage-metrics-utilization.png" alt-text="Screenshot of a metric showing the percentage utilization of a Storage Appliance." ligthbox="media/storage-metrics-utilization.png":::
 
 These issues can be addressed by reducing the load on the Storage Appliance. This outcome can be
 achieved by:
@@ -71,7 +71,7 @@ You can find more details of the specific alert(s), using the following instruct
   select all of the boxes. You will see a summary of the alert, and the vendor alert code. Use this information
   to search your vendor documentation for further details of the alert.
 
-:::image type="content" source="media/storage-metrics-alerts.png" alt-text="Screenshot of a metric showing an active alert on a Storage Appliance.":::
+:::image type="content" source="media/storage-metrics-alerts.png" alt-text="Screenshot of a metric showing an active alert on a Storage Appliance." lightbox="media/storage-metrics-alerts.png":::
 
 Once you have this information, use it to determine the appropriate next action. You should either:
 
@@ -101,7 +101,7 @@ is the cause:
 - Click `+ New Chart`, and select the `Nexus Storage Array Performance Throughput Iops (Avg)` metric.
   Click `Apply Splitting`, and select `Dimension` as the dimension to split on.
 
-:::image type="content" source="media/storage-metrics-latency-throughput.png" alt-text="Screenshot of a metric showing the latency and throughput on a Storage Appliance.":::
+:::image type="content" source="media/storage-metrics-latency-throughput.png" alt-text="Screenshot of a metric showing the latency and throughput on a Storage Appliance." lightbox="media/storage-metrics-latency-throughput.png":::
 
 By comparing the resulting graphs, you can determine whether high load is the cause. If so, reduce the
 load to resolve the health event.
@@ -123,7 +123,7 @@ that starts shortly before the start time of the resource health alert. After id
 unhealthy network interface(s), and error types, you should raise a ticket with your Storage Appliance
 vendor.
 
-:::image type="content" source="media/storage-metrics-network-errors.png" alt-text="Screenshot of a metric showing network interface errors on a Storage Appliance.":::
+:::image type="content" source="media/storage-metrics-network-errors.png" alt-text="Screenshot of a metric showing network interface errors on a Storage Appliance." lightbox="media/storage-metrics-network-errors.png":::
 
 ## Network latency
 
