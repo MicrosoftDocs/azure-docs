@@ -2,7 +2,7 @@
 title: Secure your Azure Firewall deployment
 description: Learn how to secure Azure Firewall with best practices for network security, data protection, logging, threat detection, and advanced security features to protect your cloud infrastructure.
 author: duongau
-ms.author: duong
+ms.author: duau
 ms.service: azure-firewall
 ms.topic: conceptual
 ms.custom: horz-security
