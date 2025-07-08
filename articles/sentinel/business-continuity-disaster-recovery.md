@@ -9,6 +9,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+ms.custom: references_regions
 
 #customerIntent: As a security administrator, I want to understand and implement Business Continuity and Disaster Recovery (BCDR) strategies in Microsoft Sentinel in order to ensure high availability and resilience of my security operations.
 
