@@ -100,7 +100,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     	"time"
 
     	"github.com/microsoft/Featuremanagement-Go/featuremanagement"
-		"github.com/microsoft/Featuremanagement-Go/featuremanagement/providers/azappconfig"
+    	"github.com/microsoft/Featuremanagement-Go/featuremanagement/providers/azappconfig"
     )
 
     func main() {
@@ -169,7 +169,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     ```
     ---
 
-1. The application will start monitoring the *Beta* feature flag and display its current state every 5 seconds:
+1. The application starts monitoring the *Beta* feature flag and displays its current state every 5 seconds:
 
     ```console
     Monitoring 'Beta' feature flag (press Ctrl+C to exit):
@@ -200,23 +200,17 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 [!INCLUDE[Azure App Configuration cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## Next steps
+## Related content
 
-In this quickstart, you created a feature flag in Azure App Configuration and used it in a Go console application. The [Feature Management Go library](https://github.com/microsoft/FeatureManagement-Go) provides rich feature flag capabilities that integrate seamlessly with Azure App Configuration. For more features, continue to the following document.
+In this quickstart, you created a feature flag in Azure App Configuration and used it in a Go Gin web application. The [Feature Management Go library](https://github.com/microsoft/FeatureManagement-Go) provides feature flag capabilities that integrate seamlessly with Azure App Configuration.For more features, continue to the following document.
 
-> [!div class="nextstepaction"]
-> [Go Feature Management reference](https://pkg.go.dev/github.com/microsoft/Featuremanagement-Go/featuremanagement)
+- [Go Feature Management reference](https://pkg.go.dev/github.com/microsoft/Featuremanagement-Go/featuremanagement)
 
 While a feature flag allows you to activate or deactivate functionality in your app, you may want to customize a feature flag based on your app's logic. Feature filters allow you to enable a feature flag conditionally. For more information, continue to the following tutorial.
 
-> [!div class="nextstepaction"]
-> [Enable conditional features with feature filters](./howto-feature-filters.md)
+- [Enable conditional features with feature filters](./howto-feature-filters.md)
 
 Azure App Configuration offers built-in feature filters that enable you to activate a feature flag only during a specific period or to a particular targeted audience of your app. For more information, continue to the following tutorial.
 
-> [!div class="nextstepaction"]
-> [Enable features on a schedule](./howto-timewindow-filter.md)
-
-> [!div class="nextstepaction"]
-> [Roll out features to targeted audiences](./howto-targetingfilter.md)
-
+- [Enable features on a schedule](./howto-timewindow-filter.md)
+- [Roll out features to targeted audiences](./howto-targetingfilter.md)
