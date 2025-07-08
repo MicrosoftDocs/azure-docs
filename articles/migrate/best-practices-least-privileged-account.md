@@ -6,7 +6,6 @@ ms.author: molir
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/04/2025
-monikerRange: migrate
 ms.custom:
   - build-2025
 # Customer intent: As an IT administrator, I want to securely configure Azure Migrate Appliance with least privilege access by setting up read-only VMware roles with guest operations and scoped permissions, enabling efficient workload discovery, software inventory, and agentess migration.
