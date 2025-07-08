@@ -445,7 +445,7 @@ The following table summarizes the available attributes by source:
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Container metadata |
-> | **Description** | Metadata key/value pair associated with a container.<br/>Use when you want to check specific metadata for a container. *Currently in preview.* |
+> | **Description** | Metadata key/value pair associated with a container.<br/>Use when you want to check specific metadata for a container. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/metadata` |
 > | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
