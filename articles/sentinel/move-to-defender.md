@@ -37,7 +37,7 @@ Before you start, note:
  
 Review all planning guidance and finish all prerequisites before you onboard your workspace to the Defender portal. For more information, see the following articles:
 
-- [**Plan for unified security operations in the Defender portal**](/unified-secops-platform/overview-plan). After onboarding to the Defender portal, the **[Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-contributor) role is assigned to the **Microsoft Threat Protection** and **WindowsDefenderATP** apps in your subscription.
+- [**Plan for unified security operations in the Defender portal**](/unified-secops-platform/overview-plan). After onboarding to the Defender portal, the **[Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-contributor)** role is assigned to the **Microsoft Threat Protection** and **WindowsDefenderATP** apps in your subscription.
 
 - [**Deploy for unified security operations in the Defender portal**](/unified-secops-platform/overview-deploy). While this article is for new customers who don't yet have a workspace for Microsoft Sentinel or other services onboarded to the Defender portal, use it as a reference if you're moving to the Defender portal.
 
