@@ -10,7 +10,7 @@ ms.author: edbaynash
 # Customer intent: As a security engineer or data scientist, I want to see examples of how to query the Microsoft Sentinel data lake using Jupyter notebooks, so I can analyze security data effectively.
 ---
  
-# Jupyter Notebook code examples  
+# Jupyter notebook code examples  
  
 This article presents some sample code snippets that demonstrate how to interact with Microsoft Sentinel lake data (preview) using Jupyter notebooks to analyze security data in the Microsoft Sentinel data lake. These examples illustrate how to access and analyze data from various tables, such as Entra ID sign-in logs, group information, and device network events. The code snippets are designed to run in Jupyter notebooks within Visual Studio Code using the Microsoft Sentinel extension.
 
@@ -107,7 +107,7 @@ The following screenshot shows a sample of the output of the code above, display
 
 :::image type="content" source="media/notebook-examples/failed-login-analysis.png" lightbox="media/notebook-examples/failed-login-analysis.png" alt-text="A screenshot showing a bar chart of the users with the highest number of failed sign in attempts.":::
 
-## Access lake tier Entra ID Group Table  
+## Access lake tier Entra ID Group table  
 
 
 The following code sample demonstrates how to access the Entra ID `Group` table in the Microsoft Sentinel data lake. It retrieves various fields such as displayName, groupTypes, mail, mailNickname, description, and tenantId. 
@@ -207,7 +207,7 @@ sign_in_locations_df.show(100, truncate=False)
 
 ## Brute force attack from multiple failed sign ins
 
-Identify potential brute force attacks by analyzing user sign-in logs for accounts with a high number of failed sign in attempts
+Identify potential brute force attacks by analyzing user sign-in logs for accounts with a high number of failed sign in attempts.
 
 ```python
 from sentinel_lake.providers import MicrosoftSentinelProvider
@@ -239,9 +239,9 @@ result_df = aad_signin.unionByName(aad_non_int)
 result_df.show()
 ```
 
-## Detecting lateral movement attempts
+## Detect lateral movement attempts
 
-Use DeviceNetworkEvents to identify suspicious internal IP connections that may signal lateral movement, for example, abnormal SMB/RDP traffic between endpoints
+Use DeviceNetworkEvents to identify suspicious internal IP connections that may signal lateral movement, for example, abnormal SMB/RDP traffic between endpoints.
 
 ```python
 from sentinel_lake.providers import MicrosoftSentinelProvider
@@ -272,7 +272,7 @@ suspicious_lateral = (
 suspicious_lateral.show()
 ```
 
-## Uncovering credential dumping tools
+## Uncover credential dumping tools
 
 Query DeviceProcessEvents to find processes like mimikatz.exe or unexpected execution of lsass.exe access, which could indicate credential harvesting.
 
@@ -375,9 +375,9 @@ else:
     print("No correlated USB and sensitive file access events found in the selected period.")
 ```
 
-## Beaconing behavior detection
+## Beacon behavior detection
 
-Detect potential command-and-control by clustering regular outbound connections at low byte volumes over long durations
+Detect potential command-and-control by clustering regular outbound connections at low byte volumes over long durations.
 
 ```python
 # Setup
@@ -439,7 +439,6 @@ plt.ylabel("Connection Count")
 plt.grid(True)
 plt.tight_layout()
 plt.show()
-
 ```
 
 

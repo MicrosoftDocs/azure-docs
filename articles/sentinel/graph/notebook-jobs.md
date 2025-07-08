@@ -20,6 +20,19 @@ You can create schedule jobs to run at specific times or intervals using the Mic
 
 Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To create and schedule jobs, read tables across all workspaces, write to the analytics and lake tiers, you must have one of the supported Microsoft Entra ID roles. For more information on roles and permissions, see [Roles and permissions in Microsoft Sentinel](https://aka.ms/sentinel-data-lake-roles).
 
+To create new custom tables in the analytics tier, the data lake managed identity must be assigned the **Log Analytics Contributor** role in the Log Analytics workspace.
+
+To assign the role, follow the steps below:
+
+1. In the Azure portal, navigate to the Log Analytics workspace that you want to assign the role to.
+1. Select **Access control (IAM)** in the left navigation pane.
+1. Select **Add role assignment**.
+1. In the **Role** table, select ***Log Analytics Contributor**, then select **Next**
+1. Select **Managed identity**, then select **Select members**.
+1. Your data lake managed identity is a system assigned managed identity named `msg-resources-<guid>`. Select the managed identity, then select **Select**. 
+1. Select **Review and assign**.
+
+For more information on assigning roles to managed identities, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## Create and schedule a job
 
@@ -30,7 +43,7 @@ To create schedule a job, you must save your notebook as a file.
 
 1. In the **Explorer** pane, right-click the notebook file and select **Microsoft Sentinel**, then select **Create schedule Job**.
 
-    :::image type="content" source="./media/notebooks/create-job.png" lightbox="./media/notebooks/create-job.png" alt-text="A screenshot showing how to create a new job in Visual Studio Code."  :::
+    :::image type="content" source="./media/notebook-jobs/create-job.png" lightbox="./media/notebook-jobs/create-job.png" alt-text="A screenshot showing how to create a new job in Visual Studio Code."  :::
 
 1. On the **Job configuration** page, in the **Job details** section enter a **name** and **description** for the job.
 1. To run a job manually without a schedule, select **Off** under **Scheduled Run** in the **Schedule Configuration** section.    
@@ -44,14 +57,17 @@ To create schedule a job, you must save your notebook as a file.
     1. Select a **Time zone** for the start and end times.
     1. Select **Publish job** to save the job configuration and publish the job.
 
-    :::image type="content" source="./media/notebooks/job-configuration.png" lightbox="./media/notebooks/job-configuration.png" alt-text="A screenshot showing the job configuration page."  :::
+    :::image type="content" source="./media/notebook-jobs/job-configuration.png" lightbox="./media/notebook-jobs/job-configuration.png" alt-text="A screenshot showing the job configuration page."  :::
 
-1. Select the Microsoft Sentinel shield icon in the left toolbar to view the job in the **Jobs** section.
+1. To view your jobs, select the Microsoft Sentinel shield icon in the left toolbar. Jobs are displayed the **Jobs** panel.
 
 1. Select the job then select **Run now** to run a job immediately. If your job is a scheduled job, it runs at the specified time and frequency. 
+
+    :::image type="content" source="./media/notebook-jobs/job-details.png" lightbox="./media/notebook-jobs/job-details.png" alt-text="A screenshot showing the job details page."  :::
+
 1. View the job status in the **Runs** tab.
 
-  :::image type="content" source="./media/notebooks/job-runs.png" lightbox="./media/notebooks/job-runs.png" alt-text="A screenshot showing the job runs page."  :::
+    :::image type="content" source="./media/notebook-jobs/job-runs.png" lightbox="./media/notebook-jobs/job-runs.png" alt-text="A screenshot showing the job runs page."  :::
 
 
 ## Edit a published job
@@ -81,13 +97,13 @@ To edit a published job follow the steps below:
 
 
 
-## Viewing jobs in the Microsoft Defender portal
+## View jobs in the Microsoft Defender portal
 
-You can view your notebook jobs in the Defender portal. To view your jobs:
+In addition ot viewing jobs in VS Code, you can also view your notebook jobs in the Defender portal. To view your jobs:
 
-1. In the Defender portal, navigate to the **Microsoft Sentinel** menu item
-1. Select the **Data lake explorer**
-1. Select the **Jobs** 
+1. In the Defender portal, navigate to the **Microsoft Sentinel** menu item.
+1. Select the **Data lake explorer**.
+1. Select the **Jobs** .
 
 The page shows a list of jobs and their types. Select a notebook job to view its details. You can enable and disable the job's schedule but you can't edit a notebook job in the Defender portal.
 
@@ -96,7 +112,8 @@ The page shows a list of jobs and their types. Select a notebook job to view its
 
 ## Service limits and troubleshooting
 
-[!INCLUDE[service-limits-notebooks] (../includes/service-limits-notebooks.md)]
+For a list of service limits for the Microsoft Sentinel data lake, see [Microsoft Sentinel data lake service limits](sentinel-lake-service-limits.md#service-limits-for-vs-code-notebooks).  
+  
 
 For information on troubleshooting, see [Run notebooks on the Microsoft Sentinel data lake (preview)](notebooks.md#service-limits).
 

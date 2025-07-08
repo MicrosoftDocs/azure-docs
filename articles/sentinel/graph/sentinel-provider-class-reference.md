@@ -1,5 +1,5 @@
 ---  
-title: Microsoft Sentinel Provider class reference (Preview)
+title: Microsoft Sentinel data lake Microsoft Sentinel Provider class reference (Preview)
 description: Reference documentation for the Microsoft Sentinel Provider class, which allows you to connect to the Microsoft Sentinel data lake and perform various operations.
 author: EdB-MSFT
 ms.service: microsoft-sentinel
@@ -36,7 +36,7 @@ lake_provider = MicrosoftSentinelProvider(spark)
 
 ### list_databases
 
-List all available databases / Microsoft Sentinel workspaces 
+List all available databases / Microsoft Sentinel workspaces.
 
 ```python
 lake_provider.list_databases()    
@@ -47,15 +47,15 @@ Returns:
  
 ### list_tables
 
-List all tables in a given database
+List all tables in a given database.
 
 ```python
-lake_provider.list_tables({database})
+lake_provider.list_tables([database],[id])
    
 ```
 
 Parameters:
-- `database` (str): The name of the database (workspace) to list tables from.
+- `database` (str, optional): The name of the database (workspace) to list tables from. Default value: `default`.
 - `id` (str, optional): The unique identifier of the database if workspace names aren't unique.
 
 Returns:
@@ -72,15 +72,15 @@ lake_provider.list_tables("workspace1", id="ab1111112222ab333333")
 
 ### read_table
 
-Load a DataFrame from a table in Lake
+Load a DataFrame from a table in Lake.
 
 ```python
-lake_provider.read_table({table}, {database}, [id])
+lake_provider.read_table({table}, [database], [id])
 ```
 
 Parameters:
 - `table_name` (str): The name of the table to read.
-- `database` (str): The name of the database (workspace) containing the table.
+- `database` (str, optional): The name of the database (workspace) containing the table. Default value: `default`.
 - `id` (str, optional): The unique identifier of the database if workspace names aren't unique.
 
 Returns:
@@ -88,8 +88,7 @@ Returns:
 
 Example:
 ```python
-# Native tables, custom tables
-df = lake_provider.read_table("user", "default")
+df = lake_provider.read_table("user", "lakeworkspace1")
 ```
 
 ### save_as_table
@@ -97,13 +96,13 @@ df = lake_provider.read_table("user", "default")
 Write a DataFrame as a managed table. You can write to the lake tier by using the `_SPRK` suffix in your table name, or to the analytics tier by using the `_SPRK_CL` suffix.                
 
 ```python
-lake_provider.save_as_table({DataFrame}, {table_name}, {database}, [id], [WriteOptions])
+lake_provider.save_as_table({DataFrame}, {table_name}, [database], [id], [WriteOptions])
 ```
 
 Parameters:
 - `DataFrame` (DataFrame): The DataFrame to write as a table.
 - `table_name` (str): The name of the table to create or overwrite.
-- `database` (str): The name of the database (workspace) to save the table in.
+- `database` (str, optional): The name of the database (workspace) to save the table in. Default value: `default`.
 - `id` (str, optional): The unique identifier of the database if workspace names aren't unique.
 - `WriteOptions` (dict, optional): Options for writing the table, such as `mode` ("append", "overwrite").
 
@@ -112,18 +111,27 @@ Returns:
 
 Examples:
 
-Create new custom table in the data lake tier
+Create new custom table in the data lake tier in the `lakeworkspace` workspace.
 
 ```python
 lake_provider.save_as_table(dataframe, "CustomTable1_SPRK", "lakeworkspace")
 ```
 
-Create new custom table in the analytics tier
+Append to a table in the default workspace in the data lake tier.
+```python
+write_options = {
+    'mode': 'append'
+}
+lake_provider.save_as_table(dataframe, "CustomTable1_SPRK", write_options=write_options)
+```
+
+
+Create new custom table in the analytics tier.
 ```python
 lake_provider.save_as_table(dataframe, "CustomTable1_SPRK_CL", "analyticstierworkspace")
 ```
 
-Append or overwrite to an existing custom table in the analytics tier
+Append or overwrite to an existing custom table in the analytics tier.
 ```python
 write_options = {
     'mode': 'append'
@@ -137,11 +145,11 @@ Deletes the table from the lake tier. You can delete table from lake tier by usi
 
 
 ```python
-lake_provider.delete_table({table_name}, {database}, [id])
+lake_provider.delete_table({table_name}, [database], [id])
 ```
 Parameters:
 - `table_name` (str): The name of the table to delete.
-- `database` (str): The name of the database (workspace) containing the table.
+- `database` (str, optional): The name of the database (workspace) containing the table. Default value: `default`.
 - `id` (str, optional): The unique identifier of the database if workspace names aren't unique.
 
 Returns:
