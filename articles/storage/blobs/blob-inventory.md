@@ -434,6 +434,17 @@ If a container or directory is deleted with soft-delete enabled, then the contai
 
 Only blobs that are explicitly deleted appear in reports. Therefore, to obtain a complete listing of all soft-deleted blobs (directory and all child blobs), workloads should delete each blob in a directory before deleting the directory itself.
 
+### Handling Duplicates in Blob Inventory
+
+Blob Inventory operates on a distributed system, which means that in rare cases, duplicate blob entries may appear in your reports.
+
+When post processing your inventory report, if your use case requires unique blob entries, to remove duplicates:
+
+-	Use the `Name` field to identify and return only the unique blobs.
+  
+- If your report includes blob versions, use both the `Name` and `Version ID` fields together to identify and return only the unique blobs and versions .
+
+
 ## Next steps
 
 - [Enable Azure Storage blob inventory reports](blob-inventory-how-to.md)
