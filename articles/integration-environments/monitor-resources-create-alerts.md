@@ -208,7 +208,7 @@ The visualizations for application-specific dashboards are built on [Azure Workb
 
       Under the table with the failure rates for different workflows, a runs table appears for the selected workflow, for example:
 
-      :::image type="content" source="media/monitor-resources-create-alerts/workflow-runs.png" alt-text="Screenshot shows a specifid workflow, and other details such as status, resubmit option, duration, and properties." lightbox="media/monitor-resources-create-alerts/workflow-runs.png":::
+      :::image type="content" source="media/monitor-resources-create-alerts/workflow-runs.png" alt-text="Screenshot shows specific workflow, and other details such as status, resubmit option, duration, and properties." lightbox="media/monitor-resources-create-alerts/workflow-runs.png":::
 
       This runs table includes relevant details about each workflow run. Each row has a unique correlation ID, which tracks the data flow across all Azure resources in an application.
 
@@ -216,7 +216,7 @@ The visualizations for application-specific dashboards are built on [Azure Workb
 
       - Filter the table by run status so that you can more easily focus on specific scenarios.
 
-      - For properties information about a specific run, in the **Properties** column, select the **Properties** link.
+      - For properties and other information about a specific run, in the **Properties** column, select the **Properties** link.
 
       - To view the processing hops for a message, select the row for a specific run.
       
