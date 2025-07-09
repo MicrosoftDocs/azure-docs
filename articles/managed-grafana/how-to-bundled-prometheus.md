@@ -4,7 +4,7 @@ description: Learn how to configure bundled Prometheus in Azure Managed Grafana.
 keywords: Azure Managed Grafana, Prometheus, bundled Prometheus
 author: maud-lv
 ms.topic: how-to
-ms.date: 06/19/2025
+ms.date: 07/09/2025
 ms.author: malev
 ms.reviewer: malev
 ms.service: azure-managed-grafana
@@ -56,7 +56,7 @@ Alert rules monitor your Prometheus metrics and trigger notifications when speci
 Follow these steps to create an alert rule:
 
 1. In the Grafana UI, go to **Alerting** > **Alert rules** and select **New alert rule**.
-    :::image type="content" source="media/bundled-prometheus/new-alert-rule.png" alt-text="Screenshot of the Alert rules page in Grafana with the New alert rule action highlighted." lightbox="media/bundled-prometheus/new-alert-rule.png"::::::
+    :::image type="content" source="media/bundled-prometheus/new-alert-rule.png" alt-text="Screenshot of the Alert rules page in Grafana with the New alert rule action highlighted." lightbox="media/bundled-prometheus/new-alert-rule.png":::
 
 1. Enter an alert rule name that describes what you're monitoring.
 1. Define a query and alert condition: select **bundled-azure-prometheus** from the dropdown and define your query and alert condition.
@@ -74,14 +74,17 @@ For more details, see [Create Grafana-managed alert rules](https://grafana.com/d
 Follow these steps to create a new recording rule:
 
    1. On the **Alert rules** page which is open, select **New recording rule**.
-    :::image type="content" source="media/bundled-prometheus/new-recording-rule.png" alt-text="Screenshot of the Alert rules page in Grafana with the New recording rule button highlighted.":::
+            
+        :::image type="content" source="media/bundled-prometheus/new-recording-rule.png" alt-text="Screenshot of the Alert rules page in Grafana with the New recording rule button highlighted.":::
 
    1. In the page that opens, enter a name for the recording rule and a metric name.
    1. Define the rule for the bundled-azure-prometheus data source.
-    :::image type="content" source="media/bundled-prometheus/define-recording-rule.png" alt-text="Screenshot of configuring recording rule settings with query and labels." lightbox="media/bundled-prometheus/define-recording-rule.png":::
+        
+        :::image type="content" source="media/bundled-prometheus/define-recording-rule.png" alt-text="Screenshot of configuring recording rule settings with query and labels." lightbox="media/bundled-prometheus/define-recording-rule.png":::
 
    1. Set an evaluation behavior and optionally add labels.
-    :::image type="content" source="media/bundled-prometheus/set-evaluation-behaviors-labels.png" alt-text="Screenshot of the recording rule configuration form with evaluation settings.":::
+
+        :::image type="content" source="media/bundled-prometheus/set-evaluation-behaviors-labels.png" alt-text="Screenshot of the recording rule configuration form with evaluation settings.":::
 
    1. After saving, you can view the details of the recording rule under the folder you selected earlier. Select the **View** icon to view recorded
 metrics.
