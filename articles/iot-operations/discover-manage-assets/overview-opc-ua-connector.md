@@ -1,23 +1,27 @@
 ---
-title: Connect industrial assets using the connector for OPC UA
+title: Connect and control industrial assets using the connector for OPC UA
 description: Use the connector for OPC UA to connect to OPC UA servers and exchange messages and data with the MQTT broker in a Kubernetes cluster.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-opcua-connector
 ms.topic: overview
-ms.date: 10/22/2024
+ms.date: 07/09/2025
 
-# CustomerIntent: As an industrial edge IT or operations user, I want to to understand what the connector for OPC UA is and how it works with OPC UA industrial assets to enable me to add them as resources to my Kubernetes cluster.
-ms.service: azure-iot-operations
+# CustomerIntent: As an industrial edge IT or operations user, I want to to understand what the connector for OPC UA is and how it works with OPC UA industrial assets to enable me to add them as resources to my Kubernetes cluster. I want to understand how to read data from OPC UA servers and write data to implement process control.
+
 ---
 
 # What is the connector for OPC UA?
 
-OPC UA (OPC Unified Architecture) is a standard developed by the [OPC Foundation](https://opcfoundation.org/) to enable the exchange of data between industrial components at the edge and with the cloud. OPC UA provides a consistent, secure, documented standard based on widely used data formats. Industrial components can implement the OPC UA standard to enable universal data exchange.
+OPC UA (OPC Unified Architecture) is a standard developed by the [OPC Foundation](https://opcfoundation.org/) to enable the exchange of data between industrial components at the edge and with the cloud. It can route messages from OPC UA servers to the MQTT broker and send control messages to OPC UA servers. OPC UA provides a consistent, secure, documented standard based on widely used data formats. Industrial components can implement the OPC UA standard to enable universal data exchange.
 
-The connector for OPC UA is a part of Azure IoT Operations. The connector for OPC UA connects to OPC UA servers to retrieve data that it publishes to topics in the MQTT broker. The connector for OPC UA enables your industrial OPC UA environment to ingress data into your local workloads running on a Kubernetes cluster, and into your cloud workloads.
+The *OPC UA write capability (preview)* lets industrial developers and operations engineers use the connector for OPC UA to perform real-time control at the edge by writing values directly to OPC UA nodes. This capability enables immediate updates to configurations, triggers for automation, and dynamic process adjustments without relying on round-trips to the cloud.
 
-The connector for OPC UA is a client application that runs as a middleware service in Azure IoT Operations. The connector for OPC UA connects to OPC UA servers, lets you browse the server address space, and monitor data changes and events in connected assets. Operations teams and developers use the connector for OPC UA to streamline the task of connecting OPC UA assets to their industrial solution at the edge.
+The write capability useful in scenarios where latency, autonomy, or local decision making is critical such as in manufacturing lines, predictive maintenance, or in AI-driven control loops.
+
+The connector for OPC UA is a part of Azure IoT Operations. The connector for OPC UA connects to OPC UA servers to retrieve data that it publishes to topics in the MQTT broker and write data based in values from an MQTT broker topic subscription. The connector for OPC UA enables your industrial OPC UA environment to ingress data into your local workloads running on a Kubernetes cluster, and into your cloud workloads.
+
+The connector for OPC UA is a client application that runs as a middleware service in Azure IoT Operations. The connector for OPC UA connects to OPC UA servers, lets you browse the server address space, monitor data changes and events in connected assets, and write data to nodes in the server address space. Operations teams and developers use the connector for OPC UA to streamline the task of connecting OPC UA assets to their industrial solution at the edge.
 
 ## Capabilities
 
@@ -25,6 +29,7 @@ As part of Azure IoT Operations, the connector for OPC UA is a native Kubernetes
 
 - Connects existing OPC UA servers and assets to a native Kubernetes cluster at the edge.
 - Publishes JSON-encoded messages from OPC UA servers in OPC UA PubSub format, using a JSON payload. By using this standard format for data exchange, you can reduce the risk of future compatibility issues.
+- Writes values directly to nodes in a connected OPC UA server based on MQTT subscriptions.
 - Connects to Azure Arc-enabled services in the cloud.
 
 ### Other features
@@ -45,15 +50,34 @@ The connector for OPC UA supports the following features as part of Azure IoT Op
 
 ## How it works
 
-The two main components of the connector for OPC UA are the application and the discovery handler.
+To read data from a connected OPC UA server, the connector for OPC UA application:
 
-The connector for OPC UA application:
+1. Reads the asset's associated device configuration to determine the OPC UA server endpoint and the security settings to use for the connection.
+1. Reads the asset's configured publishing interval to determine how frequently the connector publishes data to an MQTT broker topic.
+1. Reads the asset's configured data points and events to determine which values from the OPC UA server to publish to the MQTT broker.
+1. Creates a session to the OPC UA server for each configured asset.
+1. Creates a separate subscription in the session for each 1,000 data points.
+1. Creates a separate subscription for each event defined in the asset.
+1. Publishes messages to the MQTT broker based on the publishing interval. The connector implements retry logic to identify connections to endpoints that don't respond after a specified number of keep-alive requests. For example, there could be a nonresponsive endpoint in your environment when an OPC UA server stops responding because of a power outage.
 
-- Creates a session to the OPC UA server for each asset that you define.
-- All the tags of the asset are configured with the same publishing interval. This interval determines how frequently the connector publishes data to an MQTT broker topic.
-- Creates a separate subscription in the session for each 1,000 tags.
-- Creates a separate subscription for each event defined in the asset.
-- Implements retry logic to establish connections to endpoints that don't respond after a specified number of keep-alive requests. For example, there could be a nonresponsive endpoint in your environment when an OPC UA server stops responding because of a power outage.
+To write values to a node in a connected OPC UA server, the connector for OPC UA:
+
+1. Reads the asset's associated device configuration to determine the OPC UA server endpoint and the security settings to use for the connection.
+
+1. Reads the asset configuration to determine which nodes to write to on the OPC UA server.
+
+1. Subscribes to an MQTT topic that contains write requests for the asset. The topic name is in the format `{Namespace}/asset-operations/{AssetId}/{DatasetName}/`, where `{Namespace}` is the namespace for Azure IoT Operations instance, `{AssetId}` is the unique identifier for the asset, and `{DatasetName}` is the name of the dataset that contains the nodes to write to.
+
+1. Creates a temporary session with the OPC UA server using the device configuration.
+
+1. Checks the payload to ensure all data points exist in the target dataset.
+
+1. Writes the values to the OPC UA server, and publishes a success or failure response to the MQTT broker. The changed value is published to the standard telemetry topic associated with the dataset.
+
+To generate a write request, publish a JSON message to the MQTT topic using MQTT v5 request/response semantics. Specify the dataset name and the values to be written in the payload. Each MQTT message includes metadata that defines system-level and user-defined properties such as `SourceId`, `ProtocolVersion`, and `CorrelationData` to ensure traceability and conformance.
+
+> [!NOTE]
+> During preview, write operations are limited to data points that are explicitly defined in a dataset.
 
 ## Connector for OPC UA message format
 
@@ -80,6 +104,16 @@ Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (
 {"temperature":{"SourceTimestamp":"2024-07-29T15:02:20.1861251Z","Value":4561},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:20.1861709Z","Value":4561}}
 Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (152 bytes))
 {"temperature":{"SourceTimestamp":"2024-07-29T15:02:21.1856798Z","Value":4562},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:21.1857211Z","Value":4562}}
+```
+
+### Example write payload
+
+Here's a minimal example for writing a simple float value to a node:
+
+```json
+{ 
+   "SetPoint": 50
+}
 ```
 
 ### User properties
