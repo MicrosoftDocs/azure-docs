@@ -21,7 +21,7 @@ The Azure Arc-enabled VM extensions receive improvements on an ongoing basis. Th
 
 ## Windows extension
 
-Update this when future versions are released
+Update this when future versions are released.
 
 ## Linux extensions
 

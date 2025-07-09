@@ -1,5 +1,5 @@
 ---
-title: Release notes of Arc-enabled VM extensions March 2025
+title: Release notes of Arc-enabled VM extensions May 2025
 description: Learn about Azure Arc-enabled VM extensions, including their latest releases, known issues, and bug fixes, to help you manage updates effectively.
 ms.service: azure-update-manager
 ms.date: 03/28/2025
@@ -36,12 +36,11 @@ The Azure Arc-enabled VM extensions receive improvements on an ongoing basis.  T
 
 - Fixed an issue where at times the extension status is stuck in  **Creating state**. Then the assessment or install updates job fails with the following error: *Extension failed during enable. Extension Enable command timed out.*
 
-- Fixed an issue where updates were installed and the server rebooted within the maintenance window, but the operation stayed in the 'InProgress' state. It ended with an error message at the maintenance window's end time: *Maintenance window exceeded. Could not complete patching process within window specified.*
+- Fixed an issue where although the updates are installed and reboot is completed within the maintenance window, still the operation is stuck in **InProgress** state and completes the maintenance window end time with the following error message: *Maintenance window exceeded. Could not complete patching process within window specified.*
 
 ## Linux Extension
 
-Update this when future versions are released.
-
+To be updated as and when future versions are released.
 
 ## Next steps
 
