@@ -25,7 +25,7 @@ Your provider requires you to register your application by specifying a redirect
 > [!NOTE]
 > The OpenID provider name can't contain a hyphen `-`, because an App Service application setting is created based on this name, and application settings don't support hyphens. You can use an underscore `_` instead.
 
-When you register your app, you need to collect a *client ID* and a *client secret* for your application. You need to provide the client secret if you want the user to acquire access tokens using the interactive authorization code flow. If you don't want to acquire access tokens, you don't need to use a secret.
+When you register your app, you need to collect a *client ID* and a *client secret* for your application. Your app needs to provide the client secret if you want the user to acquire access tokens using the interactive authorization code flow. If you don't want to acquire access tokens, you don't need to use a secret.
 
 > [!IMPORTANT]
 > The **App Secret** value is an important security credential. Don't share this secret with anyone or distribute it within a client application.
