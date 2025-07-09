@@ -64,11 +64,11 @@ You can use the `nconnect` Linux mount option to improve performance for NFS Azu
 ### Mount an NFS share using the Azure portal (Recommended)
 
 1. Once the file share is created, select the share and then select **Connect from Linux**.
-2. Enter the mount path you'd like to use, then copy the script and run it on your client. Azure portal offers a step-by-step, ready-to-use installation script tailored to your selected Linux distribution for installing the AZNFS mount helper package and to securely mount the share using [Encyption in Transit](encryption-in-transit-for-nfs-shares.md). Only the required mount options are included in the script, but you can add other [recommended mount options](#mount-options).
+1. Enter the mount path you'd like to use, then copy the script and run it on your client. Azure portal offers a step-by-step, ready-to-use installation script tailored to your selected Linux distribution for installing the AZNFS mount helper package and to securely mount the share using [Encyption in Transit](encryption-in-transit-for-nfs-shares.md). Only the required mount options are included in the script, but you can add other [recommended mount options](#mount-options).
 
    :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/mount-file-share.png" alt-text="Screenshot showing how to connect to an N F S file share from Linux using a provided mounting script." lightbox="media/storage-files-how-to-mount-nfs-shares/mount-file-share.png" border="true":::
 
-The NFS file share is now mounted.
+The NFS file share should now be mounted. If the mount fails, ensure that the *Secure transfer required* setting is [enabled on the storage account](encryption-in-transit-for-nfs-shares.md?tabs=azure-portal%2CUbuntu#enforce-encryption-in-transit).
 
 ### Mount an NFS share using the NFS client mount in command line
 
@@ -120,7 +120,7 @@ systemctl is-active --quiet aznfswatchdog && echo -e "\nAZNFS Mount Helper is in
 
 If the package is installed, then the message `AZNFS Mount Helper is installed!` appears.
 
-The record in **/etc/fstab** should look like this if you're using the AZNFS Mount Helper and want to mount the share using encryption in transit:
+The record in **/etc/fstab** should look like this if you're using the AZNFS Mount Helper and want to mount the share using encryption in transit. If the mount fails, ensure that the *Secure transfer required* setting is [enabled on the storage account](encryption-in-transit-for-nfs-shares.md?tabs=azure-portal%2CUbuntu#enforce-encryption-in-transit).
 
 ```bash
 <YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /media/<YourStorageAccountName>/<FileShareName> aznfs defaults,sec=sys,vers=4.1,nolock,proto=tcp,nofail,_netdev   0 2
