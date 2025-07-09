@@ -9,4 +9,4 @@
  ms.custom: include file
 ---
 
-Zone-redundant Azure Storage accounts can be deployed [in any region that supports availability zones](./regions-list.md).
+Zone-redundant Azure Storage accounts can be deployed [in any region that supports availability zones](../../regions-list.md).
