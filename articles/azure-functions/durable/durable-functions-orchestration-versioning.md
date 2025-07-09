@@ -1,6 +1,6 @@
 ---
 title: Orchestration Versioning in Durable Functions - Azure
-description: Learn how to use the Orchestration Versioning feature in Durable Functions for zero-downtime deployments with breaking changes.
+description: Learn how to use the Orchestration Versioning feature in Durable Functions for zero-downtime deployments involving breaking changes.
 author: AnatoliB
 ms.topic: conceptual
 ms.date: 07/03/2025
@@ -12,13 +12,15 @@ ms.custom: fasttrack-edit
 # Orchestration Versioning in Durable Functions (Azure Functions)
 
 > [!IMPORTANT]
-> Orchestration Versioning is currently in public preview for .NET in-process and .NET isolated programming models. Support for other languages (JavaScript, Python, PowerShell, Java) is coming soon.
+> Orchestration Versioning is currently in public preview for apps running in the .NET isolated model. Support for other languages (JavaScript, Python, PowerShell, Java) is coming soon.
 
-The Orchestration Versioning feature in Durable Functions enables zero-downtime deployments even when you need to make breaking changes to your orchestrations. This feature allows different versions of orchestrations to coexist and execute concurrently without conflicts and nondeterminism issues, making it possible to deploy updates without draining in-flight orchestration instances first.
+The Orchestration Versioning feature allows different versions of orchestrations to coexist and execute concurrently without conflicts and nondeterminism issues, making it possible to deploy updates without draining in-flight orchestration instances first. Thus, this feature brings various benefits related to deploying orchestration changes. For example, you can achieve zero-downtime deployment even making breaking changes to your orchestrations.
 
 ## Overview
 
 Orchestration Versioning addresses the core challenge of deploying changes to orchestrator functions while maintaining the deterministic execution model that Durable Functions requires. Without this feature, breaking changes to orchestrator logic or activity function signatures would cause in-flight orchestration instances to fail during replay because they would break the [determinism requirement](durable-functions-code-constraints.md) that ensures reliable orchestration execution.
+
+Sub-orchestrations can also leverage this feature. 
 
 ### Key Benefits
 
@@ -126,11 +128,11 @@ public static async Task<string> RunOrchestrator(
 
 Here's what to expect once you deploy your updated orchestrator function with the new version logic:
 
-1. **Worker Coexistence**: Workers containing the new orchestrator function code will start, potentially while some workers with the old code are still active.
+1. **Worker Coexistence**: Workers containing the new orchestrator function code will start, while some workers with the old code are potentially still active.
 
-2. **Version Assignment for New Instances**: All new orchestrations and suborchestrations created by the new workers will get the version from `defaultVersion` assigned to them. The parent orchestration version _isn't_ automatically propagated to suborchestrations created by this orchestration.
+2. **Version Assignment for New Instances**: All new orchestrations and sub-orchestrations created by the new workers will get the version from `defaultVersion` assigned to them. Note that the parent orchestration _doesn't_ propagate its version to sub-orchestrations it starts. 
 
-3. **New Worker Compatibility**: New workers will be able to process both the newly created orchestrations and the previously existing orchestrations because the changes performed in Step 2 ensure backward compatibility through version-aware branching logic.
+3. **New Worker Compatibility**: New workers will be able to process both the newly created orchestrations and the previously existing orchestrations because the changes performed in Step 2 of the previous section ensure backward compatibility through version-aware branching logic.
 
 4. **Old Worker Restrictions**: Old workers will be allowed to process only the orchestrations with a version _equal to or lower_ than the version specified in their own `defaultVersion` in `host.json`, because they aren't expected to have orchestrator code compatible with newer versions. This restriction prevents execution errors and unexpected behavior.
 
