@@ -11,7 +11,7 @@ ms.date: 07/08/2025
 
 # Reliability in Virtual Machines
 
-Azure Virtual Machines provide reliability through built-in redundancy and support for availability zones. Key components include:
+Azure Virtual Machines (VMs) provide reliability through built-in redundancy and support for availability zones. Key components include:
 
 - **Availability zones**: Physically separate locations within an Azure region, each with independent power, cooling, and networking.
 - **Zone-redundant resources**: Automatically distributed across availability zones to ensure resiliency against zone failures.
@@ -28,11 +28,11 @@ Transient faults are temporary issues that occur in cloud environments, such as 
 - Use Azure SDKs, which include built-in retry policies.
 - Monitor and log transient faults to identify patterns and optimize fault handling.
 
-For more details, see [Transient fault handling](../architecture/best-practices/transient-faults.md).
+For more information, see [Transient fault handling](../architecture/best-practices/transient-faults.md).
 
 ## Availability zone support
 
-Availability zones are physically separate groups of datacenters within each Azure region. A VM can be deployed in a zonal configuration, where it resides in a single availability zone, or spread across zones manually or using Virtual Machine Scale Sets (VMSS). For more information, see [Virtual Machine Scale Sets](../virtual-machine-scale-sets/).
+Availability zones are physically separate groups of datacenters within each Azure region. A VM can be deployed in a zonal configuration, where it resides in a single availability zone, or spread across zones manually or using Virtual Machine Scale Sets. For more information, see [Virtual Machine Scale Sets](../virtual-machine-scale-sets/).
 
 >[!NOTE]
 > Not all VM SKUs are available in all zones. Check [VM SKU availability](regions-list.md).
@@ -56,15 +56,15 @@ For alternative multi-region approaches, see [Azure to Azure disaster recovery a
 
 ## Zone-down experiences
 
-Zone-down experiences describe how Azure Virtual Machines handle outages in a single availability zone. During a zone-wide outage, Azure Virtual Machines leverage self-healing mechanisms to rebalance capacity across healthy zones. However, customers are responsible for detecting and responding to zone failures.
+Zone-down experiences describe how Azure Virtual Machines handle outages in a single availability zone. During a zone-wide outage, Azure Virtual Machines apply self-healing mechanisms to rebalance capacity across healthy zones. However, customers are responsible for detecting and responding to zone failures.
 
 - **Detection and response**: Use Azure Resource Health to detect zone failures and trigger failover processes.
 - **Notification**: Azure Resource Health provides notifications when a zone is down.
 - **Active requests**: Any active requests on the VM during the zone failure are likely to be lost.
-- **Expected data loss**: VM disks will be unavailable during a zone failure. To mitigate this, use zone-redundant disks. For more information, see the upcoming Disk Storage guide.
-- **Expected downtime**: VMs will remain down until the availability zone recovers.
+- **Expected data loss**: VM disks are unavailable during a zone failure. To mitigate this, use zone-redundant disks. For more information, see the upcoming Disk Storage guide.
+- **Expected downtime**: VMs remain down until the availability zone recovers.
 - **Traffic rerouting**: Customers must reroute traffic to other VMs in healthy zones.
-- **Failback**: Once the zone is healthy, VMs will restart. Customers must handle failback procedures and data synchronization as required.
+- **Failback**: Once the zone is healthy, VMs restart. Customers must handle failback procedures and data synchronization as required.
 - **Testing for zone failures**: Use Chaos Studio to simulate zone failures and test your failover processes.
 
 ## Reliability during service maintenance
@@ -79,7 +79,7 @@ Azure Virtual Machines natively support backup through the Azure Backup service.
 - **Retention policies**: Define how long backups are retained.
 
 >[!NOTE]
->Backup performance may vary based on VM size and region. For more details, see [Azure Backup for VMs](../backup/backup-azure-vms-introduction.md).
+>Backup performance may vary based on VM size and region. For more information, see [Azure Backup for VMs](../backup/backup-azure-vms-introduction.md).
 
 ## SLAs
 
@@ -87,7 +87,7 @@ Service-Level Agreements (SLAs) outline customers' expectations for Azure Virtua
 
 - **Higher SLAs with availability zones**: Configuring VMs with availability zones increases SLA guarantees due to enhanced fault isolation and redundancy.
 - **Conditions for SLA eligibility**: Customers must ensure proper configuration, such as using zone-redundant or zonal deployments, to qualify for higher SLAs.
-- **Limitations**: SLAs do not cover scenarios involving customer misconfigurations or unsupported VM SKUs.
+- **Limitations**: SLAs don't cover scenarios involving customer misconfigurations or unsupported VM SKUs.
 
 For detailed SLA terms and conditions, see the [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/).
 
