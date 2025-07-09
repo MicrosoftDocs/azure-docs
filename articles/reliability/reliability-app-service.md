@@ -261,6 +261,9 @@ To deploy a new zone-redundant App Service plan, you must use the [Premium v2-4 
     > [!NOTE]
     > If you use the Azure CLI to modify the `zoneRedundant` property, you must define the `sku.capacity` property (the number of instances) as greater than or equal to 2.
 
+    # [Azure portal](#tab/bicep)
+   <!-- Jordan: Please place info here. -->
+
     # [Azure portal](#tab/portal)
 
     :::image type="content" source="./media/reliability-app-service/app-service-plan-zone-redundancy-portal.png" alt-text="Screenshot of zone redundancy property for an App Service plan in the Azure portal.":::
@@ -323,6 +326,8 @@ To deploy a new zone-redundant App Service plan, you must use the [Premium v2-4 
         }
     }
     ```
+   # [Azure portal](#tab/portal)
+   <!-- Jordan: Please place info here. -->
 
     ---
 
