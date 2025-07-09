@@ -7,7 +7,7 @@ author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 04/10/2025
+ms.date: 07/09/2025
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement-fy23, devx-track-extended-azdevcli, devx-track-terraform
