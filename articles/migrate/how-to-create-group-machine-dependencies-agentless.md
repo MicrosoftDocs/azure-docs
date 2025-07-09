@@ -242,6 +242,7 @@ After you have performed the required steps to upgrade to the new dependency vis
 
 > [!NOTE]
 > It's recommended to use **Option 1** above to switch to the new inventory view as you're able to filter servers where dependency analysis was auto-enabled and then directly review the dependency visualization. Old inventory view only provides option to visualize dependencies for servers where you had manually enabled the feature.
+::: moniker-end
 
 ::: moniker range="migrate"
 ## Manage dependencies
