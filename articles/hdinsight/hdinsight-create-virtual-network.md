@@ -366,6 +366,27 @@ After completing these steps, you can connect to resources in the virtual networ
 
 Before deploying your cluster, you can check that many of your network configuration settings are correct by running the [HDInsight Network Validator tool](https://aka.ms/hnv/v2) on an Azure Linux virtual machine in the same virtual network and subnet as the planned cluster.
 
+## Azure HDInsight Cluster Creation with Custom VNet: Private Endpoint Requirements and Policy Considerations
+
+### Overview
+When you create an Azure HDInsight cluster in a custom virtual network (VNet), the HDInsight Resource Provider (RP) must automatically deploy several networking resources into your VNet’s resource group, for example, load balancers, network interfaces, IP addresses, private endpoints, etc. Azure Storage and Azure SQL Databases (if not provided) will also be created along with the cluster.
+
+### Role of Private Endpoints in HDInsight
+Private Endpoints will be used to connect your cluster privately and securely to the Azure services, such as Azure Storage and Azure SQL Databases, over the Microsoft backbone network.
+
+### Policy Impact on Private Endpoint Creation
+If your organization has Azure Policies that deny the creation of private endpoints or deny the creation of cross-tenant private endpoint according to the document [Limit cross-tenant private endpoint connections in Azure](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections) in the resource group, HDInsight cluster creation will fail. This is because:
+
+* The HDInsight Resource Plane is unable to create the necessary private endpoint resources.
+* The cluster will transition into error state.
+### Typical Error Scenario
+If private endpoint creation is blocked, you may see errors during cluster provisioning:
+
+* FailedToCreateDedicatedStoragePrivateEndpoint
+### Best Practices and Recommendations
+Create exemption in Azure Policy to allow Private Endpoint creation in the subscription or resource group where HDInsight cluster resides.
+
+
 ## Next steps
 
 * For a complete example of configuring HDInsight to connect to an on-premises network, see [Connect HDInsight to an on-premises network](./connect-on-premises-network.md).
