@@ -32,7 +32,7 @@ This article describes how to set up agentless dependency analysis using Azure M
 
 ## What's New?
 
-- Dependency analysis is automatically enabled on 1,000 servers discovered by each Azure Migrate appliance that has passed the prerequisite checks. You no longer need to enable the dependency analysis on servers manually as before.
+- Dependency analysis runs automatically on 1,000 servers discovered by each Azure Migrate appliance that passes the prerequisite checks. You don’t need to enable it manually anymore.
 - The enhanced dependency visualization helps you review additional information about the servers, connections, and processes. You can filter the view by process type to analyze key dependencies in the visualization.
 - In the new visualization, after identifying key dependencies, you can group servers into an application by tagging them.
 ::: moniker-end
@@ -60,7 +60,7 @@ The new users need to follow the below steps:
 ## Deploy and configure the Azure Migrate appliance
 
 1. Deploy the Azure Migrate appliance to start discovery. To deploy the appliance, you can use the [deployment method](migrate-appliance.md#deployment-methods) as per your environment. After deploying the appliance, you need to register it with the project and configure it to initiate the discovery.
-2. While configuring the appliance, you need to specify the following in the appliance configuration manager:
+2. When you set up the appliance, you specify the following in the appliance configuration manager:
     - The details of the source environment (vCenter Server(s)/Hyper-V host(s) or cluster(s)/physical servers) which you want to discover.
     - Server credentials, which can be domain/ Windows (nondomain)/ Linux (nondomain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how the appliance handles them.
     - Verify the permissions required to perform agentless dependency analysis. For Windows servers, you need to provide domain or nondomain (local) account with administrative permissions. For Linux servers, provide a sudo user account with permissions to execute ls and netstat commands or create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files. If you're providing a sudo user account, ensure that NOPASSWD is enabled for the account so commands can run without prompting for a password each time.
@@ -99,18 +99,18 @@ In the project, you can review dependencies for each server either through the *
 
 On reviewing the **Dependencies** column for any server, you see one of the following status:
 
-1. **Credentials not available:** when no server credentials provided on the appliance configuration manager can be used to perform dependency analysis
-2. **Validation in progress:** when the prerequisite validation checks have still not been completed on the server 
-3. **Validation failed:** when the validation checks on the server have failed. You can select the status to review error message which would mostly be related to missing prerequisites like insufficient credential permissions or invalid credentials etc. 
+1. **Credentials not available:** No server credentials provided in the appliance configuration manager can be used for dependency analysis.
+2. **Validation in progress:** The server has not completed the prerequisite validation checks yet.
+3. **Validation failed:** The server failed the validation checks. You can click the status to view the error message, which usually mentions missing prerequisites like invalid credentials or insufficient permissions.
 
 ::: moniker range="migrate"
 After the validation succeeds, dependency analysis are auto-enabled and you see one of the following status:
 ::: moniker-end
 
-4. **View dependencies:** when validation checks have passed and the dependency analysis has been enabled. You can select this to go to the new visualization and review dependencies for this server.
+4. **View dependencies:** The server passed the validation checks and dependency analysis is enabled. You can select this to open the new visualization and check the server’s dependencies.
 ::: moniker range="migrate"
-5. **Not initiated:** when dependency analysis couldn't be enabled as Azure Migrate has reached the scale limit of 1,000 servers per appliance for auto-enablement. If you want to perform dependency analysis on the specific servers, you can manually disable it on the other auto-enabled servers and enable for the ones you need by using the PowerShell module.
-6. **Disabled:** when dependency analysis has been manually disabled by you on this server using the PowerShell module. You can re-enable it any-time using the same PowerShell module. 
+5. **Not initiated:** Dependency analysis couldn’t be enabled because Azure Migrate reached its limit of 1,000 servers per appliance for automatic enablement. If you want to run dependency analysis on specific servers, you can disable it manually on other auto-enabled servers and enable it for the required ones using the PowerShell module.
+6. **Disabled:** You manually disabled dependency analysis on this server using the PowerShell module. You can enable it again anytime using the same module. 
 
 >[!Note]
 > **Not supported** is the status shown for servers discovered through CSV import, as the CSV file currently does not collect network dependency data.
@@ -442,6 +442,7 @@ You need to follow the same steps to export the discovered servers as mentioned 
 ```PowerShell
     Set-AzMigDependencyMappingAgentless -Enable -InputCsvFile .\ContosoDemo_VMs_Enable.csv [-AutoEnabledDepMap] 
 ```
+
 
 ## Visualize network connections in Power BI
 
