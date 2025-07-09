@@ -61,7 +61,7 @@ Follow these steps to enable **Application based access** for a product. A produ
 
 The following example uses the **Starter** product, but choose any published product that has at least one API assigned to it.
 
-1. Sign in to the portal at the following custom URL for the applications feature: [https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications](https://preview.portal.https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications.com)
+1. Sign in to the portal at the following custom URL for the applications feature: [https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications](https://preview.portal.https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications)
 1. Navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **Products**.
 1. Choose the product that you want to configure, such as the **Starter** product.
@@ -107,7 +107,7 @@ Now register a client application that limits access to one or more products.
 * Each client application has a single user (owner) in the API Management instance. One the owner can access product APIs through the application.
 * A product can be associated with more than one client application.
 
-1. Sign in to the portal at the following custom URL for the applications feature: [https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications](https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications.com)
+1. Sign in to the portal at the following custom URL for the applications feature: [https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications](https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications)
 1. Navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **Applications** > **+ Register application**.
 1. In the **Register an application** page, enter the following application settings:
@@ -227,7 +227,7 @@ This is likely a permissions issue. Currently, the API Management administrator 
 If you receive an internal server error when registering applications in the portal, check the following:    
 
 * The **Application Administrator** role is assigned to the API Management instance's managed identity in Microsoft Entra ID. 
-* You're signed in to the portal at the custom URL for the applications feature: [https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications](https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications.com). This URL is required to access the applications feature in API Management.
+* You're signed in to the portal at the custom URL for the applications feature: [https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications](https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications). This URL is required to access the applications feature in API Management.
 
 
 
