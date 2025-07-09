@@ -7,7 +7,7 @@ ms.service: microsoft-sentinel
 ms.subservice: sentinel-graph 
 ms.topic: how-to
 ms.author: edbaynash  
-ms.date: 06/16/2025
+ms.date: 07/09/2025
 
 ms.collection: ms-security  
 

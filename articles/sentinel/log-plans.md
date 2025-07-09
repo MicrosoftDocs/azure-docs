@@ -4,7 +4,7 @@ description: Learn about the different log retention plans that are available in
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 06/25/2025
+ms.date: 07/09/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -71,7 +71,7 @@ For logs containing secondary security data, use the [**Auxiliary logs**](#auxil
 
 > [!IMPORTANT]
 > We recommend that users consider Microsoft Sentinel data lake as the preferred solution for storing secondary and long-term data. Microsoft Sentinel data lake is designed to offer enhanced scalability, flexibility, and integration capabilities for advanced security and compliance scenarios.
-> For more information, see [Microsoft Sentinel data lake (Preview)](https://aka.ms/sentinel-lake-overview).
+> For more information, see [Microsoft Sentinel data lake (Preview)](graph/sentinel-lake-overview.md).
 > Microsoft Sentinel Data Lake is currently in public preview and not yet generally available. We advise users to monitor updates and announcements regarding its availability status.
 
 
@@ -106,7 +106,7 @@ When the analytics retention period ends, data goes into the **long-term retenti
 
 > [!IMPORTANT]
 > We recommend that users consider Microsoft Sentinel data lake as the preferred solution for storing secondary and long-term data. Microsoft Sentinel data lake is designed to offer enhanced scalability, flexibility, and integration capabilities for advanced security and compliance scenarios.
-> For more information, see [Microsoft Sentinel data lake (Preview)](https://aka.ms/sentinel-lake-overview).
+> For more information, see [Microsoft Sentinel data lake (Preview)](graph/sentinel-lake-overview.md).
 > Microsoft Sentinel Data Lake is currently in public preview and not yet generally available. We advise users to monitor updates and announcements regarding its availability status.
 
 The **Auxiliary logs** plan keeps data in the **analytics retention** state for **30 days**. In the Auxiliary plan, this state has low retention costs as compared to the Analytics plan. However, the query capabilities are limited: queries are charged per gigabyte of data scanned and are limited to a single table, and performance is significantly lower. While this data remains in the interactive retention state, you can run [summary rules](/azure/azure-monitor/logs/summary-rules) on this data to create tables of aggregate, summary data in the analytics logs plan, so that you have the full query capabilities on this aggregate data.
@@ -121,5 +121,5 @@ When the analytics retention period ends, data goes into the **long-term retenti
 
 - To set up a table in the Auxiliary logs plan, see [Set up a table with the Auxiliary plan in your Log Analytics workspace](/azure/azure-monitor/logs/create-custom-table-auxiliary).
 - To understand more about retention periods&mdash;which exist across plans&mdash;see [Manage data retention in a Log Analytics workspace](/azure/azure-monitor/logs/data-retention-configure).
-- To understand more about Microsoft Sentinel data lake (Preview), see [Microsoft Sentinel data lake (Preview)](https://aka.ms/sentinel-lake-overview).
-- To onboard to Microsoft Sentinel data lake (Preview), see [Onboard data to Microsoft Sentinel data lake (Preview)](https://aka.ms/sentinel-lake-onboarding). 
+- To understand more about Microsoft Sentinel data lake (Preview), see [Microsoft Sentinel data lake (Preview)](graph/sentinel-lake-overview.md).
+- To onboard to Microsoft Sentinel data lake (Preview), see [Onboard data to Microsoft Sentinel data lake (Preview)](graph/sentinel-lake-onboarding.md). 

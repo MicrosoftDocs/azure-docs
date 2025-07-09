@@ -4,9 +4,10 @@ titleSuffix: Microsoft Security
 description: An overview of Microsoft Sentinel data lake, a cloud-native platform that extends Microsoft Sentinel with highly scalable, cost-effective long-term storage, advanced analytics, and AI-driven security operations.
 author: EdB-MSFT  
 ms.service: microsoft-sentinel  
+ms.subservice: sentinel-graph
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 05/29/2025
+ms.date: 07/09/2025
 ms.author: edbaynash  
 
 ms.collection: ms-security  

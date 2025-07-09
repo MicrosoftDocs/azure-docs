@@ -5,8 +5,8 @@ description: Use the Defender portal's Data lake exploration KQL queries to crea
 author: EdB-MSFT  
 ms.service: microsoft-sentinel  
 ms.topic: conceptual
-ms.custom: sentinel-graph
-ms.date: 05/29/2025
+ms.subservice: sentinel-graph
+ms.date: 07/09/2025
 ms.author: edbaynash  
 
 ms.collection: ms-security  
