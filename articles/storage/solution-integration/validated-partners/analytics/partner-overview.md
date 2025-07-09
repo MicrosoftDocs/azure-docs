@@ -9,6 +9,7 @@ ms.date: 04/12/2021
 ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+# Customer intent: As a data engineer, I want to explore integrated partner solutions for big data and analytics with Azure Storage, so that I can optimize my data management and analytics workflows efficiently in the cloud.
 ---
 
 # Azure Storage analytics and big data partners

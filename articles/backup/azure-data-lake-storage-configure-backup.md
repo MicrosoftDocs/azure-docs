@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 04/16/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to configure vaulted backup for Azure Data Lake Storage, so that I can ensure data protection and recovery capabilities are in place for my storage accounts.
 ---
 
 # Configure vaulted backup for Azure Data Lake Storage using Azure portal (preview)

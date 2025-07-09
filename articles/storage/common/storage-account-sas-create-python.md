@@ -13,6 +13,7 @@ ms.reviewer: dineshm
 ms.subservice: storage-common-concepts
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: As a developer, I want to create an account shared access signature (SAS) using Python, so that I can delegate access to multiple service-level operations within my Azure Storage account.
 ---
 
 # Create an account SAS with Python

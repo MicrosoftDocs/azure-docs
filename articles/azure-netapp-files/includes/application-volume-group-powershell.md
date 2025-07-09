@@ -12,6 +12,7 @@ ms.author: anfdocs
 # application-volume-group-add-manage-volumes.md
 ms.custom:
   - build-2025
+# Customer intent: As a cloud administrator, I want to create and modify SAP HANA application volume groups using the available tools, so that I can ensure high availability and optimal network performance for my applications.
 ---
 
 >[!IMPORTANT]

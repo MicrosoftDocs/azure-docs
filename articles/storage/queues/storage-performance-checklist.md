@@ -10,6 +10,7 @@ ms.topic: overview
 ms.service: azure-queue-storage
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
+# Customer intent: As a developer, I want to access a performance and scalability checklist for Queue Storage, so that I can optimize my application's efficiency and ensure it remains within scalability limits during development.
 ---
 
 <!-- docutune:casing "Timeout and Server Busy errors" -->

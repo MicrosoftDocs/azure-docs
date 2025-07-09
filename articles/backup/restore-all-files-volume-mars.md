@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 06/20/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an IT admin responsible for data recovery, I want to restore all backed-up files in a volume using the Recovery Services agent, so that I can quickly recover critical data to either the original machine or an alternate machine.
 ---
 
 # Restore all the files in a volume using the MARS Agent

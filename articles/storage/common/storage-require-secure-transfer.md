@@ -12,6 +12,7 @@ ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
+# Customer intent: "As a cloud administrator, I want to enable secure transfer for my storage accounts, so that I can ensure all data requests are securely transmitted over HTTPS and protect against insecure connections."
 ---
 
 # Require secure transfer to ensure secure connections

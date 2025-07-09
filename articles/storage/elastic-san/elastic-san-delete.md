@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 05/31/2024
 ms.author: rogarana
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
+# Customer intent: As a cloud administrator, I want to delete an Azure Elastic SAN and its resources so that I can remove unnecessary components from my environment.
 ---
 
 # Delete an Elastic SAN

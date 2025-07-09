@@ -7,6 +7,7 @@ ms.custom: mvc, devx-track-azurecli
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator managing virtual machines, I want to restore a VM from a recovery point using command-line tools, so that I can efficiently recover data without unnecessary manual steps."
 ---
 
 # Restore a VM with Azure CLI

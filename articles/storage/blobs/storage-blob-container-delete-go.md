@@ -11,6 +11,7 @@ ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
+# Customer intent: As a developer, I want to delete and restore blob containers using the Go client library, so that I can efficiently manage storage resources in my Azure account.
 ---
 
 # Delete and restore a blob container with Go

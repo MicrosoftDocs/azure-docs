@@ -353,6 +353,15 @@ The following diagram shows the connectivity scope of different ExpressRoute cir
 
 :::image type="content" source="./media/expressroute-faqs/sku-scope.png" alt-text="Diagram of connectivity scope for different ExpressRoute circuit SKUs.":::
 
+## ExpressRoute FastPath
+
+### What happens when the IP address limits are reached ?
+When the limit is reached, new routes don't get programmed on FastPath, and instead traffic flows through the ExpressRoute gateway.
+All other limits for the ExpressRoute gateway, the ExpressRoute circuit, and the virtual network still apply.
+ 
+### Can I use Azure Firewall with FastPath ?
+Yes. To support traffic traversing from On-Premises to Azure workloads via Azure Firewall, it should be deployed in same VNET as ExpressRoute Gateway and UDR has to be configured on the Gateway Subnet.
+
 ## ExpressRoute premium
 
 ### What is ExpressRoute premium?

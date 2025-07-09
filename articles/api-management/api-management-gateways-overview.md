@@ -81,7 +81,7 @@ The following tables compare features available in the following API Management 
 | [Outbound virtual network integration](integrate-vnet-outbound.md)  | ❌ | Standard  v2, Premium v2  |  ❌ | ❌ | ✔️ |
 | [Availability zones](zone-redundancy.md)  |  Premium | ✔️<sup>3</sup>  | ❌ | ✔️<sup>1</sup> | ✔️<sup>3</sup> |
 | [Multi-region deployment](api-management-howto-deploy-multi-region.md) |  Premium | ❌ |  ❌ | ✔️<sup>1</sup> | ❌ |
-| [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ | ✔️ | ❌ | ✔️<sup>4</sup> |  ❌ |
+| [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ | ❌ | ❌ | ✔️<sup>4</sup> |  ❌ |
 | [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  Developer, Basic, Standard, Premium | ❌ | ✔️ | ❌ | ❌ |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ | ✔️ | ❌ |
 | **HTTP/2** (Client-to-gateway) | ✔️<sup>5</sup> | ✔️<sup>5</sup> |❌ | ✔️ | ❌ |
