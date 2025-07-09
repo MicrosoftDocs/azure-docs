@@ -50,7 +50,7 @@ For a list of current content delivery network node locations, see [Azure Conten
 
 - To use Azure Content Delivery Network, you must own at least one Azure subscription.
 - You also need to create a content delivery network profile, which is a collection of content delivery network endpoints. Every content delivery network endpoint is a specific configuration which users can customize with required content delivery behavior and access. To organize your content delivery network endpoints by internet domain, web application, or some other criteria, you can use multiple profiles.
-- Since [Azure Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/) gets applied at the content delivery network profile level, so if you want to use a mix of pricing tiers you must create multiple content delivery network profiles. For information about the Azure content delivery network billing structure, see [Understanding Azure Content Delivery Network billing](cdn-billing.md).
+- For information about the Azure content delivery network billing structure, see [Understanding Azure Content Delivery Network billing](cdn-billing.md).
 
 ### Limitations
 

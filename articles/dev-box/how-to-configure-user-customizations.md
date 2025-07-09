@@ -1,5 +1,5 @@
 ---
-title: Write a user Customization File for Your Dev Box
+title: Configure a user Customization File for Your Dev Box
 description: Learn how to upload and validate user customization files for dev boxes directly from your local drive or repository.
 #customer intent: As a Dev Center Admin or Project Admin, I want to create image definition files so that my development teams can create customized dev boxes.
 author: RoseHJM
@@ -15,7 +15,7 @@ ms.topic: how-to
 ms.date: 05/09/2025
 ---
 
-# Write a user customization file for a dev box
+# Configure user customizations for dev boxes
 
 The Dev Box user customizations feature helps you streamline the setup of your dev boxes. Starting a new project or joining a team is often complex and time consuming. With customizations, you can configure your dev boxes with the applications, tools, repositories, code libraries, packages, and build scripts that you need. This article guides you through the process of creating, testing, and editing a user customization file for your dev box using Visual Studio Code (VS Code). 
 
@@ -57,11 +57,11 @@ You can create and manage customization files by using VS Code. You can use the 
 1. Download an [example YAML customization file](https://aka.ms/devbox/usercustomizations/samplefile) from the samples repository and open it in VS Code.
 1. Discover tasks available in the catalog by using the command palette. Select **View** > **Command Palette** > **Dev Box: List Available Tasks For This Dev Box**.
 
-   :::image type="content" source="media/how-to-write-individual-customization-file/dev-box-command-list-tasks.png" alt-text="Screenshot of the Dev Box command palette in Visual Studio Code, showing the command for listing available tasks.":::
+   :::image type="content" source="media/how-to-configure-user-customizations/dev-box-command-list-tasks.png" alt-text="Screenshot of the Dev Box command palette in Visual Studio Code, showing the command for listing available tasks.":::
 
 1. Test customization in VS Code by using the command palette. Select **View** > **Command Palette** > **Dev Box: Apply Customizations Tasks**.
 
-   :::image type="content" source="media/how-to-write-individual-customization-file/dev-box-command-apply-tasks.png" alt-text="Screenshot of the Dev Box command palette in Visual Studio Code, showing the command for applying customization tasks.":::
+   :::image type="content" source="media/how-to-configure-user-customizations/dev-box-command-apply-tasks.png" alt-text="Screenshot of the Dev Box command palette in Visual Studio Code, showing the command for applying customization tasks.":::
 
 1. The customization file runs and applies the specified tasks to your test dev box. Inspect the changes, and check the VS Code terminal for any errors or warnings generated during the task execution. Review the VS Code terminal for errors or warnings during task execution.
 
@@ -92,41 +92,41 @@ Customization files stored in a repository must be called *workload.yaml*. Custo
 1. In the **Add a dev box** pane, add details for you dev box.
 1. Select **Apply customizations**, and then select **Continue**.
 
-   :::image type="content" source="media/how-to-write-individual-customization-file/add-dev-box-individual-customization.png" alt-text="Screenshot of the Add a dev box pane in the developer portal, showing the option to apply customizations.":::
+   :::image type="content" source="media/how-to-configure-user-customizations/add-dev-box-individual-customization.png" alt-text="Screenshot of the Add a dev box pane in the developer portal, showing the option to apply customizations.":::
  
 1. Select **Upload a customization file(s)**, select **Add customizations from file**, and then browse to and select your *myfilename.yaml* file.
 
-   :::image type="content" source="media/how-to-write-individual-customization-file/customize-dev-box-upload.png" alt-text="Screenshot of the Upload a customization file section in the developer portal, showing the option to add customizations from a file.":::
+   :::image type="content" source="media/how-to-configure-user-customizations/customize-dev-box-upload.png" alt-text="Screenshot of the Upload a customization file section in the developer portal, showing the option to add customizations from a file.":::
  
 1. To verify that the tasks in your customizations file will be applied correctly, you must validate them before you can proceed. Select **Validate**.
 
-   :::image type="content" source="media/how-to-write-individual-customization-file/customize-dev-box-validate.png" alt-text="Screenshot of the Validate button in the developer portal, showing the option to validate the customization file before proceeding.":::
+   :::image type="content" source="media/how-to-configure-user-customizations/customize-dev-box-validate.png" alt-text="Screenshot of the Validate button in the developer portal, showing the option to validate the customization file before proceeding.":::
  
 1. Review the dev box creation summary, and then select **Create**.
      
-    :::image type="content" source="media/how-to-write-individual-customization-file/customized-dev-box-create.png" alt-text="Screenshot of the dev box creation summary page in the developer portal, showing the option to create a customized dev box."::: 
+    :::image type="content" source="media/how-to-configure-user-customizations/customized-dev-box-create.png" alt-text="Screenshot of the dev box creation summary page in the developer portal, showing the option to create a customized dev box."::: 
 
 ### Get a file from a repository
 1. In the [developer portal](https://aka.ms/devbox-portal), select **New** > **New dev box**.
 1. In the **Add a dev box** pane, add details for you dev box.
 1. Select **Apply customizations**, and then select **Continue**.
 
-   :::image type="content" source="media/how-to-write-individual-customization-file/add-dev-box-individual-customization.png" alt-text="Screenshot of the Add a dev box pane in the developer portal, showing the option to apply customizations.":::
+   :::image type="content" source="media/how-to-configure-user-customizations/add-dev-box-individual-customization.png" alt-text="Screenshot of the Add a dev box pane in the developer portal, showing the option to apply customizations.":::
  
 1. Select **Upload a customization file(s)**, select **Choose a customization file from a repository**, and then enter the URL for the repository that stores your *workload.yaml* file.
 
-   :::image type="content" source="media/how-to-write-individual-customization-file/customize-dev-box-from-repository.png" alt-text="Screenshot of the Choose a customization file from a repository section in the developer portal, showing the option to enter a repository URL.":::
+   :::image type="content" source="media/how-to-configure-user-customizations/customize-dev-box-from-repository.png" alt-text="Screenshot of the Choose a customization file from a repository section in the developer portal, showing the option to enter a repository URL.":::
  
 1. To verify that the tasks in your customizations file will be applied correctly, you must validate them before you can proceed. Select **Validate**.
 
-   :::image type="content" source="media/how-to-write-individual-customization-file/customize-dev-box-validate.png" alt-text="Screenshot of the Validate button in the developer portal, showing the option to validate the customization file before proceeding.":::
+   :::image type="content" source="media/how-to-configure-user-customizations/customize-dev-box-validate.png" alt-text="Screenshot of the Validate button in the developer portal, showing the option to validate the customization file before proceeding.":::
  
 1. Review the dev box creation summary, and then select **Create**.
      
-    :::image type="content" source="media/how-to-write-individual-customization-file/customized-dev-box-create.png" alt-text="Screenshot of the dev box creation summary page in the developer portal, showing the option to create a customized dev box."::: 
+    :::image type="content" source="media/how-to-configure-user-customizations/customized-dev-box-create.png" alt-text="Screenshot of the dev box creation summary page in the developer portal, showing the option to create a customized dev box."::: 
 
 ## Related content
 
-- [Microsoft Dev Box team customizations](concept-what-are-team-customizations.md)
-- [Configure imaging for Dev Box team customizations](how-to-configure-customization-imaging.md)
+- [Microsoft Dev Box customizations](concept-what-are-dev-box-customizations.md)
+- [Configure Dev Box imaging](how-to-configure-dev-box-imaging.md)
 - [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md)

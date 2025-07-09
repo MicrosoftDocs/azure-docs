@@ -249,7 +249,7 @@ The following examples show other variable types:
 
 ## Get a variable's value
 
-To retrieve or reference a variable's contents, you can use the [variables() function](workflow-definition-language-functions-reference.md#variables) in the workflow designer and the code view editor. When you reference a variable, use the variable's name as the token, not the action's name, which is the usual way to reference an action's outputs.
+To retrieve or reference a variable's contents, you can use the [`variables()` function](expression-functions-reference.md#variables) in the workflow designer and the code view editor. When you reference a variable, use the variable's name as the token, not the action's name, which is the usual way to reference an action's outputs.
 
 For example, the following expression gets the items from the array variable [that's created in this guide](#append-value) by using the `variables()` function. The `string()` function returns the variable's contents in string format: `"1, 2, 3, red"`
 

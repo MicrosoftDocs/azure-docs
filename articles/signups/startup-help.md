@@ -1,5 +1,4 @@
 ---
-
 title: Get Help with Azure Startup Credits | Microsoft Learn
 description: Learn how to troubleshoot Azure startup credit issues using Microsoft Q&A and Azure support. Get answers to technical questions, create support requests, and explore learning resources.
 author: jesscraze
@@ -16,7 +15,12 @@ Azure support and Microsoft Q&A are your go-to resources for troubleshooting iss
 
 ## Azure support
 
-Your startup credit offer includes a [Basic support plan](https://azure.microsoft.com/support/plans/) for your Azure Sponsorship subscription. This plan provides billing and subscription management support at no extra cost via the Azure portal.
+Your $1,000 startup credit offer includes a [Basic support plan](https://azure.microsoft.com/support/plans/) for your Azure Sponsorship subscription. This plan provides billing and subscription management support at no extra cost via the Azure portal.
+
+Startups that verify their business and unlock up to $5,000 USD in Azure credits receive a complimentary [Developer support plan](https://azure.microsoft.com/support/plans/), which includes:
+
+- Technical support for Azure services.
+- Access to Support Engineers via prioritized responses on Microsoft Q&A.
 
 ## Microsoft Q&A
 
@@ -36,9 +40,11 @@ To create a support request, go to [Help + support](https://go.microsoft.com/fwl
 
 You can create a subscription management support request in the Azure portal even if your subscription hasn't yet been created.
 
-### How do I get technical support?
+### Can I change my Azure support plan?
 
-Technical support is provided through a paid Azure support plan. [Compare Azure support plans](https://azure.microsoft.com/support/plans/). Azure support plans aren't covered by your startup credits.
+Yes, you can upgrade your support plan anytime through the [Azure portal](https://go.microsoft.com/fwlink/p/?linkid=2202212). Your startup credit offers include a support plan at no additional cost, though the level of support may vary based on your business verification status.
+
+Upgraded support plans aren't covered by your startup credits and will be billed separately. To explore your options, [compare Azure support plans](https://azure.microsoft.com/support/plans/).
 
 ### Where can I find Azure documentation and learning resources?
 

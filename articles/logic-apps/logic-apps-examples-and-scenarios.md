@@ -100,7 +100,7 @@ Azure Logic Apps includes rich capabilities for advanced control flow, such as c
 You can access, convert, and transform multiple content types by using the many functions in the Azure Logic Apps [workflow definition language](logic-apps-workflow-definition-language.md). For example, you can convert between a string, JSON, and XML with the `@json()` and `@xml()` workflow expressions. Azure Logic Apps preserves content types to support content transfer in a lossless manner between services.
 
 * [Handle content types in Azure Logic Apps](logic-apps-content-type.md), such as `application/`, `application/octet-stream`, and `multipart/formdata`
-* [Reference guide to using functions in expressions for Azure Logic Apps and Power Automate](workflow-definition-language-functions-reference.md)
+* [Reference guide for expression functions in Azure Logic Apps and Power Automate](expression-functions-reference.md)
 * [Workflow Definition Language schema for Azure Logic Apps](logic-apps-workflow-definition-language.md)
 
 ## Create custom APIs and connectors

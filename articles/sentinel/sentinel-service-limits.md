@@ -65,6 +65,17 @@ The following limits apply to incidents in Microsoft Sentinel.
 
 However, a SOC that experiences the creation of more than *around* 3,000 new incidents per day will most likely find itself unable to keep up, and the database capacity will quickly be reached. In this situation, the SOC needs to find and fix any rules that create large numbers of incidents, to get the count of daily new incidents to manageable levels.
 
+## Case management limits
+
+The following limits apply to case management in Microsoft Sentinel.
+
+| Description        | Limit                                   | Dependency |
+|--------------------|-----------------------------------------|------------|
+| Cases per tenant   | 100,000 cases                 | None       |
+| Attachments per tenant    | 500 GB         | None       |
+| Linked incidents per case  | 100 incidents       | None       |
+| Case retention period | 180 days | None       |
+
 ## Machine learning-based limits
 
 The following limits apply to machine learning-based features in Microsoft Sentinel like customizable anomalies and Fusion.

@@ -36,7 +36,7 @@ This tutorial assumes basic understanding of managing Kubernetes with Helm. Lear
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - Install [Azure CLI](/cli/azure/install-azure-cli) (version 2.4.0 or later)
 - Install [Helm](https://helm.sh/docs/intro/install/) (version 2.14.0 or later)
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - A Kubernetes cluster.
 
 ## Add key-values

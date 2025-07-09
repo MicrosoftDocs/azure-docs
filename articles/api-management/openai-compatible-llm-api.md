@@ -29,7 +29,7 @@ API Management supports two types of language model APIs for this scenario. Choo
 
     For an OpenAI-compatible LLM, API Management configures a chat completions endpoint. 
 
-* **Passthrough** - Other language model endpoints that aren't compatible with OpenAI's API. Examples include models deployed in [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html) or other providers.
+* **Passthrough** - Other language model endpoints that aren't compatible with OpenAI's API. Examples include models deployed in [Amazon Bedrock](amazon-bedrock-passthrough-llm-api.md) or other providers.
 
     API Management configures wildcard operations for common HTTP verbs. Clients can append paths to the wildcard operations, and API Management passes requests to the backend.  
 

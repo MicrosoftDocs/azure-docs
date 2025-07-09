@@ -230,6 +230,8 @@
       href: resiliency-validation.md
 - name: Security
   items:
+    - name: Secure ExpressRoute
+      href: secure-expressroute.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/expressroute-security-baseline?toc=/azure/expressroute/TOC.json
     - name: Roles and permissions

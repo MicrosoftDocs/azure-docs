@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure startup credit offer documentation
-summary: Eligible startups can receive $1,000 USD in Azure credits to explore the latest AI models and start building on Azure. Get started at microsoft.com/startups.
+summary: Microsoft is here to support your startup from idea to scale. Get started with $1,000 USD in Azure credits–no application needed. Then, verify your startup to unlock up to $5,000 USD in credits to keep building and growing on Azure. Get started at microsoft.com/startups.
 
 metadata:
   title: Azure startup credit offer documentation | Microsoft Learn # Required; page title displayed in search results. Include the brand. < 60 chars.
@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page # Required
   author: jesscraze #Required; your GitHub user alias, with correct capitalization.
   ms.author: jecru #Required; microsoft alias of author; optional team alias.
-  ms.date: 04/10/2025 #Required; mm/dd/yyyy format.
+  ms.date: 06/26/2025 #Required; mm/dd/yyyy format.
 
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
@@ -22,8 +22,6 @@ landingContent:
         links:
           - text: What is the Azure startup credit offer?
             url: overview.md
-          - text: Understanding your credit offer
-            url: startup-programs.md
 
   # Card 
   - title: Get started with Azure
@@ -36,11 +34,9 @@ landingContent:
             url: startup-help.md
 
   # Card
-  - title: Join Microsoft for Startups
+  - title: About Microsoft for Startups
     linkLists:
       - linkListType: overview
         links:
           - text: What is Microsoft for Startups?
             url: /microsoft-for-startups/overview
-          - text: Apply for Microsoft for Startups
-            url: https://microsoft.com/startups
