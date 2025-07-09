@@ -6,7 +6,7 @@ ms.service: microsoft-sentinel
 ms.subservice: sentinel-graph
 ms.topic: reference 
 ms.author: edbaynash  
-ms.date: 06/23/2025
+ms.date: 07/09/2025
 
 # Customer intent: As a security engineer or data scientist, I want to understand how to use the Microsoft Sentinel Provider class to connect to the Microsoft Sentinel data lake and perform operations such as listing databases, reading tables, and saving data.
 ---

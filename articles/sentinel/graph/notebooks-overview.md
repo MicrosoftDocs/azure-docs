@@ -6,7 +6,7 @@ author: EdB-MSFT
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-graph
 ms.topic: conceptual
-ms.date: 06/23/2025
+ms.date: 07/09/2025
 ms.author: edbaynash 
 
 # Customer intent: As a security engineer or data scientist, I want to explore and analyze security data in the Microsoft Sentinel data lake using Jupyter notebooks, so that I can gain insights and build advanced analytics solutions.

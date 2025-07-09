@@ -6,7 +6,7 @@ author: EdB-MSFT
 ms.author: edbaynash
 ms.custom: subject-cost-optimization
 ms.topic: concept-article
-ms.date: 06/29/2025
+ms.date: 07/09/2025
 ms.collection: usx-security
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -67,7 +67,7 @@ There are two ways to pay for the analytics tier: **Pay-As-You-Go** and **Commit
 
 The data lake tier is a cost-effective option for ingesting secondary security data. They're charged at a flat, low rate per GB. The data lake tier provides querying and jobs scheduling capabilities and once enabled, mirrors all data available in the analytics tier.
 
-For more information, see [Microsoft Sentinel data lake](https://aka.ms/sentinel-lake-overview)  
+For more information, see [Microsoft Sentinel data lake](graph/sentinel-lake-overview.md)  
 
 The data lake tier incurs charges based on usage of various data like capabilities. 
 - **Data lake ingestion** charges are incurred per GB of data ingested for tables in Lake only mode.

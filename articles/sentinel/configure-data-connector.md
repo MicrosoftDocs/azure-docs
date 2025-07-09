@@ -3,7 +3,7 @@ title: Connect Data Sources to Microsoft Sentinel Using Data Connectors
 description: Learn how to connect data sources to Microsoft Sentinel using data connectors for improved threat detection.
 author: batamig
 ms.topic: how-to
-ms.date: 07/06/2025
+ms.date: 07/09/2025
 ms.author: bagol
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -95,7 +95,7 @@ After you configure the data connector, it might take some time for the data to 
 After you enable the connector successfully, the connector begins to stream data to the table schemas related to the data types you configured.
 
 In the Defender portal, query data in the **Advanced hunting** page, or in the Azure portal, query data in the **Logs** page.  
-Navigate to **Data lake explorer** , **KQL queries** to query data in the data lake. For more information, see [KQL and the Microsoft Sentinel data lake (preview)](https://aka.ms/kql-overview).
+Navigate to **Data lake explorer** , **KQL queries** to query data in the data lake. For more information, see [KQL and the Microsoft Sentinel data lake (preview)](graph/kql-overview.md).
 
 ## Find support for a data connector
 
@@ -118,5 +118,5 @@ For more information about solutions and data connectors in Microsoft Sentinel, 
 - [What is Microsoft Sentinel data lake?](graph/sentinel-lake-overview.md)
 - [Onboarding to Microsoft Sentinel data lake](graph/sentinel-lake-onboarding.md)
 - [Manage data tiers and retention in Microsoft Defender Portal (Preview)](https://aka.ms/manage-data-defender-portal-overview). 
-- [KQL and the Microsoft Sentinel data lake (preview)](https://aka.ms/kql-overview)
-- [Jupyter notebooks and the Microsoft Sentinel data lake (preview)](https://aka.ms/notebooks-overview)
+- [KQL and the Microsoft Sentinel data lake (preview)](graph/kql-overview.md)
+- [Jupyter notebooks and the Microsoft Sentinel data lake (preview)](graph/notebooks-overview.md)

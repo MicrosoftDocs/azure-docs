@@ -6,7 +6,7 @@ author: EdB-MSFT
 ms.service: microsoft-sentinel  
 ms.topic: conceptual
 ms.subservice: sentinel-graph
-ms.date: 07/07/2025
+ms.date: 07/09/2025
 ms.author: edbaynash  
 
 ms.collection: ms-security  

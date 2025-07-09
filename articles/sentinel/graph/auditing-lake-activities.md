@@ -6,7 +6,7 @@ ms.subservice: sentinel-graph
 ms.author: edbaynash
 author: EdB-MSFT
 ms.topic: how-to
-ms.date: 07/06/2025
+ms.date: 07/09/2025
 
 #customer intent: As a SOC analyst, I want to learn how to use the audit log to search for Microsoft Sentinel data lake activities to help with investigation.
 

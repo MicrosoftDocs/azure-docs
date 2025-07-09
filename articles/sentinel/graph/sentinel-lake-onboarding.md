@@ -4,7 +4,7 @@ titleSuffix: Microsoft Security
 description: This article describes how to onboard to the Microsoft Sentinel data lake  
 author: EdB-MSFT
 ms.topic: how-to  
-ms.date: 06/29/2025
+ms.date: 07/09/2025
 ms.author: edbaynash
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-graph
