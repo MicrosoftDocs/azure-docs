@@ -64,7 +64,9 @@ ZRS is supported by all file share types.
 
 ### Cost
 
-When you enable ZRS, you're charged at a different rate than locally redundant storage due to the additional replication and storage overhead. For detailed pricing information, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
+[!INCLUDE [Storage - Availability zone cost](includes/storage/reliability-storage-availability-zone-cost-include.md)]
+
+For detailed pricing information, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ### Configure availability zone support
 
@@ -84,7 +86,7 @@ This section describes what to expect when a file storage account is configured 
 
 [!INCLUDE [Storage - Zone down experience](includes/storage/reliability-storage-availability-zone-down-experience-include.md)]
 
-  No remounting of Azure file shares from the connected clients is required.
+    No remounting of Azure file shares from the connected clients is required.
 
 ### Failback
 
@@ -137,7 +139,7 @@ For detailed pricing information, see [Azure Files pricing](https://azure.micros
 
 This section describes what to expect when a storage account is configured for geo-redundancy and all regions are operational.
 
-- **Traffic routing between regions**: Azure Files uses an active/passive approach where all write operations and most read operations are directed to the primary region.
+- **Traffic routing between regions**: Azure Files uses an active/passive approach where all read and write operations are directed to the primary region.
 
 - **Data replication between regions**: Write operations are first committed to the primary region using the configured redundancy type (LRS for GRS, or ZRS for GZRS). After successful completion in the primary region, data is asynchronously replicated to the secondary region where it's stored using locally redundant storage (LRS).
 
@@ -159,11 +161,13 @@ For geo-redundant storage accounts, you can perform planned failover operations 
 
 [!INCLUDE [Storage - Alternative multi-region approaches - reasons](includes/storage/reliability-storage-multi-region-alternative-reasons-include.md)]
 
+- You use file share types that don't support geo-redundancy.
+
 You can, however, design a custom cross-region failover solution that's tailored to your needs.
 
 [!INCLUDE [Storage - Alternative multi-region approaches - approach overview](includes/storage/reliability-storage-multi-region-alternative-approach-include.md)]
 
-Although a complete treatment of deployment topologies for Azure Files is outside the scope of this article, below are some common approaches to consider:
+Below are some common high-level approaches to consider:
 
 - **Multiple storage accounts:** Azure Files can be deployed across multiple regions using separate storage accounts in each region. This approach provides flexibility in region selection, the ability to use non-paired regions, and more granular control over replication timing and data consistency. When implementing multiple storage accounts across regions, you need to configure cross-region data replication, implement load balancing and failover policies, and ensure data consistency across regions.
 
