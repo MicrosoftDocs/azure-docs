@@ -100,17 +100,17 @@ In the project, you can review dependencies for each server either through the *
 On reviewing the **Dependencies** column for any server, you see one of the following status:
 
 1. **Credentials not available:** No server credentials provided in the appliance configuration manager can be used for dependency analysis.
-2. **Validation in progress:** The server has not completed the prerequisite validation checks yet.
+2. **Validation in progress:** The server hasn't completed the prerequisite validation checks yet.
 3. **Validation failed:** The server failed the validation checks. You can click the status to view the error message, which usually mentions missing prerequisites like invalid credentials or insufficient permissions.
 
 ::: moniker range="migrate"
-After the validation succeeds, dependency analysis are auto-enabled and you see one of the following status:
+After the validation succeeds, dependency analysis are autoenabled and you see one of the following status:
 ::: moniker-end
 
 4. **View dependencies:** The server passed the validation checks and dependency analysis is enabled. You can select this to open the new visualization and check the server’s dependencies.
 ::: moniker range="migrate"
-5. **Not initiated:** Dependency analysis couldn’t be enabled because Azure Migrate reached its limit of 1,000 servers per appliance for automatic enablement. If you want to run dependency analysis on specific servers, you can disable it manually on other auto-enabled servers and enable it for the required ones using the PowerShell module.
-6. **Disabled:** You manually disabled dependency analysis on this server using the PowerShell module. You can enable it again anytime using the same module. 
+5. **Not initiated:** Dependency analysis couldn’t be enabled because Azure Migrate reached its limit of 1,000 servers per appliance for automatic enablement. If you want to run dependency analysis on specific servers, you can disable it manually on other autoenabled servers and enable it for the required ones using the PowerShell module.
+6. **Disabled:** You can manually disable dependency analysis on this server using the PowerShell module. You can enable it again anytime using the same module. 
 
 >[!Note]
 > **Not supported** is the status shown for servers discovered through CSV import, as the CSV file currently does not collect network dependency data.
@@ -149,7 +149,7 @@ After the validation succeeds, dependency analysis are auto-enabled and you see 
     **Process** | **Type**
     --- | --- 
     Resolvable (Default) | To filter by processes having resolvable connections
-    Essentials | To filter by non-redundant key processes
+    Essentials | To filter by nonredundant key processes
     All | to filter by all processes including those with unresolved connections
 
 1. In the view, you find the servers and connections represented as follows:
@@ -213,8 +213,7 @@ Destination port | Port number on the destination server
 
 ::: moniker range="migrate"
 ## Switch to new visualization
-
-If you're an existing user who has already set up an Azure Migrate project, performed discovery and manually enabled dependency analysis on some servers, you need to perform following steps to get the new enhanced visualization:
+If you are an existing user, you already set up an Azure Migrate project. You performed discovery and manually enabled dependency analysis on some servers. To get the new enhanced visualization, you need to follow these steps:
 
 1. Go to the inventory view and search for a server, for which you want to review dependencies.
 2. Select on **View dependencies** and you see the old visualization showing dependencies of that server.
@@ -222,13 +221,13 @@ If you're an existing user who has already set up an Azure Migrate project, perf
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png":::
 
 3. On the dependency view, you see an information box prompting you to complete some prerequisites for switching to the new visualization.
-4. As a prerequisite, you need to ensure that the discovery agent on the appliances registered with the project has been upgraded to version or above.
+4. As a prerequisite, you need to ensure that the discovery agent on the appliances registered with the project is upgraded to version or later.
 5. Select proceed to create a new resource in the same Resource Group as the project. Ensure that you've atleast **Contributor** role on the Resource Group else this step isn't complete.
 
 > [!NOTE]
-> Even if the new resource creation goes through, you might not see the new visualization if the discovery agent version on the Azure Migrate appliance isn't up to date. Ensure that auto-update service on the appliance is enabled. [Learn more](migrate-appliance.md#appliance-upgrades)
+> Even if the new resource creation goes through, you might not see the new visualization if the discovery agent version on the Azure Migrate appliance isn't up to date. Ensure that autoupdate service on the appliance is enabled. [Learn more](migrate-appliance.md#appliance-upgrades)
 
-After you have performed the required steps to upgrade to the new dependency visualization, there are two ways in which you can see server dependencies in the new visualization.
+After you've performed the required steps to upgrade to the new dependency visualization, there are two ways in which you can see server dependencies in the new visualization.
 
 ### Option 1
 
@@ -241,18 +240,18 @@ After you have performed the required steps to upgrade to the new dependency vis
 2. In the old dependency view, select the prompt to get to the new enhanced visualization. 
 
 > [!NOTE]
-> It's recommended to use **Option 1** above to switch to the new inventory view as you're able to filter servers where dependency analysis was auto-enabled and then directly review the dependency visualization. Old inventory view only provides option to visualize dependencies for servers where you had manually enabled the feature.
+> We recommend to use **Option 1** above to switch to the new inventory view as you're able to filter servers where dependency analysis was autoenabled and then directly review the dependency visualization. The old inventory view only shows the option to visualize dependencies for servers where you manually enabled the feature.
 ::: moniker-end
 
 ::: moniker range="migrate"
 ## Manage dependencies
 
-Dependency analysis is auto-enabled on all discovered servers (upto 1000 servers per appliance)which have passed the validation checks. You may need to disable one or more of these servers in the following scenarios:
+Dependency analysis is autoenabled on all discovered servers (upto 1,000 servers per appliance), which have passed the validation checks. You may need to disable one or more of these servers in the following scenarios:
 
-1. Dependency analysis has been auto-enabled on all discovered in your project but you want to disable it on a few servers where you don't want to gather dependency data. 
-1. Dependency analysis has been auto-enabled on 1,000 servers concurrently in your project but you have more servers where you want to enable it, then you can disable dependency analysis one or more servers from the set of 1,000 and enable others as needed.
+1. Dependency analysis is autoenabled on all discovered in your project but you want to disable it on a few servers where you don't want to gather dependency data. 
+1. Dependency analysis is autoenabled on 1,000 servers concurrently in your project but you have more servers where you want to enable it, then you can disable dependency analysis one or more servers from the set of 1,000 and enable others as needed.
 
-You can disable dependency analysis on servers that you do not want and also enable dependencies for servers that you want using either the Portal or PowerShell utility.
+You can disable dependency analysis on servers that you don't want and also enable dependencies for servers that you want to use either the Portal or PowerShell utility.
 
 ## Manage dependencies using Portal
 
@@ -262,14 +261,14 @@ In **All inventory** or **Infrastructure inventory** view, select the **Manage D
 
 :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/disable-dependencies-option.png":::
 
-Follow the steps to disbale the servers where dependency analysis has been auto-enabled:
+Follow the steps to disable the servers where dependency analysis is autoenabled:
 
 1. You can start by selecting an appliance from the drop-down.
 
 > [!NOTE] 
-> If the selected appliance has not been upgraded for the new dependency analysis, you can either meet the prerequisites or if you do not wish to upgrade, please switch to the old experience (from Overviw) to Add/remove servers for dependency analysis.
+> If the selected appliance hasn't been upgraded for the new dependency analysis, you can either meet the prerequisites or if you don't wish to upgrade, switch to the old experience (from Overview) to Add/remove servers for dependency analysis.
 
-1. You can filter servers to disable dependencies on servers which were auto-enabled (servers with dependency status as Enabled). The servers which are not eligible for disablement (servers with dependency status as Validation failed/Not initiated/Disabled/Credentials not available) cannot be selected.
+1. You can filter servers to disable dependencies on servers, which were autoenabled (servers with dependency status as Enabled). The servers, which aren't eligible for disablement (servers with dependency status as Validation failed/Not initiated/Disabled/Credentials not available) can't be selected.
 
 :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/disable-dependencies-view.png":::
 
@@ -279,21 +278,21 @@ Follow the steps to disbale the servers where dependency analysis has been auto-
 
 In **All inventory** or **Infrastructure inventory** view, select the **Manage Dependencies** drop-down and then select **Enable dependencies**.
 
-Follow the steps to disbale the servers where dependency analysis has been auto-enabled:
+Follow the steps to disable the servers where dependency analysis has been autoenabled:
 
 1. You can start by selecting an appliance from the drop-down.
 
 > [!NOTE] 
-> If the selected appliance has not been upgraded for the new dependency analysis, you can either meet the prerequisites or if you do not wish to upgrade, please switch to the old experience (from Overviw) to Add/remove servers for dependency analysis.
+> If the selected appliance hasn't been upgraded for the new dependency analysis, you can either meet the prerequisites or if you don't wish to upgrade, switch to the old experience (from Overview) to Add/remove servers for dependency analysis.
 
-1. You can filter servers to enable dependencies on servers which were disabled by the user or not enabled as the scale limit of 1000 per appliance had been met (servers with dependency status as Disabled or Not initiated). The servers which are not eligible for disablement (servers with dependency status as Validation failed/Credentials not available/Enabled) cannot be selected.
+1. You can filter servers to enable dependencies on servers, which were disabled by the user or not enabled as the scale limit of 1,000 per appliance had been met (servers with dependency status as Disabled or Not initiated). The servers, which aren't eligible for disablement (servers with dependency status as Validation failed/Credentials not available/Enabled) can't be selected.
 
 :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/enable-dependencies-view.png":::
 
 1. You can select the servers and select Enable to proceed.
 
 > [!NOTE] 
-> You cannot enable more than 1000 servers per appliance concurrently so if your selection exceeds the count, you will not be able to proceed.
+> You can't enable more than 1,000 servers per appliance concurrently so if your selection exceeds the count, you won't be able to proceed.
 
 ## Manage dependencies using PowerShell utility
 
@@ -356,12 +355,12 @@ In the following example, dependency analysis is being enabled on the list of se
 ::: moniker-end
 
 ::: moniker range="migrate-classic"
-## Disable auto-enabled dependency analysis using PowerShell
+## Disable autoenabled dependency analysis using PowerShell
 
-Dependency analysis is auto-enabled on all discovered servers which have passed the validation checks. You may need to disable one or more of these servers in the following scenarios:
+Dependency analysis is autoenabled on all discovered servers, which have passed the validation checks. You may need to disable one or more of these servers in the following scenarios:
 
-1. Dependency analysis has been auto-enabled on all discovered in your project but you want to disable it on a few servers where you don't want to gather dependency data.
-2. Dependency analysis has been auto-enabled on 1,000 servers concurrently in your project but you have more servers where you want to enable it, then you can disable dependency analysis one or more servers from the set of 1,000 and enable others as needed.
+1. Dependency analysis has been autoenabled on all discovered in your project but you want to disable it on a few servers where you don't want to gather dependency data.
+2. Dependency analysis is autoenabled on 1,000 servers at the same time in your project. If you have more servers to enable, you can disable it on one or more of the 1,000 servers and enable it on the ones as you need.
 
 > [!NOTE]
 > Currently, it isn't possible to disable dependency analysis on servers from portal so you need to install the PowerShell module to disable for servers that you don't want.
