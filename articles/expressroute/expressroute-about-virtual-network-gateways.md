@@ -16,16 +16,6 @@ To connect your Azure virtual network (virtual network) and your on-premises net
 
 This article explains different gateway types, gateway SKUs, and estimated performance by SKU. This article also explains ExpressRoute [FastPath](#fastpath), a feature that enables the network traffic from your on-premises network to bypass the virtual network gateway to improve performance.
 
-## Gateway types
-
-When you create a virtual network gateway, you need to specify several settings. One of the required settings, `-GatewayType`, specifies whether the gateway is used for ExpressRoute or VPN traffic. The two gateway types are:
-
-* `Vpn`: To send encrypted traffic across the public internet, use `Vpn` for `-GatewayType` (also called a VPN gateway). Site-to-site, point-to-site, and VNet-to-VNet connections all use a VPN gateway.
-
-* `ExpressRoute`: To send network traffic on a private connection, use `ExpressRoute` for `-GatewayType` (also called an ExpressRoute gateway). This type of gateway is used when you're configuring ExpressRoute.
-
-Each virtual network can have only one virtual network gateway per gateway type. For example, you can have one virtual network gateway that uses `Vpn` for `-GatewayType`, and one that uses `ExpressRoute` for `-GatewayType`.
-
 ## <a name="gwsku"></a>Gateway SKUs
 
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
@@ -98,7 +88,7 @@ The Hosted-On-Behalf-Of (HOBO) Public IP feature simplifies ExpressRoute gateway
 When you create an ExpressRoute gateway, Microsoft automatically provisions and manages the public IP address in a secure, backend subscription. This IP is encapsulated within the gateway resource, enabling Microsoft to enforce policies such as data rate limits and enhance auditability.
 
 **Availability:**  
-HOBO Public IP is currently in preview for ExpressRoute Virtual Network Gateways. It isn't available for Virtual WAN (vWAN) or Extended Zone deployments.
+This feature isn't available for Virtual WAN (vWAN) or Extended Zone deployments.
 
 
 ## Connectivity from VNet to VNet and from VNet to virtual WAN
