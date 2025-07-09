@@ -104,7 +104,7 @@
   - name: Author templates
     href: ../azure-resource-manager/templates/syntax.md
   - name: Community templates
-    href: https://azure.microsoft.com/documentation/templates
+    href: /azure/templates/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/firewall-manager/
   - name: Regional availability
