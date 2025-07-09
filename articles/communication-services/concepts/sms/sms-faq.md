@@ -238,6 +238,9 @@ Once you submit the short code program brief application in the Azure portal, th
 > [!IMPORTANT]
 > Effective **June 30, 2024**, unregistered alphanumeric sender IDs sending messages to UK phone numbers will have its traffic blocked. To prevent this from happening, a [registration application](https://forms.office.com/r/pK8Jhyhtd4) needs to be submitted and be in approved status.
 
+> [!IMPORTANT]
+> Effective **July 3, 2025**, unregistered alphanumeric sender IDs sending messages to Ireland phone numbers will have it's messages marked as "Spam" for recepients. To prevent this from happening, a [registration application](https://forms.office.com/r/pK8Jhyhtd4) needs to be submitted and be in approved status. If your sender ID is  not registered by **October 3, 2025**, all traffic from the unregistered sender IDs will be blocked entirely.
+
 ### How should an alphanumeric sender ID be formatted?
 
 **Formatting guidelines**:
