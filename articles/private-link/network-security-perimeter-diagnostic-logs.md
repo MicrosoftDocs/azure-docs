@@ -58,11 +58,11 @@ Every PaaS resource associated with the network security perimeter, generates ac
 | **properties** | Network security perimeter specific extended properties related to this category of events.|
 | **resultDescription** | The static text description of this operation on the PaaS resource, e.g. “Get storage file.” |
 
-## Network security perimeter Specific Properties
+## Network security perimeter specific properties
 
 This section describes the network security perimeter specific properties in the log schema. 
 > [!NOTE]
-> Application of the properties are subjected to log category type. Do refer respective log category schemas for applicability.
+> Application of the properties is subjected to log category type. Do refer respective log category schemas for applicability.
 
 | **Value** | **Description** |
 | --- | --- |
@@ -76,7 +76,7 @@ This section describes the network security perimeter specific properties in the
 | **destination** | JSON property bag describing destination of the outbound connection. |
 | **accessRulesVersion** | JSON property bag containing access rule version of the resource. |
 	
-## Source Properties
+## Source properties
 
 Properties describing source of inbound connection.
 
@@ -90,7 +90,7 @@ Properties describing source of inbound connection.
 | **appId** | Unique GUID representing the app ID of source in the Azure Active Directory. |
 | **parameters** | List of optional source properties in JSON string format. E.g., { {Param1}: {value1}, {Param2}: {value2}, ...}. |
 
-## Destination Properties
+## Destination properties
 Properties describing destination of outbound connection.
 
 | **Value** | **Description** |
@@ -101,7 +101,7 @@ Properties describing destination of outbound connection.
 | **port** | Port number of outbound connection. May not exist for all resource types. |
 | **protocol** | Application & transport layer protocols for outbound connection in the format {AppProtocol}:{TptProtocol}. E.g., HTTPS:TCP. May not exist for all resource types. |
 
-## Sample Log Entry For Inbound Categories
+## Sample log entry For inbound categories
 
 ``` json
 {
@@ -137,7 +137,7 @@ Properties describing destination of outbound connection.
 }
 ```
 
-## Sample Log Entry For Outbound Categories
+## Sample log entry for outbound categories
 
 ``` json
 {
