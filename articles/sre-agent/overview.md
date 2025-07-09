@@ -119,20 +119,15 @@ While Azure SRE Agent can help you manage and report on all Azure services, the 
 - Azure Storage
 - Azure Virtual Machines
 
-Further, the agent can also:
-
-- Report metrics and generate visualizations for any Azure resource
-- Report CPU and memory diagnostics for compute resources
-- Perform TLS minimum version upgrades for App Service and Functions apps
-- Perform local authentication remediation for Storage, Cosmos DB, Azure SQL, Event Hub, Service Bus, and App Service
-
 To get the latest list of services with custom agent tooling, you can submit the following prompt to the agent:
 
 ```text
 Which Azure services do you have specialized tooling available for?
 ```
 
-As you create an agent, the resource group picker indicates groups containing services from this list that feature specialized support. In the create window, a checkmark next to the resource group indicates that the group includes services with specialized support.
+### Identifying resource groups
+
+As you create an agent, the resource group picker indicates groups that have instances of services with specialized tooling. From the resource group picker you'll see a checkmark (:::image type="icon" source="media/blue-check.png" border="false":::) next to the group name indicating the group includes services with specialized support.
 
 ## Preview access
 
