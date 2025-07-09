@@ -64,7 +64,7 @@ Zone redundancy is enabled at the storage account level and applies to all Table
 
 ### Region support
 
-Zone-redundant Azure Storage accounts can be deployed [in any region that supports availability zones](./regions-list.md).
+[!INCLUDE [Storage - Availability zone region support](includes/storage/reliability-storage-availability-zone-region-support-include.md)]
 
 ### Requirements
 
@@ -72,7 +72,9 @@ You must use a Standard general-purpose v2 storage account to enable zone-redund
 
 ### Cost
 
-When you enable ZRS, you're charged at a different rate than locally redundant storage due to the additional replication and storage overhead. For detailed pricing information, see [Azure Tables pricing](https://azure.microsoft.com/pricing/details/storage/tables/).
+[!INCLUDE [Storage - Availability zone cost](includes/storage/reliability-storage-availability-zone-cost-include.md)]
+
+For detailed pricing information, see [Azure Table Storage pricing](https://azure.microsoft.com/pricing/details/storage/tables/).
 
 ### Configure availability zone support
 
@@ -132,7 +134,9 @@ When implementing multi-region Azure Table Storage, consider the following impor
 
 ### Cost
 
-Multi-region Azure Table Storage configurations incur additional costs for cross-region replication and storage in the secondary region. Data transfer between Azure regions is charged based on standard inter-region bandwidth rates. For detailed pricing information, see [Azure Table Storage pricing](https://azure.microsoft.com/pricing/details/storage/tables/).
+[!INCLUDE [Storage - Multi Region cost](includes/storage/reliability-storage-multi-region-cost-include.md)]
+
+For detailed pricing information, see [Azure Table Storage pricing](https://azure.microsoft.com/pricing/details/storage/tables/).
 
 ### Configure multi-region support
 
