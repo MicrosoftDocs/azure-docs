@@ -30,7 +30,7 @@ ms.author: ananyagarg
 
 **Step 5**: Select the stop button and wait for status of the VM to be Stopped (deallocated).
 
-:::image type="content" source="./media/migrate-nested-cvms/capture-option-azure-portal.png" alt-text="Screenshot of Azure portal showing the Capture option, circled in green, and the Statu highlighted..":::
+:::image type="content" source="./media/migrate-nested-cvms/capture-option-azure-portal.png" alt-text="Screenshot of Azure portal showing the Capture option, circled in green, and the Status highlighted.":::
 
 
 **Step 6**: Find the **Capture** drop down in the overview tab of the VM, then select **Image**.
