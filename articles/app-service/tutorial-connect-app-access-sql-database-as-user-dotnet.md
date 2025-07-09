@@ -8,7 +8,7 @@ ms.author: cephalin
 ms.devlang: csharp
 ms.custom: devx-track-azurecli, devx-track-dotnet, AppServiceConnectivity
 ms.topic: tutorial
-ms.date: 07/08/2025
+ms.date: 07/09/2025
 ---
 # Tutorial: Connect an App Service app to SQL Database on behalf of the signed-in user
 
@@ -43,10 +43,7 @@ When you complete the tutorial, your app securely connects to SQL Database on be
 
 - Have access to a Microsoft Entra tenant populated with users and groups.
 
-- Have an Azure App Service app that uses Azure SQL Database with SQL authentication as the back end. You can use the sample app from either of the following tutorials:
-
-  - [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
-  - [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md)
+- Complete the tutorial at [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md).
 
   Alternatively, you can adapt the steps for your own .NET app with SQL Database. The steps in this tutorial support the following .NET versions:
 
@@ -154,14 +151,12 @@ Your app is now configured to generate an access token that SQL Database accepts
 
 ## 5. Use the access token in your application code
 
-Update your application code to add the access token supplied by App Service authentication to the connection object. The steps to follow differ depending on whether you have an ASP.NET Core app, which uses [Entity Framework Core](/ef/core/), or an ASP.NET app, which uses [Entity Framework 6](/ef/ef6/).
+Update your application code to add the access token supplied by App Service authentication to the connection object.
 
 > [!NOTE]
-> This code doesn't work locally. For more information and alternatives for local debugging, see [Debug locally when you use App Service authentication](#debug-locally-when-you-use-app-service-authentication).
+> This code doesn't work locally. For more information and alternatives for local debugging, see [Debug locally when you use App Service authentication](#how-do-i-debug-locally-when-using-app-service-authentication).
 
-# [ASP.NET Core](#tab/efcore)
-
-An ASP.NET Core app uses [Entity Framework Core](/ef/core/) by default. In your `DbContext` object in *DatabaseContext.cs* or other file that configures the database context, change the default constructor to add the Microsoft Entra ID access token to the connection object.
+In your `DbContext` object in *DatabaseContext.cs* or other file that configures the database context, change the default constructor to add the Microsoft Entra ID access token to the connection object.
 
 ```csharp
 public MyDatabaseContext (DbContextOptions<MyDatabaseContext> options, IHttpContextAccessor accessor)
@@ -172,97 +167,17 @@ public MyDatabaseContext (DbContextOptions<MyDatabaseContext> options, IHttpCont
 }
 ```
 
-# [ASP.NET](#tab/ef)
+1. If you have a connection string called `defaultConnection` in App Service that uses SQL authentication with a username and password, use the following command to remove the connection secrets. Replace `<group-name>`, `<app-name>`, `<db-server-name>`, and `<db-name>` with your values.
 
-An ASP.NET app uses [Entity Framework](/ef/ef6/) by default. For more information, see [Microsoft.EntityFramework.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFramework.SqlServer).
-
-1. In Visual Studio, from the **Tools** menu, select **NuGet Package Manager** > **Package Manager Console**.
-
-1. In the **Package Manager Console**, update the Entity Framework:
-
-   ```powershell
-   Update-Package EntityFramework
+   ```azurecli
+   az webapp config connection-string set --resource-group <group-name> --name <app-name> --connection-string-type SQLAzure --settings defaultConnection="server=tcp:<db-server-name>.database.windows.net;database=<db-name>;"
    ```
-
-1. In *DatabaseContext.cs* or other file that configures the database context, add the following code to the default constructor in your `DbContext` object.
-
-   ```csharp
-   var conn = (System.Data.SqlClient.SqlConnection)Database.Connection;
-   conn.AccessToken = System.Web.HttpContext.Current.Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"];
-   ```
-
------
-
-## 6. Update your application code to use Microsoft.Data.SqlClient
-
-To use Microsoft Entra authentication, you must make sure your app's database context refers to the Entity Framework SQL Server provider, which depends on the modern [Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient) ADO.NET provider. The Entity Framework provider replaces the built-in `System.Data.SqlClient` SQL Server provider, and includes support for Microsoft Entra ID authentication methods.
-
-Because `System.Data.SqlClient` is hardcoded as the provider in Azure App Service, you must extend `MicrosoftSqlDbConfiguration` to redirect any `System.Data.SqlClient` references to `Microsoft.Data.SqlClient` instead. The steps to follow differ depending on whether you have an ASP.NET Core app, which uses [Entity Framework Core](/ef/core/), or an ASP.NET app, which uses [Entity Framework 6](/ef/ef6/).
-
-# [ASP.NET Core](#tab/efcore)
-
-1. In Visual Studio, from the **Tools** menu, select **NuGet Package Manager** > **Package Manager Console**.
-
-1. In the **Package Manager Console**, add the NuGet package [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient).
-
-   ```powershell
-   Install-Package Microsoft.Data.SqlClient
-   ```
-
-1. In *appsettings.json*, replace the value of the connection string with the following code to remove the SQL Authentication connection secrets from your connection string. Replace `<server-name` and `<database-name>` with your server name and database name.
-
-   ```json
-   "Server=tcp:<server-name>.database.windows.net;Authentication=Active Directory Default; Database=<database-name>;"
-   ```
-
-# [ASP.NET](#tab/ef)
-
-1. In Visual Studio, from the **Tools** menu, select **NuGet Package Manager** > **Package Manager Console**.
-
-1. In the **Package Manager Console**, install the following packages:
-
-   ```powershell
-   Install-Package Microsoft.Data.SqlClient
-   Install-Package Microsoft.EntityFramework.SqlServer
-   ```
-
-1. In *DatabaseContext.cs* or other file that configures the database context:
-
-   - Add the following class:
-
-     ```csharp
-         public class AppServiceConfiguration : MicrosoftSqlDbConfiguration
-         {
-             public AppServiceConfiguration()
-             {
-                 SetProviderFactory("System.Data.SqlClient", Microsoft.Data.SqlClient.SqlClientFactory.Instance);
-                 SetProviderServices("System.Data.SqlClient", MicrosoftSqlProviderServices.Instance);
-                 SetExecutionStrategy("System.Data.SqlClient", () => new MicrosoftSqlAzureExecutionStrategy());
-             }
-         }
-     ```
-
-   - Add the following attribute to the `DatabaseContext` class declaration:
-
-     ```csharp
-     [DbConfigurationType(typeof(AppServiceConfiguration))]
-     ```
-
-1. In your *web.config* file
-
-   - To remove the SQL Authentication connection secrets, replace the value of the connection string with the following code. Use your server name and database name for `<server-name` and `<database-name>`.
-
-     ```json
-     "Server=tcp:<server-name>.database.windows.net;Authentication=Active Directory Default; Database=<database-name>;"
-     ```
-
-   - Remove the `entityFramework/providers/provider` section and line: `<provider invariantName="System.Data.SqlClient" .../>`.
-
------
 
 ## 7. Publish your changes
 
-If you used Visual Studio Code to edit your code in your GitHub fork, select **Source Control** from the left menu, enter a commit message, and select **Commit**. The commit triggers a GitHub Actions deployment to App Service. Wait a few minutes for the deployment to finish.
+If you used Visual Studio Code in the browser to make your code changes in your GitHub fork, select **Source Control** from the left menu. Enter a commit message like `OBO connect` and select **Commit**.
+
+The commit triggers a GitHub Actions deployment to App Service. Wait a few minutes for the deployment to finish.
 
 You can also publish your changes in Git Bash by using the following commands:
 
@@ -293,23 +208,22 @@ az group delete --name <group-name>
 
 This command might take some time to run.
 
-## Troubleshooting
+## Frequently asked questions
+
+- [Why do I get a Login failed for user '\<token-identified principal>' error?](#why-do-i-get-a-login-failed-for-user-token-identified-principal-error)
+- [How do I add other Microsoft Entra users or groups in Azure SQL Database?](#how-do-i-add-other-azure-ad-users-or-groups-in-azure-sql-database)
+- [How do I debug locally when using App Service authentication?](#how-do-i-debug-locally-when-using-app-service-authentication)
+- [What happens when access tokens expire?](#what-happens-when-access-tokens-expire)
+
+#### Why do I get a Login failed for user '<token-identified principal>' error?
 
 The most common causes for a `Login failed for user '<token-identified principal>'` error are:
 
 - Microsoft Entra authentication not configured for the Azure SQL database. See [Configure database server with Microsoft Entra authentication](#1-configure-database-server-with-azure-ad-authentication).
 - No valid token in the `X-MS-TOKEN-AAD-ACCESS-TOKEN` request header. This code doesn't work in local environments. For more information and alternatives, see [Debug locally when you use App Service authentication](#debug-locally-when-you-use-app-service-authentication).
-- User doesn't have permission to connect to the database. To add users and permissions, see [Add other Microsoft Entra users or groups in Azure SQL Database](#add-other-microsoft-entra-users-or-groups-in-azure-sql-database).
-
-### Debug locally when you use App Service authentication
-
-Because App Service authentication is an Azure feature, the code in this tutorial doesn't work in your local environment. Unlike an app running in Azure, your local code doesn't benefit from the App Service authentication middleware. You can use the following alternatives for local debugging:
-
-- Connect to SQL Database from your local environment with [`Active Directory Interactive`](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-interactive-authentication). This authentication flow doesn't sign in the user itself, but connects to the back-end database with the signed-in user so you can test database authorization locally.
-- Manually copy the access token into your code in place of the `X-MS-TOKEN-AAD-ACCESS-TOKEN` request header.
-- If you deploy from Visual Studio, use remote debugging of your App Service app.
-
-### Add other Microsoft Entra users or groups in Azure SQL Database
+- User doesn't have permission to connect to the database. To add users and permissions, see [Add other Microsoft Entra users or groups in Azure SQL Database](#how-do-i-add-other-azure-ad-users-or-groups-in-azure-sql-database).
+<a name='how-do-i-add-other-azure-ad-users-or-groups-in-azure-sql-database'></a>
+#### How do I add other Microsoft Entra users or groups in Azure SQL Database?
 
 To add more users or groups, connect to your database server using [sqlcmd](/azure/azure-sql/database/authentication-microsoft-entra-connect-to-azure-sql#sqlcmd) or [SQL Server Management Studio (SSMS)](/azure/azure-sql/database/authentication-microsoft-entra-connect-to-azure-sql#connect-with-ssms-or-ssdt), and create [contained database users](/azure/azure-sql/database/authentication-aad-configure#contained-database-users) mapped to Microsoft Entra identities.
 
@@ -322,6 +236,19 @@ ALTER ROLE db_datawriter ADD MEMBER [<user-or-group-name>];
 ALTER ROLE db_ddladmin ADD MEMBER [<user-or-group-name>];
 GO
 ```
+
+#### How do I debug locally when using App Service authentication?
+
+Because App Service authentication is an Azure feature, the code in this tutorial doesn't work in your local environment. Unlike an app running in Azure, your local code doesn't benefit from the App Service authentication middleware. You can use the following alternatives for local debugging:
+
+- Connect to SQL Database from your local environment with [`Active Directory Interactive`](/sql/connect/ado-net/sql/azure-active-directory-authentication#using-interactive-authentication) authentication. This authentication flow doesn't sign in the user itself, but connects to the back-end database with the signed-in user so you can test database authorization locally.
+- Manually copy the access token into your code in place of the `X-MS-TOKEN-AAD-ACCESS-TOKEN` request header.
+- If you deploy from Visual Studio, use remote debugging of your App Service app.
+
+#### What happens when access tokens expire?
+
+Your access token expires after some time. For information on how to refresh your access tokens without requiring users to reauthenticate with your app, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
+
 ## Related content
 
 - [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md)
