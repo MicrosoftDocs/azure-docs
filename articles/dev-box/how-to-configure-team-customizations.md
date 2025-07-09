@@ -15,7 +15,7 @@ ms.date: 05/09/2025
 #customer intent: As a Dev Center admin or project admin, I want to create image definition files so that my development teams can create customized dev boxes.
 ---
 
-# Write an image definition file for Dev Box team customizations
+# Configure team customizations
 
 The Microsoft Dev Box customizations feature helps you streamline the setup of cloud-based development environments. Getting developers started on a new project or with a new team is often complex and time-consuming. With customizations, you can configure ready-to-code workstations with applications, tools, repositories, code libraries, packages, and build scripts. This article guides you through the process of creating, testing, and editing an image definition file for your dev box by using Visual Studio Code.
 
@@ -58,7 +58,7 @@ You can source Dev Box tasks from tasks built in to the platform, or use custom 
 - **Use a catalog to define custom tasks.**
    You can create your own custom tasks. To make custom tasks available to your entire organization, attach a catalog that contains custom task definitions to your dev center. Dev Box supports Azure Repos and GitHub catalogs. Because tasks are defined only at the dev center, store tasks and image definitions in separate repositories.
    
-   To learn more about how to define custom tasks, see [Create tasks for Dev Box team customizations](how-to-create-customization-tasks-catalog.md).
+   To learn more about how to define custom tasks, see [Configure tasks for Dev Box customizations](how-to-configure-customization-tasks.md).
 
 ## Create image definitions at the project level
 
@@ -109,7 +109,7 @@ You can use both system and user tasks in your image definition file. The tasks 
 
 Standard users who configure user customizations can use only user tasks. They can't use system tasks.
 
-## Optional: Customize your dev box by using existing Desired State Configuration files
+## Customize your dev box by using existing Desired State Configuration files
 
 Desired State Configuration (DSC) is a management platform in PowerShell that enables you to manage your development environment with configuration as code. You can use DSC to define the desired state of your dev box, including software installations, configurations, and settings.
 
@@ -136,11 +136,11 @@ Configure your project to sync image definitions from the catalog. With this set
 1. Select **Catalogs**.
 1. Select **Sync settings**.
 
-   :::image type="content" source="./media/how-to-write-image-definition-file/customizations-project-sync-settings-small.png" alt-text="Screenshot that shows the Catalogs pane in the Azure portal, with the button for sync settings highlighted." lightbox="./media/how-to-write-image-definition-file/customizations-project-sync-settings.png":::
+   :::image type="content" source="./media/how-to-configure-team-customizations/customizations-project-sync-settings-small.png" alt-text="Screenshot that shows the Catalogs pane in the Azure portal, with the button for sync settings highlighted." lightbox="./media/how-to-configure-team-customizations/customizations-project-sync-settings.png":::
 
 1. On the **Sync settings** pane, select **Image definitions**, and then select **Save**.
 
-   :::image type="content" source="./media/how-to-write-image-definition-file/customizations-project-sync-image-definitions.png" alt-text="Screenshot that shows the pane for sync settings in the Azure portal, with the checkbox for image definitions highlighted." lightbox="./media/how-to-write-image-definition-file/customizations-project-sync-image-definitions.png":::
+   :::image type="content" source="./media/how-to-configure-team-customizations/customizations-project-sync-image-definitions.png" alt-text="Screenshot that shows the pane for sync settings in the Azure portal, with the checkbox for image definitions highlighted." lightbox="./media/how-to-configure-team-customizations/customizations-project-sync-image-definitions.png":::
 
 ## Attach a catalog that contains the definition file
 
@@ -148,7 +148,7 @@ Before you can use a customization file as an image definition, you must attach 
 
 The **Image definitions** pane lists the image definitions that your project can access.
 
-:::image type="content" source="media/how-to-write-image-definition-file/team-customizations-image-definitions-small.png" alt-text="Screenshot that shows the Azure portal pane that lists accessible image definitions for a project." lightbox="media/how-to-write-image-definition-file/team-customizations-image-definitions.png":::
+:::image type="content" source="media/how-to-configure-team-customizations/team-customizations-image-definitions-small.png" alt-text="Screenshot that shows the Azure portal pane that lists accessible image definitions for a project." lightbox="media/how-to-configure-team-customizations/team-customizations-image-definitions.png":::
 
 For more information about how to attach catalogs, see [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md).
 
@@ -176,7 +176,7 @@ The following steps show you how to create a dev box pool and specify an image d
    | **Time zone** | Select the time zone that the stop time is in. |
    | **Licensing** | Select this checkbox to confirm that your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
 
-   :::image type="content" source="./media/how-to-write-image-definition-file/pool-specify-image-definition.png" alt-text="Screenshot that shows the pane for creating a dev box pool." lightbox="./media/how-to-write-image-definition-file/pool-specify-image-definition.png":::
+   :::image type="content" source="./media/how-to-configure-team-customizations/pool-specify-image-definition.png" alt-text="Screenshot that shows the pane for creating a dev box pool." lightbox="./media/how-to-configure-team-customizations/pool-specify-image-definition.png":::
 
 1. Select **Create**.
 1. Verify that the new dev box pool appears in the list. You might need to refresh the screen.
@@ -192,4 +192,4 @@ You can make adjustments to the customization file and create a new dev box to t
 Now that you have an image definition file, upload it to a catalog and attach the catalog to a project. The image definition file is used to configure and create dev boxes for your development teams.
 
 > [!div class="nextstepaction"]
-> [Configure imaging for Dev Box team customizations](how-to-configure-customization-imaging.md)
+> [Configure Dev Box imaging](how-to-configure-dev-box-imaging.md)

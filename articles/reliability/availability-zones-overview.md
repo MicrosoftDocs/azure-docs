@@ -24,7 +24,8 @@ The following diagram shows several example Azure regions. Regions 1 and 2 suppo
 
 :::image type="content" source="media/regions-availability-zones.png" alt-text="Diagram of physically separate availability zone locations within an Azure region." border="false":::
 
-To see which regions support availability zones, see [List of Azure regions](regions-list.md).
+>[!TIP]
+>To see which regions support availability zones, see [List of Azure regions](regions-list.md).
 
 ## What is the difference between a datacenter and an availability zone?
 

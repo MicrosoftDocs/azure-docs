@@ -14,7 +14,7 @@ In this article, learn how to create, use and manage snapshots in Azure App Conf
 
 ## Prerequisites
 
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - "DataOwner" role in the App Configuration store. Details on required [role and permissions for snapshots](./concept-snapshots.md)
 
 ### Add key-values to the App configuration store
