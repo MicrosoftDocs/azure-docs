@@ -1,5 +1,5 @@
 ---
-title: Imaging for Dev Box Team Customizations
+title: Configure Imaging for Dev Box Team Customizations
 description: Configure dev box pools to use image definition files so that you can optimize customizations and create reusable images for your team.
 author: RoseHJM
 ms.author: rosemalcolm
@@ -12,7 +12,7 @@ ms.date: 02/05/2025
 #customer intent: As a Dev Center Admin or Project Admin, I want to configure dev box pools to use image definition files so that my development teams can create customized dev boxes.
 ---
 
-# Configure imaging for Dev Box team customizations
+# Configure Dev Box imaging
 
 Using a customization file simplifies the creation of dev boxes for your team. With dev box customizations, you can create a shared team customization by creating a file called an *image definition*. Creating a reusable image from this image definition optimizes customizations and saves time during dev box creation. In this article, you learn how to configure a pool to use an image definition and build reusable images for your development teams.
 
@@ -51,11 +51,11 @@ Configure your project to sync image definitions from the catalog. With this set
 1. Select **Catalogs**.
 1. Select **Sync settings**.
 
-   :::image type="content" source="./media/how-to-configure-customization-imaging/customizations-project-sync-settings-small.png" alt-text="Screenshot of the Catalogs pane in the Azure portal, with the button for sync settings highlighted." lightbox="./media/how-to-configure-customization-imaging/customizations-project-sync-settings.png":::
+   :::image type="content" source="./media/how-to-configure-dev-box-imaging/customizations-project-sync-settings-small.png" alt-text="Screenshot of the Catalogs pane in the Azure portal, with the button for sync settings highlighted." lightbox="./media/how-to-configure-dev-box-imaging/customizations-project-sync-settings.png":::
 
 1. On the **Sync settings** pane, select **Image definitions**, and then select **Save**.
 
-   :::image type="content" source="./media/how-to-configure-customization-imaging/customizations-project-sync-image-definitions.png" alt-text="Screenshot of the pane for sync settings in the Azure portal, with the checkbox for image definitions highlighted." lightbox="./media/how-to-configure-customization-imaging/customizations-project-sync-image-definitions.png":::
+   :::image type="content" source="./media/how-to-configure-dev-box-imaging/customizations-project-sync-image-definitions.png" alt-text="Screenshot of the pane for sync settings in the Azure portal, with the checkbox for image definitions highlighted." lightbox="./media/how-to-configure-dev-box-imaging/customizations-project-sync-image-definitions.png":::
 
 ## Attach a catalog that contains the definition file
 
@@ -63,13 +63,13 @@ Before you can use a customization file as an image definition, you must attach 
 
 The **Image definitions** pane lists the image definitions that your project can access.
 
-:::image type="content" source="media/how-to-configure-customization-imaging/team-customizations-image-definitions-small.png" alt-text="Screenshot of the Azure portal pane that lists accessible image definitions for a project." lightbox="media/how-to-configure-customization-imaging/team-customizations-image-definitions.png":::
+:::image type="content" source="media/how-to-configure-dev-box-imaging/team-customizations-image-definitions-small.png" alt-text="Screenshot of the Azure portal pane that lists accessible image definitions for a project." lightbox="media/how-to-configure-dev-box-imaging/team-customizations-image-definitions.png":::
 
 For more information about attaching catalogs, see [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md).
 
 ## Configure a dev box pool to use an image definition
 
-Make customizations available to your development teams by configuring a dev box pool to use a customization file (imagedefinition.yaml). Store the customization file in a repository that's linked to a catalog in your dev center or project. Specify this file as the image definition for the pool, and the customizations are applied to new dev boxes.
+Make customizations available to your development teams by configuring a dev box pool to use a customization file (imagedefinition.yaml). Store the customization file in a repository linked to a catalog in your dev center or project. Specify this file as the image definition for the pool, and the customizations are applied to new dev boxes.
 
 The following steps show you how to create a dev box pool and specify an image definition:
 
@@ -86,12 +86,12 @@ The following steps show you how to create a dev box pool and specify an image d
    | **Network connection** | Select **Deploy to a Microsoft hosted network**, or use an existing network connection. |
    |**Enable single sign-on** | Select **Yes** to enable single sign-on for the dev boxes in this pool. Single sign-on must be configured for the organization. For more information, see [Enable single sign-on for dev boxes](https://aka.ms/dev-box/single-sign-on). |
    | **Dev box Creator Privileges** | Select **Local Administrator** or **Standard User**. |
-   | **Enable Auto-stop** | **Yes** is the default. Select **No** to disable an auto-stop schedule. You can configure an auto-stop schedule after the pool is created. |
+   | **Enable Auto-stop** | **Yes** is the default. Select **No** to disable an autostop schedule. You can configure an autostop schedule after the pool is created. |
    | **Stop time** | Select a time to shut down all the dev boxes in the pool. |
    | **Time zone** | Select the time zone that the stop time is in. |
    | **Licensing** | Select this checkbox to confirm that your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
 
-   :::image type="content" source="./media/how-to-configure-customization-imaging/pool-specify-image-definition.png" alt-text="Screenshot of the pane for creating a dev box pool." lightbox="./media/how-to-configure-customization-imaging/pool-specify-image-definition.png":::
+   :::image type="content" source="./media/how-to-configure-dev-box-imaging/pool-specify-image-definition.png" alt-text="Screenshot of the pane for creating a dev box pool." lightbox="./media/how-to-configure-dev-box-imaging/pool-specify-image-definition.png":::
 
 1. Select **Create**.
 1. Verify that the new dev box pool appears in the list. You might need to refresh the screen.
@@ -119,22 +119,22 @@ In order to generate an image, you need to assign the DevCenter service the requ
 
 1. Under that resource group, navigate to Access Control, and give the **Windows 365** and **Project Fidalgo** applications the roles **Storage Account Contributor**, **Storage Blob Data Contributor**, and **Reader**.
 
-During the process of building an image, Dev Box creates a temporary storage account in your subscription to store a snapshot, from which Dev Box generates an image. This storage account does not allow anonymous blob access and can only be accessed by identities with the Storage Blob Reader access. This storage account must be accessible from public networks, so that the Dev Box service can export your snapshot to it. If you have Azure policies that block the creation of storage accounts with public network access, create an exception for the subscription your DevCenter project is in.
+During the process of building an image, Dev Box creates a temporary storage account in your subscription to store a snapshot, from which Dev Box generates an image. This storage account doesn't allow anonymous blob access and can only be accessed by identities with the Storage Blob Reader access. This storage account must be accessible from public networks, so that the Dev Box service can export your snapshot to it. If you have Azure policies that block the creation of storage accounts with public network access, create an exception for the subscription your DevCenter project is in.
 
 ### Build the image
  
 
 1. On the **Image definitions** pane, select the image that you want to build.
 
-   :::image type="content" source="./media/how-to-configure-customization-imaging/customizations-select-image-small.png" alt-text="Screenshot of the pane that lists image definitions, with one definition selected." lightbox="./media/how-to-configure-customization-imaging/customizations-select-image-small.png":::
+   :::image type="content" source="./media/how-to-configure-dev-box-imaging/customizations-select-image-small.png" alt-text="Screenshot of the pane that lists image definitions, with one definition selected." lightbox="./media/how-to-configure-dev-box-imaging/customizations-select-image-small.png":::
 
 1. Select **Build**.
 
-   :::image type="content" source="./media/how-to-configure-customization-imaging/customizations-build-image-small.png" alt-text="Screenshot of the pane that lists image definitions, with the Build button highlighted." lightbox="./media/how-to-configure-customization-imaging/customizations-build-image-small.png":::
+   :::image type="content" source="./media/how-to-configure-dev-box-imaging/customizations-build-image-small.png" alt-text="Screenshot of the pane that lists image definitions, with the Build button highlighted." lightbox="./media/how-to-configure-dev-box-imaging/customizations-build-image-small.png":::
 
 1. Track the build progress in the **Status** column.
 
-   :::image type="content" source="./media/how-to-configure-customization-imaging/customizations-image-build-progress-small.png" alt-text="Screenshot of the pane that lists image definitions, with the in-progress status highlighted for a selected image definition." lightbox="./media/how-to-configure-customization-imaging/customizations-image-build-progress.png":::  
+   :::image type="content" source="./media/how-to-configure-dev-box-imaging/customizations-image-build-progress-small.png" alt-text="Screenshot of the pane that lists image definitions, with the in-progress status highlighted for a selected image definition." lightbox="./media/how-to-configure-dev-box-imaging/customizations-image-build-progress.png":::  
 
 > [!IMPORTANT]
 > When you're optimizing your image definition into an image, a dev box is created to run your customization file and generate an image. During this process, this dev box is connected to a virtual network that Microsoft manages. Tasks that require access to on-premises resources might fail.
@@ -143,6 +143,6 @@ When the build finishes successfully, the dev box pool automatically uses the im
 
 ## Related content
 
-- [Microsoft Dev Box team customizations](concept-what-are-team-customizations.md)
+- [Microsoft Dev Box customizations](concept-what-are-dev-box-customizations.md)
 - [Write a customization file for a dev box](./how-to-write-customization-file.md)
 - [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md)
