@@ -1,6 +1,21 @@
 {
   "redirections": [
     {
+      "source_path": "articles/api-center/discover-shadow-apis-dev-proxy.md",
+      "redirect_url": "/previous-versions/azure/api-center/discover-shadow-apis-dev-proxy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-center/find-nonproduction-api-requests-dev-proxy.md",
+      "redirect_url": "/previous-versions/azure/api-center/find-nonproduction-api-requests-dev-proxy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-center/check-minimal-api-permissions-dev-proxy.md",
+      "redirect_url": "/previous-versions/azure/api-center/check-minimal-api-permissions-dev-proxy",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/fxt-edge-filer/add-nodes.md",
       "redirect_url": "/previous-versions/azure/fxt-edge-filer/add-nodes",
       "redirect_document_id": false
@@ -7202,6 +7217,11 @@
     {
       "source_path": "articles/reliability/whats-new.md",
       "redirect_url": "/azure/reliability/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/hipaa-hitrust-9-2.md",
+      "redirect_url": "/azure/governance/policy/samples/hipaa-hitrust",
       "redirect_document_id": false
     }
   ]

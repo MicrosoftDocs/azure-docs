@@ -1,20 +1,20 @@
 ---
-title: Regulatory Compliance details for HIPAA HITRUST 9.2
-description: Details of the HIPAA HITRUST 9.2 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 06/23/2025
+title: Regulatory Compliance details for HIPAA HITRUST
+description: Details of the HIPAA HITRUST Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
+ms.date: 07/08/2025
 ms.topic: generated-reference
 ms.custom: generated
 ---
-# Details of the HIPAA HITRUST 9.2 Regulatory Compliance built-in initiative
+# Details of the HIPAA HITRUST Regulatory Compliance built-in initiative
 
 The following article details how the Azure Policy Regulatory Compliance built-in initiative
-definition maps to **compliance domains** and **controls** in HIPAA HITRUST 9.2.
+definition maps to **compliance domains** and **controls** in HIPAA HITRUST.
 For more information about this compliance standard, see
-[HIPAA HITRUST 9.2](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html). To understand
+[HIPAA HITRUST](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html). To understand
 _Ownership_, review the [policy type](../concepts/definition-structure-basics.md#policy-type) and
 [Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).
 
-The following mappings are to the **HIPAA HITRUST 9.2** controls. Many of the controls
+The following mappings are to the **HIPAA HITRUST** controls. Many of the controls
 are implemented with an [Azure Policy](../overview.md) initiative definition. To review the complete
 initiative definition, open **Policy** in the Azure portal and select the **Definitions** page.
 Then, find and select the **HITRUST/HIPAA** Regulatory Compliance built-in
