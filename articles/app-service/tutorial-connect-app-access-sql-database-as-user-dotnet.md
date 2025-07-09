@@ -215,12 +215,12 @@ This command might take some time to run.
 - [How do I debug locally when using App Service authentication?](#how-do-i-debug-locally-when-using-app-service-authentication)
 - [What happens when access tokens expire?](#what-happens-when-access-tokens-expire)
 
-#### Why do I get a Login failed for user '<token-identified principal>' error?
+#### Why do I get a Login failed for user '\<token-identified principal>' error?
 
 The most common causes for a `Login failed for user '<token-identified principal>'` error are:
 
 - Microsoft Entra authentication not configured for the Azure SQL database. See [Configure database server with Microsoft Entra authentication](#1-configure-database-server-with-azure-ad-authentication).
-- No valid token in the `X-MS-TOKEN-AAD-ACCESS-TOKEN` request header. This code doesn't work in local environments. For more information and alternatives, see [Debug locally when you use App Service authentication](#debug-locally-when-you-use-app-service-authentication).
+- No valid token in the `X-MS-TOKEN-AAD-ACCESS-TOKEN` request header. This code doesn't work in local environments. For more information and alternatives, see [Debug locally when you use App Service authentication](#how-do-i-debug-locally-when-using-app-service-authentication).
 - User doesn't have permission to connect to the database. To add users and permissions, see [Add other Microsoft Entra users or groups in Azure SQL Database](#how-do-i-add-other-azure-ad-users-or-groups-in-azure-sql-database).
 <a name='how-do-i-add-other-azure-ad-users-or-groups-in-azure-sql-database'></a>
 #### How do I add other Microsoft Entra users or groups in Azure SQL Database?
