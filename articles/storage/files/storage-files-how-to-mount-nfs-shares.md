@@ -120,11 +120,19 @@ systemctl is-active --quiet aznfswatchdog && echo -e "\nAZNFS Mount Helper is in
 
 If the package is installed, then the message `AZNFS Mount Helper is installed!` appears.
 
-The record in **/etc/fstab** should look like this if you're using the AZNFS Mount Helper and want to mount the share using encryption in transit. If the mount fails, ensure that the *Secure transfer required* setting is [enabled on the storage account](encryption-in-transit-for-nfs-shares.md?tabs=azure-portal%2CUbuntu#enforce-encryption-in-transit).
+Remember to replace `<YourStorageAccountName>` and `<FileShareName>` with your own values. For more information, enter the command `man fstab` from the Linux command line.
+
+#### Mount using AZNFS Mount Helper and encryption in transit (recommended)
+
+The record in **/etc/fstab** should look like this if you're using the AZNFS Mount Helper and want to mount the share using encryption in transit. 
 
 ```bash
 <YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /media/<YourStorageAccountName>/<FileShareName> aznfs defaults,sec=sys,vers=4.1,nolock,proto=tcp,nofail,_netdev   0 2
 ```
+
+If the mount fails, ensure that the *Secure transfer required* setting is [enabled on the storage account](encryption-in-transit-for-nfs-shares.md?tabs=azure-portal%2CUbuntu#enforce-encryption-in-transit).
+
+#### Mount using AZNFS Mount Helper without encryption in transit
 
 If you're using the AZNFS Mount Helper but don't want to use encryption in transit, the record in **/etc/fstab** should look like this:
 
@@ -132,13 +140,13 @@ If you're using the AZNFS Mount Helper but don't want to use encryption in trans
 <YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /media/<YourStorageAccountName>/<FileShareName> aznfs defaults,sec=sys,vers=4.1,nolock,proto=tcp,nofail,_netdev,notls   0 2
 ```
 
+#### Mount using native NFS mount commands
+
 If you're using the native NFS mount without AZNFS, the record in **/etc/fstab** should look like this:
 
 ```bash
 <YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /media/<YourStorageAccountName>/<FileShareName> nfs vers=4,minorversion=1,_netdev,nofail,sec=sys 0 0
 ```
-
-Remember to replace `<YourStorageAccountName>` and `<FileShareName>` with your information. For more information, enter the command `man fstab` from the Linux command line.
 
 ### Mount options
 
