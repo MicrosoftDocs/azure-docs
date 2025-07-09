@@ -1,5 +1,5 @@
 ---
-title: Release notes of Arc-enabled VM extensions May 2025
+title: Release notes of Arc-enabled VM extensions March 2025
 description: Learn about Azure Arc-enabled VM extensions, including their latest releases, known issues, and bug fixes, to help you manage updates effectively.
 ms.service: azure-update-manager
 ms.date: 03/28/2025
@@ -13,7 +13,7 @@ ms.author: v-uhabiba
 For Azure Arc-enabled machines, two extensions are installed. For more information, see [How Update Manager works](workflow-update-manager.md)
 
 
-The Azure Arc-enabled VM extensions receive improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you the following information:
+The Azure Arc-enabled VM extensions receive improvements on an ongoing basis.  This article provides you with the following information to help you stay up to date with the latest developments:
 
 - The latest releases
 - Known issues
@@ -32,15 +32,15 @@ The Azure Arc-enabled VM extensions receive improvements on an ongoing basis. To
     - Current error message:  *An internal error occurred while processing the operation.*
     - New error message: *Windows update API threw an exception while assessing the machine for available updates. HResult: 0x80004005*
     > [!NOTE]
-    > The HResult could be different, based on the issue.
+    > The HResult changes based on the issue.
 
 - Fixed an issue where at times the extension status is stuck in  **Creating state**. Then the assessment or install updates job fails with the following error: *Extension failed during enable. Extension Enable command timed out.*
 
-- Fixed an issue where although the updates are installed and reboot is completed within the maintenance window, still the operation is stuck in **InProgress** state and completes the maintenance window end time with the following error message: *Maintenance window exceeded. Could not complete patching process within window specified.*
+- Fixed an issue where updates were installed and the server rebooted within the maintenance window, but the operation stayed in the 'InProgress' state. It ended with an error message at the maintenance window's end time: *Maintenance window exceeded. Could not complete patching process within window specified.*
 
 ## Linux Extension
 
-To be updated as and when future versions are released.
+Update this when future versions are released.
 
 
 ## Next steps
