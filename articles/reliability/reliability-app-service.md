@@ -95,7 +95,7 @@ You must use the [Premium v2-4 plan types](/azure/app-service/overview-hosting-p
     az appservice plan show -n <app-service-plan-name> -g <resource-group-name> --query properties.maximumNumberOfZones
     ```
 
-    # [Portal](#tab/azureportal)
+    # [Azure portal](#tab/portal)
 
     The `maximumNumberOfZones` is displayed on the **Scale out (App Service plan)** blade in the Azure portal for your App Service plan.
     
@@ -135,7 +135,7 @@ Instance distribution in a zone-redundant deployment follows specific rules. The
     az rest --method get --url https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Web/sites/{appName}/instances?api-version=2024-04-01
     ```
 
-    # [Portal](#tab/azureportal)
+    # [Azure portal](#tab/portal)
 
     The **Health check** blade is at the App Service app level. Visit the **Health check** blade for one of your apps and select the  **Instances** tab to view the physical zone placement for each of your instances.
     
@@ -204,7 +204,7 @@ To deploy a new zone-redundant App Service plan, you must use the [Premium v2-4 
     }
     ```
 
-    # [Portal](#tab/azureportal)
+    # [Azure portal](#tab/portal)
 
     :::image type="content" source="./media/reliability-app-service/app-service-create-zr-plan.png" alt-text="Screenshot of zone redundancy enablement during App Service plan creation in the Azure portal.":::
 
@@ -221,7 +221,7 @@ To deploy a new zone-redundant App Service plan, you must use the [Premium v2-4 
     > [!NOTE]
     > If you use the Azure CLI to modify the `zoneRedundant` property, you must specify the `sku.capacity` property, which is the number of instances, and use a capacity greater than or equal to 2.
 
-    # [Portal](#tab/azureportal)
+    # [Azure portal](#tab/portal)
 
     :::image type="content" source="./media/reliability-app-service/app-service-plan-zone-redundancy-portal.png" alt-text="Screenshot of zone redundancy property for an App Service plan in the Azure portal.":::
 
@@ -348,7 +348,7 @@ To deploy a new zone-redundant App Service plan, you must use the [Premium v2-4 
     }
     ```
 
-    # [Portal](#tab/azureportal)
+    # [Azure portal](#tab/portal)
 
     :::image type="content" source="./media/reliability-app-service/app-service-plan-zone-redundancy-portal-isolated.png" alt-text="Screenshot of zone redundancy property for an App Service plan in the Azure portal.":::
 
