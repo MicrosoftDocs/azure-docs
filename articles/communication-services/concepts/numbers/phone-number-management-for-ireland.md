@@ -29,6 +29,9 @@ Use the below tables to find all the relevant information on number availability
 
 \** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
+> [!IMPORTANT]
+> Effective **July 3, 2025**, unregistered alphanumeric sender IDs sending messages to Ireland phone numbers will have it's messages marked as "Spam" for recepients. To prevent this from happening, a [registration application](https://forms.office.com/r/pK8Jhyhtd4) needs to be submitted and be in approved status. If your sender ID is  not registered by **October 3, 2025**, all traffic from the unregistered sender IDs will be blocked entirely.
+
 ## Subscription eligibility
 
 To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired by Azure free credits. Also, due to regulatory reasons phone number availability is dependent on your Azure subscription billing location.
