@@ -30,6 +30,8 @@ For production environments:
 
 - If you need resilience to region outages and your storage account's primary region is paired, consider enabling geo-redundant storage, which replicates data asynchronously to the paired region. In supported regions, you can combine geo-redundancy with zone redundancy by using GZRS.
 
+For advanced messaging requirements, consider using Azure Service Bus. To learn more about the differences between Queue Storage and Azure Service Bus, see [Storage queues and Service Bus queues - compared and contrasted](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
+
 ## Reliability architecture overview
 
 Azure Queue Storage operates as a distributed messaging service within the Azure Storage platform infrastructure. The service provides redundancy through multiple copies of your queue and message data, with the specific redundancy model depending on your storage account configuration.
@@ -40,7 +42,9 @@ Azure Queue Storage operates as a distributed messaging service within the Azure
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
-Azure Queue Storage handles transient faults automatically through several mechanisms provided by the Azure Storage platform and client libraries. The service is designed to provide resilient message queuing capabilities even during temporary infrastructure issues.
+Azure Queue Storage is commonly used in applications to be able to handle transient faults in other components. By using asynchronous messaging with a service like Azure Queue Storage, applications can recover from transient faults by reprocessing messages at a later time. To learn more, see [Asynchronous Messaging Primer](/previous-versions/msp-n-p/dn589781(v=pandp.10)).
+
+Within the service itself, Azure Queue Storage handles transient faults automatically through several mechanisms provided by the Azure Storage platform and client libraries. The service is designed to provide resilient message queuing capabilities even during temporary infrastructure issues.
 
 Azure Queue Storage client libraries include built-in retry policies that automatically handle common transient failures such as network timeouts, temporary service unavailability (HTTP 503), and throttling responses (HTTP 429). When your application encounters these transient conditions, the client libraries automatically retry operations using exponential backoff strategies.
 
@@ -162,6 +166,9 @@ For detailed pricing information, see [Azure Queue Storage pricing](https://azur
 ### Alternative multi-region approaches
 
 [!INCLUDE [Storage - Alternative multi-region approaches - reasons](includes/storage/reliability-storage-multi-region-alternative-reasons-include.md)]
+
+> [!NOTE]
+> For advanced multi-region requirements, consider using Azure Service Bus instead, which includes support for nonpaired regions.
 
 [!INCLUDE [Storage - Alternative multi-region approaches - approach overview](includes/storage/reliability-storage-multi-region-alternative-approach-include.md)]
 
