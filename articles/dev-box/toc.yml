@@ -81,16 +81,16 @@ items:
       - name: Configure team customizations
         href: how-to-configure-team-customizations.md
         displayName: customizations, image definition, team customization
+      - name: Configure Dev Box imaging
+        href: how-to-configure-dev-box-imaging.md
       - name: Create an image definition file with Copilot
         href: how-to-use-copilot-generate-image-definition-file.md
       - name: Configure user customizations
         href: how-to-configure-user-customizations.md
         displayName: customizations, image definition, personal customization, individual
-      - name: Configure Dev Box imaging
-        href: how-to-configure-dev-box-imaging.md
       - name: Configure tasks for customizations
         href: how-to-configure-customization-tasks.md
-      - name: Connect to resources and repositories
+      - name: Connect to Azure resources and repositories
         href: how-to-customizations-connect-resource-repository.md
   - name: Create & connect to dev boxes
     items:
