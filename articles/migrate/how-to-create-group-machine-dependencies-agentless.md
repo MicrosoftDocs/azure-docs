@@ -191,7 +191,8 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 
 The dependency data is exported and downloaded in a CSV format. The downloaded file contains the dependency data across all servers enabled for dependency analysis. 
 
-    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/export-dep.png" alt-text="The screenshot illustrates the Export dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/export-dep.png":::
+
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/export-dep.png" alt-text="The screenshot illustrates the Export dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/export-dep.png":::
 
 ### Dependency information
 
@@ -249,7 +250,7 @@ After you've performed the required steps to upgrade to the new dependency visua
 Dependency analysis is autoenabled on all discovered servers (upto 1,000 servers per appliance), which have passed the validation checks. You may need to disable one or more of these servers in the following scenarios:
 
 1. Dependency analysis is autoenabled on all discovered in your project but you want to disable it on a few servers where you don't want to gather dependency data. 
-1. Dependency analysis is autoenabled on 1,000 servers concurrently in your project but you have more servers where you want to enable it, then you can disable dependency analysis one or more servers from the set of 1,000 and enable others as needed.
+2. Dependency analysis is autoenabled on 1,000 servers concurrently in your project but you have more servers where you want to enable it, then you can disable dependency analysis one or more servers from the set of 1,000 and enable others as needed.
 
 You can disable dependency analysis on servers that you don't want and also enable dependencies for servers that you want to use either the Portal or PowerShell utility.
 
@@ -268,11 +269,11 @@ Follow the steps to disable the servers where dependency analysis is autoenabled
 > [!NOTE] 
 > If the selected appliance hasn't been upgraded for the new dependency analysis, you can either meet the prerequisites or if you don't wish to upgrade, switch to the old experience (from Overview) to Add/remove servers for dependency analysis.
 
-1. You can filter servers to disable dependencies on servers, which were autoenabled (servers with dependency status as Enabled). The servers, which aren't eligible for disablement (servers with dependency status as Validation failed, Not initiated, Disabled, or Credentials not available) can't be selected.
+2. You can filter servers to disable dependencies on servers, which were autoenabled (servers with dependency status as Enabled). The servers, which aren't eligible for disablement (servers with dependency status as Validation failed, Not initiated, Disabled, or Credentials not available) can't be selected.
 
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/disable-dependencies-view.png":::
 
-1. You can select the servers and select Disable to proceed.
+3. You can select the servers and select Disable to proceed.
 
 ### Enable dependencies
 
@@ -285,11 +286,11 @@ Follow the steps to disable the servers where dependency analysis has been autoe
 > [!NOTE] 
 > If the selected appliance hasn't been upgraded for the new dependency analysis, you can either meet the prerequisites or if you don't wish to upgrade, switch to the old experience (from Overview) to Add/remove servers for dependency analysis.
 
-1. You can filter servers to enable dependencies on servers, which were disabled by the user or not enabled as the scale limit of 1,000 per appliance had been met (servers with dependency status as Disabled or Not initiated). The servers, which aren't eligible for disablement (servers with dependency status as Validation failed or Credentials not available/Enabled) can't be selected.
+2. You can filter servers to enable dependencies on servers, which were disabled by the user or not enabled as the scale limit of 1,000 per appliance had been met (servers with dependency status as Disabled or Not initiated). The servers, which aren't eligible for disablement (servers with dependency status as Validation failed or Credentials not available/Enabled) can't be selected.
 
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/enable-dependencies-view.png":::
 
-1. You can select the servers and select Enable to proceed.
+3. You can select the servers and select Enable to proceed.
 
 > [!NOTE] 
 > You can't enable more than 1,000 servers per appliance concurrently so if your selection exceeds the count, you won't be able to proceed.
@@ -306,10 +307,10 @@ You need to install the PowerShell module to disable for servers that you don't 
     If using Azure Government, use the following command.
 
     `Connect-AzAccount -EnvironmentName AzureUSGovernment`
-1. Select the subscription in which you've created the project
+2. Select the subscription in which you've created the project
     `select-azsubscription -subscription "Contoso Demo Subscription"`
 
-1. Install the AzMig.Dependencies PowerShell module
+3. Install the AzMig.Dependencies PowerShell module
     `Install-Module .\AzMig.Dependencies`
 
 ### Disable dependencies
