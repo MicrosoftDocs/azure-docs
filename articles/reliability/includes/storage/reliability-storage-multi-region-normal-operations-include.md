@@ -17,4 +17,4 @@ This section describes what to expect when a storage account is configured for g
 
 - **Data replication between regions**: Write operations are first committed to the primary region using the configured redundancy type (LRS for GRS/RA-GRS, or ZRS for GZRS/RA-GZRS). After successful completion in the primary region, data is asynchronously replicated to the secondary region where it's stored using locally redundant storage (LRS).
 
-  [!INCLUDE [Storage - Multi Region Normal operations - lag](includes/storage/reliability-storage-multi-region-normal-operations-lag-include.md)]
+  [!INCLUDE [Storage - Multi Region Normal operations - lag](reliability-storage-multi-region-normal-operations-lag-include.md)]
