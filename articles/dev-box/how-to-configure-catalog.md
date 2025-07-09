@@ -76,9 +76,9 @@ For catalogs that use a managed identity or Personal Access Token (PAT) for auth
 
 ## Configure a managed identity
 
-Before you can attach a catalog to a dev center or project, you must configure a [managed identity](../deployment-environments/concept-environments-key-concepts#identities), also called a Managed Service Identity (MSI). You can attach either a system-assigned managed identity (system-assigned MSI) or a user-assigned managed identity (user-assigned MSI). You then assign roles to the managed identity to allow the dev center or project to create environment types in your subscription and read the Azure Repos project that contains the catalog repo.
+Before you can attach a catalog to a dev center or project, you must configure a [managed identity](../deployment-environments/concept-environments-key-concepts.md#identities), also called a Managed Service Identity (MSI). You can attach either a system-assigned managed identity (system-assigned MSI) or a user-assigned managed identity (user-assigned MSI). You then assign roles to the managed identity to allow the dev center or project to create environment types in your subscription and read the Azure Repos project that contains the catalog repo.
 
-If your dev center or project doesn't have an MSI attached, follow the steps in [Configure a managed identity](how-to-configure-managed-identity.md) to create one and to assign roles for the managed identity.
+If your dev center or project doesn't have an MSI attached, follow the steps in [Configure a managed identity](../deployment-environments/how-to-configure-managed-identity.md) to create one and to assign roles for the managed identity.
 
 To learn more about managed identities, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 
@@ -247,7 +247,7 @@ Get the path to the secret you created in the key vault.
 
 1. In the [Azure portal](https://portal.azure.com), go to your dev center or project.
 
-1. Ensure that the [identity](./how-to-configure-managed-identity.md) attached to the dev center or project has [access to the key vault secret](./how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret) where your personal access token is stored.
+1. Ensure that the [identity](../deployment-environments/how-to-configure-managed-identity.md) attached to the dev center or project has [access to the key vault secret](../deployment-environments/how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret) where your personal access token is stored.
 
 1. In the left menu under **Environment configuration**, select **Catalogs**, and then select **Add**.
 
@@ -453,7 +453,7 @@ Get the path to the secret you created in the key vault.
 
 1. In the Azure portal, go to your dev center or project.
 
-1. Ensure that the [managed identity](./how-to-configure-managed-identity.md) attached to the dev center or project has [access to the key vault secret](./how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret) where your personal access token is stored.
+1. Ensure that the [managed identity](../deployment-environments/how-to-configure-managed-identity.md) attached to the dev center or project has [access to the key vault secret](../deployment-environments/how-to-configure-managed-identity.md#grant-the-managed-identity-access-to-the-key-vault-secret) where your personal access token is stored.
 
 1. In the left menu under **Environment configuration**, select **Catalogs**, and then select **Add**.
 
@@ -585,7 +585,7 @@ An ignored environment definition error occurs if you add two or more image defi
 
 An invalid environment definition error might occur for various reasons:
 
-- **Manifest schema errors**. Ensure that your environment definition environment file matches the [required schema](configure-environment-definition.md#add-an-environment-definition).
+- **Manifest schema errors**. Ensure that your environment definition environment file matches the [required schema](../deployment-environments/configure-environment-definition.md#add-an-environment-definition).
 
 - **Validation errors**. Check the following items to resolve validation errors:
 
@@ -597,6 +597,4 @@ An invalid environment definition error might occur for various reasons:
 
 ## Related content
 
-- [Configure environment types for a dev center](how-to-configure-devcenter-environment-types.md)
-- [Create and configure a project by using the Azure CLI](how-to-create-configure-projects.md)
-- [Configure project environment types](how-to-configure-project-environment-types.md)
+- [Microsoft Dev Box customizations](concept-what-are-team-customizations.md)
