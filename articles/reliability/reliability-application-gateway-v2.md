@@ -191,4 +191,4 @@ For complete SLA details, see [SLA for Application Gateway](https://azure.micros
 
 ## Related content
 
-- [Reliability in Azure](/azure/availability-zones/overview.md)
+- [Reliability in Azure](../availability-zones/overview.md)
