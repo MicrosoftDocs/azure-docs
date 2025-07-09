@@ -183,9 +183,9 @@ After the validation succeeds, dependency analysis are auto-enabled and you see 
 
 ## Export dependency data
 
-1. In **All inventory** or **Infrastructure inventory** view, select the **Manage Dependencies** drop-down.
-2. Select **Export dependencies**.
-3. In the **Export dependencies** page, choose the appliance name that is discovering the desired servers.
+1. In **All inventory** or **Infrastructure inventory** view, select the **Dependency analysis** drop-down.
+2. Select **Export application dependencies**.
+3. In the **Export application dependencies** page, choose the appliance name that is discovering the desired servers.
 4. Select the start time and end time. You can download the data only for the last 30 days.
 5. Select **Export dependency**.
 
@@ -242,153 +242,6 @@ After you have performed the required steps to upgrade to the new dependency vis
 
 > [!NOTE]
 > It's recommended to use **Option 1** above to switch to the new inventory view as you're able to filter servers where dependency analysis was auto-enabled and then directly review the dependency visualization. Old inventory view only provides option to visualize dependencies for servers where you had manually enabled the feature.
-
-::: moniker range="migrate"
-
-## Manage dependencies
-
-Dependency analysis is auto-enabled on all discovered servers (upto 1000 servers per appliance)which have passed the validation checks. You may need to disable one or more of these servers in the following scenarios:
-
-1. Dependency analysis has been auto-enabled on all discovered in your project but you want to disable it on a few servers where you don't want to gather dependency data. 
-1. Dependency analysis has been auto-enabled on 1,000 servers concurrently in your project but you have more servers where you want to enable it, then you can disable dependency analysis one or more servers from the set of 1,000 and enable others as needed.
-
-You can disable dependency analysis on servers that you do not want and also enable dependencies for servers that you want using either the Portal or PowerShell utility.
-
-## Manage dependencies using Portal
-
-### Disable dependencies
-
-In **All inventory** or **Infrastructure inventory** view, select the **Manage Dependencies** drop-down and then select **Disable dependencies**.
-
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/disable-dependencies-option.png":::
-
-Follow the steps to disbale the servers where dependency analysis has been auto-enabled:
-
-1. You can start by selecting an appliance from the drop-down.
-
-> [!NOTE] 
-> If the selected appliance has not been upgraded for the new dependency analysis, you can either meet the prerequisites or if you do not wish to upgrade, please switch to the old experience (from Overviw) to Add/remove servers for dependency analysis.
-
-1. You can filter servers to disable dependencies on servers which were auto-enabled (servers with dependency status as Enabled). The servers which are not eligible for disablement (servers with dependency status as Validation failed/Not initiated/Disabled/Credentials not available) cannot be selected.
-
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/disable-dependencies-view.png":::
-
-1. You can select the servers and select Disable to proceed.
-
-### Enable dependencies
-
-In **All inventory** or **Infrastructure inventory** view, select the **Manage Dependencies** drop-down and then select **Enable dependencies**.
-
-Follow the steps to disbale the servers where dependency analysis has been auto-enabled:
-
-1. You can start by selecting an appliance from the drop-down.
-
-> [!NOTE] 
-> If the selected appliance has not been upgraded for the new dependency analysis, you can either meet the prerequisites or if you do not wish to upgrade, please switch to the old experience (from Overviw) to Add/remove servers for dependency analysis.
-
-1. You can filter servers to enable dependencies on servers which were disabled by the user or not enabled as the scale limit of 1000 per appliance had been met (servers with dependency status as Disabled or Not initiated). The servers which are not eligible for disablement (servers with dependency status as Validation failed/Credentials not available/Enabled) cannot be selected.
-
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/enable-dependencies-view.png":::
-
-1. You can select the servers and select Enable to proceed.
-
-> [!NOTE] 
-> You cannot enable more than 1000 servers per appliance concurrently so if your selection exceeds the count, you will not be able to proceed.
-
-## Manage dependencies using PowerShell utility
-
-You need to install the PowerShell module to disable for servers that you don't want by following the steps below:
-
-### Log in to Azure
-
-1. Log in to your Azure subscription using the Connect-AzAccount cmdlet.
-    `Connect-AzAccount`
-
-    If using Azure Government, use the following command.
-
-    `Connect-AzAccount -EnvironmentName AzureUSGovernment`
-1. Select the subscription in which you've created the project
-    `select-azsubscription -subscription "Contoso Demo Subscription"`
-
-1. Install the AzMig.Dependencies PowerShell module
-    `Install-Module .\AzMig.Dependencies`
-
-### Disable dependencies
-
-1. Get the list of discovered servers in your project using the following commands. In the example below, the project name is ContosoDemoProject, and the resource group it belongs to be ContosoDemoRG. The list of servers are saved in ContosoDemo_VMs.csv
-
-Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "ContosoDemoRG" -ProjectName "ContosoDemoProject" -OutputCsvFile "ContosoDemo_VMs.csv" [-AutoEnabledDepMap]
-You can also add a filter to export the relevant servers using the command:
-
-Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "ContosoDemoRG" -ProjectName "ContosoDemoProject" -Filter @{"Dependencies"="Enabled"} -OutputCsvFile "ContosoDemo_VMs.csv" [-AutoEnabledDepMap]
-The different filters available for use in the command above are:
-
-| **Field name** | **Details** |
-|---|---|
-| ServerName | Provide name you want to filter with |
-| Source | Appliance / Import-based |
-| Dependencies | Enabled / Disabled |
-| PowerStatus | On / Off |
-
-
-Some of the other fields are IP Address, osType, osName, osArchitecture, osVersion
-
-You can find discovered servers for a specific appliance by using the command:
-
-   `Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "ContosoDemoRG" -ProjectName "ContosoDemoProject" -Filter @{"Dependencies"="Enabled"} -ApplianceName "ContosoApp" -OutputCsvFile "ContosoDemo_VMs.csv" [-AutoEnabledDepMap]`
-
-In the file, you can see the server display name, current status of dependency collection and the ARM ID of all discovered servers.
-
-1. To disable dependencies, create an input CSV file from the output file you exported in the last step. The file is required to have a column with header "ARM ID". Any other headers in the CSV file are ignored. The input file should contain the list of servers where you want to disable dependency analysis.
-
-    In the following example, dependency analysis is being disabled on the list of servers in the input file ContosoDemo_VMs_Disable.csv.
-
-`PowerShell Set-AzMigDependencyMappingAgentless -Disable -InputCsvFile .\ContosoDemo_VMs_Disable.csv [-AutoEnabledDepMap]`
-
-### Enable dependencies
-
-You may need to enable dependency analysis on one or more servers to restart dependency data collection from servers that you disabled using PowerShell module previously.
-
-You need to follow the same steps to export the discovered servers as mentioned above and then import the list of servers you want to enable.
-
-In the following example, dependency analysis is being enabled on the list of servers in the input file ContosoDemo_VMs_Enable.csv.
-
-`Set-AzMigDependencyMappingAgentless -Enable -InputCsvFile .\ContosoDemo_VMs_Enable.csv [-AutoEnabledDepMap]`
-
-## Visualize network connections in Power BI
-
-Azure Migrate offers a Power BI template that you can use to visualize network connections of many servers at once, and filter by process and server. To visualize, load the Power BI with dependency data as per the below instructions.
-
-### Log in to Azure
-
-1. Log in to your Azure subscription using the Connect-AzAccount cmdlet.
-    `Connect-AzAccount`
-
-    If using Azure Government, use the following command.
-    `Connect-AzAccount -EnvironmentName AzureUSGovernment`
-
-1. Select the subscription in which you've created the project
-    `select-azsubscription -subscription "Contoso Demo Subscription"`
-1. Install the AzMig.Dependencies PowerShell module
-    `Install-Module .\AzMig.Dependencies`
-1. Run the following command. This command downloads the dependencies data in a CSV and processes it to generate a list of unique dependencies that can be used for visualization in Power BI. In the example below the project name is ContosoDemoProject, and the resource group it belongs to be ContosoDemoRG. The dependencies are downloaded for servers discovered by ContosoApp. The unique dependencies are saved in ContosoDemo_Dependencies.csv
-    `Get-AzMigDependenciesAgentless -ResourceGroup ContosoDemoRG -Appliance ContosoApp -ProjectName ContosoDemoProject -OutputCsvFile "ContosoDemo_Dependencies.csv" [-AutoEnabledDepMap]`
-
-1. Open the downloaded Power BI template
-1. Load the downloaded dependency data in Power BI.
-    1. Open the template in Power BI.
-    1. Select Get Data on the tool bar.
-    1. Choose Text/CSV from Common data sources.
-    1. Choose the dependencies file downloaded.
-    1. Select Load.
-    You see a table is imported with the name of the CSV file. You can see the table in the fields bar on the right. Rename it to AzMig_Dependencies
-    1. Select refresh from the tool bar.
-
-The Network Connections chart and the Source server name, Destination server name, Source process name, Destination process name slicers should light up with the imported data.
-
-Visualize the map of network connections filtering by servers and processes. Save your file.
-
-::: moniker-end
 
 ## Disable auto-enabled dependency analysis using PowerShell
 
