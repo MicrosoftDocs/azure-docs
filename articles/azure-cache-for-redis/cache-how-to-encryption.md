@@ -16,10 +16,14 @@ Azure Cache for Redis offers platform-managed keys (PMKs), also know as Microsof
 
 ## Scope of availability for CMK disk encryption
 
-| Tier                          | Basic*, Standard*, Premium                                                                     | Enterprise, Enterprise Flash |
-|:-----------------------------:|------------------------------------------------------------------------------------------------|------------------------------|
-| Microsoft managed keys (MMK) | In most cache sizes. Disk encryption isn't supported for Basic and Standard sizes C0 and C1.      | Yes                          |
-| Customer managed keys (CMK)  | No                                                                                             | Yes                          |
+- **Basic, Standard, Premium tiers:**
+  - Microsoft managed keys (MMK) are used for disk encryption in most cache sizes.
+    - Disk encryption isn't supported for Basic and Standard sizes C0 and C1.
+  - Customer managed keys (CMK) aren't supported.
+
+- **Enterprise, Enterprise Flash tiers:**
+  - Microsoft managed keys (MMK) are supported.
+  - Customer managed keys (CMK) are supported.
 
 > [!WARNING]
 > By default, all Azure Cache for Redis tiers use Microsoft managed keys to encrypt disks mounted to cache instances. However, in the Basic and Standard tiers, the C0 and C1 SKUs don't support any disk encryption.
@@ -29,9 +33,7 @@ Azure Cache for Redis offers platform-managed keys (PMKs), also know as Microsof
 > On the Premium tier, data persistence streams data directly to Azure Storage, so disk encryption is less important. Azure Storage offers a [variety of encryption methods](../storage/common/storage-service-encryption.md) to be used instead.
 >
 
-## Encryption coverage
-
-### Enterprise tiers
+## Enterprise tier encryption
 
 In the **Enterprise** tier, disk encryption is used to encrypt the persistence disk, temporary files, and the OS disk:
 
@@ -49,7 +51,7 @@ In the **Enterprise Flash** tier, keys and values are also partially stored on-d
 | RDB files waiting to be exported               | OS disk and Persistence disk  | MMK or CMK         |
 | Keys & values (Enterprise Flash tier only)    | Transient NVMe disk           | MMK                |
 
-### Other tiers
+## Other tiers and size encryptons
 
 In the **Basic, Standard, and Premium** tiers, the OS disk is encrypted by default using MMK. There's no persistence disk mounted and Azure Storage is used instead. The C0 and C1 SKUs don't use disk encryption.
 
