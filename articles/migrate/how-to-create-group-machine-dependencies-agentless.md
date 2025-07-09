@@ -377,6 +377,7 @@ Dependency analysis is autoenabled on all discovered servers, which have passed 
 > Currently, it isn't possible to disable dependency analysis on servers from portal so you need to install the PowerShell module to disable for servers that you don't want.
 ::: moniker-end
 
+::: moniker range="migrate-classic"
 ### Log in to Azure
 
 1. Log in to your Azure subscription using the Connect-AzAccount cmdlet.
@@ -453,7 +454,7 @@ You need to follow the same steps to export the discovered servers as mentioned 
 ```PowerShell
     Set-AzMigDependencyMappingAgentless -Enable -InputCsvFile .\ContosoDemo_VMs_Enable.csv [-AutoEnabledDepMap] 
 ```
-
+:::: moniker-end
 
 ## Visualize network connections in Power BI
 
