@@ -1,5 +1,5 @@
 ---
-title: Release notes of Arc-enabled VM extensions June 2025
+title: Release notes of Arc-enabled VM extensions July 2025
 description: Learn about Azure Arc-enabled VM extensions, including their latest releases, known issues, and bug fixes, in the month of July to help you manage updates effectively.
 ms.service: azure-update-manager
 ms.date: 06/16/2025
@@ -8,7 +8,7 @@ author: habibaum
 ms.author: v-uhabiba
 ---
 
-# Release notes for Azure Arc-enabled VM extensions - June 25
+# Release notes for Azure Arc-enabled VM extensions - July 25
 
 For Azure Arc-enabled machines, two extensions are installed. For more information, see [How Update Manager works](workflow-update-manager.md)
 
@@ -34,6 +34,7 @@ Added support for management of following distributions:
 
 - Ubuntu 24 
 - Debian 12 
+- In previous releases, patching an Ubuntu 24.04 server failed with the error: **E: the list of sources could not be read**.
 
 
 ## Next steps
