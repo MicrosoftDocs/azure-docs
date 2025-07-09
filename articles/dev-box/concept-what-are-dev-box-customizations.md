@@ -73,7 +73,7 @@ Team customizations also offer a built-in way to optimize your team's Dev Box cu
 
 Configuring Dev Box team customizations for your organization requires careful planning and informed decision-making. The following diagram provides an overview of the process and highlights key decision points.
 
-:::image type="content" source="media/concept-what-are-team-customizations/dev-box-customizations-workflow.svg" alt-text="Diagram that shows the workflow for Dev Box team customizations, including steps for planning, configuring, and deploying customizations." lightbox="media/concept-what-are-team-customizations/dev-box-customizations-workflow.svg":::
+:::image type="content" source="media/concept-what-are-dev-box-customizations/dev-box-customizations-workflow.svg" alt-text="Diagram that shows the workflow for Dev Box team customizations, including steps for planning, configuring, and deploying customizations." lightbox="media/concept-what-are-dev-box-customizations/dev-box-customizations-workflow.svg":::
 
 #### Configure Dev Box for team customizations
 
@@ -98,8 +98,8 @@ To set up Dev Box to support team customizations, follow these steps:
    - Optimize your image definition into a custom image.
 1. Create your dev box from the configured pool by using the developer portal.
 
-To learn more about team customization and writing image definitions, see [Write an image definition file for Dev Box team customizations](how-to-write-image-definition-file.md).
-Then, to learn how to optimize your image definition into a custom image, see [Configure imaging for Dev Box team customizations](how-to-configure-customization-imaging.md).
+To learn more about team customization and writing image definitions, see [Configure team customizations](how-to-configure-team-customizations.md).
+Then, to learn how to optimize your image definition into a custom image, see [Configure Dev Box imaging](how-to-configure-dev-box-imaging.md).
 
 # [User customizations](#tab/user-customizations)
 
@@ -107,7 +107,7 @@ Then, to learn how to optimize your image definition into a custom image, see [C
 
 Individual developers can attach a YAML-based customization file when they create their dev box to control the development environment. Developers use user customizations only for personal settings and apps.
 
-:::image type="content" source="media/concept-what-are-team-customizations/dev-box-user-customizations-workflow.svg" alt-text="Diagram that shows the workflow for Dev Box user customizations, including steps for planning, configuring, and deploying customizations." lightbox="media/concept-what-are-team-customizations/dev-box-user-customizations-workflow.svg":::
+:::image type="content" source="media/concept-what-are-dev-box-customizations/dev-box-user-customizations-workflow.svg" alt-text="Diagram that shows the workflow for Dev Box user customizations, including steps for planning, configuring, and deploying customizations." lightbox="media/concept-what-are-dev-box-customizations/dev-box-user-customizations-workflow.svg":::
 
 #### Configure Dev Box for user customizations
 
@@ -127,12 +127,12 @@ To set up Dev Box to support user customizations, follow these steps:
 
 The dev box is created with customizations.
 
-To learn more about user customizations, see [Write a user customization file for a dev box](how-to-write-user-customization-file.md).
+To learn more about user customizations, see [Configure user customizations for dev boxes](how-to-configure-user-customizations.md).
 
 ---
 
 ## Related content
 
 - [Quickstart: Create a dev box by using team customizations](quickstart-team-customizations.md)
-- [Configure imaging for dev box team customizations](how-to-configure-customization-imaging.md)
+- [Configure Dev Box imaging](how-to-configure-dev-box-imaging.md)
 
