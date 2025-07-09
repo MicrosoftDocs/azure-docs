@@ -145,7 +145,9 @@ For detailed pricing information, see [Azure Queue Storage pricing](https://azur
 
 ### Configure multi-region support
 
-[!INCLUDE [Storage - Multi Region Configure multi-region support](includes/storage/reliability-storage-multi-region-configure-include.md)]
+[!INCLUDE [Storage - Multi Region Configure multi-region support - create](includes/storage/reliability-storage-multi-region-configure-create-include.md)]
+
+[!INCLUDE [Storage - Multi Region Configure multi-region support - enable-disable](includes/storage/reliability-storage-multi-region-configure-enable-disable-include.md)]
 
 ### Normal operations
 
