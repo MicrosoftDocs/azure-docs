@@ -74,27 +74,6 @@ To implement version-aware logic in your orchestrator function, you can use the 
 > [!IMPORTANT]
 > When implementing version-aware logic, it's **critically important** to preserve the exact orchestration logic for older versions. Any changes to the sequence, order, or signature of activity calls for existing versions may break deterministic replay and cause in-flight orchestrations to fail or produce incorrect results. The old version code paths must remain unchanged once deployed.
 
-# [C# (In-process)](#tab/csharp)
-
-```csharp
-[FunctionName("MyOrchestrator")]
-public static async Task<string> RunOrchestrator(
-    [OrchestrationTrigger] IDurableOrchestrationContext context)
-{
-    if (context.Version == "1.0")
-    {
-        // Original logic for version 1.0
-        ...
-    }
-    else if (context.Version == "2.0")
-    {
-        // New logic for version 2.0
-        ...
-    }
-    ...
-}
-```
-
 # [C# (Isolated)](#tab/csharp-isolated)
 
 ```csharp
@@ -119,7 +98,7 @@ public static async Task<string> RunOrchestrator(
 ---
 
 > [!TIP]
-> If you're just starting to use Orchestration Versioning and you already have in-flight orchestrations that were created before you specified a `defaultVersion`, it's not too late! Feel free to add the `defaultVersion` setting to your `host.json` now. For all previously created orchestrations, `context.Version` returns `null` (or an equivalent language-dependent value), so you can structure your orchestrator logic to handle both the legacy (null version) and new versioned orchestrations accordingly.
+> If you're just starting to use Orchestration Versioning and you already have in-flight orchestrations that were created before you specified a `defaultVersion`, it's not too late! Feel free to add the `defaultVersion` setting to your `host.json` now. For all previously created orchestrations, `context.Version` returns `null` (or an equivalent language-dependent value), so you can structure your orchestrator logic to handle both the legacy (null version) and new versioned orchestrations accordingly. In C#, you can check for `context.Version == null` or `context.Version is null` to handle the legacy case. Please also note that specifying `"defaultVersion": null` in `host.json` is equivalent to not specifying it at all.
 
 > [!TIP]
 > Depending on your situation, you may prefer branching on different levels. You can make a local change precisely where this change is required, like the example shows. Alternatively, you can branch at a higher level, even at the entire orchestrator implementation level, which introduces some code duplication, but may keep the execution flow clear. It's up to you to choose the approach that best fits your scenario and coding style.
@@ -137,7 +116,7 @@ Here's what to expect once you deploy your updated orchestrator function with th
 4. **Old Worker Restrictions**: Old workers will be allowed to process only the orchestrations with a version _equal to or lower_ than the version specified in their own `defaultVersion` in `host.json`, because they aren't expected to have orchestrator code compatible with newer versions. This restriction prevents execution errors and unexpected behavior.
 
 > [!NOTE]
-> This behavior targets the most common situations, and this is what the default configuration provides. However, it can be modified if needed (see [Advanced usage](#advanced-usage) for details).
+> The behavior described in this section targets the most common situations, and this is what the default configuration provides. However, it can be modified if needed (see [Advanced usage](#advanced-usage) for details).
 
 
 ### Example: Replacing an Activity in the Sequence
@@ -158,23 +137,6 @@ This example shows how to replace one activity with a different activity in the 
 ```
 
 **Orchestrator function:**
-
-# [C# (In-process)](#tab/csharp)
-
-```csharp
-[FunctionName("ProcessOrderOrchestrator")]
-public static async Task<string> ProcessOrder(
-    [OrchestrationTrigger] IDurableOrchestrationContext context)
-{
-    var orderId = context.GetInput<string>();
-    
-    await context.CallActivityAsync("ValidateOrder", orderId);
-    await context.CallActivityAsync("ProcessPayment", orderId);
-    await context.CallActivityAsync("ShipOrder", orderId);
-    
-    return "Order processed successfully";
-}
-```
 
 # [C# (Isolated)](#tab/csharp-isolated)
 
@@ -209,35 +171,6 @@ public static async Task<string> ProcessOrder(
 ```
 
 **Orchestrator function:**
-
-# [C# (In-process)](#tab/csharp)
-
-```csharp
-[FunctionName("ProcessOrderOrchestrator")]
-public static async Task<string> ProcessOrder(
-    [OrchestrationTrigger] IDurableOrchestrationContext context)
-{
-    var orderId = context.GetInput<string>();
-
-    await context.CallActivityAsync("ValidateOrder", orderId);
-
-    if (context.Version == "1.0")
-    {
-        // Preserve original logic for existing instances
-        await context.CallActivityAsync("ProcessPayment", orderId);
-    }
-    else // version 2.0 and later
-    {
-        // New logic with discount processing (replaces payment processing)
-        await context.CallActivityAsync("ApplyDiscount", orderId);
-        await context.CallActivityAsync("ProcessPaymentWithDiscount", orderId);
-    }
-    
-    await context.CallActivityAsync("ShipOrder", orderId);
-
-    return "Order processed successfully";
-}
-```
 
 # [C# (Isolated)](#tab/csharp-isolated)
 
@@ -344,10 +277,6 @@ By default, all new orchestration instances are created with the current `defaul
 
 You can override the default version by providing a specific version value when creating new orchestration instances using the orchestration client APIs. This allows fine-grained control over which version each new orchestration instance uses.
 
-# [C# (In-process)](#tab/csharp)
-
-This feature is not supported in the in-process model.
-
 # [C# (Isolated)](#tab/csharp-isolated)
 
 ```csharp
@@ -424,8 +353,7 @@ Over time, you may want to remove legacy code paths from your orchestrator funct
 
 - **Issue**: Version information isn't available in orchestrator
    - **Solution**: Verify that you're using a supported language and a Durable Functions extension version that supports Orchestration Versioning:
-   - For .NET Isolated, use `Microsoft.Azure.Functions.Worker.Extensions.DurableTask` version **1.5.0** or later.
-   - For .NET In-process, use `Microsoft.Azure.WebJobs.Extensions.DurableTask` version **3.3.0** or later.
+     - For .NET Isolated, use `Microsoft.Azure.Functions.Worker.Extensions.DurableTask` version **1.5.0** or later.
 
 ## Next steps
 
