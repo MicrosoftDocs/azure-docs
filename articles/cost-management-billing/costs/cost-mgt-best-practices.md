@@ -71,7 +71,7 @@ Before you deploy cloud resources, assess the following items:
 - The Azure offer that best meets your needs
 - The resources you plan to use
 - How much they might cost
-- The best way to automate cost tracking and reporting for your environment
+- The services available to track, report and optimize cost, also via leveraging automation
 
 Azure provides tools and APIs to assist you in the assessment process. These tools can give you a good idea of the investment required to enable your workloads, and help you automate cost management from the start. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to estimate costs, and consider using the [Cost Management Exports API](/rest/api/cost-management/exports), [Cost Details API](/rest/api/cost-management/generate-cost-details-report), and [Query API](/rest/api/cost-management/query) to automate cost data retrieval and analysis.
 
@@ -83,7 +83,7 @@ Azure provides tools and APIs to assist you in the assessment process. These too
 The first step in maximizing your experience within Cost Management is to investigate and decide which Azure offer is best for you. Think about how you plan to use Azure in the future. Also consider how you want your billing model configured. Consider the following questions when making your decision:
 
 - How long do I plan to use Azure? Am I testing, or do I plan to build longer-term infrastructure?
-- How do I want to pay for Azure? Should I prepay for a reduced price or get invoiced at the end of the month?
+- How do I want to pay for Azure? Should I prepay or commit to spending a certain amount for a reduced price or get invoiced at the end of the month?
 - Do I need to automate cost tracking, reporting, or budgeting for my workloads?
 
 To learn more about the various options, visit [How to buy Azure](https://azure.microsoft.com/pricing/purchase-options/). Several of the most common billing models are identified below.
@@ -198,13 +198,16 @@ For more information, see [Create budgets](tutorial-acm-create-budgets.md) and [
 
 ### Use tags, management groups, and custom dimensions
 
-Emphasize the use of tags, management groups, and custom dimensions for cost allocation and reporting. Cost Management supports filtering and grouping by these attributes, enabling more granular cost tracking and accountability. Use the [Cost Management Dimensions API](/rest/api/cost-management/dimensions) to list and manage available dimensions.
+Emphasize the use of tags, management groups, and custom dimensions for cost allocation and reporting. Cost Analysis supports filtering and grouping by these attributes, enabling more granular cost tracking and accountability. Use the [Cost Management Dimensions API](/rest/api/cost-management/dimensions) to list and manage available dimensions.
+
+>[!NOTE]
+> Management groups are not supported for Microsoft Customer Agreement customers.
 
 ### Leverage benefit recommendations and savings tools
 
 Take advantage of Azure's cost-saving programs and recommendations:
 
-- **Azure Savings Plan for Compute**: The most flexible savings plan, applying to a broad range of compute services. See [Azure savings plan for compute](../savings-plan/savings-plan-compute-overview.md).
+- **Azure Savings Plans for Compute**: The most flexible savings plan, applying to a broad range of compute services. See [Azure savings plans for compute](../savings-plan/savings-plan-compute-overview.md).
 - **Azure Reservations**: Prepay for one- or three-year terms for VMs or databases to receive significant discounts. See [What are Azure Reservations?](../reservations/save-compute-costs-reservations.md).
 - **Azure Hybrid Benefit**: Use existing Windows Server or SQL Server licenses to save on Azure. See [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 - **Benefit Recommendations API**: Use the [Benefit Recommendations API](/rest/api/cost-management/benefit-recommendations) and [Azure Advisor](/azure/advisor/advisor-overview) to proactively identify savings opportunities, such as reserved instances or savings plans, based on your usage patterns.

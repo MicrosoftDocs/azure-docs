@@ -114,7 +114,7 @@ These APIs provide a different view of the same data:
 
 - The [Invoice API](/rest/api/billing/2019-10-01-preview/invoices) is for Web Direct customers only. It provides a monthly rollup of your bill based on the aggregate charges for each meter type.
 
-- The [Cost Details API](/rest/api/cost-management/generate-cost-details-report) provides a granular view of the usage/cost records for each day. Both Enterprise and Web Direct customers can use it.
+- The [Cost Details API](/rest/api/cost-management/generate-cost-details-report) provides a granular view of the usage/cost records for each day. This is only available to enterprise customers.
 
 ### What's the difference between the Price Sheet API and the RateCard API?
 These APIs provide similar sets of data but have different audiences:

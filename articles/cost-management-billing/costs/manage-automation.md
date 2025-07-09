@@ -39,14 +39,14 @@ You might not need to analyze the data daily. If so, consider using Cost Managem
 Consider using the [Cost Details API](/rest/api/cost-management/costdetails) if you have a small cost data set. Here are recommended best practices:
 
 - If you want to get the latest cost data, we recommend that you query at most once per day. Reports are refreshed every four hours. If you call more frequently, you'll receive identical data.
-- Once you download your cost data for historical invoices, the charges won't change unless you're explicitly notified. We recommend caching your cost data in a queryable store to prevent repeated calls for identical data.
+- Once you download your cost data for historical invoices, the charges are not expected to change unless you're explicitly notified. We recommend caching your cost data in a queryable store to prevent repeated calls for identical data.
 - Chunk your calls into small date ranges to get more manageable files that you can download. For example, we recommend chunking by day or by week if you have large Azure usage files month-to-month. 
 - If you have scopes with a large amount of cost data (for example a Billing Account), consider placing multiple calls to child scopes so you get more manageable files that you can download.
 - If your dataset is more than 2 GB month-to-month, consider using [exports](tutorial-improved-exports.md) as a more scalable solution.
 
 ## Automate retrieval with Cost Details API
 
-The [Cost Details API](/rest/api/cost-management/costdetails) enables you to programmatically generate and download detailed, unaggregated cost data for your Microsoft Customer Agreement (MCA) billing account. Unlike the legacy Usage Details API, the Cost Details API is asynchronous and report-based: you submit a request to generate a report, poll for its completion, and then download the resulting file from a secure URL.
+The [Cost Details API](/rest/api/cost-management/costdetails) enables you to programmatically generate and download detailed, unaggregated cost data for your Enterprise Agreement (EA) or Microsoft Customer Agreement (MCA) billing account. Unlike the legacy Usage Details API, the Cost Details API is asynchronous and report-based: you submit a request to generate a report, poll for its completion, and then download the resulting file from a secure URL.
 
 > [!IMPORTANT]
 > The Cost Details API is only supported for Enterprise Agreement (EA) or Microsoft Customer Agreement (MCA) scopes. For other account types, we suggest using Exports. If you need to download small datasets and you don't want to use Azure Storage, you can also use the Consumption Usage Details API. See instructions on how to do this [here](/automate/get-usage-details-legacy-customer.md)
@@ -55,7 +55,7 @@ The [Cost Details API](/rest/api/cost-management/costdetails) enables you to pro
 
 1. **Create a report**: Submit a POST request to the Cost Details API specifying the scope, date range, and optional filters (such as meter, resource, or tag).
 2. **Poll for status**: The API returns an operation ID. Poll the operation status endpoint until the report is complete.
-3. **Download the report**: Once complete, the API provides a secure download URL for the CSV file containing your cost data. The download link is valid for a limited time.
+3. **Download the report**: Once the report is ready, the API provides a secure download URL for the CSV file containing your cost data. The download link is valid for a limited time.
 
 For full details, see [Get small usage datasets on demand](https://learn.microsoft.com/azure/cost-management-billing/automate/get-small-usage-datasets-on-demand) and the [Cost Details API reference](https://learn.microsoft.com/rest/api/cost-management/generate-cost-details-report/create-operation).
 
@@ -98,43 +98,20 @@ Use the `downloadUrl` to download the CSV file containing your cost details.
 
 ### Best practices for using the Cost Details API
 
-- **Request frequency**: Generate reports no more than once per day for a given scope and date range. Cost data is refreshed every four hours, but more frequent requests will return the same data and may be throttled.
+- **Request frequency**: We recommend that reports are generated no more than once per day for a given scope and date range. Cost data is refreshed every four hours, but more frequent requests will return the same data and may be throttled.
 - **Date range**: For large datasets, limit the date range (for example, generate daily or weekly reports) to keep file sizes manageable.
 - **Scope**: Use the highest-level scope available (such as billing account or billing profile) to minimize the number of API calls and ensure data completeness.
 - **Data retention**: Download and store reports promptly. The download URL expires after a short period (typically one hour).
-- **Filtering**: Use filters in the report request to limit data to specific resources, meters, or tags if needed.
 
 ### Notes about pricing and data
 
-- The Cost Details API provides actual and amortized cost data, including all usage, purchases, and adjustments for the selected period.
+- The Cost Details API provides actual and amortized cost data, including all usage, purchases, and refunds for the selected period.
 - The data is unaggregated and suitable for detailed analysis, reconciliation, and integration with other systems.
 - For more information about pricing behavior, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).
 
 ### A single resource might have multiple records for a single day
 
 Azure resource providers may emit usage and charges to the billing system with different attributes (such as datacenter location), resulting in multiple records for a resource on a single day. This is expected and does not indicate overcharging; all records together represent the full cost for that resource and day.
-
-## Example Cost Details API requests
-
-The following example requests are used by Microsoft customers to address common scenarios that you might come across.
-
-### Get Cost Details for a scope during specific date range
-
-The data that's returned by the request corresponds to the date when the usage was received by the billing system. It might include costs from multiple invoices. The call to use varies by your subscription type.
-
-For customers with a Microsoft Customer Agreement, use the following call:
-
-```http
-GET https://management.azure.com/{scope}/providers/Microsoft.CostManagement/costDetails?startDate=2024-06-01&endDate=2024-06-30&$top=1000&api-version=2024-05-01
-```
-
-### Get amortized cost details
-
-If you need actual costs to show purchases as they're accrued, change the *metric* to `ActualCost` in the following request. To use amortized and actual costs, use the latest API version. Your filters are `startDate` and `endDate` in the following example.
-
-```http
-GET https://management.azure.com/{scope}/providers/Microsoft.CostManagement/costDetails?metric=AmortizedCost&startDate=2024-06-01&endDate=2024-06-30&api-version=2024-05-01
-```
 
 ## Automate alerts and actions with budgets
 
