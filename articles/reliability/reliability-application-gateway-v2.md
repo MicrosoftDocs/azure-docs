@@ -35,13 +35,10 @@ For production deployments, Microsoft recommends you:
 
 Azure Application Gateway v2 achieves reliability through several architectural components:
 
-**Autoscaling and High Availability**: Azure Application Gateways are always deployed in a highly available fashion. The service consists of multiple instances that are created as configured (if autoscaling is disabled) or as required by application load (if autoscaling is enabled). Each instance can handle up to 10 Capacity Units, and the platform automatically manages instance creation, health monitoring, and replacement of unhealthy instances.
-
-**Zone Redundancy**: When configured for zone redundancy, Application Gateway v2 distributes instances across multiple availability zones within a region. This provides protection against zone-level failures while maintaining service availability.
-
-**Static VIP**: Application Gateway v2 provides a static Virtual IP (VIP) address that doesn't change throughout the lifecycle of the deployment, ensuring consistent DNS resolution and reducing configuration dependencies.
-
-**Dependencies**: Application Gateway v2 requires a dedicated subnet within a virtual network. The reliability of your overall solution depends on the configuration of these dependent resources. Backend pools can include Azure VMs, Virtual Machine Scale Sets, App Services, and external endpoints, and their availability configurations directly affect your application's resilience.
+- **Autoscaling and High Availability**: Azure Application Gateways are always deployed in a highly available fashion. The service consists of multiple instances that are created as configured (if autoscaling is disabled) or as required by application load (if autoscaling is enabled). Each instance can handle up to 10 Capacity Units, and the platform automatically manages instance creation, health monitoring, and replacement of unhealthy instances.
+- **Zone Redundancy**: When configured for zone redundancy, Application Gateway v2 distributes instances across multiple availability zones within a region. This provides protection against zone-level failures while maintaining service availability.
+- **Static VIP**: Application Gateway v2 provides a static Virtual IP (VIP) address that doesn't change throughout the lifecycle of the deployment, ensuring consistent DNS resolution and reducing configuration dependencies.
+- **Dependencies**: Application Gateway v2 requires a dedicated subnet within a virtual network. The reliability of your overall solution depends on the configuration of these dependent resources. Backend pools can include Azure VMs, Virtual Machine Scale Sets, App Services, and external endpoints, and their availability configurations directly affect your application's resilience.
 
 ## Transient faults
 
@@ -106,9 +103,10 @@ When planning for zone failures, consider that instances in surviving zones can 
 
 ### Normal operations
 
-**Traffic routing between zones**: When zone redundancy is enabled, Application Gateway automatically distributes incoming requests across instances in all available zones. This active-active configuration ensures optimal performance and load distribution under normal operating conditions.
+The following section describes what to expect when Application Gateway v2 is configured for zone redundancy and all availability zones are operational:
 
-**Instance management**: The platform automatically manages instance placement across zones, replacing failed instances and maintaining the configured instance count. Health monitoring ensures that only healthy instances receive traffic.
+- **Traffic routing between zones**: When zone redundancy is enabled, Application Gateway automatically distributes incoming requests across instances in all available zones. This active-active configuration ensures optimal performance and load distribution under normal operating conditions.
+- **Instance management**: The platform automatically manages instance placement across zones, replacing failed instances and maintaining the configured instance count. Health monitoring ensures that only healthy instances receive traffic.
 
 ### Zone-down experience
 
