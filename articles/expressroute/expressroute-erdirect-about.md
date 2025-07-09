@@ -7,7 +7,7 @@ ms.service: azure-expressroute
 ms.custom:
   - ignite-2023
 ms.topic: concept-article
-ms.date: 01/31/2025
+ms.date: 07/08/2025
 ms.author: duau
 ---
 
@@ -125,6 +125,9 @@ ExpressRoute Direct provides the same enterprise-grade SLA with Active/Active re
 ## Pricing
 
 For details on how ExpressRoute Direct is billed, see [ExpressRoute FAQ](expressroute-faqs.md#when-does-billing-start-and-stop-for-the-expressroute-direct-port-pairs). For pricing details, see [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/).
+
+> [!NOTE]
+> ExpressRoute Direct Ports can be upgraded or downgraded between metered and unlimited billing type.
 
 ## Next steps
 
