@@ -1,8 +1,8 @@
 ---
-title: Release notes of Arc-enabled VM extensions July 2025
+title: Release notes for Arc-enabled VM extensions July 2025
 description: Learn about Azure Arc-enabled VM extensions, including their latest releases, known issues, and bug fixes, in the month of July to help you manage updates effectively.
 ms.service: azure-update-manager
-ms.date: 06/16/2025
+ms.date: 07/09/2025
 ms.topic: overview
 author: habibaum
 ms.author: v-uhabiba
@@ -13,7 +13,7 @@ ms.author: v-uhabiba
 For Azure Arc-enabled machines, two extensions are installed. For more information, see [How Update Manager works](workflow-update-manager.md)
 
 
-The Azure Arc-enabled VM extensions receive improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with the following information:
+The Azure Arc-enabled VM extensions receive improvements on an ongoing basis. This article provides you with the following information to help you stay up to date with the latest developments:
 
 - The latest releases
 - Known issues
@@ -21,7 +21,7 @@ The Azure Arc-enabled VM extensions receive improvements on an ongoing basis. To
 
 ## Windows extension
 
-To be updated as and when future versions are released. 
+Update this when future versions are released
 
 ## Linux extensions
 
