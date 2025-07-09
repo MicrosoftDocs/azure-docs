@@ -25,7 +25,7 @@ To be updated as and when future versions are released.
 
 ## Linux extensions
 
-### June 2025
+### July 2025
 
 #### Extension name: Microsoft.SoftwareUpdateManagement.LinuxOsUpdateExtension 
 #### Extension Version: 1.0.55.0
@@ -34,7 +34,8 @@ Added support for management of following distributions:
 
 - Ubuntu 24 
 - Debian 12 
-- In previous releases, patching an Ubuntu 24.04 server failed with the error: **E: the list of sources could not be read**.
+
+In previous releases, patching an Ubuntu 24.04 server failed with the error: **E: the list of sources could not be read**.
 
 
 ## Next steps
