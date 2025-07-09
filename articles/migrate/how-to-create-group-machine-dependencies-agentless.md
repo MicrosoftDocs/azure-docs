@@ -141,7 +141,7 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 1. The dependency visualization shows all incoming and outgoing dependencies for that server in a network diagram.
 
 
-    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/default-dep-view.png" alt-text="The screenshot shows the default dependency view for a server." lightbox="./media/how-to-create-group-machine-dependencies-agentless/default-dep-view.png":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/default-dep-view.png" alt-text="The screenshot shows the default dependency view for a server." lightbox="./media/how-to-create-group-machine-dependencies-agentless/default-dep-view.png":::
 
 1. The view is filtered for default time period of **Last 24 hours** and process type as **Resolvable**. 
 1. The view is filtered for default time period of **Last 24 hours** and process type as **Resolvable**. 
