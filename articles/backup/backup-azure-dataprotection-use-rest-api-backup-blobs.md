@@ -2,12 +2,13 @@
 title: Back up blobs in a storage account using Azure Data Protection REST API.
 description: In this article, learn how to configure, initiate, and manage backup operations of blobs using REST API.
 ms.topic: how-to
-ms.date: 02/12/2025
+ms.date: 06/17/2025
 ms.assetid: 7c244b94-d736-40a8-b94d-c72077080bbe
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to configure and manage blob backups in a storage account using REST API so that I can ensure data protection and compliance for critical applications.
 ---
 
 # Back up blobs in a storage account using Azure Data Protection via REST API
@@ -557,6 +558,10 @@ GET "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
 
 For more information on the Azure Backup REST APIs, see the following documents:
 
-- [Azure Data Protection Provider REST API](/rest/api/dataprotection/)
-- [Get started with Azure REST API](/rest/api/azure/)
-- [Manage backup and restore jobs](backup-azure-arm-userestapi-managejobs.md)
+- [Azure Data Protection Provider REST API](/rest/api/dataprotection/).
+- [Get started with Azure REST API](/rest/api/azure/).
+- [Manage backup and restore jobs](backup-azure-arm-userestapi-managejobs.md).
+
+## Related content
+
+Restore Azure Blobs by Azure Backup using [Azure portal](blob-restore.md), [Azure PowerShell](restore-blobs-storage-account-ps.md), [Azure CLI](restore-blobs-storage-account-cli.md).

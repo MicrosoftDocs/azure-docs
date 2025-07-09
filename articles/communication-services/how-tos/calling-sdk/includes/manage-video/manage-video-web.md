@@ -2,15 +2,16 @@
 author: sloanster
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 07/25/2024
+ms.date: 06/10/2025
 ms.author: micahvivion
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
 ## Device management
-To begin using video with the Calling SDK, you need to be able to manage devices. Devices allow you to control what transmits Audio and Video to the call.
 
-With the `deviceManager`, you can enumerate local devices that can transmit your audio and video streams in a call. You can also use the `deviceManager` to request permission to access the local device's microphones and cameras.
+To begin using video with the Calling SDK, you need to be able to manage devices. Devices enable you to control what transmits Audio and Video to the call.
+
+Use the `deviceManager` to enumerate local devices that can transmit your audio and video streams in a call. You can also use the `deviceManager` to request permission to access the local device's microphones and cameras.
 
 You can access `deviceManager` by calling the `callClient.getDeviceManager()` method:
 
@@ -79,39 +80,39 @@ const defaultSpeaker = deviceManager.selectedSpeaker;
 await deviceManager.selectSpeaker(localCameras[0]);
 ```
 
-Each `CallAgent` can choose its own microphone and speakers on its associated `DeviceManager`. We recommend that different `CallAgents` use different microphones and speakers. They shouldn't share the same microphones nor speakers. If sharing happens, then Microphone User Facing Diagnostics might be triggered and the microphone stops working depending on the browser / os.
+Each `CallAgent` can choose its own microphone and speakers on its associated `DeviceManager`. We recommend that different `CallAgents` use different microphones and speakers. They shouldn't share the same microphones nor speakers. If sharing happens, then Microphone User Facing Diagnostics (UFD) might be triggered and the microphone stops working depending on the browser and OS.
 
 ### Local video stream
 
-To be able to send video in a call, you need to create a `LocalVideoStream`object.
+For users to send video in a call, you must create a `LocalVideoStream` object.
 
 ```js
 const localVideoStream = new LocalVideoStream(camera);
 ```
 
-The camera passed as parameter is one of the `VideoDeviceInfo` object returned by the `deviceManager.getCameras()`method.
+The camera passed as parameter is a `VideoDeviceInfo` object returned by the `deviceManager.getCameras()` method.
 
 A `LocalVideoStream` has the following properties:
 
-- `source`: The device information.
+- `source` is the device information.
 
-```js
-const source = localVideoStream.source;
-```
+   ```js
+   const source = localVideoStream.source;
+   ```
 
-- `mediaStreamType`: Can be `Video`, `ScreenSharing`, or `RawMedia`.
+- `mediaStreamType` can be `Video`, `ScreenSharing`, or `RawMedia`.
 
-```js
-const type: MediaStreamType = localVideoStream.mediaStreamType;
-```
+   ```js
+   const type: MediaStreamType = localVideoStream.mediaStreamType;
+   ```
 
 ### Local camera preview
 
 You can use `deviceManager` and `VideoStreamRenderer` to begin rendering streams from your local camera.
-Once a `LocalVideoStream` is created, use it to set up`VideoStreamRenderer`. Once the `VideoStreamRenderer`is
-created call its `createView()` method to get a view that you can add as a child to your page.
 
-This stream isn't sent to other participants; it's a local preview feed.
+After creating `LocalVideoStream`, use it to set up`VideoStreamRenderer`. Once you create the `VideoStreamRenderer`, call its `createView()` method to get a view that you can add as a child to your page.
+
+This stream isn't sent to other participants. It's a local preview feed.
 
 ```js
 // To start viewing local camera preview
@@ -154,7 +155,7 @@ console.log(result.video);
 #### Notes
 - `videoDevicesUpdated` event fires when video devices are plugging-in/unplugged.
 - `audioDevicesUpdated` event fires when audio devices are plugged.
-- When the DeviceManager is created, at first it doesn't know about any devices if permissions aren't granted yet, so initially its device name is empty and it doesn't contain detailed device information. If we then call the DeviceManager.askPermission() API, the user is prompted for device access. When the user selects on 'allow' to grant the access the device manager learns about the devices on the system, update it's device lists and emit the 'audioDevicesUpdated' and 'videoDevicesUpdated' events. If a user refreshes the page and creates a device manager, the device manager is able to learn about devices because user granted access previously. It has its device lists filled initially and it doesn't emit 'audioDevicesUpdated' nor 'videoDevicesUpdated' events.
+- When you first create `DeviceManager`, it doesn't know about any devices if permissions aren't granted yet. Initially its device name is empty and it doesn't contain detailed device information. You need to call `DeviceManager.askPermission()`, which prompts the user for device access. When the user allows access, the device manager learns about the devices on the system, updates device lists, and sends the `audioDevicesUpdated` and `videoDevicesUpdated` events. If a user refreshes the page and creates a device manager, the device manager learns about devices because the user previously granted access. It has its device lists filled initially and it doesn't emit `audioDevicesUpdated` nor `videoDevicesUpdated` events.
 - Speaker enumeration/selection isn't supported on Android Chrome, iOS Safari, nor macOS Safari.
 
 ## Place a call with video camera
@@ -251,29 +252,38 @@ To start screen sharing while on a call, you can use the asynchronous method `st
 // Start screen sharing
 await call.startScreenSharing();
 ```
-Note: Sending screenshare is only supported on desktop browser.
+
+>[!Note]
+> Sending screenshare is only supported for desktop browsers.
 
 ### Find the screen sharing in the collection of LocalVideoStream
-After you successfully start sending screen sharing, a `LocalVideoStream` instance of type `ScreenSharing`, is added to the `localVideoStreams` collection on the call instance.
+
+After you successfully start sending screen sharing, a `LocalVideoStream` instance of type `ScreenSharing` is added to the `localVideoStreams` collection on the call instance.
+
 ```js
 const localVideoStream = call.localVideoStreams.find( (stream) => { return stream.mediaStreamType === 'ScreenSharing'} );
 ```
 
 ### Stop screen sharing
+
 To stop screen sharing while on a call, you can use asynchronous API stoptScreenSharing:
+
 ```js
 // Stop screen sharing
 await call.stopScreenSharing();
 ```
 
 ### Check the screen sharing status
+
 To verify if screen sharing is on or off, you can use isScreenSharingOn API, which returns true or false:
+
 ```js
 // Check if screen sharing is on or off
 call.isScreenSharingOn;
 ```
 
 To listen for changes to the screen share, you can subscribe and unsubscribe to the isScreenSharingOnChanged event:
+
 ```js
 // Subscribe to screen share event
 call.on('isScreenSharingOnChanged', () => {
@@ -286,9 +296,11 @@ call.off('isScreenSharingOnChanged', () => {
 ```
 
 [!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
+
 Local screen share preview is in public preview and available as part of version 1.15.1-beta.1+.
 
 ### Local screen share preview
+
 You can use a `VideoStreamRenderer` to begin rendering streams from your local screen share so you can see what you are sending as a screen sharing stream.
 
 ```js
@@ -319,22 +331,18 @@ call.on('isScreenSharingOnChanged', () => {
 ## Render remote participant video/screensharing streams
 
 To render a remote participant video or screen sharing, the first step is to get a reference on the RemoteVideoStream you want to render.
-This can be done by going through the array or video stream (`videoStreams`) of the `RemoteParticipant`. The remote participants collection 
-is accessed via the `Call` object.
+
+You can only render a remote participant by going through the array or video stream (`videoStreams`) of the `RemoteParticipant`. The remote participants collection is accessed via the `Call` object.
 
 ```js
 const remoteVideoStream = call.remoteParticipants[0].videoStreams[0];
 const streamType = remoteVideoStream.mediaStreamType;
 ```
 
-To render `RemoteVideoStream`, you have to subscribe to its `isAvailableChanged` event. If the `isAvailable` property changes to `true`,
-a remote participant is sending a video stream. 
-After that happens, create a new instance of `VideoStreamRenderer`, and then create a new `VideoStreamRendererView` 
-instance by using the asynchronous `createView` method.  
-You can then attach `view.target` to any UI element.
+To render `RemoteVideoStream`, you must subscribe to its `isAvailableChanged` event. If the `isAvailable` property changes to `true`, a remote participant is sending a video stream. 
+After that happens, create a new instance of `VideoStreamRenderer`, then create a new `VideoStreamRendererView` instance using the asynchronous `createView` method. You can then attach `view.target` to any UI element.
 
-Whenever the availability of a remote stream changes, you can destroy the whole `VideoStreamRenderer` or a specific `VideoStreamRendererView`. 
-If you decide to keep them, then the view displays a blank video frame.
+Whenever the availability of a remote stream changes, you can destroy the whole `VideoStreamRenderer` or a specific `VideoStreamRendererView`. If you decide to keep them, then the view displays a blank video frame.
 
 ```js
 // Reference to the html's div where we would display a grid of all remote video stream from all participants.
@@ -404,6 +412,7 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
 ```
 
 CSS for styling the loading spinner over the remote video stream.
+
  ```css
 .remote-video-container {
     position: relative;
@@ -437,15 +446,20 @@ CSS for styling the loading spinner over the remote video stream.
 
 ### Remote video quality
 
-The Azure Communication Services WebJS SDK, provides a feature called Optimal Video Count (OVC), starting in version [1.15.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1153-stable-2023-08-18). 
-This feature can be used to inform applications at run-time about how many incoming videos from different participants can be optimally rendered at a given moment in a group call (2+ participants).
-This feature exposes a property `optimalVideoCount` that is dynamically changing during the call based on the network and 
-hardware capabilities of a local endpoint. The value of `optimalVideoCount` details how many videos from different participant
-application should render at a given moment. Applications should handle these changes and update number of rendered videos
-accordingly to the recommendation. There's a debounce period (around 10 s) between each update.
+The Azure Communication Services WebJS SDK provides a feature called Optimal Video Count (OVC), starting in version [1.15.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1153-stable-2023-08-18). 
+
+Use this feature to inform applications at run-time about how many incoming videos from different participants can be optimally rendered at a given moment in a group call of two (2) or more participants.
+
+This feature exposes a property `optimalVideoCount` that is dynamically changing during the call based on the network and hardware capabilities of a local endpoint. The value of `optimalVideoCount` details how many videos from different participant application should render at a given moment. Applications should handle these changes and update number of rendered videos
+accordingly to the recommendation. There's a debounce period (around ten (10) seconds) between each update.
 
 **Usage**
-The `optimalVideoCount` feature is a call feature. You need to reference the feature `OptimalVideoCount` via the `feature` method of the `Call` object. You can then set a listener via the `on` method of the `OptimalVideoCountCallFeature` to be notified when the optimalVideoCount changes. To unsubscribe from the changes, you can call the `off` method. The current [maximum number of incoming videos](../../../../concepts/voice-video-calling/calling-sdk-features.md#supported-number-of-incoming-video-streams) that can be rendered is 16. To properly support 16 incoming videos the computer should have a minimum of 16GB RAM and a 4-core or greater CPU that is no older than 3 years old.
+
+The `optimalVideoCount` feature is a call feature. You need to reference the feature `OptimalVideoCount` via the `feature` method of the `Call` object.
+
+You can then set a listener via the `on` method of the `OptimalVideoCountCallFeature` to be notified when the optimalVideoCount changes. To unsubscribe from the changes, you can call the `off` method.
+
+The current [maximum number of incoming videos](../../../../concepts/voice-video-calling/calling-sdk-features.md#supported-number-of-incoming-video-streams) that can be rendered is 16. To properly support 16 incoming videos, the computer needs a minimum of 16 GB RAM and a four (4) core or greater CPU that is less than three (3) years old.
 
 ```javascript
 const optimalVideoCountFeature = call.feature(Features.OptimalVideoCount);
@@ -454,8 +468,7 @@ optimalVideoCountFeature.on('optimalVideoCountChanged', () => {
 })
 ```
 
-Example usage: Application should subscribe to changes of Optimal Video Count in group calls. A change in the optimal video count can be handled
-by either creating new renderer (`createView` method) or dispose views (`dispose`) and update the application layout accordingly.
+Example usage: Your application subscribes to changes of Optimal Video Count in group calls. A change in the optimal video count is handled by either creating new renderer `createView` method or dispose views `dispose` and update the application layout accordingly.
 
 ### Remote video stream properties
 
@@ -493,16 +506,16 @@ const isReceiving: boolean = remoteVideoStream.isReceiving;
 
   - The flag moves to `true` in the following scenarios:
     - A remote participant who is on mobile browser and has its browser backgrounded brings it back to foreground.
-    - A remote participant who is On macOS/iOS Safari selects on "Resume" from their address bar after having paused its video.
+    - A remote participant who is On macOS/iOS Safari selects **Resume** from their address bar after pausing video.
     - A remote participant reconnects to the network after a temporary disconnection.
     - A remote participant on mobile unlock its device and return to the call on its mobile browser.
         
   - This feature improves the user experience for rendering remote video streams.
   - You can display a loading spinner over the remote video stream when isReceiving flag changes to false. You don't have to implement loading spinner, but a loading spinner is the most common usage for better user experience.
 
-```js
-const size: StreamSize = remoteVideoStream.size;
-```
+   ```js
+   const size: StreamSize = remoteVideoStream.size;
+   ```
 
 - `size`: The stream size with information about the width and height of the video.
 
@@ -541,9 +554,13 @@ view.updateScalingMode('Crop');
 ```
 
 ## Send video streams from two different cameras, in the same call from the same desktop device.
+
 [!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
+
 Send video streams from two different cameras in the same call is supported as part of version 1.17.1-beta.1+ on desktop supported browsers.
-- You can send video streams from two different cameras from a single desktop browser tab/app, in the same call, with the following code snippet:
+
+You can send video streams from two different cameras from a single desktop browser tab/app, in the same call, with the following code snippet:
+
 ```js
 // Create your first CallAgent with identity A
 const callClient1 = new CallClient();
@@ -567,9 +584,10 @@ const callObj2 = callAgent2.join({ groupId: '123' }, { videoOptions: { localVide
 await callObj2.muteIncomingAudio();
 await callObj2.mute();
 ```
+
 Limitations:
-- This must be done with two different `CallAgent` instances using different identities. The code snippet shows two call agents being used, each with its own Call object.
-- In the code example, both CallAgents are joining the same call (same call Ids). You can also join different calls with each agent and send one video on one call and a different video on the other call. 
-- Sending the same camera in both CallAgent, isn't supported. They must be two different cameras.
+- Sending video streams must be done with two different `CallAgent` instances using different identities. The code snippet shows two call agents being used, each with its own Call object.
+- In the code example, both CallAgents are joining the same call (same call IDs). You can also join different calls with each agent and send one video on one call and a different video on the other call. 
+- Sending the same camera in both CallAgents isn't supported. They must be two different cameras.
 - Sending two different cameras with one CallAgent is currently not supported.
 - On macOS Safari, background blur video effects (from @azure/communication-effects), can only be applied to one camera, and not both at the same time.

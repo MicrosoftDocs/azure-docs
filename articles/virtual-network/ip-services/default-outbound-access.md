@@ -7,7 +7,8 @@ ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: concept-article
-ms.date: 10/23/2024
+ms.date: 06/11/2025
+# Customer intent: "As an Azure network administrator, I want to transition from default outbound access to explicit outbound connectivity for virtual machines, so that I can ensure secure and reliable internet access while avoiding potential disruptions from IP address changes."
 ---
 
 # Default outbound access in Azure
@@ -159,7 +160,15 @@ az network vnet subnet update --resource-group rgname --name subnetname --vnet-n
  
 * To activate or update virtual machine operating systems, such as Windows, an explicit outbound connectivity method is required.
 
-* In configurations using a User Defined Route (UDR) with a default route (0.0.0.0/0) that sends traffic to an upstream firewall/network virtual appliance, any traffic that bypasses this route (for example, to Service Tagged destinations) breaks in a Private subnet.
+* In configurations using User Defined Routes (UDRs), any configured routes with [next hop type `Internet`](../virtual-networks-udr-overview.md#next-hop-types-across-azure-tools) will break in a Private subnet.
+
+  * A common example is the use of a UDR to steer traffic to an upstream network virtual appliance/firewall, with exceptions for certain Azure Service Tags to bypass inspection.
+
+    * A default route for the destination 0.0.0.0/0, with a next hop type of Virtual Appliance applies in the general case.
+
+    * One or more routes are configured to [Service Tag destinations](../virtual-networks-udr-overview.md#service-tags-for-user-defined-routes) with next hop type `Internet`, to bypass the NVA/firewall. Unless an [explicit outbound connectivity method](#add-an-explicit-outbound-connectivity-method) is also configured for the source of the connection to these destinations, attempts to connection to these destinations will fail, because default outbound access isn't available.
+
+  * This limitation doesn't apply to the use of Service Endpoints, which use a different next hop type `VirtualNetworkServiceEndpoint`. See [Virtual Network service endpoints](../virtual-network-service-endpoints-overview.md).
 
 * Private Subnets aren't applicable to delegated or managed subnets used for hosting PaaS services. In these scenarios, outbound connectivity is managed by the individual service.
  
@@ -172,7 +181,7 @@ az network vnet subnet update --resource-group rgname --name subnetname --vnet-n
 * Associate a Standard public IP to any of the virtual machine's network interfaces (if there are multiple network interfaces, having a single NIC with a standard public IP prevents default outbound access for the virtual machine).
 
 >[!NOTE]
-> There's a NIC-level parameter (defaultOutboundEnabled) which tracks if default outbound access is being utilized.  When an explicit outbound connectivity method is added to a virtual machine, in order for the parameter to be updated, the virtual machine must be rebooted. The Advisor "Add explicit outbound method to disable default outbound" operates by checking for this parameter- so a stop/deallocate of the virtual machine is required for changes to be reflected and the action to clear. 
+> There's a NIC-level parameter (defaultOutboundConnectivityEnabled) which tracks if default outbound access is being utilized.  When an explicit outbound connectivity method is added to a virtual machine, in order for the parameter to be updated, the virtual machine must be rebooted. The Advisor "Add explicit outbound method to disable default outbound" operates by checking for this parameter- so a stop/deallocate of the virtual machine is required for changes to be reflected and the action to clear. 
  
 ### Use Flexible orchestration mode for Virtual Machine Scale Sets
  

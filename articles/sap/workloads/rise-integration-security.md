@@ -53,7 +53,7 @@ It can be used with any data source that Defender XDR and Sentinel support, incl
    This image shows an example of the Microsoft Security Copilot experience using a prompt to investigate an SAP incident.
 :::image-end:::
 
-In addition to that the Security Copilot experience is embedded on the Defender XDR portal. Next to an AI-generated summary, recommendations and remediation like password reset for SAP are provided out-of-the-box. Learn more about automatic SAP attack disruption [here](../../sentinel/sap/deployment-attack-disrupt.md).
+In addition to that, the Security Copilot experience is embedded on the Defender XDR portal, with an out-of-the-box AI-generated summary and recommendations for SAP. 
 
 :::image type="complex" source="./media/sap-rise-integration/sap-rise-security-copilot-defender-portal.png" alt-text="Screenshot of embedded Security Copilot experience in Defender with SAP RISE/ECS incidents." lightbox="./media/sap-rise-integration/sap-rise-security-copilot-defender-portal.png":::
    This image shows an example of Microsoft Security Copilot analyzing an incident detected on SAP RISE through Defender XDR. Data ingestion is done through the Microsoft Sentinel solution for SAP applications.
@@ -61,7 +61,7 @@ In addition to that the Security Copilot experience is embedded on the Defender 
 
 ## Microsoft Sentinel with SAP RISE
 
-The [SAP RISE certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) Microsoft Sentinel solution for SAP applications allows you to monitor, detect, and respond to suspicious activities. Microsoft Sentinel guards your critical data against sophisticated cyberattacks for SAP systems hosted on Azure, other clouds, or on-premises infrastructure. [Microsoft Sentinel Solution for SAP BTP](../../sentinel/sap/sap-btp-solution-overview.md) expands that coverage to SAP Business Technology Platform (BTP).
+The [SAP RISE certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) Microsoft Sentinel Solution for SAP applications allows you to monitor, detect, respond, and correlate suspicious activities in SAP with your other enterprise-wide signals. Microsoft Sentinel guards your critical data against sophisticated cyberattacks for SAP systems hosted on Azure, other clouds, or on-premises infrastructure. [Microsoft Sentinel Solution for SAP BTP](../../sentinel/sap/sap-btp-solution-overview.md) expands that coverage to SAP Business Technology Platform (BTP).
 
 The solution allows you to gain visibility to user activities on SAP RISE/ECS and the SAP business logic layers and apply Sentinel’s built-in content.
 -	Use a single console to monitor all your enterprise estate including SAP instances in SAP RISE/ECS on Azure and other clouds, SAP Azure native and on-premises estate
@@ -74,16 +74,13 @@ The solution allows you to gain visibility to user activities on SAP RISE/ECS an
    This diagram shows an example of Microsoft Sentinel connected through an intermediary VM or container to SAP managed SAP system. The intermediary VM or container runs in customer's own subscription with configured SAP data connector agent. Connection to SAP Business Technology Platform (BTP) uses SAP's public APIs for the Audit Log Management Service.
 :::image-end:::
 
-For SAP RISE/ECS, the Microsoft Sentinel solution must be deployed in customer's Azure subscription. All parts of the Sentinel solution are managed by customer and not by SAP. Private network connectivity from customer's vnet is needed to reach the SAP landscapes managed by SAP RISE/ECS. Typically, this connection is over the established vnet peering or through alternatives described in this document.
+For SAP RISE/ECS, the Microsoft Sentinel Solution for SAP must be deployed in customer's Azure subscription. All parts of the Sentinel solution are managed by customer and not by SAP. The SAP Cloud Connector can be hosted either by SAP in the RISE subscription or by the customer in their network if virtual network connectivity is established.
 
-To enable the solution, only an authorized RFC user is required and nothing needs to be installed on the SAP systems. The container-based [SAP data collection agent](../../sentinel/sap/deployment-overview.md) included with the solution can be installed either on VM or AKS/any Kubernetes environment. The collector agent uses an SAP service user to consume application log data from your SAP landscape through RFC interface using standard RFC calls. 
-- Authentication methods supported in SAP RISE: SAP username and password or X509/SNC certificates
-- Only RFC based connections are possible currently with SAP RISE/ECS environments
+> [!NOTE]
+> Alternatively, you can deploy the Microsoft Sentinel solution for SAP applications without using SAP Integration Suite and SAP Cloud Connector. This approach uses an agent-based data connector that requires you to host a container in your own environment — either in your Azure subscription or on-premises infrastructure. Learn more [here](../../sentinel/sap/deployment-overview.md).
 
 > [!IMPORTANT]
-> 
-> - Running Microsoft Sentinel in an SAP RISE/ECS environment requires: Importing an SAP transport change request for the following log fields/source: Client IP address information from SAP security audit log, DB table logs (preview), spool output log. Sentinel's built-in content (detections, workbooks and playbooks) provides extensive coverage and correlation without those log sources.
-> - SAP infrastructure and operating system logs aren't available to Sentinel in RISE, due to shared responsibility model.
+> As per the RISE shared responsibility model customers using the Sentinel solution for SAP can only integrate the SAP app layer. SAP RISE infrastructure and operating system logs are only available through the optional SAP LogServ solution. It natively supports Sentinel integration. Learn more [here](https://community.sap.com/t5/enterprise-resource-planning-blog-posts-by-members/ultimate-blog-series-sap-logserv-integration-with-microsoft-sentinel/ba-p/14126401).
 
 ### Automatic response with Sentinel's SOAR capabilities
 

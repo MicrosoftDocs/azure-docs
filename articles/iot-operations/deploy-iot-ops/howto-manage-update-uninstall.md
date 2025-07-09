@@ -120,7 +120,7 @@ Currently, the Azure portal doesn't support cloning an Azure IoT Operations inst
 
 Use the [`az iot ops clone`](/cli/azure/iot/ops#az-iot-ops-clone) command to create a new Azure IoT Operations instance based on an existing one. You can apply the output of clone to another connected cluster, which is referred to as replication. You can also save the clone to a local directory for later use and perform some configuration changes before applying it to a cluster. 
 
-For more information, see the [clone command wiki page](https://github.com/Azure/azure-iot-ops-cli-extension/wiki/Clone).
+For more information, see the [clone command wiki page](https://aka.ms/aio-clone).
 
 To clone an instance to another cluster, run:
 
@@ -202,7 +202,7 @@ In general, Azure IoT Operations uses the Azure Arc platform to provide a hybrid
 However, you can also manage the components of Azure IoT Operations using YAML Kubernetes deployment manifests. This means you can use tools like `kubectl` to manage some components of Azure IoT Operations. This feature is in preview and has some limitations:
 
 - Only some components support using Kubernetes deployment manifests. These components are the [MQTT broker](../manage-mqtt-broker/overview-broker.md) and [data flows](../connect-to-cloud/overview-dataflow.md). Other components like the connector for OPC UA and Akri services don't support this feature.
-- Unless Azure IoT Operations is [deployed with resource sync enabled using `az iot ops create --enable-rsync`](/cli/azure/iot/ops#az-iot-ops-create), changes made to the resources using Kubernetes deployment manifests are not synced to Azure. To learn more about resource sync, see [Resource sync](/azure/azure-arc/data/resource-sync).
+- Unless you enable resource sync in Azure IoT Operations using [`az iot ops rsync enable`](/cli/azure/iot/ops/rsync#az-iot-ops-rsync-enable), changes made to the resources using Kubernetes deployment manifests are not synced to Azure. To learn more about resource sync, see [Resource sync](/azure/azure-arc/data/resource-sync).
 - Even if resource sync is enabled, brand new resources created using Kubernetes deployment manifests are not synced to Azure. Only changes to existing resources are synced.
 
 ## Uninstall

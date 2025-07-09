@@ -79,7 +79,7 @@ You can enable access to Grafana Enterprise plugins by selecting a Grafana Enter
 
 When [creating a new Azure Managed Grafana workspace](quickstart-managed-grafana-portal.md) and filling out the **Basics** tab of the creation form, follow the steps below:
 
-1. Under **Pricing Plans**, select the **Standard** plan.
+1. Under **Pricing Plans**, select the **Standard** plan and the instance size of your choice.
 1. Under **Grafana Enterprise**, check the box **Grafana Enterprise**, select **Free Trial - Grafana Enterprise Plugins on Azure Managed Grafana**, and keep the option **Recurring billing** on **Disabled**.
 
     > [!CAUTION]

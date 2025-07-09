@@ -3,7 +3,7 @@ title: Template functions - deployment
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve deployment information.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 02/12/2025
+ms.date: 06/18/2025
 ---
 
 # Deployment functions for ARM templates
@@ -31,12 +31,13 @@ In Bicep, use the [deployer](../bicep/bicep-functions-deployment.md#deployer) fu
 
 ### Return value
 
-This function returns the information about the current deployment principal, including tenant ID and object ID.
+This function returns the information about the current deployment principal, including tenant ID, object ID, and user principal name.
 
 ```json
 {
   "objectId": "",
-  "tenantId": ""
+  "tenantId": "",
+  "userPrincipalName": ""
 }
 ```
 
@@ -63,7 +64,8 @@ The preceding example returns the following object:
 ```json
 {
   "objectId":"aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
-  "tenantId":"aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
+  "tenantId":"aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
+  "userPrincipalName":"john.doe@contoso.com"
 }
 ```
 

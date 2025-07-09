@@ -2,7 +2,7 @@
 title: Network Connectivity Configuration
 description: Configure Azure CycleCloud to access your Virtual Machines
 author: adriankjohnson
-ms.date: 11/15/2019
+ms.date: 06/10/2025
 ms.author: adjohnso
 ---
 

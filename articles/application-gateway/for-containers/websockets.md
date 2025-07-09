@@ -7,6 +7,7 @@ ms.service: azure-appgw-for-containers
 ms.topic: conceptual
 ms.date: 1/13/2025
 ms.author: mbender
+# Customer intent: "As a cloud architect, I want to implement WebSocket connections using Application Gateway for Containers, so that I can enable real-time data communication for my applications while ensuring efficient network management and health monitoring."
 ---
 
 # WebSocket protocol and Application Gateway for Containers
@@ -27,7 +28,7 @@ The WebSocket protocol has several benefits over traditional HTTP requests, incl
 
 To establish a WebSocket connection, a specific HTTP-based handshake is exchanged between the client and the server. If successful, the application-layer protocol is "upgraded" from HTTP to WebSockets, using the previously established TCP connection. Once this occurs, the protocol is changed to WebSockets and traffic no longer flows over HTTP.  Data is sent or received using the WebSocket protocol by both endpoints until the WebSocket connection is closed.
 
-![Diagram depicts a client interacting with a web server, connecting with HTTP, upgrading the connection to the WebSocket protocol, and continueing communication over the WebSocket protocol.](./media/websockets/websockets.svg)
+![Diagram depicts a client interacting with a web server, connecting with HTTP, upgrading the connection to the WebSocket protocol, and continuing communication over the WebSocket protocol.](./media/websockets/websockets.svg)
 
 > [!NOTE]
 > After a connection is upgraded to WebSocket, as an intermediary/terminating proxy, Application Gateway for Containers will send the data received from the frontend to the backend and vice-versa, without any inspection or manipulation capability.

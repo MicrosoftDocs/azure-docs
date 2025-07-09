@@ -6,10 +6,11 @@ ms.custom:
   - ignite-2024
   - build-2025
 ms.topic: quickstart
-ms.date: 02/18/2025
+ms.date: 06/17/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to configure backup for Azure Database for PostgreSQL using a Bicep file, so that I can automate the backup process and ensure data protection for my database servers."
 ---
 
 # Quickstart: Configure backup for Azure Database for PostgreSQL - Flexible Servers with a Bicep file
@@ -143,7 +144,7 @@ resource roleAssignmentReader 'Microsoft.Authorization/roleAssignments@2022-04-0
   name: guid(backupVault.id, 'Reader')
   properties: {
     principalId: backupVault.identity.principalId
-    roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e')  // Role definition ID for 'Reader'
+    roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '00aa00aa-bb11-cc22-dd33-44ee44ee44ee')  // Role definition ID for 'Reader'
     scope: targetResourceGroup.id
   }
 }

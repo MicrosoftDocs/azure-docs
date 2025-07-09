@@ -7,6 +7,7 @@ ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 03/31/2025
 ms.author: allensu
+# Customer intent: As a network administrator, I want to configure application security groups for my virtual machines, so that I can easily manage network security policies and reduce the complexity of maintaining explicit IP addresses.
 ---
 
 # Application security groups

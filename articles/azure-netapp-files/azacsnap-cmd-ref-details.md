@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: reference
 ms.date: 04/21/2021
 ms.author: phjensen
+# Customer intent: "As an IT administrator using Azure NetApp Files, I want to obtain detailed information about snapshots and replication status, so that I can monitor backup and disaster recovery processes effectively."
 ---
 
 # Obtain details using Azure Application Consistent Snapshot tool

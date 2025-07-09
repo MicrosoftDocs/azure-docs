@@ -73,11 +73,11 @@ Follow these steps to set up a dev tunnel and connect to your dev box using VS C
 
 - Why do I need to sign-in to the Dev Box before enabling the tunnel?
 
-   This step is required to establish a user session for setting up the tunnel. After the initial sign-in, you can just disconnect from the Dev Box. Then you can enable or connect 
+   This step is required to establish a user session for setting up the tunnel. After the initial sign-in, you can just disconnect from the Dev Box. Then you can enable or connect to the tunnel without logging in again, unless the Dev Box is shut down or restarted. 
 
 - Why can't I connect to the Dev Box even if the tunnel is enabled?
 
-   Refresh the Dev Box extension explorer view with the button in the top right corner to check the latest status of the tunnel. If the tunnel is enabled, but you still can't connect, try disabling the tunnel, signing in to the Dev Box, and then re-enabling the tunnel.nnect, try disabling the tunnel, logging into the Dev Box, and then re-enabling the tunnel.
+   Refresh the Dev Box extension explorer view with the button in the top right corner to check the latest status of the tunnel. If the tunnel is enabled, but you still can't connect, try disabling the tunnel, signing in to the Dev Box, and then re-enabling the tunnel.
 
 ## Related content
 - [Configure Conditional Access Policies for Dev Tunnels](how-to-conditional-access-dev-tunnels-service.md)

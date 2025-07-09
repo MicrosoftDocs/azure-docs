@@ -1,12 +1,12 @@
 ---
 title: Enterprise Agreement cost and usage details file schema
 description: Learn about the data fields available in the Enterprise Agreement cost and usage details file.
-author: jojopm
+author: jojohpm
 ms.reviewer: jojoh
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 01/24/2025
+ms.date: 06/26/2025
 ms.author: jojoh
 ---
 
@@ -58,24 +58,25 @@ The following information lists the cost and usage details (formerly known as us
 | 36 |ChargeType|Indicates whether the charge represents usage (Usage), a purchase (Purchase), or a refund (Refund).|
 | 37 |Frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
 | 38 |PricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, `Spot`, and `SavingsPlan`)|
-| 39 |BillingAccountId|Unique identifier for the root billing account.|
-| 40 |BillingAccountName|Name of the billing account.|
-| 41 |BillingCurrencyCode|Currency associated with the billing account.|
-| 42 |BillingPeriodStartDate|The start date of the billing period.|
-| 43 |BillingPeriodEndDate|The end date of the billing period.|
-| 44 |BillingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
-| 45 |BillingProfileName|Name of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
-| 46 |InvoiceSectionId|Unique identifier for the EA department or MCA invoice section.|
-| 47 |IsAzureCreditEligible|Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`).|
-| 48 |PartNumber|Identifier used to get specific meter pricing.|
-| 49 |PayGPrice|The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
-| 50 |PlanName|Marketplace plan name.|
-| 51 |ServiceFamily|Service family that the service belongs to.|
-| 52 |CostAllocationRuleName|Name of the Cost Allocation rule that's applicable to the record.|
-| 53 |benefitId|  Unique identifier for the purchased savings plan instance.|
-| 54 |benefitName| Unique identifier for the purchased savings plan instance.|
-|55|AccountId|Unique identifier for the EA enrollment account.|
-|56|ResourceLocationNormalized|Standardized format of the Azure region where the resource is deployed, also referred to as the datacenter location where the resource is running. The normalized location is used to resolve inconsistencies in region names sent by different Azure Resource Providers (RPs).|
+| 39 | AvailabilityZone |This field is included only for AWS-connected accounts via the cross-cloud cost management connector, and is not applicable to native Azure resources. It represents the specific AWS Availability Zone where the resource usage occurred. Note: This field is no longer supported, as the cross-cloud connector has been deprecated. | 
+| 40 |BillingAccountId|Unique identifier for the root billing account. |
+| 41 |BillingAccountName|Name of the billing account.|
+| 42 |BillingCurrencyCode|Currency associated with the billing account.|
+| 43 |BillingPeriodStartDate|The start date of the billing period.|
+| 44 |BillingPeriodEndDate|The end date of the billing period.|
+| 45 |BillingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
+| 46 |BillingProfileName|Name of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
+| 47 |InvoiceSectionId|Unique identifier for the EA department or MCA invoice section.|
+| 48 |IsAzureCreditEligible|Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`).|
+| 49 |PartNumber|Identifier used to get specific meter pricing.|
+| 50 |PayGPrice|The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
+| 51 |PlanName|Marketplace plan name.|
+| 52 |ServiceFamily|Service family that the service belongs to.|
+| 53 |CostAllocationRuleName|Name of the Cost Allocation rule that's applicable to the record.|
+| 54 |benefitId|  Unique identifier for the purchased savings plan instance.|
+| 55 |benefitName| Unique identifier for the purchased savings plan instance.|
+| 56 |AccountId|Unique identifier for the EA enrollment account.|
+| 57 |ResourceLocationNormalized|Standardized format of the Azure region where the resource is deployed, also referred to as the datacenter location where the resource is running. The normalized location is used to resolve inconsistencies in region names sent by different Azure Resource Providers (RPs).|
 
 ## Version 2023-12-01-preview
 
@@ -119,22 +120,23 @@ The following information lists the cost and usage details (formerly known as us
 | 36 |ChargeType|Indicates whether the charge represents usage (Usage), a purchase (Purchase), or a refund (Refund).|
 | 37 |Frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
 | 38 |PricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, `Spot`, and `SavingsPlan`)|
-| 39 |BillingAccountId|Unique identifier for the root billing account.|
-| 40 |BillingAccountName|Name of the billing account.|
-| 41 |BillingCurrencyCode|Currency associated with the billing account.|
-| 42 |BillingPeriodStartDate|The start date of the billing period.|
-| 43 |BillingPeriodEndDate|The end date of the billing period.|
-| 44 |BillingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
-| 45 |BillingProfileName|Name of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
-| 46 |InvoiceSectionId|Unique identifier for the EA department or MCA invoice section.|
-| 47 |IsAzureCreditEligible|Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`).|
-| 48 |PartNumber|Identifier used to get specific meter pricing.|
-| 49 |PayGPrice|The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
-| 50 |PlanName|Marketplace plan name.|
-| 51 |ServiceFamily|Service family that the service belongs to.|
-| 52 |CostAllocationRuleName|Name of the Cost Allocation rule that's applicable to the record.|
-| 53 |benefitId|  Unique identifier for the purchased savings plan instance.|
-| 54 |benefitName| Unique identifier for the purchased savings plan instance.|
+| 39 | AvailabilityZone|This field is included only for AWS-connected accounts via the cross-cloud cost management connector, and is not applicable to native Azure resources. It represents the specific AWS Availability Zone where the resource usage occurred. Note: This field is no longer supported, as the cross-cloud connector has been deprecated. |
+| 40 |BillingAccountId|Unique identifier for the root billing account.|
+| 41 |BillingAccountName|Name of the billing account.|
+| 42 |BillingCurrencyCode|Currency associated with the billing account.|
+| 43 |BillingPeriodStartDate|The start date of the billing period.|
+| 44 |BillingPeriodEndDate|The end date of the billing period.|
+| 45 |BillingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
+| 46 |BillingProfileName|Name of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
+| 47 |InvoiceSectionId|Unique identifier for the EA department or MCA invoice section.|
+| 48 |IsAzureCreditEligible|Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`).|
+| 49 |PartNumber|Identifier used to get specific meter pricing.|
+| 50 |PayGPrice|The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
+| 51 |PlanName|Marketplace plan name.|
+| 52 |ServiceFamily|Service family that the service belongs to.|
+| 53 |CostAllocationRuleName|Name of the Cost Allocation rule that's applicable to the record.|
+| 54 |benefitId|  Unique identifier for the purchased savings plan instance.|
+| 55 |benefitName| Unique identifier for the purchased savings plan instance.|
 
 ## Version 2021-10-01
 

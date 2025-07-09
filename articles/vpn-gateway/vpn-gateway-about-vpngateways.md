@@ -14,6 +14,9 @@ ms.custom: e2e-hybrid
 
 Azure VPN Gateway is a service that can be used to send encrypted traffic between an Azure virtual network and on-premises locations over the public Internet. You can also use VPN Gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. VPN Gateway uses a specific type of Azure virtual network gateway called a VPN gateway. Multiple connections can be created to the same VPN gateway. When you create multiple connections, all VPN tunnels share the available gateway bandwidth.
 
+> [!NOTE]
+> Azure VPN Gateway is one of the services that make up the Hybrid Connectivity category in Azure. Other services in this category include [ExpressRoute](../expressroute/expressroute-introduction.md) and [Virtual WAN](../virtual-wan/virtual-wan-about.md). Each service has its own unique features and use cases. For more information on this service category, see [Hybrid Connectivity](../networking/hybrid-connectivity/hybrid-connectivity.md).
+
 ## Why use VPN Gateway?
 
 Here are some of the key scenarios for VPN Gateway:

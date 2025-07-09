@@ -7,6 +7,7 @@ author: akashdubey-ms
 ms.author: akashdubey
 ms.topic: article
 ms.date: 03/09/2020
+# Customer intent: "As a cloud architect, I want to design efficient and scalable tables in a NoSQL system, so that I can optimize performance and cost for high-transaction cloud applications."
 ---
 
 # Design scalable and performant tables

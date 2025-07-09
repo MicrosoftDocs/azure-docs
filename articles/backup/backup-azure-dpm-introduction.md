@@ -6,6 +6,7 @@ ms.date: 12/24/2024
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a systems administrator, I want to prepare the DPM server for backups to Azure using the Azure Backup service, so that I can ensure data protection and disaster recovery for my workloads efficiently.
 ---
 
 # Prepare to back up workloads to Azure with System Center DPM

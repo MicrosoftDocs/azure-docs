@@ -8,6 +8,7 @@ ms.service: azure-web-application-firewall
 ms.topic: quickstart
 ms.date: 10/16/2023
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm, devx-track-bicep
+# Customer intent: "As a cloud architect, I want to deploy a Web Application Firewall v2 on an Application Gateway using Bicep, so that I can enhance security for my applications hosted in Azure."
 ---
 
 # Quickstart: Create an Azure WAF v2 on Application Gateway using Bicep

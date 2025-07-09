@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.custom:
 ms.date: 04/21/2025
 ms.author: allensu
+# Customer intent: "As a network administrator, I want to understand how reverse DNS works in Azure, so that I can effectively manage PTR records and enhance email verification processes within my organization."
 ---
 
 # Overview of reverse DNS and support in Azure

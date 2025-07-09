@@ -26,6 +26,8 @@ This article provides an overview of the current limitations when you're using [
 * Azure Virtual Network Manager policies don't support the standard evaluation cycle for policy compliance. For more information, see [Evaluation triggers](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 * The move of the subscription where the Azure Virtual Network Manager instance exists to another tenant is not supported.
 
+* In the Azure China regions, currently, using tags on resource groups and subscriptions as a condition in dynamic membership is not supported.
+
 ## Limitations for connected groups 
 
 * A virtual network can be peered up to 1000 virtual networks using Azure Virtual Network Manager's hub and spoke topology. This means that you can peer up to 1000 spoke virtual networks to a hub virtual network.

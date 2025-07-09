@@ -7,6 +7,7 @@ ms.service: azure-traffic-manager
 ms.topic: concept-article
 ms.date: 08/08/2024
 ms.author: allensu
+# Customer intent: As a cloud administrator, I want to monitor Traffic Manager metrics and set alerts, so that I can ensure the health and performance of my endpoints and respond quickly to any issues.
 ---
 
 # Traffic Manager metrics and alerts
