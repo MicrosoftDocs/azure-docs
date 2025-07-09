@@ -7223,7 +7223,13 @@
       "source_path": "articles/governance/policy/samples/hipaa-hitrust-9-2.md",
       "redirect_url": "/azure/governance/policy/samples/hipaa-hitrust",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/migrate-workload-aks-mysql.md",
+      "redirect_url": "/azure/reliability/availability-zones-migration-overview",
+      "redirect_document_id": false
     }
+    
   ]
 }
 
