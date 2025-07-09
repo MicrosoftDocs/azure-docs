@@ -13,7 +13,7 @@ ms.author: v-uhabiba
 For Azure Arc-enabled machines, two extensions are installed. For more information, see [How Update Manager works](workflow-update-manager.md)
 
 
-The Azure Arc-enabled VM extensions receive improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you the following information:
+The Azure Arc-enabled VM extensions receive improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with the following information:
 
 - The latest releases
 - Known issues
@@ -35,7 +35,7 @@ Added support for management of following distributions:
 - Ubuntu 24 
 - Debian 12 
 
-In previous releases, patching an Ubuntu 24.04 server failed with the error: **E: the list of sources could not be read**.
+In previous releases, patching an Ubuntu 24.04 server failed with the error: **E: the list of sources couldn't be read**.
 
 
 ## Next steps
