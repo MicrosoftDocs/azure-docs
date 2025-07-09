@@ -18,7 +18,7 @@ The Microsoft Sentinel data lake mirrors data from Microsoft Sentinel workspaces
 
 This article explains how to set up connectors for the Microsoft Sentinel data lake and configure retention. For more information On onboarding, see [Onboarding to Microsoft Sentinel data lake](sentinel-lake-onboarding.md)
 
-## Configure connector retention and data tiering
+## Configure retention and data tiering
 
 After onboarding, you can enable new connectors and configure retention for existing connectors. You can and choose to send the data to the analytics tier and mirror the data to the data lake tier, or send the data only to the data lake tier. Retention and tiering are managed from the connector setup pages, or using the **Table management** page in the Defender portal. For more information on table management and retention, see [Manage data tiers and retention in Microsoft Defender Portal (Preview)](https://aka.ms/manage-data-defender-portal-overview).
 
