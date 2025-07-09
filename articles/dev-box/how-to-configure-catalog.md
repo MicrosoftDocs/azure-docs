@@ -76,7 +76,7 @@ For catalogs that use a managed identity or Personal Access Token (PAT) for auth
 
 ## Configure a managed identity
 
-Before you can attach a catalog to a dev center or project, you must configure a [managed identity](concept-environments-key-concepts.md#identities), also called a Managed Service Identity (MSI). You can attach either a system-assigned managed identity (system-assigned MSI) or a user-assigned managed identity (user-assigned MSI). You then assign roles to the managed identity to allow the dev center or project to create environment types in your subscription and read the Azure Repos project that contains the catalog repo.
+Before you can attach a catalog to a dev center or project, you must configure a [managed identity](../deployment-environments/concept-environments-key-concepts#identities), also called a Managed Service Identity (MSI). You can attach either a system-assigned managed identity (system-assigned MSI) or a user-assigned managed identity (user-assigned MSI). You then assign roles to the managed identity to allow the dev center or project to create environment types in your subscription and read the Azure Repos project that contains the catalog repo.
 
 If your dev center or project doesn't have an MSI attached, follow the steps in [Configure a managed identity](how-to-configure-managed-identity.md) to create one and to assign roles for the managed identity.
 
