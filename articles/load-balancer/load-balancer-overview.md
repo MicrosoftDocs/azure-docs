@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: overview
-ms.date: 05/14/2025
+ms.date: 07/09/2025
 ms.author: mbender
 ms.custom: portfolio-consolidation-2025
 #customer intent: As an IT administrator, I want to understand what Azure Load Balancer is so that I can decide if it fits my organization's needs.
