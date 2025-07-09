@@ -5,8 +5,8 @@ services: automation
 ms.date: 07/08/2025
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, no-azure-ad-ps-ref
-ms.author: adoyle
-author: adoylemsft
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Use Microsoft Entra ID to authenticate to Azure
@@ -19,7 +19,7 @@ The [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whati
 
 You can enable Microsoft Entra ID through the following PowerShell modules:
 
-* Azure Active Directory PowerShell for Graph. Azure Automation ships with the the Az module. Functionality includes non-interactive authentication to Azure using Microsoft Entra user (OrgId) credential-based authentication. See [Azure AD 2.0.2.182](https://www.powershellgallery.com/packages/AzureAD/2.0.2.182).
+* Azure Active Directory PowerShell for Graph. Azure Automation ships with the Az module. Functionality includes non-interactive authentication to Azure using Microsoft Entra user (OrgId) credential-based authentication. See [Azure AD 2.0.2.182](https://www.powershellgallery.com/packages/AzureAD/2.0.2.182).
 
 * Microsoft Entra ID for Windows PowerShell. This module enables interactions with Microsoft Online, including Microsoft 365.
 
