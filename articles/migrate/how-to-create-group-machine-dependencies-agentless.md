@@ -71,7 +71,8 @@ The new users need to follow the below steps:
 2. Navigate to the **Manage credentials and discovery sources** panel.
 3.  In **Step 1: Provide credentials for discovery source**, select on **Add credentials** to  provide credentials for the discovery source that the appliance uses to discover servers running in your environment.
 4. In **Step 2: Provide discovery source details**, select **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the discovery source.
-    :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="The screenshot shows the panel 3 on appliance configuration manager for vCenter Server details." lightbox="./media/tutorial-discover-vmware/appliance-manage-sources.png":::
+
+:::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="The screenshot shows the panel 3 on appliance configuration manager for vCenter Server details." lightbox="./media/tutorial-discover-vmware/appliance-manage-sources.png":::
 
 5. In **Step 3: Provide server credentials to perform software inventory and agentless dependency analysis**, select **Add credentials** to provide multiple server credentials to perform guest-based discovery like software inventory, agentless dependency analysis, and discovery of databases and web applications.
 6. Select on **Start discovery**, to initiate discovery.
@@ -271,9 +272,10 @@ Follow the steps to disable the servers where dependency analysis is autoenabled
 1. You can start by selecting an appliance from the drop-down.
 
 > [!NOTE] 
-> If the selected appliance hasn't been upgraded for the new dependency analysis, you can either meet the prerequisites or if you don't wish to upgrade, switch to the old experience (from Overview) to Add/remove servers for dependency analysis.
+> If the selected appliance isn't upgraded for the new dependency analysis, you can either meet the prerequisites or switch to the old experience (from Overview) to add or remove servers for dependency analysis.
 
-2. You can filter servers to disable dependencies on servers, which were autoenabled (servers with dependency status as Enabled). The servers, which aren't eligible for disablement (servers with dependency status as Validation failed, Not initiated, Disabled, or Credentials not available) can't be selected.
+2. You can filter servers to disable dependency analysis on those that were autoenabled (servers with the status as *Enabled*). Servers that aren't eligible for disablement—such as those with the status *Validation failed*, *Not initiated*, *Disabled*, or *Credentials* not available'—can't be selected.
+
 
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/disable-dependencies-view.png":::
 
@@ -288,9 +290,9 @@ Follow the steps to disable the servers where dependency analysis has been autoe
 1. You can start by selecting an appliance from the drop-down.
 
 > [!NOTE] 
-> If the selected appliance hasn't been upgraded for the new dependency analysis, you can either meet the prerequisites or if you don't wish to upgrade, switch to the old experience (from Overview) to Add/remove servers for dependency analysis.
+> If the selected appliance isn't upgraded for the new dependency analysis, you can either meet the prerequisites or switch to the old experience (from Overview) to add or remove servers for dependency analysis.
 
-2. You can filter servers to enable dependencies on servers, which were disabled by the user or not enabled as the scale limit of 1,000 per appliance had been met (servers with dependency status as Disabled or Not initiated). The servers, which aren't eligible for disablement (servers with dependency status as Validation failed or Credentials not available/Enabled) can't be selected.
+2. You can filter servers to disable dependency analysis on those that were autoenabled (servers with the status as *Enabled*). Servers that aren't eligible for disablement—such as those with the status *Validation failed*, *Not initiated*, *Disabled*, or *Credentials* not available'—can't be selected.
 
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/enable-dependencies-view.png":::
 
@@ -319,7 +321,7 @@ You need to install the PowerShell module to disable for servers that you don't 
 
 ### Disable dependencies
 
-1. Get the list of discovered servers in your project using the following commands. In the example below, the project name is ContosoDemoProject, and the resource group it belongs to be ContosoDemoRG. The list of servers are saved in ContosoDemo_VMs.csv
+1. "Use the following commands to get the list of discovered servers in your project. In this example, the project name is ContosoDemoProject, and the resource group is ContosoDemoRG. The list of servers is saved in a file named `ContosoDemo_VMs.csv."`
 
 ```
 Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "ContosoDemoRG" -ProjectName "ContosoDemoProject" -OutputCsvFile "ContosoDemo_VMs.csv" [-AutoEnabledDepMap]
@@ -348,7 +350,7 @@ Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "ContosoDemoRG" -ProjectName "Co
 
 In the file, you can see the server display name, current status of dependency collection and the ARM ID of all discovered servers.
 
-1. To disable dependencies, create an input CSV file from the output file you exported in the last step. The file is required to have a column with header "ARM ID". Any other headers in the CSV file are ignored. The input file should contain the list of servers where you want to disable dependency analysis.
+1. To disable dependencies, create an input CSV file using the output file you exported in the last step. The file must have a column with the header *ARM ID*. Other headers in the CSV file are ignored. The input file should list the servers where you want to disable dependency analysis.
 
     In the following example, dependency analysis is being disabled on the list of servers in the input file ContosoDemo_VMs_Disable.csv.
 
@@ -358,7 +360,7 @@ In the file, you can see the server display name, current status of dependency c
 
 ### Enable dependencies
 
-You may need to enable dependency analysis on one or more servers to restart dependency data collection from servers that you disabled using PowerShell module previously.
+You may need to enable dependency analysis on one or more servers to start collecting data again from servers you disabled earlier using the PowerShell module.
 
 You need to follow the same steps to export the discovered servers as mentioned above and then import the list of servers you want to enable.
 
