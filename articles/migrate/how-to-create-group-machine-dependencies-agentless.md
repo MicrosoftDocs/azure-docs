@@ -139,7 +139,7 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 1. Search for the server whose dependencies, you want to review. If dependency analysis was successfully performed on that server, you can select on **View dependencies** to go to the dependency visualization. 
 1. The dependency visualization shows all incoming and outgoing dependencies for that server in a network diagram.
 
-    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/default-dep-view.png" alt-text="The screenshot shows the default dependency view for a server." lightbox="./media/how-to-create-group-machine-dependencies-agentless/default-dep-view.png":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/default-dep-view.png" alt-text="The screenshot shows the default dependency view for a server." lightbox="./media/how-to-create-group-machine-dependencies-agentless/default-dep-view.png":::
 
 1. The view is filtered for default time period of **Last 24 hours** and process type as **Resolvable**. 
 1. The view is filtered for default time period of **Last 24 hours** and process type as **Resolvable**. 
@@ -163,7 +163,7 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 
 1. You can hover on the Server name to see essential information about the server like IP address, Source, and Tags.
 
-    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/server-hover-details.png" alt-text="The screenshot illustrated how the details are shown on hover." lightbox="./media/how-to-create-group-machine-dependencies-agentless/server-hover-details.png":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/server-hover-details.png" alt-text="The screenshot illustrated how the details are shown on hover." lightbox="./media/how-to-create-group-machine-dependencies-agentless/server-hover-details.png":::
 
 1. Similarly you can also hover on the connection to see essential information like strength and frequency of connections in the selected time range. 
 1. You can select the Server name to see more details like Operating system, Power Status, Software inventory discovered from the server and associated Tags.
@@ -174,7 +174,7 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 1. You can expand the Server to see the list of processes basis the selected process type filter.
 1. From the expanded list of processes, you can select on a Process name to see its incoming and outgoing dependencies with processes on other servers in the view. The process to process dependency also indicates the destination port no on the connection.
 
-    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/process-process-dep.png" alt-text="The screenshot shows the process to process dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/process-process-dep.png":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/process-process-dep.png" alt-text="The screenshot shows the process to process dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/process-process-dep.png":::
 
 
 > [!NOTE]
@@ -191,7 +191,7 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 
 The dependency data is exported and downloaded in a CSV format. The downloaded file contains the dependency data across all servers enabled for dependency analysis. 
 
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/export-dep.png" alt-text="The screenshot illustrates the Export dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/export-dep.png":::
+    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/export-dep.png" alt-text="The screenshot illustrates the Export dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/export-dep.png":::
 
 ### Dependency information
 
@@ -218,7 +218,7 @@ If you are an existing user, you already set up an Azure Migrate project. You pe
 1. Go to the inventory view and search for a server, for which you want to review dependencies.
 2. Select on **View dependencies** and you see the old visualization showing dependencies of that server.
 
-    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png":::
 
 3. On the dependency view, you see an information box prompting you to complete some prerequisites for switching to the new visualization.
 4. As a prerequisite, you need to ensure that the discovery agent on the appliances registered with the project is upgraded to version or later.
@@ -259,7 +259,7 @@ You can disable dependency analysis on servers that you don't want and also enab
 
 In **All inventory** or **Infrastructure inventory** view, select the **Manage Dependencies** drop-down and then select **Disable dependencies**.
 
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/disable-dependencies-option.png":::
+    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/disable-dependencies-option.png":::
 
 Follow the steps to disable the servers where dependency analysis is autoenabled:
 
@@ -268,9 +268,9 @@ Follow the steps to disable the servers where dependency analysis is autoenabled
 > [!NOTE] 
 > If the selected appliance hasn't been upgraded for the new dependency analysis, you can either meet the prerequisites or if you don't wish to upgrade, switch to the old experience (from Overview) to Add/remove servers for dependency analysis.
 
-1. You can filter servers to disable dependencies on servers, which were autoenabled (servers with dependency status as Enabled). The servers, which aren't eligible for disablement (servers with dependency status as Validation failed/Not initiated/Disabled/Credentials not available) can't be selected.
+1. You can filter servers to disable dependencies on servers, which were autoenabled (servers with dependency status as Enabled). The servers, which aren't eligible for disablement (servers with dependency status as Validation failed, Not initiated, Disabled, or Credentials not available) can't be selected.
 
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/disable-dependencies-view.png":::
+    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/disable-dependencies-view.png":::
 
 1. You can select the servers and select Disable to proceed.
 
@@ -285,9 +285,9 @@ Follow the steps to disable the servers where dependency analysis has been autoe
 > [!NOTE] 
 > If the selected appliance hasn't been upgraded for the new dependency analysis, you can either meet the prerequisites or if you don't wish to upgrade, switch to the old experience (from Overview) to Add/remove servers for dependency analysis.
 
-1. You can filter servers to enable dependencies on servers, which were disabled by the user or not enabled as the scale limit of 1,000 per appliance had been met (servers with dependency status as Disabled or Not initiated). The servers, which aren't eligible for disablement (servers with dependency status as Validation failed/Credentials not available/Enabled) can't be selected.
+1. You can filter servers to enable dependencies on servers, which were disabled by the user or not enabled as the scale limit of 1,000 per appliance had been met (servers with dependency status as Disabled or Not initiated). The servers, which aren't eligible for disablement (servers with dependency status as Validation failed or Credentials not available/Enabled) can't be selected.
 
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/enable-dependencies-view.png":::
+    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/enable-dependencies-view.png":::
 
 1. You can select the servers and select Enable to proceed.
 
@@ -315,11 +315,15 @@ You need to install the PowerShell module to disable for servers that you don't 
 ### Disable dependencies
 
 1. Get the list of discovered servers in your project using the following commands. In the example below, the project name is ContosoDemoProject, and the resource group it belongs to be ContosoDemoRG. The list of servers are saved in ContosoDemo_VMs.csv
-
+1. 
+```
 Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "ContosoDemoRG" -ProjectName "ContosoDemoProject" -OutputCsvFile "ContosoDemo_VMs.csv" [-AutoEnabledDepMap]
 You can also add a filter to export the relevant servers using the command:
-
+```
+```
 Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "ContosoDemoRG" -ProjectName "ContosoDemoProject" -Filter @{"Dependencies"="Enabled"} -OutputCsvFile "ContosoDemo_VMs.csv" [-AutoEnabledDepMap]
+```
+
 The different filters available for use in the command above are:
 
 | **Field name** | **Details** |
@@ -333,7 +337,9 @@ Some of the other fields are IP Address, osType, osName, osArchitecture, osVersi
 
 You can find discovered servers for a specific appliance by using the command:
 
-   `Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "ContosoDemoRG" -ProjectName "ContosoDemoProject" -Filter @{"Dependencies"="Enabled"} -ApplianceName "ContosoApp" -OutputCsvFile "ContosoDemo_VMs.csv" [-AutoEnabledDepMap]`
+```
+Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "ContosoDemoRG" -ProjectName "ContosoDemoProject" -Filter @{"Dependencies"="Enabled"} -ApplianceName "ContosoApp" -OutputCsvFile "ContosoDemo_VMs.csv" [-AutoEnabledDepMap]
+```
 
 In the file, you can see the server display name, current status of dependency collection and the ARM ID of all discovered servers.
 
@@ -341,7 +347,9 @@ In the file, you can see the server display name, current status of dependency c
 
     In the following example, dependency analysis is being disabled on the list of servers in the input file ContosoDemo_VMs_Disable.csv.
 
-`PowerShell Set-AzMigDependencyMappingAgentless -Disable -InputCsvFile .\ContosoDemo_VMs_Disable.csv [-AutoEnabledDepMap]`
+```
+    PowerShell Set-AzMigDependencyMappingAgentless -Disable -InputCsvFile .\ContosoDemo_VMs_Disable.csv [-AutoEnabledDepMap]
+```
 
 ### Enable dependencies
 
@@ -351,7 +359,10 @@ You need to follow the same steps to export the discovered servers as mentioned 
 
 In the following example, dependency analysis is being enabled on the list of servers in the input file ContosoDemo_VMs_Enable.csv.
 
-`Set-AzMigDependencyMappingAgentless -Enable -InputCsvFile .\ContosoDemo_VMs_Enable.csv [-AutoEnabledDepMap]`
+```
+Set-AzMigDependencyMappingAgentless -Enable -InputCsvFile .\ContosoDemo_VMs_Enable.csv [-AutoEnabledDepMap]
+
+```
 ::: moniker-end
 
 ::: moniker range="migrate-classic"
