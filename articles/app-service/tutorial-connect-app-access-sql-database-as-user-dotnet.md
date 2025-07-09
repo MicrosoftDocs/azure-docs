@@ -156,16 +156,16 @@ Update your application code to add the access token supplied by App Service aut
 > [!NOTE]
 > This code doesn't work locally. For more information and alternatives for local debugging, see [Debug locally when you use App Service authentication](#how-do-i-debug-locally-when-using-app-service-authentication).
 
-In your `DbContext` object in *DatabaseContext.cs* or other file that configures the database context, change the default constructor to add the Microsoft Entra ID access token to the connection object.
+1. In your `DbContext` object in *DatabaseContext.cs* or other file that configures the database context, change the default constructor to add the Microsoft Entra ID access token to the connection object.
 
-```csharp
-public MyDatabaseContext (DbContextOptions<MyDatabaseContext> options, IHttpContextAccessor accessor)
-    : base(options)
-{
-    var conn = Database.GetDbConnection() as SqlConnection;
-    conn.AccessToken = accessor.HttpContext.Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"];
-}
-```
+   ```csharp
+   public MyDatabaseContext (DbContextOptions<MyDatabaseContext> options, IHttpContextAccessor accessor)
+       : base(options)
+   {
+       var conn = Database.GetDbConnection() as SqlConnection;
+       conn.AccessToken = accessor.HttpContext.Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"];
+   }
+   ```
 
 1. If you have a connection string called `defaultConnection` in App Service that uses SQL authentication with a username and password, use the following command to remove the connection secrets. Replace `<group-name>`, `<app-name>`, `<db-server-name>`, and `<db-name>` with your values.
 
@@ -210,12 +210,12 @@ This command might take some time to run.
 
 ## Frequently asked questions
 
-- [Why do I get a Login failed for user '\<token-identified principal>' error?](#why-do-i-get-a-login-failed-for-user-token-identified-principal-error)
+- [Why do I get a "Login failed for user '\<token-identified principal>'" error?](#why-do-i-get-a-login-failed-for-user-token-identified-principal-error)
 - [How do I add other Microsoft Entra users or groups in Azure SQL Database?](#how-do-i-add-other-azure-ad-users-or-groups-in-azure-sql-database)
 - [How do I debug locally when using App Service authentication?](#how-do-i-debug-locally-when-using-app-service-authentication)
 - [What happens when access tokens expire?](#what-happens-when-access-tokens-expire)
 
-#### Why do I get a Login failed for user '\<token-identified principal>' error?
+#### Why do I get a "Login failed for user '\<token-identified principal>'" error?
 
 The most common causes for a `Login failed for user '<token-identified principal>'` error are:
 
