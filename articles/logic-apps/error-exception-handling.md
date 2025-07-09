@@ -1,12 +1,12 @@
 ---
 title: Handle errors and exceptions in workflows
-description: How to handle errors and exceptions that happen in automated tasks and workflows created by using Azure Logic Apps.
+description: Learn about options to handle errors and exceptions in workflows created with Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, laveeshb, azla
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 01/26/2025
+ms.date: 07/08/2025
 ---
 
 # Handle errors and exceptions in Azure Logic Apps
@@ -232,9 +232,9 @@ For example, to run the Office 365 Outlook **Send an email** action after the Ex
 
    1. Under the **Select actions** list, expand the current predecessor operation, which is **HTTP** in this example:
 
-      :::image type="content" source="media/error-exception-handling/current-predecessor.png" alt-text="Screenshot shows current predeccessor operation." lightbox="media/error-exception-handling/current-predecessor.png":::
+      :::image type="content" source="media/error-exception-handling/current-predecessor.png" alt-text="Screenshot shows current predecessor operation." lightbox="media/error-exception-handling/current-predecessor.png":::
 
-      By default, the "run after" status is set to **Is successful**. This value means the predecessor operation must successfully finish before the currently action can run.
+      By default, the "run after" status is set to **Is successful**. This value means the predecessor operation must successfully finish before the current action can run.
 
       :::image type="content" source="media/error-exception-handling/default-run-after-status.png" alt-text="Screenshot shows current run after status set to Is successful." lightbox="media/error-exception-handling/default-run-after-status.png":::
 
