@@ -16,7 +16,7 @@ ms.author: mbender
 
 # Configure App Service with Application Gateway
 
-Application gateway allows you to have an App Service app or other multitenant service as a backend pool member. In this article, you learn to configure an App Service app with Application Gateway. The configuration for Application Gateway differs depending on how App Service can be accessed:
+Azure Application Gateway allows you to have an App Service app or other multitenant service as a backend pool member. In this article, you learn to configure an App Service app with Application Gateway. The configuration for Application Gateway differs depending on how App Service can be accessed:
 
 - The first option makes use of a **custom domain** on both Application Gateway and the App Service in the backend.  
 - The second option is to have Application Gateway access App Service using its **default domain**, suffixed as ".azurewebsite.net."
