@@ -50,7 +50,7 @@ The **For each** action works only on arrays and repeats one or more actions on 
 
 * To get predictable results from operations on variables during each iteration, run the iterations sequentially. For example, when a concurrently running iteration ends, the **Increment variable**, **Decrement variable**, and **Append to variable** operations return predictable results. However, during each iteration in the concurrently running loop, these operations might return unpredictable results.
 
-* Actions in a **For each** loop use the [`item()` function](../logic-apps/workflow-definition-language-functions-reference.md#item) to reference and process each item in the array. If you specify data that's not in an array, the workflow fails.
+* Actions in a **For each** loop use the [`item()` function](expression-functions-reference.md#item) to reference and process each item in the array. If you specify data that's not in an array, the workflow fails.
 
 The following example workflow sends a daily summary for a website RSS feed. The workflow uses a **For each** action that sends an email for each new item.
 

@@ -1,12 +1,12 @@
 ---
 title: Handle errors and exceptions in workflows
-description: How to handle errors and exceptions that happen in automated tasks and workflows created by using Azure Logic Apps.
+description: Learn about options to handle errors and exceptions in workflows created with Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, laveeshb, azla
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 01/26/2025
+ms.date: 07/08/2025
 ---
 
 # Handle errors and exceptions in Azure Logic Apps
@@ -19,7 +19,7 @@ The way that any integration architecture appropriately handles downtime or issu
 
 ## Retry policies
 
-For the most basic exception and error handling, you can use the *retry policy* when supported on a trigger or action, such as the [HTTP action](logic-apps-workflow-actions-triggers.md#http-trigger). If the trigger or action's original request times out or fails, resulting in a 408, 429, or 5xx response, the retry policy specifies that the trigger or action resend the request per policy settings.
+For the most basic exception and error handling, you can use the *retry policy* if this capability exists on a trigger or action, such as the [HTTP action](logic-apps-workflow-actions-triggers.md#http-trigger). If the trigger or action's original request times out or fails, resulting in a 408, 429, or 5xx response, the retry policy specifies that the trigger or action resend the request per policy settings.
 
 <a name="retry-policy-limits"></a>
 
@@ -40,23 +40,35 @@ Connector operations that support retry policies use the **Default** policy unle
 
 ### Change retry policy type in the designer
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
-1. Based on whether you're working on a Consumption or Standard workflow, open the trigger or action's **Settings**.
+1. On the resource sidebar, follow these steps to open the workflow designer, based on your logic app:
 
-   * **Consumption**: On the action shape, open the ellipses menu (**...**), and select **Settings**.
+   - **Consumption**: Under **Development Tools**, select the designer to open your workflow.
 
-   * **Standard**: On the designer, select the action. On the details pane, select **Settings**.
+   - **Standard**
+   
+     1. Under **Workflows**, select **Workflows**.
 
-1. If the trigger or action supports retry policies, under **Retry Policy**, select the policy type that you want.
+     1. From the **Workflows** page, select your workflow.
+
+     1. Under **Tools**, select the designer to open your workflow.
+
+1. On the trigger or action where you want to change the retry policy type, follow these steps to open the settings:
+
+   1. On the designer, select the operation.
+
+   1. On the operation information pane, select **Settings**.
+
+   1. Under **Networking**, under **Retry policy**, select the policy type that you want.
 
 ### Change retry policy type in the code view editor
 
-1. If necessary, confirm whether the trigger or action supports retry policies by completing the earlier steps in the designer.
+1. Confirm whether the trigger or action supports retry policies by completing the earlier steps in the designer.
 
 1. Open your logic app workflow in the code view editor.
 
-1. In the trigger or action definition, add the `retryPolicy` JSON object to that trigger or action's `inputs` object. Otherwise, if no `retryPolicy` object exists, the trigger or action uses the `default` retry policy.
+1. In the trigger or action definition, add the `retryPolicy` JSON object to the trigger or action's `inputs` object. If no `retryPolicy` object exists, the trigger or action uses the `default` retry policy.
 
    ```json
    "inputs": {
@@ -170,13 +182,12 @@ For the exponential interval retry policy, the following table shows the general
 | 3 | max(2 * interval, <*minimum-interval*>) | min(4 * interval, <*maximum-interval*>) |
 | 4 | max(4 * interval, <*minimum-interval*>) | min(8 * interval, <*maximum-interval*>) |
 | .... | .... | .... |
-||||
 
 <a name="control-run-after-behavior"></a>
 
 ## Manage the "run after" behavior
 
-When you add actions in the workflow designer, you implicitly declare the order to use for running those actions. After an action finishes running, that action is marked with a status such as **Succeeded**, **Failed**, **Skipped**, or **TimedOut**. By default, an action that you add in the designer runs only after the predecessor completes with **Succeeded** status. In an action's underlying definition, the `runAfter` property specifies that the predecessor action that must first finish and the statuses permitted for that predecessor before the successor action can run.
+When you add actions in the workflow designer, you implicitly declare the order to use for running those actions. After an action finishes running, that action is marked with a status such as **Succeeded**, **Failed**, **Skipped**, or **TimedOut**. By default, an action that you add in the designer runs only after the predecessor completes with **Succeeded** status. In an action's underlying JSON definition, the `runAfter` property specifies that the predecessor action that must first finish and the statuses permitted for that predecessor before the successor action can run.
 
 When an action throws an unhandled error or exception, the action is marked **Failed**, and any successor action is marked **Skipped**. If this behavior happens for an action that has parallel branches, the Azure Logic Apps engine follows the other branches to determine their completion statuses. For example, if a branch ends with a **Skipped** action, that branch's completion status is based on that skipped action's predecessor status. After the workflow run completes, the engine determines the entire run's status by evaluating all the branch statuses. If any branch ends in failure, the entire workflow run is marked **Failed**.
 
@@ -189,48 +200,84 @@ For example, to run the Office 365 Outlook **Send an email** action after the Ex
 > [!NOTE]
 >
 > In the designer, the "run after" setting doesn't apply to the action that immediately 
-> follows the trigger as the trigger must run successfully before the first action can run.
+> follows the trigger. The trigger must successfully run before the first action can run.
 
 <a name="change-run-after-designer"></a>
 
 ### Change "run after" behavior in the designer
 
-1. In the [Azure portal](https://portal.azure.com), open the logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
-1. On the designer, select the action shape. On the details pane, select **Settings**.
+1. On the resource sidebar, follow these steps to open the workflow designer, based on your logic app:
 
-   The **Run After** section in the **Settings** pane shows the predecessor action for the currently selected action.
+   - **Consumption**: Under **Development Tools**, select the designer to open your workflow.
 
-   :::image type="content" source="media/error-exception-handling/configure-run-after.png" alt-text="Screenshot shows workflow designer and current action details pane with selected Settings tab.":::
+   - **Standard**
+   
+     1. Under **Workflows**, select **Workflows**.
 
+     1. From the **Workflows** page, select your workflow.
 
-1. Expand the predecessor action to view all the possible predecessor statuses.
+     1. Under **Tools**, select the designer to open your workflow.
 
-   By default, the "run after" status is set to **Is successful**. So, the predecessor action must successfully finish before the currently selected action can run.
+1. On the trigger or action where you want to change the "run after" behavior, follow these steps to open the operation's settings:
 
-   :::image type="content" source="media/error-exception-handling/change-run-after-status.png" alt-text="Screenshot shows current action and its default run after status set to Is successful.":::
+   1. On the designer, select the operation.
 
-1. To change the "run after" behavior to the statuses that you want, select those statuses. Make sure that you first select an option before you clear the default option. You have to always have at least one option selected.
+   1. On the operation information pane, select **Settings**.
+
+      The **Run after** section contains a **Select actions** list, which shows the available predecessor operations for the currently selected operation, for example:
+
+      :::image type="content" source="media/error-exception-handling/predecessor-operations.png" alt-text="Screenshot shows list for Select actions with predecessor operations." lightbox="media/error-exception-handling/predecessor-operations.png":::
+
+   1. Under the **Select actions** list, expand the current predecessor operation, which is **HTTP** in this example:
+
+      :::image type="content" source="media/error-exception-handling/current-predecessor.png" alt-text="Screenshot shows current predecessor operation." lightbox="media/error-exception-handling/current-predecessor.png":::
+
+      By default, the "run after" status is set to **Is successful**. This value means the predecessor operation must successfully finish before the current action can run.
+
+      :::image type="content" source="media/error-exception-handling/default-run-after-status.png" alt-text="Screenshot shows current run after status set to Is successful." lightbox="media/error-exception-handling/default-run-after-status.png":::
+
+1. To change the "run after" behavior to the statuses that you want, select those statuses.
 
    The following example selects **Has failed**.
 
-   :::image type="content" source="media/error-exception-handling/failed-run-after-status.png" alt-text="Screenshot shows current action with run after behavior set to Has failed.":::
+   :::image type="content" source="media/error-exception-handling/failed-run-after-status.png" alt-text="Screenshot shows current run after behavior set to Has failed." lightbox="media/error-exception-handling/failed-run-after-status.png":::
 
-1. To specify that the current action runs when the predecessor action completes with **Failed**, **Skipped**, or **TimedOut** status, select these statuses.
+1. To specify that the current operation runs only when the predecessor action completes with the **Has failed**, **Is skipped**, or **Has timed out** status, select these statuses, and then clear the default status, for example:
 
-   :::image type="content" source="media/error-exception-handling/run-after-multiple-statuses.png" alt-text="Screenshot shows current action and multiple selected run after statuses.":::
+   :::image type="content" source="media/error-exception-handling/run-after-multiple-statuses.png" alt-text="Screenshot shows current action and selected multiple run after statuses." lightbox="media/error-exception-handling/run-after-multiple-statuses.png":::
 
-1. To require that more than one predecessor action runs, each with their own "run after" statuses, expand the **Select actions** list. Select the predecessor actions that you want, and specify their required "run after" statuses.
+   > [!NOTE]
+   >
+   > Before you clear the default status, make sure that you first select 
+   > another status. You must always have at least one status selected.
 
-   :::image type="content" source="media/error-exception-handling/multiple-predecessor-actions.png" alt-text="Screenshot shows current action and available multiple predecessor actions.":::
+1. To require that multiple predecessor operations run and finish, each with their own "run after" statuses, follow these steps:
 
-1. When you're ready, select **Done**.
+   1. Open the **Select actions** list, and select the predecessor operations that you want.
+
+   1. Select the "run after" statuses for each operation.
+
+   :::image type="content" source="media/error-exception-handling/multiple-predecessor-actions.png" alt-text="Screenshot shows current action and available multiple predecessor actions." lightbox="media/error-exception-handling/multiple-predecessor-actions.png":::
+
+1. When you finish, close the operation information pane.
 
 ---
 
 ### Change "run after" behavior in the code view editor
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the code view editor.
+1. On the resource sidebar, follow these steps to open the code view editor, based on your logic app:
+
+   - **Consumption**: Under **Development Tools**, select code view to open your workflow in the JSON editor.
+
+   - **Standard**
+   
+     1. Under **Workflows**, select **Workflows**.
+
+     1. From the **Workflows** page, select your workflow.
+
+     1. Under **Tools**, select code view to open your workflow in the JSON editor.
 
 1. In the action's JSON definition, edit the `runAfter` property, which has the following syntax:
 
@@ -301,7 +348,7 @@ For limits on scopes, see [Limits and config](logic-apps-limits-and-config.md).
 
 ### Set up a scope with "run after" for exception handling
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
    Your workflow must already have a trigger that starts the workflow.
 
@@ -443,6 +490,6 @@ For example, [Azure Monitor](/azure/azure-monitor/overview) provides a streamlin
 
 For more information, review [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](monitor-workflows-collect-diagnostic-data.md).
 
-## Next steps
+## Related content
 
-* [Learn more about Azure Logic Apps examples and scenarios](logic-apps-examples-and-scenarios.md)
+* [Azure Logic Apps examples and scenarios](logic-apps-examples-and-scenarios.md)
