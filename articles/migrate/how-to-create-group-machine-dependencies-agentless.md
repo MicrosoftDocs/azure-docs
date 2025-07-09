@@ -244,7 +244,6 @@ After you have performed the required steps to upgrade to the new dependency vis
 > It's recommended to use **Option 1** above to switch to the new inventory view as you're able to filter servers where dependency analysis was auto-enabled and then directly review the dependency visualization. Old inventory view only provides option to visualize dependencies for servers where you had manually enabled the feature.
 
 ::: moniker range="migrate"
-
 ## Manage dependencies
 
 Dependency analysis is auto-enabled on all discovered servers (upto 1000 servers per appliance)which have passed the validation checks. You may need to disable one or more of these servers in the following scenarios:
@@ -330,7 +329,6 @@ The different filters available for use in the command above are:
 | Dependencies | Enabled / Disabled |
 | PowerStatus | On / Off |
 
-
 Some of the other fields are IP Address, osType, osName, osArchitecture, osVersion
 
 You can find discovered servers for a specific appliance by using the command:
@@ -354,42 +352,9 @@ You need to follow the same steps to export the discovered servers as mentioned 
 In the following example, dependency analysis is being enabled on the list of servers in the input file ContosoDemo_VMs_Enable.csv.
 
 `Set-AzMigDependencyMappingAgentless -Enable -InputCsvFile .\ContosoDemo_VMs_Enable.csv [-AutoEnabledDepMap]`
-
-## Visualize network connections in Power BI
-
-Azure Migrate offers a Power BI template that you can use to visualize network connections of many servers at once, and filter by process and server. To visualize, load the Power BI with dependency data as per the below instructions.
-
-### Log in to Azure
-
-1. Log in to your Azure subscription using the Connect-AzAccount cmdlet.
-    `Connect-AzAccount`
-
-    If using Azure Government, use the following command.
-    `Connect-AzAccount -EnvironmentName AzureUSGovernment`
-
-1. Select the subscription in which you've created the project
-    `select-azsubscription -subscription "Contoso Demo Subscription"`
-1. Install the AzMig.Dependencies PowerShell module
-    `Install-Module .\AzMig.Dependencies`
-1. Run the following command. This command downloads the dependencies data in a CSV and processes it to generate a list of unique dependencies that can be used for visualization in Power BI. In the example below the project name is ContosoDemoProject, and the resource group it belongs to be ContosoDemoRG. The dependencies are downloaded for servers discovered by ContosoApp. The unique dependencies are saved in ContosoDemo_Dependencies.csv
-    `Get-AzMigDependenciesAgentless -ResourceGroup ContosoDemoRG -Appliance ContosoApp -ProjectName ContosoDemoProject -OutputCsvFile "ContosoDemo_Dependencies.csv" [-AutoEnabledDepMap]`
-
-1. Open the downloaded Power BI template
-1. Load the downloaded dependency data in Power BI.
-    1. Open the template in Power BI.
-    1. Select Get Data on the tool bar.
-    1. Choose Text/CSV from Common data sources.
-    1. Choose the dependencies file downloaded.
-    1. Select Load.
-    You see a table is imported with the name of the CSV file. You can see the table in the fields bar on the right. Rename it to AzMig_Dependencies
-    1. Select refresh from the tool bar.
-
-The Network Connections chart and the Source server name, Destination server name, Source process name, Destination process name slicers should light up with the imported data.
-
-Visualize the map of network connections filtering by servers and processes. Save your file.
-
 ::: moniker-end
 
+::: moniker range="migrate-classic"
 ## Disable auto-enabled dependency analysis using PowerShell
 
 Dependency analysis is auto-enabled on all discovered servers which have passed the validation checks. You may need to disable one or more of these servers in the following scenarios:
