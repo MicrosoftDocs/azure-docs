@@ -63,8 +63,8 @@ landingContent:
         links:
           - text: "Onboarding to Microsoft Sentinel data lake"
             url: graph/sentinel-lake-onboarding.md
-          - text: "Set up Microsoft Sentinel data lake (Preview)"
-            url: graph/set-up-sentinel-data-lake.md
+          - text: "Set up connectors for the Microsoft Sentinel data lake"
+            url: graph/sentinel-lake-connectors.md
       - linkListType: concept
         links:
           - text: KQL and Microsoft Sentinel data lake (Preview)  
