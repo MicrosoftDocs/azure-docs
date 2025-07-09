@@ -2,24 +2,16 @@
 title: 'Azure ExpressRoute Template: Create an ExpressRoute circuit'
 description: Learn how to create an Azure ExpressRoute circuit by deploying an Azure Resource Manager template by using Azure PowerShell.
 services: expressroute
-author: duongau
+author: duongau, divyapr
 
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 11/13/2019
-ms.author: duau 
+ms.date: 10/07/2025
+ms.author: duau, divyapr
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # Create an ExpressRoute circuit by using Azure Resource Manager template
-
-> [!div class="op_single_selector"]
-> * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
-> * [PowerShell](expressroute-howto-circuit-arm.md)
-> * [Azure CLI](howto-circuit-cli.md)
-> * [Azure Resource Manager template](expressroute-howto-circuit-resource-manager-template.md)
-> * [PowerShell (classic)](expressroute-howto-circuit-classic.md)
->
 
 Learn how to create an ExpressRoute circuit by deploying an Azure Resource Manager template by using Azure PowerShell. For more information on developing Resource Manager templates, see [Resource Manager documentation](../azure-resource-manager/index.yml) and the [template reference](/azure/templates/microsoft.network/expressroutecircuits).
 
