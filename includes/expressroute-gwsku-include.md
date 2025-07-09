@@ -15,7 +15,7 @@ When you create a virtual network gateway, you need to specify the gateway SKU t
 
 ExpressRoute virtual network gateways can use the following SKUs:
 
-* ERGwScale (preview)
+* ErGwScale (preview) For more information on ErGwScale see, [ExpressRoute Scalable Gateway](scalable-gateway.md)
 * Standard
 * HighPerformance
 * UltraPerformance
