@@ -92,6 +92,9 @@ By default, storage accounts accept connections from clients on any network. You
 
 ---
 
+> [!NOTE]
+> Firewall settings that restrict access to storage services remain in effect for up to a minute after you save settings that allow access.
+
 ## Next steps
 
 - [Azure Storage firewall and virtual network rules](storage-network-security.md)
