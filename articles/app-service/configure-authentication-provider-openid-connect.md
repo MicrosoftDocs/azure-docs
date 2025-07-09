@@ -14,26 +14,25 @@ ms.author: cephalin
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-This article shows you how to configure Azure App Service or Azure Functions to use a custom authentication provider that adheres to the [OpenID Connect (OIDC) specification](https://openid.net/connect/). OIDC is an industry standard that many identity providers use. You don't need to understand the details of the specification for your app to use an OIDC identity provider.
+This article shows you how to configure Azure App Service or Azure Functions to use a custom authentication provider that adheres to the [OpenID Connect (OIDC) specification](https://openid.net/connect/). OIDC is an industry standard that many identity providers use. You don't need to understand the details of the specification to use an OIDC identity provider for your app.
 
 You can configure your app to use one or more OIDC providers. You must give each OIDC provider a unique friendly name in the configuration. Only one provider can serve as the default redirect target.
 
 ## <a name="register"> </a>Register your app with the OIDC identity provider
 
-Your provider requires you to register your application by specifying a redirect URI in the form `<app-url>/.auth/login/<provider-name>/callback`. The `<provider-name>` is a friendly name you give the OpenID provider in Azure.
+Your provider requires you to register your application by specifying a redirect URI in the form `<app-url>/.auth/login/<provider-name>/callback`. Replace `<provider-name>` with the friendly name you give the OpenID provider in Azure.
 
 > [!NOTE]
 > The OpenID provider name can't contain a hyphen `-`, because an App Service application setting is created based on this name, and application settings don't support hyphens. You can use an underscore `_` instead.
 
-You need to collect a *client ID* for your application. You also need to provide a *client secret* if you want the user to acquire access tokens using the interactive authorization code flow. If you don't want to acquire access tokens, you don't need to use a secret.
+When you register your app, you need to collect a *client ID* and a *client secret* for your application. You need to provide the client secret if you want the user to acquire access tokens using the interactive authorization code flow. If you don't want to acquire access tokens, you don't need to use a secret.
 
-The client secret is an important security credential. Don't share this secret with anyone or distribute it in a client application.
+> [!IMPORTANT]
+> The **App Secret** value is an important security credential. Don't share this secret with anyone or distribute it within a client application.
 
-Each identity provider should provide instructions on how to complete the registration steps. Some providers might require extra steps for their configuration and for using the values that they provide.
+Each identity provider should provide instructions on how to complete the registration steps. Some providers might require extra steps for their configuration and for using the values that they provide. For example, Apple provides a private key that you use to create a JSON Web Token (JWT), which you provide as the secret in your app configuration. For more information, see [Creating a client secret](https://developer.apple.com/documentation/sign_in_with_apple/generate_and_validate_tokens).
 
-For example, Apple provides a private key that you use to create a JSON Web Token (JWT). You provide the JWT as the secret in your app configuration. For more information, see [Creating a client secret](https://developer.apple.com/documentation/sign_in_with_apple/generate_and_validate_tokens).
-
-You also need the OIDC metadata for the provider. This metadata is often exposed in a [configuration metadata document](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig) that you can get at the path formed by appending `/.well-known/openid-configuration` to the provider's issuer URL.
+You also need the provider's OIDC metadata. This metadata is often exposed in a [configuration metadata document](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig) that you can get at the path formed by appending `/.well-known/openid-configuration` to the provider's issuer URL.
 
 If you can't use a configuration metadata document, get the following values separately:
 
