@@ -26,15 +26,6 @@ To further secure your templates, the catalog is encrypted; Dev Box supports enc
 - To learn how to host a repository in GitHub, see [Get started with GitHub](https://docs.github.com/get-started).
 - To learn how to host a Git repository in an Azure Repos project, see [Azure Repos](https://azure.microsoft.com/products/devops/repos/).
 
-In this article, you learn how to:
-
-1. [Configure project-level catalogs](#configure-project-level-catalogs)
-1. [Configure a managed identity](#configure-a-managed-identity)
-1. [Add a catalog from Azure Repos or GitHub](#add-a-catalog)
-1. [Update a catalog](#update-a-catalog)
-1. [Delete a catalog](#delete-a-catalog)
-1. [Troubleshoot catalog sync errors](#troubleshoot-catalog-sync-errors)
-
 ## Configure project-level catalogs
 
 Attaching catalogs at the project level enables platform engineers to provide image definitions that are specific to each development teams. Additionally, it empowers dev team leads assigned as Project Admins to manage the image definitions made available to their teams.
