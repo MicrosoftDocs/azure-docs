@@ -12,11 +12,11 @@ ms.date: 07/01/2025
 
 # Reliability in Azure Queue Storage
 
-[Azure Queue Storage](/azure/storage/queues/storage-queues-introduction) is a service for storing large numbers of messages that you can access from anywhere in the world via authenticated calls using HTTP or HTTPS. A queue message can be up to 64 KB in size, and a queue may contain millions of messages, up to the total capacity limit of a storage account. Queue Storage is commonly used to create a backlog of work to process asynchronously and provides reliable message delivery for loosely coupled application architectures.
+[Azure Queue Storage](/azure/storage/queues/storage-queues-introduction) is a service for storing and distributing large numbers of messages. Queue Storage is commonly used to create a backlog of work to process asynchronously and provides reliable message delivery for loosely coupled application architectures. A queue message can be up to 64 KB in size, and a queue may contain millions of messages, up to the total capacity limit of a storage account.
 
 Azure Queue Storage provides several reliability features through the underlying Azure Storage platform. As part of Azure Storage, Queue Storage inherits the same redundancy options, availability zone support, and geo-replication capabilities that ensure high availability and durability for your message queues. 
 
-This article describes reliability and availability zones support in Azure Queue Storage For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/reliability/overview).
+This article describes reliability and availability zones support in Azure Queue Storage. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/reliability/overview).
 
 <!-- Anastasia - I think we should add something like this to each of the Azure Storage guides that use the include files: -->
 > [!NOTE]
@@ -26,18 +26,13 @@ This article describes reliability and availability zones support in Azure Queue
 
 For production environments:
 
-- Enable zone-redundant storage (ZRS) or geo-zone-redundant storage (GZRS) in paired regions for the storage accounts that contain Queue Storage resources. 
+- Enable zone-redundant storage (ZRS) for the storage accounts that contain Queue Storage resources. ZRS provides higher availability by replicating your data synchronously across multiple availability zones in the primary region, protecting against availability zone failures.
 
-    - ZRS provides higher availability by replicating your data synchronously across three availability zones in the primary region, protecting against availability zone failures. 
-    - GZRS provides protection against regional outages, using GZRS which combines zone redundancy in the primary region with geo-replication to a secondary region.
-
-- Choose the Standard general-purpose v2 storage account type for Queue Storage, as it provides the best balance of features, performance, and cost-effectiveness. Premium storage accounts don't support Queue Storage.
-
-**Source:** [Azure Storage redundancy](https://learn.microsoft.com/azure/storage/common/storage-redundancy) and [Resiliency checklist for specific Azure services](https://learn.microsoft.com/azure/architecture/checklist/resiliency-per-service#storage)
+- If you need resilience to region outages and your storage account's primary region is paired, consider enabling geo-redundant storage, which replicates data asynchronously to the paired region. In supported regions, you can combine geo-redundancy with zone redundancy by using GZRS.
 
 ## Reliability architecture overview
 
-Azure Queue Storage operates as a distributed messaging service within the Azure Storage platform infrastructure. The service provides redundancy through multiple copies of your queue data, with the specific redundancy model depending on your storage account configuration.
+Azure Queue Storage operates as a distributed messaging service within the Azure Storage platform infrastructure. The service provides redundancy through multiple copies of your queue and message data, with the specific redundancy model depending on your storage account configuration.
 
 [!INCLUDE [Storage - Reliability architecture overview](includes/storage/reliability-storage-architecture-include.md)]
 
@@ -55,13 +50,13 @@ To manage transient faults effectively when using Azure Queue Storage:
 - **Implement circuit breaker patterns** in your application when processing messages from queues to prevent cascading failures when downstream services are experiencing issues.
 - **Use visibility timeouts appropriately** when receiving messages to ensure messages become available for retry if your application encounters failures during processing.
 
-**Source:** [Performance and scalability checklist for Queue Storage](https://learn.microsoft.com/azure/storage/queues/storage-performance-checklist) and [Transient fault handling](https://learn.microsoft.com/azure/architecture/best-practices/transient-faults)
+To learn more about the Azure Table Storage architecture and how to design resilient and high-scale applications, see [Performance and scalability checklist for Queue Storage](/azure/storage/queues/storage-performance-checklist).
 
 ## Availability zone support
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Queue Storage is zone-redundant when deployed with ZRS configuration, meaning the service spreads replicas of your queue data synchronously across three separate availability zones. This configuration ensures that your queues remain accessible even if an entire availability zone becomes unavailable. All write operations must be acknowledged across multiple zones before completing, providing strong consistency guarantees.
+Azure Queue Storage is zone-redundant when deployed with ZRS configuration, meaning the service spreads replicas of your queue data synchronously across all of the availability zones in the region. This configuration ensures that your queues remain accessible even if an entire availability zone becomes unavailable. All write operations must be acknowledged across multiple zones before completing, providing strong consistency guarantees.
 
 Zone redundancy is enabled at the storage account level and applies to all Queue Storage resources within that account. You cannot configure individual queues for different redundancy levels - the setting applies to the entire storage account. When an availability zone experiences an outage, Azure Storage automatically routes requests to healthy zones without requiring any intervention from your application.
 
@@ -69,26 +64,27 @@ Zone redundancy is enabled at the storage account level and applies to all Queue
 
 ### Region support
 
-Zone-redundant Azure Queue Storage can be deployed [in any region that supports availability zones](./regions-list.md).
+[!INCLUDE [Storage - Availability zone region support](includes/storage/reliability-storage-availability-zone-region-support-include.md)]
 
 ### Requirements
 
-You must use a Standard general-purpose v2 storage account to enable zone-redundant storage for Queue Storage. Premium storage accounts don't support Queue Storage. All storage account tiers and performance levels support ZRS configuration where availability zones are available.
-
-**Source:** [Azure Storage redundancy](https://learn.microsoft.com/azure/storage/common/storage-redundancy)
+You must use a Standard general-purpose v2 storage account to enable zone-redundant storage for Queue Storage. Premium storage accounts don't support Queue Storage.
 
 ### Cost
 
-When you enable ZRS, you're charged at a different rate than locally redundant storage due to the additional replication and storage overhead. For detailed pricing information, see [Azure Queues pricing](https://azure.microsoft.com/pricing/details/storage/queues/).
+[!INCLUDE [Storage - Availability zone cost](includes/storage/reliability-storage-availability-zone-cost-include.md)]
+
+For detailed pricing information, see [Azure Queue Storage pricing](https://azure.microsoft.com/pricing/details/storage/queues/).
 
 ### Configure availability zone support
 
 - **Create a storage account and queue with zone redundancy:**
 
-    1. [Create a storage account](/azure/storage/common/storage-account-create) and select ZRS, geo-zone-redundant storage(GZRS) or read-access geo-redundant storage (RA-GZRS) as the redundancy option during account creation
+    1. [Create a storage account](/azure/storage/common/storage-account-create) and select ZRS, geo-zone-redundant storage(GZRS) or read-access geo-redundant storage (RA-GZRS) as the redundancy option during account creation.
 
-    1. [Create an Azure queue storage](/azure/storage/queues/storage-quickstart-queues-portal).
+    1. [Create a queue](/azure/storage/queues/storage-quickstart-queues-portal).
 
+<!-- Anastasia: In the include file above, should we say "enable" instead of "migrate"? -->
 [!INCLUDE [Storage - Configure availability zone support](includes/storage/reliability-storage-availability-zone-configure-include.md)]
 
 ### Normal operations
@@ -104,12 +100,6 @@ When an availability zone becomes unavailable, Azure Queue Storage automatically
 [!INCLUDE [Storage - Zone down experience](includes/storage/reliability-storage-availability-zone-down-experience-include.md)]
 
 ### Failback
-
-When the failed availability zone recovers, Azure Queue Storage automatically begins using it again for new operations. The service gradually rebalances traffic across all three zones to restore optimal performance and redundancy.
-
-During failback, the service ensures data consistency by synchronizing any operations that occurred during the outage period. This process is typically completed within minutes and doesn't require any customer intervention or configuration changes.
-
-<!-- John: There is a bit more info here than in the Storage Blob page. Do we want to remove it or add to storage blob?--> TODO
 
 [!INCLUDE [Storage - Zone failback](includes/storage/reliability-storage-availability-zone-failback-include.md)]
 
@@ -132,11 +122,8 @@ During failback, the service ensures data consistency by synchronizing any opera
 ### Requirements
 
 [!INCLUDE [Storage - Multi Region Requirements](includes/storage/reliability-storage-multi-region-requirements-include.md)]
-<!-- TODO verify this is true for queues -->
 
 ### Considerations
-
-<!-- TODO verify this is true for queues -->
 
 When implementing multi-region Azure Queue Storage, consider the following important factors:
 
@@ -148,7 +135,9 @@ When implementing multi-region Azure Queue Storage, consider the following impor
 
 ### Cost
 
-Multi-region Azure Queue Storage configurations incur additional costs for cross-region replication and storage in the secondary region. Data transfer between Azure regions is charged based on standard inter-region bandwidth rates. For detailed pricing information, see [Azure Queue Storage pricing](https://azure.microsoft.com/pricing/details/storage/Queue/).
+[!INCLUDE [Storage - Multi Region cost](includes/storage/reliability-storage-multi-region-cost-include.md)]
+
+For detailed pricing information, see [Azure Queue Storage pricing](https://azure.microsoft.com/pricing/details/storage/queues/).
 
 ### Configure multi-region support
 
@@ -174,25 +163,15 @@ Multi-region Azure Queue Storage configurations incur additional costs for cross
 
 [!INCLUDE [Storage - Alternative multi-region approaches - reasons](includes/storage/reliability-storage-multi-region-alternative-reasons-include.md)]
 
-<!-- TODO mention Service Bus? -->
-
 [!INCLUDE [Storage - Alternative multi-region approaches - approach overview](includes/storage/reliability-storage-multi-region-alternative-approach-include.md)]
 
-This approach requires you to manage message distribution, handle data synchronization, and implement custom failover logic. Consider the following patterns from the Azure Architecture Center:
-
-<!-- John - these may be useful - but they aren't specific to Azure Queue Storage --> 
-- [Multi-region load balancing with Traffic Manager](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway)
-- [Highly available multi-region web application](/azure/architecture/web-apps/app-service/architectures/multi-region)
-
-**Source:** [Multi-region load balancing with Traffic Manager](https://learn.microsoft.com/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway) and [Highly available multi-region web application](https://learn.microsoft.com/azure/architecture/web-apps/app-service/architectures/multi-region)
+This approach requires you to manage message distribution, handle data synchronization between queues in the different storage accounts, and implement custom failover logic.
 
 ## Backups
 
-Azure Queue Storage doesn't provide traditional backup capabilities like point-in-time restore, as queues are designed for transient message storage rather than long-term data persistence. Messages are typically processed and removed from queues during normal application operations.
+Azure Queue Storage doesn't provide traditional backup capabilities like point-in-time restore, because queues are designed for transient message storage rather than long-term data persistence. Messages are typically processed and removed from queues during normal application operations.
 
-For scenarios requiring message durability beyond the built-in redundancy options, consider implementing application-level message logging or persistence to Azure Blob Storage or Azure SQL Database. This approach allows you to maintain message history while using Queue Storage for its intended purpose of temporary message buffering and processing coordination.
-
-The geo-redundant storage options (GRS/GZRS) provide protection against regional disasters and serve as the primary backup mechanism for Queue Storage by maintaining copies of your queue data in a secondary region.
+For scenarios requiring message durability beyond the built-in redundancy options, consider implementing your own application-level message logging or persistence to a permanent data store, like Azure Blob Storage or Azure SQL Database. This approach allows you to maintain message history while using Queue Storage for its intended purpose of temporary message buffering and processing coordination.
 
 ## Service-level agreement
 
