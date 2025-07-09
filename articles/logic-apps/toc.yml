@@ -567,8 +567,8 @@ items:
     items:
       - name: Trigger and action types reference
         href: logic-apps-workflow-actions-triggers.md
-      - name: Functions reference
-        href: workflow-definition-language-functions-reference.md
+      - name: Reference for expression functions
+        href: expression-functions-reference.md
   - name: Standard Automated Test Framework
     items:
       - name: Standard Automated Test SDK
