@@ -372,11 +372,15 @@ Write-Output "Preserves: Path and Query String"
 
 ### Add the redirection URL path map
 
+Create a separate URL path map for redirection scenarios. This map will handle traffic on port 8081 and redirect specific paths to the appropriate listener on port 8080.
+
 ```azurepowershell-interactive
+# Get the current Application Gateway configuration
 $appgw = Get-AzApplicationGateway `
-  -ResourceGroupName myResourceGroupAG `
+  -ResourceGroupName $resourceGroupName `
   -Name myAppGateway
 
+# Get references to existing configurations
 $poolSettings = Get-AzApplicationGatewayBackendHttpSettings `
   -ApplicationGateway $appgw `
   -Name myPoolSettings
@@ -389,11 +393,13 @@ $redirectConfig = Get-AzApplicationGatewayRedirectConfiguration `
   -ApplicationGateway $appgw `
   -Name redirectConfig
 
+# Create path rule for redirection - images traffic will be redirected
 $redirectPathRule = New-AzApplicationGatewayPathRuleConfig `
   -Name redirectPathRule `
   -Paths "/images/*" `
   -RedirectConfiguration $redirectConfig
 
+# Add redirection path map configuration
 Add-AzApplicationGatewayUrlPathMapConfig `
   -ApplicationGateway $appgw `
   -Name redirectpathmap `
@@ -401,7 +407,11 @@ Add-AzApplicationGatewayUrlPathMapConfig `
   -DefaultBackendAddressPool $defaultPool `
   -DefaultBackendHttpSettings $poolSettings
 
+# Apply the configuration changes
 Set-AzApplicationGateway -ApplicationGateway $appgw
+
+Write-Output "Redirection URL path map added successfully"
+Write-Output "Redirection rule: /images/* on port 8081 -> port 8080"
 ```
 
 ### Add routing rules
