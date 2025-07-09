@@ -3,7 +3,7 @@ title: Add and Manage Catalogs in Microsoft Dev Box
 titleSuffix: Microsoft Dev Box
 description: Learn how to add a catalog in your Microsoft Dev Box dev center or project to provide image definitions for your developers.
 #customer intent: As a platform engineer, I want to learn how to add a catalog in my Microsoft Dev Box dev center or project so that I can provide image definitions for my developers.
-ms.service: azure-deployment-environments
+ms.service: dev-box
 ms.custom:
   - build-2023, build-2024
   - ai-gen-docs-bap
@@ -130,7 +130,7 @@ You must give the managed identity permissions to the repository in Azure Repos.
 
 ### Add your repository as a catalog
 
-Dev Box supports attaching Azure Repos repositories and GitHub repositories. You can store a set of curated IaC templates in a repository. Attaching the repository to a dev center or project as a catalog gives your development teams access to the templates and enables them to quickly create consistent environments.
+Dev Box supports attaching Azure Repos repositories and GitHub repositories. You can store a set of curated IaC templates in a repository. Attaching the repository to a dev center or project as a catalog gives your development teams access to the templates and enables them to quickly create consistent dev boxes.
 
 The following steps let you attach an Azure Repos repository.
 
@@ -262,7 +262,7 @@ Get the path to the secret you created in the key vault.
     | **Project**  | Select the project that stores the catalog repo.|
     | **Rep**  | Select the repo that stores the catalog.|
     | **Folder path** | Select the folder that holds your IaC templates.|
-    | **Secret identifier**| Enter the secret identifier that contains your PAT for the repository.<br> When you copy a secret identifier, the connection string includes a version identifier at the end, like in this example: `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat/9376b432b72441a1b9e795695708ea5a`.<br>Removing the version identifier ensures that Deployment Environments fetches the latest version of the secret from the key vault. If your PAT expires, only the key vault needs to be updated. <br>*Example secret identifier:* `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat`|
+    | **Secret identifier**| Enter the secret identifier that contains your PAT for the repository.<br> When you copy a secret identifier, the connection string includes a version identifier at the end, like in this example: `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat/9376b432b72441a1b9e795695708ea5a`.<br>Removing the version identifier ensures that Dev Box fetches the latest version of the secret from the key vault. If your PAT expires, only the key vault needs to be updated. <br>*Example secret identifier:* `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat`|
 
     :::image type="content" source="media/how-to-configure-catalog/add-devops-catalog-pane.png" alt-text="Screenshot that shows how to add a catalog to a dev center." lightbox="media/how-to-configure-catalog/add-devops-catalog-pane.png":::
 
@@ -466,7 +466,7 @@ Get the path to the secret you created in the key vault.
     | **Repo**  | Enter or paste the clone URL for either your GitHub repository or your Azure Repos repository.<br>*Sample catalog example:* `https://github.com/Azure/deployment-environments.git` |
     | **Branch**  | Enter the repository branch to connect to.<br>*Sample catalog example:* `main`|
     | **Folder path**  | Enter the folder path relative to the clone URI that contains subfolders that hold your image definitions. <br> The folder path is for the folder with subfolders containing environment definition environment files, not for the folder with the environment definition environment file itself. The following image shows the sample catalog folder structure.<br>*Sample catalog example:* `/Environments`<br> :::image type="content" source="media/how-to-configure-catalog/github-folders.png" alt-text="Screenshot showing Environments sample folder in GitHub." lightbox="media/how-to-configure-catalog/github-folders.png"::: The folder path can begin with or without a forward slash (`/`).|
-    | **Secret identifier**| Enter the secret identifier that contains your PAT for the repository.<br> When you copy a secret identifier, the connection string includes a version identifier at the end, like in this example: `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat/9376b432b72441a1b9e795695708ea5a`.<br>Removing the version identifier ensures that Deployment Environments fetch the latest version of the secret from the key vault. If your PAT expires, only the key vault needs to be updated. <br>*Example secret identifier:* `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat`|
+    | **Secret identifier**| Enter the secret identifier that contains your PAT for the repository.<br> When you copy a secret identifier, the connection string includes a version identifier at the end, like in this example: `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat/9376b432b72441a1b9e795695708ea5a`.<br>Removing the version identifier ensures that Dev Box fetch the latest version of the secret from the key vault. If your PAT expires, only the key vault needs to be updated. <br>*Example secret identifier:* `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat`|
 
     :::image type="content" source="media/how-to-configure-catalog/add-github-catalog-pane.png" alt-text="Screenshot that shows how to add a catalog to a dev center." lightbox="media/how-to-configure-catalog/add-github-catalog-pane.png":::
 
@@ -494,7 +494,7 @@ If you update the definition or template contents in the attached repository, yo
 
 ### Manually sync a catalog
 
-When you manually sync a catalog, Deployment Environments scans through the repository and makes the latest list of image definitions available to all of the associated projects in the dev center.
+When you manually sync a catalog, Dev Box scans through the repository and makes the latest list of image definitions available to all of the associated projects in the dev center.
 
 1. On the left menu for your dev center, under **Environment configuration**, select **Catalogs**.
 
@@ -504,7 +504,7 @@ When you manually sync a catalog, Deployment Environments scans through the repo
  
 ### Automatically sync a catalog
 
-When you configure a catalog to sync automatically, Deployment Environments scans through the repository every 30 minutes and makes the latest list of image definitions available to all of the associated projects in the dev center.
+When you configure a catalog to sync automatically, Dev Box scans through the repository every 30 minutes and makes the latest list of image definitions available to all of the associated projects in the dev center.
 
 1. On the left menu for your dev center or project, under **Environment configuration**, select **Catalogs**.
 
@@ -516,11 +516,11 @@ When you configure a catalog to sync automatically, Deployment Environments scan
 
     :::image type="content" source="media/how-to-configure-catalog/catalog-automatic-sync-pane.png" alt-text="Screenshot showing the edit details pane for a catalog, with Automatically sync this catalog highlighted." lightbox="media/how-to-configure-catalog/catalog-automatic-sync-pane.png":::  
 
-If an autosync fails, you should perform a manual sync. Deployment Environments doesn't make any further autosync attempts until a manual sync succeeds.
+If an autosync fails, you should perform a manual sync. Dev Box doesn't make any further autosync attempts until a manual sync succeeds.
 
 ## Delete a catalog
 
-You can delete a catalog to remove it from the Dev Box dev center or project. Templates in a deleted catalog aren't available to development teams when they deploy new environments. Update the environment definition reference for any existing environments that were created by using the image definitions in the deleted catalog. If the reference isn't updated and the environment is redeployed, the deployment fails.
+You can delete a catalog to remove it from the Dev Box dev center or project. Templates in a deleted catalog aren't available to development teams when they deploy new dev boxes. Update the environment definition reference for any existing dev boxes that were created by using the image definitions in the deleted catalog. If the reference isn't updated and the environment is redeployed, the deployment fails.
 
 To delete a catalog:
 
