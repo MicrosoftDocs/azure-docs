@@ -27,7 +27,7 @@ When you deploy App Service, you can provision multiple instances in an [App Ser
 
 - Use premium v3/v4 App Service plans.
 
-- [Enable zone redundancy](#availability-zone-support). To see requirements for enabling zone redundancy, go to [Availability zone support requirements](#requirements).
+-  Enable zone redundancy. To learn about the requirements for zone redundancy and how to enable it, see the [Availability zone support section](#availability-zone-support)
 
 ::: zone-end
 
