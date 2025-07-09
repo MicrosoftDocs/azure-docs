@@ -749,7 +749,7 @@ For more information, see [Microsoft.App/managedEnvironments](/azure/templates/m
 
 In the event of a messaging inturruptions to an endpoint, the OpenTelemetry agent uses the following procedure to support data resilience: 
 
-- **In-memory buffering and retries**: The agent holds data in memory and keeps retrying (with backoff) for up to five minutes by default.
+- **In-memory buffering and retries**: The agent holds data in memory and keeps retrying (with backoff) for up to five minutes.
 - **Dropping data**: If the buffered queue fills up, or the endpoint is still down after retries, the agent discards the oldest batches to avoid running out of memory.
 
 ## Environment variables
