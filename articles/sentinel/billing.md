@@ -85,9 +85,9 @@ For customers that haven't onboarded to the Microsoft Sentinel data lake and are
 
 ##### Public preview specific considerations for data lake tier metering
 
-The following are consideration that are going to apply during Public Preview:
+The following are considerations that are going to apply during Public Preview:
 - Data lake ingestion includes 30-days of retention, **except for asset data** ingested into the lake tier.
-- While long-term retention billing will transition to the data lake storage meter for existing customers, data in long-term retention will initially only be accessible through **Microsoft Sentinel > Data lake explroation > Search & restore**.
+- While long-term retention billing will transition to the data lake storage meter for existing customers, data in long-term retention will initially only be accessible through **Microsoft Sentinel > Data lake exploration > Search & restore**.
 - Charges for data lake usage will show in part under a workspace resource and in part under a SentinelPlatformServices resource.
 - Data written to analytics tier using jobs will be charged through the analytics ingestion meter.
   
