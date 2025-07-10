@@ -14,7 +14,7 @@ ms.subservice: advanced-messaging
 
 # Prerequisites to Configure WhatsApp as a Channel in Microsoft Copilot Studio
 
- Azure Communication Services Advanced Messaging SDK enables AI agents in Microsoft Copilot Studio to send and receive WhatsApp messages to users. AI agents are associated to a unique WhatsApp Business account phone number.
+Azure Communication Services Advanced Messaging SDK enables AI agents in Microsoft Copilot Studio to send and receive WhatsApp messages to users. AI agents are associated to a unique WhatsApp Business account phone number.
 
 ## Overview
 
@@ -84,22 +84,22 @@ The following steps are only needed if you chose to use a Toll-free number from 
 
    :::image type="content" source="./media/event-grid-viewer-deployment.png" lightbox="./media/event-grid-viewer-deployment.png" alt-text="Screenshot that shows deployment complete of the Event Grid Viewer web app.":::
    
-6. Select on your event grid viewer.
+5. Select on your event grid viewer.
 
     :::image type="content" source="./media/resource-group.png" lightbox="./media/resource-group.png" alt-text="Screenshot that shows the Event Grid Viewer web app in the resource group.":::
    
-8. On the resource overview page, select on the copy button next to the **Default Domain** property.
+6. On the resource overview page, select on the copy button next to the **Default Domain** property.
 
     :::image type="content" source="./media/event-grid-viewer-web-app.png" lightbox="./media/event-grid-viewer-web-app.png" alt-text="Screenshot that shows URL of Event Grid Viewer web app.":::
    
-10. Launch that site in your browser and keep it running so you can receive the verification code when you're [linking your WhatsApp business account to Azure Communication Services resource](#link-whatsapp-business-account-as-a-channel-in-azure-communication-services-resource). The Event Grid Viewer should look like this.
+7. Launch that site in your browser and keep it running so you can receive the verification code when you're [linking your WhatsApp business account to Azure Communication Services resource](#link-whatsapp-business-account-as-a-channel-in-azure-communication-services-resource). The Event Grid Viewer should look like this.
 
-    :::image type="content" source="./media/event-grid-viewer-site.png" lightbox="./media/event-grid-viewer-sitep.png" alt-text="Screenshot that shows the Event Grid Viewer web app.":::
+    :::image type="content" source="./media/event-grid-viewer-site.png" lightbox="./media/event-grid-viewer-site.png" alt-text="Screenshot that shows the Event Grid Viewer web app.":::
 
 
 ## Subscribe to SMS received event
 
-To get the verification code when linking your WhatsApp business account to Azure Communication Services resource, follow these instructions to have the [Azure Event Grid subscribe to the SMS Received event](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/sms/handle-sms-events#subscribe-to-sms-events-by-using-web-hooks).
+Getting the verification code is required to link your WhatsApp business account to Azure Communication Services resource. Follow these instructions to have the [Azure Event Grid subscribe to the SMS Received event](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/sms/handle-sms-events#subscribe-to-sms-events-by-using-web-hooks).
 
 When following those instructions, here are helpful tips:
 
@@ -108,12 +108,9 @@ When following those instructions, here are helpful tips:
     - `System Topic Name`: Enter a unique name, unless this name is already prefilled with a topic from your subscription.
     - `Filter to Event Types`: Select **SMS Received**. No need to select SMS Delivery Report Received
     - `Endpoint Type`: Select **Web Hook**
-    - `Endpoint`: Append `/api/updates` to the URL of the Event Grid Viewer (step 5 of [Set up and Deploy Event Grid Viewer](#setup-and-deploy-event-grid-viewer)). It should be something like `https://{{site-name}}.azurewebsites.net/api/updates`
+    - `Endpoint`: Append `/api/updates` to the URL of the Event Grid Viewer (step 6 of [Set up and Deploy Event Grid Viewer](#setup-and-deploy-event-grid-viewer)). It should be something like `https://{{site-name}}.azurewebsites.net/api/updates`
 
-    [image]
-4. Once created successfully, you are directed to the **Events** page. Notice the new event subscription with the SMS received event.
-
-    [image]
+    :::image type="content" source="./media/event-subscription-details.png" lightbox="./media/event-subscription-details.png" alt-text="Screenshot that shows the details to create an event subscription for SMS Received event type.":::
 
 ## Link WhatsApp business account as a channel in Azure Communication Services Resource
 
