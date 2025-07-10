@@ -438,7 +438,7 @@ Only blobs that are explicitly deleted appear in reports. Therefore, to obtain a
 
 Blob Inventory operates on a distributed system, which means that in rare cases, duplicate blob entries might appear in your reports.
 
-When post processing your inventory report, if your use case requires unique blob entries, to remove duplicates:
+If when post processing your inventory report, your use case requires unique blob entries, you can use the `Name` field to identify and return only the unique blobs. 
 
 -	Use the `Name` field to identify and return only the unique blobs.
   
