@@ -109,16 +109,25 @@ Set-AzApplicationGatewayRequestRoutingRule -ApplicationGateway $appgw -Name $req
 Set-AzApplicationGateway -ApplicationGateway $appgw
 ```
 
-### Verification steps
+## Delete a rewrite rule
 
-After applying or removing rewrite rules, verify the configuration:
+To remove a rewrite rule set from your Application Gateway configuration:
 
-```azurepowershell
+```azurepowershell-interactive
+# Retrieve the current Application Gateway configuration
 $appgw = Get-AzApplicationGateway -Name "AutoscalingAppGw" -ResourceGroupName "<rg name>"
+
+# Remove the rewrite rule set from the Application Gateway
 Remove-AzApplicationGatewayRewriteRuleSet -Name "LocationHeaderRewrite" -ApplicationGateway $appgw
-$requestroutingrule= Get-AzApplicationGatewayRequestRoutingRule -Name "rule1" -ApplicationGateway $appgw
-$requestroutingrule.RewriteRuleSet= $null
-set-AzApplicationGateway -ApplicationGateway $appgw
+
+# Get the request routing rule and clear the rewrite rule set reference
+$requestroutingrule = Get-AzApplicationGatewayRequestRoutingRule -Name "rule1" -ApplicationGateway $appgw
+$requestroutingrule.RewriteRuleSet = $null
+
+# Apply the configuration changes
+Set-AzApplicationGateway -ApplicationGateway $appgw
+
+Write-Output "Rewrite rule set 'LocationHeaderRewrite' has been removed successfully"
 ```
 
 ## Next steps
