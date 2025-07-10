@@ -73,6 +73,7 @@ In this article, you will learn how to add and configure a targeting filter for 
 1. Continue to the following instructions to use the feature flag with a targeting filter in your application for the language or platform you are using.
 
     - [ASP.NET Core](./howto-targetingfilter-aspnet-core.md)
+    - [Node.js](./howto-targetingfilter-javascript.md)
 
 ## Next steps
 

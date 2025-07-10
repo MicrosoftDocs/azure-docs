@@ -132,7 +132,7 @@ const featureManager = new FeatureManager(featureProvider);
 
 #### Use Azure App Configuration to dynamically control the state of the feature flag
 
-Azure App Configuration is not only a solution to externalize storage and centralized management of your feature flags, but also it allows to dynamically turn on/off the feature flags.
+Azure App Configuration is not only a solution to externalize storage and centralized management of your feature flags, but also it allows you to dynamically turn on/off the feature flags.
 
 To enable the dynamic refresh for feature flags, you need to configure the `refresh` property of `featureFlagOptions` when loading feature flags from Azure App Configuration.
 
@@ -526,7 +526,7 @@ app.use((req, res, next) => {
 const targetingContextAccessor = {
     getTargetingContext: () => {
         // Get the current request from AsyncLocalStorage
-        const request = requestContext.getStore();
+        const request = requestAccesor.getStore();
         if (!request) {
             return undefined; // Return undefined if there's no current request
         }

@@ -13,7 +13,7 @@ ms.custom: template-quickstart, FY23 content-maintenance, linux-related-content
 
 # Quickstart: Create a NAT gateway
 
-In this quickstart, learn how to create a NAT gateway by using the Azure portal, Azure CLI, PowerShell, Bicep, ARM template and Terraform. The NAT Gateway service provides outbound connectivity for virtual machines in Azure.
+In this quickstart, learn how to create a NAT gateway by using the Azure portal, Azure CLI, PowerShell, Bicep, ARM template and Terraform. The NAT Gateway service provides scalable outbound connectivity for virtual machines in Azure.
 
 :::image type="content" source="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png" alt-text="Diagram of resources created in nat gateway quickstart." lightbox="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png":::
 
@@ -610,7 +610,7 @@ As with the public key, the names of the created resource group, virtual network
 
 ## Test NAT gateway
 
-In this section, you test the NAT gateway. You first discover the public IP of the NAT gateway. You then connect to the test virtual machine and verify the outbound connection through the NAT gateway.
+In this section, you test the NAT gateway. You first discover the public IP of the NAT gateway. You then connect to the test virtual machine and verify the outbound connection through the NAT gateway public IP.
     
 1. In the search box at the top of the portal, enter **Public IP**. Select **Public IP addresses** in the search results.
 
@@ -688,3 +688,4 @@ Remove-AzResourceGroup -Name myResourceGroupNAT
 For more information on Azure NAT Gateway, see:
 > [!div class="nextstepaction"]
 > [Azure NAT Gateway overview](nat-overview.md)
+> [Azure NAT Gateway resource](nat-gateway-resource.md)
