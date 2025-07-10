@@ -29,12 +29,12 @@ To verify a Fluid Relay resource is using CMK, you can check the property of the
 Before configuring CMK on your Azure Fluid Relay resource, the following prerequisites must be met:
 - Keys must be stored in an Azure Key Vault.
 - Keys must be RSA key and not EC key since EC key doesn’t support WRAP and UNWRAP.
-- A user assigned managed identity must be created with necessary permission (GET, WRAP and UNWRAP) to the key vault in step 1. More information [here](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md). Please grant GET, WRAP and UNWRAP under Key Permissions in AKV.
+- A user assigned managed identity must be created with necessary permission (GET, WRAP and UNWRAP) to the key vault in step 1. More information [here](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md). Grant GET, WRAP and UNWRAP under Key Permissions in AKV.
 - Azure Key Vault, user assigned identity, and the Fluid Relay resource must be in the same region and in the same Microsoft Entra tenant.
-- If you provide the key URL with a specific key version, **only that version** will be used for CMK purposes.
+- If you provide the key URL with a specific key version, **only that version** is used for CMK purposes.
 If you later add a new key version, you must **manually** update the key URL in the CMK settings of the Fluid Relay resource to make the new version effective.
-The Fluid Relay service will fail if the specified key version is deleted or disabled without updating the resource to use a valid version.
-- To allow the Fluid Relay service to automatically use the latest key version of the key from your key vault, you can omit the key version in the encryption key URL. This makes Fluid Relay Service's storage dependency to check the key vault daily for a new version of the customer-managed key and automatically updates the key to the latest version.
+The Fluid Relay service fails if the specified key version is deleted or disabled without updating the resource to use a valid version.
+- To allow the Fluid Relay service to automatically use the latest key version of the key from your key vault, you can omit the key version in the encryption key URL. This setting makes Fluid Relay Service's storage dependency to check the key vault daily for a new version of the customer-managed key and automatically updates the key to the latest version.
   However, you are still responsible for managing and rotating key versions in your Key Vault.
   > Due to resource limitations, switching to this auto-update setting may fail. If that happens, please specify a key version explicitly and perform a manual update on your Fluid Relay resource for new key versions.
 
@@ -79,7 +79,7 @@ Example keyEncryptionKeyUrl: `https://test-key-vault.vault.azure.net/keys/testKe
 Notes:
 - Identity.type must be UserAssigned. It is the identity type of the managed identity that is assigned to the Fluid Relay resource.
 - Properties.encryption.customerManagedKeyEncryption.keyEncryptionKeyIdentity.identityType must be UserAssigned. It is the identity type of the managed identity that should be used for CMK.
-- Although you can specify more than one in Identity.userAssignedIdentities, only one user identity assigned to Fluid Relay resource specified will be used for CMK access the key vault for encryption.
+- Although you can specify more than one in Identity.userAssignedIdentities, only one user identity assigned to Fluid Relay resource specified is used for CMK access the key vault for encryption.
 - Properties.encryption.customerManagedKeyEncryption.keyEncryptionKeyIdentity.userAssignedIdentityResourceId is the resource ID of the user assigned identity that should be used for CMK. Notice that it should be one of the identities in Identity.userAssignedIdentities (You must assign the identity to Fluid Relay resource before it can use it for CMK). Also, it should have necessary permissions on the key (provided by keyEncryptionKeyUrl).
 - Properties.encryption.customerManagedKeyEncryption.keyEncryptionKeyUrl is the key identifier used for CMK.
 
@@ -97,9 +97,9 @@ For more information about the command, see [az fluid-relay server create](/cli/
 **Notes:**
 
 - Some arguments must be provided in **stringified JSON** format.
-- The `type` field under `identity` **must be** `UserAssigned`. This specifies the identity type of the managed identity assigned to the Fluid Relay resource.
-- The `identity-type` field under `key-identity` **must also be** `UserAssigned`. This indicates the identity type to be used for Customer-Managed Key (CMK) encryption.
-- While multiple identities can be specified in the `identity` argument, **only** the identity defined in `key-identity` will be used to access the Key Vault for CMK encryption.
+- The `type` field under `identity` **must be** `UserAssigned`. It specifies the identity type of the managed identity assigned to the Fluid Relay resource.
+- The `identity-type` field under `key-identity` **must also be** `UserAssigned`. It indicates the identity type to be used for Customer-Managed Key (CMK) encryption.
+- While multiple identities can be specified in the `identity` argument, **only** the identity defined in `key-identity` is used to access the Key Vault for CMK encryption.
 - The `user-assigned-identities` field under `key-identity` should be set to the **resource ID** of the user-assigned identity intended for CMK access.
   - This identity must already be listed in the `identity` field.
   - It must also be assigned to the Fluid Relay resource **before** it can be used for CMK.
@@ -115,13 +115,13 @@ You can update the following CMK settings on existing Fluid Relay resource:
 - Change the key encryption key identifier (key URL).
 - Change the key version of the key encryption key.
 
-Note that you cannot disable CMK on existing Fluid Relay resource once it is enabled.
+You cannot disable CMK on existing Fluid Relay resource once it is enabled.
 
-Before updating the key encryption key (by identifier or version), ensure that **the previous key version is still enabled and has not expired in your key vault**. Otherwise, the update operation will fail.
+Before updating the key encryption key (by identifier or version), ensure that **the previous key version is still enabled and has not expired in your key vault**. Otherwise, the update operation fails.
 
 When using the update command, you may specify only the parameters that have changed—unchanged arguments can be omitted.
 
-All updates must satisfy the prerequisites described above.
+All updates must satisfy the prerequisites described in this page.
 
 ### [REST API](#tab/rest)
 Request URL:
@@ -151,7 +151,7 @@ Update encryption key URL
 az fluid-relay server update --server-name <Fluid Relay Service name> --resource-group <resource group> --key-url <new key URL>
 ```
 
-Updating `identity` and `key-identity` follows the same format as when creating the resource. However, during an update, you only need to provide the parts that have changed.
+Updating `identity` and `key-identity` follows the same format as when creating the resource. However, during an update, you only need to provide the parameters that need to be changed.
 
 Update assigned identity for CMK
 ```azurecli
