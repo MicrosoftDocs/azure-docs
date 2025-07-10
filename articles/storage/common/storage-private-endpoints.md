@@ -81,7 +81,7 @@ For read access to the secondary region with a storage account configured for ge
 Clients on a virtual network using the private endpoint should use the same connection string for the storage account as clients connecting to the public endpoint. We rely upon DNS resolution to automatically route the connections from the virtual network to the storage account over a private link.
 
 > [!IMPORTANT]
-> Use the same connection string to connect to the storage account using private endpoints as you'd use otherwise. Please don't connect to the storage account using its `privatelink` subdomain URL.
+> Use the same connection string to connect to the storage account using private endpoints as you'd use otherwise. Don't connect to the storage account using its `privatelink` subdomain URL.
 
 By default, We create a [private DNS zone](../../dns/private-dns-overview.md) attached to the virtual network with the necessary updates for the private endpoints. However, if you're using your own DNS server, you may need to make additional changes to your DNS configuration. The section on [DNS changes](#dns-changes-for-private-endpoints) below describes the updates required for private endpoints.
 
