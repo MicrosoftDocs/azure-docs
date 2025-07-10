@@ -86,7 +86,7 @@ This section describes what to expect when a file storage account is configured 
 
 [!INCLUDE [Storage - Zone down experience](includes/storage/reliability-storage-availability-zone-down-experience-include.md)]
 
-    No remounting of Azure file shares from the connected clients is required.
+  No remounting of Azure file shares from the connected clients is required.
 
 ### Failback
 
