@@ -1,5 +1,5 @@
 ---
-title: Search the audit log for events in Microsoft Sentinel data lake
+title: Audit log for Microsoft Sentinel data lake
 description: Learn how to use the audit log to search for Microsoft Sentinel data lake activities to help with investigation.
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-graph
@@ -12,7 +12,7 @@ ms.date: 07/09/2025
 
 ---
 
-# Search the audit log for events in Microsoft Sentinel data lake
+# Audit log for Microsoft Sentinel data lake
 
 
 The audit log helps you investigate specific activities across Microsoft services. In the Microsoft Defender portal, the Microsoft Sentinel data lake activities are audited and can be searched in the audit log. The audit log provides a record of activities that are performed by users and administrators in Microsoft Sentinel data lake, such as:
