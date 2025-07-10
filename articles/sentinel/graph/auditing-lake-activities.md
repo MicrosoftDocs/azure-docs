@@ -19,7 +19,6 @@ The audit log helps you investigate specific activities across Microsoft service
 + Accessing data in lake via KQL queries
 + Running notebooks on data lake
 + Create/ edit/ run/ delete jobs 
-+ Create/ delete graph instance
 
 
 Auditing is automatically turned on for Microsoft Sentinel data lake. Features that are audited are logged in the audit log automatically.
