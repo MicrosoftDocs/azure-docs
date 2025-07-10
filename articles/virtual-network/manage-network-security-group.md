@@ -32,7 +32,7 @@ If you don't have an Azure account with an active subscription, [create one for 
 
 Assign the [Network Contributor role](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) or a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) with the appropriate [permissions](#permissions).
 
-## Manage network security groups
+## Work with network security groups
 
 You can create, [view all](#view-all-network-security-groups), [view details of](#view-details-of-a-network-security-group), [change](#change-a-network-security-group), and [delete](#delete-a-network-security-group) an NSG. You can also associate or dissociate an NSG from a [network interface](#associate-or-dissociate-a-network-security-group-to-or-from-a-network-interface) or a [subnet](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet).
 
