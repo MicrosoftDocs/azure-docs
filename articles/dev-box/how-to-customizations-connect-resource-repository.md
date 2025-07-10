@@ -1,6 +1,6 @@
 ---
-title: Fetch Azure Key Vault Secrets from Dev Box Customizations Files
-description: Discover how to fetch Azure Key Vault secrets by using team and user customization files to enhance security and simplify workflows.
+title: Use Customizations to Connect to Azure Resources or Clone Private Repositories
+description: Discover how to use fetch Azure Key Vault secrets by using team and user customization files to enhance security and simplify workflows.
 #customer intent: As a platform engineer, I want to configure Azure Key Vault secrets so that my development teams can securely access private repositories during Dev Box customization.
 author: RoseHJM
 ms.author: rosemalcolm
@@ -15,7 +15,7 @@ ms.topic: how-to
 ms.date: 05/10/2025
 ---
 
-# Use Azure Key Vault secrets in customization files
+# Connect to Azure resources or clone private repositories by using customizations
 
 You can use secrets from your Azure key vault in your YAML customizations to clone private repositories, or with any task you author that requires an access token. For example, in a team customization file, you can use a personal access token (PAT) stored in a key vault to access a private repository.
 
@@ -78,13 +78,13 @@ The Dev Box VS Code extension and Dev Box CLI don't support hydrating secrets in
 
 The dev center needs access to your key vault. Because dev centers don't support service tags, if your key vault is private, let trusted Microsoft services bypass the firewall.
 
-:::image type="content" source="media/how-to-use-secrets-customization-files/trusted-services-bypass-firewall.png" alt-text="Screenshot that shows the option to allow trusted Microsoft services to bypass the firewall in Azure Key Vault settings." lightbox="media/how-to-use-secrets-customization-files/trusted-services-bypass-firewall.png":::
+:::image type="content" source="media/how-to-customizations-connect-resource-repository/trusted-services-bypass-firewall.png" alt-text="Screenshot that shows the option to allow trusted Microsoft services to bypass the firewall in Azure Key Vault settings." lightbox="media/how-to-customizations-connect-resource-repository/trusted-services-bypass-firewall.png":::
 
 To learn how to let trusted Microsoft services bypass the firewall, see [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
 
 ## Related content
 
-- [Microsoft Dev Box team customizations](concept-what-are-team-customizations.md)
-- [Configure imaging for Dev Box team customizations](how-to-configure-customization-imaging.md)
+- [Microsoft Dev Box customizations](concept-what-are-dev-box-customizations.md)
+- [Configure Dev Box imaging](how-to-configure-dev-box-imaging.md)
 - Learn how to [add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md).

@@ -7225,6 +7225,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/signups/startup-programs.md",
+      "redirect_url": "/azure/signups/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/reliability/migrate-storage.md",
       "redirect_url": "/azure/storage/common/redundancy-migration",
       "redirect_document_id": false
