@@ -748,7 +748,7 @@ The output from the preceding example with the default values is:
 
 `tryGet(sourceArray, keyOrIndex)`
 
-`tryGet` helps you avoid deployment failures when trying to access a non-existent property or index in an object or array. If the specified key or index does not exist, `tryGet` returns null instead of throwing an error. You might need to use the function in conjunction with [nullable types](./data-types.md#nullable-types).
+`tryGet` helps you avoid deployment failures when trying to access a non-existent property or index in an object or array. If the specified key or index does not exist, `tryGet` returns null instead of throwing an error. 
 
 In Bicep, use the [safe-dereference](../bicep/operator-safe-dereference.md#safe-dereference) operator.
 
@@ -756,8 +756,8 @@ In Bicep, use the [safe-dereference](../bicep/operator-safe-dereference.md#safe-
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| sourceArray |Yes |array, object |The value to check if it's empty. |
-| keyOrIndex |Yes |string, int |The key or index to retrieve from the array or object. A property name for objects or index for arrays.|
+| sourceArray |Yes |array, object |An object or array to look into. |
+| keyOrIndex |Yes |string, int |A key or index to retrieve from the array or object. A property name for objects or index for arrays.|
 
 ### Return value
 
