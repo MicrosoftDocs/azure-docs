@@ -88,7 +88,14 @@ You can find more details from the table below on the connector list that is pla
 | Connector        | Scenario |
 |------------------|----------|
 | [Google BigQuery](connector-google-bigquery.md)  | Scenario that does not rely on below capability in Google BigQuery V1:<br><br>  • Use `trustedCertsPath`, `additionalProjects`, `requestgoogledrivescope` connection properties.<br>  • Set `useSystemTrustStore` connection property as `false`.<br>  • Use **STRUCT** and **ARRAY** data types. |
-| [Teradata](connector-teradata.md)         | Scenario that does not rely on below capability in Teradata (version 1.0):<br><br>  • Set below value for **CharacterSet**:<br>&nbsp;&nbsp;• BIG5 (TCHBIG5_1R0)<br>&nbsp;&nbsp;• EUC (Unix compatible, KANJIEC_0U)<br>&nbsp;&nbsp;• GB (SCHGB2312_1T0)<br>&nbsp;&nbsp;• IBM Mainframe (KANJIEBCDIC5035_0I)<br>&nbsp;&nbsp;- NetworkKorean (HANGULKSC5601_2R4)<br>&nbsp;&nbsp;• Shift-JIS (Windows, DOS compatible, KANJISJIS_0S)|
+| [Teradata](connector-teradata.md)         | Scenario that does not rely on below capability in Teradata (version 1.0):<br><br>  • Set below value for **CharacterSet**:<br>&nbsp;&nbsp;• BIG5 (TCHBIG5_1R0)<br>&nbsp;&nbsp;• EUC (Unix compatible, KANJIEC_0U)<br>&nbsp;&nbsp;• GB (SCHGB2312_1T0)<br>&nbsp;&nbsp;• IBM Mainframe (KANJIEBCDIC5035_0I)<br>&nbsp;&nbsp;• NetworkKorean (HANGULKSC5601_2R4)<br>&nbsp;&nbsp;• Shift-JIS (Windows, DOS compatible, KANJISJIS_0S)|
+| [Spark](connector-spark.md) | Scenario that does not rely on below capability in Spark (version 1.0)<br><br>• Authentication types:<br>&nbsp;&nbsp;• Username<br>• Thrift transport protocol:<br>&nbsp;&nbsp;• SASL<br>&nbsp;&nbsp;• Binary<br>• Thrift transport protocol:<br>&nbsp;&nbsp;• SharkServer<br>&nbsp;&nbsp;• SharkServer2 |
+| [Impala](connector-impala.md) | Scenario that does not rely on below capability in Impala (version 1.0):<br><br>• Authentication types:<br>&nbsp;&nbsp;• SASL Username |
+| [Hive](connector-hive.md) | Scenario that does not rely on below capability in Hive (version 1.0):<br><br>• Authentication types:<br>&nbsp;&nbsp;• Username<br>• Thrift transport protocol:<br>&nbsp;&nbsp;• HiveServer1<br>• Service discovery mode: True<br>• Use native query: True |
+| [Vertica](connector-vertica.md) | Scenario that does not rely on below capability in Vertica (version 1.0):<br><br>• Linked service that uses Azure integration runtime.<br><br>Automatic upgrade is only applicable when the driver is installed in your machine that installs the self-hosted integration runtime. |
+| [Amazon Redshift](connector-amazon-redshift.md) | Scenario that does not rely on below capability in Amazon Redshift (version 1.0):<br><br>• Linked service that uses Azure integration runtime.<br>• Use [UNLOAD](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)<br><br>Automatic upgrade is only applicable when the driver is installed in your machine that installs the self-hosted integration runtime.|
+
+
 
 ## Related content
 
