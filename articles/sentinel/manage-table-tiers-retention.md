@@ -14,7 +14,7 @@ ms.date: 05/06/2025
 
 This article explains how to configure table retention and tier settings for Microsoft Sentinel and Defender XDR services in the Defender portal. 
 
-For more information about how data tiers and retention work, see [Manage data tiers and retention in Microsoft Defender Portal (Preview)](manage-data-overview-overview.md).
+For more information about how data tiers and retention work, see [Manage data tiers and retention in Microsoft Defender Portal (Preview)](manage-data-overview.md).
 
 ## Permissions required
 
@@ -27,7 +27,7 @@ Sentinel workspace permissions let you view or manage tables in specific Sentine
 
 For more information about unified RBAC in the Defender portal, see [Microsoft Defender XDR Unified role-based access control (RBAC)](/defender-xdr/manage-rbac).
 
-For more information about Sentinel workspace permissions, see [Roles and permissions in the Microsoft Sentinel platform](roles).
+For more information about Sentinel workspace permissions, see [Roles and permissions in the Microsoft Sentinel platform](roles.md).
 
 ## Manage table settings
 
@@ -68,7 +68,7 @@ To view and manage table settings in the Microsoft Defender portal:
       > - MSG tables are only available in the Date lake tier
       > - XDR and Sentinel solution tables are only available in the Analytics tier because Microsoft security services require the data in these tables for near-real-time analytics. 
 
-    For more information about retention and tier settings work, see [Manage data tiers and retention in Microsoft Defender Portal (Preview)](manage-data-overview-overview.md).
+    For more information about retention and tier settings work, see [Manage data tiers and retention in Microsoft Defender Portal (Preview)](manage-data-overview.md).
     
 1.	Review warnings and messages. These messages help you understand important implications of changing table settings. 
 

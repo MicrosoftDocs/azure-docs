@@ -14,8 +14,8 @@ ms.date: 05/06/2025
 
 Data you collect into Microsoft Sentinel (SIEM) and Microsoft Defender XDR is stored in tables. The Microsoft Defender portal lets you manage the retention period and the store costs associated with your data. You can manage retention and costs when you:
 
-- [Configure data connectors](configure-data-connector) to send data to Microsoft Sentinel or Defender XDR.
-- [Manage your existing tables and data](manage-tables-defender-portal.md).
+- [Configure data connectors](configure-data-connector.md) to send data to Microsoft Sentinel or Defender XDR.
+- [Manage your existing tables and data](manage-table-tiers-retention.md).
 
 This article explains how to manage table retention and tier options in the Defender portal to optimize security operations and reduce costs in Microsoft Sentinel and Defender XDR.
 
@@ -68,9 +68,9 @@ This table compares the two Analytics and Data lake tiers and their key characte
 | Optimized query performance                            | ✅                                                           | ❌ Slower queries.<br>Good for auditing. Not optimized for real-time analysis. |
 | Query capabilities                                     | [Full query capabilities](/azure/azure-monitor/logs/get-started-queries) in the Defender and Azure portals and using APIs.    | - [Full KQL on a single table](/azure/azure-monitor/logs/basic-logs-query), which you can extend with data from an Analytics table using [lookup](/azure/data-explorer/kusto/query/lookup-operator).<br>- Run scheduled KQL or Spark jobs.<br>- Use Notebooks. |
 | Full set of real-time analytics features | ✅                                                           | ❌  Limitations on most features, including analytics rules, hunting queries, parsers, watchlists, workbooks, and playbooks.                                                           |
-| [Search jobs](investigate-large-datasets)                  | ✅                                                           | ✅                                                            |
-| [Summary rules](manage-data-overviewsummary-rules)              | ✅                                                           | ✅ KQL limited to a single table                              |
-| [Restore](manage-data-overviewrestore)                          | ✅                                                           | ❌                                                            |
+| [Search jobs](investigate-large-datasets.md)                  | ✅                                                           | ✅                                                            |
+| [Summary rules](manage-data-overviewsummary-rules.md)              | ✅                                                           | ✅ KQL limited to a single table                              |
+| [Restore](restore.md)                          | ✅                                                           | ❌                                                            |
 | [Data export](/azure/azure-monitor/logs/logs-data-export)                     | ✅                                                           | ❌                                                            |
 | Retention period                                  | 90 days for Microsoft Sentinel, 30 days for Defender XDR.<br> Can be extended to up to two years at a prorated monthly long-term retention charge. | Same as Analytics retention, by default. Can be extended to up to twelve years. |
 
@@ -133,6 +133,6 @@ As part of the public preview:
 
 Learn more about:
 
-- [Configuring log table tiers and retention settings](manage-tables-defender-portal.md)
-- [Creating a search job to retrieve data matching particular criteria](manage-data-overviewinvestigate-large-datasets)
+- [Configuring log table tiers and retention settings](manage-table-tiers-retention.md)
+- [Creating a search job to retrieve data matching particular criteria](investigate-large-datasets.md)
 
