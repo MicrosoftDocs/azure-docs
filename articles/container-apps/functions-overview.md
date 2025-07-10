@@ -126,10 +126,10 @@ This makes ACA ideal for both bursty and steady-state workloads. To learn more, 
 
 Azure Functions on Container Apps benefit from Container Apps’ robust [networking](../container-apps/networking.md) and [security features](../container-apps/security.md) for secure, scalable deployments:
 
-- **VNet Integration**: Access private resources securely via internal endpoints and private databases.
-- **Managed Identity**: Authenticate with Azure services using system/user-assigned identities—no secrets or connection strings needed.
-- **Dapr Support**: Enable pub/sub, state management, and secure service invocation via Dapr sidecars. (To learn more see [Microservice APIs powered by Dapr](../container-apps/dapr-overview.md))
-- **Ingress &amp; TLS**: Expose secure HTTP endpoints with TLS/mTLS, custom domains, or keep them internal.
+- **VNet integration**: Access private resources securely via internal endpoints and private databases.
+- **Managed identity**: Authenticate with Azure services using system/user-assigned identities—no secrets or connection strings needed.
+- **Dapr support**: Enable pub/sub, state management, and secure service invocation via Dapr sidecars. For more information, see see [Microservice APIs powered by Dapr](../container-apps/dapr-overview.md).
+- **Ingress and TLS**: Expose secure HTTP endpoints with TLS/mTLS, custom domains, or keep them internal.
 - **Environment Isolation**: Functions share ACA environment boundaries for secure, scoped communication.
 
 These capabilities make ACA-hosted Functions ideal for enterprise-grade, secure serverless applications.
