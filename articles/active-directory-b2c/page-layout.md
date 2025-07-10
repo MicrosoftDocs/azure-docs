@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 06/12/2025
+ms.date: 07/09/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 
@@ -64,6 +64,9 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 |            |< 1.2.0 | 1.12.4 |
 
 ## Self-asserted page (selfasserted)
+
+**2.1.36** 
+- The CAPTCHA input now correctly renders French accents, addressing previous display issues linked to font encoding and localization errors.
 
 **2.1.35**
 - Enhanced CAPTCHA error handling now ensures that any validation failures—such as “unmatched challenge”—returned by the backend are consistently captured and displayed in the UI.
@@ -227,6 +230,9 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 > [!TIP]
 > If you localize your page to support multiple locales, or languages in a user flow. The [localization IDs](localization-string-ids.md) article provides the list of localization IDs that you can use for the page version you select.
 
+**2.1.24**
+- This release fixes rendering issues for French accents in the CAPTCHA input. Previously, accented characters would not display correctly due to font or encoding limitations; these issues have now been resolved, ensuring proper display of all French-specific characters.
+
 **2.1.23**
 - Enhanced CAPTCHA error handling now ensures that any validation failures—such as “unmatched challenge”—returned by the backend are consistently captured and displayed in the UI.
   
@@ -329,6 +335,9 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 - Initial release
 
 ## MFA page (multifactor)
+
+**1.2.22**
+- This release fixes rendering issues for French accents in the CAPTCHA input. Previously, accented characters would not display correctly due to font or encoding limitations; these issues have now been resolved, ensuring proper display of all French-specific characters.
 
 **1.2.21**
 - Enhanced CAPTCHA error handling now ensures that any validation failures—such as “unmatched challenge”—returned by the backend are consistently captured and displayed in the UI. 
