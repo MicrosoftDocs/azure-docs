@@ -2,11 +2,11 @@
 title: 'Configure Azure ExpressRoute Direct'
 description: This article helps you configure ExpressRoute Direct.
 services: expressroute
-author: duongau, divyapr
+author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 07/10/2025
-ms.author: duau, divyapr
+ms.author: duau
 
 # Customer intent: As a network engineer, I want to configure Azure ExpressRoute Direct, so that I can establish a direct connection to Microsoft's global network for improved performance and reliability in data transfer.
 ---
