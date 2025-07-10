@@ -54,7 +54,7 @@ You have an **Exadata VM cluster** deployed in Azure via Oracle Database@Azure. 
 
     Alternatively, you can import a key if you have specific requirements (BYOK), but for most cases generating a new RSA key in Azure is simplest. Make sure the key is enabled and note the key name. (Oracle will later refer to this key by its Azure name when we link the database.)
 
-    **Why create the key now?** During vault registration, Oracle’s process checks that at least one key exists in the vault; if none is found, the vault registration will fail. Creating a key upfront avoids that issue.
+    **Why create the key now?** During vault registration, Oracle’s process checks that at least one key exists in the vault. If none is found, the vault registration will fail. Creating a key upfront avoids that issue.
 
 3. **(For Managed HSM)**: If you chose Managed HSM, after provisioning, you must activate the HSM (if not already) and create a key in it similarly (az keyvault key create --hsm-name <HSM_Name> -n $KEY_NAME ...). Also, note that Managed HSM uses a different permission model (local HSM roles). We’ll cover the role assignments in the next step.
 
@@ -73,7 +73,7 @@ This way, if you have multiple database VMs or clusters, you can manage their ac
 1. **Create an Azure Entra ID security group** (optional but recommended):  
     * You can create a group via Azure portal (Azure Entra ID blade > Groups > New Group) or CLI:
 
-    Make note of the $GROUP_OBJECT_ID. This group will remain empty for now; we will add members in Step 3 after the Arc connector is set up (because the identities that need access is created during that process).
+    Make note of the $GROUP_OBJECT_ID. This group will remain empty for now. We add members in Step 3 after the Arc connector is set up (because the identities that need access is created during that process).
 2. **Assign Azure Key Vault roles**: We will assign two roles to the security principal (the group, in this case) for the Key Vault:
     * **Key Vault crypto officer** – Allows management of keys (create, delete, list key versions) and performing cryptographic operations (unwrap/decrypt, etc.).
     * **Key Vault reader** – Allows viewing Key Vault properties
@@ -86,7 +86,7 @@ This way, if you have multiple database VMs or clusters, you can manage their ac
     * Azure RBAC uses a different set of roles. According to Oracle’s guidance, for Managed HSM you should assign the Azure RBAC Reader role (for the HSM resource) and then use the HSM local RBAC to assign "Managed HSM Crypto Officer" and “Managed HSM Crypto User” to your principal. This can be done in the Azure portal’s Managed HSM access control page. The security group can also be used for these assignments. Ensure that the principal has been added as an HSM Crypto Officer at minimum (Crypto Officer can generate new key versions for rotation, and Crypto User can use the keys).
 
 5. **Double-check roles**: After assignments, you can verify:
-    This should list the roles assigned to the group for the vault. There’s no harm in completing this role assignment step now; if the group has no members yet, the permissions is not used until a member is added.
+    This should list the roles assigned to the group for the vault. There’s no harm in completing this role assignment step now. If the group has no members yet, the permissions is not used until a member is added.
 
     At this stage, Azure is configured: you have a vault with a key, and an Azure Entra ID group with appropriate access to that vault. Now we move to the Oracle side to set up the integration.
 
@@ -121,7 +121,7 @@ Here’s how to create the connector:
     :::image type="content" source="media/oracle-identity-connector-info.png" alt-text="Screenshot that shows where to find identity connector information.":::
 
     * Under “Advanced Options”, if you intend to use Private Connectivity for Arc:
-        * Enter the Azure Arc Private Link Scope name you created (from Azure portal when setting up private link for Arc; for example, the resource name of type *Microsoft.HybridCompute/privateLinkScopes*).
+        * Enter the Azure Arc Private Link Scope name you created (from Azure portal when setting up private link for Arc. For example, the resource name of type *Microsoft.HybridCompute/privateLinkScopes*).
         * Ensure any required DNS or networking for private link is in place as per Microsoft’s docs. (If you are using the simpler NAT approach, you can leave this blank.)
 
         :::image type="content" source="media/oracle-identity-connector-info-adv-options.png" alt-text="Screenshot that shows where to find advanced options for identity connector information.":::
@@ -133,7 +133,7 @@ Here’s how to create the connector:
     * Oracle’s console shows the Identity Connector status. Navigate to *Database Multicloud Integrations > Identity Connectors* to verify the connector exists. On the VM Cluster page, the Identity Connector field should now show the connector name (instead of “None”)
 
     ### Troubleshooting tip 
-    If the connector creation fails, double-check the token (it might have expired – generate a fresh one) and Tenant ID. Also verify that the Azure subscription ID and resource group displayed are correct. The user generating the token must have rights to create Arc resources (Azure automatically creates a service principal for the Arc agent; ensure the Azure resource provider Microsoft.HybridCompute is registered in your subscription).
+    If the connector creation fails, double-check the token (it might have expired – generate a fresh one) and Tenant ID. Also verify that the Azure subscription ID and resource group displayed are correct. The user generating the token must have rights to create Arc resources (Azure automatically creates a service principal for the Arc agent. Make sure the Azure resource provider Microsoft.HybridCompute is registered in your subscription).
 
 3. **Add Arc Machine Identities to Azure Entra ID group**: Once the connector is up, your Exadata VM(s) now each have a managed identity in Azure Entra ID. We need to grant these identities the Key Vault access (set up in Step 2). If you used a security group:
     * Find the object IDs of the new Arc server identities. In Azure portal, go to the Azure Entra ID blade > Entities > Enterprise applications or the Azure Arc resource – the principal Object ID might be listed. An easier way: use Azure CLI to list Azure Arc connected machines and get their principal IDs:
@@ -193,7 +193,7 @@ After registration:
 
 * The vault is listed in OCI with a status (likely “Available”) and details like type (AKV or Managed HSM), Azure resource group, etc.
 * A default association is automatically created between this vault and the Identity Connector you used for discovery. (You can view this by clicking the vault name and checking the “Identity connector associations” tab.)
-* If you had multiple Exadata VM clusters (with different connectors) that need to use the same Key Vault, you would have to manually create additional associations: click Create association, and link the vault to another Identity Connector. This scenario is advanced (for example, a primary and standby cluster in different regions both using one centralized vault – ensure network connectivity is appropriate).
+* If you had multiple Exadata VM clusters (with different connectors) that need to use the same Key Vault, you would have to manually create more associations: click Create association, and link the vault to another Identity Connector. This scenario is advanced (for example, a primary and standby cluster in different regions both using one centralized vault – ensure network connectivity is appropriate).
 
 Now Oracle OCI knows about your Azure Key Vault and has it associated with the cluster’s connector, meaning the path is clear for a database to use it.
 
@@ -236,7 +236,7 @@ Oracle performs the key migration:
 
 * It associates the selected Azure Key Vault key with the database.
 * In the background, the database retrieves the Azure key (using the Arc connector and the permissions set up) and re-encrypt its TDE wallet. Essentially, it takes the current TDE master key (which was in the wallet) and securely transfers it into Azure Key Vault (or, if you selected a brand new key, it sets that as the new master key and re-encrypt the data encryption keys with it).
-* This operation is usually fast (a matter of seconds). It does not require the database to be shut down; TDE master key operations can be done online. However, during the switch, new encrypt/decrypt operations might be paused briefly.
+* This operation is usually fast (a matter of seconds). It does not require the database to be shut down. TDE master key operations can be done online. However, during the switch, new encrypt/decrypt operations might be paused briefly.
 
 Once done, refresh the Database page and verify that Key Management now shows Azure Key Vault, and it lists the key name/OCID as with a newly created DB.
 
@@ -260,7 +260,7 @@ With the database configured to use Azure Key Vault, it’s critical to verify t
 * **Azure Key Vault monitoring**: In Azure, navigate to your Key Vault:
     * Under Keys, you should see the key (for example, OracleTDEMasterKey). There may not be visible changes just from association, but you can check the Key Vault logs. Enable Azure Key Vault’s diagnostic logging if not already, and check for a “Get Key” or “Decrypt/Unwrap Key” event corresponding to when the database was opened or the key was set. This confirms the Oracle database accessed the key in Azure. Azure’s logging shows the principal that accessed the key – it should be the Azure Arc machine’s managed identity (identifiable by a GUID, which should match the Arc principalId).
     * If you performed a rotation (in next step), you see a new key version in this list.
-* **Do not delete keys!** – This is worth reiterating: *Never delete the Key Vault key that your database is using*. If you delete the key in Azure, the database immediately loses the ability to decrypt its data, essentially bricking the database. In OCI console, Oracle actually shows a warning if you look at the key info. If you absolutely must stop using a key, the proper procedure is to migrate the database to a new key (rotate it) before deleting the old one. Azure Key Vault supports key versioning; old versions can be left disabled rather than deleted until no longer needed.
+* **Do not delete keys!** – This is worth reiterating: *Never delete the Key Vault key that your database is using*. If you delete the key in Azure, the database immediately loses the ability to decrypt its data, essentially bricking the database. In OCI console, Oracle actually shows a warning if you look at the key info. If you absolutely must stop using a key, the proper procedure is to migrate the database to a new key (rotate it) before deleting the old one. Azure Key Vault supports key versioning. Old versions can be left disabled rather than deleted until no longer needed.
 
 * **Test failover/restart**: If this is a production setup, simulate a database restart to ensure it can retrieve the key on startup. Simply shut down and start up the Oracle database (or reboot the VM Cluster if needed – though in RAC, bounce one node at a time). The database should start without manual intervention, pulling the key from AKV in the process. If it starts fine, the integration is solid. If it fails to open the wallet automatically, re-check Step 2 (permissions) and Step 3 (Arc connectivity).
 
@@ -272,7 +272,7 @@ With the integration in place, consider the following for ongoing operations:
 
 * **Key rotation**:
 
-    Rotate the TDE master key periodically as per your security policy (for example, annually or after a certain number of days or events). Always perform rotations from the Oracle side (OCI console or API), not directly in Azure. 
+    Rotate the TDE master key periodically as per your security policy (for example, annually or after a certain number of days or events). Always perform rotations from the Oracle side (OCI console or API), not directly in Azure.
     * To rotate via OCI console: Go to the Database details page, Encryption section, and click Rotate (this appears next to the key info if Key Vault is in use) Confirm the rotation. This generates a new key version in Azure Key Vault (you can verify a new version under the key in Azure) and update the database to use the new version.
     
     :::image type="content" source="media/oracle-rotate-key.png" alt-text="Screenshot that shows where to rotate Azure key vaults in the OCI console.":::
