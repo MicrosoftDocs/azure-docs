@@ -669,7 +669,7 @@
       href: manage-data-overview.md
       displayName: table management, tiers, retention, manage data, tables
     - name: Manage tables, tiers, and retention
-      href: manage-data-tiers-retention.md
+      href: manage-table-tiers-retention.md
       displayName: table management, tiers, retention, tables
   - name: Manage costs and billing
     items:      
