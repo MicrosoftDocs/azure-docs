@@ -382,7 +382,7 @@ First, you define the type and metadata of the scale rule.
 
       ```yaml
       triggers:
-       - type: azure-servicebus 👈🏼👈🏼
+       - type: azure-servicebus ⬅️
         metadata:
           queueName: my-queue
           namespace: service-bus-namespace
@@ -397,7 +397,7 @@ First, you define the type and metadata of the scale rule.
       {
         name: 'azure-servicebus-queue-rule'
         custom: {
-          type: 'azure-servicebus' 👈🏼👈🏼
+          type: 'azure-servicebus' ⬅️
           metadata: {
             queueName: 'my-queue'
             namespace: 'service-bus-namespace'
@@ -415,9 +415,9 @@ First, you define the type and metadata of the scale rule.
     triggers:
     - type: azure-servicebus
       metadata:
-        queueName: my-queue              👈🏼👈🏼
-        namespace: service-bus-namespace 👈🏼👈🏼
-        messageCount: "5"                👈🏼👈🏼
+        queueName: my-queue              ⬅️
+        namespace: service-bus-namespace ⬅️
+        messageCount: "5"                ⬅️
     ```
 
 1. In the Bicep template, add all metadata values to the `custom.metadata` section of the scale rule.
@@ -430,9 +430,9 @@ rules: [
     custom: {
       type: 'azure-servicebus'
       metadata: {
-        queueName: 'my-queue'              👈🏼👈🏼
-        namespace: 'service-bus-namespace' 👈🏼👈🏼
-        messageCount: '5'                  👈🏼👈🏼
+        queueName: 'my-queue'              ⬅️
+        namespace: 'service-bus-namespace' ⬅️
+        messageCount: '5'                  ⬅️
       }
     }
   }
@@ -462,7 +462,7 @@ KEDA scalers can use secrets in a [TriggerAuthentication](https://keda.sh/docs/l
       namespace: my-project
     type: Opaque
     data:
-      connection-string-secret: <SERVICE_BUS_CONNECTION_STRING> 👈🏼👈🏼
+      connection-string-secret: <SERVICE_BUS_CONNECTION_STRING> ⬅️
     ---
     apiVersion: keda.sh/v1alpha1
     kind: TriggerAuthentication
@@ -470,9 +470,9 @@ KEDA scalers can use secrets in a [TriggerAuthentication](https://keda.sh/docs/l
       name: azure-servicebus-auth
     spec:
       secretTargetRef:
-      - parameter: connection         👈🏼👈🏼
-        name: my-secrets              👈🏼👈🏼
-        key: connection-string-secret 👈🏼👈🏼
+      - parameter: connection         ⬅️
+        name: my-secrets              ⬅️
+        key: connection-string-secret ⬅️
     ---
     apiVersion: keda.sh/v1alpha1
     kind: ScaledObject
@@ -510,10 +510,10 @@ KEDA scalers can use secrets in a [TriggerAuthentication](https://keda.sh/docs/l
         configuration: {
           ...
           secrets: [
-            {                                          👈🏼👈🏼
-              name: 'connection-string-secret'         👈🏼👈🏼
-              value: '<SERVICE_BUS_CONNECTION_STRING>' 👈🏼👈🏼
-            }                                          👈🏼👈🏼
+            {                                          ⬅️
+              name: 'connection-string-secret'         ⬅️
+              value: '<SERVICE_BUS_CONNECTION_STRING>' ⬅️
+            }                                          ⬅️
           ]
         }
         template: {
@@ -637,7 +637,7 @@ First, you define the type and metadata of the scale rule.
 
     ```yml
     triggers:
-    - type: azure-servicebus 👈🏼👈🏼
+    - type: azure-servicebus ⬅️
       metadata:
         queueName: my-queue
         namespace: service-bus-namespace
@@ -652,7 +652,7 @@ First, you define the type and metadata of the scale rule.
       {
         "name": "azure-servicebus-queue-rule",
         "custom": {
-          "type": "azure-servicebus",  👈🏼👈🏼
+          "type": "azure-servicebus",  ⬅️
           "metadata": {
             "queueName": "my-queue",
             "namespace": "service-bus-namespace",
@@ -670,9 +670,9 @@ First, you define the type and metadata of the scale rule.
     triggers:
     - type: azure-servicebus
       metadata:
-        queueName: my-queue              👈🏼👈🏼
-        namespace: service-bus-namespace 👈🏼👈🏼
-        messageCount: "5"                👈🏼👈🏼
+        queueName: my-queue              ⬅️
+        namespace: service-bus-namespace ⬅️
+        messageCount: "5"                ⬅️
     ```
 
 1. In the ARM template, add all metadata values to the `custom.metadata` section of the scale rule.
@@ -685,9 +685,9 @@ First, you define the type and metadata of the scale rule.
         "custom": {
           "type": "azure-servicebus",
           "metadata": {
-            "queueName": "my-queue",              👈🏼👈🏼
-            "namespace": "service-bus-namespace", 👈🏼👈🏼
-            "messageCount": "5"                   👈🏼👈🏼
+            "queueName": "my-queue",              ⬅️
+            "namespace": "service-bus-namespace", ⬅️
+            "messageCount": "5"                   ⬅️
           }
         }
       }
@@ -717,7 +717,7 @@ KEDA scalers can use secrets in a [TriggerAuthentication](https://keda.sh/docs/l
       namespace: my-project
     type: Opaque
     data:
-      connection-string-secret: <SERVICE_BUS_CONNECTION_STRING> 👈🏼👈🏼
+      connection-string-secret: <SERVICE_BUS_CONNECTION_STRING> ⬅️
     ---
     apiVersion: keda.sh/v1alpha1
     kind: TriggerAuthentication
@@ -725,9 +725,9 @@ KEDA scalers can use secrets in a [TriggerAuthentication](https://keda.sh/docs/l
       name: azure-servicebus-auth
     spec:
       secretTargetRef:
-      - parameter: connection         👈🏼👈🏼
-        name: my-secrets              👈🏼👈🏼
-        key: connection-string-secret 👈🏼👈🏼
+      - parameter: connection         ⬅️
+        name: my-secrets              ⬅️
+        key: connection-string-secret ⬅️
     ---
     apiVersion: keda.sh/v1alpha1
     kind: ScaledObject
@@ -767,10 +767,10 @@ KEDA scalers can use secrets in a [TriggerAuthentication](https://keda.sh/docs/l
           "configuration": {
             ...
             "secrets": [
-              {                                            👈🏼👈🏼
-                "name": "connection-string-secret",        👈🏼👈🏼
-                "value": "<SERVICE_BUS_CONNECTION_STRING>" 👈🏼👈🏼
-              }                                            👈🏼👈🏼
+              {                                            ⬅️
+                "name": "connection-string-secret",        ⬅️
+                "value": "<SERVICE_BUS_CONNECTION_STRING>" ⬅️
+              }                                            ⬅️
             ]
           },
           "template": {
@@ -789,10 +789,10 @@ KEDA scalers can use secrets in a [TriggerAuthentication](https://keda.sh/docs/l
                       "messageCount": "5"
                     },
                     "auth": [
-                      {                                          👈🏼👈🏼
-                        "secretRef": "connection-string-secret", 👈🏼👈🏼
-                        "triggerParameter": "connection"         👈🏼👈🏼
-                      }                                          👈🏼👈🏼
+                      {                                          ⬅️
+                        "secretRef": "connection-string-secret", ⬅️
+                        "triggerParameter": "connection"         ⬅️
+                      }                                          ⬅️
                     ]
                   }
                 }
@@ -845,7 +845,7 @@ To learn more about using managed identity with scale rules, see [Managed identi
 
     ```yml
     triggers:
-    - type: azure-servicebus 👈🏼👈🏼
+    - type: azure-servicebus ⬅️
       metadata:
         queueName: my-queue
         namespace: service-bus-namespace
@@ -864,7 +864,7 @@ To learn more about using managed identity with scale rules, see [Managed identi
       --max-replicas 5 \
       --secrets "connection-string-secret=<SERVICE_BUS_CONNECTION_STRING>" \
       --scale-rule-name azure-servicebus-queue-rule \
-      --scale-rule-type azure-servicebus \ 👈🏼👈🏼
+      --scale-rule-type azure-servicebus \ ⬅️
       --scale-rule-metadata "queueName=my-queue" \
                             "namespace=service-bus-namespace" \
                             "messageCount=5" \
@@ -877,9 +877,9 @@ To learn more about using managed identity with scale rules, see [Managed identi
     triggers:
     - type: azure-servicebus
       metadata:
-        queueName: my-queue              👈🏼👈🏼
-        namespace: service-bus-namespace 👈🏼👈🏼
-        messageCount: "5"                👈🏼👈🏼
+        queueName: my-queue              ⬅️
+        namespace: service-bus-namespace ⬅️
+        messageCount: "5"                ⬅️
     ```
 
 1. In the CLI command, set the `--scale-rule-metadata` parameter to the metadata values.
@@ -897,9 +897,9 @@ To learn more about using managed identity with scale rules, see [Managed identi
       --secrets "connection-string-secret=<SERVICE_BUS_CONNECTION_STRING>" \
       --scale-rule-name azure-servicebus-queue-rule \
       --scale-rule-type azure-servicebus \
-      --scale-rule-metadata "queueName=my-queue" \              👈🏼👈🏼
-                            "namespace=service-bus-namespace" \ 👈🏼👈🏼
-                            "messageCount=5" \                  👈🏼👈🏼
+      --scale-rule-metadata "queueName=my-queue" \              ⬅️
+                            "namespace=service-bus-namespace" \ ⬅️
+                            "messageCount=5" \                  ⬅️
       --scale-rule-auth "connection=connection-string-secret"
     ```
 
@@ -923,7 +923,7 @@ A KEDA scaler supports secrets in a [TriggerAuthentication](https://keda.sh/docs
       namespace: my-project
     type: Opaque
     data:
-      connection-string-secret: <SERVICE_BUS_CONNECTION_STRING> 👈🏼👈🏼
+      connection-string-secret: <SERVICE_BUS_CONNECTION_STRING> ⬅️
     ---
     apiVersion: keda.sh/v1alpha1
     kind: TriggerAuthentication
@@ -931,9 +931,9 @@ A KEDA scaler supports secrets in a [TriggerAuthentication](https://keda.sh/docs
       name: azure-servicebus-auth
     spec:
       secretTargetRef:
-      - parameter: connection         👈🏼👈🏼
-        name: my-secrets              👈🏼👈🏼
-        key: connection-string-secret 👈🏼👈🏼
+      - parameter: connection         ⬅️
+        name: my-secrets              ⬅️
+        key: connection-string-secret ⬅️
     ---
     apiVersion: keda.sh/v1alpha1
     kind: ScaledObject
@@ -969,13 +969,13 @@ A KEDA scaler supports secrets in a [TriggerAuthentication](https://keda.sh/docs
       --image <CONTAINER_IMAGE_LOCATION>
       --min-replicas 0 \
       --max-replicas 5 \
-      --secrets "connection-string-secret=<SERVICE_BUS_CONNECTION_STRING>" \ 👈🏼👈🏼
+      --secrets "connection-string-secret=<SERVICE_BUS_CONNECTION_STRING>" \ ⬅️
       --scale-rule-name azure-servicebus-queue-rule \
       --scale-rule-type azure-servicebus \
       --scale-rule-metadata "queueName=my-queue" \
                             "namespace=service-bus-namespace" \
                             "messageCount=5" \
-      --scale-rule-auth "connection=connection-string-secret"                👈🏼👈🏼
+      --scale-rule-auth "connection=connection-string-secret"                ⬅️
     ```
 
 #### Using managed identity
@@ -1022,7 +1022,7 @@ az containerapp create \
 
     ```yml
     triggers:
-    - type: azure-servicebus 👈🏼👈🏼
+    - type: azure-servicebus ⬅️
       metadata:
         queueName: my-queue
         namespace: service-bus-namespace
@@ -1037,9 +1037,9 @@ az containerapp create \
     triggers:
     - type: azure-servicebus
       metadata:
-        queueName: my-queue              👈🏼👈🏼
-        namespace: service-bus-namespace 👈🏼👈🏼
-        messageCount: "5"                👈🏼👈🏼
+        queueName: my-queue              ⬅️
+        namespace: service-bus-namespace ⬅️
+        messageCount: "5"                ⬅️
     ```
 
 1. In the portal, find the *Metadata* section and select **Add**. Enter the name and value for each item in the KEDA `ScaledObject` specification metadata section.
@@ -1070,9 +1070,9 @@ Container Apps scale rules support secrets-based authentication. Scale rules for
       name: azure-servicebus-auth
     spec:
       secretTargetRef:
-      - parameter: connection         👈🏼👈🏼
-        name: my-secrets              👈🏼👈🏼
-        key: connection-string-secret 👈🏼👈🏼
+      - parameter: connection         ⬅️
+        name: my-secrets              ⬅️
+        key: connection-string-secret ⬅️
     ---
     apiVersion: keda.sh/v1alpha1
     kind: ScaledObject

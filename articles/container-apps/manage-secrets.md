@@ -276,9 +276,9 @@ In this example, the application connection string is declared as `queue-connect
         "environment_id": {
             "type": "String"
         },
-        "key_vault_secret_uri": { 👈🏼👈🏼
-            "type": "String"      👈🏼👈🏼
-        }                         👈🏼👈🏼
+        "key_vault_secret_uri": { ⬅️
+            "type": "String"      ⬅️
+        }                         ⬅️
     },
     "variables": {},
     "resources": [
@@ -292,12 +292,12 @@ In this example, the application connection string is declared as `queue-connect
             "managedEnvironmentId": "[parameters('environment_id')]",
             "configuration": {
                 "activeRevisionsMode": "single",
-                "secrets": [                                              👈🏼👈🏼
-                {                                                         👈🏼👈🏼
-                    "name": "queue-connection-string",                    👈🏼👈🏼
-                    "keyVaultUrl": "[parameters('key_vault_secret_uri')", 👈🏼👈🏼
-                    "identity": "system"                                  👈🏼👈🏼 
-                }]                                                        👈🏼👈🏼
+                "secrets": [                                              ⬅️
+                {                                                         ⬅️
+                    "name": "queue-connection-string",                    ⬅️
+                    "keyVaultUrl": "[parameters('key_vault_secret_uri')", ⬅️
+                    "identity": "system"                                  ⬅️ 
+                }]                                                        ⬅️
             },
             "template": {
                 "containers": [
@@ -310,8 +310,8 @@ In this example, the application connection string is declared as `queue-connect
                                 "value": "myqueue"
                             },
                             {
-                                "name": "ConnectionString",            👈🏼👈🏼
-                                "secretRef": "queue-connection-string" 👈🏼👈🏼
+                                "name": "ConnectionString",            ⬅️
+                                "secretRef": "queue-connection-string" ⬅️
                             }
                         ]
                     }
@@ -327,8 +327,8 @@ In this example, the application connection string is declared as `queue-connect
                                 "queueLength": 100,
                                 "auth": [
                                     {
-                                        "secretRef": "queue-connection-string", 👈🏼👈🏼
-                                        "triggerParameter": "connection"        👈🏼👈🏼
+                                        "secretRef": "queue-connection-string", ⬅️
+                                        "triggerParameter": "connection"        ⬅️
                                     }
                                 ]
                             }
