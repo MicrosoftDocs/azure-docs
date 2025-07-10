@@ -6,6 +6,7 @@ author: AbdullahBell
 ms.topic: how-to
 ms.date: 03/17/2025
 ms.author: abell
+# Customer intent: "As a product manager, I want to understand the integration opportunities provided by DDoS protection services, so that I can enhance my product offerings and ensure robust security against DDoS attacks for our customers."
 ---
 
 # Partnering with Azure DDoS Protection

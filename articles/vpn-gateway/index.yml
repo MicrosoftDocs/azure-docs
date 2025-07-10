@@ -141,7 +141,22 @@ landingContent:
         links:
           - text: Monitoring and alerts
             url: monitor-vpn-gateway.md
-            
+  # Card
+  - title: Related hybrid connectivity services
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What is hybrid connectivity?
+            url: /azure/networking/hybrid-connectivity/hybrid-connectivity
+          - text: Learn more about hybrid connectivity
+            url: /azure/networking/hybrid-connectivity/
+      - linkListType: overview
+        links:
+          - text: Azure Virtual WAN
+            url: ../virtual-wan/virtual-wan-about.md
+          - text: Azure ExpressRoute
+            url: ../expressroute/expressroute-introduction.md       
+  
   # Card
   - title: Reference
     linkLists:

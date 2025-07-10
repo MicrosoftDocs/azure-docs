@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 06/20/2025
 ms.author: anfdocs
+# Customer intent: As a cloud administrator, I want to configure customer-managed keys for Azure NetApp Files volume encryption so that I can maintain control over the key lifecycle and enhance the security of my encrypted data.
 ---
 
 # Configure customer-managed keys for Azure NetApp Files volume encryption

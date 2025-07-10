@@ -7,6 +7,7 @@ ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 06/18/2024
 ms.author: cherylmc
+# Customer intent: As a network administrator, I want to configure the OpenVPN client for certificate authentication on iOS, so that I can securely connect to the Azure virtual network using point-to-site VPN.
 ---
 
 # Configure point-to-site VPN clients: certificate authentication - iOS OpenVPN client

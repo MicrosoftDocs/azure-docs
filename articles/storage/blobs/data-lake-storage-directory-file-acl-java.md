@@ -11,6 +11,7 @@ ms.devlang: java
 ms.topic: how-to
 ms.reviewer: prishet
 ms.custom: devx-track-java, devx-track-extended-java
+# Customer intent: As a Java developer, I want to manage directories and files in Azure Data Lake Storage, so that I can efficiently organize and manipulate data within a hierarchical storage environment.
 ---
 
 # Use Java to manage directories and files in Azure Data Lake Storage

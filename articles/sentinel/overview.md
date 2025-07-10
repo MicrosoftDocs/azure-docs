@@ -116,28 +116,23 @@ The following table highlights the key capabilities in Microsoft Sentinel for th
 |Automation rules|Centrally manage the automation of incident handling in Microsoft Sentinel by defining and coordinating a small set of rules that cover different scenarios. |[Automate threat response in Microsoft Sentinel with automation rules](automate-incident-handling-with-automation-rules.md)|
 |Playbooks|Automate and orchestrate your threat response by using playbooks, which are a collection of remediation actions. Run a playbook on-demand or automatically in response to specific alerts or incidents, when triggered by an automation rule. <br><br>  To build playbooks with Azure Logic Apps, choose from a constantly expanding gallery of connectors for various services and systems like ServiceNow, Jira, and more. These connectors allow you to apply any custom logic in your workflow. |[Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md)<br><br>[List of all Logic App connectors](/connectors/connector-reference/connector-reference-logicapps-connectors)|
 
-## Microsoft Sentinel in the Azure portal deprecation timeline
+## Microsoft Sentinel in the Azure portal retirement timeline
 
-Microsoft Sentinel is generally available in the Microsoft Defender portal, including for customers without Microsoft Defender XDR or an E5 license. This means that you can use Microsoft Sentinel in the Defender portal even if you aren't using other Microsoft Defender services.
-
-Starting in **July 2026**, Microsoft Sentinel will be supported in the Defender portal only, and any remaining customers using the Azure portal will be automatically redirected. There are no changes in API usage.
-
-If you're currently using Microsoft Sentinel in the Azure portal, we recommend that you start planning your transition to the Defender portal now to ensure a smooth transition and take full advantage of the [unified security operations experience](/unified-secops-platform/overview-unified-security) offered by Microsoft Defender. For more information, see [Transition your Microsoft Sentinel environment to the Defender portal](move-to-defender.md).
+[!INCLUDE [sentinel-azure-deprecation](includes/sentinel-azure-deprecation.md)]
 
 ### Changes for new customers starting July 2025
 
 For the sake of the changes described in this section, new Microsoft Sentinel customers are customers who are [onboarding the first workspace in their tenant to Microsoft Sentinel](quickstart-onboard.md).
 
-Starting **July, 2025**, such new customers who are also:
+Starting **July, 2025**, such new customers who also have the permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator), and are not Azure Lighthouse-delegated users, have their workspaces automatically onboarded to the Defender portal together with onboarding to Microsoft Sentinel. 
 
-- not Azure Lighthouse-delegated users and
-- who have the permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator)
-
-Have their workspaces automatically onboarded to the Defender portal together with onboarding to Microsoft Sentinel. Users of such workspaces, who also aren't Azure Lighthouse-delegated users, see links in Microsoft Sentinel in the Azure portal that redirect them to the Defender portal. Such users use Microsoft Sentinel in the Defender portal only.
+Users of such workspaces, who also aren't Azure Lighthouse-delegated users, see links in Microsoft Sentinel in the Azure portal that redirect them to the Defender portal.
 
 For example:
 
 :::image type="content" source="media/overview/redirect-no-defender.png" alt-text="Screenshot of a redirect link from the Azure portal to the Defender portal.":::
+
+Such users use Microsoft Sentinel in the Defender portal only.
 
 New customers who don't have relevant permissions aren't automatically onboarded to the Defender portal, but they do still see redirection links in the Azure portal, together with prompts to have a user with relevant permissions manually onboard the workspace to the Defender portal.
 

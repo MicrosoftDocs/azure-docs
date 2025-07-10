@@ -261,6 +261,10 @@ Hosting the reverse DNS lookup zone for your ISP-assigned IP block in Azure DNS 
 
 Yes. This article explains how to create both IPv4 and IPv6 reverse DNS lookup zones in Azure DNS.
 
+### Can I create reverse DNS zones for both Azure Public and Private DNS? 
+
+No. Reverse lookup zones are only supported for Azure Public DNS. 
+
 ### Can I import an existing reverse DNS lookup zone?
 
 Yes. You can use Azure CLI to import existing DNS zones into Azure DNS. This method works for both forward lookup zones and reverse lookup zones.

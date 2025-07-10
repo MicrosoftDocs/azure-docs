@@ -30,7 +30,7 @@ You can also create a network security perimeter by using the [Azure portal](cre
 
 This Bicep file creates a network security perimeter for an instance of Azure Key Vault.
 
-The Bicep file that this quickstart uses is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/network-security-perimeter-create/).
+The Bicep file that this quickstart uses is from [Azure Quickstart Templates](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/network-security-perimeter-create).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.network/network-security-perimeter-create/main.bicep":::
 

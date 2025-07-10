@@ -1,26 +1,27 @@
 ---
 title: 'Quickstart: Send custom events to an event hub - Event Grid, Azure CLI'
 description: Learn how to use Azure Event Grid and the Azure CLI to publish a topic and subscribe to that event, by using an event hub for the endpoint.
-ms.date: 01/31/2024
+ms.date: 06/24/2024
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, mode-api
+#customer intent: As a developer, I want to use Azure Event Grid to interact with an Azure Event Hubs subscription to support app interaction.
 ---
 
 # Quickstart: Route custom events to an event hub by using Event Grid and the Azure CLI
 
-[Azure Event Grid](overview.md) is a highly scalable and serverless event broker that you can use to integrate applications via events. Event Grid delivers events to [supported event handlers](event-handlers.md), and Azure Event Hubs is one of them.
-
 In this quickstart, you use the Azure CLI to create an Event Grid custom topic and an Event Hubs subscription for that topic. You then send sample events to the custom topic and verify that those events are delivered to an event hub.
+
+[Azure Event Grid](overview.md) is a highly scalable and serverless event broker that you can use to integrate applications via events. Event Grid delivers events to supported event handlers, such as Azure Event Hubs. [Event handlers](event-handlers.md).
 
 [!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Create a resource group
 
-Event Grid topics are Azure resources, and they must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
+Event Grid topics are Azure resources. Create them in an Azure resource group. The resource group is a logical collection in which Azure resources are deployed and managed.
 
 Create a resource group by using the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named `gridResourceGroup` in the `westus2` location.
 
-Select **Open Cloud Shell** to open Azure Cloud Shell on the right pane. Select the **Copy** button to copy the command, paste it in Cloud Shell, and then select the Enter key to run the command.
+Select **Open Cloud Shell** to open Azure Cloud Shell on the right pane. Select the **Copy** button to copy the command, paste it in Cloud Shell, and then select the **Enter** key to run the command.
 
 ```azurecli-interactive
 az group create --name gridResourceGroup --location westus2
@@ -43,7 +44,7 @@ Replace `<TOPIC NAME>` with a unique name for your custom topic. The Event Grid 
 1. Run the following command to create the topic:
 
     ```azurecli-interactive
-    az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
+    az eventgrid topic create --name $topicname --location westus2 --resource-group gridResourceGroup
     ```
 
 ## Create an event hub
@@ -67,7 +68,7 @@ Before you subscribe to the custom topic, create the endpoint for the event mess
 
 ## Subscribe to a custom topic
 
-You subscribe to an Event Grid topic to tell Event Grid which events you want to track. The following example subscribes to the custom topic that you created, and it passes the resource ID of the event hub for the endpoint. The endpoint is in this format:
+You subscribe to an Event Grid topic to tell Event Grid which events you want to track. The following example subscribes to the custom topic that you created. It passes the resource ID of the event hub for the endpoint. The endpoint is in this format:
 
 `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<NAMESPACE NAME>/eventhubs/<EVENT HUB NAME>`
 
@@ -95,7 +96,7 @@ endpoint=$(az eventgrid topic show --name $topicname -g gridResourceGroup --quer
 key=$(az eventgrid topic key list --name $topicname -g gridResourceGroup --query "key1" --output tsv)
 ```
 
-For the sake of simplicity in this article, you use sample event data to send to the custom topic. Typically, an application or an Azure service would send the event data.
+For simplicity, this article uses sample event data to send to the custom topic. Typically, an application or an Azure service would send the event data.
 
 The cURL tool sends HTTP requests. In this article, you use cURL to send the event to the custom topic. The following example sends three events to the Event Grid topic:
 
@@ -107,19 +108,19 @@ do
 done
 ```
 
-In the Azure portal, on the **Overview** page for your Event Hubs namespace, notice that Event Grid sent those three events to the event hub. You see the same chart on the **Overview** page for the `demohub` Event Hubs instance.
+In the Azure portal, the **Overview** page for your Event Hubs namespace shows that Event Grid sent those three events to the event hub. You see the same chart on the **Overview** page for the `demohub` Event Hubs instance.
 
 :::image type="content" source="./media/custom-event-to-eventhub/show-result.png" lightbox="./media/custom-event-to-eventhub/show-result.png" alt-text="Screenshot that shows the portal page with an incoming message count of 3.":::
 
 Typically, you create an application that retrieves event messages from the event hub. For more information, see:
 
-- [Get started receiving messages with the event processor host in .NET Standard](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+- [Send events to and receive events from Azure Event Hubs using .NET](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 - [Receive events from Azure Event Hubs by using Java](../event-hubs/event-hubs-java-get-started-send.md)
 - [Receive events from Event Hubs by using Apache Storm](../event-hubs/event-hubs-storm-getstarted-receive.md)
 
 ## Clean up resources
 
-If you plan to continue working with this event, don't clean up the resources that you created in this article. Otherwise, use the following command to delete the resources:
+If you plan to continue working with this custom topic and subscription, don't remove the resources that you created in this article. Otherwise, use the following command to delete the resources:
 
 ```azurecli-interactive
 az group delete --name gridResourceGroup
@@ -132,7 +133,7 @@ Now that you know how to create topics and event subscriptions, learn more about
 - [About Event Grid](overview.md)
 - [Route Azure Blob Storage events to a custom web endpoint](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 - [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-logic-app.md)
-- [Stream big data into a data warehouse](event-hubs-integration.md)
+- [Migrate Event Hubs captured data from Azure Storage to Azure Synapse Analytics](event-hubs-integration.md)
 
 To learn about publishing events to, and consuming events from, Event Grid by using various programming languages, see the following samples:
 

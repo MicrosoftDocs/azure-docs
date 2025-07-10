@@ -9,6 +9,7 @@ ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.date: 03/26/2024
 ms.author: normesta
+# Customer intent: "As a cloud storage administrator, I want to implement version-level WORM policies on blob data, so that I can protect critical data from deletion and ensure compliance with retention requirements."
 ---
 
 # Version-level write once, read many (WORM) policies for immutable blob data

@@ -7,6 +7,7 @@ ms.custom: references_regions
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to create and delete Backup vaults, so that I can efficiently manage and organize backup data for Azure services while ensuring data security and compliance.
 ---
 # Create and delete Backup vaults
 

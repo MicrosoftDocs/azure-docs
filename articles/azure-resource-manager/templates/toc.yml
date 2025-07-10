@@ -286,8 +286,6 @@ items:
       href: ../../app-service/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Notification Hubs
       href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-    - name: Redis Web App
-      href: ../../redis/web-app-arm-with-redis-cache-provision.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: SignalR Service
       href: ../../azure-signalr/signalr-quickstart-azure-signalr-service-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Concepts
@@ -295,6 +293,7 @@ items:
   - name: Template best practices
     href: best-practices.md
   - name: Data types
+    displayName: nullable types,union type,secure strings,secure objects,data type assignability
     href: data-types.md
   - name: Frequently asked questions
     href: frequently-asked-questions.yml
@@ -471,7 +470,7 @@ items:
     - name: All functions
       href: template-functions.md
     - name: Array functions
-      displayName: array,concat,contains,createArray,empty,first,indexOf,intersection,last,lastIndexOf,length,max,min,range,skip,take,union
+      displayName: array,concat,contains,createArray,empty,first,indexFromEnd,indexOf,intersection,last,lastIndexOf,length,max,min,range,skip,take,tryIndexFromEdn,union
       href: template-functions-array.md
     - name: CIDR functions
       displayName: parseCidr,cidrSubnet,cidrHost

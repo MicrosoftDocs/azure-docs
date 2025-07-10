@@ -9,6 +9,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024
 ms.custom: template-how-to, devx-track-js, devguide-js
+# Customer intent: As a JavaScript developer, I want to create and use account SAS tokens for Azure Blob Storage, so that I can securely manage data access and permissions in my applications.
 ---
 
 # Create and use account SAS tokens with Azure Blob Storage and JavaScript

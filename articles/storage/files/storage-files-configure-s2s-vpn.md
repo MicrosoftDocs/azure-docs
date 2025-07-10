@@ -1,12 +1,12 @@
 ---
-title: Configure a site-to-site VPN for Azure Files
+title: Configure a Site-to-Site VPN for Azure Files
 description: Learn how to configure a site-to-site (S2S) VPN for use with Azure Files so you can mount your Azure file shares from on premises. Use the Azure portal, PowerShell, or CLI.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 09/06/2024
 ms.author: kendownie
-# Customer intent: As a network administrator, I want to configure a site-to-site VPN for Azure Files, so that I can securely mount and access Azure file shares from my on-premises network without exposing the data over the internet.
+# Customer intent: As a network administrator, I want to configure a site-to-site VPN for Azure Files, so that I can securely mount and access Azure file shares from my on-premises network without sending data over the open internet.
 ---
 
 # Configure a site-to-site VPN for use with Azure Files

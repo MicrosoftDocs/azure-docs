@@ -7,6 +7,7 @@ author: MaryanneNjeri
 ms.author: mgichohi
 ms.topic: how-to
 ms.date: 04/20/2025
+ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ---
 
@@ -16,7 +17,7 @@ Chat completion is an AI capability that enables models to generate conversation
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free)
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 
 ## Create a chat completion configuration
 

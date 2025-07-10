@@ -1,6 +1,6 @@
 ---
-title: Defender portal announcement with syntax
-description: Describes the current announcement for Microsoft Sentinel in the Defender portal with extra formatting syntax.
+title: General Microsoft Sentinel Azure portal retirement announcement, with extra formatting.
+description: Provides an include file for the general Microsoft Sentinel Azure portal retirement announcement, with extra formatting.
 services: microsoft-sentinel
 author: batamig
 ms.topic: "include"
@@ -10,8 +10,9 @@ ms.custom: "include file"
 ---
 
 > [!IMPORTANT]
->Starting in **July 2026**, all customers using Microsoft Sentinel in the Azure portal will be redirected to the Defender portal and will use Microsoft Sentinel in the Defender portal only. Starting in **July 2025**, many new users are also redirected from the Azure portal to the Defender portal.
+> [Microsoft Sentinel is generally available in the Microsoft Defender portal](../microsoft-sentinel-defender-portal.md), including for customers without Microsoft Defender XDR or an E5 license. 
 >
->If you're still using Microsoft Sentinel in the Azure portal, we recommend that you start planning your transition to the Defender portal to ensure a smooth transition and take full advantage of the new unified security operations features offered by Microsoft Defender.
+> Starting in **July 2026**, Microsoft Sentinel will be supported in the Defender portal only, and any remaining customers using the Azure portal will be automatically redirected. Starting in **July 2025**, many new customers are [automatically onboarded and redirected to the Defender portal](../overview.md#changes-for-new-customers-starting-july-2025).
 >
-> For more information, see [Microsoft Sentinel in the Azure portal deprecation timeline](../overview.md#microsoft-sentinel-in-the-azure-portal-deprecation-timeline) and [It’s Time to Move: Retiring Microsoft Sentinel’s Azure portal for greater security](https://aka.ms/time-to-move-to-defender).
+> We recommend that any customers using Microsoft Sentinel in Azure start planning the [transition to the Defender portal](../move-to-defender.md) for the full [unified security operations experience offered by Microsoft Defender](/unified-secops-platform/overview-unified-security). For more information, see [Planning your move to Microsoft Defender portal for all Microsoft Sentinel customers](https://techcommunity.microsoft.com/blog/microsoft-security-blog/planning-your-move-to-microsoft-defender-portal-for-all-microsoft-sentinel-custo/4428613).
+

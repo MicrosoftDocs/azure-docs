@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 11/07/2022
+# Customer intent: As a web application administrator, I want to customize Web Application Firewall rules in the management portal, so that I can optimize security while minimizing false positives affecting legitimate traffic.
 ---
 
 # Customize Web Application Firewall rules using the Azure portal

@@ -1,14 +1,15 @@
 ---
 title: Move VM backup - standard to enhanced policy in Azure Backup
 description: Learn how to trigger Azure VM backups migration from standard  policy to enhanced policy, and then monitor the configuration backup migration job.
-ms.topic: reference
-ms.date: 06/19/2025
+ms.topic: how-to
+ms.date: 06/24/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ms.custom:
   - engagement-fy24
   - build-2025
+# Customer intent: "As an IT administrator managing Azure VM backups, I want to migrate Azure Virtual Machine backups from standard to enhanced policy, so that I can improve backup frequency, retention, and disaster recovery capabilities without affecting existing backup operations."
 ---
 
 # Migrate Azure VM backups from standard  to enhanced policy
