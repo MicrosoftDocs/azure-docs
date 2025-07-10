@@ -119,7 +119,7 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 1. **Not initiated:** Dependency analysis couldn’t be enabled because Azure Migrate reached its limit of 1,000 servers per appliance for automatic enablement. If you want to run dependency analysis on specific servers, you can disable it manually on other autoenabled servers and enable it for the required ones using the PowerShell module.
 1. **Disabled:** You can manually disable dependency analysis on this using the portal or the PowerShell module. You can enable it again anytime using the same module. 
 
-1. **Not enabled**: Dependency data could not be collected as the server was discovered through CSV import.
+1. **Not supported**: Dependency data could not be collected as the server was discovered through CSV import.
 
 >[!Note]
 > Not enabled status is shown for servers, discovered from an appliance that has still not been upgraded to the new visualization. . [Learn more](#switch-to-new-visualization) to upgrade the appliance.
@@ -296,7 +296,7 @@ Follow the steps to disable the servers where dependency analysis has been autoe
 1. You can start by selecting an appliance from the drop-down.
 
 > [!NOTE] 
-> If the selected appliance isn't upgraded for the new dependency analysis, you can either meet the prerequisites or switch to the old experience (from Overview) to add or remove servers for dependency analysis.
+> If the selected appliance isn't upgraded for the new dependency analysis, you can either meet the [prerequisites](#switch-to-new-visualization) or switch to the old experience (from Overview) to add or remove servers for dependency analysis.
 
 1. You can filter servers to disable dependency analysis on those that were autoenabled (servers with the status as *Enabled*). Servers that aren't eligible for disablement—such as those with the status *Validation failed*, *Not initiated*, *Disabled*, or *Credentials* not available'—can't be selected.
 
