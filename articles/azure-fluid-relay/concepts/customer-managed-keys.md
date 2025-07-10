@@ -34,6 +34,10 @@ Before configuring CMK on your Azure Fluid Relay resource, the following prerequ
 - If you provide the key URL with a specific key version, **only that version** will be used for CMK purposes.  
 If you later add a new key version, you must **manually** update the key URL in the CMK settings of the Fluid Relay resource to make the new version effective.  
 The Fluid Relay service will fail if the specified key version is deleted or disabled without updating the resource to use a valid version.
+- To allow the Fluid Relay service to automatically use the latest key version of the key from your key vault, you can **omit the key version** in the encryption key URL. This enables automatic key version updates on the Fluid Relay side.
+  However, you are still responsible for managing and rotating key versions in your Key Vault.
+  > Due to resource limitations, switching to this auto-update setting may fail. If that happens, please specify a key version explicitly and perform a manual update on your Fluid Relay resource.
+
 
 ## Create a Fluid Relay resource with CMK
 
