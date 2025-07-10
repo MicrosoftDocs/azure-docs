@@ -19,7 +19,7 @@ Exadata Database Service on Oracle Database@Azure now supports storing and manag
 
 This integration enables Oracle Database@Azure customers to meet a wide spectrum of **security**, **compliance**, and **key management** needs - ranging from software-based key storage to single-tenant, FIPS 140-3 Level 3 validated hardware security modules. 
 
-# Step-by-Step Integration Guide 
+## Step-by-Step Integration Guide 
 
 Integrating **Oracle Database@Azure** (Exadata VM Cluster) with **Azure Key Vault** (AKV) allows you to store and manage Oracle Transparent Data Encryption (TDE) master encryption keys(MEK) in Azure’s secure vault, enhancing security and simplifying key lifecycle management.  
 
@@ -29,7 +29,7 @@ Before beginning the integration, ensure the following prerequisites are met:
 
 * **Oracle Database@Azure Provisioned**: 
 You have an **Exadata VM Cluster** deployed in Azure via Oracle Database@Azure. This includes a delegated subnet within an Azure Virtual Network for the Exadata VM Cluster. The cluster is up and running, and you have access to the Oracle Cloud Infrastructure (OCI) console for management. 
-* **Advanced Networking Enabled**: If not already configured, complete the delegated subnet registration as per the [Network planning for Oracle Database@Azure | Microsoft Learn](azure/oracle/oracle-db/oracle-database-network-plan) guide (This ensures the subnet supports Azure Arc and Private Link capabilities.) 
+* **Advanced Networking Enabled**: If not already configured, complete the delegated subnet registration as per the [Network planning for Oracle Database@Azure | Microsoft Learn](/azure/oracle/oracle-db/oracle-database-network-plan) guide (This ensures the subnet supports Azure Arc and Private Link capabilities.) 
 * **Azure Key Vault Private Connectivity**: Private Endpoint for Azure Key Vault has been configured and reachable by Exadata. DNS has also been configured, and endpoints can be resolved from Exadata. 
 * **NAT Gateway**: NAT Gateway must be configured on the delegated subnet to complete the Identity Connector setup. 
 * **Private Link Scope and Private Endpoint configuration for Azure Arc (optional)**: If using Private Link for the Azure Arc agent installation, the Azure Arc Private Link Scope and Private Endpoint must be configured and reachable from Exadata. DNS must also be configured and endpoints resolvable from Exadata. 
@@ -47,7 +47,7 @@ You have an **Exadata VM Cluster** deployed in Azure via Oracle Database@Azure. 
 1. **Create an Azure Key Vault**: You can use the Azure Portal or Azure CLI.  
     * **AKV Standard**: Follow [Azure Key Vault CLI Quickstart](/azure/key-vault/general/quick-create-cli)
     * **AKV Premium**: Same as Standard but select **Premium SKU**
-    * **Managed HSM**: Follow [Managed HSM Quickstart](azure/key-vault/managed-hsm/quick-create-cli) 
+    * **Managed HSM**: Follow [Managed HSM Quickstart](/azure/key-vault/managed-hsm/quick-create-cli) 
 
     Ensure the Key Vault’s region matches the region where Oracle Exadata Database@Azure is deployed (for performance and compliance). You can choose Standard or Premium tier (both support integration). Premium is HSM-backed. If you require a dedicated HSM cluster, use Managed HSM (in that case the creation command is different, as shown commented above, and remember Managed HSM requires private networking). 
 
@@ -125,7 +125,7 @@ Here’s how to create the connector:
         * Enter the Azure Arc Private Link Scope name you created (from Azure portal when setting up private link for Arc; e.g., the resource name of type *Microsoft.HybridCompute/privateLinkScopes*). 
         * Ensure any required DNS or networking for private link is in place as per Microsoft’s docs. (If you are using the simpler NAT approach, you can leave this blank.) 
 
-        :::image type="content" source="media/oracle-identity-connector-info-adv-options.png" alt-text="Screenshot that shows where to find identity connector information"::: 
+        :::image type="content" source="media/oracle-identity-connector-info-adv-options.png" alt-text="Screenshot that shows where to find advanced options for identity connector information"::: 
     * Click Create to create the identity connector. 
    
     The Oracle platform will now use the token to register the Arc agent: 
@@ -241,8 +241,8 @@ Oracle will perform the key migration:
 
 Once done, refresh the Database page and verify that Key Management now shows Azure Key Vault, and it lists the key name/OCID as with a newly created DB. 
 
->[!Important] 
-> *Switching back* from Azure Key Vault to Oracle Wallet is not supported via the OCI console or API. Oracle treats the move to an external KMS as one-way (though technically you could manually export the key and re-import to a wallet if absolutely necessary). The console explicitly does not allow changing from AKV back to local wallet.  
+### Important 
+ *Switching back* from Azure Key Vault to Oracle Wallet is not supported via the OCI console or API. Oracle treats the move to an external KMS as one-way (though technically you could manually export the key and re-import to a wallet if absolutely necessary). The console explicitly does not allow changing from AKV back to local wallet.  
 
 **Pluggable Databases (PDBs)**: If your CDB contains multiple PDBs with TDE enabled, they 	use the CDB’s master key by default. In Oracle 19c, there is a single TDE master key per 	CDB. Starting with Oracle 21c, per-PDB keys are supported. However, you typically only 	need to perform key management at the CDB level, as all PDBs inherit the setting. 
 
@@ -280,7 +280,7 @@ With the integration in place, consider the following for ongoing operations:
     
     :::image type="content" source="media/oracle-rotate-key.png" alt-text="Screenshot that shows where to rotate Azure kay vaults in the OCI console"::: 
     
-    * Rotating via OCI API/CLI: Oracle provides the API RotateVaultKey for this purpose. Using oci CLI, this might be done through a command like oci db database rotate-vault-key --database-id <OCID> (check Oracle’s CLI docs for exact syntax). This triggers the same operation. 
+    * Rotating via OCI API/CLI: Oracle provides the API RotateVaultKey for this purpose. Using oci CLI, this might be done through a command like oci db database rotate-vault-key --database-id &lt;OCID&gt;(check Oracle’s CLI docs for exact syntax). This triggers the same operation. 
 
     * **Do not** rotate by using the Azure Key Vault’s key rotation policy or manually creating a new version in Azure without Oracle’s involvement. Azure would create a new version, but Oracle’s database would be unaware and continue trying to use the old version (since that’s what it has stored as the master key identifier). Always initiate from Oracle’s side, which coordinates with Azure. 
 
