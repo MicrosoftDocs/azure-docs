@@ -77,7 +77,7 @@ Azure provides tools and APIs to assist you in the assessment process. These too
 
 > [!NOTE]
 > Cost data for the open billing period is refreshed every four hours in Azure. At month close, billed charges are typically available within 72 hrs after invoice is issued. Note that your billing period might not necessarily align to a calendar month. Plan automation and reporting accordingly.
-> API rate limits might apply when automating data retrieval. For more information, see [Cost Management API reference](https://learn.microsoft.com/rest/api/cost-management/operation-groups).
+> API rate limits might apply when automating data retrieval. For more information, see [Cost Management API reference](/rest/api/cost-management/operation-groups).
 
 ### Azure onboarding options
 
@@ -235,7 +235,7 @@ For more information, see [Azure Advisor](/azure/advisor/advisor-overview).
 
 VM sizing has a significant affect on your overall Azure cost. The number of VMs needed in Azure might not equate to what you currently have deployed in an on-premises datacenter. Make sure you choose the right size for the workloads that you plan to run.
 
-For more information, see [Azure IaaS: proper sizing and cost](https://learn.microsoft.com/en-us/shows/microsoft-azure-azurecon-2015/acon210).
+For more information, see [Azure IaaS: proper sizing and cost](/shows/microsoft-azure-azurecon-2015/acon210).
 
 ### Use purchase discounts
 
