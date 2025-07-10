@@ -66,7 +66,7 @@ To configure the OpenID Connect provider in Azure, follow these steps:
 
 1. Select **Add** to finish setting up the identity provider.
 
-On the **Authentication** page, **\<oidc_friendly_name> (custom provider)** now appears in the **Identity provider** section. You can edit the provider's settings by selecting its pencil icon under **Edit**.
+On the **Authentication** page, **\<oidc_friendly_name>(custom provider)** now appears in the **Identity provider** section. You can edit the provider's settings by selecting its pencil icon under **Edit**.
 
 The **Authentication settings** section shows settings such as how the application responds to unauthenticated requests. You can edit these settings by selecting **Edit** next to **Authentication settings**. To learn more about the options, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).
 
