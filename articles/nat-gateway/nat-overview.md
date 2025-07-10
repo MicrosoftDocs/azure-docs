@@ -51,7 +51,7 @@ The following steps are an example of how to set up a NAT gateway:
 
 * Assign a public IP address or public IP prefix.
 
-* Configure virtual network subnet to use a NAT gateway.
+* Configure a virtual network subnet to use a NAT gateway.
 
 If necessary, modify Transmission Control Protocol (TCP) idle timeout (optional). Review [timers](/azure/nat-gateway/nat-gateway-resource#idle-timeout-timers) before you change the default. 
 
@@ -88,13 +88,13 @@ A NAT gateway doesn't affect the network bandwidth of your compute resources. Le
 
 * Egress is defined at a per subnet level with NAT gateway. NAT gateway replaces the default Internet destination of a subnet.
 
-* Traffic routing configurations aren't required to use NAT gateway.
+* Traffic routing configurations on a subnet route table aren't required to use NAT gateway.
 
 * NAT gateway allows flows to be created from the virtual network to the services outside your virtual network. Return traffic from the internet is only allowed in response to an active flow. Services outside your virtual network can’t initiate an inbound connection through NAT gateway.
 
 * NAT gateway takes precedence over other outbound connectivity methods, including a load balancer, instance-level public IP addresses, and Azure Firewall.
 
-* When NAT gateway is configured to a virtual network where a different outbound connectivity method already exists, NAT gateway takes over all outbound traffic moving forward. There are no drops in traffic flow for existing connections on Azure Load Balancer. All new connections use NAT gateway.  
+* When NAT gateway is configured to a virtual network where a different outbound connectivity method already exists, NAT gateway takes over all outbound traffic moving forward. There are no drops in traffic flow for existing connections. All new connections use NAT gateway.  
   
 * NAT gateway doesn't have the same limitations of SNAT port exhaustion as does [default outbound access](../virtual-network/ip-services/default-outbound-access.md) and [outbound rules of a load balancer](../load-balancer/outbound-rules.md).
 
@@ -103,7 +103,6 @@ A NAT gateway doesn't affect the network bandwidth of your compute resources. Le
 ### Traffic routes
 
 * The subnet has a [system default route](/azure/virtual-network/virtual-networks-udr-overview#default) that routes traffic with destination 0.0.0.0/0 to the internet automatically. Once NAT gateway is configured to the subnet, communication from the virtual machines existing in the subnet to the internet will prioritize using the public IP of the NAT gateway.
-
 
 * When you create a user defined route (UDR) in your subnet route table for 0.0.0.0/0 traffic, the default internet path for this traffic is overridden. A UDR that sends 0.0.0.0/0 traffic to a virtual appliance or a virtual network gateway (VPN Gateway and ExpressRoute) as the next hop type instead override NAT gateway connectivity to the internet.
 
