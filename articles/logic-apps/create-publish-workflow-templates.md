@@ -5,7 +5,7 @@ services: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/02/2025
+ms.date: 07/10/2025
 #Customer intent: As a developer, I want to create and share workflow templates for use with Azure Logic Apps.
 ---
 
@@ -74,7 +74,9 @@ This guide shows how to create and publish a workflow template in the following 
 
   - [Create an example Standard logic app workflow](create-single-tenant-workflows-azure-portal.md)
 
-- Screenshots that show a read-only preview for the workflow template with **.png** file name extension. These preview images for template appear on the template overview pane in the templates gallery.
+- Screenshots that show read-only preview images for the workflow that the template creates. Use the **.png** file name extension for these screenshots. These preview images for template appear on the template overview pane in the templates gallery.
+
+  To store these images so that your template can use them, you need an [Azure storage account](../storage/common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal) and a [blob container](../storage/blobs/blob-containers-portal.md#create-a-container).
 
   To create these images, follow these steps:
 
@@ -85,6 +87,14 @@ This guide shows how to create and publish a workflow template in the following 
   1. Create the screenshots using your preferred screen capture tool. Don't include too much whitespace around the workflow.
 
   1. Save each image using the **.png** file name extension and a name that follows the [Names and style conventions](#names-style-conventions), for example, **<*image-name*>-light.png** and **<*image-name*>-dark.png**.
+
+  1. Add your images to the blob container in your Azure storage account. Copy and save the blob URL for each image so you can later reference the images from your template.
+
+     > [!IMPORTANT]
+     >
+     > The URL includes a Shared Access Signature (SAS) key or token that grants 
+     > permissions, for example, to storage services. Make sure to protect your SAS 
+     > key just as you protect an account key from unauthorized use.
 
 <a name="workflow-best-practices"></a>
 
@@ -135,9 +145,9 @@ Next, choose the source workflow definition to use for your template.
 
 1. On the template resource menu, under **Template**, select **Template**.
 
-1. On the **Template** page, on the **Workflows** tab, select **Manage workflows**.
+1. On the **Template** page, on the **Workflows** tab, select **Add**.
 
-1. On the **Manage workflows** pane, on the **Choose workflows** tab, provide the following information:
+1. On the **Manage workflows in this template** pane, on the **Choose workflows** tab, provide the following information:
 
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
@@ -153,7 +163,6 @@ Next, choose the source workflow definition to use for your template.
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
    | **Workflow name** | Yes | <*JSON-workflow-name*> | The JSON name for the workflow that can use only lowercase letters, numbers, and hyphens and which you can rename only one time. |
-   | **Workflow display name** | Yes | <*workflow-friendly-name*> | The friendly name that appears in the user interface. |
    | **State** | Yes | **Stateful** or **Stateless** | Whether to save and store workflow run history, operation inputs, and operation outputs, by default. |
    | **Summary** | Yes | <*short-description*> | A short high-level summary about purpose for the template. |
    | **Description** | No | <*detailed-description*> | A description with more detailed information about the template. |
@@ -163,8 +172,8 @@ Next, choose the source workflow definition to use for your template.
 
    | Workflow image | Description |
    |----------------|-------------|
-   | **Light mode image** | The light-themed preview image for your template. |
-   | **Dark mode image** | The dark-themed preview image for your template. |
+   | **Light-mode SAS URL** | The SAS URL for the light-themed workflow preview image stored in a blob container from your Azure storage account. |
+   | **Dark-mode SAS URL** | The SAS URL for the dark-themed workflow preview image stored in a blob container from your Azure storage account. |
 
 1. When you're done, select **Save**.
 
