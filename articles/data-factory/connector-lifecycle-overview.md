@@ -9,7 +9,7 @@ ms.topic: concept-article
 ms.custom:
   - references_regions
   - build-2025
-ms.date: 06/25/2025
+ms.date: 07/10/2025
 ---
 
 # Connector lifecycle overview
@@ -93,7 +93,7 @@ You can find more details from the table below on the connector list that is pla
 | [Impala](connector-impala.md) | Scenario that does not rely on below capability in Impala (version 1.0):<br><br>• Authentication types:<br>&nbsp;&nbsp;• SASL Username |
 | [Hive](connector-hive.md) | Scenario that does not rely on below capability in Hive (version 1.0):<br><br>• Authentication types:<br>&nbsp;&nbsp;• Username<br>• Thrift transport protocol:<br>&nbsp;&nbsp;• HiveServer1<br>• Service discovery mode: True<br>• Use native query: True |
 | [Vertica](connector-vertica.md) | Scenario that does not rely on below capability in Vertica (version 1.0):<br><br>• Linked service that uses Azure integration runtime.<br><br>Automatic upgrade is only applicable when the driver is installed in your machine that installs the self-hosted integration runtime. |
-| [Amazon Redshift](connector-amazon-redshift.md) | Scenario that does not rely on below capability in Amazon Redshift (version 1.0):<br><br>• Linked service that uses Azure integration runtime.<br>• Use [UNLOAD](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)<br><br>Automatic upgrade is only applicable when the driver is installed in your machine that installs the self-hosted integration runtime.|
+| [Amazon Redshift](connector-amazon-redshift.md) | Scenario that does not rely on below capability in Amazon Redshift (version 1.0):<br><br>• Linked service that uses Azure integration runtime.<br>• Use [UNLOAD](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).<br><br>Automatic upgrade is only applicable when the driver is installed in your machine that installs the self-hosted integration runtime.|
 
 
 
