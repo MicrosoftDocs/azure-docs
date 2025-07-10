@@ -41,11 +41,7 @@ You can find more comparisons of plans in [App Service limits](../azure-resource
 
 <a name="new-pricing-tier-premiumv3"></a>
 
-### Pricing tiers
-
 For pricing information, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
-
-To get started with a Premium tier, see [Configure PremiumV4 tier for Azure App Service](app-service-configure-premium-v4-tier.md) or [Configure PremiumV3 tier for Azure App Service](app-service-configure-premium-v3-tier.md).
 
 ## Considerations for running and scaling an app
 
