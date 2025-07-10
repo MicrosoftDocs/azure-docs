@@ -181,7 +181,7 @@ Oracle allows you to register Azure Key Vaults in the OCI console:
 
 * Click on Azure Key Vaults
 
-:::image type="content" source="media/oracle-register-akv.png" alt-text="Screenshot that shows where to Register Azure kay vaults in the OCI console.":::
+:::image type="content" source="media/oracle-register-azure-key-vault.png" alt-text="Screenshot that shows where to Register Azure kay vaults in the OCI console.":::
 
 * Click Register Azure key vaults. In the dialog:
     * Choose the Compartment (the compartment where your Exadata VM Cluster is).
