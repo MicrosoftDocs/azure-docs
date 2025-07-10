@@ -5,7 +5,7 @@ author: cwatson-cat
 ms.author: cwatson
 ms.custom: subject-cost-optimization
 ms.topic: conceptual
-ms.date: 03/07/2024
+ms.date: 07/09/2025
 ms.collection: usx-security
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -18,7 +18,7 @@ appliesto:
 
 # Manage and monitor costs for Microsoft Sentinel
 
-After you've started using Microsoft Sentinel resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. 
+After you've started using Microsoft Sentinel resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. With the data lake, currently in preview, you can also view your usage directly in the Microsoft Defender portal.
 
 Costs for Microsoft Sentinel are only a portion of the monthly costs in your Azure bill. Although this article explains how to manage and monitor costs for Microsoft Sentinel, you're billed for all Azure services and resources your Azure subscription uses, including Partner services.
 
@@ -161,7 +161,7 @@ On the overview page, you can find entry points to relevant cost tracking capabi
 
 #### Usage reports
 
-When clicking on one of the capabilities under **Currently billed capabilities**, a usage report displays a trend line of your billable usage for that capability.
+When clicking on one of the capabilities under **Usage reports**, a usage report displays a trend line of your billable usage for that capability.
 Data is shown for the last 90 days. You can use a filter to adjust the default single month time window. A card shows your total usage for the filtered time period. If enough historic data is available, the trend change compared to the previous period is displayed.
 
 :::image type="content" source="media/billing-monitor-costs/usage-report.png" alt-text="Screenshot of a cost management in the Microsoft Defender portal showing a usage graph for data lake ingestion." lightbox="media/billing-monitor-costs/usage-report.png":::

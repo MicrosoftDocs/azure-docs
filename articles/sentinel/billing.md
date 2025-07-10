@@ -79,9 +79,18 @@ Once onboarded, usage from Microsoft Sentinel workspaces begins to be billed thr
 
 >[!IMPORTANT]
 >While in Public Preview, once onboarded to the Microsoft Sentinel data lake, billing through new meters will be billed at the respective meters' list rate. Pricing from previous meters doesn't carry over. For more details on pricing, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
+>Existing customers that are currently billed for Auxiliary logs ingestion, long-term retention and search, will see charges transition to the new data lake ingestion, data lake storage and data lake query meters respectively.
 
 For customers that haven't onboarded to the Microsoft Sentinel data lake and are currently using Auxiliary or Basic logs, see [Manage data retention in a Log Analytics workspace](/azure/azure-monitor/logs/data-retention-archive) and [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for relevant information.
 
+##### Public preview specific considerations for data lake tier metering
+
+The following are consideration that are going to apply during Public Preview:
+- Data lake ingestion includes 30-days of retention, **except for asset data** ingested into the lake tier.
+- While long-term retention billing will transition to the data lake storage meter for existing customers, data in long-term retention will initially only be accessible through **Microsoft Sentinel > Data lake explroation > Search & restore**.
+- Charges for data lake usage will show in part under a workspace resource and in part under a SentinelPlatformServices resource.
+- Data written to analytics tier using jobs will be charged through the analytics ingestion meter.
+  
 ### Simplified pricing tiers
 
 Simplified pricing tiers combine the data analysis costs for Microsoft Sentinel and ingestion storage costs of Log Analytics into a single pricing tier. The following screenshot shows the simplified pricing tier that all new workspaces use.
@@ -195,14 +204,14 @@ Learn about pricing for these services:
 
 Any other services you use might have associated costs.
 
-## Interactive and long-term data retention costs
+## Interactive and total data retention costs
 
 After you enable Microsoft Sentinel on a Log Analytics workspace, consider these configuration options: 
 
 - Retain all data ingested into the workspace at no charge for the first 90 days. Retention beyond 90 days is charged per the standard [Log Analytics retention prices](https://azure.microsoft.com/pricing/details/monitor/).
 - Specify different retention settings for individual data types. Learn about [retention by data type](/azure/azure-monitor/logs/data-retention-configure#configure-table-level-retention). 
-- Enable long-term retention for your data so you have access to historical logs. Long-term retention is a low-cost retention state for the preservation of data for such things as regulatory compliance. It's charged based on the volume of data stored and scanned. Learn how to [configure interactive and long-term data retention policies in Azure Monitor Logs](/azure/azure-monitor/logs/data-retention-configure). 
-- Enroll tables that contain secondary security data in the **Auxiliary logs** plan. This plan allows you to store high-volume, low-value logs at a low price, with a lower-cost 30-day interactive retention period at the beginning to allow for summarization and basic querying. To learn more about the Auxiliary logs plan and other plans, see [Log retention plans in Microsoft Sentinel](log-plans.md).
+- Extend retention of data with total retention so you have access to historical logs. The Microsoft Sentinel data lake, currently in preview, is a low-cost retention state for the preservation of data for such things as regulatory compliance. It's charged based on the volume of data stored and scanned. Use **Data management > Tables** to adjust the Analytics and Total retention period and learn more in [What is Microsoft Sentinel data lake?](/azure/sentinel/graph/sentinel-lake-overview.md). 
+- Switch tables that contain secondary security data to **Lake tier**. This enables you to store high-volume, low-value logs at a low price, with querying capabilities built in. Use **Data management > Tables** to switch tables from **Analytics** to **Lake** tier.
 
 ## Other CEF ingestion costs
 
