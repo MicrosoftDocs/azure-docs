@@ -54,7 +54,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 
 ### Americas
 
-| Country/Region         | Route directions, route range, route matrix & snap to roads  | Real-time traffic | Truck route |
+| Country/Region         | Route Directions, Route Range, Route Matrix & Snap to Roads  | Real-time traffic | Truck route |
 |----------------------------------------|:---------------------------------:|:-----------------:|:-----------:|
 | Anguilla                               |                ✓                  |                   |             |
 | Antigua & Barbuda                      |                ✓                  |                   |             |
@@ -116,7 +116,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 
 ### Asia Pacific
 
-| Country/Region         | Route directions, route range, route matrix & snap to roads | Real-time Traffic | Truck Route |
+| Country/Region         | Route Directions, Route Range, Route Matrix & Snap to Roads | Real-time Traffic | Truck Route |
 |----------------------------------------|:---------------------------------:|:-----------------:|:-----------:|
 | American Samoa                         |                ✓                  |                   |             |
 | Australia                              |                ✓                  |         ✓         |     ✓      |
@@ -124,7 +124,6 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Bhutan<sup>1</sup>                     |                ✓                  |                   |             |
 | Brunei                                 |                ✓                  |         ✓         |             |
 | Cambodia                               |                ✓                  |                   |             |
-| China<sup>4</sup>                      |                ✓                  |                   |             |
 | Christmas Island                       |                ✓                  |                   |             |
 | Cocos (Keeling) Islands<sup>1</sup>    |                ✓                  |                   |             |
 | Comoros<sup>1</sup>                    |                ✓                  |                   |             |
@@ -132,12 +131,13 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Fiji                                   |                ✓                  |                   |             |
 | French Polynesia<sup>1</sup>           |                ✓                  |                   |             |
 | Guam                                   |                ✓                  |                   |             |
-| Hong Kong SAR                          |                ✓                  |         ✓         |             |
+| Hong Kong SAR China                    |                ✓                  |         ✓         |             |
 | India                                  |                ✓                  |         ✓         |             |
 | Indonesia                              |                ✓                  |         ✓         |     ✓      |
 | Kiribati<sup>1</sup>                   |                ✓                  |                   |             |
 | Laos                                   |                ✓                  |                   |             |
 | Macao SAR                              |                ✓                  |         ✓         |             |
+| Macao SAR China                        |                ✓                  |                   |             |
 | Malaysia                               |                ✓                  |         ✓         |      ✓     |
 | Micronesia<sup>1</sup>                 |                ✓                  |                   |             |
 | Mongolia<sup>1</sup>                   |                ✓                  |                   |             |
@@ -148,7 +148,6 @@ The following tables provide coverage information for version 1 of the Azure Map
 | New Zealand                            |                ✓                  |         ✓         |     ✓      |
 | Niue<sup>1</sup>                       |                ✓                  |                   |             |
 | Norfolk Island<sup>1</sup>             |                ✓                  |                   |             |
-| North Korea<sup>1 2</sup>              |               ✓                   |                   |             |
 | Northern Mariana Islands               |                ✓                  |                   |             |
 | Pakistan<sup>1</sup>                   |                ✓                  |                   |             |
 | Palau<sup>1</sup>                      |                ✓                  |                   |             |
@@ -176,11 +175,9 @@ The following tables provide coverage information for version 1 of the Azure Map
 
 <sup>3</sup> Coverage is dependent on enabling data processing in South Korea. For more information, see [Configure global data processing](how-to-manage-consent.md).
 
-<sup>4</sup> <!--(Placeholder - real text is coming soon) Route information is unavailable for China when in China.-->
-
 ### Europe
 
-| Country/Region         | Route directions, route range, route matrix & snap to roads | Real-time Traffic | Truck Route |
+| Country/Region         | Route Directions, Route Range, Route Matrix & Snap to Roads | Real-time Traffic | Truck Route |
 |----------------------------------------|:---------------------------------:|:-----------------:|:-----------:|
 | Albania                                |                ✓                  |                   |     ✓       |
 | Andorra                                |                ✓                  |         ✓         |     ✓      |
@@ -248,7 +245,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 
 ### Middle East & Africa
 
-| Country/Region         | Route directions, route range, route matrix & snap to roads | Real-time Traffic | Truck Route |
+| Country/Region         | Route Directions, Route Range, Route Matrix & Snap to Roads | Real-time Traffic | Truck Route |
 |----------------------------------------|:---------------------------------:|:-----------------:|:-----------:|
 | Afghanistan<sup>1</sup>                |                ✓                  |                   |             |
 | Algeria                                |                ✓                  |                   |             |
