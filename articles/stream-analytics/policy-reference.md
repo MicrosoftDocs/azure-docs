@@ -20,7 +20,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure Stream Analytics
 
-[!INCLUDE [azure-policy-reference-rp-streamanalytics](../../includes/policy/reference/byrp/microsoft.streamanalytics.md)]
+[!INCLUDE [azure-policy-reference-rp-streamanalytics](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.streamanalytics.md)]
 
 ## Next steps
 

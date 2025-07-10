@@ -174,8 +174,7 @@ With JSON, you can have literal values that exist at design time, for example:
 You can also have values that don't exist until run time. To represent these values, you can use *expressions*, which are evaluated at run time. An expression is a sequence that can contain one or more [functions](#functions), 
 [operators](#operators), [variables](logic-apps-create-variables-store-values.md), explicit values, or constants. In your workflow definition, you can use an expression anywhere in a JSON string value by prefixing the expression with the at-sign (\@). When evaluating an expression that represents a JSON value, the expression body is extracted by removing the \@ character, and always results in another JSON value.
 
-For example, for the previously defined `customerName` property, you can get the property value by using the [parameters()](workflow-definition-language-functions-reference.md#parameters) 
-function in an expression and assign that value to the `accountName` property:
+For example, for the previously defined `customerName` property, you can get the property value by using the [**parameters()** function](expression-functions-reference.md#parameters) in an expression and assign that value to the `accountName` property:
 
 ```json
 "customerName": "Sophia Owen",
@@ -295,9 +294,9 @@ In [expressions](#expressions) and [functions](#functions), operators perform sp
 
 ## Functions
 
-Some expressions get their values from runtime actions that might not yet exist when your workflow definition starts to run. To reference or work with these values in expressions, you can use [*functions*](../logic-apps/workflow-definition-language-functions-reference.md) that the Workflow Definition Language provides.
+Some expressions get their values from runtime actions that might not yet exist when your workflow definition starts to run. To reference or work with these values in expressions, you can use [*functions*](expression-functions-reference.md) that the Workflow Definition Language provides.
 
-## Next steps
+## Related content
 
-* Learn about [Workflow Definition Language actions and triggers](logic-apps-workflow-actions-triggers.md)
-* Learn about programmatically creating and managing logic apps with the [Workflow REST API](/rest/api/logic/workflows)
+* [Workflow Definition Language actions and triggers](logic-apps-workflow-actions-triggers.md)
+* [Workflow REST API](/rest/api/logic/workflows)

@@ -8,6 +8,7 @@ ms.service: azure-load-balancer
 ms.topic: concept-article
 ms.date: 07/31/2024
 ms.author: mbender
+# Customer intent: "As a network administrator, I want to enable TCP resets on idle timeout for load balancer rules, so that I can enhance application responsiveness by promptly notifying endpoints of closed connections."
 ---
 
 # Load Balancer TCP Reset and Idle Timeout

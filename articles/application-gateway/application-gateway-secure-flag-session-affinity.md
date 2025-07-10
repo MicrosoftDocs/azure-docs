@@ -8,6 +8,7 @@ ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 10/22/2024
 ms.author: jaysoni 
+# Customer intent: As an application manager, I want to configure the Secure and HttpOnly flags for the Session Affinity cookie in my Application Gateway, so that I can enhance the security of user sessions and protect against cross-site scripting attacks.
 ---
 
 # Setting HTTPOnly or Secure flag for Session Affinity cookie

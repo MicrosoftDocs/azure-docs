@@ -9,6 +9,7 @@ ms.date: 06/13/2025
 ms.service: azure-blob-storage
 ms.topic: conceptual 
 
+# Customer intent: As a storage administrator, I want to monitor the execution of lifecycle management policies, so that I can quickly identify and resolve any operational issues affecting blob storage management.
 ---
 
 # Monitor lifecycle management policy runs

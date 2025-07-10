@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/14/2022
 ms.author: shaas
 
+# Customer intent: "As a data engineer, I want to repair an Azure export job using the Import/Export Tool, so that I can ensure all files are successfully exported and validate the integrity of the data transferred to Azure storage."
 ---
 # Repairing an export job
 

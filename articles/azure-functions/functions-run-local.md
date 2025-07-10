@@ -347,6 +347,9 @@ The following considerations apply when using the administrator endpoint for loc
 
 + Calling an administrator endpoint and passing test data is similar to using the **Test** tab in the Azure portal.
 
++ If the input is a complex JSON object, additional formatting is needed. The data must be properly escaped and include a `SystemProperties` object. 
+This example shows a properly escaped JSON string with both a `testData` object and `SystemProperties`:   
+`'{"input": "{\"SystemProperties\":{},\"testData\":{\"testid\":\"123\"}"}'`
 ### [Event Grid trigger](#tab/event-grid-trigger)
 
 Event Grid triggers have specific requirements to enable local testing. For more information, see [Local testing with viewer web app](event-grid-how-tos.md#local-testing-with-viewer-web-app).
@@ -426,7 +429,7 @@ When you deploy to an Azure Container Apps environment, the following considerat
 
 + Storage connection strings and other service credentials are important secrets. Make sure to securely store any script files using `func azurecontainerapps deploy` and don't store them in any publicly accessible source control systems. You can [encrypt the local.settings.json file](#encrypt-the-local-settings-file) for added security.
 
-For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md). 
+For more information, see [Azure Container Apps hosting of Azure Functions](../azure-functions/functions-container-apps-hosting.md). 
 
 ### [Kubernetes cluster](#tab/kubernetes)
 

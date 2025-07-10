@@ -6,6 +6,7 @@ ms.service: azure-dns
 ms.topic: how-to
 ms.date: 01/27/2025
 ms.author: allensu
+# Customer intent: As a DNS administrator, I want to unsign my Azure Public DNS zone by removing DNSSEC, so that I can manage the DNS configurations without the security extensions in place.
 ---
 
 # How to unsign your Azure Public DNS zone

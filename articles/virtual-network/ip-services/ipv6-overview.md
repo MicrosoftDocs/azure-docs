@@ -7,6 +7,7 @@ ms.author: mbender
 ms.date: 10/16/2024
 ms.service: azure-virtual-network
 ms.topic: concept-article
+# Customer intent: "As a network administrator, I want to implement dual stack (IPv4/IPv6) connectivity in Azure Virtual Network, so that I can support modern applications and IoT devices while ensuring compatibility with existing IPv4 infrastructure."
 ---
 
 # What is IPv6 for Azure Virtual Network?

@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.reviewer: prishet
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
+# Customer intent: As a .NET developer, I want to manage directories and files in Azure Data Lake Storage using the client library, so that I can efficiently organize and access large amounts of data in my applications.
 ---
 
 # Use .NET to manage directories and files in Azure Data Lake Storage

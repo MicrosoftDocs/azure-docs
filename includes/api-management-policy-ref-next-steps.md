@@ -14,6 +14,7 @@ For more information about working with policies, see:
 + [Policy expressions](../articles/api-management/api-management-policy-expressions.md)
 + [Set or edit policies](../articles/api-management/set-edit-policies.md)
 + [Reuse policy configurations](../articles/api-management/policy-fragments.md)
-+ [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)	
++ [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)
++ [Policy playground repo](https://github.com/Azure-Samples/Apim-Samples)	
 + [Azure API Management policy toolkit](https://github.com/Azure/azure-api-management-policy-toolkit/)
 + [Get Copilot assistance to create, explain, and troubleshoot policies](/azure/copilot/author-api-management-policies?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)

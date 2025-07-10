@@ -7,6 +7,7 @@ ms.custom: references_regions
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to understand the support matrix for backing up SAP HANA on Azure VMs, so that I can ensure compliance with supported configurations and optimize my backup strategy.
 ---
 
 # Support matrix for backup of SAP HANA databases on Azure VMs

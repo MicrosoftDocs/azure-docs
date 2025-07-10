@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.date: 01/31/2025
 ms.author: duau
 ms.custom: devx-track-azurecli, mode-api
+# Customer intent: As a network engineer, I want to create and manage an ExpressRoute circuit using the command line interface, so that I can efficiently provision, update, and monitor my organization's dedicated connection to Azure.
 ---
 
 # Quickstart: Create and modify an ExpressRoute circuit using Azure CLI

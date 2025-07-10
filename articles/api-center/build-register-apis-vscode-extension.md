@@ -5,6 +5,7 @@ author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 05/28/2025
+ms.update-cycle: 180-days
 ms.author: danlep 
 ms.collection: ce-skilling-ai-copilot
 ms.custom: 
@@ -54,9 +55,6 @@ Learn more about setting up a [GitHub Actions workflow](register-apis-github-act
 ## Generate OpenAPI spec from API code 
  
 Use the power of [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) with the Azure API Center extension for Visual Studio Code to create an OpenAPI specification file from your API code. Right-click on the API code, select **Copilot** from the options, and select **Generate API documentation**. GitHub Copilot creates an OpenAPI specification file.
-
-> [!NOTE]
-> This feature is available in the pre-release version of the API Center extension.
 
 :::image type="content" source="media/build-register-apis-vscode-extension/generate-api-documentation.gif" alt-text="Animation showing how to use GitHub Copilot to generate an OpenAPI spec from code." lightbox="media/build-register-apis-vscode-extension/generate-api-documentation.gif":::
 
