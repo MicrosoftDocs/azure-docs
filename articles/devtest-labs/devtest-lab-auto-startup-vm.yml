@@ -30,7 +30,7 @@ procedureSection:
       - |
         On your lab **Overview** page, select **Configuration and policies** under **Settings** in the left navigation.
 
-        :::image type="content" source="./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png" alt-text="Screenshot that shows selecting Configuration and policies in the left navigation menu." lightbox=""./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png":::
+        :::image type="content" source="./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png" alt-text="Screenshot that shows selecting Configuration and policies in the left navigation menu." lightbox="./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png":::
       - |
         On the **Configuration and policies** page, select **Auto-start** under **Schedules** in the left navigation.
       - |
