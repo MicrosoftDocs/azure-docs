@@ -1,6 +1,6 @@
 ---
 title: Configure App Service Environment plans for reliability
-description: Learn how to configure your App Service plan for reliability by using availability zones and zone redundancy
+description: Learn how to configure your App Service Environment plan for reliability by using availability zones and zone redundancy
 ms.topic: concept
 ms.service: azure-app-service
 ms.date: 07/09/2025
@@ -22,6 +22,9 @@ If you don't have a pre-existing zone-redundant App Service Environment, [Create
 
 To create a new App Service Environment plan with zone redundancy, you can use the Azure CLI, or Bicep/Resource Manager templates:
 
+# [Azure portal](#tab/portal)
+
+?
 
 # [Azure CLI](#tab/azurecli)
 
