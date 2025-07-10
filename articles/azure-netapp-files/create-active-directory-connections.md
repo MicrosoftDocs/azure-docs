@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 05/09/2025
+ms.date: 07/10/2025
 ms.author: anfdocs
 # Customer intent: As an Azure NetApp Files administrator, I want to create and manage Active Directory connections, so that I can enable proper authentication and access control for my SMB and NFS volumes.
 ---
@@ -32,6 +32,19 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
 * The AD connection admin account supports Kerberos AES-128 and Kerberos AES-256 encryption types for authentication with AD DS for Azure NetApp Files computer account creation (for example, AD domain join operations).
 
+* To enable AES encryption, you should first enable AES-128, AES-256, RC4, and DES encryption types on Active Directory (AD) then enable AES on the control plane. You must enable encryption in Active Directory first. 
+
+* To enable AES encryption support for the admin account in the AD connection, run the following Active Directory PowerShell commands:
+
+    ```powershell
+    Get-ADUser -Identity <ANF AD connection account username>
+    Set-ADUser -KerberosEncryptionType <encryption_type>
+    ```
+
+    `KerberosEncryptionType` is a multivalued parameter that supports the values DES, RC4, AES-128, and AES-256. 
+
+    For more information, refer to the [Set-ADUser documentation](/powershell/module/activedirectory/set-aduser).
+
 * To enable the AES encryption on the Azure NetApp Files AD connection admin account, you must use an AD domain user account that is a member of one of the following AD DS groups: 
 
     * Domain Admins 
@@ -45,17 +58,6 @@ Several features of Azure NetApp Files require that you have an Active Directory
     >When you modify the setting to enable AES on the AD connection admin account, it is a best practice to use a user account that has write permission to the AD object that is not the Azure NetApp Files AD admin. You can do so with another domain admin account or by delegating control to an account. For more information, see [Delegating Administration by Using OU Objects](/windows-server/identity/ad-ds/plan/delegating-administration-by-using-ou-objects). 
 
     If you set both AES-128 and AES-256 Kerberos encryption on the admin account of the AD connection, the Windows client negotiates the highest level of encryption supported by your AD DS. For example, if both AES-128 and AES-256 are supported, and the client supports AES-256, then AES-256 will be used.
-
-* To enable AES encryption support for the admin account in the AD connection, run the following Active Directory PowerShell commands:
-
-    ```powershell
-    Get-ADUser -Identity <ANF AD connection account username>
-    Set-ADUser -KerberosEncryptionType <encryption_type>
-    ```
-
-    `KerberosEncryptionType` is a multivalued parameter that supports AES-128 and AES-256 values. 
-
-    For more information, refer to the [Set-ADUser documentation](/powershell/module/activedirectory/set-aduser).
 
 * If you have a requirement to enable and disable certain Kerberos encryption types for Active Directory computer accounts for domain-joined Windows hosts used with Azure NetApp Files, you must use the Group Policy  `Network Security: Configure Encryption types allowed for Kerberos`.
 
