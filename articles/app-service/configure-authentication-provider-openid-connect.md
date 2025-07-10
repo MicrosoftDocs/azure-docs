@@ -20,12 +20,14 @@ You can configure your app to use one or more OIDC providers. You must give each
 
 ## <a name="register"> </a>Register your app with the OIDC identity provider
 
-Your provider requires you to register your application by specifying a redirect URI in the form `<app-url>/.auth/login/<provider-name>/callback`. Replace `<app-url>` with your app URL and `<provider-name>` with the friendly name you are giving the OpenID provider in Azure.
+Your provider requires you to register your application by specifying a redirect URI in the form `<app-url>/.auth/login/<provider-name>/callback`. In the redirect URI, replace `<app-url>` with your app URL and `<provider-name>` with the friendly name you're giving the OpenID provider in Azure.
 
 > [!NOTE]
 > The OpenID provider name can't contain a hyphen `-`, because an App Service application setting is created based on this name, and application settings don't support hyphens. You can use an underscore `_` instead.
 
-When you register your app, you need to collect a *client ID* and a *client secret* for your application. Your app needs to provide the client secret if you want users to acquire access tokens using the interactive authorization code flow. If you don't want to acquire access tokens, you don't need to use a secret.
+When you register your app, you need to collect a *client ID* and a *client secret* for your application. Make a note of these values to use in the Azure app configuration.
+
+Your app needs to provide the client secret if you want users to acquire access tokens using the interactive authorization code flow. If you don't want to acquire access tokens, you don't need to use a secret.
 
 > [!IMPORTANT]
 > The client secret value is an important security credential. Don't share this secret with anyone or distribute it within a client application.
@@ -34,7 +36,7 @@ Each identity provider should provide instructions on how to complete the regist
 
 You also need the provider's OIDC metadata. This metadata is often exposed in a [configuration metadata document](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig) that you can get at the path formed by appending `/.well-known/openid-configuration` to the provider's issuer URL.
 
-If you can't use a configuration metadata document, get the following values separately:
+If you can't access a configuration metadata document, get the following values separately:
 
 - The issuer URL, sometimes shown as `issuer`.
 - The [OAuth 2.0 authorization endpoint](https://tools.ietf.org/html/rfc6749#section-3.1), sometimes shown as `authorization_endpoint`.
@@ -59,17 +61,15 @@ To configure the OpenID Connect provider in Azure, follow these steps:
 
 1. Under **App registration**, provide the values you collected earlier for **Client ID** and **Client secret**.
 
-1. If this is the first identity provider for the application, the **App Service authentication settings** section appears with settings such as how your application responds to unauthenticated requests. If you already configured an identity provider for the app, this section doesn't appear.
-
-   The default selections redirect all requests to sign in with the new provider. You can customize this behavior now or later.
+1. If this is the first identity provider for the application, the **App Service authentication settings** section appears with settings such as how your application responds to unauthenticated requests. If you already configured an identity provider for the app, this section doesn't appear. The default selections redirect all requests to sign in with the new provider. You can customize this behavior now or later.
 
 1. Select **Add** to finish setting up the identity provider.
 
 On the **Authentication** page, the OIDC provider friendly name appended with **(custom provider)** now appears in the **Identity provider** section. You can edit the settings by selecting the provider's pencil icon under **Edit**.
 
-The **Authentication settings** section shows settings such as how the application responds to unauthenticated requests. The default selections redirect all requests to sign in with the new provider. You can edit these settings by selecting **Edit** next to **Authentication settings**. To learn more about the options, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).
+The **Authentication settings** section shows settings such as how the application responds to unauthenticated requests. You can edit these settings by selecting **Edit** next to **Authentication settings**. To learn more about the options, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).
 
-The application secret is stored as a slot-sticky [application setting](configure-common.md#configure-app-settings) named `<friendly_name>_AUTHENTICATION_SECRET`. You can see the setting on the **App Settings** tab of your app's **Environment variables** page in the portal. If you want to manage the secret in Azure Key Vault, you can edit the setting to use [Key Vault references](app-service-key-vault-references.md).
+The application secret is stored as a slot-sticky [application setting](configure-common.md#configure-app-settings) named `<oidc_friendly_name>_AUTHENTICATION_SECRET`. You can see the setting on the **App Settings** tab of your app's **Environment variables** page in the portal. If you want to manage the secret in Azure Key Vault, you can edit the setting to use [Key Vault references](app-service-key-vault-references.md).
 
 >[!NOTE]
 >To add scopes, define the permissions your application has in the provider's registration portal. The app can request scopes that use these permissions at sign-in time.
