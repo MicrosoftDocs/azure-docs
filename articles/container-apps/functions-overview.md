@@ -114,7 +114,7 @@ For other bindings, use fixed replicas when using managed identity authenticatio
 Azure Functions on ACA scale automatically based on events using KEDA, with no need to configure scale rules manually. You can still set min/max replicas to control scaling behavior.
 
 - **Event-driven scaling**: Automatically scales based on triggers like Event Grid, Service Bus, or HTTP.
-- **Scale to zero**: Idle apps scale down to zero to save costs.
+- **Scale to zero**: Idle apps scale-in to zero to save costs.
 - **Cold start control**: Avoid cold starts by setting minReplicas ≥ 1.
 - **Concurrency**: Each instance can process multiple events in parallel.
 - **High scale**: Scale up to 1000 instances per app (default is 10).
