@@ -434,7 +434,7 @@ If a container or directory is deleted with soft-delete enabled, then the contai
 
 Only blobs that are explicitly deleted appear in reports. Therefore, to obtain a complete listing of all soft-deleted blobs (directory and all child blobs), workloads should delete each blob in a directory before deleting the directory itself.
 
-### Handling Duplicates in Blob Inventory
+### Handling duplicates in Blob Inventory
 
 Blob Inventory operates on a distributed system, which means that in rare cases, duplicate blob entries may appear in your reports.
 
