@@ -61,7 +61,7 @@ Change arrow styles to include a double hyphen to make it work in the markdown m
 ```
 -->
 
-:::image type="content" source="media/iot-edge-as-gateway/edge-gateway-relationship.svg" alt-text="Diagram showing the device parent and child relationship using IoT Edge as a gateway":::
+:::image type="content" source="media/iot-edge-as-gateway/edge-gateway-relationship.svg" alt-text="Diagram showing the device parent and child relationship using IoT Edge as a gateway.":::
 
 ### Parent and child relationships
 
