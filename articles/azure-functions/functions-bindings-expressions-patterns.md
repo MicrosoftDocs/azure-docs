@@ -1,6 +1,6 @@
 ---
-title: Azure Functions bindings expressions and patterns
-description: Learn to create different Azure Functions binding expressions based on common patterns.
+title: Azure Functions Bindings Expressions and Patterns
+description: Learn how to create various Azure Functions binding expressions based on common patterns.
 
 ms.topic: reference
 ms.devlang: csharp
@@ -8,35 +8,26 @@ ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ---
 
-# Azure Functions binding expression patterns
+# Azure Functions binding expressions and patterns
 
-One of the most powerful features of [triggers and bindings](./functions-triggers-bindings.md) is *binding expressions*. In the *function.json* file and in function parameters and code, you can use expressions that resolve to values from various sources.
+One of the most powerful features of [triggers and bindings](./functions-triggers-bindings.md) in Azure Functions is *binding expressions*. In the `function.json` file and in function parameters and code, you can use expressions that resolve to values from various sources.
 
-Most expressions are identified by wrapping them in curly braces. For example, in a queue trigger function, `{queueTrigger}` resolves to the queue message text. If the `path` property for a blob output binding is `container/{queueTrigger}` and the function is triggered by a queue message `HelloWorld`, a blob named `HelloWorld` is created.
+Most expressions are wrapped in curly braces. For example, in a queue trigger function, `{queueTrigger}` resolves to the queue message text. If the `path` property for a blob output binding is `container/{queueTrigger}` and a queue message `HelloWorld` triggers the function, a blob named `HelloWorld` is created.
 
-Types of binding expressions
+## App settings
 
-* [App settings](#binding-expressions---app-settings)
-* [Trigger file name](#trigger-file-name)
-* [Trigger metadata](#trigger-metadata)
-* [JSON payloads](#json-payloads)
-* [New GUID](#create-guids)
-* [Current date and time](#current-time)
+It's a best practice, to manage secrets and connection strings by using app settings rather than configuration files. This practice limits access to these secrets and makes it safe to store files such as `function.json` in public source-control repositories.
 
-## Binding expressions - app settings
+App settings are also useful whenever you want to change configuration based on the environment. For example, in a test environment, you might want to monitor a different queue or blob storage container.
 
-As a best practice, secrets and connection strings should be managed using app settings, rather than configuration files. This limits access to these secrets and makes it safe to store files such as *function.json* in public source control repositories.
+Binding expressions for app settings are identified differently from other binding expressions: they're wrapped in percent signs rather than curly braces. For example, if the path for a blob output binding is `%Environment%/newblob.txt` and the `Environment` app setting value is `Development`, a blob is created in the `Development` container.
 
-App settings are also useful whenever you want to change configuration based on the environment. For example, in a test environment, you may want to monitor a different queue or blob storage container.
-
-App setting binding expressions are identified differently from other binding expressions: they are wrapped in percent signs rather than curly braces. For example if the blob output binding path is `%Environment%/newblob.txt` and the `Environment` app setting value is `Development`, a blob will be created in the `Development` container.
-
-When a function is running locally, app setting values come from the *local.settings.json* file.
+When a function is running locally, values for app settings come from the `local.settings.json` file.
 
 > [!NOTE]
-> The `connection` property of triggers and bindings is a special case and automatically resolves values as app settings, without percent signs. 
+> The `connection` property of triggers and bindings is a special case and automatically resolves values as app settings, without percent signs.
 
-The following example is an Azure Queue Storage trigger that uses an app setting `%input_queue_name%` to define the queue to trigger on.
+The following example is an Azure Queue Storage trigger that uses an app setting `%input_queue_name%` to define the queue to trigger on:
 
 ```json
 {
@@ -112,7 +103,7 @@ public static void Run(Stream image, string filename, Stream imageSmall, ILogger
 <!--TODO: add JavaScript example -->
 <!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
 
-The same ability to use binding expressions and patterns applies to attributes in class libraries. In the following example, the attribute constructor parameters are the same `path` values as the preceding *function.json* examples: 
+The same ability to use binding expressions and patterns applies to attributes in class libraries. In the following example, the attribute constructor parameters are the same `path` values as the preceding `function.json` examples:
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -144,7 +135,7 @@ For more information on how to use expressions and patterns in the Blob path str
 
 ## Trigger metadata
 
-In addition to the data payload provided by a trigger (such as the content of the queue message that triggered a function), many triggers provide additional metadata values. These values can be used as input parameters in C# and F# or properties on the `context.bindings` object in JavaScript. 
+In addition to the data payload provided by a trigger (such as the content of the queue message that triggered a function), many triggers provide additional metadata values. These values can be used as input parameters in C# and F# or properties on the `context.bindings` object in JavaScript.
 
 For example, an Azure Queue storage trigger supports the following properties:
 
@@ -156,7 +147,7 @@ For example, an Azure Queue storage trigger supports the following properties:
 * NextVisibleTime
 * PopReceipt
 
-These metadata values are accessible in *function.json* file properties. For example, suppose you use a queue trigger and the queue message contains the name of a blob you want to read. In the *function.json* file, you can use `queueTrigger` metadata property in the blob `path` property, as shown in the following example:
+These metadata values are accessible in `function.json` file properties. For example, suppose you use a queue trigger and the queue message contains the name of a blob you want to read. In the `function.json` file, you can use `queueTrigger` metadata property in the blob `path` property, as shown in the following example:
 
 ```json
 {
@@ -182,9 +173,9 @@ Details of metadata properties for each trigger are described in the correspondi
 
 ## JSON payloads
 
- In some scenarios, you can refer to the trigger payload's properties in configuration for other bindings in the same function and in function code. This requires that the trigger payload is JSON and is smaller than a threshold specific to each trigger. Typically, the payload size needs to be less than 100MB, but you should check the reference content for each trigger. Using trigger payload properties may impact the performance of your application, and it forces the trigger parameter type to be simple types like strings or a custom object type representing JSON data. It cannot be used with streams, clients, or other SDK types.
+In some scenarios, you can refer to the trigger payload's properties in configuration for other bindings in the same function and in function code. This requires that the trigger payload is JSON and is smaller than a threshold specific to each trigger. Typically, the payload size needs to be less than 100MB, but you should check the reference content for each trigger. Using trigger payload properties might impact the performance of your application, and it forces the trigger parameter type to be simple types like strings or a custom object type representing JSON data. It cannot be used with streams, clients, or other SDK types.
 
-The following example shows the *function.json* file for a webhook function that receives a blob name in JSON: `{"BlobName":"HelloWorld.txt"}`. A Blob input binding reads the blob, and the HTTP output binding returns the blob contents in the HTTP response. Notice that the Blob input binding gets the blob name by referring directly to the `BlobName` property (`"path": "strings/{BlobName}"`)
+The following example shows the `function.json` file for a webhook function that receives a blob name in JSON: `{"BlobName":"HelloWorld.txt"}`. A Blob input binding reads the blob, and the HTTP output binding returns the blob contents in the HTTP response. Notice that the Blob input binding gets the blob name by referring directly to the `BlobName` property (`"path": "strings/{BlobName}"`)
 
 ```json
 {
@@ -288,7 +279,7 @@ public class BlobName
 }
 ```
 
-## Create GUIDs
+## New GUIDs
 
 The `{rand-guid}` binding expression creates a GUID. The following blob path in a `function.json` file creates a blob with a name like *50710cb5-84b9-4d87-9d83-a03d6976a682.txt*.
 
@@ -301,7 +292,7 @@ The `{rand-guid}` binding expression creates a GUID. The following blob path in 
 }
 ```
 
-## Current time
+## Current date and time
 
 The binding expression `DateTime` resolves to `DateTime.UtcNow`. The following blob path in a `function.json` file creates a blob with a name like *2018-02-16T17-59-55Z.txt*.
 
@@ -313,10 +304,11 @@ The binding expression `DateTime` resolves to `DateTime.UtcNow`. The following b
   "path": "my-output-container/{DateTime}.txt"
 }
 ```
+
 ## Binding at runtime
 
-In C# and other .NET languages, you can use an imperative binding pattern, as opposed to the declarative bindings in *function.json* and attributes. Imperative binding is useful when binding parameters need to be computed at runtime rather than design time. To learn more, see the [C# developer reference](functions-dotnet-class-library.md#binding-at-runtime) or the [C# script developer reference](functions-reference-csharp.md#binding-at-runtime).
+In C# and other .NET languages, you can use an imperative binding pattern, as opposed to the declarative bindings in `function.json` and attributes. Imperative binding is useful when binding parameters need to be computed at runtime rather than design time. To learn more, see the [C# developer reference](functions-dotnet-class-library.md#binding-at-runtime) or the [C# script developer reference](functions-reference-csharp.md#binding-at-runtime).
 
 ## Related content
 
-+ [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md)
+* [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md)
