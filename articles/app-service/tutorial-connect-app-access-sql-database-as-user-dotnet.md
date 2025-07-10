@@ -44,7 +44,7 @@ When you complete the tutorial, your app securely connects to SQL Database on be
 
 - Complete the tutorial at [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md), and use the completed app for this tutorial.
 
-  Alternatively, adapt the steps for your own .NET app with SQL Database. The steps in this tutorial support the following .NET versions:
+  Alternatively, adapt the steps and use your own .NET app with SQL Database. The steps in this tutorial support the following .NET versions:
 
   - .NET Framework 4.8 and above
   - .NET 6.0 and above
@@ -172,7 +172,7 @@ Update your application code to add the access token supplied by App Service aut
    az webapp config connection-string set --resource-group <group-name> --name <app-name> --connection-string-type SQLAzure --settings defaultConnection="server=tcp:<db-server-name>.database.windows.net;database=<db-name>;"
    ```
 
-## 7. Publish your changes
+## 6. Publish your changes
 
 If you used Visual Studio Code in the browser to make your code changes in your GitHub fork, select **Source Control** from the left menu. Enter a commit message like `OBO connect` and select **Commit**.
 
@@ -197,7 +197,7 @@ When the new app page shows your app, the app is connecting to the Azure SQL dat
 
 ![Screenshot that shows the web app after publishing.](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
-## 8. Clean up resources
+## 7. Clean up resources
 
 In the preceding steps, you created Azure resources in a resource group. When you no longer need these resources, delete the resource group by running the following command:
 
