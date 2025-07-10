@@ -52,7 +52,7 @@ Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expres
   
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
-### Sign in to your Azure account and select your subscription
+- Sign in to your Azure account and select your subscription
 
 [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 
@@ -90,9 +90,9 @@ az account set --subscription "<subscription ID>"
 
 ## Get a list of prefixes and BGP community values
 
-### Get a list of BGP community values
-
 # [**Portal**](#tab/portal)
+
+1. Get a list of BGP community values
 
 Find the BGP community values associated with services accessible through Microsoft peering on the [ExpressRoute routing requirements](expressroute-routing.md) page.
 
@@ -112,8 +112,7 @@ Find the BGP community values associated with services accessible through Micros
     az network route-filter rule list-service-communities
     ```
 
-
-### Make a list of the values you want to use
+## Make a list of the values you want to use
 
 List the [BGP community values](expressroute-routing.md#bgp) you want to use in the route filter.
 
