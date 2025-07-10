@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 02/13/2025
+ms.date: 07/10/2025
 ms.author: anfdocs
 # Customer intent: "As a system administrator managing data access in Azure NetApp Files, I want to understand NFSv4.x ACLs and their permissions so that I can effectively control access and secure our file storage while ensuring compliance with user management policies."
 ---
@@ -16,7 +16,7 @@ The NFSv4.x protocol can provide access control in the form of [access control l
 
 :::image type="content" source="./media/nfs-access-control-lists/access-control-entity-to-client-diagram.png" alt-text="Diagram of access control entity to Azure NetApp Files." lightbox="./media/nfs-access-control-lists/access-control-entity-to-client-diagram.png":::
 
-Each NFSv4.x ACL is created with the format of `type:flags:principal:permissions`.
+Each NFSv4.x ACL uses the format of `type:flags:principal:permissions`.
 
 * **Type** – the type of ACL being defined. Valid choices include Access (A), Deny (D), Audit (U), Alarm (L). Azure NetApp Files supports Access, Deny and Audit ACL types, but Audit ACLs, while being able to be set, don't currently produce audit logs.
 * **Flags** – adds extra context for an ACL. There are three kinds of ACE flags: group, inheritance, and administrative. For more information on flags, see [NFSv4.x ACE flags](#nfsv4x-ace-flags).
@@ -180,7 +180,7 @@ Administrative flags in NFSv4.x ACLs are special flags that are used only with A
 
 This Audit ACL is an example of that, where `user1` is audited for failed access attempts for any permission level: `U:F:user1@contoso.com:rwatTnNcCy`.
 
-Azure NetApp Files only supports setting administrative flags for Audit ACEs, however the ACEs don't function. Alarm ACEs aren't supported in Azure NetApp Files.
+Azure NetApp Files only supports setting administrative flags for Audit ACEs. Audit ACEs are required for [file access logs](manage-file-access-logs.md). Alarm ACEs aren't supported in Azure NetApp Files.
 
 ## NFSv4.x user and group principals
 
