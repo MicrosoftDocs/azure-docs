@@ -422,23 +422,23 @@ First, you define the type and metadata of the scale rule.
 
 1. In the Bicep template, add all metadata values to the `custom.metadata` section of the scale rule.
 
-```yml
-...
-rules: [
-  {
-    name: 'azure-servicebus-queue-rule'
-    custom: {
-      type: 'azure-servicebus'
-      metadata: {
-        queueName: 'my-queue'              ⬅️
-        namespace: 'service-bus-namespace' ⬅️
-        messageCount: '5'                  ⬅️
+    ```yml
+    ...
+    rules: [
+      {
+        name: 'azure-servicebus-queue-rule'
+        custom: {
+          type: 'azure-servicebus'
+          metadata: {
+            queueName: 'my-queue'              ⬅️
+            namespace: 'service-bus-namespace' ⬅️
+            messageCount: '5'                  ⬅️
+          }
+        }
       }
-    }
-  }
-]
-...
-```
+    ]
+    ...
+    ```
 
 ### Authentication
 
@@ -502,49 +502,49 @@ KEDA scalers can use secrets in a [TriggerAuthentication](https://keda.sh/docs/l
 
         1. Set the value of the `secretRef` property to the name of the `secretTargetRef`'s `key` property.
 
-    ```bicep
-    resource symbolicname 'Microsoft.App/containerApps@2025-02-02-preview' = {
-      ...
-      properties: {
-        ...
-        configuration: {
-          ...
-          secrets: [
-            {                                          ⬅️
-              name: 'connection-string-secret'         ⬅️
-              value: '<SERVICE_BUS_CONNECTION_STRING>' ⬅️
-            }                                          ⬅️
-          ]
-        }
-        template: {
-          ...
-          scale: {
-            maxReplicas: 0
-            minReplicas: 5
-            rules: [
-              {
-                name: 'azure-servicebus-queue-rule'
-                custom: {
-                  type: 'azure-servicebus'
-                  metadata: {
-                    queueName: 'my-queue'
-                    namespace: 'service-bus-namespace'
-                    messageCount: '5'
-                  }
-                  auth: [
-                    {
-                      secretRef: 'connection-string-secret'
-                      triggerParameter: 'connection'
-                    }
+            ```bicep
+            resource symbolicname 'Microsoft.App/containerApps@2025-02-02-preview' = {
+              ...
+              properties: {
+                ...
+                configuration: {
+                  ...
+                  secrets: [
+                    {                                          ⬅️
+                      name: 'connection-string-secret'         ⬅️
+                      value: '<SERVICE_BUS_CONNECTION_STRING>' ⬅️
+                    }                                          ⬅️
                   ]
                 }
+                template: {
+                  ...
+                  scale: {
+                    maxReplicas: 0
+                    minReplicas: 5
+                    rules: [
+                      {
+                        name: 'azure-servicebus-queue-rule'
+                        custom: {
+                          type: 'azure-servicebus'
+                          metadata: {
+                            queueName: 'my-queue'
+                            namespace: 'service-bus-namespace'
+                            messageCount: '5'
+                          }
+                          auth: [
+                            {
+                              secretRef: 'connection-string-secret'
+                              triggerParameter: 'connection'
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
               }
-            ]
-          }
-        }
-      }
-    }
-    ```
+            }
+            ```
 
     Some scalers support metadata with the `FromEnv` suffix to reference a value in an environment variable. Container Apps looks at the first container listed in the ARM template for the environment variable.
 
