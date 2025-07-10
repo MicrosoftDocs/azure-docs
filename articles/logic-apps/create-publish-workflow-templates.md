@@ -1,6 +1,6 @@
 ---
 title: Create and publish workflow templates
-description: How to create workflow templates for use in Azure Logic Apps and share templates with others through the templates gallery.
+description: Learn how to create workflow templates for Azure Logic Apps and share templates with others through the templates gallery.
 services: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
