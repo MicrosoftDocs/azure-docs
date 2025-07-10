@@ -19,7 +19,7 @@ To complete the procedure, you must have a Google account that has a verified em
 
 ## <a name="register"> </a>Register your application with Google
 
-1. Follow the Google documentation at [Sign In with Google for Web - Setup](https://developers.google.com/identity/gsi/web/guides/fedcm-migration) to create a client ID and client secret. You don't need to make any code changes.
+1. Follow the Google documentation at [Get your Google API client ID](https://developers.google.com/identity/gsi/web/guides/get-google-api-clientid) to create a client ID and client secret. You don't need to make any code changes.
    - For **Authorized JavaScript Origins**, use `https://<app-name>.azurewebsites.net`, replacing `<app-name>` with the name of your app.
    - For **Authorized Redirect URI**, use `https://<app-name>.azurewebsites.net/.auth/login/google/callback`.
 1. Make a note of the **App ID** and the **App Secret** values to use later.
@@ -37,11 +37,13 @@ To complete the procedure, you must have a Google account that has a verified em
 
 1. Enter the **App ID** and **App Secret** values you obtained previously.
 
-1. Leave the rest of the settings at their default values, and select **Add**.
+1. The **App Service authentication settings** section has settings such as how your application responds to unauthenticated requests. The default selections redirect all requests to sign in with the new provider. You can customize this behavior now or later. For now, leave the rest of the settings at their default values.
 
-On the **Authentication** page, the **Google** provider appears in the **Identity provider** section. The **Authentication settings** section shows settings such as how your application responds to unauthenticated requests.
+1. Select **Add**.
 
-The default selections redirect all requests to sign in with the new provider. You can customize this behavior now or later by selecting **Edit** next to **Authentication settings**. To learn more about the options, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).
+The **Google** provider now appears in the **Identity provider** section of the **Authentication** page. You can edit the provider settings by selecting the pencil icon under **Edit**.
+
+The **Authentication settings** section shows settings such as how the application responds to unauthenticated requests. You can edit these settings by selecting **Edit** next to **Authentication settings**. To learn more about the options, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).
 
 The application secret is stored as a slot-sticky [application setting](configure-common.md#configure-app-settings) named `GOOGLE_PROVIDER_AUTHENTICATION_SECRET`. You can see the setting on the **App Settings** tab of your app's **Environment variables** page in the portal. If you want to manage the secret in Azure Key Vault, you can update the setting later to use [Key Vault references](app-service-key-vault-references.md).
 
