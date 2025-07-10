@@ -83,13 +83,39 @@ Notes:
 - Properties.encryption.customerManagedKeyEncryption.keyEncryptionKeyIdentity.userAssignedIdentityResourceId is the resource ID of the user assigned identity that should be used for CMK. Notice that it should be one of the identities in Identity.userAssignedIdentities (You must assign the identity to Fluid Relay resource before it can use it for CMK). Also, it should have necessary permissions on the key (provided by keyEncryptionKeyUrl).
 - Properties.encryption.customerManagedKeyEncryption.keyEncryptionKeyUrl is the key identifier used for CMK.
 
+### [PowerShell](#tab/azure-powershell)
+You need to install [Azure Fluid Relay module](/powershell/module/az.fluidrelay) first.
+
+```azurepowershell
+Install-Module Az.FluidRelay
+```
+
+And make sure you complete all the prerequsite steps.
+
+Example of creating a Fluid Relay Service with CMK enabled:
+```azurepowershell
+New-AzFluidRelayServer -Name <Fluid Relay Service name> -ResourceGroup <resource group name> -SubscriptionId "<subscription id>" -Location "<region>" -KeyEncryptionKeyIdentityType UserAssigned -KeyEncryptionKeyIdentityUserAssignedIdentityResourceId "<user assigned resource id>" -CustomerManagedKeyEncryptionKeyUrl "<key URL>" -UserAssignedIdentity "<user assigned resource id>"
+```
+
+For more information about the command, see [New-AzFluidRelayServer](/powershell/module/az.fluidrelay/new-azfluidrelayserver)
+
+**Notes:**
+
+- The `KeyEncryptionKeyIdentityType` **must be** `UserAssigned` since `SystemAssigned` identity is not supported for CMK. It indicates the identity type to be used for Customer-Managed Key (CMK) encryption.
+- While multiple identities can be specified in the `UserAssignedIdentity` argument, **only** the identity defined in `KeyEncryptionKeyIdentityUserAssignedIdentityResourceId` is used to access the Key Vault for CMK encryption.
+- The `KeyEncryptionKeyIdentityUserAssignedIdentityResourceId` field should be set to the **resource ID** of the user-assigned identity intended for CMK access.
+  - This identity must already be listed in the `UserAssignedIdentity` field.
+  - Additionally, it needs the necessary permissions on the key specified in `CustomerManagedKeyEncryptionKeyUrl`.
+- `CustomerManagedKeyEncryptionKeyUrl` is the **key identifier** used for CMK.
+
 ### [Azure CLI](#tab/azure-cli)
 To create Fluid Relay with CMK enabled using Azure CLI, you need to install [fluid-relay](/cli/azure/fluid-relay) extension first. See [instructions](/cli/azure/azure-cli-extensions-overview).
 
 And make sure you complete all the prerequsite steps.
 
+Example of creating a Fluid Relay Service with CMK enabled:
 ```azurecli
-az fluid-relay server create --server-name <Fluid Relay Service name> --resource-group <resource group name> --identity '{"type":"UserAssigned","user-assigned-identities":{"<user assigned resource id>":{}}}' --key-identity '{"identity-type":"UserAssigned","user-assigned-identities":"<user assigned resource id>"}' --key-url "https://akv-cuseuap-cmktest-02.vault.azure.net/keys/key-rsa-4096/81b15c848e874aabb6f13839b43b16fc" --location <location> --sku <standard or basic>
+az fluid-relay server create --server-name <Fluid Relay Service name> --resource-group <resource group name> --identity '{"type":"UserAssigned","user-assigned-identities":{"<user assigned resource id>":{}}}' --key-identity '{"identity-type":"UserAssigned","user-assigned-identities":"<user assigned resource id>"}' --key-url "<key URL>" --location <location> --sku <standard or basic>
 ```
 
 For more information about the command, see [az fluid-relay server create](/cli/azure/fluid-relay/server?view=azure-cli-latest#az-fluid-relay-server-create)
@@ -102,7 +128,6 @@ For more information about the command, see [az fluid-relay server create](/cli/
 - While multiple identities can be specified in the `identity` argument, **only** the identity defined in `key-identity` is used to access the Key Vault for CMK encryption.
 - The `user-assigned-identities` field under `key-identity` should be set to the **resource ID** of the user-assigned identity intended for CMK access.
   - This identity must already be listed in the `identity` field.
-  - It must also be assigned to the Fluid Relay resource **before** it can be used for CMK.
   - Additionally, it needs the necessary permissions on the key specified in `key-url`.
 - `key-url` is the **key identifier** used for CMK.
 
@@ -143,6 +168,27 @@ Request payload example for updating key encryption key URL:
     }
 }
 ```
+
+### [PowerShell](#tab/azure-powershell)
+You need to install [Azure Fluid Relay module](/powershell/module/az.fluidrelay) first.
+
+```azurepowershell
+Install-Module Az.FluidRelay
+```
+
+During an update, you only need to provide the parameters that need to be changed.
+
+Update encryption key URL
+```azurepowershell
+Update-AzFluidRelayServer -Name <Fluid Relay Service name> -ResourceGroup <resource group name> -SubscriptionId "<subscription id>" -CustomerManagedKeyEncryptionKeyUrl "<new key URL>"
+```
+
+Update assigned identity for CMK
+```azurepowershell
+Update-AzFluidRelayServer -Name <Fluid Relay Service name> -ResourceGroup <resource group name> -SubscriptionId "<subscription id>" -KeyEncryptionKeyIdentityUserAssignedIdentityResourceId "<new user assigned resource id>"
+```
+
+For more information about the command, see [Update-AzFluidRelayServer](/powershell/module/az.fluidrelay/update-azfluidrelayserver)
 
 ### [Azure CLI](#tab/azure-cli)
 
