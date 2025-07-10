@@ -39,6 +39,8 @@ Before you implement network security for your storage accounts, review the impo
 
 - By design, access to a storage account from trusted services takes the highest precedence over other network access restrictions. If you set **Public network access** to **Disabled** after previously setting it to **Enabled from selected virtual networks and IP addresses**, any [resource instances](storage-network-security.md#grant-access-from-azure-resource-instances) and [exceptions](storage-network-security.md#manage-exceptions) that you previously configured, including **Allow Azure services on the trusted services list to access this storage account**, will remain in effect. As a result, those resources and services might still have access to the storage account.
 
+- Even if you disable public network access, you might still receive a warning from Microsoft Defender for Storage or from Azure Advisor which recommends that you restrict access by using virtual network rules. This can happen in cases where you disable public access by using a template. The **defaultAction** property remains set to **Allow** even though you set the **PublicNetworkAccess** property to **Disabled**. While the **PublicNetworkAccess** property takes precedence, tools such as Microsoft Defender also report on the value of the **defaultAction** property. To resolve this issue, either use a template to set the **defaultAction** property **Deny** or disable public access by using tool such as Azure portal, PowerShell, or Azure CLI. These tools automatically change the **defaultAction** property to a value of **Deny** for you.    
+
 ## Restrictions for IP network rules
 
 - IP network rules are allowed only for *public internet* IP addresses.
