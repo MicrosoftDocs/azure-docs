@@ -6,6 +6,7 @@ ms.service: azure-vmware
 ms.date: 4/21/2025
 ms.author: jacobjaygbay
 #customer intent: As a cloud administrator, I want to connect Azure VMware Solution Generation 2 private clouds to Azure VMware Solution Generation 1 private clouds so that I can enable seamless communication between private clouds.
+# Customer intent: As a cloud administrator, I want to connect Azure VMware Solution Generation 2 private clouds to Generation 1 private clouds so that I can ensure network connectivity and facilitate seamless communication across different environments within Azure.
 ---
 
 # Connect Azure VMware Solution Generation 2 private clouds to Azure VMware Solution Generation 1 private clouds

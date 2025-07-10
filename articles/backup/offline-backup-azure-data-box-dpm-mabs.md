@@ -6,6 +6,7 @@ ms.date: 09/11/2024
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a backup administrator, I want to use Azure Data Box for offline seeding of initial backup data from DPM and MABS, so that I can reduce the time and network bandwidth required for transferring large datasets to Azure Recovery Services vault.
 ---
 # Offline seeding using Azure Data Box for DPM and MABS
 

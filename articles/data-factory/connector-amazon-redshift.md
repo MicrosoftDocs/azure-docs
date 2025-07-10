@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/12/2025
+ms.date: 06/16/2025
 ---
 
 # Copy data from Amazon Redshift using Azure Data Factory or Synapse Analytics
@@ -289,24 +289,22 @@ When you copy data from Amazon Redshift, the following mappings apply from Amazo
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the Amazon Redshift connector
+## <a name="differences-between-amazon-redshift-connector-version-20-and-version-10"></a> Amazon Redshift connector lifecycle and upgrade
 
-Here are steps that help you upgrade the Amazon Redshift connector:
+The following table shows the release stage and change logs for different versions of the Impala connector:
+
+| Version | Release stage | Change log |
+| :----------- | :------- | :------- |
+| Version 1.0 | GA version available | / |
+| Version 2.0 (Preview) | Preview version available | • Only support the self-hosted integration runtime with version 5.54.0.0 or above. <br><br>• BOOLEAN is read as Boolean data type.  |
+
+### <a name="upgrade-the-amazon-redshift-connector"></a> Upgrade the Amazon Redshift connector from version 1.0 to version 2.0 (Preview)
 
 1. In **Edit linked service** page, select version 2.0 (Preview) and configure the linked service by referring to [linked service properties](#linked-service-properties).
 
 2. The data type mapping for the Amazon Redshift linked service version 2.0 (Preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Amazon Redshift](#data-type-mapping-for-amazon-redshift).
 
 3. Apply a self-hosted integration runtime with version 5.54.0.0 or above. Azure integration runtime is not supported by version 2.0 (Preview).
-
-## <a name="differences-between-amazon-redshift-connector-version-20-and-version-10"></a>Differences between Amazon Redshift connector version 2.0 (Preview) and version 1.0
-
-The Amazon Redshift connector version 2.0 (Preview) offers new functionalities and is compatible with most features of version 1.0. The following table shows the feature differences between version 2.0 (Preview) and version 1.0.
-
-| Version 2.0 (Preview) | Version 1.0 |
-| :----------- | :------- |
-| Only support the self-hosted integration runtime with version 5.54.0.0 or above. | Support the Azure integration runtime and self-hosted integration runtime. |
-| The following mappings are used from Amazon Redshift data types to interim service data type.<br><br>BOOLEAN -> Boolean | The following mappings are used from Amazon Redshift data types to interim service data type.<br><br>BOOLEAN -> String |  
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

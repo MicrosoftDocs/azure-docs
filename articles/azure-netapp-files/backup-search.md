@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 04/24/2024
 ms.author: anfdocs
+# Customer intent: As a cloud administrator, I want to search for backups of Azure NetApp Files volumes, so that I can efficiently manage and restore backups according to my data protection strategy.
 ---
 # Search backups of Azure NetApp Files volumes
 

@@ -51,7 +51,7 @@ As a Python developer, you might also be interested in these topics:
 ## [Hosting options](#tab/hosting)
 
 + [Flex Consumption plan](./flex-consumption-plan.md): Linux-based serverless hosting option that features full support for managed identities, virtual networks, and flexible deployments. 
-+ [Container hosting options](container-concepts.md): Run and deploy your Python functions on Linux in a Docker container, including integrated [Azure Container Apps hosting](functions-container-apps-hosting.md).
++ [Container hosting options](container-concepts.md): Run and deploy your Python functions on Linux in a Docker container, including integrated [Azure Container Apps hosting](../container-apps/functions-overview.md).
 + [Compare hosting options...](functions-scale.md) 
 
 ---
@@ -1435,7 +1435,7 @@ For a list of preinstalled system libraries in Python worker Docker images, see 
 
 |  Functions runtime  | Debian version | Python versions |
 |------------|------------|------------|
-| Version 3.x | Buster | [Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile)<br/> [Python 3.9](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python39/python39.Dockerfile)|
+| Version 3.x | Buster | Python 3.7<br/>Python 3.8<br/>Python 3.9 |
 
 ## Python worker extensions  
 

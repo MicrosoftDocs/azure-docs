@@ -6,6 +6,7 @@ ms.service: azure-hpc-cache
 ms.topic: how-to
 ms.date: 09/27/2021
 ms.author: rohogue
+# Customer intent: As an IT administrator, I want to configure client machines to connect to an Azure HPC Cache so that I can optimize storage access and performance for large-scale compute tasks.
 ---
 
 # Mount the Azure HPC Cache

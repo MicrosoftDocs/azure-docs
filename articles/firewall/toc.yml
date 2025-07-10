@@ -18,12 +18,14 @@ items:
   expanded: true
 - name: Design & architecture
   items:
-  - name: Policy 
+  - name: Policy
     items:
     - name: Policy rule sets
       href: policy-rule-sets.md
     - name: Policy Analytics
       href: policy-analytics.md
+  - name: FQDN filtering
+    href: domain-filtering-overview.md
   - name: Infrastructure FQDNs
     href: infrastructure-fqdns.md
   - name: IDPS signature rule categories
@@ -58,7 +60,8 @@ items:
     items:
     - name: Features
       href: basic-features.md
-    href: deploy-firewall-basic-portal-policy.md
+    - name: Deploy Basic firewall
+      href: deploy-firewall-basic-portal-policy.md
   - name: Firewall Standard
     items:
     - name: Features
@@ -151,6 +154,8 @@ items:
   items:
   - name: Add or modify rules using PowerShell
     href: deploy-rules-powershell.md
+  - name: DNAT rule for filtering inbound traffic
+    href: destination-nat-rules.md
   - name: DNS proxy
     items:
     - name: Overview
@@ -169,8 +174,12 @@ items:
     href: sql-fqdn-filtering.md
   - name: SNAT private ranges
     href: snat-private-range.md
+  - name: Customer-controlled maintenance
+    href: customer-controlled-maintenance.md
 - name: Secure
   items:
+  - name: Secure firewall deployment
+    href: secure-firewall.md
   - name: Security baseline
     href: /security/benchmark/azure/baselines/firewall-security-baseline?toc=/azure/firewall/toc.json
   - name: Roles and permissions

@@ -10,6 +10,7 @@ ms.date: 03/31/2025
 
 ms.author: cherylmc
 
+# Customer intent: "As a network administrator, I want to understand the migration process and benefits of VPN Gateway SKUs transitioning to availability zone support, so that I can ensure my organization's VPN solutions are optimized for reliability and cost-efficiency."
 ---
 # VPN Gateway SKU consolidation and migration
 
