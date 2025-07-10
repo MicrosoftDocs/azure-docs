@@ -34,9 +34,9 @@ Before configuring CMK on your Azure Fluid Relay resource, the following prerequ
 - If you provide the key URL with a specific key version, **only that version** will be used for CMK purposes.
 If you later add a new key version, you must **manually** update the key URL in the CMK settings of the Fluid Relay resource to make the new version effective.
 The Fluid Relay service will fail if the specified key version is deleted or disabled without updating the resource to use a valid version.
-- To allow the Fluid Relay service to automatically use the latest key version of the key from your key vault, you can **omit the key version** in the encryption key URL. This enables automatic key version updates on the Fluid Relay side.
+- To allow the Fluid Relay service to automatically use the latest key version of the key from your key vault, you can omit the key version in the encryption key URL. This makes Fluid Relay Service's storage dependency to check the key vault daily for a new version of the customer-managed key and automatically updates the key to the latest version.
   However, you are still responsible for managing and rotating key versions in your Key Vault.
-  > Due to resource limitations, switching to this auto-update setting may fail. If that happens, please specify a key version explicitly and perform a manual update on your Fluid Relay resource for newer key versions.
+  > Due to resource limitations, switching to this auto-update setting may fail. If that happens, please specify a key version explicitly and perform a manual update on your Fluid Relay resource for new key versions.
 
 
 ## Create a Fluid Relay resource with CMK
@@ -117,7 +117,7 @@ You can update the following CMK settings on existing Fluid Relay resource:
 
 Note that you cannot disable CMK on existing Fluid Relay resource once it is enabled.
 
-Before updating the key encryption key (by identifier or version), ensure that the previous key version is still enabled and has not expired in your key vault. Otherwise, the update operation will fail.
+Before updating the key encryption key (by identifier or version), ensure that **the previous key version is still enabled and has not expired in your key vault**. Otherwise, the update operation will fail.
 
 When using the update command, you may specify only the parameters that have changed—unchanged arguments can be omitted.
 
@@ -161,6 +161,15 @@ az fluid-relay server update --server-name <Fluid Relay Service name> --resource
 For more information about the command, see [az fluid-relay server update](/cli/azure/fluid-relay/server?view=azure-cli-latest#az-fluid-relay-server-update)
 
 ---
+
+## Troubleshooting
+
+### Error: Unexpected error happened when configuring CMK
+- Ensure your configuration meets **all the requirements** listed in the prerequisites section.
+
+- Check if you have firewall rules enabled in your Azure Key Vault. If so, turn on "Allow trusted Microsoft services to bypass this firewall" option. See [Key Vault firewall-enabled trusted services only](/azure/key-vault/general/network-security?WT.mc_id=Portal-Microsoft_Azure_KeyVault#key-vault-firewall-enabled-trusted-services-only)
+
+- For existing Fluid Relay resources, verify that the key—**or the specific key version**, if one is specified in the CMK settings—is still **enabled** and **not expired** in your Key Vault.
 
 ## See also
 
