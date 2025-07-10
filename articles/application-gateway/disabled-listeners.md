@@ -8,6 +8,7 @@ ms.topic: troubleshooting
 ms.date: 04/25/2023
 ms.author: mbender
 
+# Customer intent: As an IT administrator managing an Application Gateway, I want to troubleshoot disabled listeners due to Key Vault access issues, so that I can ensure the proper functioning of TLS termination and maintain the overall health of the gateway resource.
 ---
 
 # Understanding disabled listeners

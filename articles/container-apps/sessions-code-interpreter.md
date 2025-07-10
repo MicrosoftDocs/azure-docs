@@ -6,6 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 05/19/2025
+ms.update-cycle: 180-days
 ms.author: cshoe
 ms.custom: references_regions
 ms.collection: ce-skilling-ai-copilot

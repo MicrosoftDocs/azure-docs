@@ -6,6 +6,7 @@ author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 06/17/2024
+# Customer intent: "As a system architect, I want to utilize a decision tree for selecting an application delivery service, so that I can ensure the security and performance of web applications based on specific deployment needs."
 ---
 
 # Choose a secure application delivery service

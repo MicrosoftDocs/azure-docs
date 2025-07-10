@@ -3,7 +3,7 @@ title: Tutorial - Reduce Azure costs with recommendations
 description: This tutorial helps you reduce Azure costs when you act on optimization recommendations.
 author: sdoultani
 ms.author: sadoulta
-ms.date: 01/07/2025
+ms.date: 07/03/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -40,7 +40,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 To view cost optimization recommendations for a subscription, open the desired scope in the Azure portal and select **Advisor recommendations**.
 
-To view recommendations for a management group, open the desired scope in the Azure portal and select **Cost analysis** in the menu. Use the **Scope** pill to switch to a different scope, such as a management group. Select **Advisor recommendations** in the menu. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
+To view recommendations for a management group, open the desired scope in the Azure portal and select **Cost Analysis** in the menu. Use the **Scope** pill to switch to a different scope, such as a management group. Select **Advisor recommendations** in the menu. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
 :::image type="content" border="true" source="./media/tutorial-acm-opt-recommendations/advisor-recommendations.png" alt-text="Screenshot showing Cost Management Advisor recommendations.":::
 

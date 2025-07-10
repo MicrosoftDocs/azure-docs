@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 02/12/2025
 ms.devlang: csharp
 ms.custom: template-how-to, devguide-csharp, devx-track-dotnet
+# Customer intent: "As a .NET developer, I want to integrate Azure Blob Storage into my application, so that I can securely manage and access large amounts of unstructured data through a robust cloud storage solution."
 ---
 
 # Get started with Azure Blob Storage and .NET

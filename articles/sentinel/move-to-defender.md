@@ -14,7 +14,7 @@ ms.collection: usx-security
 
 Microsoft Sentinel is available in the Microsoft Defender portal with [Microsoft Defender XDR](/microsoft-365/security/defender) or on its own. It delivers a unified experience across SIEM and XDR for faster, more accurate threat detection and response, simpler workflows, and better operational efficiency.
 
-This article explains how to transition your Microsoft Sentinel experience from the Azure portal to the Defender portal. If you use Microsoft Sentinel in the Azure portal, transition to Microsoft Defender for unified security operations and the latest features. For more information, see [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md).
+This article explains how to transition your Microsoft Sentinel experience from the Azure portal to the Defender portal. If you use Microsoft Sentinel in the Azure portal, transition to Microsoft Defender for unified security operations and the latest features. For more information, see [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md) or watch our [YouTube playlist](https://www.youtube.com/playlist?list=PL3ZTgFEc7Lyska6WLWBzc8sob-kYA2jPj).
 
 ## Prerequisites
 
@@ -27,6 +27,11 @@ Before you start, note:
 ## Plan and set up your transition environment
 
 **Audience**: Security architects
+
+**Videos**:
+
+- [Onboarding a Microsoft Sentinel workspace in Microsoft Defender](https://youtu.be/Hgcz87XdJx0?si=n78kqKVoLvbwZp5k)
+- [Managing unified RBAC in Microsoft Defender](https://youtu.be/0xvPy1zWIfg?si=sBuxxOVr1O_yuTyS)
 
 ### Review planning guidance, complete prerequisites, and onboard
  
@@ -54,7 +59,7 @@ The following table provides additional details and links so that you can compar
 For more information, see:
 
 - [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md)
-- [Data security and retention in Microsoft Defender XDR](/defender-xdr/data-privacy) <!--i wonder if we should move this doc out of the XDR docset and into usx?-->
+- [Data security and retention in Microsoft Defender XDR](/defender-xdr/data-privacy)
 
 ### Configure multi-workspace and multitenant management
 
@@ -73,6 +78,8 @@ For more information, see:
 ## Configure and review your settings and content
 
 **Audience**: Security engineers
+
+**Video**: [Managing connectors in Microsoft Defender](https://youtu.be/IW9WOhhLbmY?si=XX4IXe47o9bXnWlV)
 
 ### Confirm and configure data collection
 
@@ -155,6 +162,16 @@ The following table lists fields that are important in the response snippets, an
 ## Run operations in the Defender portal
 
 **Audience**: Security analysts
+
+**Videos**:
+
+- [Discover and manage Microsoft Sentinel content and threat intelligence in Microsoft Defender](https://youtu.be/HQ4JxM8-v5g?si=tMdCCMYOkPv28m_w)
+- [Create automation and workbooks in Microsoft Defender](https://youtu.be/Lc0T_hPTug4?si=TgEpXViwxet7M7t1)
+- [Alert correlation in Microsoft Defender](https://youtu.be/GIIxN1dMJTc?si=7VEO6asJA6dBC-V0)
+- [Incident investigation in Microsoft Defender](https://youtu.be/BnZBVm8ZGsY?si=I-uHGASquUrr4xN5)
+- [Case management in Microsft Defender](https://youtu.be/TxLz-NsxcrM?si=hgg3DujUICLozuYt)
+- [Advanced hunting in Microsoft Defender](https://youtu.be/06ukKCHMkeY?si=520Gg8JNmRVYUXKD)
+- [SOC optimizations in Microsoft Defender](https://youtu.be/-Cv5K8A4kfY?si=3o9xVB7WnfH0E3VR)
 
 ### Update incident triage processes for the Defender portal
 

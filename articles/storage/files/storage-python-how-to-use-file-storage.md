@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 04/08/2025
 ms.author: pauljewell
 ms.custom: devx-track-python, py-fresh-zinc
+# Customer intent: As a Python developer, I want to integrate Azure Files into my applications so that I can store and manage file data efficiently using various programming approaches and APIs.
 ---
 
 # Develop for Azure Files with Python

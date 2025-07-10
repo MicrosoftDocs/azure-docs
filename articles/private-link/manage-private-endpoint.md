@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 03/25/2025
 ms.author: abell 
 ms.custom: devx-track-azurepowershell, template-how-to, devx-track-azurecli
+# Customer intent: "As a cloud network administrator, I want to manage private endpoints in Azure, so that I can ensure secure and efficient connectivity to Azure services for my organization."
 ---
 
 # Manage Azure private endpoints

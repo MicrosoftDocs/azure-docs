@@ -4,7 +4,7 @@ metadata:
   description: 'Answers to common questions about'
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 08/09/2024
+  ms.date: 06/23/2025
   author: jyothisuri
   ms.author: jsuri
   ms.custom: engagement-fy24
@@ -108,6 +108,11 @@ sections:
           Can I copy restore points created by the Azure Backup service portal from one region to another?
         answer: |
           No. Currently, Azure Backup supports only copying restore points from one vault to another. You can [move snapshots to a different region using the VM restore point APIs](/azure/virtual-machines/manage-restore-points#copy-a-vm-restore-point-between-regions), but this isn't supported for Vault-tier recovery points.
+
+      - question: |
+          Why is Cross Region Restore not supported when Public Network access is set to Deny?
+        answer: |
+          Cross Region Restore (CRR) replicates data from the primary to the secondary region using Geo-redundant storage (GRS) with CRR enabled. When you deny public access and use a private endpoint, the system expects data sync to occur over a private network. However, the secondary region currently doesn’t support private endpoint configuration, which is essential for replication. Without a private connection in the secondary region, CRR can't perform the required replication.
 
   - name: Azure Backup agent
     questions:

@@ -8,6 +8,7 @@ ms.service: azure-traffic-manager
 ms.date: 06/03/2024
 ms.author: allensu
 ms.custom: template-how-to, devx-track-azurepowershell
+# Customer intent: As a network administrator, I want to configure subnet overrides for a Traffic Manager profile using PowerShell, so that I can direct traffic based on end-user IP addresses and optimize routing efficiency for my application.
 ---
 
 # Traffic Manager subnet override using Azure PowerShell

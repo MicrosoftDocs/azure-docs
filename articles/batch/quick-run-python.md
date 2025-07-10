@@ -5,6 +5,7 @@ ms.date: 03/21/2025
 ms.topic: quickstart
 ms.devlang: python
 ms.custom: mvc, devx-track-python, mode-api
+# Customer intent: As a developer, I want to leverage the Python Batch client library to create compute pools and execute tasks, so that I can efficiently process data at scale in the cloud.
 ---
 
 # Quickstart: Use Python to create a Batch pool and run a job

@@ -9,6 +9,7 @@ ms.topic: sample
 ms.date: 03/01/2022
 ms.author: shaas 
 ms.custom: devx-track-azurecli
+# Customer intent: "As a cloud administrator, I want to execute a script that deletes blob containers based on a name prefix, so that I can efficiently manage storage resources and perform clean-up tasks without manual intervention."
 ---
 
 # Use an Azure CLI script to delete containers based on container name prefix

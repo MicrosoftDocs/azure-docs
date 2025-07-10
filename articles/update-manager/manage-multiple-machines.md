@@ -4,8 +4,9 @@ description: This article explains how to use Azure Update Manager in Azure to m
 ms.service: azure-update-manager
 ms.date: 12/04/2024
 ms.topic: overview
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
+# Customer intent: "As an IT administrator managing multiple servers, I want to use a centralized update management tool, so that I can efficiently assess, deploy, and monitor updates across my Azure and on-premises environments."
 ---
 
 # Manage multiple machines with Azure Update Manager

@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 05/08/2024
 ms.author: kendownie
+# Customer intent: As an IT admin deploying Azure File Sync, I want to create a server endpoint, so that I can synchronize files between my registered server and Azure cloud storage effectively.
 ---
 
 # Create an Azure File Sync server endpoint

@@ -8,6 +8,7 @@ ms.date: 08/02/2024
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
+# Customer intent: As a system administrator, I want to deploy Azure File Sync using the portal, PowerShell, or CLI, so that I can centralize file shares in Azure while maintaining local access and performance.
 ---
 
 # Deploy Azure File Sync
@@ -280,7 +281,7 @@ You can download the agent from the [Microsoft Download Center](https://go.micro
 1. Select **Next** to start the installation.
    ![Screenshot of the File Sync Agent Setup Wizard welcome screen with Next and Cancel Buttons.](media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-1.png)
 2. Tick the checkbox once you've reviewed and accepted the end-user license agreement. Select **Next** to proceed.
-   ![Screenshot of the File Sync Agent Setup Wizard License Agreeement Acceptance.](media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-2.png)
+   ![Screenshot of the File Sync Agent Setup Wizard License Agreement Acceptance.](media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-2.png)
 3. The installation path of the storage sync agent will be filled in by default. You may change it to a location of your choice. Select **Next** to proceed.
    ![Screenshot of the File Sync Agent Setup Wizard Path Selection.](media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-3.png)
 4. Select the proxy setting and then select **Next**.

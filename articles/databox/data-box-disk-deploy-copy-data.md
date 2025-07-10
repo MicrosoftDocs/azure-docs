@@ -8,6 +8,7 @@ ms.service: azure-data-box-disk
 ms.topic: tutorial
 ms.date: 03/26/2024
 ms.author: shaas
+# Customer intent: As an IT admin, I want to copy data to Azure Data Box Disk and verify its integrity, so that I can ensure successful data transfer to Azure while following the correct procedures and access tier assignments.
 ---
 
 <!--

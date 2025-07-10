@@ -8,6 +8,7 @@ ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.date: 05/10/2024
 
+# Customer intent: As a cloud administrator, I want to configure Microsoft Entra ID to manage access to Azure Blob Storage, so that I can ensure secure and role-based permissions for users and applications accessing our data.
 ---
 
 # Authorize access to blobs using Microsoft Entra ID

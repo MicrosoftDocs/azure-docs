@@ -177,7 +177,7 @@ This migration tool converts a Power Automate flow into the equivalent Standard 
 
 However, due to security constraints, the migration tool can't automatically transfer the connections used by the Power Automate flow. While the tool automates most of the flow conversion, you must manually recreate the connections in the logic app workflow. This manual step is necessary to fully meet the security protocols and compliance standards for Azure Logic Apps.
 
-Despite this requirement, the migration tool offers significant time and resource savings by eliminating the need to manually recreate entire workflows. The tool's automated process drastically reduces any other necessary manual effort and shortens the overall migration timeline. With this automation, your team can focus energy on setting up and optmizing connections, not on rebuilding workflows.
+Despite this requirement, the migration tool offers significant time and resource savings by eliminating the need to manually recreate entire workflows. The tool's automated process drastically reduces any other necessary manual effort and shortens the overall migration timeline. With this automation, your team can focus energy on setting up and optimizing connections, not on rebuilding workflows.
 -->
 
 ### Migration testing and validation

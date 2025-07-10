@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a developer, I want to copy blobs from a source object URL using JavaScript, so that I can manage and transfer data within my Azure Storage efficiently.
 ---
 
 # Copy a blob from a source object URL with JavaScript

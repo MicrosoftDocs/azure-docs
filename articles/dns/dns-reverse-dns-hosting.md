@@ -8,6 +8,7 @@ ms.date: 04/21/2025
 ms.author: allensu
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
+# Customer intent: As a network administrator, I want to configure reverse DNS lookup zones for my assigned IP ranges using Azure DNS, so that I can manage accurate reverse DNS resolution for those IP addresses efficiently.
 ---
 
 # Host reverse DNS lookup zones in Azure DNS
@@ -259,6 +260,10 @@ Hosting the reverse DNS lookup zone for your ISP-assigned IP block in Azure DNS 
 ### Can I host reverse DNS lookup zones for both IPv4 and IPv6 addresses in Azure DNS?
 
 Yes. This article explains how to create both IPv4 and IPv6 reverse DNS lookup zones in Azure DNS.
+
+### Can I create reverse DNS zones for both Azure Public and Private DNS? 
+
+No. Reverse lookup zones are only supported for Azure Public DNS. 
 
 ### Can I import an existing reverse DNS lookup zone?
 

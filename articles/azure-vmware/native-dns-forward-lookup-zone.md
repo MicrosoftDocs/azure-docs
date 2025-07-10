@@ -6,6 +6,7 @@ ms.service: azure-vmware
 ms.date: 4/21/2025
 ms.custom: engagement-fy25
 # customer intent: As a cloud administrator, I want to configure DNS forward lookup zone for Azure VMware Solution Generation 2 private clouds so that I can manage domain name resolution for private cloud appliances.
+# Customer intent: As a cloud administrator, I want to configure DNS forward lookup zones in Azure VMware Solution Generation 2, so that I can manage domain name resolution for private cloud components effectively and ensure secure access within my virtual network.
 ---
 
 # Private and Public DNS forward lookup zone configuration
