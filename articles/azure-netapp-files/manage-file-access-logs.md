@@ -20,12 +20,16 @@ File access logs provide file access logging for individual volumes, capturing f
 >[!IMPORTANT]
 >The file access logs feature is only supported with SMB3, NFSv4.1, and dual-protocol volumes. It's not supported on NFSv3 volumes. 
 
+
 * Once file access logs are enabled on a volume, they can take up to 75 minutes to become visible. 
 * Each log entry consumes approximately 1 KB of space.
 * File access logs occasionally create duplicate log entries that must be filtered manually. 
 * Deleting any diagnostic settings configured for `ANFFileAccess` causes any file access logs for any volume with that setting to become disabled. See the [diagnostic setting configuration](#diagnostic) for more information. 
 * Before enabling file access logs on a volume, either [access control lists (ACLs)](configure-access-control-lists.md) or Audit access control entries (ACEs) need to be set on a file or directory. You must set ACLs or Audit ACEs after mounting a volume.  
+    >[!IMPORTANT]
+    >For dual-protocol volumes using the NTFS security style, you must set Audit ACLs from a Windows machine. For dual-protocol volumes using UNIX security style, Audit ACLs must be set from a Linux machine.
 * Azure NetApp Files file access logs provide detailed information about successful and failed requests to the storage service. This information can be used to monitor individual requests and to diagnose file access issues. Requests are logged on a best-effort basis, meaning that most requests result in a log record, but the completeness and timeliness of file access logs aren't guaranteed. The Azure NetApp Files file access logs feature doesn't provide explicit or implicit expectations or guarantees around logging for auditing and compliance purposes.  
+
 
 ### Performance considerations 
 
