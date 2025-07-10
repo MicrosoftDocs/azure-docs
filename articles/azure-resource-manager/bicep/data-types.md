@@ -2,7 +2,7 @@
 title: Data types in Bicep
 description: This article describes the data types that are available in Bicep.
 ms.topic: reference
-ms.date: 06/30/2025
+ms.date: 07/07/2025
 ms.custom: devx-track-bicep
 ---
 
@@ -436,6 +436,16 @@ The union type has some limitations:
 - All literals must be of the same primitive data type (for example, all strings or all integers).
 
 You can use the union type syntax in [user-defined data types](./user-defined-data-types.md).
+
+## Nullable types
+
+You can make any primitive or complex type nullable by appending a `?` to the type name. This allows the parameter, variable, or output to accept null as a valid value. For example:
+
+```bicep
+output description string? = null
+output config object? = null
+output optionalValue int? = null
+```
 
 ## Secure strings and objects
 

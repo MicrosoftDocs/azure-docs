@@ -223,6 +223,57 @@ The output from the preceding example with the default values is:
 | arrayOutput | String | one |
 | stringOutput | String | O |
 
+## indexFromEnd
+
+`indexFromEnd(sourceArray, reverseIndex)`
+
+Returns an element of the array by counting backwards from the end. This is useful when you want to reference elements starting from the end of a list, rather than the beginning. The [`tryIndexFromEnd`](#tryindexfromend) function is a safe version of `indexFromEnd`.
+
+In Bicep, use the [Reserved index accessor](../bicep/operators-access.md#reverse-index-accessor) operator.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| sourceArray |Yes |array |The value to retrieve the element by counting backwards from the end. |
+| reverseIndex |Yes |integer |The one-based index from the end of the array. |
+
+### Return value
+
+A single element from an array, selected by counting backward from the end of the array.
+
+### Example
+
+The following example shows how to use the `indexFromEnd` function.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "items": [
+      "apple",
+      "banana",
+      "orange",
+      "grape"
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "secondToLast": {
+      "type": "string",
+      "value": "[indexFromEnd(variables('items'), 2)]"
+    }
+  }
+}
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| secondToLast | String | orange |
+
 ## indexOf
 
 `indexOf(arrayToSearch, itemToFind)`
@@ -759,6 +810,92 @@ The output from the preceding example is:
 | region | String | (NULL) |
 | name | String | John Doe |
 | firstColor | String | Red |
+
+## tryIndexFromEnd
+
+`tryndexFromEnd(sourceArray, reverseIndex)`
+
+The `tryIndexFromEnd` function is a safe version of [`indexFromEnd`](#indexfromend). It retrieves a value from an array by counting backward from the end without throwing an error if the index is out of range.
+
+In Bicep, use the [Reserved index accessor](../bicep/operators-access.md#reverse-index-accessor) operator and the [Safe dereference](../bicep/operator-safe-dereference.md#safe-dereference) operator.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| sourceArray |Yes |array |The value to retrieve the element by counting backwards from the end. |
+| reverseIndex |Yes |integer |The one-based index from the end of the array. |
+
+### Return value
+
+If the index is valid (within array bounds), returns the array element at that reverse index. If the index is out of range, returns null instead of throwing an error.
+
+### Example
+
+The following example shows how to use the `tryIndexFromEnd` function:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "items": [
+      "apple",
+      "banana",
+      "orange",
+      "grape"
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "secondToLast": {
+      "type": "string",
+      "value": "[tryIndexFromEnd(variables('items'), 2)]"
+    }
+  }
+}
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| secondToLast | String | orange |
+
+The following example shows an out-of-bound scenario:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "items": {
+      "type": "array",
+      "defaultValue": [
+        "apple",
+        "banana",
+        "orange",
+        "grape"
+      ]
+    }
+  },
+  "resources": {},
+  "outputs": {
+    "outOfBound": {
+      "type": "string",
+      "nullable": true,
+      "value": "[tryIndexFromEnd(parameters('items'), 5)]"
+    }
+  }
+}
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| outOfBound | String | (null) |
 
 ## union
 

@@ -75,23 +75,23 @@ items:
         href: how-to-customize-devbox-azure-image-builder.md
   - name: Customize dev boxes
     items:
-      - name: What are Team Customizations
-        href: concept-what-are-team-customizations.md
+      - name: What are Dev Box customizations
+        href: concept-what-are-dev-box-customizations.md
         displayName: customizations, image definition, team customization
-      - name: Write an image definition file
-        href: how-to-write-image-definition-file.md
+      - name: Configure team customizations
+        href: how-to-configure-team-customizations.md
         displayName: customizations, image definition, team customization
+      - name: Configure Dev Box imaging
+        href: how-to-configure-dev-box-imaging.md
       - name: Create an image definition file with Copilot
         href: how-to-use-copilot-generate-image-definition-file.md
-      - name: Write an individual customization file
-        href: how-to-write-individual-customization-file.md
+      - name: Configure user customizations
+        href: how-to-configure-user-customizations.md
         displayName: customizations, image definition, personal customization, individual
-      - name: Configure imaging for Customizations
-        href: how-to-configure-customization-imaging.md
-      - name: Create customization tasks
-        href: how-to-create-customization-tasks-catalog.md
-      - name: Use customization files to clone private repositories
-        href: how-to-use-secrets-customization-files.md
+      - name: Configure tasks for customizations
+        href: how-to-configure-customization-tasks.md
+      - name: Connect to Azure resources and repositories
+        href: how-to-customizations-connect-resource-repository.md
   - name: Create & connect to dev boxes
     items:
       - name: Manage a dev box through developer portal
