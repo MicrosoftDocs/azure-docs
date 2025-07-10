@@ -316,15 +316,15 @@ initializeConfig()
 
 1. Open your browser and navigate to `localhost:8080`. You should see the default view of the app.
 
-    :::image type="content" source="media/how-to-targetingfilter-javascript/beta-disabled.png" alt-text="Screenshot of the app, showing the default greeting message.":::
+    :::image type="content" source="media/howto-targetingfilter-javascript/beta-disabled.png" alt-text="Screenshot of the app, showing the default greeting message.":::
 
 1. 1. Add `userId` as a query parameter in the URL to specify the user ID. Visit `localhost:8080/?userId=test@contoso.com`. You see the beta page, because `test@contoso.com` is specified as a targeted user.
 
-    :::image type="content" source="media/how-to-targetingfilter-javascript/beta-enabled.png" alt-text="Screenshot of the app, showing the beta page.":::
+    :::image type="content" source="media/howto-targetingfilter-javascript/beta-enabled.png" alt-text="Screenshot of the app, showing the beta page.":::
 
 1. Visit `localhost:8080/?userId=testuser@contoso.com`. You cannot see the beta page, because `testuser@contoso.com` is specified as an excluded user..
 
-    :::image type="content" source="media/how-to-targetingfilter-javascript/beta-not-targeted.png" alt-text="Screenshot of the app, showing the default content.":::
+    :::image type="content" source="media/howto-targetingfilter-javascript/beta-not-targeted.png" alt-text="Screenshot of the app, showing the default content.":::
 
 ## Next steps
 
