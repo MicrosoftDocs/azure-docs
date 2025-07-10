@@ -100,7 +100,7 @@ These APIs enable automation for scenarios such as:
 - Automating reservation and savings plan reporting
 - Forecasting and planning future benefit purchases
 
-For a full list of Cost Management APIs and their capabilities, see the [Cost Management REST API reference](https://learn.microsoft.com/rest/api/cost-management/operation-groups).
+For a full list of Cost Management APIs and their capabilities, see the [Cost Management REST API reference](/rest/api/cost-management/operation-groups).
 
 ### Billing
 -    Billing Periods API: Determine a billing period to analyze, along with the invoice IDs for that period. You can use invoice IDs with the Invoices API.
