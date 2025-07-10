@@ -10,6 +10,8 @@ zone_pivot_groups: functions-container-hosting
 
 # Work with containers and Azure Functions
 
+<a name="">working-with-containers-and-azure-functions</a>
+
 :::zone pivot="container-apps"
 This article demonstrates the support that Azure Functions provides for containerized function apps that run in an Azure Container Apps environment. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).
 
@@ -39,6 +41,7 @@ To learn more about deployments to Azure Container Apps, see [Azure Container Ap
 >[!IMPORTANT]
 >This article currently shows how to connect to the default storage account by using a connection string. For the best security, instead create a managed identity-based connection to Azure Storage using Microsoft Entra authentication. For more information, see [Connections](./functions-reference.md#connections).
 
+<a name="">creating-containerized-function-apps</a>
 ## Create containerized function apps
 
 Functions makes it easy to deploy and run your function apps as Linux containers, which you create and maintain. Functions maintains a set of [language-specific base images](https://mcr.microsoft.com/catalog?search=functions) that you can use when creating containerized function apps.
@@ -150,6 +153,10 @@ The specified image version is deployed to your app.
 The specified image version is deployed to your app.
 ::: zone-end  
 
+:::zone pivot="azure-arc"
+This feature is not documented.
+::: zone-end
+
 ---
 
 :::zone pivot="azure-functions"  
@@ -157,6 +164,7 @@ You should also consider [enabling continuous deployment](#enable-continuous-dep
 ::: zone-end  
 :::zone pivot="azure-functions"  
 
+<a name="">azure-portal-create-using-containers</a>
 ## Create a containerized function app using the Azure portal
 
 When you create a function app in the [Azure portal], you can choose to deploy the function app from an image in a container registry. To learn how to create a containerized function app in a container registry, see [Create your function app in a container](#create-your-function-app-in-a-container).
@@ -267,9 +275,14 @@ Based on your changes, a new image is deployed to your app or new allocations ar
 The new image is deployed to your app based on your new settings.
 ::: zone-end 
 
+:::zone pivot="azure-arc"
+This feature is not documented.
+::: zone-end
+
 ---
 
-:::zone pivot="container-apps"  
+:::zone pivot="container-apps"
+<a name="">container-apps-workload-profiles</a>
 ## Use Container Apps workload profiles
 
 Workload profiles are feature of Container Apps that let you better control your deployment resources. Azure Functions on Azure Container Apps also supports workload profiles. For more information, see [Workload profiles in Azure Container Apps](../container-apps/workload-profiles-overview.md). 
@@ -366,7 +379,7 @@ You can enable Azure Functions to automatically update your deployment of an ima
 
 1. Open [Docker Hub](https://hub.docker.com/), sign in, and select **Repositories** on the navigation bar. Locate and select the image, select the **Webhooks** tab, specify a **Webhook name**, paste your URL in **Webhook URL**, and then select **Create**.
 
-    :::image type="content" source="./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png" alt-text="Screenshot showing how to add the webhook in your Docker Hub window.":::  
+    :::image type="content" source="./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png" alt-text="Screenshot showing how to add the webhook in your Docker Hub window." lightbox="./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png":::  
 
 1. With the webhook set, Azure Functions redeploys your image whenever you update it in Docker Hub.
 
