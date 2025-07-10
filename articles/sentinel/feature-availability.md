@@ -159,7 +159,7 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Threat protection for SAP](sap/deployment-overview.md)</sup> |GA |Yes|Yes |Yes |
-|[Agentless data connector](sap/deployment-overview.md#data-connector) | Public preview | Yes |No | No |
+|[Agentless data connector](sap/deployment-overview.md#data-connector) | Limited preview | Yes |No | No |
 
 ## Threat intelligence support		
 

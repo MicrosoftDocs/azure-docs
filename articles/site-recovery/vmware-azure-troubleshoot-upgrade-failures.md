@@ -6,6 +6,7 @@ ms.topic: troubleshooting
 ms.date: 11/10/2019
 ms.author: jsuri
 author: jyothisuri
+# Customer intent: "As an IT administrator troubleshooting upgrade issues, I want to identify and resolve common errors during the Site Recovery provider upgrade, so that I can ensure successful installation and maintain backup and disaster recovery capabilities."
 ---
 
 # Troubleshoot Microsoft Azure Site Recovery Provider upgrade failures

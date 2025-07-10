@@ -2,6 +2,7 @@
 title: 'Tutorial: Add Azure OpenAI text completions to your functions in Visual Studio Code'
 description: Learn how to connect Azure Functions to OpenAI by adding an output binding to your Visual Studio Code project.
 ms.date: 07/11/2024
+ms.update-cycle: 180-days
 ms.topic: tutorial
 author: dbandaru
 ms.author: dbandaru

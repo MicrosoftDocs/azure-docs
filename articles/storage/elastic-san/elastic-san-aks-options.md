@@ -6,6 +6,7 @@ ms.service: azure-elastic-san-storage
 ms.topic: concept-article
 ms.date: 05/31/2024
 ms.author: rogarana
+# Customer intent: As a Kubernetes administrator, I want to choose between Azure Container Storage and the iSCSI CSI driver for deploying Azure Elastic SAN with AKS, so that I can optimize storage management based on my workload requirements and support options.
 ---
 
 

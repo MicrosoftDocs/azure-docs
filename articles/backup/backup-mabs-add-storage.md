@@ -7,6 +7,7 @@ ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: As a backup administrator, I want to upgrade to Azure Backup Server V2 and implement Modern Backup Storage, so that I can enhance backup performance and reduce storage costs while efficiently managing different workloads.
 ---
 
 # Add storage to Azure Backup Server

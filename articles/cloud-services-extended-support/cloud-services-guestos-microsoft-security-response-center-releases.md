@@ -19,6 +19,36 @@ ms.custom: compute-evergreen
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to your Guest OS. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
+## June 2025 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 25-06 | [5061010] | Latest Cumulative Update(LCU) | [5.107] | 10-Jun-25
+| Rel 25-06 | [5060531] | Latest Cumulative Update(LCU) | [6.83] | 10-Jun-25
+| Rel 25-06 | [5060526] | Latest Cumulative Update(LCU) | [7.53] | 10-Jun-25
+| Rel 25-06 | [5049614] | .NET Framework DotNet | [5.107] | 14-Jan-25
+| Rel 25-06 | [5049608] | .NET Framework DotNet | [6.83] | 14-Jan-25
+| Rel 25-06 | [5049617] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.53] | 14-Jan-25
+| Rel 25-06 | [5060954] | Servicing Stack Update | [5.107] | 10-Jun-25
+| Rel 25-06 | [5060531] | Servicing Stack Update | [6.83] | 10-Jun-25
+| Rel 25-06 | [5060526] | Servicing Stack Update | [7.53] | 10-Jun-25
+| Rel 25-06 | [4494175] | January '20 Microcode | [5.107] | 01-Sep-20
+| Rel 25-06 | [4494175] | January '20 Microcode | [6.83] | 01-Sep-20
+
+[5061010]: https://support.microsoft.com/kb/5061010
+[5060531]: https://support.microsoft.com/kb/5060531
+[5060526]: https://support.microsoft.com/kb/5060526
+[5049614]: https://support.microsoft.com/kb/5049614
+[5049608]: https://support.microsoft.com/kb/5049608
+[5049617]: https://support.microsoft.com/kb/5049617
+[5060954]: https://support.microsoft.com/kb/5060954
+[5060531]: https://support.microsoft.com/kb/5058392
+[5060526]: https://support.microsoft.com/kb/5058385
+[4494175]: https://support.microsoft.com/kb/4494175
+
+[5.107]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.83]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.53]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
 ## May 2025 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
@@ -102,8 +132,8 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [5049608]: https://support.microsoft.com/kb/5049608
 [5049617]: https://support.microsoft.com/kb/5049617
 [5054006]: https://support.microsoft.com/kb/5054006
-[5054007]: https://support.microsoft.com/kb/5054007
-[5053666]: https://support.microsoft.com/kb/5053666
+[5054007]: https://support.microsoft.com/help/5053596
+[5053666]: https://support.microsoft.com/help/5053603
 [4494175]: https://support.microsoft.com/kb/4494175
 
 [5.104]: ./cloud-services-guestos-update-matrix.md#family-5-releases

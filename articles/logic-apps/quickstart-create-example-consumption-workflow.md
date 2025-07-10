@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.custom: mode-ui
 ms.collection: ce-skilling-ai-copilot
 ms.date: 04/04/2025
+ms.update-cycle: 180-days
 #Customer intent: As a developer, I want to create my first example Consumption logic app workflow that runs in multitenant Azure Logic Apps using the Azure portal.
 ---
 

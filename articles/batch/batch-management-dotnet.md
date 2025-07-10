@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 05/09/2025
 ms.devlang: csharp
 ms.custom: has-adal-ref, devx-track-csharp, devx-track-dotnet
+# Customer intent: As a developer, I want to automate the creation, deletion, and management of Azure Batch accounts using the Batch Management .NET library so that I can efficiently handle resource allocation, maintain security compliance, and optimize operational workflows for my applications.
 ---
 # Manage Batch accounts and quotas with the Batch Management client library for .NET
 

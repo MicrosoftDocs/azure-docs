@@ -36,7 +36,6 @@ ms.custom: include-file, references_regions
 > - Taiwan North
 > - UAE Central
 > - UK South
-> - West Central US
 > - West US
 > - West US 2
 > 

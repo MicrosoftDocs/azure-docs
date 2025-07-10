@@ -6,6 +6,7 @@ author: dlepow
 ms.author: danlep
 ms.topic: how-to
 ms.date: 05/16/2025
+ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ms.custom: template-how-to, build-2024
 ---
@@ -25,7 +26,7 @@ Learn more about managing AI APIs in API Management:
 
 API Management supports two client compatibility options for AI APIs. Choose the option suitable for your model deployment. The option determines how clients call the API and how the API Management instance routes requests to the AI service.
 
-* **Azure AI** - Manage model endpoints in Azure AI Foundry that are exposed through the [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api).
+* **Azure AI** - Manage model endpoints in Azure AI Foundry that are exposed through the [ Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api).
 
     Clients call the deployment at a `/models` endpoint such as `/my-model/models/chat/completions`. Deployment name is passed in the request body. Use this option if you want flexibility to switch between models exposed through the Azure AI Model Inference API and those deployed in Azure OpenAI in Foundry Models.
 
@@ -36,7 +37,8 @@ API Management supports two client compatibility options for AI APIs. Choose the
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- An Azure AI service in your subscription with one or more models deployed. Examples include Azure OpenAI or other models deployed in Azure AI Foundry.
+
+- An Azure AI service in your subscription with one or more models deployed. Examples include models deployed in Azure AI Foundry or Azure OpenAI.
 
 ## Import AI Foundry API using the portal
 

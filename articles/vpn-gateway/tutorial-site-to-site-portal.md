@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.date: 06/24/2025
 
 #customer intent: As a network engineer, I want to create a site-to-site VPN connection between my on-premises location and my Azure virtual network.
+# Customer intent: As a network engineer, I want to create a site-to-site VPN connection between my on-premises network and Azure, so that I can ensure secure and reliable connectivity for my resources in the cloud.
 ---
 
 # Tutorial: Create a site-to-site VPN connection in the Azure portal
@@ -149,7 +150,7 @@ You can configure more settings for your connection, if necessary. Otherwise, sk
 
 ### <a name="reset"></a>Reset a gateway
 
-Resetting an Azure VPN gateway is helpful if you lose cross-premises VPN connectivity on one or more site-to-site VPN tunnels. In this situation, your on-premises VPN devices are all working correctly but aren't able to establish IPsec tunnels with the Azure VPN gateways. If you need to reset an active-active gateway, you can reset both instances using the portal. You can also use PowerShell or CLI to reset each gateway instance separately using instance VIPs. For more information, see [Reset a connection or a gateway](reset-gateway.md#reset-a-gateway).
+Resetting an Azure VPN gateway is helpful if you lose cross-premises VPN connectivity on one or more site-to-site VPN tunnels. In this situation, your on-premises VPN devices are all working correctly but aren't able to establish IPsec tunnels with the Azure VPN gateways. If you need to reset an active-active gateway, you can reset both instances using the portal. You can also use PowerShell or CLI to reset each gateway instance separately using instance VIPs. For more information, see [Reset a VPN gateway or a connection](reset-gateway.md).
 
 [!INCLUDE [reset a gateway](../../includes/vpn-gateway-reset-gw-portal-include.md)]
 
@@ -173,7 +174,7 @@ You can specify a different shared key for your connection.
 
 ### <a name="resize"></a>Upgrade a gateway SKU
 
-You can upgrade the SKU of your VPN gateway to a different SKU. There are rules regarding which SKUs are available for upgrade. For more information, see [Upgrade a gatewway SKU](gateway-sku-upgrade.md).
+You can upgrade the SKU of your VPN gateway to a different SKU. There are rules regarding which SKUs are available for upgrade. For more information, see [Upgrade a gateway SKU](gateway-sku-upgrade.md).
 
 ### <a name="additional"></a>More configuration considerations
 

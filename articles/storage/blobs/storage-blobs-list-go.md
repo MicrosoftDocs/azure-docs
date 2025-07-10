@@ -11,6 +11,7 @@ ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
+# Customer intent: As a Go developer, I want to list blobs in my Azure Storage account so that I can retrieve and manage my data efficiently, using both flat and hierarchical listing options as needed.
 ---
 
 # List blobs with Go

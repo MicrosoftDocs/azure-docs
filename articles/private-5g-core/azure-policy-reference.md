@@ -16,7 +16,7 @@ The name of each policy definition links to the policy definition in the Azure p
 
 To assign a policy to your Azure Private 5G Core deployment, see [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
 
-[!INCLUDE [](../../includes/policy/reference/bycat/policies-mobile-network.md)]
+[!INCLUDE [](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policies-mobile-network.md)]
 
 ## Next steps
 
