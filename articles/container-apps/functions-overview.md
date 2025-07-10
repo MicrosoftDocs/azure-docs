@@ -46,7 +46,7 @@ This table helps you directly compare the features of function on Container Apps
 | Built-in features |	Container Apps feature support. For instance, KEDA, Dapr, multi-revisions, mTLS, sidecars, ingress control and more |	Functions-only features |
 | Billing model | Container Apps pricing: Consumption plan (vCPU, memory, requests) & Dedicated plan (workload profile based) | Execution-time + always-ready instances |
 
-For a complete comparison of the Function on ACA against Flex Consumption plan and all other plan and hosting types, see [function scale and hosting options](../azure-functions/functions-scale.md).
+For a complete comparison of the Functions on Container Apps against Flex Consumption plan and all other plan and hosting types, see [function scale and hosting options](../azure-functions/functions-scale.md).
 
 ## Scenarios
 
