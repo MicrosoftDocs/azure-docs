@@ -25,7 +25,6 @@ This article covers the prerequisites to configuring WhatsApp as a Channel in Mi
 3. Setup and Deploy Event Grid Viewer
 4. Setup Event subscription for SMS received.
 5. Link WhatsApp business account as a channel in Azure Communication Services Resource
-6. Clean Up
 
 The following video demonstrates this process.
 
@@ -80,13 +79,16 @@ The following steps are only needed if you chose to use a Toll-free number from 
 
     [insert image-2]
 3. Then select **Review + Create**.
-4. After the deployment completes, select on the resource of type **Microsoft.Web/sites** to open it.
+4. After the deployment completes, select **Go to resource group**.
 
     [insert image-3]
-5. On the resource overview page, select on the copy button next to the **Default Domain** property.
+5. Select on the event grid viewer.
+
+    [insert image]
+6. On the resource overview page, select on the copy button next to the **Default Domain** property.
 
     [insert image-4]
-6. Launch that site in your browser and keep it running so you can receive the verification code when you're [linking your WhatsApp business account to Azure Communication Services resource](#link-whatsapp-business-account-as-a-channel-in-azure-communication-services-resource). The Event Grid Viewer should look like this.
+7. Launch that site in your browser and keep it running so you can receive the verification code when you're [linking your WhatsApp business account to Azure Communication Services resource](#link-whatsapp-business-account-as-a-channel-in-azure-communication-services-resource). The Event Grid Viewer should look like this.
 
     [insert image-5]
 
@@ -151,3 +153,12 @@ When following those instructions, here are helpful tips:
     Only when you see that status can you then use the WhatsApp Business account to send and receive messages and unlocks the ability to link WhatsApp Business account as a channel in Microsoft Copilot Studio. 
 
     Meta reviews your business's display name. You can learn more about this review process and how to update your business account's display name in the article [About WhatsApp Business display name](https://www.facebook.com/business/help/338047025165344).
+
+## Next steps
+
+This article described the prerequisite steps to configuring WhatsApp as a Channel in Microsoft Copilot Studio. Now you're ready add WhatsApp as a Channel in your AI agent in Microsoft Copilot Studio.
+
+> [!div class="nextstepaction"]
+> [Add bot to WhatsApp](https://review.learn.microsoft.com/en-us/microsoft-copilot-studio/publication-add-bot-to-whatsapp?branch=cc-whatsapp-405436)
+
+Link needs to be updated. 
