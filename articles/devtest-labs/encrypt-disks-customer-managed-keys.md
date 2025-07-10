@@ -1,14 +1,17 @@
 ---
-title: Encrypt disks using customer-managed keys
-description: Learn how to encrypt disks using customer-managed keys in Azure DevTest Labs. 
+title: Encrypt Disks by Using Customer-Managed Keys
+description: Learn how to encrypt disks by using customer-managed keys in Azure DevTest Labs. 
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 04/29/2024
+ms.date: 07/11/2025
 ms.custom: subject-rbac-steps, UpdateFrequency2
+
+#customer intent:
 ---
 
-# Encrypt disks using customer-managed keys in Azure DevTest Labs
+# Encrypt disks by using customer-managed keys in Azure DevTest Labs
+
 Server-side encryption (SSE) protects your data and helps you meet your organizational security and compliance commitments. SSE automatically encrypts your data stored on managed disks in Azure (OS and data disks) at rest by default when persisting it to the cloud. Learn more about [Disk Encryption](/azure/virtual-machines/disk-encryption) on Azure. 
 
 Within DevTest Labs, all OS disks and data disks created as part of a lab are encrypted using platform-managed keys. However, as a lab owner you can choose to encrypt lab virtual machine disks using your own keys. If you choose to manage encryption with your own keys, you can specify a **customer-managed key** to use for encrypting data in lab disks. To learn more on Server-side encryption (SSE) with customer-managed keys, and other managed disk encryption types, see [Customer-managed keys](/azure/virtual-machines/disk-encryption#customer-managed-keys). Also, see [restrictions with using customer-managed keys](/azure/virtual-machines/disks-enable-customer-managed-keys-portal#restrictions).
