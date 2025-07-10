@@ -68,15 +68,18 @@ The new users need to follow the below steps:
 ### Add credentials and initiate discovery
 
 1. Open the appliance configuration manager, complete the prerequisite checks and registration of the appliance.
-2. Navigate to the **Manage credentials and discovery sources** panel.
-3.  In **Step 1: Provide credentials for discovery source**, select on **Add credentials** to  provide credentials for the discovery source that the appliance uses to discover servers running in your environment.
-4. In **Step 2: Provide discovery source details**, select **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the discovery source.
+
+1. Navigate to the **Manage credentials and discovery sources** panel.
+
+1. In **Step 1: Provide credentials for discovery source**, select on **Add credentials** to  provide credentials for the discovery source that the appliance uses to discover servers running in your environment.
+
+1. In **Step 2: Provide discovery source details**, select **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the discovery source.
 
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="The screenshot shows the panel 3 on appliance configuration manager for vCenter Server details." lightbox="./media/tutorial-discover-vmware/appliance-manage-sources.png":::
 
-5. In **Step 3: Provide server credentials to perform software inventory and agentless dependency analysis**, select **Add credentials** to provide multiple server credentials to perform guest-based discovery like software inventory, agentless dependency analysis, and discovery of databases and web applications.
-6. Select on **Start discovery**, to initiate discovery.
+1. In **Step 3: Provide server credentials to perform software inventory and agentless dependency analysis**, select **Add credentials** to provide multiple server credentials to perform guest-based discovery like software inventory, agentless dependency analysis, and discovery of databases and web applications.
+1. Select on **Start discovery**, to initiate discovery.
 
  After the server discovery is complete, appliance initiates the discovery of installed applications, roles, and features (software inventory) on the servers. During software inventory, the discovered servers are validated to check if they meet the prerequisites and can be enabled for agentless dependency analysis.
  
@@ -102,19 +105,21 @@ In the project, you can review dependencies for each server either through the *
 On reviewing the **Dependencies** column for any server, you see one of the following status:
 
 1. **Credentials not available:** No server credentials provided in the appliance configuration manager can be used for dependency analysis.
-2. **Validation in progress:** The server hasn't completed the prerequisite validation checks yet.
-3. **Validation failed:** The server failed the validation checks. You can click the status to view the error message, which usually mentions missing prerequisites like invalid credentials or insufficient permissions.
+
+1. **Validation in progress:** The server hasn't completed the prerequisite validation checks yet.
+
+1. **Validation failed:** The server failed the validation checks. You can click the status to view the error message, which usually mentions missing prerequisites like invalid credentials or insufficient permissions.
 
 ::: moniker range="migrate"
 After the validation succeeds, dependency analysis are autoenabled and you see one of the following status:
 ::: moniker-end
 
-4. **View dependencies:** The server passed the validation checks and dependency analysis is enabled. You can select this to open the new visualization and check the server’s dependencies.
+1. **View dependencies:** The server passed the validation checks and dependency analysis is enabled. You can select this to open the new visualization and check the server’s dependencies.
 ::: moniker range="migrate"
-5. **Not initiated:** Dependency analysis couldn’t be enabled because Azure Migrate reached its limit of 1,000 servers per appliance for automatic enablement. If you want to run dependency analysis on specific servers, you can disable it manually on other autoenabled servers and enable it for the required ones using the PowerShell module.
-6. **Disabled:** You can manually disable dependency analysis on this using the portal or the PowerShell module. You can enable it again anytime using the same module. 
+1. **Not initiated:** Dependency analysis couldn’t be enabled because Azure Migrate reached its limit of 1,000 servers per appliance for automatic enablement. If you want to run dependency analysis on specific servers, you can disable it manually on other autoenabled servers and enable it for the required ones using the PowerShell module.
+1. **Disabled:** You can manually disable dependency analysis on this using the portal or the PowerShell module. You can enable it again anytime using the same module. 
 
-7. **Not enabled**: Dependency data could not be collected as the server was discovered through CSV import.
+1. **Not enabled**: Dependency data could not be collected as the server was discovered through CSV import.
 
 >[!Note]
 > Not enabled status is shown for servers, discovered from an appliance that has still not been upgraded to the new visualization. . [Learn more](#switch-to-new-visualization) to upgrade the appliance.
@@ -130,9 +135,11 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 1. Change the time period for which you want to view the map using the **Time duration** dropdown.
 1. Expand the **Client** group to list the servers with a dependency on the selected server.
 1. Expand the **Port** group to list the servers that have a dependency from the selected server.
-1. To navigate to the map view of any of the dependent servers, select the server name > **Load server map**
-   :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png" alt-text="Screenshot to Expand Server port group and load server map.":::
-   :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-client-group.png" alt-text="Expand client group.":::
+1. To navigate to the map view of any of the dependent servers, select the server name > **Load server map**.
+
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png" alt-text="Screenshot to Expand Server port group and load server map.":::
+
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-client-group.png" alt-text="Expand client group.":::
 
 1. Expand the selected server to view process-level details for each dependency.
    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-server-processes.png" alt-text="Expand server to show processes.":::
@@ -140,15 +147,17 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 
 ::: moniker range="migrate"
 1. In the new experience, go to project overview. Select the workloads count in **All inventory** to review the discovered workloads. In the view, you can see **Dependencies** column with status values as covered in section above.
-2. Search for the server whose dependencies, you want to review. If dependency analysis was successfully performed on that server, you can select on **View dependencies** to go to the dependency visualization. 
-3. The dependency visualization shows all incoming and outgoing dependencies for that server in a network diagram.
+
+1. Search for the server whose dependencies, you want to review. If dependency analysis was successfully performed on that server, you can select on **View dependencies** to go to the dependency visualization. 
+
+1. The dependency visualization shows all incoming and outgoing dependencies for that server in a network diagram.
 
 
 :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/default-dep-view.png" alt-text="The screenshot shows the default dependency view for a server." lightbox="./media/how-to-create-group-machine-dependencies-agentless/default-dep-view.png":::
 
-4. The view is filtered for default time period of **Last 24 hours** and process type as **Resolvable**. 
-5. Change the time period for which you want to view the map using the **Time range** filter. You can choose between **Last 7 days**/**Last 30 days** or select a **Custom range**. 
-6. You can choose to change the process type from any of the following:
+1. The view is filtered for default time period of **Last 24 hours** and process type as **Resolvable**. 
+1. Change the time period for which you want to view the map using the **Time range** filter. You can choose between **Last 7 days**/**Last 30 days** or select a **Custom range**. 
+1. You can choose to change the process type from any of the following:
 
     **Process** | **Type**
     --- | --- 
@@ -156,7 +165,7 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
     Essentials | To filter by nonredundant key processes
     All | to filter by all processes including those with unresolved connections
 
-7. In the view, you find the servers and connections represented as follows:
+1. In the view, you find the servers and connections represented as follows:
 
     **Representation** | **Details**
     --- | --- 
@@ -165,21 +174,21 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
     Connection symbol | Representing the direction of dependency between servers with strength of the connection represented by grading of dots on the connection
     Process count | Representing the count of processes as per the process type filter
 
-8. You can hover on the Server name to see essential information about the server like IP address, Source, and Tags.
+1. You can hover on the Server name to see essential information about the server like IP address, Source, and Tags.
     
 :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/server-hover-details.png" alt-text="The screenshot illustrated how the details are shown on hover." lightbox="./media/how-to-create-group-machine-dependencies-agentless/server-hover-details.png":::
 
-9. Similarly you can also hover on the connection to see essential information like strength and frequency of connections in the selected time range. 
-10. You can select the Server name to see more details like Operating system, Power Status, Software inventory discovered from the server and associated Tags.
+1. Similarly you can also hover on the connection to see essential information like strength and frequency of connections in the selected time range. 
+
+1. You can select the Server name to see more details like Operating system, Power Status, Software inventory discovered from the server and associated Tags.
 
 :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/server-expand-details.png" alt-text="The screenshot shows the server details on expanding. " lightbox="./media/how-to-create-group-machine-dependencies-agentless/server-expand-details.png":::
 
-11. Similarly you can also select the connection to see more details like which source and destination processes have the dependency over which destination port no. 
-12. You can expand the Server to see the list of processes basis the selected process type filter.
-13. From the expanded list of processes, you can select on a Process name to see its incoming and outgoing dependencies with processes on other servers in the view. The process to process dependency also indicates the destination port no on the connection.
+1. Similarly you can also select the connection to see more details like which source and destination processes have the dependency over which destination port no. 
+1. You can expand the Server to see the list of processes basis the selected process type filter.
+1. From the expanded list of processes, you can select on a Process name to see its incoming and outgoing dependencies with processes on other servers in the view. The process to process dependency also indicates the destination port no on the connection.
 
-    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/process-process-dep.png" alt-text="The screenshot shows the process to process dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/process-process-dep.png":::
-
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/process-process-dep.png" alt-text="The screenshot shows the process to process dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/process-process-dep.png":::
 
 > [!NOTE]
 > Process information for a dependency isn't always available. If it's not available, the dependency is depicted with the process marked as "Unknown process".
@@ -188,10 +197,10 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 ## Export dependency data
 
 1. In **All inventory** or **Infrastructure inventory** view, select the **Manage Dependencies** drop-down.
-2. Select **Export dependencies**.
-3. In the **Export dependencies** page, choose the appliance name that is discovering the desired servers.
-4. Select the start time and end time. You can download the data only for the last 30 days.
-5. Select **Export dependency**.
+1. Select **Export dependencies**.
+1. In the **Export dependencies** page, choose the appliance name that is discovering the desired servers.
+1. Select the start time and end time. You can download the data only for the last 30 days.
+1. Select **Export dependency**.
 
 The dependency data is exported and downloaded in a CSV format. The downloaded file contains the dependency data across all servers enabled for dependency analysis. 
 
@@ -220,13 +229,13 @@ Destination port | Port number on the destination server
 If you are an existing user, you already set up an Azure Migrate project. You performed discovery and manually enabled dependency analysis on some servers. To get the new enhanced visualization, you need to follow these steps:
 
 1. Go to the inventory view and search for a server, for which you want to review dependencies.
-2. Select on **View dependencies** and you see the old visualization showing dependencies of that server.
+1. Select on **View dependencies** and you see the old visualization showing dependencies of that server.
 
-    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png":::
 
-3. On the dependency view, you see an information box prompting you to complete some prerequisites for switching to the new visualization.
-4. As a prerequisite, you need to ensure that the discovery agent on the appliances registered with the project is upgraded to version or later.
-5. Select proceed to create a new resource in the same Resource Group as the project. Ensure that you've atleast **Contributor** role on the Resource Group else this step isn't complete.
+1. On the dependency view, you see an information box prompting you to complete some prerequisites for switching to the new visualization.
+1. As a prerequisite, you need to ensure that the discovery agent on the appliances registered with the project is upgraded to version or later.
+1. Select proceed to create a new resource in the same Resource Group as the project. Ensure that you've atleast **Contributor** role on the Resource Group else this step isn't complete.
 
 > [!NOTE]
 > Even if the new resource creation goes through, you might not see the new visualization if the discovery agent version on the Azure Migrate appliance isn't up to date. Ensure that autoupdate service on the appliance is enabled. [Learn more](migrate-appliance.md#appliance-upgrades)
@@ -236,12 +245,12 @@ After you've performed the required steps to upgrade to the new dependency visua
 ### Option 1
 
 1. Go to the existing inventory view in your project and switch to the new inventory view as using the prompt. 
-2. Select **View dependencies** for the desired server in the new inventory view to get to the new visualization directly.
+1. Select **View dependencies** for the desired server in the new inventory view to get to the new visualization directly.
 
 ### Option 2
 
 1. Go to the old inventory view, select **View dependencies** on a server.  
-2. In the old dependency view, select the prompt to get to the new enhanced visualization. 
+1. In the old dependency view, select the prompt to get to the new enhanced visualization. 
 
 > [!NOTE]
 > We recommend to use **Option 1** above to switch to the new inventory view as you're able to filter servers where dependency analysis was autoenabled and then directly review the dependency visualization. The old inventory view only shows the option to visualize dependencies for servers where you manually enabled the feature.
@@ -253,7 +262,7 @@ After you've performed the required steps to upgrade to the new dependency visua
 Dependency analysis is autoenabled on all discovered servers (upto 1,000 servers per appliance), which have passed the validation checks. You may need to disable one or more of these servers in the following scenarios:
 
 1. Dependency analysis is autoenabled on all discovered in your project but you want to disable it on a few servers where you don't want to gather dependency data. 
-2. Dependency analysis is autoenabled on 1,000 servers concurrently in your project but you have more servers where you want to enable it, then you can disable dependency analysis one or more servers from the set of 1,000 and enable others as needed.
+1. Dependency analysis is autoenabled on 1,000 servers concurrently in your project but you have more servers where you want to enable it, then you can disable dependency analysis one or more servers from the set of 1,000 and enable others as needed.
 
 You can disable dependency analysis on servers that you don't want and also enable dependencies for servers that you want to use either the Portal or PowerShell utility.
 
@@ -272,11 +281,11 @@ Follow the steps to disable the servers where dependency analysis is autoenabled
 > [!NOTE] 
 > If the selected appliance isn't upgraded for the new dependency analysis, you can either meet the [prerequisites](#switch-to-new-visualization) or switch to the old experience (from Overview) to add or remove servers for dependency analysis.
 
-2. You can filter servers to disable dependency analysis on those that were autoenabled (servers with the status as *Enabled*). Servers that aren't eligible for disablement—such as those with the status *Validation failed*, *Not initiated*, *Disabled*, or *Credentials* not available'—can't be selected.
+1. You can filter servers to disable dependency analysis on those that were autoenabled (servers with the status as *Enabled*). Servers that aren't eligible for disablement—such as those with the status *Validation failed*, *Not initiated*, *Disabled*, or *Credentials* not available'—can't be selected.
 
-    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/disable-dependencies-view.png":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/disable-dependencies-view.png":::
 
-3. You can select the servers and select **Disable** to proceed.
+1. You can select the servers and select **Disable** to proceed.
 
 ### Enable dependencies
 
@@ -289,11 +298,11 @@ Follow the steps to disable the servers where dependency analysis has been autoe
 > [!NOTE] 
 > If the selected appliance isn't upgraded for the new dependency analysis, you can either meet the prerequisites or switch to the old experience (from Overview) to add or remove servers for dependency analysis.
 
-2. You can filter servers to disable dependency analysis on those that were autoenabled (servers with the status as *Enabled*). Servers that aren't eligible for disablement—such as those with the status *Validation failed*, *Not initiated*, *Disabled*, or *Credentials* not available'—can't be selected.
+1. You can filter servers to disable dependency analysis on those that were autoenabled (servers with the status as *Enabled*). Servers that aren't eligible for disablement—such as those with the status *Validation failed*, *Not initiated*, *Disabled*, or *Credentials* not available'—can't be selected.
 
 :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/enable-dependencies-view.png":::
 
-3. You can select the servers and select **Enable** to proceed.
+1. You can select the servers and select **Enable** to proceed.
 
 > [!NOTE] 
 > You can't enable more than 1,000 servers per appliance concurrently so if your selection exceeds the count, you won't be able to proceed.
@@ -310,15 +319,15 @@ You need to install the PowerShell module to disable for servers that you don't 
     If using Azure Government, use the following command.
 
     `Connect-AzAccount -EnvironmentName AzureUSGovernment`
-2. Select the subscription in which you've created the project
+1. Select the subscription in which you've created the project
     `select-azsubscription -subscription "Contoso Demo Subscription"`
 
-3. Install the AzMig.Dependencies PowerShell module
+1. Install the AzMig.Dependencies PowerShell module
     `Install-Module .\AzMig.Dependencies`
 
 ### Disable dependencies
 
-1. "Use the following commands to get the list of discovered servers in your project. In this example, the project name is ContosoDemoProject, and the resource group is ContosoDemoRG. The list of servers is saved in a file named `ContosoDemo_VMs.csv."`
+1. Use the following commands to get the list of discovered servers in your project. In this example, the project name is ContosoDemoProject, and the resource group is ContosoDemoRG. The list of servers is saved in a file named `ContosoDemo_VMs.csv."`
 
 ```
 Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "ContosoDemoRG" -ProjectName "ContosoDemoProject" -OutputCsvFile "ContosoDemo_VMs.csv" [-AutoEnabledDepMap]
@@ -349,7 +358,7 @@ In the file, you can see the server display name, current status of dependency c
 
 1. To disable dependencies, create an input CSV file using the output file you exported in the last step. The file must have a column with the header *ARM ID*. Other headers in the CSV file are ignored. The input file should list the servers where you want to disable dependency analysis.
 
-    In the following example, dependency analysis is being disabled on the list of servers in the input file ContosoDemo_VMs_Disable.csv.
+In the following example, dependency analysis is being disabled on the list of servers in the input file ContosoDemo_VMs_Disable.csv.
 
 ```
     PowerShell Set-AzMigDependencyMappingAgentless -Disable -InputCsvFile .\ContosoDemo_VMs_Disable.csv [-AutoEnabledDepMap]
@@ -375,7 +384,8 @@ Set-AzMigDependencyMappingAgentless -Enable -InputCsvFile .\ContosoDemo_VMs_Enab
 Dependency analysis is autoenabled on all discovered servers, which have passed the validation checks. You may need to disable one or more of these servers in the following scenarios:
 
 1. Dependency analysis has been autoenabled on all discovered in your project but you want to disable it on a few servers where you don't want to gather dependency data.
-2. Dependency analysis is autoenabled on 1,000 servers at the same time in your project. If you have more servers to enable, you can disable it on one or more of the 1,000 servers and enable it on the ones as you need.
+
+1. Dependency analysis is autoenabled on 1,000 servers at the same time in your project. If you have more servers to enable, you can disable it on one or more of the 1,000 servers and enable it on the ones as you need.
 
 > [!NOTE]
 > Currently, it isn't possible to disable dependency analysis on servers from portal so you need to install the PowerShell module to disable for servers that you don't want.
@@ -394,13 +404,13 @@ Dependency analysis is autoenabled on all discovered servers, which have passed 
     Connect-AzAccount -EnvironmentName AzureUSGovernment
     ```
 
-2. Select the subscription in which you've created the project 
+1. Select the subscription in which you've created the project 
 
     ```PowerShell
     select-azsubscription -subscription "Contoso Demo Subscription"
     ```
 
-3. Install the AzMig.Dependencies PowerShell module
+1. Install the AzMig.Dependencies PowerShell module
 
     ```PowerShell
     Install-Module .\AzMig.Dependencies
@@ -414,7 +424,7 @@ Dependency analysis is autoenabled on all discovered servers, which have passed 
     Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "ContosoDemoRG" -ProjectName "ContosoDemoProject" -OutputCsvFile "ContosoDemo_VMs.csv" [-AutoEnabledDepMap]
     ```
 
-    You can also add a filter to export the relevant servers using the command:
+You can also add a filter to export the relevant servers using the command:
 
     ```PowerShell
     Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "ContosoDemoRG" -ProjectName "ContosoDemoProject" -Filter @{"Dependencies"="Enabled"} -OutputCsvFile "ContosoDemo_VMs.csv" [-AutoEnabledDepMap]
@@ -439,9 +449,9 @@ You can find discovered servers for a specific appliance by using the command:
     
 In the file, you can see the server display name, current status of dependency collection and the ARM ID of all discovered servers. 
 
-2. To disable dependencies, create an input CSV file from the output file you exported in the last step. The file is required to have a column with header "ARM ID". Any other headers in the CSV file are ignored. The input file should contain the list of servers where you want to disable dependency analysis.
+1. To disable dependencies, create an input CSV file from the output file you exported in the last step. The file is required to have a column with header "ARM ID". Any other headers in the CSV file are ignored. The input file should contain the list of servers where you want to disable dependency analysis.
 
-    In the following example, dependency analysis is being disabled on the list of servers in the input file ContosoDemo_VMs_Disable.csv.
+In the following example, dependency analysis is being disabled on the list of servers in the input file ContosoDemo_VMs_Disable.csv.
 
 ``` PowerShell
     Set-AzMigDependencyMappingAgentless -Disable -InputCsvFile .\ContosoDemo_VMs_Disable.csv [-AutoEnabledDepMap]
@@ -453,7 +463,7 @@ You may need to enable dependency analysis on one or more servers to restart dep
 
 You need to follow the same steps to export the discovered servers as mentioned above and then import the list of servers you want to enable.
 
-   In the following example, dependency analysis is being enabled on the list of servers in the input file ContosoDemo_VMs_Enable.csv.
+In the following example, dependency analysis is being enabled on the list of servers in the input file ContosoDemo_VMs_Enable.csv.
 
 ```PowerShell
     Set-AzMigDependencyMappingAgentless -Enable -InputCsvFile .\ContosoDemo_VMs_Enable.csv [-AutoEnabledDepMap] 
@@ -476,27 +486,27 @@ Azure Migrate offers a Power BI template that you can use to visualize network c
     Connect-AzAccount -EnvironmentName AzureUSGovernment
     ```
 
-2. Select the subscription in which you've created the project 
+1. Select the subscription in which you've created the project 
 
     ```PowerShell
     select-azsubscription -subscription "Contoso Demo Subscription"
     ```
 
-3. Install the AzMig.Dependencies PowerShell module
+1. Install the AzMig.Dependencies PowerShell module
 
     ```PowerShell
     Install-Module .\AzMig.Dependencies
     ```
 
-4. Run the following command. This command downloads the dependencies data in a CSV and processes it to generate a list of unique dependencies that can be used for visualization in Power BI. In the example below the project name is ContosoDemoProject, and the resource group it belongs to be ContosoDemoRG. The dependencies are downloaded for servers discovered by ContosoApp. The unique dependencies are saved in ContosoDemo_Dependencies.csv
+1. Run the following command. This command downloads the dependencies data in a CSV and processes it to generate a list of unique dependencies that can be used for visualization in Power BI. In the example below the project name is ContosoDemoProject, and the resource group it belongs to be ContosoDemoRG. The dependencies are downloaded for servers discovered by ContosoApp. The unique dependencies are saved in ContosoDemo_Dependencies.csv
 
     ```PowerShell
     Get-AzMigDependenciesAgentless -ResourceGroup ContosoDemoRG -Appliance ContosoApp -ProjectName ContosoDemoProject -OutputCsvFile "ContosoDemo_Dependencies.csv" [-AutoEnabledDepMap]
     ```
 
-5. Open the downloaded Power BI template
+1. Open the downloaded Power BI template
 
-6. Load the downloaded dependency data in Power BI.
+1. Load the downloaded dependency data in Power BI.
     - Open the template in Power BI.
     - Select **Get Data** on the tool bar. 
     - Choose **Text/CSV** from Common data sources.
@@ -505,9 +515,9 @@ Azure Migrate offers a Power BI template that you can use to visualize network c
     - You see a table is imported with the name of the CSV file. You can see the table in the fields bar on the right. Rename it to AzMig_Dependencies
     - Select refresh from the tool bar.
 
-    The Network Connections chart and the Source server name, Destination server name, Source process name, Destination process name slicers should light up with the imported data.
+The Network Connections chart and the Source server name, Destination server name, Source process name, Destination process name slicers should light up with the imported data.
 
-7. Visualize the map of network connections filtering by servers and processes. Save your file.
+1. Visualize the map of network connections filtering by servers and processes. Save your file.
 
 ## Next steps
 
