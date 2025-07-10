@@ -194,6 +194,47 @@ To protect your data, Azure Backup includes the soft delete feature. With soft d
 * These backup items remain active in the system adhering to the backup and retention policy set by the user. The backed-up data for these Azure VMs will be retained according to the retention policy. The expired recovery points (except the most recent recovery point) are cleaned according to the retention range set in the backup policy.
 * To avoid any additional cost, we recommend deleting the backup items where the primary data source no longer exists. This is in a scenario where the backup item/data for the deleted resources is no longer required, since the most recent recovery point is retained forever and you're charged according to the applicable backup pricing.
 
+## Uninstall and re-install the VMSnapshot extension on Windows operating system
+
+To uninstall and re-install the VMSnapshot extension on Windows operating system for the backup operation, follow these steps:
+
+1. Uninstall the `VMSnapshot` extension by running the following cmdlet:
+
+    ```azurepowershell-interactive
+    Remove-AzVMExtension -ResourceGroupName "<Azure VM's resource group name>" -<VMName "Azure VM name>" -Name "VMSnapshot"
+    ```
+
+2. Sign in to the Azure VM, right-click the Windows **Start** icon to open the **Run** window, and then enter **services.msc** to open the **Services** window.
+3. On the Services window, stop the **Windows Azure Guest Agent** service.
+4. Go to the folder `C:\Packages\Plugins`, and then rename the folder `Microsoft.Azure.RecoveryServices.VMSnapshot` to `Microsoft.Azure.RecoveryServices.VMSnapshot_old`.
+5. Right-click the Windows **Start** icon, select **Run**, and then enter **regedit** to open the **Registry Editor**.
+6. On the **Registry Editor** window, go to *HKEY_LOCAL_MACHINE\Software\Microsoft\WindowsAzure* and export to an alternate location before modifying for the backup operation.
+7. Go to *HKEY_LOCAL_MACHINE\Software\Microsoft\WindowsAzure\HandlerState*, and delete `Microsoft.Azure.RecoveryServices.VMSnapshot_1.X.XX.X`.
+
+   >[!Note]
+   >The plugin version  **1.X.XX.X** might change based on your environment.
+
+8. Open the **Command prompt** as **Administrator** and add the required registry entries by running the following commands:
+
+    ```
+    REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v IsProviderInstalled /t REG_SZ /d False /f
+    ```
+
+    ```
+    REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v IsCommonProviderInstalled /t REG_SZ /d False /f
+    ```
+
+9. On the **Services** window, start **Windows Azure Guest Agent**.
+1. Restart the Azure VM.
+1. Run an on-demand backup of Azure VM; this operation installs a new `VMSnapshot` extension.
+
+
+
+
+
+
+
+
 ## Next steps
 
 * Learn how to [back up Azure VMs from the VM's settings](backup-azure-vms-first-look-arm.md).
