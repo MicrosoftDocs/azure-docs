@@ -106,46 +106,7 @@ Instance distribution in a zone-redundant deployment follows specific rules. The
 
 - **Minimum instances:** Your App Service plan must have a minimum of two instances for zone redundancy.
 
-- **Maximum availability zones supported by your plan:** Azure determines the number of availability zones that your plan can use. To view the number of availability zones that your plan is able to use, you need to know the maximum number of zones on the App Service plan.
-
-    | Maximum Number of Zones | Zone redundancy support |
-    | ------------------------ | ----------------------- |
-    | Greater than 1           | Supported               |
-    | Equal to 1               | Not supported           |
-        
-    
-    To check to see the maximum number of zones for your App Service plan, you can use the following methods:
-    
-    # [Azure CLI](#tab/azurecli)
-    
-    ```azurecli
-    az appservice plan show -n <app-service-plan-name> -g <resource-group-name> --query properties.maximumNumberOfZones
-    ```
-    
-    # [Bicep](#tab/bicep)
-    
-    <!-- Jordan: ChatGPT inserted this. Please correct as needed. -->
-    
-    ```bicep
-    resource appService 'Microsoft.Web/sites@2024-04-01' existing = {
-        name: '{appName}'
-        resourceGroup: '{resourceGroup}'
-    }
-    
-    output physicalZones array = [for instance in appService.instances: instance.physicalZone]
-    ```
-    
-    # [Azure portal](#tab/portal)
-    
-    To see whether your App Service is on a stamp that uses availability zones, follow these steps:
-    
-    1. Go to your App Service plan.
-    1. Select **Scale out (App Service plan)**.
-    1. The maximum number of zones that your App Service plan can use is shown in **Maximum available zones**. If this value is greater than 1, your App Service plan supports zone redundancy. Otherwise, your App Service plan does not support zone redundancy.
-    
-    :::image type="content" source="./media/reliability-app-service/app-service-plan-max-zones-portal.png" alt-text="Screenshot of maximum available zones property in the Scale out blade in the Azure portal for an App Service plan.":::
-    
-    ---
+- **Maximum availability zones supported by your plan:** Azure determines the number of availability zones that your plan can use. To view the number of availability zones that your plan is able to use, see [Zone redundancy support for an App Service plan](../app-service/configure-reliability.md#check-for-zone-redundancy-support-for-an-app-service-plan).
 
 - **Instance distribution:** When zone redundancy is enabled, plan instances are distributed across multiple availability zones automatically. The distribution is based on the following rules:
 
@@ -153,35 +114,7 @@ Instance distribution in a zone-redundant deployment follows specific rules. The
     - Any remaining instances are distributed across the remaining zones.
     - When the App Service platform allocates instances for a zone-redundant App Service plan, it uses best-effort zone balancing that the underlying Azure virtual machine scale sets provide. An App Service plan is balanced if each zone has the same number of VMs or differs by plus one VM or minus one VM from all other zones. For more information, see [Zone balancing](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
 
-- **Physical zone placement:** To view the [physical availability zone](availability-zones-overview.md#physical-and-logical-availability-zones) that's used for each of your App Service plan instances, you can use the following methods:
-
-    # [Azure CLI](#tab/azurecli)
-
-    Use the [REST API](/rest/api/appservice/web-apps/get-instance-info), which returns the `physicalZone` value for each instance in the App Service plan:
-
-    ```azurecli
-    az rest --method get --url https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Web/sites/{appName}/instances?api-version=2024-04-01
-    ```
-    # [Bicep](#tab/bicep)
-
-        ```bicep
-        resource appService 'Microsoft.Web/sites@2024-04-01' existing = {
-          name: '{appName}'
-          resourceGroup: '{resourceGroup}'
-        }
-    
-        output physicalZones array = [for instance in appService.instances: instance.physicalZone]
-        ```
-
-    # [Azure portal](#tab/portal)
-
-    1. Go to your App Service app.
-    1. Select the **Health check** blade.
-    1. Select the **Instances** tab to view the physical zone placement for each of your instances.
-    
-    :::image type="content" source="./media/reliability-app-service/app-service-physical-zones.png" alt-text="Screenshot of the Instances tab in the Health Check blade with the physical zone information in the Azure portal for an App Service app.":::
-
-    ---
+- **Physical zone placement:** To view the [physical availability zone](availability-zones-overview.md#physical-and-logical-availability-zones) that's used for each of your App Service plan instances, see [View physical zones for an App Service plan](../app-service/configure-reliability.md#view-physical-zones-for-an-app-service-plan).
 
 For App Service plans that aren't configured as zone redundant, the underlying VM instances aren't resilient to availability zone failures. They can experience downtime during an outage in any zone in that region.
 
@@ -215,204 +148,25 @@ To deploy a new zone-redundant App Service plan, you must use the [Premium v2-4 
 
 ::: zone pivot="premium"
 
-- **Create a new App Service plan with zone redundancy.** To deploy a new zone redundant App Service plan, select the *Zone redundant* option when you deploy the plan in the Azure portal or set the App Service plan `zoneRedundant` property to `true` in the Azure CLI command, Azure PowerShell command, Bicep file, or Azure Resource Manager template:
+- **Create a new App Service plan with zone redundancy.** To learn how to create a new App Service plan with zone redundancy, see [Create a new App Service plan with zone redundancy](../app-service/configure-reliability.md#create-a-new-app-service-plan-with-zone-redundancy).
 
-    # [Azure CLI](#tab/azurecli)
 
-    ```azurecli
-    az appservice plan create -g MyResourceGroup -n MyPlan --zone-redundant --number-of-workers 2 --sku P1V3
-    ```
-
-    > [!NOTE]
-    > If you use the Azure CLI to modify the `zone-redundant` property, you must specify the `--number-of-workers` property, which is the number of instances, and use a capacity greater than or equal to 2.
-
-    # [Bicep](#tab/bicep)
-
-    ```bicep
-    resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
-        name: appServicePlanName
-        location: location
-        sku: {
-            name: sku
-            capacity: 2
-        }
-        kind: 'linux'
-        properties: {
-            reserved: true
-            zoneRedundant: true
-        }
-    }
-    ```
-
-    # [Azure portal](#tab/portal)
-
-    :::image type="content" source="./media/reliability-app-service/app-service-create-zr-plan.png" alt-text="Screenshot of zone redundancy enablement during App Service plan creation in the Azure portal.":::
-
-    ---
-
-- **Migrate an existing App Service plan to zone-redundancy.** If you have an existing App Service plan that supports zone redundancy (the maximum available zones is greater than 1), you can enable zone redundancy in the Azure portal or by setting the App Service plan's `zoneRedundant` property to `true` in the Azure CLI, your Bicep file, or your Resource Manager template:
-
-    # [Azure CLI](#tab/azurecli)
-
-    ```azurecli
-    az appservice plan update -g <resource group name> -n <app service plan name> --set zoneRedundant=true sku.capacity=2
-    ```
-
-    > [!NOTE]
-    > If you use the Azure CLI to modify the `zoneRedundant` property, you must define the `sku.capacity` property (the number of instances) as greater than or equal to 2.
-
-    # [Azure portal](#tab/bicep)
-   <!-- Jordan: Please place info here. -->
-
-    # [Azure portal](#tab/portal)
-
-    :::image type="content" source="./media/reliability-app-service/app-service-plan-zone-redundancy-portal.png" alt-text="Screenshot of zone redundancy property for an App Service plan in the Azure portal.":::
-
-    > [!IMPORTANT]
-    > If you have *Rules Based* scaling enabled, you can't use the Azure portal to enable zone redundancy. You must use the Azure CLI or Bicep/Resource Manager instead.
-
-    ---
-   
-    If you're on a plan or a stamp that doesn't support availability zones, you must create a new App Service plan in a new resource group so that you land on the App Service footprint that supports zones.
-
-    > [!NOTE]
-    > Changing the zone redundancy status of an App Service plan is almost instantaneous. You don't experience downtime or performance problems during the process.
-
-- **Disable zone redundancy.** To disable zone redundancy, use the Azure portal, Azure CLI, or set the App Service plan `zoneRedundant` property to `false`:
-
-    ```azurecli
-    az appservice plan update -g <resource group name> -n <app service plan name> --set zoneRedundant=false sku.capacity=1
-    ```
-
-    > [!NOTE]
-    > If you use the Azure CLI to disable the `zoneRedundant` property, you should specify the `sku.capacity` property, otherwise the value defaults to 1.
+- **Enable or disable an existing App Service plan to zone-redundancy.** To learn how to enable or disable an existing App Service plan to zone redundancy, see [Enable or disable an existing App Service plan to zone redundancy](../). (../app-service/configure-reliability.md#enable-or-disable-zone-redundancy -for-an-existing-app-service-plan).
 
 ::: zone-end
 
 ::: zone pivot="isolated"
 
-- **Create a new App Service plan with zone redundancy.** 
+- **Create a new App Service plan with zone redundancy.**  To learn how to create a new App Service plan with zone redundancy, see [Create a new App Service Environment plan with zone redundancy](../app-service/configure-reliability-ase.md#create-a-new-app-service-environment-plan-with-zone-redundancy).
 
-    1. If you don't have a pre-existing zone-redundant App Service Environment, deploy a new zone-redundant App Service Environment. For more information on how to create an App Service Environment, see [Create an App Service Environment](/azure/app-service/environment/creation).
+- **Enable or disable an existing App Service plan to zone-redundancy.** To enable zone redundancy on an Isolated v2 App Service plan, see [Enable or disable an existing App Service Environments plan to zone redundancy](../app-service/configure-reliability-ase.md#enable-or-disable-zone-redundancy-for-an-existing-app-service-plan).
 
-    1. To create the App Service plan in Azure portal, select *Zone redundant*. To create the plan using Azure CLI command, Azure PowerShell command, Bicep file, or Resource Manager template, set the App Service plan `zoneRedundant` property to `true`, as in the following sample code:
-
-    # [Azure CLI](#tab/azurecli)
-
-    ```azurecli
-    az appservice plan create -g MyResourceGroup -n MyPlan --app-service-environment MyAse --zone-redundant --number-of-workers 2 --sku I1V2
-    ```
-
-    > [!NOTE]
-    > If you use the Azure CLI to modify the `zoneRedundant` property, you must specify the `number-of-workers` property, which is the number of instances, and use a capacity greater than or equal to 2.
-
-    # [Bicep](#tab/bicep)
-
-    ```bicep
-    resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
-        name: appServicePlanName
-        location: location
-        hostingEnvironmentProfile: {
-            id: '...'
-        }
-        sku: {
-            name: sku
-            capacity: 2
-        }
-        kind: 'linux'
-        properties: {
-            reserved: true
-            zoneRedundant: true
-        }
-    }
-    ```
-   # [Azure portal](#tab/portal)
-   <!-- Jordan: Please place info here. -->
-
-    ---
-
-- **Migrate an existing App Service plan to zone-redundancy** If you have an existing App Service Environment or Isolated v2 App Service plan that supports zone redundancy, you can enable zone redundancy at any time. To enable zone redundancy for the App Service Environment, set the `zoneRedundant` property to `true` or use the Azure CLI:
-
-    # [Azure CLI](#tab/azurecli)
-
-    ```azurecli
-    az resource update --ids /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Web/hostingEnvironments/{aseName} --set properties.zoneRedundant=true
-    ```
-
-    # [Bicep](#tab/bicep)
-
-    ```bicep
-    resource asev3 'Microsoft.Web/hostingEnvironments@2020-12-01' = {
-        name: aseName
-        location: location
-        kind: 'ASEV3'
-        dependsOn: [
-            virtualnetwork
-        ] 
-        properties: {
-            ...
-            zoneRedundant: true
-        }
-    }
-    ```
-
-    ---
 
     > [!NOTE]
     > When you change the zone redundancy status of the App Service Environment, you initiate an upgrade that takes 12-24 hours to complete. During the upgrade process, you don't experience any downtime or performance problems.
 
-    For Isolated v2 App Service plans, if the App Service Environment is zone redundant, the App Service plans can also be set as zone redundant. Each App Service plan has its own independent zone redundancy setting, which means that you can have a mix of zone redundant and non-zone redundant plans in an App Service Environment. To enable zone redundancy on an Isolated v2 App Service plan, set the App Service plan's `zoneRedundant` property to `true`, by using the one of the following methods:  
+    For Isolated v2 App Service plans, if the App Service Environment is zone redundant, the App Service plans can also be set as zone redundant. Each App Service plan has its own independent zone redundancy setting, which means that you can have a mix of zone redundant and non-zone redundant plans in an App Service Environment. 
     
-    # [Azure CLI](#tab/azurecli)
-
-    ```azurecli
-    az appservice plan update -g <resource group name> -n <app service plan name> --set zoneRedundant=true sku.capacity=2
-    ```
-
-  > [!NOTE]
-    > If you use the Azure CLI to modify the `zoneRedundant` property, you must define the `sku.capacity` property (the number of instances) as greater than or equal to 2.
-
-    # [Bicep](#tab/bicep)
-
-    ```bicep
-    resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
-        name: appServicePlanName
-        location: location
-        hostingEnvironmentProfile: {
-            id: '...'
-        }
-        sku: {
-            name: sku
-            capacity: 2
-        }
-        kind: 'linux'
-        properties: {
-            reserved: true
-            zoneRedundant: true
-        }
-    }
-    ```
-
-    # [Azure portal](#tab/portal)
-
-    :::image type="content" source="./media/reliability-app-service/app-service-plan-zone-redundancy-portal-isolated.png" alt-text="Screenshot of zone redundancy property for an App Service plan in the Azure portal.":::
-
-    > [!NOTE]
-    > If you have "Rules Based" scaling enabled, you can't use the Azure portal to enable zone redundancy for your App Service plan. You must use the Azure CLI or Bicep/Resource Manager instead.
-    
-    ---
-
-- **Disable zone redundancy.** To disable zone redundancy for the App Service plans, you can set the individual App Service plan `zoneRedundant` property to `false`, use the Azure CLI, or use the Azure portal. You can also disable zone redundancy across all App Service plans in the App Service Environment by disabling zone redundancy for the App Service Environment itself:
-
-    ```azurecli
-    az resource update --ids /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Web/hostingEnvironments/{aseName} --set properties.zoneRedundant=false
-
-    az appservice plan update -g <resource group name> -n <app service plan name> --set zoneRedundant=false sku.capacity=1
-    ```
-
-    > [!NOTE]
-    > If you use the Azure CLI to disable the `zoneRedundant` property, you should specify the `sku.capacity` property, otherwise the value defaults to 1.
-
 ::: zone-end
 
 ::: zone pivot="premium,isolated"

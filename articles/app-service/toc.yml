@@ -533,8 +533,10 @@ items:
   items:
   - name: Reliability in Azure App Service
     href: ../reliability/reliability-app-service.md?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
-  - name: Migrate to availability zones
-    href: ../reliability/migrate-app-service.md?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
+  - name: Configure App Service plans for reliability
+    href: configure-reliability.md
+  - name: Configure App Service Environments plans for reliability
+    href: configure-environment-reliability.md
 - name: Samples
   items:
     - name: Azure CLI
