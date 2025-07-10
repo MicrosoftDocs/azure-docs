@@ -3,7 +3,7 @@ title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 07/07/2025
+ms.date: 07/10/2025
 ---
 
 # ARM template functions
@@ -64,6 +64,7 @@ Resource Manager provides several functions for working with arrays.
 * [range](template-functions-array.md#range)
 * [skip](template-functions-array.md#skip)
 * [take](template-functions-array.md#take)
+* [tryGet](template-functions-array.md#tryget)
 * [tryIndexFromEnd](template-functions-array.md#tryindexfromend)
 * [union](template-functions-array.md#union)
 
@@ -229,6 +230,7 @@ Resource Manager provides several functions for working with objects.
 * [null](template-functions-object.md#null)
 * [objectKeys](template-functions-object.md#objectkeys)
 * [shallowMerge](template-functions-object.md#shallowmerge)
+* [tryGet](template-functions-object.md#tryget)
 * [union](template-functions-object.md#union)
 
 For Bicep files, use the [object](../bicep/bicep-functions-object.md) functions.

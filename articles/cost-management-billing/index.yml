@@ -32,7 +32,7 @@ highlightedContent:
       url: savings-plan/savings-plan-compute-overview.md
     - title: What's new
       itemType: whats-new
-      url: https://azure.microsoft.com/blog/tag/cost-management/
+      url: https://azure.microsoft.com/blog/product/cost-management/
     - title: Costs included in Cost Management
       itemType: concept
       url: costs/understand-cost-mgt-data.md

@@ -43,7 +43,7 @@ When you create a mesh topology or direct connectivity in the hub and spoke topo
 
 [!INCLUDE [virtual-network-manager-high-scale-preview](../../includes/virtual-network-manager-high-scale-preview.md)]
 
-Azure Virtual Network Manager's high scale connected group feature allows you to extend your network capacity. Use the following steps to enable this feature to support up to 20,000 private endpoints across the connected group:
+Azure Virtual Network Manager's high scale connected group feature allows you to extend your network capacity. Use the following steps to enable this feature to support up to 2,000 private endpoints across the connected group:
 
 #### Prepare each virtual network in the connected group
 
