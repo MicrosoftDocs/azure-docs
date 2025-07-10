@@ -2,11 +2,11 @@
 title: 'Configure route filters for Microsoft peering'
 description: This article shows you how to configure route filters for Microsoft peering.
 services: expressroute
-author: duau, divyapr
+author: duau
 ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 07/10/2025
-ms.author: duau, divyapr
+ms.author: duau
 ms.custom: template-tutorial
 # Customer intent: As a network administrator, I want to configure route filters for Microsoft peering in my ExpressRoute circuit, so that I can selectively manage and reduce the size of advertised prefixes for services, optimizing network performance.
 ---
@@ -58,8 +58,6 @@ Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expres
 
 # [**Azure CLI**](#tab/cli)
 
-## Prerequisites
-
 To successfully connect to services through Microsoft peering, you must complete the following configuration steps:
 
 * You must have an active ExpressRoute circuit that has Microsoft peering provisioned. You can use the following instructions to accomplish these tasks:
@@ -108,7 +106,7 @@ Find the BGP community values associated with services accessible through Micros
 
 # [**Azure CLI**](#tab/cli)
 
-Use the following cmdlet to get the list of BGP community values and prefixes associated with services accessible through Microsoft peering:
+1. Use the following cmdlet to get the list of BGP community values and prefixes associated with services accessible through Microsoft peering:
 
     ```azurecli-interactive
     az network route-filter rule list-service-communities
