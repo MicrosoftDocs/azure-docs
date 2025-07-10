@@ -73,7 +73,7 @@ The new users need to follow the below steps:
 4. In **Step 2: Provide discovery source details**, select **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the discovery source.
 
 
-    :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="The screenshot shows the panel 3 on appliance configuration manager for vCenter Server details." lightbox="./media/tutorial-discover-vmware/appliance-manage-sources.png":::
+:::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="The screenshot shows the panel 3 on appliance configuration manager for vCenter Server details." lightbox="./media/tutorial-discover-vmware/appliance-manage-sources.png":::
 
 5. In **Step 3: Provide server credentials to perform software inventory and agentless dependency analysis**, select **Add credentials** to provide multiple server credentials to perform guest-based discovery like software inventory, agentless dependency analysis, and discovery of databases and web applications.
 6. Select on **Start discovery**, to initiate discovery.
@@ -114,7 +114,7 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 5. **Not initiated:** Dependency analysis couldn’t be enabled because Azure Migrate reached its limit of 1,000 servers per appliance for automatic enablement. If you want to run dependency analysis on specific servers, you can disable it manually on other autoenabled servers and enable it for the required ones using the PowerShell module.
 6. **Disabled:** You can manually disable dependency analysis on this using the portal or the PowerShell module. You can enable it again anytime using the same module. 
 
-7. ****Not enabled** status is shown for servers, discovered from an appliance that has still not been upgraded to the new visualization. [Learn more](#switch-to-new-visualization) to upgrade the appliance.
+7. **Not enabled** status is shown for servers, discovered from an appliance that has still not been upgraded to the new visualization. [Learn more](#switch-to-new-visualization) to upgrade the appliance.
 ::: moniker-end
 
 ## Visualize dependencies
@@ -164,18 +164,18 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 
 8. You can hover on the Server name to see essential information about the server like IP address, Source, and Tags.
     
-    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/server-hover-details.png" alt-text="The screenshot illustrated how the details are shown on hover." lightbox="./media/how-to-create-group-machine-dependencies-agentless/server-hover-details.png":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/server-hover-details.png" alt-text="The screenshot illustrated how the details are shown on hover." lightbox="./media/how-to-create-group-machine-dependencies-agentless/server-hover-details.png":::
 
 9. Similarly you can also hover on the connection to see essential information like strength and frequency of connections in the selected time range. 
 10. You can select the Server name to see more details like Operating system, Power Status, Software inventory discovered from the server and associated Tags.
 
-    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/server-expand-details.png" alt-text="The screenshot shows the server details on expanding. " lightbox="./media/how-to-create-group-machine-dependencies-agentless/server-expand-details.png":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/server-expand-details.png" alt-text="The screenshot shows the server details on expanding. " lightbox="./media/how-to-create-group-machine-dependencies-agentless/server-expand-details.png":::
 
 11. Similarly you can also select the connection to see more details like which source and destination processes have the dependency over which destination port no. 
 12. You can expand the Server to see the list of processes basis the selected process type filter.
 13. From the expanded list of processes, you can select on a Process name to see its incoming and outgoing dependencies with processes on other servers in the view. The process to process dependency also indicates the destination port no on the connection.
 
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/process-process-dep.png" alt-text="The screenshot shows the process to process dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/process-process-dep.png":::
+    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/process-process-dep.png" alt-text="The screenshot shows the process to process dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/process-process-dep.png":::
 
 
 > [!NOTE]
@@ -192,7 +192,7 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 
 The dependency data is exported and downloaded in a CSV format. The downloaded file contains the dependency data across all servers enabled for dependency analysis. 
 
-    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/export-dep.png" alt-text="The screenshot illustrates the Export dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/export-dep.png":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/export-dep.png" alt-text="The screenshot illustrates the Export dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/export-dep.png":::
 
 ### Dependency information
 
@@ -219,7 +219,7 @@ If you are an existing user, you already set up an Azure Migrate project. You pe
 1. Go to the inventory view and search for a server, for which you want to review dependencies.
 2. Select on **View dependencies** and you see the old visualization showing dependencies of that server.
 
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png":::
+    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png":::
 
 3. On the dependency view, you see an information box prompting you to complete some prerequisites for switching to the new visualization.
 4. As a prerequisite, you need to ensure that the discovery agent on the appliances registered with the project is upgraded to version or later.
@@ -260,7 +260,7 @@ You can disable dependency analysis on servers that you don't want and also enab
 
 In **All inventory** or **Infrastructure inventory** view, select the **Manage Dependencies** drop-down and then select **Disable dependencies**.
 
-  :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/disable-dependencies-option.png":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/disable-dependencies-option.png":::
 
 Follow the steps to disable the servers where dependency analysis is autoenabled:
 
@@ -271,8 +271,7 @@ Follow the steps to disable the servers where dependency analysis is autoenabled
 
 2. You can filter servers to disable dependency analysis on those that were autoenabled (servers with the status as *Enabled*). Servers that aren't eligible for disablement—such as those with the status *Validation failed*, *Not initiated*, *Disabled*, or *Credentials* not available'—can't be selected.
 
-
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/disable-dependencies-view.png":::
+    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/disable-dependencies-view.png":::
 
 3. You can select the servers and select Disable to proceed.
 
@@ -289,7 +288,7 @@ Follow the steps to disable the servers where dependency analysis has been autoe
 
 2. You can filter servers to disable dependency analysis on those that were autoenabled (servers with the status as *Enabled*). Servers that aren't eligible for disablement—such as those with the status *Validation failed*, *Not initiated*, *Disabled*, or *Credentials* not available'—can't be selected.
 
-    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/enable-dependencies-view.png":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/enable-dependencies-view.png":::
 
 3. You can select the servers and select Enable to proceed.
 
