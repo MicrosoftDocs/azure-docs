@@ -114,7 +114,10 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 5. **Not initiated:** Dependency analysis couldn’t be enabled because Azure Migrate reached its limit of 1,000 servers per appliance for automatic enablement. If you want to run dependency analysis on specific servers, you can disable it manually on other autoenabled servers and enable it for the required ones using the PowerShell module.
 6. **Disabled:** You can manually disable dependency analysis on this using the portal or the PowerShell module. You can enable it again anytime using the same module. 
 
-7. **Not enabled** status is shown for servers, discovered from an appliance that has still not been upgraded to the new visualization. [Learn more](#switch-to-new-visualization) to upgrade the appliance.
+7. **Not enabled**: Dependency data could not be collected as the server was discovered through CSV import.
+
+>[!Note]
+> Not enabled status is shown for servers, discovered from an appliance that has still not been upgraded to the new visualization. . [Learn more](#switch-to-new-visualization) to upgrade the appliance.
 ::: moniker-end
 
 ## Visualize dependencies
@@ -267,13 +270,13 @@ Follow the steps to disable the servers where dependency analysis is autoenabled
 1. You can start by selecting an appliance from the drop-down.
 
 > [!NOTE] 
-> If the selected appliance isn't upgraded for the new dependency analysis, you can either meet the prerequisites or switch to the old experience (from Overview) to add or remove servers for dependency analysis.
+> If the selected appliance isn't upgraded for the new dependency analysis, you can either meet the [prerequisites](#switch-to-new-visualization) or switch to the old experience (from Overview) to add or remove servers for dependency analysis.
 
 2. You can filter servers to disable dependency analysis on those that were autoenabled (servers with the status as *Enabled*). Servers that aren't eligible for disablement—such as those with the status *Validation failed*, *Not initiated*, *Disabled*, or *Credentials* not available'—can't be selected.
 
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/disable-dependencies-view.png":::
 
-3. You can select the servers and select Disable to proceed.
+3. You can select the servers and select **Disable** to proceed.
 
 ### Enable dependencies
 
@@ -290,7 +293,7 @@ Follow the steps to disable the servers where dependency analysis has been autoe
 
 :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/old-dep-view.png" alt-text="The screenshot shows the old dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/enable-dependencies-view.png":::
 
-3. You can select the servers and select Enable to proceed.
+3. You can select the servers and select **Enable** to proceed.
 
 > [!NOTE] 
 > You can't enable more than 1,000 servers per appliance concurrently so if your selection exceeds the count, you won't be able to proceed.
