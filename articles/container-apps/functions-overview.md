@@ -109,7 +109,7 @@ Managed identities are available for the following connections:
 
 For other bindings, use fixed replicas when using managed identity authentication. For more information, see the [Functions developer guide](/azure/azure-functions/functions-reference).
 
-## Scaling and Performance
+## Scaling and performance
 
 Azure Functions on ACA scale automatically based on events using KEDA, with no need to configure scale rules manually. You can still set min/max replicas to control scaling behavior.
 
