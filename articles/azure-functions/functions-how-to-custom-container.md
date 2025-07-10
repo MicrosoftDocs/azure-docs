@@ -10,7 +10,7 @@ zone_pivot_groups: functions-container-hosting
 
 # Work with containers and Azure Functions
 
-<a name="">working-with-containers-and-azure-functions</a>
+<a name="working-with-containers-and-azure-functions"></a>
 
 :::zone pivot="container-apps"
 This article demonstrates the support that Azure Functions provides for containerized function apps that run in an Azure Container Apps environment. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).
@@ -41,7 +41,7 @@ To learn more about deployments to Azure Container Apps, see [Azure Container Ap
 >[!IMPORTANT]
 >This article currently shows how to connect to the default storage account by using a connection string. For the best security, instead create a managed identity-based connection to Azure Storage using Microsoft Entra authentication. For more information, see [Connections](./functions-reference.md#connections).
 
-<a name="">creating-containerized-function-apps</a>
+<a name="creating-containerized-function-apps"></a>
 ## Create containerized function apps
 
 Functions makes it easy to deploy and run your function apps as Linux containers, which you create and maintain. Functions maintains a set of [language-specific base images](https://mcr.microsoft.com/catalog?search=functions) that you can use when creating containerized function apps.
@@ -164,7 +164,7 @@ You should also consider [enabling continuous deployment](#enable-continuous-dep
 ::: zone-end  
 :::zone pivot="azure-functions"  
 
-<a name="">azure-portal-create-using-containers</a>
+<a name="azure-portal-create-using-containers"></a>
 ## Create a containerized function app using the Azure portal
 
 When you create a function app in the [Azure portal], you can choose to deploy the function app from an image in a container registry. To learn how to create a containerized function app in a container registry, see [Create your function app in a container](#create-your-function-app-in-a-container).
@@ -205,6 +205,7 @@ The following steps create and deploy an existing containerized function app fro
 1. In the **Deployment Center**, you can connect your container registry as the source of the image. You can also enable GitHub Actions or Azure Pipelines for more robust continuous deployment of updates to your container in the registry. 
 ::: zone-end   
 :::zone pivot="container-apps"  
+<a name="azure-portal-create-using-containers"></a>
 ## Create a containerized function app using the Azure portal
 
 When you create a Container Apps-hosted function app in the [Azure portal], you can choose to deploy your function app from an image in a container registry. To learn how to create a containerized function app in a container registry, see [Create your function app in a container](#create-your-function-app-in-a-container).
@@ -282,7 +283,7 @@ This feature is not documented.
 ---
 
 :::zone pivot="container-apps"
-<a name="">container-apps-workload-profiles</a>
+<a name="container-apps-workload-profiles"></a>
 ## Use Container Apps workload profiles
 
 Workload profiles are feature of Container Apps that let you better control your deployment resources. Azure Functions on Azure Container Apps also supports workload profiles. For more information, see [Workload profiles in Azure Container Apps](../container-apps/workload-profiles-overview.md). 
