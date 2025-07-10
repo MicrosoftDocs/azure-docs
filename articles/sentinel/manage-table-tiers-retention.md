@@ -1,20 +1,23 @@
 ---
-title: Configure table settings in Microsoft Defender Portal (Preview)
-ms.service: unified-secops-platform
-description: Configure log table settings in Microsoft Defender Portal to optimize security operations and cost efficiency.
+title: Configure table settings in Microsoft Sentinel (Preview)
+description: Configure Microsoft Sentinel and Defender XDR table settings in Microsoft Defender Portal to optimize security operations and cost efficiency.
 ms.reviewer: dzatakovi
 ms.author: guywild
 author: guywi-ms
 ms.topic: conceptual
 ms.date: 05/06/2025
-# Customer intent: As an IT administrator or subscription owner, I want to manage log table tiers and retention settings in Microsoft Defender Portal to optimize security operations needs and cost efficiency.
+# Customer intent: As an IT administrator or subscription owner, I want to manage Microsoft Sentinel and Defender XDR table tiers and retention settings in Microsoft Defender Portal to optimize security operations needs and cost efficiency.
 ---
 
-# Configure table settings in Microsoft Defender Portal (Preview)
+# Configure table settings in Microsoft Sentinel (Preview)
 
-This article explains how to configure table retention and tier settings for Microsoft Sentinel and Defender XDR services in the Defender portal. 
+This article explains how to configure table retention and tier settings for Microsoft Sentinel and Defender XDR services in the Microsoft Defender portal. 
 
-For more information about how data tiers and retention work, see [Manage data tiers and retention in Microsoft Defender Portal (Preview)](manage-data-overview.md).
+For more information about how data tiers and retention work, see [Manage data tiers and retention in Microsoft Sentinel (Preview)](manage-data-overview.md).
+
+## Prerequisites
+
+- To manage Defender XDR hunting tables, you need to onboard to Microsoft Sentinel in the Defender portal. For more infromation, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard).
 
 ## Permissions required
 
@@ -68,13 +71,13 @@ To view and manage table settings in the Microsoft Defender portal:
       > - MSG tables are only available in the Date lake tier
       > - XDR and Sentinel solution tables are only available in the Analytics tier because Microsoft security services require the data in these tables for near-real-time analytics. 
 
-    For more information about retention and tier settings work, see [Manage data tiers and retention in Microsoft Defender Portal (Preview)](manage-data-overview.md).
+    For more information about retention and tier settings work, see [Manage data tiers and retention in Microsoft Sentinel (Preview)](manage-data-overview.md).
     
 1.	Review warnings and messages. These messages help you understand important implications of changing table settings. 
 
     For example:
-    -	Increased retention is likely to lead to increased data cost.
-    -	Changing from the Analytics to the Data lake tier causes features that rely on Analytics data to stop functioning. 
+    - Increased retention is likely to lead to increased data cost.
+    - Changing from the Analytics to the Data lake tier causes features that rely on Analytics data to stop functioning. 
 
 1. Select **Save** to apply the new settings.
 

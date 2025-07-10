@@ -1,6 +1,5 @@
 ---
-title: Manage data tiers and retention in Microsoft Defender Portal (Preview)
-ms.service: unified-secops-platform
+title: Manage data tiers and retention in MMicrosoft Sentinel (Preview)
 description: Manage log data in Microsoft Sentinel (SIEM) and Microsoft Defender XDR through the Microsoft Defender Portal to optimize security operations and cost efficiency.
 ms.reviewer: dzatakovi
 ms.author: guywild
@@ -10,7 +9,7 @@ ms.date: 05/06/2025
 # Customer intent: As an Microsoft Defender Portal administrator or subscription owner, I want to configure log table tiers and data retention settings to optimize security operations needs and cost efficiency.
 ---
 
-# Manage data tiers and retention in Microsoft Defender Portal (Preview)
+# Manage data tiers and retention in Microsoft Sentinel (Preview)
 
 Data you collect into Microsoft Sentinel (SIEM) and Microsoft Defender XDR is stored in tables. The Microsoft Defender portal lets you manage the retention period and the store costs associated with your data. You can manage retention and costs when you:
 
