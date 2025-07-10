@@ -17,7 +17,7 @@ For more information about how data tiers and retention work, see [Manage data t
 
 ## Prerequisites
 
-- To manage Defender XDR hunting tables, you need to onboard to Microsoft Sentinel in the Defender portal. For more infromation, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard).
+- To manage Defender XDR hunting tables, you need to onboard to Microsoft Sentinel in the Defender portal. For more information, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard).
 
 ## Permissions required
 

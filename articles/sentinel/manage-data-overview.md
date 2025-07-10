@@ -1,5 +1,5 @@
 ---
-title: Manage data tiers and retention in MMicrosoft Sentinel (Preview)
+title: Manage data tiers and retention in Microsoft Sentinel (Preview)
 description: Manage log data in Microsoft Sentinel (SIEM) and Microsoft Defender XDR through the Microsoft Defender Portal to optimize security operations and cost efficiency.
 ms.reviewer: dzatakovi
 ms.author: guywild
@@ -39,7 +39,7 @@ You can retain data in Microsoft Sentinel in one of two tiers:
 
 * **Analytics tier**: This tier makes data available for alerting, hunting, workbooks, and all Sentinel features. It retains data in two states:
 
-  - **Analytics retention**: In this "hot" state, data is fully available for real-time analytics - including high-performance queries and analytics rules - and threat hunting. By default, Microsoft Sentinel and Defender XDR retain data in this tier for 30 days. You can extend the retention period to 90 days for free, and from 90 days to up to two years at a prorated monthly long-term retention charge.
+  - **Analytics retention**: In this "hot" state, data is fully available for real-time analytics - including high-performance queries and analytics rules - and threat hunting. By default, Microsoft Sentinel and Defender XDR retain data in this tier for 30 days. You can extend the retention period of Sentinel tables to 90 days for free, and from 90 days to up to two years at a prorated monthly long-term retention charge.
   - **Total retention**: By default, all data in the Analytics tier is mirrored to the data lake for the same retention period. You can extend the retention of your data in the lake beyond the Analytics retention, for up to 12 years of total retention at a low cost. 
 
 * **Data lake tier**: In this low-cost "cold" tier, Microsoft Sentinel retains your data in the lake only.  Data in the data lake tier isn't available for real-time analytics features and threat hunting. However, you can access data in the lake whenever you need it through [KQL jobs](https://aka.ms/kql-jobs), analyze trends over time by running scheduled KQL or Spark jobs, and aggregate insights from incoming data at a regular cadence by using summary rules. 
@@ -89,7 +89,7 @@ When you change the Analytics retention settings of a table with existing data, 
 
 - You have a table in the Analytics tier with 180 days of Analytics retention. By default, the Total retention is also set to 180 days. 
 - You change the Analytics retention to 90 days without changing the Total retention period of 180 days. 
-- Microsoft Sentinel removes the last 90 days of data from in Analytics retetion automatically, but continues to store data that's 90-180 days in the data lake.
+- Microsoft Sentinel removes the last 90 days of data from in Analytics retention automatically, but continues to store data that's 90-180 days in the data lake.
 
   
 ## Public preview limitations
