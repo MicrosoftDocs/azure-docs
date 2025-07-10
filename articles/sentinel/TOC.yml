@@ -667,10 +667,10 @@
     items:      
     - name: Data management overview
       href: manage-data-overview.md
-      displayName: table management, tiers, retention, manage data
+      displayName: table management, tiers, retention, manage data, tables
     - name: Manage data tiers and retention
       href: manage-data-tiers-retention.md
-      displayName: table management, tiers, retention
+      displayName: table management, tiers, retention, tables
   - name: Manage costs and billing
     items:      
     - name: Monitor costs
