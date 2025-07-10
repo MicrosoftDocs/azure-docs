@@ -24,7 +24,7 @@ To learn more about ACLs in Azure NetApp Files, see [Understand NFSv4.x ACLs](nf
     1.  `nfs-utils` to mount NFS volumes 
     1. `nfs-acl-tools` to view and modify NFSv4 ACLs. 
     If you do not have either, install them:
-        - On a Red Hat Enterprise Linux or SuSE Linux instance:
+        - On a Red Hat Enterprise Linux or SUSE Linux instance:
         ```bash
         sudo yum install -y nfs-utils
         sudo yum install -y nfs4-acl-tools
