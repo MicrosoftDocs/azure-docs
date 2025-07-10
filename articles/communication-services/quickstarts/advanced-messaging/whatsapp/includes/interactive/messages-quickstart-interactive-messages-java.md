@@ -159,7 +159,7 @@ The Messages SDK enables Contoso to send interactive WhatsApp messages, when ini
 In this example, the business sends a click to a link message to the user.
 
 ```java
-LinkContent urlAction = new LinkContent("Click here to find out", "https://wallpapercave.com/wp/wp2163723.jpg");
+LinkContent urlAction = new LinkContent("Find out more", "https://wallpapercave.com/wp/wp2163723.jpg");
 InteractiveMessage interactiveMessage = new InteractiveMessage(
     new TextMessageContent("The best Guardian of Galaxy"), new WhatsAppUrlActionBindings(urlAction));
 interactiveMessage.setFooter(new TextMessageContent("Intergalactic New Ltd"));
