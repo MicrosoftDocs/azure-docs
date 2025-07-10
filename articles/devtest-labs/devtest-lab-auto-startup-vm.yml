@@ -25,7 +25,7 @@ procedureSection:
   - title: |
       Configure autostart for the lab
     summary: |
-      To configure an autostart policy for a lab, complete these steps. After configuring the policy, [enable autostart](#add-vms-to-the-autostart-schedule) for each VM that you want to start automatically.
+      To configure an autostart policy for a lab, complete these steps. After you configure the policy, [enable autostart](#add-vms-to-the-autostart-schedule) for each VM that you want to start automatically.
     steps:
       - |
         On your lab **Overview** page, select **Configuration and policies** under **Settings** in the left navigation.
