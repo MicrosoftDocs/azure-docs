@@ -174,7 +174,8 @@ As the Azure Communication Services WebJS Calling SDK continues to evolve, one o
 
 However, this scalability introduces a trade-off between the number of video streams rendered and the visual quality of each stream. Since the total screen real estate is fixed, increasing the number of video tiles means each individual video renderer must occupy a smaller portion of the screen. To maintain performance and avoid overloading the browser’s rendering pipeline, the SDK dynamically adjusts the resolution of each incoming video stream based on its rendered size. This ensures that bandwidth and CPU usage remain within acceptable limits, but it also means that as more participants join, the resolution of each video may decrease to accommodate the grid.
 
-This adaptive behavior is crucial for maintaining a smooth user experience. For example, in a 2x2 grid (4 participants), each video can be rendered at a relatively high resolution. But in a 5x5 grid (25 participants), each tile becomes smaller, and the SDK may downscale the incoming video streams to match the reduced display size. This prevents unnecessary bandwidth consumption and reduces the likelihood of dropped frames or lag.
+This adaptive behavior is crucial for maintaining a smooth user experience. For example, in a 2x2 grid (4 participants), each video can be rendered at a relatively high resolution. But in a 5x5 grid (25 participants), each tile becomes smaller, and the SDK may downscale the incoming video streams to match the reduced display size. This prevents unnecessary bandwidth consumption and reduces the likelihood of dropped frames or lag. A computer with at least an 8-core processor and 16GB of RAM is recommended to support up to 25 incoming video streams.
+
 
 The following table illustrates how video resolution changes based on the number of participants displayed in the incoming video grid at any one time.
 
@@ -191,7 +192,7 @@ The following table illustrates how video resolution changes based on the number
 > The GA version of the calling WebJS SDK allows for up to **16** incoming video streams for desktop browsers (4x4 grid).
 
 > [!NOTE]  
-> The public preview of the calling WebJS SDK currently supports up to **25** incoming video streams for Desktop browsers (5x5 grid).
+> The public preview of the calling WebJS SDK currently supports up to **25** incoming video streams for desktop browsers (5x5 grid).
 
 ## Conclusion
 
