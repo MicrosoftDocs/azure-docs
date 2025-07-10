@@ -233,7 +233,7 @@ For more information, see [Azure Advisor](/azure/advisor/advisor-overview).
 
 ### Size your VMs properly
 
-VM sizing has a significant affect on your overall Azure cost. The number of VMs needed in Azure might not equate to what you currently have deployed in an on-premises datacenter. Make sure you choose the right size for the workloads that you plan to run.
+VM sizing has a significant effect on your overall Azure cost. The number of VMs needed in Azure might not equate to what you currently have deployed in an on-premises datacenter. Make sure you choose the right size for the workloads that you plan to run.
 
 For more information, see [Azure IaaS: proper sizing and cost](/shows/microsoft-azure-azurecon-2015/acon210).
 
