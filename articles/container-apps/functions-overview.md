@@ -35,16 +35,16 @@ The Container Apps hosting model builds on the flexibility of containerized work
 - **Unified ACA environment** to run Functions alongside microservices, APIs, and background jobs.
 
 This table helps you directly compare the features of function on Container Apps with Flex consumption and classic consumption plan.
-| Feature |	Container Apps (ACA) | Flex Consumption Plan |
+| Feature | Container Apps | Flex Consumption Plan |
 | --- | --- | --- |
-| Scale to Zero |	✅ Yes (via KEDA) | ✅ Yes |
-| Max Scale-Out | 1000 (default 10, configurable) |	1000 |
-| Always-On Instances |	✅ Yes (via minReplicas) |	✅ Yes (via always-ready instances) |
-| VNet Integration |	✅ Yes |	✅ Yes |
-| Custom Container Support | ✅ Yes (bring your own image) |	❌ Limited (no bring your own container) |
-| GPU Support | ✅ Yes (via Serverless GPU Dedicated workload profile) | ❌ No |
-| Built-in Features |	ACA feature support e.g. KEDA, Dapr, Multi-revisions, mTLS, sidecars, Ingress control and more |	Functions-only features |
-| Billing Model |	ACA pricing: Consumption plan (vCPU, memory, requests) & Dedicated plan (workload profile based) |	Execution-time + always-ready instances |
+| Scale to zero |	✅ Yes (via KEDA) | ✅ Yes |
+| Max scale-out | 1000 (default 10, configurable) |	1000 |
+| Always-on instances |	✅ Yes (via minReplicas) |	✅ Yes (via always-ready instances) |
+| VNet integration |	✅ Yes |	✅ Yes |
+| Custom container support | ✅ Yes (bring your own image) |	❌ Limited (no bring your own container) |
+| GPU support | ✅ Yes (via serverless GPU dedicated workload profile) | ❌ No |
+| Built-in features |	Container Apps feature support. For instance, KEDA, Dapr, multi-revisions, mTLS, sidecars, ingress control and more |	Functions-only features |
+| Billing model | Container Apps pricing: Consumption plan (vCPU, memory, requests) & Dedicated plan (workload profile based) | Execution-time + always-ready instances |
 
 For a complete comparison of the Function on ACA against Flex Consumption plan and all other plan and hosting types, see [function scale and hosting options](../azure-functions/functions-scale.md).
 
