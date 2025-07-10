@@ -101,7 +101,7 @@ Set-AzDiagnosticSetting -ResourceId $AzFW.Id -Enabled $True -Category AzureFirew
 ## Deploy Azure Firewall and configure custom routing
 
 > [!NOTE]
-> This is the configuration deployed when securing connectivity from the Azure Portal with Azure Firewall Manager when the "Inter-hub" setting is set to **disabled**. For instructions on how to configure routing using powershell when "Inter-hub" is set to **enabled**, see [Enabling routing intent](#routingintent).
+> This is the configuration deployed when securing connectivity from the Azure Portal with Azure Firewall Manager when the "Inter-hub" setting is set to **disabled**. For instructions on how to configure routing using PowerShell when "Inter-hub" is set to **enabled**, see [Enabling routing intent](#routingintent).
 
 Now you have an Azure Firewall in the hub, but you still need to modify routing so the Virtual WAN sends the traffic from the virtual networks and from the branches through the firewall. You do this in two steps:
 
