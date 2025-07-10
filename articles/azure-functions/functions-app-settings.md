@@ -516,7 +516,7 @@ Enables your function app to use native Azure SDK types in bindings.
 |---|------------|
 |JAVA_ENABLE_SDK_TYPES|`true`|
 
-For more information, see [SDK types](functions-reference-java.md#sdk-types) in the Java reference article
+For more information, see [SDK types](functions-reference-java.md#sdk-types) in the Java reference article.
 
 ## JAVA_OPTS
 
@@ -841,7 +841,7 @@ Indicates whether the `/home` directory is shared across scaled instances, with 
 
 ## App Service site settings
 
-Some configurations must be maintained at the App Service level as site settings, such as language versions. These settings are managed in the Azure portal, by using REST APIs, or by using Azure CLI or Azure PowerShell. The following are site settings that could be required, depending on your runtime language, OS, and versions: 
+Some configurations must be maintained at the App Service level as site settings, such as language versions. These settings are managed in the Azure portal, by using REST APIs, or by using Azure CLI or Azure PowerShell. The following are site settings that could be required, depending on your runtime language, OS, and versions. 
 
 ## AcrUseManagedIdentityCreds
 
