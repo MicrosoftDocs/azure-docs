@@ -44,7 +44,7 @@ When following those instructions, here are helpful tips:
 
 - Use the following image as an example of how you can fill in your project details and instance details to create your resource.
 
-    [insert image-1]
+    :::image type="content" source="./media/create-acs-resource.png" lightbox="media/create-acs-resource.png" alt-text="Screenshot that shows populated fields to create a Azure Communication Services Resource in the Azure portal.":::
 
 - Assigning tags to your resource is optional.
 - Once your resource is deployed, continue with the below instructions.
