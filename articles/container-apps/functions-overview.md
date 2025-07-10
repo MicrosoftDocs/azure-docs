@@ -30,7 +30,7 @@ The Container Apps hosting model builds on the flexibility of containerized work
 - **Run functions as containers** with custom dependencies and language stacks.
 - **Scale to zero and up to 1000 instances** using KEDA.
 - **Secure networking** with full VNet integration.
-- **Advanced deployment features** like revisions, traffic splitting, and Dapr integration.
+- **Advanced deployment features** like multi-revisions, traffic splitting, and Dapr integration.
 - **[Serverless and Dedicated GPU](../container-apps/gpu-serverless-overview.md)** support for compute-intensive workloads.
 - **Unified ACA environment** to run Functions alongside microservices, APIs, and background jobs.
 
