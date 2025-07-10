@@ -1,5 +1,5 @@
 ---
-title: Microsoft Sentinel solution for SAP - Partner Solutions Overview
+title: Microsoft Sentinel solutions for SAP - Partner Add-ons
 description: Discover partners specializing in Microsoft Sentinel for SAP integration solutions, consulting, and managed services.
 author: MartinPankraz
 ms.author: mapankra
@@ -14,22 +14,22 @@ ms.collection: usx-security
 
 ---
 
-# Microsoft Sentinel Solution for SAP - Partner Solutions Overview
+# Microsoft Sentinel Solution for SAP - Partner Add-ons
 
 Microsoft Sentinel provides a flexible platform that enables SAP and Microsoft partners to deliver integrated security solutions through the Microsoft Sentinel Content Hub. 
 
-This article provides an overview of the partner ecosystem, that specializes in integration with Microsoft [Sentinel Solution for SAP applications](solution-overview.md).
+This article provides an overview of the partner ecosystem that specializes in integration with Microsoft [Sentinel Solution for SAP applications](solution-overview.md).
 
 ## Partner Contributions
 
-Customers can enhance their SAP security monitoring with tools and services from Microsoft and SAP partners. These include ready-to-use connectors, workbooks, analytics rules, and playbooks.
+These solutions include ready-to-use connectors, workbooks, analytics rules, and playbooks.
 
 ### Solutions provided by SAP as vendor
 
 | Name | Description | Azure Marketplace |
 |------|-------------|-------------------|
-| [SAP LogServ (RISE), S/4HANA Cloud private edition](https://community.sap.com/t5/enterprise-resource-planning-blog-posts-by-members/ultimate-blog-series-sap-logserv-integration-with-microsoft-sentinel/ba-p/14126401) | SAP LogServ is an SAP Enterprise Cloud Services (ECS) service aimed at collection, storage, forwarding, and access of logs. LogServ centralizes the logs from all systems, applications, and ECS services used by a registered customer. Main Features include: Near Realtime Log Collection with ability to integrate into Microsoft Sentinel as SIEM solution. LogServ complements the existing SAP application layer threat monitoring and detections in Microsoft Sentinel with the log types owned by SAP ECS as the system provider. This includes logs like: SAP HANA database, AS JAVA, SAP Web Dispatcher, SAP Cloud Connector, OS, third party Database, Network, DNS, Proxy, Firewall, etc. | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/sap_jasondau.azure-sentinel-solution-saplogserv?tab=Overview) |
-| [SAP Enterprise Threat Detection, cloud edition (ETD)](https://community.sap.com/t5/enterprise-resource-planning-blog-posts-by-sap/sap-enterprise-threat-detection-cloud-edition-joins-forces-with-microsoft/ba-p/13942075) | The SAP Enterprise Threat Detection, cloud edition (ETD) data connector enables ingestion of security alerts from ETD into Microsoft Sentinel, supporting cross-correlation, alerting, and threat hunting. ETD may serve as log forwarder for SAP ERP, SuccessFactors, Ariba, and other SAP applications. | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/sap_jasondau.azure-sentinel-solution-sapetd?tab=Overview) |
+| [SAP LogServ (RISE), S/4HANA Cloud private edition](https://community.sap.com/t5/enterprise-resource-planning-blog-posts-by-members/ultimate-blog-series-sap-logserv-integration-with-microsoft-sentinel/ba-p/14126401) | SAP LogServ is an SAP Enterprise Cloud Services (ECS) service aimed at collection, storage, forwarding, and access of logs. LogServ centralizes the logs from all systems, applications, and ECS services used by a registered customer. Main Features include: Near Realtime Log Collection with ability to integrate into Microsoft Sentinel. LogServ complements the existing SAP application layer threat monitoring and detections in Microsoft Sentinel Solutions for SAP with the log types owned by SAP ECS as the system provider. This includes logs like: SAP HANA database, AS JAVA, SAP Web Dispatcher, SAP Cloud Connector, OS, third party Database, Network, DNS, Proxy, Firewall, etc. | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/sap_jasondau.azure-sentinel-solution-saplogserv?tab=Overview) |
+| [SAP Enterprise Threat Detection, cloud edition (ETD)](https://community.sap.com/t5/enterprise-resource-planning-blog-posts-by-sap/sap-enterprise-threat-detection-cloud-edition-joins-forces-with-microsoft/ba-p/13942075) | The SAP Enterprise Threat Detection, cloud edition (ETD) solution enables ingestion of security alerts from ETD into Microsoft Sentinel, supporting cross-correlation, alerting, and threat hunting. ETD may supply alerts from SAP ERP, SuccessFactors, Ariba, and other SAP SaaS applications. | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/sap_jasondau.azure-sentinel-solution-sapetd?tab=Overview) |
 
 ### Solutions provided by specialized security vendors
 
@@ -49,10 +49,10 @@ Customers can engage partners listed in the following table or from the [Microso
 
 | Partner* | Description | Azure Marketplace Link |
 |------|-------------|-------------------|
-| [Delaware] |  | [Link](https://azuremarketplace.microsoft.com/marketplace/consulting-services/delaware.sec_protect_sap?search=Delaware&page=1) |
-| [E&Y] |  | [Link](https://azuremarketplace.microsoft.com/marketplace/apps/ey_global.ey_application_tdr_for_sap?tab=Overview) |
-| [IBM] |  | [Link](https://azuremarketplace.microsoft.com/marketplace/consulting-services/ibm-ny-armonk-hq-6205522-ibmsecurity-xftm.ibm-security-svcs-threatmanagement-sapthreatmon?page=1&search=ibm%20security%20services) |
-| [PWC] |  | [Link](https://azuremarketplace.microsoft.com/marketplace/apps/pwc.secure_sap_on_microsoft_cloud?tab=Overview) |
+| [Delaware]() |  | [Link](https://azuremarketplace.microsoft.com/marketplace/consulting-services/delaware.sec_protect_sap?search=Delaware&page=1) |
+| [EY]() |  | [Link](https://azuremarketplace.microsoft.com/marketplace/apps/ey_global.ey_application_tdr_for_sap?tab=Overview) |
+| [IBM]() |  | [Link](https://azuremarketplace.microsoft.com/marketplace/consulting-services/ibm-ny-armonk-hq-6205522-ibmsecurity-xftm.ibm-security-svcs-threatmanagement-sapthreatmon?page=1&search=ibm%20security%20services) |
+| [PWC]() |  | [Link](https://azuremarketplace.microsoft.com/marketplace/apps/pwc.secure_sap_on_microsoft_cloud?tab=Overview) |
 
 *partners listed alphabetically by name
 
