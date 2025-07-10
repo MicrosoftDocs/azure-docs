@@ -20,6 +20,22 @@ The listed features were released in the last six months. For information about 
 
 ## July 2025
 
+### Microsoft Sentinel data lake
+
+Microsoft is enhancing its industry-leading SIEM solution, Microsoft Sentinel, with the introduction of a modern data lake—purpose - built to streamline data management, reduce costs, and accelerate AI adoption for security operations teams.
+The new Microsoft Sentinel data lake offers cost-effective, long-term storage, eliminating the need to choose between affordability and robust security. Security teams gain deeper visibility and faster incident resolution, all within the familiar Sentinel experience, enriched through seamless integration with advanced data analytics tools.  
+
+Key benefits of the Microsoft Sentinel data lake include:
++	Single, open-format data copy for efficient and cost-effective storage
++	Separation of storage and compute for greater flexibility
++	Support for multiple analytics engines to unlock deeper insights from your security data
++	Native integration with Microsoft Sentinel, including the ability to tier log data across analytics and lake tiers
+
+Explore the data lake using KQL queries, or use the new Microsoft Sentinel data lake notebook for VS Code to visualize and analyze your data. For more information, see [Microsoft Sentinel data lake]( graph/sentinel-lake-overview.md).
+
+Learn more at [Data lake tech blog](https://aka.ms/datalaketechblog).
+
+
 - [No limit on the number of workspaces you can onboard to the Defender portal](#no-limit-on-the-number-of-workspaces-you-can-onboard-to-the-defender-portal)
 - [Microsoft Sentinel in the Azure portal to be retired July 2026](#microsoft-sentinel-in-the-azure-portal-to-be-retired-july-2026)
 

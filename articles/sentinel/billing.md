@@ -85,9 +85,9 @@ For customers that haven't onboarded to the Microsoft Sentinel data lake and are
 
 ##### Public preview specific considerations for data lake tier metering
 
-The following are consideration that are going to apply during Public Preview:
+The following are considerations that are going to apply during Public Preview:
 - Data lake ingestion includes 30-days of retention, **except for asset data** ingested into the lake tier.
-- While long-term retention billing will transition to the data lake storage meter for existing customers, data in long-term retention will initially only be accessible through **Microsoft Sentinel > Data lake explroation > Search & restore**.
+- While long-term retention billing will transition to the data lake storage meter for existing customers, data in long-term retention will initially only be accessible through **Microsoft Sentinel > Data lake exploration > Search & restore**.
 - Charges for data lake usage will show in part under a workspace resource and in part under a SentinelPlatformServices resource.
 - Data written to analytics tier using jobs will be charged through the analytics ingestion meter.
   
@@ -210,7 +210,7 @@ After you enable Microsoft Sentinel on a Log Analytics workspace, consider these
 
 - Retain all data ingested into the workspace at no charge for the first 90 days. Retention beyond 90 days is charged per the standard [Log Analytics retention prices](https://azure.microsoft.com/pricing/details/monitor/).
 - Specify different retention settings for individual data types. Learn about [retention by data type](/azure/azure-monitor/logs/data-retention-configure#configure-table-level-retention). 
-- Extend retention of data with total retention so you have access to historical logs. The Microsoft Sentinel data lake, currently in preview, is a low-cost retention state for the preservation of data for such things as regulatory compliance. It's charged based on the volume of data stored and scanned. Use **Data management > Tables** to adjust the Analytics and Total retention period and learn more in [What is Microsoft Sentinel data lake?](/azure/sentinel/graph/sentinel-lake-overview.md). 
+- Extend retention of data with total retention so you have access to historical logs. The Microsoft Sentinel data lake, currently in preview, is a low-cost retention state for the preservation of data for such things as regulatory compliance. It's charged based on the volume of data stored and scanned. Use **Data management > Tables** to adjust the Analytics and Total retention period and learn more in [What is Microsoft Sentinel data lake?](graph/sentinel-lake-overview.md). 
 - Switch tables that contain secondary security data to **Lake tier**. This enables you to store high-volume, low-value logs at a low price, with querying capabilities built in. Use **Data management > Tables** to switch tables from **Analytics** to **Lake** tier.
 
 ## Other CEF ingestion costs
