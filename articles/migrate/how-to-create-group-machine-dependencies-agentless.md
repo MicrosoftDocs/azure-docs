@@ -112,10 +112,9 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 4. **View dependencies:** The server passed the validation checks and dependency analysis is enabled. You can select this to open the new visualization and check the server’s dependencies.
 ::: moniker range="migrate"
 5. **Not initiated:** Dependency analysis couldn’t be enabled because Azure Migrate reached its limit of 1,000 servers per appliance for automatic enablement. If you want to run dependency analysis on specific servers, you can disable it manually on other autoenabled servers and enable it for the required ones using the PowerShell module.
-6. **Disabled:** You can manually disable dependency analysis on this server using the PowerShell module. You can enable it again anytime using the same module. 
+6. **Disabled:** You can manually disable dependency analysis on this using the portal or the PowerShell module. You can enable it again anytime using the same module. 
 
->[!Note]
-> **Not supported** is the status shown for servers discovered through CSV import, as the CSV file currently does not collect network dependency data.
+7. ****Not enabled** status is shown for servers, discovered from an appliance that has still not been upgraded to the new visualization. [Learn more](#switch-to-new-visualization) to upgrade the appliance.
 ::: moniker-end
 
 ## Visualize dependencies
@@ -145,9 +144,8 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/default-dep-view.png" alt-text="The screenshot shows the default dependency view for a server." lightbox="./media/how-to-create-group-machine-dependencies-agentless/default-dep-view.png":::
 
 4. The view is filtered for default time period of **Last 24 hours** and process type as **Resolvable**. 
-5. The view is filtered for default time period of **Last 24 hours** and process type as **Resolvable**. 
-6. Change the time period for which you want to view the map using the **Time range** filter. You can choose between **Last 7 days**/**Last 30 days** or select a **Custom range**. 
-7. You can choose to change the process type from any of the following:
+5. Change the time period for which you want to view the map using the **Time range** filter. You can choose between **Last 7 days**/**Last 30 days** or select a **Custom range**. 
+6. You can choose to change the process type from any of the following:
 
     **Process** | **Type**
     --- | --- 
@@ -155,7 +153,7 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
     Essentials | To filter by nonredundant key processes
     All | to filter by all processes including those with unresolved connections
 
-8. In the view, you find the servers and connections represented as follows:
+7. In the view, you find the servers and connections represented as follows:
 
     **Representation** | **Details**
     --- | --- 
@@ -164,20 +162,20 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
     Connection symbol | Representing the direction of dependency between servers with strength of the connection represented by grading of dots on the connection
     Process count | Representing the count of processes as per the process type filter
 
-9. You can hover on the Server name to see essential information about the server like IP address, Source, and Tags.
+8. You can hover on the Server name to see essential information about the server like IP address, Source, and Tags.
 
 
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/server-hover-details.png" alt-text="The screenshot illustrated how the details are shown on hover." lightbox="./media/how-to-create-group-machine-dependencies-agentless/server-hover-details.png":::
 
-10. Similarly you can also hover on the connection to see essential information like strength and frequency of connections in the selected time range. 
-11. You can select the Server name to see more details like Operating system, Power Status, Software inventory discovered from the server and associated Tags.
+9. Similarly you can also hover on the connection to see essential information like strength and frequency of connections in the selected time range. 
+10. You can select the Server name to see more details like Operating system, Power Status, Software inventory discovered from the server and associated Tags.
 
 
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/server-expand-details.png" alt-text="The screenshot shows the server details on expanding. " lightbox="./media/how-to-create-group-machine-dependencies-agentless/server-expand-details.png":::
 
-12. Similarly you can also select the connection to see more details like which source and destination processes have the dependency over which destination port no. 
-13. You can expand the Server to see the list of processes basis the selected process type filter.
-14. From the expanded list of processes, you can select on a Process name to see its incoming and outgoing dependencies with processes on other servers in the view. The process to process dependency also indicates the destination port no on the connection.
+11. Similarly you can also select the connection to see more details like which source and destination processes have the dependency over which destination port no. 
+12. You can expand the Server to see the list of processes basis the selected process type filter.
+13. From the expanded list of processes, you can select on a Process name to see its incoming and outgoing dependencies with processes on other servers in the view. The process to process dependency also indicates the destination port no on the connection.
 
 
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/process-process-dep.png" alt-text="The screenshot shows the process to process dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/process-process-dep.png":::
