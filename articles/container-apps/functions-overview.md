@@ -122,7 +122,7 @@ Azure Functions on ACA scale automatically based on events using KEDA, with no n
 
 This makes ACA ideal for both bursty and steady-state workloads. To learn more, see [set scaling rules in azure container apps](../container-apps/scale-app.md)
 
-## Networking and Security
+## Networking and security
 
 Azure Functions on Container Apps benefit from Container Apps’ robust [networking](../container-apps/networking.md) and [security features](../container-apps/security.md) for secure, scalable deployments:
 
