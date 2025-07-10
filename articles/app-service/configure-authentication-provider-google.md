@@ -3,7 +3,7 @@ title: Configure Google Authentication
 description: Learn how to configure Google authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.topic: how-to
-ms.date: 07/08/2025
+ms.date: 07/10/2025
 ms.custom: fasttrack-edit, AppServiceIdentity
 author: cephalin
 ms.author: cephalin
@@ -37,7 +37,9 @@ To complete the procedure, you must have a Google account that has a verified em
 
 1. Enter the **App ID** and **App Secret** values you obtained previously.
 
-1. If this is the first identity provider for the application, the **App Service authentication settings** section appears with settings such as how your application responds to unauthenticated requests. If you already configured an identity provider for the app, this section doesn't appear. The default selections redirect all requests to sign in with the new provider. You can customize this behavior now or later.
+1. If this is the first identity provider for the application, the **App Service authentication settings** section appears with settings such as how your application responds to unauthenticated requests. The default selections redirect all requests to sign in with the new provider.
+
+   If you already configured an identity provider for the app, this section doesn't appear. You can customize the settings later if necessary.
 
 1. Select **Add**.
 
