@@ -25,7 +25,7 @@ In this guide, you'll use the targeting filter to roll out a feature to targeted
 
 In this section, you create a web application that uses the [_Beta_ feature flag](./howto-targetingfilter.md) to control the access to the beta version of a web page.
 
-### Setup a Node.js Express project
+### Set up a Node.js Express project
 
 1. Create a folder called `targeting-filter-tutorial` and initialize the project.
 
@@ -322,7 +322,7 @@ initializeConfig()
 
     :::image type="content" source="media/howto-targetingfilter-javascript/beta-enabled.png" alt-text="Screenshot of the app, showing the beta page.":::
 
-1. Visit `localhost:8080/?userId=testuser@contoso.com`. You cannot see the beta page, because `testuser@contoso.com` is specified as an excluded user..
+1. Visit `localhost:8080/?userId=testuser@contoso.com`. You cannot see the beta page, because `testuser@contoso.com` is specified as an excluded user.
 
     :::image type="content" source="media/howto-targetingfilter-javascript/beta-not-targeted.png" alt-text="Screenshot of the app, showing the default content.":::
 
