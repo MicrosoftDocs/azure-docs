@@ -8,7 +8,7 @@ ms.author: cephalin
 ms.devlang: csharp
 ms.custom: devx-track-azurecli, devx-track-dotnet, AppServiceConnectivity
 ms.topic: tutorial
-ms.date: 07/09/2025
+ms.date: 07/10/2025
 ---
 # Tutorial: Connect an App Service app to SQL Database on behalf of the signed-in user
 
@@ -36,16 +36,15 @@ When you complete the tutorial, your app securely connects to SQL Database on be
 
 > [!NOTE]
 > - Microsoft Entra ID isn't supported for on-premises SQL Server.
-> 
 > - Microsoft Entra authentication is different from [Integrated Windows authentication](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) in on-premises Active Directory (AD) Domain Services (DS). AD DS and Microsoft Entra ID use completely different authentication protocols. For more information, see [Microsoft Entra Domain Services documentation](/azure/active-directory-domain-services/index).
 
 ## Prerequisites
 
 - Have access to a Microsoft Entra tenant populated with users and groups.
 
-- Complete the tutorial at [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md).
+- Complete the tutorial at [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md), and use the completed app for this tutorial.
 
-  Alternatively, you can adapt the steps for your own .NET app with SQL Database. The steps in this tutorial support the following .NET versions:
+  Alternatively, adapt the steps for your own .NET app with SQL Database. The steps in this tutorial support the following .NET versions:
 
   - .NET Framework 4.8 and above
   - .NET 6.0 and above
