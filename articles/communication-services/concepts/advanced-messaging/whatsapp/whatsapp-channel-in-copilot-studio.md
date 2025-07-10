@@ -77,20 +77,25 @@ The following steps are only needed if you chose to use a Toll-free number from 
     - `Hosting Plan Name` - Create any name to identify your hosting plan.
     - `Sku` - Use the SKU F1 for development and testing purposes. If you encounter validation errors creating your Event Grid Viewer that say there's no more capacity for the F1 plan, try selecting a different region. For more information about SKUs, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/).
 
-    [insert image-2]
+      :::image type="content" source="./media/custom-deployment.png" lightbox="./media/custom-deployment.png" alt-text="Screenshot that shows Custom deployment of Event Grid Viewer web app and properties you need to provide to successfully deploy.":::
+
 3. Then select **Review + Create**.
 4. After the deployment completes, select **Go to resource group**.
 
-    [insert image-3]
-5. Select on the event grid viewer.
+   :::image type="content" source="./media/event-grid-viewer-deployment.png" lightbox="./media/event-grid-viewer-deployment.png" alt-text="Screenshot that shows deployment complete of the Event Grid Viewer web app.":::
+   
+6. Select on your event grid viewer.
 
-    [insert image]
-6. On the resource overview page, select on the copy button next to the **Default Domain** property.
+    :::image type="content" source="./media/resource-group.png" lightbox="./media/resource-group.png" alt-text="Screenshot that shows the Event Grid Viewer web app in the resource group.":::
+   
+8. On the resource overview page, select on the copy button next to the **Default Domain** property.
 
-    [insert image-4]
-7. Launch that site in your browser and keep it running so you can receive the verification code when you're [linking your WhatsApp business account to Azure Communication Services resource](#link-whatsapp-business-account-as-a-channel-in-azure-communication-services-resource). The Event Grid Viewer should look like this.
+    :::image type="content" source="./media/event-grid-viewer-web-app.png" lightbox="./media/event-grid-viewer-web-app.png" alt-text="Screenshot that shows URL of Event Grid Viewer web app.":::
+   
+10. Launch that site in your browser and keep it running so you can receive the verification code when you're [linking your WhatsApp business account to Azure Communication Services resource](#link-whatsapp-business-account-as-a-channel-in-azure-communication-services-resource). The Event Grid Viewer should look like this.
 
-    [insert image-5]
+    :::image type="content" source="./media/event-grid-viewer-site.png" lightbox="./media/event-grid-viewer-sitep.png" alt-text="Screenshot that shows the Event Grid Viewer web app.":::
+
 
 ## Subscribe to SMS received event
 
