@@ -196,6 +196,8 @@ To protect your data, Azure Backup includes the soft delete feature. With soft d
 
 ## Uninstall and re-install the VMSnapshot extension on Windows operating system
 
+If you 're experiencing Azure VM backup or extension failure issues, uninstall and reinstall the `VMSnapshot` extension on a Windows VM. This extension is responsible for enabling application-consistent snapshots during backup operations. Since it’s a hidden extension, the process involves manually cleaning up registry entries and plugin folders, followed by restarting the Azure Guest Agent. After the registry is cleaned, the extension automatically reinstalls during the next backup job.
+
 To uninstall and re-install the VMSnapshot extension on Windows operating system for the backup operation, follow these steps:
 
 1. Uninstall the `VMSnapshot` extension by running the following cmdlet:
@@ -204,17 +206,28 @@ To uninstall and re-install the VMSnapshot extension on Windows operating system
     Remove-AzVMExtension -ResourceGroupName "<Azure VM's resource group name>" -<VMName "Azure VM name>" -Name "VMSnapshot"
     ```
 
-2. Sign in to the Azure VM, right-click the Windows **Start** icon to open the **Run** window, and then enter **services.msc** to open the **Services** window.
-3. On the Services window, stop the **Windows Azure Guest Agent** service.
-4. Go to the folder `C:\Packages\Plugins`, and then rename the folder `Microsoft.Azure.RecoveryServices.VMSnapshot` to `Microsoft.Azure.RecoveryServices.VMSnapshot_old`.
-5. Right-click the Windows **Start** icon, select **Run**, and then enter **regedit** to open the **Registry Editor**.
-6. On the **Registry Editor** window, go to *HKEY_LOCAL_MACHINE\Software\Microsoft\WindowsAzure* and export to an alternate location before modifying for the backup operation.
-7. Go to *HKEY_LOCAL_MACHINE\Software\Microsoft\WindowsAzure\HandlerState*, and delete `Microsoft.Azure.RecoveryServices.VMSnapshot_1.X.XX.X`.
+   :::image type="content" source="./media/backup-azure-manage-vms/uninstall-backup-extension.png" alt-text="Screenshot shows the execution of the extension uninstall command." lightbox="./media/backup-azure-manage-vms/uninstall-backup-extension.png":::
+
+1. Sign in to the Azure VM, right-click the Windows **Start** icon to open the **Run** window, and then enter **services.msc** to open the **Services** window.
+1. On the Services window, stop the **Windows Azure Guest Agent** service.
+
+   :::image type="content" source="./media/backup-azure-manage-vms/stop-windows-azure-guest-agent-service.png" alt-text="Screenshot shows the Windows Azure guest agent service is stopped." lightbox="./media/backup-azure-manage-vms/stop-windows-azure-guest-agent-service.png":::
+
+1. Go to the folder `C:\Packages\Plugins`, and then rename the folder `Microsoft.Azure.RecoveryServices.VMSnapshot` to `Microsoft.Azure.RecoveryServices.VMSnapshot_old`.
+
+1. Right-click the Windows **Start** icon, select **Run**, and then enter **regedit** to open the **Registry Editor**.
+1. On the **Registry Editor** window, go to *HKEY_LOCAL_MACHINE\Software\Microsoft\WindowsAzure* and export to an alternate location before modifying for the backup operation.
+
+   :::image type="content" source="./media/backup-azure-manage-vms/export-registry-key.png" alt-text="Screenshot shows the registry key for export.":::
+
+1. Go to *HKEY_LOCAL_MACHINE\Software\Microsoft\WindowsAzure\HandlerState*, and delete `Microsoft.Azure.RecoveryServices.VMSnapshot_1.X.XX.X`.
 
    >[!Note]
-   >The plugin version  **1.X.XX.X** might change based on your environment.
+   >The backup extension version  **1.X.XX.X** might change based on your environment.
 
-8. Open the **Command prompt** as **Administrator** and add the required registry entries by running the following commands:
+   :::image type="content" source="./media/backup-azure-manage-vms/delete-registry-key.png" alt-text="Screenshot shows the deletion of backup extension registry key values." lightbox="./media/backup-azure-manage-vms/delete-registry-key.png":::
+
+1. Open the **Command prompt** as **Administrator** and add the required registry entries by running the following commands:
 
     ```
     REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v IsProviderInstalled /t REG_SZ /d False /f
@@ -224,16 +237,14 @@ To uninstall and re-install the VMSnapshot extension on Windows operating system
     REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v IsCommonProviderInstalled /t REG_SZ /d False /f
     ```
 
-9. On the **Services** window, start **Windows Azure Guest Agent**.
+   :::image type="content" source="./media/backup-azure-manage-vms/install-backup-agent.png" alt-text="Screenshot shows the installation of backup agent." lightbox="./media/backup-azure-manage-vms/install-backup-agent.png":::
+
+1. On the **Services** window, start **Windows Azure Guest Agent**.
+
+   :::image type="content" source="./media/backup-azure-manage-vms/start-windows-azure-guest-agent-service.png" alt-text="Screenshot shows the Windows Azure guest agent service is started." lightbox="./media/backup-azure-manage-vms/start-windows-azure-guest-agent-service.png":::
+
 1. Restart the Azure VM.
 1. Run an on-demand backup of Azure VM; this operation installs a new `VMSnapshot` extension.
-
-
-
-
-
-
-
 
 ## Next steps
 
