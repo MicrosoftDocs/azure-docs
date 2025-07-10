@@ -130,9 +130,9 @@ Azure Functions on Container Apps benefit from Container Apps’ robust [network
 - **Managed identity**: Authenticate with Azure services using system/user-assigned identities—no secrets or connection strings needed.
 - **Dapr support**: Enable pub/sub, state management, and secure service invocation via Dapr sidecars. For more information, see see [Microservice APIs powered by Dapr](../container-apps/dapr-overview.md).
 - **Ingress and TLS**: Expose secure HTTP endpoints with TLS/mTLS, custom domains, or keep them internal.
-- **Environment Isolation**: Functions share ACA environment boundaries for secure, scoped communication.
+- **Environment Isolation**: Functions share Container Apps environment boundaries for secure, scoped communication.
 
-These capabilities make ACA-hosted Functions ideal for enterprise-grade, secure serverless applications.
+These capabilities make Container Apps-hosted Functions ideal for enterprise-grade, secure serverless applications.
 
 ## Application logging
 
