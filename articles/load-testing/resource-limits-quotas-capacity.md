@@ -41,7 +41,6 @@ The following limits apply on a per-region, per-subscription basis.
 | Concurrent test runs | 5-50 <sup>2</sup> |     1000    |
 | Test duration | 3 - 24 hours <sup>2</sup> | 24 |
 | Tests per resource | 10000 | |
-| Test runs per test | 5000 | |
 | File uploads per test | 1000 | |
 | Zip file uploads per test | 100 | |
 | App Components per test or test run | 100 | |
