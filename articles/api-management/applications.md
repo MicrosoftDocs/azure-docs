@@ -61,7 +61,7 @@ Follow these steps to enable **Application based access** for a product. A produ
 
 The following example uses the **Starter** product, but choose any published product that has at least one API assigned to it.
 
-1. Sign in to the portal at the following custom URL for the applications feature: [https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications](https://preview.portal.https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications)
+1. Sign in to the portal at the following custom URL for the applications feature: [https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications](https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications)
 1. Navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **Products**.
 1. Choose the product that you want to configure, such as the **Starter** product.
