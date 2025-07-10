@@ -34,7 +34,7 @@ The Container Apps hosting model builds on the flexibility of containerized work
 - **[Serverless and Dedicated GPU](../container-apps/gpu-serverless-overview.md)** support for compute-intensive workloads.
 - **Unified ACA environment** to run Functions alongside microservices, APIs, and background jobs.
 
-This table helps you directly compare the features of function on ACA with Flex consumption and classic consumption plan.
+This table helps you directly compare the features of function on Container Apps with Flex consumption and classic consumption plan.
 | Feature |	Container Apps (ACA) | Flex Consumption Plan |
 | --- | --- | --- |
 | Scale to Zero |	✅ Yes (via KEDA) | ✅ Yes |
