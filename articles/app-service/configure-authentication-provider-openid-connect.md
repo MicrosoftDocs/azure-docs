@@ -59,9 +59,13 @@ To configure the OpenID Connect provider in Azure, follow these steps:
 
 1. Under **App registration**, provide the values you collected earlier for **Client ID** and **Client secret**.
 
+1. If this is the first identity provider for the application, the **App Service authentication settings** section appears with settings such as how your application responds to unauthenticated requests. If you already configured an identity provider for the app, this section doesn't appear.
+
+   The default selections redirect all requests to sign in with the new provider. You can customize this behavior now or later.
+
 1. Select **Add** to finish setting up the identity provider.
 
-The OIDC provider friendly name appended with **(custom provider)** now appears in the **Identity provider** section of the **Authentication** page. You can edit the provider settings by selecting its pencil icon under **Edit**.
+On the **Authentication** page, the OIDC provider friendly name appended with **(custom provider)** now appears in the **Identity provider** section. You can edit the settings by selecting the provider's pencil icon under **Edit**.
 
 The **Authentication settings** section shows settings such as how the application responds to unauthenticated requests. The default selections redirect all requests to sign in with the new provider. You can edit these settings by selecting **Edit** next to **Authentication settings**. To learn more about the options, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).
 
