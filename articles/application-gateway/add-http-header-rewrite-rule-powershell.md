@@ -101,7 +101,7 @@ $reqRoutingRule = Get-AzApplicationGatewayRequestRoutingRule -Name rule1 -Applic
 
 ## Update the application gateway with the configuration for rewriting HTTP headers
 
-In this example, the rewrite set would be associated instantly against a basic routing rule. In a path based routing rule, the association wouldn't be enabled by default. The rewrite set can be enabled either via checking the paths on which it needs to be applied via portal or by providing a URL path map config specifying the RewriteRuleSet against each path option.  
+In this example, the rewrite set would be associated instantly against a basic routing rule. In a path based routing rule, the association wouldn't be enabled by default. The rewrite set can be enabled either via -- checking the paths on which it needs to be applied via portal or by providing a URL path map config specifying the RewriteRuleSet against each path option.  
 
 ```azurepowershell
 Add-AzApplicationGatewayRewriteRuleSet -ApplicationGateway $appgw -Name $rewriteRuleSet.Name  -RewriteRule $rewriteRuleSet.RewriteRules
