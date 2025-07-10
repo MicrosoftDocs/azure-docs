@@ -9,7 +9,7 @@ ms.date: 07/08/2025
 # CustomerIntent: As an integration developer, I want to check the performance and health for Azure resources organized as applications based on my organization's integration solutions by creating alerts.
 ---
 
-# Monitor health and performance for Azure resources in applications (Preview)
+# Monitor health and performance for Azure resources in applications (preview)
 
 > [!NOTE]
 >
