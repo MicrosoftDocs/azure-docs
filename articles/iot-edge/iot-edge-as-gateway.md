@@ -40,16 +40,17 @@ For more information about how the IoT Edge hub manages communication between do
 Beginning with version 1.2 of IoT Edge, transparent gateways can handle connections from downstream IoT Edge devices.
 
 <!--
-Change arrow styles to include a double hyphen to make it work in the markdown mermaid renderer. The single hyphen is a workaround for the HTML end comment tag.
+Change arrow styles to include a double hyphen to make it work in the markdown mermaid renderer. The space between the hyphens is a workaround for the HTML end comment tag.
 
 ```mermaid
-graph TD
-    A[IoT hub] -> B[IoT Edge gateway]
-    B -> C[Downstream device 1]
-    B -> D[Downstream device 2]
-    B -> E[Downstream IoT Edge device]
-    E -> F[Child device 1]
-    E -> G[Child device 2]
+ graph TD
+    A[IoT hub] - -> B[IoT Edge gateway]
+    B - -> C[Downstream device 1]
+    B - -> D[Downstream device 2]
+    B - -> E[Downstream IoT Edge device]
+    E - -> F[Downstream device 3]
+    E - -> G[Downstream device 4]
+
     style A fill:#f9f,stroke:#333,stroke-width:4px
     style B fill:#bbf,stroke:#333,stroke-width:4px
     style C fill:#bfb,stroke:#333,stroke-width:4px
@@ -60,7 +61,7 @@ graph TD
 ```
 -->
 
-:::image type="content" source="media/iot-edge-as-gateway/edge-gateway-relationship.png" alt-text="Diagram showing the device parent and child relationship using IoT Edge as a gateway":::
+:::image type="content" source="media/iot-edge-as-gateway/edge-gateway-relationship.svg" alt-text="Diagram showing the device parent and child relationship using IoT Edge as a gateway":::
 
 ### Parent and child relationships
 
