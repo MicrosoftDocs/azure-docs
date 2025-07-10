@@ -124,7 +124,7 @@ This makes ACA ideal for both bursty and steady-state workloads. To learn more, 
 
 ## Networking and Security
 
-Azure Functions on ACA benefit from ACA’s robust [networking](../container-apps/networking.md) and [security features](../container-apps/security.md) for secure, scalable deployments:
+Azure Functions on Container Apps benefit from Container Apps’ robust [networking](../container-apps/networking.md) and [security features](../container-apps/security.md) for secure, scalable deployments:
 
 - **VNet Integration**: Access private resources securely via internal endpoints and private databases.
 - **Managed Identity**: Authenticate with Azure services using system/user-assigned identities—no secrets or connection strings needed.
