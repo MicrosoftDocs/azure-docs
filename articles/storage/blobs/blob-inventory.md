@@ -440,7 +440,6 @@ Blob Inventory operates on a distributed system, which means that in rare cases,
 
 If when post processing your inventory report, your use case requires unique blob entries, you can use the `Name` field to identify and return only the unique blobs. 
 
--	Use the `Name` field to identify and return only the unique blobs.
   
 - If your report includes blob versions, use both the `Name` and `Version ID` fields together to identify and return only the unique blobs and versions .
 
