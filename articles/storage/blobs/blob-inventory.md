@@ -436,7 +436,7 @@ Only blobs that are explicitly deleted appear in reports. Therefore, to obtain a
 
 ### Handling duplicates in Blob Inventory
 
-Blob Inventory operates on a distributed system, which means that in rare cases, duplicate blob entries may appear in your reports.
+Blob Inventory operates on a distributed system, which means that in rare cases, duplicate blob entries might appear in your reports.
 
 When post processing your inventory report, if your use case requires unique blob entries, to remove duplicates:
 
