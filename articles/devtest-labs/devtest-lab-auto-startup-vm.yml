@@ -19,7 +19,7 @@ introduction: |
 
   To implement autostart, you first configure an autostart policy for the lab. You can then enable the policy for individual lab VMs. Requiring individual VMs to enable autostart helps prevent unnecessary startups that could increase costs.
 
-  You can also configure autoshutdown policies for lab VMs. For more information, see [Manage autoshutdown policies for a lab in Azure DevTest Labs](devtest-lab-auto-shutdown.md).
+  You can also configure autoshutdown policies for lab VMs. For more information, see [Configure autoshutdown for lab VMs in DevTest Labs](devtest-lab-auto-shutdown.md).
 
 procedureSection:
   - title: |
@@ -38,7 +38,7 @@ procedureSection:
 
         :::image type="content" source="./media/devtest-lab-auto-startup-vm/portal-lab-auto-start.png" alt-text="Screenshot of Auto-start option under Schedules." lightbox="./media/devtest-lab-auto-startup-vm/portal-lab-auto-start.png":::
       - |
-        Enter a **Scheduled start** time, select a **Time zone**, and select the checkboxes next to the **Days of the week** that you want to apply the schedule to.
+        Enter a **Scheduled start** time, select a **Time zone**, and select the checkboxes next to the **Days of the week** that you want to add to the schedule.
       - |
         Select **Save**.
 
@@ -69,7 +69,7 @@ procedureSection:
         :::image type="content" source="media/devtest-lab-auto-startup-vm/lab-overview-auto-start-status.png" alt-text="Screenshot showing the lab overview page, with VM auto-start set to Yes." lightbox="media/devtest-lab-auto-startup-vm/lab-overview-auto-start-status.png":::
 
 relatedContent:
-  - text: Manage autoshutdown policies for a lab in Azure DevTest Labs
+  - text: Configure autoshutdown for lab VMs in DevTest Labs
     url: devtest-lab-auto-shutdown.md
   - text: Use command lines to start and stop DevTest Labs VMs
     url: use-command-line-start-stop-virtual-machines.md
