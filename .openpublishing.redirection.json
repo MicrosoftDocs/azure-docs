@@ -7218,6 +7218,16 @@
       "source_path": "articles/reliability/whats-new.md",
       "redirect_url": "/azure/reliability/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/governance/policy/samples/hipaa-hitrust-9-2.md",
+      "redirect_url": "/azure/governance/policy/samples/hipaa-hitrust",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/signups/startup-programs.md",
+      "redirect_url": "/azure/signups/overview",
+      "redirect_document_id": false
     }
   ]
 }
