@@ -153,7 +153,7 @@ az network vnet subnet update --resource-group rgname --name subnetname --vnet-n
 
     * A default route for the destination 0.0.0.0/0, with a next hop type of Virtual Appliance applies in the general case.
 
-    * One or more routes are configured to [Service Tag destinations](../virtual-networks-udr-overview.md#service-tags-for-user-defined-routes) with next hop type `Internet`, to bypass the NVA/firewall. Unless an [explicit outbound connectivity method](#add-an-explicit-outbound-connectivity-method) is also configured for the source of the connection to these destinations, attempts to connection to these destinations will fail, because default outbound access isn't available.
+    * One or more routes are configured to [Service Tag destinations](../virtual-networks-udr-overview.md#service-tags-for-user-defined-routes) with next hop type `Internet`, to bypass the NVA/firewall. Unless an explicit outbound connectivity method is also configured for the source of the connection to these destinations, attempts to connection to these destinations will fail, because default outbound access isn't available.
 
   * This limitation doesn't apply to the use of Service Endpoints, which use a different next hop type `VirtualNetworkServiceEndpoint`. See [Virtual Network service endpoints](../virtual-network-service-endpoints-overview.md).
 
