@@ -97,6 +97,9 @@ public static async Task<string> RunOrchestrator(
 
 ---
 
+> [!NOTE]
+> The `context.Version` property is **read-only** and reflects the version that was permanently associated with the orchestration instance when it was created. You cannot modify this value during orchestration execution. If you need to specify a version in your app code, you can do so when starting the orchestration instance using the orchestration client APIs (see [Starting New Orchestrations with Specific Versions](#starting-new-orchestrations-with-specific-versions)).
+
 > [!TIP]
 > If you're just starting to use Orchestration Versioning and you already have in-flight orchestrations that were created before you specified a `defaultVersion`, it's not too late! Feel free to add the `defaultVersion` setting to your `host.json` now. For all previously created orchestrations, `context.Version` returns `null` (or an equivalent language-dependent value), so you can structure your orchestrator logic to handle both the legacy (null version) and new versioned orchestrations accordingly. In C#, you can check for `context.Version == null` or `context.Version is null` to handle the legacy case. Please also note that specifying `"defaultVersion": null` in `host.json` is equivalent to not specifying it at all.
 
@@ -351,9 +354,14 @@ Over time, you may want to remove legacy code paths from your orchestrator funct
 - **Issue**: Workers running older version can't execute new orchestrations
    - **Solution**: This is expected behavior. The runtime intentionally prevents older workers from executing newer orchestrations to maintain safety. Ensure all workers are updated to the latest version. You can modify this behavior if needed using the advanced configuration options (see [Advanced usage](#advanced-usage) for details).
 
-- **Issue**: Version information isn't available in orchestrator
+- **Issue**: Version information isn't available in orchestrator (`context.Version` is null, regardless of the `defaultVersion` setting)
    - **Solution**: Verify that you're using a supported language and a Durable Functions extension version that supports Orchestration Versioning:
      - For .NET Isolated, use `Microsoft.Azure.Functions.Worker.Extensions.DurableTask` version **1.5.0** or later.
+
+- **Issue**: Orchestrations of a newer version are making very slow progress or are completely stuck
+   - **Solution**: The problem can have different root causes:
+     1. **Insufficient newer workers**: Make sure that a sufficient number of workers containing an equal or higher version in `defaultVersion` are deployed and active to handle the newer orchestrations.
+     2. **Orchestration routing interference from older workers**: Old workers can interfere with the orchestration routing mechanism, making it harder for new workers to pick up orchestrations for processing. This can be especially noticeable when using certain storage providers (Azure Storage or MSSQL). Normally, the Azure Functions platform ensures that old workers are disposed of soon after a deployment, so any delay is typically not significant. However, if you are using a configuration that allows you to control the lifecycle of older workers, make sure the older workers are eventually shut down. Alternatively, consider using the [Durable Task Scheduler](./durable-task-scheduler/durable-task-scheduler.md), as it provides an improved routing mechanism that is less susceptible to this issue.
 
 ## Next steps
 

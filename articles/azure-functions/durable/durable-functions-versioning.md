@@ -7,7 +7,7 @@ ms.date: 12/07/2022
 ms.author: azfuncdf
 ---
 
-# Versioning in Durable Functions (Azure Functions)
+# Versioning challenges and approaches in Durable Functions (Azure Functions)
 
 It is inevitable that functions will be added, removed, and changed over the lifetime of an application. [Durable Functions](durable-functions-overview.md) allows chaining functions together in ways that weren't previously possible, and this chaining affects how you can handle versioning.
 

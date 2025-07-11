@@ -101,7 +101,11 @@
   - name: Instance management
     href: durable-functions-instance-management.md
   - name: Versioning
-    href: durable-functions-versioning.md
+    items:
+    - name: Versioning challenges and approaches
+      href: durable-functions-versioning.md
+    - name: Orchestration versioning
+      href: durable-functions-orchestration-versioning.md
   - name: Storage providers
     href: durable-functions-storage-providers.md
   - name: Performance and scale
