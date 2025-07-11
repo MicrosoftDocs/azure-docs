@@ -33,8 +33,8 @@ For more information, see [Create a gateway hierarchy](how-to-connect-downstream
 
 IoT Hub enforces these restrictions:
 
-* An 8 KB size limit on the value of tags.
-* A 32 KB size limit on both the value of `properties/desired` and `properties/reported`.
+* 8 KB size limit on the value of tags.
+* 32 KB size limit on both the value of `properties/desired` and `properties/reported`.
 
 For more information, see [Module twin size](../iot-hub/iot-hub-devguide-module-twins.md#module-twin-size).
 
