@@ -87,11 +87,11 @@ You must give the managed identity permissions to the repository in Azure Repos.
    - **Git clone URL**: The Git HTTPS clone URL from Azure Repos.
    - **Branch** (optional): The branch that has your artifact definitions.
    - **Folder paths**: The folder for your ARM template definitions, relative to the Git clone URL. Be sure to include the initial forward slash in the folder path.
-   - **Managed Identity**: Use this option to leverage the Managed Identity for authentication.
+   - **Managed Identity**: Select this option to use the managed identity for authentication.
 
 1. Select **Save**.
 
-   ![Screenshot that shows adding a new artifact repository to a lab.](media/devtest-lab-add-repo/devtestlab-repo-blade-with-azure-managed-identity.png)
+   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-repo-blade-with-azure-managed-identity.png" alt-text="Screenshot that shows the steps for adding an artifact repository to a lab." lightbox="media/devtest-lab-add-repo/devtestlab-repo-blade-with-azure-managed-identity.png":::
 
 The repository now appears in the **Repositories** list for the lab.
 
