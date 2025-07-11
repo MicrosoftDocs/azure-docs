@@ -16,7 +16,7 @@ In this article, you learn how to create a hub-and-spoke topology with Azure Vir
 ## Prerequisites
 
 * Read about the [Hub-and-spoke](concept-connectivity-configuration.md#hub-and-spoke-topology) network topology.
-* Create a [Azure Virtual Network Manager instance](create-virtual-network-manager-portal.md#create-a-virtual-network-manager-instance).
+* Create an [Azure Virtual Network Manager instance](create-virtual-network-manager-portal.md#create-a-virtual-network-manager-instance).
 * Identify the virtual networks you want to use in the hub-and-spoke configuration or create new [virtual networks](../virtual-network/quick-create-portal.md). 
 
 ## <a name="group"></a> Create a network group
@@ -34,7 +34,7 @@ Azure Virtual Network Manager provides you with two methods for adding membershi
 
 ### Manually adding virtual networks
 
-To manually add the desired virtual networks to your network group for use in your connectivity configuration, follow the steps below:
+To manually add the desired virtual networks to your network group for use in your connectivity configuration, follow these steps:
 
 1. From the list of network groups, select your network group and select **Add virtual networks** under *Manually add members* on the network group page.
 
@@ -45,6 +45,8 @@ To manually add the desired virtual networks to your network group for use in yo
 ## Create a hub-and-spoke connectivity configuration
 
 This section guides you through creating a hub-and-spoke configuration with the network group you created in the previous section.
+
+1. Select **Configurations** under *Settings*, then select **+ Create**.
 
 1. Select **Connectivity configuration** from the drop-down menu to begin creating a connectivity configuration.
 
@@ -59,7 +61,7 @@ This section guides you through creating a hub-and-spoke configuration with the 
 
 1. Select the **Delete existing peerings** checkbox if you want to remove all previously created virtual network peerings between virtual networks in the network groups included in this configuration. Then select **Select a hub**.
 
-1. On the **Select a hub** pane, select the virtual network that will be the hub virtual network and select **Select**.
+1. On the **Select a hub** pane, select the virtual network intended as the hub virtual network and select **Select**.
     
 1. Select **+ Add network groups**. 
 
@@ -78,6 +80,7 @@ This section guides you through creating a hub-and-spoke configuration with the 
 To have this configuration take effect in your environment, you need to deploy the configuration to the regions in which your selected virtual networks reside.
 
 1. Select **Deployments** under *Settings*, then select **Deploy a configuration**.
+
 1. On the **Deploy a configuration** page, select the following settings:
 
     | Setting | Value |
@@ -87,22 +90,24 @@ To have this configuration take effect in your environment, you need to deploy t
     | Target regions | Select all the regions that apply to virtual networks you select for the configuration. You might choose to select a subset of regions at a time if you want to gradually roll out this configuration. |
 
 1. Select **Next** and then select **Deploy** to complete the deployment.
-1. The deployment displays in the list for the selected region. The deployment of the configuration can take a few minutes to complete.
+
+1. The deployment displays in the list for the selected region. The deployment of the configuration can take a few minutes to complete. Select the **Refresh** button to check on the status of the deployment.
 
     :::image type="content" source="./media/how-to-create-hub-and-spoke/deployment-succeeded.png" alt-text="Screenshot of configuration deployment in progress status.":::
 
 > [!NOTE]
-> If you're currently using virtual network peerings created outside of Azure Virtual Network Manager and want to manage your topology and connectivity with Azure Virtual Network Manager, you can migrate without any downtime to your network. Azure Virtual Network Manager instances are fully compatible with pre-existing hub-and-spoke topology deployments using manual peerings. When you deploy a connectivity configuration, the connectivity established is additive by default. This means that you aren't required to delete any existing peered connections between the hub and spoke virtual networks while you verify the connectivity configuration is establishing connectivity as desired.
+> If you're currently using virtual network peerings created outside of Azure Virtual Network Manager and want to manage your topology and connectivity with Azure Virtual Network Manager, you can migrate without any downtime to your network. Azure Virtual Network Manager instances are fully compatible with preexisting hub-and-spoke topology deployments using manual peerings. When you deploy a connectivity configuration, the connectivity established is additive by default. This means that you aren't required to delete any existing peered connections between the hub and spoke virtual networks while you verify the connectivity configuration is establishing connectivity as desired.
 
 ## Confirm configuration deployment
 
-1. See [view applied configuration](how-to-view-applied-configurations.md).
+1. See [view applied configurations](how-to-view-applied-configurations.md).
 
 1. To test *direct connectivity* between spoke virtual networks, deploy a virtual machine into each spoke virtual network. Then initiate an ICMP request from one virtual machine to the other.
 
 ## Next steps
 
-- [Create a secured hub-and-spoke topology in this tutorial](./tutorial-create-secured-hub-and-spoke.md).
-- [Learn how to deploy a hub-and-spoke topology with Azure Firewall](./how-to-deploy-hub-spoke-topology-with-azure-firewall.md).
+- [Create a secured hub-and-spoke topology in this tutorial](tutorial-create-secured-hub-and-spoke.md).
+- [Learn how to deploy a hub-and-spoke topology with Azure Firewall](how-to-deploy-hub-spoke-topology-with-azure-firewall.md).
+- [Learn how to create a mesh connectivity configuration](how-to-create-mesh-network.md).
 - Learn about [Security admin rules](concept-security-admins.md)
 - Learn how to block network traffic with a [Security admin configuration](how-to-block-network-traffic-portal.md).

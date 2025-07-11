@@ -40,7 +40,7 @@ By default, the mesh topology defined in your connectivity configuration is a re
 
 ## Behind the scenes: connected group
 
-When you create a mesh topology or enable direct connectivity in a hub-and-spoke topology, a new connectivity construct exclusive to Azure Virtual Network Manager is created called a *connected group*. Virtual networks in a connected group can communicate with each other just like manually connected virtual networks. When you observe the effective routes for a network interface, you'll see a next hop type of *ConnectedGroup*. Virtual networks connected together in a connected group don't have a peering configuration listed under *Peerings* for the virtual network. This connected group is what enables Azure Virtual Network Manager to support a higher scale of virtual network connectivity than traditional virtual network peerings.
+When you create a mesh topology or enable direct connectivity in a hub-and-spoke topology, a new connectivity construct exclusive to Azure Virtual Network Manager is created. This construct is called a *connected group*. Virtual networks in a connected group can communicate with each other just like manually connected virtual networks. When you observe the effective routes for a network interface, you'll see a next hop type of *ConnectedGroup*. Virtual networks connected together in a connected group don't have a peering configuration listed under *Peerings* for the virtual network. This connected group is what enables Azure Virtual Network Manager to support a higher scale of virtual network connectivity than traditional virtual network peerings.
 
 > [!NOTE]
 > A virtual network can be part of up to two connected groups, meaning it can be part of up to two mesh topologies.
@@ -53,7 +53,7 @@ Azure Virtual Network Manager's high-scale connected group feature empowers you 
 
 #### Prepare each virtual network in the connected group
 
-1. Review [Increase Private Endpoint virtual network limits](../private-link/increase-private-endpoint-vnet-limits.md) for detailed guidance on raising these limits. Enabling or disabling this feature initiates a one-time connection reset. It's recommended to perform these changes during a maintenance window.
+1. Review [Increase Private Endpoint virtual network limits](../private-link/increase-private-endpoint-vnet-limits.md) for detailed guidance on raising these limits. Enabling or disabling this feature initiates a one-time connection reset. We recommend performing these changes during a maintenance window.
 
 2. Register the feature flag of `Microsoft.Network/EnableMaxPrivateEndpointsVia64kPath` for each subscription containing an Azure Virtual Network Manager instance and virtual networks in your connected group.
 
@@ -68,9 +68,9 @@ In this step, you configure the connectivity configuration's mesh topology setti
 
 1. In your mesh connectivity configuration, locate and select the checkbox for **Enable private endpoints high scale**. This option activates the high-scale feature for your connected group.
 
-1. Verify every virtual network in your connected group (i.e. your entire mesh) is configured with high-scale private endpoints. The Azure portal validates the settings across the entire group. If a virtual network without the high-scale configuration is added later, it can't communicate with private endpoints in other virtual networks.
+1. Verify every virtual network in your entire mesh (connected group) is configured with high-scale private endpoints. The Azure portal validates the settings across the entire group. If a virtual network without the high-scale configuration is added later, it can't communicate with private endpoints in other virtual networks.
 
-1. After verifying all virtual networks are properly configured, deploy the connectivity configuration. This finalizes the setup of your high-scale connected group.
+1. After verifying all virtual networks are properly configured, deploy the connectivity configuration. This step finalizes the setup of your high-scale connected group.
 
 ## Hub-and-spoke topology
 
@@ -120,9 +120,10 @@ You can review the current topology of a connectivity configuration by selecting
 
 ## Next steps
 
-- [Learn how to create a hub-and-spoke connectivity configuration](./how-to-create-hub-and-spoke.md) to manage your network topologies.
-- [Create a secured hub-and-spoke topology in this tutorial](./tutorial-create-secured-hub-and-spoke.md).
-- [Learn how to deploy a hub-and-spoke topology with Azure Firewall](./how-to-deploy-hub-spoke-topology-with-azure-firewall.md).
+- [Learn how to create a mesh connectivity configuration](how-to-create-mesh-network.md).
+- [Learn how to create a hub-and-spoke connectivity configuration](how-to-create-hub-and-spoke.md).
+- [Create a secured hub-and-spoke topology in this tutorial](tutorial-create-secured-hub-and-spoke.md).
+- [Learn how to deploy a hub-and-spoke topology with Azure Firewall](how-to-deploy-hub-spoke-topology-with-azure-firewall.md).
 - [Understand configuration deployments](concept-deployments.md) to effectively manage your network settings.
 - [Block unwanted network traffic](how-to-block-network-traffic-portal.md) using security admin configurations.
 - [Deploy Azure Virtual Network Manager using Terraform](create-virtual-network-manager-terraform.md) to quickly set up your environment.
