@@ -18,7 +18,7 @@ Application Gateway for Containers is an application layer (Layer 7) [load balan
 
 ## Configuration
 
-To use WAF on your Application Gateway for Containers deployment, you need to attach your [WAF policy](create-waf-policy-ag.md) via a Security Policy, which is a new Azure Resource Manager child resource that is part of the Application Gateway for Containers integration. The Security Policy is referenced by your Application Load Balancer (ALB) controller and helps define the scope of how your WAF policy is applied to the application's traffic.
+To use WAF on your Application Gateway for Containers deployment, you need to attach your [WAF policy](create-waf-policy-ag.md) via a Security Policy. The Security Policy is a new Azure Resource Manager child resource that's part of the Application Gateway for Containers integration. It's referenced by your Application Load Balancer (ALB) controller and helps define the scope of how your WAF policy is applied to your application's traffic.
 
 Application Gateway for Containers also introduces a new resource called `WebApplicationFirewallPolicy`. This custom resource defines at which point the WAF policy is applied and can be configured at the listener or route path level. This configuration is done via your Kubernetes resource's YAML file.
 
