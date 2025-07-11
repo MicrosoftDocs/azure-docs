@@ -7228,6 +7228,11 @@
        "source_path": "articles/private-5g-core/disconnected-mode.md",
        "redirect_url": "/azure/private-5g-core/azure-stack-edge-disconnects",
        "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/signups/startup-programs.md",
+      "redirect_url": "/azure/signups/overview",
+      "redirect_document_id": false
     }
   ]
 }
