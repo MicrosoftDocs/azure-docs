@@ -360,7 +360,7 @@ Registering your Windows Server with a Storage Sync Service establishes a trust 
 > [!NOTE]
 > Server registration uses your Azure credentials to create a trust relationship between the Storage Sync Service and your Windows Server. Subsequently, the server creates and uses its own identity that is valid as long as the server stays registered and the current Shared Access Signature (SAS) token is valid. A new SAS token can't be issued to the server once the server is unregistered, thus removing the server's ability to access your Azure file shares, stopping any sync.
 
-The administrator registering the server must be a member of the management roles **[Azure File Sync Administrator](/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator)**, **Owner** or **Contributor** for the given Storage Sync Service. This can be configured under **Access Control (IAM)** in the Azure portal for the Storage Sync Service.
+The administrator registering the server must be a member of the management roles **[Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator)**, **Owner** or **Contributor** for the given Storage Sync Service. This can be configured under **Access Control (IAM)** in the Azure portal for the Storage Sync Service.
 
 It's also possible to differentiate administrators able to register servers from those allowed to also configure sync in a Storage Sync Service. To do this, you must create a custom role where you list the administrators that are only allowed to register servers and give your custom role the following permissions:
 
