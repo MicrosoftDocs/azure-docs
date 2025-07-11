@@ -74,6 +74,7 @@ The `defaultLocation` field lets you specify the zoom level and center coordinat
 
 ## Related content
 
+- [Data visualization sample guide](./data-visualization-samples.md)
 - [Mosaic configurations for collections in Microsoft Planetary Computer Pro](./mosaic-configurations-for-collections.md)
 - [Render configuration for Microsoft Planetary Computer Pro](./render-configuration.md)
 - [Queryables for Microsoft Planetary Computer Pro Data Explorer custom search filters](./queryables-for-explorer-custom-search-filter.md)

@@ -55,4 +55,5 @@ Here's a quickstart guide to configuring collections:
 ## Related content
 
 - [Quickstart: Create collections with the Microsoft Planetary Computer Pro web interface](./create-collection-web-interface.md)
+- [Data visualization sample guide](./data-visualization-samples.md)
 - [STAC in Microsoft Planetary Computer Pro](./stac-overview.md)

@@ -56,7 +56,7 @@ To apply these examples to your own data:
 
 [Sentinel-2](https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2) is a high-resolution, multi-spectral imaging mission from the European Space Agency (ESA) as part of the Copernicus Program.
 
-## Configuration details
+## Sentinel-2 configuration details
 
 # [Mosaic](#tab/sentinel-2-l2a-grindavik-mosaics)
 
@@ -785,7 +785,7 @@ All four bands are stored together as a single multi-band asset. This band struc
 - **Color infrared analysis** combines NIR, Red, and Green bands to assess vegetation health
 - **NDVI calculations** use the formula (NIR-Red)/(NIR+Red) to measure vegetation density and health
 
-## Configuration details
+## NAIP configuration details
 
 # [Mosaic](#tab/naip-airports-mosaics)
 
@@ -1133,7 +1133,7 @@ The STAC Collection configuration defines the core metadata for this NAIP collec
 
 [Umbra's Synthetic Aperture Radar (SAR) imagery](https://umbra.space/open-data/) uses radar signals transmitted from satellites to create high-resolution images of the Earth's surface, capable of seeing through clouds, darkness, and weather conditions that would block traditional optical satellites. This SAR technology is valuable for monitoring infrastructure, detecting changes in urban areas, tracking ships and vehicles, and assessing damage after natural disasters, as it can capture detailed images at any time of day or night regardless of weather conditions.
 
-## Configuration details
+## SAR configuration details
 
 # [Mosaic](#tab/umbra-sar-mosaics)
 
@@ -1158,7 +1158,7 @@ This SAR collection is the default mosaic configuration.
 
 This render configuration defines how to visualize Umbra SAR imagery in the Explorer. SAR imagery uses radar signals to detect surface features and structures, displayed as grayscale intensity data where brighter areas represent stronger radar returns.
 
-The configuration focuses on **VV polarization** data, which refers to "Vertical transmit, Vertical receive" radar signals that are particularly effective for detecting artificial structures and surface roughness.
+The configuration focuses on **VV polarization** data, which refers to "Vertical transmit, Vertical receive" radar signals that are effective for detecting artificial structures and surface roughness.
 
 The `options` string specifies how to visualize the data:
 
@@ -1359,9 +1359,9 @@ The [Impact Observatory Land Use/Land Cover 9-Class dataset](https://www.impacto
 
 The 9-class system includes: Water, Trees, Flooded vegetation, Crops, Built area, Bare ground, Snow/ice, Clouds, and Rangeland. This updated classification model combines the previously separate Grass and Scrub classes into a single Rangeland class, providing more consistent classification across the time series.
 
-Each annual map represents a composite of LULC predictions throughout the year, with an assessed average accuracy of over 75%. The data is particularly valuable for monitoring land use changes, tracking deforestation, urban expansion, and agricultural patterns at a global scale.
+Each annual map represents a composite of LULC predictions throughout the year, with an assessed average accuracy of over 75%. The data is valuable for monitoring land use changes, tracking deforestation, urban expansion, and agricultural patterns at a global scale.
 
-## Configuration details
+## Land cover configuration details
 
 # [Mosaic](#tab/io-lulc-9-class-mosaics)
 
@@ -1372,10 +1372,10 @@ The mosaic configuration for this collection provides temporal filtering options
 The configuration includes six separate mosaic options covering 2017-2022:
 
 * **Temporal Filtering**: Each mosaic uses the `anyinteracts` operator to filter items where the `datetime` property intersects with a specific year's date range
-* **Date Ranges**: Each year's filter spans from January 1st to December 31st of that specific year (e.g., "2022-01-01T23:59:59Z" to "2022-12-31T23:59:59Z")
+* **Date Ranges**: Each year's filter spans from January 1 to December 31 of that specific year (`2022-01-01T23:59:59Z` to `2022-12-31T23:59:59Z`)
 * **User Experience**: This temporal filtering allows users to compare land cover changes year-over-year or focus on a specific time period of interest
 
-This temporal filtering approach is particularly valuable for land cover analysis, as it enables users to track changes in land use patterns, monitor deforestation or reforestation, observe urban expansion, and assess the impact of natural disasters or human activities over time.
+This temporal filtering approach is valuable for land cover analysis, as it enables users to track changes in land use patterns, monitor deforestation or reforestation, observe urban expansion, and assess the impact of natural disasters or human activities over time.
 
 ```json
 [
@@ -1514,7 +1514,7 @@ This temporal filtering approach is particularly valuable for land cover analysi
 
 This render configuration defines three different ways to visualize Impact Observatory land cover classification data in the Explorer. Each entry describes a different visualization approach, such as **ESA CCI classification** (using standard scientific colormaps), **Default IO 9-class** (using custom Impact Observatory colors), or **ESA colormap alternative** (combining ESA colors with enhanced processing).
 
-The land cover data contains classified values representing 9 different land cover types, stored in a single "data" asset that requires colormap application to visualize the categories effectively.
+The land cover data contains classified values representing nine different land cover types, stored in a single "data" asset that requires colormap application to visualize the categories effectively.
 
 The `options` string specifies how to visualize the data:
 
@@ -1528,9 +1528,9 @@ The `options` string specifies how to visualize the data:
   This unwind parameter continues tile processing even when the tile cache is full, ensuring complete coverage.
 
 - `skipcovered=False`:  
-  This `skipcovered` parameter processes all pixels, including those already covered by other tiles, ensuring no gaps in the visualization.
+  This `skipcovered` parameter processes all pixels, including those pixels already covered by other tiles, ensuring no gaps in the visualization.
 
-The visualization creates a colored map where each of the 9 land cover classes (Water, Trees, Crops, Built areas, etc.) is displayed in a distinct color for easy identification and analysis.
+The visualization creates a colored map where each of the nine land cover classes (Water, Trees, Crops, Built areas, etc.) is displayed in a distinct color for easy identification and analysis.
 
 ### ESA CCI land cover classification
 - **Configuration**: `"options": "assets=data&colormap_name=esa-cci-lc"`
@@ -1540,11 +1540,11 @@ The visualization creates a colored map where each of the 9 land cover classes (
 
 ### Default (IO 9-class colormap)
 - **Configuration**: `"options": "assets=data&exitwhenfull=False&skipcovered=False&colormap_name=io-lulc-9-class"`
-- **Purpose**: Uses a custom colormap specifically designed for the Impact Observatory 9-class system
+- **Purpose**: Uses a custom colormap designed for the Impact Observatory 9-class system
 - **Technical details**:
   - `exitwhenfull=False`: Continues processing even when tile cache is full
   - `skipcovered=False`: Processes all pixels, including those already covered by other tiles
-- **Best for**: Optimal visualization of the 9-class land cover categories with colors specifically chosen for this classification system
+- **Best for**: Optimal visualization of the 9-class land cover categories with colors chosen for this classification system
 
 ### Default (ESA colormap alternative)
 - **Configuration**: `"options": "assets=data&exitwhenfull=False&skipcovered=False&colormap_name=esa-cci-lc"`
@@ -1839,3 +1839,8 @@ This STAC configuration enables the render configurations to reference the `data
 
 ---
 
+## Related content
+
+- [Mosaic configurations for collections in Microsoft Planetary Computer Pro](./mosaic-configurations-for-collections.md)
+- [Render configuration for Microsoft Planetary Computer Pro](./render-configuration.md)
+- [Tile settings for Microsoft Planetary Computer Pro](./tile-settings.md)
