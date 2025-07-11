@@ -99,7 +99,7 @@ Follow these steps to set up your deployment to minimize open ports:
       }
       ```
 
-If you don't need to minimize open ports, let the edgeHub module use port 443 and set the API proxy module to listen on another port. For example, set the **NGINX_DEFAULT_PORT** environment variable to `8000` and create a port binding for port 8000.
+If you don't need to minimize open ports, let the edgeHub module use port 443 and configure the API proxy module to listen on another port. For example, configure the **NGINX_DEFAULT_PORT** environment variable to `8000` and create a port binding for port 8000.
 
 ## Enable container image download
 
