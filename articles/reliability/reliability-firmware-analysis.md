@@ -1,12 +1,12 @@
 ---
 title: Reliability in firmware analysis #Required; Must be "Reliability in *your official service name*"
-description: Find out about reliability in Azure [service-name], including availability zones and multi-region deployments. #Required; 
-author: anaharris-ms #Required; your GitHub user alias, with correct capitalization.
-ms.author: anaharris #Required; Microsoft alias of author; optional team alias.
+description: Find out about reliability in Azure firmware analysis, including availability zones and multi-region deployments. #Required; 
+author: karenguo #Required; your GitHub user alias, with correct capitalization.
+ms.author: karenguo #Required; Microsoft alias of author; optional team alias.
 ms.topic: reliability-article #Required
 ms.custom: subject-reliability, references_regions #Required - use references_regions if specific regions are mentioned.
 ms.service: learn #Required replace with your service meta tag. For taxonomies see https://review.learn.microsoft.com/help/platform/metadata-taxonomies/msservice?branch=main
-ms.date: 11/12/2024 #Required; mm/dd/yyyy format.
+ms.date: 7/11/2025 #Required; mm/dd/yyyy format.
 #Customer intent: As an engineer responsible for business continuity, I want to understand who need to understand the details of how [service-name] works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow during different kinds of situations. 
 
 ---
