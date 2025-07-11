@@ -61,7 +61,7 @@ Service Connector offers the following authentication options:
 | Azure SQL Database                            | Yes                              | No                             | Yes               | No                |
 | Azure Table Storage                           | No                               | No                             | Yes               | No                |
 | Azure Web PubSub                              | Yes                              | Yes                            | Yes               | Yes               |
-| MongoDB Atlas (Preview)                       | No                               | No                             | Yes               | No                |
+| MongoDB Atlas                       | No                               | No                             | Yes               | No                |
 
 ## Review or update authentication configuration
 
