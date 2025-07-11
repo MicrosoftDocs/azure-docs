@@ -45,7 +45,6 @@ For information about configuring subnet delegation, see [Add or remove a subnet
 
 #### [Virtual network integration](#tab/external)
 
-
 For virtual network integration, the subnet needs to be delegated to the **Microsoft.Web/serverFarms** service.
 
 :::image type="content" source="media/virtual-network-injection-workspaces-resources/delegate-external.png" alt-text="Screenshot showing subnet delegation to Microsoft.Web/serverFarms in the portal.":::
@@ -63,6 +62,8 @@ For virtual network injection, the subnet needs to be delegated to the **Microso
 > [!NOTE]
 > You might need to register the `Microsoft.Web/hostingEnvironments` resource provider in the subscription so that you can delegate the subnet to the service.
 
+---
+
 ## Network security group
 
 #### [Virtual network integration](#tab/external)
@@ -72,7 +73,7 @@ For virtual network injection, the subnet needs to be delegated to the **Microso
 
 #### [Virtual network injection](#tab/internal)
 
-A network security group (NSG) must be associated with the subnet. To set up a network security group, see [Create a network security group](../articles/virtual-network/manage-network-security-group.md). 
+A network security group (NSG) must be associated with the subnet. To set up a network security group, see [Create a network security group](../virtual-network/manage-network-security-group.md). 
 
 * Configure the following rules in the NSG. Set the priority of these rules higher than that of the default rules.
 * Configure other outbound rules you need for the gateway to reach your API backends. 
