@@ -18,10 +18,11 @@ Application Gateway for Containers is an application layer (layer 7) [load balan
 
 ## Configuration
 
-To leverage WAF on your Application Gateway for Containers deployment, you will need to attach your WAF policy via a Security Policy. Security Policy in this context is a new child resource in Azure Resource Manager (ARM) that was introduced as part of the Application Gateway for Containers integration. The Security Policy is referenced by your Application Load Balancer (ALB) controller and helps define the scope of how your WAF policy is applied to your application’s traffic.
-Application Gateway for Containers also introduces a new resource called ‘WebApplicationFirewallPolicy’. This custom resource defines at which points the WAF policy is applied and can be configured at the listener or route path level. This configuration is done via your Kubernetes resource’s YAML file. 
-Here is an example YAML configuration that shows targeting a specific path called ‘pathA’ on an HTTP Route resource:
+To use WAF on your Application Gateway for Containers deployment, you need to attach your [WAF policy](create-waf-policy-ag.md) via a Security Policy, which is a new Azure Resource Manager child resource that is  part of the Application Gateway for Containers integration. The Security Policy is referenced by your Application Load Balancer (ALB) controller and helps define the scope of how your WAF policy is applied to the application’s traffic.
 
+Application Gateway for Containers also introduces a new resource called `WebApplicationFirewallPolicy`. This custom resource defines at which point the WAF policy is applied and can be configured at the listener or route path level. This configuration is done via your Kubernetes resource’s YAML file. 
+
+Here's an example YAML configuration that shows targeting a specific path called `pathA` on an HTTP Route resource:
 
 ```yaml
 apiVersion: alb.networking.azure.io/v1
@@ -42,12 +43,13 @@ spec:
 
 ## Limitations
 
-The following functionality is not supported on a WAF Policy associated with an Application Gateway for Containers instance:
-- Cross Region & Cross Subscription Not Supported – Your WAF policy needs to be in the same subscription and region as your Application Gateway for Containers resource.
-- Core Rule Set (CRS) Managed Rules – Application Gateway for Containers WAF only supports Default Rule Set (DRS) managed rulesets. 
-- Legacy Bot Manager Ruleset – Bot Manager Ruleset 0.1 is not supported, but all newer Bot Manager ruleset versions are supported.
-- Java Script Challenge Actions on Bot Manager Rules – During preview you cannot set the Action on a Bot Manager rule to Java Script Challenge.
-- CoPilot for Security – During preview CoPilot for Security is not supported.
+The following functionality isn't supported on a WAF Policy associated with an Application Gateway for Containers instance:
+
+- Cross region cross subscription: your WAF policy must be in the same subscription and region as your Application Gateway for Containers resource.
+- Core Rule Set (CRS) Managed Rules: Application Gateway for Containers WAF only supports Default Rule Set (DRS) managed rulesets.
+- Legacy Bot Manager Ruleset: Bot Manager Ruleset 0.1 isn't supported, but all newer Bot Manager ruleset versions are supported.
+- JavaScript Challenge actions on Bot Manager rules: you can't set the Action on a Bot Manager rule to JavaScript Challenge during the preview.
+- Microsoft Security Copilot: isn't supported during the preview.
 
 ## Pricing
 
