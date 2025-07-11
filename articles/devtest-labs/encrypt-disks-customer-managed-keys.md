@@ -17,13 +17,13 @@ Server-side encryption (SSE) protects your data and helps you meet your organiza
 In Azure DevTest Labs, all OS disks and data disks created in a lab are encrypted via platform-managed keys. However, as a lab owner, you can choose to manage the encryption of lab virtual machine disks by using your own keys. If you choose to manage encryption by using your own keys, you can specify a *customer-managed key* to use for encrypting data in lab disks. To learn more about SSE with customer-managed keys, and other managed disk encryption types, see [Customer-managed keys](/azure/virtual-machines/disk-encryption#customer-managed-keys). Also, see [restrictions with using customer-managed keys](/azure/virtual-machines/disks-enable-customer-managed-keys-portal#restrictions).
 
 > [!NOTE]
-> - The disk encryption setting applies to newly created disks in the lab. If you change the disk encryption set at some point, older disks in the lab will continue to be encrypted with the previous disk encryption set. 
+> The disk encryption setting applies to newly created disks in the lab. If you change the disk encryption set at some point, older disks in the lab will continue to be encrypted with the previous disk encryption set. 
 
 The following section shows how a lab owner can set up encryption with a customer-managed key.
 
 ## Prerequisites
 
-- If you don't have a disk encryption set, complete the steps in this article to [set up a key vault and a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal). Note the following requirements for the disk encryption set: 
+- If you don't have a disk encryption set, [complete the steps in this article to set up a key vault and a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal). Note the following requirements for the disk encryption set: 
 
     - The disk encryption set needs to be in same region and subscription as your lab. 
     - The lab owner needs to have at least reader-level access to the disk encryption set that will be used to encrypt lab disks. 
@@ -47,13 +47,13 @@ The following section shows how a lab owner can set up encryption with a custome
 
 ## Encrypt lab OS disks with a customer-managed key 
 
-1. On the overview page for your lab in the Azure portal, select **Configuration and policies** in the left menu. 
-1. On the **Configuration and policies** page, select **Disks (Preview)** in the **Encryption** section. By default, **Encryption type** is set to **Encryption at-rest with a platform managed key**.
+1. On the overview page for your lab in the Azure portal, select **Configuration and policies** in the left pane. 
+1. In the left pane of the **Configuration and policies** page, select **Disks (Preview)** in the **Encryption** section. By default, **Encryption type** is set to **Encryption at-rest with a platform managed key**.
 
     :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disks-page.png" alt-text="Screenshot that shows the Disks pane in Configuration and policies." lightbox="./media/encrypt-disks-customer-managed-keys/disks-page.png":::
 
-1. Under **Encryption type**, select **Encryption at-rest with a customer managed key**. 
-1. For **Disk encryption set**, select the disk encryption set you created earlier. It's the same disk encryption set that the system-assigned identity of the lab can access.
+1. In the **Encryption type** box, select **Encryption at-rest with a customer managed key**. 
+1. In the **Disk encryption set** box, select the disk encryption set you created earlier. It's the same disk encryption set that the system-assigned identity of the lab can access.
 1. Select **Save** at the top of the pane. 
 
     :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disk-encryption-set.png" alt-text="Screenshot that shows the steps to complete in Configuration and policies." lightbox="./media/encrypt-disks-customer-managed-keys/disk-encryption-set.png":::
@@ -74,7 +74,7 @@ The following section shows how a lab owner can set up encryption with a custome
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/vm-resource-group.png" alt-text="Screenshot that shows the VM in its resource group." lightbox="./media/encrypt-disks-customer-managed-keys/vm-resource-group.png":::
 
-1. In the left pane, select **Encryption**. Validate that encryption is set to customer-managed key with the disk encryption set that you selected.
+1. In the left pane, under **Settings**, select **Encryption**. Validate that encryption is set to customer-managed key with the disk encryption set that you selected.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/validate-encryption.png" alt-text="Screenshot that shows the encryption type of the VM.":::
