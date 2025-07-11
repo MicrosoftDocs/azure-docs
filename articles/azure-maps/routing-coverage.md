@@ -65,10 +65,10 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Belize                                 |                ✓                  |                   |             |
 | Bermuda                                |                ✓                  |                   |             |
 | Bolivia                                |                ✓                  |                   |             |
-| Bonaire, Sint Eustatius, & Saba        |                ✓                  |                   |             |
 | Brazil                                 |                ✓                  |         ✓         |     ✓      |
 | British Virgin Islands                 |                ✓                  |                   |             |
 | Canada                                 |                ✓                  |         ✓         |     ✓      |
+| Caribbean Netherlands                  |                ✓                  |                   |             |
 | Cayman Islands                         |                ✓                  |                   |             |
 | Chile                                  |                ✓                  |         ✓         |             |
 | Colombia                               |                ✓                  |         ✓         |             |
@@ -131,13 +131,13 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Fiji                                   |                ✓                  |                   |             |
 | French Polynesia<sup>1</sup>           |                ✓                  |                   |             |
 | Guam                                   |                ✓                  |                   |             |
-| Hong Kong SAR China                    |                ✓                  |         ✓         |             |
+| Hong Kong SAR                          |                ✓                  |         ✓         |             |
 | India                                  |                ✓                  |         ✓         |             |
 | Indonesia                              |                ✓                  |         ✓         |     ✓      |
 | Kiribati<sup>1</sup>                   |                ✓                  |                   |             |
 | Laos                                   |                ✓                  |                   |             |
 | Macao SAR                              |                ✓                  |         ✓         |             |
-| Macao SAR China                        |                ✓                  |                   |             |
+| Macao SAR                              |                ✓                  |                   |             |
 | Malaysia                               |                ✓                  |         ✓         |      ✓     |
 | Micronesia<sup>1</sup>                 |                ✓                  |                   |             |
 | Mongolia<sup>1</sup>                   |                ✓                  |                   |             |
@@ -157,7 +157,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Samoa<sup>1</sup>                      |                ✓                  |                   |             |
 | Singapore                              |                ✓                  |         ✓         |     ✓      |
 | Solomon Islands<sup>1</sup>            |                ✓                  |                   |             |
-| South Korea<sup>2 3</sup>              |               ✓                   |         ✓         |     ✓      |
+| South Korea<sup>2</sup>                |               ✓                   |         ✓         |     ✓      |
 | Sri Lanka<sup>1</sup>                  |                ✓                  |                   |             |
 | Taiwan                                 |                ✓                  |         ✓         |      ✓     |
 | Thailand                               |                ✓                  |         ✓         |      ✓     |
@@ -171,9 +171,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 
 <sup>1</sup> Country/region has partial road data with at least coverage for major roads.
 
-<sup>2</sup> Korea is only supported in the latest version of the Route service.
-
-<sup>3</sup> Coverage is dependent on enabling data processing in South Korea. For more information, see [Configure global data processing](how-to-manage-consent.md).
+<sup>2</sup> Korea is supported only in the latest version of the Route service, with coverage dependent on enabling data processing in South Korea. For more information, see [Configure global data processing](how-to-manage-consent.md).
 
 ### Europe
 
@@ -266,6 +264,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Egypt                                  |                ✓                  |         ✓         |             |
 | Equatorial Guinea<sup>1</sup>          |                ✓                  |                   |             |
 | Eritrea<sup>1</sup>                    |                ✓                  |                   |             |
+| Eswatini                               |                ✓                  |                   |             |
 | Ethiopia<sup>1</sup>                   |                ✓                  |                   |             |
 | French Southern Territories<sup>1</sup>|                ✓                  |                   |             |
 | Gabon<sup>1</sup>                      |                ✓                  |                   |             |
