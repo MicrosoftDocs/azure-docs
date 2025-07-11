@@ -60,7 +60,7 @@ The steps in this section show how to create an HTTP API with no backend.
 1. In the **Create an HTTP API** window, select **Full**.
 1. In **Display name**, enter *Test API*.
 1. In **Products**, select *Unlimited*, if that value is available. This value is available only in some tiers. You can leave the value blank for this tutorial, but you need to associate the API with a product to publish it. For more information, see [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api). 
-1. In **Gateways**, select **Managed** if this option is available. (This option is avaiable only in certain service tiers.)
+1. In **Gateways**, select **Managed** if this option is available. (This option is available only in certain service tiers.)
 1. Select **Create**.
 
     :::image type="content" source="media/mock-api-responses/create-http-api.png" alt-text="Screenshot that shows the Create an HTTP API window." lightbox="media/mock-api-responses/create-http-api.png":::

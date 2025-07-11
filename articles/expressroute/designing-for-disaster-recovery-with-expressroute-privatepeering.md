@@ -105,7 +105,7 @@ The following diagram illustrates influencing ExpressRoute path selection using 
 
 :::image type="content" source="./media/designing-for-disaster-recovery-with-expressroute-pvt/aspath.png" alt-text="Diagram of influencing path selection using AS path prepend.":::
 
-If both the connections of ExpressRoute 1 go down, then the virtual network would see the 10.1.11.0/24 route advertisement only via ExpressRoute 2. Consequentially, the longer AS path would become irrelevant. Therefore, the standby circuit would be used in this failure state.
+If both the connections of ExpressRoute 1 go down, then the virtual network would see the 10.1.11.0/24 route advertisement only via ExpressRoute 2. Consequently, the longer AS path would become irrelevant. Therefore, the standby circuit would be used in this failure state.
 
 Using any of the techniques, if you influence Azure to prefer one of your ExpressRoute over others, you also need to ensure the on-premises network also prefer the same ExpressRoute path for Azure bound traffic to avoid asymmetric flows. Typically, local preference value is used to influence on-premises network to prefer one ExpressRoute circuit over others. Local preference is an internal BGP (iBGP) metric. The BGP route with the highest local preference value is preferred.
 

@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 04/16/2025
+ms.date: 07/04/2025
 ms.author: anfdocs
 # Customer intent: "As a cloud storage administrator, I want to understand the `maxfiles` limits for Azure NetApp Files, so that I can effectively manage volume capacity and avoid 'out of space' errors when creating new files."
 ---
@@ -49,7 +49,10 @@ To see the `maxfiles` allocation for a specific volume size, check the **Maximum
 >[!NOTE]
 >The maximum number of files metric is reported against the `maxfiles` account quota limit. The metric in Azure Mmonitor might reflect fewer files than metrics provided by the operating system mounting the volume. This behavior is expected. 
 
-When the `maxfiles` limit is reached, clients receive "out of space" messages when attempting to create new files or folders. Adjusting your quota based on this information can create greater inode availability. If you have further issues with the `maxfiles` limit, contact Microsoft technical support.
+When the `maxfiles` limit is reached, clients receive "out of space" messages when attempting to create new files or folders. Adjusting your quota based on this information can create greater inode availability. 
+
+>[!NOTE]
+>If you want to increase the `maxfiles` limit, you must increase the corresponding volume size accordingly. To increase the `maxfiles` limit, contact Microsoft technical support.
 
 You can't set `maxfiles` limits for data protection volumes via a quota request. Azure NetApp Files automatically increases the `maxfiles` limit of a data protection volume to accommodate the number of files replicated to the volume. When a failover happens on a data protection volume, the `maxfiles` limit remains the last value before the failover. In this situation, you can submit a `maxfiles` [quota request](azure-netapp-files-resource-limits.md#request-limit-increase) for the volume.
 
