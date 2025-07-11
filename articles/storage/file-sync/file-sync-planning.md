@@ -242,7 +242,7 @@ When Data Deduplication is enabled on a volume with cloud tiering enabled, Dedup
 In some cases where Dedup is installed, the available volume space can increase more than expected after dedup garbage collection is triggered. Volume space works as follows:
 1. Let's say that the free space policy for cloud tiering is set to 20%. 
 2. Azure File Sync is notified when there is low free space (let's say when free space is 19%). 
-3. Tiering determines that 1% more space needs to be freed, but as a buffer we will have 5% extra so we will tier up to 25% (E.g.: 30GB).
+3. Tiering determines that 1% more space needs to be freed, but as a buffer we'll have 5% extra, so we'll tier up to 25% (for example, 30 GiB).
 4. The files get tiered until it reaches 30GB.
 5. As part of interop with Dedup, Azure File Sync initiates Garbage collection at the end of the tiering session.
 
