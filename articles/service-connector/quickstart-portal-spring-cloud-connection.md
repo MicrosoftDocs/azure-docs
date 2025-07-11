@@ -177,7 +177,7 @@ Azure Spring Apps connections are displayed under **Settings > Service Connector
 
 ::: zone-end
 
-::zone pivot="azure-cli"
+::: zone pivot="azure-cli"
 
 Run `az spring connection list` command to list all of your Azure Spring Apps' provisioned connections.
 
