@@ -171,7 +171,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 
 <sup>1</sup> Country/region has partial road data with at least coverage for major roads.
 
-<sup>2</sup> Korea is supported only in the latest version of the Route service, with coverage dependent on enabling data processing in South Korea. For more information, see [Configure global data processing](how-to-manage-consent.md).
+<sup>2</sup> South Korea is only supported in the latest version of the Route service, with coverage dependent on enabling data processing. For more information, see [Configure global data processing](how-to-manage-consent.md).
 
 ### Europe
 
