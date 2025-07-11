@@ -3,14 +3,14 @@ title: Work with access keys in Azure Functions
 description: Learn about access keys in Azure Functions, including how to get and renew keys and how to use access keys when calling function endpoints.
 ms.service: azure-functions
 ms.topic: how-to 
-ms.date: 07/18/2024
+ms.date: 07/13/2025
 
 #CustomerIntent: As an Azure Functions developer, I want learn how to work with access keys so that I can properly harden both my function endpoints and my overall function app running in Azure.
 ---
 
 # Work with access keys in Azure Functions
 
-Azure Functions lets you use secret keys to make it more difficult to access your function endpoints. This article describes the various kinds of access keys supported by Functions, and how to work with access keys.
+Azure Functions lets you use secret keys to make it more difficult to access your function endpoints. This article describes the kinds of access keys that Functions supports, and how to work with access keys.
 
 While access keys provide some mitigation against unwanted access, you should consider other options to secure HTTP endpoints in production. For example, it's not a good practice to distribute shared secrets in a public app. If your function is being called from a public client, you should consider implementing these or other security mechanisms:
 
@@ -32,7 +32,7 @@ The scope of an access key and the actions it supports depend on the type of acc
 | **Master** | `_master` | `admin` | Special host key that also provides administrative access to the runtime REST APIs in a function app. Because the master key grants elevated permissions in your function app, you shouldn't share this key with third parties or distribute it in native client applications. |
 | **System** | Depends on the extension | n/a | Specific extensions might require a system-managed key to access webhook endpoints. System keys are designed for extension-specific function endpoints that get called by internal components. For example, the [Event Grid trigger](functions-bindings-event-grid-trigger.md) requires that the subscription use a system key when calling the trigger endpoint. Durable Functions also uses system keys to call [Durable Task extension APIs](durable/durable-functions-http-api.md). <br/>Only specific extenstions can create system keys. You can't explicitly set their values. Like other keys, you can generate a new value for the key from the portal or by using the key APIs. | 
 
-Each key is named for reference, and there's a default key (named `default`) at the function and host level. Function keys take precedence over host keys. When two keys are defined with the same name, the function key is always used.
+Each key is named for reference. There's a default key (named `default`) at the function and host level. Function keys take precedence over host keys. When two keys are defined with the same name, the function key is always used.
 
 The following table compares the uses for various kinds of access keys:
 
@@ -48,7 +48,7 @@ The following table compares the uses for various kinds of access keys:
 
 ## Key requirements
 
-In Functions, access keys are randomly generated 32-byte arrays that are encoded as URL-safe base-64 strings. While you can generate your own access keys and use them with Functions, we strongly recommend that you instead allow Functions to generate all of your access keys for you. 
+In Functions, access keys are randomly generated 32-byte arrays that are encoded as URL-safe base-64 strings. While you can generate your own access keys and use them with Functions, we strongly recommend that you instead allow Functions to generate all of your access keys for you.
 
 Functions-generated access keys include special signature and checksum values that indicate the type of access key and that Azure Functions generated it. Having these extra components in the key itself makes it much easier to determine the source of these kinds of secrets located during security scanning and other automated processes. 
 
@@ -60,9 +60,9 @@ Keys are stored as part of your function app in Azure and are encrypted at rest.
 
 |Location  | Value | Description  | 
 |---------|---------|---------|
-| A second storage account | `blob` | Stores keys in Blob storage in a storage account that's different that the one used by the Functions runtime. The specific account and container used is defined by a shared access signature (SAS) URL set in the [`AzureWebJobsSecretStorageSas`](functions-app-settings.md#azurewebjobssecretstoragesas) setting. You must maintain the `AzureWebJobsSecretStorageSas` setting when the SAS URL changes. |
+| A second storage account | `blob` | Stores keys in Blob storage in a storage account that's different than the one used by the Functions runtime. The specific account and container used is defined by a shared access signature (SAS) URL set in the [`AzureWebJobsSecretStorageSas`](functions-app-settings.md#azurewebjobssecretstoragesas) setting. You must maintain the `AzureWebJobsSecretStorageSas` setting when the SAS URL changes. |
 | [Azure Key Vault](/azure/key-vault/general/overview) | `keyvault` | The key vault set in [`AzureWebJobsSecretStorageKeyVaultUri`](functions-app-settings.md#azurewebjobssecretstoragekeyvaulturi) is used to store keys. | 
-| File system  | `files` | Keys are persisted on the local file system,  which is the default in Functions v1.x. File system storage isn't recommended. |
+| File system  | `files` | Keys are persisted on the local file system, which is the default in Functions v1.x. File system storage isn't recommended. |
 | Kubernetes Secrets  |`kubernetes` | The resource set in [AzureWebJobsKubernetesSecretName](functions-app-settings.md#azurewebjobskubernetessecretname) is used to store keys. Supported only when your function app is deployed to Kubernetes. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when you use it to deploy your app to a Kubernetes cluster. [Immutable secrets](https://kubernetes.io/docs/concepts/configuration/secret/#secret-immutable) aren't supported | 
 
 When you use Key Vault for key storage, the app settings you need depend on the managed identity type, either system-assigned or user-assigned. 
@@ -124,10 +124,10 @@ Because the output contains sensitive information, either don't persist the outp
 Run the following script, the output of which is the `default` host key, which can be used to access any HTTP triggered function in the function app.
 
 ```powershell-interactive
-$subName = '<SUBSCRIPTION_ID>'
 $rGroup = '<RESOURCE_GROUP>'
 $appName = '<APP_NAME>'
 $path = "/subscriptions/$((Get-AzContext).Subscription.Id)/resourceGroups/$rGroup/providers/Microsoft.Web/sites/$appName/host/default/listKeys?api-version=2018-11-01"
+
 ((Invoke-AzRestMethod -Path $path -Method POST).Content | ConvertFrom-JSON).functionKeys.default
 ```
 
