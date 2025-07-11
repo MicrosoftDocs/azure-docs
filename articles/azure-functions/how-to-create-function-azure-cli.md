@@ -78,19 +78,19 @@ In Azure Functions, your code project is an app that contains one or more indivi
     ### [Bash](#tab/bash)
     
     ```bash
-    mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8
+    mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=17
     ```
     
     ### [PowerShell](#tab/powershell)
     
     ```powershell
-    mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8" 
+    mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=17" 
     ```
     
     ### [Cmd](#tab/cmd)
     
     ```cmd
-    mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8"
+    mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=17"
     ```
     
     ---
@@ -119,9 +119,10 @@ In Azure Functions, your code project is an app that contains one or more indivi
     cd fabrikam-functions
     ```
 
+    You can review the template-generated code for your new HTTP trigger function in _Function.java_ in the _\src\main\java\com\fabrikam_ project directory.
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
-2. Use this `func new` command to add a function to your project:
+2. Use this [`func new`](./functions-core-tools-reference.md#func-new) command to add a function to your project:
 
     ```console
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
@@ -186,7 +187,7 @@ Verify your new function by running the project locally and calling the function
 
 ## Update application settings
 
-To enable the Functions host to connect to the default storage account using shared secrets, you must replace the `AzureWebJobsStorage` connection string setting with a complex setting, prefixed with `AzureWebJobsStorage`, that uses the user-assigned managed identity to connect to the storage account.
+To enable the Functions host to connect to the default storage account using shared secrets, you must replace the `AzureWebJobsStorage` connection string setting with several settings that are prefixed with `AzureWebJobsStorage__`. These settings define a complex setting that your app uses to connect to storage and Application Insights with a user-assigned managed identity.
 
 1. Use this script to get the client ID of the user-assigned managed identity and uses it to define managed identity connections to both storage and Application Insights:
  
@@ -220,10 +221,9 @@ Because your function uses an HTTP trigger and supports GET requests, you invoke
 
 Copy the complete **Invoke URL** shown in the output of the publish command into a browser address bar. When you navigate to this URL, the browser should display similar output as when you ran the function locally.
 
----
-
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-java" 
 [!INCLUDE [functions-streaming-logs-cli-qs](../../includes/functions-streaming-logs-cli-qs.md)]
-
+::: zone-end
 [!INCLUDE [functions-cleanup-resources-cli](../../includes/functions-cleanup-resources-cli.md)]
 
 ## Next steps
