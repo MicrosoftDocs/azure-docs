@@ -12,7 +12,7 @@ ms.custom:
 
 # Microsoft Planetary Computer Pro Data Visualization Gallery
 
-This gallery provides ready-to-use configuration examples for visualizing common geospatial data types in Microsoft Planetary Computer Pro. Each example includes comprehensive JSON configurations for mosaics, render options, tile settings, and STAC collection metadata that you can adapt for your own datasets.
+This gallery provides ready-to-use configuration examples for visualizing common geospatial data types in Microsoft Planetary Computer Pro. Each example includes comprehensive JSON configurations for mosaics, render options, tile settings, and SpatioTemporal Asset Catalog (STAC) collection metadata that you can adapt for your own datasets.
 
 ## Table of Contents
 
@@ -62,7 +62,7 @@ To apply these examples to your own data:
 
 ## Mosaic Configuration
 
-The mosaic configuration shown below tells the Explorer to display the most recent Sentinel-2 images from the collection, but only those with cloud cover less than or equal to 40%. The cql (Common Query Language) filter ensures that only relatively clear images are included, making the visualization more useful for most applications. Each mosaic entry can define different criteria for selecting and combining images, and this example uses a single "default" mosaic focused on recent, low-cloud imagery.
+This mosaic configuration tells the Explorer to display the most recent Sentinel-2 images from the collection, but only those images with cloud cover less than or equal to 40%. The cql (Common Query Language) filter ensures that only relatively clear images are included, making the visualization more useful for most applications. Each mosaic entry can define different criteria for selecting and combining images, and this example uses a single "default" mosaic focused on recent, low-cloud imagery.
 
 ```json
 [
@@ -94,25 +94,25 @@ This render configuration defines several ways to visualize Sentinel-2 satellite
 The `options` string specifies how to visualize the data:
 
 - `assets=B04&assets=B03&assets=B02`:  
-  This tells the system which bands (layers of satellite data) to use for the image. For example, B04 is red, B03 is green, and B02 is blue—together, they make a true-color image.
+  This code tells the system which bands (layers of satellite data) to use for the image. For example, B04 is red, B03 is green, and B02 is blue—together, they make a true-color image.
 
 - `nodata=0`:  
   Any pixel with a value of 0 is treated as missing or transparent.
 
 - `color_formula=Gamma RGB 3.2 Saturation 0.8 Sigmoidal RGB 25 0.35`:  
-  This applies color corrections to make the image look more natural or visually appealing.  
+  This code applies color corrections to make the image look more natural or visually appealing.  
   - **Gamma** adjusts brightness  
   - **Saturation** changes color intensity  
   - **Sigmoidal** adjusts contrast
 
 - `expression=(B08-B04)/(B08+B04)`:  
-  For NDVI and NDWI, this calculates a mathematical formula using the bands to create a new image that highlights vegetation or moisture.
+  For NDVI and NDWI, this code calculates a mathematical formula using the bands to create a new image that highlights vegetation or moisture.
 
 - `rescale=-1,1`:  
-  This stretches the calculated values to fit a color scale, so the results are easy to interpret.
+  This code stretches the calculated values to fit a color scale, so the results are easy to interpret.
 
 - `colormap_name=rdylgn`:  
-  This applies a color palette (red-yellow-green) to the result, making it easier to see differences.
+  This code applies a color palette (red-yellow-green) to the result, making it easier to see differences.
 
 ```json
 [
@@ -187,7 +187,7 @@ The `options` string specifies how to visualize the data:
 
 ## Tile Settings Configuration
 
-The tile settings configuration defines how data is tiled and displayed at different zoom levels. For Sentinel-2 data with its 10-60m ground sample distance (GSD), the `minZoom: 8` setting allows the imagery to become visible at moderate zoom levels, which is appropriate since Sentinel-2's resolution (10m for most bands, 20m for some bands, 60m for atmospheric bands) provides useful detail starting around zoom levels 8-12. Unlike sub-meter imagery that requires higher zoom levels for effective viewing, Sentinel-2's moderate resolution makes it suitable for regional to local-scale analysis. The `maxItemsPerTile: 35` parameter controls how many individual Sentinel-2 scenes are composited together in each tile, balancing performance with temporal coverage completeness. 
+The tile settings configuration defines how data is tiled and displayed at different zoom levels. For Sentinel-2 data with its 10-60 meter ground sample distance (GSD), the `minZoom: 8` setting allows the imagery to become visible at moderate zoom levels, which is appropriate since Sentinel-2's resolution (10 meter for most bands, 20 meter for some bands, 60 meter for atmospheric bands) provides useful detail starting around zoom levels 8-12. Unlike sub-meter imagery that requires higher zoom levels for effective viewing, Sentinel-2's moderate resolution makes it suitable for regional to local-scale analysis. The `maxItemsPerTile: 35` parameter controls how many individual Sentinel-2 scenes are composited together in each tile, balancing performance with temporal coverage completeness. 
 
 ```json
 {
@@ -207,7 +207,7 @@ The `item_assets` section in the STAC Collection JSON serves as a critical catal
 
 * Asset keys (like "B04", "B03") that are referenced by the render configuration
 Metadata about each band (resolution, data type, roles)
-* Band descriptions that explain what each band represents (e.g., B04 is "red", B08 is "near infrared")
+* Band descriptions that explain what each band represents (B04 is "red", B08 is "near infrared")
 * Wavelength information useful for scientific applications
 
 The render configuration directly references these asset keys to create different visualizations. For example, when the render configuration specifies `assets=B04&assets=B03&assets=B02`, it's pulling the red, green, and blue bands defined in item_assets to create a natural color image. 
@@ -759,8 +759,21 @@ The render configuration directly references these asset keys to create differen
 ## The National Agriculture Imagery Program Collection Configuration
 
 [ ![Screenshot of The National Agriculture Imagery Program data visualization](media/naip-imagery.png) ](media/naip-imagery.png#lightbox)
+The National Agriculture Imagery Program (NAIP) provides high-resolution aerial imagery across the United States. The USDA Farm Service Agency captures this imagery at least every three years.
 
-The National Agriculture Imagery Program (NAIP) provides high-resolution aerial imagery captured by the USDA Farm Service Agency at least every three years across the United States. NAIP data consists of 4-band imagery stored in cloud-optimized GeoTIFF format with spatial resolutions ranging from 0.3 to 1 meter per pixel. Each image contains Red, Green, Blue, and Near-Infrared (NIR) bands stored as a single multi-band asset, enabling natural color visualization (RGB bands 1-3), color infrared analysis for vegetation health (NIR-Red-Green), and calculated indices like NDVI using the formula (NIR-Red)/(NIR+Red) to assess vegetation density and health.
+NAIP data offers excellent detail with spatial resolutions ranging from 0.3 to 1 meter per pixel. The imagery is stored in cloud-optimized GeoTIFF format for efficient access and processing.
+
+Each NAIP image contains four spectral bands:
+- Red
+- Green  
+- Blue
+- Near-Infrared (NIR)
+
+All four bands are stored together as a single multi-band asset. This structure enables several types of analysis:
+
+- **Natural color visualization** uses the RGB bands (1-3) to create images that look similar to what the human eye sees
+- **Color infrared analysis** combines NIR, Red, and Green bands to assess vegetation health
+- **NDVI calculations** use the formula (NIR-Red)/(NIR+Red) to measure vegetation density and health
 
 ## Configuration details
 
@@ -806,7 +819,7 @@ Each visualization option uses these bands differently:
 ### Color Infrared
 
 - **Configuration**: `"options": "assets=image&asset_bidx=image|4,1,2&color_formula=Sigmoidal RGB 15 0.35"`
-- **How it works**: This is a "false color" composite that is particularly useful for vegetation analysis. It maps the bands as follows:
+- **How it works**: This is a "false color" composite that is useful for vegetation analysis. It maps the bands as follows:
   - **Red channel**: Band 4 (Near Infrared)
   - **Green channel**: Band 1 (Red)
   - **Blue channel**: Band 2 (Green)
@@ -850,7 +863,7 @@ Each visualization option uses these bands differently:
 # [Tile Settings](#tab/naip-airports-tile-settings)
 
 ## Tile Settings Configuration
-The tile settings configuration defines how data is tiled and displayed at different zoom levels. For high-resolution imagery like NAIP (0.3-1m GSD), appropriate zoom level settings are critical for performance and visual quality. Generally, imagery should become visible around zoom level 12-14 for meter-class data, with sub-meter imagery like NAIP (0.3-0.6m GSD) becoming useful at zoom levels 15-18. The `minZoom: 4` setting here allows the data to be visible at very low zoom levels, while `maxItemsPerTile: 35` controls how many image tiles are composited together, balancing performance with coverage completeness.
+The tile settings configuration defines how data is tiled and displayed at different zoom levels. For high-resolution imagery like NAIP (0.3-1m GSD), appropriate zoom level settings are critical for performance and visual quality. Generally, imagery should become visible around zoom level 12-14 for meter-class data, with sub-meter imagery like NAIP (0.3-0.6m GSD) becoming useful at zoom levels 15-18. The `minZoom: 4` setting here allows the data to be visible at low zoom levels, while `maxItemsPerTile: 35` controls how many image tiles are composited together, balancing performance with coverage completeness.
 
 
 ```json
@@ -1078,7 +1091,7 @@ The STAC Collection configuration defines the core metadata for this collection.
 
 [ ![Screenshot of Umbra SAR Imagery data visualization](media/umbra-sar-imagery.png) ](media/umbra-sar-imagery.png#lightbox)
 
-[Umbra's Synthetic Aperture Radar (SAR) imagery](https://umbra.space/open-data/) uses radar signals transmitted from satellites to create high-resolution images of the Earth's surface, capable of seeing through clouds, darkness, and weather conditions that would block traditional optical satellites. This technology is particularly valuable for monitoring infrastructure, detecting changes in urban areas, tracking ships and vehicles, and assessing damage after natural disasters, as it can capture detailed images at any time of day or night regardless of weather conditions.
+[Umbra's Synthetic Aperture Radar (SAR) imagery](https://umbra.space/open-data/) uses radar signals transmitted from satellites to create high-resolution images of the Earth's surface, capable of seeing through clouds, darkness, and weather conditions that would block traditional optical satellites. This technology is valuable for monitoring infrastructure, detecting changes in urban areas, tracking ships and vehicles, and assessing damage after natural disasters, as it can capture detailed images at any time of day or night regardless of weather conditions.
 
 ## Configuration details
 
@@ -1105,7 +1118,7 @@ This is the default mosaic configuration.
 
 The render configuration works as follows:
 
-**VV polarization**: Refers to "Vertical transmit, Vertical receive" radar signals, which are effective for detecting man-made structures and surface roughness
+**VV polarization**: Refers to "Vertical transmit, Vertical receive" radar signals, which are effective for detecting artificial structures and surface roughness
 
 * **Key parameters**:
   * `assets=GEC`: Selects the geocoded ellipsoid corrected (GEC) asset from the STAC item
@@ -1140,7 +1153,7 @@ This configuration creates a grayscale visualization where brighter areas repres
 # [Tile Settings](#tab/umbra-sar-tile-settings)
 
 ## Tile Settings Configuration
-The tile settings configuration defines how data is tiled and displayed at different zoom levels. For SAR imagery like Umbra's sub-meter resolution data (approximately 0.48m GSD), the `minZoom: 12` setting reflects the high-resolution nature of this dataset. SAR data at this resolution provides extremely detailed views of surface features, making it most useful at higher zoom levels where individual buildings, vehicles, and infrastructure elements become clearly distinguishable. The higher minimum zoom level ensures optimal performance and prevents unnecessary processing of very detailed data at zoom levels where the resolution advantage wouldn't be apparent to users.
+The tile settings configuration defines how data is tiled and displayed at different zoom levels. For SAR imagery like Umbra's sub-meter resolution data (approximately 0.48 meter GSD), the `minZoom: 12` setting reflects the high-resolution nature of this dataset. SAR data at this resolution provides detailed views of surface features, making it most useful at higher zoom levels where individual buildings, vehicles, and infrastructure elements become clearly distinguishable. The higher minimum zoom level ensures optimal performance and prevents unnecessary processing of detailed data at zoom levels where the resolution advantage wouldn't be apparent to users.
 
 ```json
 {
@@ -1163,7 +1176,7 @@ This section tells us:
 2. **Data Format**: The asset is a cloud-optimized GeoTIFF, which allows efficient access to portions of the imagery
 
 3. **Radar Properties**: 
-   - This is VV polarization data (vertical transmit, vertical receive)
+   - This image contains VV polarization data (vertical transmit, vertical receive)
    - Contains terrain-corrected gamma naught values with radiometric correction
 
 4. **Technical Specifications**:
