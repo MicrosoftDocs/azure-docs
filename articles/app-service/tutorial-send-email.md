@@ -1,8 +1,8 @@
 ---
-title: 'Tutorial: Send email with Azure Logic Apps'
-description: Learn how to invoke business processes from your App Service app. Send emails, tweets, and Facebook posts, add to mailing lists, and much more.
+title: 'Tutorial: Integrate with Azure Logic Apps to send email'
+description: Learn how to create an Azure Logic apps resource to send email and invoke other business processes from your App Service app.
 ms.topic: tutorial
-ms.date: 04/08/2020
+ms.date: 07/10/2025
 ms.devlang: csharp
 # ms.devlang: csharp, javascript, php, python
 ms.custom: devx-track-csharp, mvc, AppServiceConnectivity
@@ -12,26 +12,26 @@ ms.author: cephalin
 
 # Tutorial: Send email and invoke other business processes from App Service
 
-In this tutorial, you learn how to integrate your App Service app with your business processes. This is common to web app scenarios, such as:
+In this tutorial, you learn how to integrate your App Service app with your business processes by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md). You create a logic app that sends email via Gmail from your Azure App Service app. Although there are other ways to send emails from a web app, such as SMTP configuration in your language framework, Logic Apps provides a simple configuration interface for many popular business integrations without adding complexity to your code.
 
-- Send confirmation email for a transaction
-- Add user to Facebook group
-- Connect to third-party systems like SAP, Salesforce, etc.
-- Exchange standard B2B messages
+You can use the steps demonstrated in this tutorial to implement many common web app scenarios, such as:
 
-In this tutorial, you send emails with Gmail from your App Service app by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md). There are other ways to send emails from a web app, such as SMTP configuration provided by your language framework. However, Azure Logic Apps brings a lot more power to your App Service app without adding complexity to your code. Azure Logic Apps provides a simple configuration interface for the most popular business integrations, and your app can call them anytime with an HTTP request.
+- Sending confirmation email for a transaction.
+- Adding users to Facebook group.
+- Connecting to third-party systems like SAP and Salesforce.
+- Exchanging standard B2B messages.
 
 ## Prerequisite
 
-Deploy an app with the language framework of your choice to App Service. To follow a tutorial to deploy a sample app, see below:
-
-### [ASP.NET](#tab/dotnet)
-
-[Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+Have an app in the language of your choice deployed to Azure App Service. You can use the sample app from one of the following tutorials:
 
 ### [ASP.NET Core](#tab/dotnetcore)
 
 [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md)
+
+### [ASP.NET](#tab/dotnet)
+
+[Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
 
 ### [Node.js](#tab/node)
 
@@ -49,106 +49,138 @@ Deploy an app with the language framework of your choice to App Service. To foll
 
 ## Create the logic app
 
-1. In the [Azure portal](https://portal.azure.com), create a Consumption logic app resource by following the instructions in [Create an example Consumption workflow](../logic-apps/quickstart-create-example-consumption-workflow.md). When page with the common triggers and templates gallery opens, return to this tutorial.
+1. In the Azure portal, create an [Azure Logic Apps](../logic-apps/logic-apps-overview.md) app by following the instructions at [Create a Consumption logic app resource](../logic-apps/quickstart-create-example-consumption-workflow.md#create-a-consumption-logic-app-resource). When the app is created, select **Go to resource**.
 
-1. Under the **Start with a common trigger** section, select the trigger named **When an HTTP request is received** .
+1. Select **Logic app designer** under **Development Tools** in the left navigation menu.
 
-   ![Screenshot that shows the splash page for the designer with When an H T T P request is received highlighted.](./media/tutorial-send-email/receive-http-request.png)
+1. On the Logic app designer page, select **Add a trigger**.
 
-1. In the trigger information box, select **Use sample payload to generate schema**.
+   :::image type="content" source="./media/tutorial-send-email/http-request-url.png" alt-text="Screenshot that shows the Logic Apps designer canvas with Add a trigger highlighted.":::
 
-   ![Screenshot that shows the When an H T T P request dialog box and the Use sample payload to generate schema option selected.](./media/tutorial-send-email/generate-schema-with-payload.png)
+1. On the **Add a trigger** screen under **Built-in tools**, select **Request**, and then select **When a HTTP request is received**.
 
-1. Copy the following sample JSON into the textbox and select **Done**.
+   :::image type="content" source="./media/tutorial-send-email/receive-http-request.png" alt-text="Screenshot that shows the splash page for the designer with When an HTTP request is received highlighted.":::
 
-    ```json
-    {
-        "task": "<description>",
-        "due": "<date>",
-        "email": "<email-address>"
-    }
-    ```
+   The **When a HTTP request is received** trigger appears on the designer canvas.
 
-    The schema is now generated for the request data you want. In practice, you can just capture the actual request data your application code generates and let Azure generate the JSON schema for you.
+1. On the **When a HTTP request is received** screen, select **Use sample payload to generate schema**.
 
-1. On workflow designer toolbar, select **Save**.
+1. Paste the following code into the editor screen, and then select **Done**.
 
-    You can now see the URL of your HTTP request trigger. Select the copy icon to copy it for later use.
+   ```json
+   {
+       "task": "<description>",
+       "due": "<date>",
+       "email": "<email-address>"
+   }
+   ```
 
-    ![Screenshot that highlights the copy icon to copy the U R L of your H T T P request trigger.](./media/tutorial-send-email/http-request-url.png)
+   Azure generates the schema for the request data you want. In practice, you can capture the actual request data your application code generates and use it to generate the JSON schema.
 
-    This HTTP request definition is a trigger to anything you want to do in this logic app workflow, be it Gmail or anything else. Later you will invoke this URL in your App Service app. For more information on the request trigger, see the [HTTP request/response reference](../connectors/connectors-native-reqres.md).
+1. On the Logic App designer top toolbar, select **Save**.
 
-1. Under the trigger, select **New step**. Under the **Choose an operation** search box, select **All**.
+1. The generated HTTP URL now appears under **HTTP URL** on the **When a HTTP request is received** screen. Select the icon to copy the URL, and keep it to invoke in your App Service app.
 
-1. In the search box, enter **Gmail**. Find and select the action named **Send email (V2)**.
+   The HTTP request definition is a trigger for anything you want to do in this logic app workflow, such as sending mail. For more information on the request trigger, see the [Receive and respond to inbound HTTPS calls sent to workflows in Azure Logic Apps](/azure/connectors/connectors-native-reqres).
+
+1. On the designer canvas, select the **+** under the **When a HTTP request is received** trigger and select **Add an action**.
+
+1. On the **Add an action** screen, enter *gmail* in the search box and then select **Send email (V2)**.
 
    > [!TIP]
    > You can search for other types of integrations, such as SendGrid, MailChimp, Microsoft 365, and SalesForce. For more information, see [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
-1. In the **Gmail** action, select **Sign in** to authenticate access to the Gmail account from where you want to send the email.
+1. On the **Create connection** screen, select **Sign in** to authenticate access to the Gmail account you want to send the email from.
 
-   ![Screenshot that shows the Gmail action where you sign in to your Gmail account.](./media/tutorial-send-email/gmail-sign-in.png)
+   :::image type="content" source="./media/tutorial-send-email/gmail-sign-in.png" alt-text="Screenshot that shows the Gmail action where you sign in to your Gmail account.":::
 
-1. After you sign in, select inside the **To** box, which automatically opens the dynamic content list. In this list, next to the **When an HTTP request is received** action, select **See more**.
+1. After you sign in, on the **Send email (V2)** screen, click or tap inside the **To** field to display the dynamic content icon. Select the top, lightning bolt part of the icon.
 
-   ![Screenshot that shows the See More button next to When an H T T P request is received action.](./media/tutorial-send-email/expand-dynamic-content.png)
+1. The dynamic content popup list displays the three HTTP request properties you entered earlier. You use these properties to construct an email. Select **email**.
 
-   You should now see the three properties from your sample JSON data you used earlier. In this step, you use these properties from the HTTP request to construct an email.
+   :::image type="content" source="./media/tutorial-send-email/expand-dynamic-content.png" alt-text="Screenshot that shows the dynamic content icon and list with email highlighted.":::
 
-1. For the **To** field value, select **email**. If you want, close the dynamic content list by selecting **Add dynamic content**.
+1. On the **Send email (V2)** screen, the **email** item appears in the **To** field. Drop down the list under **Advanced parameters**, and select **Subject** and **Body**.
 
-   ![Screenshot that shows the email option and Add dynamic contention option highlighted.](./media/tutorial-send-email/hide-dynamic-content.png)
+   :::image type="content" source="./media/tutorial-send-email/hide-dynamic-content.png" alt-text="Screenshot that shows selecting Subject and Body from the parameters list.":::
 
-1. From the **Add new parameter** list, select **Subject** and **Body**.
+1. The **Subject** and **Body** fields appear on the screen. Click or tap in the **Subject** field to display the dynamic content icon, and select **task** from the dynamic content list.
 
-1. Select inside the **Subject** box, and in the same way, select **task**. With the cursor still in the **Subject** box, type **created**.
+1. In the **Subject** field next to **task**, enter a space followed by *created*.
 
-1. Select inside in the **Body** box, and in the same way, select **due**. Move the cursor to the left of **due**, and type **This work item is due on**.
+1. Click or tap inside the **Body** field, display the dynamic content list, and select **due**.
 
-   > [!TIP]
-   > If you want to edit HTML content directly in the email body, on the designer toolbar, select **Code view**. Just make sure that you preserve the dynamic content code (for example, `@{triggerBody()?['due']}`)
-   >
-   > ![Screenshot that shows the code view for viewing H T M L content directly in the email body.](./media/tutorial-send-email/edit-rich-html-email.png) 
+1. In the **Body** field, move the cursor before **due** and enter *This work item is due on* followed by a space.
 
-1. Next, add an asynchronous HTTP response to the HTTP trigger. Between the HTTP trigger and the Gmail action, select the **+** sign, and select **Add a parallel branch**.
+1. Add an asynchronous HTTP response to the HTTP trigger. On the designer canvas, select the **+** between the HTTP request trigger and the Gmail action, and select **Add a parallel branch**.
 
-   ![Screenshot that shows the + sign and Add a parallel branch option highlighted.](./media/tutorial-send-email/add-http-response.png)
+   :::image type="content" source="./media/tutorial-send-email/add-http-response.png" alt-text="Screenshot that shows the + sign and Add a parallel branch option highlighted.":::
 
-1. In the search box, search for **response**, then select the **Response** action.
+1. On the **Add an action** screen, enter *response* in the Search field, and then select **Response**.
 
-   ![Screenshot that shows the search bar and Response action highlighted.](./media/tutorial-send-email/choose-response-action.png)
+   :::image type="content" source="./media/tutorial-send-email/choose-response-action.png" alt-text="Screenshot that shows the search bar and Response action highlighted.":::
 
-   By default, the response action sends an HTTP 200. That's good enough for this tutorial. For more information, see the [HTTP request/response reference](../connectors/connectors-native-reqres.md).
+   By default, the response action sends an `HTTP 200`, which is sufficient for this tutorial. For more information, see [Receive and respond to inbound HTTPS calls sent to workflows in Azure Logic Apps](/azure/connectors/connectors-native-reqres).
 
-1. On the designer toolbar, select **Save** again.
+1. Select **Save** on the Logic app designer top toolbar.
 
 ## Add HTTP request code to app
 
-Make sure you have copied the URL of the HTTP request trigger from earlier. Because it contains sensitive information, it's best practice that you don't put it into the code directly. With App Service, you can reference it as an environment variable instead, using app settings. 
+Copy the URL of the HTTP request trigger if you didn't already. Because it contains sensitive information, it's best not to put this URL directly into your code. You can reference it as an environment variable in App Service app settings instead.
 
-In the [Cloud Shell](https://shell.azure.com), create the app setting with the following command (replace *\<app-name>*, *\<resource-group-name>*, and *\<logic-app-url>*):
+1. In Azure [Cloud Shell](https://shell.azure.com), run the following Azure CLI command to create the App Service app setting. Replace `<app-name>` and `<resource-group-name>` with the names of your App Service app and resource group. Replace `<logic-app-url>` with the copied HTTP URL from your logic app.
 
-```azurecli-interactive
-az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings LOGIC_APP_URL="<your-logic-app-url>"
+   ```azurecli-interactive
+   az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings LOGIC_APP_URL="<logic-app-url>"
+   ```
+
+1. In your code, make a standard HTTP post to the URL using any HTTP client language that's available to your language framework, with the following configuration:
+
+   - Make sure the request contains the heading `Content-Type: application/json`. 
+
+   - Use the same JSON format that you supplied to your logic app in the request body.
+
+   ```json
+   {
+       "task": "<description>",
+       "due": "<date>",
+       "email": "<email-address>"
+   }
+   ```
+
+   - To optimize performance, send the request asynchronously if possible.
+
+Select your preferred language/framework to see an example request.
+
+### [ASP.NET Core](#tab/dotnetcore)
+
+In ASP.NET Core, you can send the HTTP post with the [System.Net.Http.HttpClient](/dotnet/api/system.net.http.httpclient) class. The following code sample requires using `System.Net.Http` and `System.Text.Json`.
+
+The `HttpResponseMessage` requires dependency injection (DI) configuration to access app settings. For more information, see [Access environment variables](configure-language-dotnetcore.md#access-environment-variables).
+
+```csharp
+// requires using System.Net.Http;
+var client = new HttpClient();
+// requires using System.Text.Json;
+var jsonData = JsonSerializer.Serialize(new
+{
+    email = "someone@example.com",
+    due = "4/1/2025",
+    task = "My new task!"
+});
+
+HttpResponseMessage result = await client.PostAsync(
+    // Requires DI configuration to access app settings
+    _configuration["LOGIC_APP_URL"],
+    new StringContent(jsonData, Encoding.UTF8, "application/json"));
+    
+var statusCode = result.StatusCode.ToString();
 ```
 
-In your code, make a standard HTTP post to the URL using any HTTP client language that's available to your language framework, with the following configuration:
-
-- The request body contains the same JSON format that you supplied to your logic app:
-
-    ```json
-    {
-        "task": "<description>",
-        "due": "<date>",
-        "email": "<email-address>"
-    }
-    ```
-
-- The request contains the heading `Content-Type: application/json`. 
-- To optimize performance, send the request asynchronously if possible.
-
-Select the preferred language/framework tab below to see an example.
+> [!NOTE]
+> - This demo code is written for simplicity. In practice, don't instantiate an `HttpClient` object for each request. Follow the guidance at [Use IHttpClientFactory to implement resilient HTTP requests](/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
+>
+> - If you're using the sample app from [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md), you could use this code to send an email confirmation in the [Create action](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65) after you add a `Todo` item.
 
 ### [ASP.NET](#tab/dotnet)
 
@@ -160,8 +192,8 @@ var client = new HttpClient();
 // requires using System.Text.Json;
 var jsonData = JsonSerializer.Serialize(new
 {
-    email = "a-valid@emailaddress.com",
-    due = "4/1/2020",
+    email = "someone@example.com",
+    due = "4/1/2025",
     task = "My new task!"
 });
 
@@ -173,47 +205,20 @@ HttpResponseMessage result = await client.PostAsync(
 var statusCode = result.StatusCode.ToString();
 ```
 
-If you're testing this code on the sample app for [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md), you could use it to send an email confirmation in the [Create action](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/blob/master/DotNetAppSqlDb/Controllers/TodosController.cs#L52-L63), after the `Todo` item is added. To use the asynchronous code above, convert the Create action to asynchronous.
-
-### [ASP.NET Core](#tab/dotnetcore)
-
-In ASP.NET Core, you can send the HTTP post with the [System.Net.Http.HttpClient](/dotnet/api/system.net.http.httpclient) class. For example:
-
-```csharp
-// requires using System.Net.Http;
-var client = new HttpClient();
-// requires using System.Text.Json;
-var jsonData = JsonSerializer.Serialize(new
-{
-    email = "a-valid@emailaddress.com",
-    due = "4/1/2020",
-    task = "My new task!"
-});
-
-HttpResponseMessage result = await client.PostAsync(
-    // Requires DI configuration to access app settings. See https://learn.microsoft.com/azure/app-service/configure-language-dotnetcore#access-environment-variables
-    _configuration["LOGIC_APP_URL"],
-    new StringContent(jsonData, Encoding.UTF8, "application/json"));
-    
-var statusCode = result.StatusCode.ToString();
-```
-
 > [!NOTE]
-> This code is written for simplicity of demonstration. In practice, don't instantiate an `HttpClient` object for each request. Follow the guidance at [Use IHttpClientFactory to implement resilient HTTP requests](/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
-
-If you're testing this code on the sample app for [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md), you could use it to send an email confirmation in the [Create action](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65), after the `Todo` item is added.
+> If you're using the sample app from [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md), you could use this code to send an email confirmation in the [Create action](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/blob/master/DotNetAppSqlDb/Controllers/TodosController.cs#L52-L63) after you add a `Todo` item. To use this asynchronous code, convert the `Create` action to asynchronous.
 
 ### [Node.js](#tab/node)
 
-In Node.js, you can send the HTTP post easily with an npm package like [axios](https://www.npmjs.com/package/axios). For example:
+In Node.js, you can send the HTTP post with an npm package like [Axios](https://www.npmjs.com/package/axios). To install Axios, run `npm install --save axios`.
 
 ```javascript
 // Requires npm install --save axios
 const axios = require('axios');
 
 var jsonData = {
-        email: "a-valid@emailaddress.com",
-        due: "4/1/2020",
+        email: "someone@example.com",
+        due: "4/1/2025",
         task: "My new task!"
 };
 
@@ -228,11 +233,12 @@ var jsonData = {
 
 ```
 
-If you're testing this code on the sample app for [Tutorial: Build a Node.js and MongoDB app in Azure](tutorial-nodejs-mongodb-app.md), you could use it to send an email confirmation in the [create function](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L14-L27), after [the article is saved successfully](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L24).
+> [!NOTE]
+> If you're using the sample app from [Tutorial: Build a Node.js and MongoDB app in Azure](tutorial-nodejs-mongodb-app.md), you could use this code to send an email confirmation in the [create function](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L14-L27) after [you save the article successfully](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L24).
 
 ### [PHP](#tab/php)
 
-In PHP, you can send the HTTP post easily with [Guzzle](http://docs.guzzlephp.org/en/stable/index.html). For example:
+In PHP, you can send the HTTP post with [Guzzle](http://docs.guzzlephp.org/en/stable/index.html), which you can install using [Composer](https://getcomposer.org/) with `composer require guzzlehttp/guzzle:~6.0`.
 
 ```php
 // Requires composer require guzzlehttp/guzzle:~6.0
@@ -241,8 +247,8 @@ use GuzzleHttp\Client;
 $client = new Client();
 $options = [
     'json' => [ 
-        'email' => 'a-valid@emailaddress.com',
-        'due' => '4/1/2020',
+        'email' => "someone@example.com",
+        'due' => '4/1/2025',
         'task' => "My new task!"
     ]
 ];
@@ -260,11 +266,12 @@ $response = $promise->wait();
 Log::info(print_r($response, TRUE));
 ```
 
-If you're testing this code on the sample app for [Tutorial: Build a PHP and MySQL app in Azure](tutorial-php-mysql-app.md), you could use it to send an email confirmation in the [Route::post function](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), just before the return statement.
+> [!NOTE]
+> If you're using the sample app from [Tutorial: Build a PHP and MySQL app in Azure](tutorial-php-mysql-app.md), you could use this code to send an email confirmation in the [Route::post function](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), just before the return statement.
 
 ### [Python](#tab/python)
 
-In Python, you can send the HTTP post easily with [requests](https://pypi.org/project/requests/). For example:
+In Python, you can send the HTTP post with [requests](https://pypi.org/project/requests/). To install, run `pip install requests`.
 
 ```python
 # Requires pip install requests && pip freeze > requirements.txt
@@ -272,8 +279,8 @@ import requests
 import os
 ...
 payload = {
-    "email": "a-valid@emailaddress.com",
-    "due": "4/1/2020",
+    "email": "someone@example.com",
+    "due": "4/1/2025",
     "task": "My new task!"
 }
 response = requests.post(os.environ['LOGIC_APP_URL'], data = payload)
@@ -292,13 +299,14 @@ async with aiohttp.post('http://httpbin.org/post', data=json.dump(payload)) as r
     print(await resp.status())
 ``` -->
 
-If you're testing this code on the sample app for [Tutorial: Run a Python (Django) web app with PostgreSQL in Azure App Service](tutorial-python-postgresql-app-django.md), you could use it to send an email confirmation in the [Route::post function](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), just before the return statement.
+> [!NOTE]
+> If you're using the sample app from [Tutorial: Run a Python (Django) web app with PostgreSQL in Azure App Service](tutorial-python-postgresql-app-django.md), you could use this code to send an email confirmation in the [Route::post function](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), just before the return statement.
 
 ---
 
-## Next steps
+## Related content
 
 - [Tutorial: Host a RESTful API with CORS in Azure App Service](app-service-web-tutorial-rest-api.md)
-- [HTTP request/response reference for Logic Apps](../connectors/connectors-native-reqres.md)
+- [Receive and respond to inbound HTTPS calls sent to workflows in Azure Logic Apps](/azure/connectors/connectors-native-reqres)
 - [Quickstart: Create an example Consumption workflow in multitenant Azure Logic Apps - Azure portal](../logic-apps/quickstart-create-example-consumption-workflow.md)
 - [Environment variables and app settings reference](reference-app-settings.md)
