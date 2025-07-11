@@ -20,7 +20,8 @@ Service Bus partitions enable queues and topics, or messaging entities, to be pa
 > - When using the Service Bus [Geo-disaster recovery](service-bus-geo-dr.md) feature, ensure not to pair a partitioned namespace with a non-partitioned namespace.
 > - It is not possible to [migrate](service-bus-migrate-standard-premium.md) a standard SKU namespace to a Premium SKU partitioned namespace.
 > - JMS is currently not supported on partitioned namespaces.
-> - The feature is currently available in all regions except West India.
+> - Batching messages with distinct SessionId or PartitionKey is not supported on partitioned namespaces.
+> - The feature is currently available in all regions except West India and Austria East.
 
 ## Use Azure portal
 When creating a **namespace** in the Azure portal, set the **Partitioning** to **Enabled** and choose the number of partitions, as shown in the following image. 
