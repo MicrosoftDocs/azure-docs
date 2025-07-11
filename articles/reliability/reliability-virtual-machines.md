@@ -20,52 +20,99 @@ Azure Virtual Machines (VMs) provide reliability through built-in redundancy and
 
 For more information, see [Azure services with availability zones](availability-zones-service-support.md).
 
+## Production deployment recommendations
+
+To learn about how to deploy VMs to support your solution's reliability requirements, and how reliability affects other aspects of your architecture, see [Architecture best practices for Azure Virtual Machines and scale sets in the Azure Well-Architected Framework](/azure/well-architected/service-guides/virtual-machines).
+
+
 ## Transient faults
 
-Transient faults are temporary issues that occur in cloud environments, such as network interruptions or service unavailability, and typically resolve themselves without intervention. Azure Virtual Machines handle transient faults through automatic retries and self-healing mechanisms, but applications running on VMs must implement appropriate fault-handling strategies.
+[!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
-- Implement retry logic in applications to handle transient errors.
-- Use Azure SDKs, which include built-in retry policies.
-- Monitor and log transient faults to identify patterns and optimize fault handling.
-
-For more information, see [Transient fault handling](../architecture/best-practices/transient-faults.md).
+Applications running on VMs should implement appropriate fault-handling strategies to ensure that any temporary interruptions in service don't impact your workload.
 
 ## Availability zone support
 
-Availability zones are physically separate groups of datacenters within each Azure region. A VM can be deployed in a zonal configuration, where it resides in a single availability zone, or spread across zones manually or using Virtual Machine Scale Sets. For more information, see [Virtual Machine Scale Sets](../virtual-machine-scale-sets/).
+[!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
->[!NOTE]
-> Not all VM SKUs are available in all zones. Check [VM SKU availability](regions-list.md).
+An individual VM can be deployed in a *zonal* configuration, which means it's pinned to single availability zone that you select. By itself, a zonal VM isn't resilient to zone outages. However, you can create multiple VMs and place them in different availability zones, then spread your applications and data across the VM instances. Alternatively, you can use [Virtual Machine Scale Sets](../virtual-machine-scale-sets/) to create a set of virtual machines and spread them across zones.
 
-Configure availability zone support and learn more about zone resiliency:
+If you don't configure a VM to be zonal then it's considered to be *nonzonal* or *regional*. Nonzonal VMs can be placed in any availability zone within the region. If any availability zone in the region experiences an outage, nonzonal VMs might be in the affected zone and could experience downtime.
 
-- [Availability options for VMs](/azure/virtual-machines/availability)
-- [Migrate existing VMs to availability zones](migrate-vm.md)
+### Region support
+
+Zonal VMs can be deployed into [any region that supports availability zones](./regions-list.md).
+
+However, some VM types and sizes are only available in specific regions, or specific zones within a region. To check which regions and zones support the VM types you need, use these resources:
+
+- [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/) to check the VM types available in each region.
+- [Check VM SKU availability](/azure/virtual-machines/linux/create-cli-availability-zone#check-vm-sku-availability) to check the supported VM types and sizes within each zone of a specific region.
+
+### Cost
+
+There is no cost difference between a zonal and nonzonal VM.
+
+### Configure availability zone support
+
+This section explains how to configure availability zone support for your virtual machine instance.
+
+> [!NOTE]
+> [!INCLUDE [Availability zone numbering](./includes/reliability-availability-zone-numbering-include.md)]
+
+- **Create a zonal virtual machine**: TODO
+    - CLI https://learn.microsoft.com/en-us/azure/virtual-machines/linux/create-cli-availability-zone
+    - PowerShell https://learn.microsoft.com/en-us/azure/virtual-machines/windows/create-powershell-availability-zone
+    - Portal https://learn.microsoft.com/en-us/azure/virtual-machines/create-portal-availability-zone
+
+- **Convert existing virtual machines to a zonal configuration:** 
+    - https://learn.microsoft.com/en-us/azure/virtual-machines/move-virtual-machines-regional-zonal-portal
+
+- **Change the availability zone of an existing zonal virtual machine:** Zonal VMs can't be moved to a different availability zone. You need to deploy a new zonal VM in the desired availability zone instead.
+
+- **Convert a zonal VM to nonzonal:** Zonal VMs can't be converted to a nonzonal configuration. You need to deploy a new nonzonal VM instead.
+
+### Normal operations
+
+This section describes what to expect when virtual machine instances are configured with availability zone support and all availability zones are operational.
+
+- **Traffic routing between zones:** You're responsible for routing traffic between VMs, including VMs that are in different availability zones. Common approaches include Azure Load Balancer and Azure Application Gateway.
+
+- **Data replication between zones:** You're responsible for any data replication that needs to happen between VMs, including across VMs in different availability zones. Databases and other similar stateful applications that run on VMs often provide capabilities to replicate data.
+
+### Zone-down experience
+
+This section describes what to expect when virtual machine instances are configured with availability zone support and there's an outage in its availability zone.
+
+- **Detection and response**: You're responsible for detecting and responding to zone failures that affect your virtual machines.
+
+- **Notification**: Use Azure Resource Health to detect zone failures and trigger failover processes.
+
+- **Active requests**: Any active requests or other work happening on the VM during the zone failure are likely to be terminated.
+
+- **Expected data loss**: Zonal VM disks might be unavailable during a zone failure. You can use zone-redundant disks to TODO force detach.
+
+- **Expected downtime**: VMs remain down until the availability zone recovers.
+
+- **Traffic rerouting**: You're responsible for reroute traffic to other VMs in healthy zones.
+
+    If you use a zone-resilient load balancer and it's configured to perform health checks, the load balancer typically detects failed VMs and can route traffic to other VM instances in healthy zones.
+
+### Failback
+
+Once the zone is healthy, VMs in the zone restart. You're responsible for any failback procedures and data synchronization as required by your workloads. <!-- TODO is this automatic? Is there a timeframe? -->
+
+### Testing for zone failures
+
+Use Chaos Studio to simulate zone failures and test your failover processes. TODO MORE
 
 ## Multi-region support
 
-Azure Virtual Machines are inherently single-region resources. If you want to use multiple regions, you need to deploy multiple VMs and handle replication and failover yourself.
+Azure Virtual Machines are inherently single-region resources. If you want to use multiple regions, you need to deploy multiple VMs into different regions, and you need to implement replication and failover processes.
 
 - **Azure Site Recovery**: Enables disaster recovery by replicating VMs to a secondary region.
 - **Geo-replication**: Ensures data availability across regions.
 
 For alternative multi-region approaches, see [Azure to Azure disaster recovery architecture](/azure/site-recovery/azure-to-azure-architecture).
-
->[!IMPORTANT]
->When selecting regions for your virtual machines, ensure they comply with data residency requirements and legal jurisdictions, such as GDPR for European Union data. This ensures that the data your virtual machines interact with or store remains compliant with applicable regulations.
-
-## Zone-down experiences
-
-Zone-down experiences describe how Azure Virtual Machines handle outages in a single availability zone. During a zone-wide outage, Azure Virtual Machines apply self-healing mechanisms to rebalance capacity across healthy zones. However, customers are responsible for detecting and responding to zone failures.
-
-- **Detection and response**: Use Azure Resource Health to detect zone failures and trigger failover processes.
-- **Notification**: Azure Resource Health provides notifications when a zone is down.
-- **Active requests**: Any active requests on the VM during the zone failure are likely to be lost.
-- **Expected data loss**: VM disks are unavailable during a zone failure. To mitigate this, use zone-redundant disks. For more information, see the upcoming Disk Storage guide.
-- **Expected downtime**: VMs remain down until the availability zone recovers.
-- **Traffic rerouting**: Customers must reroute traffic to other VMs in healthy zones.
-- **Failback**: Once the zone is healthy, VMs restart. Customers must handle failback procedures and data synchronization as required.
-- **Testing for zone failures**: Use Chaos Studio to simulate zone failures and test your failover processes.
 
 ## Reliability during service maintenance
 
