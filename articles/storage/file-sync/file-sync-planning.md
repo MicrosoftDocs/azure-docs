@@ -316,7 +316,7 @@ For more information, see [Azure File Sync performance metrics](../files/storage
 
 ## Identity
 
-The administrator registering the server and creating the cloud endpoint must be a member of the management roles [Azure File Sync Administrator](/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator), Owner or Contributor for the given Storage Sync Service. This can be configured under Access Control (IAM) in the Azure portal for the Storage Sync Service.
+The administrator registering the server and creating the cloud endpoint must be a member of the management roles [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator), Owner or Contributor for the given Storage Sync Service. This can be configured under Access Control (IAM) in the Azure portal for the Storage Sync Service.
 
 Azure File Sync works with your standard AD-based identity without any special setup beyond setting up sync. When you're using Azure File Sync, the general expectation is that most accesses go through the Azure File Sync caching servers, rather than through the Azure file share. Since the server endpoints are located on Windows Server, and Windows Server has supported AD and Windows-style ACLs for a long time, nothing is needed beyond ensuring the Windows file servers registered with the Storage Sync Service are domain joined. Azure File Sync will store ACLs on the files in the Azure file share, and will replicate them to all server endpoints.
 
