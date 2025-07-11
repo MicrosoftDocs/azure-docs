@@ -9,6 +9,7 @@ ms.author: rogarana
 ms.custom:
   - references_regions
   - ignite-2023-elastic-SAN
+# Customer intent: As a cloud administrator, I want to deploy clustered applications on Azure Elastic SAN volumes, so that I can enhance data consistency and availability across multiple compute clients while managing reservations and access controls effectively.
 ---
 
 # Deploy clustered applications on Azure Elastic SAN

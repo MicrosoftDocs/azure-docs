@@ -7,6 +7,7 @@ ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: As a data analyst, I want to understand the schema differences between Recovery Services vaults and Backup vaults, so that I can effectively query and analyze diagnostic events related to Azure Backup.
 ---
 # Data Model for resource specific Diagnostic Events
 

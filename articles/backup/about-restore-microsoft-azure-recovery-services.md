@@ -7,6 +7,7 @@ ms.date: 09/09/2024
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: As a system administrator, I want to explore the various restore options available with the MARS agent, so that I can efficiently recover data in different scenarios and ensure business continuity.
 ---
 # About restore using the Microsoft Azure Recovery Services (MARS) agent 
 

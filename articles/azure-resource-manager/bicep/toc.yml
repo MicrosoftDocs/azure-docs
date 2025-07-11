@@ -272,13 +272,13 @@ items:
   - name: Modules (module)
     displayName: scopes,consume,registry,module registry,private module registry,public module registry,avm,azure verified modules
     href: modules.md
-  - name: Using (using)
-    displayName: avm,azure verified modules
+  - name: Using (using/using none)
+    displayName: avm,azure verified modules,using none
     href: bicep-using.md
   - name: Import (import)
     href: bicep-import.md
   - name: User-defined data types (type)
-    displayName: custom
+    displayName: custom,resourceInput,resourceOutput,resource-derived types
     href: user-defined-data-types.md
   - name: User-defined functions (func)
     displayName: custom

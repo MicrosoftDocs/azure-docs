@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 04/17/2025
 ms.custom: engagement-fy23
 monikerRange: migrate
+# Customer intent: As an IT administrator, I want to create an Azure VM assessment using the Azure Migrate tool, so that I can evaluate the readiness, cost, and migration strategies for my on-premises servers to ensure a smooth transition to the cloud.
 ---
 
 # Create an Azure VM assessment

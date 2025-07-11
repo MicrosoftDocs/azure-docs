@@ -7,6 +7,7 @@ ms.topic: troubleshooting
 ms.author: jsuri
 ms.date: 09/06/2024
 
+# Customer intent: As a system administrator troubleshooting VMware vCenter discovery failures, I want to understand the common issues and resolutions, so that I can ensure seamless connectivity and operation of Azure Site Recovery.
 ---
 # Troubleshoot vCenter Server discovery failures
 

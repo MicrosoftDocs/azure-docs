@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 06/20/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a system administrator, I want to restore files from Azure Backup to a Windows Server using the Recovery Services Agent, so that I can recover critical data from backup vaults quickly and efficiently, whether to the original machine or an alternate one."
 ---
 # Restore files to Windows Server using the MARS Agent
 

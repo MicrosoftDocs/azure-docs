@@ -8,7 +8,7 @@ ms.date: 11/11/2024
 ms.author: glenga
 ---
 
-| Feature |[Flex Consumption plan](../articles/azure-functions/flex-consumption-plan.md)|[Consumption plan](../articles/azure-functions/consumption-plan.md)|[Premium plan](../articles/azure-functions/functions-premium-plan.md)|[Dedicated plan](../articles/azure-functions/dedicated-plan.md)/[ASE](../articles/app-service/environment/intro.md)|[Container Apps](../articles/azure-functions/functions-container-apps-hosting.md)<sup>1</sup> |  
+| Feature |[Flex Consumption plan](../articles/azure-functions/flex-consumption-plan.md)|[Consumption plan](../articles/azure-functions/consumption-plan.md)|[Premium plan](../articles/azure-functions/functions-premium-plan.md)|[Dedicated plan](../articles/azure-functions/dedicated-plan.md)/[ASE](../articles/app-service/environment/intro.md)|[Container Apps](../articles/container-apps/functions-overview.md)<sup>1</sup> |  
 |----------------|-----------|----------------|---------|---------------| ---| 
 |[Inbound IP restrictions](../articles/azure-functions/functions-networking-options.md#inbound-networking-features)|✔|✔|✔|✔|✔| 
 |[Inbound Private Endpoints](../articles/azure-functions/functions-networking-options.md#inbound-networking-features)|✔| |✔|✔| |  

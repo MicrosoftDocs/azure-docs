@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 11/21/2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to restore an Azure Database for MySQL flexible server using backup, so that I can recover data and ensure business continuity after data loss or corruption."
 ---
 
 # Restore an Azure Database for MySQL flexible server by using Azure Backup (preview)

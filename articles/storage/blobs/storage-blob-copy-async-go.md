@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
+# Customer intent: "As a developer using Go, I want to implement asynchronous blob copying in Azure Storage, so that I can efficiently manage and transfer data between storage accounts or external sources without blocking my application."
 ---
 
 # Copy a blob with asynchronous scheduling using Go

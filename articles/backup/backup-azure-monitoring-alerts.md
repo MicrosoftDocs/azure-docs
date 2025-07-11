@@ -7,6 +7,7 @@ ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: As a backup administrator, I want to configure Azure Monitor alerts for Azure Backup so that I can effectively monitor backup operations and receive timely notifications on failures and critical events.
 ---
 
 # Manage Azure Monitor based alerts for Azure Backup

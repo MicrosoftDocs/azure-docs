@@ -8,6 +8,7 @@ ms.date: 03/17/2025
 ms.author: abell
 ms.custom: subject-policy-reference
 ms.topic: include
+# Customer intent: As a security administrator, I want to utilize built-in policy definitions for Azure DDoS Protection, so that I can effectively manage and protect my Azure resources against potential DDoS attacks.
 ---
 
 # Azure Policy built-in definitions for Azure DDoS Protection

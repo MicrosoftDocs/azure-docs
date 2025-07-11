@@ -9,6 +9,7 @@ ms.topic: article
 ms.date: 04/01/2021
 ms.author: jinglou
 ms.reviewer: cralvord,richardgao
+# Customer intent: "As a cloud administrator, I want to configure network connections in Storage Explorer, so that I can efficiently manage access to Azure storage resources and troubleshoot proxy-related issues."
 ---
 
 # Network connections in Storage Explorer
