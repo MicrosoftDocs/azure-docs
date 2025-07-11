@@ -21,29 +21,33 @@ You can use the steps demonstrated in this tutorial to implement many common web
 - Connecting to third-party systems like SAP and Salesforce.
 - Exchanging standard B2B messages.
 
-## Prerequisite
+## Prerequisites
 
-Have an app in the language of your choice deployed to Azure App Service. You can use the sample app from one of the following tutorials:
+You must have the following prerequisites to complete this tutorial:
 
-### [ASP.NET Core](#tab/dotnetcore)
+- A Gmail account.
+- An Azure account with permission to create resources.
+- A deployed Azure App Service app in the language of your choice. You can use the sample app from one of the following tutorials:
 
-[Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md)
-
-### [ASP.NET](#tab/dotnet)
-
-[Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
-
-### [Node.js](#tab/node)
-
-[Tutorial: Build a Node.js and MongoDB app in Azure](tutorial-nodejs-mongodb-app.md)
-
-### [PHP](#tab/php)
-
-[Tutorial: Build a PHP and MySQL app in Azure](tutorial-php-mysql-app.md)
-
-### [Python](#tab/python)
-
-[Tutorial: Run a Python (Django) web app with PostgreSQL in Azure App Service](tutorial-python-postgresql-app-django.md)
+  ### [ASP.NET Core](#tab/dotnetcore)
+  
+  [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](tutorial-dotnetcore-sqldb-app.md)
+  
+  ### [ASP.NET](#tab/dotnet)
+  
+  [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+  
+  ### [Node.js](#tab/node)
+  
+  [Tutorial: Build a Node.js and MongoDB app in Azure](tutorial-nodejs-mongodb-app.md)
+  
+  ### [PHP](#tab/php)
+  
+  [Tutorial: Build a PHP and MySQL app in Azure](tutorial-php-mysql-app.md)
+  
+  ### [Python](#tab/python)
+  
+  [Tutorial: Run a Python (Django) web app with PostgreSQL in Azure App Service](tutorial-python-postgresql-app-django.md)
 
 ---
 
@@ -94,9 +98,9 @@ Have an app in the language of your choice deployed to Azure App Service. You ca
 
    :::image type="content" source="./media/tutorial-send-email/gmail-sign-in.png" alt-text="Screenshot that shows the Gmail action where you sign in to your Gmail account.":::
 
-1. After you sign in, on the **Send email (V2)** screen, click or tap inside the **To** field to display the dynamic content icon. Select the top, lightning bolt part of the icon.
+1. After you sign in, on the **Send email (V2)** screen, click or tap inside the **To** field to display the dynamic content icon. Select the upper, lightning bolt part of the icon.
 
-1. The dynamic content popup list displays the three HTTP request properties you entered earlier. You use these properties to construct an email. Select **email**.
+1. The dynamic content list displays the three HTTP request properties you entered earlier. You use these properties to construct an email. Select **email** from the list.
 
    :::image type="content" source="./media/tutorial-send-email/expand-dynamic-content.png" alt-text="Screenshot that shows the dynamic content icon and list with email highlighted.":::
 
@@ -126,15 +130,15 @@ Have an app in the language of your choice deployed to Azure App Service. You ca
 
 ## Add HTTP request code to app
 
-Copy the URL of the HTTP request trigger if you didn't already. Because it contains sensitive information, it's best not to put this URL directly into your code. You can reference it as an environment variable in App Service app settings instead.
+Copy the URL of the HTTP request trigger if you didn't already. Because it contains sensitive information, it's best not to put this URL directly into your code. You can reference it as an environment variable in App Service app settings instead. The following command creates an app setting called `LOGIC_APP_URL`.
 
-1. In Azure [Cloud Shell](https://shell.azure.com), run the following Azure CLI command to create the App Service app setting. Replace `<app-name>` and `<resource-group-name>` with the names of your App Service app and resource group. Replace `<logic-app-url>` with the copied HTTP URL from your logic app.
+1. In Azure [Cloud Shell](https://shell.azure.com), run the following Azure CLI command to create the App Service app setting. Replace `<app-name>` and `<resource-group-name>` with the names of your App Service app and resource group. Replace `<logic-app-url>` with the HTTP URL you copied from your logic app.
 
    ```azurecli-interactive
    az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings LOGIC_APP_URL="<logic-app-url>"
    ```
 
-1. In your code, make a standard HTTP post to the URL using any HTTP client language that's available to your language framework, with the following configuration:
+1. In your code, make a standard HTTP post to the URL using an HTTP client language available to your language framework, with the following configuration:
 
    - Make sure the request contains the heading `Content-Type: application/json`. 
 
@@ -150,7 +154,7 @@ Copy the URL of the HTTP request trigger if you didn't already. Because it conta
 
    - To optimize performance, send the request asynchronously if possible.
 
-Select your preferred language/framework to see an example request.
+Select your preferred language/framework to see an example request:
 
 ### [ASP.NET Core](#tab/dotnetcore)
 
