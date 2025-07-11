@@ -14,6 +14,14 @@ ms.custom:
 
 This gallery provides ready-to-use configuration examples for visualizing common geospatial data types in Microsoft Planetary Computer Pro. Each example includes comprehensive JSON configurations for mosaics, render options, tile settings, and STAC collection metadata that you can adapt for your own datasets.
 
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [How to use these examples](#how-to-use-these-examples)
+- [Sentinel-2-l2a Multi-Spectral Imagery](#sentinel-2-l2a-collection-configuration)
+- [The National Agriculture Imagery Program Aerial Imagery](#the-national-agriculture-imagery-program-collection-configuration)
+- [Umbra Synthetic Aperture Radar Imagery](#umbra-sar-imagery-collection-configuration)
+
 ## Prerequisites
 
 Before using these examples, you should have:
@@ -36,11 +44,11 @@ Each example in this gallery includes:
 
 To apply these examples to your own data:
 
-1. Create a new collection in your GeoCatalog
-2. Navigate to the collection's configuration page
+1. [Create a new collection](./create-collection-web-interface.md) in your GeoCatalog
+2. Navigate to the [collection's configuration](./configure-collection-web-interface.md) page
 3. Modify the example JSON to match your dataset's specific bands, assets, and properties
 4. Apply the configurations to your collection
-5. View the results in the Explorer
+5. View the results in the [Explorer](./use-explorer.md)
 
 ## Sentinel-2-l2a Collection Configuration
 
@@ -179,7 +187,7 @@ The `options` string specifies how to visualize the data:
 
 ## Tile Settings Configuration
 
-The tile settings configuration defines how data is tiled and displayed at different zoom levels.
+The tile settings configuration defines how data is tiled and displayed at different zoom levels. For Sentinel-2 data with its 10-60m ground sample distance (GSD), the `minZoom: 8` setting allows the imagery to become visible at moderate zoom levels, which is appropriate since Sentinel-2's resolution (10m for most bands, 20m for some bands, 60m for atmospheric bands) provides useful detail starting around zoom levels 8-12. Unlike sub-meter imagery that requires higher zoom levels for effective viewing, Sentinel-2's moderate resolution makes it suitable for regional to local-scale analysis. The `maxItemsPerTile: 35` parameter controls how many individual Sentinel-2 scenes are composited together in each tile, balancing performance with temporal coverage completeness. 
 
 ```json
 {
@@ -748,13 +756,11 @@ The render configuration directly references these asset keys to create differen
 ---
 
 
-## naip-airports Collection Configuration
+## The National Agriculture Imagery Program Collection Configuration
 
-[Collection description to be added here]
+[ ![Screenshot of The National Agriculture Imagery Program data visualization](media/naip-imagery.png) ](media/naip-imagery.png#lightbox)
 
-[ ![Screenshot of naip-airports data visualization](media/naip-imagery.png) ](media/naip-imagery.png#lightbox)
-
-[Description of data source and link to where to get the data]
+The National Agriculture Imagery Program (NAIP) provides high-resolution aerial imagery captured by the USDA Farm Service Agency at least every three years across the United States. NAIP data consists of 4-band imagery stored in cloud-optimized GeoTIFF format with spatial resolutions ranging from 0.3 to 1 meter per pixel. Each image contains Red, Green, Blue, and Near-Infrared (NIR) bands stored as a single multi-band asset, enabling natural color visualization (RGB bands 1-3), color infrared analysis for vegetation health (NIR-Red-Green), and calculated indices like NDVI using the formula (NIR-Red)/(NIR+Red) to assess vegetation density and health.
 
 ## Configuration details
 
@@ -762,7 +768,7 @@ The render configuration directly references these asset keys to create differen
 
 ## Mosaic Configuration
 
-The mosaic configuration defines how images are combined when displayed in the Explorer.
+The mosaic configuration defines how images are combined when displayed in the Explorer, this collection uses the default settings.
 
 ```json
 [
@@ -779,7 +785,7 @@ The mosaic configuration defines how images are combined when displayed in the E
 
 ## Render Options Configuration
 
-This render configuration offers three different ways to visualize the National Agriculture Imagery Program (NAIP) data. NAIP imagery contains four spectral bands stored in a single multi-band asset called "image":
+This render configuration offers three different ways to visualize the NAIP data. NAIP imagery contains four spectral bands stored in a single multi-band asset called "image":
 
 1. **Band 1**: Red
 2. **Band 2**: Green
@@ -844,8 +850,8 @@ Each visualization option uses these bands differently:
 # [Tile Settings](#tab/naip-airports-tile-settings)
 
 ## Tile Settings Configuration
+The tile settings configuration defines how data is tiled and displayed at different zoom levels. For high-resolution imagery like NAIP (0.3-1m GSD), appropriate zoom level settings are critical for performance and visual quality. Generally, imagery should become visible around zoom level 12-14 for meter-class data, with sub-meter imagery like NAIP (0.3-0.6m GSD) becoming useful at zoom levels 15-18. The `minZoom: 4` setting here allows the data to be visible at very low zoom levels, while `maxItemsPerTile: 35` controls how many image tiles are composited together, balancing performance with coverage completeness.
 
-The tile settings configuration defines how data is tiled and displayed at different zoom levels.
 
 ```json
 {
@@ -1070,11 +1076,9 @@ The STAC Collection configuration defines the core metadata for this collection.
 
 ## Umbra SAR Imagery Collection Configuration
 
-[Collection description to be added here]
-
 [ ![Screenshot of Umbra SAR Imagery data visualization](media/umbra-sar-imagery.png) ](media/umbra-sar-imagery.png#lightbox)
 
-[Description of data source and link to where to get the data]
+[Umbra's Synthetic Aperture Radar (SAR) imagery](https://umbra.space/open-data/) uses radar signals transmitted from satellites to create high-resolution images of the Earth's surface, capable of seeing through clouds, darkness, and weather conditions that would block traditional optical satellites. This technology is particularly valuable for monitoring infrastructure, detecting changes in urban areas, tracking ships and vehicles, and assessing damage after natural disasters, as it can capture detailed images at any time of day or night regardless of weather conditions.
 
 ## Configuration details
 
@@ -1136,8 +1140,7 @@ This configuration creates a grayscale visualization where brighter areas repres
 # [Tile Settings](#tab/umbra-sar-tile-settings)
 
 ## Tile Settings Configuration
-
-The tile settings configuration defines how data is tiled and displayed at different zoom levels.
+The tile settings configuration defines how data is tiled and displayed at different zoom levels. For SAR imagery like Umbra's sub-meter resolution data (approximately 0.48m GSD), the `minZoom: 12` setting reflects the high-resolution nature of this dataset. SAR data at this resolution provides extremely detailed views of surface features, making it most useful at higher zoom levels where individual buildings, vehicles, and infrastructure elements become clearly distinguishable. The higher minimum zoom level ensures optimal performance and prevents unnecessary processing of very detailed data at zoom levels where the resolution advantage wouldn't be apparent to users.
 
 ```json
 {
