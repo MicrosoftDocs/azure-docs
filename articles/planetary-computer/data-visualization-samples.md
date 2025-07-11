@@ -1,6 +1,6 @@
 ---
 title: Microsoft Planetary Computer Pro Data Visualization Gallery
-description: Learn the step-by-step process to configure render settings for visualizing geospatial data using the Microsoft Planetary Computer Pro data explorer and Tiler API.
+description: Learn the step-by-step process to configure render settings for visualizing geospatial data using the Microsoft Planetary Computer Pro data explorer and Tiler application programming interface (API).
 author: prasadko
 ms.author: prasadkomma
 ms.service: planetary-computer-pro
@@ -14,7 +14,7 @@ ms.custom:
 
 This gallery provides ready-to-use configuration examples for visualizing common geospatial data types in Microsoft Planetary Computer Pro. Each example includes comprehensive JSON configurations for mosaics, render options, tile settings, and SpatioTemporal Asset Catalog (STAC) collection metadata that you can adapt for your own datasets.
 
-## Table of Contents
+## Table of contents
 
 - [Prerequisites](#prerequisites)
 - [How to use these examples](#how-to-use-these-examples)
@@ -50,7 +50,7 @@ To apply these examples to your own data:
 4. Apply the configurations to your collection
 5. View the results in the [Explorer](./use-explorer.md)
 
-## Sentinel-2-l2a Collection Configuration
+## Sentinel-2-l2a collection configuration
 
 [ ![Screenshot of Sentinel-2-l2a data visualization](media/sentinel-2-imagery.png) ](media/sentinel-2-imagery.png#lightbox)
 
@@ -60,9 +60,9 @@ To apply these examples to your own data:
 
 # [Mosaic](#tab/sentinel-2-l2a-grindavik-mosaics)
 
-## Mosaic Configuration
+## Mosaic configuration
 
-This mosaic configuration tells the Explorer to display the most recent Sentinel-2 images from the collection, but only those images with cloud cover less than or equal to 40%. The cql (Common Query Language) filter ensures that only relatively clear images are included, making the visualization more useful for most applications. Each mosaic entry can define different criteria for selecting and combining images, and this example uses a single "default" mosaic focused on recent, low-cloud imagery.
+This mosaic configuration tells the Explorer to display the most recent Sentinel-2 images from the collection, but only those images with cloud cover less than or equal to 40%. The Common Query Language (CQL) filter ensures that only relatively clear images are included, making the visualization more useful for most applications. Each mosaic entry can define different criteria for selecting and combining images, and this example uses a single "default" mosaic focused on recent, low-cloud imagery.
 
 ```json
 [
@@ -87,9 +87,9 @@ This mosaic configuration tells the Explorer to display the most recent Sentinel
 
 # [Render Options](#tab/sentinel-2-l2a-grindavik-render-options)
 
-## Render Options Configuration
+## Render options configuration
 
-This render configuration defines several ways to visualize Sentinel-2 satellite imagery in the Explorer. Each entry describes a different style or scientific product, such as **Natural color** (what you’d see with your eyes), **Color infrared** (to highlight vegetation), or **NDVI** (a vegetation health index).
+This render configuration defines several ways to visualize Sentinel-2 satellite imagery in the Explorer. Each entry describes a different style or scientific product, such as **Natural color** (what you’d see with your eyes), **Color infrared** (to highlight vegetation), or **Normalized Difference Vegetation Index (NDVI)** (a vegetation health index).
 
 The `options` string specifies how to visualize the data:
 
@@ -185,9 +185,19 @@ The `options` string specifies how to visualize the data:
 
 # [Tile Settings](#tab/sentinel-2-l2a-grindavik-tile-settings)
 
-## Tile Settings Configuration
+## Tile settings configuration
 
-The tile settings configuration defines how data is tiled and displayed at different zoom levels. For Sentinel-2 data with its 10-60 meter ground sample distance (GSD), the `minZoom: 8` setting allows the imagery to become visible at moderate zoom levels, which is appropriate since Sentinel-2's resolution (10 meter for most bands, 20 meter for some bands, 60 meter for atmospheric bands) provides useful detail starting around zoom levels 8-12. Unlike sub-meter imagery that requires higher zoom levels for effective viewing, Sentinel-2's moderate resolution makes it suitable for regional to local-scale analysis. The `maxItemsPerTile: 35` parameter controls how many individual Sentinel-2 scenes are composited together in each tile, balancing performance with temporal coverage completeness. 
+The tile settings configuration controls the display behavior and performance characteristics of the Sentinel-2 imagery in the Explorer.
+
+**Key Parameters:**
+
+* **`minZoom: 8`**: Sets the minimum zoom level at which the Sentinel-2 imagery becomes visible. This moderate minimum zoom level is appropriate for Sentinel-2's resolution (10 meter for most bands, 20 meter for some bands, 60 meter for atmospheric bands), allowing the imagery to be useful for regional to local-scale analysis starting around zoom levels 8-12.
+
+* **`maxItemsPerTile: 35`**: Controls how many individual Sentinel-2 scenes can be composited together in each tile. This balances performance with temporal coverage completeness, ensuring multiple scenes can be combined for better coverage while maintaining rendering performance.
+
+* **`defaultLocation: null`**: No default location is specified, allowing users to navigate to any area of interest globally.
+
+This configuration optimizes the balance between data visibility and performance for Sentinel-2's moderate resolution imagery, making it suitable for a wide range of applications from regional monitoring to detailed local analysis. 
 
 ```json
 {
@@ -199,7 +209,7 @@ The tile settings configuration defines how data is tiled and displayed at diffe
 
 # [STAC Collection](#tab/sentinel-2-l2a-grindavik-stac)
 
-## STAC Collection configuration
+## STAC collection configuration
 
 The STAC Collection configuration defines the core metadata for this collection.
 
@@ -756,7 +766,7 @@ The render configuration directly references these asset keys to create differen
 ---
 
 
-## The National Agriculture Imagery Program Collection Configuration
+## The National Agriculture Imagery Program collection configuration
 
 [ ![Screenshot of The National Agriculture Imagery Program data visualization](media/naip-imagery.png) ](media/naip-imagery.png#lightbox)
 The National Agriculture Imagery Program (NAIP) provides high-resolution aerial imagery across the United States. The USDA Farm Service Agency captures this imagery at least every three years.
@@ -779,7 +789,7 @@ All four bands are stored together as a single multi-band asset. This structure 
 
 # [Mosaic](#tab/naip-airports-mosaics)
 
-## Mosaic Configuration
+## Mosaic configuration
 
 The mosaic configuration defines how images are combined when displayed in the Explorer, this collection uses the default settings.
 
@@ -796,18 +806,37 @@ The mosaic configuration defines how images are combined when displayed in the E
 
 # [Render Options](#tab/naip-airports-render-options)
 
-## Render Options Configuration
+## Render options configuration
 
-This render configuration offers three different ways to visualize the NAIP data. NAIP imagery contains four spectral bands stored in a single multi-band asset called "image":
+This render configuration defines three different ways to visualize NAIP aerial imagery in the Explorer. Each entry describes a different visualization technique, such as **Natural color** (what you'd see with your eyes), **Color infrared** (to highlight vegetation), or **Normalized Difference Vegetation Index (NDVI)** (to measure vegetation health).
 
+NAIP imagery contains four spectral bands stored in a single multi-band asset called "image":
 1. **Band 1**: Red
-2. **Band 2**: Green
+2. **Band 2**: Green  
 3. **Band 3**: Blue
 4. **Band 4**: Near Infrared (NIR)
 
-Each visualization option uses these bands differently:
+The `options` string specifies how to visualize the data:
 
-### Natural Color (True Color)
+- `assets=image`:  
+  This specifies which asset to use from the STAC item. For NAIP, all bands are stored in the single "image" asset.
+
+- `asset_bidx=image|1,2,3`:  
+  This selects which bands from the multi-band image to use and how to map them to color channels. For example, `1,2,3` maps bands 1, 2, and 3 to red, green, and blue channels respectively.
+
+- `color_formula=Sigmoidal RGB 15 0.35`:  
+  This applies color corrections to improve visual appearance and contrast.
+
+- `expression=(image_b4 - image_b1)/(image_b4 + image_b1)`:  
+  For NDVI calculations, this mathematical formula uses the bands to create a vegetation index that highlights plant health.
+
+- `rescale=-1,1`:  
+  This stretches the calculated NDVI values to fit a standard color scale for easier interpretation.
+
+- `colormap_name=rdylgn`:  
+  This applies a red-yellow-green color palette to the NDVI result, making vegetation patterns easy to identify.
+
+### Natural color (true color)
 
 - **Configuration**: `"options": "assets=image&asset_bidx=image|1,2,3"`
 - **How it works**: This option maps the first three bands of the NAIP imagery to the corresponding Red, Green, and Blue channels for display.
@@ -816,7 +845,7 @@ Each visualization option uses these bands differently:
   - **Blue channel**: Band 3 (Blue)
 - **Result**: This produces a "true color" image that approximates what the human eye would see.
 
-### Color Infrared
+### Color infrared
 
 - **Configuration**: `"options": "assets=image&asset_bidx=image|4,1,2&color_formula=Sigmoidal RGB 15 0.35"`
 - **How it works**: This is a "false color" composite that is useful for vegetation analysis. It maps the bands as follows:
@@ -862,8 +891,19 @@ Each visualization option uses these bands differently:
 
 # [Tile Settings](#tab/naip-airports-tile-settings)
 
-## Tile Settings Configuration
-The tile settings configuration defines how data is tiled and displayed at different zoom levels. For high-resolution imagery like NAIP (0.3-1m GSD), appropriate zoom level settings are critical for performance and visual quality. Generally, imagery should become visible around zoom level 12-14 for meter-class data, with sub-meter imagery like NAIP (0.3-0.6m GSD) becoming useful at zoom levels 15-18. The `minZoom: 4` setting here allows the data to be visible at low zoom levels, while `maxItemsPerTile: 35` controls how many image tiles are composited together, balancing performance with coverage completeness.
+## Tile settings configuration
+
+The tile settings configuration controls the display behavior and performance characteristics of the NAIP aerial imagery in the Explorer.
+
+**Key Parameters:**
+
+* **`minZoom: 4`**: Sets the minimum zoom level at which the NAIP data becomes visible. While this low setting allows visibility at broad zoom levels, high-resolution imagery like NAIP (0.3-1m ground sample distance) is most effective at zoom levels 12-18 where individual features become clearly distinguishable.
+
+* **`maxItemsPerTile: 35`**: Limits the number of NAIP image tiles that can be composited together in a single map tile. This balances performance with coverage completeness, ensuring that multiple overlapping images can be combined without overwhelming the rendering process.
+
+* **`defaultLocation: null`**: No default location is specified, allowing users to navigate to any area of interest within the United States where NAIP coverage is available.
+
+This configuration optimizes the balance between broad accessibility and detailed visualization, allowing users to discover NAIP data at low zoom levels while providing maximum detail when zoomed in to appropriate scales for high-resolution analysis.
 
 
 ```json
@@ -876,7 +916,7 @@ The tile settings configuration defines how data is tiled and displayed at diffe
 
 # [STAC Collection](#tab/naip-airports-stac)
 
-## STAC Collection configuration
+## STAC collection configuration
 
 The STAC Collection configuration defines the core metadata for this collection.
 
@@ -1087,7 +1127,7 @@ The STAC Collection configuration defines the core metadata for this collection.
 
 ---
 
-## Umbra SAR Imagery Collection Configuration
+## Umbra SAR imagery collection configuration
 
 [ ![Screenshot of Umbra SAR Imagery data visualization](media/umbra-sar-imagery.png) ](media/umbra-sar-imagery.png#lightbox)
 
@@ -1097,7 +1137,7 @@ The STAC Collection configuration defines the core metadata for this collection.
 
 # [Mosaic](#tab/umbra-sar-mosaics)
 
-## Mosaic Configuration
+## Mosaic configuration
 
 This is the default mosaic configuration. 
 
@@ -1114,20 +1154,24 @@ This is the default mosaic configuration.
 
 # [Render Options](#tab/umbra-sar-render-options)
 
-## Render Options Configuration
+## Render options configuration
 
-The render configuration works as follows:
+This render configuration defines how to visualize Umbra SAR imagery in the Explorer. SAR imagery uses radar signals to detect surface features and structures, displayed as grayscale intensity data where brighter areas represent stronger radar returns.
 
-**VV polarization**: Refers to "Vertical transmit, Vertical receive" radar signals, which are effective for detecting artificial structures and surface roughness
+The configuration focuses on **VV polarization** data, which refers to "Vertical transmit, Vertical receive" radar signals that are particularly effective for detecting artificial structures and surface roughness.
 
-* **Key parameters**:
-  * `assets=GEC`: Selects the geocoded ellipsoid corrected (GEC) asset from the STAC item
-  * `rescale=0,255`: Transforms the radar backscatter values to an 8-bit range for proper visualization
-  * `colormap_name=gray`: Applies a grayscale color palette appropriate for intensity data
-* **Conditions**: Only applies this rendering to items that specifically have VV polarization data
-* **minZoom:** Sets the minimum map zoom level (8) at which this layer becomes visible
+The `options` string specifies how to visualize the data:
 
-This configuration creates a grayscale visualization where brighter areas represent stronger radar returns, typically indicating buildings, rough terrain, or other surfaces that strongly reflect radar signals. 
+- `assets=GEC`:  
+  This selects the geocoded ellipsoid corrected (GEC) asset from the STAC item, which contains the processed SAR backscatter data.
+
+- `rescale=0,255`:  
+  This transforms the radar backscatter values to an 8-bit range (0-255) for proper visualization, converting the raw radar data into displayable intensity values.
+
+- `colormap_name=gray`:  
+  This applies a grayscale color palette appropriate for SAR intensity data, where darker areas represent weaker radar returns and brighter areas represent stronger returns.
+
+The visualization creates a grayscale image where buildings, rough terrain, and other surfaces that strongly reflect radar signals appear bright, while smooth surfaces like water appear dark. 
 
 ```json
 [
@@ -1152,8 +1196,19 @@ This configuration creates a grayscale visualization where brighter areas repres
 
 # [Tile Settings](#tab/umbra-sar-tile-settings)
 
-## Tile Settings Configuration
-The tile settings configuration defines how data is tiled and displayed at different zoom levels. For SAR imagery like Umbra's sub-meter resolution data (approximately 0.48 meter GSD), the `minZoom: 12` setting reflects the high-resolution nature of this dataset. SAR data at this resolution provides detailed views of surface features, making it most useful at higher zoom levels where individual buildings, vehicles, and infrastructure elements become clearly distinguishable. The higher minimum zoom level ensures optimal performance and prevents unnecessary processing of detailed data at zoom levels where the resolution advantage wouldn't be apparent to users.
+## Tile settings configuration
+
+The tile settings configuration controls the display behavior and performance characteristics of the Umbra SAR imagery in the Explorer.
+
+**Key Parameters:**
+
+* **`minZoom: 12`**: Sets the minimum zoom level at which the SAR imagery becomes visible. This relatively high minimum zoom level is appropriate for Umbra's sub-meter resolution data (approximately 0.48 meter ground sample distance), ensuring that users can see meaningful detail when the data is displayed. At lower zoom levels, the high-resolution SAR data would be too detailed to be useful and could impact performance.
+
+* **`maxItemsPerTile: 35`**: Limits the number of SAR images that can be composited together in a single map tile. For SAR data, this setting ensures that multiple overlapping acquisitions don't overwhelm the tile generation process while allowing for temporal compositing when needed.
+
+* **`defaultLocation: null`**: No default location is specified, allowing users to navigate to any area of interest where Umbra SAR coverage is available.
+
+This configuration optimizes the balance between data visibility and performance, ensuring that the high-resolution SAR imagery is displayed effectively when users zoom in to appropriate scales where individual buildings, vehicles, and infrastructure elements become clearly distinguishable.
 
 ```json
 {
@@ -1165,7 +1220,7 @@ The tile settings configuration defines how data is tiled and displayed at diffe
 
 # [STAC Collection](#tab/umbra-sar-stac)
 
-## STAC Collection configuration
+## STAC collection configuration
 
 The `item_assets` section is a critical component of the STAC Collection JSON that defines the assets (data files) available within each item of this collection. For this Umbra SAR collection:
 
@@ -1294,3 +1349,493 @@ This asset definition is directly referenced in the render configuration via `as
 ```
 
 ---
+
+
+## Impact Observatory Land Use/Land Cover 9-class collection configuration
+
+[ ![Screenshot of ESP-io-lulc-9-class data visualization](media/esp-io-lulc-9-class.png) ](media/esp-io-lulc-9-class.png#lightbox)
+
+The [Impact Observatory Land Use/Land Cover 9-Class dataset](https://www.impactobservatory.com/) provides annual global maps of land use and land cover (LULC) from 2017-2022. This dataset was generated using billions of human-labeled pixels to train a deep learning model for land classification, applied to Sentinel-2 imagery at 10-meter resolution.
+
+The 9-class system includes: Water, Trees, Flooded vegetation, Crops, Built area, Bare ground, Snow/ice, Clouds, and Rangeland. This updated model combines the previously separate Grass and Scrub classes into a single Rangeland class, providing more consistent classification across the time series.
+
+Each annual map represents a composite of LULC predictions throughout the year, with an assessed average accuracy of over 75%. The data is particularly valuable for monitoring land use changes, tracking deforestation, urban expansion, and agricultural patterns at a global scale.
+
+## Configuration details
+
+# [Mosaic](#tab/io-lulc-9-class-mosaics)
+
+## Mosaic configuration
+
+The mosaic configuration for this collection provides temporal filtering options, allowing users to view land cover data for specific years. Each mosaic definition filters the data to show only items from a particular year using Common Query Language (CQL) expressions.
+
+The configuration includes six separate mosaic options covering 2017-2022:
+
+* **Temporal Filtering**: Each mosaic uses the `anyinteracts` operator to filter items where the `datetime` property intersects with a specific year's date range
+* **Date Ranges**: Each year's filter spans from January 1st to December 31st of that year (e.g., "2022-01-01T23:59:59Z" to "2022-12-31T23:59:59Z")
+* **User Experience**: This allows users to compare land cover changes year-over-year or focus on a specific time period of interest
+
+This temporal approach is particularly valuable for land cover analysis, as it enables users to track changes in land use patterns, monitor deforestation or reforestation, observe urban expansion, and assess the impact of natural disasters or human activities over time.
+
+```json
+[
+  {
+    "id": "2022",
+    "name": "2022",
+    "description": "2022 Use/Land Cover",
+    "cql": [
+      {
+        "op": "anyinteracts",
+        "args": [
+          {
+            "property": "datetime"
+          },
+          {
+            "interval": [
+              "2022-01-01T23:59:59Z",
+              "2022-12-31T23:59:59Z"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2021",
+    "name": "2021",
+    "description": "2021 Use/Land Cover",
+    "cql": [
+      {
+        "op": "anyinteracts",
+        "args": [
+          {
+            "property": "datetime"
+          },
+          {
+            "interval": [
+              "2021-01-01T23:59:59Z",
+              "2021-12-31T23:59:59Z"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2020",
+    "name": "2020",
+    "description": "2020 Use/Land Cover",
+    "cql": [
+      {
+        "op": "anyinteracts",
+        "args": [
+          {
+            "property": "datetime"
+          },
+          {
+            "interval": [
+              "2020-01-01T23:59:59Z",
+              "2020-12-31T23:59:59Z"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2019",
+    "name": "2019",
+    "description": "2019 Use/Land Cover",
+    "cql": [
+      {
+        "op": "anyinteracts",
+        "args": [
+          {
+            "property": "datetime"
+          },
+          {
+            "interval": [
+              "2019-01-01T23:59:59Z",
+              "2019-12-31T23:59:59Z"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2018",
+    "name": "2018",
+    "description": "2018 Land Use/Land Cover",
+    "cql": [
+      {
+        "op": "anyinteracts",
+        "args": [
+          {
+            "property": "datetime"
+          },
+          {
+            "interval": [
+              "2018-01-01T23:59:59Z",
+              "2018-12-31T23:59:59Z"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2017",
+    "name": "2017",
+    "description": "2017 Land Use/Land Cover",
+    "cql": [
+      {
+        "op": "anyinteracts",
+        "args": [
+          {
+            "property": "datetime"
+          },
+          {
+            "interval": [
+              "2017-01-01T23:59:59Z",
+              "2017-12-31T23:59:59Z"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
+```
+
+# [Render Options](#tab/io-lulc-9-class-render-options)
+
+## Render options configuration
+
+This render configuration defines three different ways to visualize Impact Observatory land cover classification data in the Explorer. Each entry describes a different visualization approach, such as **ESA CCI classification** (using standard scientific colormaps), **Default IO 9-class** (using custom Impact Observatory colors), or **ESA colormap alternative** (combining ESA colors with enhanced processing).
+
+The land cover data contains classified values representing 9 different land cover types, stored in a single "data" asset that requires colormap application to visualize the categories effectively.
+
+The `options` string specifies how to visualize the data:
+
+- `assets=data`:  
+  This selects the classification data asset from the STAC item, which contains the categorical land cover values for each pixel.
+
+- `colormap_name=esa-cci-lc` or `colormap_name=io-lulc-9-class`:  
+  This applies a predefined color palette to map the numeric classification values to colors. The ESA colormap follows scientific standards, while the IO colormap is optimized for the 9-class system.
+
+- `exitwhenfull=False`:  
+  This continues tile processing even when the tile cache is full, ensuring complete coverage.
+
+- `skipcovered=False`:  
+  This processes all pixels, including those already covered by other tiles, ensuring no gaps in the visualization.
+
+The visualization creates a colored map where each of the 9 land cover classes (Water, Trees, Crops, Built areas, etc.) is displayed in a distinct color for easy identification and analysis.
+
+### ESA CCI land cover classification
+- **Configuration**: `"options": "assets=data&colormap_name=esa-cci-lc"`
+- **Purpose**: Uses the standard ESA CCI (European Space Agency Climate Change Initiative) colormap for land cover visualization
+- **Best for**: Consistency with other ESA land cover products and scientific publications
+- **Zoom level**: Available from zoom level 3, suitable for global and continental-scale viewing
+
+### Default (IO 9-class colormap)
+- **Configuration**: `"options": "assets=data&exitwhenfull=False&skipcovered=False&colormap_name=io-lulc-9-class"`
+- **Purpose**: Uses a custom colormap specifically designed for the Impact Observatory 9-class system
+- **Technical details**:
+  - `exitwhenfull=False`: Continues processing even when tile cache is full
+  - `skipcovered=False`: Processes all pixels, including those already covered by other tiles
+- **Best for**: Optimal visualization of the 9-class land cover categories with colors specifically chosen for this classification system
+
+### Default (ESA colormap alternative)
+- **Configuration**: `"options": "assets=data&exitwhenfull=False&skipcovered=False&colormap_name=esa-cci-lc"`
+- **Purpose**: Combines the ESA colormap with the same processing options as the default configuration
+- **Best for**: Users who prefer ESA color schemes but want the enhanced processing options
+
+All render options use the `data` asset, which contains the classified land cover values, and apply different colormaps to visualize the 9 land cover classes in distinct colors.
+
+```json
+[
+  {
+    "id": "esa-cci-class",
+    "name": "Classification",
+    "description": "ESA CCI land cover classification",
+    "type": "raster-tile",
+    "options": "assets=data&colormap_name=esa-cci-lc",
+    "minZoom": 3
+  },
+  {
+    "id": "default",
+    "name": "Default",
+    "description": "Land cover classification using 9 class custom colormap",
+    "type": "raster-tile",
+    "options": "assets=data&exitwhenfull=False&skipcovered=False&colormap_name=io-lulc-9-class",
+    "minZoom": 4
+  },
+  {
+    "id": "default-esa-colormap",
+    "name": "Default",
+    "description": "Land cover classification using 9 class custom colormap",
+    "type": "raster-tile",
+    "options": "assets=data&exitwhenfull=False&skipcovered=False&colormap_name=esa-cci-lc",
+    "minZoom": 4
+  }
+]
+```
+
+# [Tile Settings](#tab/io-lulc-9-class-tile-settings)
+
+## Tile settings configuration
+
+The tile settings configuration controls the display behavior and performance characteristics of the land cover data in the Explorer.
+
+**Key Parameters:**
+
+* **`minZoom: 12`**: Sets the minimum zoom level at which the land cover data becomes visible. This relatively high minimum zoom level is appropriate for 10-meter resolution data, ensuring that users can see meaningful detail when the data is displayed. At lower zoom levels, the 10-meter classification data would be too detailed to be useful and could impact performance.
+
+* **`maxItemsPerTile: 35`**: Limits the number of STAC items that can be composited together in a single map tile. For annual land cover data, this setting ensures that multiple overlapping items (if they exist) don't overwhelm the tile generation process.
+
+* **`defaultLocation: null`**: No default location is specified, allowing users to navigate to any area of interest globally.
+
+This configuration optimizes the balance between data visibility and performance, ensuring that the 10-meter resolution land cover classifications are displayed effectively when users zoom in to appropriate scales for analysis.
+
+```json
+{
+  "minZoom": 12,
+  "maxItemsPerTile": 35,
+  "defaultLocation": null
+}
+```
+
+# [STAC Collection](#tab/io-lulc-9-class-stac)
+
+## STAC collection configuration
+
+The STAC Collection configuration defines the core metadata and structure for the Impact Observatory Land Use/Land Cover 9-Class collection.
+
+**Key Components:**
+
+**Item Assets - Data Asset:**
+The most important part of this configuration is the `item_assets.data` section, which defines how the land cover classification data is structured:
+
+* **Asset Type**: Cloud-optimized GeoTIFF format for efficient access and processing
+* **Spatial Resolution**: 10 meters per pixel, derived from Sentinel-2 imagery
+* **Classification Values**: The `file:values` section defines the 9 land cover classes:
+  - **0**: No Data
+  - **1**: Water (oceans, lakes, rivers)
+  - **2**: Trees (forests, woody vegetation)
+  - **4**: Flooded vegetation (wetlands, marshes)
+  - **5**: Crops (agricultural areas)
+  - **7**: Built area (urban, buildings, infrastructure)
+  - **8**: Bare ground (soil, rock, sand)
+  - **9**: Snow/ice (permanent and seasonal snow cover)
+  - **10**: Clouds (cloud cover)
+  - **11**: Rangeland (grasslands, shrublands - combines former Grass and Scrub classes)
+
+**Temporal Coverage:**
+* **Extent**: Global coverage from 2017-2022
+* **Update Frequency**: Annual maps, each representing a composite of predictions throughout the year
+
+**Data Lineage:**
+* **Source**: ESA Sentinel-2 imagery
+* **Processing**: Deep learning model trained on billions of human-labeled pixels
+* **Accuracy**: Average accuracy over 75%
+* **Producer**: Impact Observatory in partnership with Esri and Microsoft
+
+This STAC configuration enables the render configurations to reference the `data` asset and apply appropriate colormaps to visualize the classified land cover values effectively in the Explorer.
+
+```json
+{
+  "id": "io-9-class-collection",
+  "type": "Collection",
+  "links": [
+    {
+      "rel": "items",
+      "type": "application/geo+json",
+      "href": "https://{geocatalog_id}/stac/collections/IO-lulc-9-class-collection/items"
+    },
+    {
+      "rel": "parent",
+      "type": "application/json",
+      "href": "https://{geocatalog_id}/stac/"
+    },
+    {
+      "rel": "root",
+      "type": "application/json",
+      "href": "https://{geocatalog_id}/stac/"
+    },
+    {
+      "rel": "self",
+      "type": "application/json",
+      "href": "https://{geocatalog_id}/stac/collections/IO-lulc-9-class-collection"
+    },
+    {
+      "rel": "related",
+      "href": "https://livingatlas.arcgis.com/landcover/"
+    },
+    {
+      "rel": "license",
+      "href": "https://creativecommons.org/licenses/by/4.0/",
+      "type": "text/html",
+      "title": "CC BY 4.0"
+    },
+    {
+      "rel": "describedby",
+      "href": "https://planetarycomputer.microsoft.com/dataset/io-lulc-9-class",
+      "type": "text/html",
+      "title": "Human readable dataset overview and reference"
+    }
+  ],
+  "title": "IO-lulc-9-class-io-lulc-9-class",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -180,
+          -90,
+          180,
+          90
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2017-01-01T00:00:00Z",
+          "2023-01-01T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "license": "CC-BY-4.0",
+  "keywords": [
+    "Global",
+    "Land Cover",
+    "Land Use",
+    "Sentinel"
+  ],
+  "providers": [
+    {
+      "url": "https://www.esri.com/",
+      "name": "Esri",
+      "roles": [
+        "licensor"
+      ]
+    },
+    {
+      "url": "https://www.impactobservatory.com/",
+      "name": "Impact Observatory",
+      "roles": [
+        "processor",
+        "producer",
+        "licensor"
+      ]
+    },
+    {
+      "url": "https://planetarycomputer.microsoft.com",
+      "name": "Microsoft",
+      "roles": [
+        "host"
+      ]
+    }
+  ],
+  "summaries": {
+    "raster:bands": [
+      {
+        "nodata": 0,
+        "spatial_resolution": 10
+      }
+    ]
+  },
+  "description": "Time series of annual global maps of land use and land cover (LULC). It currently has data from 2017-2022. The maps are derived from ESA Sentinel-2 imagery at 10m resolution. Each map is a composite of LULC predictions for 9 classes throughout the year in order to generate a representative snapshot of each year.\n\nThis dataset was generated by [Impact Observatory](http://impactobservatory.com/), who used billions of human-labeled pixels (curated by the National Geographic Society) to train a deep learning model for land classification. The global map was produced by applying this model to the Sentinel-2 annual scene collections on the Planetary Computer. Each of the maps has an assessed average accuracy of over 75%.\n\nThis map uses an updated model from the [10-class model](https://planetarycomputer.microsoft.com/dataset/io-lulc) and combines Grass(formerly class 3) and Scrub (formerly class 6) into a single Rangeland class (class 11). The original Esri 2020 Land Cover collection uses 10 classes (Grass and Scrub separate) and an older version of the underlying deep learning model.  The Esri 2020 Land Cover map was also produced by Impact Observatory.  The map remains available for use in existing applications. New applications should use the updated version of 2020 once it is available in this collection, especially when using data from multiple years of this time series, to ensure consistent classification.\n\nAll years are available under a Creative Commons BY-4.0.",
+  "item_assets": {
+    "data": {
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "roles": [
+        "data"
+      ],
+      "title": "Global land cover data",
+      "file:values": [
+        {
+          "values": [
+            0
+          ],
+          "summary": "No Data"
+        },
+        {
+          "values": [
+            1
+          ],
+          "summary": "Water"
+        },
+        {
+          "values": [
+            2
+          ],
+          "summary": "Trees"
+        },
+        {
+          "values": [
+            4
+          ],
+          "summary": "Flooded vegetation"
+        },
+        {
+          "values": [
+            5
+          ],
+          "summary": "Crops"
+        },
+        {
+          "values": [
+            7
+          ],
+          "summary": "Built area"
+        },
+        {
+          "values": [
+            8
+          ],
+          "summary": "Bare ground"
+        },
+        {
+          "values": [
+            9
+          ],
+          "summary": "Snow/ice"
+        },
+        {
+          "values": [
+            10
+          ],
+          "summary": "Clouds"
+        },
+        {
+          "values": [
+            11
+          ],
+          "summary": "Rangeland"
+        }
+      ]
+    }
+  },
+  "msft:region": "westeurope",
+  "stac_version": "1.0.0",
+  "msft:_created": "2024-10-15T15:38:42.009851Z",
+  "msft:_updated": "2024-10-15T15:38:42.009851Z",
+  "msft:group_id": "io-land-cover",
+  "msft:container": "io-lulc",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/raster/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/label/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/file/v2.1.0/schema.json",
+    "https://stac-extensions.github.io/table/v1.2.0/schema.json",
+    "https://{storage_account}.blob.core.windows.net/{blob_container}/json-schemas/json-schemas/msft/v0.1/schema.json"
+  ],
+  "msft:storage_account": "ai4edataeuwest",
+  "msft:short_description": "Global land cover information with 9 classes for for 2017-2022 at 10m resolution"
+}
+```
+
+---
+
