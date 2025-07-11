@@ -82,7 +82,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Falkland Islands<sup>1</sup>           |                ✓                  |                   |             |
 | French Guiana                          |                ✓                  |                   |             |
 | Grenada                                |                ✓                  |                   |             |
-| Guadeloupe                             |                ✓                  |                   |             |
+| Guadeloupe                             |                ✓                  |         ✓         |             |
 | Guatemala                              |                ✓                  |                   |             |
 | Guyana                                 |                ✓                  |                   |             |
 | Haiti                                  |                ✓                  |                   |             |
@@ -90,10 +90,10 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Jamaica                                |                ✓                  |                   |             |
 | Martinique                             |                ✓                  |                   |             |
 | Mexico                                 |                ✓                  |         ✓         |     ✓      |
-| Montserrat                             |                ✓                  |                   |             |
+| Montserrat                             |                ✓                  |         ✓         |             |
 | Nicaragua                              |                ✓                  |                   |             |
 | Panama                                 |                ✓                  |                   |             |
-| Paraguay                               |                ✓                  |                   |             |
+| Paraguay                               |                ✓                  |         ✓         |             |
 | Peru                                   |                ✓                  |         ✓         |             |
 | Puerto Rico                            |                ✓                  |                   |             |
 | Sint Maarten                           |                ✓                  |                   |             |
@@ -107,7 +107,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Suriname                               |                ✓                  |                   |             |
 | Trinidad & Tobago                      |                ✓                  |                   |             |
 | Turks & Caicos Islands                 |                ✓                  |                   |             |
-| U.S. Virgin Islands                    |                ✓                  |                   |             |
+| U.S. Virgin Islands                    |                ✓                  |         ✓         |             |
 | United States                          |                ✓                  |         ✓         |     ✓      |
 | Uruguay                                |                ✓                  |         ✓         |     ✓      |
 | Venezuela                              |                ✓                  |                   |             |
@@ -130,7 +130,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Cook Islands                           |                ✓                  |                   |             |
 | Fiji                                   |                ✓                  |                   |             |
 | French Polynesia<sup>1</sup>           |                ✓                  |                   |             |
-| Guam                                   |                ✓                  |                   |             |
+| Guam                                   |                ✓                  |         ✓         |             |
 | Hong Kong SAR                          |                ✓                  |         ✓         |             |
 | India                                  |                ✓                  |         ✓         |             |
 | Indonesia                              |                ✓                  |         ✓         |     ✓      |
@@ -188,7 +188,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Bouvet Island<sup>1</sup>              |                ✓                  |                   |             |
 | Bulgaria                               |                ✓                  |         ✓         |     ✓      |
 | Croatia                                |                ✓                  |         ✓         |     ✓      |
-| Cyprus                                 |                ✓                  |                   |     ✓       |
+| Cyprus                                 |                ✓                  |         ✓         |     ✓       |
 | Czech Republic                         |                ✓                  |         ✓         |     ✓      |
 | Denmark                                |                ✓                  |         ✓         |     ✓      |
 | Estonia                                |                ✓                  |         ✓         |     ✓      |
@@ -200,13 +200,13 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Gibraltar                              |                ✓                  |         ✓         |     ✓      |
 | Greece                                 |                ✓                  |         ✓         |     ✓      |
 | Greenland<sup>1</sup>                  |                ✓                  |                   |             |
-| Guernsey                               |                ✓                  |                   |             |
+| Guernsey                               |                ✓                  |         ✓         |             |
 | Hungary                                |                ✓                  |         ✓         |     ✓      |
 | Iceland                                |                ✓                  |         ✓         |             |
 | Ireland                                |                ✓                  |         ✓         |     ✓      |
-| Isle of Man                            |                ✓                  |                   |             |
+| Isle of Man                            |                ✓                  |         ✓         |             |
 | Italy                                  |                ✓                  |         ✓         |     ✓      |
-| Jersey                                 |                ✓                  |                   |             |
+| Jersey                                 |                ✓                  |         ✓         |             |
 | Kazakhstan                             |                ✓                  |         ✓         |             |
 | Kyrgyzstan<sup>1</sup>                 |                ✓                  |                   |             |
 | Latvia                                 |                ✓                  |         ✓         |     ✓      |
@@ -297,7 +297,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 | Nigeria                                |                ✓                  |         ✓         |             |
 | Oman                                   |                ✓                  |         ✓         |             |
 | Qatar                                  |                ✓                  |         ✓         |             |
-| Réunion                                |                ✓                  |                   |             |
+| Réunion                                |                ✓                  |         ✓         |             |
 | Rwanda                                 |                ✓                  |                   |             |
 | São Tomé & Príncipe<sup>1</sup>        |                ✓                  |                   |             |
 | Saudi Arabia                           |                ✓                  |         ✓         |             |
