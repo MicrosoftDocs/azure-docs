@@ -14,6 +14,8 @@ ms.date: 07/10/2025
 
 # Connector lifecycle overview
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 In Azure Data Factory, the introduction of the connector lifecycle ensures that customers always have access to the most reliable, secure, and feature-rich connectors. With the structured lifecycle stages, major connector upgrade evolves through distinct lifecycle stages, from preview to general availability and end of support, providing clear expectations for stability, support, and future enhancements. This lifecycle framework guarantees that users can seamlessly adopt new connectors with confidence, benefit from regular performance and security updates, and prepare in advance for any phase-out of older versions. By utilizing versioning within the connector lifecycle, the service empowers users with a predictable, transparent, and future-proof integration experience, reducing operational risks and enhancing overall workload reliability.
 
 ## Release rhythm
@@ -80,6 +82,22 @@ These auto-upgraded workloads are not affected by the announced removal date of 
 
 You can identify which activities have been automatically upgraded by inspecting the activity output, where relevant upgrade information is recorded.
 
+**Example:**
+
+Copy activity output 
+
+```json
+"source": {
+    "type": "AmazonS3",
+    "autoUpgrade": "true",
+} 
+
+"sink": {
+    "type": "AmazonS3",
+    "autoUpgrade": "true",
+}
+```
+
 > [!NOTE]
 > While compatibility mode offers flexibility, we strongly encourage users to upgrade to the latest GA version as soon as possible to benefit from ongoing improvements, optimizations, and full support. 
 
@@ -87,14 +105,13 @@ You can find more details from the table below on the connector list that is pla
 
 | Connector        | Scenario |
 |------------------|----------|
-| [Google BigQuery](connector-google-bigquery.md)  | Scenario that does not rely on below capability in Google BigQuery V1:<br><br>  • Use `trustedCertsPath`, `additionalProjects`, `requestgoogledrivescope` connection properties.<br>  • Set `useSystemTrustStore` connection property as `false`.<br>  • Use **STRUCT** and **ARRAY** data types. |
-| [Teradata](connector-teradata.md)         | Scenario that does not rely on below capability in Teradata (version 1.0):<br><br>  • Set below value for **CharacterSet**:<br>&nbsp;&nbsp;• BIG5 (TCHBIG5_1R0)<br>&nbsp;&nbsp;• EUC (Unix compatible, KANJIEC_0U)<br>&nbsp;&nbsp;• GB (SCHGB2312_1T0)<br>&nbsp;&nbsp;• IBM Mainframe (KANJIEBCDIC5035_0I)<br>&nbsp;&nbsp;• NetworkKorean (HANGULKSC5601_2R4)<br>&nbsp;&nbsp;• Shift-JIS (Windows, DOS compatible, KANJISJIS_0S)|
-| [Spark](connector-spark.md) | Scenario that does not rely on below capability in Spark (version 1.0):<br><br>• Authentication types:<br>&nbsp;&nbsp;• Username<br>• Thrift transport protocol:<br>&nbsp;&nbsp;• SASL<br>&nbsp;&nbsp;• Binary<br>• Thrift transport protocol:<br>&nbsp;&nbsp;• SharkServer<br>&nbsp;&nbsp;• SharkServer2 |
-| [Impala](connector-impala.md) | Scenario that does not rely on below capability in Impala (version 1.0):<br><br>• Authentication types:<br>&nbsp;&nbsp;• SASL Username |
+| [Amazon Redshift](connector-amazon-redshift.md) | Scenario that does not rely on below capability in Amazon Redshift (version 1.0):<br><br>• Linked service that uses Azure integration runtime.<br>• Use [UNLOAD](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).<br><br>Automatic upgrade is only applicable when the driver is installed in your machine that installs the self-hosted integration runtime (version 5.56 or above).<br><br> For more information, go to [Install Amazon Redshift ODBC driver for the version 2.0](connector-amazon-redshift.md#install-amazon-redshift-odbc-driver-for-the-version-20).|
+| [Google BigQuery](connector-google-bigquery.md)  | Scenario that does not rely on below capability in Google BigQuery V1:<br><br>  • Use `trustedCertsPath`, `additionalProjects`, `requestgoogledrivescope` connection properties.<br>  • Set `useSystemTrustStore` connection property as `false`.<br>  • Use **STRUCT** and **ARRAY** data types. <br><br>If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.55 or above. |
 | [Hive](connector-hive.md) | Scenario that does not rely on below capability in Hive (version 1.0):<br><br>• Authentication types:<br>&nbsp;&nbsp;• Username<br>• Thrift transport protocol:<br>&nbsp;&nbsp;• HiveServer1<br>• Service discovery mode: True<br>• Use native query: True |
-| [Vertica](connector-vertica.md) | Scenario that does not rely on below capability in Vertica (version 1.0):<br><br>• Linked service that uses Azure integration runtime.<br><br>Automatic upgrade is only applicable when the driver is installed in your machine that installs the self-hosted integration runtime.<br><br> For more information, go to [Install Vertica ODBC driver for the version 2.0](connector-vertica.md#install-vertica-odbc-driver-for-the-version-20). |
-| [Amazon Redshift](connector-amazon-redshift.md) | Scenario that does not rely on below capability in Amazon Redshift (version 1.0):<br><br>• Linked service that uses Azure integration runtime.<br>• Use [UNLOAD](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).<br><br>Automatic upgrade is only applicable when the driver is installed in your machine that installs the self-hosted integration runtime.|
-
+| [Impala](connector-impala.md) | Scenario that does not rely on below capability in Impala (version 1.0):<br><br>• Authentication types:<br>&nbsp;&nbsp;• SASL Username<br><br>If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.55 or above. |
+| [Spark](connector-spark.md) | Scenario that does not rely on below capability in Spark (version 1.0):<br><br>• Authentication types:<br>&nbsp;&nbsp;• Username<br>• Thrift transport protocol:<br>&nbsp;&nbsp;• SASL<br>&nbsp;&nbsp;• Binary<br>• Thrift transport protocol:<br>&nbsp;&nbsp;• SharkServer<br>&nbsp;&nbsp;• SharkServer2<br><br>If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.55 or above.|
+| [Teradata](connector-teradata.md)         | Scenario that does not rely on below capability in Teradata (version 1.0):<br><br>  • Set below value for **CharacterSet**:<br>&nbsp;&nbsp;• BIG5 (TCHBIG5_1R0)<br>&nbsp;&nbsp;• EUC (Unix compatible, KANJIEC_0U)<br>&nbsp;&nbsp;• GB (SCHGB2312_1T0)<br>&nbsp;&nbsp;• IBM Mainframe (KANJIEBCDIC5035_0I)<br>&nbsp;&nbsp;• NetworkKorean (HANGULKSC5601_2R4)<br>&nbsp;&nbsp;• Shift-JIS (Windows, DOS compatible, KANJISJIS_0S)<br><br> If your pipeline runs on self-hosted integration runtime, it requires SHIR version 5.56 or above.|
+| [Vertica](connector-vertica.md) | Scenario that does not rely on below capability in Vertica (version 1.0):<br><br>• Linked service that uses Azure integration runtime.<br><br>Automatic upgrade is only applicable when the driver is installed in your machine that installs the self-hosted integration runtime (version 5.55 or above).<br><br> For more information, go to [Install Vertica ODBC driver for the version 2.0](connector-vertica.md#install-vertica-odbc-driver-for-the-version-20). |
 
 
 ## Related content
