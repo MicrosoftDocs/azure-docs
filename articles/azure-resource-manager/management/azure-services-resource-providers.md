@@ -236,14 +236,6 @@ The resource providers for management services are:
 | Microsoft.SoftwarePlan | License |
 | Microsoft.Solutions | [Azure Managed Applications](../managed-applications/index.yml) |
 
-## Media resource providers
-
-The resource providers for media services are:
-
-| Resource provider namespace | Azure service |
-| --------------------------- | ------------- |
-| Microsoft.Media | [Media Services](/azure/media-services/) |
-
 ## Migration resource providers
 
 The resource providers for migration services are:
