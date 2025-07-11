@@ -239,7 +239,7 @@ Data Deduplication is supported irrespective of whether cloud tiering is enabled
 
 When Data Deduplication is enabled on a volume with cloud tiering enabled, Dedup optimized files within the server endpoint location will be tiered similar to a normal file based on the cloud tiering policy settings. Once the Dedup optimized files have been tiered, the Data Deduplication garbage collection job will run automatically to reclaim disk space by removing unnecessary chunks that are no longer referenced by other files on the volume. 
 
-In some cases where Dedup is installed, the available volume space can increase more than expected after dedup garbage collection is triggered. Volume space works as explained in the example below:
+In some cases where Dedup is installed, the available volume space can increase more than expected after dedup garbage collection is triggered. Volume space works as follows:
 1. Let's say that the free space policy for cloud tiering is set to 20%. 
 2. Azure File Sync is notified when there is low free space (let's say when free space is 19%). 
 3. Tiering determines that 1% more space needs to be freed, but as a buffer we will have 5% extra so we will tier up to 25% (E.g.: 30GB).
