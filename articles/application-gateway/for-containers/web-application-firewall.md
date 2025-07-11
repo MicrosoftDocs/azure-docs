@@ -5,7 +5,7 @@ services: application-gateway
 author: jackstromberg
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 7/1/2025
+ms.date: 7/22/2025
 ms.author: jstrom
 ---
 
@@ -13,45 +13,9 @@ ms.author: jstrom
 
 ## Overview
 
-Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. All WAF functionality exists inside of a WAF policy, which can be referenced at listener or path-based routing rules within Gateway or Ingress yaml configuration.
+Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. All WAF functionality exists inside of a WAF policy, which can be referenced at listener or path-based routing rules within Gateway API yaml configuration.
 
-## Benefits
-
-This section describes the core benefits that WAF on Application Gateway for Containers provides.
-
-### Protection
-
-* Protect your web applications from web vulnerabilities and attacks without modification to back-end code.
-* Protect multiple web applications at the same time.
-* Create custom WAF policies for different sites behind the same WAF.
-* Protect your web applications from malicious bots with the IP Reputation ruleset.
-
-### Monitoring
-
-* Monitor attacks against your web applications by using a WAF log. The log is integrated with Azure Monitor to track WAF alerts and easily monitor trends.
-* The Application Gateway for Containers WAF is integrated with Microsoft Defender for Cloud. Defender for Cloud provides a central view of the security state of all your Azure, hybrid, and multicloud resources.
-
-### Customization
-
-* Customize WAF rules and rule groups to suit your application requirements and eliminate false positives.
-* Associate a WAF Policy for each site behind your WAF to allow for site-specific configuration
-* Create custom rules to suit the needs of your application
-
-## Features
-
-* SQL injection protection.
-* Cross-site scripting protection.
-* Protection against other common web attacks, such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion.
-* Protection against HTTP protocol violations.
-* Protection against HTTP protocol anomalies, such as missing host user-agent and accept headers.
-* Protection against crawlers and scanners.
-* Detection of common application misconfigurations (for example, Apache and IIS).
-* Configurable request size limits with lower and upper bounds.
-* Exclusion lists let you omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication or password fields.
-* Create custom rules to suit the specific needs of your applications.
-* Geo-filter traffic to allow or block certain countries/regions from gaining access to your applications.
-* Protect your applications from bots with the bot mitigation ruleset.
-* Inspect JSON and XML in the request body
+![Diagram depicting a request being blocked by a web application firewall rule.](./media/how-to-web-application-firewall-gateway-api/web-application-firewall.png)
 
 ## Application Gateway for Containers implementation
 
