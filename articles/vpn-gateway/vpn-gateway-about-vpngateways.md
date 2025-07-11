@@ -12,29 +12,32 @@ ms.custom: e2e-hybrid
 
 # What is Azure VPN Gateway?
 
-Azure VPN Gateway is a service that can be used to send encrypted traffic between an Azure virtual network and on-premises locations over the public Internet. You can also use VPN Gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. VPN Gateway uses a specific type of Azure virtual network gateway called a VPN gateway. Multiple connections can be created to the same VPN gateway. When you create multiple connections, all VPN tunnels share the available gateway bandwidth.
+Azure VPN Gateway service can be used to send encrypted traffic between an Azure virtual network and on-premises locations over the public Internet. You can also use VPN Gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. VPN Gateway uses a specific type of Azure virtual network gateway called a VPN gateway. Multiple connections can be created to the same VPN gateway. When you create multiple connections, all VPN tunnels share the available gateway bandwidth.
+
+> [!NOTE]
+> Azure VPN Gateway is one of the services that make up the Hybrid Connectivity category in Azure. Other services in this category include [ExpressRoute](../expressroute/expressroute-introduction.md) and [Virtual WAN](../virtual-wan/virtual-wan-about.md). Each service has its own unique features and use cases. For more information on this service category, see [Hybrid Connectivity](../networking/hybrid-connectivity/hybrid-connectivity.md).
 
 ## Why use VPN Gateway?
 
 Here are some of the key scenarios for VPN Gateway:
 
-* Send encrypted traffic between an Azure virtual network and on-premises locations over the public Internet. You can do this by using the following types of connections:
+* Send encrypted traffic between an Azure virtual network and on-premises locations over the public Internet using one of the following types of connections:
 
   * **Site-to-site connection:** A cross-premises IPsec/IKE VPN tunnel connection between the VPN gateway and an on-premises VPN device.
 
   * **Point-to-site connection:** VPN over OpenVPN, IKEv2, or SSTP. This type of connection lets you connect to your virtual network from a remote location, such as from a conference or from home.
 
-* Send encrypted traffic between virtual networks. You can do this by using the following types of connections:
+* Send encrypted traffic between Azure virtual networks using the following types of connections:
 
   * **VNet-to-VNet:** An IPsec/IKE VPN tunnel connection between the VPN gateway and another Azure VPN gateway that uses a *VNet-to-VNet* connection type. This connection type is designed specifically for VNet-to-VNet connections.
 
   * **Site-to-site connection:** An IPsec/IKE VPN tunnel connection between the VPN gateway and another Azure VPN gateway. This type of connection, when used in the VNet-to-VNet architecture, uses the *Site-to-site (IPsec)* connection type, which allows cross-premises connections to the gateway in addition connections between VPN gateways.
 
-* Configure a site-to-site VPN as a secure failover path for [ExpressRoute](../expressroute/expressroute-introduction.md). You can do this by using:
+* Configure a site-to-site VPN as a secure failover path for [ExpressRoute](../expressroute/expressroute-introduction.md) using:
 
   * **ExpressRoute + VPN Gateway:** A combination of ExpressRoute + VPN Gateway connections (coexisting connections).
 
-* Use site-to-site VPNs to connect to sites that aren't connected through [ExpressRoute](../expressroute/expressroute-introduction.md). You can do this with:
+* Use site-to-site VPNs to connect to sites that aren't connected through [ExpressRoute](../expressroute/expressroute-introduction.md) using:
 
   * **ExpressRoute + VPN Gateway:** A combination of ExpressRoute + VPN Gateway connections (coexisting connections).
 
@@ -56,13 +59,13 @@ The following table can help you decide the best connectivity option for your so
 
 ### <a name="availability"></a>Availability Zones
 
-VPN gateways can be deployed in Azure Availability Zones. This brings resiliency, scalability, and higher availability to virtual network gateways. Deploying gateways in Azure Availability Zones physically and logically separates gateways within a region, while protecting your on-premises network connectivity to Azure from zone-level failures. See [About zone-redundant virtual network gateways in Azure Availability Zones](about-zone-redundant-vnet-gateways.md).
+VPN gateways can be deployed in Azure Availability Zones. Availability zone deployments bring resiliency, scalability, and higher availability to virtual network gateways. Deploying gateways in Azure Availability Zones physically and logically separates gateways within a region, while protecting your on-premises network connectivity to Azure from zone-level failures. See [About zone-redundant virtual network gateways in Azure Availability Zones](about-zone-redundant-vnet-gateways.md).
 
 ## <a name="configuring"></a>Configuring VPN Gateway
 
 A VPN gateway connection relies on multiple resources that are configured with specific settings. In some cases, resources must be configured in a certain order. The settings that you chose for each resource are critical to creating a successful connection.
 
-For information about individual resources and settings for VPN Gateway, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md) and [About gateway SKUs](about-gateway-skus.md). These articles contain information to help you understand gateway types, gateway SKUs, VPN types, connection types, gateway subnets, local network gateways, and various other resource settings that you might want to consider.
+For information about individual resources and settings for VPN Gateway, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md) and [About gateway SKUs](about-gateway-skus.md). 
 
 For design diagrams and links to configuration articles, see the [VPN Gateway topology and design](design.md) article.
 
@@ -81,7 +84,7 @@ You pay for two things: the hourly compute costs for the virtual network gateway
 
 **Data transfer costs**<br>Data transfer costs are calculated based on egress traffic from the source virtual network gateway.
 
-* If you're sending traffic to your on-premises VPN device, it will be charged with the Internet egress data transfer rate.
+* If you're sending traffic to your on-premises VPN device, the charges areas per the Internet egress data transfer rate.
 * If you're sending traffic between virtual networks in different regions, the pricing is based on the region.
 * If you're sending traffic only between virtual networks that are in the same region, there are no data costs. Traffic between VNets in the same region is free.
 

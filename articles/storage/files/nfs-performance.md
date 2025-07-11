@@ -7,6 +7,7 @@ ms.custom: linux-related-content
 ms.topic: concept-article
 ms.date: 05/09/2024
 ms.author: kendownie
+# Customer intent: "As a system administrator managing NFS Azure file shares, I want to optimize performance using features like read-ahead and nconnect, so that I can enhance throughput and reduce costs while efficiently handling large-scale workloads."
 ---
 
 # Improve performance for NFS Azure file shares

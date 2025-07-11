@@ -7,6 +7,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 12/23/2024
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to configure replication for Azure VMs with customer-managed key enabled disks, so that I can ensure data protection and disaster recovery across regions."
 ---
 
 # Replicate machines with Customer-Managed Keys (CMK) enabled disks

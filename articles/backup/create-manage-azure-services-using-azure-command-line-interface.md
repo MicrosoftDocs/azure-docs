@@ -6,6 +6,7 @@ ms.custom: devx-track-azurecli
 ms.date: 07/30/2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to use the command line to automate the creation and management of Azure Backup services, so that I can streamline my backup and recovery processes efficiently.
 ---
 
 # Create and manage Azure Backup services using Azure CLI

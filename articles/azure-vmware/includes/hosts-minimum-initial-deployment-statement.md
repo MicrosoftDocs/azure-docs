@@ -7,6 +7,7 @@ ms.date: 4/2/2025
 author: suzizuber
 ms.author: v-szuber
 ms.custom: engagement-fy23
+# Customer intent: As a cloud administrator, I want to deploy a minimum of three hosts in a vSAN cluster, so that I can ensure basic high availability and support the configuration of the Azure VMware Solution effectively.
 ---
 
 <!-- Used in plan-private-cloud-deployment.md and concepts-private-clouds-clusters.md -->

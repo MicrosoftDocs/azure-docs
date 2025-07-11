@@ -7,6 +7,7 @@ ms.custom: references_regions, devx-track-azurepowershell
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a backup administrator, I want to view out-of-the-box reports for Azure Backup, so that I can monitor and optimize my backup operations effectively.
 ---
 # View out-of-box reports for Azure Backup
 

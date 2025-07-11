@@ -10,6 +10,7 @@ ms.date: 07/22/2024
 
 #customer intent: As a network administrator, I want to change the MTU for my Linux or Windows virtual machine so that I can optimize network performance.
 
+# Customer intent: As a network administrator, I want to configure the MTU size for my virtual machines in the cloud environment, so that I can enhance network performance and minimize packet fragmentation.
 ---
 
 # Configure Maximum Transmission Unit (MTU) for virtual machines in Azure

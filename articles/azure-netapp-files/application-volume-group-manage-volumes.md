@@ -9,6 +9,7 @@ ms.date: 05/14/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
+# Customer intent: As a storage administrator, I want to manage volumes within an application volume group, so that I can resize, delete, or adjust throughput effectively to optimize performance and storage usage for my SAP HANA environment.
 ---
 # Manage volumes in an application volume group for SAP HANA
 

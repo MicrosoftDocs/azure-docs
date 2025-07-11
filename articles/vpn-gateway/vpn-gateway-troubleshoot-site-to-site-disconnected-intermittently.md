@@ -7,6 +7,7 @@ ms.service: azure-vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/31/2025
 ms.author: genli
+# Customer intent: As a network administrator, I want to troubleshoot Azure Site-to-Site VPN connection issues, so that I can ensure stable connectivity and minimize disruptions for users.
 ---
 
 # Troubleshooting: Azure Site-to-Site VPN disconnects intermittently

@@ -7,6 +7,7 @@ ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 05/09/2023
 ms.author: duau
+# Customer intent: "As an IT administrator managing network security, I want to utilize Policy Analytics for Azure Firewall, so that I can optimize and automate firewall rules and policies, reducing the risks of misconfiguration and enhancing the security posture of the organization."
 ---
 
 # Azure Firewall Policy Analytics

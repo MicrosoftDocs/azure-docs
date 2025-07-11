@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 04/07/2025
 ms.author: anfdocs
+# Customer intent: As a cloud administrator, I want to restore a backup to a new volume in Azure NetApp Files, so that I can recover data without affecting existing volumes while ensuring proper capacity and protocol settings are maintained.
 ---
 # Restore a backup to a new volume
 

@@ -8,6 +8,7 @@ ms.service: azure-blob-storage
 ms.date: 06/13/2025
 ms.topic: concept-article
 ms.author: normesta
+# Customer intent: As a data administrator, I want to estimate the costs associated with moving data from archive storage to hot storage, so that I can manage my budget and ensure compliance with storage policies.
 ---
 
 # Cost estimate: Move data out of archive storage 

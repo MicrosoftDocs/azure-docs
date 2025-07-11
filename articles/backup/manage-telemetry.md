@@ -5,6 +5,7 @@ ms.date:  06/12/2025
 ms.topic: how-to
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an IT administrator, I want to manage telemetry settings in my backup server, so that I can control the data sharing preferences for diagnostics and usage information sent to Microsoft.
 ---
 
 # Manage telemetry settings in Microsoft Azure Backup Server

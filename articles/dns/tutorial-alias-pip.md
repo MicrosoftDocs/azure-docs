@@ -9,6 +9,7 @@ ms.date: 11/30/2023
 ms.author: allensu
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 #Customer intent: As an experienced network administrator, I want to configure Azure an DNS alias record to refer to an Azure public IP address.
+# Customer intent: As an experienced network administrator, I want to create an alias record in Azure DNS for a public IP address, so that I can easily manage and reference Azure resources using user-friendly domain names.
 ---
 
 # Tutorial: Create an alias record to refer to an Azure public IP address 

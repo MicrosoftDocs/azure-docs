@@ -2,11 +2,12 @@
 title: Manage Backup vaults
 description: Learn how to manage the Backup vaults.
 ms.topic: how-to
-ms.date: 05/20/2025
+ms.date: 06/23/2025
 ms.custom: references_regions
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to effectively manage Backup vaults in Azure, so that I can ensure secure storage and efficient recovery of backup data across different regions and subscriptions."
 ---
 # Manage Backup vaults
 
@@ -196,6 +197,7 @@ You can also select the state of CSR  during the creation of Backup vault.
 You can configure and manage azure monitor based alerts from the **Alerts** pane in the **Backup vault**. [Learn more](backup-azure-monitoring-alerts.md).
 
 
-## Next steps
+## Related content
 
+- [Create a Backup vault using REST API](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md).
 - [Configure backup on Azure PostgreSQL databases](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases)

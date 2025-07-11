@@ -9,6 +9,7 @@ ms.date: 02/28/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to create a backup policy for Azure Database for PostgreSQL Flexible Server using CLI commands, so that I can ensure data protection and establish a reliable recovery plan for my database.
 ---
 
 #  Quickstart: Create a backup policy for Azure Database for PostgreSQL - Flexible Server using Azure CLI

@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 08/08/2024
 ms.author: allensu
 ms.custom: template-how-to
+# Customer intent: "As a network administrator, I want to configure Traffic Manager to route user traffic based on specific subnets, so that I can ensure requests are directed to the appropriate internal or production endpoints according to their IP origin."
 ---
 
 # Direct traffic to specific endpoints based on user subnet using Traffic Manager

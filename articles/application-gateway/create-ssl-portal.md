@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 06/30/2022
 ms.author: mbender
 #Customer intent: As an IT administrator, I want to use the Azure portal to configure Application Gateway with TLS termination so I can secure my application traffic.
+# Customer intent: As an IT administrator, I want to configure an application gateway with TLS termination using the Azure portal, so that I can secure application traffic and enhance the security of my web services.
 ---
 
 # Tutorial: Configure an Application Gateway with TLS termination using the Azure portal

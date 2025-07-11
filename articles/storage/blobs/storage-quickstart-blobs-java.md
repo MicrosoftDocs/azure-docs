@@ -9,6 +9,7 @@ ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: java
 zone_pivot_groups: azure-blob-storage-quickstart-options
+# Customer intent: As a Java developer, I want to implement a Blob Storage application using the Azure Blob Storage client library, so that I can manage blobs and containers effectively for my projects.
 ---
 
 # Quickstart: Azure Blob Storage client library for Java SE

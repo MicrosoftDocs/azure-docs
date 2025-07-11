@@ -7,6 +7,7 @@ ms.topic: troubleshooting
 ms.date: 08/21/2024
 ms.author: jsuri
 
+# Customer intent: As a cloud operations manager, I want to troubleshoot replication issues of VMware VMs and physical servers to Azure, so that I can ensure consistent disaster recovery performance and maintain business continuity.
 ---
 
 # Troubleshoot replication issues for VMware VMs and physical servers

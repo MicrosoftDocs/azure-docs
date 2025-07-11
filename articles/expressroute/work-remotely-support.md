@@ -7,6 +7,7 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 12/28/2023
 ms.author: duau
+# Customer intent: As an IT manager, I want to implement Azure ExpressRoute for remote user connectivity, so that I can ensure secure and reliable access to our infrastructure without the complications of public Internet limitations.
 ---
 
 # Using Azure ExpressRoute to create hybrid connectivity to support remote users

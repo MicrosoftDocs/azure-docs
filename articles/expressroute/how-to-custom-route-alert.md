@@ -8,6 +8,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 12/28/2023
 ms.author: duau
+# Customer intent: "As a network administrator, I want to configure custom alerts for advertised routes in ExpressRoute, so that I can proactively monitor and manage the number of network prefixes and avoid exceeding limits."
 ---
 
 # Configure custom alerts to monitor advertised routes

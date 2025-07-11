@@ -9,6 +9,7 @@ ms.service: azure-virtual-network
 ms.topic: quickstart
 ms.date: 05/12/2025
 ms.custom: mode-api, devx-track-terraform 
+# Customer intent: As a cloud engineer, I want to create and configure public IP addresses using Terraform, so that I can facilitate public connections to Azure resources with the appropriate routing preferences and tiers for my applications.
 ---
 
 # Quickstart: Create a public IP address using Terraform

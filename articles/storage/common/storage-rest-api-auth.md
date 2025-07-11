@@ -13,6 +13,7 @@ ms.reviewer: ozge
 ms.subservice: storage-common-concepts
 ms.devlang: csharp
 ms.custom: devx-track-csharp
+# Customer intent: "As a developer, I want to call Azure Storage REST API operations using Shared Key authorization, so that I can securely manage and retrieve storage resources programmatically."
 ---
 
 # Call REST API operations with Shared Key authorization
