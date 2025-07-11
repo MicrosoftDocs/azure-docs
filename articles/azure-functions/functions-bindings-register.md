@@ -31,7 +31,7 @@ In the unlikely event that you can't use an extension bundle, you must instead e
 
 ::: zone-end
 
-## <a name = "explicitly-install-extensions"></a>Explicitly installing extensions
+## Explicitly install extensions
 ::: zone pivot="programming-language-csharp"  
 For projects that use a compiled C# class library, you install the NuGet packages for the extensions that you need as you normally would in your apps. For more information, see the [Visual Studio Code developer guide](functions-develop-vs-code.md?tabs=csharp#install-binding-extensions) or the [Visual Studio developer guide](functions-develop-vs.md#add-bindings).
 
@@ -63,7 +63,7 @@ To manually install binding extensions:
 As soon as possible, you should [switch your app back to using the latest supported extension bundle](./extension-bundles.md#defining-an-extension-bundle-reference).
 ::: zone-end
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Azure Functions trigger and binding example](./functions-bindings-example.md)

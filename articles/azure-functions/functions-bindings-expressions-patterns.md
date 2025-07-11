@@ -18,7 +18,7 @@ Most expressions are wrapped in curly braces. For example, in a queue trigger fu
 
 It's a best practice to manage secrets and connection strings by using app settings rather than configuration files. This practice limits access to these secrets and makes it safe to store files such as `function.json` in public source-control repositories.
 
-App settings are also useful whenever you want to change configuration based on the environment. For example, in a test environment, you might want to monitor a different container for queue storage or blob storage.
+App settings are also useful whenever you want to change a configuration based on the environment. For example, in a test environment, you might want to monitor a different container for queue storage or blob storage.
 
 Binding expressions for app settings are identified differently from other binding expressions: they're wrapped in percent signs rather than curly braces. For example, if the path for a blob output binding is `%Environment%/newblob.txt` and the `Environment` app setting value is `Development`, a blob is created in the `Development` container.
 

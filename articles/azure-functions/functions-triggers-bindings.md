@@ -20,7 +20,7 @@ You can mix and match bindings to suit your function's specific scenario. Bindin
 
 Triggers and bindings let you avoid hardcoding access to other services. Your function receives data (for example, the content of a queue message) in function parameters. You send data (for example, to create a queue message) by using the return value of the function.
 
-Consider the following examples of how you could implement functions.
+Consider the following examples of how you could implement functions:
 
 | Example scenario | Trigger | Input binding | Output binding |
 |-------------|---------|---------------|----------------|
@@ -39,7 +39,7 @@ These examples aren't meant to be exhaustive, but they illustrate how you can us
 
 Not all services support both input and output bindings. See your specific binding extension for [specific code examples for bindings](#bindings-code-examples).
 
-Triggers and bindings are defined differently depending on the development language. Make sure to select your language at the [top](#top) of the article.
+Triggers and bindings are defined differently depending on the development language. Make sure to select your language at the [top](#top) of this article.
 
 Trigger and binding names are limited to alphanumeric characters and `_`, the underscore.
 
@@ -54,7 +54,7 @@ The HTTP trigger (`HttpTrigger`) is defined on the `Run` method for a function n
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-isolated/HttpExample.cs" range="11-14":::
 
-This example shows the `MultiResponse` object definition. The object definition returns `HttpResponse` to the HTTP request and writes a message to a storage queue by using a `QueueOutput` binding.
+This example shows the `MultiResponse` object definition. The object definition returns `HttpResponse` to the HTTP request and writes a message to a storage queue by using a `QueueOutput` binding:
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-isolated/HttpExample.cs" range="33-38":::
 
@@ -96,7 +96,7 @@ In Node.js for Azure Functions version 3, you configure triggers and bindings in
 
 ::: zone-end
 
-The following example is an HTTP-triggered function that creates a queue item for each received HTTP request.
+This example is an HTTP-triggered function that creates a queue item for each received HTTP request:
 
 ::: zone pivot="programming-language-javascript"
 ### [v4](#tab/node-v4)
