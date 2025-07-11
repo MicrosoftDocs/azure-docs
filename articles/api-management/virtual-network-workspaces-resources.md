@@ -63,17 +63,32 @@ For virtual network injection, the subnet needs to be delegated to the **Microso
 > [!NOTE]
 > You might need to register the `Microsoft.Web/hostingEnvironments` resource provider in the subscription so that you can delegate the subnet to the service.
 
----
-
-
 ## Network security group
 
+#### [Virtual network integration](#tab/external)
+
 [!INCLUDE [api-management-virtual-network-v2-nsg-rules](../../includes/api-management-virtual-network-v2-nsg-rules.md)]
+
+
+#### [Virtual network injection](#tab/internal)
+
+A network security group (NSG) must be associated with the subnet. To set up a network security group, see [Create a network security group](../articles/virtual-network/manage-network-security-group.md). 
+
+* Configure the following rules in the NSG. Set the priority of these rules higher than that of the default rules.
+* Configure other outbound rules you need for the gateway to reach your API backends. 
+* Configure other NSG rules to meet your organization’s network access requirements. For example, NSG rules can also be used to block outbound traffic to the internet and allow access only to resources in your virtual network. 
+
+| Direction | Source  | Source port ranges | Destination | Destination port ranges | Protocol |  Action | Purpose | 
+|-------|--------------|----------|---------|------------|-----------|-----|--------|
+| Inbound | AzureLoadBalancer | * | Workspace gateway subnet range  | 80 | TCP | Allow | Allow internal health ping traffic |
+| Inbound | VirtualNetwork | * | Workspace gateway subnet range  | 80,443 | TCP | Allow | Allow inbound traffic |
+| Outbound | VirtualNetwork | * | Storage | 443 | TCP | Allow | Dependency on Azure Storage |
+
+---
 
 > [!IMPORTANT]
 > * Inbound NSG rules do not apply when you integrate a workspace gateway in a virtual network for private outbound access. To enforce inbound NSG rules, use virtual network injection instead of integration.
 > * This differs from networking in the classic Premium tier, where inbound NSG rules are enforced in both external and internal virtual network injection modes. [Learn more](virtual-network-injection-resources.md)
-
 
 ## DNS settings for virtual network injection
 
