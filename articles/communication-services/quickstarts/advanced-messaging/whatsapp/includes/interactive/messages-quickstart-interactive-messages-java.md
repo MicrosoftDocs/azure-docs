@@ -102,7 +102,7 @@ InteractiveMessage interactiveMessage = new InteractiveMessage(
 interactiveMessage.setFooter(new TextMessageContent("Logistic Ltd"));
 interactiveMessage.setHeader(new TextMessageContent("Shipping Options"));
 
-InteractiveNotificationContent interactiveMessageContent new InteractiveNotificationContent("<CHANNEL_ID>", recipients, interactiveMessage);
+InteractiveNotificationContent interactiveMessageContent = new InteractiveNotificationContent("<CHANNEL_ID>", recipients, interactiveMessage);
 
 // Send an interactive message
 SendMessageResult textMessageResult = notificationClient.send(interactiveMessageContent);
@@ -134,7 +134,7 @@ buttonActions.add(new ButtonContent("yes",  "Yes"));
 ButtonSetContent buttonSet = new ButtonSetContent(buttonActions);
 InteractiveMessage interactiveMessage = new InteractiveMessage(new TextMessageContent("Do you want to proceed?"), new WhatsAppButtonActionBindings(buttonSet));
 
-InteractiveNotificationContent interactiveMessageContent new InteractiveNotificationContent("<CHANNEL_ID>", recipients, interactiveMessage);
+InteractiveNotificationContent interactiveMessageContent = new InteractiveNotificationContent("<CHANNEL_ID>", recipients, interactiveMessage);
 
 // Send an interactive message
 SendMessageResult textMessageResult = notificationClient.send(interactiveMessageContent);
@@ -159,12 +159,12 @@ The Messages SDK enables Contoso to send interactive WhatsApp messages, when ini
 In this example, the business sends a click to a link message to the user.
 
 ```java
-LinkContent urlAction = new LinkContent("Click here to find out", "https://wallpapercave.com/wp/wp2163723.jpg");
+LinkContent urlAction = new LinkContent("Find out more", "https://wallpapercave.com/wp/wp2163723.jpg");
 InteractiveMessage interactiveMessage = new InteractiveMessage(
     new TextMessageContent("The best Guardian of Galaxy"), new WhatsAppUrlActionBindings(urlAction));
 interactiveMessage.setFooter(new TextMessageContent("Intergalactic New Ltd"));
 
-InteractiveNotificationContent interactiveMessageContent new InteractiveNotificationContent("<CHANNEL_ID>", recipients, interactiveMessage);
+InteractiveNotificationContent interactiveMessageContent = new InteractiveNotificationContent("<CHANNEL_ID>", recipients, interactiveMessage);
 
 // Send an interactive message
 SendMessageResult textMessageResult = notificationClient.send(interactiveMessageContent);
