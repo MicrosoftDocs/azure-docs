@@ -11,6 +11,7 @@ ms.date: 07/20/2023
 ms.author: shaas
 ms.reviewer: artek
 ms.subservice: storage-common-concepts
+# Customer intent: As a cloud storage administrator, I want to check the Last Sync Time property for a geo-replicated storage account so that I can assess data consistency and evaluate potential data loss during an outage.
 ---
 
 # Check the Last Sync Time property for a storage account

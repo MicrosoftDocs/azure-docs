@@ -8,6 +8,7 @@ ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 05/09/2025
 ms.custom: vmware-scenario-422, engagement-fy23
+# Customer intent: "As a cloud architect, I want to automate the migration of multiple VMware VMs to Azure using scripts, so that I can efficiently scale the migration process and minimize manual intervention."
 ---
 
 

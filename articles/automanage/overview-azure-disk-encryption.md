@@ -7,6 +7,7 @@ ms.topic: overview
 ms.date: 9/07/2022
 ms.author: memccror
 ms.custom: references_regions
+# Customer intent: "As an IT administrator managing Azure virtual machines, I want to enable Azure Disk Encryption within an Automanage configuration, so that I can simplify compliance and enhance security without extensive manual configuration."
 ---
 
 # Automanage and Azure Disk Encryption

@@ -6,6 +6,7 @@ ms.topic: reference
 ms.custom: engagement-fy24
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an IT administrator managing backups, I want to understand the support matrix for the MARS agent, so that I can ensure proper backup configuration and compliance with our data protection requirements.
 ---
 
 # Support matrix for backup with the Microsoft Azure Recovery Services (MARS) agent

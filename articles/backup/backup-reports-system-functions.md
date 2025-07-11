@@ -6,6 +6,7 @@ ms.topic: reference
 ms.date: 09/11/2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a data analyst, I want to utilize system functions for querying Azure Backup logs, so that I can generate custom reports and trends with minimal complexity and maintain compatibility with future schema changes.
 ---
 
 # System Functions for Azure Backup

@@ -7,6 +7,7 @@ ms.custom: references_regions, ignite-2024
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to understand the backup support matrix for Azure Database for PostgreSQL - Flexible Server so that I can effectively manage backup operations and ensure compliance with backup limitations and scenarios.
 ---
 
 # Support matrix for Azure Database for PostgreSQL- Flexible Server

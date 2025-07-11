@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article introduces you to different Azure tools and features to enable you to allocate costs effectively and efficiently.
 author: sdoultani
 ms.author: sadoulta
-ms.date: 01/07/2025
+ms.date: 06/27/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management

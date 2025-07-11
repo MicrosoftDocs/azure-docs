@@ -8,6 +8,7 @@ ms.custom: devx-track-terraform
 ms.topic: how-to
 ms.date: 03/20/2024
 ms.author: anfdocs
+# Customer intent: As a cloud engineer, I want to update Terraform-managed Azure resources safely, so that I can prevent data loss while modifying essential features outside of Terraform.
 ---
 # Update Terraform-managed Azure resources outside of Terraform
 

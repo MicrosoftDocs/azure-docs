@@ -17,6 +17,12 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 
 ## What's new in 2025
 
+### 2025 quarter 3 (July, August, September)
+
+#### Azure File Sync Agent now available via Azure Arc extension
+
+Windows servers connected through Azure Arc can now install the Azure File Sync agent using a new extension called Azure File Sync Agent for Windows. The new extension is published by Microsoft and can be managed using the Azure Portal, PowerShell, or Azure CLI. To learn more, see the [Azure File Sync agent extension documentation](../file-sync/file-sync-extension.md).
+
 ### 2025 quarter 2 (April, May, June)
 
 #### Encryption in Transit (EiT) for NFS file shares is now generally available
@@ -172,7 +178,7 @@ Azure File Sync is now a zone-redundant service, which means an outage in a zone
 
 ### 2022 quarter 4 (October, November, December)
 #### Azure Active Directory (Azure AD) Kerberos authentication for hybrid identities on Azure Files is generally available
-This [feature](storage-files-identity-auth-hybrid-identities-enable.md) builds on top of [FSLogix profile container support](../../virtual-desktop/create-profile-container-azure-ad.yml) released in December 2022 and expands it to support more use cases (SMB only). Hybrid identities, which are user identities created in Active Directory Domain Services (AD DS) and synced to Azure AD, can mount and access Azure file shares without the need for network connectivity to an Active Directory domain controller. While the initial support is limited to hybrid identities, it's a significant milestone as we simplify identity-based authentication for Azure Files customers. [Read the blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/general-availability-azure-active-directory-kerberos-with-azure/ba-p/3612111).
+This [feature](storage-files-identity-auth-hybrid-identities-enable.md) builds on top of [FSLogix profile container support](/azure/virtual-desktop/create-profile-container-azure-ad) released in December 2022 and expands it to support more use cases (SMB only). Hybrid identities, which are user identities created in Active Directory Domain Services (AD DS) and synced to Azure AD, can mount and access Azure file shares without the need for network connectivity to an Active Directory domain controller. While the initial support is limited to hybrid identities, it's a significant milestone as we simplify identity-based authentication for Azure Files customers. [Read the blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/general-availability-azure-active-directory-kerberos-with-azure/ba-p/3612111).
 
 ### 2022 quarter 2 (April, May, June)
 #### SUSE Linux support for SAP HANA System Replication (HSR) and Pacemaker

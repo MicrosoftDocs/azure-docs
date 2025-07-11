@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 08/05/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: "As a .NET developer, I want to list blob containers in my Azure Storage account, so that I can manage and retrieve container information efficiently based on specific options like prefixes and pagination."
 ---
 
 # List blob containers with .NET

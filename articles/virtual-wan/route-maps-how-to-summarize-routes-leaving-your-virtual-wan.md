@@ -46,7 +46,7 @@ Here's the addressing for this environment:
 
 ## Scenario: Summarize routes leaving your virtual WAN 
 
-In this scenario, a Route-map will summarize the routes being advertised to the VPN branch 2 site. In this example we'll be taking the routes 10.122.1.0/24, 10.122.2.0/24, 10.122.3.0/24 from VPN Brach 1 and summarizing them to 10.122.0.0/16 
+In this scenario, a Route-map will summarize the routes being advertised to the VPN branch 2 site. In this example we'll be taking the routes 10.122.1.0/24, 10.122.2.0/24, 10.122.3.0/24 from VPN Branch 1 and summarizing them to 10.122.0.0/16. 
 
 :::image type="content" source="./media/route-maps-how-to-summarize/sum.png" alt-text="Screenshot to show the scenario." lightbox="./media/route-maps-how-to-summarize/sum.png":::
 

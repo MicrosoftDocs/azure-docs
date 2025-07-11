@@ -7,6 +7,7 @@ ms.custom:
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to implement private endpoints for Azure Backup so that I can enhance the security of my backup operations and ensure that all data traffic remains within my virtual network.
 ---
 
 # Overview and concepts of private endpoints (v1 experience) for Azure Backup
