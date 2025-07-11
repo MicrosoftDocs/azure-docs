@@ -157,16 +157,17 @@ To deploy a new zone-redundant App Service plan, you must use the [Premium v2-4 
 
 ::: zone pivot="isolated"
 
-- **Create a new App Service plan with zone redundancy.**  To learn how to create a new App Service plan with zone redundancy, see [Create a new App Service Environment plan with zone redundancy](../app-service/configure-reliability-ase.md#create-a-new-app-service-environment-plan-with-zone-redundancy).
+- **Create a new App Service plan with zone redundancy.**  To learn how to create a new Isolated v2 App Service plan with zone redundancy, see [Create a new Isolated v2 App Service plan with zone redundancy](../app-service/environment/configure-reliability-ase.md#create-a-new-isolated-v2-app-service-plan-with-zone-redundancy).
 
-- **Enable or disable an existing App Service plan to zone-redundancy.** To enable zone redundancy on an Isolated v2 App Service plan, see [Enable or disable an existing App Service Environments plan to zone redundancy](../app-service/configure-reliability-ase.md#enable-or-disable-zone-redundancy-for-an-existing-app-service-plan).
+- **Enable or disable an existing App Service plan to zone-redundancy.** For Isolated v2 App Service plans, if the App Service Environment is zone redundant, the App Service plans can also be set as zone redundant. However, each App Service plan has its own independent zone redundancy setting, which means that you can have a mix of zone redundant and non-zone redundant plans in an App Service Environment.
+
+To enable zone redundancy on an Isolated v2 App Service plan, see [Enable or disable an existing App Service Environments plan to zone redundancy](../app-service/environment/configure-reliability-ase.md#set-zone-redundancy-for-an-existing-isolated-v2-app-service-plan).
 
 
-    > [!NOTE]
-    > When you change the zone redundancy status of the App Service Environment, you initiate an upgrade that takes 12-24 hours to complete. During the upgrade process, you don't experience any downtime or performance problems.
+> [!NOTE]
+> When you change the zone redundancy status of the App Service Environment, you initiate an upgrade that takes 12-24 hours to complete. During the upgrade process, you don't experience any downtime or performance problems.
 
-    For Isolated v2 App Service plans, if the App Service Environment is zone redundant, the App Service plans can also be set as zone redundant. Each App Service plan has its own independent zone redundancy setting, which means that you can have a mix of zone redundant and non-zone redundant plans in an App Service Environment. 
-    
+
 ::: zone-end
 
 ::: zone pivot="premium,isolated"
