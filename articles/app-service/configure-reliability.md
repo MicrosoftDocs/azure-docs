@@ -144,34 +144,33 @@ To get the maximum number of availability zones that your App Service plan can u
 
     The maximum number of zones that your App Service plan can use is shown in **Maximum available zones**. 
 
-    :::image type="content" source="./media/reliability-app-service/app-service-plan-max-zones-portal.png" alt-text="Screenshot of maximum available zones property in the Scale out blade in the Azure portal for an App Service plan.":::
+    :::image type="content" source="./media/configure-reliability/app-service-plan-max-zones-portal.png" alt-text="Screenshot of maximum available zones property in the Scale out blade in the Azure portal for an App Service plan.":::
 
 # [Azure CLI](#tab/azurecli)
 
-    ```azurecli
-    az appservice plan show -n <app-service-plan-name> -g <resource-group-name> --query properties.maximumNumberOfZones
-    ```
+```azurecli
+az appservice plan show -n <app-service-plan-name> -g <resource-group-name> --query properties.maximumNumberOfZones
+```
     
 # [Bicep](#tab/bicep)
-    
-    <!-- Jordan: ChatGPT inserted this. Please correct as needed. -->
-    
-    ```bicep
-    resource appService 'Microsoft.Web/sites@2024-04-01' existing = {
-        name: '{appName}'
-        resourceGroup: '{resourceGroup}'
-    }
-    
-    output physicalZones array = [for instance in appService.instances: instance.physicalZone]
-    
----
 
+<!-- Jordan: ChatGPT inserted this. Please correct as needed. -->
+
+```bicep
+resource appService 'Microsoft.Web/sites@2024-04-01' existing = {
+    name: '{appName}'
+    resourceGroup: '{resourceGroup}'
+}
+
+output physicalZones array = [for instance in appService.instances: instance.physicalZone]
+```
+---
 
 ### View physical zones for an App Service plan
 
 <!-- Jordan: Why would we want to see this? Just need a little blurb here. -->
 
-To view the [physical availability zone](availability-zones-overview.md#physical-and-logical-availability-zones) for an App Service plan, you can use the Azure portal, Azure CLI, or Bicep:
+To view the [physical availability zone](../reliability/availability-zones-overview.md#physical-and-logical-availability-zones) for an App Service plan, you can use the Azure portal, Azure CLI, or Bicep:
 
 # [Azure portal](#tab/portal)
 
@@ -181,23 +180,23 @@ To view the [physical availability zone](availability-zones-overview.md#physical
 
 1. Select the **Instances** tab to view the physical zone placement for each of your instances.
     
-    :::image type="content" source="./media/reliability-app-service/app-service-physical-zones.png" alt-text="Screenshot of the Instances tab in the Health Check blade with the physical zone information in the Azure portal for an App Service app.":::
+    :::image type="content" source="./media/configure-reliability/app-service-physical-zones.png" alt-text="Screenshot of the Instances tab in the Health Check blade with the physical zone information in the Azure portal for an App Service app.":::
 
-    # [Azure CLI](#tab/azurecli)
+# [Azure CLI](#tab/azurecli)
 
-    Use the [REST API](/rest/api/appservice/web-apps/get-instance-info), which returns the `physicalZone` value for each instance in the App Service plan:
+Use the [REST API](/rest/api/appservice/web-apps/get-instance-info), which returns the `physicalZone` value for each instance in the App Service plan:
 
-    ```azurecli
-    az rest --method get --url https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Web/sites/{appName}/instances?api-version=2024-04-01
-    ```
-    # [Bicep](#tab/bicep)
+```azurecli
+az rest --method get --url https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Web/sites/{appName}/instances?api-version=2024-04-01
+```
+# [Bicep](#tab/bicep)
 
-        ```bicep
-        resource appService 'Microsoft.Web/sites@2024-04-01' existing = {
-          name: '{appName}'
-          resourceGroup: '{resourceGroup}'
-        }
-    
-        output physicalZones array = [for instance in appService.instances: instance.physicalZone]
-        ```
+```bicep
+resource appService 'Microsoft.Web/sites@2024-04-01' existing = {
+    name: '{appName}'
+    resourceGroup: '{resourceGroup}'
+}
+
+output physicalZones array = [for instance in appService.instances: instance.physicalZone]
+```
 ---
