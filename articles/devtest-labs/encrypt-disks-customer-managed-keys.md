@@ -31,7 +31,7 @@ The following section shows how a lab owner can set up encryption with a custome
 - For labs created before 8/1/2020, the lab owner needs to ensure that lab system-assigned identity is enabled. To do so, the lab owner can go to the lab, select **Configuration and policies**, select **Identity (Preview)** in the left menu, change the system-assigned identity **Status** to **On**, and then select **Save**. For labs created after 8/1/2020, the system-assigned identity is enabled by default.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/managed-keys.png"alt-text="Screenshot that shows the steps for enabling system-assigned identity." lightbox="./media/encrypt-disks-customer-managed-keys/managed-keys.png":::
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/managed-keys.png" alt-text="Screenshot that shows the steps for enabling system-assigned identity." lightbox="./media/encrypt-disks-customer-managed-keys/managed-keys.png":::
 
 - For the lab to handle encryption for all lab disks, the lab owner needs to explicitly grant the lab's system-assigned identity reader role on the disk encryption set and the virtual machine contributor role on the underlying Azure subscription. The lab owner can do that by completing the following steps:
 
