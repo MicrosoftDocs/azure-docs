@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Network Fil
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 05/20/2025
+ms.date: 07/11/2025
 ms.author: kendownie
 ms.custom: references_regions
 ---
