@@ -213,17 +213,101 @@ To enable the Functions host to connect to the default storage account using sha
 
 At this point, the Functions host is able to connect to the storage account securely using managed identities instead of shared secrets. You can now deploy your project code to the Azure resources.
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
+::: zone-end
+::: zone pivot="programming-language-java"
+## Update the pom.xml file
+
+After you've successfully created your function app in Azure, you must update the pom.xml file. In this way, Maven can deploy to your new app instead of trying to create new Azure resources.
+
+1. In Azure Cloud Shell, use this [`az functionapp show`](/cli/azure/functionapp#az-functionapp-show) command to get the deployment container URL and ID of the new user-assigned managed identity:
+
+    ```azurecli
+    az functionapp show --name <APP_NAME> --resource-group AzureFunctionsQuickstart-rg  \
+        --query "{userAssignedIdentityResourceId: properties.functionAppConfig.deployment.storage.authentication.userAssignedIdentityResourceId, \
+        containerUrl: properties.functionAppConfig.deployment.storage.value}"
+    ```
+
+    In this example, replace `<APP_NAME>` with the names of your function app. 
+
+1. In the project root directory, open the pom.xml file in a text editor, locate the `properties` element and make updates to these specific values:
+
+    | Property name | Value |
+    | ---- | ---- |
+    |`java.version` | Use the same [supported language stack version](supported-languages.md) you verified locally, such as `17`. |
+    |`azure.functions.maven.plugin.version`| `1.37.1` |
+    |`azure.functions.java.library.version`| `3.1.0` |   
+    |`functionAppName`| The name of your function app in Azure. | 
+
+1. Find the `configuration` section of the `azure-functions-maven-plugin` and replace it with this XML fragment:
+
+    ```xml
+    <configuration>
+        <appName>${functionAppName}</appName>
+        <resourceGroup>AzureFunctionsQuickstart-rg</resourceGroup>
+<pricingTier>Flex Consumption</pricingTier>
+        <region>....</region>
+        <runtime>
+            <os>linux</os>
+            <javaVersion>${java.version}</javaVersion>
+        </runtime>
+        <deploymentStorageAccount>...</deploymentStorageAccount>
+        <deploymentStorageResourceGroup>AzureFunctionsQuickstart-rg</deploymentStorageResourceGroup>
+        <deploymentStorageContainer>...</deploymentStorageContainer>
+        <storageAuthenticationMethod>UserAssignedIdentity</storageAuthenticationMethod>
+        <userAssignedIdentityResourceId>...</userAssignedIdentityResourceId>
+        <appSettings>
+            <property>
+                <name>FUNCTIONS_EXTENSION_VERSION</name>
+                <value>~4</value>
+            </property>
+        </appSettings>
+    </configuration>
+    ```
+
+1. In the new `configuration` element, make these specific replacements of the elipses (`...`) values:  
+
+    | Configuration | Value |
+    | ---- | ---- |
+    |`region` | The region code of your existing function app, such as `eastus`. |
+    |`deploymentStorageAccount`| The name of your storage account. |
+    |`deploymentStorageContainer`| The name of the deployment share, which comes after the `\` in the `containerUrl` value you just obtained. |   
+    |`userAssignedIdentityResourceId`| The fully-qualified ID of your managed identity, which you just obtained. | 
+
+1. Save your changes to the _pom.xml_ file. 
+
+You can now use Maven to deploy your code project to your existing app.  
+
+## Deploy the function project to Azure
+
+1. From the command prompt, run this command:
+
+    ```console
+    mvn clean package azure-functions:deploy
+    ```
 
 ## Invoke the function on Azure
 
 Because your function uses an HTTP trigger and supports GET requests, you invoke it by making an HTTP request to its URL. It's easiest to do this in a browser.
 
-Copy the complete **Invoke URL** shown in the output of the publish command into a browser address bar. When you navigate to this URL, the browser should display similar output as when you ran the function locally.
+1. Use this [`az functionapp function show`](/cli/azure/functionapp/function#az-functionapp-function-show) to get the URL for the `HttpExample` function endpoint: 
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-java" 
-[!INCLUDE [functions-streaming-logs-cli-qs](../../includes/functions-streaming-logs-cli-qs.md)]
+    ```azurecli
+    az functionapp function show --name <APP_NAME> --resource-group "AzureFunctionsQuickstart-rg" \
+        --function-name HttpExample --query invokeUrlTemplate -o tsv
+    ```
+
+    In this example, replace `<APP_NAME>` with the names of your function app. 
+
+1. Copy and paste the returned endpoint URL in your browser address bar and run the function.    
 ::: zone-end
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
+## Invoke the function on Azure
+
+Because your function uses an HTTP trigger and supports GET requests, you invoke it by making an HTTP request to its URL. It's easiest to do this in a browser. Copy the complete **Invoke URL** shown in the output of the publish command into a browser address bar. When you navigate to this URL, the browser should display similar output as when you ran the function locally.
+::: zone-end
+
 [!INCLUDE [functions-cleanup-resources-cli](../../includes/functions-cleanup-resources-cli.md)]
 
 ## Next steps
