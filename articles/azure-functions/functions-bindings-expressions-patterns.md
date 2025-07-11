@@ -14,7 +14,7 @@ One of the most powerful features of [triggers and bindings](./functions-trigger
 
 Most expressions are wrapped in curly braces. For example, in a queue trigger function, `{queueTrigger}` resolves to the queue message text. If the `path` property for a blob output binding is `container/{queueTrigger}` and a queue message `HelloWorld` triggers the function, a blob named `HelloWorld` is created.
 
-<a name = binding-expressions---app-settings></a>## App settings
+## <a name = binding-expressions---app-settings></a>App settings
 
 It's a best practice to manage secrets and connection strings by using app settings rather than configuration files. This practice limits access to these secrets and makes it safe to store files such as `function.json` in public source-control repositories.
 

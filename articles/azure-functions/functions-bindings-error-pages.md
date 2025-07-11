@@ -39,7 +39,7 @@ To avoid loss of data or missed messages, you should practice good error handlin
 
 ## Retries
 
-There are two kinds of retries available for your functions:
+Two kinds of retries are available for your functions:
 
 - Built-in retry behaviors of individual trigger extensions
 - Retry policies that the Azure Functions runtime provides
@@ -62,7 +62,7 @@ The following table indicates which triggers support retries and where the retry
 
 ## Retry policies
 
-With Azure Functions, you can define retry policies for specific trigger types. The runtime enforces these retry policies. These trigger types currently support retry policies:
+With Azure Functions, you can define retry policies for specific trigger types. The runtime enforces these retry policies. The following trigger types currently support retry policies:
 
 - [Azure Cosmos DB](./functions-bindings-cosmosdb-v2-trigger.md)
 - [Event Hubs](./functions-bindings-event-hubs-trigger.md)
@@ -205,7 +205,7 @@ You can set these properties on retry policy definitions:
 ::: zone-end  
 
 ::: zone pivot="programming-language-javascript"
-The way you define the retry policy for the trigger depends on your Node.js version:
+The way that you define the retry policy for the trigger depends on your Node.js version:
 
 #### [Node.js v4](#tab/node-v4)
 
@@ -224,7 +224,7 @@ Here's an example of a fixed-delay retry policy defined in the `function.json` f
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript"  
-The way you define the retry policy for the trigger depends on your Node.js version.
+The way that you define the retry policy for the trigger depends on your Node.js version:
 
 #### [Node.js v4](#tab/node-v4)
 

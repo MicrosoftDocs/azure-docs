@@ -27,7 +27,7 @@ You define an extension bundle reference in the `host.json` project file by addi
 
 ## Supported extension bundles
 
-This table lists all `Microsoft.Azure.Functions.ExtensionBundle` bundle versions and the current [support state](#support-policy).
+This table lists all `Microsoft.Azure.Functions.ExtensionBundle` bundle versions and the current [support state](#support-policy):
 
 | Bundle version | Version in host.json | Support state | End-of-support date |
 | --- | --- | --- | --- |
@@ -44,11 +44,11 @@ Keep these considerations in mind when you work with extension bundles:
 
 - When possible, you should set a `version` range value in `host.json` from the preceding table, such as `[4.0.0, 5.0.0)`, instead of defining a custom range.
 - Use the latest version range to obtain optimal app performance and access to the latest features.
-- In the unlikely event that you can't use an extension bundle, you must instead [explicitly install extensions](./functions-bindings-register.md#explicitly-installing-extensions).
+- In the unlikely event that you can't use an extension bundle, you must instead [explicitly install extensions](./functions-bindings-register.md#explicitly-install-extensions).
 
 ## Previewing extension bundles
 
-Prerelease versions of specific binding extensions are maintained in a preview extension bundle. The preview extension bundle (`Microsoft.Azure.Functions.ExtensionBundle.Preview`) allows you to take advantage of preview extensions and new behaviors in existing extensions before they reach general availability (GA).
+Prerelease versions of specific binding extensions are maintained in a preview extension bundle: `Microsoft.Azure.Functions.ExtensionBundle.Preview`. You can use this preview extension bundle to take advantage of preview extensions and new behaviors in existing extensions before they reach general availability (GA).
 
 Keep these considerations in mind when you choose to use a non-GA extension bundle:
 
@@ -62,10 +62,10 @@ Keep these considerations in mind when you choose to use a non-GA extension bund
   - Pin your bundle to a specific, well-tested bundle version instead of to a range. Pinning prevents automatic upgrading of your bundle version before you have a chance to verify the update in a nonproduction environment.
   - Move your app to using a GA bundle version as soon as the functionality becomes available in a fully supported bundle release.
 - To stay informed about bundle updates, including moving from preview to GA, you should:
-  - Monitor preview bundle version releases on the [release page for extension bundles](https://github.com/Azure/azure-functions-extension-bundles/releases).
+  - Monitor releases of preview bundle versions on the [release page for extension bundles](https://github.com/Azure/azure-functions-extension-bundles/releases).
   - Monitor [extension-specific reference documentation](./functions-triggers-bindings.md).
   - Review the NuGet package versions of specific preview extensions that you're using.
-  - Track significant updates or changes on the change logs published on NuGet.org for each preview extension.
+  - Track significant updates or changes in the change logs published on NuGet.org for each preview extension.
 
 ## Support policy
 
