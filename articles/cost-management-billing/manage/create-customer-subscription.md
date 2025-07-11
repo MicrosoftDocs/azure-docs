@@ -43,7 +43,6 @@ Partners with a Microsoft Partner Agreement use the following steps to create a 
     :::image type="content" source="./media/create-customer-subscription/all-billing-subscriptions-add.png" alt-text="Screenshot showing navigation to Add where you create a customer subscription." lightbox="./media/create-customer-subscription/all-billing-subscriptions-add.png" :::
 1. On the Basics tab, enter a subscription name.
 1. Select the partner's billing account.
-1. Select the partner's billing profile.
 1. Select the customer that you're creating the subscription for.
 1. If applicable, select a reseller.
 1. Next to **Plan**, select **Microsoft Azure Plan**.  
