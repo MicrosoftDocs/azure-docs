@@ -36,7 +36,7 @@ Follow the guidance in [Create an App Service plan](../app-service-plan-manage.m
 
 <!-- Jordan: We need a good screenshot showing Environment and correct pricing tier. -->
 
-:::image type=content" source="../media/configure-reliability/app-service-create-zr-plan.png" alt-text="Screenshot of zone redundancy enablement during App Service plan creation in the Azure portal.":::
+:::image type="content" source="../media/configure-reliability/app-service-create-zr-plan.png" alt-text="Screenshot of zone redundancy enablement during App Service plan creation in the Azure portal.":::
 
 # [Azure CLI](#tab/azurecli)
 
