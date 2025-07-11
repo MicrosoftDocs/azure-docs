@@ -26,6 +26,8 @@ These solutions include ready-to-use connectors, workbooks, analytics rules, and
 
 ### Solutions provided by SAP as vendor
 
+Choose from Microsoft Sentinel solutions build by SAP for SAP.
+
 | Name | Description | Azure Marketplace |
 |------|-------------|-------------------|
 | [SAP LogServ (RISE), S/4HANA Cloud private edition](https://community.sap.com/t5/enterprise-resource-planning-blog-posts-by-members/ultimate-blog-series-sap-logserv-integration-with-microsoft-sentinel/ba-p/14126401) | SAP LogServ is an SAP Enterprise Cloud Services (ECS) service aimed at collection, storage, forwarding, and access of logs. LogServ centralizes the logs from all systems, applications, and ECS services used by a registered customer. Main Features include: Near Realtime Log Collection with ability to integrate into Microsoft Sentinel. LogServ complements the existing SAP application layer threat monitoring and detections in Microsoft Sentinel Solutions for SAP with the log types owned by SAP ECS as the system provider. This includes logs like: SAP HANA database, AS JAVA, SAP Web Dispatcher, SAP Cloud Connector, OS, third party Database, Network, DNS, Proxy, Firewall, etc. | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/sap_jasondau.azure-sentinel-solution-saplogserv?tab=Overview) |
@@ -35,8 +37,8 @@ These solutions include ready-to-use connectors, workbooks, analytics rules, and
 
 | Name | Description | Azure Marketplace |
 |------|-------------|-------------------|
-| [SecurityBridge](https://securitybridge.com) | "SecurityBridge provides advanced SAP security monitoring and threat detection solutions with native Microsoft Sentinel integration. Specialized in SAP vulnerability management, code scanning, and real-time security monitoring across SAP landscapes." | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/securitybridge1647511278080.securitybridge-sentinel-app-1?tab=Overview) |
-| [Onapsis](https://onapsis.com) | "Onapsis delivers comprehensive SAP security platform with Microsoft Sentinel connectors for threat detection, vulnerability assessment, and compliance monitoring. Focus on SAP application security and business-critical system protection." | N/A |
+| [SecurityBridge](https://securitybridge.com) | SecurityBridge provides advanced SAP security monitoring and threat detection solutions with native Microsoft Sentinel Solution for SAP integration. Specialized in SAP vulnerability management, code scanning, and real-time security monitoring across SAP landscapes. | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/securitybridge1647511278080.securitybridge-sentinel-app-1?tab=Overview) |
+| [Onapsis](https://onapsis.com) | Onapsis delivers comprehensive SAP security platform with Microsoft Sentinel connectors for threat detection, vulnerability assessment, and compliance monitoring. Focus on SAP application security and business-critical system protection. | N/A |
 
 ## Implementation and Managed Services Partners 
 
@@ -47,12 +49,12 @@ Customers can engage partners listed in the following table or from the [Microso
 > [!NOTE]
 > The descriptions and linked pages are provided by the partners themselves.
 
-| Partner* | Description | Azure Marketplace Link |
+| Partner* | Azure Marketplace Link |
 |------|-------------|-------------------|
-| [Delaware]() |  | [Link](https://azuremarketplace.microsoft.com/marketplace/consulting-services/delaware.sec_protect_sap?search=Delaware&page=1) |
-| [EY]() |  | [Link](https://azuremarketplace.microsoft.com/marketplace/apps/ey_global.ey_application_tdr_for_sap?tab=Overview) |
-| [IBM]() |  | [Link](https://azuremarketplace.microsoft.com/marketplace/consulting-services/ibm-ny-armonk-hq-6205522-ibmsecurity-xftm.ibm-security-svcs-threatmanagement-sapthreatmon?page=1&search=ibm%20security%20services) |
-| [PWC]() |  | [Link](https://azuremarketplace.microsoft.com/marketplace/apps/pwc.secure_sap_on_microsoft_cloud?tab=Overview) |
+| Delaware | [Link](https://azuremarketplace.microsoft.com/marketplace/consulting-services/delaware.sec_protect_sap?search=Delaware&page=1) |
+| EY | [Link](https://azuremarketplace.microsoft.com/marketplace/apps/ey_global.ey_application_tdr_for_sap?tab=Overview) |
+| IBM | [Link](https://azuremarketplace.microsoft.com/marketplace/consulting-services/ibm-ny-armonk-hq-6205522-ibmsecurity-xftm.ibm-security-svcs-threatmanagement-sapthreatmon?page=1&search=ibm%20security%20services) |
+| PWC | [Link](https://azuremarketplace.microsoft.com/marketplace/apps/pwc.secure_sap_on_microsoft_cloud?tab=Overview) |
 
 *partners listed alphabetically by name
 
