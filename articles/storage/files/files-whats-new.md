@@ -19,7 +19,7 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 
 ### 2025 quarter 3 (July, August, September)
 
-#### Azure File Sync Agent Now Available via Arc Extension
+#### Azure File Sync Agent now available via Azure Arc extension
 
 Windows servers connected through Azure Arc can now install the Azure File Sync agent using a new extension called Azure File Sync Agent for Windows. The new extension is published by Microsoft and can be managed using the Azure Portal, PowerShell, or Azure CLI. To learn more, see the [Azure File Sync agent extension documentation](../file-sync/file-sync-extension.md).
 
