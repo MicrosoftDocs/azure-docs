@@ -102,20 +102,20 @@ The repository now appears in the **Repositories** list for the lab.
 1. On the main page of the repository that has your artifacts, select **Clone**. On the **Clone Repository** page, copy the clone URL.
 1. In the upper-right corner of the Azure DevOps page, select **User settings** > **Personal access tokens**.
 1. On the **Personal Access Tokens** page, select **New Token**.
-1. Fill out the information for the token, selecting **Read** for the scopes, and then select **Create**.
+1. Enter the information for the token, selecting **Read** for the scopes, and then select **Create**.
 1. On the **Success** page, be sure to copy the token, because Azure Repos doesn't store the token or show it again.
 
 ### Add an Azure DevOps artifact repository to a lab in the Azure portal
 
-1. On the lab's **Overview** page, select **Configuration and policies** from the left navigation.
+1. On the lab's **Overview** page, select **Configuration and policies** in the left pane.
 
-1. On the **Configuration and policies** page, select **Repositories** under **External resources** in the left navigation.
+1. On the **Configuration and policies** page, select **Repositories** under **External resources** in the left pane.
 
-   On the **Repositories** page, the **Public Artifact Repo** is automatically present and connects to the [DevTest Labs public GitHub repository](https://github.com/Azure/azure-devtestlab). If this repo isn't enabled for your lab, you can enable it by selecting the checkbox next to **Public Artifact Repo**, and then selecting **Enable** on the top menu bar.
+   On the **Repositories** page, the **Public Artifact Repo** is automatically present and connects to the [DevTest Labs public GitHub repository](https://github.com/Azure/azure-devtestlab). If this repo isn't enabled for your lab, you can enable it by selecting the checkbox next to **Public Artifact Repo**, and then selecting **Enable** at the top of the pane.
 
-1. To add your artifact repository to the lab, select **Add** in the top menu bar.
+1. To add your artifact repository to the lab, select **Add** at the top of the pane.
 
-   ![Screenshot that shows the Repositories configuration screen.](media/devtest-lab-add-repo/devtestlab-add-repo.png)
+   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-add-repo.png" alt-text="Screenshot that shows the Repositories configuration screen." lightbox="media/devtest-lab-add-repo/devtestlab-add-repo.png:::
 
 1. In the **Repository** pane, enter the following information:
 
@@ -127,15 +127,15 @@ The repository now appears in the **Repositories** list for the lab.
 
 1. Select **Save**.
 
-   ![Screenshot that shows adding a new artifact repository to a lab.](media/devtest-lab-add-repo/devtestlab-repo-blade-with-azure-pat.png)
+   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-repo-blade-with-azure-pat.png" alt-text="Screenshot that shows the fields for adding a new artifact repository to a lab." lightbox=media/devtest-lab-add-repo/devtestlab-repo-blade-with-azure-pat.png:::
 
 The repository now appears in the **Repositories** list for the lab.
 
-## [GitHub repo DevCenter app](#tab/GitHubRepoApp/)
+## [GitHub repo Dev Center app](#tab/GitHubRepoApp/)
 
 To add an artifact repo, complete the following tasks:
 
-1. Install and configure the Microsoft Dev Center app
+1. Install and configure the Microsoft Dev Center app.
 1. Assign permissions in GitHub for the repos.
 1. Add your artifact repository.
 
@@ -145,11 +145,11 @@ To add an artifact repo, complete the following tasks:
 
 1. Navigate to your lab.
 
-1. On the lab's **Overview** page, select **Configuration and policies** from the left navigation.
+1. On the lab's **Overview** page, select **Configuration and policies** in the left pane.
 
-1. On the **Configuration and policies** page, select **Repositories** under **External resources** in the left navigation.
+1. On the **Configuration and policies** page, select **Repositories** under **External resources** in the left pane.
 
-1. Select **Add** in the top menu bar.
+1. Select **Add** at the top of the pane.
 
 1. In the **Repository** pane, enter the following information:
 
@@ -158,31 +158,31 @@ To add an artifact repo, complete the following tasks:
 
 1. To install the Microsoft Dev Center app, select **Microsoft DevCenter GitHub app**.
 
-   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-repo-select-github-app.png" alt-text="Screenshot showing Microsoft DevCenter GitHub app option on Add a repo page, with example entries and install link highlighted." lightbox="media/devtest-lab-add-repo/devtestlab-repo-select-github-app.png":::
+   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-repo-select-github-app.png" alt-text="Screenshot that shows the feilds for adding a repo and the link for downloading the Dev Center GitHub app." lightbox="media/devtest-lab-add-repo/devtestlab-repo-select-github-app.png":::
 
 1. If you're prompted to authenticate to GitHub, authenticate.
  
 1. On the **Microsoft DevCenter** page, select **Install**.
 
-   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-install-github-app.png" alt-text="Screenshot showing Microsoft DevCenter GitHub app installation page." lightbox="media/devtest-lab-add-repo/devtestlab-install-github-app.png":::
- 
-1. Select the GitHub organization that contains the artifact repository you want to add to the lab. You must be an owner of the organization to install this app.
+   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-install-github-app.png" alt-text="Screenshot showing the DevCenter GitHub app installation page." lightbox="media/devtest-lab-add-repo/devtestlab-install-github-app.png":::
 
-   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-install-github-app-select-organization.png" alt-text="Screenshot of the Install Microsoft DevCenter page, with a GitHub organization highlighted." lightbox="media/devtest-lab-add-repo/devtestlab-install-github-app-select-organization.png":::
+1. Select the GitHub organization that contains the artifact repository that you want to add to the lab. You must be an owner of the organization to install this app.
+
+   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-install-github-app-select-organization.png" alt-text="Screenshot of the Install Microsoft DevCenter page. A GitHub organization is highlighted." lightbox="media/devtest-lab-add-repo/devtestlab-install-github-app-select-organization.png":::
 
 1. On the Install Microsoft DevCenter page, select **Only select repositories**, select the repository you want to add to the lab, and then select **Install**. 
 
-   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-select-one-repository.png" alt-text="Screenshot of the Install Microsoft DevCenter page, with one repository selected and highlighted." lightbox="media/devtest-lab-add-repo/devtestlab-select-one-repository.png":::
+   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-select-one-repository.png" alt-text="Screenshot of the Install Microsoft DevCenter page. One repository is selected." lightbox="media/devtest-lab-add-repo/devtestlab-select-one-repository.png":::
 
    You can select multiple repositories to add to the lab. You must add each repository separately to the lab, as described in this article.
 
-1. On the **Microsoft DevCenter by Microsoft would like permission to:** page, review the permissions required, and then select **Authorize Microsoft Dev Center**.
+1. On the **Microsoft DevCenter by Microsoft would like permission to:** page, review the permissions required, and then select **Authorize Microsoft DevCenter**.
 
-   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-authorize-microsoft-dev-center.png" alt-text="Screenshot of the Microsoft DevCenter by Microsoft would like permission to page, with authorize highlighted." lightbox="media/devtest-lab-add-repo/devtestlab-authorize-microsoft-dev-center.png":::
+   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-authorize-microsoft-dev-center.png" alt-text="Screenshot of the Microsoft DevCenter by Microsoft would like permission to page." lightbox="media/devtest-lab-add-repo/devtestlab-authorize-microsoft-dev-center.png":::
 
-### Add an GitHub artifact repository to a lab in the Azure portal
+### Add a GitHub artifact repository to a lab in the Azure portal
 
-1. On the lab's **Overview** page, select **Configuration and policies** from the left navigation.
+1. On the lab's **Overview** page, select **Configuration and policies** in the left pane.
 
 1. On the **Configuration and policies** page, select **Repositories** under **External resources** in the left navigation.
 
