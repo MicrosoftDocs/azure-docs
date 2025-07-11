@@ -44,7 +44,7 @@ Keep these considerations in mind when you work with extension bundles:
 
 - When possible, you should set a `version` range value in `host.json` from the preceding table, such as `[4.0.0, 5.0.0)`, instead of defining a custom range.
 - Use the latest version range to obtain optimal app performance and access to the latest features.
-- In the unlikely event that you can't use an extension bundle, you must instead [explicitly install extensions](./functions-bindings-register.md#explicitly-install-extensions).
+- In the unlikely event that you can't use an extension bundle, you must instead [explicitly install extensions](./functions-bindings-register.md#explicitly-installing-extensions).
 
 ## Previewing extension bundles
 
