@@ -198,6 +198,30 @@ To connect to Apache Ambari and other web pages through the virtual network, use
 
 When you create an HDInsight cluster, a load balancer is created as well. The type of this load balancer is at the [basic SKU level](../load-balancer/skus.md), which has certain constraints. One of these constraints is that if you have two virtual networks in different regions, you cannot connect to basic load balancers. See [virtual networks FAQ: constraints on global vnet peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers), for more information.
 
+## Azure HDInsight Cluster Creation with Custom VNet: Private Endpoint Requirements and Policy Considerations
+
+### Overview
+When you create an Azure HDInsight cluster in a custom virtual network (VNet), the HDInsight Resource Provider (RP) must automatically deploy several networking resources into your VNet’s resource group, for example, load balancers, network interfaces, IP addresses, private endpoints, etc. Azure Storage and Azure SQL Databases (if not provided) will also be created along with the cluster.
+
+### Role of Private Endpoints in HDInsight
+Private Endpoints will be used to connect your cluster privately and securely to the Azure services, such as Azure Storage and Azure SQL Databases, over the Microsoft backbone network.
+
+### Policy Impact on Private Endpoint Creation
+If your organization has Azure Policies that deny the creation of private endpoints or deny the creation of cross-tenant private endpoint according to the document [Limit cross-tenant private endpoint connections in Azure](/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections) in the resource group, HDInsight cluster creation will fail. This is because:
+
+* The HDInsight Resource Plane is unable to create the necessary private endpoint resources.
+* The cluster will transition into error state.
+  
+### Typical Error Scenario
+If private endpoint creation is blocked, you may see errors during cluster provisioning:
+
+* FailedToCreateDedicatedStoragePrivateEndpoint
+  
+### Best Practices and Recommendations
+Create exemption in Azure Policy to allow Private Endpoint creation in the subscription or resource group where HDInsight cluster resides.
+
+
+
 ## Next steps
 
 * For code samples and examples of creating Azure Virtual Networks, see [Create virtual networks for Azure HDInsight clusters](hdinsight-create-virtual-network.md).
