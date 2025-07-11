@@ -193,7 +193,7 @@ $storage.Properties.AddressPrefixes
 
 ### Discover service tags by using downloadable JSON files 
 
-You can download JSON files that contain the current list of service tags together with IP address range details. These lists are updated and published weekly. Locations for each cloud are:
+You can download JSON files that contain the current list of service tags together with IP address range details. These lists are updated and published weekly. Locations for each cloud are.
 
 - [Azure Public](https://www.microsoft.com/download/details.aspx?id=56519)
 
