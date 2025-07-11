@@ -18,7 +18,7 @@ This article describes how to configure your App Service Environment plan with z
 
 Before you begin, ensure that you meet the following prerequisites:
 
-- Learn how zone redundancy works by reading [Reliability in Azure App Service](../reliability/reliability-app-service.md).
+- Learn how zone redundancy works by reading [Reliability in Azure App Service](../../reliability/reliability-app-service.md).
 
 - You have an App Service Environment that supports zone redundancy. If you don't have one, see [Create a new App Service Environment plan with zone redundancy](./creation.md).
 
@@ -39,12 +39,13 @@ Follow the guidance in [Create an App Service plan](../app-service-plan-manage.m
 
 # [Azure CLI](#tab/azurecli)
 
+To modify the `zoneRedundant` property, you must specify the `number-of-workers` property, which is the number of instances, and use a capacity greater than or equal to 2.
+
 ```azurecli
 az appservice plan create -g MyResourceGroup -n MyPlan --app-service-environment MyAse --zone-redundant --number-of-workers 2 --sku I1V2
 ```
 
-> [!NOTE]
-> If you use the Azure CLI to modify the `zoneRedundant` property, you must specify the `number-of-workers` property, which is the number of instances, and use a capacity greater than or equal to 2.
+
 
 
  # [Bicep](#tab/bicep)
@@ -83,7 +84,7 @@ To enable or disable an existing App Service plan to zone-redundancy:
 1. Select **Settings > Scale out (App Service plan)** in the left navigation pane.
 1. Select **Zone redundancy** if you wish to enable zone redundancy. Deselect if you wish to disable it.
  
-:::image type="content" source="./media/configure-reliability/app-service-plan-zone-redundancy-portal-isolated.png" alt-text="Screenshot of zone redundancy property for an App Service plan in the Azure portal.":::
+:::image type="content" source="../media/configure-reliability/app-service-plan-zone-redundancy-portal-isolated.png" alt-text="Screenshot of zone redundancy property for an App Service plan in the Azure portal.":::
 
 > [!NOTE]
 > If you have "Rules Based" scaling enabled, you can't use the Azure portal to enable zone redundancy for your App Service plan. You must use the Azure CLI or Bicep/Resource Manager instead.
@@ -121,7 +122,6 @@ resource asev3 'Microsoft.Web/hostingEnvironments@2020-12-01' = {
 > When you change the zone redundancy status of the App Service Environment, you initiate an upgrade that takes 12-24 hours to complete. During the upgrade process, you don't experience any downtime or performance problems.
 
 ## Related content
-- [Create an App Service Environment](environment/creation.md)
-- [Create an Isolated v2 App Service plan](../environment/create-isolated-v2.md)
+- [Create an App Service Environment](creation.md)
 - [Configure App Service plans for reliability](../configure-reliability.md)
-- [Reliability in Azure App Service](../reliability/reliability-app-service.md)
+- [Reliability in Azure App Service](../../reliability/reliability-app-service.md)
