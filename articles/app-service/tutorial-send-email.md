@@ -10,7 +10,7 @@ author: cephalin
 ms.author: cephalin
 ---
 
-# Tutorial: Send email and invoke other business processes from App Service
+# Tutorial: Integrate with Azure Logic Apps to send email
 
 In this tutorial, you learn how to integrate your App Service app with your business processes by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md). You create a logic app that sends email via Gmail from your Azure App Service app. Although there are other ways to send emails from a web app, such as SMTP configuration in your language framework, Logic Apps provides a simple configuration interface for many popular business integrations without adding complexity to your code.
 
