@@ -25,8 +25,8 @@ The following section shows how a lab owner can set up encryption with a custome
 
 - If you don't have a disk encryption set, [complete the steps in this article to set up a key vault and a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal). Note the following requirements for the disk encryption set:
 
-    - The disk encryption set needs to be in same region and subscription as your lab.
-    - The lab owner needs to have at least reader-level access to the disk encryption set that will be used to encrypt lab disks.
+  - The disk encryption set needs to be in same region and subscription as your lab.
+  - The lab owner needs to have at least reader-level access to the disk encryption set that will be used to encrypt lab disks.
 
 - For labs created before 8/1/2020, the lab owner needs to ensure that lab system-assigned identity is enabled. To do so, the lab owner can go to the lab, select **Configuration and policies**, select **Identity (Preview)** in the left menu, change the system-assigned identity **Status** to **On**, and then select **Save**. For labs created after 8/1/2020, the system-assigned identity is enabled by default.
 
@@ -52,7 +52,7 @@ The following section shows how a lab owner can set up encryption with a custome
 
     :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disks-page.png" alt-text="Screenshot that shows the Disks pane in Configuration and policies." lightbox="./media/encrypt-disks-customer-managed-keys/disks-page.png":::
 
-1. In the **Encryption type** box, select **Encryption at-rest with a customer managed key**. 
+1. In the **Encryption type** box, select **Encryption at-rest with a customer managed key**.
 1. In the **Disk encryption set** box, select the disk encryption set you created earlier. It's the same disk encryption set that the system-assigned identity of the lab can access.
 1. Select **Save** at the top of the pane.
 
@@ -61,7 +61,7 @@ The following section shows how a lab owner can set up encryption with a custome
 1. A message box appears with the following message: *This setting will apply to newly created machines in the lab. Old OS disk will remain encrypted with the old disk encryption set*. Select **OK**.
 
     After this configuration, lab disks are encrypted with the customer-managed key provided in the disk encryption set.
-   
+
 ## Validate that disks are being encrypted
 
 1. Go to a lab virtual machine that you created after enabling disk encryption with a customer-managed key on the lab.
