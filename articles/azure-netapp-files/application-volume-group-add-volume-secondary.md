@@ -15,8 +15,6 @@ ms.custom:
 
 This article describes using application volume group to add volumes for an SAP HANA system as a secondary database in HANA System Replication (HSR).
 
-[!INCLUDE [Application volume group CLI & PowerShell limitation](includes/application-volume-group-powershell.md)]
-
 ## HANA System Replication 
 
 The HANA System Replication (HSR) functionality enables SAP HANA databases to synchronously or asynchronously replicate from a primary SAP HANA system to a secondary SAP HANA system. The HSR uses application-level synchronization. The primary and the secondary SAP HANA systems have the same storage requirements, except for the following differences:
