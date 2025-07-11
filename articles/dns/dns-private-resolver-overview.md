@@ -13,7 +13,7 @@ ms.author: allensu
 
 # What is Azure DNS Private Resolver? 
 
-Azure DNS Private Resolver is a new service that enables you to query Azure DNS private zones from an on-premises environment and vice versa without deploying VM based DNS servers. 
+Azure DNS Private Resolver is a fully managed, highly available service that enables secure and seamless DNS resolution between Azure virtual networks and on-premises environments—without the need to deploy, manage, or patch custom DNS servers. This service lets you resolve DNS queries for private DNS zones from anywhere, facilitating hybrid network connectivity and simplifying network management for enterprise scenarios.
 
 ## How does it work?
 
