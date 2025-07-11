@@ -17,6 +17,16 @@ ms.custom:
 
 This article describes features, enhancements, and bug fixes released in 2025 for the FHIR&reg; service, Azure API for FHIR, DICOM&reg; service, and MedTech service in Azure Health Data Services.
 
+## July 2025
+### FHIR service
+
+#### Bug fixes:
+**Conditional Create/Update Response Headers and Content Handling Fix**: Previously, there was a bug where conditional create or update may fail to return the content and appropriate headers (ETag, LastModified, and Location) when the condition provided matches that of a resource that already exists in the system. This issue has been fixed, and now, Content-Location, Etag, and LastModified headers are returned on conditional create and update requests. Additionally, added handling for the Prefer header to return content in the requested form (representation, minimal, and OperationOutcome). 
+
+**Background Job Queue Optimization for Disabled Operations**: Previously, an issue was identified where the background job queues may still run for disabled operations like export and import, causing additional database overhead. The issue has now been fixed to disable JobHosting queues for export and import if they're disabled or have no storage account configured. 
+
+**$import Search Parameter Table Constraints Fix**: Previously, $import may surface 500 "InternalServerError" errors due to improperly defined constraints on Code and Code Overflow columns in Search Parameter tables. This issue has been fixed. 
+
 ## June 2025
 ### FHIR service
 **Added configuration for eventual consistency option in $import**: Allows users to enable eventual consistency for the $import operation.
