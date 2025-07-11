@@ -412,7 +412,7 @@ A cloud endpoint is a pointer to an Azure file share. All server endpoints will 
 > [!IMPORTANT]
 > You can make changes to any cloud endpoint or server endpoint in the sync group and have your files synced to the other endpoints in the sync group. If you make a change to the cloud endpoint (Azure file share) directly, changes first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint only once every 24 hours. For more information, see [Azure Files frequently asked questions](../files/storage-files-faq.md?toc=/azure/storage/filesync/toc.json#afs-change-detection).
 
-The administrator creating the cloud endpoint must be a member of the management role **[Azure File Sync Administrator](/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator)** or **Owner** for the storage account that contains the Azure file share the cloud endpoint is pointing to. Configure this under **Access Control (IAM)** in the Azure portal for the storage account.
+The administrator creating the cloud endpoint must be a member of the management role **[Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator)** or **Owner** for the storage account that contains the Azure file share the cloud endpoint is pointing to. Configure this under **Access Control (IAM)** in the Azure portal for the storage account.
 
 # [Portal](#tab/azure-portal)
 
