@@ -38,7 +38,7 @@ To add an artifact repo, complete the following tasks:
 
 ### Assign permissions in Azure Repos for the managed identity
 
-You must give the managed identity permissions to the repository in Azure Repos.  
+You must give the managed identity permissions to the repository in Azure Repos.
 
 1. Sign in to your [Azure DevOps organization](https://dev.azure.com).
 
@@ -47,7 +47,7 @@ You must give the managed identity permissions to the repository in Azure Repos.
 
 1. Select **Organization settings**.
 
-   :::image type="content" source="media/devtest-lab-add-repo/devops-organization-settings.png" alt-text="Screenshot showing the Azure DevOps organization page, with Organization Settings highlighted." lightbox="media/devtest-lab-add-repo/devops-organization-settings.png":::
+   :::image type="content" source="media/devtest-lab-add-repo/devops-organization-settings.png" alt-text="Screenshot showing the Azure DevOps organization page. Organization settings is highlighted." lightbox="media/devtest-lab-add-repo/devops-organization-settings.png":::
 
 1. On the **Overview** page, select **Users**.
 
@@ -61,25 +61,25 @@ You must give the managed identity permissions to the repository in Azure Repos.
 
     |Name     |Value     |
     |---------|----------|
-    |**Users or Service Principals**|Enter the name of your lab. <br> When you use a system-assigned MSI, specify the name of the lab, not the object ID of the managed account. When you use a user-assigned MSI, use the name of the managed account. |
+    |**Users or Service Principals**|Enter the name of your lab. <br> When you use a system-assigned managed identity, specify the name of the lab, not the object ID of the managed account. When you use a user-assigned managed identity, use the name of the managed account. |
     |**Access level**|Select **Basic**.|
     |**Add to projects**|Select the project that contains your repository.|
     |**Azure DevOps Groups**|Select **Project Readers**.|
     |**Send email invites (to Users only)**|Clear the checkbox.|
 
-   :::image type="content" source="media/devtest-lab-add-repo/devops-add-user-blade.png" alt-text="Screenshot showing Add users, with example entries and Add highlighted." lightbox="media/devtest-lab-add-repo/devops-add-user-blade.png":::
+   :::image type="content" source="media/devtest-lab-add-repo/devops-add-user-blade.png" alt-text="Screenshot showing the the Add new users pane." lightbox="media/devtest-lab-add-repo/devops-add-user-blade.png":::
 
 ### Add an Azure DevOps artifact repository to a lab in the Azure portal
 
-1. On the lab's **Overview** page, select **Configuration and policies** from the left navigation.
+1. On the lab's **Overview** page, select **Configuration and policies** in the left pane.
 
-1. On the **Configuration and policies** page, select **Repositories** under **External resources** in the left navigation.
+1. On the **Configuration and policies** page, select **Repositories** under **External resources** in the left pane.
 
-   On the **Repositories** page, the **Public Artifact Repo** is automatically present and connects to the [DevTest Labs public GitHub repository](https://github.com/Azure/azure-devtestlab). If this repo isn't enabled for your lab, you can enable it by selecting the checkbox next to **Public Artifact Repo**, and then selecting **Enable** on the top menu bar.
+   On the **Repositories** page, the **Public Artifact Repo** is automatically present and connects to the [DevTest Labs public GitHub repository](https://github.com/Azure/azure-devtestlab). If this repo isn't enabled for your lab, you can enable it by selecting the checkbox next to **Public Artifact Repo**, and then selecting **Enable** at the top of the pane.
 
-1. To add your artifact repository to the lab, select **Add** in the top menu bar.
+1. To add your artifact repository to the lab, select **Add** at the top of the pane.
 
-   ![Screenshot that shows the Repositories configuration screen.](media/devtest-lab-add-repo/devtestlab-add-repo.png)
+   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-add-repo.png" alt-text="Screenshot that shows the Repositories configuration screen." lightbox="media/devtest-lab-add-repo/devtestlab-add-repo.png":::
 
 1. In the **Repository** pane, enter the following information:
 
