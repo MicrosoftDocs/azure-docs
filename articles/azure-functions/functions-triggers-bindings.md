@@ -8,7 +8,7 @@ zone_pivot_groups: programming-languages-set-functions
 ai-usage: ai-assisted
 ---
 
-# Azure Functions triggers and bindings concepts
+# Azure Functions triggers and bindings
 
 In this article, you learn the high-level concepts surrounding triggers and bindings for functions.
 
