@@ -10,7 +10,7 @@ ms.date: 07/22/2025
 #CustomerIntent: As a developer, I want to secure my containerized applications so that I can protect them from web vulnerabilities.
 ---
 
-# Web Application Firewall on Application Gateway for Containers
+# What is Web Application Firewall on Application Gateway for Containers?
 
 Web Application Firewall (WAF) on [Azure Application Gateway for Containers](../../application-gateway/for-containers/overview.md) actively protects your Kubernetes workloads against common exploits and vulnerabilities like SQL injections, cross-site scripting attacks and more.
 

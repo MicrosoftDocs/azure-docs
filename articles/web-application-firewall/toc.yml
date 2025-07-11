@@ -10,6 +10,8 @@ items:
     items:
     - name: Web Application Firewall on Application Gateway
       href: ./ag/ag-overview.md
+    - name: Web Application Firewall on Application Gateway for Containers
+      href: ./ag/waf-application-gateway-for-containers-overview.md
     - name: FAQ
       href: ./ag/application-gateway-waf-faq.yml
   - name: Front Door
