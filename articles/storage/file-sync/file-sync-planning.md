@@ -237,7 +237,14 @@ In this case, Azure File Sync would need about 209,500,000 KiB (209.5 GiB) of sp
 **Windows Server 2025, Windows Server 2022, Windows Server 2019, and Windows Server 2016**   
 Data Deduplication is supported irrespective of whether cloud tiering is enabled or disabled on one or more server endpoints on the volume for Windows Server 2016, Windows Server 2019, Windows Server 2022 and Windows Server 2025. Enabling Data Deduplication on a volume with cloud tiering enabled lets you cache more files on-premises without provisioning more storage. 
 
-When Data Deduplication is enabled on a volume with cloud tiering enabled, Dedup optimized files within the server endpoint location will be tiered similar to a normal file based on the cloud tiering policy settings. Once the Dedup optimized files have been tiered, the Data Deduplication garbage collection job will run automatically to reclaim disk space by removing unnecessary chunks that are no longer referenced by other files on the volume.
+When Data Deduplication is enabled on a volume with cloud tiering enabled, Dedup optimized files within the server endpoint location will be tiered similar to a normal file based on the cloud tiering policy settings. Once the Dedup optimized files have been tiered, the Data Deduplication garbage collection job will run automatically to reclaim disk space by removing unnecessary chunks that are no longer referenced by other files on the volume. 
+
+In some cases where Dedup is installed, the available volume space can increase more than expected after dedup garbage collection is triggered. Volume space works as explained in the example below:
+1. Let's say that the free space policy for cloud tiering is set to 20%. 
+2. Azure File Sync is notified when there is low free space (let's say when free space is 19%). 
+3. Tiering determines that 1% more space needs to be freed, but as a buffer we will have 5% extra so we will tier up to 25% (E.g.: 30GB).
+4. The files get tiered until it reaches 30GB.
+5. As part of interop with Dedup, Azure File Sync initiates Garbage collection at the end of the tiering session.
 
 Note the volume savings only apply to the server; your data in the Azure file share won't be deduped.
 
