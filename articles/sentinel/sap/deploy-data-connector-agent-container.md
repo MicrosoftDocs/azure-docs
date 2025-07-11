@@ -348,8 +348,10 @@ At this stage, the system's **Health** status is **Pending**. If the agent is up
     - If you have the **Entra ID Application Developer** role or higher, continue to the next step.
     - If you don't have the **Entra ID Application Developer** role or higher:
         - Share the DCR ID with your Entra ID administrator or colleague with the required permissions. 
-        - Retrieve the client ID and client secret from the Entra ID app registration to use for authorization on the DCR. The SAP admin uses this information to post to the DCR. 
-        - Ensure that the **Monitoring Metrics Publishing** role is assigned on the DCR, with the service principal assignment, using the client ID from the Entra ID app registration.                           
+        - Ensure that the **Monitoring Metrics Publishing** role is assigned on the DCR, with the service principal assignment, using the client ID from the Entra ID app registration.                      
+        - Retrieve the client ID and client secret from the Entra ID app registration to use for authorization on the DCR. 
+        
+        The SAP admin uses the client ID and client secret information to post to the DCR.              
 
         > [!NOTE]
         > If you're a SAP administrator and don't have access to the connector installation, download the [integration package](https://aka.ms/SAPAgentlessPackage) directly. 
