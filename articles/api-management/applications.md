@@ -218,17 +218,12 @@ $getresponse | ConvertTo-Json -Depth 5
 
 ## Troubleshooting
 
-### Can't enable application-based access for product
-
-This is likely a permissions issue. Currently, the API Management administrator must have the **Application Administrator** role assigned in Microsoft Entra ID to enable application-based access for a product.
-
 ### Internal server error when registering applications in the portal
 
-If you receive an internal server error when registering applications in the portal, check the following:    
+If you're unable to list applications, or you receive an internal server error when registering applications in the portal, check the following:    
 
 * The **Application Administrator** role is assigned to the API Management instance's managed identity in Microsoft Entra ID. 
-* You're signed in to the portal at the custom URL for the applications feature: [https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications](https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications). This URL is required to access the applications feature in API Management.
-
+* You're signed in to the portal at the following custom URL for the applications feature: [https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications](https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications). This URL is required to access the applications feature in API Management.
 
 
 ## Related content
