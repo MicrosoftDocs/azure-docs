@@ -165,7 +165,7 @@ You'll use Service Connector to create a new service connection in Azure Spring 
 
 ## View service connections
 
-::zone pivot="azure-portal"
+:::zone pivot="azure-portal"
 
 Azure Spring Apps connections are displayed under **Settings > Service Connector**.
 
