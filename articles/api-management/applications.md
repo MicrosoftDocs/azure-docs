@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 07/09/2025
+ms.date: 07/11/2025
 ms.author: danlep
 ms.custom:
   - build-2025
@@ -104,8 +104,10 @@ To review application settings in **App registrations**:
 Now register a client application that limits access to one or more products. 
 
 * A product must have **Application based access** enabled to be associated with a client application. 
-* Each client application has a single user (owner) in the API Management instance. One the owner can access product APIs through the application.
+* Each client application has a single user (owner) in the API Management instance. Only the owner can access product APIs through the application.
 * A product can be associated with more than one client application.
+
+To register a client application:
 
 1. Sign in to the portal at the following custom URL for the applications feature: [https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications](https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications)
 1. Navigate to your API Management instance.
