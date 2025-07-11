@@ -19,6 +19,13 @@ ms.author: kesheth
 
 Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+## July 2025
+
+#### Bug fixes:
+**Conditional Create/Update Response Headers and Content Handling Fix**: Previously, there was a bug where conditional create or update may fail to return the content and appropriate headers (ETag, LastModified, and Location) when the condition provided matches that of a resource that already exists in the system. This issue has been fixed, and now, Content-Location, Etag, and LastModified headers will be returned on conditional create and update requests. Additionally, added handling for the Prefer header to return content in the requested form (representation, minimal, and OperationOutcome). 
+
+**Background Job Queue Optimization for Disabled Operations**: Previously, an issue was identified where the background job queues may still run for disabled operations like export and import, causing additional database overhead. The issue has now been fixed to disable JobHosting queues for export and import if they're disabled or have no storage account configured. 
+
 ## June 2025
 **Enhanced error logging for $export**: Previously, $export would return a 500 Internal Server Error if there was no associated storage account for the export. Now, the error message has been improved to state to the user "The storage account not found."
 
