@@ -80,7 +80,7 @@ In cases where certain scenarios running on the latest GA connector version are 
 
 These auto-upgraded workloads are not affected by the announced removal date of the older version, giving users additional time to evaluate and transition to the latest GA version without facing immediate failures. 
 
-You can identify which activities have been automatically upgraded by inspecting the activity output, where relevant upgrade information is recorded.
+You can identify which activities have been automatically upgraded by inspecting the activity output, where relevant upgraded information is recorded.
 
 **Example:**
 
