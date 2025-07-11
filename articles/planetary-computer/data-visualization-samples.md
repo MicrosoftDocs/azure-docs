@@ -62,14 +62,14 @@ To apply these examples to your own data:
 
 ## Mosaic configuration
 
-This mosaic configuration tells the Explorer to display the most recent Sentinel-2 images from the collection, but only those images with cloud cover less than or equal to 40%. The Common Query Language (CQL) filter ensures that only relatively clear images are included, making the visualization more useful for most applications. Each mosaic entry can define different criteria for selecting and combining images, and this example uses a single "default" mosaic focused on recent, low-cloud imagery.
+This mosaic configuration tells the Explorer to display the most recent Sentinel-2 images from the collection, but only those images with cloud cover less than or equal to 40%. The Common Query Language (CQL) filter ensures that only relatively clear images are included, making the visualization more useful for most applications. Each mosaic entry can define different criteria for selecting and combining images, and this mosaic example uses a single "default" mosaic focused on recent, low-cloud imagery.
 
 ```json
 [
   {
     "id": "default",
     "name": "Most recent available",
-    "description": "Most recent available imagery in this collection",
+    "description": "Most recent available imagery in this Sentinel-2 collection",
     "cql": [
       {
         "op": "<=",
@@ -94,25 +94,25 @@ This render configuration defines several ways to visualize Sentinel-2 satellite
 The `options` string specifies how to visualize the data:
 
 - `assets=B04&assets=B03&assets=B02`:  
-  This code tells the system which bands (layers of satellite data) to use for the image. For example, B04 is red, B03 is green, and B02 is blue—together, they make a true-color image.
+  This assets parameter tells the system which bands (layers of satellite data) to use for the image. For example, B04 is red, B03 is green, and B02 is blue—together, they make a true-color image.
 
 - `nodata=0`:  
   Any pixel with a value of 0 is treated as missing or transparent.
 
 - `color_formula=Gamma RGB 3.2 Saturation 0.8 Sigmoidal RGB 25 0.35`:  
-  This code applies color corrections to make the image look more natural or visually appealing.  
+  This gamma adjustment applies color corrections to make the image look more natural or visually appealing.  
   - **Gamma** adjusts brightness  
   - **Saturation** changes color intensity  
   - **Sigmoidal** adjusts contrast
 
 - `expression=(B08-B04)/(B08+B04)`:  
-  For NDVI and NDWI, this code calculates a mathematical formula using the bands to create a new image that highlights vegetation or moisture.
+  For NDVI and NDWI, this expression parameter calculates a mathematical formula using the bands to create a new image that highlights vegetation or moisture.
 
 - `rescale=-1,1`:  
-  This code stretches the calculated values to fit a color scale, so the results are easy to interpret.
+  This rescale parameter stretches the calculated values to fit a color scale, so the results are easy to interpret.
 
 - `colormap_name=rdylgn`:  
-  This code applies a color palette (red-yellow-green) to the result, making it easier to see differences.
+  This colormap parameter applies a color palette (red-yellow-green) to the result, making it easier to see differences.
 
 ```json
 [
@@ -191,13 +191,13 @@ The tile settings configuration controls the display behavior and performance ch
 
 **Key Parameters:**
 
-* **`minZoom: 8`**: Sets the minimum zoom level at which the Sentinel-2 imagery becomes visible. This moderate minimum zoom level is appropriate for Sentinel-2's resolution (10 meter for most bands, 20 meter for some bands, 60 meter for atmospheric bands), allowing the imagery to be useful for regional to local-scale analysis starting around zoom levels 8-12.
+* **`minZoom: 8`**: Sets the minimum zoom level at which the Sentinel-2 imagery becomes visible. This moderate zoom level setting is appropriate for Sentinel-2's resolution (10 meter for most bands, 20 meter for some bands, 60 meter for atmospheric bands), allowing the imagery to be useful for regional to local-scale analysis starting around zoom levels 8-12.
 
-* **`maxItemsPerTile: 35`**: Controls how many individual Sentinel-2 scenes can be composited together in each tile. This balances performance with temporal coverage completeness, ensuring multiple scenes can be combined for better coverage while maintaining rendering performance.
+* **`maxItemsPerTile: 35`**: Controls how many individual Sentinel-2 scenes can be composited together in each tile. This compositing setting balances performance with temporal coverage completeness, ensuring multiple scenes can be combined for better coverage while maintaining rendering performance.
 
 * **`defaultLocation: null`**: No default location is specified, allowing users to navigate to any area of interest globally.
 
-This configuration optimizes the balance between data visibility and performance for Sentinel-2's moderate resolution imagery, making it suitable for a wide range of applications from regional monitoring to detailed local analysis. 
+This tile settings configuration optimizes the balance between data visibility and performance for Sentinel-2's moderate resolution imagery, making it suitable for a wide range of applications from regional monitoring to detailed local analysis. 
 
 ```json
 {
@@ -211,12 +211,12 @@ This configuration optimizes the balance between data visibility and performance
 
 ## STAC collection configuration
 
-The STAC Collection configuration defines the core metadata for this collection.
+The STAC Collection configuration defines the core metadata for this Sentinel-2 collection.
 
 The `item_assets` section in the STAC Collection JSON serves as a critical catalog of all available data assets in the collection. It defines each spectral band (B01-B12, B8A, etc.) and its properties, including:
 
 * Asset keys (like "B04", "B03") that are referenced by the render configuration
-Metadata about each band (resolution, data type, roles)
+* Metadata about each band (resolution, data type, roles)
 * Band descriptions that explain what each band represents (B04 is "red", B08 is "near infrared")
 * Wavelength information useful for scientific applications
 
@@ -768,10 +768,10 @@ The render configuration directly references these asset keys to create differen
 
 ## The National Agriculture Imagery Program collection configuration
 
-[ ![Screenshot of The National Agriculture Imagery Program data visualization](media/naip-imagery.png) ](media/naip-imagery.png#lightbox)
-The National Agriculture Imagery Program (NAIP) provides high-resolution aerial imagery across the United States. The USDA Farm Service Agency captures this imagery at least every three years.
+[ ![Screenshot of The National Agriculture Imagery Program data visualization](media/aerial-imagery.png) ](media/aerial-imagery.png#lightbox)
+The National Agriculture Imagery Program (NAIP) provides high-resolution aerial imagery across the United States. The USDA Farm Service Agency captures this NAIP imagery at least every three years.
 
-NAIP data offers excellent detail with spatial resolutions ranging from 0.3 to 1 meter per pixel. The imagery is stored in cloud-optimized GeoTIFF format for efficient access and processing.
+NAIP data offers excellent detail with spatial resolutions ranging from 0.3 meter to 1 meter per pixel. The imagery is stored in cloud-optimized GeoTIFF format for efficient access and processing.
 
 Each NAIP image contains four spectral bands:
 - Red
@@ -779,7 +779,7 @@ Each NAIP image contains four spectral bands:
 - Blue
 - Near-Infrared (NIR)
 
-All four bands are stored together as a single multi-band asset. This structure enables several types of analysis:
+All four bands are stored together as a single multi-band asset. This band structure enables several types of analysis:
 
 - **Natural color visualization** uses the RGB bands (1-3) to create images that look similar to what the human eye sees
 - **Color infrared analysis** combines NIR, Red, and Green bands to assess vegetation health
@@ -791,7 +791,7 @@ All four bands are stored together as a single multi-band asset. This structure 
 
 ## Mosaic configuration
 
-The mosaic configuration defines how images are combined when displayed in the Explorer, this collection uses the default settings.
+The mosaic configuration defines how images are combined when displayed in the Explorer, this NAIP collection uses the default settings.
 
 ```json
 [
@@ -819,36 +819,36 @@ NAIP imagery contains four spectral bands stored in a single multi-band asset ca
 The `options` string specifies how to visualize the data:
 
 - `assets=image`:  
-  This specifies which asset to use from the STAC item. For NAIP, all bands are stored in the single "image" asset.
+  This asset parameter specifies which asset to use from the STAC item. For NAIP, all bands are stored in the single "image" asset.
 
 - `asset_bidx=image|1,2,3`:  
-  This selects which bands from the multi-band image to use and how to map them to color channels. For example, `1,2,3` maps bands 1, 2, and 3 to red, green, and blue channels respectively.
+  This bidx parameter selects which bands from the multi-band image to use and how to map them to color channels. For example, `1,2,3` maps bands 1, 2, and 3 to red, green, and blue channels respectively.
 
 - `color_formula=Sigmoidal RGB 15 0.35`:  
-  This applies color corrections to improve visual appearance and contrast.
+  This gamma parameter applies color corrections to improve visual appearance and contrast.
 
 - `expression=(image_b4 - image_b1)/(image_b4 + image_b1)`:  
-  For NDVI calculations, this mathematical formula uses the bands to create a vegetation index that highlights plant health.
+  For NDVI calculations, this expression formula uses the bands to create a vegetation index that highlights plant health.
 
 - `rescale=-1,1`:  
-  This stretches the calculated NDVI values to fit a standard color scale for easier interpretation.
+  This rescale parameter stretches the calculated NDVI values to fit a standard color scale for easier interpretation.
 
 - `colormap_name=rdylgn`:  
-  This applies a red-yellow-green color palette to the NDVI result, making vegetation patterns easy to identify.
+  This colormap parameter applies a red-yellow-green color palette to the NDVI result, making vegetation patterns easy to identify.
 
 ### Natural color (true color)
 
 - **Configuration**: `"options": "assets=image&asset_bidx=image|1,2,3"`
-- **How it works**: This option maps the first three bands of the NAIP imagery to the corresponding Red, Green, and Blue channels for display.
+- **How it works**: This natural color option maps the first three bands of the NAIP imagery to the corresponding Red, Green, and Blue channels for display.
   - **Red channel**: Band 1 (Red)
   - **Green channel**: Band 2 (Green)
   - **Blue channel**: Band 3 (Blue)
-- **Result**: This produces a "true color" image that approximates what the human eye would see.
+- **Result**: This natural color mapping produces a "true color" image that approximates what the human eye would see.
 
 ### Color infrared
 
 - **Configuration**: `"options": "assets=image&asset_bidx=image|4,1,2&color_formula=Sigmoidal RGB 15 0.35"`
-- **How it works**: This is a "false color" composite that is useful for vegetation analysis. It maps the bands as follows:
+- **How it works**: This color infrared option is a "false color" composite that is useful for vegetation analysis. It maps the bands as follows:
   - **Red channel**: Band 4 (Near Infrared)
   - **Green channel**: Band 1 (Red)
   - **Blue channel**: Band 2 (Green)
@@ -857,8 +857,8 @@ The `options` string specifies how to visualize the data:
 ### Normalized Difference Vegetation Index (NDVI)
 
 - **Configuration**: `"options": "expression=(image_b4 - image_b1)/(image_b4 + image_b1)&rescale=-1,1&colormap_name=rdylgn"`
-- **How it works**: This option doesn't display the source imagery directly. Instead, it calculates the NDVI for each pixel using a mathematical formula: `(NIR - Red) / (NIR + Red)`. In this case, that corresponds to `(Band 4 - Band 1) / (Band 4 + Band 1)`.
-- **Result**: The result of the NDVI calculation is a value between -1 and 1, which is a measure of vegetation health and density. The `rescale=-1,1` parameter scales the output colors to this range, and the `colormap_name=rdylgn` parameter applies a "Red-Yellow-Green" color map. Areas with dense, healthy vegetation appear green, while areas with little or no vegetation appear red or yellow.
+- **How it works**: This NDVI option doesn't display the source imagery directly. Instead, it calculates the NDVI for each pixel using a mathematical formula: `(NIR - Red) / (NIR + Red)`. In this case, that calculation corresponds to `(Band 4 - Band 1) / (Band 4 + Band 1)`.
+- **Result**: The result of the NDVI calculation is a value between -1 and 1, which is a measure of vegetation health and density. The `rescale=-1,1` parameter scales the output colors to this NDVI range, and the `colormap_name=rdylgn` parameter applies a "Red-Yellow-Green" color map. Areas with dense, healthy vegetation appear green, while areas with little or no vegetation appear red or yellow.
 
 ```json
 [
@@ -897,13 +897,13 @@ The tile settings configuration controls the display behavior and performance ch
 
 **Key Parameters:**
 
-* **`minZoom: 4`**: Sets the minimum zoom level at which the NAIP data becomes visible. While this low setting allows visibility at broad zoom levels, high-resolution imagery like NAIP (0.3-1m ground sample distance) is most effective at zoom levels 12-18 where individual features become clearly distinguishable.
+* **`minZoom: 4`**: Sets the minimum zoom level at which the NAIP data becomes visible. While this low zoom setting allows visibility at broad zoom levels, high-resolution imagery like NAIP (0.3-1m ground sample distance) is most effective at zoom levels 12-18 where individual features become clearly distinguishable.
 
-* **`maxItemsPerTile: 35`**: Limits the number of NAIP image tiles that can be composited together in a single map tile. This balances performance with coverage completeness, ensuring that multiple overlapping images can be combined without overwhelming the rendering process.
+* **`maxItemsPerTile: 35`**: Limits the number of NAIP image tiles that can be composited together in a single map tile. This limit setting balances performance with coverage completeness, ensuring that multiple overlapping images can be combined without overwhelming the rendering process.
 
 * **`defaultLocation: null`**: No default location is specified, allowing users to navigate to any area of interest within the United States where NAIP coverage is available.
 
-This configuration optimizes the balance between broad accessibility and detailed visualization, allowing users to discover NAIP data at low zoom levels while providing maximum detail when zoomed in to appropriate scales for high-resolution analysis.
+This tile settings configuration optimizes the balance between broad accessibility and detailed visualization, allowing users to discover NAIP data at low zoom levels while providing maximum detail when zoomed in to appropriate scales for high-resolution analysis.
 
 
 ```json
@@ -918,7 +918,7 @@ This configuration optimizes the balance between broad accessibility and detaile
 
 ## STAC collection configuration
 
-The STAC Collection configuration defines the core metadata for this collection.
+The STAC Collection configuration defines the core metadata for this NAIP collection.
 
 ```json
 {
@@ -1129,9 +1129,9 @@ The STAC Collection configuration defines the core metadata for this collection.
 
 ## Umbra SAR imagery collection configuration
 
-[ ![Screenshot of Umbra SAR Imagery data visualization](media/umbra-sar-imagery.png) ](media/umbra-sar-imagery.png#lightbox)
+[ ![Screenshot of Umbra SAR Imagery data visualization](media/radar-imagery.png) ](media/radar-imagery.png#lightbox)
 
-[Umbra's Synthetic Aperture Radar (SAR) imagery](https://umbra.space/open-data/) uses radar signals transmitted from satellites to create high-resolution images of the Earth's surface, capable of seeing through clouds, darkness, and weather conditions that would block traditional optical satellites. This technology is valuable for monitoring infrastructure, detecting changes in urban areas, tracking ships and vehicles, and assessing damage after natural disasters, as it can capture detailed images at any time of day or night regardless of weather conditions.
+[Umbra's Synthetic Aperture Radar (SAR) imagery](https://umbra.space/open-data/) uses radar signals transmitted from satellites to create high-resolution images of the Earth's surface, capable of seeing through clouds, darkness, and weather conditions that would block traditional optical satellites. This SAR technology is valuable for monitoring infrastructure, detecting changes in urban areas, tracking ships and vehicles, and assessing damage after natural disasters, as it can capture detailed images at any time of day or night regardless of weather conditions.
 
 ## Configuration details
 
@@ -1139,7 +1139,7 @@ The STAC Collection configuration defines the core metadata for this collection.
 
 ## Mosaic configuration
 
-This is the default mosaic configuration. 
+This SAR collection is the default mosaic configuration. 
 
 ```json
 [
@@ -1163,13 +1163,13 @@ The configuration focuses on **VV polarization** data, which refers to "Vertical
 The `options` string specifies how to visualize the data:
 
 - `assets=GEC`:  
-  This selects the geocoded ellipsoid corrected (GEC) asset from the STAC item, which contains the processed SAR backscatter data.
+  This asset parameter selects the geocoded ellipsoid corrected (GEC) asset from the STAC item, which contains the processed SAR backscatter data.
 
 - `rescale=0,255`:  
-  This transforms the radar backscatter values to an 8-bit range (0-255) for proper visualization, converting the raw radar data into displayable intensity values.
+  This rescale parameter transforms the radar backscatter values to an 8-bit range (0-255) for proper visualization, converting the raw radar data into displayable intensity values.
 
 - `colormap_name=gray`:  
-  This applies a grayscale color palette appropriate for SAR intensity data, where darker areas represent weaker radar returns and brighter areas represent stronger returns.
+  This colormap parameter applies a grayscale color palette appropriate for SAR intensity data, where darker areas represent weaker radar returns and brighter areas represent stronger returns.
 
 The visualization creates a grayscale image where buildings, rough terrain, and other surfaces that strongly reflect radar signals appear bright, while smooth surfaces like water appear dark. 
 
@@ -1202,13 +1202,13 @@ The tile settings configuration controls the display behavior and performance ch
 
 **Key Parameters:**
 
-* **`minZoom: 12`**: Sets the minimum zoom level at which the SAR imagery becomes visible. This relatively high minimum zoom level is appropriate for Umbra's sub-meter resolution data (approximately 0.48 meter ground sample distance), ensuring that users can see meaningful detail when the data is displayed. At lower zoom levels, the high-resolution SAR data would be too detailed to be useful and could impact performance.
+* **`minZoom: 12`**: Sets the minimum zoom level at which the SAR imagery becomes visible. This relatively high zoom level setting is appropriate for Umbra's sub-meter resolution data (approximately 0.48 meter ground sample distance), ensuring that users can see meaningful detail when the data is displayed. At lower zoom levels, the high-resolution SAR data would be too detailed to be useful and could impact performance.
 
-* **`maxItemsPerTile: 35`**: Limits the number of SAR images that can be composited together in a single map tile. For SAR data, this setting ensures that multiple overlapping acquisitions don't overwhelm the tile generation process while allowing for temporal compositing when needed.
+* **`maxItemsPerTile: 35`**: Limits the number of SAR images that can be composited together in a single map tile. For SAR data, this limit setting ensures that multiple overlapping acquisitions don't overwhelm the tile generation process while allowing for temporal compositing when needed.
 
 * **`defaultLocation: null`**: No default location is specified, allowing users to navigate to any area of interest where Umbra SAR coverage is available.
 
-This configuration optimizes the balance between data visibility and performance, ensuring that the high-resolution SAR imagery is displayed effectively when users zoom in to appropriate scales where individual buildings, vehicles, and infrastructure elements become clearly distinguishable.
+This tile settings configuration optimizes the balance between data visibility and performance, ensuring that the high-resolution SAR imagery is displayed effectively when users zoom in to appropriate scales where individual buildings, vehicles, and infrastructure elements become clearly distinguishable.
 
 ```json
 {
@@ -1222,16 +1222,16 @@ This configuration optimizes the balance between data visibility and performance
 
 ## STAC collection configuration
 
-The `item_assets` section is a critical component of the STAC Collection JSON that defines the assets (data files) available within each item of this collection. For this Umbra SAR collection:
+The `item_assets` section is a critical component of the STAC Collection JSON that defines the assets (data files) available within each item of this Umbra SAR collection. For this Umbra SAR collection:
 
-This section tells us:
+This GEC asset section tells us:
 
 1. **Asset Key**: `GEC` is the key identifier used to reference this asset in render configurations (`assets=GEC`)
 
 2. **Data Format**: The asset is a cloud-optimized GeoTIFF, which allows efficient access to portions of the imagery
 
 3. **Radar Properties**: 
-   - This image contains VV polarization data (vertical transmit, vertical receive)
+   - This GEC image contains VV polarization data (vertical transmit, vertical receive)
    - Contains terrain-corrected gamma naught values with radiometric correction
 
 4. **Technical Specifications**:
@@ -1239,7 +1239,7 @@ This section tells us:
    - Data is stored as 8-bit unsigned integers (`uint8`)
    - The spatial resolution is approximately 0.48 meters per pixel
 
-This asset definition is directly referenced in the render configuration via `assets=GEC`, and the rendering parameters (`rescale=0,255&colormap_name=gray`) are designed to properly visualize the SAR backscatter values in this specific data asset.
+This GEC asset definition is directly referenced in the render configuration via `assets=GEC`, and the rendering parameters (`rescale=0,255&colormap_name=gray`) are designed to properly visualize the SAR backscatter values in this specific data asset.
 ```json
 {
   "id": "umbra-sar",
@@ -1357,7 +1357,7 @@ This asset definition is directly referenced in the render configuration via `as
 
 The [Impact Observatory Land Use/Land Cover 9-Class dataset](https://www.impactobservatory.com/) provides annual global maps of land use and land cover (LULC) from 2017-2022. This dataset was generated using billions of human-labeled pixels to train a deep learning model for land classification, applied to Sentinel-2 imagery at 10-meter resolution.
 
-The 9-class system includes: Water, Trees, Flooded vegetation, Crops, Built area, Bare ground, Snow/ice, Clouds, and Rangeland. This updated model combines the previously separate Grass and Scrub classes into a single Rangeland class, providing more consistent classification across the time series.
+The 9-class system includes: Water, Trees, Flooded vegetation, Crops, Built area, Bare ground, Snow/ice, Clouds, and Rangeland. This updated classification model combines the previously separate Grass and Scrub classes into a single Rangeland class, providing more consistent classification across the time series.
 
 Each annual map represents a composite of LULC predictions throughout the year, with an assessed average accuracy of over 75%. The data is particularly valuable for monitoring land use changes, tracking deforestation, urban expansion, and agricultural patterns at a global scale.
 
@@ -1372,10 +1372,10 @@ The mosaic configuration for this collection provides temporal filtering options
 The configuration includes six separate mosaic options covering 2017-2022:
 
 * **Temporal Filtering**: Each mosaic uses the `anyinteracts` operator to filter items where the `datetime` property intersects with a specific year's date range
-* **Date Ranges**: Each year's filter spans from January 1st to December 31st of that year (e.g., "2022-01-01T23:59:59Z" to "2022-12-31T23:59:59Z")
-* **User Experience**: This allows users to compare land cover changes year-over-year or focus on a specific time period of interest
+* **Date Ranges**: Each year's filter spans from January 1st to December 31st of that specific year (e.g., "2022-01-01T23:59:59Z" to "2022-12-31T23:59:59Z")
+* **User Experience**: This temporal filtering allows users to compare land cover changes year-over-year or focus on a specific time period of interest
 
-This temporal approach is particularly valuable for land cover analysis, as it enables users to track changes in land use patterns, monitor deforestation or reforestation, observe urban expansion, and assess the impact of natural disasters or human activities over time.
+This temporal filtering approach is particularly valuable for land cover analysis, as it enables users to track changes in land use patterns, monitor deforestation or reforestation, observe urban expansion, and assess the impact of natural disasters or human activities over time.
 
 ```json
 [
@@ -1519,16 +1519,16 @@ The land cover data contains classified values representing 9 different land cov
 The `options` string specifies how to visualize the data:
 
 - `assets=data`:  
-  This selects the classification data asset from the STAC item, which contains the categorical land cover values for each pixel.
+  This asset parameter selects the classification data asset from the STAC item, which contains the categorical land cover values for each pixel.
 
 - `colormap_name=esa-cci-lc` or `colormap_name=io-lulc-9-class`:  
-  This applies a predefined color palette to map the numeric classification values to colors. The ESA colormap follows scientific standards, while the IO colormap is optimized for the 9-class system.
+  This colormap parameter applies a predefined color palette to map the numeric classification values to colors. The ESA colormap follows scientific standards, while the IO colormap is optimized for the 9-class system.
 
 - `exitwhenfull=False`:  
-  This continues tile processing even when the tile cache is full, ensuring complete coverage.
+  This unwind parameter continues tile processing even when the tile cache is full, ensuring complete coverage.
 
 - `skipcovered=False`:  
-  This processes all pixels, including those already covered by other tiles, ensuring no gaps in the visualization.
+  This `skipcovered` parameter processes all pixels, including those already covered by other tiles, ensuring no gaps in the visualization.
 
 The visualization creates a colored map where each of the 9 land cover classes (Water, Trees, Crops, Built areas, etc.) is displayed in a distinct color for easy identification and analysis.
 
@@ -1590,9 +1590,9 @@ The tile settings configuration controls the display behavior and performance ch
 
 **Key Parameters:**
 
-* **`minZoom: 12`**: Sets the minimum zoom level at which the land cover data becomes visible. This relatively high minimum zoom level is appropriate for 10-meter resolution data, ensuring that users can see meaningful detail when the data is displayed. At lower zoom levels, the 10-meter classification data would be too detailed to be useful and could impact performance.
+* **`minZoom: 12`**: Sets the minimum zoom level at which the land cover data becomes visible. This relatively high zoom level setting is appropriate for 10-meter resolution data, ensuring that users can see meaningful detail when the data is displayed. At lower zoom levels, the 10-meter classification data would be too detailed to be useful and could impact performance.
 
-* **`maxItemsPerTile: 35`**: Limits the number of STAC items that can be composited together in a single map tile. For annual land cover data, this setting ensures that multiple overlapping items (if they exist) don't overwhelm the tile generation process.
+* **`maxItemsPerTile: 35`**: Limits the number of STAC items that can be composited together in a single map tile. For annual land cover data, this limit setting ensures that multiple overlapping items (if they exist) don't overwhelm the tile generation process.
 
 * **`defaultLocation: null`**: No default location is specified, allowing users to navigate to any area of interest globally.
 
