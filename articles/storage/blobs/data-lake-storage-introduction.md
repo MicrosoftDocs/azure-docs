@@ -9,6 +9,7 @@ ms.topic: overview
 ms.date: 11/15/2024
 ms.author: normesta
 ms.reviewer: jamesbak
+# Customer intent: As a data engineer, I want to understand the features and capabilities of Azure Data Lake Storage, so that I can efficiently store and analyze large volumes of structured and unstructured data for big data analytics.
 ---
 
 # Introduction to Azure Data Lake Storage

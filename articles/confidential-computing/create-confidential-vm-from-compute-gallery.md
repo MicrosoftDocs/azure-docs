@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.date: 07/14/2022
 ms.custom: mode-arm
 ms.devlang: azurecli
+# Customer intent: As a cloud architect, I want to deploy a confidential virtual machine using a custom image from an Azure Compute Gallery, so that I can ensure sensitive workloads are protected with enhanced security features.
 ---
 
 # Quickstart: Deploy a confidential VM from an Azure Compute Gallery image using the Azure portal
@@ -30,7 +31,7 @@ The resulting image version can be used only to create confidential VMs.
 This image version can be replicated within the source region **but cannot be replicated to a different region** or across subscriptions currently.
 
 > [!NOTE]
-> If you want to create an image from a Windows confidential VM that has confidential compute disk encryption enabled with a platform-managed key or a customer-managed key, you can only create a specialized image. This limitation exists because the generalization tool (**sysprep**), might not be able to generalized the encrypted image source. This limitation applies to the OS disk, which is implicitly created along with the Windows confidential VM, and the snapshot created from this OS disk.
+> If you want to create an image from a Windows confidential VM that has confidential compute disk encryption enabled with a platform-managed key or a customer-managed key, you can create a specialized or generalized image.
 
 ### Create a Confidential VM type image using Confidential VM capture
 

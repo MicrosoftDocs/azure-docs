@@ -5,6 +5,7 @@ ms.topic: sample
 ms.date: 05/20/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an IT administrator, I want to register an on-premises Windows server with a Recovery Services vault using a PowerShell script, so that I can automate the backup process effectively and ensure data protection for my environment.
 ---
 
 # PowerShell Script to register an on-premises Windows server or a client machine with Recovery Services vault

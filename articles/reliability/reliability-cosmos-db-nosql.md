@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-cosmos-db
-ms.date: 05/06/2024 
+ms.date: 06/11/2025
 ---
 
 <!--#Customer intent:  I want to understand reliability support in Azure Cosmos DB for NoSQL so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->

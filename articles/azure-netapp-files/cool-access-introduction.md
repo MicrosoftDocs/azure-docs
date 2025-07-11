@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/06/2025
 ms.author: anfdocs
 ms.custom: references_regions
+# Customer intent: As a storage administrator, I want to configure inactive data to move from a hot tier to a cool tier in Azure NetApp Files, so that I can optimize storage costs while maintaining accessibility to archived data.
 ---
 
 # Azure NetApp Files storage with cool access

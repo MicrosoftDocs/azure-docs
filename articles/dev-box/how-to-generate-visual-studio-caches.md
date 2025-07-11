@@ -11,7 +11,7 @@ ms.author: rosemalcolm
 ms.date: 02/23/2025
 ms.topic: how-to
 
-#customer intent: As a platfrom engineer, I want to learn how to precache Visual Studio solutions for Microsoft Dev Boxes, so that developers can get strated on VS solutions more quickly.
+#customer intent: As a platform engineer, I want to learn how to precache Visual Studio solutions for Microsoft Dev Boxes, so that developers can get strated on VS solutions more quickly.
 ---
 
 # Optimize the Visual Studio experience on Microsoft Dev Box

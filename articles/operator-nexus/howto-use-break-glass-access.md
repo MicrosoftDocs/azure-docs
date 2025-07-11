@@ -13,7 +13,7 @@ ms.custom: template-how-to, devx-track-azurecli
 
 Break glass access using Method D v2.0 is a streamlined approach for administrators to grant secure, emergency access to critical network fabric devices. This guide walks you through setting up and using break glass access, including generating SSH keys, granting permissions, and accessing network fabric devices.
 
-Method D v2.0 also supports assigning roles to Entra Groups, streamlining the management of break glass access by applying group-based role assignments. 
+Method D v2.0 also supports assigning Nexus Network Fabric (NNF) built-in roles to Entra Groups, streamlining the management of break glass access by applying group-based role assignments. 
 
 ## Generating SSH Keys using the Nexusidentity Azure CLI
 
@@ -134,12 +134,12 @@ Once these roles are assigned, the corresponding username and public SSH key are
 
 ## Scope for group based role assignments
 
-Role assignments can be made at either the subscription or fabric scope. These role assignments were validated at the fabric level. Each user must have rights for the specific fabric instance, which may be inherited from higher-level grants (for example, subscription-level assignments).
+Role assignments are set at fabric scope. Each user must have rights for the specific fabric instance, which may be inherited from higher-level grants (for example, subscription-level assignments).
 
 Multiple groups can be assigned the same Nexus Network Fabric (NNF) built-in role (for example, Nexus Network Fabric Service Reader or Writer) for a given fabric instance.
 
 ### User Limitations
-A maximum of 200 user accounts (across all groups and individual assignments) can be granted BreakGlass access.
+A maximum of 200 user accounts (across all groups and individual user accounts which include existing Method Dv1.0 and Method Dv1.5 users) can be granted BreakGlass access.
 
 Multiple groups may be assigned to the same role for a fabric instance, but the 200-user limit still applies.
 

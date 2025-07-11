@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 08/08/2024
 ms.author: allensu
 ms.custom: template-how-to, devx-track-azurepowershell
+# Customer intent: "As a cloud administrator, I want to manage Azure Traffic Manager profiles using PowerShell commands, so that I can efficiently configure and monitor traffic routing for my applications."
 ---
 
 # Using PowerShell to manage Traffic Manager

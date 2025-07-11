@@ -54,7 +54,7 @@ PUT {endpoint}/access/teamsExtension/tenants/87d349ed-44d7-43e1-9a83-5f2406dee5b
 }
 ```
 
-The {principalType} needs to be `teamsResourceAccount`.
+The `{principalType}` needs to be `teamsResourceAccount`.
 
 ### Response
 

@@ -11,6 +11,7 @@ ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+# Customer intent: As a Java developer, I want to delete and restore blob containers using the Azure Storage client library, so that I can efficiently manage container lifecycle and recover from accidental deletions.
 ---
 
 # Delete and restore a blob container with Java

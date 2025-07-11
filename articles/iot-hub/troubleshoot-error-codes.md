@@ -173,15 +173,22 @@ This error occurs because when a device receives a cloud-to-device message from 
 
 If IoT Hub doesn't get the notification within the one-minute lock time-out duration, it sets the message back to *Enqueued* state. The device can attempt to receive the message again. To prevent the error from happening in the future, implement device side logic to complete the message within one minute of receiving the message. This one-minute time-out can't be changed.
 
-## 429001 Throttling exception
+## 429xxx Throttling exception
 
-You might see that your requests to IoT Hub fail with the error **429001 ThrottlingException**.
+You might see that your requests to IoT Hub fail with an error that begins with **429** such as:
 
-This error occurs when IoT Hub [throttling limits](iot-hub-devguide-quotas-throttling.md) are exceeded for the requested operation.
+* **429000 - GenericTooManyRequests**
+* **429001 – ThrottlingException**: [Throttling limits](iot-hub-devguide-quotas-throttling.md) are exceeded for the requested operation.
+* **429002 - ThrottleBacklogLimitExceeded**: The number of requests that are in the backlog due to throttling has exceeded the backlog limit.
+* **429003 - ThrottlingBacklogTimeout**: Requests that were backlogged due to throttling have timed out while waiting in the backlog queue.
+* **429004 - ThrottlingMaxActiveJobCountExceeded**
+* **429005 – DeviceThrottlingLimitExceeded**
 
-To resolve this error, check if you're hitting the throttling limit by comparing your *Telemetry message send attempts* metric against the limits previously specified. You can also check the *Number of throttling errors* metric. For information about these metrics, see [Device telemetry metrics](monitor-iot-hub-reference.md#device-telemetry-metrics). For information about how use metrics to help you monitor your IoT hub, see [Monitor Azure IoT Hub](monitor-iot-hub.md).
+You can only monitor **429001** through Azure Monitor under the metric [Number of Throttling Errors](monitor-iot-hub-reference.md). Currently, the other throttling errors do not have an associated metric but are captured in the logs.
 
-IoT Hub returns 429 ThrottlingException only after the limit is violated for too long a period. This delay is done so that your messages aren't dropped if your IoT hub gets burst traffic. In the meantime, IoT Hub processes the messages at the operation throttle rate, which might be slow if there's too much traffic in the backlog. For more information, see the [Traffic shaping](iot-hub-devguide-quotas-throttling.md#traffic-shaping) section of [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
+To resolve these errors, check if you're hitting the throttling limit by comparing your *Telemetry message send attempts* metric against the limits previously specified. You can also check the *Number of throttling errors* metric. For information about these metrics, see [Device telemetry metrics](monitor-iot-hub-reference.md#device-telemetry-metrics). For information about how use metrics to help you monitor your IoT hub, see [Monitor Azure IoT Hub](monitor-iot-hub.md).
+
+IoT Hub returns **429001 – ThrottlingException** only after the limit is violated for too long a period. This delay is done so that your messages aren't dropped if your IoT hub gets burst traffic. In the meantime, IoT Hub processes the messages at the operation throttle rate, which might be slow if there's too much traffic in the backlog. For more information, see the [Traffic shaping](iot-hub-devguide-quotas-throttling.md#traffic-shaping) section of [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
 Consider [scaling up your IoT hub](iot-hub-scaling.md) if you're running into quota or throttling limits.
 

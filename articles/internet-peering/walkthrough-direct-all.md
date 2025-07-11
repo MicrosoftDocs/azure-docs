@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 04/21/2025
 
 #CustomerIntent: As an administrator, I want to learn about the requirements to create a direct peering in Azure Peering Service, so I can provision and manage direct peerings.
+# Customer intent: As an administrator, I want to understand how to provision and manage direct peering in a cloud service, so that I can establish and maintain reliable connections for optimized network performance.
 ---
 
 # Set up and monitor a direct peering

@@ -9,6 +9,7 @@ ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.date: 03/26/2024
 ms.author: normesta
+# Customer intent: "As a data storage administrator, I want to implement container-level WORM policies for immutable blob data, so that I can ensure compliance and protection against data modification or deletion."
 ---
 
 # Container-level write once, read many (WORM) policies for immutable blob data

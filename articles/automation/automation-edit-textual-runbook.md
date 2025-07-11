@@ -6,6 +6,8 @@ ms.service: azure-automation
 ms.subservice: process-automation
 ms.date: 08/20/2024
 ms.topic: how-to 
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Edit textual runbooks in Azure Automation

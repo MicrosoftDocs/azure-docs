@@ -13,6 +13,7 @@ ms.reviewer: artek
 ms.subservice: storage-common-concepts
 ms.devlang: csharp
 ms.custom: devx-track-csharp
+# Customer intent: As a cloud application developer, I want to design applications that utilize geo-redundancy for high availability, so that the application can maintain functionality during regional outages while managing data consistency and user notifications effectively.
 ---
 
 # Use geo-redundancy to design highly available applications

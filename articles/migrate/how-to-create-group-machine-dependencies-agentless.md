@@ -8,6 +8,7 @@ ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 04/17/2025
 ms.custom: engagement-fy25
+# Customer intent: As an IT administrator, I want to set up agentless dependency analysis using Azure Migrate, so that I can automatically identify and visualize server dependencies to facilitate smoother assessment and migration to the cloud.
 ---
 
 
@@ -91,7 +92,7 @@ After servers are automatically enabled for agentless dependency analysis, appli
 
 ## Review dependency status
 
-After initiating discovery from the appliance, you can come to Migrate project on the Azure portal and review the dependency data. We recommend that you wait for **atleast 24 hours** to allow for enough dependendency data to be gathered for your servers and show in a visualization. 
+After initiating discovery from the appliance, you can come to Migrate project on the Azure portal and review the dependency data. We recommend that you wait for **atleast 24 hours** to allow for enough dependency data to be gathered for your servers and show in a visualization. 
 
 In the project, you can review dependencies for each server either through the **All inventory** or **Infrastructure inventory** view. 
 
@@ -246,7 +247,7 @@ Dependency analysis is auto-enabled on all discovered servers which have passed 
 2. Dependency analysis has been auto-enabled on 1,000 servers concurrently in your project but you have more servers where you want to enable it, then you can disable dependency analysis one or more servers from the set of 1,000 and enable others as needed.
 
 > [!NOTE]
-> Currently, it isn't possible to disable dependendency analysis on servers from portal so you need to install the PowerShell module to disable for servers that you don't want.
+> Currently, it isn't possible to disable dependency analysis on servers from portal so you need to install the PowerShell module to disable for servers that you don't want.
 ::: moniker-end
 
 ### Log in to Azure
