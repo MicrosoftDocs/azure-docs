@@ -59,7 +59,7 @@ Now you can clone your fork to work with it locally.
 Use the following git command to clone your forked repo into the _acadapr-templates_ directory.
 
 ```git
-git clone https://github.com/$GITHUB_USERNAME/Tutorial-Deploy-Dapr-Microservices-ACA.git acadapr-templates
+git clone https://github.com/Azure-Samples/Tutorial-Deploy-Dapr-Microservices-ACA.git acadapr-templates
 ```
 
 ## Deploy
