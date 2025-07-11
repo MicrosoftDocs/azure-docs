@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 05/21/2025
+ms.date: 07/11/2025
 ms.author: kendownie
 ms.custom:
   - build-2025
@@ -15,6 +15,13 @@ ms.custom:
 Azure Files and Azure File Sync are updated regularly to offer new features and enhancements. This article provides detailed information about what's new in Azure Files and Azure File Sync.
 
 ## What's new in 2025
+
+### 2025 quarter 3 (July, August, September)
+
+#### Provisioned v2 for SSD file shares
+The provisioned v2 model for Azure Files SSD (premium) pairs predictability of total cost of ownership with flexibility, allowing you to create a file share that meets your exact storage and performance requirements. Provisioned v2 SSD shares enable independent provisioning of storage, IOPS, and throughput. In addition to predictable pricing and flexible provisioning, provisioned v2 SSD also enables increased file share size range from 32 GiB up to 256 TiB.
+
+To learn more, see [understanding the provisioned v2 model](./understanding-billing.md#provisioned-v2-model).
 
 ### 2025 quarter 2 (April, May, June)
 
