@@ -786,7 +786,7 @@ The [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](#website_contentazurefileconnecti
 |---|------------|
 |WEBSITE_SKIP_CONTENTSHARE_VALIDATION|`1`|
 
-If validation is skipped and either the connection string or content share isn't valid, the app isn't able to start properly. In this case, functions return HTTP 500 errors. For more information, see [Troubleshoot error: "Azure Functions Runtime is unreachable"](functions-recover-storage-account.md)
+If validation is skipped and either the connection string or content share isn't valid, the app isn't able to start properly. In this case, functions return HTTP 500 errors. For more information, see [Troubleshoot error: "Azure Functions Runtime is unreachable"](functions-recover-storage-account.md).
 
 ## WEBSITE\_SLOT\_NAME
 
