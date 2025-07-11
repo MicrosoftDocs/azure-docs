@@ -219,6 +219,8 @@ items:
     href: azure-vmware-solution-nsx-scale-and-performance-recommendations-for-vmware-hcx.md
   - name: Enable VMware HCX access over the internet
     href: enable-hcx-access-over-internet.md
+  - name: Migrate workloads between Azure VMware Solution private clouds
+    href: migrate-between-private-clouds.md
   - name: Upgrade VMware HCX on Azure VMware Solution
     href: upgrade-hcx-azure-vmware-solutions.md
   - name: Use VMware HCX Run Commands
@@ -353,6 +355,8 @@ items:
     items:
     - name: Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud
       href: deploy-arc-for-azure-vmware-solution.md
+    - name: Enable guest management and install extensions on Arc-enabled VMs
+      href: arc-enable-guest-management.md
     - name: Manage Arc-enabled Azure VMware Solution
       href: manage-arc-enabled-azure-vmware-solution.md
     - name: Remove Arc-enabled Azure VMware Solution vSphere resources from Azure
