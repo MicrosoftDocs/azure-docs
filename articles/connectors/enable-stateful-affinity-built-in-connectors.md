@@ -202,7 +202,7 @@ Resource scale-in events might cause the loss of context for built-in connectors
 > For logic apps that doesn't use the App Service Environment v3 hosting option,
 > Azure Logic Apps waits up to 5 minutes before taking down a virtual machine during 
 > scale-in events. Built-in connectors might experience issues. For example,
-> Azure Service Bus can't complete messages duing platform upgrades.
+> Azure Service Bus can't complete messages during platform upgrades.
 
 1. On your logic app resource menu, under **Settings**, select **Scale out (App Service plan)**.
 
