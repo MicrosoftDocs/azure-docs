@@ -217,7 +217,7 @@ At this point, the Functions host is able to connect to the storage account secu
 ::: zone pivot="programming-language-java"
 ## Update the pom.xml file
 
-After you successfully created your function app in Azure, you must update the pom.xml file so that Maven can deploy to your new app. Otherwise, it creates new set of Azure resources.
+After you successfully created your function app in Azure, you must update the pom.xml file so that Maven can deploy to your new app. Otherwise, it creates new set of Azure resources during deployment.
 
 1. In Azure Cloud Shell, use this [`az functionapp show`](/cli/azure/functionapp#az-functionapp-show) command to get the deployment container URL and ID of the new user-assigned managed identity:
 
