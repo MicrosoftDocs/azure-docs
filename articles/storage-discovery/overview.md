@@ -5,7 +5,7 @@ author: pthippeswamy
 ms.service: azure-storage-mover
 ms.topic: overview
 ms.date: 08/01/2025
-ms.author: pthippeswamy
+ms.author: shaas
 ---
 
 # What is Azure Storage Discovery?
@@ -18,7 +18,8 @@ With just a few clicks, users can answer critical questions such as:
 - Where can I reduce costs by adjusting access tiers or deleting stale data?
 - Are my storage configurations aligned with security and compliance best practices?
 
-## Azure Storage Discovery delivers value across multiple dimensions:
+## Value proposition
+Azure Storage Discovery delivers value across multiple dimensions:
 
 ### Unified Visibility Across the Storage Estate
 Gain organization-wide visibility into up to 1 million storage accounts. Discovery aggregates insights across subscriptions, resource groups, and regions, enabling users to monitor their entire storage footprint in one place.
@@ -33,10 +34,12 @@ Integrated with Azure Copilot, Discovery allows users to ask natural language qu
 Visualize and audit storage configurations to ensure alignment with best practices. Identify accounts with settings that do not align with your business needs and take corrective action.
 
 ### Long-Term Trend Analysis
-With up to 18 months of historical data and automatic backfill of the previous month, Discovery supports long-term planning and workload optimization.
+With up to 30 days<sup>1</sup> of historical data and automatic backfill of the previous month, Discovery supports long-term planning and workload optimization.
 
 ### Seamless Integration and Scalability
 Discovery integrates with Azure Storage Center and other data management tools, offering a scalable solution that grows with your data estate.
+
+<sup>1</sup> Storage Discovery will soon support 6 months of historical data through upcoming backfill enhancements for Standard pricing plan.
 
 ## Why It Matters
 
@@ -45,38 +48,9 @@ As organizations scale their digital footprint, managing storage across thousand
 - Improve operational efficiency
 - Strengthen security posture
 
-## Key concepts
-
-### Azure Storage Discovery Workspace (ASDW) 
-ASDW is a key resource definition within the Azure Storage Discovery project. ASDW plays a crucial role in managing and visualizing storage data across various scopes, including tenants, subscriptions, and resource groups.
-
-### WorkspaceRoots 
-Azure Resource Manager (ARM) resource identifiers that define the root-level boundaries of an Azure Storage Discovery Workspace (ASDW). These roots specify the top-level Azure resources - such as subscriptions and/or resource groups - over which the discovery workspace will operate.
-
-Example:
-
-```json
-"workspaceRoots": [
-  "/subscriptions/abc123...",
-  "/subscriptions/abc123/resourceGroups/rg1"
-]
-```
-
-This configuration means the workspace will monitor storage accounts under the specified subscription and resource group.
-
-> [!NOTE]
-> - Users need Reader access on subscriptions or resource groups to add them to workspaceRoots during ASDW deployment.
-
-
-### Scope 
-A Scope in Azure Storage Discovery represents a logical grouping of storage accounts based on user-defined criteria, such as resource tags. Scopes are configured within the boundaries of a workspace and serve as filters to organize and segment data for reporting and insights. By defining scopes, users can tailor their workspace to align with specific business units, workloads, or any segment of their Azure Storage environment they wish to monitor. This enables more targeted visibility and actionable insights across distinct areas of the storage estate. Users have flexibility to define:
-
-- Scope without any ARM tags will include all storage accounts within the defined scope
-- Scope with tags enables users to selectively choose specific storage accounts based on Azure tags assigned to the storage accounts.
-
 ## Next steps
 
-The following articles can help you become familiar with the Storage Discovery service.
+These articles will help you plan your Discovery deployment and enable you to successfully create the Discovery workspace resource.
 
 - [Planning for an Azure Storage Discovery deployment](deploy-planning.md)
 - [Create Storage Discovery Workspace by using the Azure portal](create-workspace.md)

@@ -5,7 +5,7 @@ author: pthippeswamy
 ms.service: azure-storage-mover
 ms.topic: overview
 ms.date: 08/01/2025
-ms.author: pthippeswamy
+ms.author: shaas
 ---
 
 # Azure Storage Discovery pricing

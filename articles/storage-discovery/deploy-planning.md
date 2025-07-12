@@ -5,7 +5,7 @@ author: pthippeswamy
 ms.service: azure-storage-mover
 ms.topic: overview
 ms.date: 08/01/2025
-ms.author: pthippeswamy
+ms.author: shaas
 ---
 
 # Azure Storage Discovery: Regional Availability and Planning Guide
@@ -20,7 +20,7 @@ Azure Storage Discovery Workspaces (ASDW) are the foundational resource for conf
 
 ### What This Means for You
 
-The region where your ASDW is deployed determines where the control plane for your discovery experience resides. This includes:
+The region where your discovery workspace is deployed determines where the control plane for your discovery experience resides. This includes:
 
 - **Data residency**: Metadata and insights are stored in the region where the workspace is created.
 - **Latency**: Choosing a region close to your operational base can improve dashboard responsiveness.

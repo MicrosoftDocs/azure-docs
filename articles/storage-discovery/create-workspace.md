@@ -5,7 +5,7 @@ description: Learn how to create an discovery workspace.
 author: pthippeswamy
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.author: pthippeswamy
+ms.author: shaas
 ms.date: 08/01/2025
 ---
 
@@ -22,7 +22,7 @@ This article helps you create an ASDW resource.
 Click on **Create**
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the create ASDW page.](media/create/create.png)
+> ![Screenshot of the create ASDW page.](./media/create-resource.png)
 
 Choose a **Subscription** and **Resource group** to create the discovery workspace
 
@@ -46,12 +46,12 @@ WorkspaceRoots specifies the top-level Azure resource identifiers - such as subs
 > - Up to 100 resources - subscriptions and/or resource groups can be included in one ASDW.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the workspaceRoots.](media/create/workspaceroots.png)
+> ![Screenshot of the workspaceRoots.](./media/workspace-roots-checks.png)
 
 Once the subscriptions, resource groups or tenant is added to the workspace, an access check is run to verify if the user has Microsoft.Storage/storageAccounts/read on the added resources. As the checks are running, status of the run is as shown:
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of the access check on workspaceRoots.](media/create/createaccess.png)
+> ![Screenshot of the access check on workspaceRoots.](./media/create-access.png)
 
 If you do not have Microsoft.Storage/storageAccounts/read on any of the resources added, remove the resource from the workSpaceRoots to proceed with the creation of workspace or resolve the access issue and try again.
 
@@ -59,7 +59,7 @@ If you do not have Microsoft.Storage/storageAccounts/read on any of the resource
 Scopes are logical groupings of storage accounts within the defined workspaceRoots.They allow you to filter and organize data using tags and resource types. Scope enables targeted insights - you can create scopes for different departments, environments, or compliance zones.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of scope](media/create/scope.png)
+> ![Screenshot of scope](./media/scope.png)
 
 > [!IMPORTANT]
 > **Default Scope** is added automatically, which would include all storage accounts within the subscriptions or resource groups added in the **workspaceRoots**
@@ -69,7 +69,7 @@ Add tags, if needed on the ASDW resource and click on Review and Create.
 If the access check for the workspaceRoots resources hasn’t finished yet, the Review and Create tab shows a message saying the check is still in progress. You won’t be able to deploy the resource until the check is complete.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of access checks.](media/create/reviewandcreate.png)
+> ![Screenshot of access checks.](./media/review-create.png)
 
 > [!NOTE]
 > Note that Discovery resource creation fails if the access checks on any added subscription or resource group or tenant is not successful.
@@ -77,7 +77,7 @@ If the access check for the workspaceRoots resources hasn’t finished yet, the 
 When the access checks completes successfully, resource can be deployed.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of deployment complete.](media/create/deploy.png)
+> ![Screenshot of deployment complete.](./media/deploy.png)
 
 > [!NOTE]
 > Note that it will take upto 24 hours for the metrics to start appearing in the Reports after the scope is created.
