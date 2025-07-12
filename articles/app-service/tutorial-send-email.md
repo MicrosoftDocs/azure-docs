@@ -59,19 +59,23 @@ You must have the following prerequisites to complete this tutorial:
 
 1. Select **Logic app designer** under **Development Tools** in the left navigation menu.
 
+### Create the trigger
+
 1. On the Logic app designer page, select **Add a trigger**.
 
    :::image type="content" source="./media/tutorial-send-email/http-request-url.png" alt-text="Screenshot that shows the Logic Apps designer canvas with Add a trigger highlighted.":::
 
 1. On the **Add a trigger** screen under **Built-in tools**, select **Request**, and then select **When a HTTP request is received**.
 
-   :::image type="content" source="./media/tutorial-send-email/receive-http-request.png" alt-text="Screenshot that shows the splash page for the designer with When an HTTP request is received highlighted.":::
+   :::image type="content" source="./media/tutorial-send-email/receive-http-request.png" alt-text="Screenshot that shows Request and When a HTTP request is received highlighted.":::
 
    The **When a HTTP request is received** trigger appears on the designer canvas.
 
 1. On the **When a HTTP request is received** screen, select **Use sample payload to generate schema**.
 
-1. Paste the following code into the editor screen, and then select **Done**.
+   :::image type="content" source="./media/tutorial-send-email/use-sample-payload.png" alt-text="Screenshot that shows the When a HTTP request is received screen with generate schema link highlighted.":::
+
+1. On the **Enter or paste a sample JSON payload** screen, paste the following code into the editor, and then select **Done**.
 
    ```json
    {
@@ -90,6 +94,8 @@ You must have the following prerequisites to complete this tutorial:
    :::image type="content" source="./media/tutorial-send-email/generate-schema-with-payload.png" alt-text="Screenshot that shows the When a HTTP request is received screen with generate schema link and HTTP URL highlighted.":::
 
    The HTTP request definition is a trigger for anything you want to do in this logic app workflow, such as sending mail. Later you invoke this URL in your App Service app. For more information on the request trigger, see [Receive and respond to inbound HTTPS calls sent to workflows in Azure Logic Apps](/azure/connectors/connectors-native-reqres).
+
+### Create the Send email action
 
 1. On the designer canvas, select the **+** under the **When a HTTP request is received** trigger and select **Add an action**.
 
@@ -119,6 +125,8 @@ You must have the following prerequisites to complete this tutorial:
 1. Click or tap inside the **Body** field, display the dynamic content list, and select **due**.
 
 1. In the **Body** field, move the cursor before **due** and enter *This work item is due on* followed by a space.
+
+### Add a response
 
 1. Add an asynchronous HTTP response to the HTTP trigger. On the designer canvas, select the **+** between the HTTP request trigger and the Gmail action, and select **Add a parallel branch**.
 
