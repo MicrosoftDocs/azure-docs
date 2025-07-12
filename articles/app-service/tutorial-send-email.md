@@ -14,9 +14,9 @@ ms.author: cephalin
 
 In this tutorial, you learn how to integrate your App Service app with your business processes by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md). You create a logic app that sends email via Gmail from your Azure App Service app.
 
-Although there are other ways to send emails from a web app, such as SMTP configuration in your language framework, Logic Apps provides a simple configuration interface for many popular business integrations without adding complexity to your code.
+There are other ways to send emails from a web app, such as Simple Mail Transfer Protocol (SMTP) configuration in your language framework. However, Logic Apps provides a simple configuration interface for many business integrations without adding complexity to your code.
 
-You can use the steps demonstrated in this tutorial to implement many common web app scenarios, such as:
+You can use the steps demonstrated in this tutorial to implement several common web app scenarios, such as:
 
 - Sending confirmation email for a transaction.
 - Adding users to Facebook group.
@@ -59,17 +59,17 @@ You must have the following prerequisites to complete this tutorial:
 
 1. Select **Logic app designer** under **Development Tools** in the left navigation menu.
 
-### Create the trigger
+### Add the trigger
 
 1. On the Logic app designer page, select **Add a trigger**.
 
    :::image type="content" source="./media/tutorial-send-email/http-request-url.png" alt-text="Screenshot that shows the Logic Apps designer canvas with Add a trigger highlighted.":::
 
-1. On the **Add a trigger** screen under **Built-in tools**, select **Request**, and then select **When a HTTP request is received**.
+1. On the **Add a trigger** screen under **Built-in tools**, select **Request**, and on the next screen select **When a HTTP request is received**.
 
    :::image type="content" source="./media/tutorial-send-email/receive-http-request.png" alt-text="Screenshot that shows Request and When a HTTP request is received highlighted.":::
 
-   The **When a HTTP request is received** trigger appears on the designer canvas.
+   The trigger appears on the designer canvas.
 
 1. On the **When a HTTP request is received** screen, select **Use sample payload to generate schema**.
 
@@ -93,13 +93,15 @@ You must have the following prerequisites to complete this tutorial:
 
    :::image type="content" source="./media/tutorial-send-email/generate-schema-with-payload.png" alt-text="Screenshot that shows the When a HTTP request is received screen with generate schema link and HTTP URL highlighted.":::
 
-   The HTTP request definition is a trigger for anything you want to do in this logic app workflow, such as sending mail. Later you invoke this URL in your App Service app. For more information on the request trigger, see [Receive and respond to inbound HTTPS calls sent to workflows in Azure Logic Apps](/azure/connectors/connectors-native-reqres).
+The HTTP request definition is a trigger for anything you want to do in this logic app workflow, such as sending mail. Later you invoke this URL in your App Service app. For more information on the request trigger, see [Receive and respond to inbound HTTPS calls sent to workflows in Azure Logic Apps](/azure/connectors/connectors-native-reqres).
 
-### Create the Send email action
+### Create the email
 
-1. On the designer canvas, select the **+** under the **When a HTTP request is received** trigger and select **Add an action**.
+Add a send email action and populate it with the three HTTP request properties you entered earlier.
 
-1. On the **Add an action** screen, enter *gmail* in the search box and then select **Send email (V2)**.
+1. On the designer canvas, select the **+** under the trigger and select **Add an action**.
+
+1. On the **Add an action** screen, enter *gmail* in the search box, and then select **Send email (V2)**.
 
    > [!TIP]
    > You can search for other types of integrations, such as SendGrid, MailChimp, Microsoft 365, and SalesForce. For more information, see [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
@@ -108,9 +110,9 @@ You must have the following prerequisites to complete this tutorial:
 
    :::image type="content" source="./media/tutorial-send-email/gmail-sign-in.png" alt-text="Screenshot that shows the Gmail action where you sign in to your Gmail account.":::
 
-1. After you sign in, on the **Send email (V2)** screen, click or tap inside the **To** field to display the dynamic content icon. Select the upper, lightning bolt part of the icon.
+1. After you sign in, click or tap inside the **To** field on the **Send email (V2)** screen to display the dynamic content icon. Select the upper, lightning bolt part of the icon.
 
-1. The dynamic content list appears, showing the three HTTP request properties you entered earlier. You use these properties to construct an email. Select **email** from the list.
+1. The dynamic content list appears, showing the three HTTP request properties you entered earlier. Select **email** from the list.
 
    :::image type="content" source="./media/tutorial-send-email/expand-dynamic-content.png" alt-text="Screenshot that shows the dynamic content icon and list with email highlighted.":::
 
@@ -126,13 +128,17 @@ You must have the following prerequisites to complete this tutorial:
 
 1. In the **Body** field, move the cursor before **due** and enter *This work item is due on* followed by a space.
 
+   :::image type="content" source="./media/tutorial-send-email/completed-email.png" alt-text="Screenshot that shows the completed Send email (V2) form.":::
+
 ### Add a response
 
-1. Add an asynchronous HTTP response to the HTTP trigger. On the designer canvas, select the **+** between the HTTP request trigger and the Gmail action, and select **Add a parallel branch**.
+Add an asynchronous HTTP response to the HTTP trigger.
+
+1. On the designer canvas, select the **+** between the HTTP request trigger and the Gmail action, and select **Add a parallel branch**.
 
    :::image type="content" source="./media/tutorial-send-email/add-http-response.png" alt-text="Screenshot that shows the + sign and Add a parallel branch option highlighted.":::
 
-1. On the **Add an action** screen, enter *response* in the Search field, and then select **Response**.
+1. On the **Add an action** screen, enter *response* in the search field, and then select **Response**.
 
    :::image type="content" source="./media/tutorial-send-email/choose-response-action.png" alt-text="Screenshot that shows the search bar and Response action highlighted.":::
 
@@ -142,9 +148,9 @@ You must have the following prerequisites to complete this tutorial:
 
 ## Add the HTTP request code to your App Service app
 
-Because the URL of the HTTP request trigger contains sensitive information, it's best not to put it directly into your app code. Instead, you can reference it as an environment variable in App Service app settings. The following command creates an environment variable called `LOGIC_APP_URL` in your app settings.
+Because the URL of the HTTP request trigger contains sensitive information, it's best not to put it directly into your app code. Instead, you can reference it as an environment variable in App Service app settings. The following command puts the URL in an environment variable called `LOGIC_APP_URL` in your app settings.
 
-1. In Azure [Cloud Shell](https://shell.azure.com), run the following Azure CLI command to create the app setting. Replace `<app-name>` and `<resource-group-name>` with the names of your App Service app and resource group. Replace `<logic-app-url>` with the HTTP URL you copied from your logic app.
+1. In Azure [Cloud Shell](https://shell.azure.com), run the following Azure CLI command to create the app setting. Replace `<app-name>` and `<resource-group-name>` with your App Service app and resource group names. Replace `<logic-app-url>` with the HTTP URL you copied from your logic app.
 
    ```azurecli-interactive
    az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings LOGIC_APP_URL="<logic-app-url>"
@@ -170,7 +176,7 @@ Because the URL of the HTTP request trigger contains sensitive information, it's
 
 ### Example request/response code samples
 
-Select your preferred language/framework to see an example request. Some examples require using or installing code packages.
+Select your preferred language/framework to see an example request and response. Some examples require using or installing code packages.
 
 ### [ASP.NET Core](#tab/dotnetcore)
 
@@ -258,7 +264,7 @@ var jsonData = {
 
 ### [PHP](#tab/php)
 
-In PHP, you can send the HTTP post with [Guzzle](http://docs.guzzlephp.org/en/stable/index.html). The requires [Laravel](https://laravel.com/) to run `Log::info()`. You can install both packages using [Composer](https://getcomposer.org/).
+In PHP, you can send the HTTP post with [Guzzle](http://docs.guzzlephp.org/en/stable/index.html). The response requires [Laravel](https://laravel.com/) to run `Log::info()`. You can install both packages using [Composer](https://getcomposer.org/).
 
 ```php
 // Requires composer require guzzlehttp/guzzle:~6.0
