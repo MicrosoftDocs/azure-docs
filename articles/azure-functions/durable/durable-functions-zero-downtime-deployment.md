@@ -22,7 +22,7 @@ The following chart compares the four main strategies to achieve a zero-downtime
 
 | Strategy |  When to use | Pros | Cons |
 | -------- | ------------ | ---- | ---- |
-| [Orchestration Versioning](#orchestration-versioning) | Applications with [breaking changes](durable-functions-versioning.md), especially those that need to support concurrent execution of different orchestration versions. | Enables zero-downtime deployments with breaking changes.<br/>Built-in feature requiring minimal configuration. | Currently limited to .NET in-process and .NET isolated.<br/>Requires careful orchestrator code modifications for version compatibility. |
+| [Orchestration Versioning](#orchestration-versioning) | Applications with [breaking changes](durable-functions-versioning.md), especially those that need to support concurrent execution of different orchestration versions. | Enables zero-downtime deployments with breaking changes.<br/>Built-in feature requiring minimal configuration. | Currently limited to .NET isolated.<br/>Requires careful orchestrator code modifications for version compatibility. |
 | [Name-based Versioning](#name-based-versioning) |  Applications that don't experience frequent [breaking changes.](durable-functions-versioning.md) | Simple to implement. |  Increased function app size in memory and number of functions.<br/>Code duplication. |
 | [Status check with slot](#status-check-with-slot) | A system that doesn't have long-running orchestrations lasting more than 24 hours or frequently overlapping orchestrations. | Simple code base.<br/>Doesn't require additional function app management. | Requires additional storage account or task hub management.<br/>Requires periods of time when no orchestrations are running. |
 | [Application routing](#application-routing) | A system that doesn't have periods of time when orchestrations aren't running, such as those time periods with orchestrations that last more than 24 hours or with frequently overlapping orchestrations. | Handles new versions of systems with continually running orchestrations that have breaking changes. | Requires an intelligent application router.<br/>Could max out the number of function apps allowed by your subscription. The default is 100. |
@@ -39,11 +39,11 @@ The [Orchestration Versioning](durable-functions-orchestration-versioning.md) fe
 With Orchestration Versioning:
 - Each orchestration instance gets a version permanently associated with it when created.
 - Workers running newer versions can continue executing orchestration instances created by older versions.
-- Workers running older versions are prevented from executing orchestrations started by newer versions.
+- Workers running older orchestration versions _can't_ execute newer version instances.
 - Orchestrator functions can examine their version and branch execution accordingly.
 
 This approach facilitates rolling upgrades where workers running different versions of your application can coexist safely. It's the recommended strategy for applications that need to support breaking changes while maintaining zero-downtime deployments.
-
+The Orchestration Versioning feature is **[backend agnostic](./durable-functions-storage-providers.md)**, so you can leverage it regardless of what storage backend your Durable Function app is using. 
 For detailed configuration and implementation guidance, see [Orchestration Versioning in Durable Functions](durable-functions-orchestration-versioning.md).
 
 ## Name-based Versioning

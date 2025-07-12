@@ -12,7 +12,8 @@ ms.custom: fasttrack-edit
 # Orchestration Versioning in Durable Functions (Azure Functions)
 
 > [!IMPORTANT]
-> Orchestration Versioning is currently in public preview for apps running in the .NET isolated model. Support for other languages (JavaScript, Python, PowerShell, Java) is coming soon.
+> Orchestration Versioning is currently in public preview for apps running in the .NET isolated model. Use `Microsoft.Azure.Functions.Worker.Extensions.DurableTask` package version **>=1.5.0**.
+> Support for other languages (JavaScript, Python, PowerShell, Java) is coming soon.
 
 The Orchestration Versioning feature allows different versions of orchestrations to coexist and execute concurrently without conflicts and nondeterminism issues, making it possible to deploy updates without draining in-flight orchestration instances first. Thus, this feature brings various benefits related to deploying orchestration changes. For example, you can achieve zero-downtime deployment even making breaking changes to your orchestrations.
 
@@ -43,7 +44,7 @@ The Orchestration Versioning feature operates on these core principles:
 
 ## Basic usage
 
-The most common use case for Orchestration Versioning is when you need to make breaking changes to your orchestration logic while keeping existing in-flight instances running with their original version. All you need to do is update the `defaultVersion` in your `host.json` and modify your orchestrator code to check the version and branch execution accordingly. Let's walk through the required steps.
+The most common use case for Orchestration Versioning is when you need to make breaking changes to your orchestrator logic while keeping existing in-flight orchestrations instances running with their original version. All you need to do is update the `defaultVersion` in your `host.json` and modify your orchestrator code to check the version and branch execution accordingly. Let's walk through the required steps.
 
 ### Step 1: defaultVersion Configuration
 
@@ -98,7 +99,7 @@ public static async Task<string> RunOrchestrator(
 ---
 
 > [!NOTE]
-> The `context.Version` property is **read-only** and reflects the version that was permanently associated with the orchestration instance when it was created. You cannot modify this value during orchestration execution. If you need to specify a version in your app code, you can do so when starting the orchestration instance using the orchestration client APIs (see [Starting New Orchestrations with Specific Versions](#starting-new-orchestrations-with-specific-versions)).
+> The `context.Version` property is **read-only** and reflects the version that was permanently associated with the orchestration instance when it was created. You cannot modify this value during orchestration execution. If you want to specify a version through means other than `host.json`, you can do so when starting an orchestration instance with the orchestration client APIs, (see [Starting New Orchestrations with Specific Versions](#starting-new-orchestrations-with-specific-versions)).
 
 > [!TIP]
 > If you're just starting to use Orchestration Versioning and you already have in-flight orchestrations that were created before you specified a `defaultVersion`, it's not too late! Feel free to add the `defaultVersion` setting to your `host.json` now. For all previously created orchestrations, `context.Version` returns `null` (or an equivalent language-dependent value), so you can structure your orchestrator logic to handle both the legacy (null version) and new versioned orchestrations accordingly. In C#, you can check for `context.Version == null` or `context.Version is null` to handle the legacy case. Please also note that specifying `"defaultVersion": null` in `host.json` is equivalent to not specifying it at all.

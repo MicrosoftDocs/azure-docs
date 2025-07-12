@@ -206,7 +206,7 @@ Because of these potential failures, the "do nothing" strategy is not recommende
 > [!NOTE]
 > Orchestration Versioning is currently in public preview.
 
-Orchestration Versioning is a built-in feature that enables [zero-downtime deployments](durable-functions-zero-downtime-deployment.md) with breaking changes. This approach allows different versions of orchestrations to coexist and execute concurrently without conflicts.
+The Orchestration Versioning feature allows different versions of orchestrations to coexist and execute concurrently without conflicts and non-determinism issues, making it possible to deploy updates while allowing in-flight orchestration instances to complete without manual intervention.
 
 With Orchestration Versioning:
 - Each orchestration instance gets a version permanently associated with it when created
@@ -214,7 +214,7 @@ With Orchestration Versioning:
 - Workers running newer orchestrator function versions can continue executing orchestration instances created by older versions
 - The runtime prevents workers running older orchestrator function versions from executing orchestrations started by newer versions
 
-This strategy is recommended for applications that need to support breaking changes while maintaining [zero-downtime deployments](durable-functions-zero-downtime-deployment.md). The feature is currently available for .NET in-process and .NET isolated programming models.
+This strategy is recommended for applications that need to support breaking changes while maintaining [zero-downtime deployments](durable-functions-zero-downtime-deployment.md). The feature is currently available .NET isolated apps.
 
 For detailed configuration and implementation guidance, see [Orchestration Versioning in Durable Functions](durable-functions-orchestration-versioning.md).
 
