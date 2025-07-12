@@ -1,6 +1,6 @@
 ---
 title: Create a function in Azure from the command line
-description: Learn how to create an Azure Functions code project from the command line using Azure Functions Core Tools, create required Azure resources, and then publish the local project to run in Azure Functions.
+description: Learn how to use command line tools, such as Azure Functions Core Tools, to create a function code project, create Azure resources, and publish function code to run in Azure Functions.
 ms.date: 07/11/2025
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, mode-other, devx-track-dotnet
@@ -9,7 +9,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Quickstart: Create a function in Azure from the command line
 
-In this article, you use local command-line tools to create a function that responds to HTTP requests. After verifying your code locally, you deploy it to a serverless hosting plan in Azure Functions. 
+In this article, you use local command-line tools to create a function that responds to HTTP requests. After verifying your code locally, you deploy it to a serverless Flex Consumption hosting plan in Azure Functions. 
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
