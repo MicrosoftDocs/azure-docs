@@ -13,9 +13,7 @@ In this article, you use local command-line tools to create a function that resp
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-## Configure your local environment
-
-Before you begin, you must have the following:
+## Prerequisites
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -219,7 +217,7 @@ At this point, the Functions host is able to connect to the storage account secu
 ::: zone pivot="programming-language-java"
 ## Update the pom.xml file
 
-After you've successfully created your function app in Azure, you must update the pom.xml file. In this way, Maven can deploy to your new app instead of trying to create new Azure resources.
+After you successfully created your function app in Azure, you must update the pom.xml file so that Maven can deploy to your new app. Otherwise, it creates new set of Azure resources.
 
 1. In Azure Cloud Shell, use this [`az functionapp show`](/cli/azure/functionapp#az-functionapp-show) command to get the deployment container URL and ID of the new user-assigned managed identity:
 
@@ -231,7 +229,7 @@ After you've successfully created your function app in Azure, you must update th
 
     In this example, replace `<APP_NAME>` with the names of your function app. 
 
-1. In the project root directory, open the pom.xml file in a text editor, locate the `properties` element and make updates to these specific values:
+1. In the project root directory, open the pom.xml file in a text editor, locate the `properties` element, and make updates to these specific property values:
 
     | Property name | Value |
     | ---- | ---- |
@@ -246,7 +244,7 @@ After you've successfully created your function app in Azure, you must update th
     <configuration>
         <appName>${functionAppName}</appName>
         <resourceGroup>AzureFunctionsQuickstart-rg</resourceGroup>
-<pricingTier>Flex Consumption</pricingTier>
+        <pricingTier>Flex Consumption</pricingTier>
         <region>....</region>
         <runtime>
             <os>linux</os>
@@ -266,14 +264,14 @@ After you've successfully created your function app in Azure, you must update th
     </configuration>
     ```
 
-1. In the new `configuration` element, make these specific replacements of the elipses (`...`) values:  
+1. In the new `configuration` element, make these specific replacements of the ellipses (`...`) values:  
 
     | Configuration | Value |
     | ---- | ---- |
     |`region` | The region code of your existing function app, such as `eastus`. |
     |`deploymentStorageAccount`| The name of your storage account. |
-    |`deploymentStorageContainer`| The name of the deployment share, which comes after the `\` in the `containerUrl` value you just obtained. |   
-    |`userAssignedIdentityResourceId`| The fully-qualified ID of your managed identity, which you just obtained. | 
+    |`deploymentStorageContainer`| The name of the deployment share, which comes after the `\` in the `containerUrl` value you obtained. |   
+    |`userAssignedIdentityResourceId`| The fully qualified ID of your managed identity, which you obtained. | 
 
 1. Save your changes to the _pom.xml_ file. 
 
@@ -287,11 +285,7 @@ You can now use Maven to deploy your code project to your existing app.
     mvn clean package azure-functions:deploy
     ```
 
-## Invoke the function on Azure
-
-Because your function uses an HTTP trigger and supports GET requests, you invoke it by making an HTTP request to its URL. It's easiest to do this in a browser.
-
-1. Use this [`az functionapp function show`](/cli/azure/functionapp/function#az-functionapp-function-show) to get the URL for the `HttpExample` function endpoint: 
+1. After your deployment succeeds, use this [`az functionapp function show`](/cli/azure/functionapp/function#az-functionapp-function-show) to get the URL of the remote `HttpExample` function endpoint: 
 
     ```azurecli
     az functionapp function show --name <APP_NAME> --resource-group "AzureFunctionsQuickstart-rg" \
@@ -300,13 +294,19 @@ Because your function uses an HTTP trigger and supports GET requests, you invoke
 
     In this example, replace `<APP_NAME>` with the names of your function app. 
 
-1. Copy and paste the returned endpoint URL in your browser address bar and run the function.    
+1. Copy the returned endpoint URL, which you next use to invoke the function endpoint.    
 ::: zone-end
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
+
 ## Invoke the function on Azure
 
-Because your function uses an HTTP trigger and supports GET requests, you invoke it by making an HTTP request to its URL. It's easiest to do this in a browser. Copy the complete **Invoke URL** shown in the output of the publish command into a browser address bar. When you navigate to this URL, the browser should display similar output as when you ran the function locally.
+Because your function uses an HTTP trigger and supports GET requests, you invoke it by making an HTTP request to its URL. It's easiest to do execute a GET request in a browser. 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
+Copy the complete **Invoke URL** shown in the output of the publish command into a browser address bar. 
+::: zone-end  
+::: zone pivot="programming-language-java"
+Paste the URL you copied into a browser address bar. 
 ::: zone-end
+When you navigate to this URL, the browser should display similar output as when you ran the function locally.
 
 [!INCLUDE [functions-cleanup-resources-cli](../../includes/functions-cleanup-resources-cli.md)]
 
