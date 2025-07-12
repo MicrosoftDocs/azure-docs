@@ -1,7 +1,7 @@
 ---
-title: "Create a function in Azure using the Azure CLI"
-description: "Learn how to create an Azure Functions code project from the command line using the Azure CLI, then publish the local project to serverless hosting in Azure Functions."
-ms.date: 07/07/2025
+title: Create a function in Azure from the command line
+description: Learn how to create an Azure Functions code project from the command line using Azure Functions Core Tools, create required Azure resources, and then publish the local project to run in Azure Functions.
+ms.date: 07/11/2025
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, mode-other, devx-track-dotnet
 zone_pivot_groups: programming-languages-set-functions
@@ -271,7 +271,7 @@ After you successfully created your function app in Azure, you must update the p
     |`region` | The region code of your existing function app, such as `eastus`. |
     |`deploymentStorageAccount`| The name of your storage account. |
     |`deploymentStorageContainer`| The name of the deployment share, which comes after the `\` in the `containerUrl` value you obtained. |   
-    |`userAssignedIdentityResourceId`| The fully qualified ID of your managed identity, which you obtained. | 
+    |`userAssignedIdentityResourceId`| The fully qualified resource ID of your managed identity, which you obtained. | 
 
 1. Save your changes to the _pom.xml_ file. 
 
