@@ -35,7 +35,7 @@ The Orchestration Versioning feature operates on these core principles:
 
 1. **Backward Compatibility**: Workers running newer versions can continue executing orchestration instances created by older versions.
 
-1. **Forward Protection**: The runtime automatically prevents workers running older versions from executing orchestrations started by newer versions.
+1. **Forward Protection**: The runtime automatically prevents workers running older versions from executing newer version orchestrations.
 
 > [!IMPORTANT]
 > Orchestration Versioning is currently in public preview for apps running in the .NET isolated model. Use `Microsoft.Azure.Functions.Worker.Extensions.DurableTask` package version **>=1.5.0**.
