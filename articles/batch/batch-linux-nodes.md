@@ -7,6 +7,7 @@ ms.devlang: csharp
 # ms.devlang: csharp, python
 ms.custom: H1Hack27Feb2017, devx-track-python, devx-track-csharp, devx-track-dotnet, linux-related-content
 zone_pivot_groups: programming-languages-batch-linux-nodes
+# Customer intent: "As a cloud developer, I want to provision Linux virtual machine pools in a Batch environment, so that I can efficiently process parallel compute workloads using custom configurations and remote access."
 ---
 # Provision Linux compute nodes in Batch pools
 

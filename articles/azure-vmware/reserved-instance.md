@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 4/4/2024
 ms.custom: engagement-fy23
+# Customer intent: As a cloud administrator, I want to purchase reserved instances for Azure VMware Solution, so that I can optimize compute costs and ensure software licensing is properly covered for my organization's usage.
 ---
 
 # Save costs with reserved instances in Azure VMware Solution

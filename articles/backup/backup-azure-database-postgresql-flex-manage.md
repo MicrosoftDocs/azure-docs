@@ -7,6 +7,7 @@ author: jyothisuri
 ms.author: jsuri
 ms.service: azure-backup
 ms.custom: engagement-fy24, ignite-2024
+# Customer intent: "As a database administrator, I want to manage backup policies and monitor backup operations for Azure Database for PostgreSQL - Flexible Server, so that I can ensure data protection and recoverability in accordance with my organization's requirements."
 ---
 
 # Manage backups of Azure Database for PostgreSQL - Flexible Server using Azure portal

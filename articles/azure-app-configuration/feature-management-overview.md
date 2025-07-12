@@ -41,7 +41,7 @@ Feature | .NET | Spring | Python | JavaScript
 ------- | ---- | ------ | ------ | ----------
 Targeting Filter | [GA](./feature-management-dotnet-reference.md#targeting) | GA | [GA](./feature-management-python-reference.md#targeting) | [GA](./feature-management-javascript-reference.md#targeting)
 Targeting Exclusion | [GA](./feature-management-dotnet-reference.md#targeting-exclusion) | GA | [GA](./feature-management-python-reference.md#targeting-exclusion) | [GA](./feature-management-javascript-reference.md#targeting-exclusion)
-Ambient Targeting | [GA](./feature-management-dotnet-reference.md#targeting-in-a-web-application) | WIP | WIP | [Preview](./feature-management-javascript-reference.md#targeting-in-a-web-application)
+Ambient Targeting | [GA](./feature-management-dotnet-reference.md#targeting-in-a-web-application) | WIP | WIP | [GA](./feature-management-javascript-reference.md#targeting-in-a-web-application)
 Time Window Filter | [GA](./feature-management-dotnet-reference.md#microsofttimewindow) | GA | [GA](./feature-management-python-reference.md#microsofttimewindow) | [GA](./feature-management-javascript-reference.md#microsofttimewindow)
 Recurring Time Window | [GA](./feature-management-dotnet-reference.md#microsofttimewindow) | GA | WIP | WIP
 Custom Feature Filter | [GA](./feature-management-dotnet-reference.md#implementing-a-feature-filter) | GA | [GA](./feature-management-python-reference.md#implementing-a-feature-filter) | [GA](./feature-management-javascript-reference.md#implementing-a-feature-filter)

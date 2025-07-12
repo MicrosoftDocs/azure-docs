@@ -5,6 +5,7 @@ author: seligj95
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
 ms.date: 06/13/2025
+ms.update-cycle: 1095-days
 ms.author: jordanselig
 ms.custom: UpdateFrequency3
 #customer intent: As a deployment engineer, I want to understand the options for deploying apps in Azure App Services to control network traffic.

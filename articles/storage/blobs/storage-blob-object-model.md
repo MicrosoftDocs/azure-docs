@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024
 ms.custom: devguide-csharp, devguide-java, devguide-javascript, devguide-python
+# Customer intent: As a developer, I want to understand the Blob Storage data model and client libraries, so that I can effectively build applications that interact with storage accounts, containers, and blobs.
 ---
 
 # Understand how apps interact with Blob Storage data resources
