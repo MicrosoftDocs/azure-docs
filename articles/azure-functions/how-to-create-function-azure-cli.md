@@ -306,6 +306,10 @@ Copy the complete **Invoke URL** shown in the output of the publish command into
 ::: zone pivot="programming-language-java"
 Paste the URL you copied into a browser address bar. 
 ::: zone-end
+The endpoint URL should look something like this example:
+
+`https://contoso-app.azurewebsites.net/api/httpexample`
+
 When you navigate to this URL, the browser should display similar output as when you ran the function locally.
 
 [!INCLUDE [functions-cleanup-resources-cli](../../includes/functions-cleanup-resources-cli.md)]
