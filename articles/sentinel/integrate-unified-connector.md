@@ -13,6 +13,8 @@ ms.reviewer:
 
 # Connect to Microsoft Sentinel using a unified connector
 
+[Unified connectors](./unified-connector.md) are the preferred way to create a connection. Even if you already have a connector to a product, we recommend removing it and installing a unified connector where possible. You can't have both a unified connector and a product specific connector to the same product.
+
 ## Prerequisites
 
 ### Microsoft Sentinel workspace

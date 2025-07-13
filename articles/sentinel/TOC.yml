@@ -55,6 +55,10 @@
     href: quickstart-onboard.md
   - name: Connect Microsoft Sentinel to the Defender portal
     href: /unified-secops-platform/microsoft-sentinel-onboard?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+  - name: Unified connectors overview
+    href: unified-connector.md
+  - name: Integrate with unified connectors
+    href: integrate-unified-connector.md
   - name: Configure content
     href: configure-content.md
   - name: Set up multiple workspaces

@@ -11,7 +11,7 @@ ms.reviewer:
 #customer intent: As a Microsoft Defender for Identity user, I want to understand how unified connectors work so I can manage my integration connections more efficiently.
 ---
 
-# Unified Connectors Gallery
+# Unified Connectors Overview
 
 The Unified connectors platform enables you to connect to several different Microsoft security products using a single connector. This platform simplifies the connector management experience across Microsoft security products.
 
@@ -60,9 +60,13 @@ The unified connectors platform provides unified services shared by all security
 
   The unified platform also includes a shared testing lab to allow testing scale and functionality once for all products.
 
-- Integration with Microsoft datalake
+- Integration with Microsoft data lake
 
-  The platform allows integration with Datalake, including enabling data federation.
+  The platform allows integration with data lake, including enabling data federation.
+
+- Lifecycle management
+
+  Unified connectors are pre-installed with the latest version eliminating the need for manual updates. XDR customers can still discover connections through the content hub.
 
 ## Supported Products
 
@@ -71,7 +75,7 @@ The Unified Connectors Platform is currently available for the following Microso
 - Microsoft Sentinel
 - Microsoft Defender for Identity
 
-Currently, Defender for Cloud Apps and Microsoft Security Exposure Management aren't supported.
+Currently, Defender for Cloud Apps and Microsoft Security Exposure Management aren't supported and these customers should continue using their old connectors.
 
 ## Supported Connectors
 
@@ -104,3 +108,7 @@ The Sentinel tab shows the connectors that are available only to Sentinel as the
 
 - The unified connectors scope doesn't include unified data flow. Once the data is collected and sent to the event hub of each product, each product is responsible for storing the data and providing its unique security value on top of the data.
 - The unified connectors scope doesn't include billing. Each individual product is responsible for how its users are charged
+
+## Related content
+
+[Integrate Microsoft Sentinel with unified connectors](./integrate-unified-connector.md)
