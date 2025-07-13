@@ -13,8 +13,6 @@ ms.reviewer:
 
 # Connect to Microsoft Sentinel using a unified connector
 
-
-
 ## Prerequisites
 
 ### Microsoft Sentinel workspace
@@ -46,17 +44,17 @@ To create an Okta instance in Microsoft Sentinel using the Okta unified connecto
 
 1. Go to the Data connectors Gallery [directly](https://security.microsoft.com/sentinel/unified-connector), or navigate to it via **System** -> **Data management** -> **Data connectors**.
 
-   :::image type="content" source="./media/unified-connectors/connectors-gallery.png" alt-text="Screenshot of connectors gallery.":::
+   :::image type="content" source="./media/integrate-unified-connector/connectors-gallery.png" alt-text="Screenshot of connectors gallery.":::
 
    For more information about the Data connectors Gallery, see [Data connectors Gallery](./unified-connector.md#data-connectors-gallery).
 
 1. Select the **Okta Single Sign-On** connector.
 
-   :::image type="content" source="./media/unified-connectors/okta-connector.png" alt-text="Screenshot of Okta connector in the Connectors Gallery.":::
+   :::image type="content" source="./media/integrate-unified-connector/okta-connector.png" alt-text="Screenshot of Okta connector in the Connectors Gallery.":::
 
 1. Select a connector. A side panel opens with more information about the connector, including prerequisites.
 
-   :::image type="content" source="./media/unified-connectors/okta-connector-pane.png" alt-text="Screenshot of Okta connector configuration page.":::
+   :::image type="content" source="./media/integrate-unified-connector/okta-connector-pane.png" alt-text="Screenshot of Okta connector configuration page.":::
 
 1. Select **Connect a connector** to open the connector configuration wizard.
 1. In the **Name and connection details** section, provide the following information:
@@ -67,7 +65,7 @@ To create an Okta instance in Microsoft Sentinel using the Okta unified connecto
 
 1. In the **Select products** section, check the products you want to connect to. Check *SIEM* to enable the connector for Microsoft Sentinel.
 
-   :::image type="content" source="./media/unified-connectors/select-products.png" alt-text="Screenshot of the select products section of the connector wizard.":::
+   :::image type="content" source="./media/integrate-unified-connector/select-products.png" alt-text="Screenshot of the select products section of the connector wizard.":::
 
 1. Configure the product details for each product you selected:
 
@@ -86,13 +84,13 @@ Connectors that are successfully connected, appear in the **My Connectors tab**,
 
 Existing connectors appear in the **My Connectors tab**.
 
-:::image type="content" source="./media/unified-connectors/my-connectors.png" alt-text="Screenshot of unified connectors list in the My connectors tab.":::
+:::image type="content" source="./media/integrate-unified-connector/my-connectors.png" alt-text="Screenshot of unified connectors list in the My connectors tab.":::
 
 ### Edit a connector
 
 To edit a connector, select it and then select **Manage** from the connector side panel.
 
-:::image type="content" source="./media/unified-connectors/manage-connector.png" alt-text="Screenshot of Okta health page with Manage button highlighted.":::
+:::image type="content" source="./media/integrate-unified-connector/manage-connector.png" alt-text="Screenshot of Okta health page with Manage button highlighted.":::
 
 ### Delete a connector
 
@@ -101,7 +99,7 @@ You can delete a connector in one of two ways:
 - Select it and then select **Delete** from the connector side panel.
 - Check the connector in the **My Connectors** tab and then select **Delete** from above the connector list.
 
-:::image type="content" source="./media/unified-connectors/delete-connector.png" alt-text="Screenshot of Okta connector selected and the delete button highlighted.":::
+:::image type="content" source="./media/integrate-unified-connector/delete-connector.png" alt-text="Screenshot of Okta connector selected and the delete button highlighted.":::
 
 ## Verify data ingestion in Log analytics
 

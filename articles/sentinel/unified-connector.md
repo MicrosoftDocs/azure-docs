@@ -36,7 +36,7 @@ The unified connectors platform provides unified services shared by all security
 
   The unified connector unifies two or more products that have similar collection rules and collects the data once for all products as illustrated in the following diagram:
 
-  :::image type="content" source="./media/unified-connector-structure.png" alt-text="Diagram showing Okta data flowing into the unified collector and from there to Sentinel, MDI, and Microsoft security exposure management.":::
+  :::image type="content" source="./media/unified-connector/unified-connector-structure.png" alt-text="Diagram showing Okta data flowing into the unified collector and from there to Sentinel, MDI, and Microsoft security exposure management.":::
 
 - Consistent Single Management across all security products
 
@@ -50,7 +50,7 @@ The unified connectors platform provides unified services shared by all security
 
   The platform includes a unified health service that provides status, volume graphs, and notifications for all connectors. All health issues are stored to a shared health table that is accessible to all users through [Advanced Hunting](advanced-hunting.md).
 
-  :::image type="content" source="./media/unified-connectors/unified-health.png" alt-text="Screenshot of Okta connector with health information on the right side.":::
+  :::image type="content" source="./media/unified-connector/unified-health.png" alt-text="Screenshot of Okta connector with health information on the right side.":::
 
 - Unified development and testing processes
 
@@ -81,13 +81,13 @@ Currently, the Unified Connectors Platform is available in preview for [Okta Sin
 
 The available unified connectors are shown in the [Data connectors Gallery](https://security.microsoft.com/sentinel/unified-connector) **Catalog** tab.
 
-:::image type="content" source="./media/unified-connectors/connectors-gallery.png" alt-text="Screenshot of catalog tab in connectors gallery.":::
+:::image type="content" source="./media/unified-connector/connectors-gallery.png" alt-text="Screenshot of catalog tab in connectors gallery.":::
 
 Here you can see all the available unified connectors. There are also links to the product specific connectors. The connectors column of the table indicates how many. The connectors column of the table shows you how many connector instances this connector currently has. The table also shows who supports the connector and who the provider is.
 
 The **My Connectors** tab shows the connectors that are currently configured. The **Unified connectors** tab shows the unified connectors that are available to you. You can select a connector to see its health information and manage it.
 
-:::image type="content" source="./media/unified-connectors/connector-info.png" alt-text="Screenshot of my connectors tab in connectors gallery.":::
+:::image type="content" source="./media/unified-connector/connector-info.png" alt-text="Screenshot of my connectors tab in connectors gallery.":::
 
 Connector health information available in the **My Connectors** tab includes:
 
