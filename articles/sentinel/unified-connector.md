@@ -30,43 +30,43 @@ Unified connectors provide the following benefits:
 
 The unified connectors platform provides unified services shared by all security products to allow consistent development and user experience. These services include:
 
-- One time collection
+### One time collection
 
-  Different products collect the same data from the same source for different scenarios. For example, Okta Single Sign On system logs are collected every five minutes both by Microsoft Sentinel and Defender for Identity users. This duplication and inefficient and can cause customers to exceed their API rate limit due to the quotas imposed by Okta.
+Different products collect the same data from the same source for different scenarios. For example, Okta Single Sign On system logs are collected every five minutes both by Microsoft Sentinel and Defender for Identity users. This duplication and inefficient and can cause customers to exceed their API rate limit due to the quotas imposed by Okta.
 
-  The unified connector unifies two or more products that have similar collection rules and collects the data once for all products as illustrated in the following diagram:
+The unified connector unifies two or more products that have similar collection rules and collects the data once for all products as illustrated in the following diagram:
 
-  :::image type="content" source="./media/unified-connector/unified-connector-structure.png" alt-text="Diagram showing Okta data flowing into the unified collector and from there to Sentinel, MDI, and Microsoft security exposure management.":::
+:::image type="content" source="./media/unified-connector/unified-connector-structure.png" alt-text="Diagram showing Okta data flowing into the unified collector and from there to Sentinel, MDI, and Microsoft security exposure management.":::
 
-- Consistent Single Management across all security products
+### Consistent Single Management across all security products
 
-  Users can manage all their connectors in one place through the Unified Security Experience (USX) portal and unified (Graph) API.
+Users can manage all their connectors in one place through the Unified Security Experience (USX) portal and unified (Graph) API.
 
-- One time authentication
+### One time authentication
 
-  The platform provides a unified credentials service to store credentials for all connectors, enhancing security and usability.
+The platform provides a unified credentials service to store credentials for all connectors, enhancing security and usability.
 
-- Unified health service
+### Unified health service
 
-  The platform includes a unified health service that provides status, volume graphs, and notifications for all connectors. All health issues are stored to a shared health table that is accessible to all users through [Advanced Hunting](/defender-xdr/advanced-hunting-microsoft-defender).
+The platform includes a unified health service that provides status, volume graphs, and notifications for all connectors. All health issues are stored to a shared health table that is accessible to all users through [Advanced Hunting](/defender-xdr/advanced-hunting-microsoft-defender).
 
-  :::image type="content" source="./media/unified-connector/unified-health.png" alt-text="Screenshot of Okta connector with health information on the right side.":::
+:::image type="content" source="./media/unified-connector/unified-health.png" alt-text="Screenshot of Okta connector with health information on the right side.":::
 
-- Unified development and testing processes
+### Unified development and testing processes
 
-  The platform allows consistent self-service development experience for all connectors’ developers, including Microsoft Teams, partners, ISVs, and end users.
+The platform allows consistent self-service development experience for all connectors’ developers, including Microsoft Teams, partners, ISVs, and end users.
 
-  The API and the UI are designed to allow flexibility and agility for partners. For example, one partner might develop connectors for one product and another partner can extend that connector to send data to a different product etc.
+The API and the UI are designed to allow flexibility and agility for partners. For example, one partner might develop connectors for one product and another partner can extend that connector to send data to a different product etc.
 
-  The unified platform also includes a shared testing lab to allow testing scale and functionality once for all products.
+The unified platform also includes a shared testing lab to allow testing scale and functionality once for all products.
 
-- Integration with Microsoft data lake
+### Integration with Microsoft data lake
 
-  The platform allows integration with data lake, including enabling data federation.
+The platform allows integration with data lake, including enabling data federation.
 
-- Lifecycle management
+### Lifecycle management
 
-  Unified connectors are pre-installed with the latest version eliminating the need for manual updates. XDR customers can still discover connections through the content hub.
+Unified connectors are pre-installed with the latest version eliminating the need for manual updates. XDR customers can still discover connections through the content hub.
 
 ## Supported Products
 
