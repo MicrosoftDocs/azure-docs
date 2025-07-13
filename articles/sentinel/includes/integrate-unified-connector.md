@@ -1,6 +1,6 @@
 ---
-title: Connect using a unified connectors
-description: Learn how to connect to the Unified Connectors Platform that simplifies connector management across Microsoft security products including Sentinel, Defender for Cloud, and Defender for Identity.
+title: Connect using unified connectors
+description: Learn how to connect to the Unified Connectors Platform that simplifies connector management across Microsoft security products including Microsoft Sentinel, Defender for Cloud, and Defender for Identity.
 author: mberdugo
 contributors:
 ms.topic: how-to
@@ -11,13 +11,13 @@ ms.reviewer:
 #customer intent: As a Microsoft Defender for Identity user, I want to simplify my connections by using a unified connector so I can manage my Okta integration more efficiently.
 ---
 
-# Connect to Microsoft Sentinel usinng a unified connector
+# Connect to Microsoft Sentinel using a unified connector
 
 
 
 ## Prerequisites
 
-### Sentinel workspace
+### Microsoft Sentinel workspace
 
   1. In the Microsoft Security portal, navigate to **Settings** -> **Microsoft Sentinel**.
   1. Identify the Sentinel workspace currently connected.
@@ -35,7 +35,7 @@ If you need to assign these roles, allow 15 minutes for the changes to propagate
 
 ### Okta credentials
 
-From your Okta account, you need the following:
+From your Okta account, you need the following information:
 
 - **Domain name**: The URL of your Okta account, such as `https://yourcompany.okta.com`.
 - **API token**: An Okta API token. To generate an API token, follow the instructions in [Create an API token](https://developer.okta.com/docs/guides/create-an-api-token/main/).
@@ -54,7 +54,7 @@ To create an Okta instance in Microsoft Sentinel using the Okta unified connecto
 
    :::image type="content" source="./media/unified-connectors/okta-connector.png" alt-text="Screenshot of Okta connector in the Connectors Gallery.":::
 
-1. Select a connector. This will open a side panel with more information about the connector, including prerequisites.
+1. Select a connector. A side panel opens with more information about the connector, including prerequisites.
 
    :::image type="content" source="./media/unified-connectors/okta-connector-pane.png" alt-text="Screenshot of Okta connector configuration page.":::
 
@@ -62,10 +62,10 @@ To create an Okta instance in Microsoft Sentinel using the Okta unified connecto
 1. In the **Name and connection details** section, provide the following information:
    - **Connector name**: A descriptive user friendly name for the connector.
    - **Domain name**: The Okta domain, such as `yourcompany.okta.com`.
-   - **API key**: Paste the [API key](#okta-credentials). Do not include the *Authorization* prefix, only the token value.
+   - **API key**: Paste the [API key](#okta-credentials). Don't include the *Authorization* prefix, only the token value.
    Select **Next**.
 
-1. In the **Select products** section, check the products you want to connect to. Check *SIEM* to enable the connector for Microsoft Sentinel and/or *Security* for MDI provided that you meet the requirements for each.
+1. In the **Select products** section, check the products you want to connect to. Check *SIEM* to enable the connector for Microsoft Sentinel.
 
    :::image type="content" source="./media/unified-connectors/select-products.png" alt-text="Screenshot of the select products section of the connector wizard.":::
 
@@ -78,9 +78,9 @@ To create an Okta instance in Microsoft Sentinel using the Okta unified connecto
 
 The connection process can take up to two minutes. If an error occurs, follow the provided error message for troubleshooting.
 
-The initial state of the connector is *Pending* until the initial data is received successfully. This can take up to 15 minutes. If data is not successfully received, the connector will move to an *Error* state.
+The initial state of the connector is *Pending* until the initial data is received successfully. It can take up to 15 minutes to receive data. If data isn't successfully received, the connector moves to an *Error* state.
 
-Connectors that are successfully connected, appear in the From the **My Connectors tab**, and Okta system logs will be ingested into your **Log Analytics workspace**.
+Connectors that are successfully connected, appear in the **My Connectors tab**, and Okta system logs are ingested into your **Log Analytics workspace**.
 
 ## Manage your Okta connector
 
@@ -102,6 +102,18 @@ You can delete a connector in one of two ways:
 - Check the connector in the **My Connectors** tab and then select **Delete** from above the connector list.
 
 :::image type="content" source="./media/unified-connectors/delete-connector.png" alt-text="Screenshot of Okta connector selected and the delete button highlighted.":::
+
+## Verify data ingestion in Log analytics
+
+To verify that the Okta connector is successfully ingesting data into your Log Analytics workspace, first ensure that your Okta account is generating system logs. If no logs are generated, manually generate some test logs.
+
+- From the Microsoft Security portal: navigate to **Investigation & response** > **Hunting** > **Advanced hunting**. Once Okta logs are ingested into your workspace, you should find an *OktaSystemLogs* table under the *Microsoft Sentinel* tab
+- From Azure portal, navigate to your selected **Log Analytics Workspace** > **Logs** > **OktaSystemLogs**.
+
+> [!NOTE]
+>
+> - It can take up to 15-20 minutes from when you create the the connector instance for the *OktaSystemLogs* table to appear, containing your Okta system logs.
+> - The connector will only ingest system logs from one hour before the instance was created.
 
 ## Considerations and limitations
 
