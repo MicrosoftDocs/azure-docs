@@ -23,7 +23,7 @@ Unified connectors provide the following benefits:
 - Centralized Management
 - Enhanced Security
 - Cost Reduction
-- Streamlined Development for Third-Party Connectors
+- Streamlined Development for non-Microsoft Connectors
 - Unified Response and Remediation Actions
 
 ## Unified services
@@ -32,9 +32,9 @@ The unified connectors platform provides unified services shared by all security
 
 - One time collection
 
-  Different products collect the same data from the same source for different scenarios. For example, Okta Single Sign On system logs are collected every 5 minutes both by Sentinel users and by Microsoft Defender for Identity. Beyond the inefficiency caused by this duplication, it can cause customers to exceed their API rate limit due to the quotas imposed by Okta.
+  Different products collect the same data from the same source for different scenarios. For example, Okta Single Sign On system logs are collected every five minutes both by Microsoft Sentinel and Defender for Identity users. This duplication and inefficient and can cause customers to exceed their API rate limit due to the quotas imposed by Okta.
 
-  The unified connector solves this problem by unifying two or more products that have similar collection rules and by collecting the data once for all products as illustrated in the following diagram:
+  The unified connector unifies two or more products that have similar collection rules and collects the data once for all products as illustrated in the following diagram:
 
   :::image type="content" source="./media/unified-connector-structure.png" alt-text="Diagram showing Okta data flowing into the unified collector and from there to Sentinel, MDI, and Microsoft security exposure management.":::
 
