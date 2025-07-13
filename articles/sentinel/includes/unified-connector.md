@@ -1,6 +1,6 @@
 ---
 title: Unified Connectors Platform for Microsoft Security Solutions
-description: Learn about the Unified Connectors Platform that simplifies connector management across Microsoft security products including Sentinel, Defender for Cloud, and Defender for Identity.
+description: Learn about the Unified Connectors Platform that simplifies connector management across Microsoft security products including Microsoft Sentinel, Defender for Cloud, and Defender for Identity.
 author: mberdugo
 contributors:
 ms.topic: concept-article
@@ -28,21 +28,21 @@ Unified connectors provide the following benefits:
 
 ## Unified services
 
-The unified connectors platform provides unified services shared by all security products to allow consistent development and user experience. This includes the following:
+The unified connectors platform provides unified services shared by all security products to allow consistent development and user experience. These services include:
 
-- Collect Once
+- One time collection
 
   Different products collect the same data from the same source for different scenarios. For example, Okta Single Sign On system logs are collected every 5 minutes both by Sentinel users and by Microsoft Defender for Identity. Beyond the inefficiency caused by this duplication, it can cause customers to exceed their API rate limit due to the quotas imposed by Okta.
 
   The unified connector solves this problem by unifying two or more products that have similar collection rules and by collecting the data once for all products as illustrated in the following diagram:
 
-  :::image type="content" source="./media/unified-connector-structure.png" alt-text="Diagram showing Okta data flowing into the unified collector and from there to Sentinel, MDI, and MSEM.":::
+  :::image type="content" source="./media/unified-connector-structure.png" alt-text="Diagram showing Okta data flowing into the unified collector and from there to Sentinel, MDI, and Microsoft security exposure management.":::
 
 - Consistent Single Management across all security products
 
   Users can manage all their connectors in one place through the Unified Security Experience (USX) portal and unified (Graph) API.
 
-- Authenticate Once
+- One time authentication
 
   The platform provides a unified credentials service to store credentials for all connectors, enhancing security and usability.
 
@@ -54,9 +54,9 @@ The unified connectors platform provides unified services shared by all security
 
 - Unified development and testing processes
 
-  The platform allows consistent self-service development experience for all connectors’ developers, including Microsoft teams, partners, ISVs, and end users.
+  The platform allows consistent self-service development experience for all connectors’ developers, including Microsoft Teams, partners, ISVs, and end users.
 
-  The API and the UI are designed to allow flexibility and agility for partners. For example, one partner might develop connectors for one product and another partner can extend that connector to send data to a different product etc. To ensure quality a shared DoD will be defined to be followed by all partners.
+  The API and the UI are designed to allow flexibility and agility for partners. For example, one partner might develop connectors for one product and another partner can extend that connector to send data to a different product etc.
 
   The unified platform also includes a shared testing lab to allow testing scale and functionality once for all products.
 
@@ -71,11 +71,11 @@ The Unified Connectors Platform is currently available for the following Microso
 - Microsoft Sentinel
 - Microsoft Defender for Identity
 
-Currently, Defender for Cloud Apps and Microsoft Security Exposure Management are not supported.
+Currently, Defender for Cloud Apps and Microsoft Security Exposure Management aren't supported.
 
 ## Supported Connectors
 
-Currently, the Unified Connectors Platform is available in preview for [Okta Single Sign-On connectors](./okta-integration.md) shared by Sentinel, Microsoft Defender for Identity and Microsoft Security Exposure Management.
+Currently, the Unified Connectors Platform is available in preview for [Okta Single Sign-On connectors](./okta-integration.md) shared by Microsoft Sentinel, Microsoft Defender for Identity and Microsoft Security Exposure Management.
 
 ## Data connectors gallery
 
