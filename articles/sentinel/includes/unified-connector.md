@@ -11,7 +11,7 @@ ms.reviewer:
 #customer intent: As a Microsoft Defender for Identity user, I want to understand how unified connectors work so I can manage my integration connections more efficiently.
 ---
 
-# Integrate using the Unified Connectors Platform
+# Unified Connectors Gallery
 
 Microsoft offers customers various security solutions. Each solution targets a different scenario, but they all aim to protect customer environments and assets. There are connectors for data acquisition, remediation, and exposure management.
 
@@ -71,6 +71,29 @@ The platform allows integration with Datalake, including enabling data federatio
 ## Supported Connectors
 
 Currently, the Unified Connectors Platform is available in preview for [Okta Single Sign-On connectors](./okta-integration.md) shared by Sentinel, MDI and MSEM. 
+
+## Data connectors gallery
+
+The available unified connectors are shown in the [Data connectors Gallery](https://security.microsoft.com/sentinel/unified-connector) **Catalog** tab.
+
+:::image type="content" source="./media/unified-connectors/connectors-gallery.png" alt-text="Screenshot of catalog tab in connectors gallery.":::
+
+Here you can see all the available unified connectors. There are also links to the product specific connectors. The connectors column of the table indicates how many. The connectors column of the table shows you how many connector instances this connector currently has. The table also shows who supports the connector and who the provider is.
+
+The **My Connectors** tab shows the connectors that are currently configured. The **Unified connectors** tab shows the unified connectors that are available to you. You can select a connector to see its health information and manage it.
+
+:::image type="content" source="./media/unified-connectors/connector-info.png" alt-text="Screenshot of my connectors tab in connectors gallery.":::
+
+Connector health information available in the **My Connectors** tab includes:
+
+- **Name**: The name of the connector.
+- **Status**: The status of the connector, such as *OK*, *Warning*, or *Error*.
+- **Audit details**: Created and updated information.
+- **Workspace**: The workspace to which the connector is connected.
+- **Table**: The table that is used by the connector.
+- **Last health messages**: The latest error messages.
+
+The Sentinel tab shows the connectors that are available only to Sentinel as the appear in the content hub.
 
 ## Considerations and limitations
 
