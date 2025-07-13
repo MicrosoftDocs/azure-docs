@@ -48,7 +48,7 @@ The unified connectors platform provides unified services shared by all security
 
 - Unified health service
 
-  The platform includes a unified health service that provides status, volume graphs, and notifications for all connectors. All health issues are stored to a shared health table that is accessible to all users through [Advanced Hunting](advanced-hunting.md).
+  The platform includes a unified health service that provides status, volume graphs, and notifications for all connectors. All health issues are stored to a shared health table that is accessible to all users through [Advanced Hunting](/defender-xdr/advanced-hunting-microsoft-defender).
 
   :::image type="content" source="./media/unified-connector/unified-health.png" alt-text="Screenshot of Okta connector with health information on the right side.":::
 
@@ -75,7 +75,7 @@ Currently, Defender for Cloud Apps and Microsoft Security Exposure Management ar
 
 ## Supported Connectors
 
-Currently, the Unified Connectors Platform is available in preview for [Okta Single Sign-On connectors](./okta-integration.md) shared by Microsoft Sentinel, Microsoft Defender for Identity and Microsoft Security Exposure Management.
+Currently, the Unified Connectors Platform is available in preview for [Okta Single Sign-On connectors](/defender-xdr/okta-integration.md) shared by Microsoft Sentinel, Microsoft Defender for Identity and Microsoft Security Exposure Management.
 
 ## Data connectors gallery
 
