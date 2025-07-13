@@ -23,22 +23,13 @@ Start with the [deployment guide for Microsoft Sentinel](deploy-overview.md). Th
 
 ## Adopt a single-platform architecture
 
-Microsoft Sentinel is now integrated with a modern data lake that offers affordable, long-term storage enabling teams to simplify data management, optimize costs, and accelerate the adoption of AI. Microsoft Sentinel data lake (Preview) enables a single-platform architecture for security data and empowers analysts with a unified query experience while leveraging Microsoft Sentinel’s rich connector ecosystem. It isn't necessary to deploy alternative solutions for secondary security data that must be kept available for querying but aren't required for real-time detection or advanced SIEM use cases. 
-
-Key benefits of Microsoft Sentinel data lake (Preview) as a single platform architecture include:
- 
-+ Single, open-format data instance for efficient and cost-effective storage
-+ Separation of storage and compute for greater flexibility
-+ Support for multiple analytics engines to unlock deeper insights from your security data
-+ Native integration with Microsoft Sentinel, including the ability to tier log data across analytics and lake tiers 
-
-For more information, see [Microsoft Sentinel data lake (Preview)](graph/sentinel-lake-overview.md).
+Microsoft Sentinel is now integrated with a modern data lake that offers affordable, long-term storage enabling teams to simplify data management, optimize costs, and accelerate the adoption of AI. Microsoft Sentinel data lake (Preview) enables a single-platform architecture for security data and empowers analysts with a unified query experience while leveraging Microsoft Sentinel’s rich connector ecosystem. For more information, see [Microsoft Sentinel data lake (Preview)](graph/sentinel-lake-overview.md).
 
 ## Microsoft security service integrations
 
 Microsoft Sentinel is empowered by the components that send data to your workspace, and is made stronger through integrations with other Microsoft services. Any logs ingested into products, such as Microsoft Defender for Cloud Apps, Microsoft Defender for Endpoint, and Microsoft Defender for Identity, allow these services to create detections, and in turn provide those detections to Microsoft Sentinel. Logs can also be ingested directly into Microsoft Sentinel to provide a fuller picture for events and incidents.
 
-For example, the following image shows how Microsoft Sentinel ingests data from other Microsoft services and multicloud and partner platforms to provide coverage for your environment:
+For example, the following image shows how Microsoft Sentinel ingests data from other Microsoft services, multicloud, and partner platforms to provide coverage for your environment:
 
 :::image type="content" source="media/best-practices/azure-sentinel-and-other-services.png"  lightbox="media/best-practices/azure-sentinel-and-other-services.png" alt-text="A diagram showing the Microsoft Sentinel integrating with other Microsoft and partner services.":::
 
