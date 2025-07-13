@@ -210,6 +210,8 @@
       href: howto-targetingfilter.md
     - name: ASP.NET Core
       href: howto-targetingfilter-aspnet-core.md
+    - name: JavaScript
+      href: howto-targetingfilter-javascript.md
   - name: Use variant feature flags
     items:
     - name: Overview
