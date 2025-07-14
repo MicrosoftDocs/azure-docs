@@ -20,6 +20,9 @@ Azure Virtual Machines (VMs) provide reliability through built-in redundancy and
 
 For more information, see [Azure services with availability zones](availability-zones-service-support.md).
 
+> [!IMPORTANT]
+> When you consider the reliability of a VM, also consider the reliability of your disks, your network infrastructure, and the applications that run on your VMs. Even if you increase the resiliency of a VM, that increase might not be impactful if your other resources and applications aren't also resilient. Depending on your resiliency requirements, you may need to make configuration changes across multiple areas.
+
 ## Production deployment recommendations
 
 To learn about how to deploy VMs to support your solution's reliability requirements, and how reliability affects other aspects of your architecture, see [Architecture best practices for Azure Virtual Machines and scale sets in the Azure Well-Architected Framework](/azure/well-architected/service-guides/virtual-machines).
@@ -130,12 +133,17 @@ Use Chaos Studio to simulate zone failures and test your failover processes. TOD
 
 ## Multi-region support
 
-Azure Virtual Machines are inherently single-region resources. If you want to use multiple regions, you need to deploy multiple VMs into different regions, and you need to implement replication and failover processes.
+Azure Virtual Machines are single-region resources. If the region becomes unavailable, your VM is also unavailable.
 
-- **Azure Site Recovery**: Enables disaster recovery by replicating VMs to a secondary region.
-- **Geo-replication**: Ensures data availability across regions.
+### Alternative multi-region approaches
 
-For alternative multi-region approaches, see [Azure to Azure disaster recovery architecture](/azure/site-recovery/azure-to-azure-architecture).
+You can deploy multiple VMs into different regions, but you need to implement replication, load balancing, and failover processes.
+
+**Azure Site Recovery** is a service that enables disaster recovery by replicating VMs and their data to a secondary region. To learn more, see [Azure to Azure disaster recovery architecture](/azure/site-recovery/azure-to-azure-architecture).
+
+Some applications create clusters or other constructs to replicate data and distribute work across multiple VMs, including in different regions. These applications can simplify the configuration of a multi-region solution.
+
+For an example architecture that illustrates using VMs across multiple regions, see [Multi-region load balancing with Traffic Manager, Azure Firewall, and Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway).
 
 ## Reliability during service maintenance
 
