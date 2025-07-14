@@ -75,7 +75,7 @@ sections:
       - question: |
           Do all Azure services reside in the Azure virtual network that the customer provides? How does a virtual network service endpoint work with Azure services?
         answer: |
-          Not all Azure services reside in the customer's virtual network. Most Azure data services (such as Azure Storage, Azure SQL, and Azure Cosmos DB) are multitenant services that can be accessed over public IP addresses. For more information, see [Deploy dedicated Azure services into virtual networks](virtual-network-for-azure-services.md).
+          Not all Azure services reside in the customer's virtual network. Most Azure data services (such as Azure Storage, Azure SQL, and Azure Cosmos DB) are multitenant services that can be accessed over public IP addresses. For more information, see [Deploy dedicated Azure services into virtual networks](/azure/virtual-network/vnet-integration-for-azure-services).
 
           When you turn on virtual network service endpoints on the network side, and set up appropriate virtual network ACLs on the Azure service side, access to an Azure service is restricted to an allowed virtual network and subnet.
 
@@ -164,7 +164,7 @@ sections:
         answer: |
           Service endpoints add a system route that takes precedence over Border Gateway Protocol (BGP) routes and provides optimum routing for the service endpoint traffic. Service endpoints always take service traffic directly from your virtual network to the service on the Microsoft Azure backbone network.
 
-          For more information about how Azure selects a route, see [Virtual network traffic routing](virtual-networks-udr-overview.md).
+          For more information about how Azure selects a route, see [Virtual network traffic routing](/azure/virtual-network/virtual-networks-udr-overview).
 
       - question: |
           Do service endpoints work with ICMP?
@@ -190,12 +190,12 @@ sections:
         answer: |
           You can use virtual network service endpoint policies to filter virtual network traffic to Azure services, allowing only specific Azure service resources over the service endpoints. Endpoint policies provide granular access control from the virtual network traffic to the Azure services.
 
-          To learn more, see [Virtual network service endpoint policies for Azure Storage](virtual-network-service-endpoint-policies-overview.md).
+          To learn more, see [Virtual network service endpoint policies for Azure Storage](/azure/virtual-network/virtual-network-service-endpoint-policies-overview).
 
       - question: |
           Does Microsoft Entra ID support virtual network service endpoints?
         answer: |
-          Microsoft Entra ID doesn't support service endpoints natively. For a complete list of Azure services that support virtual network service endpoints, see [Virtual network service endpoints](./virtual-network-service-endpoints-overview.md).
+          Microsoft Entra ID doesn't support service endpoints natively. For a complete list of Azure services that support virtual network service endpoints, see [Virtual network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
           In that list, the *Microsoft.AzureActiveDirectory* tag listed under services that support service endpoints is used for supporting service endpoints to Azure Data Lake Storage Gen1. [Virtual network integration for Data Lake Storage Gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makes use of the virtual network service endpoint security between your virtual network and Microsoft Entra ID to generate additional security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access.
 
@@ -236,12 +236,12 @@ sections:
         answer: |
           You can use virtual network service endpoint policies to filter virtual network traffic to Azure services, allowing only specific Azure service resources over the service endpoints. Endpoint policies provide granular access control from the virtual network traffic to the Azure services.
 
-          To learn more, see [Virtual network service endpoint policies for Azure Storage](virtual-network-service-endpoint-policies-overview.md).
+          To learn more, see [Virtual network service endpoint policies for Azure Storage](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
       - question: |
           Does Microsoft Entra ID support virtual network service endpoints?
         answer: |
-          Microsoft Entra ID doesn't support service endpoints natively. For a complete list of Azure services that support virtual network service endpoints, see [Virtual network service endpoints](./virtual-network-service-endpoints-overview.md).
+          Microsoft Entra ID doesn't support service endpoints natively. For a complete list of Azure services that support virtual network service endpoints, see [Virtual network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
           In that list, the *Microsoft.AzureActiveDirectory* tag listed under services that support service endpoints is used for supporting service endpoints to Azure Data Lake Storage Gen1. [Virtual network integration for Data Lake Storage Gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makes use of the virtual network service endpoint security between your virtual network and Microsoft Entra ID to generate additional security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access.
 

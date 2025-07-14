@@ -83,7 +83,7 @@ The following table compares Azure Service Endpoints and Private Endpoints acros
 | Scope                           | Per service                                                                      | Per instance                                                          |
 | Connectivity                    | Uses Azure PaaS public IP; traffic goes over Azure backbone                      | PaaS resource gets a private IP in your VNET; traffic stays within the VNET |
 | Data Security                   | Traffic leaves VNET to Azure backbone                                             | No data exfiltration; traffic remains private                         |
-| On-Premises Connectivity        | Not supported natively; requires public IP whitelisting                          | Supported via ExpressRoute and VPN                                    |
+| On-Premises Connectivity        | Not supported natively; requires public IP added to allow list.                        | Supported via ExpressRoute and VPN                                    |
 | UDRs and NSGs                   | No specific overlaps; traffic can bypass endpoint                                | May require special configuration to avoid bypass                     |
 | Data Protection                 | Requires integration with firewall/NVA for exfiltration protection               | Built-in data protection                                              |
 | Cost                            | No additional cost                                                               | Charged based on traffic and number of endpoints                      |
