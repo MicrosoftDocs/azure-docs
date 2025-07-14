@@ -44,6 +44,47 @@ Available log categories:
 - Persistent Reservation Requests
 - SendTargets Requests
 
+## Monitor workload performance
+ 
+### Monitor Availability 
+The **Availability** metric can be useful to view any visible issues from either an application or user perspective.
+ 
+When using this metric with Azure Elastic SAN, we recommend using the **Average** aggregation - using Average shows you what percentage of your requests are experiencing errors, and if they are within [Elastic SAN's SLA]([https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1]).
+You can use the **Min** and **Max** aggregation for worst and best case availability scenarios. For instance - **Min** availability can be used for incident alerting.
+ 
+### How to create an alert for Availability <99.9%
+ 
+1. Open the **Create an alert rule** dialog box. For more information, see [Create or edit an alert rule](/azure/azure-monitor/alerts/alerts-create-new-alert-rule).
+ 
+2. In the **Scope** tab, select you Elastic SAN resource.
+ 
+4. In the **Condition** tab, select the **Availability** metric.
+ 
+5. In the **Alert logic** section, provide the following:
+   - **Threshold** = **Static** 
+   - **Aggregation type** = **Average**
+   - **Operator** = **Less than**
+   - **Threshold value** enter **99.9**
+ 
+7. In the **When to evaluate** section, select the following:
+   - **Check every** = **5 minutes**
+   - **Lookback period** = **1 hour**
+ 
+8. Click **Next** to go to the **Actions** tab and add an action group (email, SMS, etc.) to the alert. You can select an existing action group or create a new action group.
+ 
+9. Click **Next** to go to the **Details** tab and fill in the details of the alert such as the alert name, description, and severity.
+ 
+10. Select **Review + create** to create the alert.
+ 
+ 
+### Monitor Utilization
+ 
+Utilization metrics that measure the amount of data being transmitted (throughput) or operations being serviced (IOPS) are commonly used to determine how much work is being performed by the application or workload. Transaction metrics can determine the number of operations or requests against the Azure Elastic SAN service over various time granularity.
+ 
+To determine the average I/O per second (IOPS) for your workload, first determine the total number of transactions using the **Transactions** metric over a minute and then divide that number by 60 seconds. For example, 120,000 transactions in 1 minute / 60 seconds = 2,000 average IOPS.
+ 
+To determine the average throughput for your workload, take the total amount of transmitted data by combining the **Ingress** and **Egress** metrics (total throughput) and divide that by 60 seconds. For example, 1 GiB total throughput over 1 minute / 60 seconds = 17 MiB average throughput.
+
 ## Next steps
 
 - [Azure Monitor Metrics overview](/azure/azure-monitor/essentials/data-platform-metrics)
