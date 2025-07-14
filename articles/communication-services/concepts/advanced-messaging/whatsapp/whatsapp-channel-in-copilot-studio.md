@@ -164,3 +164,11 @@ This article described the prerequisite steps to configuring WhatsApp as a Chann
 > [Add bot to WhatsApp](https://review.learn.microsoft.com/en-us/microsoft-copilot-studio/publication-add-bot-to-whatsapp?branch=cc-whatsapp-405436)
 
 Link needs to be updated. 
+
+## Related articles
+
+-    [WhatsApp Business Account FAQ](./whatsapp-business-account-faq.md)
+-    [WhatsApp Business Help Center](https://www.facebook.com/business/help/524220081677109?id=2129163877102343)
+-    [WhatsApp Business Display Name Policy](https://www.facebook.com/business/help/338047025165344)
+-    [Business Verification](https://www.facebook.com/business/help/1095661473946872?id=180505742745347) 
+-    [Add more Management Accounts](https://www.facebook.com/business/help/2169003770027706)
