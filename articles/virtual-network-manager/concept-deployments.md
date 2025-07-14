@@ -47,7 +47,7 @@ When you commit a deployment of configurations, you describe the goal state of y
 
 A network manager is available in a region as long as the region is up and running. Should a region with a network manager go down, the network manager is no longer available to submit new configuration deployments or modify existing configurations. However, the configurations that were deployed to the targeted network groups' virtual networks in the targeted regions are still in effect unless those virtual networks are in the region that went down.
 
-For example, if a network manager is created in *regionA* and deployed configurations onto virtual networks in *regionB*, those configurations are still in effect even if *regionA* goes down. However, you won't be able to create new, modify existing, or deploy configurations from the network manager in *regionA*. As another example, if *regionB* goes down, those configurations are no longer in effect. In this case, further deployments to virtual networks in *regionB* won't be successful.
+For example, if a network manager exists in *regionA* and has deployed configurations onto virtual networks in *regionB*, those configurations are still in effect even if *regionA* goes down. However, you won't be able to create new, modify existing, or deploy configurations from the network manager in *regionA*. As another example, if *regionB* goes down, those configurations are no longer in effect. In this case, further deployments to virtual networks in *regionB* won't be successful.
 
 ## Next steps
 
