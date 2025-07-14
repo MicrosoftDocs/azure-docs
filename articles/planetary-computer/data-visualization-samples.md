@@ -1367,13 +1367,12 @@ Each annual map represents a composite of LULC predictions throughout the year, 
 
 ## Mosaic configuration
 
-The mosaic configuration for this collection provides temporal filtering options, allowing users to view land cover data for specific years. Each mosaic definition filters the data to show only items from a particular year using Common Query Language (CQL) expressions.
+The mosaic configuration for this collection provides temporal filtering options, allowing users to view land cover data for specific years. Each mosaic definition filters the data to show only items from a particular year using Common Query Language (CQL) expressions. This temporal filtering allows users to compare land cover changes year-over-year or focus on a specific time period of interest
 
 The configuration includes six separate mosaic options covering 2017-2022:
 
 * **Temporal Filtering**: Each mosaic uses the `anyinteracts` operator to filter items where the `datetime` property intersects with a specific year's date range
 * **Date Ranges**: Each year's filter spans from January 1 to December 31 of that specific year (`2022-01-01T23:59:59Z` to `2022-12-31T23:59:59Z`)
-* **User Experience**: This temporal filtering allows users to compare land cover changes year-over-year or focus on a specific time period of interest
 
 This temporal filtering approach is valuable for land cover analysis, as it enables users to track changes in land use patterns, monitor deforestation or reforestation, observe urban expansion, and assess the impact of natural disasters or human activities over time.
 
@@ -1512,7 +1511,7 @@ This temporal filtering approach is valuable for land cover analysis, as it enab
 
 ## Render options configuration
 
-This render configuration defines three different ways to visualize Impact Observatory land cover classification data in the Explorer. Each entry describes a different visualization approach, such as **ESA CCI classification** (using standard scientific colormaps), **Default IO 9-class** (using custom Impact Observatory colors), or **ESA colormap alternative** (combining ESA colors with enhanced processing).
+This render configuration defines three different ways to visualize Impact Observatory land cover classification data in the Explorer. Each entry describes a different visualization approach, such as **ESA CCI classification** (using standard scientific colormaps), **Default IO 9-class** (using custom Impact Observatory colors), or **ESA colormap alternative** (combining ESA colors with enhanced processing). For more information about color maps, review the [supported colormaps guide](./supported-colormaps.md). 
 
 The land cover data contains classified values representing nine different land cover types, stored in a single "data" asset that requires colormap application to visualize the categories effectively.
 
@@ -1590,7 +1589,7 @@ The tile settings configuration controls the display behavior and performance ch
 
 **Key Parameters:**
 
-* **`minZoom: 12`**: Sets the minimum zoom level at which the land cover data becomes visible. This relatively high zoom level setting is appropriate for 10-meter resolution data, ensuring that users can see meaningful detail when the data is displayed. At lower zoom levels, the 10-meter classification data would be too detailed to be useful and could impact performance.
+* **`minZoom: 3`**: Sets the minimum zoom level at which the land cover data becomes visible.
 
 * **`maxItemsPerTile: 35`**: Limits the number of STAC items that can be composited together in a single map tile. For annual land cover data, this limit setting ensures that multiple overlapping items (if they exist) don't overwhelm the tile generation process.
 
@@ -1600,7 +1599,7 @@ This configuration optimizes the balance between data visibility and performance
 
 ```json
 {
-  "minZoom": 12,
+  "minZoom": 3,
   "maxItemsPerTile": 35,
   "defaultLocation": null
 }
