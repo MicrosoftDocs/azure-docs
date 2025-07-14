@@ -31,7 +31,7 @@ To learn about how to deploy VMs to support your solution's reliability requirem
 
 VMs are the fundamental unit of compute in Azure. You can provision a VM yourself to run your own applications, or you can use other Azure compute services, many of which create and manage VMs transparently to you.
 
-A single VM runs in one place. Azure provides you the ability to control exactly where a VM runs, and to make tradeoffs between different factors like reliability and latency:
+An individual VM is sometimes called a *single instance VM*, and it runs in one place. Azure provides you the ability to control exactly where a VM runs, and to make tradeoffs between different factors like reliability and latency:
 
 - **Region:** You can select which [Azure region](./regions-overview.md) your VM should run in.
 
@@ -85,13 +85,12 @@ This section explains how to configure availability zone support for your virtua
 > [!NOTE]
 > [!INCLUDE [Availability zone numbering](./includes/reliability-availability-zone-numbering-include.md)]
 
-- **Create a zonal virtual machine**: TODO
-    - CLI https://learn.microsoft.com/en-us/azure/virtual-machines/linux/create-cli-availability-zone
-    - PowerShell https://learn.microsoft.com/en-us/azure/virtual-machines/windows/create-powershell-availability-zone
-    - Portal https://learn.microsoft.com/en-us/azure/virtual-machines/create-portal-availability-zone
+- **Create a zonal virtual machine**: You can create a zonal virtual machine using the following guides:
+    - Azure portal: [Create virtual machines in an availability zone using the Azure portal](/azure/virtual-machines/create-portal-availability-zone)
+    - Azure CLI: [Create a virtual machine in an availability zone using Azure CLI](/azure/virtual-machines/linux/create-cli-availability-zone)
+    - Azure PowerShell: [Create a virtual machine in an availability zone using Azure PowerShell](/azure/virtual-machines/windows/create-powershell-availability-zone)
 
-- **Convert existing virtual machines to a zonal configuration:** 
-    - https://learn.microsoft.com/en-us/azure/virtual-machines/move-virtual-machines-regional-zonal-portal
+- **Convert existing virtual machines to a zonal configuration:** You can move from a nonzonal VM to a zonal VM. This process creates a new VM in the target availability zone, and requires that the VM be stopped during the move process. To learn more, see [Move Azure single instance VMs from regional to zonal target availability zones](/azure/virtual-machines/move-virtual-machines-regional-zonal-portal).
 
 - **Change the availability zone of an existing zonal virtual machine:** Zonal VMs can't be moved to a different availability zone. You need to deploy a new zonal VM in the desired availability zone instead.
 
@@ -129,7 +128,7 @@ Once the zone is healthy, VMs in the zone restart. You're responsible for any fa
 
 ### Testing for zone failures
 
-Use Chaos Studio to simulate zone failures and test your failover processes. TODO MORE
+Use Chaos Studio to simulate zone failures and test your failover processes. <!-- TODO more -->
 
 ## Multi-region support
 
