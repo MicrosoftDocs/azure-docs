@@ -197,5 +197,5 @@ If you no longer need Azure Virtual Network Manager and the resources in this qu
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about connectivity configurations](concept-connectivity-configuration.md).
-> [Block network traffic with Azure Virtual Network Manager](how-to-block-network-traffic-portal.md).
+> [Learn about connectivity configurations](concept-connectivity-configuration.md)
+> [Block network traffic with Azure Virtual Network Manager](how-to-block-network-traffic-portal.md)
