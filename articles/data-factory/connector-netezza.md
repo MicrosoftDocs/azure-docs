@@ -41,11 +41,23 @@ This Netezza connector supports:
 
 The service provides a built-in driver to enable connectivity. You don't need to manually install any driver to use this connector.
 
-For version 2.0 (Preview), you need to install a [IBM's Netezza ODBC driver](https://knowledge.informatica.com/s/article/HOW-TO-Download-the-Netezza-ODBC-driver?language=en_US) manually and its version should be v11.02.02 or higher. For version 1.0, the service provides a built-in driver to enable connectivity. You don't need to manually install any driver to use this connector.
+For version 2.0 (Preview), you need to [install a IBM Netezza ODBC driver](#install-netezza-odbc-driver-for-the-version-20) manually. For version 1.0, the service provides a built-in driver to enable connectivity. You don't need to manually install any driver to use this connector.
 
 ## Prerequisites
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
+If your data store is located inside an on-premises network, an Azure virtual network, or Amazon Virtual Private Cloud, you need to configure a [self-hosted integration runtime](create-self-hosted-integration-runtime.md) to connect to it.
+
+For more information about the network security mechanisms and options supported by Data Factory, see [Data access strategies](data-access-strategies.md).
+
+### For version 1.0
+
+If your data store is a managed cloud data service, you can use the Azure Integration Runtime. If the access is restricted to IPs that are approved in the firewall rules, you can add [Azure Integration Runtime IPs](azure-integration-runtime-ip-addresses.md) to the allow list. 
+
+You can also use the [managed virtual network integration runtime](tutorial-managed-virtual-network-on-premise-sql-server.md) feature in Azure Data Factory to access the on-premises network without installing and configuring a self-hosted integration runtime.
+
+### <a name="install-netezza-odbc-driver-for-the-version-20"></a> Install Netezza ODBC driver for the version 2.0 (Preview)
+
+To use Netezza connector with version 2.0 (Preview), [install the IBM Netezza ODBC driver](https://knowledge.informatica.com/s/article/HOW-TO-Download-the-Netezza-ODBC-driver?language=en_US) version 11.02.02 or higher on the machine running the self-hosted Integration runtime.
 
 ## Get started
 
