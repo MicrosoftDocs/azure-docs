@@ -178,12 +178,12 @@ Open a new bash terminal and do the following steps:
     
     | Parameter | Value |
     | --------- | ----- |
-    | <LOCATION> | An Azure region close to you. For the list of currently supported regions, see [Supported regions](../overview-iot-operations.md#supported-regions). |
-    | <CLUSTER_NAME> | A name for your Kubernetes cluster. |
-    | <RESOURCE_GROUP> | A name for a new Azure resource group where your cluster will be created. |
-    | <STORAGE_ACCOUNT_NAME> | A name for your storage account. Storage account names must be between 3 and 24 characters in length and only contain numbers and lowercase letters. |
-   | <SCHEMA_REGISTRY_NAME> | A name for your schema registry. Schema registry names can only contain numbers, lowercase letters, and hyphens. |
-   | <SCHEMA_REGISTRY_NAMESPACE> | A name for your schema registry namespace. The namespace uniquely identifies a schema registry within a tenant. Schema registry namespace names can only contain numbers, lowercase letters, and hyphens. |
+    | LOCATION | An Azure region close to you. For the list of currently supported regions, see [Supported regions](../overview-iot-operations.md#supported-regions). |
+    | CLUSTER_NAME | A name for your Kubernetes cluster. |
+    | RESOURCE_GROUP | A name for a new Azure resource group where your cluster will be created. |
+    | STORAGE_ACCOUNT_NAME | A name for your storage account. Storage account names must be between 3 and 24 characters in length and only contain numbers and lowercase letters. |
+    | SCHEMA_REGISTRY_NAME | A name for your schema registry. Schema registry names can only contain numbers, lowercase letters, and hyphens. |
+    | SCHEMA_REGISTRY_NAMESPACE | A name for your schema registry namespace. The namespace uniquely identifies a schema registry within a tenant. Schema registry namespace names can only contain numbers, lowercase letters, and hyphens. |
 
     ```bash
     export LOCATION=<LOCATION>
@@ -203,14 +203,6 @@ Open a new bash terminal and do the following steps:
    ```azurecli
    az login
    ```
-
-   > [!TIP]
-   > If you're using the GitHub codespace environment in a browser rather than VS Code desktop, running `az login` returns a localhost error. To fix the error, either:
-   >
-   > * Open the codespace in VS Code desktop, and then return to the browser terminal and rerun `az login`.
-   > * Or, after you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
-
-1. After you sign in, Azure CLI displays all of your subscriptions and indicates your default subscription with an asterisk `*`. To continue with your default subscription, select `Enter`. Otherwise, type the number of the Azure subscription that you want to use.
 
 1. Create an Azure resource group. Only one Azure IoT Operations instance is supported per resource group. To create a new resource group, use the [az group create](/cli/azure/group#az-group-create) command.
 
