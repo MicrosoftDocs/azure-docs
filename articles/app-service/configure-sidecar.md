@@ -2,7 +2,7 @@
 title: Configure sidecars
 description: Step-by-step guide to configuring sidecars, including adding built-in extensions.
 ms.topic: how-to
-ms.date: 07/02/2025
+ms.date: 07/14/2025
 ms.author: cephalin
 author: cephalin
 ---
@@ -21,7 +21,9 @@ This article provides practical steps for enabling and configuring sidecars in y
 
 ## Enable sidecar support for Linux custom containers
 
-For a custom container, you need to explicitly enable sidecar support. In the portal, you can make the selection in the [App Service create wizard](https://portal.azure.com/#view/WebsitesExtension/AppServiceWebAppCreateV3Blade). You can also enable it in the **Deployment Center** > **Containers** page of an existing application.
+For a custom container, you need to explicitly enable sidecar support. In the portal, you can make the selection in the [App Service create wizard](https://portal.azure.com/#view/WebsitesExtension/AppServiceWebAppCreateV3Blade). You can also enable it for an existing app in the **Deployment Center** > **Containers** page of an existing application, as shown in the following screenshot:
+
+:::image type="content" source="media/configure-sidecar/enable-sidecar.png" alt-text="A screenshot showing a custom container app's container settings with the Start Update button highlighted.":::
 
 With the Azure CLI, set `LinuxFxVersion` to `sitecontainers`. For example:
 
@@ -74,6 +76,28 @@ Add the `Microsoft.Web/sites/sitecontainers` resource type to an app. To pull a 
 > Only the main container (`"isMain": true`) receives external traffic. In a Linux custom container app with sidecar support enabled, your main container has `isMain` set to `true`. All sidecar containers should have `"isMain": false`.
 
 For more information, see [Microsoft.Web sites/sitecontainers](/azure/templates/microsoft.web/sites/sitecontainers).
+
+## Create sidecars with Azure CLI
+
+Create a sidecar-enabled app with [az webapp create](/cli/azure/webapp#az-webapp-create). For example:
+
+```azurecli-interactive
+az webapp create --name <app-name> --resource-group <group-name> --sitecontainers-app
+```
+
+Create a sidecar container with [az webapp sitecontainers create](/cli/azure/webapp/sitecontainers?view=azure-cli-latest#az-webapp-sitecontainers-create). For example:
+
+```azurecli-interactive
+az webapp sitecontainers create --name <app-name> --resource-group <group-name> --container-name <container> --image <image> --target-port <port>
+```
+
+Create a sidecar container with a JSON file:
+
+```azurecli-interactive
+az webapp sitecontainers create --name <app-name> --resource-group <group-name> --sitecontainers-spec-file <file-path>
+```
+
+For all sidecar commands, see [az webapp sitecontainers](/cli/azure/webapp/sitecontainers).
 
 ## Set environment variables
 

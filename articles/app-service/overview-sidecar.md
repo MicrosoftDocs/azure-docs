@@ -2,18 +2,18 @@
 title: Sidecars overview
 description: Learn what sidecars are, their benefits, and how they work in Azure App Service for Linux.
 ms.topic: overview
-ms.date: 07/02/2025
+ms.date: 07/14/2025
 ms.author: cephalin
 author: cephalin
 ---
 
 # Sidecars in Azure App Service
 
-In Linux App Service apps (built-in containers and custom containers), a sidecar is an auxiliary container that runs in the same environment as your main app container. Sidecars can provide supporting services (like telemetry, caching, or AI inference) and are managed as part of your App Service app.
+In Linux App Service apps (code-only apps and custom containers), a sidecar is an auxiliary container that runs in the same environment as your main app container. Sidecars can provide supporting services (like telemetry, caching, or AI inference) and are managed as part of your App Service app.
 
 ## Why use sidecars on App Service?
 
-Sidecars enable you to add new capabilities, such as monitoring, caching, AI, or custom logic, without modifying your main application code (in built-in containers) or your main container (in custom containers). Benefits include:
+Sidecars enable you to add new capabilities, such as monitoring, caching, AI, or custom logic, without modifying your main application code (in code-only apps) or your main container (in custom containers). Benefits include:
 
 - **Separation of concerns:** Add or update services independently of your main app.
 - **Extensibility:** Integrate prebuilt or custom extensions (e.g., OpenTelemetry, Redis, Datadog, Phi-3/4 AI models).
@@ -27,7 +27,7 @@ Sidecars enable you to add new capabilities, such as monitoring, caching, AI, or
 - **Lifecycle:** Sidecars start, stop, and scale together with the main app container. When your app scales out or in, all associated sidecar containers follow the same lifecycle automatically.
 - **Configuration:** Sidecars can be configured via the Azure Portal, ARM templates, or CLI. You specify the container image, environment variables, and other settings for each container. App settings are shared across all containers. You can also set container-specific environment variables.
 - **Volume mounts:** Each container can have its own volume mounts.
-- **Authentication:** Sidecars can pull images from public or private registries. Use managed identity or admin credentials for private registries.
+- **Authentication:** Sidecars can pull images from public or private registries, including Azure Container Registry. Use managed identity or admin credentials for private registries.
 
 ## Types of Sidecars
 
@@ -40,8 +40,11 @@ Sidecars enable you to add new capabilities, such as monitoring, caching, AI, or
 
 ## Frequently Asked Questions
 
-### Can I use private container registries?
-Yes. Configure authentication using managed identity or admin credentials.
+### Can I use sidecars in my existing Linux apps?
+
+For existing Linux code-only apps (in built-in containers), see [Tutorial: Configure a sidecar container for a Linux app in Azure App Service](tutorial-sidecar.md).
+
+For existing custom container apps, see [Enable sidecar support for Linux custom containers](configure-sidecar.md#enable-sidecar-support-for-linux-custom-containers).
 
 ### How do I monitor and troubleshoot sidecars?
 Use Azure Monitor, Log Analytics, and the Diagnose & Solve blade in the Azure Portal. Logs from all containers are available in the App Service log stream.
@@ -51,6 +54,7 @@ Persistent Azure storage is not supported for sidecars. App Service Environment 
 
 ## More resources
 
+- [Interactive guide: sidecars in Azure App Service](https://mslabs.cloudguides.com/guides/Modernize%20existing%20web%20apps%20with%20new%20capabilities%20using%20Sidecar%20patterns)
 - [Tutorial: Configure a sidecar container for a Linux app in Azure App Service](tutorial-sidecar.md)
 - [Tutorial: Configure a sidecar container for custom container in Azure App Service](tutorial-custom-container-sidecar.md)
 - [Configure Sidecars in Azure App Service](configure-sidecar.md)
