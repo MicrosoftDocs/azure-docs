@@ -190,7 +190,7 @@ To add an artifact repo, complete the following tasks:
 
 1. To add your artifact repository to the lab, select **Add** in the top menu.
  
-    :::image type="content" source="media/devtest-lab-add-repo/devtestlab-add-repo.png" alt-text="Screenshot that shows the Repositories configuration screen." lightbox=media/devtest-lab-add-repo/devtestlab-add-repo.png":::
+    :::image type="content" source="media/devtest-lab-add-repo/devtestlab-add-repo.png" alt-text="Screenshot that shows the Repositories configuration screen." lightbox="media/devtest-lab-add-repo/devtestlab-add-repo.png":::
 
 1. In the **Repository** pane, enter the following information:
 
@@ -198,11 +198,11 @@ To add an artifact repo, complete the following tasks:
    - **Git clone URL**: The Git HTTPS clone URL from GitHub Repos.
    - **Branch** (optional): The branch that has your artifact definitions.
    - **Folder paths**: The folder for your ARM template definitions, relative to the Git clone URL. Be sure to include the initial forward slash in the folder path.
-   - **GitHub app**: Use this option to leverage GitHub app authentication.
+   - **GitHub app**: Select this option to use GitHub app authentication.
 
 1. Select **Save**.
 
-   ![Screenshot that shows adding a new artifact repository to a lab.](media/devtest-lab-add-repo/devtestlab-repo-blade-with-github-app-auth.png)
+   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-repo-blade-with-github-app-auth.png" alt-text="Screenshot that shows the steps for adding an artifact repository to a lab." lightbox="media/devtest-lab-add-repo/devtestlab-repo-blade-with-github-app-auth.png":::
 
 The repository now appears in the **Repositories** list for the lab.
 
@@ -210,24 +210,24 @@ The repository now appears in the **Repositories** list for the lab.
 
 ### Get the clone URL and personal access token for GitHub
 
-1. On the home page of the GitHub repository that has your artifacts, select **Code**, and under **Clone**, copy the HTTPS URL.
+1. On the home page of the GitHub repository that stores your artifacts, select **Code**, and under **Clone**, copy the HTTPS URL.
 1. Select your profile image in the upper-right corner of GitHub, and then select **Settings**.
 1. On your profile page, in the left menu, select **Developer Settings**, and then select **Personal access tokens**.
 1. Select **Generate new token**.
-1. On the **New personal access token** page, under **Note**, enter an optional description for the token. Accept all the defaults, and then select **Generate token**.
+1. On the **New personal access token** page, under **Note**, enter a description for the token, if you want. Accept all the defaults, and then select **Generate token**.
 1. Save the generated token.
 
 ### Add a GitHub artifact repository to a lab in the Azure portal
 
-1. On the lab's **Overview** page, select **Configuration and policies** from the left navigation.
+1. On the lab's **Overview** page, select **Configuration and policies** in the left pane.
 
-1. On the **Configuration and policies** page, select **Repositories** under **External resources** in the left navigation.
+1. On the **Configuration and policies** page, select **Repositories** under **External resources** in the left pane.
 
-   On the **Repositories** page, the **Public Artifact Repo** is automatically present and connects to the [DevTest Labs public GitHub repository](https://github.com/Azure/azure-devtestlab). If this repo isn't enabled for your lab, you can enable it by selecting the checkbox next to **Public Artifact Repo**, and then selecting **Enable** on the top menu bar.
+   On the **Repositories** page, the **Public Artifact Repo** is automatically present and connects to the [DevTest Labs public GitHub repository](https://github.com/Azure/azure-devtestlab). If this repo isn't enabled for your lab, you can enable it by selecting the checkbox next to **Public Artifact Repo**, and then selecting **Enable** in menu at the top of the pane.
 
-1. To add your artifact repository to the lab, select **Add** in the top menu bar.
+1. To add your artifact repository to the lab, select **Add** in the top menu.
 
-   ![Screenshot that shows the Repositories configuration screen.](media/devtest-lab-add-repo/devtestlab-add-repo.png)
+   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-add-repo.png" alt-text="Screenshot that shows the Repositories configuration screen." lightbox="media/devtest-lab-add-repo/devtestlab-add-repo.png":::
 
 1. In the **Repository** pane, enter the following information:
 
@@ -240,7 +240,7 @@ The repository now appears in the **Repositories** list for the lab.
 
 1. Select **Save**.
 
-   ![Screenshot that shows adding a new artifact repository to a lab.](media/devtest-lab-add-repo/devtestlab-repo-blade-with-github-pat.png)
+   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-repo-blade-with-github-pat.png" alt-text="Screenshot that shows the fields for adding a new artifact repository to a lab." lightbox="media/devtest-lab-add-repo/devtestlab-repo-blade-with-github-pat.png":::
 
 The repository now appears in the **Repositories** list for the lab.
 
@@ -250,7 +250,7 @@ The repository now appears in the **Repositories** list for the lab.
 
 ARM templates are JSON files that describe Azure resources to create. For more information about ARM templates, see [Understand the structure and syntax of ARM templates](../azure-resource-manager/templates/syntax.md).
 
-The following ARM template adds an artifact repository to a lab.  The template creates the lab if it doesn't already exist.
+The following ARM template adds an artifact repository to a lab. If the lab doesn't already exist, the template creates it.
 
 ### Review the ARM template
 
@@ -337,7 +337,7 @@ There are several ways to deploy ARM templates to create or update Azure resourc
 - [Deploy resources with ARM templates in the Azure portal](../azure-resource-manager/templates/deploy-portal.md)
 - [Deploy resources with ARM templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md)
 
-For this example, deploy the template by using Azure PowerShell.
+For this procedure, deploy the template by using Azure PowerShell.
 
 > [!NOTE]
 > The cmdlets that deploy the template are context-specific, so they use the current tenant and subscription. If you need to change the context, use [Set-AzContext](/powershell/module/az.accounts/set-azcontext) before you deploy the template
@@ -369,7 +369,7 @@ The following sample PowerShell script, *New-DevTestLabArtifactRepository.ps1*, 
 <#
 
 .SYNOPSIS
-This script creates a new custom repository and adds it to an existing DevTest Lab.
+This script creates a new custom repository and adds it to an existing DevTest lab.
 
 .PARAMETER LabName
 The name of the lab.
@@ -378,20 +378,20 @@ The name of the lab.
 The name of the resource group that contains the lab.
 
 .PARAMETER ArtifactRepositoryName
-Name for the new artifact repository. The script creates a random name for the repository if not specified.
+Name for the new artifact repository. The script creates a random name for the repository if a name isn't specified.
 
 .PARAMETER ArtifactRepositoryDisplayName
 Display name for the artifact repository.
 This name appears in the list of artifact repositories for a lab.
 
 .PARAMETER RepositoryUri
-Uri to the artifact repository.
+URI to the artifact repository.
 
 .PARAMETER RepositoryBranch
 Branch that contains the artifact files. Defaults to 'main'.
 
 .PARAMETER FolderPath
-Folder that contains the artifact files. Defaults to '/Artifacts'
+Folder that contains the artifact files. Defaults to '/Artifacts'.
 
 .PARAMETER PersonalAccessToken
 Personal access token for the GitHub or Azure Repos repository.
@@ -433,7 +433,7 @@ Param(
     $SourceType
 )
 
-# Set artifact repository internal name if not specified.
+# Set artifact repository internal name if it's not specified.
 
 if ($ArtifactRepositoryName -eq $null){
     $ArtifactRepositoryName = "PrivateRepo" + (Get-Random -Maximum 999)
@@ -443,7 +443,7 @@ if ($ArtifactRepositoryName -eq $null){
 Connect-AzAccount
 
 
-#Get Lab Resource.
+# Get lab resource.
 $LabResource = Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceName $LabName -ResourceGroupName $LabResourceGroupName
 
 Write-Verbose "Lab Name: $($LabResource.Name)"
@@ -452,7 +452,7 @@ Write-Verbose "Lab Resource Location: $($LabResource.Location)"
 
 Write-Verbose "Artifact Repository Internal Name: $ArtifactRepositoryName"
 
-#Prepare properties object for the call to New-AzResource.
+# Prepare properties object for the call to New-AzResource.
 $propertiesObject = @{
     uri = $RepositoryUri;
     folderPath = $FolderPath;
@@ -465,7 +465,7 @@ $propertiesObject = @{
 
 Write-Verbose "Properties to be passed to New-AzResource:$($propertiesObject | Out-String)"
 
-#Add resource to the current subscription.
+# Add resource to the current subscription.
 $resourcetype = 'Microsoft.DevTestLab/labs/artifactSources'
 $resourceName = $LabName + '/' + $ArtifactRepositoryName
 Write-Verbose "Az ResourceType: $resourcetype"
@@ -474,13 +474,12 @@ Write-Verbose "Az ResourceName: $resourceName"
 Write-Verbose "Creating artifact repository '$ArtifactRepositoryDisplayName'..."
 $result = New-AzResource -Location $LabResource.Location -ResourceGroupName $LabResource.ResourceGroupName -properties $propertiesObject -ResourceType $resourcetype -ResourceName $resourceName -ApiVersion 2016-05-15 -Force
 
-#Alternate implementation:
+# Alternate implementation:
 # Use resourceId rather than resourcetype and resourcename parameters.
 # Using resourceId lets you specify the $SubscriptionId rather than using the
 # subscription id of Get-AzContext.
-#$resourceId = "/subscriptions/$SubscriptionId/resourceGroups/$($LabResource.ResourceGroupName)/providers/Microsoft.DevTestLab/labs/$LabName/artifactSources/$ArtifactRepositoryName"
-#$result = New-AzResource -properties $propertiesObject -ResourceId $resourceId -ApiVersion 2016-05-15 -Force
-
+# $resourceId = "/subscriptions/$SubscriptionId/resourceGroups/$($LabResource.ResourceGroupName)/providers/Microsoft.DevTestLab/labs/$LabName/artifactSources/$ArtifactRepositoryName"
+# $result = New-AzResource -properties $propertiesObject -ResourceId $resourceId -ApiVersion 2016-05-15 -Force
 
 # Check the result.
 if ($result.Properties.ProvisioningState -eq "Succeeded") {
@@ -490,7 +489,7 @@ else {
     Write-Error ("Error adding artifact repository source '$ArtifactRepositoryDisplayName'")
 }
 
-#Return the newly created resource to use in later scripts.
+# Return the newly created resource to use in later scripts.
 return $result
 ```
 
@@ -501,19 +500,18 @@ The PowerShell script takes the following parameters:
 | Parameter | Description |
 | --------- | ----------- |
 | `LabName` | The name of the lab. |
-| `ArtifactRepositoryName` | Name for the new artifact repository. The script creates a random name for the repository if it isn't specified. |
+| `ArtifactRepositoryName` | Name for the new artifact repository. The script creates a random name for the repository if a name isn't specified. |
 | `ArtifactRepositoryDisplayName` | Display name that appears in the lab's artifact repository list. |
-| `RepositoryUri` | URI of the artifact repository, which you copied earlier.|
+| `RepositoryUri` | URI of the artifact repository. You copeied this value earlier.|
 | `RepositoryBranch` | Repository branch that contains the artifacts. The default value is `main`.|
-| `FolderPath` | Folder that contains the artifacts. The default value is: `/Artifacts`.|
-| `PersonalAccessToken` | Security token for accessing the repository, which you copied earlier.|
-| `SourceType` | Whether the artifact repository is a VSOGit (Azure Repos) or GitHub repository.|
+| `FolderPath` | Folder that contains the artifacts. The default value is `/Artifacts`.|
+| `PersonalAccessToken` | Security token for accessing the repository. You copied this value earlier.|
+| `SourceType` | Whether the artifact repository is a `VSOGit` (Azure Repos) or GitHub repository.|
 
-
-The repository needs an internal name for identification, which is different than the display name in the Azure portal. You don't see the internal name when using the Azure portal, but you see it when using Azure REST APIs or Azure PowerShell. The script creates a random name if the deployment command doesn't specify one.
+The repository needs an internal name for identification. This name is different from the display name in the Azure portal. You don't see the internal name when using the Azure portal, but you see it when using Azure REST APIs or Azure PowerShell. The script creates a random name if the deployment command doesn't specify one.
 
 ```powershell
-#Set artifact repository name, if not set by user
+# Set artifact repository name, if it's not set by user.
 if ($ArtifactRepositoryName -eq $null){
     $ArtifactRepositoryName = "PrivateRepo" + (Get-Random -Maximum 999)
 }
@@ -526,15 +524,15 @@ The script uses the following PowerShell commands:
 | Command | Notes |
 | ------------------ | ----- |
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Gets details about the lab, such as its location. You create the artifact repository source in the same location and under the same resource group as the lab.|
-| [New-AzResource](/powershell/module/az.resources/new-azresource) | Adds the Azure resource. There's no specific command for adding artifact repositories. This cmdlet needs either the `ResourceId` or the `ResourceName` and `ResourceType` pair to know the type of resource to create. The current script uses the `ResourceName` and `ResourceType` pair. |
+| [New-AzResource](/powershell/module/az.resources/new-azresource) | Adds the Azure resource. There's no specific command for adding artifact repositories. This cmdlet needs either the `ResourceId` or the `ResourceName` and `ResourceType` pair to know the type of resource to create. The preceding script uses the `ResourceName` and `ResourceType` pair. |
 
-A good way to discover resource name and resource type information is to use the [Azure REST API Browser](https://azure.github.io/projects/apis/) website. DevTest Labs [Artifact Sources](/rest/api/dtl/artifact-sources) shows REST APIs for creating and managing DevTest Labs artifact sources. The current script uses the following resource ID:
+A good way to discover resource name and resource type information is to use the [Azure REST API Browser](https://azure.github.io/projects/apis/) website. DevTest Labs [Artifact Sources](/rest/api/dtl/artifact-sources) shows REST APIs for creating and managing DevTest Labs artifact sources. The preceding script uses the following resource ID:
 
 ```powershell
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/artifactsources/{name}
 ```
 
-The resource type is everything listed after `providers` in the URI, except for items in curly brackets. The resource name is everything in the curly brackets. If you use more than one item for the resource name, separate each item with a slash:
+The resource type is everything listed after `providers` in the URI, except for items in curly brackets ({}). The resource name is everything in the curly brackets. If you use more than one item for the resource name, separate each item with a slash:
 
 ```powershell
 $resourcetype = 'Microsoft.DevTestLab/labs/artifactSources'
@@ -544,12 +542,14 @@ $resourceName = $LabName + '/' + $ArtifactRepositoryName
 ### Run the PowerShell script
 
 Run the PowerShell script, substituting your own values for the example values in `LabName`, `LabResourceGroupName`, `ArtifactRepositoryName`, `RepositoryUri`, `PersonalAccessToken`, and `SourceType`:
+
 ```powershell
 Set-AzContext -SubscriptionId <Your Azure subscription ID>
 
 .\New-DevTestLabArtifactRepository.ps1 -LabName "mydevtestlab" -LabResourceGroupName "mydtlrg" -ArtifactRepositoryName "myteamrepository" -RepositoryUri "https://github.com/myteam/myteamrepository.git" - "1111...." -SourceType "GitHub"
 ```
 
-## Next steps
+## Related content
+
 - [Specify mandatory artifacts for DevTest Labs VMs](devtest-lab-mandatory-artifacts.md)
 - [Diagnose artifact failures in the lab](devtest-lab-troubleshoot-artifact-failure.md)
