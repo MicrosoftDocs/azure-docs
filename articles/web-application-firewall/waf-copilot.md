@@ -121,6 +121,8 @@ For each feedback item, you can provide more information in the next dialog box 
 
 If you migrate to Azure Log Analytics dedicated tables in the Application Gateway WAF V2 version, the Microsoft Security Copilot WAF Skills aren't functional. As a temporary workaround, enable Azure Diagnostics as the destination table in addition to the resource-specific table.
 
+**Application Gateway for Containers WAF**: During the preview of Application Gateway for Containers WAF CoPilot for Security is not supported.
+
 ## Privacy and data security in Microsoft Security Copilot
 
 To understand how Microsoft Security Copilot handles your prompts and the data that’s retrieved from the service (prompt output), see [Privacy and data security in Microsoft Security Copilot](/security-copilot/privacy-data-security).
