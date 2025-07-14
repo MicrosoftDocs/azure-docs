@@ -89,7 +89,7 @@ You can get function and host keys programmatically by using these Azure Resourc
 - [List Function Keys](/rest/api/appservice/webapps/listfunctionkeys)
 - [List Host Keys](/rest/api/appservice/webapps/listhostkeys)
 - [List Function Keys Slot](/rest/api/appservice/webapps/listfunctionkeysslot)
-- [List Host Keys Slot](/rest/api/appservice/webapps/listhostkeysslot).
+- [List Host Keys Slot](/rest/api/appservice/webapps/listhostkeysslot)
 
 To learn how to call Azure Resource Manager APIs, see the [Azure REST API reference](/rest/api/azure/).
 
