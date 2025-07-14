@@ -115,7 +115,7 @@ The repository now appears in the **Repositories** list for the lab.
 
 1. To add your artifact repository to the lab, select **Add** at the top of the pane.
 
-   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-add-repo.png" alt-text="Screenshot that shows the Repositories configuration screen." lightbox="media/devtest-lab-add-repo/devtestlab-add-repo.png:::
+   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-add-repo.png" alt-text="Screenshot that shows the Repositories configuration screen." lightbox="media/devtest-lab-add-repo/devtestlab-add-repo.png":::
 
 1. In the **Repository** pane, enter the following information:
 
@@ -127,7 +127,7 @@ The repository now appears in the **Repositories** list for the lab.
 
 1. Select **Save**.
 
-   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-repo-blade-with-azure-pat.png" alt-text="Screenshot that shows the fields for adding a new artifact repository to a lab." lightbox=media/devtest-lab-add-repo/devtestlab-repo-blade-with-azure-pat.png:::
+   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-repo-blade-with-azure-pat.png" alt-text="Screenshot that shows the fields for adding a new artifact repository to a lab." lightbox="media/devtest-lab-add-repo/devtestlab-repo-blade-with-azure-pat.png":::
 
 The repository now appears in the **Repositories** list for the lab.
 
@@ -184,13 +184,13 @@ To add an artifact repo, complete the following tasks:
 
 1. On the lab's **Overview** page, select **Configuration and policies** in the left pane.
 
-1. On the **Configuration and policies** page, select **Repositories** under **External resources** in the left navigation.
+1. On the **Configuration and policies** page, select **Repositories** under **External resources** in the left pane.
 
-   On the **Repositories** page, the **Public Artifact Repo** is automatically present and connects to the [DevTest Labs public GitHub repository](https://github.com/Azure/azure-devtestlab). If this repo isn't enabled for your lab, you can enable it by selecting the checkbox next to **Public Artifact Repo**, and then selecting **Enable** on the top menu bar.
+   On the **Repositories** page, the **Public Artifact Repo** is automatically present and connects to the [DevTest Labs public GitHub repository](https://github.com/Azure/azure-devtestlab). If this repo isn't enabled for your lab, you can enable it by selecting the checkbox next to **Public Artifact Repo**, and then selecting **Enable** in menu at the top of the pane.
 
-1. To add your artifact repository to the lab, select **Add** in the top menu bar.
-
-   ![Screenshot that shows the Repositories configuration screen.](media/devtest-lab-add-repo/devtestlab-add-repo.png)
+1. To add your artifact repository to the lab, select **Add** in the top menu.
+ 
+    :::image type="content" source="media/devtest-lab-add-repo/devtestlab-add-repo.png" alt-text="Screenshot that shows the Repositories configuration screen." lightbox=media/devtest-lab-add-repo/devtestlab-add-repo.png":::
 
 1. In the **Repository** pane, enter the following information:
 
