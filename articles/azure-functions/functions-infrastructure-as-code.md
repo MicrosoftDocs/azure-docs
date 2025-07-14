@@ -177,15 +177,15 @@ This example shows how to create a container in the storage account:
 
 ### [Bicep](#tab/bicep)
 
-<! :::code language="bicep" source="~/function-flex-consumption/IaC/bicep/core/storage/storage-account.bicep" range="46-57" ::: >
+:::code language="bicep" source="~/function-flex-consumption/IaC/bicep/main.bicep" range="33-53" ::: 
 
-For the snippet in context, see [this deployment example](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/core/storage/storage-account.bicep#L46).
+This example uses the [Azure Verified Modules (AVM) module for storage accounts](https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/storage/storage-account). For the snippet in context, see [this deployment example](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/main.bicep#L133).
 
 ### [ARM template](#tab/json)
 
-:::code language="json" source="~/function-flex-consumption/IaC/armtemplate/azuredeploy.json" range="117-135" :::
+:::code language="json" source="~/function-flex-consumption/IaC/armtemplate/azuredeploy.json" range="121-139" :::
 
-For the snippet in context, see [this deployment example](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/armtemplate/azuredeploy.json#L117).
+For the snippet in context, see [this deployment example](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/armtemplate/azuredeploy.json#L121).
 
 ---
 
@@ -316,19 +316,19 @@ Flex Consumption is a Linux-based hosting plan that builds on the Consumption _p
 
 A Flex Consumption plan is a special type of `serverfarm` resource. You can specify it by using `FC1` for the `Name` property value in the `sku` property with a `tier` value of `FlexConsumption`. 
 
-This example section creates Flex Consumption plan:
+This example section creates a Flex Consumption plan:
 
 ### [Bicep](#tab/bicep)
 
-<! :::code language="bicep" source="~/function-flex-consumption/IaC/bicep/core/host/function.bicep" range="21-33" ::: >
+:::code language="bicep" source="~/function-flex-consumption/IaC/bicep/main.bicep" range="156-170" ::: 
 
-For more context, see the complete [function.bicep](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/core/host/function.bicep#L21) file in the Flex Consumption plan sample repository.
+This example uses the [AVM module for App Service plans](https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/web/serverfarm). For the snippet in context, see [this deployment example](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/main.bicep#L156).
 
 ### [ARM template](#tab/json)
 
-:::code language="json" source="~/function-flex-consumption/IaC/armtemplate/azuredeploy.json" range="136-149" :::
+:::code language="json" source="~/function-flex-consumption/IaC/armtemplate/azuredeploy.json" range="140-154" :::
 
-For more context, see the complete [azuredeploy.json](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/armtemplate/azuredeploy.json#L136) file in the templates repository.
+For more context, see the complete [azuredeploy.json](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/armtemplate/azuredeploy.json#L140) file in the templates repository.
 
 ---   
 
@@ -795,15 +795,15 @@ Flex Consumption replaces many of the standard application settings and site con
  
 ### [Bicep](#tab/bicep)
 
-<! :::code language="bicep" source="~/function-flex-consumption/IaC/bicep/core/host/function.bicep" range="35-77" ::: >
+:::code language="bicep" source="~/function-flex-consumption/IaC/bicep/main.bicep" range="173-215" ::: 
 
-For more context, see the complete [function.bicep](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/core/host/function.bicep#L35) file in the Flex Consumption plan sample repository.
+This example uses the [AVM module for function apps](https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/web/serverfarm). For the snippet in context, see [this deployment example](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/main.bicep#L173).
 
 ### [ARM template](#tab/json)
 
-:::code language="json" source="~/function-flex-consumption/IaC/armtemplate/azuredeploy.json" range="143-191" :::
+:::code language="json" source="~/function-flex-consumption/IaC/armtemplate/azuredeploy.json" range="155-203" :::
 
-For more context, see the complete [azuredeploy.json](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/armtemplate/azuredeploy.json#L144) file in the templates repository.
+For more context, see the complete [azuredeploy.json](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/armtemplate/azuredeploy.json#L155) file in the templates repository.
 
 ---
 ::: zone-end  
@@ -1224,11 +1224,13 @@ This example uses a system assigned managed identity to access the specified blo
 
 ### [Bicep](#tab/bicep)
 
-<! :::code language="bicep" source="~/function-flex-consumption/IaC/bicep/core/host/function.bicep" range="58-66" ::: >
+:::code language="bicep" source="~/function-flex-consumption/IaC/bicep/main.bicep" range="185-194" ::: 
+
+This example uses the [AVM module for App Service plans](https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/web/serverfarm). For the snippet in context, see [this deployment example](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/main.bicep#L156).
 
 ### [ARM template](#tab/json)
 
-:::code language="json" source="~/function-flex-consumption/IaC/armtemplate/azuredeploy.json" range="162-170" :::
+:::code language="json" source="~/function-flex-consumption/IaC/armtemplate/azuredeploy.json" range="166-174" :::
 
 ---
 
@@ -1236,13 +1238,13 @@ When using managed identities, you must also enable the function app to access t
 
  ### [Bicep](#tab/bicep)
 
-<! :::code language="bicep" source="~/function-flex-consumption/IaC/bicep/core/host/function.bicep" range="81-90" ::: >
+:::code language="bicep" source="~/function-flex-consumption/IaC/bicep/rbac.bicep" range="45-55" ::: 
 
-For a complete reference example, see [this Bicep file](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/core/host/function.bicep).
+This example uses the [AVM module for resource-scoped role assignment](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/authorization/resource-role-assignment). For the snippet in context, see [this deployment example](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/rbac.bicep#L45).
 
 ### [ARM template](#tab/json)
 
-:::code language="json" source="~/function-flex-consumption/IaC/armtemplate/azuredeploy.json" range="199-212" :::
+:::code language="json" source="~/function-flex-consumption/IaC/armtemplate/azuredeploy.json" range="204-218" :::
 
 For a complete reference example, see [this ARM template](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/armtemplate/azuredeploy.json).
 
