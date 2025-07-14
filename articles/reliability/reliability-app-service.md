@@ -87,7 +87,7 @@ You must use the [Premium v2-4 plan types](/azure/app-service/overview-hosting-p
 
     The scale unit that you're assigned to is based on the resource group that you deploy an App Service plan to. To ensure that your workloads land on a scale unit that supports availability zones, you might need to create a new resource group and create a new App Service plan and App Service app within the new resource group. 
 
-    To learn whether or not the stamp that your App Service plan is on supports availability zones, see [Check for zone redundancy support for an App Service plan](../app-service/configure-reliability.md#check-for-zone-redundancy-support-for-an-app-service-plan).
+    To learn whether or not the stamp that your App Service plan is on supports zone redundancy, see [Check for zone redundancy support for an App Service plan](../app-service/configure-reliability.md#check-for-zone-redundancy-support-for-an-app-service-plan).
 
 
 - You must deploy a minimum of two instances in your plan.

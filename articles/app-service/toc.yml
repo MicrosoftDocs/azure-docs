@@ -533,7 +533,7 @@ items:
   items:
   - name: Reliability in Azure App Service
     href: ../reliability/reliability-app-service.md?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
-  - name: Configure App Service plans for reliability
+  - name: Configure App Service plans for zone redundancy
     href: configure-reliability.md
 - name: Samples
   items:
