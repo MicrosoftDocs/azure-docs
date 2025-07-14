@@ -35,13 +35,31 @@ Azure App Service is an HTTP-based service for hosting web applications, REST AP
 
 ## Reliability architecture overview
 
-When you deploy App Service, you can scale an App Service plans to run on multiple virtual machine *instances* (workers). These instances are the compute resources that run your app code. A single App Service plan can host multiple apps (websites), all running on the same shared set of VM instances.
+::: zone pivot="free-shared-basic,premium"
 
-For example, if you configure your plan to run five VM instances, then all apps in the plan run on all five instances by default. If you configure your plan for autoscaling, then all apps in the plan scale out together, based on the autoscale settings. You can customize how many plan instances run a specific app by using [per-app scaling](/azure/app-service/manage-scale-per-app).
+When you use App servvice, you deploy a plan and one or more apps (websites).
 
-At the platform level - without any configuration from you - Azure automatically distributes your App Service plan’s VM instances across [fault domains](/azure/virtual-machines/availability-set-overview#fault-domains). This distribution minimizes the risk of localized hardware failures by grouping virtual machines that share a common power source and network switch.
+::: zone-end
 
-If you enable zone redundancy on your App Service plan, Azure distributes your instances across availability zones within the region, offering higher resiliency in the event of a full zone outage. To learn more about zone redundancy, see [Availability zone support](#availability-zone-support).
+::: zone pivot="isolated"
+
+When you use an App Service Environment, you deploy the environment, one or more plans, and one or more apps (websites).
+
+- **Environment:** The App Service Environment is the overarching container for all of your App Service resources. You configure your networking settings and other important settings on the environment.
+
+    You create one or more App Service plans within your environment.
+
+::: zone-end
+
+- **Plans:** Plans represent the compute resources that run your apps. You can scale your App Service plans to run on multiple virtual machine *instances* (workers). These instances are the compute resources that run your app code. A single App Service plan can host multiple apps (websites), all running on the same shared set of VM instances.
+
+    At the platform level - without any configuration from you - Azure automatically distributes your App Service plan’s VM instances across [fault domains](/azure/virtual-machines/availability-set-overview#fault-domains). This distribution minimizes the risk of localized hardware failures by grouping virtual machines that share a common power source and network switch.
+
+    If you enable zone redundancy on an App Service plan, Azure distributes your instances across availability zones within the region, offering higher resiliency in the event of a full zone outage. To learn more about zone redundancy, see [Availability zone support](#availability-zone-support).
+
+- **Apps:** Each app runs on a plan, and uses the VM resources of that plan to run your application code.
+
+    For example, if you configure your App Service plan to run five VM instances, then all apps in the plan run on all five instances by default. If you configure your plan for autoscaling, then all apps in the plan scale out together, based on the autoscale settings. You can customize how many plan instances run a specific app by using [per-app scaling](/azure/app-service/manage-scale-per-app).
 
 Behind the scenes, Azure App Service runs on platform infrastructure called *scale units* (also known as *stamps*). A scale unit includes all the components needed to host and run App Service, including compute, storage, networking, and load balancing. Azure manages scale units to ensure balanced workload distribution, perform routine maintenance, and maintain overall platform reliability.
 
