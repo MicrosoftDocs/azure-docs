@@ -25,7 +25,7 @@ For additional recommendations on setting up WSUS in your Azure subscription and
 
 ## Pre-download updates
 
-Pre-download of updates is not supported in Azure Update Manager.
+Pre-download of updates isn't supported in Azure Update Manager.
 
 ## Configure reboot settings
 
@@ -83,14 +83,14 @@ Update Manager supports WSUS settings. You can specify sources for scanning and 
 
 To restrict machines to the internal update service, see [do not connect to any Windows Update Internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations).
 
-## Registry Settings
+## Registry settings
 
-It is possible to check the patch source under the following two registry keys.
+It's possible to check the patch source under the following two registry keys.
 
 - HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\
 - HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Services
 
-See [Configuring Automatic Updates by editing the registry](https://learn.microsoft.com/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) for more details
+See [Configuring Automatic Updates by editing the registry](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) for more details.
 
 ## Next steps
 
