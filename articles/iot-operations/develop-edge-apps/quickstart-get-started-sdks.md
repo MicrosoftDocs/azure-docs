@@ -54,7 +54,7 @@ Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with
     git clone https://github.com/Azure/iot-operations-sdks
     ```
 
-1. Change to the repository root directory:
+1. Navigate to the repository root directory:
 
     ```bash
     cd <REPOSITORY ROOT>
@@ -138,7 +138,7 @@ Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with
     git clone https://github.com/Azure/iot-operations-sdks
     ```
 
-1. Change to the repository root directory:
+1. Navigate to the repository root directory:
 
     ```bash
     cd <REPOSITORY ROOT>
@@ -196,24 +196,13 @@ Open a new bash terminal in the VS Code Dev Container and do the following steps
 
 After Azure IoT Operations is deployed, you need to configure it for development. This includes setting up the MQTT broker and authentication methods, as well as ensuring that the necessary environment variables are set for your development environment:
 
-1. Check that Azure IoT Operations is successfully installed and **resolve any errors before continuing**:
+1. After the deployment is complete, use [az iot ops check](/cli/azure/iot/ops#az-iot-ops-check) to evaluate Azure IoT Operations service deployment for health, configuration, and usability. The *check* command can help you find problems in your deployment and configuration.
 
     ```azurecli
     az iot ops check
     ```
 
-    Expected output:
-
-    ```output
-    ╭─────── Check Summary ───────╮
-    │ 13 check(s) succeeded.      │
-    │ 0 check(s) raised warnings. │
-    │ 0 check(s) raised errors.   │
-    │ 4 check(s) were skipped.    │
-    ╰─────────────────────────────╯
-    ```
-
-1. Change to the repository root directory:
+1. Navigate to the repository root directory:
 
     ```bash
     cd <REPOSITORY ROOT>
@@ -242,6 +231,7 @@ To load the environment variables into your shell, run the following command in 
 source <REPOSITORY ROOT>/.env
 ```
 
+<!-- TODO: Check why this only works with VSCode Dev Containers when I do: kubectl port-forward -n azure-iot-operations service/aio-broker-external 8883:8883 -->
 ## Testing the installation
 
 To test the setup is working correctly, use `mosquitto_pub` to connect to the MQTT broker to validate the x509 certs, SAT and trust bundle.

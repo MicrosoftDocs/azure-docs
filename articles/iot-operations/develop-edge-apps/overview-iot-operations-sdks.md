@@ -64,7 +64,7 @@ The SDKs provide a number of components available for simplicity and ease of use
 
 * A set of clients providing integration with Azure IoT Operations services such as **state store**, **leader election**, **lease lock**, and **schema registry**.
 
-* The **Protocol Compiler (codegen)** allows clients and servers to communicate via a schema contract. First describe the communication (using **Telemetry** and **Commands**) with DTDL, then generate a set of client libraries and server library stubs across the supported programming languages.
+* A **Protocol Compiler (codegen)**, that allows clients and servers to communicate via a schema contract. First describe the communication (using **Telemetry** and **Commands**) with DTDL, then generate a set of client libraries and server library stubs across the supported programming languages.
 
 Read further about the underlying terminology and different components of the SDKs:
 
