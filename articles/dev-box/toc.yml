@@ -136,7 +136,7 @@ items:
         href: how-to-configure-stop-on-disconnect.md
       - name: Skip or delay an automatic shutdown
         href: how-to-skip-delay-stop.md
-      - name: Automatically delete unused dev boxes
+      - name: Delete unused dev boxes
         href: how-to-auto-delete-dev-box.md
   - name: Connect devices to dev boxes
     items:
