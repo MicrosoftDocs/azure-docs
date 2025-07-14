@@ -16,7 +16,7 @@ Azure Virtual Machines (VMs) provide reliability through built-in redundancy and
 - **Availability zones**: Physically separate locations within an Azure region, each with independent power, cooling, and networking.
 - **Zone-redundant resources**: Automatically distributed across availability zones to ensure resiliency against zone failures.
 - **Zonal resources**: Deployed into a single, customer-selected availability zone, requiring customer-managed failover for resiliency.
-- **Availability sets**: Logical groupings of VMs that ensure redundancy by distributing VMs across fault domains and upgrade domains. For more information, see [Availability sets](../virtual-machines/availability-set-overview.md).
+- **Availability sets**: Logical groupings of VMs that ensure redundancy by distributing VMs across fault domains and upgrade domains. For more information, see [Availability sets](/azure/virtual-machines/availability-set-overview).
 
 For more information, see [Azure services with availability zones](availability-zones-service-support.md).
 
@@ -61,7 +61,7 @@ Applications running on VMs should implement appropriate fault-handling strategi
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-An individual VM can be deployed in a *zonal* configuration, which means it's pinned to single availability zone that you select. By itself, a zonal VM isn't resilient to zone outages. However, you can create multiple VMs and place them in different availability zones, then spread your applications and data across the VM instances. Alternatively, you can use [Virtual Machine Scale Sets](../virtual-machine-scale-sets/) to create a set of virtual machines and spread them across zones.
+An individual VM can be deployed in a *zonal* configuration, which means it's pinned to single availability zone that you select. By itself, a zonal VM isn't resilient to zone outages. However, you can create multiple VMs and place them in different availability zones, then spread your applications and data across the VM instances. Alternatively, you can use [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) to create a set of virtual machines and spread them across zones.
 
 If you don't configure a VM to be zonal then it's considered to be *nonzonal* or *regional*. Nonzonal VMs can be placed in any availability zone within the region. If any availability zone in the region experiences an outage, nonzonal VMs might be in the affected zone and could experience downtime.
 
@@ -146,7 +146,7 @@ For an example architecture that illustrates using VMs across multiple regions, 
 
 ## Reliability during service maintenance
 
-Azure Virtual Machines undergo periodic maintenance to ensure reliability. Customers can control maintenance timing using [customer-controlled maintenance](../virtual-machines/maintenance.md). For more information, see [VM maintenance](../virtual-machines/maintenance.md).
+Azure Virtual Machines undergo periodic maintenance to ensure reliability. Customers can control maintenance timing using [customer-controlled maintenance](/azure/virtual-machines/updates-maintenance-overview).
 
 ## Backup
 

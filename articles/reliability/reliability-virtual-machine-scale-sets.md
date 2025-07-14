@@ -14,7 +14,7 @@ ms.date: 10/31/2024
 This article contains information on [availability zones support](#availability-zone-support) for Virtual Machine Scale Sets.  
 
 >[!NOTE]
->Virtual Machine Scale Sets can only be deployed into one region. If you want to deploy VMs across multiple regions, see [Virtual Machines-Disaster recovery: cross-region failover](./reliability-virtual-machines.md#cross-region-disaster-recovery-and-business-continuity).
+>Virtual Machine Scale Sets can only be deployed into one region. If you want to deploy VMs across multiple regions, see [Virtual Machines - Multi-region support](./reliability-virtual-machines.md#multi-region-support).
 
 
 ## Availability zone support
