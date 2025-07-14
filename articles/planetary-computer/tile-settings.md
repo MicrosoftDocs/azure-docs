@@ -67,8 +67,10 @@ The `defaultLocation` field lets you specify the zoom level and center coordinat
 }
 ```
 
+If `defaultlocation` is not set, the map will go to an existing asset inside the collection. 
+
 > [!NOTE]
-> In the list of items, there's a menu item called "Set view as default location".  This isn't currently enabled.
+> In the list of items, there's a menu item called **Set view as default location**. This selection isn't currently enabled.
 
 [ ![Screenshot of the save view as default location option in the tile settings interface.](media/tile-settings-save-view-as.png) ](media/tile-settings-save-view-as.png#lightbox)
 

@@ -5,9 +5,7 @@ author: prasadko
 ms.author: prasadkomma
 ms.service: planetary-computer-pro
 ms.topic: quickstart
-ms.date: 05/08/2025
-ms.custom:
-  - build-2025
+ms.date: 07/14/2025
 ---
 
 # Microsoft Planetary Computer Pro Data Visualization Gallery
@@ -21,6 +19,7 @@ This gallery provides ready-to-use configuration examples for visualizing common
 - [Sentinel-2-l2a Multi-Spectral Imagery](#sentinel-2-l2a-collection-configuration)
 - [The National Agriculture Imagery Program Aerial Imagery](#the-national-agriculture-imagery-program-collection-configuration)
 - [Umbra Synthetic Aperture Radar Imagery](#umbra-sar-imagery-collection-configuration)
+- [Impact Observatory Land Use/Land Cover 9-class](#impact-observatory-land-useland-cover-9-class-collection-configuration)
 
 ## Prerequisites
 
@@ -45,6 +44,7 @@ Each example in this gallery includes:
 To apply these examples to your own data:
 
 1. [Create a new collection](./create-collection-web-interface.md) in your GeoCatalog
+2. [Ingest Data](./ingestion-overview.md) into the collection. 
 2. Navigate to the [collection's configuration](./configure-collection-web-interface.md) page
 3. Modify the example JSON to match your dataset's specific bands, assets, and properties
 4. Apply the configurations to your collection
@@ -769,7 +769,7 @@ The render configuration directly references these asset keys to create differen
 ## The National Agriculture Imagery Program collection configuration
 
 [ ![Screenshot of The National Agriculture Imagery Program data visualization](media/aerial-imagery.png) ](media/aerial-imagery.png#lightbox)
-The National Agriculture Imagery Program (NAIP) provides high-resolution aerial imagery across the United States. The USDA Farm Service Agency captures this NAIP imagery at least every three years.
+[The National Agriculture Imagery Program](https://planetarycomputer.microsoft.com/dataset/naip) (NAIP) provides high-resolution aerial imagery across the United States. The USDA Farm Service Agency captures this NAIP imagery at least every three years.
 
 NAIP data offers excellent detail with spatial resolutions ranging from 0.3 meter to 1 meter per pixel. The imagery is stored in cloud-optimized GeoTIFF format for efficient access and processing.
 
@@ -1353,15 +1353,15 @@ This GEC asset definition is directly referenced in the render configuration via
 
 ## Impact Observatory Land Use/Land Cover 9-class collection configuration
 
-[ ![Screenshot of ESP-io-lulc-9-class data visualization](media/esp-io-lulc-9-class.png) ](media/esp-io-lulc-9-class.png#lightbox)
+[ ![Screenshot of ESP-io-lulc-9-class data visualization](media/land-cover-map.png) ](media/land-cover-map.png#lightbox)
 
-The [Impact Observatory Land Use/Land Cover 9-Class dataset](https://www.impactobservatory.com/) provides annual global maps of land use and land cover (LULC) from 2017-2022. This dataset was generated using billions of human-labeled pixels to train a deep learning model for land classification, applied to Sentinel-2 imagery at 10-meter resolution.
+The [Impact Observatory Land Use/Land Cover 9-Class dataset](https://www.impactobservatory.com/) provides annual global maps of land use and land cover (LULC). [This dataset](https://planetarycomputer.microsoft.com/dataset/group/io-land-cover) was generated using billions of human-labeled pixels to train a deep learning model for land classification, applied to Sentinel-2 imagery at 10-meter resolution.
 
 The 9-class system includes: Water, Trees, Flooded vegetation, Crops, Built area, Bare ground, Snow/ice, Clouds, and Rangeland. This updated classification model combines the previously separate Grass and Scrub classes into a single Rangeland class, providing more consistent classification across the time series.
 
 Each annual map represents a composite of LULC predictions throughout the year, with an assessed average accuracy of over 75%. The data is valuable for monitoring land use changes, tracking deforestation, urban expansion, and agricultural patterns at a global scale.
 
-## Land cover configuration details
+## Land use/land cover configuration details
 
 # [Mosaic](#tab/io-lulc-9-class-mosaics)
 
