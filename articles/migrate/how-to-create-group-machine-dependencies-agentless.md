@@ -112,7 +112,7 @@ On reviewing the **Dependencies** column for any server, you see one of the foll
 1. **Validation failed:** The server failed the validation checks. You can click the status to view the error message, which usually mentions missing prerequisites like invalid credentials or insufficient permissions.
 
 ::: moniker range="migrate"
-    After the validation succeeds, dependency analysis are autoenabled and you see one of the following status:
+After the validation succeeds, dependency analysis are autoenabled and you see one of the following status:
 ::: moniker-end
 
 1. **View dependencies:** The server passed the validation checks and dependency analysis is enabled. You can select this to open the new visualization and check the server’s dependencies.
@@ -207,7 +207,7 @@ On reviewing the **Dependencies** column for any server, you see one of the foll
 
 The dependency data is exported and downloaded in a CSV format. The downloaded file contains the dependency data across all servers enabled for dependency analysis. 
 
-    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/export-dep.png" alt-text="The screenshot illustrates the Export dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/export-dep.png":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/export-dep.png" alt-text="The screenshot illustrates the Export dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/export-dep.png":::
 
 ### Dependency information
 
