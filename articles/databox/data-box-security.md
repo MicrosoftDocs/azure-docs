@@ -133,17 +133,26 @@ For more information, review the Microsoft Privacy policy at [Trust Center](http
 
 The following security guidelines are implemented in Data Box:
 
+:::zone pivot="dbx"
 |Guideline   |Description   |
 |---------|---------|
 |[IEC 60529 IP52](https://www.iec.ch/)    | For water and dust protection         |
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | For adverse transport conditions endurance          |
 |[NIST SP 800-147](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | For secure firmware update         |
 |[FIPS 140-2 Level 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | For data protection         |
-:::zone pivot="dbx"
 |Appendix A, for ATA Hard Disk Drives in [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | For data sanitization         |
+
 :::zone-end
+
 :::zone pivot="dbx-ng"
+|Guideline   |Description   |
+|---------|---------|
+|[IEC 60529 IP52](https://www.iec.ch/)    | For water and dust protection         |
+|[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | For adverse transport conditions endurance          |
+|[NIST SP 800-147](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | For secure firmware update         |
+|[FIPS 140-2 Level 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | For data protection         |
 |Appendix A, Table A-8 for ATA Solid State Drives in [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | For data sanitization         |
+
 :::zone-end
 
 
@@ -152,9 +161,10 @@ The following security guidelines are implemented in Data Box:
 The secure erasure process performed on our devices is compliant with [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf) and following are the details of the implementation:
 
 |Device   |Data Erasure type   |Tool used   |Validation step   |
-|------------|------------|-------------|---------|
-|Azure Data Box        | In Public cloud: Crypto Erase <br> In Gov cloud: Crypto Erase + Disk overwrite     |ARCCONF tool | Random 10% sampling + Secondary 2% Sampling using In-house tool |
-|Azure Data Box 120 <br> Azure Data Box 525  | In Public and Gov cloud: Block Erase |ARCCONF tool | Random 10% sampling + Secondary 2% Sampling using In-house tool |
+|----------------|------------|-------------|---------|
+|Azure Data Box | In Public cloud: Crypto Erase <br> In Gov cloud: Crypto Erase + Disk overwrite |ARCCONF tool | Random 10% sampling + Secondary 2% Sampling using In-house tool |
+|Azure Data Box 120  | In Public and Gov cloud: Block Erase |ARCCONF tool | Random 10% sampling + Secondary 2% Sampling using In-house tool |
+|Azure Data Box 525  | In Public and Gov cloud: Block Erase |ARCCONF tool | Random 10% sampling + Secondary 2% Sampling using In-house tool |
 |Azure Data Box Disk   | In Public and Gov cloud: Block Erase |MSECLI tool | Random 10% sampling + Secondary 2% Sampling using In-house tool |
 
 
