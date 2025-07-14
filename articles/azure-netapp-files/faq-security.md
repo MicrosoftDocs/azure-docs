@@ -1,5 +1,5 @@
 ---
-title: Security FAQs for Azure NetApp Files
+title: Security FAQs for Azure NetApp Files | Microsoft Docs
 description: Answers frequently asked questions (FAQs) about Azure NetApp Files security.
 ms.service: azure-netapp-files
 ms.topic: concept-article
