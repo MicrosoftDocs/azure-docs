@@ -4,7 +4,7 @@ description: Learn about the available metrics that can let you understand how y
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: concept-article
-ms.date: 06/28/2024
+ms.date: 07/14/2025
 ms.author: rogarana
 # Customer intent: As a cloud storage administrator, I want to monitor the performance metrics of my Azure Elastic SAN, so that I can optimize its availability and manage resource usage effectively.
 ---
@@ -61,10 +61,12 @@ You can use the **Min** and **Max** aggregation for worst and best case availabi
 4. In the **Condition** tab, select the **Availability** metric.
  
 5. In the **Alert logic** section, provide the following:
-   - **Threshold** = **Static** 
-   - **Aggregation type** = **Average**
-   - **Operator** = **Less than**
-   - **Threshold value** enter **99.9**
+   |Field|Description|
+   |---|---|
+   |Threshold| Static|
+   |Aggregation type| Average|
+   |Operator| Less than|
+   |Threshold value| 99.9|
  
 7. In the **When to evaluate** section, select the following:
    - **Check every** = **5 minutes**
