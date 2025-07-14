@@ -9,10 +9,12 @@ ms.topic: concept-article
 ms.custom:
   - references_regions
   - build-2025
-ms.date: 06/30/2025
+ms.date: 07/11/2025
 ---
 
 # Connector upgrade advisor in Azure Data Factory and Azure Synapse Analytics
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes Connector upgrade advisor in Azure Data Factory and Azure Synapse Analytics.
 

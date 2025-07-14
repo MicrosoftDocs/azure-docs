@@ -131,7 +131,7 @@ For more information on the class-based syntax and how to use it, see [Defining 
 
 ```csharp
 [Function(nameof(Counter))]
-public static Task DispatchAsync([EntityTrigger] TaskEntityDispatcher dispatcher)
+public static Task Counter([EntityTrigger] TaskEntityDispatcher dispatcher)
 {
     return dispatcher.DispatchAsync(operation =>
     {

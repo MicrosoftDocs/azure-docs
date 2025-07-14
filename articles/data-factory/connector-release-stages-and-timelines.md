@@ -7,10 +7,12 @@ ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 06/17/2025
+ms.date: 07/11/2025
 ---
 
 # Connector release stages and timelines
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article provides an overview of the release stages and timelines for each connector available in Azure Data Factory.
 For comprehensive details on support levels and recommended usage at each stage, please see [this article](connector-lifecycle-overview.md#release-rhythm).

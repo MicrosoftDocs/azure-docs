@@ -84,7 +84,7 @@ A NAT gateway doesn't affect the network bandwidth of your compute resources. Le
    * To migrate outbound access to a NAT gateway from default outbound access or load balancer outbound rules, see [Migrate outbound access to Azure NAT Gateway](./tutorial-migrate-outbound-nat.md).
 
 >[!NOTE]
->On September 30, 2025, [default outbound access](/azure/virtual-network/ip-services/default-outbound-access#when-is-default-outbound-access-provided) for new deployments will be retired. It's recommended to use an explicit form of outbound connectivity instead, like NAT gateway. 
+>On September 30, 2025, new virtual networks will default to using private subnets, meaning that [default outbound access](/azure/virtual-network/ip-services/default-outbound-access#when-is-default-outbound-access-provided) will no longer be provided by default, and that explicit outbound method must be enabled in order to reach public endpoints on the Internet and within Microsoft. It's recommended to use an explicit form of outbound connectivity instead, like NAT gateway. 
 
 * NAT gateway provides outbound connectivity at a subnet level. NAT gateway replaces the default Internet destination of a subnet to provide outbound connectivity.
 

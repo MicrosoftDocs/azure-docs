@@ -1,5 +1,5 @@
 ---
-title: Manage a manual QoS capacity pool for Azure NetApp Files  | Microsoft Docs
+title: Manage a manual QoS capacity pool for Azure NetApp Files 
 description: Describes how to manage a capacity pool that uses the manual QoS type, including setting up a manual QoS capacity pool and changing a capacity pool to use manual QoS.
 services: azure-netapp-files
 author: b-hchen
