@@ -4,7 +4,7 @@ description: Discover Azure Native Pure Storage Cloud, offering scalable and fle
 author: ProfessorKendrick
 ms.author: kkendrick
 ms.topic: overview
-ms.date: 03/24/2025
+ms.date: 07/14/2025
 ---
 # What is Azure Native Pure Storage Cloud?
 

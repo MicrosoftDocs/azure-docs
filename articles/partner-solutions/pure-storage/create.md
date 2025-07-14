@@ -4,7 +4,7 @@ description: Learn how to create a resource for Pure Storage Cloud using the Azu
 author: ProfessorKendrick
 ms.author: kkendrick
 ms.topic: quickstart
-ms.date: 10/29/2024
+ms.date: 07/14/2025
 
 ---
 # Quickstart: Create an Azure Native Pure Storage Cloud resource
