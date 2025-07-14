@@ -1,13 +1,5 @@
 {
   "redirections": [
-
-    - name: Deploy SQL extensions
-      href: template-tutorial-deploy-sql-extensions-bacpac.md
-
-
-
-
-
     {
       "source_path_from_root": "/articles/aks/learn/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider.md",
       "redirect_url": "/azure/aks/learn/quick-kubernetes-deploy-bicep-kubernetes-extension",
