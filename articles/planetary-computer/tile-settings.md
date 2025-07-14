@@ -34,7 +34,7 @@ The settings are in the form of a JSON object with the following properties:
 
 | Property           | Type     | Description                                                                                      |
 |--------------------|----------|--------------------------------------------------------------------------------------------------|
-| `minZoom`          | Integer (int32); maximum: 24 | Minimum zoom level at which the Explorer UI renders items from the collection. For mor information, see [Zoom Levels](/azure/azure-maps/zoom-levels-and-tile-grid).             |
+| `minZoom`          | Integer (int32); maximum: 24 | Minimum zoom level at which the Explorer UI renders items from the collection. For more information, see [Zoom Levels](/azure/azure-maps/zoom-levels-and-tile-grid).             |
 | `maxItemsPerTile`  | Integer (int32)  | Maximum number of items that can be rendered per tile.                                           |
 | `defaultLocation`  | DefaultLocation Object   | Specifies the default map center coordinates and zoom level when the collection opens in the Explorer.|
 

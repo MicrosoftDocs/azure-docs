@@ -13,7 +13,7 @@ ms.custom:
 
 # Mosaic configurations for collections in Microsoft Planetary Computer Pro
 
-Within each GeoCatalog STAC (SpatioTemporal Asset Catalog) collection, a **mosaic** specifies the search criteria used to retrieve and visualize STAC items within the Explorer web interface. For example, a mosaic might be configured to only return items that are from a specified date range or items that have less than a particular percentage cloud cover. One or more mosaics are created and managed by the user by editing the mosaic configuraiton for within each STAC collection.
+Within each GeoCatalog STAC (SpatioTemporal Asset Catalog) collection, a **mosaic** specifies the search criteria used to retrieve and visualize STAC items within the Explorer web interface. For example, a mosaic might be configured to only return items that are from a specified date range or items that have less than a particular percentage cloud cover. One or more mosaics are created and managed by the user by editing the mosaic configuration for within each STAC collection.
 
 ## Prerequisites
 
@@ -24,11 +24,11 @@ Before you can configure a mosaic, ensure the following prerequisite steps are c
 
 ## Components in a Mosaic
 
-A STAC collection's mosaic configuration is a list of individual mosaic objects each defining a specific search criteria. Each individual mosaic object includes the following propoerties:
+A STAC collection's mosaic configuration is a list of individual mosaic objects each defining a specific search criteria. Each individual mosaic object includes the following properties:
 
 | Property    | Type     | Description                                                                                                     |
 |-------------|----------|-----------------------------------------------------------------------------------------------------------------|
-| `id`        | String   | A unique, user-specified text identifier for the mosaic. This id should not contain spaces.                                                                              |
+| `id`        | String   | A unique, user-specified text identifier for the mosaic. This ID should not contain spaces.                                                                              |
 | `name`      | String   | A human-readable name for the Mosaic. This name will appear in the Explorer UI                                                                                          |
 | `description` | String | A user-defined helpful description of the mosaic.                                                                                           |
 | `cql`       | Array    | A [CQL2](https://github.com/stac-api-extensions/filter) (Common Query Language) expression defining search parameters for STAC items to be found and visualized |
@@ -47,10 +47,10 @@ The mosaic configurations for a collection are visible as a JSON object list, wh
 
 ### From Sentinel-2 L2A Collection [View on Planetary Computer](https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a)
 
-A mosaic configuration with these mosaics from the Sentinel-2 L2A colleciton would enable three different ways to visualize Sentinel-2 imagery in the Explorer interface: 
-1. ```id: "most_recent"```: Most recent STAC Items (any cloud cover), 
-1. ```id: "recent_low_cloud"```: Most recent STAC Items with low (less than or equal to 10%) cloud cover, and 
-1. ```id: "jun_aut2022_low_cloud"```: STAC Items from between June - August 2022 with low (less than or equal to 10%) cloud cover.
+A mosaic configuration with these mosaics from the Sentinel-2 L2A collection would enable three different ways to visualize Sentinel-2 imagery in the Explorer interface: 
+-  ```id: "most_recent"```: Most recent STAC Items (any cloud cover), 
+-  ```id: "recent_low_cloud"```: Most recent STAC Items with low (less than or equal to 10%) cloud cover, and 
+-  ```id: "jun_aut2022_low_cloud"```: STAC Items from between June - August 2022 with low (less than or equal to 10%) cloud cover.
 
 ```json
 [
