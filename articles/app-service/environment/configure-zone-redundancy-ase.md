@@ -83,9 +83,6 @@ az appservice plan create -g MyResourceGroup -n MyPlan --app-service-environment
 
 To enable or disable zone redundancy on an existing App Service plan, you can use the Azure portal, Azure CLI, or Bicep:
 
->[!IMPORTANT]
->If you have *Rules Based* scaling enabled, you can't use the Azure portal to enable zone redundancy for your App Service plan. You must use the Azure CLI or Bicep/Resource Manager instead.
-
 # [Azure portal](#tab/portal)
 
 1. In the [Azure portal](https://portal.azure.com), navigate to  your App Service plan.
@@ -93,6 +90,9 @@ To enable or disable zone redundancy on an existing App Service plan, you can us
 1. Select **Zone redundancy** if you wish to enable zone redundancy. Deselect if you wish to disable it.
  
 :::image type="content" source="./media/configure-reliability/app-service-plan-zone-redundancy-portal-isolated.png" alt-text="Screenshot of zone redundancy property for an App Service plan in the Azure portal.":::
+
+>[!IMPORTANT]
+>If you have *Rules Based* scaling enabled, you can't use the Azure portal to enable zone redundancy for your App Service plan. You must use the Azure CLI or Bicep/Resource Manager instead.
 
 # [Azure CLI](#tab/azurecli)
 
