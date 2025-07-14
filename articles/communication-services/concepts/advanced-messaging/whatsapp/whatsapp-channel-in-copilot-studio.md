@@ -115,38 +115,75 @@ When following those instructions, here are helpful tips:
 ## Link WhatsApp business account as a channel in Azure Communication Services Resource
 
 1. With your newly created Azure Communication Services resource, on the left navigation bar, select on the **Advance Messaging** and then select **Channels**. To add a new WhatsApp Business Account, select on the **Connect** button.
+
+    :::image type="content" source="./media/channels-blade.png" lightbox="./media/channels-blade.png" alt-text="Screenshot that shows Azure portal viewing the Communication Services Channels on the left panel.":::
+
 2. Select WhatsApp as the channel and select the **Connect** button.
+
+    :::image type="content" source="./media/connect-to-whatsapp-channel.png" lightbox="./media/connect-to-whatsapp-channel.png" alt-text="Screenshot that shows Connect to WhatsApp Channel.":::
+
 3. Acknowledge the *Data Transfer and Independent Terms of Service*.
+
+    :::image type="content" source="./media/whatsapp-prerequisites.png" lightbox="./media/whatsapp-prerequisites.png" alt-text="Screenshot that shows Connect to WhatsApp prerequisites.":::
+
 4. Select the **Next** button to continue
 5. Select the SMS enabled phone number you wish to use to connect to your WhatsApp Business Account. This can be either the [Azure Communication Services Toll-free phone number](#provision-an-azure-communication-services-phone-number) you previously provisioned or bring your own phone number.
+
+    :::image type="content" source="./media/phone-number-selection.png" lightbox="./media/phone-number-selection.png" alt-text="Screenshot that shows Connect to WhatsApp phone number selection.":::
+
 6. Select the **Next** button.
 7. Select the **Login with Facebook** button to link your WhatsApp business account.
-8. A new Facebook Login page pops up as a new window. Provide your login. 
+
+    :::image type="content" source="./media/whatsapp-login-with-facebook.png" lightbox="./media/whatsapp-login-with-facebook.png" alt-text="Screenshot that shows Connect to WhatsApp sign-in with Facebook.":::
+
+8. A new Facebook Login page pops up as a new window. Provide your login.
+
+    :::image type="content" source="./media/facebook-login.png" lightbox="./media/facebook-login.png" alt-text="Screenshot that shows Facebook Sign-In screen.":::
+
 9. The next screen notifies you that the Azure Communication Services app will receive your name and profile picture. It gives permission to Azure Communication Service APIs to manage your WhatsApp Business Account. Select **Continue**.
+
+    :::image type="content" source="./media/facebook-authorization.png" lightbox="./media/facebook-authorization.png" alt-text="Screenshot that shows Facebook authorization page.":::
+
 10. After signing in, the next screen summarizes the permissions, you'll be granting Azure Communication Services to manage your WhatsApp Business Account. Select the **Get Started** button.
+
+    :::image type="content" source="./media/permissions-to-azure.png" lightbox="./media/permissions-to-azure.png" alt-text="Screenshot that shows Azure permissions for your WhatsApp Business account.":::
+
 11. Now that the WhatsApp Business Account is signed into, select or create the existing **Business portfolio**. Then select the **Next** button.
 
-    [image show select]
+    :::image type="content" source="./media/select-existing-business-portfolio.png" lightbox="./media/select-existing-business-portfolio.png" alt-text="Screenshot that shows selecting existing Meta Business portfolio.":::
 
-12. Select or create a WhatsApp Business Account and WhatsApp Business Profile.
+12. Select or create a WhatsApp Business Account.
 
+    :::image type="content" source="./media/create-whatsapp-business-account.png" lightbox="./media/create-whatsapp-business-account.png" alt-text="Screenshot that shows Creating or selecting WhatsApp Business account.":::
     [image show create business account and select business profile]
 
-13. A phone number is needed, and it is what people see when they chat with you. Another WhatsApp Business account can't use this phone number.
+13. Select or create a WhatsApp Business Profile. Fill out the required information.
+
+    :::image type="content" source="./media/create-whatsapp-business-profile.png" lightbox="./media/create-whatsapp-business-profile.png" alt-text="Screenshot that shows Creating or selecting WhatsApp Business profile.":::
+
+    :::image type="content" source="./media/whatsapp-business-profile-details.png" lightbox="./media/whatsapp-business-profile-details.png" alt-text="Screenshot that shows details need to create a WhatsApp Business profile.":::
+
+14. A phone number is needed, and it is what people see when they chat with you. Another WhatsApp Business account can't use this phone number.
 
     Use the Azure Communication Service toll-free phone number you provisioned previously or bring your own phone number.
 
     If the phone number you're bringing is:
     - Under a solution provider other than Azure Communication Services, follow these instructions to [migrate your phone number to Azure Communication Services](https://developers.facebook.com/docs/whatsapp/solution-providers/support/migrating-phone-numbers-among-solution-partners-via-embedded-signup/). Create a [support ticket](https://azure.microsoft.com/support/create-ticket/) if help is needed.
-    - An existing WhatsApp number and want to migrate it to a WhatsApp business account, follow these [instructions](https://developers.facebook.com/docs/whatsapp/cloud-api/get-started/migrate-existing-whatsapp-number-to-a-business-account/).Create a [support ticket](https://azure.microsoft.com/support/create-ticket/) if help is needed.
+    - An existing WhatsApp number and want to migrate it to a WhatsApp business account, follow these [instructions](https://developers.facebook.com/docs/whatsapp/cloud-api/get-started/migrate-existing-whatsapp-number-to-a-business-account/). Create a [support ticket](https://azure.microsoft.com/support/create-ticket/) if help is needed.
 
-14. Select **Add a new number**. Choose to either verify your phone number through a text message or phone call.
-15. The Event Grid view you deployed will receive the text message of the verification code.
-16. Enter the verification code and select **Next**.
-17. Review the access request and select **Continue**.
-18. Select **Finish**.
-19. Going back to your Azure portal, you should see this screen which summarizes which phone number you used and your WhatsApp business account information that you've successfully linked. Select **Close**.
-20. Now in your Azure Communication Service resource, under **Channels**, you will see a new channel connected with a status of **Display name review pending**.
+15. Select **Add a new number**. Choose to either verify your phone number through a text message or phone call.
+
+16. The Event Grid view you deployed will receive the text message of the verification code.
+
+17. Enter the verification code and select **Next**.
+
+18. Review the access request and select **Continue**.
+
+19. Select **Finish**.
+
+20. Going back to your Azure portal, you should see this screen which summarizes which phone number you used and your WhatsApp business account information that you've successfully linked. Select **Close**.
+
+21. Now in your Azure Communication Service resource, under **Channels**, you will see a new channel connected with a status of **Display name review pending**.
 
     The status of your WhatsApp Business account is displayed in the Azure portal. Once approved, you will see an **Active** status.
 
