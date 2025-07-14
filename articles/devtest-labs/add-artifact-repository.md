@@ -67,7 +67,7 @@ You must give the managed identity permissions to the repository in Azure Repos.
     |**Azure DevOps Groups**|Select **Project Readers**.|
     |**Send email invites (to Users only)**|Clear the checkbox.|
 
-   :::image type="content" source="media/devtest-lab-add-repo/devops-add-user-blade.png" alt-text="Screenshot showing the the Add new users pane." lightbox="media/devtest-lab-add-repo/devops-add-user-blade.png":::
+   :::image type="content" source="media/devtest-lab-add-repo/devops-add-user-blade.png" alt-text="Screenshot showing the Add new users pane." lightbox="media/devtest-lab-add-repo/devops-add-user-blade.png":::
 
 ### Add an Azure DevOps artifact repository to a lab in the Azure portal
 
@@ -158,7 +158,7 @@ To add an artifact repo, complete the following tasks:
 
 1. To install the Microsoft Dev Center app, select **Microsoft DevCenter GitHub app**.
 
-   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-repo-select-github-app.png" alt-text="Screenshot that shows the feilds for adding a repo and the link for installing the DevCenter GitHub app." lightbox="media/devtest-lab-add-repo/devtestlab-repo-select-github-app.png":::
+   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-repo-select-github-app.png" alt-text="Screenshot that shows the fields for adding a repo and the link for installing the DevCenter GitHub app." lightbox="media/devtest-lab-add-repo/devtestlab-repo-select-github-app.png":::
 
 1. If you're prompted to authenticate to GitHub, authenticate.
 1. On the **Microsoft DevCenter** page, select **Configure**.	
@@ -501,7 +501,7 @@ The PowerShell script takes the following parameters:
 | `LabName` | The name of the lab. |
 | `ArtifactRepositoryName` | Name for the new artifact repository. The script creates a random name for the repository if a name isn't specified. |
 | `ArtifactRepositoryDisplayName` | Display name that appears in the lab's artifact repository list. |
-| `RepositoryUri` | URI of the artifact repository. You copeied this value earlier.|
+| `RepositoryUri` | URI of the artifact repository. You copied this value earlier.|
 | `RepositoryBranch` | Repository branch that contains the artifacts. The default value is `main`.|
 | `FolderPath` | Folder that contains the artifacts. The default value is `/Artifacts`.|
 | `PersonalAccessToken` | Security token for accessing the repository. You copied this value earlier.|
