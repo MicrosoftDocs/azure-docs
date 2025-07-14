@@ -27,7 +27,7 @@ A job is a one-time or scheduled task that runs a KQL (Kusto Query Language) que
 + Combine data from multiple workspaces to a single workspace in the analytics tier. 
 + Combine Microsoft Entra ID, Microsoft 365, and Microsoft Resource Graph data in the analytics tier to run advanced analytics across data sources.
 
-> [NOTE!] 
+> [!NOTE] 
 > Storage in the analytics tier incurs higher billing rates than in the data lake tier. To reduce costs, only promote data that you need to analyze further. Use the KQL in your query to project only the columns you need, and filter the data to reduce the amount of data promoted to the analytics tier.  
 
 When promoting data to the analytics tier, make sure that the destination workspace is visible in the Advanced hunting query editor. You can only query connected workspaces in the Advanced hunting query editor. You will not be able to see data promoted to workspaces that aren't connected or to the default workspace in Advance hunting. For more information on connected workspaces, see [Connect a workspace](/defender-xdr/advanced-hunting-microsoft-defender#connect-a-workspace). You can promote data to a new table or append the results to an existing table in the analytics tier. When creating a new table, the table name is suffixed with *_KQL_CL* to indicate that the table was created by a KQL job.  
@@ -103,7 +103,7 @@ In the **Schedule the query job** panel, select whether you want to run the job 
     > Editing a one-time job will immediately trigger its execution.
 
 1. If you selected **Schedule**, enter the following details:
-    1. Select the run frequency from the **Run every** drop-down. Select *Daily*, Weekly*, or *Monthly*.
+    1. Select the run frequency from the **Run every** drop-down. Select **Daily**, **Weekly**, or **Monthly**.
     1. Under **Start running**, enter the **Start running date** and **Start running time**.  The job start time must be at least 30 minutes after job creation. The job runs from this date and time according to the frequency select in the **Run every** dropdown.
     1. Select the **Set end date** checkbox to specify an end date and time for the job schedule. If you don't select the end date checkbox, the job runs according to the run frequency until you disable or delete it.
    
