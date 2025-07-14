@@ -49,7 +49,7 @@ Available log categories:
 ### Monitor Availability 
 The **Availability** metric can be useful to view any visible issues from either an application or user perspective.
  
-When using this metric with Azure Elastic SAN, we recommend using the **Average** aggregation - using Average shows you what percentage of your requests are experiencing errors, and if they are within [Elastic SAN's SLA]([https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1]).
+When using this metric with Azure Elastic SAN, we recommend using the **Average** aggregation - using Average shows you what percentage of your requests are experiencing errors, and if they are within [Elastic SAN's SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1).
 You can use the **Min** and **Max** aggregation for worst and best case availability scenarios. For instance - **Min** availability can be used for incident alerting.
  
 ### How to create an alert for Availability <99.9%
