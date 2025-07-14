@@ -65,7 +65,7 @@ Various Oracle applications are authorized and supported to run on Azure. For mo
 
 For detailed service-level agreements (SLAs), see [Oracle PaaS and IaaS public cloud services pillars](https://www.oracle.com/contracts/docs/paas_iaas_pub_cld_srvs_pillar_4021422.pdf?download=false).
 
-### Is Oracle RAC Supported in any way on Azure
+### Is Oracle RAC supported in any way on Azure?
 
 Oracle Database@Azure supports RAC deployments on Exadata.
 
