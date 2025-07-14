@@ -16,7 +16,7 @@ zone_pivot_groups: acs-calling-automation-pstn
 
 This article describes troubleshooting call end response codes for Calling SDK, Call Automation, and PSTN calling.
 
-::: zone pivot="calling" pivot="automation" pivot="pstn" pivot="chat"
+::: zone pivot="calling,automation,pstn,chat"
 
 ## Troubleshooting tips
 
