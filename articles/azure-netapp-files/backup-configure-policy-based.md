@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 11/05/2024
 ms.author: anfdocs
+# Customer intent: As an IT administrator, I want to configure policy-based backups for Azure NetApp Files, so that I can automate data protection and ensure regular, reliable backups of my storage volumes.
 ---
 # Configure policy-based backups for Azure NetApp Files 
 

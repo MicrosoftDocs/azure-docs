@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 12/10/2024
 ms.author: anfdocs
+# Customer intent: As a cloud architect, I want to create an NFS volume in Azure NetApp Files, so that I can support my application’s data management requirements and ensure optimized performance through proper version selection and configuration.
 ---
 # Create an NFS volume for Azure NetApp Files
 

@@ -2,11 +2,12 @@
 title: Support matrix for Azure Blobs backup
 description: Provides a summary of support settings and limitations when backing up Azure Blobs.
 ms.topic: reference
-ms.date: 05/12/2025
+ms.date: 07/11/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to understand the support matrix for backing up Azure Blobs so that I can ensure compliance with regional limitations and operational requirements when implementing backup solutions."
 ---
 
 # Support matrix for Azure Blobs backup
@@ -28,7 +29,7 @@ Vaulted backup for blobs is available in all public cloud regions.
 
 ---
 
-## Limitations
+## Supported and unsupported scenarios for Azure Blob backup
 
 **Choose a backup type**
 
@@ -45,6 +46,7 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 **Other limitations**:
 
 - If you've deleted a container during the retention period, that container won't be restored with the point-in-time restore operation. If you attempt to restore a range of blobs that includes blobs in a deleted container, the point-in-time restore operation will fail. For more information about protecting containers from deletion, see [Soft delete for containers](../storage/blobs/soft-delete-container-overview.md).
+- Containers with **legal hold** enabled aren't supported.
 - If a blob has moved between the hot and cool tiers in the period between the present moment and the restore point, the blob is restored to its previous tier. Restoring block blobs in the archive tier isn't supported. For example, if a blob in the hot tier was moved to the archive tier two days ago, and a restore operation restores to a point three days ago, the blob isn't restored to the hot tier. To restore an archived blob, first move it out of the archive tier. For more information, see [Rehydrate blob data from the archive tier](../storage/blobs/archive-rehydrate-overview.md).
 - A block that has been uploaded via [Put Block](/rest/api/storageservices/put-block) or [Put Block from URL](/rest/api/storageservices/put-block-from-url), but not committed via [`Put Block List`](/rest/api/storageservices/put-block-list), isn't part of a blob and so isn't restored as part of a restore operation.
 - A blob with an active lease can't be restored. If a blob with an active lease is included in the range of blobs to restore, the restore operation will fail automatically. Break any active leases before starting the restore operation.
@@ -55,6 +57,7 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 # [Vaulted backup](#tab/vaulted-backup)
 
 - You can back up only block blobs in a *standard general-purpose v2 storage account* using the vaulted backup solution for blobs.
+- Blob vaulted backup is also supported when the storage account has private endpoints.
 - HNS-enabled storage accounts are currently not supported. This includes *ADLS Gen2 accounts*, *accounts using NFS 3.0*, and *SFTP protocols* for blobs.
 - You can take up to five backups per storage account in a day.
 - You can back up storage accounts with *up to 100 containers*, there is no limit on the number of blobs within those containers. You can also select a subset of containers to back up (up to 100 containers).
@@ -63,6 +66,8 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 - The storage accounts to be backed up must contain *a minimum of one container*. If the storage account doesn't contain any containers or if no containers are selected, an error may appear when you configure backup.
 - Only `$web` and `$root` system containers are supported for vaulted backup.
 - If you stop protection (vaulted backup) on a storage account, it doesn't delete the object replication policy created on the storage account. In these scenarios, you need to manually delete the *OR policies*.
+- You can avoid disruption to Azure Blob vaulted backups during a storage account failover by following a specific sequence - pause the backup, remove the object replication policy at the storage account level, complete the failover, and then resume the backup. This process doesn't impact existing recovery points. However, it triggers a full re-replication of blobs during the next backup operation. The object replication policy is automatically recreated in the next backup cycle.
+- When you remove backups, Azure Backup automatically deletes the **object replication policy** from the source. If custom locks exist, remove the policy manually. If you stop protection, it disconnects only the storage account from the Backup vault and tools (such as Backup center). This action doesn't disable blob point-in-time restore, versioning, or change feed settings.
 - Archive tier blob backup isn't supported. Cool and cold tier blobs are restored in hot tier. 
 - The backup operation isn't supported for blobs that are uploaded by using [Data Lake Storage APIs](/rest/api/storageservices/data-lake-storage-gen2).
 - When you delete and recreate a storage account with the same name, **Object Replication** doesn't recognize the change. As a result, future Recovery Points continue to include the older blobs and their versions.
@@ -72,6 +77,7 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 
 - Enabling backups isn't supported for the blob container that are configured with native replication using data factory.
 - The protection of  a container that is part of any object replication isn't supported, either as a source or destination. Attempting to back up such a container will result in backup failure.
+- Containers with **legal hold** enabled aren't supported.
  
 
 ---

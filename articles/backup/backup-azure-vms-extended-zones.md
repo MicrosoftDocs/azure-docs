@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 09/27/2024
 author: ankitaduttaMSFT
 ms.author: ankitadutta
+# Customer intent: "As an IT administrator, I want to back up Azure virtual machines using the Azure portal, so that I can protect data and ensure high availability through enhanced resiliency in Azure Extended Zones."
 ---
 
 # Back up an Azure Virtual Machine in Azure Extended Zones

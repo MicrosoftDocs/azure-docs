@@ -20,7 +20,7 @@ with the specific standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-automation](../../includes/policy/standards/byrp/microsoft.automation.md)]
+[!INCLUDE [azure-policy-compliancecontrols-automation](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.automation.md)]
 
 ## Next steps
 

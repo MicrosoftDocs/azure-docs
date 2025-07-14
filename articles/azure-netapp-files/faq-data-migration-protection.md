@@ -6,6 +6,7 @@ ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
 ms.date: 03/27/2025
+# Customer intent: "As a data engineer, I want to migrate data to Azure NetApp Files using file-based copy tools, so that I can efficiently manage and protect my organization's critical data in the cloud."
 ---
 # Data migration and protection FAQs for Azure NetApp Files
 

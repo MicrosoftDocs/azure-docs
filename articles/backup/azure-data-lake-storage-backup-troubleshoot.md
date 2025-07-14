@@ -6,6 +6,7 @@ ms.date: 05/27/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a data engineer managing Azure Data Lake Storage, I want to troubleshoot backup and restore errors effectively, so that I can ensure successful data protection and recovery operations.
 ---
 
 # Troubleshoot Azure Data Lake Storage backup (preview)

@@ -8,7 +8,7 @@ ms.date: 07/09/2024
 ms.author: danlep
 ---
 
-## Supported Azure OpenAI in Foundry Models
+## Supported Azure OpenAI in Foundry Models models
 
 The policy is used with APIs [added to API Management from the Azure OpenAI in Foundry Models](../articles/api-management/azure-openai-api-from-specification.md) of the following types:
 
@@ -23,4 +23,5 @@ The policy is used with APIs [added to API Management from the Azure OpenAI in F
 > Traditional completion APIs are only available with legacy model versions and support is limited.
 
 For current information about the models and their capabilities, see [Azure OpenAI in Foundry Models](/azure/ai-services/openai/concepts/models).
+
 
