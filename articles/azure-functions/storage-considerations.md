@@ -186,7 +186,7 @@ You should also note the following considerations:
 
 - The app can't use version 1.x of the Functions runtime.
 - Your app can't rely on a shared writeable file system.
-- Portal editing isn't supported
+- Portal editing isn't supported.
 - Log streaming experiences in clients such as the Azure portal default to file system logs. You should instead rely on Application Insights logs.
 
 If the preceding requirements suit your scenario, you can proceed to create a function app without Azure Files. Crete an app without the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE` app settings in one of these ways: 
