@@ -163,7 +163,7 @@ A scenario without a link doesn't yet have a published migration guide. Check th
 | Linux (SMB) | <ul><li>NA</li></ul> | <ul><li>Via [Azure Storage Mover](migrate-files-storage-mover.md)</li></ul> |
 | Network-attached storage (NAS) | <ul><li>Via [Storage Mover upload](migrate-files-storage-mover.md) + [Azure File Sync](../file-sync/file-sync-deployment-guide.md)</li><li>[Via Azure File Sync upload](storage-files-migration-nas-hybrid.md)</li><li>[Via DataBox + Azure File Sync](storage-files-migration-nas-hybrid-databox.md)</li></ul> | <ul><li>Via [Azure Storage Mover](migrate-files-storage-mover.md)</li><li>[Via DataBox](storage-files-migration-nas-cloud-databox.md)</li><li>[Via RoboCopy to a mounted Azure file share](storage-files-migration-robocopy.md)</li></ul> |
 
-### Select a file-copy tool
+### File-copy tools
 
 To select the right tool for your migration scenario, consider these fundamental questions:
 
