@@ -1,5 +1,5 @@
 ---
-title: Configure network features for an Azure NetApp Files volume | Microsoft Docs
+title: Configure network features for an Azure NetApp Files volume
 description: Describes the options for network features and how to configure the Network Features option for a volume.
 services: azure-netapp-files
 author: b-hchen
