@@ -186,3 +186,18 @@ landingContent:
             url: access-tiers-overview.md
           - text: Manage the Blob storage lifecycle
             url: storage-lifecycle-management-concepts.md
+    # Card
+  - title: Manage costs
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Plan and manage costs
+            url: ../common/storage-plan-manage-costs.md
+          - text: Estimate costs
+            url: blob-storage-estimate-costs.md
+          - text: 'Sample estimate: Move data out of archive'
+            url: cost-estimate-archive-retrieval-set-tier.md
+          - text: 'Sample estimate: Retrieve from archive'
+            url: cost-estimate-archive-retrieval-copy-blob.md
+          - text: 'Sample estimate: Cross region data access'
+            url: cost-estimate-multi-region-access.md
