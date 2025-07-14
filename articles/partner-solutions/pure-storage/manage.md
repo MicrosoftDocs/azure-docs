@@ -82,3 +82,7 @@ To connect a storage pool to an Azure VMware Solution resource, select the **Con
 
 <!--TODO: remove before publish-->
 **INSERT SCREENSHOT HERE**
+
+## Get support
+
+Contact [Pure Storage](https://support.purestorage.com/bundle/m_contact_us/page/Pure_Storage_Technical_Services/Technical_Services_Information/topics/reference/r_contact_us.html) for customer support.
