@@ -66,7 +66,7 @@ The following functionality is not supported on a WAF Policy associated with App
 
 ## Pricing
 
-The WAF component will be billed separately from Application Gateway for Containers.  Two meters are introduced:
+WAF is incrementally billed in addition to Application Gateway for Containers. Two meters track WAF consumption: 
 
 * AGC WAF Hour
 * AGC 1M WAF Requests
