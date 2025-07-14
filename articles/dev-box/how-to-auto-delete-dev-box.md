@@ -31,9 +31,9 @@ While Dev Box Auto Delete feature is in Preview, you must manually enable it in 
 1. Go to the Azure subscription where you want to enable Dev Box autodeletion.
 1. In the left menu, select **Preview features**.
 1. In the search box, type "Dev Box Auto".
-1. Select **Dev Box Auto Delete Preview**, and the select **Register**.
+1. Select **Dev Box Auto Delete Preview**, and then select **Register**.
 
-   :::image type="content" source="media/how-to-auto-delete-dev-box/dev-box-auto-delete-enable-preview.png" alt-text="Screenshot of the Azure portal showing the Preview features pane with Dev Box Auto Delete Preview selected.":::
+   :::image type="content" source="media/how-to-auto-delete-dev-box/dev-box-auto-delete-enable-preview.png" alt-text="Screenshot of the Azure portal showing the Preview features pane with Dev Box Auto Delete Preview selected." lightbox="media/how-to-auto-delete-dev-box/dev-box-auto-delete-enable-preview.png":::
 
    After you register the feature, it will be available for use in your subscription.
 
@@ -45,13 +45,13 @@ To configure autodeletion for unused dev boxes in a project, follow these steps 
 1. In the left menu, under **Settings**, select **Dev box settings**.
 1. On the **Dev box settings** page, in the **Cost controls** section, select **Automatically delete unused dev boxes**.
 
-   :::image type="content" source="media/how-to-auto-delete-dev-box/dev-box-auto-delete-enable.png" alt-text="Screenshot of the Azure portal showing the option to enable automatic deletion of unused dev boxes in project settings.":::
+   :::image type="content" source="media/how-to-auto-delete-dev-box/dev-box-auto-delete-enable.png" alt-text="Screenshot of the Azure portal showing the option to enable automatic deletion of unused dev boxes in project settings." lightbox="media/how-to-auto-delete-dev-box/dev-box-auto-delete-enable.png":::
  
 1. When automatic deletion is enabled, you can configure the following options:
    - **Inactivity threshold**: Enter the number of inactive days before a Dev Box is scheduled for automatic deletion (for example, 7 days).
    - **Grace period**: Enter the number of days the developer or admin has to respond and keep the Dev Box (for example, 7 days).
 
-   :::image type="content" source="media/how-to-auto-delete-dev-box/dev-box-auto-delete-settings.png" alt-text="Screenshot of the Dev box settings page in Azure portal showing the cost controls section with autodeletion options."::: 
+   :::image type="content" source="media/how-to-auto-delete-dev-box/dev-box-auto-delete-settings.png" alt-text="Screenshot of the Dev box settings page in Azure portal showing the cost controls section with autodeletion options." lightbox="media/how-to-auto-delete-dev-box/dev-box-auto-delete-settings.png"::: 
 
 1. Select **Apply**.
 
@@ -64,7 +64,7 @@ To cancel a scheduled deletion in the Azure portal, follow these steps:
 1. Select the ellipses (**...**) next to the Dev Box scheduled for deletion.
 1. Select **Cancel deletion**. 
 
-   :::image type="content" source="media/how-to-auto-delete-dev-box/dev-box-azure-portal-cancel-auto-delete.png" alt-text="Screenshot of the Azure portal showing the pool details and the cancel deletion option for a Dev Box.":::
+   :::image type="content" source="media/how-to-auto-delete-dev-box/dev-box-azure-portal-cancel-auto-delete.png" alt-text="Screenshot of the Azure portal showing the pool details and the cancel deletion option for a Dev Box." lightbox="media/how-to-auto-delete-dev-box/dev-box-azure-portal-cancel-auto-delete.png":::
 
 The selected dev box isn't deleted.
 
