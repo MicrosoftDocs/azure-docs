@@ -76,7 +76,7 @@ The new users need to follow the below steps:
 1. In **Step 2: Provide discovery source details**, select **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the discovery source.
 
 
-:::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="The screenshot shows the panel 3 on appliance configuration manager for vCenter Server details." lightbox="./media/tutorial-discover-vmware/appliance-manage-sources.png":::
+   :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="The screenshot shows the panel 3 on appliance configuration manager for vCenter Server details." lightbox="./media/tutorial-discover-vmware/appliance-manage-sources.png":::
 
 1. In **Step 3: Provide server credentials to perform software inventory and agentless dependency analysis**, select **Add credentials** to provide multiple server credentials to perform guest-based discovery like software inventory, agentless dependency analysis, and discovery of databases and web applications.
 
@@ -105,23 +105,23 @@ In the project, you can review dependencies for each server either through the *
 
 On reviewing the **Dependencies** column for any server, you see one of the following status:
 
-1. **Credentials not available:** No server credentials provided in the appliance configuration manager can be used for dependency analysis.
+- **Credentials not available:** No server credentials provided in the appliance configuration manager can be used for dependency analysis.
 
-1. **Validation in progress:** The server hasn't completed the prerequisite validation checks yet.
+- **Validation in progress:** The server hasn't completed the prerequisite validation checks yet.
 
-1. **Validation failed:** The server failed the validation checks. You can click the status to view the error message, which usually mentions missing prerequisites like invalid credentials or insufficient permissions.
+- **Validation failed:** The server failed the validation checks. You can click the status to view the error message, which usually mentions missing prerequisites like invalid credentials or insufficient permissions.
 
 ::: moniker range="migrate"
 After the validation succeeds, dependency analysis are autoenabled and you see one of the following status:
 ::: moniker-end
 
-1. **View dependencies:** The server passed the validation checks and dependency analysis is enabled. You can select this to open the new visualization and check the server’s dependencies.
+- **View dependencies:** The server passed the validation checks and dependency analysis is enabled. You can select this to open the new visualization and check the server’s dependencies.
 ::: moniker range="migrate"
 
-1. **Not initiated:** Dependency analysis couldn’t be enabled because Azure Migrate reached its limit of 1,000 servers per appliance for automatic enablement. If you want to run dependency analysis on specific servers, you can disable it manually on other autoenabled servers and enable it for the required ones using the PowerShell module.
-1. **Disabled:** You can manually disable dependency analysis on this using the portal or the PowerShell module. You can enable it again anytime using the same module. 
+- **Not initiated:** Dependency analysis couldn’t be enabled because Azure Migrate reached its limit of 1,000 servers per appliance for automatic enablement. If you want to run dependency analysis on specific servers, you can disable it manually on other autoenabled servers and enable it for the required ones using the PowerShell module.
+- **Disabled:** You can manually disable dependency analysis on this using the portal or the PowerShell module. You can enable it again anytime using the same module. 
 
-1. **Not supported**: Dependency data could not be collected as the server was discovered through CSV import.
+- **Not supported**: Dependency data could not be collected as the server was discovered through CSV import.
 
     >[!Note]
     > Not enabled status is shown for servers, discovered from an appliance that has still not been upgraded to the new visualization. . [Learn more](#switch-to-new-visualization) to upgrade the appliance.
@@ -207,7 +207,7 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 
 The dependency data is exported and downloaded in a CSV format. The downloaded file contains the dependency data across all servers enabled for dependency analysis. 
 
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/export-dep.png" alt-text="The screenshot illustrates the Export dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/export-dep.png":::
+   :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/export-dep.png" alt-text="The screenshot illustrates the Export dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/export-dep.png":::
 
 ### Dependency information
 
