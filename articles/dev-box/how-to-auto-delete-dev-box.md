@@ -25,7 +25,7 @@ Microsoft Dev Box Auto Delete (Preview) helps organizations manage resources and
 
 ## Enable the preview feature
 
-While Dev Box Auto Delete feature is in Preview, you must manually enable it in your Azure subscription. Follow these steps:
+While the Dev Box Auto Delete feature is in Preview, you must manually enable it in your Azure subscription. Follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to the Azure subscription where you want to enable Dev Box autodeletion.
@@ -48,8 +48,8 @@ To configure autodeletion for unused dev boxes in a project, follow these steps 
    :::image type="content" source="media/how-to-auto-delete-dev-box/dev-box-auto-delete-enable.png" alt-text="Screenshot of the Azure portal showing the option to enable automatic deletion of unused dev boxes in project settings." lightbox="media/how-to-auto-delete-dev-box/dev-box-auto-delete-enable.png":::
  
 1. When automatic deletion is enabled, you can configure the following options:
-   - **Inactivity threshold**: Enter the number of inactive days before a Dev Box is scheduled for automatic deletion (for example, 7 days).
-   - **Grace period**: Enter the number of days the developer or admin has to respond and keep the Dev Box (for example, 7 days).
+   - **Inactivity threshold**: Enter the number of inactive days before a Dev Box is scheduled for automatic deletion (for example, 30 days).
+   - **Grace period**: Enter the number of days the developer or admin has to respond and keep the Dev Box (for example, 30 days).
 
    :::image type="content" source="media/how-to-auto-delete-dev-box/dev-box-auto-delete-settings.png" alt-text="Screenshot of the Dev box settings page in Azure portal showing the cost controls section with autodeletion options." lightbox="media/how-to-auto-delete-dev-box/dev-box-auto-delete-settings.png"::: 
 
@@ -70,8 +70,12 @@ The selected dev box isn't deleted.
 
 ## Cancel scheduled deletions in the developer portal
 
-After reaching the inactivity threshold, you'll get an email notification warning you that your Dev Box is scheduled for deletion. If you want to cancel the scheduled deletion and keep your dev box, follow these steps:
- 
+After reaching the inactivity threshold, you'll get an email notification warning you that your Dev Box is scheduled for deletion. 
+
+:::image type="content" source="media/how-to-auto-delete-dev-box/dev-box-auto-delete-email.png" alt-text="Microsoft Azure email notification with a black background informing the user that AutodeleteDevBox will be deleted. The message states that the administrator has set the dev box for deletion in 30 days and provides a link for more information." lightbox="media/how-to-auto-delete-dev-box/dev-box-auto-delete-email.png":::
+
+If you want to cancel the scheduled deletion and keep your dev box, follow these steps:
+
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 1. In the developer portal, find the dev box scheduled for deletion.
 1. Select **Keep this dev box** to cancel the automatic deletion.
@@ -79,6 +83,8 @@ After reaching the inactivity threshold, you'll get an email notification warnin
    :::image type="content" source="media/how-to-auto-delete-dev-box/dev-box-developer-portal-keep.png" alt-text="Screenshot of the Dev Box developer portal showing the scheduled deletion notice and the option to keep the dev box.":::
 
 The selected dev box isn't deleted.
+
+If you don't see a dev box tile with a pending deletion notice, check with your admin that you still have access to the project containing the dev box.
 
 ## Related content
 
