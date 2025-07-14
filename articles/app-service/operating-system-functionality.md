@@ -6,7 +6,10 @@ ms.author: msangapu
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
 ms.date: 05/05/2025
-ms.custom: UpdateFrequency3
+ms.update-cycle: 1095-days
+ms.custom:
+  - UpdateFrequency3
+  - build-2025
 
 ---
 # Operating system functionality in Azure App Service

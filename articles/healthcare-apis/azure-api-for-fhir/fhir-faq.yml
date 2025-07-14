@@ -6,7 +6,7 @@ metadata:
   ms.service: azure-health-data-services
   ms.subservice: fhir
   ms.topic: faq
-  ms.date: 03/21/2022
+  ms.date: 05/30/2025
   ms.author: kesheth
 title: Frequently asked questions about Azure API for FHIR
 summary: |
@@ -33,12 +33,6 @@ sections:
           What identity provider do you support?
         answer: |
           We support Microsoft Entra ID as the identity provider.
-
-      - question: |
-          Can I use Azure AD B2C with the Azure API for FHIR?
-        answer: |
-          No, we don't support B2C in the Azure API for FHIR. If you need more granular access controls, we recommend looking at the [open-source FHIR proxy](https://github.com/microsoft/fhir-proxy). 
-
       - question: |
           What is the backup and recovery policy for the Azure API for FHIR?
         answer: |

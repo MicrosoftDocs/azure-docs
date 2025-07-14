@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 03/03/2025
+# Customer intent: As a voice services provider, I want to establish an interconnect with Azure Peering Service, so that I can integrate my communications infrastructure and ensure high-quality, reliable services for messaging and conferencing.
 ---
 
 # Set up an interconnect for peering with voice services

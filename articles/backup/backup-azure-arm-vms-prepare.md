@@ -6,6 +6,7 @@ ms.date: 09/09/2024
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to configure a backup for Azure VMs using a Recovery Services vault, so that I can ensure data protection and recovery options are in place for my virtual machines.
 ---
 
 # Back up Azure VMs in a Recovery Services vault

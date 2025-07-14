@@ -6,7 +6,13 @@ ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: quickstart
 ms.date: 04/09/2025
-ms.custom: template-quickstart, mode-ui, engagement-fy23, devx-track-azurepowershell, devx-track-bicep
+ms.custom:
+  - template-quickstart
+  - mode-ui
+  - engagement-fy23
+  - devx-track-azurepowershell
+  - devx-track-bicep
+  - build-2025
 ---
 
 # Quickstart: Create a mesh network topology with Azure Virtual Network Manager by using Bicep

@@ -8,7 +8,11 @@ ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 12/06/2024
 ms.author: mbender
-ms.custom: template-how-to, engagement-fy23
+ms.custom:
+  - template-how-to
+  - engagement-fy23
+  - build-2025
+# Customer intent: "As a cloud administrator, I want to upgrade Basic Load Balancers to Standard SKU using PowerShell, so that I can ensure high availability and functionality before the retirement date of Basic Load Balancers."
 ---
 
 # Upgrade a basic load balancer with PowerShell
@@ -88,6 +92,8 @@ Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -Repositor
 - Plan for instance-level Public IP changes on Virtual Machine Scale Set instances (see note)
 - [Recommended] Create Network Security Groups or add security rules to an existing Network Security Group for your backend pool members. Allow the traffic through the Load Balancer along with any other traffic to be explicitly allowed on public Standard SKU resources
 - [Recommended] Prepare your [outbound connectivity](../virtual-network/ip-services/default-outbound-access.md), taking one of the following approaches described in [How should I configure outbound traffic for my Load Balancer?](#how-should-i-configure-outbound-traffic-for-my-load-balancer)
+- [Important] Remove all locks from the load balancer, its resource group, and any related resources before starting the migration
+- [Important] Confirm you have the necessary permissions to delete and create load balancers, and to modify associated Virtual Machine Scale Sets (VMSS) and network interfaces
 
 ### Post-migration steps
 

@@ -4,7 +4,9 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data from Microsoft 365 (Office 365) to supported sink data stores by using copy and mapping data flow activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
 ms.subservice: data-movement
-ms.custom: synapse
+ms.custom:
+  - synapse
+  - build-2025
 ms.topic: conceptual
 ms.date: 04/27/2025
 ms.author: jianleishen

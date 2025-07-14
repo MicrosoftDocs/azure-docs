@@ -9,6 +9,7 @@ ms.date: 08/20/2024
 ms.devlang: javascript
 ms.custom: devx-track-js, devx-track-azurecli, engagement
 #Customer intent: As a JavaScript developer, I want to know how to upload files to blob storage within an application, so that I can adopt this functionality into my own solution.
+# Customer intent: "As a JavaScript developer, I want to upload images to cloud storage and analyze them using serverless functions, so that I can automate the extraction and storage of data from images for further processing."
 ---
 # JavaScript Tutorial: Upload and analyze a file with Azure Functions and Blob Storage
 

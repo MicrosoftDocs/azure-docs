@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 09/26/2024
 ms.custom: engagement-fy25
+# Customer intent: As a system administrator, I want to deploy the Azure Migrate replication appliance for agent-based migration of VMware VMs and physical servers, so that I can efficiently manage data replication to Azure and facilitate a seamless migration process.
 ---
 
 

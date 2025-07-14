@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 10/31/2024
 ms.author: anfdocs
+# Customer intent: As a cloud architect, I want to identify the appropriate volume type for various workloads in Azure NetApp Files, so that I can optimize performance and ensure the best possible resource allocation for specific applications.
 ---
 
 # Understand workload types in Azure NetApp Files

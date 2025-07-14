@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 05/23/2024
 ms.custom: devx-track-js
 zone_pivot_groups: front-door-tiers
+# Customer intent: As a security analyst, I want to monitor and analyze Azure Web Application Firewall logs and metrics, so that I can ensure my application's security and identify any potential threats to its integrity.
 ---
 
 # Azure Web Application Firewall monitoring and logging

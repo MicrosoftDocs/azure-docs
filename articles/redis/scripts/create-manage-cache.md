@@ -5,8 +5,9 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 05/18/2025
 zone_pivot_groups: redis-type
-ms.custom: 
+ms.custom:
   - devx-track-azurecli, ignite-2024, build-2025
+  - build-2025
 appliesto:
   - ✅ Azure Managed Redis
   - ✅ Azure Cache for Redis

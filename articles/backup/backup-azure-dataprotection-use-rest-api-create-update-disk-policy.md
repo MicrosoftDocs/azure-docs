@@ -8,6 +8,7 @@ ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy23
+# Customer intent: As a cloud administrator, I want to create and manage backup policies for Azure disks using REST API, so that I can automate snapshot management and ensure data protection without incurring infrastructure costs or affecting application performance.
 ---
 
 # Create Azure Data Protection backup policies for disks using REST API

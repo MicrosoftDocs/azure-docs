@@ -4,9 +4,10 @@ description: Learn how to monitor Azure Site Recovery with Azure Monitor Logs (L
 ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.date: 05/13/2024
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 
+# Customer intent: "As a cloud administrator, I want to monitor Azure Site Recovery using Azure Monitor Logs so that I can track the health and status of replicated machines and configure alerts for critical issues."
 ---
 # Monitor Site Recovery with Azure Monitor Logs
 

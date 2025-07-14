@@ -4,9 +4,9 @@ description: This article lists the Azure built-in roles for Azure role-based ac
 ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
-author: rolyon
-manager: femila
-ms.author: rolyon
+author: jenniferf-skc
+manager: pmwongera
+ms.author: jfields
 ms.date: 05/25/2025
 ms.custom: generated
 ---
@@ -1581,7 +1581,9 @@ Lets you read and perform actions on Managed Application resources
 
 Allows the publisher to read resources in the managed resource group for Managed Application and request JIT access for additional operations. This role is only used by the Managed Application service to provide access to publishers.
 
-This role was previously named Managed Applications Reader. [!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
+This role was previously named Managed Applications Reader. 
+
+[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

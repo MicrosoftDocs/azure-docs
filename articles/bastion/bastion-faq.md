@@ -1,12 +1,13 @@
 ---
 title: 'Azure Bastion FAQ'
 description: Learn about frequently asked questions for Azure Bastion.
-author: cherylmc
+author: abell
 ms.service: azure-bastion
 ms.topic: faq
 ms.date: 03/03/2025
-ms.author: cherylmc
+ms.author: abell
 ms.custom: references_regions
+# Customer intent: "As a cloud administrator, I want to understand the deployment and connectivity requirements for Azure Bastion, so that I can effectively manage and secure remote access to our virtual machines."
 ---
 
 # Azure Bastion FAQ

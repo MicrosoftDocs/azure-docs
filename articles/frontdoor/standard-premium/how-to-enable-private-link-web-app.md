@@ -7,6 +7,8 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 11/15/2024
+ms.custom:
+  - build-2025
 ---
 
 # Connect Azure Front Door Premium to an App Service (Web App or Function App) origin with Private Link

@@ -6,8 +6,10 @@ ms.date: 02/28/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
+  - build-2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to implement a backup solution for Azure Database for PostgreSQL Flexible servers, so that I can ensure long-term data retention and protection against data loss events like accidental deletions or ransomware attacks.
 ---
 
 # About Azure Database for PostgreSQL - Flexible Server backup

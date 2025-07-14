@@ -1,10 +1,10 @@
 ---
 title: Custom data ingestion and transformation in Microsoft Sentinel
 description: Learn about how Azure Monitor's custom log ingestion and data transformation features can help you get any data into Microsoft Sentinel and shape it the way you want.
-author: yelevin
-ms.author: yelevin
+author: guywi-ms
+ms.author: guywild
 ms.topic: conceptual
-ms.date: 09/25/2024
+ms.date: 06/03/2025
 
 #Customer intent: As a security engineer, I want to customize data ingestion and transformation in Microsoft Sentinel so that analysts can filter, enrich, and secure log data efficiently.
 

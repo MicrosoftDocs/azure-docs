@@ -21,9 +21,7 @@ To perform bulk delete capability header parameters needed are:
 ## Role requirements
 
 - A user or application needs to be assigned to the `FHIR Data Writer` role, to perform the bulk delete capability.
-- a user or application needs to be assigned to the `FHIR Data Contributor` role, to perform
--- bulk delete capability with a hard delete query parameter.
--- bulk delete on soft deleted resources.
+- a user or application needs to be assigned to the `FHIR Data Contributor` role, to perform bulk delete capability with a hard delete query parameter and bulk delete on soft deleted resources.
   
 ## Bulk delete operation details
 ### `$bulk-delete` operation
@@ -42,7 +40,7 @@ You can execute the `$bulk-delete` operation at the system level or for individu
     ```
 
 > [!NOTE]
-> Use the `$bulk-delete` operation with caution. Deleted resources can't be restored.
+> Use the `$bulk-delete` operation with caution. Deleted resources can't be restored. We recommend that you first run a FHIR search with the same parameters as the bulk delete job to verify the data that you want to delete.
 
 
 #### Query parameters
@@ -52,7 +50,7 @@ Query parameters allow you to filter the raw resources you plan to delete. To su
 |Query parameter        | Default Value   |  Description|
 |------------------------|---|------------|
 |_hardDelete|False|Allows you to hard delete a resource. If you don't pass this parameter or set hardDelete to false, the historic versions of the resource are still available.|
-|_purgeHistory|False|Allows you to delete history versions associated with resource. It will not delete current version of the resource and soft deleted resources. Note: When _purgeHistory used with the _hardDelete parameter set to true, it permanently deletes all versions associated with the resource.|
+|_purgeHistory|False|Allows you to delete history versions associated with resource. It doesn't delete the current version of the resource and soft deleted resources. Note: When _purgeHistory used with the _hardDelete parameter set to true, it permanently deletes all versions associated with the resource.|
 |FHIR service supported search parameters||Allows you to specify search criteria and resources matching the search criteria are deleted. For example: `address:contains=Meadow subject:Patient.birthdate=1987-02-20`|
 
 All the query parameters are optional.
@@ -115,21 +113,21 @@ Here's a list of error messages that might occur if the bulk delete operation fa
 
 |HTTP Status Code | Details | Recommended action |
 |-----------------|---------|--------------------|
-|500 |Connection to database failed | Create a gitsupport ticket to resolve the issue.|
+|500 |Connection to database failed | To resolve the issue, create a Get Support ticket.|
 |429 |Throttling errors | For Azure API for FHIR, you can increase RUs and retry the job. For Azure Health Data Services FHIR Server, you can try to delete a smaller amount of data at a time. |
 
 ## FAQ
 
-- My bulk delete job seems to be stuck. What are the steps for resolution?<br/><br/>   To check if a bulk delete job is stuck, run a FHIR search with the same parameters as the bulk delete job and _summary=count. If the count of resources is going down, the job is working. You can also cancel the bulk delete job and try again. 
+- What are the steps for resolution if my bulk delete job seems to be stuck?<br/><br/>   To check if a bulk delete job is stuck, run a FHIR search with the same parameters as the bulk delete job and _summary=count. If the count of resources is going down, the job is working. You can also cancel the bulk delete job and try again. 
 
-- Do API interactions see any latency impact when a bulk delete operation job is executed concurrently?<br/><br/>When you run a bulk delete operation, you might see increased latency on concurrent calls to the service. To avoid a latency increase, we recommend that you cancel the bulk delete job, and then rerun it during a period of lower traffic.
+- Will API interactions see any latency when a bulk delete operation job is executed concurrently?<br/><br/>When you run a bulk delete operation, you might see increased latency on concurrent calls to the service. To avoid a latency increase, we recommend that you cancel the bulk delete job, and then rerun it during a period of lower traffic.
 
 > [!NOTE]
 > If you cancel and then restart a bulk delete job, the deletion process resumes from where it was stopped.
 
 ## Preview capabilities for the bulk delete operation
 ### `$bulk-delete` with `_include` and `_revinclude`
-Note: When using FHIR service-supported search parameters with `$bulk-delete`, the `$bulk-delete` operation now supports using `_include` and `_revinclude` in the search criteria for conditional and bulk delete. Please note that this does not affect current behavior of singular deletes, which does not support extra parameters. Additionally, when using bulk delete with FHIR search parameters, consider using the same query in a FHIR search first, so that you can verify the data that you want to delete.
+Note: The `$bulk-delete` operation now supports using `_include` and `_revinclude` in the search criteria for conditional and bulk delete. This new feature doesn't affect current behavior of singular deletes, which doesn't support extra parameters. Additionally, when using bulk delete with FHIR search parameters, consider using the same query in a FHIR search first, so that you can verify the data that you want to delete.
 
 Some examples of using `$bulk-delete` with `_include` and `_revinclude`:
 
@@ -140,3 +138,11 @@ The following example using `_revinclude` will bulk delete all Patient resources
 The following example using `_include` will bulk delete all DiagnosticReport resources that were last updated before 12/18/2021, as well as all ServiceRequest resources that are referenced by those DiagnosticReport resources (via DiagnosticReport.basedOn relationship), and all Encounter resources that are referenced by those ServiceRequest resources (via ServiceRequest.encounters relationship):
 
 `DELETE [base]/DiagnosticReport/$bulk-delete?_lastUpdated=lt2021-12-12&_include=DiagnosticReport:based-on:ServiceRequest&_include:iterate=ServiceRequest:encounter`
+
+### `$bulk-delete` with `_not-referenced`
+Note: This feature is available in Azure Health Data Services FHIR Server only, and is not available in Azure API for FHIR.
+
+As mentioned in the "Query parameters" section above, the `$bulk-delete` operation uses FHIR service supported search parameters. This includes the new `_not-referenced` parameter, which allows you to search for and delete resources that are not referenced by any other resources. 
+
+The following example will bulk delete all Patient resources that are not referenced by any other resources:
+`DELETE [base]/Patient/$bulk-delete?_not-referenced=*:*`

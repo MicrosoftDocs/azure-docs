@@ -6,6 +6,8 @@ ms.author: rithorn
 ms.service: azure-policy
 ms.topic: quickstart
 ms.date: 5/19/2025
+ms.custom:
+  - build-2025
 ---
 
 
@@ -52,7 +54,7 @@ specify the service group as the parent, use the **TargetID** property.
 - REST API URI
 
   ```http
-  PUT https://management.azure.com/subscriptions/[SUBID]/resourceGroups/[RGID]/providers/microsoft.compute/virtualmachine/[VMID]/providers/Microsoft.Relationships/serviceGroupMember/SGM1?api-version=2024-02-01-preview
+  PUT https://management.azure.com/subscriptions/[SUBID]/resourceGroups/[RGID]/providers/microsoft.compute/virtualmachine/[VMID]/providers/Microsoft.Relationships/serviceGroupMember/SGM1?api-version=2023-09-01-preview
   ```
 
 - Request Body

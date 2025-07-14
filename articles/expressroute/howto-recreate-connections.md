@@ -8,6 +8,7 @@ ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 02/13/2025
 ms.author: duau
+# Customer intent: As a network administrator, I want to convert my legacy ExpressRoute gateway connections to new configurations so that I can enhance performance, increase bandwidth, and avoid potential connectivity issues.
 ---
 
 # How to convert your legacy ExpressRoute gateway connections

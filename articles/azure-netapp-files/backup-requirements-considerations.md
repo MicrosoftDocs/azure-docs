@@ -7,6 +7,9 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 01/27/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
+# Customer intent: As a cloud administrator, I want to understand the requirements and considerations for using Azure NetApp Files backup, so that I can ensure proper backup configurations and compliance with best practices for data protection in my environment.
 ---
 # Requirements and considerations for Azure NetApp Files backup 
 

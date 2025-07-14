@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 05/09/2024
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As an IT administrator, I want to configure a point-to-site VPN on Windows for Azure file shares, so that I can securely access and mount file shares from on-premises without compromising network security."
 ---
 
 # Configure a point-to-site (P2S) VPN on Windows for use with Azure Files

@@ -11,6 +11,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: As a Python developer, I want to use blob index tags in Azure Blob Storage so that I can efficiently manage and query my data objects for improved organization and retrieval.
 ---
 
 # Use blob index tags to manage and find data with Python

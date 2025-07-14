@@ -34,29 +34,21 @@ Azure Database for PostgreSQL - Flexible Server supports both [zone-redundant an
     You can choose the region and the availability zones for both primary and standby servers. The standby replica server is provisioned in the chosen availability zone in the same region with a similar compute, storage, and network configuration as the primary server. Data files and transaction log files (write-ahead logs, a.k.a WAL) are stored on locally redundant storage (LRS) within each availability zone, automatically storing **three** data copies. A zone-redundant configuration provides physical isolation of the entire stack between primary and standby servers.
 
     :::image type="content" source="~/reusable-content/ce-skilling/azure/media/postgresql/concepts-zone-redundant-high-availability-architecture.png" alt-text="Pictures illustrating redundant high availability architecture." lightbox="~/reusable-content/ce-skilling/azure/media/postgresql/concepts-zone-redundant-high-availability-architecture.png":::
+  
+The **zone-redundant** option is only available in [regions that have support for availability zones](/azure/postgresql/flexible-server/overview#azure-regions).
+
+Zone-redundant is **not** supported for:
+  1. Burstable compute tier.
+  2. Regions with single-zone availability.
 
 - **Zonal**. Choose a zonal deployment when you want to achieve the highest level of availability within a single availability zone, but with the lowest network latency. You can choose the region and the availability zone to deploy both your primary database server. A standby replica server is *automatically* provisioned and managed in the *same* availability zone - with similar compute, storage, and network configuration - as the primary server. A zonal configuration protects your databases from node-level failures and also helps with reducing application downtime during planned and unplanned downtime events. Data from the primary server is replicated to the standby replica in synchronous mode. In the event of any disruption to the primary server, the server is automatically failed over to the standby replica.
 
   :::image type="content" source="./media/postgresql/concepts-same-zone-high-availability-architecture.png" alt-text="Pictures illustrating zonal high availability architecture." lightbox="./media/postgresql/concepts-same-zone-high-availability-architecture.png":::
 
+The **zonal** deployment option is available in all [Azure regions](/azure/postgresql/flexible-server/overview#azure-regions) where you can deploy Flexible Server.
+
 > [!NOTE]  
 > Both zonal and zone-redundant deployment models architecturally behave the same. Various discussions in the following sections apply to both unless called out otherwise.
-
-### Prerequisites
-
-**Zone redundancy:**
-
-- The **zone-redundancy** option is only available in [regions that support availability zones](/azure/postgresql/flexible-server/overview#azure-regions).
-
-- Zone-redundancy is **not** supported for:
-
-  - Azure Database for PostgreSQL – Single Server SKU.
-  - Burstable compute tier.
-  - Regions with single-zone availability.
-
-**Zonal:**
-
-- The **zonal** deployment option is available in all [Azure regions](/azure/postgresql/flexible-server/overview#azure-regions) where you can deploy Flexible Server.
 
 ### High availability features
 
@@ -80,6 +72,8 @@ Azure Database for PostgreSQL - Flexible Server supports both [zone-redundant an
 
 - Periodic maintenance activities such as minor version upgrades happen at the standby first and, to reduce downtime, the standby is promoted to primary so that workloads can keep on, while the maintenance tasks are applied on the remaining node.
 
+> [!NOTE]
+> To ensure High-Availability (HA) functions properly, you should configure the `max_replication_slots` and `max_wal_senders` server parameter values. High-Availability requires 4 of each to handle failovers and seamless upgrades. For a HA setup with 5 read replicas and 12 logical replication slots, you should set `max_replication_slots` and `max_wal_senders` both parameter values to 21. This is because each read replica and logical replication slot requires 1 of each, plus the 4 needed for High-Availability to function properly. To learn more about `max_replication_slots` and `max_wal_senders` parameters refer to the [documentation](/azure/postgresql/flexible-server/server-parameters-table-replication-sending-servers).
 
 ### Monitor High-Availability Health
 

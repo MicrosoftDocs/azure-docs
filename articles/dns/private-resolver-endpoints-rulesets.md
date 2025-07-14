@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 03/21/2025
 ms.author: allensu
 #Customer intent: As an administrator, I want to understand components of the Azure DNS Private Resolver.
+# Customer intent: "As a network administrator, I want to understand the components and configuration of Azure DNS Private Resolver, so that I can effectively implement and manage DNS resolution across my virtual networks."
 ---
 
 # Azure DNS Private Resolver endpoints and rulesets
@@ -111,7 +112,7 @@ A query for `secure.store.azure.contoso.com` matches the **AzurePrivate** rule f
 
 #### Rule processing
 
-- If multiple DNS servers are entered as the destination for a rule, the first IP address that is entered is used unless it doesn't respond. An exponential backoff algorithm is used to determine whether or not a destination IP address is responsive.
+- If multiple DNS servers are entered as the destination for a rule, the first IP address that is entered is used unless it doesn't respond.  If the first DNS Server does not respond, the next DNS Server on the list is used for the next attempt. An exponential backoff algorithm is used to determine whether or not a destination IP address is responsive.
 - Certain domains are ignored when using a wildcard rule for DNS resolution, because they're reserved for Azure services. See [Azure services DNS zone configuration](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration) for a list of domains that are reserved. The two-label DNS names listed in this article (for example: windows.net, azure.com, azure.net, windowsazure.us) are reserved for Azure services.
 
 > [!IMPORTANT]
@@ -133,7 +134,7 @@ The ruleset link design scenario is best suited to a [distributed DNS architectu
 
 ### Inbound endpoints as custom DNS
 
-**Inbound endpoints** are able to process inbound DNS queries, and can be configured as custom DNS for a VNet. This configuration can replace instances where you're [using your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) as custom DNS in a VNet.
+**Inbound endpoints** are able to process inbound DNS queries and can be configured as custom DNS for a VNet. This configuration can replace instances where you're [using your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) as custom DNS in a VNet.
 
 The custom DNS design scenario is best suited to a [centralized DNS architecture](private-resolver-architecture.md#centralized-dns-architecture) where DNS resolution and network traffic flow are mostly to a hub VNet, and is controlled from a central location. 
 

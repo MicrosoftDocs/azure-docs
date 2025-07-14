@@ -6,6 +6,7 @@ ms.custom: devx-track-azurecli, engagement-fy24
 ms.date: 05/22/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an IT administrator, I want to back up Azure Files using Azure CLI, so that I can automate the backup process and ensure data protection effectively.
 ---
 
 # Back up Azure Files with Azure CLI

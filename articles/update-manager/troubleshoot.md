@@ -4,8 +4,9 @@ description: This article provides details on known issues and how to troublesho
 ms.service: azure-update-manager
 ms.date: 02/17/2025
 ms.topic: troubleshooting
-ms.author: sudhirsneha
-author: SnehaSudhirG
+author: habibaum
+ms.author: v-uhabiba
+# Customer intent: As a system administrator managing virtual machines, I want to troubleshoot issues with Azure Update Manager, so that I can ensure successful patching and compliance for my deployed resources.
 ---
 
 # Troubleshoot issues with Azure Update Manager

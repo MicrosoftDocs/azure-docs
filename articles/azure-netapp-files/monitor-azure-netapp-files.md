@@ -7,6 +7,9 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 04/18/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
+# Customer intent: As an IT admin managing Azure NetApp Files, I want to monitor activity logs, metrics, and capacity utilization, so that I can ensure optimal performance and resource management of my storage solution.
 ---
 # Ways to monitor Azure NetApp Files
 

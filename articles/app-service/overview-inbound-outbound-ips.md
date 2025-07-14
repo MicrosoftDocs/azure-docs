@@ -5,7 +5,10 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: article
 ms.date: 03/10/2025
-ms.custom: UpdateFrequency3
+ms.update-cycle: 1095-days
+ms.custom:
+  - UpdateFrequency3
+  - build-2025
 ---
 
 # Inbound and outbound IP addresses in Azure App Service

@@ -8,6 +8,8 @@ ms.subservice: billing
 ms.topic: concept-article
 ms.date: 05/14/2025
 ms.author: macyso
+ms.custom:
+  - build-2025
 ---
 
 # What is a cloud subscription?

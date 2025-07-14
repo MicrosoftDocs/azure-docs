@@ -4,8 +4,9 @@ description: Learn about recovery plans in Azure Site Recovery.
 ms.topic: overview
 ms.service: azure-site-recovery
 ms.date: 01/22/2025
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
+# Customer intent: As a cloud architect, I want to create and manage recovery plans for my applications, so that I can automate and streamline the disaster recovery process to minimize downtime during failovers.
 ---
 # About recovery plans
 

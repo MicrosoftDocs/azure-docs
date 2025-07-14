@@ -8,7 +8,9 @@ ms.service: azure-api-center
 ms.topic: include
 ms.date: 05/12/2025
 ms.author: danlep
-ms.custom: Include file
+ms.custom:
+  - Include file
+  - build-2025
 ---
 
 ## About MCP servers

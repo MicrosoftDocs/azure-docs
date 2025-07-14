@@ -4,6 +4,8 @@ ms.service: azure-app-service
 ms.topic: include
 ms.date: 04/25/2025
 ms.author: msangapu
+ms.custom:
+  - build-2025
 ---
 | Resource | Free | Shared | Basic | Standard | Premium (v1-v4) | Isolated </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -35,7 +37,7 @@ ms.author: msangapu
 | Integrated load balancer | |X |X |X |X |X<sup>9</sup> |
 | [Access restrictions](../articles/app-service/networking-features.md#access-restrictions) | 512 rules per app | 512 rules per app | 512 rules per app | 512 rules per app | 512 rules per app | 512 rules per app |
 | [Always On](../articles/app-service/configure-common.md) | | |X |X |X |X |
-| [Scheduled backups](../articles/app-service/manage-backup.md) | | | Scheduled backups every 2 hours, a maximum of 12 backups per day (manual + scheduled | Scheduled backups every 2 hours, a maximum of 12 backups per day (manual + scheduled) | Scheduled backups every hour, a maximum of 50 backups per day (manual + scheduled) | Scheduled backups every hour, a maximum of 50 backups per day (manual + scheduled) |
+| [Custom scheduled backups](../articles/app-service/manage-backup.md) | | | Scheduled backups every 2 hours, a maximum of 12 backups per day (manual + scheduled | Scheduled backups every 2 hours, a maximum of 12 backups per day (manual + scheduled) | Scheduled backups every hour, a maximum of 50 backups per day (manual + scheduled) | Scheduled backups every hour, a maximum of 50 backups per day (manual + scheduled) |
 | [Autoscale](../articles/app-service/manage-scale-up.md) | | | |X |X |X |
 | [WebJobs](../articles/app-service/webjobs-create.md)<sup>10</sup> |X |X |X |X |X |X |
 | [Endpoint monitoring](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |

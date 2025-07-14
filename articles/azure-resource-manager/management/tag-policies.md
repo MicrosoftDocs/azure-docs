@@ -11,7 +11,7 @@ Use [Azure Policy](../../governance/policy/overview.md) to enforce tagging rules
 
 ## Policy definitions
 
-[!INCLUDE [Tag policies](../../../includes/policy/reference/bycat/policies-tags.md)]
+[!INCLUDE [Tag policies](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policies-tags.md)]
 
 ## Next steps
 

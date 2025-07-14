@@ -6,7 +6,10 @@ ms.topic: conceptual
 ms.date: 05/05/2025
 ms.devlang: javascript
 # ms.devlang: javascript, typescript
-ms.custom: devx-track-js, vscode-azure-extension-update-not-needed
+ms.custom:
+  - devx-track-js
+  - vscode-azure-extension-update-not-needed
+  - build-2025
 zone_pivot_groups: functions-nodejs-model
 ---
 

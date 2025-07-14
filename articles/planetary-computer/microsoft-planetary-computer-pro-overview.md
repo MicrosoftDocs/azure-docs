@@ -3,11 +3,13 @@ title: Microsoft Planetary Computer Pro Features and Capabilities
 description: This article provides an overview of Microsoft Planetary Computer Pro Azure Service.
 author: aloverro
 ms.author: adamloverro
-ms.service: azure
+ms.service: planetary-computer-pro
 ms.topic: overview
 ms.date: 04/30/2025
 
 #customer intent: As a user of geospatial data and Azure cloud services, I want to undertand what Microsoft Planetary Computer Pro is so that I can determine it is the correct service for my use case.
+ms.custom:
+  - build-2025
 ---
 
 # What is Microsoft Planetary Computer Pro?
@@ -81,5 +83,3 @@ The end-to-end GeoCatalog product lifecycle traverses the following stages:
 - [Supported Data Types](./supported-data-types.md)
 - [Use Explorer](./use-explorer.md)
 - [Data Cube Quickstart](./data-cube-quickstart.md)
-- [Queryables for Explorer Custom Search Filter](./queryables-for-explorer-custom-search-filter.md)
-- [Delete a GeoCatalog](./delete-geocatalog-resource.md)
