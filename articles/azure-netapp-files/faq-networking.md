@@ -1,5 +1,5 @@
 ---
-title: Networking FAQs for Azure NetApp Files | Microsoft Docs
+title: Networking FAQs for Azure NetApp Files
 description: Answers frequently asked questions (FAQs) about Azure NetApp Files networking.
 ms.service: azure-netapp-files
 ms.topic: concept-article
