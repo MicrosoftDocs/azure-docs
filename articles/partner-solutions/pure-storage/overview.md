@@ -29,33 +29,7 @@ Here are the key capabilities provided by the Pure Storage Cloud integration:
 
 ## Subscribe to Azure Native Pure Storage Cloud
 
-You can [subscribe to Azure Native Pure Storage Cloud](https://azuremarketplace.microsoft.com/marketplace/apps/purestoragemarketplaceadmin.psc_contact_me?tab=Overview) in Azure Marketplace.
-
-1. Select the **Contact Me** button.
-
-    Pure Storage emails you once they enable your tenant.
-
-    Once your tenant is enabled, you can [access the service via this link](https://portal.azure.com/?Azure_Marketplace_PureStorage_assettypeoptions=%7B%22purestorage_block_reservations%22%3A%7B%22options%22%3A%22%22%7D%7D&Azure_Marketplace_PureStorage=true&feature.canmodifystamps=true#home).
-
-    > [!IMPORTANT]
-    > - You can't access the service until your tenant is enabled.
-
-1. Go to **Subscriptions** and select the subscription where you wish to deploy the AVS cluster.
-
-1. Go to the **Settings** tab and select **Resource providers**.
-
-1. Choose `PureStorage.Block` from the options.
-
-    
-    You can also choose Pure Storage as a resource provider with Azure CLI <br />
-
-    ```
-    az provider register --namespace 'PureStorage.Block'
-    ```
-
-1. Select the **Register** button.
-
-    The status updates to *Registered* once the process is complete.
+NEW STEPS GO HERE
 
 ## Azure Native Pure Storage Cloud links
 
