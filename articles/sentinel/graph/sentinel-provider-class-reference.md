@@ -6,7 +6,7 @@ ms.service: microsoft-sentinel
 ms.subservice: sentinel-graph
 ms.topic: reference 
 ms.author: edbaynash  
-ms.date: 07/09/2025
+ms.date: 07/13/2025
 
 # Customer intent: As a security engineer or data scientist, I want to understand how to use the Microsoft Sentinel Provider class to connect to the Microsoft Sentinel data lake and perform operations such as listing databases, reading tables, and saving data.
 ---
@@ -20,7 +20,7 @@ This class is part of the `sentinel.datalake` module and provides methods to int
 
 ```python
 from sentinel_lake.providers import MicrosoftSentinelProvider
-lake_provider = MicrosoftSentinelProvider(spark)      
+data_provider = MicrosoftSentinelProvider(spark)      
 ```
 You must have the necessary permissions to perform operations such as reading and writing data. For more information on permissions, see [Microsoft Sentinel data lake permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
 
@@ -31,7 +31,7 @@ Each method listed below assumes the `MicrosoftSentinelProvider` class has been 
 
 ```python
 from sentinel_lake.providers import MicrosoftSentinelProvider
-lake_provider = MicrosoftSentinelProvider(spark) 
+data_provider = MicrosoftSentinelProvider(spark) 
 ```
 
 ### list_databases
@@ -39,7 +39,7 @@ lake_provider = MicrosoftSentinelProvider(spark)
 List all available databases / Microsoft Sentinel workspaces.
 
 ```python
-lake_provider.list_databases()    
+data_provider.list_databases()    
 ```
 
 Returns:
@@ -50,7 +50,7 @@ Returns:
 List all tables in a given database.
 
 ```python
-lake_provider.list_tables([database],[id])
+data_provider.list_tables([database],[id])
    
 ```
 
@@ -61,12 +61,20 @@ Parameters:
 Returns:
 - `list[str]`: A list of table names in the specified database.
 
-Example:
+Examples:
 
-Specify the `id` of the database if your workspace names aren't unique
+List all tables in the `default` database:
+
 
 ```python
-lake_provider.list_tables("workspace1", id="ab1111112222ab333333")
+data_provider.list_tables() 
+```
+
+
+List all tables in a specific database. Specify the `id` of the database if your workspace names aren't unique:
+
+```python
+data_provider.list_tables("workspace1", id="ab1111112222ab333333")
 ```
 
 
@@ -75,7 +83,7 @@ lake_provider.list_tables("workspace1", id="ab1111112222ab333333")
 Load a DataFrame from a table in Lake.
 
 ```python
-lake_provider.read_table({table}, [database], [id])
+data_provider.read_table({table}, [database], [id])
 ```
 
 Parameters:
@@ -88,7 +96,7 @@ Returns:
 
 Example:
 ```python
-df = lake_provider.read_table("user", "lakeworkspace1")
+df = data_provider.read_table("EntraGroups", "default")
 ```
 
 ### save_as_table
@@ -96,7 +104,7 @@ df = lake_provider.read_table("user", "lakeworkspace1")
 Write a DataFrame as a managed table. You can write to the lake tier by using the `_SPRK` suffix in your table name, or to the analytics tier by using the `_SPRK_CL` suffix.                
 
 ```python
-lake_provider.save_as_table({DataFrame}, {table_name}, [database], [id], [WriteOptions])
+data_provider.save_as_table({DataFrame}, {table_name}, [database], [id], [write_options])
 ```
 
 Parameters:
@@ -104,17 +112,25 @@ Parameters:
 - `table_name` (str): The name of the table to create or overwrite.
 - `database` (str, optional): The name of the database (workspace) to save the table in. Default value: `default`.
 - `id` (str, optional): The unique identifier of the database if workspace names aren't unique.
-- `WriteOptions` (dict, optional): Options for writing the table, such as `mode` ("append", "overwrite").
+- `write_options` (dict, optional): Options for writing the table. Supported options:
+                - mode: `append` or `overwrite` (default: `append`)
+                - partitionBy: list of columns to partition by
+                Example: {'mode': 'append', 'partitionBy': ['date']}
+ 
 
 Returns:
 - `str`: The run ID of the write operation.
+
+> [!NOTE]
+> The partitioning option only applies to custom tables in default database (workspace) in the data lake tier. It isn't supported for tables in the analytics tier or for tables in databases other than the default database in the data lake tier. 
+
 
 Examples:
 
 Create new custom table in the data lake tier in the `lakeworkspace` workspace.
 
 ```python
-lake_provider.save_as_table(dataframe, "CustomTable1_SPRK", "lakeworkspace")
+data_provider.save_as_table(dataframe, "CustomTable1_SPRK", "lakeworkspace")
 ```
 
 Append to a table in the default workspace in the data lake tier.
@@ -122,13 +138,13 @@ Append to a table in the default workspace in the data lake tier.
 write_options = {
     'mode': 'append'
 }
-lake_provider.save_as_table(dataframe, "CustomTable1_SPRK", write_options=write_options)
+data_provider.save_as_table(dataframe, "CustomTable1_SPRK", write_options=write_options)
 ```
 
 
 Create new custom table in the analytics tier.
 ```python
-lake_provider.save_as_table(dataframe, "CustomTable1_SPRK_CL", "analyticstierworkspace")
+data_provider.save_as_table(dataframe, "CustomTable1_SPRK_CL", "analyticstierworkspace")
 ```
 
 Append or overwrite to an existing custom table in the analytics tier.
@@ -136,7 +152,12 @@ Append or overwrite to an existing custom table in the analytics tier.
 write_options = {
     'mode': 'append'
 }
-lake_provider.save_as_table(dataframe, "CustomTable1_SPRK_CL", "analyticstierworkspace", write_options)
+data_provider.save_as_table(dataframe, "CustomTable1_SPRK_CL", "analyticstierworkspace", write_options)
+```
+
+Append to the default database with partitioning on the `TimeGenerated` column.
+```python
+data_loader.save_as_table(dataframe, "table1", write_options: {'mode': 'append', 'partitionBy': ['TimeGenerated']})
 ```
 
 ### delete_table
@@ -145,7 +166,7 @@ Deletes the table from the lake tier. You can delete table from lake tier by usi
 
 
 ```python
-lake_provider.delete_table({table_name}, [database], [id])
+data_provider.delete_table({table_name}, [database], [id])
 ```
 Parameters:
 - `table_name` (str): The name of the table to delete.
@@ -157,13 +178,13 @@ Returns:
 
 Example:
 ```python
-lake_provider.delete_table("customtable_SPRK", "lakeworkspace")
+data_provider.delete_table("customtable_SPRK", "lakeworkspace")
 ``` 
 
 
 ## Related content
 
-- [Use Jupyter notebooks with Microsoft Sentinel Data lake](./notebooks.md)
+- [Use Jupyter notebooks with Microsoft Sentinel data lake](./notebooks.md)
 - [Microsoft Sentinel data lake overview](./sentinel-lake-overview.md)
 - [Microsoft Sentinel data lake permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview)
 - [Sample notebooks for Microsoft Sentinel data lake](./notebook-examples.md)

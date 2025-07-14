@@ -29,7 +29,7 @@ Key benefits of the Microsoft Sentinel data lake include:
 +	Single, open-format data copy for efficient and cost-effective storage
 +	Separation of storage and compute for greater flexibility
 +	Support for multiple analytics engines to unlock deeper insights from your security data
-+	Native integration with Microsoft Sentinel, including the ability to tier log data across analytics and lake tiers
++	Native integration with Microsoft Sentinel, including the ability to select tiering for log data across analytics and lake tiers
 
 Explore the data lake using KQL queries, or use the new Microsoft Sentinel data lake notebook for VS Code to visualize and analyze your data. For more information, see [Microsoft Sentinel data lake]( graph/sentinel-lake-overview.md).
 

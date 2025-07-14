@@ -6,7 +6,7 @@ author: EdB-MSFT
 ms.service: microsoft-sentinel  
 ms.topic: how-to
 ms.subservice: sentinel-graph
-ms.date: 07/09/2025
+ms.date: 07/13/2025
 ms.author: edbaynash  
 
 ms.collection: ms-security  
@@ -20,7 +20,7 @@ Microsoft Sentinel data lake is a next-generation, cloud-native platform that ex
 
 Data lake exploration in the Defender portal, provides a unified interface for analyzing your data lake, enabling you to run KQL (Kusto Query Language) queries, and create and manage jobs.
 
-The **KQL queries** page under **Data lake exploration** allows you to edit and run KQL queries against data lake resources. You can create jobs to promote data from the lake to the Analytics tier. Jobs can be run on-demand or scheduled. The **Jobs** page provides an interface to manage jobs, enabling, disabling, editing, or deleting jobs. For more information, see [Create jobs in the Microsoft Sentinel data lake (preview)](kql-jobs.md).
+The **KQL queries** page under **Data lake exploration** allows you to edit and run KQL queries against data lake resources. You can create jobs to promote data from the data lake to the Analytics tier. Jobs can be run on-demand or scheduled. The **Jobs** page provides an interface to manage jobs, enabling, disabling, editing, or deleting jobs. For more information, see [Create jobs in the Microsoft Sentinel data lake (preview)](kql-jobs.md).
 
 ## Prerequisites
 
@@ -32,12 +32,12 @@ KQL queries can be run in the Microsoft Defender portal after the onboarding pro
 
 ### Permissions
 
-Microsoft Entra ID roles provide broad access across all workspaces in the data lake. Alternatively you can grant access to individual workspaces using Azure RBAC roles. Users with Azure RBAC permissions to Microsoft Sentinel workspaces can run KQL queries against those workspaces in the lake tier. For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
+Microsoft Entra ID roles provide broad access across all workspaces in the data lake. Alternatively you can grant access to individual workspaces using Azure RBAC roles. Users with Azure RBAC permissions to Microsoft Sentinel workspaces can run KQL queries against those workspaces in the data lake tier. For more information on roles and permissions, see [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
 
 
 ## Write KQL queries
 
-Writing queries for the data lake is similar to writing queries in the advanced hunting experience. You can use the same KQL syntax and functions including. KQL supports machine learning functions and advanced analytics. For more information, see [Microsoft Sentinel data lake and machine learning](machine-learning.md). The query editor provides a powerful interface for writing and running KQL queries, with features such as IntelliSense and autocomplete to help you write your queries efficiently. For a detailed overview of KQL syntax and functions, see [Kusto Query Language (KQL) overview](/azure/data-explorer/kusto/query/).
+Writing queries for the data lake is similar to writing queries in the advanced hunting experience. You can use the same KQL syntax and functions including. KQL supports machine learning functions and advanced analytics. The query editor provides a powerful interface for writing and running KQL queries, with features such as IntelliSense and autocomplete to help you write your queries efficiently. For a detailed overview of KQL syntax and functions, see [Kusto Query Language (KQL) overview](/azure/data-explorer/kusto/query/).
 
 
 ## KQL queries in the Defender portal
@@ -84,12 +84,12 @@ You can search the results using the search box in the upper right corner of the
 
 ## Jobs
 
-Jobs are used to run KQL queries against the data in the lake tier and promote the results to the analytics tier. You can create one-time or scheduled jobs, and you can enable, disable, edit, or delete jobs from the **Jobs** page. To create a job based on your current query, select the **Create job** button. For more information on creating and managing jobs, see [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md).
+Jobs are used to run KQL queries against the data in the data lake tier and promote the results to the analytics tier. You can create one-time or scheduled jobs, and you can enable, disable, edit, or delete jobs from the **Jobs** page. To create a job based on your current query, select the **Create job** button. For more information on creating and managing jobs, see [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md).
 
 
 ## Azure Data Explorer
 
-You can run KQL queries against the Microsoft Sentinel data lake using Azure Data Explorer (ADX). ADX provides a powerful query engine and advanced analytics capabilities. To connect to the lake using ADX, create a new connection using the following URI: `https://api.securityplatform.microsoft.com/lake/kql`
+You can run KQL queries against the Microsoft Sentinel data lake using Azure Data Explorer (ADX). ADX provides a powerful query engine and advanced analytics capabilities. To connect to the data lake using ADX, create a new connection using the following URI: `https://api.securityplatform.microsoft.com/lake/kql`
 
 When querying tables in the data lake using ADX, you must use the `external_table()` function to access the data. For example:
 
@@ -99,18 +99,16 @@ external_table("microsoft.entra.id.AADRiskyUsers")
 ```
 
 
-
-
 ## Sample KQL queries
  
-For sample queries, see [KQL sample queries for the data lake](kql-samples.md). You can use these queries as a starting point and modify them to suit your requirements. For examples using machine learning, see [KQL and machine learning in the Microsoft Sentinel data lake](machine-learning.md).
+For sample queries, see [KQL sample queries for the data lake](kql-samples.md). You can use these queries as a starting point and modify them to suit your requirements. 
 
 ## Query considerations and limitations
 
 + Queries are run against a single workspace. Make sure you select the correct workspace before running a query.
 + Executing KQL queries on the Microsoft Sentinel data lake incurs charges based on query billing meters. For more information, see [../billing.md#data-lake-tier].
-+ Review data ingestion and table retention policy. Before setting query time range, be aware of data retention on your data lake tables and whether data is available for selected time range. For more information, see [Manage data tiers and retention in Microsoft Defender Portal (preview)](https://aka.ms/manage-data-defender-portal-overview).
-+ KQL queries against the data lake are lower performant than queries on analytics tier. It’s recommended to use KQL queries against the lake only when exploring historical data or when tables are stored in lake-only mode.
++ Review data ingestion and table retention policy. Before setting query time range, be aware of data retention on your data lake tables and whether data is available for selected time range. For more information, see [Manage data tiers and retention in Microsoft Defender portal (preview)](https://aka.ms/manage-data-defender-portal-overview).
++ KQL queries against the data lake are lower performant than queries on analytics tier. It’s recommended to use KQL queries against the data lake only when exploring historical data or when tables are stored in data lake-only mode.
 
 + The following KQL control commands are currently supported: 
     + `.show version`
@@ -129,7 +127,7 @@ For troubleshooting KQL queries, see [Troubleshoot KQL queries in the Microsoft 
 ## Related content
 
 - [Microsoft Sentinel data lake overview (preview)](sentinel-lake-overview.md)
-- [Onboarding to Microsoft Sentinel data lake](sentinel-lake-onboarding.md)
-- [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md)
-- [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md)
-- [Troubleshoot KQL queries in the Microsoft Sentinel data lake](kql-troubleshoot.md).
+- [Onboarding to Microsoft Sentinel data lake (preview)](sentinel-lake-onboarding.md)
+- [Create jobs in the Microsoft Sentinel data lake (preview)](kql-jobs.md)
+- [Manage jobs in the Microsoft Sentinel data lake (preview)](kql-manage-jobs.md)
+- [Troubleshoot KQL queries in the Microsoft Sentinel data lake (preview)](kql-troubleshoot.md).

@@ -54,8 +54,6 @@
         displayName: data lake
       - name: Notebook examples for data lake exploration (Preview)
         href: graph/notebook-examples.md 
-    - name: Machine learning in the Microsoft Sentinel data lake (Preview)  
-      href: graph/machine-learning.md
 - name: Plan
   items:
   - name: Deployment planning guide  
@@ -404,6 +402,14 @@
       href: summary-rules.md
     - name: Aggregate insights from raw data into an Auxiliary table
       href: summary-rules-tutorial.md
+- name: Manage data
+  items:      
+  - name: Data management overview
+    href: manage-data-overview.md
+    displayName: table management, tiers, retention, manage data, tables
+  - name: Manage tables, tiers, and retention
+    href: manage-table-tiers-retention.md
+    displayName: table management, tiers, retention, tables  
 - name: Integrate threat intelligence
   items:
   - name: Overview
@@ -713,14 +719,7 @@
     href: soc-optimization/soc-optimization-reference.md
 - name: Manage Microsoft Sentinel
   items:
-  - name: Manage data
-    items:      
-    - name: Data management overview
-      href: manage-data-overview.md
-      displayName: table management, tiers, retention, manage data, tables
-    - name: Manage tables, tiers, and retention
-      href: manage-table-tiers-retention.md
-      displayName: table management, tiers, retention, tables
+
   - name: Manage costs and billing
     items:      
     - name: Monitor costs

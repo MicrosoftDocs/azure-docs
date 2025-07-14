@@ -71,8 +71,6 @@ landingContent:
             url: graph/kql-overview.md
           - text: Notebooks and Microsoft Sentinel data lake (Preview)
             url: graph/notebooks-overview.md
-          - text: Machine learning in the Microsoft Sentinel data lake (Preview)
-            url: graph/machine-learning.md
       - linkListType: how-to-guide
         links:
           - text: Run KQL queries (Preview)
