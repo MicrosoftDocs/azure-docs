@@ -310,14 +310,6 @@
     href: /azure/azure-monitor/logs/create-custom-table-auxiliary?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Find data connector
     href: data-connectors-reference.md
-  - name: Manage data tiers
-    items:      
-    - name: Data management overview
-      href: manage-data-overview.md
-      displayName: table management, tiers, retention, manage data, tables
-    - name: Manage tables, tiers, and retention
-      href: manage-table-tiers-retention.md
-      displayName: table management, tiers, retention, tables  
   - name: Connection instructions by type
     items:
     - name: General instructions for Microsoft connectors
@@ -410,6 +402,14 @@
       href: summary-rules.md
     - name: Aggregate insights from raw data into an Auxiliary table
       href: summary-rules-tutorial.md
+- name: Manage data
+  items:      
+  - name: Data management overview
+    href: manage-data-overview.md
+    displayName: table management, tiers, retention, manage data, tables
+  - name: Manage tables, tiers, and retention
+    href: manage-table-tiers-retention.md
+    displayName: table management, tiers, retention, tables  
 - name: Integrate threat intelligence
   items:
   - name: Overview
