@@ -16,9 +16,12 @@ This article describes how to configure your App Service Environment Isolated v2
 
 ## Prerequisites
 
-Before you begin, ensure that you meet the following prerequisites:
-- You have an Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
-- You have an App Service Environment that supports zone redundancy. If you don't have one, see [Create a new App Service Environment plan with zone redundancy](./creation.md).
+Before you begin, make sure that you have an Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
+
+
+## Create a zone-redundant App Service Environment
+
+If you have an existing App Service Environment but it's not zone-redundant, you'll need to create a new App Service Environment that supports zone redundancy. To create a zone-redundant App Service Environment, follow the guidance in [Create a new App Service Environment plan with zone redundancy](./creation.md). Make sure to set **Zone redundancy** to *Enabled*.
 
 ## Create a new Isolated v2 App Service plan with zone redundancy
 
@@ -91,8 +94,7 @@ To enable or disable an existing App Service plan to zone-redundancy:
 
 # [Azure CLI](#tab/azurecli)
 
-To disable zone redundancy, set the `zoneRedundant` property to `false`.
-To enable zone redundancy, set the `zoneRedundant` property to `true` and ensure that you define the `sku.capacity` property. If you don't define the `sku.capacity` property, the value defaults to 1.
+To *disable zone redundancy*, set the `zoneRedundant` property to `false`. To *enable zone redundancy*, set the `zoneRedundant` property to `true` and ensure that you define the `sku.capacity` property. If you don't define the `sku.capacity` property, the value defaults to 1.
 
 ```azurecli
 az resource update --ids /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Web/hostingEnvironments/{aseName} --set properties.zoneRedundant=true

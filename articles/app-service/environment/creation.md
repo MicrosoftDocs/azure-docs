@@ -33,9 +33,12 @@ Before you deploy your App Service Environment, you must consider both the virtu
 
 - Select which virtual IP type you wish to use. The virtual IP type determines how your apps are accessible. You can choose between the following two types:
 
-    - *Internal VIP*: Your apps are accessible through an address within your App Service Environment subnet and aren’t listed in a public Domain Name System (DNS). When you create your App Service Environment in the Azure portal, you can set up an Azure private DNS zone for your App Service Environment.
+    - *Internal VIP*: Your apps are accessible through an address within your App Service Environment subnet and aren’t listed in a public Domain Name System (DNS). When you create your App Service Environment in the Azure portal, you can set up an Azure private DNS zone for your App Service Environment. 
 
-    - *External VIP*: Your apps use an address that faces the public internet and are listed in a public DNS. For both *internal VIP* and *external VIP*, you can specify an *Inbound IP address* and select either the *Automatic* or *Manual* option. If you select the *Manual* option for *external VIP*, you must first create a standard *Public IP address* in Azure.
+    - *External VIP*: Your apps use an address that faces the public internet and are listed in a public DNS. If you select the *Manual* option for *external VIP*, you must first create a standard *Public IP address* in Azure.
+
+
+    For both *internal VIP* and *external VIP*, you can specify an *Inbound IP address* and select either the *Automatic* or *Manual* option. 
 
 - Select which deployment type you wish to use. The deployment type determines how your apps are distributed across the App Service Environment. You can choose between the following three types:
     
