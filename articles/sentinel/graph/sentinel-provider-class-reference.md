@@ -104,7 +104,7 @@ df = data_provider.read_table("EntraGroups", "default")
 Write a DataFrame as a managed table. You can write to the lake tier by using the `_SPRK` suffix in your table name, or to the analytics tier by using the `_SPRK_CL` suffix.                
 
 ```python
-data_provider.save_as_table({DataFrame}, {table_name}, [database], [id], [WriteOptions])
+data_provider.save_as_table({DataFrame}, {table_name}, [database], [id], [write_options])
 ```
 
 Parameters:
@@ -112,10 +112,18 @@ Parameters:
 - `table_name` (str): The name of the table to create or overwrite.
 - `database` (str, optional): The name of the database (workspace) to save the table in. Default value: `default`.
 - `id` (str, optional): The unique identifier of the database if workspace names aren't unique.
-- `WriteOptions` (dict, optional): Options for writing the table, such as `mode` ("append", "overwrite").
+- `write_options` (dict, optional): Options for writing the table. Supported options:
+                - mode: `append` or `overwrite` (default: `append`)
+                - partitionBy: list of columns to partition by
+                Example: {'mode': 'append', 'partitionBy': ['date']}
+ 
 
 Returns:
 - `str`: The run ID of the write operation.
+
+> [!NOTE]
+> The partitioning option only applies to custom tables in default database (workspace) in the data lake tier. It isn't supported for tables in the analytics tier or for tables in databases other than the default database in the data lake tier. 
+
 
 Examples:
 
@@ -145,6 +153,11 @@ write_options = {
     'mode': 'append'
 }
 data_provider.save_as_table(dataframe, "CustomTable1_SPRK_CL", "analyticstierworkspace", write_options)
+```
+
+Append to the default database with partitioning on the `TimeGenerated` column.
+```python
+data_loader.save_as_table(dataframe, "table1", write_options: {'mode': 'append', 'partitionBy': ['TimeGenerated']})
 ```
 
 ### delete_table
