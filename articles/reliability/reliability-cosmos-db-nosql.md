@@ -17,7 +17,7 @@ This article describes high availability (reliability) support in Azure Cosmos D
 
 ## Resiliency of compute nodes
 
-Azure Cosmos DB manages all details of individual compute nodes transparently. You don't have to worry about any kind of patching or planned maintenance. Azure Cosmos DB guarantees [SLAs for availability](#sla-improvements) and P99 latency through all automatic maintenance operations that the system performs.
+Azure Cosmos DB transparently manages all details of individual compute nodes. You don't have to worry about any kind of patching or planned maintenance. Azure Cosmos DB guarantees [SLAs for availability](#sla-improvements) and P99 latency through all automatic maintenance operations that the system performs.
 
 Azure Cosmos DB automatically mitigates [replica](/azure/cosmos-db/distribute-data-globally) outages by guaranteeing at least three replicas of your data in each Azure region for your account within a four-replica quorum. This guarantee results in an RTO of 0 and an RPO of 0 for individual node outages, without requiring application changes or configurations. For information on RTO and RPO, see [What are business continuity, high availability, and disaster recovery?](./concept-business-continuity-high-availability-disaster-recovery.md#disaster-recovery).
 
@@ -52,13 +52,22 @@ For multi-region accounts, the impact of zone redundancy on the availability of 
 
 Regions where zone redundancy is enabled are charged at a 25% premium. However, the premium pricing for availability zones is waived for accounts configured with multi-region writes and/or for collections configured with autoscale mode.
 
-Adding an additional region to Cosmos DB account typically increases your existing bill by 100% for each region, though small variations in cost across regions exist.
+Adding an additional region to Cosmos DB account typically increases your existing bill by 100% for each region. However, small variations in cost across regions exist.
 
 For more details, see [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/autoscale-provisioned/).
 
 ### SLA improvements
 
-Enabling zone redundancy, adding one or more additional regions, and enabling multi-region writes can be thought as a layering approach that increases resiliency and availability of a given Azure Cosmos DB account at each step of the way - from 4 9's availability for a single-region configuration without zone redundancy, through 4 and half 9's for single region with zone redundancy, all the way to 5 9's of availability for multi-region configuration with the multi-region write option enabled. Please refer to the following table for a summary of SLAs for each configuration.
+
+To increase resiliency and availability of an Azure Cosmos DB account, you can implement a layering approach, which includes:
+
+- Enabling zone redundancy.
+- Adding one or more additional regions.
+- Enabling multi-region writes.
+
+The layering approach protects the account at each step of the way - from 4 9's availability for a single-region configuration without zone redundancy, through 4 and half 9's for single region with zone redundancy, all the way to 5 9's of availability for multi-region configuration with the multi-region write option enabled. 
+
+The following table contains a summary of SLAs for each configuration:
 
 |KPI|Single-region writes without availability zones|Single-region writes with availability zones|Multiple-region, single-region writes without availability zones|Multiple-region, single-region writes with availability zones|Multiple-region, multiple-region writes with or without availability zones|
 |---------|---------|---------|---------|---------|---------|
