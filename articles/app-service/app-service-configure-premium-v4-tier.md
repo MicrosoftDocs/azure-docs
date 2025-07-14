@@ -38,7 +38,7 @@ The Premium V4 tier is available for source code applications on Windows, and bo
 > [!NOTE]
 > The Premium V4 tier lacks stable outbound IP addresses. This behavior is intentional. Although Premium V4 apps can make outbound calls, the platform doesn't provide stable outbound IPs for this tier. This differs from previous App Service tiers. The portal shows "Dynamic" for outbound IP addresses for Premium V4 apps. ARM and CLI calls return empty strings for *outboundIpAddresses* and *possibleOutboundIpAddresses*. If Premium V4 apps need stable outbound IPs, use [Azure NAT Gateway](overview-nat-gateway-integration.md) for predictable outbound IPs.
 
-Premium V4 and its SKUs are available in select Azure regions. Microsoft continually adds availability to other regions. To check regional availability for a specific Premium V4 offering, run the following Azure CLI command in [Azure Cloud Shell](../cloud-shell/overview.md). Substitute *P1V4* with the desired SKU:
+Premium V4 and its SKUs are available in select Azure regions. Microsoft continually adds availability to other regions. To check regional availability for a specific Premium V4 offering, run the following Azure CLI command in [Azure Cloud Shell](../cloud-shell/overview.md). Use Azure CLI version 2.73.0 or above. Substitute *P1V4* with the desired SKU:
 
 **Windows** SKU availability
 

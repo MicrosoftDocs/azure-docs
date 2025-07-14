@@ -1,5 +1,5 @@
 ---
-title: Azure NetApp Files double encryption at rest | Microsoft Docs
+title: Azure NetApp Files double encryption at rest
 description: Explains Azure NetApp Files double encryption at rest to help you use this feature.
 services: azure-netapp-files
 author: b-hchen
