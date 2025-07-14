@@ -1,5 +1,5 @@
 ---
-title: How to use the HTTP connector (preview)
+title: How to use the connector for REST/HTTP (preview)
 description: Use the operations experience web UI or the Azure CLI to configure assets and devices for connections to HTTP endpoints.
 author: dominicbetts
 ms.author: dobett
@@ -10,15 +10,15 @@ ms.date: 10/07/2024
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access data from HTTP/REST endpoints.
 ---
 
-# Configure the HTTP connector (preview)
+# Configure the connector for REST/HTTP (preview)
 
-In Azure IoT Operations, the HTTP connector (preview) enables access to data from HTTP/REST endpoints such as edge-attached cameras.
+In Azure IoT Operations, the connector for REST/HTTP (preview) enables access to data from HTTP/REST endpoints such as edge-attached cameras.
 
 [!INCLUDE [iot-operations-asset-definition](../includes/iot-operations-asset-definition.md)]
 
 [!INCLUDE [iot-operations-device-definition](../includes/iot-operations-device-definition.md)]
 
-This article explains how to use the HTTP connector to perform tasks such as:
+This article explains how to use the connector for REST/HTTP to perform tasks such as:
 
 - Define the devices that connect HTTP sources to your Azure IoT Operations instance.
 - Add assets, and define their streams, data points, and events to enable data flow from the HTTP source to the MQTT broker.
@@ -31,11 +31,11 @@ To configure devices and assets, you need a running instance of Azure IoT Operat
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
-Your IT administrator must have configured the HTTP connector template for your Azure IoT Operations instance in the Azure portal.
+Your IT administrator must have configured the connector for REST/HTTP template for your Azure IoT Operations instance in the Azure portal.
 
 A camera connected to your network and accessible from your Azure IoT Operations cluster. The camera must support the Real Time Streaming Protocol for video streaming. You also need the camera's username and password to authenticate with it.
 
-## Deploy the HTTP connector
+## Deploy the connector for REST/HTTP
 
 <!--TODO: Probably not necessary now we have the connector templates? -->
 
@@ -46,9 +46,9 @@ A camera connected to your network and accessible from your Azure IoT Operations
 
 ## Create a device
 
-To configure the HTTP connector, first create a device that defines the connection to the HTTP source. The device includes the URL of the HTTP source, the type of HTTP source, and any credentials you need to access the HTTP source.
+To configure the connector for REST/HTTP, first create a device that defines the connection to the HTTP source. The device includes the URL of the HTTP source, the type of HTTP source, and any credentials you need to access the HTTP source.
 
-If your HTTP endpoint requires authentication, create a secret in your Kubernetes cluster that stores the endpoint's username and password. The HTTP connector uses this secret to authenticate with the endpoint:
+If your HTTP endpoint requires authentication, create a secret in your Kubernetes cluster that stores the endpoint's username and password. The connector for REST/HTTP uses this secret to authenticate with the endpoint:
 
 1. Create a YAML file called _contoso-http-secrets.yaml_ with the following content. Replace the placeholders with your camera's username and password encoded in base64:
 
@@ -206,7 +206,7 @@ authentication: {
 
 ## Asset configuration
 
-When you configure an asset, the `datasets.DataPoints` parameter specifies the action the HTTP connector takes on the asset. An HTTP asset supports the following task types:
+When you configure an asset, the `datasets.DataPoints` parameter specifies the action the connector for REST/HTTP takes on the asset. An HTTP asset supports the following task types:
 
 | Task type | Description |
 |-----------|-------------|
@@ -216,7 +216,7 @@ When you configure an asset, the `datasets.DataPoints` parameter specifies the a
 The following examples show how to deploy assets for each task type.
 
 > [!TIP]
-> The HTTP pods aren't created in Kubernetes until you deploy an asset that uses the HTTP connector. If you try to run the `kubectl get pods` command before deploying an asset, you see no HTTP pods.
+> The HTTP pods aren't created in Kubernetes until you deploy an asset that uses the connector for REST/HTTP. If you try to run the `kubectl get pods` command before deploying an asset, you see no HTTP pods.
 
 ## Snapshot to MQTT
 
