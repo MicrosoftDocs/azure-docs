@@ -149,7 +149,15 @@ az appservice plan show -n <app-service-plan-name> -g <resource-group-name> --qu
     
 # [Bicep](#tab/bicep)
 
-This operation is not supported in Bicep. Use the Azure CLI or Azure portal instead.
+Query the plan's `maximumNumberOfZones`:
+
+```bicep
+resource plan 'Microsoft.Web/serverfarms@2024-11-01' existing = {
+  name: '<app-service-plan-name>'
+}
+
+output maximumNumberOfZones int = plan.properties.maximumNumberOfZones
+```
 
 ---
 
