@@ -30,6 +30,9 @@ Managing IP addresses across multiple Azure tenants can be complex, especially i
     - Managed tenant (Tenant B) must have:
         - *Network Contributor* role assigned at the subscription or virtual network level.
 
+> [!IMPORTANT]
+> The IPAM feature in Azure Virtual Network Manager is generally available in select regions. For the most up-to-date information on region availability, see [Available IPAM Regions](./concept-ip-address-management.md#available-regions-for-ipam-in-azure-virtual-network-manager).
+
 ## Deploy cross-tenant IPAM using the Azure portal
 
 ### Create an IPAM allocation in the management tenant

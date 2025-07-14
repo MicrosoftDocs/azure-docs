@@ -25,6 +25,10 @@ For current information about region support, refer to [Products available by re
 > [!NOTE]
 > All regions have [availability zones](../reliability/availability-zones-region-support.md), except France Central.
 
+### Which Azure regions support IP address management (IPAM) in Azure Virtual Network Manager?
+
+The IPAM feature in Azure Virtual Network Manager is generally available in select regions. For the most up-to-date information on region availability, see [Available IPAM Regions](./concept-ip-address-management.md#available-regions-for-ipam-in-azure-virtual-network-manager).
+
 ### What are common use cases for Azure Virtual Network Manager?
 
 * You can create network groups to meet the security requirements of your environment and its functions. For example, you can create network groups for your production and test environments to manage their connectivity and security rules at scale.
