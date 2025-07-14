@@ -3,7 +3,7 @@ title: Create and use an Azure SRE Agent (preview)
 description: Learn to use an automated agent to resolve problems and keep your apps running in Azure.
 author: craigshoemaker
 ms.topic: how-to
-ms.date: 06/17/2025
+ms.date: 07/07/2025
 ms.author: cshoe
 ms.service: azure
 ---
@@ -50,11 +50,13 @@ subscription ID, use the following command:
     az provider register --namespace "Microsoft.App"
     ```
 
+* **Access to Sweden Central region**: During preview, the only allowed region for SRE Agent is Sweden Central. Make sure your user account has *owner* or *admin* permissions and permissions to create resources in the Sweden Central region.
+
 ### Create
 
 To create an SRE Agent, follow these steps:
 
-1. Follow the link provided in your onboarding email to access the Azure SRE Agent portal window.
+1. Follow the link provided in your onboarding email to access the Azure SRE Agent in the Azure portal.
 
 1. Select **Create**.
 

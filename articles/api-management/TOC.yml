@@ -236,20 +236,24 @@
   items:
   - name: AI gateway capabilities in API Management
     href: genai-gateway-capabilities.md
-  - name: Import Azure AI Foundry API
-    href: azure-ai-foundry-api.md
-  - name: Import Azure OpenAI API
-    href: azure-openai-api-from-specification.md
-  - name: Import OpenAI-compatible LLM API
-    href: openai-compatible-llm-api.md
-  - name: Authenticate and authorize to Azure OpenAI
-    href: api-management-authenticate-authorize-azure-openai.md
+  - name: Import LLM APIs
+    items:
+    - name: Import Azure AI Foundry API
+      href: azure-ai-foundry-api.md
+    - name: Import Azure OpenAI API
+      href: azure-openai-api-from-specification.md
+    - name: Import language model API
+      href: openai-compatible-llm-api.md
+    - name: Import Google Gemini API
+      href: openai-compatible-google-gemini-api.md
+    - name: Import Amazon Bedrock API
+      href: amazon-bedrock-passthrough-llm-api.md
   - name: Expose REST API as MCP server
     href: export-rest-mcp-server.md
   - name: Semantic caching for Azure OpenAI API requests
     href: azure-openai-enable-semantic-caching.md
-  - name: Protect Azure OpenAI keys
-    href: /semantic-kernel/deploy/use-ai-apis-with-api-management?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+  - name: Authenticate and authorize to Azure OpenAI
+    href: api-management-authenticate-authorize-azure-openai.md
 - name: Manage APIs with policies
   items:
   - name: API Management policies overview
