@@ -72,7 +72,7 @@ The selected dev box isn't deleted.
 
 After reaching the inactivity threshold, you'll get an email notification warning you that your Dev Box is scheduled for deletion. 
 
-:::image type="content" source="media/how-to-auto-delete-dev-box/dev-box-auto-delete-email.png" alt-text="Microsoft Azure email notification with a black background informing the user that AutodeleteDevBox will be deleted. The message states that the administrator has set the dev box for deletion in 30 days and provides a link for more information." lightbox="media/how-to-auto-delete-dev-box/dev-box-auto-delete-email.png":::
+:::image type="content" source="media/how-to-auto-delete-dev-box/dev-box-auto-delete-email.png" alt-text="Screenshot showing an email notification informing the user that their dev box will be deleted. The message states when dev box will be deleted." lightbox="media/how-to-auto-delete-dev-box/dev-box-auto-delete-email.png":::
 
 If you want to cancel the scheduled deletion and keep your dev box, follow these steps:
 
