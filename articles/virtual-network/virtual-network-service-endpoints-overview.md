@@ -201,4 +201,4 @@ For FAQs, see [Virtual Network Service Endpoint FAQs](./virtual-networks-faq.md#
 
 - [Virtual Network Service Endpoint Policies](./virtual-network-service-endpoint-policies-overview.md)
 
-- [Azure Resource Manager template](https://azure.microsoft.com/resour
+- [Azure Resource Manager template](https://azure.microsoft.com/resources/templates/vnet-2subnets-service-endpoints-storage-integration)
