@@ -81,11 +81,11 @@ The following table lists supported metadata for Azure Files.
 
 The first phase of a migration is the discovery phase, in which you determine all the existing SMB file shares that need to be migrated, including their size, number, and any dependencies. This can be a difficult and time consuming task, especially for organizations with large, distributed environments. For customers with more than 100 TiB of file data, we recommend using Komprise, a third-party tool that can help you discover and analyze your file shares. For more information, see [Komprise File Migration](https://www.komprise.com/azure-file-migration/).
 
-For smaller customers, keep in mind that your SMB file shares might not be limited to on-premises Windows Servers. They could be on Linux servers, in the cloud, or on external NAS devices.
+Keep in mind that your existing SMB file shares might not be limited to on-premises Windows Servers. They could be on Linux servers, in the cloud, or on external NAS devices.
 
 ## Assessment phase
 
-The assessment phase is critical in understanding available options for file storage and deploying the Azure resources you'll need.
+After discovery comes the assessment phase, which involves understanding available options for file storage, deploying the Azure resources you'll need, and preparing to use Azure file shares.
 
 ### Deploy Azure storage resources
 
