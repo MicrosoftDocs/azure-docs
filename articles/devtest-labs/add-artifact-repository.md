@@ -22,7 +22,7 @@ This article shows how to add an artifact repository to your lab by using the Az
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-## Add an artifact repo
+## Add an artifact repo by using the Azure portal
 
 You can add an artifact repo from an Azure Repos repository or a GitHub repository. You can choose to authenticate by assigning permissions to a managed identity, by using GitHub app authentication, or by using a PAT.
 To learn more about managed identities, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
@@ -99,7 +99,7 @@ The repository now appears in the **Repositories** list for the lab.
 
 ### Get the clone URL and personal access token for Azure Repos
 
-1. On the main page of the repository that has your artifacts, select **Clone**. On the **Clone Repository** page, copy the clone URL.
+1. On the main page of the repository that stores your artifacts, select **Clone**. In the **Clone Repository** pane, copy the clone URL.
 1. In the upper-right corner of the Azure DevOps page, select **User settings** > **Personal access tokens**.
 1. On the **Personal Access Tokens** page, select **New Token**.
 1. Enter the information for the token, selecting **Read** for the scopes, and then select **Create**.
