@@ -36,7 +36,7 @@ Below the essentials, you can navigate to other details about your resource by s
 
 ## Create a Storage Pool
 
-Once you create a resource, you must create a storage pool in order to connect to an Azure VMware Solution resource. 
+Once you create a resource, you must create a storage pool to connect to an Azure VMware Solution resource. 
 
 [!INCLUDE [manage](../includes/manage.md)]
 
