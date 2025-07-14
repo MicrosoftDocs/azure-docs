@@ -217,7 +217,7 @@ For information about which bindings are in preview or are approved for producti
 
 Specific versions of binding extensions are supported only while the underlying service SDK is supported. Changes to support in the underlying service SDK version affect the support for the consuming extension.
 
-## Bindings code examples
+## Code examples for bindings
 
 Use the following table to find more examples of specific binding types that show you how to work with bindings in your functions. First, choose the language tab that corresponds to your project.
 
