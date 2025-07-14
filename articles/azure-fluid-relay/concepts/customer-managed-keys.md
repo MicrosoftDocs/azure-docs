@@ -24,7 +24,7 @@ When you configure the Fluid Relay resource with CMK, the Azure Fluid Relay serv
 
 To verify a Fluid Relay resource is using CMK, you can check the property of the resource by sending GET and see if it has valid, non-empty property of encryption.customerManagedKeyEncryption.
 
-## Prerequisites:
+## Prerequisites
 
 Before configuring CMK on your Azure Fluid Relay resource, the following prerequisites must be met:
 - Keys must be stored in an Azure Key Vault.
@@ -111,7 +111,7 @@ For more information about the command, see [New-AzFluidRelayServer](/powershell
 ### [Azure CLI](#tab/azure-cli)
 To create Fluid Relay with CMK enabled using Azure CLI, you need to install [fluid-relay](/cli/azure/fluid-relay) extension first. See [instructions](/cli/azure/azure-cli-extensions-overview).
 
-And make sure you complete all the prerequsite steps.
+And make sure you complete all the [prerequsite](#prerequisites) steps.
 
 Example of creating a Fluid Relay Service with CMK enabled:
 ```azurecli
@@ -122,7 +122,8 @@ For more information about the command, see [az fluid-relay server create](/cli/
 
 **Notes:**
 
-- Some arguments must be provided in **stringified JSON** format.
+- These arguments must be provided in **stringified JSON** format.
+  - `identity`, `key-identity`
 - The `type` field under `identity` **must be** `UserAssigned`. It specifies the identity type of the managed identity assigned to the Fluid Relay resource.
 - The `identity-type` field under `key-identity` **must also be** `UserAssigned`. It indicates the identity type to be used for Customer-Managed Key (CMK) encryption.
 - While multiple identities can be specified in the `identity` argument, **only** the identity defined in `key-identity` is used to access the Key Vault for CMK encryption.
@@ -146,7 +147,7 @@ Before updating the key encryption key (by identifier or version), ensure that *
 
 When using the update command, you may specify only the parameters that have changed—unchanged arguments can be omitted.
 
-All updates must satisfy the prerequisites described in this page.
+All updates must satisfy the [prerequisites](#prerequisites) described in this page.
 
 ### [REST API](#tab/rest)
 Request URL:
@@ -211,7 +212,7 @@ For more information about the command, see [az fluid-relay server update](/cli/
 ## Troubleshooting
 
 ### Error: Unexpected error happened when configuring CMK
-- Ensure your configuration meets **all the requirements** listed in the prerequisites section.
+- Ensure your configuration meets **all the requirements** listed in the [prerequisites](#prerequisites) section.
 
 - Check if you have firewall rules enabled in your Azure Key Vault. If so, turn on "Allow trusted Microsoft services to bypass this firewall" option. See [Key Vault firewall-enabled trusted services only](/azure/key-vault/general/network-security?WT.mc_id=Portal-Microsoft_Azure_KeyVault#key-vault-firewall-enabled-trusted-services-only)
 
