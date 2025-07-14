@@ -76,11 +76,11 @@
     - name: Service levels for Azure NetApp Files
       href: azure-netapp-files-service-levels.md
     - name: Guidelines for Azure NetApp Files network planning 
-      href: azure-netapp-files-network-topologies.md
+      href: azure-netapp-files-network-topolo199gies.md
     - name: Resource limits for Azure NetApp Files
       href: azure-netapp-files-resource-limits.md
     - name: Reliability in Azure NetApp Files 
-      href: ../reliability/reliability-azure-netapp-files.md
+      href: ../reliability/reliability-netapp-files.md
     - name: Understand large volumes 
       href: large-volumes.md
     - name: Requirements and considerations for large volumes
@@ -196,7 +196,7 @@
       - name: Replication in Azure NetApp Files 
         href: replication.md
       - name: Replication requirements and considerations
-        href: replicaiton-requirements.md
+        href: replication-requirements.md
     - name: Azure Application Consistent Snapshot (AzAcSnap) tool
       items: 
       - name: What is AzAcSnap?

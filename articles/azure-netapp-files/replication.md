@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 06/27/25
+ms.date: 06/27/2025
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -55,7 +55,7 @@ Replicated volumes are hosted on a [capacity pool](azure-netapp-files-understand
 
 The Azure NetApp Files replication functionality provides data protection through cross-region volume replication. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region. This capability enables you to fail over your critical application if a region-wide outage or disaster happens.
 
-Azure NetApp Files cross-region replication must adhere to [supported regional pairs](#supported-cross-region-replication-pairs). 
+Azure NetApp Files cross-region replication must adhere to [supported regional pairs](#supported-region-pairs). 
 
 ### Cost model for cross-region replication
 
