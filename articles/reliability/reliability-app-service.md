@@ -63,19 +63,17 @@ Microsoft-provided SDKs usually handle transient faults. Because you host your o
 
 [!INCLUDE [Availability zone support description](includes/reliability-availability-zone-description-include.md)]
 
-App Service can be configured as *zone redundant*, which means that your resources are distributed across multiple availability zones. [Distribution](#instance-distribution-across-zones) across multiple zones helps your production workloads achieve resiliency and reliability. When you configure zone redundancy on App Service plans, all apps that use the plan are made zone redundant.
+App Service can be configured as *zone redundant*, which means that your resources are distributed across multiple availability zones. Distribution across multiple zones helps your production workloads achieve resiliency and reliability. When you configure zone redundancy on App Service plans, all apps that use the plan are made zone redundant.
 
 ### Instance distribution across zones
 
-Instance distribution in a zone-redundant deployment follows specific rules. These rules remain applicable as the app scales in and scales out.
-
-When you create an App Service plan with zone redundancy, the instances of your App Service plan are distributed across the availability zones in the region. The distribution is done automatically by Azure to ensure that your app remains available even if one zone experiences an outage.
+When you create a zone-redundant App Service plan, the instances of your App Service plan are distributed across the availability zones in the region. The distribution is done automatically by Azure to ensure that your app remains available even if one zone experiences an outage.
 
 Instance distribution in a zone-redundant deployment follows specific rules. These rules remain applicable as the app scales in and scales out:
 
 - **Minimum instances:** Your App Service plan must have a minimum of two instances for zone redundancy.
 
-- **Maximum availability zones supported by your plan:** Azure determines the number of availability zones that your plan can use. To view the number of availability zones that your plan is able to use, see [Zone redundancy support for an App Service plan](../app-service/configure-zone-redundancy.md#check-for-zone-redundancy-support-for-an-app-service-plan).
+- **Maximum availability zones supported by your plan:** Azure determines the number of availability zones that your plan can use, which is referred to as *maximumNumberOfZones*. To view the number of availability zones that your specific plan is able to use, see [Zone redundancy support for an App Service plan](../app-service/configure-zone-redundancy.md#check-for-zone-redundancy-support-for-an-app-service-plan).
 
 - **Instance distribution:** When zone redundancy is enabled, plan instances are distributed across multiple availability zones automatically. The distribution is based on the following rules:
 
@@ -83,7 +81,7 @@ Instance distribution in a zone-redundant deployment follows specific rules. The
     - Any remaining instances are distributed across the remaining zones.
     - When the App Service platform allocates instances for a zone-redundant App Service plan, it uses best-effort zone balancing that the underlying Azure virtual machine scale sets provide. An App Service plan is balanced if each zone has the same number of VMs or differs by plus one VM or minus one VM from all other zones. For more information, see [Zone balancing](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
 
-- **Physical zone placement:** To view the [physical availability zone](../reliability/availability-zones-overview.md#physical-and-logical-availability-zones) that's used for each of your App Service plan instances, see [View physical zones for an App Service plan](../app-service/configure-zone-redundancy.md#view-physical-zones-for-an-app-service-plan).
+- **Physical zone placement:** You can view the [physical availability zone](../reliability/availability-zones-overview.md#physical-and-logical-availability-zones) that's used for each of your App Service plan instances. For more information, see [View physical zones for an App Service plan](../app-service/configure-zone-redundancy.md#view-physical-zones-for-an-app-service-plan).
 
 ### Region support
 
@@ -163,7 +161,7 @@ To deploy a new zone-redundant App Service plan, you must use the [Premium v2-4 
 
 ::: zone pivot="premium"
 
-- **Create a new zone-redundant App Service plan.** To learn how to create a new App Service plan with zone redundancy, see [Create a new App Service plan with zone redundancy](../app-service/configure-zone-redundancy.md#create-a-new-app-service-plan-with-zone-redundancy).
+- **Create a new zone-redundant App Service plan.** To learn how to create a new zone-redundant App Service plan, see [Create a new App Service plan with zone redundancy](../app-service/configure-zone-redundancy.md#create-a-new-app-service-plan-with-zone-redundancy).
 
 - **Enable or disable zone redundancy on an existing App Service plan.** To learn how to enable or disable an existing App Service plan to zone redundancy, see [Enable or disable an existing App Service plan to zone redundancy](../app-service/configure-zone-redundancy.md#set-zone-redundancy-for-an-existing-app-service-plan).
 
@@ -171,7 +169,7 @@ To deploy a new zone-redundant App Service plan, you must use the [Premium v2-4 
 
 ::: zone pivot="isolated"
 
-- **Create a new zone-redundant App Service plan.**  To learn how to create a new Isolated v2 App Service plan with zone redundancy, see [Create a new Isolated v2 App Service plan with zone redundancy](../app-service/environment/configure-zone-redundancy-ase.md#create-a-new-isolated-v2-app-service-plan-with-zone-redundancy).
+- **Create a new zone-redundant App Service plan.**  To learn how to create a new zone-redundant Isolated v2 App Service plan, see [Create a new Isolated v2 App Service plan with zone redundancy](../app-service/environment/configure-zone-redundancy-ase.md#create-a-new-isolated-v2-app-service-plan-with-zone-redundancy).
 
 - **Enable or disable zone redundancy on an existing App Service plan.** For Isolated v2 App Service plans, if the App Service Environment is zone redundant, the App Service plans can also be set as zone redundant. However, each App Service plan has its own independent zone redundancy setting, which means that you can have a mix of zone redundant and non-zone redundant plans in an App Service Environment.
 
