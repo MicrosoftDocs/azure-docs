@@ -9,6 +9,7 @@ ms.date: 05/13/2025
 monikerRange: migrate
 ms.custom:
   - build-2025
+# Customer intent: As a cloud migration specialist, I want to implement security best practices for deploying the migration appliance, so that I can ensure a secure and efficient migration process while protecting sensitive data.
 ---
 
 # Security best practices to deploy Azure Migrate Appliance
@@ -48,7 +49,7 @@ We recommend joining the appliance machine to the domain.
 
 - The Migrate appliance can be deployed on the supported version of Windows Servers either using a PowerShell installation script or OVA/VHD template.  
 
-- **Security baseline** - We recommend hardening the OS image of Migrate appliance using [security baselines](https://learn.microsoft.com/windows/security/operating-system-security/device-management/windows-security-configuration-framework/windows-security-baselines). Download the [security compliance toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=55319) to apply security baselines on Migrate Appliance machine. Using the toolkit, administrators can compare their current GPOs with Microsoft-recommended GPO baselines or other baselines, edit them, store them in GPO backup file format, and apply them via a domain controller or inject them directly into testbed hosts to test their effects.  
+- **Security baseline** - We recommend hardening the OS image of Migrate appliance using [security baselines](/windows/security/operating-system-security/device-management/windows-security-configuration-framework/windows-security-baselines). Download the [security compliance toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=55319) to apply security baselines on Migrate Appliance machine. Using the toolkit, administrators can compare their current GPOs with Microsoft-recommended GPO baselines or other baselines, edit them, store them in GPO backup file format, and apply them via a domain controller or inject them directly into testbed hosts to test their effects.  
 
 ## Credentials handling best practices
 

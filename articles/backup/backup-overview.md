@@ -6,6 +6,7 @@ ms.date: 03/04/2025
 ms.custom: mvc, engagement-fy24, ignite-2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a business continuity planner, I want to assess Azure Backup solutions, so that I can ensure effective data protection and recovery strategies for my organization’s critical systems and resources.
 ---
 # What is the Azure Backup service?
 

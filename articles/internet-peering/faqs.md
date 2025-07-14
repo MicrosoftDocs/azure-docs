@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: faq
 ms.date: 10/23/2024
+# Customer intent: As a network engineer, I want to understand the differences between Internet peering options and their configurations, so that I can effectively manage my organization’s connectivity and optimize performance when integrating with Microsoft services.
 ---
 
 # Internet peering frequently asked questions (FAQ)

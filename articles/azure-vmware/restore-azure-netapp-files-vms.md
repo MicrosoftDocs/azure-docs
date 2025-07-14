@@ -6,6 +6,7 @@ ms.author: anfdocs
 ms.service: azure-vmware
 ms.date: 12/03/2024
 ms.custom: engagement-fy23
+# Customer intent: "As a virtual machine administrator, I want to restore VMs and their disks from cloud backups, so that I can recover lost or damaged VMs efficiently and maintain my systems' integrity."
 ---
 
 # Restore VMs using Cloud Backup for Virtual Machines (preview)

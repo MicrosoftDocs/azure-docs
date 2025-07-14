@@ -6,7 +6,7 @@ ms.author: jovinson
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: how-to
-ms.date: 07/16/2024
+ms.date: 06/16/2025
 ---
 
 # Use Azure role-based access control with the de-identification service

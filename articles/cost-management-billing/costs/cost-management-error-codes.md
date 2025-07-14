@@ -13,7 +13,7 @@ ms.author: shasulin
 
 # Troubleshoot common Cost Management errors
 
-This article describes common Cost Management errors and provides information about solutions. When you use Cost Management in the Azure portal and encounter an error that you don't understand or can't resolve, find the error code below. Then try to use the mitigation information or the more information link to resolve the problem.
+This article describes common errors you might encounter in Cost Management experiences and provides information about self-serve solutions. When you use Cost Management in the Azure portal and encounter an error that you don't understand or can't resolve, find the error code below and try to use the mitigation steps provided to resolve the problem. Use the `More information` link for more detailed guidance.
 
 Here's a list of common error codes with mitigation information.
 
@@ -46,7 +46,7 @@ Error message `401`.
 
 For an Enterprise Agreement, confirm that the view charges options (Account Owner or Department Administrator) have been enabled.
 
-For a Microsoft Customer Agreement, confirm that the billing account owner has assigned you to a role that can view charges.
+For a Microsoft Customer Agreement, confirm that the billing account owner has assigned you a role that can view charges.
 
 See [AuthorizationFailed](#AuthorizationFailed).
 
@@ -90,7 +90,7 @@ Error message `503`.
 
 This message is an internal error. Wait an hour and try again.
 
-When creating or updating exports, you might view the error when the Microsoft.CostManagementExports resource provider is being registered for your subscription. Resource provider registration is quick, but you may need to wait up to five minutes. If you still see the error for more than 10 minutes, [create a support request](#create-a-support-request).
+When creating or updating exports, you might view the error when the Microsoft.CostManagementExports resource provider is being registered for your subscription. Resource provider registration is usually quick, but at times might take up to five minutes. If you still see the error after more than 10 minutes, [create a support request](#create-a-support-request).
 
 Also, see [GatewayTimeout](#GatewayTimeout).
 
@@ -130,11 +130,11 @@ Error message `BadRequest`.
 
 **Mitigation**
 
-When using the Query or Forecast APIs to retrieve cost data, validate the query body.
+If using the Query or Forecast APIs to retrieve cost data, validate the query body.
 
-When using portal experiences and you see the `object ID cannot be null` error, try refreshing your view.
+If using portal experiences and you see the `object ID cannot be null` error, try refreshing your view.
 
-When using Power BI to pull reservation usage data for more than 3 months, you will need to break down the call into 3-month chunks.
+If using Power BI to pull reservation usage data for more than 3 months, break down the call into 3-month chunks.
 
 Also, see [SubscriptionTypeNotSupported](#SubscriptionTypeNotSupported).
 
@@ -188,11 +188,11 @@ Error message `FailedDependency`.
 
 **Mitigation**
 
-When you're using the Forecast API, the error indicates that there's either not enough data to generate an accurate forecast. Or, there are multiple currencies that can't be merged.
+When you are using the Forecast API, the error indicates that either there is not enough data to generate an accurate forecast, or there are multiple currencies that can't be merged.
 
-If you have multiple currencies, filter down to charges that only have one currency or request an aggregation of **CostUSD** instead of **Cost** to get a forecast normalized to USD.
+If you have multiple currencies, filter down only to charges for one of the currencies or request an aggregation of **CostUSD** instead of **Cost**, to get a forecast normalized to USD.
 
-If there's not enough historical data, wait one week since you first had charges on the scope to see a forecast.
+If there's not enough historical data, wait for one week to pass from when you first accrue charges on the scope, to see a forecast.
 
 **More information**
 
@@ -296,7 +296,7 @@ If using a management group, see [SubscriptionTypeNotSupported](#SubscriptionTyp
 
 If using Cost Management in the Azure portal, try refreshing the page. The error may be caused by an old reference to a deleted object within the system, like a budget or connector.
 
-For any other cases, validate the scope or resource ID.
+For any other case, validate the scope or resource ID.
 
 **More information**
 
@@ -336,7 +336,7 @@ For more information, see [Reactivate a disabled Azure subscription](../manage/s
 
 The error indicates that a resource group doesn't exist. The resource group might be moved or deleted.
 
-If using the Azure portal, you might see the error when creating budgets or exports. The error is expected and you can ignore it.
+If using the Azure portal, you might see the error when creating budgets or exports. The error is expected, and you can ignore it.
 
 ## ResourceRequestsThrottled
 
@@ -409,7 +409,7 @@ Also, see [AuthorizationFailed](#AuthorizationFailed).
 
 ## Create a support request
 
-If you're facing an error not listed above or need more help, file a [support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) and specify the issue type as **Billing**.
+If you are facing an error that is not listed above or need more help, submit a [support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) and specify the issue type as **Billing**.
 
 ## Next steps
 

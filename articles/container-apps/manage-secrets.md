@@ -212,7 +212,7 @@ Secrets Key Vault references aren't supported in PowerShell.
 ---
 
 > [!NOTE]
-> If you're using [UDR With Azure Firewall](networking.md#user-defined-routes-udr), you need to add the `AzureKeyVault` service tag and the *login.microsoft.com* FQDN to the allow list for your firewall. Refer to [configuring UDR with Azure Firewall](networking.md#configuring-udr-with-azure-firewall) to decide which additional service tags you need.
+> If you're using [UDR With Azure Firewall](user-defined-routes.md), you will need to add the `AzureKeyVault` service tag and the *login.microsoft.com* FQDN to the allow list for your firewall. Refer to [configuring UDR with Azure Firewall](use-azure-firewall.md) to decide which additional service tags you need.
 
 #### Key Vault secret URI and secret rotation
 

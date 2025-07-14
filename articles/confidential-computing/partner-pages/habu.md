@@ -8,6 +8,7 @@ ms.subservice: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 03/29/2023
 ms.author: ananyagarg
+# Customer intent: "As a data analyst, I want to utilize Habu's data clean rooms with Azure confidential computing, so that I can collaborate securely on sensitive data analytics without compromising privacy."
 ---
 
 # Habu
@@ -19,11 +20,8 @@ Data clean rooms allow organizations to share data and collaborate on analytics 
 
 Collaboration partners can now participate in cross-cloud, cross-region data sharing - with protections against unauthorized access to data across partners, cloud providers, and even Habu. You can hear more from Habu’s Chief Product Officer, Matthew Karasick, on their [partnership with Azure here](https://build.microsoft.com/en-US/home?source=partnerdetail).
 
-You can also get started on their [Azure Marketplace solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/habuinc1663874067667.habu), today.
-
-
 ## Learn more
 
 - Learn more about [Habu](https://habu.com/).
 
-- Check out the [Azure confidential computing webinar series](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Home) for more such partners.
+- Check out the [Azure confidential computing webinar series](https://info.microsoft.com/ww-ondemand-increase-data-privacy-with-azure-confidential-computing.html) for more such partners.

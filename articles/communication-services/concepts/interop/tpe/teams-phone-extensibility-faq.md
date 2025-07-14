@@ -27,7 +27,7 @@ No, the Teams Phone extensibility calls are designed to use Teams Phone and asso
 
 Inbound PSTN calls to the phone number assigned to the Teams Resource Account triggers an **Incoming Call** Event Grid notification to the configured endpoint in the Azure Communication Services Resource. This Resource is linked to the RA during provisioning. The CCaaS server-side application then uses the Call Automation SDK to answer the call.
 
-## What are the benefits from having OBO instead of direct outbound calling?
+## What are the benefits from having On-Behalf-OF (OBO) instead of direct outbound calling?
 
 Using a resource account for outbound calls ensures that the customer sees the company’s caller ID and potentially a name, maintaining a professional image and consistent branding. Using a resource account also enables the server application to have greater control over which numbers agent can call, enhancing operational efficiency and ensuring compliance with organizational policies.
 

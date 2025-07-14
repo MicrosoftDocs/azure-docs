@@ -5,6 +5,7 @@ author: seligj95
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
 ms.date: 06/04/2025
+ms.update-cycle: 1095-days
 ms.author: jordanselig
 ms.custom:
   - "UpdateFrequency3, fasttrack-edit"
@@ -88,7 +89,7 @@ When a Hybrid Connection is added to your app, you can see details on it simply 
 
 To create a Hybrid Connection using an ARM/Bicep template, add the following resource to your existing template. You must include the `userMetadata` to have a valid Hybrid Connection. If you don't include the `userMetadata`, the Hybrid Connection doesn't work. If you create the Hybrid Connection in the Azure portal, this property is automatically filled in for you.
 
-The `userMetadata` property should be a string representation of a JSON array in the format `[{"key": "endpoint", "value : "host:port"}]`. The following Bicep template has a sample for this property. For more information, see [Microsoft.Relay namespaces/hybridConnections](/azure/templates/microsoft.relay/namespaces/hybridconnections).
+The `userMetadata` property should be a string representation of a JSON array in the format `[{/"key/": /"endpoint/", /"value/" : /"<HOST>:<PORT>/"}]`. For more information, see [Microsoft.Relay namespaces/hybridConnections](/azure/templates/microsoft.relay/namespaces/hybridconnections).
 
 ```bicep
 resource hybridConnection 'Microsoft.Relay/namespaces/hybridConnections@2024-01-01' = {
@@ -96,7 +97,7 @@ resource hybridConnection 'Microsoft.Relay/namespaces/hybridConnections@2024-01-
   name: hybridConnectionName
   properties: {
     requiresClientAuthorization: true
-    userMetadata: '[{"key": "endpoint", "value : "<HOST>:<PORT>"}]'
+    userMetadata: '[{/"key/": /"endpoint/", /"value/" : /"<HOST>:<PORT>/"}]'
   }
 }
 ```
@@ -156,8 +157,8 @@ To install the Hybrid Connection Manager on Linux, from your terminal running as
 ```bash
 sudo apt update
 sudo apt install tar gzip build-essential
-wget "https://download.microsoft.com/download/HybridConnectionManager-Linux.tar.gz"
-tar -xf HybridConnectionManager-Linux.tar.gz
+sudo wget "https://download.microsoft.com/download/HybridConnectionManager-Linux.tar.gz"
+sudo tar -xf HybridConnectionManager-Linux.tar.gz
 cd HybridConnectionManager/
 sudo chmod 755 setup.sh
 sudo ./setup.sh

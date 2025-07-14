@@ -8,6 +8,7 @@ ms.custom: linux-related-content
 ms.topic: concept-article
 ms.date: 02/27/2025
 ms.author: cherylmc
+# Customer intent: "As a telecommuter, I want to set up a Point-to-Site VPN connection to my Azure virtual network, so that I can securely access company resources from remote locations."
 ---
 # About Point-to-Site VPN
 

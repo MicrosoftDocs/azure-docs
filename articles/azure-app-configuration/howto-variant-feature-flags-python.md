@@ -8,7 +8,7 @@ ms.author: mametcal
 ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: how-to
-ms.date: 12/02/2024
+ms.date: 05/06/2025
 ---
 
 # Use variant feature flags in a Python application
@@ -118,7 +118,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     
     bp = Blueprint("pages", __name__)
     
-    @bp.route("/", methods=["GET", "POST"])
+    @bp.route("/", methods=["GET"])
     def index():
         context = {}
         user = ""
@@ -127,8 +127,6 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
             context["user"] = user
         else:
             context["user"] = "Guest"
-        if request.method == "POST":
-            return redirect(url_for("pages.index"))
     
         quotes = [
             Quote("You cannot change what you are, only what you do.", "Philip Pullman"),
@@ -456,19 +454,11 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     feature_manager = FeatureManager(azure_app_config)
     ```
 
-1. Open `routes.py` and add the following code to the end of it to refresh configuration and get the feature variant.
+1. Open `routes.py` and update the following code for `greeting_message` to get the feature variant.
 
     ```python
-    from featuremanagement.azuremonitor import track_event
-    from . import azure_app_config, feature_manager
+    from . import feature_manager
 
-    ...
-    # Update the post request to track liked events
-    if request.method == "POST":
-        track_event("Liked", user)
-        return redirect(url_for("pages.index"))
-
-    ...
     # Update greeting_message to variant
     greeting = feature_manager.get_variant("Greeting", user)
     greeting_message = ""

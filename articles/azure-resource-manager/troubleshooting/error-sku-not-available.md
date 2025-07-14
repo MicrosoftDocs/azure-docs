@@ -240,5 +240,6 @@ The command returns available SKUs and locations in JSON format:
   "restrictions": []
 }
 ```
+Sometimes, a size (SKU) shows as available in the Azure portal or via CLI commands, but attempts to deploy or start resources (such as Virtual Machines, VM Scale Sets, or Kubernetes clusters) result in a **"SKU not available"** error.
 
 ---

@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 07/03/2024
 ms.author: kendownie
+# Customer intent: "As an IT administrator, I want to perform a silent installation of the Azure File Sync agent using default or custom settings, so that I can streamline deployment and minimize user interaction during the setup process."
 ---
 
 # How to perform a silent installation for a new Azure File Sync agent installation 

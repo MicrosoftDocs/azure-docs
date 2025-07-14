@@ -6,6 +6,7 @@ author: duongau
 ms.topic: concept-article
 ms.date: 05/31/2023
 ms.author: duau
+# Customer intent: "As a researcher or engineer, I want to access the latest patents from Lumenisity at the University of Southampton, so that I can stay informed about innovations in hollow core fiber technology relevant to my work."
 ---
 
 # Lumenisity University of Southampton Patents

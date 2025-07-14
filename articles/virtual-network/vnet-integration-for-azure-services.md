@@ -7,6 +7,7 @@ ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 05/08/2023
 ms.author: allensu
+# Customer intent: "As a cloud architect, I want to implement network isolation for Azure services using virtual networks, so that I can enhance security and control access to critical resources within my organization's infrastructure."
 ---
 
 # Integrate Azure services with virtual networks for network isolation

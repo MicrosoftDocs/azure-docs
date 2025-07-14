@@ -7,6 +7,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network
 ms.custom: subject-policy-reference
+# Customer intent: "As a network administrator, I want to access the list of built-in policy definitions for Azure networking services, so that I can efficiently manage and enforce compliance across my Azure resources."
 ---
 # Azure Policy built-in definitions for Azure networking services
 

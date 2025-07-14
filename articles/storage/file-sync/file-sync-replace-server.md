@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 03/22/2024
 ms.author: kendownie
+# Customer intent: "As an IT administrator, I want to replace an Azure File Sync server due to hardware decommissioning, so that I can ensure continuous file synchronization and support for the latest operating systems."
 ---
 
 # Replace an Azure File Sync server

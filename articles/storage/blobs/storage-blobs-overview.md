@@ -9,6 +9,7 @@ ms.service: azure-blob-storage
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: akashdubey
+# Customer intent: "As a data engineer, I want to understand the capabilities of blob storage, so that I can manage and analyze large volumes of unstructured data effectively."
 ---
 
 # What is Azure Blob storage?

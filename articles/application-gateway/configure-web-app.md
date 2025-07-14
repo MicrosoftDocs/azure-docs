@@ -9,6 +9,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 12/05/2022
 ms.author: mbender
+# Customer intent: As an IT administrator, I want to configure an Application Gateway with an App Service backend, so that I can manage traffic and improve performance while maintaining control over the hostnames in the request flow.
 ---
 
 <!-- markdownlint-disable MD044 -->

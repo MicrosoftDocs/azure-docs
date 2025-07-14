@@ -40,7 +40,7 @@ In this quickstart, you get started with Azure Managed Grafana by creating an Az
     | Pricing plan        | *Essential (preview)* | Choose between the Essential (preview) or the Standard plan. The Essential plan is the cheapest option you can use to evaluate the service. This plan doesn't have an SLA and isn't recommended for production use. For more information about Azure Managed Grafana plans, go to [pricing plans](overview.md#service-tiers). |
     | Grafana version     | *11*                  | Choose the latest Grafana version, or the version that best suits your needs. |
 
-1. If you've chosen the Standard plan, optionally enable zone redundancy for your new workspace.
+1. If you choose the Standard plan, select either the default **X1** instance size or the **X2** size, and optionally enable zone redundancy for your workspace.
 1. Select **Next : Advanced >** to access additional options:
     - **Enable API key creation** is set to **Disable** by default.
     - If you've opted for the Standard plan, optionally enable the **Deterministic outbound IP** feature, which is set to **Disable** by default.

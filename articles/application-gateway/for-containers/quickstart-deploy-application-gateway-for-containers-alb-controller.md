@@ -9,6 +9,7 @@ ms.custom: devx-track-azurecli
 ms.topic: quickstart
 ms.date: 5/2/2025
 ms.author: mbender
+# Customer intent: As a Kubernetes administrator, I want to install the Application Gateway for Containers ALB Controller on my AKS cluster, so that I can efficiently manage load balancing rules and enhance application traffic handling.
 ---
 
 # Quickstart: Deploy Application Gateway for Containers ALB Controller

@@ -124,9 +124,9 @@ You might see that an enrollment has the **Transferred** state, even if you didn
 
 If there's no missing usage data in the Azure portal between the prior enrollment and the new enrollment, then you don't have to create a transfer support ticket.
 
-### Prepayment isn't transferrable
+### Prepayment isn't transferable
 
-Prepayment isn't transferrable between enrollments. Prepayment balances are tied contractually to the enrollment where it was ordered. Prepayment isn't transferred as part of the account or enrollment transfer process.
+Prepayment isn't transferable between enrollments. Prepayment balances are tied contractually to the enrollment where it was ordered. Prepayment isn't transferred as part of the account or enrollment transfer process.
 
 ### No services affected for account and enrollment transfers
 

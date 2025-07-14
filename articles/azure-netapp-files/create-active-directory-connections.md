@@ -8,6 +8,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 05/09/2025
 ms.author: anfdocs
+# Customer intent: As an Azure NetApp Files administrator, I want to create and manage Active Directory connections, so that I can enable proper authentication and access control for my SMB and NFS volumes.
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
 
@@ -233,7 +234,7 @@ For more information about the relationship between NetApp accounts and subscrip
         This feature is used for installing SQL Server in certain scenarios where a non-administrator AD DS domain account must temporarily be granted elevated security privilege.
 
         >[!NOTE]
-        > Using the Security privilege users feature relies on the [SMB Continuous Availability Shares feature](azure-netapp-files-create-volumes-smb.md#continuous-availability). SMB Continuous Availability is **not** supported on custom applications. It is only supported for workloads using Citrix App Layering, [FSLogix user profile containers](../virtual-desktop/create-fslogix-profile-container.md), and Microsoft SQL Server (not Linux SQL Server).
+        > Using the Security privilege users feature relies on the [SMB Continuous Availability Shares feature](azure-netapp-files-create-volumes-smb.md#continuous-availability). SMB Continuous Availability is **not** supported on custom applications. It is only supported for workloads using Citrix App Layering, [FSLogix user profile containers](/azure/virtual-desktop/create-fslogix-profile-container), and Microsoft SQL Server (not Linux SQL Server).
 
         > [!IMPORTANT]
         > Using the **Security privilege users** feature requires that you submit a waitlist request through the **[Azure NetApp Files SMB Continuous Availability Shares Public Preview waitlist submission page](https://aka.ms/anfsmbcasharespreviewsignup)**. Wait for an official confirmation email from the Azure NetApp Files team before using this feature.  

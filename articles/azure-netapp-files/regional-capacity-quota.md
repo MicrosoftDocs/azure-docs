@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 05/08/2025
 ms.author: anfdocs
+# Customer intent: "As a cloud administrator, I want to understand how to check and request increases for the regional capacity quota of Azure NetApp Files, so that I can ensure my storage requirements meet operational demands without incurring unexpected costs."
 ---
 # Regional capacity quota for Azure NetApp Files
 

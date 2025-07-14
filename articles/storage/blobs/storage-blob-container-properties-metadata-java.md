@@ -11,6 +11,7 @@ ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+# Customer intent: As a Java developer, I want to manage properties and metadata for blob containers, so that I can customize my storage resources and retrieve relevant information for my applications.
 ---
 
 # Manage container properties and metadata with Java

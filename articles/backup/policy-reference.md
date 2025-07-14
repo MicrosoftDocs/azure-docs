@@ -6,6 +6,7 @@ ms.topic: reference
 ms.custom: subject-policy-reference; engagement-fy23
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to access built-in Azure Policy definitions for Azure Backup, so that I can effectively manage compliance and governance for my backup resources."
 ---
 # Azure Policy built-in definitions for Azure Backup
 

@@ -3,9 +3,9 @@ title: Azure Policy Regulatory Compliance controls for Azure RBAC
 description: Lists Azure Policy Regulatory Compliance controls available for Azure role-based access control (Azure RBAC). These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
 ms.date: 02/06/2024
 ms.topic: sample
-author: rolyon
-manager: femila
-ms.author: rolyon
+author: jenniferf-skc
+manager: pmwongera
+ms.author: jfields
 ms.service: role-based-access-control
 ms.custom: subject-policy-compliancecontrols
 ---

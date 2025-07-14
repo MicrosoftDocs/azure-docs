@@ -10,6 +10,7 @@ ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+# Customer intent: As a developer, I want to deploy a static website using Terraform, so that I can easily manage and automate the infrastructure provisioning on Azure Storage.
 ---
 
 # Quickstart: Deploy a static website on Azure Storage using Terraform

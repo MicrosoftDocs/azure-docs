@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: "As a developer using JavaScript or TypeScript, I want to manage and query blob index tags in Azure Blob Storage, so that I can efficiently organize and retrieve data based on specific metadata attributes."
 ---
 
 # Use blob index tags to manage and find data with JavaScript or TypeScript

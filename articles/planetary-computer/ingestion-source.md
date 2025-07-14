@@ -32,6 +32,9 @@ Microsoft Planetary Computer Pro currently only supports secure ingestion from [
 >[!IMPORTANT]
 > Don't include a trailing "/" after the container name.
 
+> [!NOTE]
+> If your STAC metadata and data assets are stored in different containers or storage accounts, you must configure a separate ingestion source for each location. The GeoCatalog needs permission to read from all locations where your data resides.
+
 ## Ingestion source authentication mechanisms
 
 Securely ingesting data requires users to provide an authentication mechanism which permits a GeoCatalog to read the data from a specific location. Planetary Computer Pro supports two mechanisms to support secure ingestion:
@@ -53,3 +56,5 @@ The following quickstarts are available to assist users in setting up ingestion 
 - [Set up Ingestion Credentials for Planetary Computer Pro using SAS Tokens](./set-up-ingestion-credentials-sas-tokens.md)
 - [Adding an Item to a STAC Collection](./add-stac-item-to-collection.md)
 - [Ingest data into GeoCatalog with the Bulk Ingestion API](./add-stac-item-to-collection.md)
+- [Troubleshooting data ingestion](./troubleshooting-ingestion.md)
+- [Error codes: Microsoft Planetary Computer Pro ingestion](./error-codes-ingestion.md)

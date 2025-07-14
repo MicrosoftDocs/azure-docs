@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 09/09/2020
 ms.author: mbender
+# Customer intent: "As a cloud architect, I want to configure the components of an application gateway, so that I can ensure efficient traffic management and optimal security for my backend services."
 ---
 
 # Application Gateway configuration overview
