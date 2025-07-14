@@ -29,3 +29,5 @@ landingContent:
         links:
           - text: Manage resources
             url: manage.md
+          - text: Get support
+            url: https://support.purestorage.com/bundle/m_contact_us/page/Pure_Storage_Technical_Services/Technical_Services_Information/topics/reference/r_contact_us.html
