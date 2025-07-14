@@ -54,8 +54,6 @@
         displayName: data lake
       - name: Notebook examples for data lake exploration (Preview)
         href: graph/notebook-examples.md 
-    - name: Machine learning in the Microsoft Sentinel data lake (Preview)  
-      href: graph/machine-learning.md
 - name: Plan
   items:
   - name: Deployment planning guide  

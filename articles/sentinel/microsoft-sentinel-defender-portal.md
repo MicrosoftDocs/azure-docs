@@ -4,7 +4,7 @@ description: Learn about the Microsoft Sentinel experience when you onboard Micr
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 07/09/2025
+ms.date: 07/13/2025
 appliesto: 
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
@@ -16,11 +16,13 @@ ms.collection: usx-security
 
 # Microsoft Sentinel in the Microsoft Defender portal
 
-Microsoft Defender provides a unified cybersecurity solution that integrates endpoint protection, cloud security, identity protection, email security, threat intelligence, exposure management, and SIEM into a centralized platform. It uses AI-driven defense to help organizations anticipate and stop attacks, ensuring efficient and effective security operations.
+Microsoft Defender provides a unified cybersecurity solution that integrates endpoint protection, cloud security, identity protection, email security, threat intelligence, exposure management, and SIEM into a centralized platform powered by a modern data lake. It uses AI-driven defense to help organizations anticipate and stop attacks, ensuring efficient and effective security operations.
 
 Microsoft Sentinel is generally available in the Microsoft Defender portal, either with [Microsoft Defender XDR](/microsoft-365/security/defender), or on its own, delivering a unified experience across SIEM and XDR for faster and more accurate threat detection and response, simplified workflows, and enhanced operational efficiency.
 
-This article describes the Microsoft Sentinel experience in the Defender portal. We recommend that customers using Microsoft Sentinel in the Azure portal move into Microsoft Defender to take advantage of the unified security operations available and the latest capabilities. For more information, see [Transition your Microsoft Sentinel environment to the Defender portal](move-to-defender.md).
+This article describes the Microsoft Sentinel experience in the Defender portal.
+
+[!INCLUDE [sentinel-azure-deprecation.md](includes/sentinel-azure-deprecation.md)] 
 
 
 ## New and improved capabilities

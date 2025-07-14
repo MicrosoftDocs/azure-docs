@@ -18,8 +18,7 @@ ms.collection: ms-security
 #  Manage KQL jobs in the Microsoft Sentinel data lake (preview)
  
 
-A job is a one-time or scheduled task that runs a KQL (Kusto Query Language) query against the data in the lake tier to promote the results to the analytics tier. Once in the analytics tier, use the Advanced hunting KQL editor to query the data. 
-Jobs can be created in the **KQL queries** editor under **Data lake exploration**  in the Defender portal for Microsoft Sentinel. For more information, see [KQL jobs](kql-jobs.md). 
+A job is a one-time or scheduled task that runs a KQL (Kusto Query Language) query against the data in the data lake tier to promote the results to the analytics tier. Jobs can be created in the **KQL queries** editor, or the **Jobs** page under **Microsoft Sentinel** > **Data lake exploration**  in the Microsoft Defender portal for. For more information, see [KQL jobs](kql-jobs.md). 
 
 Jobs are managed in the **Jobs** page under **Data lake exploration** in the Defender portal for Microsoft Sentinel. The Jobs management page provides the following functions:
 
@@ -34,7 +33,7 @@ Jobs are managed in the **Jobs** page under **Data lake exploration** in the Def
 
 ## Permissions
 
-Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To read tables across all workspaces, write to the analytics tier, and schedule jobs using KQL queries, you must have one of the supported Microsoft Entra ID roles. For more information on roles and permissions, see [Microsoft Sentinel lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
+Microsoft Entra ID roles provide broad access across all workspaces in the data lake. To read tables across all workspaces, write to the analytics tier, and schedule jobs using KQL queries, you must have one of the supported Microsoft Entra ID roles. For more information on roles and permissions, see [Microsoft Sentinel data lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
 
 
 ## Manage jobs
@@ -45,7 +44,7 @@ The Jobs page shows a list of all your jobs, including the job name, status, and
 
 :::image type="content" source="media/kql-manage-jobs/jobs-page.png"  lightbox="media/kql-manage-jobs/jobs-page.png" alt-text="A screenshot showing the jobs page in the Defender portal.":::
 
-To create a job, select the **Create new job** button. For more information on creating jobs, see [Create jobs in the Microsoft Sentinel data lake using KQL](kql-jobs.md).
+To create a job, select **Create new job**. For more information on creating jobs, see [Create jobs in the Microsoft Sentinel data lake using KQL](kql-jobs.md).
 
 ### Job details
 
@@ -64,19 +63,18 @@ To see a job's details, select a job. The job detail panel opens, showing the fo
 - **Destination table**: The table in the analytics tier where the job results are written to.
 <!-- **Destination workspace**: The workspace in the analytics tier where the job results are written to -->
 - **Job start on (UTC)**: The date and time in UTC when the job is first scheduled to start.
-- **Target tier**: The destination tier of the job's results, such as Lake or Analytics tier.
+- **Target tier**: The destination tier of the job's results, such as data lake or analytics tier.
 - **Date range**: The date range set for the query. 
 - **KQL query**: The KQL query that the job runs.
 
     :::image type="content" source="media/kql-manage-jobs/manage-job-details.png" alt-text="A screenshot showing the job details page." lightbox="media/kql-manage-jobs/manage-job-details.png":::
 
-Select the **Destination table** link to open the table in the KQL query editor in Advanced hunting. The query can be copied by selecting the **Copy query** button.  
+Select the **Destination table** link to open the table in the KQL query editor in Advanced hunting. The query can be copied by selecting **Copy query**.  
 
 ### Edit a job
 
-To edit a job, select the **Edit** button in the job details panel. The job details panel opens, allowing you to edit the following fields:
+To edit a job, select  **Edit** in the job details panel. The job details panel opens, allowing you to edit the following fields:
 
-The following details can be edited:
 + Job description.
 + KQL query. The query can be updated but must return the same output schema as the original query. For example, you can change the time range in the query, but you can't change the columns returned by the query.
 + Job schedule. You can change the job to run once or on a schedule, or change the schedule.
@@ -90,17 +88,17 @@ After you edit the job, select **Submit** to save the changes. The job is update
 
 ### View a job's run history
 
-To view the history of a job, select the **View history** button in the job details panel. The job history panel opens, showing a list of job run times and statuses.
+To view the history of a job, select **View history** in the job details panel. The job history panel opens, showing a list of job run times and statuses.
 
 :::image type="content" source="media/kql-manage-jobs/job-history.png" lightbox="media/kql-manage-jobs/job-history.png" alt-text="A screenshot showing the job history panel.":::
 
 ### Enable or disable a job
 
-To enable or disable a job, select the **Enable** or **Disable** button in the job details panel. When a job is disabled, it won't run until you enable it again. The status of the job changes to reflect whether it's enabled or disabled.
+To enable or disable a job, select **Enable** or **Disable** in the job details panel. When a job is disabled, it won't run until you enable it again. The status of the job changes to reflect whether it's enabled or disabled.
 
 ### Delete a job
 
-To delete a job, select the **Delete** button in the job details panel. A confirmation dialog appears, asking you to confirm the deletion. If you confirm, the job is permanently deleted and can't be recovered. You can't delete a running job.
+To delete a job, select  **Delete** in the job details panel. A confirmation dialog appears, asking you to confirm the deletion. If you confirm, the job is permanently deleted and can't be recovered. You can't delete a running job.
 
 ## Considerations and limitations
 
@@ -108,7 +106,7 @@ For  information on considerations and limitations when managing KQL jobs in the
 
 ## Next steps
 
-- [Overview of the Microsoft Sentinel data lake](sentinel-lake-overview.md)
-- [Create jobs in the Microsoft Sentinel data lake using KQL](kql-jobs.md)
-- [Data lake exploration - KQL queries (preview).](kql-queries.md)
-- [Microsoft Sentinel lake roles and permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview)
+- [Overview of the Microsoft Sentinel data lake (preview)](sentinel-lake-overview.md)
+- [Create jobs in the Microsoft Sentinel data lake using KQL (preview)](kql-jobs.md)
+- [Data lake exploration - KQL queries (preview)](kql-queries.md)
+- [Microsoft Sentinel data lake roles and permissions (preview)](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview)

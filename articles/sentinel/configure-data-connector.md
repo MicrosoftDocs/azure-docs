@@ -60,9 +60,9 @@ After you or someone in your organization installs the solution that includes th
   
 ### Configure data retention and tiering.
    
-If you have onboarded to the Microsoft Sentinel data lake, you can configure data retention and tiering for the data connector. The data lake consists of an analytics tier - your current Microsoft Sentinel workspaces, and a data lake tier where you can store data for up to 12 years. For more information on onboarding, see [Onboarding to Microsoft Sentinel data lake](graph/sentinel-lake-onboarding.md). 
+If you have onboarded to the Microsoft Sentinel data lake (preview), you can configure data retention and tiering for the data connector. The data lake consists of an analytics tier - your current Microsoft Sentinel workspaces, and a data lake tier where you can store data for up to 12 years. For more information on onboarding, see [Onboarding to Microsoft Sentinel data lake](graph/sentinel-lake-onboarding.md). 
 
-When you enable a connector, by default the data is sent to the analytics tier and mirrored in the data lake tier. Configure the data retention in each tier, or send the data only to the data lake tier. Retention and tiering are managed from the connector setup pages, or using the **Table management** page in the Defender portal. For more information on table management and retention, see [Manage data tiers and retention in Microsoft Defender Portal (Preview)](https://aka.ms/manage-data-defender-portal-overview). 
+When you enable a connector, by default the data is sent to the analytics tier and mirrored in the data lake tier. Configure data retention in each tier or send the data only to the data lake tier. Retention and tiering are managed from the connector setup pages, or using the **Table management** page in the Defender portal. For more information on table management and retention, see [Manage data tiers and retention in Microsoft Defender Portal (preview)](manage-data-overview.md). 
 
 Once you have set up your connector, configure data retention and tiering using the following steps:
 
@@ -102,7 +102,7 @@ Navigate to **Data lake explorer** , **KQL queries** to query data in the data l
 Both Microsoft and other organizations author Microsoft Sentinel data connectors. Find the support contact from data connector page in Microsoft Sentinel.
 
 1. In the Microsoft Sentinel **Data connectors** page, select the relevant connector.
-1. To access support and maintenance for the connector, use the support contact link in the **Supported by** field on the side panel for the connecter. 
+1. To access support and maintenance for the connector, use the support contact link in the **Supported by** field on the side panel for the connector. 
 
    :::image type="content" source="media/configure-data-connector/support.png" alt-text="Screenshot showing the Supported by field for a data connector in Microsoft Sentinel." lightbox="media/configure-data-connector/support.png":::  
 
@@ -115,8 +115,8 @@ For more information about solutions and data connectors in Microsoft Sentinel, 
 - [Microsoft Sentinel data connectors](connect-data-sources.md)
 - [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
 - [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md)
-- [What is Microsoft Sentinel data lake?](graph/sentinel-lake-overview.md)
-- [Onboarding to Microsoft Sentinel data lake](graph/sentinel-lake-onboarding.md)
-- [Manage data tiers and retention in Microsoft Defender Portal (Preview)](https://aka.ms/manage-data-defender-portal-overview). 
+- [What is Microsoft Sentinel data lake (preview)?](graph/sentinel-lake-overview.md)
+- [Onboarding to Microsoft Sentinel data lake (preview)](graph/sentinel-lake-onboarding.md)
+- [Manage data tiers and retention in Microsoft Defender Portal (preview)](manage-data-overview.md). 
 - [KQL and the Microsoft Sentinel data lake (preview)](graph/kql-overview.md)
 - [Jupyter notebooks and the Microsoft Sentinel data lake (preview)](graph/notebooks-overview.md)

@@ -77,7 +77,7 @@ Microsoft Sentinel provides a modern data lake, designed to help security operat
 
 ## Detect threats
 
-Detect previously undetected threats, and minimize false positives using Microsoft's analytics and unparalleled threat intelligence.
+Detect previously undetected threats and minimize false positives using Microsoft's analytics and unparalleled threat intelligence.
 
 # [Defender portal](#tab/defender-portal)
 

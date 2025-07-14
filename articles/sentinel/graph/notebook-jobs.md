@@ -50,7 +50,7 @@ To create schedule a job, you must save your notebook as a file.
      
     1. Select **Publish job** to save the job configuration and publish the job.
     
-1. To sepeficy a schedule for the job, select **On** under **Scheduled Run** in the **Schedule Configuration** section.  
+1. To specify a schedule for the job, select **On** under **Scheduled Run** in the **Schedule Configuration** section.  
     1. Select a **Repeat** frequency for the job. You can choose from **By the minute**, **By the hour**, or **By the day**.
 
     1. Select a **Start and end time** for the job to run.
@@ -99,11 +99,7 @@ To edit a published job follow the steps below:
 
 ## View jobs in the Microsoft Defender portal
 
-In addition to viewing jobs in VS Code, you can also view your notebook jobs in the Defender portal. To view your jobs:
-
-1. In the Defender portal, navigate to the **Microsoft Sentinel** menu item.
-1. Select the **Data lake explorer**.
-1. Select the **Jobs** .
+In addition to viewing jobs in VS Code, you can also view your notebook jobs in the Defender portal. To view your jobs in the Defender portal, Select **Microsoft Sentinel** > **Data lake exploration** > **Jobs** .
 
 The page shows a list of jobs and their types. Select a notebook job to view its details. You can enable and disable the job's schedule but you can't edit a notebook job in the Defender portal.
 

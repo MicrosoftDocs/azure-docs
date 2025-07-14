@@ -1,7 +1,7 @@
 ---  
 title: Running notebooks on the Microsoft Sentinel data lake (preview)
 titleSuffix: Microsoft Security  
-description: This article describes how to explore and interact with lake data using Jupyter notebooks in Visual Studio Code.
+description: This article describes how to explore and interact wit data lake data using Jupyter notebooks in Visual Studio Code.
 author: EdB-MSFT  
 ms.author: edbaynash 
 ms.topic: how-to  
@@ -15,13 +15,9 @@ ms.date: 07/09/2025
 
 # Run notebooks on the Microsoft Sentinel data lake (preview)
  
-Microsoft Sentinel data lake is a next-generation, cloud-native security data lake that extends the capabilities of Microsoft Sentinel by providing a highly scalable, cost-effective platform for long-term storage and data retention, advanced analytics, and AI-driven security operations.
+Jupyter notebooks provide an interactive environment for exploring, analyzing, and visualizing data in the Microsoft Sentinel data lake. With notebooks, you can write and execute code, document your workflow, and view results—all in one place. This makes it easy to perform data exploration, build advanced analytics solutions, and share insights with others. By leveraging Python and Apache Spark within Visual Studio Code, notebooks help you transform raw security data into actionable intelligence.
 
-Jupyter notebooks are an integral part of the Microsoft Sentinel data lake ecosystem, offering powerful tools for data analysis and visualization. The notebooks are provided by a Visual Studio Code extension that allows you to interact with the data lake using Python and Apache Spark. Notebooks enable you to perform complex data transformations, run machine learning models, and create visualizations directly within the notebook environment. 
-
-
-
-This article shows you how to explore and interact with lake data using Jupyter notebooks in Visual Studio Code. 
+This article shows you how to explore and interact with data lake data using Jupyter notebooks in Visual Studio Code. 
 
 > [!NOTE]  
 > The Microsoft Sentinel extension is currently in Public Preview. Some functionality and performance limits may change as new releases are made available.  
@@ -34,7 +30,7 @@ To use notebooks in the Microsoft Sentinel data lake, you must first onboard to 
 
 ### Permissions
 
-Microsoft Entra ID roles provide broad access across all workspaces in the data lake. Alternatively you can grant access to individual workspaces using Azure RBAC roles. Users with Azure RBAC permissions to Microsoft Sentinel workspaces can run notebooks against those workspaces in the lake tier. For more information, see [Roles and permissions in Microsoft Sentinel](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
+Microsoft Entra ID roles provide broad access across all workspaces in the data lake. Alternatively you can grant access to individual workspaces using Azure RBAC roles. Users with Azure RBAC permissions to Microsoft Sentinel workspaces can run notebooks against those workspaces in the data lake tier. For more information, see [Roles and permissions in Microsoft Sentinel](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview).
 
 To create new custom tables in the analytics tier, the data lake managed identity must be assigned the **Log Analytics Contributor** role in the Log Analytics workspace.
 
@@ -68,9 +64,9 @@ Install the GitHub Copilot extension for Visual Studio Code to enable code compl
 1. Search for *GitHub Copilot* in the Extensions Marketplace and install it.
 1. After installation, sign in to GitHub Copilot using your GitHub account.
    
-## Explore lake-tier tables
+## Explore data lake tier tables
 
-After installing the Microsoft Sentinel extension, you can start exploring lake-tier tables and creating Jupyter notebooks to analyze the data.
+After installing the Microsoft Sentinel extension, you can start exploring data lake tier tables and creating Jupyter notebooks to analyze the data.
 
 ### Sign in to the Microsoft Sentinel extension
  
@@ -84,7 +80,7 @@ After installing the Microsoft Sentinel extension, you can start exploring lake-
  
    :::image type="content" source="./media/notebooks/select-account.png" lightbox="./media/notebooks/select-account.png" alt-text="A screenshot showing the account selection list at the top of the page."::: 
 
-### View lake tables and jobs
+### View data lake tables and jobs
 
 Once you sign in, the Microsoft Sentinel extension displays a list of **Lake tables** and **Jobs** in the left pane. Select a table to see the column definitions.
 
@@ -173,7 +169,7 @@ Logs can be viewed in the **Output** pane of Visual Studio Code.
    
 ## Jobs and scheduling
 
-You can schedule jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake. Jobs are also used to process data and write results to custom tables in the lake tier or analytics tier. For more information on creating and managing jobs, see [Create and manage Jupyter notebook jobs](./notebook-jobs.md).
+You can schedule jobs to run at specific times or intervals using the Microsoft Sentinel extension for Visual Studio Code. Jobs allow you to automate data processing tasks to summarize, transform, or analyze data in the Microsoft Sentinel data lake. Jobs are also used to process data and write results to custom tables in the data lake tier or analytics tier. For more information on creating and managing jobs, see [Create and manage Jupyter notebook jobs](./notebook-jobs.md).
 
 ## Service limits
 
@@ -199,7 +195,7 @@ The following table lists common errors you may encounter when working with note
 | Interactive notebook | 401 Unauthorized. | Output channel – “Window”. | Gateway 401 error. | Gateway has a 1 hour timeout that was reached. | Run a cell again to establish a new connection. |
 | Library | 403 Forbidden. | Inline. | Access denied. | User doesn’t have permission to read/write/delete the specified table. | Verify user has the role required. |
 | Library | TableOperationException: Error saving DataFrame to table {table-name}_SPRK: 'schema'. | Inline. | Schema mismatch on write. | save_as_table() is writing data that doesn’t match the existing schema. | Check the dataframe schema and align it with the destination table. |
-| Library | {"level": "ERROR", "run_id": "...", "message": "Error saving DataFrame to table {table-name}: Tables created in MSG database must have suffix '_SPRK'"}. | Inline. | Missing suffix _SPRK for writing table to lake. | save_as_table() is writing data to a table that requires _SPRK. | Add _SPRK as suffix for writing to custom table in Lake. |
+| Library | {"level": "ERROR", "run_id": "...", "message": "Error saving DataFrame to table {table-name}: Tables created in MSG database must have suffix '_SPRK'"}. | Inline. | Missing suffix _SPRK for writing table to data lake. | save_as_table() is writing data to a table that requires _SPRK. | Add _SPRK as suffix for writing to a custom table in the data lake. |
 | Library.| {"level": "ERROR", "run_id": "...", "message": "Error saving DataFrame to table siva_test_0624_1: Tables created in LA database must have suffix '_SPRK_CL'"}. | Inline. | Missing suffix _SPRK_CL for writing table to analytics tier | save_as_table() is writing data to a table that requires _SPRK_CL. | Add _SPRK_CL as suffix for writing to custom table in analytics tier. |
 | Library | {"level": "ERROR", "run_id": "...", "message": "Error saving DataFrame to table EntraUsers: Tables created in MSG database must have suffix '_SPRK'"}. | Inline. | Invalid write. | Attempted to write to system table, this action isn't permitted.  | Specify a custom table to write to. |
 | Library | TypeError: DataProviderImpl.save_as_table() missing 1 required positional argument: 'table_name'. | Inline. | Invalid notebook. | Incorrect arguments passed to a library method (for example, missing ‘mode’ in save_as_table). | Validate parameter names and values. Refer to method documentation. |
