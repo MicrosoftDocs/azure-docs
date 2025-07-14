@@ -17,7 +17,7 @@ This article provides an overview of the current limitations when you're using [
 
 ## General limitations
 
-* Currently, [cross-tenant](concept-cross-tenant.md) virtual networks can only be [added to network groups manually](concept-network-groups.md#static-membership). Adding cross-tenant virtual networks to network groups conditionally through Azure Policy is a future capability.
+* Currently, [cross-tenant](concept-cross-tenant.md) virtual networks can only be [added to network groups manually](concept-network-groups.md#static-membership).
 
 * Customers with more than 15,000 Azure subscriptions can only apply an Azure Virtual Network Manager policy at the [subscription and resource group scopes](concept-network-manager-scope.md). You can't apply policies onto management groups over the limit of 15,000 subscriptions. In this scenario, you would need to create assignments at lower-level management group scopes that each have fewer than 15,000 subscriptions.
 
