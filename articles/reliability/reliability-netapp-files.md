@@ -21,9 +21,7 @@ To use Azure NetApp Files, you must configure a NetApp account which contain *ca
 
 ## Production deployment recommendations
 
-<!-- This section feels like a "learn more" instead of explicit recommendations. Can we be more crisp about what we suggest? This section should only contain items we think that the majority of customers should do, and each action should be explicit (e.g. "enable availability zone support" or something like that). -->
-
-For recommendations about reliable production workloads in Azure NetApp Files, see:
+To optimize reliability in Azure NetApp Files, you should:
 
 - [Create volumes in availability zones for high availability and fault tolerance](../azure-netapp-files/replication.md#availability-zones)
 - [Use cross-zone replication to protect data from zonal failures](../azure-netapp-files/replication.md#cross-zone-replication)
