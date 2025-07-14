@@ -158,7 +158,7 @@ To add an artifact repo, complete the following tasks:
    :::image type="content" source="media/devtest-lab-add-repo/devtestlab-repo-select-github-app.png" alt-text="Screenshot that shows the feilds for adding a repo." lightbox="media/devtest-lab-add-repo/devtestlab-repo-select-github-app.png":::
 
 1. If you're prompted to authenticate to GitHub, authenticate.
-1. 1. On the **Microsoft DevCenter** page, select **Install**.	
+1. On the **Microsoft DevCenter** page, select **Install**.	
 
    :::image type="content" source="media/devtest-lab-add-repo/devtestlab-install-github-app.png" alt-text="Screenshot showing the DevCenter GitHub app installation page." lightbox="media/devtest-lab-add-repo/devtestlab-install-github-app.png":::	
 
