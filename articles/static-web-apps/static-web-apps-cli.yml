@@ -1,19 +1,27 @@
 ### YamlMime:AzureCLIGroup
 uid: swa
 name: swa
-globalParameters:
-- name: --version, -v
-  summary: Display the version number.
-- name: --verbose, --V [level]
-  summary: Enable verbose output. Level values include `silly`, `info`, `log` (default), and `silent`.
-- name: --config, -c [path]
-  summary: Path to the swa-cli.config.json file.
-- name: --config-name, -cn
-  summary: Configuration used by the CLI.
-- name: --print-config, -g
-  summary: Print all resolved options. Default is `false`.
-- name: --help, -h
-  summary: Show context-sensitive help.
+commands:
+- swa_login
+- swa_build
+- swa_start
+- swa_deploy
+- swa_db
+metadata:
+  description: Azure Static Web Apps CLI
+  globalParameters:
+  - name: --version, -v
+    summary: Display the version number.
+  - name: --verbose, --V [level]
+    summary: Enable verbose output. Level values include `silly`, `info`, `log` (default), and `silent`.
+  - name: --config, -c [path]
+    summary: Path to the swa-cli.config.json file.
+  - name: --config-name, -cn
+    summary: Configuration used by the CLI.
+  - name: --print-config, -g
+    summary: Print all resolved options. Default is `false`.
+  - name: --help, -h
+    summary: Show context-sensitive help.
 directCommands:
 - uid: swa_login
   name: swa login
@@ -461,11 +469,3 @@ directCommands:
     summary:  The container of your cosmosdb account you want to connect.
   - name: --help, -h
     summary: Display help for command.
-commands:
-- swa_login
-- swa_build
-- swa_start
-- swa_deploy
-- swa_db
-metadata:
-  description: Azure Static Web Apps CLI
