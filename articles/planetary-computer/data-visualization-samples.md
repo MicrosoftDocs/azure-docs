@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 07/14/2025
 ---
 
-# Microsoft Planetary Computer Pro Data Visualization Gallery
+# Microsoft Planetary Computer Pro data visualization gallery
 
 This gallery provides ready-to-use configuration examples for visualizing common geospatial data types in Microsoft Planetary Computer Pro. Each example includes comprehensive JSON configurations for mosaics, render options, tile settings, and SpatioTemporal Asset Catalog (STAC) collection metadata that you can adapt for your own datasets.
 
