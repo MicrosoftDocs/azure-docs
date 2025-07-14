@@ -15,6 +15,14 @@ This article shows how to manage the settings for Elastic resources.
 
 [!INCLUDE [manage](../includes/manage.md)]
 
+# [Elastic Search](#tab/elastic-search)
+
+# [Elastic Observability](#tab/elastic-observability)
+
+# [Elastic Security](#tab/elastic-security)
+
+---
+
 :::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of an Elastic resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/resource-overview.png":::
 
 The details include:
