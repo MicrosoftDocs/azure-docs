@@ -21,21 +21,24 @@ Before you begin, prepare the following prerequisites:
 
 * A [GitHub](https://github.com) account.
 
-* **Microsoft.Authorization/roleAssignments/write** permissions at the resource group level.
+* Azure access permissions. For more information, see [Deployment details > Required permissions](../deploy-iot-ops/overview-deploy.md#required-permissions).
 
 ## Setting up
 
-Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with Azure IoT Operations deployed. Additional configuration will allow MQTT broker to be accessed directly from the developer environment. The following development environment setup options use [K3s](https://k3s.io/) running in [K3d](https://k3d.io/) for a lightweight Kubernetes cluster. GitHub Codespaces provides the most streamlined experience and can get the development environment up and running in a couple of minutes.
+Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with Azure IoT Operations deployed. Additional configuration will allow the MQTT broker to be accessed directly from the developer environment.
 
+<!-- TODO: Point to the new article Production Cluster when published -->
 > [!IMPORTANT]
-> The following development environment setup options, use [K3s](https://k3s.io/) running in [K3d](https://k3d.io/) for a lightweight Kubernetes cluster, and deploys Azure IoT Operations with [test settings](../deploy-iot-ops/overview-deploy.md#test-settings-deployment). If you want to use [secure settings](../deploy-iot-ops/overview-deploy.md#secure-settings-deployment), we recommend you follow the instructions in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) to create a K3s cluster on Ubuntu and [Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md) to deploy with secure settings. Then proceed to [configure Azure IoT Operations for deployment](#configure-azure-iot-operations-for-deployment).
+> The following development environment setup options, use [K3s](https://k3s.io/) running in [K3d](https://k3d.io/) for a lightweight Kubernetes cluster, and deploys Azure IoT Operations with [test settings](../deploy-iot-ops/overview-deploy.md#test-settings-deployment). If you want to use [secure settings](../deploy-iot-ops/overview-deploy.md#secure-settings-deployment), we recommend you follow the instructions in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) to create a K3s cluster on Ubuntu and [Deploy Azure IoT Operations to a production cluster](../deploy-iot-ops/howto-deploy-iot-operations.md) to deploy with secure settings. Then proceed to [configure Azure IoT Operations for deployment](#configure-azure-iot-operations-for-deployment).
 
 ### [Codespaces](#tab/codespaces)
 
 > [!CAUTION]
 > We are currently experiencing container corruption with Azure IoT Operations deployed in a codespace, so we don't recommend this path until we have resolved the issue with the GitHub team.
 
-1. Create a **codespace** from the *Azure IoT Operations SDKs* repository by clicking the following button:
+GitHub Codespaces provides the most streamlined experience and can get the development environment up and running in a couple of minutes.
+
+1. Create a **codespace** in GitHub Codespaces from the *Azure IoT Operations SDKs* repository:
 
     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure/iot-operations-sdks?quickstart=1&editor=vscode)
 
@@ -167,31 +170,79 @@ Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with
 
 ## Deploy Azure IoT Operations
 
-Azure IoT Operations will be deployed on the development cluster that you created in the previous step.
+You will arc-enable the development cluster created in the previous step and deploy Azure IoT Operations with [test settings](../deploy-iot-ops/overview-deploy.md#test-settings-deployment).
 
-### [Codespaces](#tab/codespaces)
+Open a new bash terminal and do the following steps:
 
-Follow the instructions in [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md#connect-cluster-to-azure-arc) to connect your cluster to Azure Arc, create a storage account and schema registry, and deploy Azure IoT Operations.
+1. Run the following command to set the required environment variables:
+    
+    | Parameter | Value |
+    | --------- | ----- |
+    | <LOCATION> | An Azure region close to you. For the list of currently supported regions, see [Supported regions](../overview-iot-operations.md#supported-regions). |
+    | <CLUSTER_NAME> | A name for your Kubernetes cluster. |
+    | <RESOURCE_GROUP> | A name for a new Azure resource group where your cluster will be created. |
+    | <STORAGE_ACCOUNT_NAME> | A name for your storage account. Storage account names must be between 3 and 24 characters in length and only contain numbers and lowercase letters. |
+   | <SCHEMA_REGISTRY_NAME> | A name for your schema registry. Schema registry names can only contain numbers, lowercase letters, and hyphens. |
+   | <SCHEMA_REGISTRY_NAMESPACE> | A name for your schema registry namespace. The namespace uniquely identifies a schema registry within a tenant. Schema registry namespace names can only contain numbers, lowercase letters, and hyphens. |
 
-> [!NOTE]
-> The Codespaces environment already has the cluster created, so you can skip the [create cluster](../get-started-end-to-end-sample/quickstart-deploy.md#create-cluster) step in the quickstart.
+    ```bash
+    export LOCATION=<LOCATION>
+    export RESOURCE_GROUP=<RESOURCE_GROUP>
+    export CLUSTER_NAME=<CLUSTER_NAME>
+    export STORAGE_ACCOUNT=<STORAGE_ACCOUNT_NAME>
+    export SCHEMA_REGISTRY=<SCHEMA_REGISTRY_NAME>
+    export SCHEMA_REGISTRY_NAMESPACE=<SCHEMA_REGISTRY_NAMESPACE>
+    ```
 
-### [Ubuntu](#tab/ubuntu)
+    > [!NOTE]
+    > Replace the placeholders with your values. You will create the resource group, storage account and schema registry in the next steps.
 
-[!INCLUDE [deploy-aio-sdks-linux](../includes/deploy-aio-sdks-linux.md)]
 
-### [Visual Studio Code Dev Containers](#tab/vscode-dev-containers)
+1. Sign in to Azure CLI:
 
-Open a new bash terminal in the VS Code Dev Container and do the following steps:
+   ```azurecli
+   az login
+   ```
 
-[!INCLUDE [deploy-aio-sdks-linux](../includes/deploy-aio-sdks-linux.md)]
+   > [!TIP]
+   > If you're using the GitHub codespace environment in a browser rather than VS Code desktop, running `az login` returns a localhost error. To fix the error, either:
+   >
+   > * Open the codespace in VS Code desktop, and then return to the browser terminal and rerun `az login`.
+   > * Or, after you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
 
-### [Windows Subsystem for Linux (WSL)](#tab/wsl)
+1. After you sign in, Azure CLI displays all of your subscriptions and indicates your default subscription with an asterisk `*`. To continue with your default subscription, select `Enter`. Otherwise, type the number of the Azure subscription that you want to use.
 
-[!INCLUDE [deploy-aio-sdks-linux](../includes/deploy-aio-sdks-linux.md)]
+1. Create an Azure resource group. Only one Azure IoT Operations instance is supported per resource group. To create a new resource group, use the [az group create](/cli/azure/group#az-group-create) command.
 
----
+   ```azurecli
+   az group create --location $LOCATION --resource-group $RESOURCE_GROUP
+   ```
 
+1. Navigate to the repository root directory:
+
+    ```bash
+    cd <REPOSITORY ROOT>
+    ```
+
+1. Run the `install-aio-arc.sh` script to arc-enable your cluster and deploy Azure IoT Operations:
+
+    ```bash
+    ./tools/deployment/install-aio-arc.sh
+    ```
+    
+    This script does the following:
+    
+    1. Log in to Azure CLI
+    1. Validate Required Environment Variables
+    1. Register Required Azure Providers
+    1. Connect Kubernetes Cluster to Azure Arc
+    1. Enable Azure Arc Features
+    1. Create Azure Storage Account
+    1. Create Azure IoT Operations Schema Registry
+    1. Initialize Azure IoT Operations
+    1. Create Azure IoT Operations Instance
+
+<!-- TODO: Confirm that this works well on a K3s cluster running AIO with Secure Settings -->
 ## Configure Azure IoT Operations for development
 
 After Azure IoT Operations is deployed, you need to configure it for development. This includes setting up the MQTT broker and authentication methods, as well as ensuring that the necessary environment variables are set for your development environment:
