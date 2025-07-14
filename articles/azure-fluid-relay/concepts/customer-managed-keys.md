@@ -36,7 +36,7 @@ If you later add a new key version, you must **manually** update the key URL in 
 The Fluid Relay service fails if the specified key version is deleted or disabled without updating the resource to use a valid version.
 - To allow the Fluid Relay service to automatically use the latest key version of the key from your key vault, you can omit the key version in the encryption key URL. This setting makes Fluid Relay Service's storage dependency to check the key vault daily for a new version of the customer-managed key and automatically updates the key to the latest version.
   However, you are still responsible for managing and rotating key versions in your Key Vault.
-  > Due to resource limitations, switching to this auto-update setting may fail. If that happens, please specify a key version explicitly and perform a manual update on your Fluid Relay resource for new key versions.
+  > Due to resource limitations, switching to this auto-update setting may fail. If that happens, please specify a key version explicitly and perform a manual update on your Fluid Relay resource for new [key](/azure/key-vault/keys/about-keys) versions.
 
 
 ## Create a Fluid Relay resource with CMK
