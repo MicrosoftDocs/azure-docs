@@ -58,7 +58,7 @@ During a zone-wide outage, you don't need to take any action to fail over to a h
 
 ## Multi-region support
 
-Firmware analysis does not support multi-region failovers, as we have one region per geography.
+Firmware analysis resources are associated with one Azure region. Firmware analysis is a single-region service. If the region becomes unavailable, your firmware analysis resource is also unavailable.
 
 
 ### Region down experience
