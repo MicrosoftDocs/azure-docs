@@ -101,4 +101,4 @@ As illustrated in the diagram, the SAP HANA backup volume received the 128MiB/s 
 - [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 - [Service Level Agreement (SLA) for Azure NetApp Files](https://azure.microsoft.com/support/legal/sla/netapp/)
 - [Dynamically change the service level of a volume](dynamic-change-volume-service-level.md) 
-- [Service-level objectives for cross-region replication](cross-region-replication-introduction.md#service-level-objectives)
+- [Service-level objectives for cross-region replication](replication.md#service-level-objectives)

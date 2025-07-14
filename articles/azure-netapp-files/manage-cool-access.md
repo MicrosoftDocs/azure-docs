@@ -68,7 +68,7 @@ There are several considerations to be aware of when using cool access.
 
 ### Considerations for cross-region and cross-zone replication 
 
-* With [cross-region](cross-region-replication-introduction.md) and [cross-zone](cross-zone-replication-introduction.md) replication, the cool access setting on the destination volume is updated automatically to match the source volume. This update occurs whenever the setting is changed on the source volume or during authorization. The setting is also updated automatically when a reverse resync of the replication is performed, but only if the destination volume is in a cool access-enabled capacity pool. Changes to the cool access setting on the destination volume don't affect the setting on the source volume.
+* With [cross-region](replication.md) and [cross-zone](cross-zone-replication-introduction.md) replication, the cool access setting on the destination volume is updated automatically to match the source volume. This update occurs whenever the setting is changed on the source volume or during authorization. The setting is also updated automatically when a reverse resync of the replication is performed, but only if the destination volume is in a cool access-enabled capacity pool. Changes to the cool access setting on the destination volume don't affect the setting on the source volume.
 * In a cross-region or cross-zone replication configuration, you can enable cool access exclusively for destination volumes to enhance data protection and create cost savings without affecting latency in source volumes.
 
 ### Considerations for snapshot restore

@@ -17,7 +17,7 @@ This article describes error messages and resolutions that can help you troubles
 |     Error message    |     Resolution    |
 |-|-|
 | `Volume {0} cannot be used as source because it is already in replication` | You cab't   create a replication with a source volume that is already in a data replication relationship.    |
-| `Peered region '{0}' is not accepted` | You can't create replication between unpaired regions. Review [supported regional pairs](cross-region-replication-introduction.md#supported-region-pairs). |
+| `Peered region '{0}' is not accepted` | You can't create replication between unpaired regions. Review [supported regional pairs](replication.md#supported-region-pairs). |
 | `RemoteVolumeResource '{0}' of wrong type '{1}'` | Validate that the remote resource ID is a volume resource ID.    |
 
 ## Errors authorizing volume  
@@ -81,8 +81,8 @@ This article describes error messages and resolutions that can help you troubles
 
 ## Next steps  
 
-* [Cross-region replication](cross-region-replication-introduction.md)
-* [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md)
+* [Cross-region replication](replication.md)
+* [Requirements and considerations for using cross-region replication](replication-requirements.md)
 * [Create volume replication](cross-region-replication-create-peering.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)

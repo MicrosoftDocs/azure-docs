@@ -43,7 +43,7 @@ For a list of regions that currently support availability zones, see [Azure regi
 
 In many cases resiliency across availability zones is achieved by high-availability (HA) architectures using application-based replication and HA. Simpler, more cost-effective approaches are often considered by using storage-based data replication instead.  
 
-Similar to the Azure NetApp Files [cross-region replication feature](cross-region-replication-introduction.md), the cross-zone replication (CZR) capability provides data protection between volumes in different availability zones. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one availability zone to another Azure NetApp Files volume (destination) in another availability zone. This capability enables you to fail over your critical application if a zone-wide outage or disaster happens. 
+Similar to the Azure NetApp Files [cross-region replication feature](replication.md), the cross-zone replication (CZR) capability provides data protection between volumes in different availability zones. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one availability zone to another Azure NetApp Files volume (destination) in another availability zone. This capability enables you to fail over your critical application if a zone-wide outage or disaster happens. 
 
 Cross-zone replication is available in all [availability zone-enabled regions](../reliability/availability-zones-region-support.md) with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
 
@@ -127,7 +127,7 @@ Azure NetApp Files supports using cross-zone and cross-region replication on the
 
 ### Requirements for cross-zone-region replication 
 
-* Cross-zone-region replication adheres to the same requirements as [cross-zone replication](cross-zone-replication-requirements-considerations.md) and [cross-region replication](cross-region-replication-requirements-considerations.md).
+* Cross-zone-region replication adheres to the same requirements as [cross-zone replication](replication-requirements.md) and [cross-region replication](replication-requirements.md).
 
 * If you use cross-region replication, you must adhere to supported [cross-region replication pairs](#supported-region-pairs).
 

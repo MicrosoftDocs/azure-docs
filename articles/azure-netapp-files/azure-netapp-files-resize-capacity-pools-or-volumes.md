@@ -72,7 +72,7 @@ The REST API specification and example code for Azure NetApp Files are available
 
 ## Resize a cross-region replication destination volume 
 
-In a [cross-region replication](cross-region-replication-introduction.md) relationship, a destination volume is automatically resized based on the size of the source volume. As such, you don’t need to resize the destination volume separately. This automatic resizing behavior is applicable when the volumes are in an active replication relationship, or when replication peering is broken with the [resync operation](cross-region-replication-manage-disaster-recovery.md#resync-replication). 
+In a [cross-region replication](replication.md) relationship, a destination volume is automatically resized based on the size of the source volume. As such, you don’t need to resize the destination volume separately. This automatic resizing behavior is applicable when the volumes are in an active replication relationship, or when replication peering is broken with the [resync operation](cross-region-replication-manage-disaster-recovery.md#resync-replication). 
 
 The following table describes the destination volume resizing behavior based on the [Mirror state](cross-region-replication-display-health-status.md):
 

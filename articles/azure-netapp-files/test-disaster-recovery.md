@@ -13,7 +13,7 @@ ms.author: anfdocs
 
 An effective disaster recovery plan includes testing your disaster recovery configuration. Testing your disaster recovery configuration demonstrates the efficacy of your disaster recovery configuration and that it can achieve the desired recovery point objective (RPO) and recovery time objective (RTO). Testing disaster recovery also ensures that operational runbooks are accurate and that operational staff are trained on the workflow.
 
-This disaster recovery workflow can be tested with either [Azure NetApp cross-region replication](cross-region-replication-introduction.md) or [cross-zone replication](cross-zone-replication-introduction.md). You can test your disaster recovery understanding and preparedness without disrupting the existing replication schedule, posing no risk to RPO or RTO. This test plan also leverages Azure NetApp Files' ability to [create new volumes from the snapshots](snapshots-restore-new-volume.md) in cross-region replication.
+This disaster recovery workflow can be tested with either [Azure NetApp cross-region replication](replication.md) or [cross-zone replication](cross-zone-replication-introduction.md). You can test your disaster recovery understanding and preparedness without disrupting the existing replication schedule, posing no risk to RPO or RTO. This test plan also leverages Azure NetApp Files' ability to [create new volumes from the snapshots](snapshots-restore-new-volume.md) in cross-region replication.
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ Given the uniqueness of each application architecture, there's no specific workf
 ## Next steps
 
 * [How Azure NetApp Files snapshots work](snapshots-introduction.md)
-* [Cross-region replication of Azure NetApp Files volumes](cross-region-replication-introduction.md)
-* [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md)
+* [Cross-region replication of Azure NetApp Files volumes](replication.md)
+* [Requirements and considerations for using cross-region replication](replication-requirements.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
 * [What is Azure Application Consistent Snapshot tool](azacsnap-introduction.md)

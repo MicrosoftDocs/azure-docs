@@ -6,7 +6,7 @@ ms.author: anfdocs
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-netapp-files
-ms.date: 06/17/2025
+ms.date: 07/14/2025
 ---
 
 # Reliability in Azure NetApp Files
@@ -25,9 +25,11 @@ To use Azure NetApp Files, you create *volumes* within a NetApp account, as well
 
 For recommendations about reliable production workloads in Azure NetApp Files, see:
 
-- [Use availability zone volume placement for application high availability with Azure NetApp Files](../azure-netapp-files/use-availability-zones.md)
-- [Understand cross-zone replication](../azure-netapp-files/cross-zone-replication-introduction.md)
-- [Understand cross-region replication in Azure NetApp Files](../azure-netapp-files/cross-region-replication-introduction.md)
+- [Create volumes in availability zones for high availability and fault tolerance](../azure-netapp-files/replication.md#availability-zones)
+- [Use cross-zone replication to protect data from zonal failures](../azure-netapp-files/replication.md#cross-zone-replication)
+- [Use cross-region replication to protect data from regional failures](../azure-netapp-files/replication.md#cross-region-replication)
+- [Use cross-zone-region replication for an added layer of security](../azure-netapp-files/replication.md#cross-zone-region-replication)
+- [Enable backups to efficiently protect data and create long-term recovery options](../azure-netapp-files/backup-introduction.md)
 
 ## Transient faults
 
@@ -99,7 +101,7 @@ You need to separately configure volume placement and cross-zone replication.
 
     - **Enable cross-zone replication:** To improve the resiliency of your solution, [configure cross-zone replication to another volume](../azure-netapp-files/create-cross-zone-replication.md).
 
-    - **Disable cross-zone replication:** You can disable cross-zone replication by breaking the replication pairing. To learn more, see [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume). <!-- Please verify that this is accurate. -->
+    - **Disable cross-zone replication:** You can disable cross-zone replication by breaking the replication pairing. To learn more, see [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume). 
 
 ### Normal operations
 
@@ -163,23 +165,25 @@ However, Azure NetApp Files provides data protection through cross-region volume
 
 ### Region support
 
-The secondary region that you can replicate your volumes to depends on the primary region. For a list of primary and secondary regions, see [Supported cross-region replication pairs](../azure-netapp-files/cross-region-replication-introduction.md#supported-cross-region-replication-pairs).
+The secondary region that you can replicate your volumes to depends on the primary region.
+
+[!INCLUDE [Supported region pairs](../azure-netapp-files/includes/region-pairs.md)]
 
 ### Considerations
 
 Replication is permitted between different Azure subscriptions as long as they are within the same Microsoft Entra tenant.
 
-For other considerations related to cross-region replication in Azure NetApp Files, see [Requirements and considerations for using cross-region replication](../azure-netapp-files/cross-region-replication-requirements-considerations.md).
+For other considerations related to cross-region replication in Azure NetApp Files, see [Requirements and considerations for using cross-region replication](../azure-netapp-files/replication-requirements.md).
 
 ### Cost
 
-Cross-region replication is charged based on the mount of data you replicate. For more details and some example scenarios, see [Cost model for cross-region replication](../azure-netapp-files/cross-region-replication-introduction.md#cost-model-for-cross-region-replication).
+Cross-region replication is charged based on the mount of data you replicate. For more details and some example scenarios, see [Cost model for cross-region replication](../azure-netapp-files/replication.md#cost-model-for-cross-region-replication).
 
 ### Configure multi-region support
 
 - **Enable cross-region replication:** To improve the resiliency of your solution, [configure cross-region replication](../azure-netapp-files/cross-region-replication-create-peering.md).
 
-- **Disable cross-region replication:** You can disable cross-region replication by breaking the replication pairing. To learn more, see [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume). <!-- Please verify that this is accurate. -->
+- **Disable cross-region replication:** You can disable cross-region replication by breaking the replication pairing. To learn more, see [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
 
 ### Normal operations
 
@@ -247,10 +251,7 @@ The service-level agreement (SLA) for Azure NetApp Files describes the expected 
 ## Related content
 
 - [Architecture best practices for Azure NetApp Files](/azure/well-architected/service-guides/azure-netapp-files)
-- [Use availability zone volume placement for application high availability with Azure NetApp Files](../azure-netapp-files/use-availability-zones.md)
+- [Requirements and considerations for using Azure NetApp Files replication](../azure-netapp-files/replication-requirements.md)
 - [Manage availability zone volume placement for Azure NetApp Files](../azure-netapp-files/manage-availability-zone-volume-placement.md)
-- [Create cross-zone replication relationships for Azure NetApp Files](../azure-netapp-files/create-cross-zone-replication.md).
-- [Cross-region replication of Azure NetApp Files volumes](../azure-netapp-files/cross-region-replication-introduction.md)
-- [Supported regions for cross-region replication](../azure-netapp-files/cross-region-replication-introduction.md#supported-region-pairs)
-- [Requirements and considerations for using cross-region replication in Azure NetApp Files](../azure-netapp-files/cross-region-replication-requirements-considerations.md)
-- [Create volume replication for Azure NetApp Files](../azure-netapp-files/cross-region-replication-create-peering.md)
+- [Create cross-zone replication relationships for Azure NetApp Files volumes](../azure-netapp-files/create-cross-zone-replication.md).
+- [Create cross-region replication relationships for Azure NetApp Files volumes](../azure-netapp-files/cross-region-replication-create-peering.md)

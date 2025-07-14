@@ -53,7 +53,7 @@ To learn more, see [How volumes and snapshots are replicated cross-region for DR
 
 ## Cross-zone replication 
 
-Cross-zone replication leverages [availability zones](use-availability-zones.md) and the same replication engine as cross-region replication. This technology creating a fast and cost-effective solution for you to asynchronously replicate volumes from availability zone to another without the need for host-based data replication.  
+Cross-zone replication leverages [availability zones](replication.md#availability-zones) and the same replication engine as cross-region replication. This technology creating a fast and cost-effective solution for you to asynchronously replicate volumes from availability zone to another without the need for host-based data replication.  
 
 Cross-zone replication can be used in conjunction with cross-region replication. For more information, see [configure cross-zone-region replication](cross-zone-region-replication-configure.md).
 

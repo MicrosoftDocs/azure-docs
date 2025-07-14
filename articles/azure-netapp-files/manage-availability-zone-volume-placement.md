@@ -11,7 +11,7 @@ ms.author: anfdocs
 ---
 # Manage availability zone volume placement for Azure NetApp Files
 
-You can deploy new volumes in the logical availability zone of your choice. You can also populate existing volumes with availability zone information. To better understand availability zones, see [Use availability zone volume placement for high availability](use-availability-zones.md).
+You can deploy new volumes in the logical availability zone of your choice. You can also populate existing volumes with availability zone information. To better understand availability zones, see [Use availability zone volume placement for high availability](replication.md#availability-zones).
 
 ## Requirements and considerations 
 
@@ -145,7 +145,7 @@ If you're using a custom RBAC role or the [built-in Contributor role](../role-ba
 
 ## Next steps  
 
-* [Use availability zone volume placement for application high availability with Azure NetApp Files](use-availability-zones.md)
+* [Use availability zone volume placement for application high availability with Azure NetApp Files](replication.md#availability-zones)
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)   
 * [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md)      
 * [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md)    
