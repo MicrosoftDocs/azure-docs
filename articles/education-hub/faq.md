@@ -5,7 +5,7 @@ author: vinnieangel
 ms.author: vangellotti
 ms.service: azure-education
 ms.topic: tutorial
-ms.date: 4/2/2024
+ms.date: 7/11/2025
 ms.custom: template-tutorial
 ---
 
@@ -141,6 +141,22 @@ Your Azure for Students Starter subscription gives you access to certain softwar
 [Microsoft Learn training](/training/) is a free online learning platform that helps you learn Azure technologies at your own pace. Learning paths contain modules that start with the basics and then move to advanced methods that address real-world challenges.
 
 ## Azure Dev Tools for Teaching
+
+### My institution is already signed up for Azure Dev Tools for Teaching, do I need to do anything before August 15th, 2025 to retain access? 
+
+No action is needed. Your admin will retain access to Azure Dev Tools for Teaching benefits for an extended period of time, without the need for renewal. 
+
+### If my institution is not already signed up for Azure Dev Tools for Teaching, what do they need to do before August 15th, 2025? 
+
+If your institution has an active VL agreement but has not yet signed up for their ADT4T benefit, they have until August 1st, 2025 to redeem their benefit. They can do so by going to Azure Dev Tools for Teaching website and selecting ‘Order’. To learn more about Azure Dev Tools for Teaching, click here. 
+
+### How will my students get access to Azure Dev Tools for Teaching after August 15th, 2025? 
+
+If your institution is signed up for Azure Dev Tools for Teaching, your students will now be getting access to their software benefit through the Azure for Students offer. This provides them with the same software, in the same location they currently access. In addition, they will receive an Azure subscription with $100 free Azure credit to use on Azure services. No credit card is required to sign up, simply sign in with their institution ID as they do today. If they use the current redemption link for Azure Dev Tools for Teaching, they will be redirected to sign up for Azure for Students. To learn more about Azure for Students, click here.  
+
+### If I have additional questions about this change, who can I contact? 
+
+Please use the Azure Dev Tools for Teaching support form for any questions. This is accessed in the Azure Dev Tools for Teaching Management Portal. 
 
 ### Who is eligible to purchase Azure Dev Tools for Teaching?
 
