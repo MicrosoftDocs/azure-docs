@@ -13,13 +13,9 @@ zone_pivot_groups: app-service-sku
 
 # Reliability in Azure App Service
 
-This article describes reliability support in [Azure App Service](../app-service/overview.md), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
+Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. App Service integrates with Microsoft Azure to provide security, load balancing, autoscaling, and automated management for applications. This article describes reliability support in [Azure App Service](../app-service/overview.md), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
-
-App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. App Service integrates with Microsoft Azure to provide security, load balancing, autoscaling, and automated management for applications. To explore how App Service can bolster the reliability and resiliency of your application workload, see [App Service overview](../app-service/overview.md).
-
-When you deploy App Service, you can provision multiple instances in an [App Service plan](/azure/app-service/overview-hosting-plans). This plan represents the compute workers that run your application code. The platform makes an effort to deploy the instances across different fault domains, but it doesn't automatically distribute the instances across availability zones.
 
 ## Production deployment recommendations
 
@@ -36,6 +32,20 @@ When you deploy App Service, you can provision multiple instances in an [App Ser
 [Enable zone redundancy](#availability-zone-support), which requires your App Service plan to use a minimum of two instances.
 
 ::: zone-end
+
+## Reliability architecture overview
+
+When you deploy App Service, you can scale an App Service plans to run on multiple virtual machine *instances* (workers). These instances are the compute resources that run your app code. A single App Service plan can host multiple apps (websites), all running on the same shared set of VM instances.
+
+For example, if you configure your plan to run five VM instances, then all apps in the plan run on all five instances by default. If you configure your plan for autoscaling, then all apps in the plan scale out together, based on the autoscale settings. You can customize how many plan instances run a specific app by using [per-app scaling](/azure/app-service/manage-scale-per-app).
+
+At the platform level - without any configuration from you - Azure automatically distributes your App Service plan’s VM instances across [fault domains](/azure/virtual-machines/availability-set-overview#fault-domains). This distribution minimizes the risk of localized hardware failures by grouping virtual machines that share a common power source and network switch.
+
+If you enable zone redundancy on your App Service plan, Azure distributes your instances across availability zones within the region, offering higher resiliency in the event of a full zone outage. To learn more about zone redundancy, see [Availability zone support](#availability-zone-support).
+
+Behind the scenes, Azure App Service runs on platform infrastructure called *scale units* (also known as *stamps*). A scale unit includes all the components needed to host and run App Service, including compute, storage, networking, and load balancing. Azure manages scale units to ensure balanced workload distribution, perform routine maintenance, and maintain overall platform reliability.
+
+Certain capabilities might be applied to some scale units and not others. For example, zone redundancy might be supported by some App Service scale units but not by other scale units in the same region.
 
 ## Transient faults
 
@@ -106,7 +116,7 @@ You must use the [Premium v2-4 plan types](/azure/app-service/overview-hosting-p
 
     The scale unit that you're assigned to is based on the resource group that you deploy an App Service plan to. To ensure that your workloads land on a scale unit that supports availability zones, you might need to create a new resource group and create a new App Service plan and App Service app within the new resource group. 
 
-    To learn whether or not the stamp that your App Service plan is on supports zone redundancy, see [Check for zone redundancy support for an App Service plan](../app-service/configure-zone-redundancy.md#check-for-zone-redundancy-support-for-an-app-service-plan).
+    To learn whether or not the scale unit that your App Service plan is on supports zone redundancy, see [Check for zone redundancy support for an App Service plan](../app-service/configure-zone-redundancy.md#check-for-zone-redundancy-support-for-an-app-service-plan).
 
 
 - You must deploy a minimum of two instances in your plan.
@@ -259,7 +269,7 @@ Azure App Service performs regular service upgrades, as well as other forms of m
 
 ::: zone pivot="free-shared-basic,premium"
 
-To learn more, see [Routine planned maintenance for Azure App Service](/azure/app-service/routine-maintenance).
+To learn more, see [Routine planned maintenance for Azure App Service](/azure/app-service/routine-maintenance) and [Routine maintenance for Azure App Service, restarts, and downtime](/azure/app-service/routine-maintenance-downtime).
 
 ::: zone-end
 
