@@ -43,9 +43,11 @@ For a list of regions that currently support availability zones, see [Azure regi
 
 In many cases resiliency across availability zones is achieved by high-availability (HA) architectures using application-based replication and HA. Simpler, more cost-effective approaches are often considered by using storage-based data replication instead.  
 
-Similar to the Azure NetApp Files [cross-region replication feature](replication.md), the cross-zone replication (CZR) capability provides data protection between volumes in different availability zones. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one availability zone to another Azure NetApp Files volume (destination) in another availability zone. This capability enables you to fail over your critical application if a zone-wide outage or disaster happens. 
+Similar to Azure NetApp Files [cross-region replication](#cross-region-replication), cross-zone replication (CZR) provides data protection between volumes in different availability zones. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one availability zone to another Azure NetApp Files volume (destination) in another availability zone. This capability enables you to fail over your critical application if a zone-wide outage or disaster happens. 
 
 Cross-zone replication is available in all [availability zone-enabled regions](../reliability/availability-zones-region-support.md) with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
+
+For service level objects, see [Azure NetApp Files reliability](../reliability/reliability-netapp-files.md#region-down-experience).
 
 ### Cost model for cross-zone replication 
 
@@ -53,9 +55,11 @@ Replicated volumes are hosted on a [capacity pool](azure-netapp-files-understand
 
 ## Cross-region replication 
 
-The Azure NetApp Files replication functionality provides data protection through cross-region volume replication. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region. This capability enables you to fail over your critical application if a region-wide outage or disaster happens.
+Azure NetApp Files replication is available across regions. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region. This capability enables you to fail over your critical application if a region-wide outage or disaster happens.
 
 Azure NetApp Files cross-region replication must adhere to [supported regional pairs](#supported-region-pairs). 
+
+For service level objects, see [Azure NetApp Files reliability](../reliability/reliability-netapp-files.md#region-down-experience).
 
 ### Cost model for cross-region replication
 
@@ -115,15 +119,15 @@ Azure NetApp Files supports using cross-zone and cross-region replication on the
 
 * Cross-region and​ cross-zone replication target volumes
 
-:::image type="content" source="./media/cross-zone-region-introduction/zone-region.png" alt-text="Diagram of cross-zone and cross-region replication." lightbox="./media/cross-zone-region-introduction/zone-region.png":::
+:::image type="content" source="./media/reliability/zone-region.png" alt-text="Diagram of cross-zone and cross-region replication." lightbox="./media/reliability/zone-region.png":::
 
 * Two cross-region replication target volumes
 
-:::image type="content" source="./media/cross-zone-region-introduction/double-region.png" alt-text="Diagram of double cross-region replication." lightbox="./media/cross-zone-region-introduction/double-region.png":::
+:::image type="content" source="./media/reliability/double-region.png" alt-text="Diagram of double cross-region replication." lightbox="./media/reliability/double-region.png":::
 
 * Two cross-zone replication target volumes in any combination of availability zones, including in-zone replication
 
-:::image type="content" source="./media/cross-zone-region-introduction/double-zone.png" alt-text="Diagram of double cross-zone replication." lightbox="./media/cross-zone-region-introduction/double-zone.png":::
+:::image type="content" source="./media/reliability/double-zone.png" alt-text="Diagram of double cross-zone replication." lightbox="./media/reliability/double-zone.png":::
 
 ### Requirements for cross-zone-region replication 
 

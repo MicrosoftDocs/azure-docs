@@ -76,7 +76,7 @@
     - name: Service levels for Azure NetApp Files
       href: azure-netapp-files-service-levels.md
     - name: Guidelines for Azure NetApp Files network planning 
-      href: azure-netapp-files-network-topolo199gies.md
+      href: azure-netapp-files-network-topologies.md
     - name: Resource limits for Azure NetApp Files
       href: azure-netapp-files-resource-limits.md
     - name: Reliability in Azure NetApp Files 
