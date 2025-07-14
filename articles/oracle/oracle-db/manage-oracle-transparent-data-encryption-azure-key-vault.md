@@ -4,7 +4,7 @@ description:  Comprehensive step-by-step guide for integrating Oracle Exadata Da
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: overview
+ms.topic: how-to
 ms.date: 04/15/2025
 ms.custom: engagement-fy23
 ms.author: jacobjaygbay
@@ -19,26 +19,29 @@ Exadata Database Service on Oracle Database@Azure now supports storing and manag
 
 This integration enables Oracle Database@Azure customers to meet a wide spectrum of **security**, **compliance**, and **key management** needs - ranging from software-based key storage to single-tenant, FIPS 140-3 Level 3 validated hardware security modules.
 
-## Step-by-step integration guide
+High level architectural diagram 
 
-Integrating **Oracle Database@Azure** (Exadata VM Cluster) with **Azure Key Vault** (AKV) allows you to store and manage Oracle Transparent Data Encryption (TDE) master encryption keys (MEK) in Azure’s secure vault, enhancing security and simplifying key lifecycle management.  
 
-## Prerequisites and assumptions
+
+## Prerequisites
 
 Before beginning the integration, ensure the following prerequisites are met:
 
-* **Oracle Database@Azure provisioned**: 
-You have an **Exadata VM cluster** deployed in Azure via Oracle Database@Azure. This includes a delegated subnet within an Azure Virtual Network for the Exadata VM Cluster. The cluster is up and running, and you have access to the Oracle Cloud Infrastructure (OCI) console for management.
-* **Advanced networking eEnabled**: If not already configured, complete the delegated subnet registration as per the [Network planning for Oracle Database@Azure | Microsoft Learn](/azure/oracle/oracle-db/oracle-database-network-plan) guide (This ensures the subnet supports Azure Arc and Private Link capabilities.)
-* **Azure Key Vault private connectivity**: Private Endpoint for Azure Key Vault has been configured and reachable by Exadata. DNS has also been configured, and endpoints can be resolved from Exadata. 
-* **NAT Gateway**: NAT Gateway must be configured on the delegated subnet to complete the Identity Connector setup.
+* **Oracle Database@Azure provisioned**: You have an Exadata VM cluster deployed in a delegated subnet within an Azure Virtual Network and you have access to the Oracle Cloud Infrastructure (OCI) console for management.
+* **Advanced networking enabled**:If not already configured, ensure Advanced Networking Feature is enabled as per the [Network planning for Oracle Database@Azure | Microsoft Learn](/azure/oracle/oracle-db/oracle-database-network-plan)guide to enable Private Link connectivity required for Managed HSM and Azure Arc. 
+* **Azure Key Vault private connectivity**: Private Endpoint with DNS configuration for Azure Key Vault with has been configured and reachable by Exadata as per [Integrate Key Vault with Azure Private Link | Microsoft Learn](/azure/key-vault/general/private-link-service)
+* **NAT Gateway**: Outbound internet connectivity is required for the Identity Connector setup to access Microsoft Entra Public endpoint. This can be achieved by using an Azure NAT gateway, Azure Firewall or an NVA of your choice if you already not have one in the same VNET as your Oracle deployment or in the shared HUB if using Hub/spoke topology. 
 * **Private Link Scope and Private Endpoint configuration for Azure Arc (optional)**: If using Private Link for the Azure Arc agent installation, the Azure Arc Private Link Scope and Private Endpoint must be configured and reachable from Exadata. DNS must also be configured and endpoints resolvable from Exadata.
 * **Azure subscription and permissions**: You have sufficient Azure permissions:
     * Azure role **Owner/contributor** on the subscription or resource group where Key Vault is created (to create resources and assign roles).
     * Microsoft Entra ID **User Administrator** (or equivalent) if you create security groups for managing permissions.
     * Azure **Global Administrator** is not required, but you should be able to obtain a Microsoft Entra ID access token for Arc registration (explained in Step 3).
-* **OCI privileges**: In OCI (Oracle Cloud Infrastructure console), ensure you have permission to manage the multicloud integration.
+* **OCI privileges**: In OCI (Oracle Cloud Infrastructure console), ensure you have permission to manage the multicloud integration. Oracle recommends an IAM policy in your OCI tenancy such as: 
 
+   * *allow any-user to manage oracle-db-azure-vaults in tenancy*
+   * *where request.principal.type = 'cloudvmcluster'*  
+
+This policy allows the Exadata VM Cluster resource to manage Key Vault associations. (Your cloud administrator might have already set this up; otherwise, it must be added by an OCI admin before configuring the database to use Azure Key Vault. 
 ## Step 1: Create and prepare an Azure Key Vault
 
 **Goal**: Set up an Azure Key Vault to hold your Oracle database encryption keys. If you already have a suitable Key Vault and key, you can use it, but ensure it’s dedicated or appropriately secured for this purpose.
@@ -48,21 +51,21 @@ You have an **Exadata VM cluster** deployed in Azure via Oracle Database@Azure. 
     * **AKV Premium**: Same as Standard but select **Premium SKU**
     * **Managed HSM**: Follow [Managed HSM Quickstart](/azure/key-vault/managed-hsm/quick-create-cli)
 
-    Ensure the Key Vault’s region matches the region where Oracle Exadata Database@Azure is deployed (for performance and compliance). You can choose Standard or Premium tier (both support integration). Premium is HSM-backed. If you require a dedicated HSM cluster, use Managed HSM (in that case the creation command is different, as shown commented above, and remember Managed HSM requires private networking).
+    Ensure the Key Vault’s region matches the region where Oracle Exadata Database@Azure is deployed (for performance and compliance). You can choose Standard or Premium tier (both support integration). Premium is HSM-backed. If you require a dedicated HSM cluster, use Managed HSM (in that case the creation command is different, as shown above, and remember ManPrivate Endpoint is strongly recommended for secure access and enhanced access control).
 
 2. **Create a Key in the vault**: Oracle TDE requires an encryption key (Master Encryption Key) to be present in the vault. Create at least one key now. Oracle supports RSA keys for this purpose (2048-bit is typical):
 
-    Alternatively, you can import a key if you have specific requirements (BYOK), but for most cases generating a new RSA key in Azure is simplest. Make sure the key is enabled and note the key name. (Oracle later refers to this key by its Azure name when we link the database.)
+    Alternatively, you can import a key if you have specific requirements (BYOK), but for most cases generating a new RSA key in Azure is simplest. Make sure the key is enabled and note the key name. (Oracle later refers to this key by its Azure name when linking the database.)
 
-    **Why create the key now?** During vault registration, Oracle’s process checks that at least one key exists in the vault. If none is found, the vault registration fails. Creating a key upfront avoids that issue.
+    **Why create the key now?** During vault registration, Oracle control plane checks that at least one key exists in the vault. If none is found, the vault registration fails. Creating a key upfront avoids that issue.
 
-3. **(For Managed HSM)**: If you chose Managed HSM, after provisioning, you must activate the HSM (if not already) and create a key in it similarly (az keyvault key create --hsm-name <HSM_Name> -n $KEY_NAME ...). Also, note that Managed HSM uses a different permission model (local HSM roles). We’ll cover the role assignments in the next step.
+3. **(For Managed HSM)**: If you chose Managed HSM, after provisioning, you must activate the HSM (if not already) and create a key in it (az keyvault key create --hsm-name <HSM_Name> -n $KEY_NAME ...). Also, note that Managed HSM uses a different permission model (local HSM roles). We’ll cover the role assignments in the next step.
 
-    At this point, you have an Azure Key Vault (or HSM) ready, with a master key that is used for Oracle TDE. Next, we need to set up permissions so that the Oracle Exadata VM cluster can access this vault and key securely.
+    At this point, you have an Azure Key Vault (or HSM) ready, with a master key that is used for Oracle TDE. Next step is to set up permissions so that the Oracle Exadata VM cluster can access this vault and key securely.
 
 ## Step 2: Configure Microsoft Entra ID permissions for Key Vault access
 
-**Goal**: Allow the Oracle Exadata VM Cluster (specifically, the Azure Arc identity of its VMs) to access the Key Vault and perform key operations (like unwrap keys, create new key versions for rotation, etc.), without over-privileging. We achieve this via Microsoft Entra ID Role-Based Access Control (RBAC). The general approach is:
+**Goal**: Allow the Oracle Exadata VM Cluster (specifically, the Azure Arc identity of its VMs) to access the Key Vault and perform key operations (like unwrap keys, create new key versions for rotation, etc.), without over-privileging. This can be acheived with Microsoft Entra ID Role-Based Access Control (RBAC). The general approach is:
 
 * Create a security group in Microsoft Entra ID.
 * After the Oracle VM Cluster is Arc-enabled (next step), add the machine’s managed identity to this group.
@@ -84,11 +87,6 @@ This way, if you have multiple database VMs or clusters, you can manage their ac
 
 4. For **Managed HSM**:
     * Azure RBAC uses a different set of roles. According to Oracle’s guidance, for Managed HSM you should assign the Azure RBAC Reader role for the HSM resource. Then, use the HSM local RBAC to assign "Managed HSM Crypto Officer" and "Managed HSM Crypto User" to your principal. This can be done in the Azure portal’s Managed HSM access control page. The security group can also be used for these assignments. Ensure that the principal has been added as an HSM Crypto Officer at minimum. Crypto Officer can generate new key versions for rotation, and Crypto User can use the keys.
-
-5. **Double-check roles**: After assignments, you can verify:
-    This should list the roles assigned to the group for the vault. There’s no harm in completing this role assignment step now. If the group has no members yet, the permissions are not used until a member is added.
-
-    At this stage, Azure is configured: you have a vault with a key, and a Microsoft Entra ID group with appropriate access to that vault. Now we move to the Oracle side to set up the integration.
 
 ## Step 3: Set Up the Oracle Identity Connector
 **Goal**: Set up the Oracle Identity Connector. This automatically configures the Azure Arc Agent to allow communication with Azure services (Key Vault) using an Azure identity.  
