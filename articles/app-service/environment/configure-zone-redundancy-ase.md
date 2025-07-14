@@ -118,7 +118,7 @@ resource asev3 'Microsoft.Web/hostingEnvironments@2020-12-01' = {
 ```
 
 ---
-
+ 
 > [!NOTE]
 > When you change the zone redundancy status of the App Service Environment, you initiate an upgrade that takes 12-24 hours to complete. During the upgrade process, you don't experience any downtime or performance problems.
 
