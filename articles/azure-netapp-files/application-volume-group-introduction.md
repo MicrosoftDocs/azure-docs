@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 04/22/2025
 ms.author: anfdocs
+# Customer intent: As an IT administrator deploying SAP HANA, I want to utilize the application volume group for SAP HANA, so that I can streamline the creation and management of required database volumes while ensuring best practices for performance and security.
 ---
 # Understand Azure NetApp Files application volume group for SAP HANA 
 

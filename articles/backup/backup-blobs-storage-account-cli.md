@@ -6,6 +6,7 @@ ms.custom: devx-track-azurecli
 ms.date: 06/17/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to back up Azure Blobs using the CLI, so that I can efficiently manage and protect my storage data while minimizing manual overhead.
 ---
 
 # Back up Azure Blobs in a storage account using Azure CLI

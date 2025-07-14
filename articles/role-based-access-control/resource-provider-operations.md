@@ -4,10 +4,10 @@ description: Lists the permissions for Azure resource providers.
 ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
-author: rolyon
-manager: femila
-ms.author: rolyon
-ms.date: 05/25/2025
+author: jenniferf-skc
+manager: pmwongera
+ms.author: jfields
+ms.date: 07/07/2025
 ms.custom: generated
 ---
 
@@ -232,6 +232,7 @@ Click the resource provider name in the following list to see the list of permis
 > | --- | --- | --- |
 > | [Microsoft.Chaos](./permissions/devops.md#microsoftchaos) |  | [Azure Chaos Studio](/azure/chaos-studio/) |
 > | [Microsoft.DevCenter](./permissions/devops.md#microsoftdevcenter) |  | [Azure Deployment Environments](/azure/deployment-environments/overview-what-is-azure-deployment-environments) |
+> | [Microsoft.DevOpsInfrastructure](./permissions/devops.md#microsoftdevopsinfrastructure) |  | [Managed DevOps Pools](/azure/devops/managed-devops-pools/overview) |
 > | [Microsoft.DevTestLab](./permissions/devops.md#microsoftdevtestlab) | Quickly create environments using reusable templates and artifacts. | [Azure Lab Services](/azure/lab-services/) |
 > | [Microsoft.LabServices](./permissions/devops.md#microsoftlabservices) | Set up labs for classrooms, trials, development and testing, and other scenarios. | [Azure Lab Services](/azure/lab-services/) |
 > | [Microsoft.LoadTestService](./permissions/devops.md#microsoftloadtestservice) |  | [Azure Load Testing](/azure/load-testing/) |

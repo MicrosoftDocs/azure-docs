@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 10/25/2024
 ms.author: anfdocs
+# Customer intent: "As a cloud administrator, I want to create on-demand snapshots for volumes in Azure NetApp Files, so that I can ensure data protection and quick recovery options for my applications."
 ---
 # Create an on-demand snapshot for a volume using Azure NetApp Files
 

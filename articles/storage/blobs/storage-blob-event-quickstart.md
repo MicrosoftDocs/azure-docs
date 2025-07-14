@@ -8,6 +8,7 @@ ms.date: 08/11/2021
 ms.topic: how-to
 ms.service: azure-blob-storage
 ms.custom: devx-track-azurecli
+# Customer intent: "As a developer, I want to route Azure Blob storage events to a web endpoint using Event Grid, so that I can handle and display these events in my web application."
 ---
 
 # Quickstart: Route storage events to web endpoint with Azure CLI

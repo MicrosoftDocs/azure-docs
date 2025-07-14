@@ -28,7 +28,7 @@ Brand registration is the process of registering your business as a recognized b
 
 To register a brand, you need to provide information such as your business’s name, tax ID, address, industry, and other identifying information. You can complete brand registration through the Azure Communication Services portal as described in [Apply for 10 digit long code (10DLC) brand registration and campaign registration](../../quickstarts/sms/apply-for-ten-digit-long-code.md).
 
-### What types of information are required for brand registration?
+### What type of information are required for brand registration?
 
 You need to provide:
 - Legal business name
@@ -40,7 +40,7 @@ You need to provide:
 
 ### Can I update my brand information after registration?
 
-This feature is currently not available.
+This feature is currently not available. You are advised to contact acstns@microsoft.com for further guidance.
 
 ### Is there a fee for brand registration?
 
@@ -54,13 +54,26 @@ Vetting is a review process to evaluate your brand’s trustworthiness and assig
 
 The vetting score is based on the information provided during brand registration and includes factors like industry reputation, message content, and business type. Scores range from 1-100, with higher scores resulting in higher messaging throughput limits.
 
-### What type of campaigns are supported?
+### What types of brands are supported?
 
-Currently, ACS supports **Standard campaigns** only. These campaigns are used for general business messaging, such as customer service notifications, account updates, and other informational messages that don't fall under special categories (for example, political or emergency services).
+ - **Standard:** For most businesses and organizations that have an EIN. Supports multiple campaigns and higher throughput.
+ - **Sole Proprietor:** For individuals or small businesses that don’t have an EIN (Employer Identification Number). Limited to 1 campaign and low message volume. Requires alternative identity verification like a mobile phone bill.
+
+### What types of campaigns are supported?
+
+Currently, Azure Communication Services supports:
+ - **Standard campaigns:** The most common campaign type for general A2P messaging, such as 2FA, alerts, marketing, or customer care.
+ - **Low Volume:** For limited or test messaging with low daily traffic. Ideal for small businesses or developers.
+ - **UCaaS (Low Volume):** A sub-type of Low Volume used by approved Unified Communications as a Service applications. Used when each phone number is tied to a human (e.g., employee texting).
+ - **Enhanced:** A higher-throughput campaign type for larger brands or automated communications. May require vetting.
+ - **Emergency:** For public safety alerts from government agencies, schools, or utilities. Strictly regulated.
+ - **Franchise:** For businesses with multiple locations or agents/franchisees sending similar but localized content. Requires disclosure of all sub-entities.
+ - **Charity:** For 501(c)(3) non-profit organizations sending service-related or fundraising messages. Requires proof of tax-exempt status.
+ - **Political:** Not supported at the moment.
 
 ### Can I update my campaign information?
 
-This feature is currently not available.
+This feature is currently not available. You are advised to contact acstns@microsoft.com for further guidance.
 
 ### Is there a fee for campaign registration?
 

@@ -7,6 +7,7 @@ ms.date: 04/08/2024
 ms.custom: MVC
 ms.author: jsuri
 author: jyothisuri
+# Customer intent: As a VMware administrator, I want to prepare on-premises VMware servers for disaster recovery to the cloud, so that I can ensure my VMs are protected and can be quickly restored in case of a disaster.
 ---
 # Prepare on-premises VMware servers for disaster recovery to Azure
 

@@ -10,6 +10,7 @@ ms.author: cherylmc
 
 #Note that Audience values are not sensitive data. 
 
+# Customer intent: As a network administrator, I want to configure a point-to-site VPN gateway for Microsoft Entra ID authentication, so that I can securely connect users to the virtual network using OpenVPN protocol.
 ---
 
 # Configure P2S VPN gateway for Microsoft Entra ID authentication – manually registered app

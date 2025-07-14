@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ---
 
-# Azure Resources Graph (ARG) GET/LIST API 
+# Azure Resources Graph (ARG) GET/LIST API (Preview)
 
 The ARG GET/LIST API is designed to significantly reduce READ throttling by offloading GET and LIST requests to an alternate ARG platform. This action is achieved through intelligent control plane routing, which directs requests to the alternate platform when a specific parameter is present. If the parameter is absent, requests are seamlessly routed back to the original Resource Provider, ensuring flexibility.
 
@@ -18,6 +18,8 @@ ARG GET/LIST provides a default quota of 4k per minute, user, and subscription, 
 
 > [!NOTE]
 > Keep in mind that the Azure Resource Manager quota applies to these calls. Read about the [Azure Resource Manager limits](../../../azure-resource-manager/management/request-limits-and-throttling.md#azure-resource-graph-throttling), which are the new limits that Azure Resource Manager follows for Azure Public cloud.  
+
+> [!VIDEO https://www.youtube.com/embed/h6ieZqCO_90]
 
 ## Using the ARG GET/LIST API 
 

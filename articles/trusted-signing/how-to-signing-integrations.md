@@ -1,8 +1,8 @@
 ---
 title: Set up signing integrations to use Trusted Signing 
 description: Learn how to set up signing integrations to use Trusted Signing.  
-author: microsoftshawarma 
-ms.author: rakiasegev 
+author: TacoTechSharma
+ms.author: mesharm 
 ms.service: trusted-signing
 ms.topic: how-to
 ms.date: 05/20/2024 

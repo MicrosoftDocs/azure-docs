@@ -6,6 +6,7 @@ ms.service: azure-backup
 ms.date: 01/30/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a DevOps engineer, I want to configure and manage Azure Backup for my AKS clusters so that I can ensure data protection and restore capabilities for my containerized applications."
 ---
 
 # Back up Azure Kubernetes Service by using Azure Backup

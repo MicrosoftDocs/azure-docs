@@ -2,7 +2,7 @@
 title: Create Elastic application
 description: This article describes how to use the Azure portal to create an instance of Elastic.
 ms.topic: quickstart
-ms.date: 03/18/2025
+ms.date: 07/01/2025
 
 
 
@@ -72,7 +72,7 @@ Select the **Next: Azure OpenAI configuration** button at the bottom of the page
 
 [!INCLUDE [review-create](../includes/review-create.md)]
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Manage Elastic resources](manage.md)

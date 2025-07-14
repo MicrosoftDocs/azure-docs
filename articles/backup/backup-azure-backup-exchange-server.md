@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 12/24/2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to configure backup for an Exchange server to Azure Backup using DPM, so that I can ensure data protection and recovery for my organization's email infrastructure."
 ---
 
 # Back up an Exchange server to Azure Backup with System Center 2012 R2 DPM
