@@ -31,7 +31,7 @@ To learn about how to deploy VMs to support your solution's reliability requirem
 
 VMs are the fundamental unit of compute in Azure. You can provision a VM yourself to run your own applications, or you can use other Azure compute services, many of which create and manage VMs transparently to you.
 
-An individual VM is sometimes called a *single instance VM*, and it runs in one place. Azure provides you the ability to control exactly where a VM runs, and to make tradeoffs between different factors like reliability and latency:
+An individual VM is sometimes called a *single instance VM*, and it runs in one place. Azure provides you with the ability to control exactly where a VM runs, and to make tradeoffs between different factors like reliability and latency:
 
 - **Region:** You can select which [Azure region](./regions-overview.md) your VM should run in.
 
@@ -41,7 +41,7 @@ An individual VM is sometimes called a *single instance VM*, and it runs in one 
 
     When you use availability sets, you can place different VMs in different [fault domains](/azure/virtual-machines/availability-set-overview#fault-domains). This distribution minimizes the risk of localized hardware failures by grouping virtual machines that share a common power source and network switch.
 
-    You can also place different VMs in different [update domains](/azure/virtual-machines/availability-set-overview#update-domains), which controls how the Azure platform rolls out upgrades. By using upgrade domains, you can ensure that only a subset of your VMs are restarted for updates at one time.
+    You can also place different VMs in different [update domains](/azure/virtual-machines/availability-set-overview#update-domains), which controls how the Azure platform rolls out upgrades. By using upgrade domains, you can ensure that only a subset of your VMs is restarted for updates at one time.
 
 - **Proximity placement groups:** For workloads that need to achieve the lowest possible latency between VMs, you can use a [proximity placement group](/azure/virtual-machines/co-location) to ensure Azure places the VMs physically close to each other. However, proximity placement means that an outage of the datacenter can affect all of the VMs in the group. To achieve high reliability you might need to provision multiple proximity placement groups in different availability zones.
 
