@@ -143,7 +143,7 @@ To add an artifact repo, complete the following tasks:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to your lab.
+1. Go to your lab.
 
 1. On the lab's **Overview** page, select **Configuration and policies** in the left pane.
 
