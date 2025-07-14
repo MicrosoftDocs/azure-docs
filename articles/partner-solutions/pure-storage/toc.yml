@@ -1,9 +1,9 @@
 items:
-- name: Azure Native Pure Storage Cloud (preview) Documentation
+- name: Azure Native Pure Storage Cloud Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Native Pure Storage Cloud (preview)?
+  - name: What is Azure Native Pure Storage Cloud?
     href: overview.md 
 - name: Quickstart
   expanded: true

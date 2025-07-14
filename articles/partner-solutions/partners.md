@@ -41,7 +41,7 @@ Subscribe to any Azure Native Integration through [Microsoft Azure Marketplace](
 | [Informatica](informatica/informatica-overview.md)| A comprehensive AI-powered cloud data management platform for data and application integration, data quality, data governance, and privacy and master data management.| 
 |  [Mongo DB Atlas (preview)](mongo-db/overview.md) | A fully managed document database with native vector search support for AI applications. |
 | [Neon Serverless Postgres](neon/overview.md)                |A serverless Postgres solution that leverages the principles of serverless computing to provide scalable and flexible database services. |
-| [Pure Storage Cloud (preview)](pure-storage/overview.md) |Pure Storage Cloud provides secure, efficient, and reliable block storage as a native managed service (STaaS). |
+| [Pure Storage Cloud](pure-storage/overview.md) |Pure Storage Cloud provides secure, efficient, and reliable block storage as a native managed service (STaaS). |
 |[Qumulo](qumulo/qumulo-overview.md)                          |  Use a multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.                                                                                                                                                                         | 
 
 ## Networking and security

@@ -1,12 +1,12 @@
 ---
-title: What is Azure Native Pure Storage Cloud (preview)?
-description: Discover Azure Native Pure Storage Cloud (preview), offering scalable and flexible enterprise-class cloud block storage with built-in capabilities via the Azure portal.
+title: What is Azure Native Pure Storage Cloud?
+description: Discover Azure Native Pure Storage Cloud, offering scalable and flexible enterprise-class cloud block storage with built-in capabilities via the Azure portal.
 author: ProfessorKendrick
 ms.author: kkendrick
 ms.topic: overview
 ms.date: 03/24/2025
 ---
-# What is Azure Native Pure Storage Cloud (preview)?
+# What is Azure Native Pure Storage Cloud?
 
 [!INCLUDE [what-is](../includes/what-is.md)]
 
@@ -27,7 +27,7 @@ Here are the key capabilities provided by the Pure Storage Cloud integration:
 - **Flexible volumes** - Multiple hosts can simultaneously access the same storage volume.
 - **Snapshots** - Quickly recover from data loss or corruption.
 
-## Subscribe to Azure Native Pure Storage Cloud (preview)
+## Subscribe to Azure Native Pure Storage Cloud
 
 You can [subscribe to Azure Native Pure Storage Cloud](https://azuremarketplace.microsoft.com/marketplace/apps/purestoragemarketplaceadmin.psc_contact_me?tab=Overview) in Azure Marketplace.
 
@@ -64,4 +64,4 @@ For more information, see [Pure Storage Cloud documentation](https://support.pur
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create an Azure Native Pure Storage Cloud (preview) resource](create.md)
+> [Quickstart: Create an Azure Native Pure Storage Cloud resource](create.md)
