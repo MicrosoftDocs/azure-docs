@@ -610,9 +610,11 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 
 ### Add-on versions available per each AKS cluster version
 
-#### 1.12.4
-Security improvements.
+#### 1.13.0
+EUDB request routing is not supported.
+Patch [CVE-2025-22874](https://nvd.nist.gov/vuln/detail/CVE-2025-22874).
 
+Security improvements.
 - Released July 2025
 - Kubernetes 1.27+
 - Gatekeeper 3.19.1
