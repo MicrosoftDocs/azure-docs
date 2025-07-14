@@ -8,7 +8,7 @@ ms.topic: faq
 ms.date: 07/11/2025
 ms.author: mbender
 ms.custom:
-  - reference_regions
+  - references_regions
   - build-2025
 ---
 
