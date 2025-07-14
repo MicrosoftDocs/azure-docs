@@ -6,7 +6,7 @@ ms.author: danlep
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-api-management
-ms.date: 07/08/2025
+ms.date: 07/14/2025
 ---
 
 # Reliability in Azure API Management
@@ -69,9 +69,9 @@ With automatic availability zone support, you can choose either a single unit or
 
 If you want to explicitly select the availability zones to use, you can choose between zone-redundant and zonal configurations:
 
-- *Zone-redundant*: Manually configure zone redundancy for an API Management instance in a supported region to provide redundancy for all service components, including the gateway, management plane, and developer portal. When you select two or more availability zones to use, Azure automatically replicates the service components across the selected zones.
+- *Zone-redundant*: Manually configure zone redundancy for an API Management instance in a supported region to provide redundancy for service components. In the primary region, these components include the gateway, management plane, and developer portal. In secondary regions, only the gateway is replicated. When you select two or more availability zones to use, Azure automatically replicates the service components across the selected zones.
 
-- *Zonal*: The API Management gateway and the control plane of your API Management instance (management API, developer portal, Git configuration) are deployed in a single zone that you select within an Azure region. All of the units are placed into the same availability zone.
+- *Zonal*: The API Management service components are deployed in a single zone that you select within an Azure region. All of the units are placed into the same availability zone.
 
     > [!IMPORTANT]
     > Pinning to a single availability zone is only recommended when [cross-zone latency](./availability-zones-overview.md#inter-zone-latency) is too high for your needs, and when you have verified that the latency doesn't meet your requirements. By itself, a zonal instance doesn’t provide resiliency to an availability zone outage. To improve the resiliency of a zonal API Management deployment, you need to explicitly deploy separate instances into multiple availability zones and configure traffic routing and failover.
@@ -91,11 +91,11 @@ You must use the Premium (classic) tier to configure availability zone support. 
 
 - **Number of units for zone-redundant instances:** If you manually configure zone redundancy for an instance, you also need to configure a number of API Management units that can be distributed evenly across all of your selected availability zones. For example, if you select two zones, you must configure at least two units. You can instead configure four units, or another multiple of two units. If you select three availability zones, you must configure three units, six units, or another multiple of three units.
 
-    If you simply default to the automatic availability zone support, there's no requirement to use a specific number of units. The units you deploy are distributed among the availability zones in a best-effort manner. For maximum zone redundancy, we recommend that you use at least three units to ensure that an availability zone outage doesn't affect your instance. 
+    If you simply use the automatic availability zone support, there's no requirement to use a specific number of units. The units you deploy are distributed among the availability zones in a best-effort manner. For maximum zone redundancy, we recommend that you use at least three units to ensure that an availability zone outage doesn't affect your instance. 
     
     To determine the number of units that provide your required gateway performance, use [capacity metrics](/azure/api-management/api-management-capacity) and your own testing. For more information about scaling and upgrading your service instance, see [Upgrade and scale an Azure API Management instance](/azure/api-management/upgrade-and-scale).
 
-- **Autoscaling:** If you manually configure availability zones on an API Management instance that's configured with autoscaling, you might need to adjust your autoscale settings after configuration. In this case, the number of API Management units in autoscale rules and limits must be a multiple of the number of zones. If you simply default to the automatic availability zone support, you don't need to adjust your autoscale settings. 
+- **Autoscaling:** If you manually configure availability zones on an API Management instance that's configured with autoscaling, you might need to adjust your autoscale settings after configuration. In this case, the number of API Management units in autoscale rules and limits must be a multiple of the number of zones. If you simply use the automatic availability zone support, you don't need to adjust your autoscale settings. 
 
 - **IP address requirements:** When you're enabling availability zone support on an API Management instance that's deployed in an external or internal virtual network, currently you must specify a public IP address resource for the instance to use. In an internal virtual network, the public IP address is used only for management operations, not for API requests. [Learn more about IP addresses of API Management](../api-management/api-management-howto-ip-addresses.md). 
 
@@ -110,7 +110,7 @@ This section explains how to configure availability zone support for your Azure 
 > [!NOTE]
 > [!INCLUDE [Availability zone numbering](./includes/reliability-availability-zone-numbering-include.md)]
 
-- **Create an API Management instance with availability zone support:** When you create a Premium (classic) API Management instance in a region that supports availability zones, by default it's created with automatic availability zone support. You can optionally select whether the instance is zonal or zone-redundant.
+- **Create an API Management instance with availability zone support:** When you create a Premium (classic) API Management instance in a region that supports availability zones, by default it's created with availability zone support. You can select automatic availability zone support or manually configure zonal or zone-redundant support.
 
 - **Enable or reconfigure availability zone support:** You can change the availability zone configuration for an API Management instance, including adding availability zones and moving a zonal instance between availability zones. To configure availability zone support on an API Management instance, see [Enable availability zone support on Azure API Management instances](../api-management/enable-availability-zone-support.md). There are no downtime requirements for any of the configuration options.
 
