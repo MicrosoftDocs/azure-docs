@@ -48,6 +48,7 @@ The new users need to follow the below steps:
 1. Ensure that you've [created a project](./create-manage-projects.md) with the Azure Migrate: Discovery and assessment tool added to it.
 1. Review the requirements based on your environment and the appliance you're setting up to perform agentless dependency analysis:
 
+
 |**Environment** | **Requirements**|
 |--- | --- |
 |Servers running in VMware environment | Review [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) <br/> <br/> Review [appliance requirements](migrate-appliance.md#appliance---vmware)<br/> <br/> Review [port access requirements](migrate-support-matrix-vmware.md#port-access-requirements) <br/> <br/> Review [agentless dependency analysis requirements](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless)|
