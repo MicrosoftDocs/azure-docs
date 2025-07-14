@@ -310,6 +310,14 @@
     href: /azure/azure-monitor/logs/create-custom-table-auxiliary?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Find data connector
     href: data-connectors-reference.md
+  - name: Manage data tiers
+    items:      
+    - name: Data management overview
+      href: manage-data-overview.md
+      displayName: table management, tiers, retention, manage data, tables
+    - name: Manage tables, tiers, and retention
+      href: manage-table-tiers-retention.md
+      displayName: table management, tiers, retention, tables  
   - name: Connection instructions by type
     items:
     - name: General instructions for Microsoft connectors
@@ -711,14 +719,7 @@
     href: soc-optimization/soc-optimization-reference.md
 - name: Manage Microsoft Sentinel
   items:
-  - name: Manage data
-    items:      
-    - name: Data management overview
-      href: manage-data-overview.md
-      displayName: table management, tiers, retention, manage data, tables
-    - name: Manage tables, tiers, and retention
-      href: manage-table-tiers-retention.md
-      displayName: table management, tiers, retention, tables
+
   - name: Manage costs and billing
     items:      
     - name: Monitor costs
