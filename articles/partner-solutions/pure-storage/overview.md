@@ -5,32 +5,37 @@ author: ProfessorKendrick
 ms.author: kkendrick
 ms.topic: overview
 ms.date: 07/14/2025
+ai-usage: ai-assisted
 ---
 # What is Azure Native Pure Storage Cloud?
 
-[!INCLUDE [what-is](../includes/what-is.md)]
+Azure Native Pure Storage Cloud is a jointly developed and managed enterprise-class cloud block storage service offered as an Azure Native Integration. [!INCLUDE [what-is](../includes/what-is.md)]
 
-Microsoft and Pure Storage Cloud developed this service and manage it together.
+## What is it used for?
 
-Access Azure Native Pure Storage Cloud from the [Azure portal](https://portal.azure.com).
+Azure Native Pure Storage Cloud is designed for organizations that require scalable, flexible, and high-performance block storage in the cloud.  
 
-This offering provides enterprise-class cloud block storage with built-in cloud capabilities powered by a common Purity operating environment. Pure Storage decouples storage and compute resources, which allows customers with large data footprints to optimize their cloud spend and avoid paying for unnecessary compute power.
+Typical use cases include:
 
-## Capabilities
+- Running large-scale databases and analytics platforms that demand consistent performance and low latency
+- Providing persistent storage for virtual machines and containerized applications in enterprise and cloud-native environments via Azure VMware Solution (AVS)
+- Ensuring business continuity and rapid data recovery
+- Reducing cloud costs by decoupling compute and storage resources for independent scaling and efficient resource utilization
 
-Here are the key capabilities provided by the Pure Storage Cloud integration:
+## Key Features
 
-- **Elastic capacity** - Pay for the capacity you use.
-- **Flexible performance** - Scale independently from capacity.
-- **Thin provisioning** - Allocate space dynamically.
-- **Instant resizing** - Adjust storage volumes without downtime or disruption.
-- **Flexible volumes** - Multiple hosts can simultaneously access the same storage volume.
-- **Snapshots** - Quickly recover from data loss or corruption.
+The following features distinguish Azure Native Pure Storage Cloud and support enterprise workloads and cloud-native operations:
 
-## Subscribe to Azure Native Pure Storage Cloud
+- **Elastic Capacity**: Dynamically scale storage up or down to match workload requirements and pay only for what you use.
+- **Flexible Performance**: Independently scale performance and capacity to optimize for specific application needs.
+- **Thin Provisioning**: Allocate storage space efficiently, reducing wasted capacity, and improving utilization.
+- **Instant Resizing**: Adjust storage volumes without downtime or disruption to applications.
+- **Snapshots**: Create point-in-time copies of data for rapid recovery from data loss or corruption.
+- **Compute and Storage Decoupling**: Decoupling compute and storage resources for independent scaling and efficent resource utilization.
 
-<!--TODO: remove before publish-->
-**NEW STEPS GO HERE**
+## Subscribe to Azure Native Pure Storage Cloud Preview
+
+
 
 ## Azure Native Pure Storage Cloud links
 
@@ -39,4 +44,4 @@ For more information, see [Pure Storage Cloud documentation](https://support.pur
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create an Azure Native Pure Storage Cloud resource](create.md)
+> [Create a resource](create.md)
