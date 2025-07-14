@@ -11,9 +11,9 @@ ms.topic: include file
 ms.author: kpunjabi
 ---
 
-## Websocket code sample
+## WebSocket code sample
 
-This sample demonstrates how to configure an OpenID Connect (OIDC) client to validate WebSocket connection requests using a JSON Web Token (JWT).
+This sample demonstrates how to configure an OIDC client to validate WebSocket connection requests by using a JWT.
 
 ```JavaScript
 const audience = "ACS resource ID";

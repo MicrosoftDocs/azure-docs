@@ -11,9 +11,9 @@ ms.topic: include file
 ms.author: kpunjabi
 ---
 
-## Websocket code sample
+## WebSocket code sample
 
-This sample demonstrates how to configure an OIDC-compliant client to validate WebSocket connection requests using JWT.
+This sample demonstrates how to configure an OIDC-compliant client to validate WebSocket connection requests by using a JWT.
 
 Make sure to install the required package:
 `pip install cryptography`

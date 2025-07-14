@@ -11,9 +11,9 @@ ms.topic: include file
 ms.author: kpunjabi
 ---
 
-## Websocket code sample
+## WebSocket code sample
 
-This sample code demonstrates how to authenticate WebSocket connection requests using JSON Web Token (JWT) tokens.
+This sample code demonstrates how to authenticate WebSocket connection requests by using JWT tokens.
 
 ```csharp
 // 1. Load OpenID Connect metadata
