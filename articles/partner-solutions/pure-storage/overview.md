@@ -29,7 +29,8 @@ Here are the key capabilities provided by the Pure Storage Cloud integration:
 
 ## Subscribe to Azure Native Pure Storage Cloud
 
-NEW STEPS GO HERE
+<!--TODO: remove before publish-->
+**NEW STEPS GO HERE**
 
 ## Azure Native Pure Storage Cloud links
 
