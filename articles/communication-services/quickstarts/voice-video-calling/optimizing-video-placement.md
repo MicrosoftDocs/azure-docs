@@ -191,7 +191,7 @@ The following table illustrates how video resolution changes based on the number
 > The GA version of the calling WebJS SDK allows for up to **16** incoming video streams for desktop browsers (4x4 grid).
 
 > [!NOTE]  
-> The public preview of the calling WebJS SDK currently supports up to **25** incoming video streams for desktop browsers (5x5 grid).
+> The public preview 1.37.1-beta.1 and greater of the calling WebJS SDK currently supports up to **25** incoming video streams for desktop browsers (5x5 grid).
 
 ## Conclusion
 
