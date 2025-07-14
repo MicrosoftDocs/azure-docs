@@ -1,5 +1,5 @@
 ---
-title: Develop for Azure NetApp Files with REST API using PowerShell | Microsoft Docs
+title: Develop for Azure NetApp Files with REST API using PowerShell
 description: Describes how to get started with the Azure NetApp Files REST API using PowerShell.
 services: azure-netapp-files
 author: b-hchen

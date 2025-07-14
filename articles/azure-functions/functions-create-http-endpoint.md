@@ -30,7 +30,7 @@ Choose your preferred programming language at the top of the article.
 > You should instead [develop your functions locally](functions-develop-local.md) and publish to a function app in Azure. Use one of the following links to get started with your chosen local development environment:
 >+ [Visual Studio](functions-create-your-first-function-visual-studio.md)
 >+ [Visual Studio Code](./create-first-function-vs-code-csharp.md)
->+ [Terminal/command prompt](./create-first-function-cli-csharp.md)
++ [Terminal/command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-csharp)
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
 >[!NOTE]
@@ -40,7 +40,7 @@ Choose your preferred programming language at the top of the article.
 >+ [Eclipse](functions-create-maven-eclipse.md)
 >+ [Gradle](functions-create-first-java-gradle.md)
 >+ [IntelliJ IDEA](functions-create-maven-intellij.md) 
->+ [Maven](create-first-function-cli-java.md)
++ [Maven](how-to-create-function-azure-cli.md?pivots=programming-language-java)
 >+ [Quarkus](functions-create-first-quarkus.md)
 >+ [Spring Cloud](/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json)
 >+ [Visual Studio Code](create-first-function-vs-code-java.md) 
@@ -49,13 +49,13 @@ Choose your preferred programming language at the top of the article.
 >[!NOTE]
 >Because of [development limitations in the Azure portal](functions-how-to-use-azure-function-app-settings.md#development-limitations-in-the-azure-portal), you should instead [develop your functions locally](functions-develop-local.md) and publish to a function app in Azure. Use one of the following links to get started with your chosen local development environment:
 >+ [Visual Studio Code](./create-first-function-vs-code-node.md)
->+ [Terminal/command prompt](./create-first-function-cli-node.md)
++ [Terminal/command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-javascript)
 ::: zone-end
 ::: zone pivot="programming-language-python"
 >[!NOTE]
 >Because of [development limitations in the Azure portal](functions-how-to-use-azure-function-app-settings.md#development-limitations-in-the-azure-portal), you should instead [develop your functions locally](functions-develop-local.md) and publish to a function app in Azure. Use one of the following links to get started with your chosen local development environment:
 >+ [Visual Studio Code](./create-first-function-vs-code-python.md)
->+ [Terminal/command prompt](./create-first-function-cli-python.md)
++ [Terminal/command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-python)
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 >[!NOTE]
@@ -63,13 +63,13 @@ Choose your preferred programming language at the top of the article.
 > 
 > You should instead [develop your functions locally](functions-develop-local.md) and publish to a function app in Azure. Use one of the following links to get started with your chosen local development environment:
 >+ [Visual Studio Code](./create-first-function-vs-code-typescript.md)
->+ [Terminal/command prompt](./create-first-function-cli-typescript.md)
++ [Terminal/command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-typescript)
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 >[!NOTE]
 >Because of [development limitations in the Azure portal](functions-how-to-use-azure-function-app-settings.md#development-limitations-in-the-azure-portal), you should instead [develop your functions locally](functions-develop-local.md) and publish to a function app in Azure. Use one of the following links to get started with your chosen local development environment:
 >+ [Visual Studio Code](./create-first-function-vs-code-powershell.md)
->+ [Terminal/command prompt](./create-first-function-cli-powershell.md)
++ [Terminal/command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-powershell)
 ::: zone-end 
 
 Please review the [known issues](./recover-python-functions.md#development-issues-in-the-azure-portal) for development of Azure Functions using Python in the Azure portal.

@@ -32,7 +32,7 @@
             href: create-first-function-vs-code-csharp.md
           - name: Command line
             displayName: C#, quickstart, get started
-            href: create-first-function-cli-csharp.md
+            href: how-to-create-function-azure-cli.md?pivots=programming-language-csharp
           - name: Azure Developer CLI
             displayName: C#, quickstart, get started, Flex Consumption plan
             href: create-first-function-azure-developer-cli.md?pivots=programming-language-csharp
@@ -49,7 +49,7 @@
             href: functions-create-maven-intellij.md
           - name: Maven
             displayName: Java, quickstart, get started
-            href: create-first-function-cli-java.md
+            href: how-to-create-function-azure-cli.md?pivots=programming-language-java
           - name: Quarkus
             displayName: Java, quickstart, get started
             href: functions-create-first-quarkus.md
@@ -69,7 +69,7 @@
             href: create-first-function-vs-code-node.md
           - name: Command line
             displayName: JavaScript, quickstart, get started
-            href: create-first-function-cli-node.md
+            href: how-to-create-function-azure-cli.md?pivots=programming-language-javascript
           - name: Azure Developer CLI
             displayName: JavaScript, quickstart, get started, Flex Consumption plan
             href: create-first-function-azure-developer-cli.md?pivots=programming-language-javascript
@@ -80,7 +80,7 @@
             href: create-first-function-vs-code-powershell.md
           - name: Command line
             displayName: PowerShell, quickstart, get started
-            href: create-first-function-cli-powershell.md
+            href: how-to-create-function-azure-cli.md?pivots=programming-language-powershell
           - name: Azure Developer CLI
             displayName: PowerShell, quickstart, get started, Flex Consumption plan
             href: create-first-function-azure-developer-cli.md?pivots=programming-language-powershell
@@ -91,7 +91,7 @@
             href: create-first-function-vs-code-python.md
           - name: Command line
             displayName: Python, quickstart, get started
-            href: create-first-function-cli-python.md
+            href: how-to-create-function-azure-cli.md?pivots=programming-language-python
           - name: Azure Developer CLI
             displayName: Python, quickstart, get started, Flex Consumption plan
             href: create-first-function-azure-developer-cli.md?pivots=programming-language-python
@@ -102,7 +102,7 @@
             href: create-first-function-vs-code-typescript.md
           - name: Command line
             displayName: TypeScript, quickstart, get started
-            href: create-first-function-cli-typescript.md
+            href: how-to-create-function-azure-cli.md?pivots=programming-language-typescript
           - name: Azure Developer CLI
             displayName: TypeScript, quickstart, get started, Flex Consumption plan
             href: create-first-function-azure-developer-cli.md?pivots=programming-language-typescript

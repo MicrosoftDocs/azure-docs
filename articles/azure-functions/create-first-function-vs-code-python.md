@@ -16,7 +16,7 @@ This article uses the Python v2 programming model for Azure Functions, which pro
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-There's also a [CLI-based version](create-first-function-cli-python.md) of this article.
+There's also a [CLI-based version](how-to-create-function-azure-cli.md?pivots=programming-language-python) of this article.
 
 This video shows you how to create a Python function in Azure using Visual Studio Code.
 > [!VIDEO a1e10f96-2940-489c-bc53-da2b915c8fc2]

@@ -26,12 +26,12 @@ As a Python developer, you might also be interested in these topics:
 
 ::: zone pivot="python-mode-configuration"
 + [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-configuration): Create your first Python app using Visual Studio Code.
-+ [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-configuration): Create your first Python app from the command prompt using Azure Functions Core Tools.
+ + [Terminal or command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-python,python-mode-configuration): Create your first Python app from the command prompt using Azure Functions Core Tools.
 + [Samples](/samples/browse/?products=azure-functions&languages=python): Review some existing Python apps in the Learn samples browser.  
 ::: zone-end  
 ::: zone pivot="python-mode-decorators"
 + [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-decorators): Create your first Python app using Visual Studio Code.
-+ [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-decorators): Create your first Python app from the command prompt using Azure Functions Core Tools.
+ + [Terminal or command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-python,python-mode-decorators): Create your first Python app from the command prompt using Azure Functions Core Tools.
 + [Samples](/samples/browse/?products=azure-functions&languages=python): Review some existing Python apps in the Learn samples browser.  
 ::: zone-end  
 ## [Scenarios](#tab/scenarios)
@@ -63,12 +63,12 @@ Both Python Functions programming models support local development in one of the
 Python v2 programming model:
 
 + [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-decorators)
-+ [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-decorators)
+ + [Terminal or command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-python,python-mode-decorators)
 
 Python v1 programming model:
 
 + [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-configuration)
-+ [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-configuration)
+ + [Terminal or command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-python,python-mode-configuration)
 
 You can also create Python functions in the Azure portal.
 

@@ -14,7 +14,7 @@ Get started with Service Connector by using the Azure portal to create a new ser
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- A Function App in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [create one](../azure-functions/create-first-function-cli-python.md).
+- A Function App in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [create one](../azure-functions/how-to-create-function-azure-cli.md?pivots=programming-language-python).
 
 ## Sign in to Azure
 
