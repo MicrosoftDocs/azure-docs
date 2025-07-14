@@ -37,7 +37,7 @@ These examples aren't meant to be exhaustive, but they illustrate how you can us
 
 ## Trigger and binding definitions
 
-Not all services support both input and output bindings. See your specific binding extension for [specific code examples for bindings](#bindings-code-examples).
+Not all services support both input and output bindings. See your specific binding extension for [specific code examples for bindings](#code-examples-for-bindings).
 
 Triggers and bindings are defined differently depending on the development language. Make sure to select your language at the [top](#top) of this article.
 
