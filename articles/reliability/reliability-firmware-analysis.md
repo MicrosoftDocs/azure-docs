@@ -1,13 +1,12 @@
 ---
-title: Reliability in firmware analysis #Required; Must be "Reliability in *your official service name*"
-description: Find out about reliability in Azure firmware analysis, including availability zones and multi-region deployments. #Required; 
-author: karenguo #Required; your GitHub user alias, with correct capitalization.
-ms.author: karenguo #Required; Microsoft alias of author; optional team alias.
-ms.topic: reliability-article #Required
-ms.custom: subject-reliability, references_regions #Required - use references_regions if specific regions are mentioned.
-ms.service: learn #Required replace with your service meta tag. For taxonomies see https://review.learn.microsoft.com/help/platform/metadata-taxonomies/msservice?branch=main
-ms.date: 7/11/2025 #Required; mm/dd/yyyy format.
-#Customer intent: As an engineer responsible for business continuity, I want to understand who need to understand the details of how [service-name] works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow during different kinds of situations. 
+title: Reliability in firmware analysis
+description: Find out about reliability in firmware analysis, including availability zones and multi-region deployments.
+author: karengu0
+ms.author: karenguo
+ms.topic: reliability-article
+ms.custom: subject-reliability, references_regions
+ms.service: azure
+ms.date: 7/11/2025
 
 ---
 
@@ -16,7 +15,7 @@ ms.date: 7/11/2025 #Required; mm/dd/yyyy format.
 Template for the main reliability guide for Azure services. 
 Keep the required sections and add/modify any content for any information specific to your service. 
 This guide should live in the reliability content area of azure-docs-pr.
-This guide should be linked to in your TOC, under a Reliability node or similar. The name of this page should be *reliability-[service-name].md* and the TOC title should be "Reliability in [service-name]". 
+This guide should be linked to in your TOC, under a Reliability node or similar. The name of this page should be *reliability-firmware analysis.md* and the TOC title should be "Reliability in firmware analysis". 
 Keep the following headings in the order shown below. 
 
 -->
@@ -34,10 +33,10 @@ IMPORTANT:
 -->
 
 <!-- 1. H1 -----------------------------------------------------------------------------
-Required: Uses the format "Reliability in [service-name]"
+Required: Uses the format "Reliability in firmware analysis"
 -->
 
-# Reliability in \[service-name\]
+# Reliability in firmware analysis
 
 
 <!-- 2. Introductory paragraph ---------------------------------------------------------
@@ -46,13 +45,13 @@ Required: Provide an introduction.
 The headline (H1) is the primary heading at the top of the guide. 
 
 
-Use the following format for the H1: "Reliability in [service-name]".
+Use the following format for the H1: "Reliability in firmware analysis".
 
 
 Use the following as the introduction:
 -->
 
-> This article describes reliability support in [service-name], covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
+> This article describes reliability support in firmware analysis, covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 >
 >Resiliency is a shared responsibility between you and Microsoft and so this article also covers ways for you to create a resilient solution that meets your needs.
 
@@ -81,7 +80,7 @@ TODO: Add your introductory content after the above paragraph.
 
 **Example:**
 
-By default, \[service-name\] achieves redundancy by spreading compute nodes and data throughout a single datacenter in the primary region. This approach protects your data in the event of a localized failure, such as a small-scale network or power failure, and even during the following events:
+By default, firmware analysis achieves redundancy by spreading compute nodes and data throughout a single datacenter in the primary region. This approach protects your data in the event of a localized failure, such as a small-scale network or power failure, and even during the following events:
 
 - Customer initiated management operations that result in a brief downtime.
 - Service maintenance operations.
@@ -123,7 +122,7 @@ It is important that you:
 
 **Example:**
  
->[service-name] can be configured to be zone redundant, which means your resources are spread across three availability zones. Zone redundancy helps you achieve resiliency and reliability for your production workloads.
+>Firmware analysis can be configured to be zone redundant, which means your resources are spread across three availability zones. Zone redundancy helps you achieve resiliency and reliability for your production workloads.
 
 <!--
 - For zonal services, clarify that pinning to a zone doesn't increase resiliency. The customer needs to explicitly deploy resources into multiple zones to improve resiliency. 
@@ -141,14 +140,14 @@ TODO: Region support
 If you support availability zones in all AZ-capable regions, state that here.
 -->
 
->Zone-redundant [service-name] resources can be deployed into any region that supports availability zones.
+>Zone-redundant firmware analysis resources can be deployed into any region that supports availability zones.
 
 <!--
  
 If you support all but a small number of AZ-capable regions, list the exceptions but not the full region list.
 -->
 
->Zone-redundant [service-name] resources can be deployed into any region that supports availability zones, except: 
+>Zone-redundant firmware analysis resources can be deployed into any region that supports availability zones, except: 
 >
 >- *XYZ*
 >- *ABC* 
@@ -223,9 +222,9 @@ DO NOT provide detailed how-to guidance in this article.
 
 Provide links to documents that show how to create a resource or instance with availability zone enabled. Ideally, the documents should contain examples using the Azure portal, Azure CLI, Azure PowerShell, and Bicep. Here are some examples of relevant link topics:
 
-- Create a [service-name] resource that uses availability zones
-- Disable availability zones for existing [service-name] resources
-- Migrate existing [service-name] resources to availability zone support
+- Create a firmware analysis resource that uses availability zones
+- Disable availability zones for existing firmware analysis resources
+- Migrate existing firmware analysis resources to availability zone support
 
 If your service does NOT support enabling availability zone support after deployment, add an explicit statement to indicate that. 
 
@@ -233,7 +232,7 @@ If your service does NOT support enabling availability zone support after deploy
 
 **Example:**
 
-Zone redundancy can be configured only when a new [service-name] resource is created. If you have an existing [service-name] resource that isn't zone-redundant, replace it with a new zone-redundant [service-name] resource. You can't convert an existing [service-name] resource to use availability zones.
+Zone redundancy can be configured only when a new firmware analysis resource is created. If you have an existing firmware analysis resource that isn't zone-redundant, replace it with a new zone-redundant firmware analysis resource. You can't convert an existing firmware analysis resource to use availability zones.
 
 ### Capacity planning and management 
 TODO: Optional. Add your capacity planning and management 
@@ -249,7 +248,7 @@ TODO: Optional. Add information about normal operations. Break the content down 
 <!-- 5G. Normal operations ----------------------------------------------------------
 Optional section.
  
-The following information describes what happens when you have a zone-redundant [service-name] and all availability zones are operational:
+The following information describes what happens when you have a zone-redundant firmware analysis and all availability zones are operational:
 
 - **Traffic routing between zones**. For zone-redundant services, explain how traffic typically gets passed between instances in availability zones. Common approaches are:
    - **Active/active.** Requests are spread across instances in every availability zone.
@@ -266,7 +265,7 @@ The following information describes what happens when you have a zone-redundant 
 
 **Example:**
 
-> - **Traffic routing between zones:** When you configure zone redundancy on [service-name], requests are automatically spread across the instances in each availability zone. A request might go to any instance in any availability zone.
+> - **Traffic routing between zones:** When you configure zone redundancy on firmware analysis, requests are automatically spread across the instances in each availability zone. A request might go to any instance in any availability zone.
 
 <!--
 
@@ -276,7 +275,7 @@ The following information describes what happens when you have a zone-redundant 
 
 **Example:**
 
->- **Traffic routing between zones:** When you deploy multiple [service-name] resources in different availability zones, you need to decide how to route traffic between those resources. Commonly, you use a zone-redundant Azure Load Balancer to send traffic to resources in each zone.
+>- **Traffic routing between zones:** When you deploy multiple firmware analysis resources in different availability zones, you need to decide how to route traffic between those resources. Commonly, you use a zone-redundant Azure Load Balancer to send traffic to resources in each zone.
 
 
 <!--
@@ -286,7 +285,7 @@ Most Azure services replicate data across zones synchronously, which means that 
 
 **Example:**
 
-> - **Data replication between zones:** When a client changes any data in your [service-name] resource, that change is applied to all instances in all zones simultaneously. This approach is called *synchronous replication.* Synchronous replication ensures a high level of data consistency, which reduces the likelihood of data loss during a zone failure. Availability zones are located relatively close together, which means there's minimal effect on latency or throughput.
+> - **Data replication between zones:** When a client changes any data in your firmware analysis resource, that change is applied to all instances in all zones simultaneously. This approach is called *synchronous replication.* Synchronous replication ensures a high level of data consistency, which reduces the likelihood of data loss during a zone failure. Availability zones are located relatively close together, which means there's minimal effect on latency or throughput.
 
 <!--
 Alternatively, some services replicate their data asynchronously, where changes are applied in a single zone and then propagated after some time to the other zones. Use wording similar to this to explain this approach and its tradeoffs.
@@ -294,7 +293,7 @@ Alternatively, some services replicate their data asynchronously, where changes 
 
 **Example:**
 
-> - **Data replication between zones:** When a client changes any data in your [service-name] resource, that change is applied to the primary zone. At that point, the write is considered to be complete. Later, the X resource in the secondary zone is automatically updated with the change. This approach is called *asynchronous replication.* Asynchronous replication ensures high performance and throughput. However, any data that hasn't been replicated between availability zones could be lost if the primary zone experiences a failure.
+> - **Data replication between zones:** When a client changes any data in your firmware analysis resource, that change is applied to the primary zone. At that point, the write is considered to be complete. Later, the X resource in the secondary zone is automatically updated with the change. This approach is called *asynchronous replication.* Asynchronous replication ensures high performance and throughput. However, any data that hasn't been replicated between availability zones could be lost if the primary zone experiences a failure.
 
 <!--
    Your service might behave differently to the examples provided above, so adjust or rewrite as much as you need. The accuracy and clarity of this information is critical to our customers, so please make sure you understand and explain the replication process thoroughly. 
@@ -312,7 +311,7 @@ Explain what happens when an availability zone is down. Be precise and clear. Av
 -->
 
 **Example:**
-> The [service-name] platform is responsible for detecting a failure in an availability zone. You don't need to do anything to initiate a zone failover.
+> The firmware analysis platform is responsible for detecting a failure in an availability zone. You don't need to do anything to initiate a zone failover.
 
 <!--   
 - **Notification**: Explain whether a customer can find out when a zone has been lost. Are there logs? Is there a way to set up an alert? 
@@ -348,7 +347,7 @@ Explain what happens when an availability zone is down. Be precise and clear. Av
 -->
 
 **Example:**
-> When a zone is unavailable, [service-name] detects the loss of the zone and creates new instances in another availability zone. Then, any new requests are automatically spread across all active instances.
+> When a zone is unavailable, firmware analysis detects the loss of the zone and creates new instances in another availability zone. Then, any new requests are automatically spread across all active instances.
 
 
 ### Failback
@@ -360,7 +359,7 @@ TODO: Add your failback
 
 **Example:**
 
-> When the availability zone recovers, [service-name] automatically restores instances in the availability zone, removes any temporary instances created in the other availability zones, and reroutes traffic between your instances as normal.
+> When the availability zone recovers, firmware analysis automatically restores instances in the availability zone, removes any temporary instances created in the other availability zones, and reroutes traffic between your instances as normal.
 
 
 <!--
@@ -387,7 +386,7 @@ For zone-redundant services, is there a way for the customer to test a zone fail
 
 **Example:**
  
-> The Azure [service-name] platform manages traffic routing, failover, and failback for zone-redundant X resources. You don't need to initiate anything. Because this feature is fully managed, you don't need to validate availability zone failure processes.
+> The Azure firmware analysis platform manages traffic routing, failover, and failback for zone-redundant X resources. You don't need to initiate anything. Because this feature is fully managed, you don't need to validate availability zone failure processes.
 
 
 ## Multi-region support
@@ -403,7 +402,7 @@ TODO: Add your multi-region support.
 
 **Example:**
 
->[service-name] can be configured to use multiple Azure regions. When you configure multi-region support, you select which region should be the primary region, and [service-name] automatically replicates changes in your data to each selected secondary region.
+>firmware analysis can be configured to use multiple Azure regions. When you configure multi-region support, you select which region should be the primary region, and firmware analysis automatically replicates changes in your data to each selected secondary region.
 
 <!--
 
@@ -413,7 +412,7 @@ For a single-region service, which means it's regionally deployed and has no dir
 
 **Example:**
 
->[service-name] is a single-region service. If the region is unavailable, your [service-name] resource is also unavailable.
+>firmware analysis is a single-region service. If the region is unavailable, your firmware analysis resource is also unavailable.
 
 
 >[!IMPORTANT]
@@ -482,9 +481,9 @@ For a single-region service, which means it's regionally deployed and has no dir
 
 **Example:**
 
-> To deploy a new multi-region [service-name] resource, see [Create an [service-name] resource with multi-region support].
+> To deploy a new multi-region firmware analysis resource, see [Create an firmware analysis resource with multi-region support].
 >
-> To enable multi-region support for an existing [service-name] resource, see [Enable multi-region support in an [service-name] resource]. 
+> To enable multi-region support for an existing firmware analysis resource, see [Enable multi-region support in an firmware analysis resource]. 
 
 <!--  
    If your service does NOT support enabling multi-region support after deployment, add an explicit statement to indicate that. 
@@ -533,7 +532,7 @@ TODO: Optional. Add information about normal operations. Break the content down 
 -->
 **Example:**
 
-> - **Data replication between zones:** When a client changes any data in your [service-name] resource, that change is applied to the primary region. At that point, the write is considered to be complete. Later, the X resource in the secondary region is automatically updated with the change. This approach is called *asynchronous replication.* Asynchronous replication ensures high performance and throughput. However, any data that wasn't replicated between regions could be lost if the primary region experiences a failure.
+> - **Data replication between zones:** When a client changes any data in your firmware analysis resource, that change is applied to the primary region. At that point, the write is considered to be complete. Later, the X resource in the secondary region is automatically updated with the change. This approach is called *asynchronous replication.* Asynchronous replication ensures high performance and throughput. However, any data that wasn't replicated between regions could be lost if the primary region experiences a failure.
 
 <!--   
 Alternatively, some services replicate their data synchronously which means that changes are applied to multiple (or all) regions simultaneously, and the change isn't considered to be completed until multiple/all regions have acknowledged the change. Use wording similar to the following to explain this approach and its tradeoffs:
@@ -541,7 +540,7 @@ Alternatively, some services replicate their data synchronously which means that
 
 **Example:**
    
-> - **Data replication between zones:** When a client changes any data in your [service-name] resource, that change is applied to all instances in all regions simultaneously. This approach is called *synchronous replication.* Synchronous replication ensures a high level of data consistency, which reduces the likelihood of data loss during a region failure. However, because all changes have to be replicated across regions that might be geographically distant, you might experience lower throughput or performance.
+> - **Data replication between zones:** When a client changes any data in your firmware analysis resource, that change is applied to all instances in all regions simultaneously. This approach is called *synchronous replication.* Synchronous replication ensures a high level of data consistency, which reduces the likelihood of data loss during a region failure. However, because all changes have to be replicated across regions that might be geographically distant, you might experience lower throughput or performance.
 
 <!--   
    Your service might behave differently to the examples provided above, so adjust or rewrite as much as you need. The accuracy and clarity of this information is critical to our customers, so please make sure you understand and explain the replication process thoroughly. 
@@ -563,7 +562,7 @@ Explain what happens when a region is down. Be precise and clear. Avoid ambiguit
 
 *For customer-initiated detection:*
 
-> [service-name] is responsible for detecting a failure in a region and automatically failing over to the secondary region.
+> firmware analysis is responsible for detecting a failure in a region and automatically failing over to the secondary region.
 
 
 *For service-initiated detection:*
@@ -604,14 +603,14 @@ Explain what happens when a region is down. Be precise and clear. Avoid ambiguit
 
 **Example:**
 
-> Your [service-name] resource might be unavailable for approximately 2 to 5 minutes during the region failover process.
+> Your firmware analysis resource might be unavailable for approximately 2 to 5 minutes during the region failover process.
 
 <!--
    - **Traffic rerouting** Explain how the platform recovers, including how traffic is rerouted to the surviving region. If appropriate, explain how customers should reroute traffic after a region is lost. 
 -->
 
 **Example:**
-> When a region failover occurs, [service-name] updates DNS records to point to the secondary region. All subsequent requests are sent to the secondary region.
+> When a region failover occurs, firmware analysis updates DNS records to point to the secondary region. All subsequent requests are sent to the secondary region.
 
 ### Failback
 TODO: Add your failback
@@ -624,7 +623,7 @@ TODO: Add your failback
 
 **Example:**
 
-> When the primary region recovers, [service-name] automatically restores instances in the region, removes any temporary instances created in the other regions, and reroutes traffic between your instances as normal.
+> When the primary region recovers, firmware analysis automatically restores instances in the region, removes any temporary instances created in the other regions, and reroutes traffic between your instances as normal.
 
 
 <!--
@@ -650,7 +649,7 @@ TODO: Add your failback
 
  **Example:**
 
-> The Azure [service-name] platform manages traffic routing, failover, and failback for multi-region X resources. You don't need to initiate anything. Because this feature is fully managed, you don't need to validate region failure processes.
+> The firmware analysis platform manages traffic routing, failover, and failback for multi-region X resources. You don't need to initiate anything. Because this feature is fully managed, you don't need to validate region failure processes.
 
 
 ### Alternative multi-region approaches 
@@ -662,7 +661,7 @@ Optional section.
 If the service does NOT have built-in multi-region support, are there approaches or patterns we can recommend that provide multi-region failover? These must be documented in the Azure Architecture Center. You can also provide multiple approaches if required. At least one of the approaches must work in non-paired regions. 
 
 
-If you need to use [service-name] in multiple regions, you need to deploy separate resources in each region. If you create an identical deployment in a secondary Azure region using a multi-region geography architecture, your application becomes less susceptible to a single-region disaster. When you follow this approach, you need to configure load balancing and failover policies. You also need to replicate your data across the regions so that you can recover your last application state. 
+If you need to use firmware analysis in multiple regions, you need to deploy separate resources in each region. If you create an identical deployment in a secondary Azure region using a multi-region geography architecture, your application becomes less susceptible to a single-region disaster. When you follow this approach, you need to configure load balancing and failover policies. You also need to replicate your data across the regions so that you can recover your last application state. 
 
 For example approaches that illustrates this architecture, see:
 
@@ -692,7 +691,7 @@ You must include the following caveat:
    The content should begin with:
 --> 
   
-> The service-level agreement (SLA) for [service-name] describes the expected availability of the service, and the conditions that must be met to achieve that availability expectation. For more information, see [link to SLA for [service-name]].
+> The service-level agreement (SLA) for firmware analysis describes the expected availability of the service, and the conditions that must be met to achieve that availability expectation. For more information, see [link to SLA for firmware analysis].
    
 <!--  
    You can then list conditions here in list or table form.

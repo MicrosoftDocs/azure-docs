@@ -25,6 +25,8 @@
   items:
   - name: Firmware analysis role-based access control
     href: firmware-analysis-rbac.md
+  - name: Reliability in firmware analysis
+    href: ../reliability/reliability-firmware-analysis.md
 - name: How-to guides
   items:
   - name: Automate firmware analysis using service principals
