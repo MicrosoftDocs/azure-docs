@@ -16,10 +16,11 @@ ms.custom: devx-track-azurepowershell
 
 Learn how to configure TLS/SSL policy versions and cipher suites on Application Gateway. You can select from a list of predefined policies that contain different configurations of TLS policy versions and enabled cipher suites. You also have the ability to define a [custom TLS policy](#configure-a-custom-tls-policy) based on your requirements.
 
+> [!IMPORTANT]
+> We recommend using TLS 1.2 as your minimum TLS protocol version for better security on your Application Gateway. Starting **August 31, 2025**, all clients and backend servers interacting with Azure Application Gateway must use Transport Layer Security (TLS) 1.2 or higher, as [support for TLS 1.0 and 1.1 will be discontinued](https://azure.microsoft.com/updates/azure-application-gateway-support-for-tls-10-and-tls-11-will-end-by-31-august-2025).
+
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-> [!NOTE]
-> We recommend using TLS 1.2 as your minimum TLS protocol version for better security on your Application Gateway. 
 
 ## Get available TLS options
 
