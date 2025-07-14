@@ -46,7 +46,7 @@ There's no extra cost to use zone redundancy for firmware analysis.
 
 ### Configure availability zone support
 
-**New resources:**  When you create firmware analysis resource (a workspace) in Azure, it automatically includes zone-redundancy by default. There's no need for you to perform any more configuration. 
+**New resources:**  When you create firmware analysis resources ([workspaces](../firmware-analysis/firmware-analysis-rbac.md#understanding-the-representation-of-firmware-images-in-the-azure-resource-hierarchy) are firmware analysis resources) in Azure, it automatically includes zone-redundancy by default. There's no need for you to perform any more configuration. 
 
 
 ### Zone-down experience
