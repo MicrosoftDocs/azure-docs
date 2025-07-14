@@ -24,6 +24,29 @@ For more information, see [Azure services with availability zones](availability-
 
 To learn about how to deploy VMs to support your solution's reliability requirements, and how reliability affects other aspects of your architecture, see [Architecture best practices for Azure Virtual Machines and scale sets in the Azure Well-Architected Framework](/azure/well-architected/service-guides/virtual-machines).
 
+## Reliability architecture overview
+
+VMs are the fundamental unit of compute in Azure. You can provision a VM yourself to run your own applications, or you can use other Azure compute services, many of which create and manage VMs transparently to you.
+
+A single VM runs in one place. Azure provides you the ability to control exactly where a VM runs, and to make tradeoffs between different factors like reliability and latency:
+
+- **Region:** You can select which [Azure region](./regions-overview.md) your VM should run in.
+
+- **Availability zone:** [Availability zones](/azure/reliability/availability-zones-overview) are physically separate groups of datacenters within each Azure region. [In regions that support availability zones](./availability-zones-overview.md), you can select which zone the VM runs in. To learn more, see [Availability zone support](#availability-zone-support) later in this article.
+
+- **Availability sets:** An availability set is a logical grouping of VMs that allows Azure to understand how your application is built to provide for redundancy and availability.
+
+    When you use availability sets, you can place different VMs in different [fault domains](/azure/virtual-machines/availability-set-overview#fault-domains). This distribution minimizes the risk of localized hardware failures by grouping virtual machines that share a common power source and network switch.
+
+    You can also place different VMs in different [update domains](/azure/virtual-machines/availability-set-overview#update-domains), which controls how the Azure platform rolls out upgrades. By using upgrade domains, you can ensure that only a subset of your VMs are restarted for updates at one time.
+
+- **Proximity placement groups:** For workloads that need to achieve the lowest possible latency between VMs, you can use a [proximity placement group](/azure/virtual-machines/co-location) to ensure Azure places the VMs physically close to each other. However, proximity placement means that an outage of the datacenter can affect all of the VMs in the group. To achieve high reliability you might need to provision multiple proximity placement groups in different availability zones.
+
+- **Dedicated hosts:** You can use [Azure Dedicated Hosts](/azure/virtual-machines/dedicated-hosts) to provision your own physical server that runs one or more VMs. When you provision a dedicated host, an outage in the datacenter can affect all of the VMs on that host. To achieve high reliability you might need to provision multiple dedicated hosts in different availability zones.
+
+If you're creating a set of VMs that perform similar functions, consider using virtual machine scale sets to create and manage the VMs as a group. Scale sets also provide more reliability options, such as spreading the VMs across multiple availability zones for you.
+
+To learn more about availability for VMs, see [Availability options for Azure Virtual Machines](/azure/virtual-machines/availability).
 
 ## Transient faults
 
