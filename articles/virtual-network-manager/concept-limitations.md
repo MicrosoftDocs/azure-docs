@@ -33,9 +33,9 @@ This article provides an overview of the current limitations when you're using [
 
 * A virtual network can be peered with up to 1,000 virtual networks using Azure Virtual Network Manager's hub-and-spoke connectivity configuration, meaning you can peer up to 1,000 spoke virtual networks to a hub virtual network.
 
-* By default, a [connected group](concept-connectivity-configuration.md#connected-group) can have up to 250 virtual networks. This default is a soft limit and can be increased up to 1,000 virtual networks by submitting a request using [this form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbRzeHatNxLHpJshECDnD5QidURTM2OERMQlYxWkE1UTNBMlRNUkJUNkhDTy4u&route=shorturl).
+* By default, a [connected group](concept-connectivity-configuration.md#behind-the-scenes-connected-group) can have up to 250 virtual networks. This default is a soft limit and can be increased up to 1,000 virtual networks by submitting a request using [this form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbRzeHatNxLHpJshECDnD5QidURTM2OERMQlYxWkE1UTNBMlRNUkJUNkhDTy4u&route=shorturl).
 
-* By default, a virtual network can be part of up to two [connected groups](concept-connectivity-configuration.md#connected-group). For example, a virtual network:
+* By default, a virtual network can be part of up to two [connected groups](concept-connectivity-configuration.md#behind-the-scenes-connected-group). For example, a virtual network:
   * Can be part of two mesh connectivity configurations.
   * Can be part of a mesh connectivity configuration and a spoke network group that has direct connectivity enabled in a hub-and-spoke connectivity configuration.
   * Can be part of two spoke network groups with direct connectivity enabled in the same or different hub-and-spoke connectivity configurations.
@@ -48,7 +48,7 @@ This article provides an overview of the current limitations when you're using [
   * [Oracle Database@Azure](../oracle/oracle-db/oracle-database-what-is-new.md)
   * [Azure Payment HSM](/azure/payment-hsm/solution-design)
 
-* By default, the maximum number of private endpoints per connected group is 1,000. You can increase this limit in select regions through a preview feature [enabling high-scale private endpoints in connected groups](./concept-connectivity-configuration.md#enable-high-scale-private-endpoints-connected-groups-in-azure-virtual-network-manager).
+* By default, the maximum number of private endpoints per connected group is 1,000. You can increase this limit in select regions through a preview feature [enabling high-scale private endpoints in connected groups](./concept-connectivity-configuration.md#enable-high-scale-private-endpoints-in-azure-virtual-network-manager-connected-groups).
 
 * You can have virtual networks with overlapping IP spaces in the same connected group. However, communication to an overlapped IP address is dropped.
 
