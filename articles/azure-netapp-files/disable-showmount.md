@@ -1,11 +1,11 @@
 ---
-title: Disable showmount in Azure NetApp Files | Microsoft Docs
+title: Disable showmount in Azure NetApp Files 
 description: Showmount on NFS clients has historically been how users can see exported file systems on an NFS server. You can disable the showmount if it presents a security concern for your needs.
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 03/16/2023
+ms.date: 03/16/2025
 ms.author: anfdocs
 # Customer intent: "As a cloud administrator, I want to disable the showmount functionality in Azure NetApp Files, so that I can enhance security by preventing unauthorized users from viewing exported file systems."
 ---
