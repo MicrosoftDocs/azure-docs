@@ -24,7 +24,7 @@ This article shows how to add an artifact repository to your lab by using the Az
 
 ## Add an artifact repo by using the Azure portal
 
-You can add an artifact repo from an Azure Repos repository or a GitHub repository. You can choose to authenticate by assigning permissions to a managed identity, by using GitHub app authentication, or by using a PAT.
+You can add an artifact repo from an Azure Repos repository or a GitHub repository. You can choose to authenticate by assigning permissions to a managed identity or by using a PAT.
 To learn more about managed identities, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
 
 Select the tab for the type of repository and authentication you want to use.
@@ -131,7 +131,7 @@ The repository now appears in the **Repositories** list for the lab.
 
 The repository now appears in the **Repositories** list for the lab.
 
-## [GitHub repo Dev Center app](#tab/GitHubRepoApp/)
+## [GitHub repo with managed identities](#tab/GitHubRepoApp/)
 
 To add an artifact repo, complete the following tasks:
 
@@ -155,10 +155,9 @@ To add an artifact repo, complete the following tasks:
 
    - **Name**: A repository name to use in the lab.
    - **Git clone URL**: The Git HTTPS clone URL from GitHub or Azure Repos.
+   - **Authentication type**: **Managed ideintity**.  
 
-1. To install the Microsoft Dev Center app, select **Microsoft DevCenter GitHub app**.
-
-   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-repo-select-github-app.png" alt-text="Screenshot that shows the feilds for adding a repo and the link for downloading the Dev Center GitHub app." lightbox="media/devtest-lab-add-repo/devtestlab-repo-select-github-app.png":::
+   :::image type="content" source="media/devtest-lab-add-repo/devtestlab-repo-select-github-app.png" alt-text="Screenshot that shows the feilds for adding a repo." lightbox="media/devtest-lab-add-repo/devtestlab-repo-select-github-app.png":::
 
 1. If you're prompted to authenticate to GitHub, authenticate.
  
