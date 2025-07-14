@@ -294,7 +294,7 @@ To change the front-end Web server that MABS uses to protect the farm, follow th
 
 1. On *Server2*, at a command prompt, change the directory to `_MABS installation location_\bin\` and run **ConfigureSharepoint**.
 
-   For more information about ConfigureSharePoint, see [Configure backup](#configure-the-backup).
+   For more information about ConfigureSharePoint, see [Configure backup](#configure-sharepoint-farm-backup).
 
 1. Select the protection group that the server farm belongs to, and then select **Modify protection group**.
 
