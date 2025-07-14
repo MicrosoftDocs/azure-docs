@@ -112,7 +112,7 @@ Use the following steps to onboard to the Microsoft Sentinel data lake from the 
     :::image type="content" source="./media/sentinel-lake-onboarding/setup-started.png" lightbox="./media/sentinel-lake-onboarding/setup-started.png" alt-text="A screenshot showing the progress of the onboarding process.":::
 
 
-1. While the setup process is running, the following banner is displayed on the Defender portal home page. You can select the button to re-open the panel to check progress. 
+1. While the setup process is running, the following banner is displayed on the Defender portal home page. You can select **View setup details** to re-open the panel to check progress. 
  
     :::image type="content" source="./media/sentinel-lake-onboarding/onboarding-in-progress.png" lightbox="./media/sentinel-lake-onboarding/onboarding-in-progress.png" alt-text="A screenshot showing the onboarding in progress banner.":::
 
