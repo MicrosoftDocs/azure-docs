@@ -124,5 +124,5 @@ resource asev3 'Microsoft.Web/hostingEnvironments@2020-12-01' = {
 
 ## Related content
 - [Create an App Service Environment](creation.md)
-- [Configure App Service plans for reliability](../configure-reliability.md)
+- [Configure App Service plans for reliability](../configure-zone-redundancy.md)
 - [Reliability in Azure App Service](../../reliability/reliability-app-service.md)
