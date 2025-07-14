@@ -24,6 +24,14 @@ In this quickstart, you use the Azure portal to integrate an instance of Elastic
 
 [!INCLUDE [create-resource](../includes/create-resource.md)]
 
+# [Elastic Search](#tab/elastic-search)
+
+# [Elastic Observability](#tab/elastic-observability)
+
+# [Elastic Security](#tab/elastic-security)
+
+---
+
 ### Basics tab
 
 The *Basics* tab has one section:
