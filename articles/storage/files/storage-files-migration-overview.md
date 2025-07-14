@@ -52,7 +52,7 @@ File fidelity in a migration can be defined as the ability to:
 - Transfer files with the migration tool.
 - Store files in the target storage of the migration. </br> The target for migration guides in this article is one or more Azure file shares. Consider this [list of features that SMB Azure file shares don't support](files-smb-protocol.md#limitations).
 
-To ensure your migration proceeds smoothly, identify [the best copy tool for your needs](#migration-toolbox) and match a storage target to your source.
+To ensure your migration proceeds smoothly, identify [the best copy tool for your needs](#migration-guides) and match a storage target to your source.
 
 > [!IMPORTANT]
 > If you're migrating on-premises file servers to Azure Files, set the ACLs for the root directory of the file share **before** copying a large number of files, as changes to permissions for root ACLs can take a long time to propagate if done after a large file migration.
@@ -163,7 +163,7 @@ A scenario without a link doesn't yet have a published migration guide. Check th
 | Linux (SMB) | <ul><li>NA</li></ul> | <ul><li>Via [Azure Storage Mover](migrate-files-storage-mover.md)</li></ul> |
 | Network-attached storage (NAS) | <ul><li>Via [Storage Mover upload](migrate-files-storage-mover.md) + [Azure File Sync](../file-sync/file-sync-deployment-guide.md)</li><li>[Via Azure File Sync upload](storage-files-migration-nas-hybrid.md)</li><li>[Via DataBox + Azure File Sync](storage-files-migration-nas-hybrid-databox.md)</li></ul> | <ul><li>Via [Azure Storage Mover](migrate-files-storage-mover.md)</li><li>[Via DataBox](storage-files-migration-nas-cloud-databox.md)</li><li>[Via RoboCopy to a mounted Azure file share](storage-files-migration-robocopy.md)</li></ul> |
 
-### File-copy tools
+### Select a file-copy tool
 
 To select the right tool for your migration scenario, consider these fundamental questions:
 

@@ -44,7 +44,7 @@ An example: *RoboCopy /MIR* will mirror source to target - that means added, cha
 Before you can use RoboCopy, you need to make the Azure file share accessible over SMB. The easiest way is to mount the share as a local network drive to the Windows Server you're planning on using for RoboCopy.
 
 > [!IMPORTANT]
-> Make sure you mount the Azure file share using the storage account access key. Don't use a domain identity. Before you can successfully mount an Azure file share to a local Windows Server, you need to have completed [Phase 2: Preparing to use Azure file shares](#phase-2-preparing-to-use-azure-file-shares).
+> Mount the Azure file share using the storage account access key. Don't use a domain identity.
 
 Once you're ready, review [Use an Azure file share with Windows](storage-how-to-use-files-windows.md). Then mount the Azure file share you want to start the RoboCopy for.
 
