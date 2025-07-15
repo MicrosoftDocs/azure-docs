@@ -324,6 +324,7 @@ New-AzConfigurationAssignment `
    -MaintenanceConfigurationId "configID"
 ```
 ---
+
 ## Remove machine from the schedule
 
 To remove a machine from the schedule, get all the configuration assignment names for the machine that you have created to associate the machine with the current schedule from the Azure Resource Graph as listed:
@@ -354,6 +355,7 @@ After you obtain the name from above, delete the configuration assignment by fol
 ```rest
 DELETE on `<ARC or Azure VM resourceId>/providers/Microsoft.Maintenance/configurationAssignments/<configurationAssignment name>?api-version=2021-09-01-preview`
 ```
+---
 
 ## Next steps
 
