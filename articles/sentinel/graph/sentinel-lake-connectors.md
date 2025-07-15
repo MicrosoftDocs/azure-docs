@@ -12,7 +12,7 @@ ms.author: edbaynash
 ms.collection: ms-security  
 ---  
 
-# Set up connectors for the Microsoft Sentinel data lake (Preview)
+# Set up connectors for the Microsoft Sentinel data lake (preview)
 
 The Microsoft Sentinel data lake mirrors data from Microsoft Sentinel workspaces. When you onboard to Microsoft Sentinel data lake, your existing Microsoft Sentinel data connectors are configured to send data to both the analytics tier - your Microsoft Sentinel workspaces, and mirror the data to the data lake tier for longer term storage. After onboarding, configure your connectors to retain data in each tier according to your requirements.   
 

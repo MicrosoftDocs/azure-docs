@@ -15,7 +15,7 @@ ms.subservice: sentinel-graph
 # Onboarding to Microsoft Sentinel data lake (preview)
 
 
-The Microsoft Sentinel data lake (preview), available in the Microsoft Defender portal, is a tenant-wide, repository for collecting, storing, and managing large volumes of security-related data from various sources. It enables comprehensive, unified analysis and visibility across your security landscape. By leveraging advanced analytics, machine learning, and artificial intelligence, the data lake helps in detecting threats, investigating and responding to incidents, and improving overall security posture. 
+The Microsoft Sentinel data lake, available in the Microsoft Defender portal, is a tenant-wide, repository for collecting, storing, and managing large volumes of security-related data from various sources. It enables comprehensive, unified analysis and visibility across your security landscape. By leveraging advanced analytics, machine learning, and artificial intelligence, the data lake helps in detecting threats, investigating and responding to incidents, and improving overall security posture. 
 
 For more information, see [What is Microsoft Sentinel data lake (preview)](sentinel-lake-overview.md).
 

@@ -19,9 +19,8 @@ ms.collection: usx-security
 This article highlights log sources to consider configuring as data lake tier only when enabling a connector. Before choosing a tier for which to configure a given table, check which tier is most appropriate for your use case. For more information about data categories and data tiers, see [Log retention plans in Microsoft Sentinel](log-plans.md).
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
- 
->[!NOTE]
->The Microsoft Sentinel data lake is currently in preview. See [Supplemental Terms of Use for Microsoft Azure Previews](/support/legal/preview-supplemental-terms) for additional legal terms that apply to Azure features that are in preview or otherwise not yet released into general availability.
+
+[!INCLUDE [sentinel-lake-preview](includes/sentinel-lake-preview.md)]
 
 ## Storage access logs for cloud providers
 

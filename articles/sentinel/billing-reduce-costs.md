@@ -53,8 +53,7 @@ Microsoft Sentinel analyzes all the data ingested into Microsoft Sentinel-enable
 
 While the analytics tier is most appropriate for continuous, real-time threat detection, the Microsoft Sentinel data lake is well-suited for query and analytics of secondary security data that is not needed for real time threat detection. Microsoft Sentinel data lake offers ingestion and storage at a significantly reduced cost. For more information, see [Microsoft Sentinel Pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
->[!NOTE]
->The Microsoft Sentinel data lake is currently in Public Preview.
+[!INCLUDE [sentinel-lake-preview](includes/sentinel-lake-preview.md)]
 
 ## Optimize Log Analytics costs with dedicated clusters
 

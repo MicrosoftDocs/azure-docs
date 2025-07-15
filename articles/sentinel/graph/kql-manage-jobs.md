@@ -48,28 +48,12 @@ To create a job, select **Create new job**. For more information on creating job
 
 ### Job details
 
-To see a job's details, select a job. The job detail panel opens, showing the following information:
+To see a job's details, select the job from the table.
 
-- **Job name**: The name of the job.
-- **Job description**: A description of the job, providing context and purpose.
-- **Job type**: The type of job, either a KQL query job or a notebook job.
-- **Job status**: The status of the job, either enabled or disabled.
-- **Run status**: The status of the last run of the job.  Status values are:
-    - `Succeeded`
-    - `Failed`
-    - `In progress`
-    - `Queued` - The job is queued and waiting to run when resources are available.
-- **Repeat frequency**: The frequency at which the job runs, such as daily, weekly, or monthly.
-- **Destination table**: The table in the analytics tier where the job results are written to.
-<!-- **Destination workspace**: The workspace in the analytics tier where the job results are written to -->
-- **Job start on (UTC)**: The date and time in UTC when the job is first scheduled to start.
-- **Target tier**: The destination tier of the job's results, such as data lake or analytics tier.
-- **Date range**: The date range set for the query. 
-- **KQL query**: The KQL query that the job runs.
+:::image type="content" source="media/kql-manage-jobs/manage-job-details.png" alt-text="A screenshot showing the job details page." lightbox="media/kql-manage-jobs/manage-job-details.png":::
 
-    :::image type="content" source="media/kql-manage-jobs/manage-job-details.png" alt-text="A screenshot showing the job details page." lightbox="media/kql-manage-jobs/manage-job-details.png":::
-
-Select the **Destination table** link to open the table in the KQL query editor in Advanced hunting. The query can be copied by selecting **Copy query**.  
+Select the **Destination table** link to open the table in the KQL query editor in Advanced hunting.  
+The query can be copied by selecting **Copy query**.  
 
 ### Edit a job
 
@@ -102,7 +86,7 @@ To delete a job, select  **Delete** in the job details panel. A confirmation dia
 
 ## Considerations and limitations
 
-For  information on considerations and limitations when managing KQL jobs in the Microsoft Sentinel data lake, see [KQL jobs](kql-jobs.md#considerations-and-limitations).
+For information on considerations and limitations when managing KQL jobs in the Microsoft Sentinel data lake, see [KQL jobs](kql-jobs.md#considerations-and-limitations).
 
 ## Next steps
 
