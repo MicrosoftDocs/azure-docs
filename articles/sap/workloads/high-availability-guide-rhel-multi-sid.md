@@ -86,6 +86,7 @@ Before you begin, refer to the following SAP Notes and papers:
 * Azure-specific RHEL documentation:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [What is the fast_stop option for a Filesystem resource in a Pacemaker cluster?] (https://access.redhat.com/solutions/4801371)
 * [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]
 
 ## Overview
@@ -209,7 +210,7 @@ This article assumes that:
 
     ```cmd
     sudo pcs resource create fs_NW2_ASCS Filesystem device='10.42.0.4:/sapMSIDR/usrsapNW2ascs' \
-    directory='/usr/sap/NW2/ASCS10' fstype='nfs' force_unmount=safe \
+    directory='/usr/sap/NW2/ASCS10' fstype='nfs' force_unmount=safe fast_stop=no \
     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
      --group g-NW2_ASCS
 
@@ -221,7 +222,7 @@ This article assumes that:
      --group g-NW2_ASCS
 
     sudo pcs resource create fs_NW3_ASCS Filesystem device='10.42.0.4:/sapMSIDR/usrsapNW3ascs' \
-    directory='/usr/sap/NW3/ASCS20' fstype='nfs' force_unmount=safe \
+    directory='/usr/sap/NW3/ASCS20' fstype='nfs' force_unmount=safe fast_stop=no \
     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
     --group g-NW3_ASCS
 
@@ -253,7 +254,7 @@ This article assumes that:
 
     ```cmd
     sudo pcs resource create fs_NW2_AERS Filesystem device='10.42.0.4:/sapMSIDR/usrsapNW2ers' \
-    directory='/usr/sap/NW2/ERS12' fstype='nfs' force_unmount=safe \
+    directory='/usr/sap/NW2/ERS12' fstype='nfs' force_unmount=safe fast_stop=no \
     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
      --group g-NW2_AERS
 
@@ -265,7 +266,7 @@ This article assumes that:
      --group g-NW2_AERS
 
     sudo pcs resource create fs_NW3_AERS Filesystem device='10.42.0.4:/sapMSIDR/usrsapNW3ers' \
-    directory='/usr/sap/NW3/ERS22' fstype='nfs' force_unmount=safe \
+    directory='/usr/sap/NW3/ERS22' fstype='nfs' force_unmount=safe fast_stop=no \
     op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
      --group g-NW3_AERS
 
