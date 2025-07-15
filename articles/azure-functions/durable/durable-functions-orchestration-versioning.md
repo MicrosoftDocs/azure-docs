@@ -40,9 +40,9 @@ The Orchestration Versioning feature operates on these core principles:
 
 1. **Version-aware Execution**: Orchestrator function code can examine the version value associated with the current orchestration instance and branch execution accordingly.
 
-1. **Backward Compatibility**: Workers running newer versions can continue executing orchestration instances created by older versions.
+2. **Backward Compatibility**: Workers running newer orchestrator versions can continue executing orchestration instances created by older orchestrator versions.
 
-1. **Forward Protection**: The runtime automatically prevents workers running older versions from executing newer version orchestrations.
+3. **Forward Protection**: The runtime automatically prevents workers running older orchestrator versions from executing orchestrations with newer versions.
 
 > [!IMPORTANT]
 > Orchestration Versioning is currently in public preview for apps running in the .NET isolated model. Use `Microsoft.Azure.Functions.Worker.Extensions.DurableTask` package version **>=1.5.0**.
@@ -50,7 +50,7 @@ The Orchestration Versioning feature operates on these core principles:
 
 ## Basic usage
 
-The most common use case for Orchestration Versioning is when you need to make breaking changes to your orchestrator logic while keeping existing in-flight orchestration instances running with their original version. All you need to do is update the `defaultVersion` in your `host.json` and modify your orchestrator code to check the version and branch execution accordingly. Let's walk through the required steps.
+The most common use case for Orchestration Versioning is when you need to make breaking changes to your orchestrator logic while keeping existing in-flight orchestration instances running with their original version. All you need to do is update the `defaultVersion` in your `host.json` and modify your orchestrator code to check the orchestration version and branch execution accordingly. Let's walk through the required steps.
 
 ### Step 1: defaultVersion Configuration
 
@@ -76,10 +76,10 @@ After you set the `defaultVersion`, all new orchestration instances will be perm
 
 ### Step 2: Orchestrator Function Logic
 
-To implement version-aware logic in your orchestrator function, you can use the context parameter passed to the orchestrator to access the current orchestration instance's version, which allows you to branch your orchestration logic based on the version.
+To implement version-aware logic in your orchestrator function, you can use the context parameter passed to the orchestrator to access the current orchestration instance's version, which allows you to branch your orchestrator logic based on the version.
 
 > [!IMPORTANT]
-> When implementing version-aware logic, it's **critically important** to preserve the exact orchestration logic for older versions. Any changes to the sequence, order, or signature of activity calls for existing versions may break deterministic replay and cause in-flight orchestrations to fail or produce incorrect results. The old version code paths must remain unchanged once deployed.
+> When implementing version-aware logic, it's **critically important** to preserve the exact orchestrator logic for older versions. Any changes to the sequence, order, or signature of activity calls for existing versions may break deterministic replay and cause in-flight orchestrations to fail or produce incorrect results. The old version code paths must remain unchanged once deployed.
 
 # [C# (Isolated)](#tab/csharp-isolated)
 
@@ -240,11 +240,11 @@ The `versionMatchStrategy` setting determines how the runtime matches orchestrat
 
 **Available strategies:**
 
-- **`None`**: Ignore orchestration version completely. All work received is processed regardless of version. This strategy effectively disables version checking and allows any worker to process any orchestration instance.
+- **`None`**: Ignore orchestration version completely. All work received is processed regardless of version. This strategy effectively disables version checking and allows any worker to process any orchestration instance (not recommended).
 
-- **`Strict`**: Only process tasks from orchestrations with the exact same version as the worker. This strategy provides the highest level of version isolation but requires careful deployment coordination to avoid orphaned orchestrations.
+- **`Strict`**: Only process tasks from orchestrations with the exact same version as the version specified by `defaultVersion` in the worker's `host.json`. This strategy provides the highest level of version isolation but requires careful deployment coordination to avoid orphaned orchestrations.
 
-- **`CurrentOrOlder`** (default): Process tasks from orchestrations whose version is less than or equal to the worker's version. This strategy enables backward compatibility, allowing newer workers to handle orchestrations started by older versions while preventing older workers from processing newer orchestrations.
+- **`CurrentOrOlder`** (default): Process tasks from orchestrations whose version is less than or equal to the version specified by `defaultVersion` in the worker's `host.json`. This strategy enables backward compatibility, allowing newer workers to handle orchestrations started by older orchestrator versions while preventing older workers from processing newer orchestrations.
 
 **Version comparison for `CurrentOrOlder` strategy:**
 
@@ -360,8 +360,8 @@ Over time, you may want to remove legacy code paths from your orchestrator funct
 - **Issue**: Orchestration instances created with version 1.0 are failing after deploying version 2.0
    - **Solution**: Ensure the version 1.0 code path in your orchestrator remains exactly the same. Any changes to the execution sequence may break deterministic replay.
 
-- **Issue**: Workers running older version can't execute new orchestrations
-   - **Solution**: This is expected behavior. The runtime intentionally prevents older workers from executing newer orchestrations to maintain safety. Ensure all workers are updated to the latest version. You can modify this behavior if needed using the advanced configuration options (see [Advanced usage](#advanced-usage) for details).
+- **Issue**: Workers running older orchestrator versions can't execute new orchestrations
+   - **Solution**: This is expected behavior. The runtime intentionally prevents older workers from executing orchestrations with newer versions to maintain safety. Ensure all workers are updated to the latest orchestrator version and their `defaultVersion` setting in `host.json` is updated accordingly. You can modify this behavior if needed using the advanced configuration options (see [Advanced usage](#advanced-usage) for details).
 
 - **Issue**: Version information isn't available in orchestrator (`context.Version` is null, regardless of the `defaultVersion` setting)
    - **Solution**: Verify that you're using a supported language and a Durable Functions extension version that supports Orchestration Versioning:
