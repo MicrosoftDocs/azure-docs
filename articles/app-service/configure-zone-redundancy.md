@@ -206,4 +206,4 @@ This operation is not supported in Bicep. Use the Azure CLI or Azure portal inst
 
 ## Related content
 - [Reliability in Azure App Service](../reliability/reliability-app-service.md)
-- [Configure zone redundancy for App Service Environment v3](../app-service/environment/configure-zone-redundancy-ase.md)
+- [Configure App Service Environment for zone redundancy](../app-service/environment/configure-zone-redundancy-ase.md)
