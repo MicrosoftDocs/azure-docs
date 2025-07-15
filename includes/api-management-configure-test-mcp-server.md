@@ -1,0 +1,144 @@
+---
+author: dlepow
+ms.service: azure-api-management
+ms.topic: include
+ms.date: 07/15/2025
+ms.author: danlep
+---
+## Configure policies for the MCP server
+
+Configure one or more API Management [policies](api-management-howto-policies.md) to help manage the MCP server. The policies are applied to all API operations exposed as tools in the MCP server and can be used to control access, authentication, and other aspects of the tools.
+
+For a tutorial on how to configure policies, see [Transform and protect your API](../articles/api-management/transform-api.md).
+
+To configure policies for the MCP server:
+
+1. In the portal, under **APIs**, select **MCP Servers**.
+1. Select the MCP server you created.
+1. In the left menu, under **MCP**, select **Policies**.
+1. In the policy editor, add or edit the policies you want to apply to the MCP server's tools. The policies are defined in XML format. For example, you can add a policy to limit calls to the MCP server's tools (in this example, 5 calls per 30 second per client IP address).
+
+    ```xml
+    <rate-limit-by-key calls="5" renewal-period="30" counter-key="@(context.Request.IpAddress)" remaining-calls-variable-name="remainingCallsPerIP" />
+    ```
+
+    :::image type="content" source="../articles/api-management/media/export-rest-mcp-server/mcp-server-policies-small.png" alt-text="Screenshot of the policy editor for an MCP server." lightbox="../articles/api-management/media/export-rest-mcp-server/mcp-server-policies.png":::
+
+## Secure access to the MCP server
+
+You can secure the following aspects of the MCP server: inbound access (from an MCP client to API Management) and outbound access (from API Management to the MCP server).
+
+### Secure inbound access
+
+One option to secure inbound access is to validate a JSON Web Token (JWT) in the incoming requests. This ensures that only authorized clients can access the MCP server. Use the [validate-jwt](../articles/api-management/validate-jwt-token-policy.md) or [validate-azure-ad-token](../articles/api-management/validate-azure-ad-token-policy.md) policy to validate the JWT token in the incoming requests. For example:
+    
+<!-- update to validate-azure-ad-token-policy.md if preferred -->
+```xml
+<validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid."> 
+    <openid-config url="https://login.microsoftonline.com/{tenant-id}/v2.0/.well-known/openid-configuration" /> 
+    <audiences> 
+        <audience>your-client-id</audience> 
+    </audiences> 
+    <issuers> 
+        <issuer>https://sts.windows.net/{tenant-id}/</issuer> 
+    </issuers> 
+</validate-jwt>
+
+```
+
+> [!IMPORTANT]
+> When you use an MCP server in API Management, incoming headers like **Authorization** are not automatically passed to your backend API. If your backend needs a token, you can add it as an input parameter in your API definition. Alternatively, use policies like `get-authorization-context` and `set-header` to generate and attach the token, as noted in the following section.
+
+
+### Secure outbound access
+
+You can use API Maangement's [credential manager](../articles/api-management/credentials-overview.md) to securely inject secrets or tokens for outbound calls. At a high level, the process is as follows:
+
+1. Register an application in a supported identity provider.
+1. Create a credential provider resource in API Management to manage the credentials from the identity provider.
+1. Configure a connection to the provider in API Management.
+1. Configure `get-authorization-context` and `set-header` policies to fetch the token credentials and present them in an **Authorization** header of the API requests.
+
+For a step-by-step guide to call a backend GitHub API using credentials generated in credential manager, see [Configure credential manager - GitHub](../articles/api-management/credentials-how-to-github.md).
+ 
+## Monitor the MCP server
+
+Use API Management's integration with [Azure Monitor](../articles/api-management/monitor-api-management.md.md) features to track the usage of the MCP server. Log request successes and failures, monitor performance, and analyze traffic patterns. 
+
+<!-- Are MCP servers covered in Gateway logs? -->
+<!-- Is there a separate dashboard for MCP servers? -->
+
+## Validate and use the MCP server
+
+Use a compliant LLM agent (such as GitHub Copilot, Semantic Kernel, or Copilot Studio) or a test client (such as `curl`) to call the API Management-hosted MCP endpoint, ensure the request includes appropriate headers and tokens, and confirm successful routing and response from the MCP server.
+
+> [!TIP]
+> If you use the [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector) to test an MCP server managed by API Management, we recommend using version 0.9.0.
+
+### Add the MCP server in Visual Studio Code
+
+For example, in Visual Studio Code, use GitHub Copilot chat in agent mode (preview) to add the MCP server and use the tools. For background about MCP servers in Visual Studio Code, see [Use MCP Servers in VS Code (Preview)](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
+
+To add the MCP server in Visual Studio Code:
+
+1. Use the **MCP: Add Server** command from the Command Palette. 
+1. When prompted, select the server type: **HTTP (HTTP or Server Sent Events)**.
+1. Enter the **URL of the MCP server** in API Management. Example: `https://<apim-service-name>.azure-api.net/<api-name>-mcp/sse` (for SSE endpoint) or `https://<apim-service-name>.azure-api.net/<api-name>-mcp/mcp` (for MCP endpoint)
+1. Enter a **server ID** of your choice.
+1. Select whether to save the configuration to your **workspace settings** or **user settings**. 
+    * **Workspace settings** - The server configuration is saved to a `.vscode/mcp.json` file only available in the current workspace.
+
+    * **User settings** - The server configuration is added to your global `settings.json` file and is available in all workspaces. The configuration looks similar to the following:
+
+    :::image type="content" source="../articles/api-management/media/export-rest-mcp-server/mcp-servers-visual-studio-code.png" alt-text="Screenshot of MCP servers configured in Visual Studio Code.":::
+        
+Add fields to the JSON configuration for settings such as authentication header. The following example shows the configuration for an API Management subscription key passed in a header as in input value. Learn more about the [configuration format](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_configuration-format)   
+
+:::image type="content" source="../articles/api-management/media/export-rest-mcp-server/mcp-server-with-header-visual-studio-code.png" alt-text="Screenshot of authentication header configuration for an MCP server":::
+
+### Use tools in agent mode
+
+After adding an MCP server, you can use tools in agent mode.
+
+1. In GitHub Copilot chat, select **Agent** mode and select the **Tools** button to see available tools.
+
+    :::image type="content" source="../articles/api-management/media/export-rest-mcp-server/tools-button-visual-studio-code.png" alt-text="Screenshot of Tools button in chat.":::
+
+1. Select one or more tools from the MCP server to be available in the chat.
+
+    :::image type="content" source="../articles/api-management/media/export-rest-mcp-server/select-tools-visual-studio-code.png" alt-text="Screenshot of selecting tools in Visual Studio Code.":::
+
+1. Enter a prompt in the chat to invoke the tool. For example, if you selected a tool to get information about an order, you can ask the agent about an order. 
+
+    ```copilot-prompt
+    Get information for order 2
+    ```
+
+    Select **Continue** to see the results. The agent uses the tool to call the MCP server and returns the results in the chat.
+    
+    :::image type="content" source="../articles/api-management/media/export-rest-mcp-server/chat-results-visual-studio-code.png" alt-text="Screenshot of chat results in Visual Studio Code.":::
+
+## Troubleshooting
+
+| **Problem**                                | **Cause**                                 | **Solution**                                           |
+|-------------------------------------------|-------------------------------------------|--------------------------------------------------------|
+| `401 Unauthorized` error from backend           | Authorization header not forwarded        | Use `set-header` policy to manually attach token         |
+| API call works in API Managementbut fails in agent | Incorrect base URL or missing token       | Double-check security policies and endpoint            |
+| Not able to create MCP server           | MCP feature is not available in Consumption or Developer tier, and must be enabled using update group in classic Basic, Standard, and Premium tiers  | Use a supported classic or v2 tier - see Prerequisites |
+
+
+
+
+## Related content
+
+* [Python sample: Secure remote MCP servers using Azure API Management (experimental)](https://github.com/Azure-Samples/remote-mcp-apim-functions-python)
+
+* [MCP client authorization lab](https://github.com/Azure-Samples/AI-Gateway/tree/main/labs/mcp-client-authorization)
+
+* [Use the Azure API Management extension for VS Code to import and manage APIs](visual-studio-code-tutorial.md)
+
+* [Register and discover remote MCP servers in Azure API Center](../api-center/register-discover-mcp-server.md)
+
+* [Expose REST API in API Management as an MCP server](../articles/api-management/export-rest-mcp-server.md)
+
+* [Connect and govern existing MCP server](../articles/api-management/connect-govern-existing-mcp-server.md)

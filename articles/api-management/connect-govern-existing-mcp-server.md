@@ -14,35 +14,42 @@ ms.custom:
 
 [!INCLUDE [api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2.md)]
 
-Azure API Management now supports secure integration with external MCP-compatible servers — tool servers hosted outside of API Management — through its built-in [AI gateway](genai-gateway-capabilities.md). This capability adds to existing support for MCP servers [natively exposed in API Management](export-rest-mcp-server.md) from managed REST APIs. Wit this enhancement, organizations can apply consistent governance, security, and observability to all MCP tools, regardless of where they are hosted. 
+This article shows how Azure API Management supports secure integration with existing MCP-compatible servers — tool servers hosted outside of API Management — through its built-in [AI gateway](genai-gateway-capabilities.md). 
 
-This capability is essential for enterprises building AI agents and copilots that rely on tools distributed across cloud services, open-source runtimes, and internal platforms. With API Management, you can now centralize access, enforce policies, and monitor usage across your entire AI tool ecosystem.
+Example scenarios include:
 
-### Example scenarios
+- Proxy [LangServe](https://langchain-ai.github.io/langserve/) or [LangChain](https://python.langchain.com/) tool servers through API Management with per-tool authentication and rate limits.
+- Securely expose Azure Logic Apps–based tools to copilots using IP filtering and OAuth.
+- Centralize MCP tools from Azure Functions and open-source runtimes into [Azure API Center](../api-center/register-discover-mcp-server.md).
+- Enable GitHub Copilot, Claude by Anthropic, or ChatGPT to interact securely with tools across your enterprise.
 
-- Proxy LangServe or LangChain tool servers through API Management with per-tool authentication and rate limits.
-- Securely expose Logic App–based tools to copilots using IP filtering and OAuth.
-- Centralize tools from Azure Functions and open-source runtimes into Azure API Center.
-- Enable GitHub Copilot, Claude, or ChatGPT to interact securely with tools across your enterprise.
+API Management also supports MCP servers natively exposed in API Management from managed REST APIs. For more information, see [Expose a REST API as an MCP server](export-rest-mcp-server.md)
 
+With support for existing and exposed MCP servers, API Management provides centralized control over authentication, authorization, and monitoring. It simplifies the management of MCP servers while helping to mitigate common security risks and ensuring scalability.
 
 ## Prerequisites
 
-- An Azure API Management instance with the AI Gateway feature enabled.
++ If you don't already have an API Management instance, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md). Your API Management instance must be in one of the supported service tiers for preview: classic Basic, Standard, Premium, Basic v2, Standard v2, or Premium v2.
++ If your instance is in the classic Basic, Standard, or Premium tier, you must join the **AI Gateway Early** [update group](configure-service-update-settings.md) to access MCP server features. It can take up to 2 hours for the update to be applied.
 - Access to an external MCP-compatible server (for example, hosted in Azure Logic Apps, Azure Functions, LangServe, or other platforms).
 - Appropriate credentials to the MCP server (OAuth 2.0 client credentials or API keys) for secure access.
-
-
++ To test the MCP server, you can use Visual Studio Code with access to [GitHub Copilot](https://code.visualstudio.com/docs/copilot/setup).
 
 ## Connect an existing MCP Server
 
-1. Navigate to your Azure API Management instance in the Azure portal.
-2. In the left-hand menu, select **MCP servers** > **+ Create MCP server**.
-2. Choose **Connect existing MCP server**.
-3. Enter the following details:
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+1. In the left-hand menu, select **MCP servers** > **+ Create MCP server**.
+1. Select **Connect existing MCP server**.
+1. Enter the following details for the backend MCP server:
    - **Base URL** of the external MCP server.
    - **Metadata endpoint** (if available).
    - **Tool schema** describing the server’s capabilities.
+1. Enter the following details for the frontend MCP server accessed through API Management:
+   - **Display name** for the MCP server in API Management.
+   - **Endpoint URL** where the MCP server will be accessible.
+
+[!INCLUDE [api-management-configure-test-mcp-server](../../includes/api-management-configure-test-mcp-server.md)]
+
 
 ## Configure access and security Policies
 
@@ -76,14 +83,4 @@ With this enhancement, Azure API Management becomes the unified governance layer
 - External MCP servers hosted across various platforms
 
 By integrating with Azure API Center, all your AI tools become discoverable, auditable, and reusable — regardless of their hosting environment.
-
-## Related content
-
-* [Python sample: Secure remote MCP servers using Azure API Management (experimental)](https://github.com/Azure-Samples/remote-mcp-apim-functions-python)
-
-* [MCP client authorization lab](https://github.com/Azure-Samples/AI-Gateway/tree/main/labs/mcp-client-authorization)
-
-* [Use the Azure API Management extension for VS Code to import and manage APIs](visual-studio-code-tutorial.md)
-
-* [Register and discover remote MCP servers in Azure API Center](../api-center/register-discover-mcp-server.md)
 
