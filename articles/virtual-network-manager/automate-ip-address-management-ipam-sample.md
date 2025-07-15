@@ -22,6 +22,8 @@ In this article, we provide a sample PowerShell script that demonstrates how to 
 - A virtual network manager instance with an IPAM pool created. For more information, see [Create a virtual network manager](./create-virtual-network-manager-powershell.md) and [Create an IPAM pool](./how-to-manage-ip-addresses-network-manager.md).
 - An existing resource group where you want to create the VNets. It's recommended to use the same resource group as the virtual network manager instance for better organization and management.
 
+> [!IMPORTANT]
+> The IPAM feature in Azure Virtual Network Manager is generally available in select regions. For the most up-to-date information on region availability, see [Available IPAM Regions](./concept-ip-address-management.md#available-regions-for-ipam-in-azure-virtual-network-manager).
 
 ## Review the sample script
 
