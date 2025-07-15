@@ -95,7 +95,7 @@ In this tutorial, you use telemetry in your Node.js application to track feature
 
 ## Next steps
 
- - Now that you have set up your app and have some user activity on it, you can [review feature flag telemetry in the Azure Portal](./howto-telemetry.md#review-telemetry-for-feature-flag).
+ - Now that you have set up your app and have some user activity on it, you can [review feature flag telemetry in the Azure Portal](./howto-telemetry.md#review-telemetry-for-the-feature-flag).
 
 ## Additional resources
 

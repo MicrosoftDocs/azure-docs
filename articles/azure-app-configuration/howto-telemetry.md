@@ -105,7 +105,7 @@ These types of questions can be answered through the emission and analysis of fe
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, view unique user count by variant in telemetry tab.](./media/howto-telemetry/unique-user-count-by-variant-disabled.png)
 
-    - Switch to group by unique user count by assignment reason.
+    - Switch to view unique user count by assignment reason.
     Confirm from the graph that the Percentile allocations fall to zero and DefaultWhenDisabled is the only reason for which users are being assigned variants.
     - Other possible reasons include "Group Override" or "User Override" if configured.
     > [!div class="mx-imgBorder"]
@@ -165,6 +165,6 @@ Now that you have confirmed the feature flag allocations are working as expected
     > [!div class="mx-imgBorder"]
     > ![Screenshot of the Azure portal, view results of application insights analysis.](./media/howto-telemetry/application-insights-query-results.png)
 
-You see one "FeatureEvaluation" event for each time the quote page was loaded and one "Liked" event for each time the like button was clicked. The "FeatureEvaluation" event have a custom property called `FeatureName` with the name of the feature flag that was evaluated. Both events have a custom property called `TargetingId` with the name of the user that liked the quote.
+You see one "FeatureEvaluation" event for each time the quote page was loaded and one "Liked" event for each time the like button was clicked. The "FeatureEvaluation" events have a custom property called `FeatureName` with the name of the feature flag that was evaluated. Both events have a custom property called `TargetingId` with the name of the user that liked the quote.
 
-In this example, we can see that, even though there were roughly the same number of users getting the Long variant vs Simple, the Simple variant appears to be performing better by a margin of 22%. 
+In this example, we can see that, even though the number of users getting the Long variant vs Simple was roughly the same, the Simple variant appears to be performing better by a margin of 22%. 

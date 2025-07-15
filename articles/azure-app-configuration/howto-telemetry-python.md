@@ -108,7 +108,7 @@ In this tutorial, you use telemetry in your Python application to track feature 
 1. Run the application, [see step 2 of Use variant feature flags](./howto-variant-feature-flags-python.md#build-and-run-the-app). You can simulate user activity on the application where some users are served different variants that they may or may not like.
 
 ## Next steps
- - Now that you have set up your app and have some user activity on it, you can [review feature flag telemetry in the Azure Portal](./howto-telemetry.md#review-telemetry-for-feature-flag).
+ - Now that you have set up your app and have some user activity on it, you can [review feature flag telemetry in the Azure Portal](./howto-telemetry.md#review-telemetry-for-the-feature-flag).
 
 ## Additional resources
 - [Flask Quote of the Day sample](https://github.com/Azure-Samples/quote-of-the-day-python)
