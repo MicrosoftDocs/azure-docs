@@ -111,7 +111,7 @@ The page shows a list of jobs and their types. Select a notebook job to view its
 For a list of service limits for the Microsoft Sentinel data lake, see [Microsoft Sentinel data lake service limits](notebooks.md#service-parameters-and-limits-for-vs-code-notebooks).  
   
 
-For information on troubleshooting, see [Run notebooks on the Microsoft Sentinel data lake (preview)](notebooks.md#service-limits).
+For information on troubleshooting, see [Run notebooks on the Microsoft Sentinel data lake (preview)](notebooks.md#service-parameters-and-limits-for-vs-code-notebooks).
 
 ## Related content
 
