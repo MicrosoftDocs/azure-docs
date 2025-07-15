@@ -147,4 +147,4 @@ Submit an issue or a feature request to the [Azure Container Apps GitHub repo](h
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use Azure Functions in Azure Container Apps](Functions-usage.md)
+> [Use Azure Functions in Azure Container Apps](functions-usage.md)
