@@ -56,32 +56,32 @@ You can use the **Min** and **Max** aggregation for worst and best case availabi
  
 1. Open the **Create an alert rule** dialog box. For more information, see [Create or edit an alert rule](/azure/azure-monitor/alerts/alerts-create-new-alert-rule).
  
-2. In the **Scope** tab, select you Elastic SAN resource.
+1. In the **Scope** tab, select your Elastic SAN resource.
  
-4. In the **Condition** tab, select the **Availability** metric.
+1. In the **Condition** tab, select the **Availability** metric.
  
-5. In the **Alert logic** tab, select the following attribute variable values from the drop down menu: 
+1. In the **Alert logic** tab, select the following attribute variable values from the drop down menu: 
    
-| Field             | Description  |
-|------------------|--------------|
-| Threshold         | Static       |
-| Aggregation type  | Average      |
-| Operator          | Less than    |
-| Threshold value   | 99.9         |
+   | Field             | Description  |
+   |------------------|--------------|
+   | Threshold         | Static       |
+   | Aggregation type  | Average      |
+   | Operator          | Less than    |
+   | Threshold value   | 99.9         |
 
  
-7. In the **When to evaluate** tab, select the following variable values from the drop down menu:
+1. In the **When to evaluate** tab, select the following variable values from the drop down menu:
    
-| Field             | Description  |
-|------------------|--------------|
-| Check every      | 5 minutes    |
-| Lookback period  | 1 hour       |
+   | Field             | Description  |
+   |------------------|--------------|
+   | Check every      | 5 minutes    |
+   | Lookback period  | 1 hour       |
  
-9. Click **Next** to go to the **Actions** tab and add an action group (email, SMS, etc.) to the alert. You can select an existing action group or create a new action group.
+1. Click **Next** to go to the **Actions** tab and add an action group (email, SMS, etc.) to the alert. You can select an existing action group or create a new action group.
  
-10. Click **Next** to go to the **Details** tab and fill in the details of the alert such as the alert name, description, and severity.
+1. Click **Next** to go to the **Details** tab and fill in the details of the alert such as the alert name, description, and severity.
  
-11. Select **Review + create** to create the alert.
+1. Select **Review + create** to create the alert.
  
  
 ### Monitor Utilization
