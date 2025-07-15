@@ -35,7 +35,7 @@ This tutorial shows you how to use the Geo-replication with Event Hubs. To learn
 
 2. Provide a name for the namespace, and select **Enable Geo-replication**.
 
-    :::image type="content" source="./media/use-geo-replication/premium-namespace-create.png" alt-text="Screenshot of premium namespace create UI with geo-replication UI.":::
+    :::image type="content" source="./media/use-geo-replication/premium-namespace-create.png" alt-text="Screenshot of premium namespace create UI with geo-replication UI." lightbox="./media/use-geo-replication/premium-namespace-create.png":::
 
 ---
 
@@ -79,7 +79,7 @@ In the case where your primary region goes down completely, you can still perfor
 ## Switch replication mode
 
 To switch between replication modes, or update the maximum replication lag, click on the link under **Replication consistency**, and click the checkbox to enable / disable synchronous replication, or update the value in the textbox to change the asynchronous maximum replication lag.
-:::image type="content" source="./media/use-geo-replication/update-namespace-geo-replication-configuration.png" alt-text="Screenshot showing how to update the configuration of the Geo-Replication feature.":::
+:::image type="content" source="./media/use-geo-replication/update-namespace-geo-replication-configuration.png" alt-text="Screenshot showing how to update the configuration of the Geo-Replication feature." lightbox="./media/use-geo-replication/update-namespace-geo-replication-configuration.png":::
 
 ## Remove a secondary
 To remove a Geo-replication pairing with a secondary, select **Geo-replication** on the left menu, select the secondary region, and then select **Remove**. At the prompt, enter the word **delete**, and then you can delete the secondary. 

@@ -16,7 +16,7 @@ The Event Hubs Geo-replication feature provides replication of both metadata (en
 > The Event Hubs Geo-replication feature is available on the Premium and Dedicated tier only.
 >
 
-This feature ensures that metadata and data of a namespace is continuously replicated from a primary region to the secondary region. The namespace can be thought of as being virtually extended to more than one region, with one region being the primary and the other being the secondary.
+This feature ensures that metadata and data of a namespace is continuously replicated from a primary region to the secondary region. The namespace can be thought of as being extended to more than one region, with one region being the primary and the other being the secondary.
 
 At any time, the secondary region can be promoted to become a primary region. Promoting a secondary repoints the namespace FQDN (fully qualified domain name) to the selected secondary region, and the previous primary region is demoted to a secondary region.
 
@@ -250,7 +250,7 @@ When implementing Geo-Replication for an Event Hubs namespace that uses private 
 > [!IMPORTANT]
 > When promoting a secondary region for Event Hubs, the DNS entry also needs to be updated to point to the corresponding endpoint.
 
-:::image type="content" source="./media/geo-replication/geo-replication-private-endpoints.png" alt-text="Screenshot showing two VNETs with their own private endpoints and VMs connected to an on-premises instance and an Event Hubs namespace.":::
+:::image type="content" source="./media/geo-replication/geo-replication-private-endpoints.png" alt-text="Screenshot showing two VNETs with their own private endpoints and VMs connected to an on-premises instance and an Event Hubs namespace." lightbox="./media/geo-replication/geo-replication-private-endpoints.png":::
 
 The advantage of this approach is that failover can occur independently at the application layer or on the Event Hubs namespace:
 
