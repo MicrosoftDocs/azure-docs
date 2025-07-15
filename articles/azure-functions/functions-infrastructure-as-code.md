@@ -44,7 +44,7 @@ When using this article, keep these considerations in mind:
 + Examples are shown as individual sections for specific resources. For a broad set of complete Bicep file and ARM template examples, see [these function app deployment examples](/samples/browse/?expanded=azure&terms=%22azure%20functions%22&products=azure-resource-manager). 
 ::: zone-end  
 ::: zone pivot="flex-consumption-plan"  
-+ Examples are shown as individual sections for specific resources. For a broad set of complete Bicep file and ARM template examples, see [these Flex Consumption app deployment examples](/samples/browse/?expanded=azure&terms=%22azure%20functions%20flex%22&products=azure-resource-manager). 
++ Examples are shown as individual sections for specific resources. For Bicep, [Azure Verified Modules (AVM)](https://azure.github.io/Azure-Verified-Modules/) are shown, when available. For a broad set of complete Bicep file and ARM template examples, see [these Flex Consumption app deployment examples](/samples/browse/?expanded=azure&terms=%22azure%20functions%20flex%22&products=azure-resource-manager). 
 ::: zone-end  
 ::: zone pivot="container-apps,azure-arc"  
 + Examples are shown as individual sections for specific resources.  
@@ -177,9 +177,9 @@ This example shows how to create a container in the storage account:
 
 ### [Bicep](#tab/bicep)
 
-:::code language="bicep" source="~/function-flex-consumption/IaC/bicep/main.bicep" range="33-53" ::: 
+:::code language="bicep" source="~/function-flex-consumption/IaC/bicep/main.bicep" range="133-153" ::: 
 
-This example uses the [Azure Verified Modules (AVM) module for storage accounts](https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/storage/storage-account). For the snippet in context, see [this deployment example](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/main.bicep#L133).
+This example shows how to use the [AVM for storage accounts](https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/storage/storage-account) to create the blob storage container along with the storage account. For the snippet in context, see [this deployment example](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/main.bicep#L133).
 
 ### [ARM template](#tab/json)
 
@@ -322,7 +322,7 @@ This example section creates a Flex Consumption plan:
 
 :::code language="bicep" source="~/function-flex-consumption/IaC/bicep/main.bicep" range="156-170" ::: 
 
-This example uses the [AVM module for App Service plans](https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/web/serverfarm). For the snippet in context, see [this deployment example](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/main.bicep#L156).
+This example uses the [AVM for App Service plans](https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/web/serverfarm). For the snippet in context, see [this deployment example](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/main.bicep#L156).
 
 ### [ARM template](#tab/json)
 
@@ -797,7 +797,7 @@ Flex Consumption replaces many of the standard application settings and site con
 
 :::code language="bicep" source="~/function-flex-consumption/IaC/bicep/main.bicep" range="173-215" ::: 
 
-This example uses the [AVM module for function apps](https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/web/serverfarm). For the snippet in context, see [this deployment example](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/main.bicep#L173).
+This example uses the [AVM for function apps](https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/web/serverfarm). For the snippet in context, see [this deployment example](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/main.bicep#L173).
 
 ### [ARM template](#tab/json)
 
@@ -1214,7 +1214,7 @@ Your Bicep file or ARM template can optionally also define a deployment for your
 ::: zone pivot="flex-consumption-plan"  
 The Flex Consumption plan maintains your project code in zip-compressed package file in a blob storage container known as the _deployment container_. You can configure both the storage account and container used for deployment. For more information, see [Deployment](flex-consumption-plan.md#deployment). 
 
-You must use _[one deploy](functions-deployment-technologies.md#one-deploy)_ to publish your code package to the deployment container. During an ARM or Bicep deployment, you can do this by [defining a package source](#deployment-package) that uses the `/onedeploy` extension. If you choose to instead directly upload your package to the container, the package doesn't get automatically deployed.
+You must use _[one deploy](functions-deployment-technologies.md#one-deploy)_ to publish your code package to the deployment container. During an ARM template or Bicep deployment, you can do this by [defining a package source](#deployment-package) that uses the `/onedeploy` extension. If you choose to instead directly upload your package to the container, the package doesn't get automatically deployed.
 
 ### Deployment container
 
@@ -1226,7 +1226,7 @@ This example uses a system assigned managed identity to access the specified blo
 
 :::code language="bicep" source="~/function-flex-consumption/IaC/bicep/main.bicep" range="185-194" ::: 
 
-This example uses the [AVM module for App Service plans](https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/web/serverfarm). For the snippet in context, see [this deployment example](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/main.bicep#L156).
+This example uses the [AVM for function apps](https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/web/site). For the snippet in context, see [this deployment example](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/main.bicep#L185).
 
 ### [ARM template](#tab/json)
 
@@ -1240,7 +1240,7 @@ When using managed identities, you must also enable the function app to access t
 
 :::code language="bicep" source="~/function-flex-consumption/IaC/bicep/rbac.bicep" range="45-55" ::: 
 
-This example uses the [AVM module for resource-scoped role assignment](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/authorization/resource-role-assignment). For the snippet in context, see [this deployment example](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/rbac.bicep#L45).
+This example uses the [AVM for resource-scoped role assignment](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/authorization/resource-role-assignment). For the snippet in context, see [this deployment example](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/rbac.bicep#L45).
 
 ### [ARM template](#tab/json)
 
@@ -1422,7 +1422,7 @@ Keep the following things in mind when including zip deployment resources in you
 
 + Make sure to always set all required application settings in the `appSettings` collection when adding or updating settings. Existing settings not explicitly set are removed by the update. For more information, see [Application configuration](#application-configuration). 
 
-+ Functions doesn't support Web Deploy (msdeploy) for package deployments. You must instead use zip deployment in your deployment pipelines and automation. For more information, see [Zip deployment for Azure Functions](deployment-zip-push.md).
++ Functions doesn't support Web Deploy (`msdeploy`) for package deployments. You must instead use zip deployment in your deployment pipelines and automation. For more information, see [Zip deployment for Azure Functions](deployment-zip-push.md).
 
 ## Remote builds
 
