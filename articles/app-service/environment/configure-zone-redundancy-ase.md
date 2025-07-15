@@ -1,6 +1,6 @@
 ---
-title: Configure App Service Environment Isolated v2 App Service plans for zone redundancy
-description: Learn how to configure your App Service Environment Isolated v2 App Service plans for zone redundancy by using availability zones and zone redundancy
+title: Configure App Service Environment for zone redundancy
+description: Learn how to configure your App Service Environment for zone redundancy by using availability zones and zone redundancy
 ms.topic: conceptual
 ms.service: azure-app-service
 ms.date: 07/11/2025
