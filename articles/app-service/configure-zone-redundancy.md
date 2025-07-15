@@ -156,12 +156,12 @@ To see whether an existing App Service plan supports zone redundancy:
     Query the plan's `maximumNumberOfZones` property:
     
     ```bicep
-        resource plan 'Microsoft.Web/serverfarms@2024-11-01' existing = {
-          name: '<app-service-plan-name>'
-        }
-        
-        #disable-next-line BCP083
-        output maximumNumberOfZones int = plan.properties.maximumNumberOfZones
+    resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' existing = {
+        name: '<app-service-plan-name>'
+    }
+    
+    #disable-next-line BCP083
+    output maximumNumberOfZones int = appServicePlan.properties.maximumNumberOfZones
     ```
     
     ---
