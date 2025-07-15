@@ -369,7 +369,7 @@ Using the sample VPN configuration and VPN site from above, create firewall rule
 
 Configuring private routing policies with Encrypted ExpressRoute routes VPN ESP packets through the next hop security appliance deployed in the hub. Encrypted ExpressRoute performance is impacted by two main factors:
 * You can expect Encrypted ExpressRoute VPN tunnels to have a maximum throughput of 1 Gbps due to ESP traffic being forwarded through the next hop security appliance deployed in the Virtual WAN hub. 
-* In practice, Encrypted ExpressRoute VPN tunnel throughput is also impacted by the maximum per-tunnel packets-per-second (PPS) supported by the VPN Gateway scale unit. For smaller packet sizes, you may see lower tunnel throughput. See [Site-to-site VPN performance](virtual-wan-faq.md#what-is-the-recommended-algorithm-and-packets-per-second-per-site-to-site-instance-in-virtual-wan-hub-how-many-tunnels-is-support-per-instance-what-is-the-max-throughput-supported-in-a-single-tunnel) for more information.
+* In practice, Encrypted ExpressRoute VPN tunnel throughput is also impacted by the maximum per-tunnel packets-per-second (PPS) supported by the VPN Gateway scale unit. For smaller packet sizes, you may see lower tunnel throughput. See [Site-to-site VPN performance](virtual-wan-faq.md#packets) for more information.
 
 
 To achieve the maximum VPN tunnel throughput, consider the following deployment optimizations:
