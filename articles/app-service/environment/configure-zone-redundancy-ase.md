@@ -60,7 +60,7 @@ az appservice plan create \
 
 # [Bicep](#tab/bicep)
 
-- To *enable zone redundancy*, set the `zoneRedundant` property to `true` and ensure that you define the `sku.capacity` property to a value of 2 or greater. If you don't define the `sku.capacity` property, the value defaults to 1.
+To *enable zone redundancy*, set the `zoneRedundant` property to `true` and ensure that you define the `sku.capacity` property to a value of 2 or greater. If you don't define the `sku.capacity` property, the value defaults to 1.
 
     ```bicep
     resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' = {
