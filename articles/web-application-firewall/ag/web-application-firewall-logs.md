@@ -336,6 +336,8 @@ The firewall log is generated only if you have enabled it for each application g
 }
 ```
 
+----
+
 ## View and analyze the activity log
 
 You can view and analyze activity log data by using any of the following methods:
