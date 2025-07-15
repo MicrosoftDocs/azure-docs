@@ -175,7 +175,7 @@ Oracle Database@Azure provides customers with dedicated Oracle Exadata compute a
 
 ### How do customer-managed database keys work?
 
-Oracle Transparent Data Encryption (TDE) master encryption keys (MEK) can be managed using Azure Key Vault(AKV). Exadata Database Service on Oracle Database@Azure now supports storing and managing Oracle TDE MEK using all three tiers of AKV services, Standard, Premium and Managed HSM. see [Manage Oracle TDE with Azure Key Vault](https://learn.microsoft.com/en-us/azure/oracle/oracle-db/manage-oracle-transparent-data-encryption-azure-key-vault)
+Oracle Transparent Data Encryption (TDE) master encryption keys (MEK) can be managed using Azure Key Vault(AKV). Exadata Database Service on Oracle Database@Azure now supports storing and managing Oracle TDE MEK using all three tiers of AKV services, Standard, Premium and Managed HSM. see [Manage Oracle TDE with Azure Key Vault](/azure/oracle/oracle-db/manage-oracle-transparent-data-encryption-azure-key-vault)
 
 ### What type of storage redundancy options are available?
 
