@@ -62,7 +62,7 @@ The following table shows the connectors currently available in Azure IoT Operat
 | Connector for OPC UA   |       Yes        |      Yes        |
 | Connector for ONVIF    |        No        |      Yes        |
 | Media connector        |       Yes        |       No        |
-| HTTP connector         |        No        |       No        |
+| Connector for REST/HTTP        |        No        |       No        |
 
 The media connector supports discovery of cameras and other media devices that use the ONVIF protocol.
 

@@ -115,10 +115,10 @@ items:
           displayName: camera, PTZ, pan, tilt, zoom, DiscoveredAsset, DiscoveredAssetEndpointProfile, media, events, stream, southbound
       - name: Connect to HTTP endpoints
         items:
-        - name: Understand the HTTP connector
+        - name: Understand the connector for REST/HTTP
           href: discover-manage-assets/overview-http-connector.md
           displayName: HTTP, REST, API, southbound
-        - name: Use the HTTP connector
+        - name: Use the connector for REST/HTTP
           href: discover-manage-assets/howto-use-http-connector.md
           displayName: HTTP, REST, API, southbound
     - name: Manage MQTT broker
