@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: concept-article
-ms.date: 03/26/2024
+ms.date: 07/14/2025
 ms.author: normesta
 # Customer intent: "As a cloud storage administrator, I want to implement version-level WORM policies on blob data, so that I can protect critical data from deletion and ensure compliance with retention requirements."
 ---
@@ -95,6 +95,8 @@ Once an account or container is enabled for an immutable policy, it can't be del
 
 > [!div class="mx-imgBorder"]
 > ![Diagram that shows the order of operations in deleting an account that has a version-level immutability policy.](media/immutable-version-level-worm-policies/version-level-immutable-storage-deletion.png)
+
+You can delete a container that is enabled for an immutable policy only by using control plane operations. All such requests are sent to the Azure Resource Manager URL. For example, the PowerShell command [Remove-AzRmStorageContainer](/powershell/module/az.storage/remove-azrmstoragecontainer) uses a control plane operation to delete a container. In contrast, the [Remove-AzStorageContainer](/powershell/module/az.storage/remove-azstoragecontainer) command attempts to use a data plane operation, which won't succeed. Similarly, the Azure CLI command [az storage container-rm delete](/cli/azure/storage/container-rm) uses a control plane operation, whereas [az storage container](/cli/azure/storage/container#az-storage-container-delete) delete relies on a data plane operation. You can also delete a container through the Azure portal, as it performs the task using a control plane operation.
 
 ## Scenarios
 
