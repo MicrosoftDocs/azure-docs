@@ -51,7 +51,7 @@ For a complete comparison of the Functions on Container Apps against Flex Consum
 
 ## Scenarios
 
-Azure Functions on Container Apps provide a versatile combination of services to meet the needs of your applications. The following scenarios are representative of the types of situations where paring Azure Container Apps with Azure Functions gives you the control and scaling features you need.
+Azure Functions on Azure Container Apps provide a versatile combination of services to meet the needs of your applications. The following scenarios are representative of the types of situations where paring Azure Container Apps with Azure Functions gives you the control and scaling features you need.
 
 - **Line-of-business APIs**: Package custom libraries, packages, and APIs with Functions for line-of-business applications.
 
@@ -64,7 +64,7 @@ Azure Functions on Container Apps provide a versatile combination of services to
 - **Common Azure Functions scenarios**: All common Azure Functions scenarios like processing file uploads, running scheduled tasks, responding to database changes, machine learning/AI and others detailed in [Azure Functions scenarios](/azure/azure-functions/functions-scenarios?pivots=programming-language-csharp).
 
 ## Pricing and billing
-Azure Functions on Azure Container Apps follows the same pricing model as Azure Container Apps. Billing is based on the [plan type](../container-apps/plans.md) you select for your environment, which can be either Consumption or Dedicated.
+Azure Functions on Azure Container Apps follow the same pricing model as Azure Container Apps. Billing is based on the [plan type](../container-apps/plans.md) you select for your environment, which can be either Consumption or Dedicated.
 - [Consumption plan](..//container-apps/billing.md#consumption-plan): This serverless compute option bills you only for the resources your apps use while they are running.
 - [Dedicated plan](../container-apps/billing.md#consumption-dedicated): This option provides customized compute resources, billing you for the instances allocated to each workload profile.
 
@@ -91,7 +91,7 @@ All Functions triggers are available in your containerized Functions app. Howeve
 - Timer
 - Azure Cosmos DB
 
-Azure Functions on Container Apps are designed to configure the scale parameters and rules as per the event target. You don't need to worry about configuring the KEDA scaled objects. You can still set minimum and maximum replica count when creating or modifying your Functions app.
+Azure Functions on Azure Container Apps are designed to configure the scale parameters and rules as per the event target. You don't need to worry about configuring the KEDA scaled objects. You can still set minimum and maximum replica count when creating or modifying your Functions app.
 
 You can write your Functions code in any [language stack supported](/azure/azure-functions/supported-languages?tabs=isolated-process%2Cv4&pivots=programming-language-csharp) by Azure Functions. You can use the same Functions triggers and bindings with event-driven scaling.
 
@@ -117,10 +117,10 @@ Azure Functions on Container Apps scale automatically based on events using KEDA
 - **Scale to zero**: Idle apps scale-in to zero to save costs.
 - **Cold start control**: Avoid cold starts by setting `minReplicas` ≥ 1.
 - **Concurrency**: Each instance can process multiple events in parallel.
-- **High scale**: Scale-out to 1,000 instances per app (default is 10).
+- **High scale**: Scale out to 1,000 instances per app (default is 10).
 - **GPU support**: Run compute-heavy workloads like AI inference using GPU-backed nodes.
 
-This makes Container Apps ideal for both bursty and steady-state workloads. To learn more, see [scaling in azure container apps](../container-apps/scale-app.md)
+This makes Container Apps ideal for both bursty and steady-state workloads. To learn more, see [Set scaling rules in Azure Container Apps](../container-apps/scale-app.md)
 
 ## Networking and security
 
@@ -128,7 +128,7 @@ Azure Functions on Container Apps benefit from Container Apps’ robust [network
 
 - **VNet integration**: Access private resources securely via internal endpoints and private databases.
 - **Managed identity**: Authenticate with Azure services using system/user-assigned identities—no secrets or connection strings needed.
-- **Dapr support**: Enable pub/sub, state management, and secure service invocation via Dapr sidecars. For more information, see see [Microservice APIs powered by Dapr](../container-apps/dapr-overview.md).
+- **Dapr support**: Enable pub/sub, state management, and secure service invocation via Dapr sidecars. For more information, see [Microservice APIs powered by Dapr](../container-apps/dapr-overview.md).
 - **Ingress and TLS**: Expose secure HTTP endpoints with TLS/mTLS, custom domains, or keep them internal.
 - **Environment Isolation**: Functions share Container Apps environment boundaries for secure, scoped communication.
 
