@@ -1,7 +1,7 @@
 ---
 title: Azure virtual network traffic routing
 titlesuffix: Azure Virtual Network
-description: Learn how Azure routes virtual network traffic and how you can customize routing for Azure.
+description: Learn how Azure routes virtual network traffic, customize routing with user-defined routes, and configure BGP for optimal connectivity between Azure and on-premises resources.
 services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
@@ -11,15 +11,15 @@ ms.author: allensu
 # Customer intent: "As a network engineer, I want to configure and customize traffic routing in an Azure virtual network, so that I can optimize connectivity between my virtual and on-premises resources."
 ---
 
-# Virtual network traffic routing
+# Azure virtual network traffic routing
 
-In this article, you learn how Azure routes traffic between Azure, on-premises, and internet resources. Azure automatically creates a route table for each subnet within an Azure virtual network and adds system default routes to the table. To learn more about virtual networks and subnets, see [Virtual network overview](virtual-networks-overview.md). You can override some of the Azure system routes with [custom routes](#custom-routes) and add more custom routes to route tables. Azure routes outbound traffic from a subnet based on the routes in a subnet's route table.
+In this article, you learn how Azure virtual network traffic routing works between Azure, on-premises, and internet resources. Azure automatically creates a route table for each subnet within an Azure virtual network and adds system default routes to the table. Understanding traffic routing helps you optimize connectivity and troubleshoot network issues in your Azure environment. To learn more about virtual networks and subnets, see [Virtual network overview](virtual-networks-overview.md). You can override some of the Azure system routes with [custom routes](#custom-routes) and add more custom routes to route tables. Azure routes outbound traffic from a subnet based on the routes in a subnet's route table.
 
 ## System routes
 
 Azure automatically creates system routes and assigns the routes to each subnet in a virtual network. You can't create system routes, and you can't remove system routes, but you can override some system routes with [custom routes](#custom-routes). Azure creates default system routes for each subnet and adds more [optional default routes](#optional-default-routes) to specific subnets, or every subnet, when you use specific Azure capabilities.
 
-### Default
+### Default system routes
 
 Each route contains an address prefix and next hop type. When traffic leaving a subnet is sent to an IP address within the address prefix of a route, the route that contains the prefix is the route that Azure uses. Learn more about [how Azure selects a route](#how-azure-selects-a-route) when multiple routes contain the same prefixes or overlapping prefixes. Whenever a virtual network is created, Azure automatically creates the following default system routes for each subnet within the virtual network:
 
@@ -64,7 +64,7 @@ Azure adds more default system routes for different Azure capabilities, but only
 
 You create custom routes by either creating [user-defined](#user-defined) routes (UDRs) or exchanging [BGP](#border-gateway-protocol) routes between your on-premises network gateway and an Azure virtual network gateway.
 
-### User-defined
+### User-defined routes
 
 To customize your traffic routes, you shouldn't modify the default routes. You should create custom or user-defined (static) routes, which override the Azure default system routes. In Azure, you create a route table and then associate the route table to zero or more virtual network subnets. Each subnet can have zero or one route table associated to it. To learn about the maximum number of routes that you can add to a route table and the maximum number of UDR tables you can create per Azure subscription, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-networking-limits).
 
@@ -163,7 +163,7 @@ The name displayed and referenced for next hop types is different between the Az
 |Virtual network peering         |Virtual network peering                                    |Not applicable|
 |Virtual network service endpoint|`VirtualNetworkServiceEndpoint`                   |Not applicable|
 
-### Border gateway protocol
+### Border Gateway Protocol (BGP)
 
 An on-premises network gateway can exchange routes with an Azure virtual network gateway by using the BGP. Using BGP with an Azure virtual network gateway is dependent on the type you selected when you created the gateway:
 
@@ -177,7 +177,7 @@ You can disable ExpressRoute and Azure VPN Gateway route propagation on a subnet
 > [!NOTE]
 > Route propagation shouldn't be disabled on `GatewaySubnet`. The gateway won't function if this setting is disabled.
 
-## How Azure selects a route
+## How Azure selects routes for traffic routing
 
 When outbound traffic is sent from a subnet, Azure selects a route based on the destination IP address by using the longest prefix match algorithm. For example, a route table has two routes. One route specifies the 10.0.0.0/24 address prefix, and the other route specifies the 10.0.0.0/16 address prefix.
 
