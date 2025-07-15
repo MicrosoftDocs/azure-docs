@@ -1,10 +1,10 @@
 ---
-title: When to use data lake in Microsoft Sentinel
-description: Learn what log sources might be appropriate for the Microsoft Sentinel data lake and what  attributes to look for, to decide about other sources.
+title: When to use the Microsoft Sentinel data lake
+description: Learn what log sources might be appropriate for the Microsoft Sentinel data lake and what attributes to look for, to decide about other sources.
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: conceptual
-ms.date: 07/07/2025
+ms.date: 07/15/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -16,11 +16,12 @@ ms.collection: usx-security
 ---
 # Log sources to use for the Microsoft Sentinel data lake
 
-This article highlights log sources to consider configuring as data lake tier only when enabling a connector. Before choosing a tier for which to configure a given table, do the research to see which is most appropriate. For more information about data categories and data tiers, see [Data tiers in Microsoft Sentinel](log-plans.md).
+This article highlights log sources to consider configuring as data lake tier only when enabling a connector. Before choosing a tier for which to configure a given table, check which tier is most appropriate for your use case. For more information about data categories and data tiers, see [Log retention plans in Microsoft Sentinel](log-plans.md).
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+ 
 >[!NOTE]
->The Microsoft Sentinel data lake is currently in Public Preview.
+>The Microsoft Sentinel data lake is currently in preview. See [Supplemental Terms of Use for Microsoft Azure Previews](/support/legal/preview-supplemental-terms) for additional legal terms that apply to Azure features that are in preview or otherwise not yet released into general availability.
 
 ## Storage access logs for cloud providers
 

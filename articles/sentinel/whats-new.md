@@ -22,8 +22,7 @@ The listed features were released in the last six months. For information about 
 
 ### Microsoft Sentinel data lake
 
-Microsoft is enhancing its industry-leading SIEM solution, Microsoft Sentinel, with the introduction of a modern data lake—purpose - built to streamline data management, reduce costs, and accelerate AI adoption for security operations teams.
-The new Microsoft Sentinel data lake offers cost-effective, long-term storage, eliminating the need to choose between affordability and robust security. Security teams gain deeper visibility and faster incident resolution, all within the familiar Sentinel experience, enriched through seamless integration with advanced data analytics tools.  
+Microsoft Sentinel is now enhanced with a modern data lake, purpose-built to streamline data management, reduce costs, and accelerate AI adoption for security operations teams. The new Microsoft Sentinel data lake offers cost-effective, long-term storage, eliminating the need to choose between affordability and robust security. Security teams gain deeper visibility and faster incident resolution, all within the familiar Sentinel experience, enriched through seamless integration with advanced data analytics tools.  
 
 Key benefits of the Microsoft Sentinel data lake include:
 +	Single, open-format data copy for efficient and cost-effective storage
