@@ -19,4 +19,4 @@ If the review identifies errors, a red dot appears next to each section where er
 
 The message "Deployment is in progress" appears. When the deployment is complete, the message "Your deployment is complete" appears.
 
-After the resource is created, select **Go to Resource** to view your resource.
+After the resource is created, select **Go to resource** to view your resource.

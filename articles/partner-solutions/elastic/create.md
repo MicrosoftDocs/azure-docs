@@ -49,7 +49,7 @@ You can configure resources to send metrics/logs to Elastic.
 - Select **Send subscription activity logs**.
 - Select **Send Azure resource logs for all defined sources**.
 
-Enter the names and values for each *Action* listed under Metrics and Logs.
+Enter the names and values for each *Action* listed under **Logs**.
 
 At the bottom of the page, select **Next: Azure OpenAI configuration**.
 
@@ -93,7 +93,7 @@ You can configure resources to send metrics/logs to Elastic.
 - Select **Send subscription activity logs**.
 - Select **Send Azure resource logs for all defined sources** (default).
 
-Enter the names and values for each *Action* listed under Metrics and Logs.
+Enter the names and values for each *Action* listed under **Logs**.
 
 At the bottom of the page, select **Next: Azure OpenAI configuration**.
 
@@ -137,7 +137,7 @@ You can configure resources to send metrics/logs to Elastic.
 - Select **Send subscription activity logs**.
 - Select **Send Azure resource logs for all defined sources** (default).
 
-Enter the names and values for each *Action* listed under Metrics and Logs.
+Enter the names and values for each *Action* listed under **Logs**.
 
 At the bottom of the page, select **Next: Azure OpenAI configuration**.
 
