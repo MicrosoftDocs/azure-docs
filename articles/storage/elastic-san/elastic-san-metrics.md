@@ -60,7 +60,7 @@ You can use the **Min** and **Max** aggregation for worst and best case availabi
  
 4. In the **Condition** tab, select the **Availability** metric.
  
-5. In the **Alert logic** section, provide the following:
+5. In the **Alert logic** tab, select the following attribute variable values from the drop down menu: 
    
 | Field             | Description  |
 |------------------|--------------|
@@ -70,15 +70,18 @@ You can use the **Min** and **Max** aggregation for worst and best case availabi
 | Threshold value   | 99.9         |
 
  
-7. In the **When to evaluate** section, select the following:
-   - **Check every** = **5 minutes**
-   - **Lookback period** = **1 hour**
+7. In the **When to evaluate** tab, select the following variable values from the drop down menu:
+   
+| Field             | Description  |
+|------------------|--------------|
+| Check every      | 5 minutes    |
+| Lookback period  | 1 hour       |
  
-8. Click **Next** to go to the **Actions** tab and add an action group (email, SMS, etc.) to the alert. You can select an existing action group or create a new action group.
+9. Click **Next** to go to the **Actions** tab and add an action group (email, SMS, etc.) to the alert. You can select an existing action group or create a new action group.
  
-9. Click **Next** to go to the **Details** tab and fill in the details of the alert such as the alert name, description, and severity.
+10. Click **Next** to go to the **Details** tab and fill in the details of the alert such as the alert name, description, and severity.
  
-10. Select **Review + create** to create the alert.
+11. Select **Review + create** to create the alert.
  
  
 ### Monitor Utilization
