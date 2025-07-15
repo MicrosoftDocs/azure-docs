@@ -33,7 +33,7 @@ The following features distinguish Azure Native Pure Storage Cloud and support e
 - **Snapshots**: Create point-in-time copies of data for rapid recovery from data loss or corruption.
 - **Compute and Storage Decoupling**: Decoupling compute and storage resources for independent scaling and efficent resource utilization.
 
-## Subscribe to Azure Native Pure Storage Cloud Preview
+## Subscribe to Azure Native Pure Storage Cloud
 
 <!--TODO: remove before publish-->
 **CONFIRM STEPS HERE**
