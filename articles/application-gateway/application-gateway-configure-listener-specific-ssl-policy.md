@@ -74,7 +74,7 @@ To set up a listener-specific SSL policy, you need to first go to the **SSL sett
 
 7. Select **Add** to save.
 
-    ![Add listener specific SSL policy to SSL profile](./media/application-gateway-configure-listener-specific-ssl-policy/listener-specific-ssl-policy-ssl-profile.png)
+    :::image type="content" source="./media/application-gateway-configure-listener-specific-ssl-policy/listener-specific-ssl-policy-ssl-profile.png" alt-text="Screenshot of adding listener-specific SSL policy to SSL profile in Azure portal":::
     
 ## Associate the SSL profile with a listener
 

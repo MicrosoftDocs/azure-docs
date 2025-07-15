@@ -165,7 +165,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### Create the default listener and rule
 
-A listener is required to enable the application gateway to route traffic appropriately to backend pools. In this tutorial, you create multiple listeners for different routing scenarios. The first basic listener expects traffic at the root URL. The other listeners expect traffic at specific URL paths, such as `http://52.168.55.24:8080/images/` or `http://52.168.55.24:8081/video/`.
+A listener is required to enable the application gateway to route traffic appropriately to backend pools. In this tutorial, you create multiple listeners for different routing scenarios. The first basic listener expects traffic at the root URL. The other listeners expect traffic at specific URL paths, such as `http://203.0.113.1:8080/images/` or `http://203.0.113.1:8081/video/`.
 
 Create a listener named *defaultListener* using [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) with the frontend configuration and frontend port that you previously created. A rule is required for the listener to know which backend pool to use for incoming traffic. Create a basic rule named *rule1* using [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
@@ -595,10 +595,10 @@ Although IIS isn't required to create the application gateway, you installed it 
    ```
 
 2. Copy the public IP address, and then paste it into the address bar of your browser. For example:
-   - `http://52.168.55.24` (base URL)
-   - `http://52.168.55.24:8080/images/test.htm` (images path)
-   - `http://52.168.55.24:8080/video/test.htm` (video path)
-   - `http://52.168.55.24:8081/images/test.htm` (redirection test)
+   - `http://203.0.113.1` (base URL)
+   - `http://203.0.113.1:8080/images/test.htm` (images path)
+   - `http://203.0.113.1:8080/video/test.htm` (video path)
+   - `http://203.0.113.1:8081/images/test.htm` (redirection test)
 
 ![Test base URL in application gateway](./media/tutorial-url-redirect-powershell/application-gateway-iistest.png)
 
