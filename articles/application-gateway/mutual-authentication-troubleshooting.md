@@ -123,14 +123,14 @@ Double check the certificate chain that was uploaded and remove the private key 
 #### Cause
 
 There are two potential causes for this error:
-1. **Parsing failure:** The certificate chain isn't in the correct format. Application Gateway expects certificate chains in PEM format with properly delimited individual certificates.
-2. **Empty content:** The uploaded file contains only delimiters without actual certificate data between them. 
+* **Parsing failure:** The certificate chain isn't in the correct format. Application Gateway expects certificate chains in PEM format with properly delimited individual certificates.
+* **Empty content:** The uploaded file contains only delimiters without actual certificate data between them. 
 
 #### Solution
 
 Based on the specific cause, apply one of the following solutions:
-1. **Format issue:** Ensure the certificate chain is in PEM format with each certificate properly delimited by `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----` markers. Each certificate should be on separate lines within these delimiters.
-2. **Missing data:** Verify that the certificate file contains actual certificate data between the delimiters, not just empty delimiters. 
+* **Format issue:** Ensure the certificate chain is in PEM format with each certificate properly delimited by `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----` markers. Each certificate should be on separate lines within these delimiters.
+* **Missing data:** Verify that the certificate file contains actual certificate data between the delimiters, not just empty delimiters. 
 
 ### Error code: ApplicationGatewayTrustedClientCertificateDoesNotContainAnyCACertificate
 
