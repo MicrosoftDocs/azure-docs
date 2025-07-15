@@ -47,17 +47,11 @@ You can check the updates from the **Overview** or **Machines** pane on the **Up
 
 1. Select your virtual machine to open the **Virtual machines | Updates** page.
 1. Under **Operations**, select **Updates**.
-1. On the **Updates** pane, select **Go to Updates using Update Manager**.
+1. On the **Updates** pane, select **Azure Update Manager**
 
-      :::image type="content" source="./media/view-updates/resources-check-updates.png" alt-text="Screenshot that shows selection of updates from the home page.":::
+1.  On the **Select resources and check for updates** pane, choose the machine that you want to check for updates, and then select **Check for updates**.
 
-1. On the **Updates** page, select **Check for updates**. In **Trigger assess now**, select **OK**.
-
-   An assessment is performed and a notification says **Assessment is in progress**. After the assessment, you see **Assessment successful** or **Assessment failed**.
-
-    :::image type="content" source="./media/view-updates/check-updates-home-inline.png" alt-text="Screenshot that shows the status after checking updates." lightbox="./media/view-updates/check-updates-home-expanded.png":::
-
-  For more information, see [Update assessment scan](assessment-options.md#update-assessment-scan).
+    An assessment is performed and a notification appears as a confirmation.
 
 ---
 
@@ -83,13 +77,11 @@ You can check the updates from the **Overview** or **Machines** pane.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the **Azure Update Manager** | **Machines** page, select your subscription to view all your machines.
+1. On the **Azure Update Manager** | **Resources** |**Machines** page, select your subscription to view all your machines.
 
-1. Choose **Select all** to select all your machines, and then select **Check for updates**.
+1. Choose the machines that you want to check for updateso select all your machines, and then select **Check for updates**.
 
-1. Select **Assess now** to perform the assessment.
-
-   A notification appears when the operation is initiated and finished. After a successful scan, the **Update Manager | Machines** page is refreshed to display the updates.
+   An assessment is performed and a notification appears as a confirmation.
 
 ---
 

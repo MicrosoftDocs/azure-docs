@@ -13,19 +13,13 @@ ms.author: v-uhabiba
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-You can use Azure Update Manager to create and save recurring deployment schedules. You can create a schedule on a daily, weekly, or hourly cadence. You can specify the machines that must be updated as part of the schedule and the updates to be installed.
-
-This schedule then automatically installs the updates according to the created schedule for a single VM and at scale.
-
-Update Manager uses a maintenance control schedule instead of creating its own schedules. Maintenance control enables customers to manage platform updates. For more information, see [Maintenance control documentation](/azure/virtual-machines/maintenance-control).
+Azure Update Manager uses Maintenance Configurations to control and manage updates for many Azure VM resources. See the [Guest](https://learn.microsoft.com/azure/virtual-machines/maintenance-configurations#guest) documentation for more details.
 
 ## Prerequisites for scheduled patching
 
 1. See [Prerequisites for Update Manager](prerequisites.md).
-1. Patch orchestration of the Azure machines should be set to **Customer Managed Schedules**. For more information, see [Enable schedule patching on existing VMs](prerequsite-for-schedule-patching.md#enable-scheduled-patching-on-azure-vms). For Azure Arc-enabled machines, it isn't a requirement.
+2. Patch orchestration of the Azure machines should be set to **Customer Managed Schedules**. For more information, see [Enable schedule patching on existing VMs](prerequsite-for-schedule-patching.md#enable-scheduled-patching-on-azure-vms).
 
-	> [!NOTE]
-	> If you set the patch mode to **Azure orchestrated** (`AutomaticByPlatform`) but do not enable the **BypassPlatformSafetyChecksOnUserSchedule** flag and do not attach a maintenance configuration to an Azure machine, it's treated as an [automatic guest patching](/azure/virtual-machines/automatic-vm-guest-patching)-enabled machine. The Azure platform automatically installs updates according to its own schedule. [Learn more](prerequisites.md).
 
 ## Scheduled patching in an availability set
 

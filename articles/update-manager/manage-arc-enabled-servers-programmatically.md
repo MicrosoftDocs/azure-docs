@@ -21,25 +21,12 @@ Support for Azure REST API to manage Azure Arc-enabled servers is available thro
 
 To trigger an update assessment on your Azure Arc-enabled server, specify the following POST request:
 
-```rest
-POST on `subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.HybridCompute/machines/machineName/assessPatches?api-version=2020-08-15-preview`
-{
-}
-```
-
 # [Azure CLI](#tab/cli)
 
 To specify the POST request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
 
 ```azurecli
 az rest --method post --url https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.HybridCompute/machines/machineName/assessPatches?api-version=2020-08-15-preview --body @body.json
-```
-
-The format of the request body for version 2020-08-15 is as follows:
-
-```json
-{
-}
 ```
 
 # [Azure PowerShell](#tab/powershell)
@@ -68,7 +55,7 @@ The following table describes the elements of the request body:
 | Property | Description |
 |----------|-------------|
 | `maximumDuration` | Maximum amount of time in minutes the OS update operation can take. It must be an ISO 8601-compliant duration string such as `PT100M`. |
-| `rebootSetting` | Flag to state if you should reboot the machine and if the Guest OS update installation needs it for completion. Acceptable values are: `IfRequired, NeverReboot, AlwaysReboot`. |
+| `rebootSetting` | Flag to state if you should reboot the machine by AUM as part of the job. Acceptable values are: `IfRequired, NeverReboot, AlwaysReboot`. |
 | `windowsParameters` | Parameter options for Guest OS update on machine running a supported Microsoft Windows Server operating system. |
 | `windowsParameters - classificationsToInclude` | List of categories or classifications of OS updates to apply, as supported and provided by Windows Server OS. Acceptable values are: `Critical, Security, UpdateRollup, FeaturePack, ServicePack, Definition, Tools, Update` |
 | `windowsParameters - kbNumbersToInclude` | List of Windows Update KB IDs that are available to the machine and that you need install. If you've included any 'classificationsToInclude', the KBs available in the category are installed. 'kbNumbersToInclude' is an option to provide list of specific KB IDs over and above that you want to get installed. For example: `1234`  |
@@ -340,6 +327,21 @@ New-AzConfigurationAssignment `
 ## Remove machine from the schedule
 
 To remove a machine from the schedule, get all the configuration assignment names for the machine that you have created to associate the machine with the current schedule from the Azure Resource Graph as listed:
+
+# [Azure CLI](#tab/azurecli)
+
+```azurecli-interactive
+az maintenance configuration delete \
+   --resource-group myMaintenanceRG \
+   --location eastus \
+   --resource-name myVM \
+   --resource-type virtualMachines \
+   --provider-name Microsoft.Compute \
+   --configuration-assignment-name myConfig \
+   --maintenance-configuration-id "/subscriptions/{subscription ID}/resourcegroups/myMaintenanceRG/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig"
+```
+
+# [Azure PowerShell](#tab/azurepowershell)
 
 ```kusto
 maintenanceresources

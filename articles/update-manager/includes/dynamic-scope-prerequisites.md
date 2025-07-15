@@ -12,7 +12,6 @@ ms.date: 08/02/2023
 #### [Azure VMs](#tab/avms)
 
 - Patch Orchestration must be set to Customer Managed Schedules.
-- Associate a Schedule with the VM.
              
 #### [Arc-enabled VMs](#tab/arcvms)
 

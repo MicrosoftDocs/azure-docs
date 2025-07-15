@@ -12,11 +12,6 @@ ms.topic: overview
 
 # About Azure Update Manager
 
-> [!Important]
-> Both Azure Automation Update Management and the Log Analytics agent it uses [have been retired on 31st August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). Therefore, if you are using the Automation Update Management solution, we recommend that you move to Azure Update Manager for your software update needs. Follow the [guidance](guidance-migration-automation-update-management-azure-update-manager.md#migration-scripts) to move your machines and schedules from Automation Update Management to Azure Update Manager.
-> For more information, see the [FAQs on retirement](update-manager-faq.md#impact-of-log-analytics-agent-retirement).
-
-
 Update Manager is a unified service to help manage and govern updates for all your machines (running a server operating system). You can monitor Windows and Linux update compliance across your machines in Azure, and on-premises or other cloud environments (connected by [Azure Arc](/azure/azure-arc/)) from a single pane of management. You can also use Update Manager to make real-time updates or schedule them within a defined maintenance window. 
 
 You can use Azure Update Manager for :
@@ -37,7 +32,7 @@ You can use Azure Update Manager for :
     - That are available in Linux packages 
     - That are published to [Windows Server Update Services (WSUS)](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) 
 - Patching diverse resources 
-    - Azure Virtual Machines (VMs): both Windows and Linux VMs in Azure (including SQL servers). VMs also include the ones which are created by Azure Migrate, Azure Backup, and Azure Site Recovery. 
+    - Azure Virtual Machines (VMs): both Windows and Linux VMs in Azure (including SQL servers).
     - [Hybrid machines](/azure/azure-arc/servers/) (including SQL Arc servers) and Windows IoT Enterprise on Arc enabled servers 
     - [VMware machines](/azure/azure-arc/vmware-vsphere/)
     - [System Center Virtual Machine Manager (SCVMM) machines](/azure/azure-arc/system-center-virtual-machine-manager/) 
