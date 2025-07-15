@@ -70,7 +70,7 @@ To create a Traffic Manager subnet override, you can use Azure PowerShell to add
     ### Add a range of IPs with a subnet ###
     Add-AzTrafficManagerIPAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
 
-    ### Add a rang of IPv6 IPs ###
+    ### Add a range of IPv6 IPs ###
     Add-AzTrafficManagerIPAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "2001:0db8:85a3::1" -Last "2001:0db8:85a3::ffff"
 
     ```
