@@ -116,7 +116,9 @@ If you're on a plan or a stamp that doesn't support availability zones, you must
 
 ## Set zone redundancy for an existing App Service plan
 
-To enable or disable zone redundancy on an existing App Service plan:
+If you want to enable zone redundancy on an existing App Service plan, first [check for zone redundancy support for your App Service plan](#check-for-zone-redundancy-support-for-an -app-service-plan). 
+
+Choose one of the following methods to set zone-redundancy:
 
 # [Azure portal](#tab/portal)
 
