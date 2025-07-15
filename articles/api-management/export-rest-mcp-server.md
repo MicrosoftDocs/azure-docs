@@ -4,7 +4,7 @@ description: Learn how to expose a REST API in Azure API Management as an MCP se
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 06/27/2025
+ms.date: 07/14/2025
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
@@ -13,15 +13,21 @@ ms.custom:
 
 # Expose REST API in API Management as an MCP server
 
-[!INCLUDE [api-management-premium-standard-basic](../../includes/api-management-availability-premium-standard-basic.md)]
-
+[!INCLUDE [api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 In API Management, you can expose a REST API managed in API Management as a remote [Model Context Protocol (MCP)](https://www.anthropic.com/news/model-context-protocol) server. Expose one or more of the API operations as tools that MCP clients can call using the MCP protocol. 
+
+In addition to exposing your OpenAPI and HTTP endpoints as MCP servers, you can expose REST APIs managed in API Management such as the following:
+
+* [Azure function app](import-function-app-as-api.md), for accessing serverless APIs
+* [Azure logic app](import-logic-app-as-api.md), for automating workflows
+* [Azure container app](container.md), for deploying containerized APIs
+
 
 Using API Management to expose remote MCP servers provides centralized control over authentication, authorization, and monitoring. It simplifies the process of exposing APIs as MCP servers while helping to mitigate common security risks and ensuring scalability.
 
 > [!IMPORTANT]
-> This feature is being introduced in preview in the classic Basic, Standard, and Premium tiers. It's being released first to the **AI Gateway Early** [update group](configure-service-update-settings.md). After joining the group, it can take 2 hours to access MCP server features.
+> This feature is currently in preview. Review the [prerequisites](#prerequisites) to access MCP server features.
 
 In this article, you learn how to:
 
@@ -33,7 +39,8 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-+ Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md). Currently only the **Premium**, **Standard**, and **Basic** tiers of API Management support MCP servers.
++ If you don't already have an API Management instance, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md). Your API Management instance must be in one of the supported service tiers for preview: classic Basic, Standard, Premium, Basic v2, Standard v2, or Premium v2.
++ If your instance is in the classic Basic, Standard, or Premium tier, you must join the **AI Gateway Early** [update group](configure-service-update-settings.md) to access MCP server features. It can take up to 2 hours for the update to be applied.
 + Make sure that your instance manages a REST API that you'd like to expose as an MCP server. To import a sample API, see [Import and publish your first API](import-and-publish.md).
     > [!NOTE]
     > Only HTTP APIs from API Management can be exposed as MCP servers.
@@ -42,13 +49,7 @@ In this article, you learn how to:
 
 ## Expose API as an MCP server
 
-
-1. In the Azure portal, access the MCP server preview at the following URL. The preview can ony be used in the supported API Management tiers:
-
-    ```
-    https://portal.azure.com/?Microsoft_Azure_ApiManagement=mcp
-    ```
-1. Navigate to your API Management instance.
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, select **APIs** > **MCP Servers** > **+ Create new MCP Server**.
 1. In **API**, select a REST API to expose as an MCP server. 
 1. Select one or more **API Operations** to expose as tools. You can select all operations or only specific operations.
