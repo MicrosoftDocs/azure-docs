@@ -80,6 +80,14 @@ GitHub Codespaces provides the most streamlined experience and can get the devel
     1. Deploy a new k3d cluster
     1. Set up port forwarding for ports `1883`, `8883`, and `8884` to enable TLS
     1. Create a local container registry
+    
+1. For the next step you will need non-root access to the cluster, run the following command:
+
+    ```bash
+    mkdir ~/.kube; sudo install -o $USER -g $USER -m 600 /root/.kube/config ~/.kube/config
+    ```
+
+    This command gives your non-root user access to the Kubernetes cluster by copying the cluster configuration file from the root account to your user account, ensuring you have the correct permissions to use Kubernetes tools like kubectl without needing root access.
 
 ### [Visual Studio Code Dev Containers](#tab/vscode-dev-containers)
 
@@ -194,7 +202,7 @@ Open a new bash terminal and do the following steps:
 1. Load the environment variables into your shell, run the following command in your terminal:
 
     ```bash
-    source <REPOSITORY ROOT>/.env
+    source .env
     ```
 
 1. Run the `install-aio-arc.sh` script to arc-enable your cluster and deploy Azure IoT Operations:
