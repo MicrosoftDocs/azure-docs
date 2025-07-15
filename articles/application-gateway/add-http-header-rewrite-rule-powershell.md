@@ -139,11 +139,3 @@ Now that you learned how to configure HTTP header rewrite rules, explore these r
 - **Common scenarios**: Learn about [common header rewrite scenarios](./rewrite-http-headers-url.md) including security headers, custom routing, and backend server integration patterns.
 
 - **Monitoring and troubleshooting**: Set up [Application Gateway diagnostics](./application-gateway-diagnostics.md) to monitor header rewrite operations and troubleshoot issues.
-
-- **Performance optimization**: Learn about [Application Gateway performance best practices](./application-gateway-performance.md) when using header rewrite rules.
-
-### More resources
-
-- [Application Gateway v2 features overview](./application-gateway-autoscaling-zone-redundant.md)
-- [PowerShell reference for Application Gateway](https://docs.microsoft.com/powershell/module/az.network/?view=azps-latest#application-gateway)
-- [REST API documentation for rewrite rules](https://docs.microsoft.com/rest/api/application-gateway/)
