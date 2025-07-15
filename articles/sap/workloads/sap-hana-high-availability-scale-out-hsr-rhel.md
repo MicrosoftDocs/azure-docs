@@ -69,7 +69,7 @@ Some readers will benefit from consulting a variety of SAP notes and resources b
 * Azure-specific RHEL documentation:
   * [Install SAP HANA on Red Hat Enterprise Linux for use in Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure).
   * [Red Hat Enterprise Linux Solution for SAP HANA scale-out and system replication](https://access.redhat.com/solutions/4386601).
-  * [What is the fast_stop option for a Filesystem resource in a Pacemaker cluster?] (https://access.redhat.com/solutions/4801371).
+  * [What is the fast_stop option for a Filesystem resource in a Pacemaker cluster?](https://access.redhat.com/solutions/4801371).
 * [Azure NetApp Files documentation][anf-azure-doc].
 * [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md).
 * [Azure Files documentation](../../storage/files/storage-files-introduction.md)  

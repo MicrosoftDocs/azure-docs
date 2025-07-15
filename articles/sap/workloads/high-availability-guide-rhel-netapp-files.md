@@ -69,7 +69,7 @@ Read the following SAP Notes and papers first:
 * Azure-specific RHEL documentation:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)
-  * [What is the fast_stop option for a Filesystem resource in a Pacemaker cluster?] (https://access.redhat.com/solutions/4801371)
+  * [What is the fast_stop option for a Filesystem resource in a Pacemaker cluster?](https://access.redhat.com/solutions/4801371)
 * [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]
 * [NetApp NFS Best Practices](https://www.netapp.com/media/10720-tr-4067.pdf)
 
