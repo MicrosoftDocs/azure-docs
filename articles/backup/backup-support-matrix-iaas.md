@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backups
 description: Get a summary of support settings and limitations for backing up Azure VMs by using the Azure Backup service.
 ms.topic: reference
-ms.date: 06/23/2025
+ms.date: 07/30/2025
 ms.custom:
   - references_regions
   - linux-related-content
@@ -105,7 +105,7 @@ Azure Backup provides the following support for customers to author their own pr
 
 
 
-## Support for agentless multi-disk crash-consistent VM backup (preview)
+## Support for agentless multi-disk crash-consistent VM backup
 
 [!INCLUDE [backup-azure-agentless-multi-disk-crash-consistent-vm-backup-support-scenarios.md](../../includes/backup-azure-agentless-multi-disk-crash-consistent-vm-backup-support-scenarios.md)]
 
