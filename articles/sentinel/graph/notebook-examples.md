@@ -15,28 +15,28 @@ ms.subservice: sentinel-graph
  
 # Jupyter notebook code examples  
  
-This article presents some sample code snippets that demonstrate how to interact with Microsoft Sentinel lake data (preview) using Jupyter notebooks to analyze security data in the Microsoft Sentinel data lake. These examples illustrate how to access and analyze data from various tables, such as Entra ID sign-in logs, group information, and device network events. The code snippets are designed to run in Jupyter notebooks within Visual Studio Code using the Microsoft Sentinel extension.
+This article presents some sample code snippets that demonstrate how to interact with Microsoft Sentinel lake data (preview) using Jupyter notebooks to analyze security data in the Microsoft Sentinel data lake. These examples illustrate how to access and analyze data from various tables, such as Microsoft Entra ID sign-in logs, group information, and device network events. The code snippets are designed to run in Jupyter notebooks within Visual Studio Code using the Microsoft Sentinel extension.
 
 To run these examples, must have the required permissions and Visual Studio Code installed with the Microsoft Sentinel extension. For more information, see [Microsoft Sentinel data lake permissions](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview) and  [Use Jupyter notebooks with Microsoft Sentinel Data lake](./notebooks.md).
 
-## Failed sign in attempts analysis
+## Failed sign-in attempts analysis
 
-This example identifies users with failed sign in attempts. To do so, this notebook example processes sign in data from two tables: 
+This example identifies users with failed sign-in attempts. To do so, this notebook example processes sign-in data from two tables: 
  + microsoft.entra.id.SignInLogs 
  + microsoft.entra.id.AADNonInteractiveUserSignInLogs
 
 The notebook performs the following steps:
 1. Create a function to process data from the specified tables, which includes:
     1. Load data from the specified tables into DataFrames.
-    1. Parse the 'Status' JSON field to extract 'errorCode' and determines whether each sign in attempt was a success or failure.
-    1. Aggregate the data to count the number of failed and successful sign in attempts for each user.
-    1. Filter the data to include only users with more than 100 failed sign in attempts and at least one successful sign in attempt.
-    1. Order the results by the number of failed sign in attempts.
+    1. Parse the 'Status' JSON field to extract 'errorCode' and determine whether each sign-in attempt was a success or failure.
+    1. Aggregate the data to count the number of failed and successful sign-in attempts for each user.
+    1. Filter the data to include only users with more than 100 failed sign-in attempts and at least one successful sign-in attempt.
+    1. Order the results by the number of failed sign-in attempts.
 1. Call the function for both `SignInLogs` and `AADNonInteractiveUserSignInLogs` tables.
 1. Combine the results from both tables into a single DataFrame.
 1. Convert the DataFrame to a Pandas DataFrame.
-1. Filter the Pandas DataFrame to show the top 20 users with the highest number of failed sign in attempts.
-1. Create a bar chart to visualize the users with the highest number of failed sign in attempts.
+1. Filter the Pandas DataFrame to show the top 20 users with the highest number of failed sign-in attempts.
+1. Create a bar chart to visualize the users with the highest number of failed sign-in attempts.
 
 > [!NOTE] 
 > This notebook takes around 10 minutes to run on the Large pool depending on the volume of data in the logs tables
@@ -93,28 +93,28 @@ result_df.show()
 # Convert the Spark DataFrame to a Pandas DataFrame
 result_pd_df = result_df.toPandas()
 
-# Filter to show table with top 20 users with the highest failed sign ins attempted
+# Filter to show table with top 20 users with the highest failed sign-ins attempted
 top_20_df = result_pd_df.nlargest(20, 'FailureCount')
 
-# Create bar chart to show users by highest failed sign ins attempted
+# Create bar chart to show users by highest failed sign-ins attempted
 plt.figure(figsize=(12, 6))
 plt.bar(top_20_df['UserDisplayName'], top_20_df['FailureCount'], color='skyblue')
 plt.xlabel('Users')
-plt.ylabel('Number of Failed Sign ins')
-plt.title('Top 20 Users with Failed Sign ins')
+plt.ylabel('Number of Failed sign-ins')
+plt.title('Top 20 Users with Failed sign-ins')
 plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
 plt.show()  
 ```
 
-The following screenshot shows a sample of the output of the code above, displaying the top 20 users with the highest number of failed sign in attempts in a bar chart format.
+The following screenshot shows a sample of the output of the code above, displaying the top 20 users with the highest number of failed sign-in attempts in a bar chart format.
 
-:::image type="content" source="media/notebook-examples/failed-login-analysis.png" lightbox="media/notebook-examples/failed-login-analysis.png" alt-text="A screenshot showing a bar chart of the users with the highest number of failed sign in attempts.":::
+:::image type="content" source="media/notebook-examples/failed-login-analysis.png" lightbox="media/notebook-examples/failed-login-analysis.png" alt-text="A screenshot showing a bar chart of the users with the highest number of failed sign-in attempts.":::
 
-## Access lake tier Entra ID Group table  
+## Access lake tier Microsoft Entra ID Group table
 
 
-The following code sample demonstrates how to access the `EntraGroups` table in the Microsoft Sentinel data lake. It displays various fields such as displayName, groupTypes, mail, mailNickname, description, and tenantId. 
+The following code sample demonstrates how to access the `EntraGroups` table in the Microsoft Sentinel data lake. It displays various fields such as `displayName`, `groupTypes`, `mail`, `mailNickname`, `description`, and `tenantId`. 
 
 ```python  
 from sentinel_lake.providers import MicrosoftSentinelProvider
@@ -124,14 +124,14 @@ table_name = "EntraGroups"
 df = data_provider.read_table(table_name)  
 df.select("displayName", "groupTypes", "mail", "mailNickname", "description", "tenantId").show(100, truncate=False)   
 ```  
-The following screenshot shows a sample of the output of the code above, displaying the Entra ID group information in a dataframe format.
+The following screenshot shows a sample of the output of the code above, displaying the Microsoft Entra ID group information in a dataframe format.
 
-:::image type="content" source="media/notebook-examples/entra-id-group-output.png" lightbox="media/notebook-examples/entra-id-group-output.png" alt-text="A screenshot showing sample output from the Entra ID group table.":::
+:::image type="content" source="media/notebook-examples/entra-id-group-output.png" lightbox="media/notebook-examples/entra-id-group-output.png" alt-text="A screenshot showing sample output from the Microsoft Entra ID group table.":::
 
 
-## Access Entra ID sign in logs for a specific user  
+## Access Microsoft Entra ID sign-in logs for a specific user  
 
-The following code sample demonstrates how to access the Entra ID `SignInLogs` table and filter the results for a specific user. It retrieves various fields such as UserDisplayName, UserPrincipalName, UserId, and more.
+The following code sample demonstrates how to access the Microsoft Entra ID `SignInLogs` table and filter the results for a specific user. It retrieves various fields such as UserDisplayName, UserPrincipalName, UserId, and more.
 
 ```python  
 from sentinel_lake.providers import MicrosoftSentinelProvider
@@ -147,9 +147,9 @@ df.select("UserDisplayName", "UserPrincipalName", "UserId", "CorrelationId", "Us
 ```  
 
 
-## Examine sign in locations  
+## Examine sign-in locations  
 
-The following code sample demonstrates how to extract and display sign-in locations from the Entra ID SignInLogs table. It uses the `from_json` function to parse the JSON structure of the `LocationDetails` field, allowing you to access specific location attributes such as city, state, and country or region.
+The following code sample demonstrates how to extract and display sign-in locations from the Microsoft Entra ID SignInLogs table. It uses the `from_json` function to parse the JSON structure of the `LocationDetails` field, allowing you to access specific location attributes such as city, state, and country or region.
 
 ```python  
 from sentinel_lake.providers import MicrosoftSentinelProvider
@@ -179,7 +179,7 @@ sign_in_locations_df.show(100, truncate=False)
 
 ## Sign-ins from unusual countries
 
-The following code sample demonstrates how to identify sign-ins from countries that aren't part of a user’s typical sign in pattern.
+The following code sample demonstrates how to identify sign-ins from countries that aren't part of a user’s typical sign-in pattern.
 ```python
 from sentinel_lake.providers import MicrosoftSentinelProvider
 from pyspark.sql.functions import from_json, col
@@ -212,9 +212,9 @@ sign_in_locations_df.show(100, truncate=False)
 ```
 
 
-## Brute force attack from multiple failed sign ins
+## Brute force attack from multiple failed sign-ins
 
-Identify potential brute force attacks by analyzing user sign-in logs for accounts with a high number of failed sign in attempts.
+Identify potential brute force attacks by analyzing user sign-in logs for accounts with a high number of failed sign-in attempts.
 
 ```python
 from sentinel_lake.providers import MicrosoftSentinelProvider

@@ -113,7 +113,7 @@ matchedFirewall
 
 ## A threat analyst investigates newly published threat indicators
 
-Query DeviceNetworkEvents and DeviceProcessEvents from early 2024 to trace outbound connections to known threat domains, revealing malware behavior.
+Query `DeviceNetworkEvents` and `DeviceProcessEvents` from early 2024 to trace outbound connections to known threat domains, revealing malware behavior.
 
 ```kql
 let startTime = datetime(2024-01-01);

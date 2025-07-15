@@ -6,7 +6,7 @@ author: EdB-MSFT
 ms.service: microsoft-sentinel  
 ms.topic: conceptual
 ms.subservice: sentinel-graph
-ms.date: 07/09/2025
+ms.date: 07/15/2025
 ms.author: edbaynash  
 
 ms.collection: ms-security  
@@ -19,7 +19,7 @@ ms.collection: ms-security
 #  Create KQL jobs in the Microsoft Sentinel data lake (preview)
  
 
-A job is a one-time or scheduled task that runs a KQL (Kusto Query Language) query against the data in the lake tier to promote the results to the analytics tier. Once in the analytics tier, use the advanced hunting KQL editor to query the data. Promoting data to the analytics tier has the following benefits:
+A job is a one-time or repeatedly scheduled task that runs a KQL (Kusto Query Language) query against the data in the data lake tier to promote the results to the analytics tier. Once in the analytics tier, use the advanced hunting KQL editor to query the data. Promoting data to the analytics tier has the following benefits:
 
 + Combine current and historical data in the analytics tier to run advanced analytics and machine learning models on your data.
 
@@ -31,9 +31,6 @@ A job is a one-time or scheduled task that runs a KQL (Kusto Query Language) que
 > Storage in the analytics tier incurs higher billing rates than in the data lake tier. To reduce costs, only promote data that you need to analyze further. Use the KQL in your query to project only the columns you need, and filter the data to reduce the amount of data promoted to the analytics tier.  
 
 When promoting data to the analytics tier, make sure that the destination workspace is visible in the advanced hunting query editor. You can only query connected workspaces in the advanced hunting query editor. You will not be able to see data promoted to workspaces that aren't connected or to the default workspace in advance hunting. For more information on connected workspaces, see [Connect a workspace](/defender-xdr/advanced-hunting-microsoft-defender#connect-a-workspace). You can promote data to a new table or append the results to an existing table in the analytics tier. When creating a new table, the table name is suffixed with *_KQL_CL* to indicate that the table was created by a KQL job.  
-
-
-You can create a job by selecting the **Create job** button a KQL query tab or directly from the **Jobs** management page or by. For more information on the Jobs management page, see [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md).
 
 ## Prerequisites
 
@@ -85,7 +82,7 @@ You can create and manage jobs from the **Jobs** management page under **Data la
     1. To append to an existing table, select **Add to an existing table** and select the table name form the drop-down list. When adding to an existing table, the query results must match the schema of the existing table. 
     
 1. Select **Next**.
-    :::image type="content" source="media/kql-jobs/enter-job-name-details.png" alt-text="A screenshot showing the new job details page." lightbox="media/kql-jobs/enter-job-name-details.png":::
+    :::image type="content" source="media/kql-jobs/enter-job-details.png" alt-text="A screenshot showing the new job details page." lightbox="media/kql-jobs/enter-job-details.png":::
 
 1. Review or write your query in the Review the query panel. Check that the time picker is set to the required time range for the job if the date range isn't specified in the query.
 1. Select the workspace to run the query against from the **Selected workspace** drop-down.
@@ -96,7 +93,7 @@ You can create and manage jobs from the **Jobs** management page under **Data la
 
     :::image type="content" source="media/kql-jobs/review-query.png" alt-text="A screenshot showing the review query panel." lightbox="media/kql-jobs/review-query.png":::
  
-In the **Schedule the query job** panel, select whether you want to run the job once or on a schedule. If you select **One time**, the job runs as soon as the job definition is complete. If you select **Schedule**, you can specify a date and time for the job to run, or run the job on a recurring schedule.
+    In the **Schedule the query job** panel, select whether you want to run the job once or on a schedule. If you select **One time**, the job runs as soon as the job definition is complete. If you select **Schedule**, you can specify a date and time for the job to run, or run the job on a recurring schedule.
 
 1. Select **One time** or **Scheduled job**.
     >[!NOTE]
@@ -149,6 +146,8 @@ For service limits, see [Microsoft Sentinel data lake (preview) service limits](
 
 > [!NOTE]
 >  Partial results may be promoted if the job's query exceeds the one hour limit.
+
+[!INCLUDE [limitations for KQL jobs](../includes/service-limits-kql-jobs.md)]
 
 For troubleshooting tips and error messages, see [Troubleshooting KQL queries for the Microsoft Sentinel data lake (preview)](kql-troubleshoot.md).
 

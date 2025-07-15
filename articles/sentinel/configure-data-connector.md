@@ -17,7 +17,7 @@ ms.collection: usx-security
 
 # Connect data sources to Microsoft Sentinel by using data connectors
 
-Connect data sources to Microsoft Sentinel by installing and configuring data connectors. This article generally explains how to install data connectors available in the Microsoft Sentinel **Content hub** to ingest and analyze data for improved threat detection.
+To connect data sources to Microsoft Sentinel, you need to install and configure data connectors. This article generally explains how to install data connectors available in the Microsoft Sentinel **Content hub** to ingest and analyze data for improved threat detection.
 
 - [Microsoft Sentinel data connectors](connect-data-sources.md)
 - [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
@@ -58,7 +58,7 @@ After you or someone in your organization installs the solution that includes th
    - [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md)
    - [Data connector prerequisites](data-connectors-reference.md#windows-security-events-via-ama)
   
-### Configure data retention and tiering.
+### Configure data retention and tiering
    
 If you have onboarded to the Microsoft Sentinel data lake (preview), you can configure data retention and tiering for the data connector. The data lake consists of an analytics tier - your current Microsoft Sentinel workspaces, and a data lake tier where you can store data for up to 12 years. For more information on onboarding, see [Onboarding to Microsoft Sentinel data lake](graph/sentinel-lake-onboarding.md). 
 

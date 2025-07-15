@@ -6,7 +6,7 @@ author: EdB-MSFT
 ms.service: microsoft-sentinel  
 ms.topic: how-to
 ms.subservice: sentinel-graph
-ms.date: 07/13/2025
+ms.date: 07/15/2025
 ms.author: edbaynash  
 
 ms.collection: ms-security  
@@ -14,10 +14,6 @@ ms.collection: ms-security
  
 #  Run KQL queries against the Microsoft Sentinel data lake (preview)
  
-
-
-Microsoft Sentinel data lake is a next-generation, cloud-native platform that extends Microsoft Sentinel with highly scalable, cost-effective long-term storage, advanced analytics, and AI-driven security operations. Microsoft Sentinel data lake empowers security teams to explore and analyze long-term and high volume low fidelity security data. This capability is especially valuable for investigations that extend beyond the default retention window, enabling deep insights without altering existing queries or relying on external storage systems.
-
 Data lake exploration in the Defender portal, provides a unified interface for analyzing your data lake, enabling you to run KQL (Kusto Query Language) queries, and create and manage jobs.
 
 The **KQL queries** page under **Data lake exploration** allows you to edit and run KQL queries against data lake resources. You can create jobs to promote data from the data lake to the Analytics tier. Jobs can be run on-demand or scheduled. The **Jobs** page provides an interface to manage jobs, enabling, disabling, editing, or deleting jobs. For more information, see [Create jobs in the Microsoft Sentinel data lake (preview)](kql-jobs.md).
@@ -120,7 +116,8 @@ For sample queries, see [KQL sample queries for the data lake](kql-samples.md). 
 + Calling external data via KQL query against the data lake isn't supported. 
 + `Ingestion_time()` function isn't supported on tables in data lake.
 
-For service limits, see [Microsoft Sentinel data lake (preview) service limits](sentinel-lake-service-limits.md#service-parameters-and-limits-for-kql-queries-in-the-lake-tier).
+[!INCLUDE [Service limits for KQL queries against the data lake](../includes/service-limits-kql-queries.md)]
+
 
 For troubleshooting KQL queries, see [Troubleshoot KQL queries in the Microsoft Sentinel data lake](kql-troubleshoot.md).
 

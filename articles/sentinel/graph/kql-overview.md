@@ -27,7 +27,7 @@ This article introduces the core concepts and scenarios of data lake exploration
 
 Use Kusto Query Language (KQL) to run interactive queries directly on the data lake. 
 
-Using KQL Analysts can:
+Using KQL, analysts can:
 
 + Investigate and respond using historical data: Use long-term data in the data lake to gather forensic evidence, investigate an incident, detect patterns, and respond incidents.
 + Enrich investigations with high-volume logs: Leverage noisy or low-fidelity data stored in the data lake to add context and depth to security investigations.
@@ -37,13 +37,12 @@ Use **KQL queries** under  **Microsoft Sentinel** > **Data lake exploration** in
 
 ## KQL jobs 
 
-KQL Jobs run queries against the data in the data lake tier and promote the results to the analytics tier.
+KQL jobs run queries against the data in the data lake tier and promote the results to the analytics tier. A job can be a one-time or a repeating scheduled task. 
 
-Using KQL Jobs, analysts can:
+Analysts can use KQL jobs to:
 + Promote data from the data lake to the analytics tier to enable incident investigation or log correlation.
 + Schedule recurring jobs to enrich investigations using long-term, high-volume, low-fidelity logs or asset data stored only in the data lake.
 + Automate insights from historical or noisy logs to support threat hunting, create baselines, or use for compliance requirements.
-
 
 Run one-time KQL jobs on the data lake to promote specific historical data from the data lake tier to the analytics tier. Promoting data is useful for root cause analysis or zero-day detection when investigating incidents that span beyond the hot tier window. Submit a scheduled job on data lake to automate recurring queries to detect anomalies or build baselines using historical data. Threat hunters can use this to monitor for unusual patterns over time and feed results into detections or dashboards. For more information, see [Create jobs in the Microsoft Sentinel data lake](kql-jobs.md) and [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md).
 
@@ -54,12 +53,12 @@ Run one-time KQL jobs on the data lake to promote specific historical data from 
 The following scenarios illustrate how KQL queries in the Microsoft Sentinel data lake can be used to enhance security operations:
 
 | Scenario | Details | Example |
-|----------|---------|---------|
-| Investigate security incidents using long-term historical data | Security teams often need to go beyond the default retention window to uncover the full scope of an incident. | A Tier 3 SOC analyst investigating a brute force attack uses KQL queries against the data lake to query data older than 90 days. After identifying suspicious activity from over a year ago, the analyst promotes the findings to the analytics tier for deeper analysis and incident correlation. |
-|Detect anomalies and build behavioral baselines over time| Detection engineers rely on historical data to establish baselines and identify patterns that may indicate malicious behavior. | A detection engineer analyzes sign-in logs over several months to detect spikes in activity. By scheduling a KQL job in the data lake, they build a time-series baseline and uncover a pattern consistent with credential abuse. |
-| Enrich investigations using high-volume, low-fidelity logs | Some logs are too noisy or voluminous for the analytics tier but are still valuable for contextual analysis. | SOC analysts use KQL to query network and firewall logs stored only in the data lake. These logs, while not in the analytics tier, help validate alerts and provide supporting evidence during investigations. |
-| Respond to emerging threats with flexible data tiering | When new threat intelligence emerges, analysts need to quickly access and act on historical data. | A threat intelligence analyst reacts to a newly published threat analytics report by running the suggested KQL queries in the data lake. Upon discovering relevant activity from several months ago, the required log is promoted into the analytics tier. To enable real-time detection for future detections, tiering policies can be adjusted on the relevant tables to mirror most recent logs into analytics tier. |
-| Explore asset data from sources beyond traditional security logs | Enrich investigation using asset inventory such as Microsoft Entra ID objects and Azure resources. | Analysts can use KQL to query identity and resource asset information, such as Microsoft Entra ID users, apps, groups, or Azure Resources inventories, to correlate logs for broader context that complements existing security data. |
+|--------------|---------|---------|
+| **Investigate security incidents using long-term historical data** | Security teams often need to go beyond the default retention window to uncover the full scope of an incident. | A Tier 3 SOC analyst investigating a brute force attack uses KQL queries against the data lake to query data older than 90 days. After identifying suspicious activity from over a year ago, the analyst promotes the findings to the analytics tier for deeper analysis and incident correlation. |
+| **Detect anomalies and build behavioral baselines over time** | Detection engineers rely on historical data to establish baselines and identify patterns that may indicate malicious behavior. | A detection engineer analyzes sign-in logs over several months to detect spikes in activity. By scheduling a KQL job in the data lake, they build a time-series baseline and uncover a pattern consistent with credential abuse. |
+| **Enrich investigations using high-volume, low-fidelity logs** | Some logs are too noisy or voluminous for the analytics tier but are still valuable for contextual analysis. | SOC analysts use KQL to query network and firewall logs stored only in the data lake. These logs, while not in the analytics tier, help validate alerts and provide supporting evidence during investigations. |
+| **Respond to emerging threats with flexible data tiering** | When new threat intelligence emerges, analysts need to quickly access and act on historical data. | A threat intelligence analyst reacts to a newly published threat analytics report by running the suggested KQL queries in the data lake. Upon discovering relevant activity from several months ago, the required log is promoted into the analytics tier. To enable real-time detection for future detections, tiering policies can be adjusted on the relevant tables to mirror most recent logs into analytics tier. |
+| **Explore asset data from sources beyond traditional security logs** | Enrich investigation using asset inventory such as Microsoft Entra ID objects and Azure resources. | Analysts can use KQL to query identity and resource asset information, such as Microsoft Entra ID users, apps, groups, or Azure Resources inventories, to correlate logs for broader context that complements existing security data. |
 
 
 ## Related content

@@ -1,5 +1,5 @@
 ---  
-title: Microsoft Sentinel data lake Microsoft Sentinel Provider class reference (Preview)
+title: Microsoft Sentinel data lake Microsoft Sentinel Provider class reference (preview)
 description: Reference documentation for the Microsoft Sentinel Provider class, which allows you to connect to the Microsoft Sentinel data lake and perform various operations.
 author: EdB-MSFT
 ms.service: microsoft-sentinel
@@ -12,7 +12,7 @@ ms.date: 07/13/2025
 ---
  
 
-# Microsoft Sentinel Provider class 
+# Microsoft Sentinel Provider class (preview)
 
 The `MicrosoftSentinelProvider` class provides a way to interact with the Microsoft Sentinel data lake, allowing you to perform operations such as listing databases, reading tables, and saving data. This class is designed to work with the Spark sessions in Jupyter notebooks and provides methods to access and manipulate data stored in the Microsoft Sentinel data lake. 
 

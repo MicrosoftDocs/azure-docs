@@ -14,10 +14,7 @@ ms.author: edbaynash
 
 # Jupyter notebooks and the Microsoft Sentinel data lake (preview)
  
-Microsoft Sentinel data lake is a next-generation, cloud-native security data lake that extends the capabilities of Microsoft Sentinel by providing a highly scalable, cost-effective platform for long-term storage and data retention, advanced analytics, and AI-driven security operations.
-
 Jupyter notebooks are an integral part of the Microsoft Sentinel data lake ecosystem, offering powerful tools for data analysis and visualization. The notebooks are provided by the Microsoft Sentinel Visual Studio Code extension (preview) that allows you to interact with the data lake using Python for Spark (PySpark). Notebooks enable you to perform complex data transformations, run machine learning models, and create visualizations directly within the notebook environment. 
-
 
 The Microsoft Sentinel Visual Studio Code extension with Jupyter notebooks provides a powerful environment for exploring and analyzing lake data with the following benefits:
 
@@ -36,12 +33,12 @@ The Microsoft Sentinel Visual Studio Code extension with Jupyter notebooks provi
 The following scenarios illustrate how Jupyter notebooks in the Microsoft Sentinel Lake can be used to enhance security operations:
 
 | Scenario | Description |
-|----------|-------------|
-| User behavior from failed sign ins | Establish a baseline of normal user behavior by analyzing patterns of failed sign in attempts. Investigate operations attempted before and after the failed logins to detect potential compromise or brute-force activity. |
-| Sensitive data paths | Identify users and devices that have access to sensitive data assets. Combine access logs with organizational context to assess risk exposure, map access paths, and prioritize areas for security review. |
-| Anomaly threat analysis | Analyze threats by identifying deviations from established baselines, such as logins from unusual locations, devices, or times. Overlay user behavior with asset data to identify high-risk activity, including potential insider threats. |
-| Risk-scoring prioritization | Apply custom risk scoring models to security events in the data lake. Enrich events with contextual signals such as asset criticality and user role to quantify risk, assess blast radius, and prioritize incidents for investigation. |
-| Exploratory analysis and visualization | Perform exploratory data analysis across multiple log sources to reconstruct attack timelines, determine root causes, and build custom visualizations that help communicate findings to stakeholders. |
+|--------------|-------------|
+| **User behavior from failed sign ins** | Establish a baseline of normal user behavior by analyzing patterns of failed sign in attempts. Investigate operations attempted before and after the failed logins to detect potential compromise or brute-force activity. |
+| **Sensitive data paths** | Identify users and devices that have access to sensitive data assets. Combine access logs with organizational context to assess risk exposure, map access paths, and prioritize areas for security review. |
+| **Anomaly threat analysis** | Analyze threats by identifying deviations from established baselines, such as logins from unusual locations, devices, or times. Overlay user behavior with asset data to identify high-risk activity, including potential insider threats. |
+| **Risk-scoring prioritization** | Apply custom risk scoring models to security events in the data lake. Enrich events with contextual signals such as asset criticality and user role to quantify risk, assess blast radius, and prioritize incidents for investigation. |
+| **Exploratory analysis and visualization** | Perform exploratory data analysis across multiple log sources to reconstruct attack timelines, determine root causes, and build custom visualizations that help communicate findings to stakeholders. |
 
 ## Writing to the lake and analytics tier
 
