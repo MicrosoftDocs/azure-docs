@@ -28,7 +28,7 @@ This example identifies users with failed sign-in attempts. To do so, this noteb
 The notebook performs the following steps:
 1. Create a function to process data from the specified tables, which includes:
     1. Load data from the specified tables into DataFrames.
-    1. Parse the 'Status' JSON field to extract 'errorCode' and determines whether each sign-in attempt was a success or failure.
+    1. Parse the 'Status' JSON field to extract 'errorCode' and determine whether each sign-in attempt was a success or failure.
     1. Aggregate the data to count the number of failed and successful sign-in attempts for each user.
     1. Filter the data to include only users with more than 100 failed sign-in attempts and at least one successful sign-in attempt.
     1. Order the results by the number of failed sign-in attempts.
