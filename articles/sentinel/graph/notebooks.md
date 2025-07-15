@@ -7,7 +7,7 @@ ms.author: edbaynash
 ms.topic: how-to  
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-graph
-ms.date: 07/09/2025
+ms.date: 07/15/2025
  
 
 # Customer intent: As a security engineer or data scientist, I want to explore and analyze security data in the Microsoft Sentinel data lake using Jupyter notebooks, so that I can gain insights and build advanced analytics solutions.
@@ -186,6 +186,7 @@ The following table lists common errors you may encounter when working with note
 | Spark compute | Unable to access Spark Pool – 403 Forbidden. | Output channel – “Window”. | Spark pools aren't displayed. | User doesn't have the required roles to run interactive notebook or schedule job. | Check if you have the required role for interactive notebooks or notebook jobs. |
 | Spark compute | Spark Pool – \<name\> – is being upgraded. | Toast alert. | One of the Spark pools is Not available. | Spark pool is being upgraded to the latest version of Microsoft Sentinel Provider. | Wait for ~20-30 mins for the Pool to be available. |
 | Spark compute | An error occurred while calling z:org.apache.spark.api.python.PythonRDD.collectAndServe. : org.apache.spark.SparkException: Job aborted due to stage failure: Total size of serialized results (4.0 GB) is bigger than spark.driver.maxResultSize (4.0 GB) | Inline. | Driver memory exceeded or executor failure. | Job ran out of driver memory, or one or more executors failed. | View job run logs or optimize your query. Avoid using toPandas() on large datasets. Consider setting `spark.conf.set("spark.sql.execution.arrow.pyspark.enabled", "true")` if needed. |
+|Spark compute|	Failed to connect to the remote Jupyter Server 'https://api.securityplatform.microsoft.com/spark-notebook/interactive'. Verify the server is running and reachable.|	Toast alert |	User stopped the session, and failed to connect to server. |	User stopped the session.	| Run the cell again to reconnect the session.|
 | VS Code Runtime | Kernel with id – k1 - has been disposed. | Output channel – “Jupyter”. | Kernel not connected. | VS Code lost connection to the compute kernel. | Reselect the Spark pool and execute a cell. |
 | VS Code Runtime | ModuleNotFoundError: No module named 'MicrosoftSentinelProvider'. | Inline. | Module not found. | Missing import for example, Microsoft Sentinel Library library | Run the setup/init cell again. |
 | VS Code Runtime | Cell In[{cell number}], line 1 if: ^ SyntaxError: invalid syntax. | Inline. | Invalid syntax. | Python or PySpark syntax error. | Review code syntax; check for missing colons, parentheses, or quotes. |
