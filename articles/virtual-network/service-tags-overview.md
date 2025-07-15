@@ -106,7 +106,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **[AzureResourceManager](/azure/azure-resource-manager/management/service-tags)** | Azure Resource Manager. | Outbound | No | Yes |
 | **[AzureSentinel](/AZURE/sentinel/define-playbook-access-restrictions)** | Microsoft Sentinel. | Inbound | No | Yes |
 | **[AzureSignalR](/azure/azure-signalr/howto-service-tags)** | Azure SignalR. | Outbound | No | Yes |
-| **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory**, **AzureKeyVault**, **EventHub**,**GuestAndHybridManagement** and **Storage** tags. | Outbound | No | Yes |
+| **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory**, **AzureKeyVault**, **EventHub**, **GuestAndHybridManagement** and **Storage** tags. | Outbound | No | Yes |
 | **[AzureSphere](/azure-sphere/network/restrict-vnet-service-tag)** | This tag or the IP addresses covered by this tag can be used to restrict access to Azure Sphere Security Services. | Both | No | Yes |
 | **[AzureSpringCloud](/azure/spring-apps/enterprise/concept-security-controls)** | Allow traffic to applications hosted in Azure Spring Apps. | Outbound | No | Yes |
 | **AzureStack** | Azure Stack Bridge services. <br/> This tag represents the Azure Stack Bridge service endpoint per region. | Outbound | No | Yes |
@@ -154,9 +154,9 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **VirtualNetwork** | The virtual network address space (all IP address ranges defined for the virtual network), all connected on-premises address spaces, [peered](virtual-network-peering-overview.md) virtual networks, virtual networks connected to a [virtual network gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), the [virtual IP address of the host](./network-security-groups-overview.md#azure-platform-considerations), and address prefixes used on [user-defined routes](virtual-networks-udr-overview.md). This tag might also contain default routes. | Both | No | No |
 
 > [!NOTE]
-> - When using service tags with Azure Firewall, you can only create destination rules on inbound and outbound traffic. Source rules aren't supported. For more information, see the [Azure Firewall Service Tags](../firewall/service-tags.md) doc.
+> - When using service tags with Azure Firewall, you can only create destination rules on inbound and outbound traffic. Source rules aren't supported. For more information, see the [Azure Firewall Service Tags](../firewall/service-tags.md) documentation.
 >
-> - Service tags of Azure services denote the address prefixes from the specific cloud being used. For example, the underlying IP ranges that correspond to the **Sql** tag value on the Azure Public cloud is different from the underlying ranges on the Microsoft Azure operated by 21Vianet cloud.
+> - Service tags of Azure services denote the address prefixes from the specific cloud being used. For example, the underlying IP ranges that correspond to the **Sql** tag value on the Azure Public cloud are different from the underlying ranges on the Microsoft Azure operated by 21Vianet cloud.
 >
 > - If you implement a [virtual network service endpoint](virtual-network-service-endpoints-overview.md) for a service, such as Azure Storage or Azure SQL Database, Azure adds a [route](virtual-networks-udr-overview.md#optional-default-routes) to a virtual network subnet for the service. The address prefixes in the route are the same address prefixes, or CIDR ranges, as those of the corresponding service tag.
 
