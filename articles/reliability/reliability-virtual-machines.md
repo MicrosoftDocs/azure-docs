@@ -177,4 +177,4 @@ For more information, see [SLAs for online services](https://www.microsoft.com/l
 
 - [Virtual machines in Azure](/azure/virtual-machines/overview)
 - [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview)
-- [Reliability in Azure](./overview)
+- [Reliability in Azure](./overview.md)
