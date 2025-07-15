@@ -42,7 +42,7 @@ GitHub Codespaces provides the most streamlined experience and can get the devel
 
     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure/iot-operations-sdks?quickstart=1&editor=vscode)
 
-1. Once the codespace is created, you will have a container with the developer tools and a local k3s cluster running in k3d pre-installed.
+1. Once the codespace is created, you will have a container with the developer tools and a local K3s cluster running in K3d pre-installed.
 
 
 ### [Ubuntu](#tab/ubuntu)
@@ -70,13 +70,13 @@ GitHub Codespaces provides the most streamlined experience and can get the devel
     This script does the following:
 
     1. Install prerequisites including:
-        1. Docker if not already installed
-        1. k3d for managing Kubernetes clusters
-        1. Helm for Kubernetes package management
-        1. Step CLI for certificate management
-        1. Azure CLI and the Kubernetes CLI
-        1. k9s for Kubernetes cluster management
-        1. kubectl for Kubernetes management
+        1. `Docker` if not already installed
+        1. `k3d` to run lightweight Kubernetes clusters 
+        1. `Helm` for Kubernetes package management
+        1. `Step CLI` for certificate management
+        1. `Azure CLI` for managing Azure resources
+        1. `kubectl` (Kubernetes CLI) for interacting with Kubernetes clusters
+        1. `k9s` for managing Kubernetes clusters
     1. **DELETE** any existing k3d cluster
     1. Deploy a new k3d cluster
     1. Set up port forwarding for ports `1883`, `8883`, and `8884` to enable TLS
@@ -164,12 +164,12 @@ GitHub Codespaces provides the most streamlined experience and can get the devel
     This script does the following:
 
     1. Install prerequisites including:
-        1. k3d for managing Kubernetes clusters
-        1. Helm for Kubernetes package management
-        1. Step CLI for certificate management
-        1. Azure CLI and the Kubernetes CLI
-        1. k9s for Kubernetes cluster management
-        1. kubectl for Kubernetes management
+        1. `k3d` to run lightweight Kubernetes clusters 
+        1. `Helm` for Kubernetes package management
+        1. `Step CLI` for certificate management
+        1. `Azure CLI` for managing Azure resources
+        1. `kubectl` (Kubernetes CLI) for interacting with Kubernetes clusters
+        1. `k9s` for managing Kubernetes clusters
     1. **DELETE** any existing k3d cluster
     1. Deploy a new k3d cluster
     1. Set up port forwarding for ports `1883`, `8883`, and `8884` to enable TLS
