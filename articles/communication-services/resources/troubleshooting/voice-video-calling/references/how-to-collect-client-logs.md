@@ -22,7 +22,7 @@ setLogLevel('verbose');
 let logger = createClientLogger('ACS');
 const callClient = new CallClient({ logger });
 
-// Redirect ACS calling sdk's log output
+// Redirect ACS calling SDK's logs
 AzureLogger.log = (...args) => {
     // To console, file, buffer, REST API, etc...
     console.log(...args); 
