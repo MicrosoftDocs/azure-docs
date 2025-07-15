@@ -2,6 +2,7 @@
 title: Create Elastic application
 description: This article describes how to use the Azure portal to create an instance of Elastic, including Elastic Search, Elastic Observability, and Elastic Security.
 ms.topic: quickstart
+zone_pivot_groups: elastic-resource-type
 ms.date: 07/15/2025
 #customer intent: As an Azure developer, I want to create Elastic resources to use search, log analytics, and security monitoring functions for Azure environments.
 
@@ -25,7 +26,7 @@ In this quickstart, you use the Azure portal to integrate an instance of Elastic
 
 :::image type="content" source="media/create/create-elastic.png" alt-text="Screenshot shows the create page for Elastic Cloud with options to create Elastic Search, Elastic Observability, and Elastic Security." lightbox="media/create/create-elastic.png":::
 
-# [Elastic Search](#tab/elastic-search)
+::: zone pivot="elastic-search"
 
 Select **Elastic Search**.
 
@@ -69,7 +70,9 @@ At the bottom of the page, select **Next: Azure OpenAI configuration**.
 
 [!INCLUDE [review-create](../includes/review-create.md)]
 
-# [Elastic Observability](#tab/elastic-observability)
+::: zone-end
+
+::: zone pivot="elastic-observability"
 
 Select **Elastics Observability**.
 
@@ -113,7 +116,9 @@ At the bottom of the page, select **Next: Azure OpenAI configuration**.
 
 [!INCLUDE [review-create](../includes/review-create.md)]
 
-# [Elastic Security](#tab/elastic-security)
+::: zone-end
+
+::: zone pivot="elastic-security"
 
 Select **Elastics Security**.
 
@@ -157,7 +162,7 @@ At the bottom of the page, select **Next: Azure OpenAI configuration**.
 
 [!INCLUDE [review-create](../includes/review-create.md)]
 
---- 
+::: zone-end
 
 ## Next step
 
