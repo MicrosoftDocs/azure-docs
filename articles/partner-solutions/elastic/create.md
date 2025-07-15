@@ -1,10 +1,9 @@
 ---
 title: Create Elastic application
-description: This article describes how to use the Azure portal to create an instance of Elastic.
+description: This article describes how to use the Azure portal to create an instance of Elastic, including Elastic Search, Elastic Observability, and Elastic Security.
 ms.topic: quickstart
-ms.date: 07/01/2025
-
-
+ms.date: 07/15/2025
+#customer intent: As an Azure developer, I want to create Elastic resources to use search, log analytics, and security monitoring functions for Azure environments.
 
 ---
 
@@ -18,31 +17,21 @@ In this quickstart, you use the Azure portal to integrate an instance of Elastic
 - You must [subscribe to Elastic](overview.md#subscribe-to-elastic).
 
 > [!NOTE]
-> The ability to automatically navigate between the Azure portal and Elastic Cloud is enabled via single sign-on (SSO). This option is automatically enabled and turned on for all Azure users.
+> The ability to automatically navigate between the Azure portal and Elastic Cloud is enabled by using single sign-on (SSO). This option is automatically enabled and turned on for all Azure users.
 
 ## Create an Elastic resource
 
 [!INCLUDE [create-resource](../includes/create-resource.md)]
 
+:::image type="content" source="media/create/create-elastic.md" alt-text="Screenshot shows the create page for Elastic Cloud with options to create Elastic Search, Elastic Observability, and Elastic Security.":::
+
 # [Elastic Search](#tab/elastic-search)
 
-# [Elastic Observability](#tab/elastic-observability)
-
-# [Elastic Security](#tab/elastic-security)
-
----
+Select **Elastic Search**.
 
 ### Basics tab
 
-The *Basics* tab has one section:
-
-- Plan details
- 
-:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create Elastic resource in Azure options inside of the Azure portal's working pane with the Basics tab displayed.":::
-
-There are required fields (identified with a red asterisk) in each section that you need to fill out.
-
-1. Enter the values for each required setting under *Plan details*.
+1. In the **Basics** tab, enter values for the required settings:
 
     | Field               | Action                                                    |
     |---------------------|-----------------------------------------------------------|
@@ -51,7 +40,7 @@ There are required fields (identified with a red asterisk) in each section that 
     | Resource name       | Specify a unique name for the resource.                   |
     | Region              | Select a region to deploy your resource.                  |
 
-1. Select the **Next: Logs & metrics** button at the bottom of the page.
+1. At the bottom of the page, select **Next: Logs & metrics**.
 
 ### Logs & metrics tab (optional)
 
@@ -62,7 +51,7 @@ If you wish, you can configure resources to send metrics/logs to Elastic.
 
 Enter the names and values for each *Action* listed under Metrics and Logs.
 
-Select the **Next: Azure OpenAI configuration** button at the bottom of the page.
+At the bottom of the page, select **Next: Azure OpenAI configuration**.
 
 ### Azure OpenAI configuration tab
 
@@ -70,7 +59,7 @@ Select the **Next: Azure OpenAI configuration** button at the bottom of the page
 
 1. Select an existing **Azure OpenAI Deployment**.
 
-1. Select the **Next: Tags** button at the bottom of the page.
+1. At the bottom of the page, select **Next: Tags**.
 
 ### Tags tab (optional)
 
@@ -79,6 +68,98 @@ Select the **Next: Azure OpenAI configuration** button at the bottom of the page
 ### Review + create tab
 
 [!INCLUDE [review-create](../includes/review-create.md)]
+
+# [Elastic Observability](#tab/elastic-observability)
+
+Select **Elastics Observability**.
+
+### Basics tab
+
+1. In the **Basics** tab, enter values for the required settings:
+
+    | Field               | Action                                                    |
+    |---------------------|-----------------------------------------------------------|
+    | Subscription        | Select a subscription from your existing subscriptions.   |
+    | Resource group      | Use an existing resource group or create a new one.       |
+    | Resource name       | Specify a unique name for the resource.                   |
+    | Region              | Select a region to deploy your resource.                  |
+
+1. At the bottom of the page, select **Next: Logs & metrics**.
+
+### Logs & metrics tab (optional)
+
+If you wish, you can configure resources to send metrics/logs to Elastic.
+
+- Select **Send subscription activity logs**.
+- Select **Send Azure resource logs for all defined sources** (default).
+
+Enter the names and values for each *Action* listed under Metrics and Logs.
+
+At the bottom of the page, select **Next: Azure OpenAI configuration**.
+
+### Azure OpenAI configuration tab
+
+1. Select an existing **Azure OpenAI Resource**.
+
+1. Select an existing **Azure OpenAI Deployment**.
+
+1. At the bottom of the page, select **Next: Tags**.
+
+### Tags tab (optional)
+
+[!INCLUDE [tags](../includes/tags.md)]
+
+### Review + create tab
+
+[!INCLUDE [review-create](../includes/review-create.md)]
+
+# [Elastic Security](#tab/elastic-security)
+
+Select **Elastics Security**.
+
+---
+
+### Basics tab
+
+1. In the **Basics** tab, enter values for the required settings:
+
+    | Field               | Action                                                    |
+    |---------------------|-----------------------------------------------------------|
+    | Subscription        | Select a subscription from your existing subscriptions.   |
+    | Resource group      | Use an existing resource group or create a new one.       |
+    | Resource name       | Specify a unique name for the resource.                   |
+    | Region              | Select a region to deploy your resource.                  |
+
+1. At the bottom of the page, select **Next: Logs & metrics**.
+
+### Logs & metrics tab (optional)
+
+If you wish, you can configure resources to send metrics/logs to Elastic.
+
+- Select **Send subscription activity logs**.
+- Select **Send Azure resource logs for all defined sources** (default).
+
+Enter the names and values for each *Action* listed under Metrics and Logs.
+
+At the bottom of the page, select **Next: Azure OpenAI configuration**.
+
+### Azure OpenAI configuration tab
+
+1. Select an existing **Azure OpenAI Resource**.
+
+1. Select an existing **Azure OpenAI Deployment**.
+
+1. At the bottom of the page, select **Next: Tags**.
+
+### Tags tab (optional)
+
+[!INCLUDE [tags](../includes/tags.md)]
+
+### Review + create tab
+
+[!INCLUDE [review-create](../includes/review-create.md)]
+
+--- 
 
 ## Next step
 
