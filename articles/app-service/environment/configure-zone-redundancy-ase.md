@@ -62,26 +62,24 @@ az appservice plan create \
 
 To *enable zone redundancy*, set the `zoneRedundant` property to `true` and ensure that you define the `sku.capacity` property to a value of 2 or greater. If you don't define the `sku.capacity` property, the value defaults to 1.
 
-    ```bicep
-    resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' = {
-        name: appServicePlanName
-        location: location
-        hostingEnvironmentProfile: {
-            id: '...'
-        }
-        sku: {
-            name: sku
-            capacity: 2
-        }
-        kind: 'linux'
-        properties: {
-            reserved: true
-            zoneRedundant: true
-        }
+```bicep
+resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' = {
+    name: appServicePlanName
+    location: location
+    hostingEnvironmentProfile: {
+        id: '...'
     }
-    ```
-
-- To *disable zone redundancy*, set the `zoneRedundant` property to `false`.
+    sku: {
+        name: sku
+        capacity: 2
+    }
+    kind: 'linux'
+    properties: {
+        reserved: true
+        zoneRedundant: true
+    }
+}
+```
 
 ---
 
