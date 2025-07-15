@@ -38,7 +38,7 @@ The [Orchestration Versioning](durable-functions-orchestration-versioning.md) fe
 
 With Orchestration Versioning:
 - Each orchestration instance gets a version permanently associated with it when created.
-- Workers running newer versions can continue executing orchestration instances created by older versions.
+- Workers running newer orchestrator versions can continue executing older version instances.
 - Workers running older orchestration versions _can't_ execute newer version instances.
 - Orchestrator functions can examine their version and branch execution accordingly.
 

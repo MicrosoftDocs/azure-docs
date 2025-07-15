@@ -212,7 +212,7 @@ With Orchestration Versioning:
 - Each orchestration instance gets a version permanently associated with it when created
 - Orchestrator functions can examine their version and branch execution accordingly  
 - Workers running newer orchestrator function versions can continue executing orchestration instances created by older versions
-- The runtime prevents workers running older orchestrator function versions from executing orchestrations started by newer versions
+- The runtime prevents workers running older orchestrator function versions from executing orchestrations of newer versions
 
 This strategy is recommended for applications that need to support breaking changes while maintaining [zero-downtime deployments](durable-functions-zero-downtime-deployment.md). The feature is currently available .NET isolated apps.
 
