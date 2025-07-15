@@ -79,7 +79,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' = {
         zoneRedundant: true
     }
 }
-    ```
+```
 
 - To *disable zone redundancy*, set the `zoneRedundant` property to `false`.
 
