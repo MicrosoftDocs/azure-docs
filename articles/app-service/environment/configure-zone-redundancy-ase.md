@@ -40,10 +40,6 @@ Follow the guidance in [Create an App Service plan](../app-service-plan-manage.m
 - For **Pricing plan**, select *Isolated v2*.
 - For **Zone redundancy**, select **Enabled**.
 
-<!-- Jordan: We need a good screenshot showing Environment and correct pricing tier, once the portal bug is fixed. -->
-
-:::image type="content" source="../media/configure-reliability/app-service-create-zr-plan.png" alt-text="Screenshot of zone redundancy enablement during App Service plan creation in the Azure portal.":::
-
 # [Azure CLI](#tab/azurecli)
 
 Set the `--zone-redundant` argument. You must also specify the `--number-of-workers` argument, which is the number of instances, and set a value greater than or equal to 2.
@@ -60,7 +56,7 @@ az appservice plan create \
 
 # [Bicep](#tab/bicep)
 
-To *enable zone redundancy*, set the `zoneRedundant` property to `true` and ensure that you define the `sku.capacity` property to a value of 2 or greater. If you don't define the `sku.capacity` property, the value defaults to 1.
+Set the `zoneRedundant` property to `true`. You must also define the `sku.capacity` property to a value of 2 or greater. If you don't define the `sku.capacity` property, the value defaults to 1.
 
 ```bicep
 resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' = {
@@ -81,8 +77,6 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' = {
 }
 ```
 
-- To *disable zone redundancy*, set the `zoneRedundant` property to `false`.
-
 ---
 
 ## Set zone redundancy for an existing Isolated v2 App Service plan
@@ -102,7 +96,7 @@ To enable or disable zone redundancy on an existing App Service plan, you can us
 
 # [Azure CLI](#tab/azurecli)
 
-- To *enable zone redundancy*, set the `zoneRedundant` property to `true` and ensure that you define the `sku.capacity` property to a value of 2 or greater. If you don't define the `sku.capacity` property, the value defaults to 1.
+- To *enable zone redundancy*, set the `zoneRedundant` property to `true`. You must also define the `sku.capacity` property to a value of 2 or greater. If you don't define the `sku.capacity` property, the value defaults to 1.
 
     ```azurecli
     az resource update \
@@ -120,7 +114,7 @@ To enable or disable zone redundancy on an existing App Service plan, you can us
 
 # [Bicep](#tab/bicep)
 
-- To *enable zone redundancy*, set the `zoneRedundant` property to `true` and ensure that you define the `sku.capacity` property to a value of 2 or greater. If you don't define the `sku.capacity` property, the value defaults to 1.
+- To *enable zone redundancy*, set the `zoneRedundant` property to `true`. You must also define the `sku.capacity` property to a value of 2 or greater. If you don't define the `sku.capacity` property, the value defaults to 1.
 
     ```bicep
     resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' = {
