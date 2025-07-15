@@ -142,11 +142,11 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png" alt-text="Screenshot to Expand Server port group and load server map.":::
 
-    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-client-group.png" alt-text="Expand client group.":::
+    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-client-group.png" alt-text="Screenshot shows how to expand client group.":::
 
 1. Expand the selected server to view process-level details for each dependency.
    
-    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-server-processes.png" alt-text="Expand server to show processes.":::
+    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-server-processes.png" alt-text="Screenshot shows how to expand server to show the processes.":::
     ::: moniker-end
 
 ::: moniker range="migrate"
