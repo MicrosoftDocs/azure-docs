@@ -63,57 +63,6 @@ az appservice plan create \
 
 ---
 
-## Check for zone redundancy support for an App Service plan
-
-To see whether an existing App Service plan supports zone redundancy, you need to get the maximum number of availability zones that the App Service plan can use. Then you can determine whether zone redundancy is supported based on the maximum number of zones.
-
-Once you have the maximum number of zones, compare the number with the following table to determine whether your plan supports zone redundancy:
-
-| Maximum Number of Zones  | Zone redundancy support |
-| ------------------------ | ----------------------- |
-| Greater than 1           | Supported               |
-| Equal to 1               | Not supported           |
-
-To get the maximum number of availability zones that your App Service plan can use, you can use the Azure portal or Azure CLI:
-
-# [Azure portal](#tab/portal)
-
-1. In the [Azure portal](https://portal.azure.com), navigate to your App Service plan.
-
-1. Select **Scale out (App Service plan)**. 
-
-    The maximum number of zones that your App Service plan can use is shown in **Maximum available zones**. 
-
-    :::image type="content" source="./media/configure-reliability/app-service-plan-max-zones-portal.png" alt-text="Screenshot of maximum available zones property in the Scale out blade in the Azure portal for an App Service plan.":::
-
-# [Azure CLI](#tab/azurecli)
-
-Query the plan's `maximumNumberOfZones` property:
-
-```azurecli
-az appservice plan show \
-    -n <app-service-plan-name> \
-    -g <resource-group-name> \
-    --query properties.maximumNumberOfZones
-```
-    
-# [Bicep](#tab/bicep)
-
-Query the plan's `maximumNumberOfZones` property:
-
-```bicep
-resource plan 'Microsoft.Web/serverfarms@2024-11-01' existing = {
-  name: '<app-service-plan-name>'
-}
-
-#disable-next-line BCP083
-output maximumNumberOfZones int = plan.properties.maximumNumberOfZones
-```
-
----
-
-If you're on a plan or a stamp that doesn't support availability zones, you must create a new App Service plan in a new resource group so that you land on the App Service footprint that supports zones.
-
 ## Set zone redundancy for an existing App Service plan
 
 If you want to enable zone redundancy on an existing App Service plan, first [check for zone redundancy support for your App Service plan](#check-for-zone-redundancy-support-for-an -app-service-plan). 
