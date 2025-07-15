@@ -76,6 +76,7 @@ GitHub Codespaces provides the most streamlined experience and can get the devel
         1. Step CLI for certificate management
         1. Azure CLI and the Kubernetes CLI
         1. k9s for Kubernetes cluster management
+        1. kubectl for Kubernetes management
     1. **DELETE** any existing k3d cluster
     1. Deploy a new k3d cluster
     1. Set up port forwarding for ports `1883`, `8883`, and `8884` to enable TLS
