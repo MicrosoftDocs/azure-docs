@@ -233,7 +233,7 @@ Application metrics logs capture the aggregated information on certain metrics r
 | `OffsetCommit` | Number of offset commit calls made to the event hub  |
 | `OffsetFetch` | Number of offset fetch calls made to the event hub. |
 
-#### Customer lag
+#### Consumer lag
 
 - The following points govern the emission of consumer lag for Kafka consumers.
     - A namespace is idle from Kafka offset commit point of view if there are no offset commits for any Kafka consumer group under the namespace.
