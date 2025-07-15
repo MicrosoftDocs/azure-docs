@@ -17,6 +17,13 @@ Orchestration Versioning addresses the core challenge of deploying changes to or
 
 Sub-orchestrations can also leverage this feature. 
 
+> [!NOTE]
+> **Terminology**: This article uses two related but distinct terms:
+> - **Orchestrator function** (or simply "orchestrator"): Refers to the function code that defines the workflow logic - the template or blueprint for how a workflow should execute.
+> - **Orchestration instance** (or simply "orchestration"): Refers to a specific running execution of an orchestrator function, with its own state, instance ID, and inputs. Multiple orchestration instances can run concurrently from the same orchestrator function.
+> 
+> Understanding this distinction is crucial for orchestration versioning, where the orchestrator function code contains version-aware logic, while orchestration instances are permanently associated with a specific version when created.
+
 ### Key Benefits
 
 - **Zero-downtime deployments**: Deploy breaking changes without waiting for in-flight orchestrations to complete.
