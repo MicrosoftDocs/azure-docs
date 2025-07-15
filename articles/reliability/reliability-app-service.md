@@ -189,8 +189,8 @@ To deploy a new zone-redundant App Service plan, you must use the [Premium v2-4 
 
 - **Enable or disable zone redundancy on an existing App Service plan.** For Isolated v2 App Service plans, if the App Service Environment is zone redundant, the App Service plans can also be set as zone redundant. However, each App Service plan has its own independent zone redundancy setting, which means that you can have a mix of zone redundant and non-zone redundant plans in an App Service Environment.
 
-    > [NOTE]
-    > When you change the zone redundancy status of the App Service Environment, you initiate an upgrade that takes 12-24 hours to complete. During the upgrade process, you don't experience any downtime or performance problems.
+> [NOTE]
+> When you change the zone redundancy status of the App Service Environment, you initiate an upgrade that takes 12-24 hours to complete. During the upgrade process, you don't experience any downtime or performance problems.
 
 ::: zone-end
 
@@ -302,3 +302,5 @@ When you deploy a zone-redundant App Service plan, the uptime percentage defined
 ## Related content
 
 - [Reliability in Azure](./overview.md)
+- [Configure zone redundancy for App Service plans](../app-service/configure-zone-redundancy.md)
+- [Configure zone redundancy for App Service Environment](../app-service/environment/configure-zone-redundancy-ase.md)
