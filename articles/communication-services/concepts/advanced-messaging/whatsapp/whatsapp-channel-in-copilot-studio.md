@@ -32,8 +32,8 @@ The following video demonstrates this process.
 
 ## Prerequisites
 
-- Facebook account
-- Active Meta Business account
+- [Facebook account](https://www.facebook.com/)
+- [Active Meta Business account](https://www.facebook.com/business/tools/meta-business-suite)
 - An Azure account with an active subscription where you have the role of an owner. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 
 ## Create an Azure Communication Services resource in Azure Portal
