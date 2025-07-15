@@ -23,7 +23,7 @@ In this quickstart, you use the Azure portal to integrate an instance of Elastic
 
 [!INCLUDE [create-resource](../includes/create-resource.md)]
 
-:::image type="content" source="media/create/create-elastic.md" alt-text="Screenshot shows the create page for Elastic Cloud with options to create Elastic Search, Elastic Observability, and Elastic Security.":::
+:::image type="content" source="media/create/create-elastic.png" alt-text="Screenshot shows the create page for Elastic Cloud with options to create Elastic Search, Elastic Observability, and Elastic Security." lightbox="media/create/create-elastic.png":::
 
 # [Elastic Search](#tab/elastic-search)
 
