@@ -124,7 +124,7 @@ Here are some cases where a promotion of a secondary to primary may be triggered
 
    * Performance Issues: If the primary region is experiencing performance issues that impact the availability or reliability of your Event Hubs, promoting the secondary region can help mitigate these issues.
 
-It is recommended to occasionally test failover mechanisms to ensure the business continuity plan is effeective, and your applications can seamlessly switch to the secondary region when needed.
+It is recommended to occasionally test failover mechanisms to ensure the business continuity plan is effective, and your applications can seamlessly switch to the secondary region when needed.
 
 ## Monitoring data replication
 Users can monitor the progress of the replication job by monitoring the replication lag metric in Application Metrics logs.

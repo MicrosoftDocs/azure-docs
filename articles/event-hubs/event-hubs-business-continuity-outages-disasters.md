@@ -8,7 +8,7 @@ ms.date: 5/13/2025
 ms.custom: references_regions
 ---
 
-# Best practices for insulating Azure Event Hubs Applications Against Outages and Disasters
+# Best practices for insulating Azure Event Hubs applications against outages and disasters
 
 Mission-critical applications must operate continuously, even in the presence of planned maintenance or unplanned outages or disasters. Resilience against disastrous outages of data processing resources is a requirement for many enterprises and, in some cases, mandated by industry regulations. This article describes techniques you can use to protect Event Hubs applications during planned maintenance or against potential service outages or disasters.
 
