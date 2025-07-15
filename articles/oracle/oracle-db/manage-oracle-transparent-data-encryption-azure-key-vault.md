@@ -19,8 +19,7 @@ In this article, you learn to store and manage Oracle Transparent Data Encryptio
 
 This integration enables Oracle Database@Azure customers to meet a wide spectrum of **security**, **compliance**, and **key management** needs - ranging from software-based key storage to single-tenant, FIPS 140-3 Level 3 validated hardware security modules.
 
-High level architectural diagram 
-
+:::image type="content" source="media\akv-on-odaa-architecture-diagram.png" alt-text="Architecure diagram for Oracle Database at Azure using Azure Key Vault"::: 
 
 
 ## Prerequisites
