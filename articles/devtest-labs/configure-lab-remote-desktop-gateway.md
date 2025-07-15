@@ -173,13 +173,13 @@ To configure a lab's **Gateway hostname** and **Gateway token secret** to use to
 
 1. On the lab's **Overview** page, select **Configuration and policies** in the left pane.
 
-1. On the **Configuration and policies** page, select **Lab settings** from the **Settings** section in the left pane.
+1. On the **Configuration and policies** page, select **Lab settings** in the **Settings** section in the left pane.
 
-1. In the **Remote desktop** section:
+1. In the **Remote desktop connection** section:
 
    - In the **Gateway hostname** box, enter the FQDN or IP address of the remote desktop services gateway machine or farm. This value must match the FQDN of the TLS/SSL certificate used on gateway machines.
 
-   - In **Gateway token secret**, enter the secret name you recorded earlier. This value isn't the function key itself, but the name of the key vault secret that holds the function key.
+   - In the **Gateway token secret** box, enter the secret name you recorded earlier. This value isn't the function key itself, but the name of the key vault secret that holds the function key.
 
    :::image type="content" source="./media/configure-lab-remote-desktop-gateway/remote-desktop-options-in-lab-settings.png" alt-text="Screenshot of remote desktop options in Lab settings." lightbox="./media/configure-lab-remote-desktop-gateway/remote-desktop-options-in-lab-settings.png":::
 
