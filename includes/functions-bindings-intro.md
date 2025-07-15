@@ -28,7 +28,7 @@ This is reference information for Azure Functions developers. If you're new to A
 * [TypeScript developer reference](../articles/azure-functions/functions-reference-node.md?tabs=typescript)
 ::: zone-end
 ::: zone pivot="programming-language-java"
-* [Create your first function](../articles/azure-functions/create-first-function-cli-java.md)
+* [Create your first function](../articles/azure-functions/how-to-create-function-azure-cli.md?pivots=programming-language-java)
 
 * [Java developer reference](../articles/azure-functions/functions-reference-java.md)
 ::: zone-end  

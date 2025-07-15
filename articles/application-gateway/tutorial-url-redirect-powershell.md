@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 
 # Create an application gateway with URL path-based redirection using Azure PowerShell
 
-You can use Azure PowerShell to configure advanced [URL-based routing rules](./url-route-overview.md) when you create an [application gateway](./overview.md). This tutorial demonstrates implementing URL path-based redirection patterns using Application Gateway v2 Standard_v2 SKU, which provides enhanced performance, auto-scaling capabilities, and zone redundancy. You'll create backend pools using [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) and implement sophisticated URL routing rules with redirection logic that automatically routes web traffic to the appropriate backend pool based on URL path patterns.
+You can use Azure PowerShell to configure advanced [URL-based routing rules](./url-route-overview.md) when you create an [application gateway](./overview.md).
 
 This tutorial covers production-ready configurations including security best practices, performance optimization, and monitoring setup.
 
@@ -27,7 +27,7 @@ In this article, you learn how to:
 
 The following example shows site traffic coming from both ports 8080 and 8081 and being directed to the same backend pools:
 
-![URL routing and redirection architecture](./media/tutorial-url-redirect-powershell/scenario.png)
+:::image type="content" source="./media/tutorial-url-redirect-powershell/scenario.png" alt-text="Diagram of URL routing and redirection architecture." lightbox="./media/tutorial-url-redirect-powershell/scenario.png":::
 
 ## Prerequisites
 
@@ -45,9 +45,6 @@ Before you begin this tutorial, ensure you have:
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 If you choose to install and use PowerShell locally, this tutorial requires the Azure PowerShell module version 5.4.1 or later. To find the version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
-
-> [!IMPORTANT]
-> This tutorial uses Application Gateway v2 (Standard_v2 SKU) which provides better performance, security features, and auto-scaling capabilities compared to v1. Ensure your subscription has sufficient quota for the resources that will be created.
 
 ## Create a resource group
 
@@ -69,8 +66,6 @@ Write-Output "Resource group '$resourceGroupName' created successfully in '$loca
 
 Create the subnet configurations for *myBackendSubnet* and *myAGSubnet* using [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). The Application Gateway requires a dedicated subnet with minimum /24 CIDR for proper operation and future scaling. Create the virtual network named *myVNet* using [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) with the subnet configurations. Finally, create the public IP address with Standard SKU and static allocation for improved security and performance using [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress).
 
-> [!NOTE]
-> Application Gateway v2 requires a Standard SKU public IP address. Dynamic allocation is not supported with Standard_v2 SKU.
 
 ```azurepowershell-interactive
 # Create backend subnet configuration with appropriate CIDR for scale sets
