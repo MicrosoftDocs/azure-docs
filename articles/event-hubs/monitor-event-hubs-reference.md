@@ -237,7 +237,9 @@ Application metrics logs capture the aggregated information on certain metrics r
 
 - The following points govern the emission of consumer lag for Kafka consumers.
     - A namespace is idle from Kafka offset commit point of view if there are no offset commits for any Kafka consumer group under the namespace.
-    - If namespace is idle for an hour, then emission of lag metrics stops. As long as the namespace is not idle for offset commit, metrics are emitted for all Kafka consumer groups under that namespace.
+  - If namespace is idle for an hour, then emission of lag metrics stops. 
+    
+  - As long as the namespace is not idle for offset commit, metrics are emitted for all Kafka consumer groups under that namespace.
     - If a namespace is non-idle and the last offset commit for a consumer group predates the hub or topic's retention period, consumer lag will no longer be emitted.
 - For AMQP consumers, consumer lag is emitted only as long as there are active receivers on the consumer group. 
 
