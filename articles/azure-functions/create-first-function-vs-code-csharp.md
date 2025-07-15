@@ -12,7 +12,7 @@ ai-usage: ai-assisted
 
 This article creates an HTTP triggered function that runs on .NET 8 in an isolated worker process. For information about .NET versions supported for C# functions, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions).
 
-There's also a [CLI-based version](create-first-function-cli-csharp.md) of this article.
+There's also a [CLI-based version](how-to-create-function-azure-cli.md?pivots=programming-language-csharp) of this article.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 

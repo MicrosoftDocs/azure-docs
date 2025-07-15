@@ -8,6 +8,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 02/06/2025
 ms.reviewer: nachakra
+# Customer intent: As a cloud administrator, I want to authorize access to blob data using Microsoft Entra or account access key, so that I can manage permissions and ensure secure data access within the Azure portal.
 ---
 
 # Choose how to authorize access to blob data in the Azure portal

@@ -4,9 +4,9 @@ description: This article lists the Azure built-in roles for Azure role-based ac
 ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
-author: rolyon
-manager: femila
-ms.author: rolyon
+author: jenniferf-skc
+manager: pmwongera
+ms.author: jfields
 ms.date: 05/25/2025
 ms.custom: generated
 ---
@@ -517,6 +517,63 @@ Provides access to manage project resources.
     }
   ],
   "roleName": "DevCenter Project Admin",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## DevOps Infrastructure Contributor Role
+
+Read, write, delete and perform actions on Managed DevOps Pools
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.DevOpsInfrastructure](../permissions/devops.md#microsoftdevopsinfrastructure)/register/action | Register the subscription for Microsoft.DevOpsInfrastructure |
+> | [Microsoft.DevOpsInfrastructure](../permissions/devops.md#microsoftdevopsinfrastructure)/unregister/action | Unregister the subscription for Microsoft.DevOpsInfrastructure |
+> | [Microsoft.DevOpsInfrastructure](../permissions/devops.md#microsoftdevopsinfrastructure)/*/read |  |
+> | [Microsoft.DevOpsInfrastructure](../permissions/devops.md#microsoftdevopsinfrastructure)/Locations/OperationStatuses/write | Write OperationStatuses |
+> | [Microsoft.DevOpsInfrastructure](../permissions/devops.md#microsoftdevopsinfrastructure)/pools/write | Update a Pool |
+> | [Microsoft.DevOpsInfrastructure](../permissions/devops.md#microsoftdevopsinfrastructure)/pools/delete | Delete a Pool |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read, write, delete and perform actions on Managed DevOps Pools",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/76153a9e-0edb-49bc-8e01-93c47e6b5180",
+  "name": "76153a9e-0edb-49bc-8e01-93c47e6b5180",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DevOpsInfrastructure/register/action",
+        "Microsoft.DevOpsInfrastructure/unregister/action",
+        "Microsoft.DevOpsInfrastructure/*/read",
+        "Microsoft.DevOpsInfrastructure/Locations/OperationStatuses/write",
+        "Microsoft.DevOpsInfrastructure/pools/write",
+        "Microsoft.DevOpsInfrastructure/pools/delete",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "DevOps Infrastructure Contributor Role",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

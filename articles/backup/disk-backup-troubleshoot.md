@@ -5,6 +5,7 @@ ms.topic: troubleshooting
 ms.date: 07/30/2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to troubleshoot backup failures in Azure Disk Backup, so that I can ensure successful backup and restore operations for my organization's data."
 ---
 
 # Troubleshooting backup failures in Azure Disk Backup

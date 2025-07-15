@@ -8,6 +8,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 07/06/2021
 ms.author: normesta
+# Customer intent: "As a cloud storage administrator, I want to enable container soft delete, so that I can recover mistakenly deleted containers and ensure data protection within a specified retention period."
 ---
 
 # Enable and manage soft delete for containers

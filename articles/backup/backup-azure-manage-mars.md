@@ -8,6 +8,7 @@ ms.service: azure-backup
 ms.custom: engagement-fy23
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator managing data backups, I want to configure and monitor Microsoft Azure Recovery Services Agent backups, so that I can ensure data security and compliance while optimizing backup performance and retention."
 ---
 # Manage Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service
 

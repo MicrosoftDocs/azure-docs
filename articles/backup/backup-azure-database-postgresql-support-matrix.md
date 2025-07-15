@@ -7,6 +7,7 @@ ms.custom: references_regions
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to understand the support matrix for Azure Database for PostgreSQL backups, so that I can ensure compliance with regional restrictions and feature limitations when implementing our backup strategy."
 ---
 
 # Azure Database for PostgreSQL server support matrix

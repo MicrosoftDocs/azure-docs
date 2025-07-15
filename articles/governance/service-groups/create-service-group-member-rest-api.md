@@ -28,6 +28,8 @@ To add resources, resource groups, or subscriptions to a Service Group (preview)
 - If you haven't already, install [ARMClient](https://github.com/projectkudu/ARMClient). It's a tool
   that sends HTTP requests to Azure Resource Manager-based REST APIs.
 
+- To be able to deploy a service group member relationship, you must have Microsoft.Relationship/ServiceGroupMember/write permissions on the source as well as Microsoft.ServiceGroup Contributor at the target service group. 
+
 ## Create in REST API
 
 For REST API, use the
@@ -54,7 +56,7 @@ specify the service group as the parent, use the **TargetID** property.
 - REST API URI
 
   ```http
-  PUT https://management.azure.com/subscriptions/[SUBID]/resourceGroups/[RGID]/providers/microsoft.compute/virtualmachine/[VMID]/providers/Microsoft.Relationships/serviceGroupMember/SGM1?api-version=2024-02-01-preview
+  PUT https://management.azure.com/subscriptions/[SUBID]/resourceGroups/[RGID]/providers/microsoft.compute/virtualmachine/[VMID]/providers/Microsoft.Relationships/serviceGroupMember/SGM1?api-version=2023-09-01-preview
   ```
 
 - Request Body

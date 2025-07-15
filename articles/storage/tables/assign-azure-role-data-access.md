@@ -12,6 +12,7 @@ ms.author: akashdubey
 ms.reviewer: nachakra
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
+# Customer intent: As an IT administrator, I want to assign Azure roles to Microsoft Entra security principals for accessing table data, so that I can ensure proper authorization and maintain security for our cloud storage resources.
 ---
 
 # Assign an Azure role for access to table data

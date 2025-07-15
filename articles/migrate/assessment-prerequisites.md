@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 05/08/2025
 monikerRange: migrate
+# Customer intent: As a cloud administrator, I want to ensure all prerequisites for Azure Migrate assessments are met so that I can obtain accurate readiness and sizing evaluations for our workloads before migration.
 ---
 
 # Prerequisites for assessments 

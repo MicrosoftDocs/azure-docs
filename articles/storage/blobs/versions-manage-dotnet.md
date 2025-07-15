@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 08/05/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
+# Customer intent: "As a .NET developer, I want to create and manage blob versions using the Azure Storage client library, so that I can ensure data recovery and maintain data integrity in my applications."
 ---
 
 # Create and list blob versions in .NET
