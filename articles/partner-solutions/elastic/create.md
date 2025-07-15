@@ -44,7 +44,7 @@ Select **Elastic Search**.
 
 ### Logs & metrics tab (optional)
 
-If you wish, you can configure resources to send metrics/logs to Elastic.
+You can configure resources to send metrics/logs to Elastic.
 
 - Select **Send subscription activity logs**.
 - Select **Send Azure resource logs for all defined sources**.
@@ -88,7 +88,7 @@ Select **Elastics Observability**.
 
 ### Logs & metrics tab (optional)
 
-If you wish, you can configure resources to send metrics/logs to Elastic.
+You can configure resources to send metrics/logs to Elastic.
 
 - Select **Send subscription activity logs**.
 - Select **Send Azure resource logs for all defined sources** (default).
@@ -117,8 +117,6 @@ At the bottom of the page, select **Next: Azure OpenAI configuration**.
 
 Select **Elastics Security**.
 
----
-
 ### Basics tab
 
 1. In the **Basics** tab, enter values for the required settings:
@@ -134,7 +132,7 @@ Select **Elastics Security**.
 
 ### Logs & metrics tab (optional)
 
-If you wish, you can configure resources to send metrics/logs to Elastic.
+You can configure resources to send metrics/logs to Elastic.
 
 - Select **Send subscription activity logs**.
 - Select **Send Azure resource logs for all defined sources** (default).
