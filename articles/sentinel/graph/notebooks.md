@@ -173,7 +173,7 @@ You can schedule jobs to run at specific times or intervals using the Microsoft 
 
 ## Service limits
 
-For a list of service limits for the Microsoft Sentinel data lake, see [Microsoft Sentinel data lake service limits](sentinel-lake-service-limits.md#service-limits-for-vs-code-notebooks).  
+For a list of service limits for the Microsoft Sentinel data lake, see [Microsoft Sentinel data lake service limits](sentinel-lake-service-limits.md#service-parameters-and-limits-for-vs-code-notebooks).  
 
 ## Troubleshooting 
 
