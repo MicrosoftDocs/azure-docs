@@ -43,7 +43,7 @@ When you create an Azure App Service instance, you select an [App Service plan](
 
 ::: zone pivot="isolated"
 
-When you implement [Azure App Service Environment](/azure/app-service/environment/overview), you deploy the environment as the location for your App Service plans and web apps.  During the set-up procedure for your environment, you must choose whether or not to deploy it with zone redundancy. If you choose zone redundancy, all web apps created in that environment will be zone-redundant by default. However, you can change the settings of particular web apps in that environment if required. 
+When you implement [Azure App Service Environment](/azure/app-service/environment/overview), you deploy the environment as the location for your App Service plans and web apps.  During the set-up procedure for your environment, you must choose whether or not to deploy it with zone redundancy. If you choose zone redundancy, all web apps created in that environment will be zone-redundant by default. 
 
 After you have created your environment, then you can create one or more App Service plans.
 
