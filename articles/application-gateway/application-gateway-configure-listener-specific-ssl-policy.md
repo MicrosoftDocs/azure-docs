@@ -107,7 +107,7 @@ Select the SSL profile you created from the dropdown list. In this example, we c
 
 11. Continue configuring the remainder of the listener according to your requirements. 
 
-    ![Associate SSL profile to new listener](./media/mutual-authentication-portal/listener-certificate.png)        
+    :::image type="content" source="./media/mutual-authentication-portal/listener-certificate.png" alt-text="Screenshot of SSL profile association for a new listener":::   
 
 ### Limitations
 SSL-Policies
