@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 The following example shows site traffic coming from both ports 8080 and 8081 and being directed to the same backend pools:
 
-![URL routing and redirection architecture](./media/tutorial-url-redirect-powershell/scenario.png)
+:::image type="content" source="./media/tutorial-url-redirect-powershell/scenario.png" alt-text="Diagram of URL routing and redirection architecture." lightbox="./media/tutorial-url-redirect-powershell/scenario.png":::
 
 ## Prerequisites
 
