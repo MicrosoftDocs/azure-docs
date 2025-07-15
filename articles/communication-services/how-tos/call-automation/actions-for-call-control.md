@@ -23,7 +23,7 @@ Call Automation supports other actions to manage call media and recording that h
 - Read the Call Automation [concepts article](../../concepts/call-automation/call-automation.md#call-actions) that describes the action-event programming model and event callbacks.
 - Learn about the [user identifiers](../../concepts/identifiers.md#the-communicationidentifier-type) like `CommunicationUserIdentifier` and `PhoneNumberIdentifier` that are used in this article.
 
-For all the code samples, `client` is the `CallAutomationClient` object that you can create, as shown, and `callConnection` is the `CallConnection` object that you obtain from the `Answer` or `CreateCall` response. You can also obtain it from callback events your application receives.
+For all the code samples, `client` is the `CallAutomationClient` object that you can create, as shown, and `callConnection` is the `CallConnection` object that you obtain from the `Answer` or `CreateCall` response. You can also obtain it from callback events that your application receives.
 
 ## [csharp](#tab/csharp)
 

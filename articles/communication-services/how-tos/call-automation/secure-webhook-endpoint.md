@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services Call Automation how-to for securing webhook endpoint 
+title: Azure Communication Services Call Automation How-to for Securing Webhook Endpoint 
 titleSuffix: An Azure Communication Services how-to document
 description: The article shows how to secure the delivery of incoming calls and callback events.
 author: fanche
@@ -49,11 +49,10 @@ A common way that you can improve this security is by implementing an API key me
 
 ### Authentication token in a WebSocket header
 
-Each WebSocket connection request made by Call Automation now includes a signed JWT in the Authentication header. This token is validated by using standard OIDC JWT validation methods:
+Each WebSocket connection request made by Call Automation now includes a signed JWT in the authentication header. This token is validated by using standard OIDC JWT validation methods:
 
   - The JWT has a lifetime of 24 hours.
   - A new token is generated for each connection request to your WebSocket server.
-  - More information is available in the official documentation: Secure webhook endpoint – Azure Communication Services.
 
  ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Secure websocket with .NET](./includes/secure-websocket-csharp.md)]
@@ -69,7 +68,7 @@ Each WebSocket connection request made by Call Automation now includes a signed 
 
 ## IP range
 
-Another way that you can secure your WebSocket connections is by allowing only Microsoft connections from certain IP ranges.
+Another way that you can secure your WebSocket connections is to allow only Microsoft connections from certain IP ranges.
 
 | Category | IP ranges or FQDN | Ports |
 | :-- | :-- | :-- |
