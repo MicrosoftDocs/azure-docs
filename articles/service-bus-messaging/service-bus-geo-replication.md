@@ -33,9 +33,8 @@ This feature allows promoting any secondary region to primary, at any time. Prom
 >     - Large message support.
 > - When you have Event Grid integration enabled on a namespace that is using Geo-Replication, note the following.
 >   - Event Grid replicates to the [geo-paired location](/azure/reliability/reliability-event-grid#set-up-disaster-recovery), not the secondary region set up for geo-replication.
->   - [Promotion](#promotion-flow) of a secondary region for Service Bus doesn't initiate a failover of Event Grid.
->   - Consequently, after promotion, Service Bus is now running in the new primary region, however Event Grid is still running in the initial primary region.
->   - If the initial primary region is [removed](#delete-secondary-region) from the Geo-Replication configuration, this breaks the EG integration.
+>   - [Promotion](#promotion-flow) of a secondary region for Service Bus doesn't initiate a failover of Event Grid. Consequently, after promotion, Service Bus is now running in the new primary region, however Event Grid is still running in the initial primary region.
+>   - If the initial primary region is [removed](#delete-secondary-region) from the Geo-Replication configuration, this breaks the Event Grid integration.
 
 ## Scenarios
 The Geo-replication feature can be used to implement different scenarios, as described here.
@@ -184,9 +183,9 @@ A promotion is triggered manually by the customer (either explicitly through a c
 After the promotion is initiated:
 
 1. The hostname is updated to point to the secondary region, which can take up to a few minutes.
-> [!NOTE]
-> You can check the current primary region by initiating a ping command:
-> ping *your-namespace-fully-qualified-name*
+  > [!NOTE]
+  > You can check the current primary region by initiating a ping command:
+  > ping *your-namespace-fully-qualified-name*
 
 1. Clients automatically reconnect to the secondary region.
 
