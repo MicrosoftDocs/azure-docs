@@ -181,6 +181,7 @@ You can disable ExpressRoute and Azure VPN Gateway route propagation on a subnet
 > Route propagation shouldn't be disabled on `GatewaySubnet`. If this setting is disabled, the gateway doesn't function.
 
 ## How Azure selects routes for traffic routing
+<a name="how-azure-selects-a-route"></a>
 
 When outbound traffic is sent from a subnet, Azure selects a route based on the destination IP address by using the longest prefix match algorithm. For example, a route table has two routes. One route specifies the 10.0.0.0/24 address prefix, and the other route specifies the 10.0.0.0/16 address prefix.
 
