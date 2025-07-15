@@ -2,7 +2,7 @@
 title: Use Modern Backup Storage with Azure Backup Server
 description: Learn about the new features in Azure Backup Server. This article describes how to upgrade your Backup Server installation.
 ms.topic: how-to
-ms.date: 12/03/2024
+ms.date: 07/15/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -138,3 +138,7 @@ After you install Backup Server, learn how to prepare your server, or begin prot
 - [Prepare Backup Server workloads](backup-azure-microsoft-azure-backup.md)
 - [Use Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md)
 - [Use Backup Server to back up SQL Server](backup-azure-sql-mabs.md)
+
+## Related content
+
+[Run an unattended installation of MABS](backup-mabs-unattended-install.md).

@@ -1,7 +1,7 @@
 ---
 title: MABS (Azure Backup Server) V4 protection matrix
 description: This article provides a support matrix listing all workloads, data types, and installations that Azure Backup Server v4 protects.
-ms.date: 11/23/2024
+ms.date: 07/15/2025
 ms.topic: reference
 ms.service: azure-backup
 ms.custom: linux-related-content, engagement-fy24
@@ -152,4 +152,8 @@ MABS doesn't support protecting the following data types:
 
 ## Next steps
 
-* [Support matrix for backup with Microsoft Azure Backup Server or System Center DPM](backup-support-matrix-mabs-dpm.md)
+* [Support matrix for backup with Microsoft Azure Backup Server or System Center DPM](backup-support-matrix-mabs-dpm.md).
+
+## Related content
+
+[Run an unattended installation of MABS](backup-mabs-unattended-install.md).
