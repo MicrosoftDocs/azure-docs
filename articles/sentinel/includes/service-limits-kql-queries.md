@@ -2,18 +2,18 @@
 author: EdB-MSFT
 ms.author: edbayansh
 ms.topic: include
-ms.date: 06/30/2025
+ms.date: 07/15/2025
 ---
 
-## Service limits for KQL queries in the lake tier.
+## Service parameters and limits for KQL queries in the lake tier
 
-The following limitations apply when writing queries in Microsoft Sentinel data lake (Preview).
+The following service parameters limitations apply when writing queries in Microsoft Sentinel data lake (Preview).
 
-|Category | Limit|
-|---|---|
-| Query result rows|  30,000 rows |
-| Query result data | 64 MB. |
-| Query timeout | 8 minutes. |
-|Queryable time range | Up to 12 years, depending on data retention. |
-| Concurrent interactive queries| 45 per minute|
-| Query Scope |	Single workspace |
+| Category                   | Parameter/limit                                         |
+|----------------------------|-----------------------------------------------|
+| Concurrent interactive queries | 45 per minute                             |
+| Query result data          | 64 MB                                         |
+| Query result rows          | 30,000 rows                                   |
+| Query Scope                | Single workspace                              |
+| Query timeout              | 8 minutes                                     |
+| Queryable time range       | Up to 12 years, depending on data retention.  |
