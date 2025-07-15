@@ -302,5 +302,9 @@ When you deploy a zone-redundant App Service plan, the uptime percentage defined
 ## Related content
 
 - [Reliability in Azure](./overview.md)
+::: zone pivot="free-shared-basic,premium"
 - [Configure zone redundancy for App Service plans](../app-service/configure-zone-redundancy.md)
+::: zone-end
+::: zone pivot="isolated"
 - [Configure zone redundancy for App Service Environment](../app-service/environment/configure-zone-redundancy-ase.md)
+::: zone-end
