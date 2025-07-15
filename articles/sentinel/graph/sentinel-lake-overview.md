@@ -122,3 +122,4 @@ For more information on using the Microsoft Sentinel data lake, see the followin
 + [KQL and the Microsoft Sentinel data lake (preview)](kql-overview.md)
 + [Permissions for the Microsoft Sentinel data lake (preview)](../roles.md#roles-and-permissions-for-the-microsoft-sentinel-data-lake-preview) 
 + [Manage data tiers and retention in Microsoft Defender Portal (preview)](https://aka.ms/manage-data-defender-portal-overview) 
++ [Manage and monitor costs for Microsoft Sentinel](../billing-monitor-costs.md)

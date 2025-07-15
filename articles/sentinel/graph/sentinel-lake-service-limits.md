@@ -13,9 +13,9 @@ ms.author: edbaynash
 ---  
 
 
-# Microsoft Sentinel data lake (preview) service limits
+# Microsoft Sentinel data lake (preview) service parameters and limits
 
-The following service limits apply to the Microsoft Sentinel data lake (preview) service.
+The following service parameters and limits apply to the Microsoft Sentinel data lake (preview) service.
 
 [!INCLUDE [Service limits for VS Code notebooks](../includes/service-limits-notebooks.md)]
 

@@ -19,7 +19,7 @@ ms.collection: ms-security
 #  Create KQL jobs in the Microsoft Sentinel data lake (preview)
  
 
-A job is a one-time or scheduled task that runs a KQL (Kusto Query Language) query against the data in the lake tier to promote the results to the analytics tier. Once in the analytics tier, use the Advanced hunting KQL editor to query the data. Promoting data to the analytics tier has the following benefits:
+A job is a one-time or scheduled task that runs a KQL (Kusto Query Language) query against the data in the lake tier to promote the results to the analytics tier. Once in the analytics tier, use the advanced hunting KQL editor to query the data. Promoting data to the analytics tier has the following benefits:
 
 + Combine current and historical data in the analytics tier to run advanced analytics and machine learning models on your data.
 
@@ -30,7 +30,7 @@ A job is a one-time or scheduled task that runs a KQL (Kusto Query Language) que
 > [!NOTE] 
 > Storage in the analytics tier incurs higher billing rates than in the data lake tier. To reduce costs, only promote data that you need to analyze further. Use the KQL in your query to project only the columns you need, and filter the data to reduce the amount of data promoted to the analytics tier.  
 
-When promoting data to the analytics tier, make sure that the destination workspace is visible in the Advanced hunting query editor. You can only query connected workspaces in the Advanced hunting query editor. You will not be able to see data promoted to workspaces that aren't connected or to the default workspace in Advance hunting. For more information on connected workspaces, see [Connect a workspace](/defender-xdr/advanced-hunting-microsoft-defender#connect-a-workspace). You can promote data to a new table or append the results to an existing table in the analytics tier. When creating a new table, the table name is suffixed with *_KQL_CL* to indicate that the table was created by a KQL job.  
+When promoting data to the analytics tier, make sure that the destination workspace is visible in the advanced hunting query editor. You can only query connected workspaces in the advanced hunting query editor. You will not be able to see data promoted to workspaces that aren't connected or to the default workspace in advance hunting. For more information on connected workspaces, see [Connect a workspace](/defender-xdr/advanced-hunting-microsoft-defender#connect-a-workspace). You can promote data to a new table or append the results to an existing table in the analytics tier. When creating a new table, the table name is suffixed with *_KQL_CL* to indicate that the table was created by a KQL job.  
 
 
 You can create a job by selecting the **Create job** button a KQL query tab or directly from the **Jobs** management page or by. For more information on the Jobs management page, see [Manage jobs in the Microsoft Sentinel data lake](kql-manage-jobs.md).
@@ -145,7 +145,7 @@ The following standard columns aren't supported for export. These columns are ov
 
 + `TimeGenerated` will be overwritten if it's older that 2 days. To preserve the original event time, we recommend writing the source timestamp to a separate column.
 
-For service limits, see [Microsoft Sentinel data lake (preview) service limits](sentinel-lake-service-limits.md#service-limits-for-kql-jobs).
+For service limits, see [Microsoft Sentinel data lake (preview) service limits](sentinel-lake-service-limits.md#service-parameters-and-limits-for-kql-jobs).
 
 > [!NOTE]
 >  Partial results may be promoted if the job's query exceeds the one hour limit.
