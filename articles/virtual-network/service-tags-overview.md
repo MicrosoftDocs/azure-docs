@@ -160,16 +160,6 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 >
 > - If you implement a [virtual network service endpoint](virtual-network-service-endpoints-overview.md) for a service, such as Azure Storage or Azure SQL Database, Azure adds a [route](virtual-networks-udr-overview.md#optional-default-routes) to a virtual network subnet for the service. The address prefixes in the route are the same address prefixes, or CIDR ranges, as those of the corresponding service tag.
 
-### Tags supported in the classic deployment model
-
-The classic deployment model (before Azure Resource Manager) supports a small subset of the tags listed in the previous table. The tags in the classic deployment model are spelled differently, as shown in the following table:
-
-| Resource Manager tag | Corresponding tag in classic deployment model |
-|---|---|
-| **AzureLoadBalancer** | AZURE_LOADBALANCER |
-| **Internet** | INTERNET |
-| **VirtualNetwork** | VIRTUAL_NETWORK |
-
 ### Tags unsupported for user defined routes (UDR)
 
 The following list of tags is currently unsupported for use with user defined routes (UDR).
