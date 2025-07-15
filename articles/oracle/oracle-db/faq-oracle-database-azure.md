@@ -178,9 +178,9 @@ Automated and managed backups to OCI object storage and self-managed backups by 
 
 Oracle Database@Azure provides customers with dedicated Oracle Exadata compute and storage within the Exadata infrastructure. You also can attach Azure NetApp Files volumes to the VMs on VM clusters.
 
-### Can we use a hardware security module (HSM) in Azure or an external HSM to encrypt databases? How do customer-managed database keys work?
+### How do customer-managed database keys work?
 
-You can manage keys by using Oracle Key Vault. Integration with Microsoft offerings like Azure Dedicated HSM and Microsoft Sentinel are on the roadmap.
+Oracle Transparent Data Encryption (TDE) master encryption keys (MEK) can be managed using Azure Key Vault(AKV). Exadata Database Service on Oracle Database@Azure now supports storing and managing Oracle TDE MEK using all three tiers of AKV services, Standard, Premium and Managed HSM. see [Manage Oracle TDE with Azure Key Vault](/azure/oracle/oracle-db/manage-oracle-transparent-data-encryption-azure-key-vault)
 
 ### What type of storage redundancy options are available?
 
