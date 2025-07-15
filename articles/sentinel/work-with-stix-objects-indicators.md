@@ -146,9 +146,7 @@ ThreatIntelIndicators
 
 ## Transform away data sent to Log Analytics
 
-[Transformations in Azure Monitor](/azure/azure-monitor/data-collection/data-collection-transformations) allow you to filter or modify incoming data before it's stored in a Log Analytics workspace. They're implemented as a Kusto Query Language (KQL) statement in a [data collection rule (DCR)](/azure/azure-monitor/data-collection/data-collection-rule-overview). See [Create workspace transformation DCR](https://learn.microsoft.com/en-us/azure/azure-monitor/data-collection/data-collection-transformations-create?tabs=portal#create-workspace-transformation-dcr) for more details about adding workspace transformations.
-
-For potential cost changes, please refer to [Cost for transformations.](https://learn.microsoft.com/en-us/azure/azure-monitor/data-collection/data-collection-transformations#cost-for-transformations)
+[Transformations in Azure Monitor](/azure/azure-monitor/data-collection/data-collection-transformations) allow you to filter or modify incoming data before it's stored in a Log Analytics workspace. They're implemented as a Kusto Query Language (KQL) statement in a [data collection rule (DCR)](/azure/azure-monitor/data-collection/data-collection-rule-overview). Learn more about how to [create workspace transformations](/azure/azure-monitor/data-collection/data-collection-transformations-create?tabs=portal#create-workspace-transformation-dcr) and the [cost for transformations](/azure/azure-monitor/data-collection/data-collection-transformations#cost-for-transformations).
 
 ### Transform away columns sent to Log Analytics
 The `ThreatIntelIndicator` and `ThreatIntelObjects` tables include a Data column that contains the full original STIX object. If this column is not relevant to your use case, you can filter it out before ingestion using the following KQL statement:
