@@ -29,7 +29,7 @@ The following functionality is limited during this time. These limitations will 
 - Virtual Network Service Endpoints direct connectivity from Azure VMware Solution workloads is not supported.
 - **vCloud Director** using Private Endpoints is supported. However, vCloud Director using Public Endpoints is not supported.
 - **vSAN Stretched Clusters** is not supported.
-- Public IP down to the VMware NSX Microsoft Edge for configuring internet will not be supported.
+- Public IP down to the VMware NSX Microsoft Edge for configuring internet will not be supported. You can find what internet options are supported in [Internet connectivity options.](native-internet-connectivity-design-considerations.md)
 - Support for **AzCLI**, **PowerShell**, and **.NET SDK** are not available during Public Preview.
 - **Run commands** interacting with customer segments aren't supported, including Zerto, JetStream, and other 3rd-party integrations.
 
