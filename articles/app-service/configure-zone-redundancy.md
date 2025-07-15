@@ -182,7 +182,7 @@ To see whether an existing App Service plan supports zone redundancy:
     | Equal to 1               | Not supported*          |
 
 
-    /* If you're on a plan or a stamp that doesn't support availability zones, you must create a new App Service plan in a new resource group so that you land on the App Service footprint that supports zones. */
+    \* If you're on a plan or a stamp that doesn't support availability zones, you must create a new App Service plan in a new resource group so that you land on the App Service footprint that supports zones.
 
 
 ## View physical zones for an App Service plan
