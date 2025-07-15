@@ -3,7 +3,7 @@ title: 'Tutorial: Troubleshoot an app using an Azure SRE Agent (preview) in Azur
 description: Deploy an automated agent to help monitor and resolve issues with an SRE Agent in Azure Container Apps.
 author: craigshoemaker
 ms.topic: tutorial
-ms.date: 07/03/2025
+ms.date: 07/15/2025
 ms.author: cshoe
 ms.service: azure
 ---
@@ -99,7 +99,9 @@ In the *Basics* tab, take the following actions.
 
 Next, create an agent to monitor the *my-aca-app-group* resource group.
 
-1. Go to the Azure portal and search for and select **SRE Agent**.
+1. Before you proceed, make sure to account for the [mandatory prerequisites](#prerequisites) so you can create an SRE Agent instance.
+
+1. Follow the link provided in your onboarding email to access the Azure SRE Agent in the Azure portal.
 
 1. Select **Create**.
 
