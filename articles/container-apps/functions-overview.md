@@ -115,9 +115,9 @@ Azure Functions on Container Apps scale automatically based on events using KEDA
 
 - **Event-driven scaling**: Automatically scales based on triggers like Event Grid, Service Bus, or HTTP.
 - **Scale to zero**: Idle apps scale-in to zero to save costs.
-- **Cold start control**: Avoid cold starts by setting minReplicas ≥ 1.
+- **Cold start control**: Avoid cold starts by setting `minReplicas` ≥ 1.
 - **Concurrency**: Each instance can process multiple events in parallel.
-- **High scale**: Scale-out to 1000 instances per app (default is 10).
+- **High scale**: Scale-out to 1,000 instances per app (default is 10).
 - **GPU support**: Run compute-heavy workloads like AI inference using GPU-backed nodes.
 
 This makes Container Apps ideal for both bursty and steady-state workloads. To learn more, see [scaling in azure container apps](../container-apps/scale-app.md)
