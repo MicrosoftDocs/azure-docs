@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 6/09/2023
 ms.author: corsini
 ms.custom: devx-track-azurecli
+# Customer intent: "As a cloud engineer, I want to create a custom image for Azure confidential VMs using the CLI, so that I can ensure my virtual machines are preconfigured with the necessary software and security settings."
 ---
 
 # How to create a custom image for Azure confidential VMs

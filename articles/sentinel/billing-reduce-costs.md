@@ -1,11 +1,11 @@
 ---
 title: Reduce costs for Microsoft Sentinel
 description: Learn how to reduce costs for Microsoft Sentinel by using different methods in the Azure portal.
-author: austinmccollum
-ms.author: austinmc
+author: EdB-MSFT
+ms.author: edbaynash
 ms.custom: subject-cost-optimization
 ms.topic: conceptual
-ms.date: 07/09/2024
+ms.date: 03/31/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal

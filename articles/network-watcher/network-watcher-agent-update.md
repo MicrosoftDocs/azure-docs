@@ -7,6 +7,7 @@ ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 01/24/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: "As a cloud administrator, I want to update the Network Watcher extension on my Azure virtual machines, so that I can ensure optimal network performance and access the latest monitoring features."
 ---
 
 # Update Azure Network Watcher extension to the latest version

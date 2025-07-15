@@ -6,8 +6,9 @@ services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 06/09/2025
+ms.date: 07/15/2025
 ms.author: allensu
+# Customer intent: "As a network administrator, I want to utilize service tags for defining security rules, so that I can simplify network access controls and maintain effective security management for Azure resources."
 ---
 
 # Azure service tags overview for virtual network security
@@ -81,7 +82,6 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureCloud** | All [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=56519). This tag doesn't include IPv6. | Both | Yes | Yes |
 | **[AzureCognitiveSearch](/azure/search/search-indexer-howto-access-ip-restricted#get-ip-addresses-for-azurecognitivesearch-service-tag)** | Azure AI Search. <br/><br/>This tag specifies the IP ranges of the [multitenant execution environments](/azure/search/search-indexer-securing-resources#indexer-execution-environment) used by a search service for indexer-based indexing. <br/><br/> **Note**: The IP of the search service itself isn't covered by this service tag. In the firewall configuration of your Azure resource, you should specify the service tag and also the specific IP address of the search service itself. | Inbound | No | Yes |
 | **AzureConnectors** | This tag represents the IP addresses used for managed connectors that make inbound webhook callbacks to the Azure Logic Apps service and outbound calls to their respective services, for example, Azure Storage or Azure Event Hubs. | Both | Yes | Yes |
-| **AzureContainerAppsService** | Azure Container Apps Service | Both | Yes | No |
 | **AzureContainerRegistry** | Azure Container Registry. | Outbound | Yes | Yes |
 | **AzureCosmosDB** | Azure Cosmos DB. | Outbound | Yes | Yes |
 | **[AzureDatabricks](/azure/databricks/resources/ip-domain-region)** | Azure Databricks. | Both | No | Yes |
@@ -89,8 +89,8 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **[AzureDeviceUpdate](/azure/iot-hub-device-update/network-security)** | Device Update for IoT Hub. | Both | No | Yes |
 | **[AzureDevOps](/azure/devops/organizations/security/allow-list-ip-url)** | Azure DevOps. | Inbound | Yes | Yes |
 | **[AzureDigitalTwins](/azure/digital-twins/concepts-security#service-tags)** | Azure Digital Twins.<br/><br/>**Note**: This tag or the IP addresses covered by this tag can be used to restrict access to endpoints configured for event routes. | Inbound | No | Yes |
-| **[AzureEventGrid](/azure/event-grid/network-security#service-tags)** | Azure Event Grid. | Both | No | Yes |
-| **[AzureFrontDoor.Frontend](/azure/frontdoor/origin-security)** <br/> **[AzureFrontDoor.Backend](/azure/frontdoor/origin-security)** <br/> **[AzureFrontDoor.FirstParty](/azure/frontdoor/origin-security)** <br/> **[AzureFrontDoor.MicrosoftSecurity](/azure/frontdoor/origin-security)**  | *Frontend* service tag contains the IP addresses that clients use to reach Front Door. You can apply the **AzureFrontDoor.Frontend** service tag when you want to control the outbound traffic that can connect to services behind Azure Front Door. *Backend* service tag contains the IP addresses that Azure Front Door uses to access your origins. You can apply this service tag when you [configure security for your origins](../frontdoor/origin-security.md). *FirstParty* and *MicrosoftSecurity* are special tags reserved for a select group of Microsoft services hosted on Azure Front Door. | Both | Yes | Yes |
+| **[AzureEventGrid](/azure/event-grid/network-security#service-tags    )** | Azure Event Grid. | Both | No | Yes |
+| **[AzureFrontDoor.Frontend](/azure/frontdoor/origin-security)** <br/> **[AzureFrontDoor.Backend](/azure/frontdoor/origin-security)** <br/> **[AzureFrontDoor.FirstParty](/azure/frontdoor/origin-security)** <br/> **[AzureFrontDoor.MicrosoftSecurity](/azure/frontdoor/origin-security)**  | *Frontend* service tag contains the IP addresses that clients use to reach Front Door. You can apply the **AzureFrontDoor.Frontend** service tag when you want to control the outbound traffic that can connect to services behind Azure Front Door. *Backend* service tag contains the IP addresses that Azure Front Door uses to access your origins. You can apply this service tag when you [configure security for your origins](../frontdoor/origin-security.md). *FirstParty* and *MicrosoftSecurity* are special tags reserved for a select group of Microsoft services hosted on Azure Front Door. *FirstParty* service tag is only available in public cloud while the other service tags are available in public and government clouds. | Both | Yes | Yes |
 | **[AzureHealthcareAPIs](/azure/healthcare-apis/fhir/configure-import-data)**  | The IP addresses covered by this tag can be used to restrict access to Azure Health Data Services. | Both | No | Yes |
 | **AzureInformationProtection** | Azure Information Protection.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory**, **AzureFrontDoor.Frontend** and **AzureFrontDoor.FirstParty** tags. | Outbound | No | Yes |
 | **AzureIoTHub** | Azure IoT Hub. | Outbound | Yes | Yes |
@@ -110,8 +110,13 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **[AzureSphere](/azure-sphere/network/restrict-vnet-service-tag)** | This tag or the IP addresses covered by this tag can be used to restrict access to Azure Sphere Security Services. | Both | No | Yes |
 | **[AzureSpringCloud](/azure/spring-apps/enterprise/concept-security-controls)** | Allow traffic to applications hosted in Azure Spring Apps. | Outbound | No | Yes |
 | **AzureStack** | Azure Stack Bridge services. <br/> This tag represents the Azure Stack Bridge service endpoint per region. | Outbound | No | Yes |
+<<<<<<< HEAD
 | **AzureTrafficManager** | Azure Traffic Manager probe IP addresses.<br/><br/>For more information on Traffic Manager probe IP addresses, see [Azure Traffic Manager FAQ](../traffic-manager/traffic-manager-faqs.md). | Inbound | No | Yes |
 | **AzureUpdateDelivery** | The Azure Update Delivery service tag used for accessing Windows Updates is marked for deprecation and in the future will be decommissioned.</br></br> Customers are advised to not take a dependency on this service tag and for customers already using it they're advised to migrate to one of the following options: </br></br>Configure Azure Firewall for your Windows 10/11 devices as documented: </br></br> • **[Manage connection endpoints for Windows 11 Enterprise](/windows/privacy/manage-windows-11-endpoints)** </br></br> • **[Manage connection endpoints for Windows 10 Enterprise, version 21H2](/windows/privacy/manage-windows-21h2-endpoints)** </br></br> Deploy the Windows Server Update Services (WSUS) </br></br> **[Plan deployment for updating Windows VMs in Azure](/azure/architecture/example-scenario/wsus/)** then proceed to </br> **[Step 2: Configure WSUS](/windows-server/administration/windows-server-update-services/deploy/2-configure-wsus#211-configure-your-firewall-to-allow-your-first-wsus-server-to-connect-to-microsoft-domains-on-the-internet)** | Outbound | No | Yes |
+=======
+| **AzureTrafficManager** | Azure Traffic Manager probe IP addresses.<br/><br/>For more information on Traffic Manager probe IP addresses, see [Azure Traffic Manager FAQ](../traffic-manager/traffic-manager-faqs.md). | Inbound | No | Yes |  
+| **AzureUpdateDelivery** | The Azure Update Delivery service tag used for accessing Windows Updates is deprecated. </br></br> Customers are advised to not take a dependency on this service tag and for customers already using it they are advised to migrate to one of the following options: </br></br>Configure Azure Firewall for your Windows 10/11 devices as documented: </br></br> • **[Manage connection endpoints for Windows 11 Enterprise](/windows/privacy/manage-windows-11-endpoints)** </br></br> • **[Manage connection endpoints for Windows 10 Enterprise, version 21H2](/windows/privacy/manage-windows-21h2-endpoints)** </br></br> Deploy the Windows Server Update Services (WSUS) </br></br> **[Plan deployment for updating Windows VMs in Azure](/azure/architecture/example-scenario/wsus/)** then proceed to </br> **[Step 2: Configure WSUS](/windows-server/administration/windows-server-update-services/deploy/2-configure-wsus#211-configure-your-firewall-to-allow-your-first-wsus-server-to-connect-to-microsoft-domains-on-the-internet)**</br></br>For more information, see [Changes coming to the Azure Update Delivery service tag](https://techcommunity.microsoft.com/blog/windows-itpro-blog/changes-coming-to-the-azure-update-delivery-service-tag/4156552) | Outbound | No | Yes |  
+>>>>>>> 6d89cae9bec4329acb3dd0218327e91805154309
 | **AzureWebPubSub** | AzureWebPubSub | Both | Yes | Yes |
 | **[BatchNodeManagement](/azure/batch/batch-virtual-network)** | Management traffic for deployments dedicated to Azure Batch. | Both | Yes | Yes |
 | **[ChaosStudio](/azure/chaos-studio/chaos-studio-permissions-security)** | Azure Chaos Studio. <br/><br/>**Note**: If you have enabled Application Insights integration on the Chaos Agent, the AzureMonitor tag is also required. | Both | No | Yes |
@@ -208,7 +213,7 @@ $storage.Properties.AddressPrefixes
 
 ### Discover service tags by using downloadable JSON files
 
-You can download JSON files that contain the current list of service tags together with IP address range details. These lists are updated and published weekly. Locations for each cloud are:
+You can download JSON files that contain the current list of service tags together with IP address range details. These lists are updated and published weekly. Locations for each cloud are.
 
 - [Azure Public](https://www.microsoft.com/download/details.aspx?id=56519)
 - [Azure US Government](https://www.microsoft.com/download/details.aspx?id=57063)

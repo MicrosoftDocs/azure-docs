@@ -39,7 +39,7 @@
 - name: Resources
   items: 
     - name: Azure roadmap
-      href: https://azure.microsoft.com/roadmap/
+      href: https://azure.microsoft.com/updates/
     - name: Pricing
       href: https://azure.microsoft.com/pricing/dev-test/ 
     - name: Regional availability

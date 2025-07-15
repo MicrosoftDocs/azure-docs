@@ -259,7 +259,7 @@ procedureSection:
       - |
         Select **Save**.
       - |
-        Restart the VMs that are connected to the virtual network, so they're assigned the new DNS server settings. VMs continue to use their current DNS settings until they're restarted.
+        Restart the VMs or other resources (such as Azure Firewalls, Application Gateways, etc.) that are connected to the virtual network, so they're assigned the new DNS server settings. VMs and other resources inheriting DNS servers continue to use their current DNS settings until they're restarted.
 
         ### Change DNS servers of a virtual network using PowerShell
 

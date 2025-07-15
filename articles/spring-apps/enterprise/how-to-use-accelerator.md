@@ -518,7 +518,7 @@ Use the following steps to view the list of App Accelerators in an Azure Spring 
 
 ### Troubleshoot App Accelerator issues
 
-If you try to open App Accelerator for a service instance that hasn't enabled App Accelerator or exposed a public endpoint, you see the following error message: `Application Accelerator of Spring Apps <instance-name> is not enabled or publically accessible`.
+If you try to open App Accelerator for a service instance that hasn't enabled App Accelerator or exposed a public endpoint, you see the following error message: `Application Accelerator of Spring Apps <instance-name> is not enabled or publicly accessible`.
 
 To enable App Accelerator and expose public endpoints, use the following steps. For more information, see the [Manage App Accelerator in an existing Enterprise plan instance](#manage-app-accelerator-in-an-existing-enterprise-plan-instance) section.
 

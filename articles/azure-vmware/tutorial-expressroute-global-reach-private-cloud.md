@@ -5,6 +5,7 @@ ms.topic: tutorial
 ms.custom: engagement-fy23
 ms.service: azure-vmware
 ms.date: 12/19/2023
+# Customer intent: "As a network engineer, I want to establish ExpressRoute Global Reach peering between my on-premises environment and Azure VMware Solution, so that I can ensure seamless connectivity and data flow between my private cloud and local infrastructure."
 ---
 
 # Tutorial: Peer on-premises environments to Azure VMware Solution

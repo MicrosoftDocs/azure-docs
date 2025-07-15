@@ -69,7 +69,7 @@ Finish the quickstart: [Use Azure App Configuration in Azure Kubernetes Service]
     ![Screenshot of the web app with old values.](./media/quickstarts/kubernetes-provider-app-launch-after.png)
 
 
-1. Update the following key-values in your App Configuration store, ensuring to update the sentinel key last.
+1. Update the following key-values in your App Configuration store.
 
     | Key | Value |
     |---|---|

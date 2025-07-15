@@ -7,6 +7,7 @@ ms.date: 05/30/2025
 ms.topic: faq
 ms.service: azure-site-recovery
 
+# Customer intent: As a cloud administrator, I want to understand the disaster recovery options for Azure virtual machines using replication, so that I can implement effective strategies for failover and data protection across regions.
 ---
 # Common questions about Azure-to-Azure disaster recovery
 
@@ -136,6 +137,12 @@ No, this is unsupported. If you accidentally move storage accounts to a differen
 The Azure portal displays *logical Zones*. In the datacenter, actual physical zones are mapped to these logical zones, and the mappings vary by subscription. For example, Subscription A's Zone 1 may map to Physical Zone 1, while Subscription B's Zone 1 may map to Physical Zone 2. Therefore, you see different mapped zones for different subscriptions in the same region. In Site Recovery, the source and target zones must have different physical zones. 
 
 In case the source and target zones are the same, you can't view zone for target configuration while enabling zonal replication.
+
+#### Can I choose a different name for my recovery services vault automation instead of using the existing one?
+
+When you replicate a new VM and specify a new Automation Account name, the vault updates to use this new Automation Account at the vault level. This updated name appears in the vault under **Recovery Services Vault** > **Site Recovery Infrastructure** > **Extension Update Settings**.
+
+Azure Site Recovery uses this new Automation Account to manage the site recovery extension on all replicated VMs.
 
 ### Premium SSD v2 disks (preview)
 

@@ -2,7 +2,7 @@
 metadata:
   title: Back up Azure Files FAQ
   description: In this article, discover answers to common questions about how to protect your Azure file shares with the Azure Backup service.
-  ms.date: 01/08/2025
+  ms.date: 06/11/2025
   ms.topic: faq
   ms.service: azure-backup
   author: jyothisuri
@@ -298,6 +298,11 @@ sections:
           How is the expiry date shown when both snapshot and vaulted backups are configured?
         answer: |
           When both snapshot and vaulted backups are configured, the expiry date initially reflects the retention period of the snapshot backup. After the snapshot backup expires, the expiry date will update to reflect the retention period of the vaulted backup.
+
+      - question: |
+          Why is the lock recreated during an on-demand backup in Azure?
+        answer: |
+          During an on-demand backup, Azure Backup auto-recreates the deleted lock to protect data and prevent accidental changes or deletions.
 
   - name: Lease snapshots
     questions:

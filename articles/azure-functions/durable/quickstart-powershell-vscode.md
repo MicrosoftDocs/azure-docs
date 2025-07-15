@@ -56,9 +56,9 @@ Visual Studio Code installs Azure Functions Core Tools if it's required to creat
 
 A *package.json* file is also created in the root folder.
 
-### Configure the function app to use PowerShell 7
+### Configure the function app to use PowerShell 7.4 and the standalone Durable Functions SDK
 
-Open the *local.settings.json* file and confirm that a setting named `FUNCTIONS_WORKER_RUNTIME_VERSION` is set to `~7`. If it's missing or if it's set to another value, update the contents of the file.
+Open the *local.settings.json* file and confirm that a setting named `FUNCTIONS_WORKER_RUNTIME_VERSION` is set to `7.4` and a setting named `ExternalDurablePowerShellSDK` is set to `true`. If they are missing or if they are set to other values, update the contents of the file.
 
 ```json
 {
@@ -66,9 +66,30 @@ Open the *local.settings.json* file and confirm that a setting named `FUNCTIONS_
   "Values": {
     "AzureWebJobsStorage": "",
     "FUNCTIONS_WORKER_RUNTIME": "powershell",
-    "FUNCTIONS_WORKER_RUNTIME_VERSION" : "~7"
+    "FUNCTIONS_WORKER_RUNTIME_VERSION" : "7.4",
+    "ExternalDurablePowerShellSDK": "true"
   }
 }
+```
+
+Next, specify an entry for the DF SDK in your `requirements.psd1` file, as in the example below:
+
+```PowerShell
+# This file enables modules to be automatically managed by the Functions service.
+# See https://aka.ms/functionsmanageddependency for additional information.
+#
+@{
+    # For latest supported version, go to 'https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK/'.
+    'AzureFunctions.PowerShell.Durable.SDK' = '2.*'
+}
+```
+
+Make sure you use the latest version of the [AzureFunctions.PowerShell.Durable.SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK) module. The `2.*` version specifier ensures you get the latest stable 2.x version.
+
+Add the following line to your `profile.ps1` file (typically, at the end of the file):
+
+```PowerShell
+Import-Module AzureFunctions.PowerShell.Durable.SDK -ErrorAction Stop
 ```
 
 ## Create your functions
@@ -127,8 +148,8 @@ You added an HTTP-triggered function that starts an orchestration. Open *HttpSta
 
 You now have a Durable Functions app that you can run locally and deploy to Azure.
 
-> [!NOTE]
-> The next version of the Durable Functions PowerShell application is now in preview. You can download it from the PowerShell Gallery. Learn more about it and learn how to try it out in the [guide to the standalone PowerShell SDK](./durable-functions-powershell-v2-sdk-migration-guide.md). You can follow the guide's [installation section](./durable-functions-powershell-v2-sdk-migration-guide.md#install-and-enable-the-sdk) for instructions that are compatible with this quickstart to enable it.
+> [!TIP]
+> This quickstart uses the standalone Durable Functions PowerShell SDK, which is now generally available and provides the best performance and latest features. For more information about the SDK and migration from the legacy built-in version, see the [standalone PowerShell SDK guide](./durable-functions-powershell-v2-sdk-migration-guide.md).
 
 ## Test the function locally
 
@@ -193,6 +214,8 @@ After you verify that the function runs correctly on your local computer, it's t
 [!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
 
 ## Test your function in Azure
+
+1. Make sure the app setting named `ExternalDurablePowerShellSDK` is set to `true`.
 
 1. Copy the URL of the HTTP trigger from the output panel. The URL that calls your HTTP-triggered function should be in this format:
 

@@ -8,10 +8,14 @@ ms.topic: concept-article
 ms.date: 06/09/2023
 ms.author: mbender
 
+# Customer intent: "As a cloud architect, I want to configure end to end TLS on the application gateway, so that I can ensure secure communication and compliance for sensitive data transmitted between clients and backend servers."
 ---
 # Overview of TLS termination and end to end TLS with Application Gateway
 
 Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), is the standard security technology for establishing an encrypted link between a web server and a browser. This link ensures that all data passed between the web server and browsers remain private and encrypted. Application gateway supports both TLS termination at the gateway as well as end to end TLS encryption.
+
+> [!IMPORTANT]
+> Starting **August 31, 2025**, all clients and backend servers interacting with Azure Application Gateway must use Transport Layer Security (TLS) 1.2 or higher, as [support for TLS 1.0 and 1.1 will be discontinued](https://azure.microsoft.com/updates/azure-application-gateway-support-for-tls-10-and-tls-11-will-end-by-31-august-2025).
 
 ## TLS termination
 

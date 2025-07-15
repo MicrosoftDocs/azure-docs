@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a developer using the JavaScript client library, I want to copy blobs asynchronously, so that I can manage data transfers efficiently across storage accounts or accessible URLs without blocking other operations.
 ---
 
 # Copy a blob with asynchronous scheduling using JavaScript or TypeScript

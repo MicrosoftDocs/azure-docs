@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.date: 01/14/2025
 ms.topic: overview
+# Customer intent: "As a web application administrator, I want to implement a centralized web application firewall, so that I can efficiently protect my web applications from common vulnerabilities and security threats."
 ---
 
 # What is Azure Web Application Firewall?
@@ -20,6 +21,9 @@ Web Application Firewall (WAF) provides centralized protection of your web appli
 Preventing such attacks in application code is challenging. It can require rigorous maintenance, patching, and monitoring at multiple layers of the application topology. A centralized web application firewall helps make security management simpler. A WAF also gives application administrators better assurance of protection against threats and intrusions.
 
 A WAF solution can  react to a security threat faster by centrally patching a known vulnerability, instead of securing each individual web application.
+
+> [!NOTE]
+> Azure Web Application Firewall is one of the services that make up the Network Security category in Azure. Other services in this category include [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md) and [Azure Firewall](../firewall/overview.md). Each service has its own unique features and use cases. For more information on this service category, see [Network Security](../networking/security/network-security.md).
 
 ## Supported service
 

@@ -6,6 +6,7 @@ ms.date: 06/05/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an IT administrator managing SAP HANA databases on Azure VMs, I want to configure and automate database backups to Azure Backup, so that I can ensure data protection and maintain compliance with recovery-point objectives.
 ---
 
 # Back up SAP HANA databases in Azure VMs

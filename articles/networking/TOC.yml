@@ -170,7 +170,7 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-virtual-network
   - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=virtual-network
+    href: /shows/browse?terms=virtual-network
 - name: Troubleshooting
   items:
   - name: Troubleshoot Microsoft.Network Failed provisioning state

@@ -4,7 +4,7 @@ description: Learn how to create an Azure Front Door Standard/Premium with the A
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
-ms.topic: sample
+ms.topic: tutorial
 ms.date: 12/30/2021
 ms.custom: devx-track-azurecli
 ---
@@ -225,9 +225,9 @@ az afd security-policy create \
 
 When you create the Azure Front Door Standard/Premium profile, it takes a few minutes for the configuration to be deployed globally. Once completed, you can access the frontend host you created. In a browser, go to `contoso-frontend.z01.azurefd.net`. Your request will automatically get routed to the nearest server from the specified servers in the origin group.
 
-To test instant global failover, we'll use the following steps:
+To test instant global failover, use the following steps:
 
-1. Open a browser, as described above, and go to the frontend address: `contoso-frontend.azurefd.net`.
+1. Open a browser, and go to the frontend address: `contoso-frontend.azurefd.net`.
 
 2. In the Azure portal, search for and select *App services*. Scroll down to find one of your web apps, **WebAppContoso-1** in this example.
 
@@ -236,7 +236,7 @@ To test instant global failover, we'll use the following steps:
 4. Refresh your browser. You should see the same information page.
 
    >[!TIP]
-   >There's some delay for these actions. You might need to refresh again.
+   >Some delay is expected for this action. You might need to refresh again.
 
 5. Find the other web app, and stop it as well.
 

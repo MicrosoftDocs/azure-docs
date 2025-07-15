@@ -6,6 +6,7 @@ ms.service: azure-dns
 ms.topic: how-to
 ms.date: 01/31/2025
 ms.author: allensu
+# Customer intent: As a DNS administrator, I want to sign my Azure Public DNS zone with DNSSEC, so that I can enhance the security of my DNS records and protect against certain types of attacks.
 ---
 
 # How to sign your Azure Public DNS zone with DNSSEC

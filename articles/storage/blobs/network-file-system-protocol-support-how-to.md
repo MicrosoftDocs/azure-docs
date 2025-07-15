@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 06/28/2024
 ms.author: normesta
 
+# Customer intent: As a cloud administrator, I want to mount Azure Blob Storage using the NFS 3.0 protocol, so that I can securely access and manage data from my Linux-based virtual machines or on-premises systems.
 ---
 
 # Mount Blob Storage by using the Network File System (NFS) 3.0 protocol
