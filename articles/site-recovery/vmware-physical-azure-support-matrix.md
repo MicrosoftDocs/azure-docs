@@ -51,7 +51,7 @@ The replication appliance is an on-premises machine that runs Site Recovery comp
 --- |---
 CPU cores | 8
 RAM | 16 GB
-Number of disks | 2 disks<br/><br/> Disks include the OS disk and data disk.
+Number of disks | Two disks<br/><br/> Disks include the OS disk and data disk.
 Operating system  | Windows Server 2022 with Desktop experience 
 Operating system locale | English (en-us)
 Windows Server roles | Don't enable Active Directory Domain Services; Internet Information Services (IIS) or Hyper-V.
@@ -269,7 +269,7 @@ Rocky Linux | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-az
 **Component** | **Supported**
 --- | ---
 File systems | ext3, ext4, XFS, BTRFS (conditions applicable as per this table)
-Logical volume management (LVM) provisioning| Thick provision - Yes <br></br> Thin provision - Yes, it's supported from [Update Rollup 61](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) onwards. It wasn't supported in earlier Mobility service versions.
+Logical volume management (LVM) provisioning| Thick provision - Yes <br></br> Thin provision - Yes, it is supported from [Update Rollup 61](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) onwards. It wasn't supported in earlier Mobility service versions.
 Volume manager | - LVM is supported.<br/> - /boot on LVM is supported from [Update Rollup 31](https://support.microsoft.com/help/4478871/) (version 9.20 of the Mobility service) onwards. It wasn't supported in earlier Mobility service versions.<br/> - Multiple OS disks aren't supported.
 Paravirtualized storage devices | Devices exported by paravirtualized drivers aren't supported. <br><br> Supported only for VMware and not for AWS(Physical). 
 Multi-queue block IO devices | Not supported.
@@ -290,7 +290,7 @@ Add disk on replicated VM | Supported.<br/> You can manually enable replication 
 Exclude disk before replicating VM | Supported for VMware machines. <br/><br/> Not supported for Physical machines, if using modernized experience. 
 
 > [!NOTE]
->  - Any change to disk identity isn't supported. For example, if the disk partitioning has been changed from GPT to MBR or vice versa, then this changes the disk identity. In such a scenario, the replication breaks and a fresh setup will be required.
+>  - Any change to disk identity isn't supported. For example, if the disk partitioning has been changed from GPT to MBR or vice versa, then this changes the disk identity. In such a scenario, the replication breaks and a fresh setup is required.
 > - For Linux machines, device name change isn't supported as it has an impact on the disk identity.
 > - In Modernized, resizing the disk size to reduce it from its original size, isn't supported.
 
@@ -351,7 +351,7 @@ Guest/server disk > 1 GB | Yes, disk must be larger than 1,024 MB<br/><br/>Up to
 Guest/server disk with 4K logical and 4k physical sector size | No
 Guest/server disk with 4K logical and 512-bytes physical sector size | No
 Guest/server volume with striped disk >4 TB | Yes
-Logical volume management (LVM)| Thick provisioning - Yes <br></br> Thin provisioning - Yes, it's supported from [Update Rollup 61](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) onwards. It wasn't supported in earlier Mobility service versions.
+Logical volume management (LVM)| Thick provisioning - Yes <br></br> Thin provisioning - Yes, it is supported from [Update Rollup 61](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) onwards. It wasn't supported in earlier Mobility service versions.
 Guest/server - Storage Spaces | No
 Guest/server - NVMe interface | Yes, for Windows machines. Not supported for Linux machines.
 Guest/server hot add | Yes
