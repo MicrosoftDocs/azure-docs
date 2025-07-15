@@ -21,11 +21,15 @@ import { setLogLevel, createClientLogger, AzureLogger } from '@azure/logger';
 setLogLevel('verbose');
 let logger = createClientLogger('ACS');
 const callClient = new CallClient({ logger });
-// Redirect log output
+
+// Redirect ACS calling sdk's log output
 AzureLogger.log = (...args) => {
     // To console, file, buffer, REST API, etc...
     console.log(...args); 
 };
+
+// Application logging
+logger.info('....');
 ```
 
 [@azure/logger](https://www.npmjs.com/package/@azure/logger) supports four different log levels:
