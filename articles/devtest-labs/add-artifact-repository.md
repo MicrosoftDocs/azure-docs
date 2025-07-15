@@ -33,8 +33,8 @@ Select the tab for the type of repository and authentication that you want to us
 
 To add an artifact repo, complete the following tasks:
 
-- Assign permissions in Azure Repos for the managed identity.
-- Add your artifact repository.
+1. Assign permissions in Azure Repos for the managed identity.
+1. Add your artifact repository.
 
 ### Assign permissions in Azure Repos for the managed identity
 
@@ -138,7 +138,7 @@ To add an artifact repo, complete the following tasks:
 1. Assign permissions in GitHub for the repos.
 1. Add your artifact repository.
 
-### Assign permissions in GitHub for the repos
+### Install the Microsoft Dev Center app
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -173,7 +173,7 @@ To add an artifact repo, complete the following tasks:
 
    You can select multiple repositories to add to the lab. You must add each repository separately to the lab, as described in this article.	
 
-1. On the **Microsoft DevCenter by Microsoft would like permission to:** page, review the permissions required, and then select **Authorize Microsoft DevCenter**.	
+1. On the **Microsoft DevCenter by Microsoft would like permission to** page, review the permissions required, and then select **Authorize Microsoft DevCenter**.	
 
    :::image type="content" source="media/devtest-lab-add-repo/devtestlab-authorize-microsoft-dev-center.png" alt-text="Screenshot of the Microsoft DevCenter by Microsoft would like permission to page." lightbox="media/devtest-lab-add-repo/devtestlab-authorize-microsoft-dev-center.png":::	
 
@@ -339,7 +339,7 @@ There are several ways to deploy ARM templates to create or update Azure resourc
 For this procedure, deploy the template by using Azure PowerShell.
 
 > [!NOTE]
-> The cmdlets that deploy the template are context-specific, so they use the current tenant and subscription. If you need to change the context, use [Set-AzContext](/powershell/module/az.accounts/set-azcontext) before you deploy the template
+> The cmdlets that deploy the template are context-specific, so they use the current tenant and subscription. If you need to change the context, use [Set-AzContext](/powershell/module/az.accounts/set-azcontext) before you deploy the template.
 
 1. Create a resource group by using [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). If the resource group you want to use already exists, skip this step.
 
@@ -473,10 +473,10 @@ Write-Verbose "Az ResourceName: $resourceName"
 Write-Verbose "Creating artifact repository '$ArtifactRepositoryDisplayName'..."
 $result = New-AzResource -Location $LabResource.Location -ResourceGroupName $LabResource.ResourceGroupName -properties $propertiesObject -ResourceType $resourcetype -ResourceName $resourceName -ApiVersion 2016-05-15 -Force
 
-# Alternate implementation:
+# Alternative implementation:
 # Use resourceId rather than resourcetype and resourcename parameters.
 # Using resourceId lets you specify the $SubscriptionId rather than using the
-# subscription id of Get-AzContext.
+# subscription ID of Get-AzContext.
 # $resourceId = "/subscriptions/$SubscriptionId/resourceGroups/$($LabResource.ResourceGroupName)/providers/Microsoft.DevTestLab/labs/$LabName/artifactSources/$ArtifactRepositoryName"
 # $result = New-AzResource -properties $propertiesObject -ResourceId $resourceId -ApiVersion 2016-05-15 -Force
 
