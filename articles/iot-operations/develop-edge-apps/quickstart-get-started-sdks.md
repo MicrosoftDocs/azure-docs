@@ -29,7 +29,7 @@ Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with
 
 <!-- TODO: Point to the new article Production Cluster when published -->
 > [!IMPORTANT]
-> The following development environment setup options, use [K3s](https://k3s.io/) running in [K3d](https://k3d.io/) for a lightweight Kubernetes cluster, and deploys Azure IoT Operations with [test settings](../deploy-iot-ops/overview-deploy.md#test-settings-deployment). If you want to use [secure settings](../deploy-iot-ops/overview-deploy.md#secure-settings-deployment), we recommend you follow the instructions in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) to create a K3s cluster on Ubuntu and [Deploy Azure IoT Operations to a production cluster](../deploy-iot-ops/howto-deploy-iot-operations.md) to deploy with secure settings. Then proceed to [configure Azure IoT Operations for deployment](#configure-azure-iot-operations-for-deployment).
+> The following development environment setup options, use [K3s](https://k3s.io/) running in [K3d](https://k3d.io/) for a lightweight Kubernetes cluster, and deploys Azure IoT Operations with [test settings](../deploy-iot-ops/overview-deploy.md#test-settings-deployment). For production deployments, choose [secure settings](../deploy-iot-ops/overview-deploy.md#secure-settings-deployment). <br> If you want to use secure settings, we recommend you follow the instructions in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) to create a K3s cluster on Ubuntu and [Deploy Azure IoT Operations to a production cluster](../deploy-iot-ops/howto-deploy-iot-operations.md) to deploy with secure settings. Then proceed to [configure Azure IoT Operations for deployment](#configure-azure-iot-operations-for-deployment).
 
 ### [Codespaces](#tab/codespaces)
 
@@ -48,8 +48,6 @@ GitHub Codespaces provides the most streamlined experience and can get the devel
 ### [Ubuntu](#tab/ubuntu)
 
 1. Install [Ubuntu](https://ubuntu.com/download/desktop)
-
-1. Install [Docker Engine](https://docs.docker.com/engine/install/ubuntu/)
 
 1. Clone the *Azure IoT Operations SDKs* repository:
 
@@ -71,16 +69,17 @@ GitHub Codespaces provides the most streamlined experience and can get the devel
 
     This script does the following:
 
-    1. Installs prerequisites including:
-        1. Install k3d
-        1. Install Step CLI
-        1. Helm
-        1. AZ CLI
-        1. Step
-    1. **DELETE** the existing default k3d cluster
+    1. Install prerequisites including:
+        1. Docker if not already installed
+        1. k3d for managing Kubernetes clusters
+        1. Helm for Kubernetes package management
+        1. Step CLI for certificate management
+        1. Azure CLI and the Kubernetes CLI
+        1. k9s for Kubernetes cluster management
+    1. **DELETE** any existing k3d cluster
     1. Deploy a new k3d cluster
     1. Set up port forwarding for ports `1883`, `8883`, and `8884` to enable TLS
-    1. Create a local registry
+    1. Create a local container registry
 
 ### [Visual Studio Code Dev Containers](#tab/vscode-dev-containers)
 
@@ -155,16 +154,17 @@ GitHub Codespaces provides the most streamlined experience and can get the devel
 
     This script does the following:
 
-    1. Installs prerequisites including:
-        1. Install k3d
-        1. Install Step CLI
-        1. Helm
-        1. AZ CLI
-        1. Step
-    1. **DELETE** the existing default k3d cluster
+    1. Install prerequisites including:
+        1. k3d for managing Kubernetes clusters
+        1. Helm for Kubernetes package management
+        1. Step CLI for certificate management
+        1. Azure CLI and the Kubernetes CLI
+        1. k9s for Kubernetes cluster management
+        1. kubectl for Kubernetes management
+    1. **DELETE** any existing k3d cluster
     1. Deploy a new k3d cluster
     1. Set up port forwarding for ports `1883`, `8883`, and `8884` to enable TLS
-    1. Create a local registry
+    1. Create a local container registry
 
 ---
 
@@ -174,46 +174,27 @@ You will arc-enable the development cluster created in the previous step and dep
 
 Open a new bash terminal and do the following steps:
 
-1. Run the following command to set the required environment variables:
-    
-    | Parameter | Value |
-    | --------- | ----- |
-    | LOCATION | An Azure region close to you. For the list of currently supported regions, see [Supported regions](../overview-iot-operations.md#supported-regions). |
-    | CLUSTER_NAME | A name for your Kubernetes cluster. |
-    | RESOURCE_GROUP | A name for a new Azure resource group where your cluster will be created. |
-    | STORAGE_ACCOUNT_NAME | A name for your storage account. Storage account names must be between 3 and 24 characters in length and only contain numbers and lowercase letters. |
-    | SCHEMA_REGISTRY_NAME | A name for your schema registry. Schema registry names can only contain numbers, lowercase letters, and hyphens. |
-    | SCHEMA_REGISTRY_NAMESPACE | A name for your schema registry namespace. The namespace uniquely identifies a schema registry within a tenant. Schema registry namespace names can only contain numbers, lowercase letters, and hyphens. |
-
-    ```bash
-    export LOCATION=<LOCATION>
-    export RESOURCE_GROUP=<RESOURCE_GROUP>
-    export CLUSTER_NAME=<CLUSTER_NAME>
-    export STORAGE_ACCOUNT=<STORAGE_ACCOUNT_NAME>
-    export SCHEMA_REGISTRY=<SCHEMA_REGISTRY_NAME>
-    export SCHEMA_REGISTRY_NAMESPACE=<SCHEMA_REGISTRY_NAMESPACE>
-    ```
-
-    > [!NOTE]
-    > Replace the placeholders with your values. You will create the resource group, storage account and schema registry in the next steps.
-
-
-1. Sign in to Azure CLI:
-
-   ```azurecli
-   az login
-   ```
-
-1. Create an Azure resource group. Only one Azure IoT Operations instance is supported per resource group. To create a new resource group, use the [az group create](/cli/azure/group#az-group-create) command.
-
-   ```azurecli
-   az group create --location $LOCATION --resource-group $RESOURCE_GROUP
-   ```
-
 1. Navigate to the repository root directory:
 
     ```bash
     cd <REPOSITORY ROOT>
+    ```
+
+1. Edit the `.env` file to set the values for your environment:
+
+    > [!NOTE]
+    > The `.env` file contains the environment variables used by the `install-aio-arc.sh` script, and the samples to connect to the MQTT Broker. You can use the default values provided in the file or set your own values.
+
+    To edit the `.env` file, you can use any text editor of your choice. For example, using `nano`:
+
+    ```bash
+    nano .env
+    ```
+
+1. Load the environment variables into your shell, run the following command in your terminal:
+
+    ```bash
+    source <REPOSITORY ROOT>/.env
     ```
 
 1. Run the `install-aio-arc.sh` script to arc-enable your cluster and deploy Azure IoT Operations:
@@ -225,7 +206,7 @@ Open a new bash terminal and do the following steps:
     This script does the following:
     
     1. Log in to Azure CLI
-    1. Validate Required Environment Variables
+    1. Create a resource group
     1. Register Required Azure Providers
     1. Connect Kubernetes Cluster to Azure Arc
     1. Enable Azure Arc Features
@@ -234,16 +215,16 @@ Open a new bash terminal and do the following steps:
     1. Initialize Azure IoT Operations
     1. Create Azure IoT Operations Instance
 
-<!-- TODO: Confirm that this works well on a K3s cluster running AIO with Secure Settings -->
-## Configure Azure IoT Operations for development
-
-After Azure IoT Operations is deployed, you need to configure it for development. This includes setting up the MQTT broker and authentication methods, as well as ensuring that the necessary environment variables are set for your development environment:
-
 1. After the deployment is complete, use [az iot ops check](/cli/azure/iot/ops#az-iot-ops-check) to evaluate Azure IoT Operations service deployment for health, configuration, and usability. The *check* command can help you find problems in your deployment and configuration.
 
     ```azurecli
     az iot ops check
     ```
+
+<!-- TODO: Confirm that this works well on a K3s cluster running AIO with Secure Settings -->
+## Configure Azure IoT Operations for development
+
+After Azure IoT Operations is deployed, you need to configure it for development. This includes setting up the MQTT broker and authentication methods, as well as ensuring that the necessary environment variables are set for your development environment:
 
 1. Navigate to the repository root directory:
 
@@ -264,7 +245,7 @@ After Azure IoT Operations is deployed, you need to configure it for development
     1. Create the trust bundle ConfigMap for the Broker to authentication x509 clients
     1. Configure a `BrokerListener` and `BrokerAuthentication` resources for SAT and x509 auth
 
-## Shell configuration
+<!-- ## Shell configuration
 
 The samples within [Azure IoT Operations SDKs github repository](https://github.com/Azure/iot-operations-sdks) read configuration from environment variables. We have provided an `.env` file in the repository root that exports the variables used by the samples to connect to the MQTT Broker. Edit the `.env` file to set the values for your environment, or use the default values provided in the file.
 
@@ -272,7 +253,7 @@ To load the environment variables into your shell, run the following command in 
 
 ```bash
 source <REPOSITORY ROOT>/.env
-```
+``` -->
 
 <!-- TODO: Check why this only works with VSCode Dev Containers when I do: kubectl port-forward -n azure-iot-operations service/aio-broker-external 8883:8883 -->
 ## Testing the installation
