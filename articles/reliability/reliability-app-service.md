@@ -55,7 +55,7 @@ App Service offers the following redundancy features:
 
 - **Fault Domain redundancy:** At the platform level - without any configuration from you - Azure automatically distributes your App Service plan’s VM instances across [fault domains](/azure/virtual-machines/availability-set-overview#fault-domains) within the Azure region. This distribution minimizes the risk of localized hardware failures by grouping virtual machines that share a common power source and network switch. 
 
-- **Availability zone redundancy:** If you enable zone redundancy on an App Service plan, Azure also distributes your instances across availability zones within the region, offering higher resiliency in the event of a zone outage. To learn more about zone redundancy, see [Availability zone support](#availability-zone-support).
+- **Distribution across availability zones:** If you enable zone redundancy on an App Service plan, Azure also distributes your instances across availability zones within the region, offering higher resiliency in the event of a zone outage. To learn more about zone redundancy, see [Availability zone support](#availability-zone-support).
 
 - **Autoscaling:**. If you configure your App Service plan to run five VM instances, then all apps in the plan run on all five instances by default. However, if you configure your plan for autoscaling, then all apps in the plan scale out together, based on the autoscale settings. You can customize how many plan instances run a specific app by using [per-app scaling](/azure/app-service/manage-scale-per-app).
 
