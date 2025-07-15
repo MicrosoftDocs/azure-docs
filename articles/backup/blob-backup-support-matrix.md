@@ -2,7 +2,7 @@
 title: Support matrix for Azure Blobs backup
 description: Provides a summary of support settings and limitations when backing up Azure Blobs.
 ms.topic: reference
-ms.date: 07/02/2025
+ms.date: 07/11/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
@@ -66,6 +66,8 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 - The storage accounts to be backed up must contain *a minimum of one container*. If the storage account doesn't contain any containers or if no containers are selected, an error may appear when you configure backup.
 - Only `$web` and `$root` system containers are supported for vaulted backup.
 - If you stop protection (vaulted backup) on a storage account, it doesn't delete the object replication policy created on the storage account. In these scenarios, you need to manually delete the *OR policies*.
+- You can avoid disruption to Azure Blob vaulted backups during a storage account failover by following a specific sequence - pause the backup, remove the object replication policy at the storage account level, complete the failover, and then resume the backup. This process doesn't impact existing recovery points. However, it triggers a full re-replication of blobs during the next backup operation. The object replication policy is automatically recreated in the next backup cycle.
+- When you remove backups, Azure Backup automatically deletes the **object replication policy** from the source. If custom locks exist, remove the policy manually. If you stop protection, it disconnects only the storage account from the Backup vault and tools (such as Backup center). This action doesn't disable blob point-in-time restore, versioning, or change feed settings.
 - Archive tier blob backup isn't supported. Cool and cold tier blobs are restored in hot tier. 
 - The backup operation isn't supported for blobs that are uploaded by using [Data Lake Storage APIs](/rest/api/storageservices/data-lake-storage-gen2).
 - When you delete and recreate a storage account with the same name, **Object Replication** doesn't recognize the change. As a result, future Recovery Points continue to include the older blobs and their versions.

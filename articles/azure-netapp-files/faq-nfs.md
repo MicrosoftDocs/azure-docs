@@ -1,5 +1,5 @@
 ---
-title: NFS FAQs for Azure NetApp Files | Microsoft Docs
+title: NFS FAQs for Azure NetApp Files
 description: Answers frequently asked questions (FAQs) about the NFS protocol of Azure NetApp Files.
 ms.service: azure-netapp-files
 ms.topic: concept-article
