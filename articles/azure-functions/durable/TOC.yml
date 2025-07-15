@@ -124,6 +124,8 @@
     href: ./durable-task-scheduler/durable-task-scheduler-dashboard.md
   - name: Auto-purge 
     href: ./durable-task-scheduler/durable-task-scheduler-auto-purge.md
+  - name: Versioning
+    href: ./durable-task-scheduler/durable-task-scheduler-versioning.md
   - name: Durable Functions
     items:
       - name: Throughput benchmark
