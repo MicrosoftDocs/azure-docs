@@ -12,7 +12,9 @@ ms.author: jomore
 
 # Use Azure Firewall to route a self-managed hub-and-spoke topology
 
-The hub-and-spoke topology is a common pattern for network architectures in Azure, since it offers an approach to consolidate network resources in a single subscription. Hub-and-spoke architectures provide network connectivity or security to virtual networks deployed in different subscriptions or tenants while centralizing the network services. You can implement this pattern either in a self-managed fashion, sometimes called "traditional hub-and-spoke", or through Virtual WAN, where Microsoft assumes ownership of the hub virtual networks to simplify administration tasks. Another possibility to reduce the management overhead of a self-managed hub-and-spoke implementation is by using [Azure Virtual Network Manager (AVNM)][avnm]. AVNM can automate the configuration of Azure Route Tables, but the overall design and techniques doesn't change as compared to the manual approach. Therefore, the contents of this article are equally valid whether using AVNM or not in a self-managed hub-and-spoke topology.
+The hub-and-spoke topology is a common pattern for network architectures in Azure, since it offers an approach to consolidate network resources in a single subscription. Hub-and-spoke architectures provide network connectivity or security to virtual networks deployed in different subscriptions or tenants while centralizing the network services. You can implement this pattern either in a self-managed fashion, sometimes called "traditional hub-and-spoke", or through Virtual WAN, where Microsoft assumes ownership of the hub virtual networks to simplify administration tasks, for example through [Routing intent and routing policies][vwan-ri]. In Virtual WAN administrators have no visibility to the hub VNet where Azure Firewall is deployed, so it is out of the scope for this article.
+
+An option to reduce the administration overhead of a self-managed hub-and-spoke implementation is by using [Azure Virtual Network Manager (AVNM)][avnm]. AVNM can automate the configuration of Azure Route Tables, but the overall design and techniques doesn't change as compared to the manual approach. Therefore, the contents of this article are equally valid whether using AVNM or not in a self-managed hub-and-spoke topology.
 
 An alternative to Azure Route Tables in the spoke VNets is injecting routes into subnets with Azure Route Server, as documented in [Default route injection in spoke virtual networks][ars]. However, this pattern isn't commonly used due to the complexity that can arise because of the interaction of Azure Route Server and VPN or ExpressRoute Virtual Network Gateways.
 
@@ -108,3 +110,4 @@ To simplify the management of user-defined routes in a multi-region environment 
 [nsg]: /azure/virtual-network/network-security-group-how-it-works
 [sdwan]: /azure/architecture/networking/guide/sdwan-integration-in-hub-and-spoke-network-topologies
 [udr]: /azure/virtual-network/virtual-networks-udr-overview#user-defined
+[vwan-ri]: /azure/virtual-wan/how-to-routing-policies
