@@ -37,7 +37,7 @@ Azure App Service is an HTTP-based service for hosting web applications, REST AP
 
 ::: zone pivot="free-shared-basic,premium"
 
-When you create an Azure App Service instance, you select an [App Service plan](../app-service/overview-hosting-plans.md). Then, when creating web apps, you can choose that App Service plan - or create another- to use for each app.
+When you create an Azure App Service web app, you define which App Service plan the app runs on.
 
 ::: zone-end
 
