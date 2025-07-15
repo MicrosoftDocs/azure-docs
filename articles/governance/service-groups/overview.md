@@ -45,17 +45,17 @@ Customers can create many different views that support how they organize their r
 
 
 ## How it works
-Azure Service Groups are a parallel tenant level hierarchy that allows the grouping of resources. The separation from Management Groups, Subscriptions and Resource Groups allows Service Groups to be connected many times to different resources and resource containers without impacting the existing structures. 
+Azure Service Groups are a parallel tenant level hierarchy that allows the grouping of resources. The separation from Management Groups, Subscriptions, and Resource Groups allows Service Groups to be connected many times to different resources and resource containers without impacting the existing structures. 
 
 Information about Service Groups 
 * A Service Group is created within the Microsoft.Management Resource Provider.  
-* Service Groups allow self nesting to create up to 10 "levels" of grouping depth. Nesting is handled by the 'parent' property within the Service Group resource. 
+* Service Groups allow self nesting to create up to 10 "levels" of grouping depth. Nesting can managed via the 'parent' property within the Service Group resource. 
 * Role assignments on the Service Group can be inherited to the **child Service Groups only**. There's **no inheritance** through the memberships to the resources or resource containers.
 * There's a limit of 2000 service group members coming from within the same subscription. This means that within one subscription, resources, or resource groups, there can only be 2,000 memberships to Service Groups. 
 * Within the Preview window, there's a limit of 10,000 Service Groups in a single tenant.   
 * Service Groups and Service Group Member IDs support up to 250 characters. They can be alphanumeric and special characters: - _ ( ). ~
 * Service Groups require a globally unique ID. Two Microsoft Entra tenants can't have a Service Group with identical IDs.
-* Membership to Service Groups is handled by deploying a 'Microsoft.Relationship/ServiceGroupMember' to the desire member (a resource, resource group or subscription) while targeting the desired Service Group. 
+* Membership to Service Groups are managed by the 'Microsoft.Relationship/ServiceGroupMember' on the desired member (a resource, resource group, or subscription) while targeting the desired Service Group. 
 
 
 ## Azure Resource Manager Groupings 
@@ -83,15 +83,15 @@ This table shows a summary of the differences between the groups.
 ### Important facts about service groups
 
 - A single tenant can support 10,000 service groups.
-- A service group tree can support up to ten levels of depth.
+- Service group tree can support up to 10 levels of depth.
   This limit doesn't include the root level.
 - Each service group can have many children.
 - A single service group name/ID can be up to 250 characters.
-- There are no limits of number of members of service groups, but there is a limit of 2,000 relationships (including ServiceGroupMember) within a subscription
+- There are no limits of number of members of service groups, but there's a limit of 2,000 relationships (including ServiceGroupMember) within a subscription
 
 ### The Root Service Group 
 
-Service Groups, similarily to Management Groups, has a one root Service Group which is the top parent of all service groups in that tenant. Root Service Group's ID is same as its Tenant ID.
+Service Groups, similarly to Management Groups, has a one root Service Group, which is the top parent of all service groups in that tenant. Root Service Group's ID is same as its Tenant ID.
 
 Service Groups creates the Root Service Group on the first request received within the Tenant and users can't create or update the root service group. _"/providers/microsoft.management/servicegroups/[tenantId]"_
 
