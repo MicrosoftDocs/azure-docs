@@ -365,7 +365,7 @@ The following table shows the release stage and change logs for different versio
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
 | Version 1.0 | End of support announced | / |  
-| Version 2.0 (Preview) | GA version available | • DATE is read as Date data type. <br><br>• TIME is read as Time data type. <br><br>• INTERVAL is not supported. <br><br>• BYTEINT is read as Int16 data type. <br><br>• Only support the self-hosted integration runtime.|
+| Version 2.0 (Preview) | Preview version available | • Only support the self-hosted integration runtime. <br><br>• BYTEINT is read as Int16 data type. <br><br> • DATE is read as Date data type. <br><br>• TIME is read as Time data type. <br><br>• INTERVAL is not supported.|
 
 ### <a name="upgrade-the-netezza-connector"></a> Upgrade the Netezza connector from version 1.0 to version 2.0 (Preview)
 
