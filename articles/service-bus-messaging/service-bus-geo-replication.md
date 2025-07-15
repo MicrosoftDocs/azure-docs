@@ -183,9 +183,9 @@ A promotion is triggered manually by the customer (either explicitly through a c
 After the promotion is initiated:
 
 1. The hostname is updated to point to the secondary region, which can take up to a few minutes.
-  > [!NOTE]
-  > You can check the current primary region by initiating a ping command:
-  > ping *your-namespace-fully-qualified-name*
+    > [!NOTE]
+    > You can check the current primary region by initiating a ping command:
+    > ping *your-namespace-fully-qualified-name*
 
 1. Clients automatically reconnect to the secondary region.
 
