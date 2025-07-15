@@ -45,12 +45,12 @@ Select **Elastic Search**.
 
 ### Logs & metrics tab (optional)
 
-You can configure resources to send metrics/logs to Elastic.
+You can configure resources to send metrics and logs to Elastic.
 
 - Select **Send subscription activity logs**.
 - Select **Send Azure resource logs for all defined sources**.
 
-Enter the names and values for each *Action* listed under **Logs**.
+Enter the names and values for each **Action** listed under **Logs**.
 
 At the bottom of the page, select **Next: Azure OpenAI configuration**.
 
@@ -74,7 +74,7 @@ At the bottom of the page, select **Next: Azure OpenAI configuration**.
 
 ::: zone pivot="elastic-observability"
 
-Select **Elastics Observability**.
+Select **Elastic Observability**.
 
 ### Basics tab
 
@@ -91,12 +91,12 @@ Select **Elastics Observability**.
 
 ### Logs & metrics tab (optional)
 
-You can configure resources to send metrics/logs to Elastic.
+You can configure resources to send metrics and logs to Elastic.
 
 - Select **Send subscription activity logs**.
 - Select **Send Azure resource logs for all defined sources** (default).
 
-Enter the names and values for each *Action* listed under **Logs**.
+Enter the names and values for each **Action** listed under **Logs**.
 
 At the bottom of the page, select **Next: Azure OpenAI configuration**.
 
@@ -120,7 +120,7 @@ At the bottom of the page, select **Next: Azure OpenAI configuration**.
 
 ::: zone pivot="elastic-security"
 
-Select **Elastics Security**.
+Select **Elastic Security**.
 
 ### Basics tab
 
@@ -137,12 +137,12 @@ Select **Elastics Security**.
 
 ### Logs & metrics tab (optional)
 
-You can configure resources to send metrics/logs to Elastic.
+You can configure resources to send metrics and logs to Elastic.
 
 - Select **Send subscription activity logs**.
 - Select **Send Azure resource logs for all defined sources** (default).
 
-Enter the names and values for each *Action* listed under **Logs**.
+Enter the names and values for each **Action** listed under **Logs**.
 
 At the bottom of the page, select **Next: Azure OpenAI configuration**.
 
