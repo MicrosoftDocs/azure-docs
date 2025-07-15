@@ -34,16 +34,17 @@ The Container Apps hosting model builds on the flexibility of containerized work
 - **[Serverless and Dedicated GPU](../container-apps/gpu-serverless-overview.md)** support for compute-intensive workloads.
 - **Unified Container Apps environment** to run Functions alongside microservices, APIs, and background jobs.
 
-This table helps you directly compare the features of Functions on Container Apps with [Flex consumption plan](../azure-functions/flex-consumption-plan.md).
+The following table helps you compare the features of Functions on Container Apps with [Flex consumption plan](../azure-functions/flex-consumption-plan.md).
+
 | Feature | Container Apps | Flex Consumption Plan |
 | --- | --- | --- |
-| Scale to zero |	✅ Yes (via KEDA) | ✅ Yes |
-| Max scale-out | 1000 (default 10, configurable) |	1000 |
-| Always-on instances |	✅ Yes (via minReplicas) |	✅ Yes (via always-ready instances) |
-| VNet integration |	✅ Yes |	✅ Yes |
-| Custom container support | ✅ Yes (bring your own image) |	❌ Limited (no bring your own container) |
+| Scale to zero | ✅ Yes (via KEDA) | ✅ Yes |
+| Max scale-out | 1,000 (default 10, configurable) |	1,000 |
+| Always-on instances | ✅ Yes (via `minReplicas`) | ✅ Yes (via always-ready instances) |
+| VNet integration |	✅ Yes | ✅ Yes |
+| Custom container support | ✅ Yes (bring your own image) | ❌ Limited (no bring your own container) |
 | GPU support | ✅ Yes (via serverless GPU dedicated workload profile) | ❌ No |
-| Built-in features |	Container Apps feature support. For instance, KEDA, Dapr, multi-revisions, mTLS, sidecars, ingress control and more |	Functions-only features |
+| Built-in features | Container Apps feature support. For instance, KEDA, Dapr, multi-revisions, mTLS, sidecars, ingress control and more | Functions-only features |
 | Billing model | Container Apps pricing: Consumption plan (vCPU, memory, requests) & Dedicated plan (workload profile based) | Execution-time + always-ready instances |
 
 For a complete comparison of the Functions on Container Apps against Flex Consumption plan and all other plan and hosting types, see [Functions scale and hosting options](../azure-functions/functions-scale.md).
