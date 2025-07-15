@@ -107,7 +107,7 @@ Select the SSL profile you created from the dropdown list. In this example, we c
 
 11. Continue configuring the remainder of the listener according to your requirements. 
 
-    :::image type="content" source="./media/mutual-authentication-portal/listener-certificate.png" alt-text="Screenshot of SSL profile association for a new listener":::   
+    :::image type="content" source="./media/application-gateway-configure-listener-specific-ssl-policy/listener-certificate.png" alt-text="Screenshot of SSL profile association for a new listener":::   
 
 ### Limitations
 SSL-Policies
