@@ -61,12 +61,14 @@ You can use the **Min** and **Max** aggregation for worst and best case availabi
 4. In the **Condition** tab, select the **Availability** metric.
  
 5. In the **Alert logic** section, provide the following:
-   |Field|Description|
-   |---|---|
-   |Threshold| Static|
-   |Aggregation type| Average|
-   |Operator| Less than|
-   |Threshold value| 99.9|
+   
+| Field             | Description  |
+|------------------|--------------|
+| Threshold         | Static       |
+| Aggregation type  | Average      |
+| Operator          | Less than    |
+| Threshold value   | 99.9         |
+
  
 7. In the **When to evaluate** section, select the following:
    - **Check every** = **5 minutes**
