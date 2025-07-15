@@ -99,9 +99,9 @@ items:
     items:
     - name: Turn your smartphone into an IoT device
       href: iot-phone-app-how-to.md
-    - name: Test your IoT Plug and Play device
+    - name: Test devices with Azure IoT Explorer
       href: howto-use-iot-explorer.md
-      
+
   - name: References
     items:
     - name: Support and help options
