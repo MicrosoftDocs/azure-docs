@@ -123,8 +123,8 @@ Double check the certificate chain that was uploaded and remove the private key 
 #### Cause
 
 There are two potential causes for this error:
-1. **Parsing failure:** The certificate chain isn't in the correct format. Application Gateway expects certificate chains in PEM format with properly delimited individual certificates.
-2. **Empty content:** The uploaded file contains only delimiters without actual certificate data between them. 
+* **Parsing failure:** The certificate chain isn't in the correct format. Application Gateway expects certificate chains in PEM format with properly delimited individual certificates.
+* **Empty content:** The uploaded file contains only delimiters without actual certificate data between them. 
 
 #### Solution
 
