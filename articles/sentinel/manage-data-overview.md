@@ -18,9 +18,9 @@ Data you collect into Microsoft Sentinel (SIEM) and Microsoft Defender XDR is st
 
 This article explains how to manage table retention and tier options in the Microsoft Defender portal to optimize security operations and reduce costs in Microsoft Sentinel and Microsoft Defender XDR.
 
-## Which tables can you manage in the Microsoft Defender portal?
+## Which tables can you manage in the Defender portal?
 
-This section describes the table types you can manage in the Microsoft Defender portal.
+This section describes the table types you can manage in the Defender portal.
 
 :::image type="content" source="media/manage-data-overview/view-table-properties-microsoft-defender-portal.png" lightbox="media/manage-data-overview/view-table-properties-microsoft-defender-portal.png" alt-text="Screenshot that shows the Table Management screen in the Defender portal."::: 
 
