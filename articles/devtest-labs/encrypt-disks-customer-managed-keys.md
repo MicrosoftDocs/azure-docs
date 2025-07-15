@@ -4,7 +4,7 @@ description: Learn how to manage disk encryption by using customer-managed keys 
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 07/11/2025
+ms.date: 07/15/2025
 ms.custom: subject-rbac-steps, UpdateFrequency2
 
 #customer intent: As a lab owner, I want to use customer-managed keys to manage disk encryption so that I can manage access control with more flexibility.  
@@ -28,10 +28,10 @@ In Azure DevTest Labs, all OS disks and data disks created in a lab are encrypte
   - The disk encryption set needs to be in same region and subscription as your lab.
   - The lab owner needs to have at least reader-level access to the disk encryption set that will be used to encrypt lab disks.
 
-- For labs created before August 1, 2020, the lab owner needs to ensure that lab system-assigned identity is enabled. To do so, the lab owner can go to the lab, select **Configuration and policies**, select **Identity (Preview)** in the left menu, change the system-assigned identity **Status** to **On**, and then select **Save**. For labs created after August 1, 2020, the system-assigned identity is enabled by default.
+- For labs created before August 1, 2020, the lab owner needs to ensure that lab system-assigned identity is enabled. To do so, the lab owner can go to the lab, select **Configuration and policies**, select **Identity** in the left menu, change the system-assigned identity **Status** to **On**, and then select **Save**. For labs created after August 1, 2020, the system-assigned identity is enabled by default.
 
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/managed-keys.png" alt-text="Screenshot that shows the steps for enabling system-assigned identity." lightbox="./media/encrypt-disks-customer-managed-keys/managed-keys.png":::
+    
+    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/managed-keys.png" alt-text="Screenshot that shows the steps for enabling system-assigned identity." lightbox="./media/encrypt-disks-customer-managed-keys/managed-keys.png":::
 
 - For the lab to handle encryption for all lab disks, the lab owner needs to explicitly grant the lab's system-assigned identity reader role on the disk encryption set and the virtual machine contributor role on the underlying Azure subscription. The lab owner can do that by completing the following steps:
 
@@ -66,18 +66,18 @@ In Azure DevTest Labs, all OS disks and data disks created in a lab are encrypte
 
 1. Go to a lab virtual machine that you created after enabling disk encryption with a customer-managed key on the lab.
 
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/enabled-encryption-vm.png" alt-text="Screenshot that shows a VM with disk encryption enabled." lightbox="./media/encrypt-disks-customer-managed-keys/enabled-encryption-vm.png":::
+    
+    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/enabled-encryption-vm.png" alt-text="Screenshot that shows a VM with disk encryption enabled." lightbox="./media/encrypt-disks-customer-managed-keys/enabled-encryption-vm.png":::
 
 1. Select the resource group of the VM and then select the OS disk.
 
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/vm-resource-group.png" alt-text="Screenshot that shows the VM in its resource group." lightbox="./media/encrypt-disks-customer-managed-keys/vm-resource-group.png":::
+     
+    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/vm-resource-group.png" alt-text="Screenshot that shows the VM in its resource group." lightbox="./media/encrypt-disks-customer-managed-keys/vm-resource-group.png":::
 
 1. In the left pane, under **Settings**, select **Encryption**. Validate that encryption is set to customer-managed key with the disk encryption set that you selected.
 
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/validate-encryption.png" alt-text="Screenshot that shows the encryption type of the VM.":::
+     
+    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/validate-encryption.png" alt-text="Screenshot that shows the encryption type of the VM.":::
   
 ## Related content
 
