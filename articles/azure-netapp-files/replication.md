@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 06/27/2025
+ms.date: 07/14/2025
 ms.author: anfdocs
 ms.custom: references_regions
 ---
