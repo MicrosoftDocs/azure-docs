@@ -120,7 +120,7 @@ For sample queries, see [KQL sample queries for the data lake](kql-samples.md). 
 + Calling external data via KQL query against the data lake isn't supported. 
 + `Ingestion_time()` function isn't supported on tables in data lake.
 
-For service limits, see [Microsoft Sentinel data lake (preview) service limits](sentinel-lake-service-limits.mdlimits-for-kql-queries-in-the-lake-tier).
+For service limits, see [Microsoft Sentinel data lake (preview) service limits](sentinel-lake-service-limits.md#service-parameters-and-limits-for-kql-queries-in-the-lake-tier).
 
 For troubleshooting KQL queries, see [Troubleshoot KQL queries in the Microsoft Sentinel data lake](kql-troubleshoot.md).
 

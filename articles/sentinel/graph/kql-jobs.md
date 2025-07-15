@@ -145,7 +145,7 @@ The following standard columns aren't supported for export. These columns are ov
 
 + `TimeGenerated` will be overwritten if it's older that 2 days. To preserve the original event time, we recommend writing the source timestamp to a separate column.
 
-For service limits, see [Microsoft Sentinel data lake (preview) service limits](sentinel-lake-service-limits.md#service-parameters-and-parameters-and-parameters-and-limits-for-kql-jobs).
+For service limits, see [Microsoft Sentinel data lake (preview) service limits](sentinel-lake-service-limits.md#service-parameters-and-limits-for-kql-jobs).
 
 > [!NOTE]
 >  Partial results may be promoted if the job's query exceeds the one hour limit.
