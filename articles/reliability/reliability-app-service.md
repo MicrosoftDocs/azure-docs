@@ -51,11 +51,11 @@ When you use an App Service Environment, you deploy the environment, one or more
 
 ::: zone-end
 
-- **Plans:** Plans represent the compute resources that run your apps. You can scale your App Service plans to run on multiple virtual machine *instances* (workers). These instances are the compute resources that run your app code. A single App Service plan can host multiple apps (websites), all running on the same shared set of VM instances.
+- **Plans:** Plans represent the compute resources that run your apps (websites). You can scale an App Service plan to run on multiple virtual machine *instances* (workers). These instances are the compute resources that run your app code. A single App Service plan can host multiple apps, all running on the same shared set of VM instances.
 
-    At the platform level - without any configuration from you - Azure automatically distributes your App Service plan’s VM instances across [fault domains](/azure/virtual-machines/availability-set-overview#fault-domains). This distribution minimizes the risk of localized hardware failures by grouping virtual machines that share a common power source and network switch.
+    At the platform level - without any configuration from you - Azure automatically distributes your App Service plan’s VM instances across [fault domains](/azure/virtual-machines/availability-set-overview#fault-domains) within the Azure region. This distribution minimizes the risk of localized hardware failures by grouping virtual machines that share a common power source and network switch.
 
-    If you enable zone redundancy on an App Service plan, Azure distributes your instances across availability zones within the region, offering higher resiliency in the event of a full zone outage. To learn more about zone redundancy, see [Availability zone support](#availability-zone-support).
+    If you enable zone redundancy on an App Service plan, Azure also distributes your instances across availability zones within the region, offering higher resiliency in the event of a zone outage. To learn more about zone redundancy, see [Availability zone support](#availability-zone-support).
 
 - **Apps:** Each app runs on a plan, and uses the VM resources of that plan to run your application code.
 

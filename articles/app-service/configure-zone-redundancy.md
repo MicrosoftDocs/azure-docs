@@ -31,7 +31,12 @@ Follow the guidance in [Create an App Service plan](../app-service/app-service-p
 Set the `--zone-redundant` argument. You must also specify the `--number-of-workers` argument, which is the number of instances, and set a value greater than or equal to 2.
 
 ```azurecli
-az appservice plan create -g MyResourceGroup -n MyPlan --zone-redundant --number-of-workers 2 --sku P1V3
+az appservice plan create \
+    -n <app-service-plan-name> \
+    -g <resource-group-name> \
+    --zone-redundant \
+    --number-of-workers 2 \
+    --sku P1V3
 ```
 
 # [Bicep](#tab/bicep)
@@ -39,7 +44,7 @@ az appservice plan create -g MyResourceGroup -n MyPlan --zone-redundant --number
 - To *enable zone redundancy*, set the `zoneRedundant` property to `true` and ensure that you define the `sku.capacity` property to a value of 2 or greater. If you don't define the `sku.capacity` property, the value defaults to 1.
 
     ```bicep
-    resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
+    resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' = {
         name: appServicePlanName
         location: location
         sku: {
@@ -83,15 +88,18 @@ To get the maximum number of availability zones that your App Service plan can u
 
 # [Azure CLI](#tab/azurecli)
 
-Query the plan's `maximumNumberOfZones`:
+Query the plan's `maximumNumberOfZones` property:
 
 ```azurecli
-az appservice plan show -n <app-service-plan-name> -g <resource-group-name> --query properties.maximumNumberOfZones
+az appservice plan show \
+    -n <app-service-plan-name> \
+    -g <resource-group-name> \
+    --query properties.maximumNumberOfZones
 ```
     
 # [Bicep](#tab/bicep)
 
-Query the plan's `maximumNumberOfZones`:
+Query the plan's `maximumNumberOfZones` property:
 
 ```bicep
 resource plan 'Microsoft.Web/serverfarms@2024-11-01' existing = {
@@ -103,6 +111,8 @@ output maximumNumberOfZones int = plan.properties.maximumNumberOfZones
 ```
 
 ---
+
+If you're on a plan or a stamp that doesn't support availability zones, you must create a new App Service plan in a new resource group so that you land on the App Service footprint that supports zones.
 
 ## Set zone redundancy for an existing App Service plan
 
@@ -124,21 +134,27 @@ To enable or disable zone redundancy on an existing App Service plan:
 - To *enable zone redundancy*, set the `zoneRedundant` property to `true`. You must also specify the `sku.capacity` argument, which is the number of instances, and set a value greater than or equal to 2.
 
     ```azurecli
-    az appservice plan update -g <resource group name> -n <app service plan name> --set zoneRedundant=true sku.capacity=2
+    az appservice plan update \
+        -n <app-service-plan-name> \
+        -g <resource-group-name> \
+        --set zoneRedundant=true sku.capacity=2
     ```
 
 - To *disable zone redundancy*, set the `zoneRedundant` property to `false`.
 
     ```azurecli
-    az appservice plan update -g <resource group name> -n <app service plan name> --set zoneRedundant=false
+    az appservice plan update \
+        -n <app-service-plan-name> \
+        -g <resource-group-name> \
+        --set zoneRedundant=false
     ```
 
 # [Bicep](#tab/bicep)
 
-- To *enable zone redundancy*, set the `zoneRedundant` property to `true` and ensure that you define the `sku.capacity` property. If you don't define the `sku.capacity` property, the value defaults to 1.
+- To *enable zone redundancy*, set the `zoneRedundant` property to `true` and ensure that you define the `sku.capacity` property to a value of 2 or greater. If you don't define the `sku.capacity` property, the value defaults to 1.
 
     ```bicep
-    resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
+    resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' = {
         name: appServicePlanName
         location: location
         sku: {
@@ -157,18 +173,16 @@ To enable or disable zone redundancy on an existing App Service plan:
 
 ---
 
-If you're on a plan or a stamp that doesn't support availability zones, you must create a new App Service plan in a new resource group so that you land on the App Service footprint that supports zones.
-
 > [!NOTE]
 > Changing the zone redundancy status of an App Service plan is almost instantaneous. You don't experience downtime or performance problems during the process.
 
 ## View physical zones for an App Service plan
 
-When you have a zone-redundant App Service plan, the platform automatically places the instances across [physical availability zone](../reliability/availability-zones-overview.md#physical-and-logical-availability-zones). If you want to verify that your instances are spread across zones, you can check which physical availability zones your plan's instances use by using the Azure portal, Azure CLI, or Bicep:
+When you have a zone-redundant App Service plan, the platform automatically places the instances across [physical availability zone](../reliability/availability-zones-overview.md#physical-and-logical-availability-zones). If you want to verify that your instances are spread across zones, you can check which physical availability zones your plan's instances use by using the Azure portal or Azure CLI:
 
 # [Azure portal](#tab/portal)
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your App Service plan.
+1. In the [Azure portal](https://portal.azure.com), navigate to your App Service app.
  
 1. Select the **Health check** blade.
 

@@ -49,7 +49,13 @@ Follow the guidance in [Create an App Service plan](../app-service-plan-manage.m
 Set the `--zone-redundant` argument. You must also specify the `--number-of-workers` argument, which is the number of instances, and set a value greater than or equal to 2.
 
 ```azurecli
-az appservice plan create -g MyResourceGroup -n MyPlan --app-service-environment MyAse --zone-redundant --number-of-workers 2 --sku I1V2
+az appservice plan create \
+    -n <app-service-plan-name> \
+    -g <resource-group-name> \
+    --app-service-environment MyAse \
+    --zone-redundant \
+    --number-of-workers 2 \
+    --sku I1V2
 ```
 
 # [Bicep](#tab/bicep)
@@ -57,7 +63,7 @@ az appservice plan create -g MyResourceGroup -n MyPlan --app-service-environment
 - To *enable zone redundancy*, set the `zoneRedundant` property to `true` and ensure that you define the `sku.capacity` property to a value of 2 or greater. If you don't define the `sku.capacity` property, the value defaults to 1.
 
     ```bicep
-    resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
+    resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' = {
         name: appServicePlanName
         location: location
         hostingEnvironmentProfile: {
@@ -99,13 +105,17 @@ To enable or disable zone redundancy on an existing App Service plan, you can us
 - To *enable zone redundancy*, set the `zoneRedundant` property to `true` and ensure that you define the `sku.capacity` property to a value of 2 or greater. If you don't define the `sku.capacity` property, the value defaults to 1.
 
     ```azurecli
-    az resource update --ids /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Web/hostingEnvironments/{aseName} --set properties.zoneRedundant=true sku.capacity=2
+    az resource update \
+        --ids /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Web/hostingEnvironments/{aseName} \
+        --set properties.zoneRedundant=true sku.capacity=2
     ```
 
 - To *disable zone redundancy*, set the `zoneRedundant` property to `false`.
 
     ```azurecli
-    az resource update --ids /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Web/hostingEnvironments/{aseName} --set properties.zoneRedundant=false
+    az resource update \
+        --ids /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Web/hostingEnvironments/{aseName} \
+        --set properties.zoneRedundant=false
     ```
 
 # [Bicep](#tab/bicep)
@@ -113,7 +123,7 @@ To enable or disable zone redundancy on an existing App Service plan, you can us
 - To *enable zone redundancy*, set the `zoneRedundant` property to `true` and ensure that you define the `sku.capacity` property to a value of 2 or greater. If you don't define the `sku.capacity` property, the value defaults to 1.
 
     ```bicep
-    resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
+    resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' = {
         name: appServicePlanName
         location: location
         hostingEnvironmentProfile: {
