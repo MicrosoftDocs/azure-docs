@@ -4,7 +4,7 @@ description: Learn how inbound and outbound IP addresses are used in Azure App S
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: article
-ms.date: 03/10/2025
+ms.date: 07/16/2025
 ms.update-cycle: 1095-days
 ms.custom:
   - UpdateFrequency3
@@ -116,7 +116,7 @@ The tag can be used to allow outbound traffic in a Network security group (NSG) 
 Azure App Service supports IPv6 for inbound traffic. Apps can receive traffic over both IPv4 and IPv6 protocols, providing compatibility with modern networks and clients that require IPv6 connectivity.
 
 > [!NOTE]
-> Outbound IPv6 isn't supported. All outbound connections from your app use IPv4.
+> Outbound IPv6 support is in public preview for Windows apps. For more information, see [Announcing App Service Outbound IPv6 Support in Public Preview](https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-app-service-outbound-ipv6-support-in-public-preview/4423368). All outbound connections from your Linux apps still use IPv4.
 
 ### Prerequisites
 
