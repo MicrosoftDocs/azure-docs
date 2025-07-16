@@ -38,8 +38,8 @@ The appliance can be deployed using a couple of methods:
 
 
     > [!Note]
-    > - Don't install any other components, such as the **Microsoft Monitoring Agent (MMA)** or **Replication appliance**, on the same server hosting the Azure Migrate appliance. If you install the MMA agent, you can face problems like **"Multiple custom attributes of the same type found"**. It's recommended to have a dedicated server to deploy the appliance.
-    > - Federal Information Processing Standards (FIPS) mode is not supported for appliance deployment. 
+    > - Don't install any other components, such as **Replication appliance**, on the same server that hosts the Azure Migrate appliance.  
+    > - Federal Information Processing Standards (FIPS) mode isn't supported for appliance deployment. 
 
 ## Verify security
 
@@ -48,39 +48,39 @@ Before you use the OVA/VHD/Zip file to deploy appliance, verify that the file is
 1. On the server where you downloaded the file, open Command Prompt window by using **Run as administrator** option.
 1. Run this command to create the hash for the OVA/VHD/Zip file:
 
-    Copy 
+```
+C:\>CertUtil -HashFile <file_location> <hashing_algorithm>
+```
 
-    `C:\>CertUtil -HashFile <file_location> <hashing_algorithm>` 
+For example: 
 
-    For example: 
+ ```
+C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256 
 
-    Copy 
+C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\AzureMigrateAppliance.zip SHA256 
 
-    `C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256` 
-
-    `C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256`
-
-    `C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256`    
-
+C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 
+   
+ ```
 1. Verify the latest appliance versions and hash values: 
 
     - Use the OVA file to set up the VMware appliance in Azure public cloud.       
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | VMware- OVA file (11.9 GB)  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954)  | 68907FC88C4215358779234AE74686DD10C76178686895ACB0663E1C3F56F207  |
+    | VMware- OVA file (11.9 GB)  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954)  | 68907FC88C4215358779234AE74686DD10C76178686895ACB0663E1C3F56F207   |
 
     - Use the VHD file to set up the Hyper-V appliance in Azure public cloud.
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | Hyper-V -  VHD file (9.46Gb)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848)  | DFECBFC9865C59F5A7B88BF78FA1028AD24919945059AE387BE9DA619C42A421  |
+    | Hyper-V -  VHD file (9.46Gb)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848)  | DFECBFC9865C59F5A7B88BF78FA1028AD24919945059AE387BE9DA619C42A421   |
 
     - Use the Zip file to set up the VMware, Hyper-V, or Physical appliance stack in Azure public cloud and Azure Government.
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | Zip file (693 MB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  | 88e90691ebf87166243dafb2d3a18dd34066b4624595ee3f9b4fbe6885e81da  |
+    | Zip file (693 MB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  | B4632DAA872310BCE44CFC7FF1C8968CDC7BAA2EB924C18FF630B18D57852EDA   |
 
 
 ## Appliance services
@@ -113,7 +113,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **OVA template** | Download from project or from [here](https://go.microsoft.com/fwlink/?linkid=2191954).<br><br> Download size is 11.9 GB.<br><br> The downloaded appliance template comes with a Windows Server 2022 evaluation license, which is valid for 180 days.<br>If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance using OVA template, or you activate the operating system license of the appliance server.
 **OVA verification** | [Verify](tutorial-discover-vmware.md#verify-security) the OVA template downloaded from project by checking the hash values.
 **PowerShell script** | Refer to this [article](./deploy-appliance-script.md#set-up-the-appliance-for-vmware) on how to deploy an appliance using the PowerShell installer script.<br/><br/> 
-**Hardware and network requirements** |  The appliance should run on server with Windows Server 2019 or Windows Server 2022, 32-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/> The appliance requires internet access, either directly or through a proxy.<br/><br/> If you deploy the appliance using OVA template, you need enough resources on the vCenter Server to create a server that meets the hardware requirements.<br/><br/> If you run the appliance on an existing server, make sure that it is running Windows Server 2019 or Windows Server 2022, and meets hardware requirements.
+**Hardware and network requirements** |  The appliance should run on server with Windows Server 2019 or Windows Server 2022, 32-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/><br/> The onboarding script checks for Windows Server 2016 or earlier versions and blocks the appliance deployment on those systems.<br/><br/> The appliance requires internet access, either directly or through a proxy.<br/><br/> If you deploy the appliance using OVA template, you need enough resources on the vCenter Server to create a server that meets the hardware requirements.
 **VMware requirements** | If you deploy the appliance as a server on vCenter Server, it  must be deployed on a vCenter Server running 5.5, 6.0, 6.5, 6.7 or 7.0 and an ESXi host running version 5.5 or later.<br/><br/> 
 **VDDK (agentless migration)** | To use the appliance for agentless migration of servers, the VMware vSphere VDDK must be installed on the appliance server.
 
@@ -129,7 +129,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **VHD template** | Zip file that includes a VHD. Download from project or from [here](https://go.microsoft.com/fwlink/?linkid=2140422).<br><br> Download size is 8.91 GB.<br><br> The downloaded appliance template comes with a Windows Server 2022 evaluation license, which is valid for 180 days. If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance server.
 **VHD verification** | [Verify](tutorial-discover-hyper-v.md#verify-security) the VHD template downloaded from project by checking the hash values.
 **PowerShell script** | Refer to this [article](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v) on how to deploy an appliance using the PowerShell installer script.<br/>
-**Hardware and network requirements**  |  The appliance should run on server with Windows Server 2019 or Windows Server 2022, 16-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/> The appliance needs a static or dynamic IP address, and requires internet access, either directly or through a proxy.<br/><br/> If you run the appliance as a server running on a Hyper-V host, you need enough resources on the host to create a server that meets the hardware requirements.<br/><br/> If you run the appliance on an existing server, make sure that it is running Windows Server 2019 or Windows Server 2022, and meets hardware requirements.
+**Hardware and network requirements**  |  The appliance should run on server with Windows Server 2019 or Windows Server 2022, 16-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/> The appliance needs a static or dynamic IP address, and requires internet access, either directly or through a proxy.<br/><br/> If you run the appliance as a server running on a Hyper-V host, you need enough resources on the host to create a server that meets the hardware requirements.<br/><br/> The appliance runs on a server with Windows Server 2019, Windows Server 2022, or Windows Server 2025. It needs 32 GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.
 **Hyper-V requirements** | If you deploy the appliance with the VHD template, the appliance provided by Azure Migrate is Hyper-V VM version 5.0.<br/><br/> The Hyper-V host must be running Windows Server 2019 or Windows Server 2022.
 
 
@@ -144,8 +144,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **Supported deployment** | Deploy on an existing server running Windows Server 2022 using PowerShell installer script.
 **PowerShell script** | Download the script (AzureMigrateInstaller.ps1) in a zip file from the project or from [here](https://go.microsoft.com/fwlink/?linkid=2140334). [Learn more](tutorial-discover-physical.md).<br><br> Download size is 85.8 MB.
 **Script verification** | Verify the PowerShell installer script downloaded from project by checking the hash values.
-**Hardware and network requirements** |  The appliance should run on server with Windows Server 2019 or Windows Server 2022, 16-GB RAM, 8 vCPUs, around 80 GB of disk storage.<br/> The appliance needs a static or dynamic IP address, and requires internet access, either directly or through a proxy.<br/><br/> If you run the appliance on an existing server, make sure that it is running Windows Server 2019 or Windows Server 2022, and meets hardware requirements.
-
+**Hardware and network requirements** |  The appliance runs on a server with Windows Server 2019, Windows Server 2022, or Windows Server 2025. It needs 32 GB RAM, 8 vCPUs, about 80 GB of disk storage, and an external virtual switch.<br/><br/> The appliance uses a static or dynamic IP address and needs internet access, either directly or through a proxy.
 
 ## URL access
 
@@ -218,7 +217,6 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 *.blob.core.usgovcloudapi.net (optional)|  This is optional and is not required if the storage account has a private endpoint attached.
 *.applicationinsights.us (optional)| Upload appliance logs used for internal monitoring.  
 
-
 ### Microsoft Azure operated by 21Vianet (Microsoft Azure operated by 21Vianet) URLs
 
 **URL** | **Details**  
@@ -239,7 +237,6 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 
 ### Microsoft Azure operated by 21Vianet URLs
 
-
 **URL** | **Details**  
 --- | --- |
 *.portal.azure.cn  | Navigate to the Azure portal.
@@ -255,7 +252,6 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 *.cn2.hypervrecoverymanager.windowsazure.cn | **Used for VMware agentless migration.**<br/><br/> Connect to Azure Migrate service URLs.
 *.blob.core.chinacloudapi.cn  |  **Used for VMware agentless migration.**<br/><br/>Upload data to storage for migration.
 *.applicationinsights.azure.cn | Upload appliance logs used for internal monitoring.
-
 
 ## Discovery and collection process
 
