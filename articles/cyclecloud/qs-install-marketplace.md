@@ -66,7 +66,7 @@ The image has many recommended default settings, including **Size** and built-in
 
 If you use Managed Identities for authentication, follow the [Managed Identities Guide](./how-to/managed-identities.md) to assign the system managed identity to the new application VM.
 
-## Sign in to the CycleCloud application server
+## Log into the CycleCloud application server
 
 To connect to the CycleCloud webserver, get the public IP address of the CycleServer VM from the Azure portal.
 
