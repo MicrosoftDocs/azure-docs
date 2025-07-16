@@ -41,9 +41,9 @@ The process starts in the Azure portal. When you search for an SMS number type a
 :::image type="content" source="./media/mc-provision-concept.png" alt-text="Messaging Connect number provisioning flow in Azure." lightbox="./media/mc-provision-concept.png":::
 
 
-You can send and receive SMS using the standard ACS SMS APIs. When you send messages, you authenticate with ACS as usual and include a key from your Messaging Connect partner at runtime so we can route your traffic appropriately. Message delivery is handled by the partner, but observability—like delivery receipts, diagnostics, and logging—remains in Azure, alongside your other services.
+You can send and receive SMS using the standard ACS SMS APIs. When you send messages, you authenticate with ACS as usual and include a key from your Messaging Connect partner at runtime so we can route your traffic appropriately. The partner handles message delivery, while observability—like delivery receipts, diagnostics, and logging—remains in Azure with your other services.
 
-This model works well in real-world scenarios. For example, if you're a logistics company needing local sender IDs in Brazil and India, Azure Communication Services via Messaging Connect helps you acquire them through a partner and use them via a single Azure Communication Services SMS SDK (software development kit). If you're building an AI-powered appointment assistant with Copilot Studio, you can use Messaging Connect numbers to send reminders in markets where ACS doesn’t provide direct coverage. If you're managing bookings, alerts, or re-engagement campaigns across dozens of countries, you can use Messaging Connect to reach users globally—while keeping control and insight inside Azure.
+This model works well in real-world scenarios. Whether you're building an AI-powered appointment assistant with Copilot Studio, managing logistics with local sender IDs in Brazil and India, or running global campaigns across dozens of countries, you can use Messaging Connect to reach users worldwide. Azure Communication Services, via Messaging Connect, enables you to acquire the right sender identities through a trusted partner and use them with your preferred ACS SMS SDK—while keeping full control and observability in Azure.
 
 :::image type="content" source="./media/mc-runtime-concept.png" alt-text="Runtime architecture using Messaging Connect and ACS API."lightbox="./media/mc-runtime-concept.png":::
 
@@ -55,8 +55,8 @@ The following table summarizes capabilities available when using Messaging Conne
 |------------------------------------|-----------|
 | Long Codes                         |    ✔️     |
 | Dynamic Alphanumeric Sender ID     |    ✔️     |
-| Short Codes                        |    ❌     |
-| Pre-Registered Alpha Sender ID     |    ❌     |
+| Short Codes                        |    ❌ (coming soon)     |
+| Pre-Registered Alpha Sender ID     |    ❌ (coming soon)    |
 | Two-way messaging                  |    ✔️     |
 | One-way messaging                  |    ✔️     |
 | 1:1 (single recipient)             |    ✔️     |
@@ -69,9 +69,9 @@ The following table summarizes capabilities available when using Messaging Conne
 | Local regulatory enforcement       |    ✔️     |
 | C# SDK                             |    ✔️     |
 | JavaScript SDK                     |    ✔️     |
-| Python SDK                         |    ❌     |
-| Java SDK                           |    ❌     |
-| Supported partners                 | Infobip (additional partners coming soon) |
+| Python SDK                         |    ❌ (coming soon)    |
+| Java SDK                           |    ❌ (coming soon)    |
+| Supported partners                 | Infobip (more partners coming soon) |
 | Automatic Country Sender selection (partner-managed)   | Infobip ✔️  |
 
 > **Note**: Future updates will include support for more SDKs, sender types, and additional partners.
@@ -85,7 +85,7 @@ ACS supports the following authentication methods:
 - Access Key Authentication (Connection strings)
 - Microsoft Entra ID Authentication
 
-You’ll authenticate with ACS the same way you would for any other SMS request. Messaging Connect does not change the way authentication works at the platform level—it simply adds a partner-based routing step after your message is validated.
+You authenticate with ACS the same way you would for any other SMS request. Messaging Connect does not change the way authentication works at the platform level—it simply adds a partner-based routing step after your message is validated.
 
 Learn more: [Authenticate to Azure Communication Services](https://learn.microsoft.com/azure/communication-services/concepts/authentication)
 
