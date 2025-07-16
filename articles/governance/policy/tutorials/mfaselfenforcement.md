@@ -7,8 +7,6 @@ author: nehakulkarni
 ms.author: nehakulkarni
 ---
 # Tutorial: Apply MFA Self-Enforcement through Azure Policy
-
-# Introduction
 Azure Policy is a powerful governance tool that allows you to enforce organizational standards and assess compliance at-scale. You can also use Azure Policy to get ahead of the curve and prepare your organization for upcoming enforcement of multi-factor authentication across Azure clients.
 This guide walks you through the process of applying Azure Policy assignments to self-enforce multi-factor authentication across your organization.
 
@@ -50,7 +48,7 @@ _To enable safe rollout of policy enforcement, we recommend leveraging Azure Pol
 **6. Configure Additional Assignment Details**
 - Under 'Basics', enter a Name for your policy assignment. Optionally, you may add a Description to help others understand the purpose of this assignment.
 - Under 'Basics', enforcement mode should be set to enabled (this is set by default, no action needed).
-- Go to the ‘Parameters’ tab. Uncheck 'only show parameters that require input or review'. The parameter value should be at the pre-selected value 'AuditAction' or 'Audit' (depending on the definition chosen in step 4).
+- Go to the 'Parameters' tab. Uncheck 'only show parameters that require input or review'. The parameter value should be at the pre-selected value 'AuditAction' or 'Audit' (depending on the definition chosen in step 4).
 - Under the 'Non-compliance messages' tab, configure a custom message that any user will see if they are blocked from deleting a resource because of this enforcement:
 _Sample Text: To resolve this error, you must set up MFA, following the process outlined at aka.ms/setupMFA. If you set up MFA and are still receiving this error, please reach out to your Entra administrator to restore the security default for Azure by following the process outlined at aka.ms/loginMFAForAzure._
 
@@ -58,8 +56,8 @@ _Sample Text: To resolve this error, you must set up MFA, following the process 
 
 
 **7. Review and Create Assignment**
-- Review your selections and settings on the Review + create tab.
-- If everything looks correct, click ‘Create’ to apply the policy assignment.
+- Review your selections and settings on the 'Review + create' tab.
+- If everything looks correct, click 'Create' to apply the policy assignment.
 
 **8. Rollout the policy assignment to all regions**
 - After completing step 7, you may update the policy assignment selector to evaluate resources in additional regions. Repeat this step until the policy assignment is evaluating resources in all regions.
@@ -70,8 +68,8 @@ _Sample Text: To resolve this error, you must set up MFA, following the process 
 
 
 ## Update the policy assignment to enforcement
-Once you are ready, you may update the policy assignment to enable enforcement. This is done by updating the ‘Effect’ of the policy assignment.
-- Go to the policy assignment under [Policy|Assignments](https://portal.azure.com/?subscriptionId=617eb244-7791-4c21-98c5-77f840a7e4ef#view/Microsoft_Azure_Policy/PolicyMenuBlade/~/Overview/scope/%2Fsubscriptions%2F617eb244-7791-4c21-98c5-77f840a7e4ef). Click ‘Edit assignment’.
+Once you are ready, you may update the policy assignment to enable enforcement. This is done by updating the 'Effect' of the policy assignment.
+- Go to the policy assignment under [Policy|Assignments](https://portal.azure.com/?subscriptionId=617eb244-7791-4c21-98c5-77f840a7e4ef#view/Microsoft_Azure_Policy/PolicyMenuBlade/~/Overview/scope/%2Fsubscriptions%2F617eb244-7791-4c21-98c5-77f840a7e4ef). Click 'Edit assignment'.
 - In the 'Basics' tab, you’ll see 'Overrides'. Click expand.
 - Click 'Add a policy effect override'
 - In the drop down menu, update the 'Override Value' to 'DenyAction' or 'Deny' (depending on the policy definition chosen at Step 4).
