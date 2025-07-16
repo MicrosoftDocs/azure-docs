@@ -18,7 +18,7 @@ Apply Azure Policy enforcement through Azure Portal
 Navigate to the Azure Portal at portal.azure.com
 
 **2. Access Azure Policy Service**
-On the left-hand menu or home dashboard, select Policy under Azure services. If you don't see it, type "Policy" in the search bar at the top and select it from the results.
+On the left-hand menu or home dashboard, select Policy under Azure services. If you don't see it, type 'Policy' in the search bar at the top and select it from the results.
 ![]()![==image_0==.png](/.attachments/==image_0==-2739c4d5-eb45-4a84-b6f3-1e98c0098d22.png) 
 
 **3. Choose the Scope for Assignment**
@@ -29,8 +29,8 @@ On the left-hand menu or home dashboard, select Policy under Azure services. If 
 
 *4. Configure Selectors for gradual rollout of policy enforcement*
 _To enable safe rollout of policy enforcement, we recommend leveraging Azure Policy’s resource selectors to gradually rollout policy enforcement across your resources._
-- In the ‘Basics’ tab, you’ll see ‘Resource Selectors’. Click expand.
-- Click ‘Add a resource selector’
+- In the 'Basics' tab, you’ll see 'Resource Selectors'. Click expand.
+- Click 'Add a resource selector'
 ![==image_1==.png](/.attachments/==image_1==-643fd389-400f-42f9-a66d-12606e13cf07.png) 
 
 - In your resource selector, add a name for your selector.
@@ -39,7 +39,7 @@ _To enable safe rollout of policy enforcement, we recommend leveraging Azure Pol
 - You can update this assignment later to add more regions by adding additional resourceLocation selectors or updating the existing resourceLocation selector to add more regions.
 
 *5. Select a Policy Definition*
-- Under ‘Basics’, click on Policy definition.
+- Under 'Basics', click on Policy definition.
 - Browse or search for the multi-factor policy definition – there will be 2 of them. Pick one for now:
    [[Preview]: Users must authenticate with multi-factor authentication to delete resources - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdb4a9d17-db75-4f46-9fcb-9f9526604417/version/1.0.0-preview/scopes/%5B%22%2Fsubscriptions%2F12015272-f077-4945-81de-a5f607d067e1%22%2C%22%2Fsubscriptions%2F0ba674a6-9fde-43b4-8370-a7e16fdf0641%22%5D/contextRender/)
    [[Preview]: Users must authenticate with multi-factor authentication to create or update resources - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4e6c27d5-a6ee-49cf-b2b4-d8fe90fa2b8b/version/1.0.0-preview/scopes/%5B%22%2Fsubscriptions%2F12015272-f077-4945-81de-a5f607d067e1%22%2C%22%2Fsubscriptions%2F0ba674a6-9fde-43b4-8370-a7e16fdf0641%22%5D/contextRender/)
@@ -47,10 +47,10 @@ _To enable safe rollout of policy enforcement, we recommend leveraging Azure Pol
 ![==image_3==.png](/.attachments/==image_3==-a0099b88-e590-499e-b133-3ee4c26e3d68.png) 
 
 6. Configure Additional Assignment Details
-- Under ‘Basics’, enter a Name for your policy assignment. Optionally, you may add a Description to help others understand the purpose of this assignment.
-- Under ‘Basics’, enforcement mode should be set to enabled (this is set by default, no action needed).
-- Go to the ‘Parameters’ tab. Uncheck ‘only show parameters that require input or review’. The parameter value should be at the pre-selected value ‘AuditAction’ or ‘Audit’ (depending on the definition chosen in step 4).
-- Under the ‘Non-compliance messages’ tab, configure a custom message that any user will see if they are blocked from deleting a resource because of this enforcement:
+- Under 'Basics', enter a Name for your policy assignment. Optionally, you may add a Description to help others understand the purpose of this assignment.
+- Under 'Basics', enforcement mode should be set to enabled (this is set by default, no action needed).
+- Go to the ‘Parameters’ tab. Uncheck 'only show parameters that require input or review'. The parameter value should be at the pre-selected value 'AuditAction' or 'Audit' (depending on the definition chosen in step 4).
+- Under the 'Non-compliance messages' tab, configure a custom message that any user will see if they are blocked from deleting a resource because of this enforcement:
 _Sample Text: To resolve this error, you must set up MFA, following the process outlined at aka.ms/setupMFA. If you set up MFA and are still receiving this error, please reach out to your Entra administrator to restore the security default for Azure by following the process outlined at aka.ms/loginMFAForAzure._
 
 ![==image_4==.png](/.attachments/==image_4==-861ded77-fbc3-4a9c-a9f5-865ceace984a.png) 
@@ -63,19 +63,19 @@ _Sample Text: To resolve this error, you must set up MFA, following the process 
 - After completing step 7, you may update the policy assignment selector to evaluate resources in additional regions. Repeat this step until the policy assignment is evaluating resources in all regions.
 
 Verify existence of the policy assignment
-- Go to the ‘Assignments’ tab to confirm that the policy assignment was successfully created. You can use the search bar and scope bar to easily filter.
+- Go to the 'Assignments' tab to confirm that the policy assignment was successfully created. You can use the search bar and scope bar to easily filter.
 ![==image_5==.png](/.attachments/==image_5==-886d113d-43a3-4e40-bc4b-17141c08b5cc.png) 
 
 Update the policy assignment to enforcement
 
 Once you are ready, you may update the policy assignment to enable enforcement. This is done by updating the ‘Effect’ of the policy assignment.
 - Go to the policy assignment under [Policy|Assignments](https://portal.azure.com/?subscriptionId=617eb244-7791-4c21-98c5-77f840a7e4ef#view/Microsoft_Azure_Policy/PolicyMenuBlade/~/Overview/scope/%2Fsubscriptions%2F617eb244-7791-4c21-98c5-77f840a7e4ef). Click ‘Edit assignment’.
-- In the ‘Basics’ tab, you’ll see ‘Overrides’. Click expand.
-- Click ‘Add a policy effect override’
-- In the drop down menu, update the ‘Override Value’ to ‘DenyAction’ or ‘Deny’ (depending on the policy definition chosen at Step 4).
-- For ‘Selected Resources’, pick a few low-risk regions that you’d like to enforce on. This means that the policy assignment will only evaluate Azure resources in those regions.
+- In the 'Basics' tab, you’ll see 'Overrides'. Click expand.
+- Click 'Add a policy effect override'
+- In the drop down menu, update the 'Override Value' to 'DenyAction' or 'Deny' (depending on the policy definition chosen at Step 4).
+- For 'Selected Resources', pick a few low-risk regions that you’d like to enforce on. This means that the policy assignment will only evaluate Azure resources in those regions.
 ![]()![==image_6==.png](/.attachments/==image_6==-29a4bed6-bc29-444f-b99f-a5639a0837fb.png) 
-- Click ‘Review + save’, then ‘Create’.
+- Click 'Review + save', then 'Create'.
 - Once you have confirmed no unexpected impact for this initial application, you may update the existing override to add additional regions, then monitor for any impact. Repeat this step as many times as needed to eventually add all regions.
 
 User Experience during Preview
