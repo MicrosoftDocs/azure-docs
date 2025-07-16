@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: duongau
   ms.author: duau
-  ms.date: 03/17/2025
+  ms.date: 05/30/2025
   ms.custom: e2e-hybrid
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -145,8 +145,8 @@ landingContent:
     linkLists:
       - linkListType: architecture
         links:
-          - text: Well-Architected review of Azure Firewall
-            url: /azure/architecture/framework/services/networking/azure-firewall
+          - text: Architecture best practices for Azure Firewall
+            url: /azure/well-architected/service-guides/azure-firewall
           - text: Use Azure Firewall to help protect an AKS cluster
             url: /azure/architecture/example-scenario/aks-firewall/aks-firewall
           - text: Zero-trust network for web applications with Azure Firewall and Application Gateway
@@ -157,16 +157,18 @@ landingContent:
 # Card
   - title: Learn about Azure network security
     linkLists:
+      - linkListType: get-started
+        links:
+         - text: What is Azure network security?
+           url: /azure/networking/security/network-security
+         - text: Learm more about Azure network security
+           url: /azure/networking/security/
       - linkListType: overview
         links:
-         - text: Azure network security
-           url: ../networking/security/index.yml
-      - linkListType: concept
-        links:
           - text: Azure DDoS Protection
-            url: ../ddos-protection/index.yml
+            url: /azure/ddos-protection/ddos-protection-overview
           - text: Azure Web Application Firewall
-            url: ../web-application-firewall/index.yml
+            url: /azure/web-application-firewall/overview
 
 # Card
   - title: Reference

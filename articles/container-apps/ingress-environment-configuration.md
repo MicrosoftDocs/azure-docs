@@ -13,6 +13,8 @@ ms.custom:
 
 # Configure ingress for an Azure Container Apps environment
 
+Azure Container Apps run in the context of an environment, with its own virtual network (VNet). This VNet creates a secure boundary around your Azure Container Apps [environment](environment.md).
+
 Ingress configuration in Azure Container Apps determines how external network traffic reaches your applications. Configuring ingress enables you to control traffic routing, improve application performance, and implement advanced deployment strategies. This article guides you through the ingress configuration options available in Azure Container Apps and helps you choose the right settings for your workloads.
 
 An Azure Container Apps environment includes a scalable edge ingress proxy responsible for the following features:
@@ -110,7 +112,87 @@ You can configure the ingress for your environment after you create it.
 
 1. Select **Apply**.
 
+## Rule-based routing (preview)
+
+With rule-based routing, you create a fully qualified domain name (FQDN) on your container apps environment. You then use rules to route requests to this FQDN to different container apps, depending on the path of each request. This offers the following benefits.
+
+- Isolation: By routing different paths to different container apps, you can deploy and update individual components without affecting the entire application.
+
+- Scalability: With rule-based routing, you can scale individual container apps independently based on the traffic each container app receives.
+
+- Custom Routing Rules: You can, for example, redirect users to different versions of your application or implement A/B testing.
+
+- Security: You can implement security measures tailored to each container app. This helps you to reduce the attack surface of your application.
+
+To learn how to configure rule-based routing on your container apps environment, see [Use rule-based routing](rule-based-routing.md).
+
+## <a name="peer-to-peer-encryption"></a> Peer-to-peer encryption in the Azure Container Apps environment
+
+Azure Container Apps supports peer-to-peer TLS encryption within the environment. Enabling this feature encrypts all network traffic within the environment with a private certificate that is valid within the Azure Container Apps environment scope. Azure Container Apps automatically manages these certificates.
+
+> [!NOTE]
+> By default, peer-to-peer encryption is disabled. Enabling peer-to-peer encryption for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+
+The following example shows an environment with peer-to-peer encryption enabled.
+:::image type="content" source="media/networking/peer-to-peer-encryption-traffic-diagram.png" alt-text="Diagram of how traffic is encrypted/decrypted with peer-to-peer encryption enabled.":::
+
+<sup>1</sup> Inbound TLS traffic is terminated at the ingress proxy on the edge of the environment.
+
+<sup>2</sup> Traffic to and from the ingress proxy within the environment is TLS encrypted with a private certificate and decrypted by the receiver. 
+
+<sup>3</sup> Calls made from app A to app B's FQDN are first sent to the edge ingress proxy, and are TLS encrypted.
+
+<sup>4</sup> Calls made from app A to app B using app B's app name are sent directly to app B and are TLS encrypted. Calls between apps and [Java components](./java-overview.md#java-components-support) are treated in the same way as app to app communication and TLS encrypted.
+
+Applications within a Container Apps environment are automatically authenticated. However, the Container Apps runtime doesn't support authorization for access control between applications using the built-in peer-to-peer encryption.
+
+When your apps are communicating with a client outside of the environment, two-way authentication with mTLS is supported. To learn more, see [configure client certificates](client-certificate-authorization.md).
+
+# [Azure CLI](#tab/azure-cli)
+
+You can enable peer-to-peer encryption using the following commands.
+
+On create:
+
+```azurecli
+az containerapp env create \
+    --name <ENVIRONMENT_NAME> \
+    --resource-group <RESOURCE_GROUP> \
+    --location <LOCATION> \
+    --enable-peer-to-peer-encryption
+```
+
+For an existing container app:
+
+```azurecli
+az containerapp env update \
+    --name <ENVIRONMENT_NAME> \
+    --resource-group <RESOURCE_GROUP> \
+    --enable-peer-to-peer-encryption
+```
+
+# [ARM template](#tab/arm-template)
+
+You can enable peer-to-peer encryption in the ARM template for Container Apps environments using the following configuration.
+
+```json
+{
+  ...
+  "properties": {
+       "peerTrafficConfiguration":{
+            "encryption": {
+                "enabled": "true|false"
+            }
+        }
+  ...
+}
+```
+
+---
+
 ## Related content
 
 - [Ingress in Azure Container Apps](ingress-overview.md)
 - [Networking in Azure Container Apps](networking.md)
+- [Configuring virtual networks Azure Container Apps environments](custom-virtual-networks.md)
+- [Integrate a virtual network with an internal Azure Container Apps environment](vnet-custom-internal.md)

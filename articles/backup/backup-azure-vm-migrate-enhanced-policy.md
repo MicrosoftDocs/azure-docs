@@ -9,6 +9,7 @@ ms.author: jsuri
 ms.custom:
   - engagement-fy24
   - build-2025
+# Customer intent: "As an IT administrator managing Azure VM backups, I want to migrate Azure Virtual Machine backups from standard to enhanced policy, so that I can improve backup frequency, retention, and disaster recovery capabilities without affecting existing backup operations."
 ---
 
 # Migrate Azure VM backups from standard  to enhanced policy

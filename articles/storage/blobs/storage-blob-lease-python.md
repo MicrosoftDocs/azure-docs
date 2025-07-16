@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 08/05/2024
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: "As a developer, I want to manage blob leases using the Python client library so that I can have control over blob access and ensure data consistency in my storage solutions."
 ---
 
 # Create and manage blob leases with Python

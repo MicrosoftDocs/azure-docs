@@ -171,5 +171,4 @@ It's a security best practice to avoid storing passwords in clear text in source
 
 ## Related content
 
-- [ASP.NET Output Cache Provider for Azure Cache for Redis](aspnet-output-cache-provider.md)
 - [Output caching](/aspnet/core/performance/caching/overview#output-caching)

@@ -7,6 +7,7 @@ ms.custom: devx-track-azurepowershell, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to back up and restore Azure VMs using PowerShell cmdlets, so that I can ensure data protection and quick recovery from virtual machine failures or data loss.
 ---
 
 # Back up and restore Azure VMs using Azure PowerShell

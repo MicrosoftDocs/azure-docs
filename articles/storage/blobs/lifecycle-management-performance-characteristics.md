@@ -10,6 +10,7 @@ ms.author: normesta
 ms.service: azure-blob-storage
 ms.topic: reference
 ms.custom: references_regions, engagement-fy23
+# Customer intent: As a storage administrator, I want to configure and optimize lifecycle management policies for Azure Blob Storage, so that I can automate cost-effective object management while ensuring efficient processing times and minimal impact on customer workloads.
 ---
 
 # Lifecycle management performance characteristics

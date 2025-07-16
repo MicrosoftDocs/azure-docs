@@ -8,6 +8,7 @@ ms.custom:
   - ignite-2024
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to back up my SAP ASE database running on an Azure virtual machine, so that I can ensure data protection and compliance with recovery requirements.
 ---
 
 # Tutorial: Back up SAP ASE (Sybase) database using Azure Business Continuity Center

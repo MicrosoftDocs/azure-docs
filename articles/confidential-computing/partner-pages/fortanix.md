@@ -8,6 +8,7 @@ ms.subservice: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 03/29/2023
 ms.author: ananyagarg
+# Customer intent: "As a security professional, I want to integrate Fortanix's confidential computing solutions with our Azure environment, so that I can ensure the security, privacy, and compliance of sensitive data across multiple platforms."
 ---
 
 # Fortanix

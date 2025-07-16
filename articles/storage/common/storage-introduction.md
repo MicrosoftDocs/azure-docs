@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 03/26/2025
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
+# Customer intent: As a cloud application developer, I want to utilize Azure Storage services for data management, so that I can ensure my applications have scalable, secure, and accessible storage solutions that meet my data storage needs.
 ---
 
 # Introduction to Azure Storage

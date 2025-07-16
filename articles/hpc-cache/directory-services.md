@@ -6,6 +6,7 @@ ms.service: azure-hpc-cache
 ms.topic: how-to
 ms.date: 07/27/2022
 ms.author: rohogue
+# Customer intent: As a systems administrator, I want to configure directory services for Azure HPC Cache so that I can enable user authentication for accessing NFS storage targets with extended group support.
 ---
 
 # Configure directory services
