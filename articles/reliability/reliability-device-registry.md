@@ -69,7 +69,7 @@ The following information describes what happens when you have a zone-redundant 
 
 - **Notification:** Zone failure events can be monitored through Azure Service Health. Set up alerts to receive notifications of zone-level issues.
 
-- **Active requests:** Some active requests may be dropped and so may need to be retried.  To make sure that your application is resilient to any transient faults, see [transient fault handling guidance](#transient-faults).
+- **Active requests:** Some active requests may be dropped and so may need to be retried in the same way as other transient faults. To make sure that your application is resilient to any transient faults, see [transient fault handling guidance](#transient-faults).
 
 - **Expected data loss:** A zone failure isn't expected to cause any data loss.
 
