@@ -24,10 +24,6 @@ This article uses two related but distinct terms:
 - **Orchestration instance** (or simply "orchestration"): Refers to a specific running execution of an orchestrator function, with its own state, instance ID, and inputs. Multiple orchestration instances can run concurrently from the same orchestrator function.
 
 Understanding this distinction is crucial for orchestration versioning, where the orchestrator function code contains version-aware logic, while orchestration instances are permanently associated with a specific version when created.
-> - **Orchestrator function** (or simply "orchestrator"): Refers to the function code that defines the workflow logic - the template or blueprint for how a workflow should execute.
-> - **Orchestration instance** (or simply "orchestration"): Refers to a specific running execution of an orchestrator function, with its own state, instance ID, and inputs. Multiple orchestration instances can run concurrently from the same orchestrator function.
-> 
-> Understanding this distinction is crucial for orchestration versioning, where the orchestrator function code contains version-aware logic, while orchestration instances are permanently associated with a specific version when created.
 
 ### Key benefits
 
