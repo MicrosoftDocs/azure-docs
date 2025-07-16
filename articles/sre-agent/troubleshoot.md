@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot common issues in Azure SRE Agent (preview)
-description: Learn how SRE Agent uses different security contexts to handle agent creation and execution.
+description: Learn to troubleshoot common problems in Azure SRE Agent.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
