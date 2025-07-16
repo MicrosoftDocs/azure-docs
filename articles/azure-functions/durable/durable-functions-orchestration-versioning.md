@@ -253,9 +253,9 @@ The `versionMatchStrategy` setting determines how the runtime matches orchestrat
 
 - **`None`** (not recommended): Ignore orchestration version completely. All work received is processed regardless of version. This strategy effectively disables version checking and allows any worker to process any orchestration instance.
 
-- **`Strict`**: Only process tasks from orchestrations with the exact same version as the version specified by `defaultVersion` in the worker's `host.json`. This strategy provides the highest level of version isolation but requires careful deployment coordination to avoid orphaned orchestrations.
+- **`Strict`**: Only process tasks from orchestrations with the exact same version as the version specified by `defaultVersion` in the worker's `host.json`. This strategy provides the highest level of version isolation but requires careful deployment coordination to avoid orphaned orchestrations. The consequences of version mismatch are described in the [Version mismatch handling](#version-mismatch-handling) section.
 
-- **`CurrentOrOlder`** (default): Process tasks from orchestrations whose version is less than or equal to the version specified by `defaultVersion` in the worker's `host.json`. This strategy enables backward compatibility, allowing newer workers to handle orchestrations started by older orchestrator versions while preventing older workers from processing newer orchestrations.
+- **`CurrentOrOlder`** (default): Process tasks from orchestrations whose version is less than or equal to the version specified by `defaultVersion` in the worker's `host.json`. This strategy enables backward compatibility, allowing newer workers to handle orchestrations started by older orchestrator versions while preventing older workers from processing newer orchestrations. The consequences of version mismatch are described in the [Version mismatch handling](#version-mismatch-handling) section.
 
 ### Version mismatch handling
 
