@@ -74,7 +74,7 @@ To set up a listener-specific SSL policy, you need to first go to the **SSL sett
 
 7. Select **Add** to save.
 
-    :::image type="content" source="./media/application-gateway-configure-listener-specific-ssl-policy/listener-specific-ssl-policy-ssl-profile.png" alt-text="Screenshot of adding listener-specific SSL policy to SSL profile in Azure portal":::
+    :::image type="content" source="./media/application-gateway-configure-listener-specific-ssl-policy/listener-specific-ssl-policy-ssl-profile.png" alt-text="Screenshot of adding listener-specific SSL policy to SSL profile in Azure portal.":::
     
 ## Associate the SSL profile with a listener
 
@@ -99,7 +99,7 @@ Select the SSL profile you created from the dropdown list. In this example, we c
 
 7. Select on tab **Listener TLS Certificates** on the second tab. 
 
-8. Select **+ Add Certificate**
+8. Select **+ Add Certificate**.
 
 9. Fill out the **Certificate name**, **PFX Certificate File**, **Type** , and other **Password** to fit your requirements.
 
@@ -107,7 +107,7 @@ Select the SSL profile you created from the dropdown list. In this example, we c
 
 11. Continue configuring the remainder of the listener according to your requirements. 
 
-    :::image type="content" source="./media/application-gateway-configure-listener-specific-ssl-policy/listener-certificate.png" alt-text="Screenshot of SSL profile association for a new listener":::   
+    :::image type="content" source="./media/application-gateway-configure-listener-specific-ssl-policy/listener-certificate.png" alt-text="Screenshot of SSL profile association for a new listener.":::   
 
 ### Limitations
 SSL-Policies
