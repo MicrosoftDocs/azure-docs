@@ -320,10 +320,12 @@ Messaging Connect uses the same SMS APIs and SDKs as the rest of Azure Communica
 There’s no separate SDK or client for Messaging Connect. You authenticate, create your `SmsClient`, and call the send method just as you would for any other ACS number. The only difference is that your request must include a `MessagingConnect` object in the options field when you're using a number provisioned through Messaging Connect.
 
 > [!IMPORTANT]
-> These are the API and SDKs supported during Messaging Connect Public Preview:
-> - API: 2025-05-29-preview
-> - JS SDK: 1.2.0-beta.4 from azure-sdk-for-js/sdk/communication/communication-sms/CHANGELOG.md at main · Azure/azure-sdk-for-js
-> - .NET SDK: 1.1.0-beta.3 from azure-sdk-for-net/sdk/communication/Azure.Communication.Sms/CHANGELOG.md at main · Azure/azure-sdk-for-net
+> These are the API and SDK versions supported during the Messaging Connect Public Preview:
+>
+> - **API version:** `2025-05-29-preview`
+> - **JavaScript SDK:** [`1.2.0-beta.4`](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/communication-sms/CHANGELOG.md)
+> - **.NET SDK:** [`1.1.0-beta.3`](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.Sms/CHANGELOG.md)
+
 
 This object contains:
 - The partner name (e.g., "infobip")
