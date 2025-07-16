@@ -68,14 +68,21 @@ To configure the default version for your orchestrations, you need to add or upd
 ```
 
 The version string can follow any format that suits your versioning strategy:
-- Multi-part versioning: `"1.0.0"`, `"2.1.0"` (compared in decreasing order of component importance, similar to semantic versioning)
-- Simple numbering: `"1"`, `"2"` (compared as numbers)
-- Date-based: `"2025-01-01"` (compared lexicographically)
-- Custom format: `"v1.0-release"` (compared lexicographically)
-
-For more details about how different version formats are compared, see [Version comparison rules](#version-comparison-rules).
+- Multi-part versioning: `"1.0.0"`, `"2.1.0"`
+- Simple numbering: `"1"`, `"2"`
+- Date-based: `"2025-01-01"`
+- Custom format: `"v1.0-release"`
 
 After you set the `defaultVersion`, all new orchestration instances will be permanently associated with that version.
+
+### Version comparison rules
+
+When the `Strict` or `CurrentOrOlder` strategy is selected (see [Version matching](#version-matching)), the runtime compares the orchestration instance's version with the `defaultVersion` value of the worker using the following rules:
+
+1. Empty or null versions are treated as equal.
+2. An empty or null version is considered older than any defined version.
+3. If both versions can be parsed as `System.Version`, the `CompareTo` method is used.
+4. Otherwise, case-insensitive string comparison is performed.
 
 ### Step 2: Orchestrator function logic
 
@@ -249,15 +256,6 @@ The `versionMatchStrategy` setting determines how the runtime matches orchestrat
 - **`Strict`**: Only process tasks from orchestrations with the exact same version as the version specified by `defaultVersion` in the worker's `host.json`. This strategy provides the highest level of version isolation but requires careful deployment coordination to avoid orphaned orchestrations.
 
 - **`CurrentOrOlder`** (default): Process tasks from orchestrations whose version is less than or equal to the version specified by `defaultVersion` in the worker's `host.json`. This strategy enables backward compatibility, allowing newer workers to handle orchestrations started by older orchestrator versions while preventing older workers from processing newer orchestrations.
-
-### Version comparison rules
-
-When the `Strict` or `CurrentOrOlder` strategy is selected, the runtime compares the orchestration instance's version with the `defaultVersion` value of the worker using the following rules:
-
-1. Empty or null versions are treated as equal.
-2. An empty or null version is considered older than any defined version.
-3. If both versions can be parsed as `System.Version`, the `CompareTo` method is used.
-4. Otherwise, case-insensitive string comparison is performed.
 
 ### Version mismatch handling
 
