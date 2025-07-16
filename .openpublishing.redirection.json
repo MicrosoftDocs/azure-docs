@@ -7215,6 +7215,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sre-agent/permissions.md",
+      "redirect_url": "/azure/sre-agent/security-context",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/reliability/whats-new.md",
       "redirect_url": "/azure/reliability/overview",
       "redirect_document_id": false
