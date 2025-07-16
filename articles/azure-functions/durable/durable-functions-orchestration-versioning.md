@@ -45,7 +45,6 @@ The orchestration versioning feature operates on these core principles:
 
 > [!IMPORTANT]
 > Orchestration versioning is currently in public preview for apps running in the .NET isolated model. Use `Microsoft.Azure.Functions.Worker.Extensions.DurableTask` package version **>=1.5.0**.
-> Support for other languages (JavaScript, Python, PowerShell, Java) is coming soon.
 
 ## Basic usage
 
