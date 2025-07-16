@@ -22,7 +22,7 @@ ms.custom: references_regions
 
 Welcome to Messaging Connect—the new way to deliver Short Message Service (SMS) globally with Azure Communication Services (ACS).
 
-This isn't just a new feature—it represents a major evolution in the  platform's approach to global messaging. Messaging Connect is a partner-powered model that dramatically expands Azure’s messaging reach while preserving everything developers love about ACS: unified APIs, strong observability, and deep integration across Microsoft services.
+This isn't just a new feature—it represents a major evolution in the  platform's approach to global messaging. Messaging Connect is a partner-powered model that dramatically expands Azure’s messaging reach while preserving everything developers love about Azure Communication Services: unified APIs, strong observability, and deep integration across Microsoft services.
 
 With Messaging Connect, you don’t need to build and maintain separate integrations with providers around the world. Instead, you connect once through Azure Communication Services to access global SMS coverage via trusted partners. Number leasing and compliance are handled through the partner, but everything else—messaging, observability, and AI workflows—stays in your Azure environment, where you already build, monitor, and scale.
 
@@ -34,16 +34,16 @@ This is Microsoft’s approach to global messaging—smart, scalable, and ready 
 
 Messaging Connect gives you a way to bring global SMS into your applications using Azure Communication Services.
 
-If you’ve worked with messaging before, you know it can be complex: different regulations in every region, separate vendors for different markets, and fragmented delivery infrastructure that’s hard to monitor. That’s why we're partnering with experts to help you navigate the complexity. With Messaging Connect, you lease numbers directly from one of our trusted messaging partners and use them through Azure Communication Services (ACS) as if they were native ACS numbers.
+If you’ve worked with messaging before, you know it can be complex: different regulations in every region, separate vendors for different markets, and fragmented delivery infrastructure that’s hard to monitor. That’s why we're partnering with experts to help you navigate the complexity. With Messaging Connect, you lease numbers directly from one of our trusted messaging partners and use them through Azure Communication Services as if they were native ACS numbers.
 
-The process starts in the Azure portal. When you search for an SMS number type and country, and ACS doesn’t offer direct provisioning, you’re guided to connect with a pre-integrated partner. From there, you’re redirected to the partner’s portal to purchase the number. Depending on the country and sender type, you may need to complete registration steps, submit documentation, or wait for approval. Once the partner assigns the number to you, they initiate the sync to Azure. You then return to the Azure portal, where the numbers appear—ready to use.
+The process starts in the Azure portal. When you search for an SMS number type and country, and Azure Communication Services doesn’t offer direct provisioning, you’re guided to connect with a pre-integrated partner. From there, you’re redirected to the partner’s portal to purchase the number. Depending on the country and sender type, you may need to complete registration steps, submit documentation, or wait for approval. Once the partner assigns the number to you, they initiate the sync to Azure. You then return to the Azure portal, where the numbers appear—ready to use.
 
 :::image type="content" source="./media/mc-provision-concept.png" alt-text="Messaging Connect number provisioning flow in Azure." lightbox="./media/mc-provision-concept.png":::
 
 
-You can send and receive SMS using the standard ACS SMS APIs. When you send messages, you authenticate with ACS as usual and include a key from your Messaging Connect partner at runtime so we can route your traffic appropriately. The partner handles message delivery, while observability—like delivery receipts, diagnostics, and logging—remains in Azure with your other services.
+You can send and receive SMS using the standard Azure Communication Services SMS APIs. When you send messages, you authenticate with Azure as usual and include a key from your Messaging Connect partner at runtime so we can route your traffic appropriately. The partner handles message delivery, while observability—like delivery receipts, diagnostics, and logging—remains in Azure with your other services.
 
-This model works well in real-world scenarios. Whether you're building an AI-powered appointment assistant with Copilot Studio, managing logistics with local sender IDs in Brazil and India, or running global campaigns across dozens of countries, you can use Messaging Connect to reach users worldwide. Azure Communication Services, via Messaging Connect, enables you to acquire the right sender identities through a trusted partner and use them with your preferred ACS SMS SDK—while keeping full control and observability in Azure.
+This model works well in real-world scenarios. Whether you're building an AI-powered appointment assistant with Copilot Studio, managing logistics with local sender IDs in Brazil and India, or running global campaigns across dozens of countries, you can use Messaging Connect to reach users worldwide. Azure Communication Services, via Messaging Connect, enables you to acquire the right sender identities through a trusted partner and use them with your preferred Azure Communication Services SMS SDK—while keeping full control and observability in Azure.
 
 :::image type="content" source="./media/mc-runtime-concept.png" alt-text="Runtime architecture using Messaging Connect and ACS API."lightbox="./media/mc-runtime-concept.png":::
 
@@ -78,14 +78,14 @@ The following table summarizes capabilities available when using Messaging Conne
 
 ### Authentication: Secure Access with Azure Identity
 
-To send messages through Messaging Connect, your application must authenticate with Azure Communication Services (ACS) using one of the supported identity models. This step verifies that your app has permission to send messages through your ACS resource and ensures your messages are associated with the correct Azure subscription.
+To send messages through Messaging Connect, your application must authenticate with Azure Communication Services using one of the supported identity models. This step verifies that your app has permission to send messages through your Azure Communication Services resource and ensures your messages are associated with the correct Azure subscription.
 
-ACS supports the following authentication methods:
+Azure Communication Services supports the following authentication methods:
 
 - Access Key Authentication (Connection strings)
 - Microsoft Entra ID Authentication
 
-You authenticate with ACS the same way you would for any other SMS request. Messaging Connect does not change the way authentication works at the platform level—it simply adds a partner-based routing step after your message is validated.
+You authenticate with Azure Communication Services the same way you would for any other SMS request. Messaging Connect does not change the way authentication works at the platform level—it simply adds a partner-based routing step after your message is validated.
 
 Learn more: [Authenticate to Azure Communication Services](https://learn.microsoft.com/azure/communication-services/concepts/authentication)
 
@@ -93,7 +93,7 @@ Once authenticated, your application also includes a partner API key at runtime 
 
 ### How Messaging Connect Validates Your Requests 
 
-Before a message can be sent using Messaging Connect, Azure checks that your request contains the necessary routing information and is correctly authenticated. To do this, your payload must include specific metadata that identifies the Messaging Connect partner and allows ACS to route the message through their infrastructure.
+Before a message can be sent using Messaging Connect, Azure checks that your request contains the necessary routing information and is correctly authenticated. To do this, your payload must include specific metadata that identifies the Messaging Connect partner and allows Azure Communication Services to route the message through their infrastructure.
 
 #### Required Payload Format
 
@@ -116,7 +116,7 @@ The `messagingConnect` object is required whenever you use a number provisioned 
 Once this metadata is included, Azure Communication Services performs validation checks in two stages: first, immediately when Azure Communication Services receives your request, and later, after it's submitted to the partner.
 
 ##### 1. Synchronous Validation
-This first layer of validation happens as soon as Azure Communication Services receives your message request. If something is missing or invalid—such as the partner name, the API key, or the association between the number and your ACS resource—you receive an immediate error response. This check prevents messages from being sent incorrectly or routed to the wrong partner.
+This first layer of validation happens as soon as Azure Communication Services receives your message request. If something is missing or invalid—such as the partner name, the API key, or the association between the number and your Azure Communication Services resource—you receive an immediate error response. This check prevents messages from being sent incorrectly or routed to the wrong partner.
 Common validation outcomes:
 
 | Scenario                                                    | Response                                                                 |
@@ -132,7 +132,7 @@ These errors return synchronously in your API response and also appear in Azure 
 
 ##### 2. Asynchronous Delivery Errors
 
-Even if your request passes synchronous validation, Azure Communication Services might still not hand it off to the Messaging Connect partner. In some cases, ACS stops the message before handoff—for example, if the recipient previously opted out or there's a known delivery block from the partner. These situations still result in a delivery report, so you’re always informed of the message outcome.
+Even if your request passes synchronous validation, Azure Communication Services might still not hand it off to the Messaging Connect partner. In some cases, Azure Communication Services stops the message before handoff—for example, if the recipient previously opted out or there's a known delivery block from the partner. These situations still result in a delivery report, so you’re always informed of the message outcome.
 Once a message is passed to the partner, any downstream delivery failures—like number unreachable, expired validity period, or carrier-level rejection—are also returned asynchronously via delivery reports. You can view delivery statuses in your delivery reports from Azure Event Grid events (if configured).
 
 Learn more: [Delivery Reports on Azure Event Grid Events](https://learn.microsoft.com/azure/event-grid/communication-services-telephony-sms-events)
@@ -153,9 +153,9 @@ Messaging Connect significantly expands the number of countries you can reach wi
 During Public Preview, you can acquire and use two types of sender identities from the Messaging Connect Partner:
 
 - Long Codes – Standard local phone numbers or mobile numbers that support two-way SMS. Often known as Virtual Long codes. 
-- Dynamic Alphanumeric Sender IDs – One-way, branded senders (for example, “CONTOSO”) where permitted. You can enable DASID only in non-ACS supported countries.
+- Dynamic Alphanumeric Sender IDs – One-way, branded senders (for example, “CONTOSO”) where permitted. You can enable DASID only in non-Azure Communication Services supported countries.
 
-When you search for a country and number type in the Azure portal, you are offered Messaging Connect as an option if ACS doesn’t support that configuration directly. You then complete the provisioning process through the partner’s portal.
+When you search for a country and number type in the Azure portal, you are offered Messaging Connect as an option if Azure Communication Services doesn’t support that configuration directly. You then complete the provisioning process through the partner’s portal.
 
 🌐 The Messaging Connect partner determines country availability. The Messaging Connect partner (for example, Infobip) handles number types, compliance requirements, and onboarding steps, which vary by country.
 
@@ -169,13 +169,13 @@ Messaging Connect is built for global use—whether you're operating from Asia, 
 
 Messaging Connect separates message delivery (handled by the partner) from processing and observability (handled by Azure). Here’s how it works:
 
-- Outbound messages: You send an SMS using the ACS API and include partner routing info via `messagingConnect` object. Azure logs the message, performs validation, and then routes it to the selected Messaging Connect partner.
-- Inbound messages: The partner receives the SMS and forwards it to Azure’s infrastructure. From there, Azure Communication Services handles the message like any sent to ACS-native numbers—triggering events through Event Grid.
+- Outbound messages: You send an SMS using the Azure Communication Services API and include partner routing info via `messagingConnect` object. Azure logs the message, performs validation, and then routes it to the selected Messaging Connect partner.
+- Inbound messages: The partner receives the SMS and forwards it to Azure’s infrastructure. From there, Azure Communication Services handles the message like any sent to Azure Communication Services-native numbers—triggering events through Event Grid.
 
 Although the partner handles delivery, Azure provides:
 
 - Delivery receipts and observability
-- Standard ACS APIs and SDKs
+- Standard Azure Communication Services APIs and SDKs
 - Transient message processing only—no message content is stored
 
 Azure Communication Services does not retain SMS message content after delivery or failure. Messages and metadata are processed temporarily in memory only as needed for routing and diagnostics.
@@ -193,7 +193,7 @@ Learn more: [European Union Data Boundary (EUDB)](https://learn.microsoft.com/az
 
 #### 3.Using Messaging Connect from Anywhere
 
-Messaging Connect is designed for global use. After you acquire a number through a Messaging Connect partner, you can integrate it into your application using ACS APIs—regardless of where it's hosted.
+Messaging Connect is designed for global use. After you acquire a number through a Messaging Connect partner, you can integrate it into your application using Azure Communication Services APIs—regardless of where it's hosted.
 However, some countries enforce local telecom rules on number usage, allowed content types, or traffic origination requirements. The Messaging Connect partner manages these requirements during the number provisioning process.
 The partner, not Azure Communication Services, optimizes delivery routes. Depending on the number type, local rules, and partner setup, messages may route through local or regional infrastructure.
 
@@ -209,11 +209,11 @@ Opt-out and opt-in compliance is a critical part of SMS messaging, particularly 
 Infobip can maintain a blocklist of opted-out users, but you are expected to manage your own list—especially if opt-outs happen through other channels (for example, email or web forms).
 - Confirmation messages such as “You have been unsubscribed” aren't sent by default. If desired, you must configure them explicitly with the partner or implement them in your own application.
 - You, the customer, are responsible for ensuring your messaging experience complies with local regulations, including opt-out handling, keyword configuration, and end-user consent management.
-- ACS does not process opt-out keywords or send any automated responses. However, Microsoft does maintain a set of predefined opt-out keywords for observability.
+- Azure Communication Services does not process opt-out keywords or send any automated responses. However, Microsoft does maintain a set of predefined opt-out keywords for observability.
 
-#### What ACS Does
+#### What Azure Communication Services Does
 
-By default, ACS detects standard Opt-in/out keywords: START and UNSTOP are recognized as Opt-In triggers, while STOP, ARRET, QUIT, END, REVOKE, OPT OUT, CANCEL, and UNSUBSCRIBE are recognized as Opt-out commands. When an incoming message matches one of these keywords exactly, ACS automatically processes the request and update the user’s opt-in status in our database accordingly.
+By default, Azure Communication Services detects standard Opt-in/out keywords: START and UNSTOP are recognized as Opt-In triggers, while STOP, ARRET, QUIT, END, REVOKE, OPT OUT, CANCEL, and UNSUBSCRIBE are recognized as Opt-out commands. When an incoming message matches one of these keywords exactly, Azure Communication Services automatically processes the request and update the user’s opt-in status in our database accordingly.
 
 ### Pricing and Billing
 
@@ -223,7 +223,7 @@ Messaging Connect uses a dual-fee model to separate Microsoft’s platform usage
 
 You pay a platform fee to use Azure Communication Services APIs and infrastructure for Messaging Connect. This covers message processing, diagnostics, delivery tracking, and API-level observability.
 
-- $0.0025 per message segment submitted to ACS—this platform fee applies to each SMS send request, whether or not the message is ultimately delivered by the partner. Microsoft does not charge for delivery. 
+- $0.0025 per message segment submitted to Azure Communication Services—this platform fee applies to each SMS send request, whether or not the message is ultimately delivered by the partner. Microsoft does not charge for delivery. 
 - This fee is MACC (Microsoft Azure Consumption Commitment)-eligible and appears as part of your normal Azure invoice.
 
 The Messaging Connect partner, not Microsoft, handles message delivery.
@@ -258,14 +258,14 @@ Learn more: [Azure Marketplace](https://learn.microsoft.com/marketplace/azure-ma
 
 ### Get a Phone Number with Messaging Connect
 
-Messaging Connect introduces a new provisioning model: instead of getting numbers directly from Microsoft, you acquire them through a trusted partner—starting with Infobip—and then connect them to your Azure Communication Services (ACS) resource.
+Messaging Connect introduces a new provisioning model: instead of getting numbers directly from Microsoft, you acquire them through a trusted partner—starting with Infobip—and then connect them to your Azure Communication Services resource.
 This process lets you access SMS numbers in over 190 countries while the partner handles local compliance, documentation, and approval flows. 
 
 Let's go step-by-step:
 
 #### STEP 1: Search for a number in the Azure portal
 
-Go to your Communication Services resource and search for a phone number by country and type. If that configuration isn’t available through ACS directly, you are offered the option to use Messaging Connect. Click on it and select a partner. You are redirected to the partner’s portal.
+Go to your Communication Services resource and search for a phone number by country and type. If that configuration isn’t available through Azure Communication Services directly, you are offered the option to use Messaging Connect. Click on it and select a partner. You are redirected to the partner’s portal.
 
 :::image type="content" source="./media/mc-provision-number-1.png" alt-text="Search for a number in the Azure portal." lightbox="./media/mc-provision-number-1.png":::
 
@@ -297,7 +297,7 @@ After acquiring the number, come back to the Azure portal. You need to accept th
 
 #### STEP 4: Number are available in Azure Portal
 
-After the partner assigns the numbers to you, they initiate the sync with ACS. After the sync completes, the numbers automatically appear in your ACS resource—ready to use with the ACS SMS API, just like any number provisioned directly through Azure Communication Services. No extra setup is required on your end.
+After the partner assigns the numbers to you, they initiate the sync with Azure Communication Services. After the sync completes, the numbers automatically appear in your Azure Communication Services resource—ready to use with the Azure Communication Services SMS API, just like any number provisioned directly through Azure Communication Services. No extra setup is required on your end.
 
 :::image type="content" source="./media/mc-provision-number-6.png" alt-text="Provisioned numbers appear in ACS." lightbox="./media/mc-provision-number-6.png":::
 
@@ -307,7 +307,7 @@ After the partner assigns the numbers to you, they initiate the sync with ACS. A
 **Important notes:**
 - Microsoft does not manage compliance or vetting for Messaging Connect numbers. The partner handles this process entirely.
 - Each partner has different provisioning flows and service-level agreements (SLAs) depending on the region and local telecom regulations.
-- Numbers acquired through Messaging Connect appear in the Azure portal with an "Operator Name" label so you can distinguish them from ACS-managed numbers.
+- Numbers acquired through Messaging Connect appear in the Azure portal with an "Operator Name" label so you can distinguish them from Azure Communication Services-managed numbers.
 - To send messages with these numbers, don’t forget to include the `MessagingConnect` object in your API request. 
 
 
@@ -322,7 +322,7 @@ After the partner assigns the numbers to you, they initiate the sync with ACS. A
 
 Messaging Connect uses the same SMS APIs and SDKs as the rest of Azure Communication Services. If you've already followed the [Send SMS Quickstart](https://learn.microsoft.com/azure/communication-services/quickstarts/sms/send?tabs=linux&pivots=programming-language-csharp), you're already 90% of the way there.Make sure to use the "Send SMS with options" method.
 
-There’s no separate SDK or client for Messaging Connect. You authenticate, create your `SmsClient`, and call the send method just as you would for any other ACS number. The only difference is that your request must include a `MessagingConnect` object in the options field when you're using a number provisioned through Messaging Connect.
+There’s no separate SDK or client for Messaging Connect. You authenticate, create your `SmsClient`, and call the send method just as you would for any other Azure Communication Services number. The only difference is that your request must include a `MessagingConnect` object in the options field when you're using a number provisioned through Messaging Connect.
 
 This object contains:
 - The partner name (for example, "infobip")
