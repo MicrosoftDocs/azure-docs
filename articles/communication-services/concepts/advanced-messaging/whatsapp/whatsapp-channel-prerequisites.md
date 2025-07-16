@@ -62,7 +62,7 @@ Make sure the phone number has the following capabilities:
 
 ## Setup and Deploy Event Grid Viewer
 
-The following steps are only needed if you chose to use a Toll-free number from Azure Communication Services phone number with SMS enabled. The Event Grid Viewer displays notification information for events it's subscribed to.
+The following steps are only needed if you chose to use an Azure Communication Services phone number with SMS enabled. The Event Grid Viewer displays notification information for events it's subscribed to.
 
 1. Click on the following button to launch a custom template for the Azure portal instance that you're logged into to set up the Event Grid Viewer.
 
@@ -164,7 +164,7 @@ When following those instructions, here are helpful tips:
 
 14. The phone number you provide will be linked to your WhatsApp Business Account. Another WhatsApp Business account can't use this phone number.
 
-    Use the Azure Communication Service toll-free phone number you provisioned previously or bring your own phone number.
+    Use the Azure Communication Service phone number you provisioned previously or bring your own phone number.
 
     If the phone number you're bringing is:
     - Under a solution provider other than Azure Communication Services, follow these instructions to [migrate your phone number to Azure Communication Services](https://developers.facebook.com/docs/whatsapp/solution-providers/support/migrating-phone-numbers-among-solution-partners-via-embedded-signup/). Create a [support ticket](https://azure.microsoft.com/support/create-ticket/) if help is needed.
