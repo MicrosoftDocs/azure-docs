@@ -28,13 +28,13 @@ In Android Studio, create a new project.
 
 1. On the **File** menu, select **New** > **New Project**.
 
-1. On **New Project**, select the **Empty Activity** project template.
+1. On **New Project**, select the **Empty Views Activity** project template.
 
-   :::image type="content" source="../../media/composite-android-new-project.png" alt-text="Screenshot that shows the New Project dialog in Android Studio with Empty Activity selected.":::
+   :::image type="content" source="../../media/chat-composite-android-new-project.png" alt-text="Screenshot that shows the New Project dialog in Android Studio with Empty Views Activity selected.":::
 
 1. Select **Next**.
 
-1. On **Empty Activity**, name the project **UILibraryQuickStart**. For language, select **Java/Kotlin**. For the minimum SDK, select **API 23: Android 6.0 (Marshmallow)** or later.
+1. Name the project **UILibraryQuickStart**. For language, select **Java/Kotlin**. For the minimum SDK, select **API 23: Android 6.0 (Marshmallow)** or later.
 
 1. Select **Finish**.
 
@@ -64,6 +64,7 @@ To add the repository:
 
 1. In your project Gradle scripts, ensure that the following repositories are added. For Android Studio (2020.\*), `repositories` is in `settings.gradle`, under `dependencyResolutionManagement(Gradle version 6.8 or greater)`. For earlier versions of Android Studio (4.\*), `repositories` is in the project-level `build.gradle`, under `allprojects{}`.
 
+#### [Groovy](#tab/groovy)
     ```groovy
     // dependencyResolutionManagement
     repositories {
@@ -72,6 +73,15 @@ To add the repository:
             url "https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1"
         }
         ...
+    }
+    ```
+#### [Kotlin](#tab/kotlin)
+    ```kotlin
+    // dependencyResolutionManagement 
+    repositories {
+        maven {
+            url = uri("https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1")
+        }
     }
     ```
 
@@ -336,7 +346,7 @@ public class MainActivity extends AppCompatActivity {
 
 In Android Studio, build and start the application.
 
-1. Select **Start Experience**.
+1. Select **Launch**.
 1. The chat client joins the chat thread, and you can start typing and sending messages.
 1. If the client can't join the thread and you see `chatJoin` failed errors, verify that your user's access token is valid and that the user was added to the chat thread by REST API call or by using the `az` command-line interface.
 
