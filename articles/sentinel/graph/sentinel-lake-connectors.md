@@ -33,7 +33,7 @@ To configure retention and tiering for the data connector see [Configure data co
 
  ## Microsoft Sentinel XDR data
 
-All tables from your Microsoft Sentinel XDR connector are enabled in the data lake with 30-day retention period. Navigate to **System** > **Data Management** > **Table management** in the Microsoft Defender portal to extend retention of the XDR tables without impacting the default retention of your analytics tier tables.
+All tables from your Microsoft Sentinel XDR connector are enabled in the data lake with 30-day retention period. Navigate to **Microsoft Sentinel** > **Configuration** > **Tables** in the Microsoft Defender portal to extend retention of the XDR tables without impacting the default retention of your analytics tier tables.
  
 Non-DCR/MMA-based custom tables aren't mirrored to the data lake. DCR-based custom tables are mirrored.
 
