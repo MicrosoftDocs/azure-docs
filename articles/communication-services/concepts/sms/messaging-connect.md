@@ -87,7 +87,7 @@ ACS supports the following authentication methods:
 
 You’ll authenticate with ACS the same way you would for any other SMS request. Messaging Connect does not change the way authentication works at the platform level—it simply adds a partner-based routing step after your message is validated.
 
-Learn more: [Authenticate to Azure Communication Services](https://learn.microsoft.com/en-us/azure/communication-services/concepts/authentication)
+Learn more: [Authenticate to Azure Communication Services](https://learn.microsoft.com/azure/communication-services/concepts/authentication)
 
 Once authenticated, your application also includes a partner API key at runtime to route the message through the correct Messaging Connect partner. This is part of the message payload and is explained further in the next section.
 
@@ -138,11 +138,11 @@ Once a message is passed to the partner, any downstream delivery failures—like
 - Azure delivery reports <- Event Grid events (if configured)
 - Partner documentation for error interpretation
 
-Learn more: [Delivery Reports on Azure Event Grid Events](https://learn.microsoft.com/en-us/azure/event-grid/communication-services-telephony-sms-events)
+Learn more: [Delivery Reports on Azure Event Grid Events](https://learn.microsoft.com/azure/event-grid/communication-services-telephony-sms-events)
 
 > [!TIP] 
 > To ensure full visibility into your message traffic, we strongly recommend configuring event subscriptions for delivery reports. This allows you to monitor message status, troubleshoot failures, and integrate with your existing telemetry systems.
-Learn how to configure SMS events : [Handle SMS events](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/sms/handle-sms-events) 
+Learn how to configure SMS events : [Handle SMS events](https://learn.microsoft.com/azure/communication-services/quickstarts/sms/handle-sms-events) 
 
 > [!NOTE]
 > If your message fails, check the `messagingConnect` object for accuracy, review the delivery report, and consult partner documentation for downstream error codes.
@@ -186,13 +186,13 @@ Azure Communication Services does not retain SMS message content after delivery 
 > [!IMPORTANT]
 > Microsoft does not retain any credentials used to access external Messaging Connect partners. Partner API keys are used solely for the purpose of processing an individual message request and are immediately discarded once the request is completed. These credentials are not stored, logged, or persisted in any form.
 
-Learn more: [Data residency and user privacy](https://learn.microsoft.com/en-us/azure/communication-services/concepts/privacy#sms)
+Learn more: [Data residency and user privacy](https://learn.microsoft.com/azure/communication-services/concepts/privacy#sms)
 
 #### 2. EU Data Boundary (EUDB)
 
 Azure Communication Services guarantees that SMS data within the EUDB is stored in EUDB regions. As of today, we process and store data in the Netherlands, Ireland, or Switzerland regions, ensuring no unauthorized data transfer outside the EEA (European Economic Area). Also, Azure Communication Services employs advanced security measures, including encryption, to protect SMS data both at rest and in transit. Customers can select their preferred data residency within the EUDB, making sure data remains within the designated EU regions.
 
-Learn more: [European Union Data Boundary (EUDB)](https://learn.microsoft.com/en-us/azure/communication-services/concepts/european-union-data-boundary#sms)
+Learn more: [European Union Data Boundary (EUDB)](https://learn.microsoft.com/azure/communication-services/concepts/european-union-data-boundary#sms)
 
 #### 3.Using Messaging Connect from Anywhere
 
@@ -251,7 +251,7 @@ Here’s how the Marketplace flow works:
 
 This setup simplifies procurement and allows Messaging Connect usage to count toward your Azure MACC commitment.
 
-Learn more: [Azure Marketplace](https://learn.microsoft.com/en-us/marketplace/azure-marketplace-overview)
+Learn more: [Azure Marketplace](https://learn.microsoft.com/marketplace/azure-marketplace-overview)
 
 > [!TIP] 
 > Whether you choose Partner or Marketplace billing, the technical experience in Azure remains exactly the same.
@@ -313,5 +313,78 @@ After the partner assigns the numbers to you, they initiate the sync with ACS. O
 - To send messages with these numbers, don’t forget to include the `MessagingConnect` object in your API request. 
 
 
+### SMS SDK Tutorial 
+
+Messaging Connect uses the same SMS APIs and SDKs as the rest of Azure Communication Services. If you've already followed the [Send SMS Quickstart](https://learn.microsoft.com/azure/communication-services/quickstarts/sms/send?tabs=linux&pivots=programming-language-csharp), you're already 90% of the way there. Make sure to use the ‘Send SMS with options’ method.
+
+There’s no separate SDK or client for Messaging Connect. You authenticate, create your `SmsClient`, and call the send method just as you would for any other ACS number. The only difference is that your request must include a `MessagingConnect` object in the options field when you're using a number provisioned through Messaging Connect.
+
+> [!IMPORTANT]
+> These are the API and SDKs supported during Messaging Connect Public Preview:
+> - API: 2025-05-29-preview
+> - JS SDK: 1.2.0-beta.4 from azure-sdk-for-js/sdk/communication/communication-sms/CHANGELOG.md at main · Azure/azure-sdk-for-js
+> - .NET SDK: 1.1.0-beta.3 from azure-sdk-for-net/sdk/communication/Azure.Communication.Sms/CHANGELOG.md at main · Azure/azure-sdk-for-net
+
+This object contains:
+- The partner name (e.g., "infobip")
+- The partner API key you received after acquiring the number
+
+Your ACS token continues to authorize the request to Azure, and the partner key tells Azure how to route the message.
+Below are example snippets for C# and JavaScript showing how to send a message with Messaging Connect.
+
+**C# Example**
+
+```csharp
+smsClient.Send(
+    from: "<YOUR-ACS-NUMBER>",
+    to: ["<RECIPIENT-NUMBER>"],
+    message: $"Hello from Azure Communication Services!",
+    options: new SmsSendOptions(true)
+    {
+        MessagingConnect = new MessagingConnectOptions("<YOUR-INFOBIP-API-KEY>", "infobip")
+    });
+```
+
+**JavaScript Example**
+
+```javascript
+await smsClient.send(
+    {
+      from: "<YOUR-ACS-NUMBER>",
+      to: ["<RECIPIENT-NUMBER>"],
+      message: "Hello from Azure Communication Services! JS SDK is working!",
+    },
+    {
+        enableDeliveryReport: true, // Optional: Enable delivery reports
+        messagingConnect: {
+          apiKey: "<YOUR-INFOBIP-API-KEY>",
+          partner: "infobip"
+      }
+  });
+```
+
+> [!TIP]
+> If you're using a Messaging Connect number but don’t include the `messagingConnect` object, the request will fail with a validation error. 
+
+**SMS Error Codes**
+
+When you send SMS messages through Messaging Connect, you may encounter error codes—either as part of synchronous validation (immediate API response) or in asynchronous delivery reports.
+
+Azure Communication Services uses the same error model across all SMS traffic, including Messaging Connect. For a full list of HTTP status codes, delivery error codes, and failure reasons, refer to the official ACS documentation.
+
+Learn more: [See full list of SMS error codes](https://learn.microsoft.com/azure/communication-services/resources/troubleshooting/voice-video-calling/troubleshooting-codes?pivots=sms#sms-error-codes)
+
+## Messaging Connect Partner Directory
+
+Messaging Connect works through direct integrations with trusted global SMS providers. These partners handle number provisioning, compliance, delivery, and opt-out enforcement—while Azure provides the developer platform, observability, and message orchestration.
+Below is the list of currently supported partners. More partners will be added over time to provide broader coverage and redundancy.
+
+| Partner | Brief Description | Country/region availability | Pricing |
+|---------|-------------------|-----------------------------|---------|
+| Infobip | Global communications platform with direct carrier connections in over 70 countries. Infobip supports all sender types including short codes, long codes (VLNs), and alphanumeric (alphas). [More info](https://www.infobip.com/docs/sms/get-started/senders-and-numbers) | One-way messaging is available for virtually all networks in all countries and territories. Two-way messaging is supported in over 100 countries. [Country coverage](https://www.infobip.com/docs/essentials/getting-started/sms-coverage-and-connectivity) | Infobip offers a flexible pay-as-you-go pricing model for SMS. [View rates](https://www.infobip.com/sms/pricing). For custom pricing, [contact sales](https://www.infobip.com/contact). |
+
+
+> [!IMPORTANT]
+> Messaging Connect partners are selected based on global reach, regulatory expertise, reliability, and strong integration with Microsoft’s ecosystem.
 
 
