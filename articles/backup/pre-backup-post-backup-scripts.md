@@ -70,5 +70,5 @@ To specify pre-backup and post-backup scripts, follow these steps:
 
 ## Related content
 
-- [About Azure Backup Server (MABS)](mabs-overview.md).
+- [Azure Backup Server (MABS) V4 protection matrix](backup-mabs-protection-matrix.md).
 - [Back up file data with MABS](back-up-file-data.md).
