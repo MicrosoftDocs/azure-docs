@@ -17,11 +17,13 @@ In this article, you learn about how to use the self-service maintenance orchest
 ## Prerequisites
 
 Before scheduling or rescheduling maintenance, ensure the following:
-•	An Azure VMware Solution private cloud in place.
-•	A subscription with Early Access and Self Serve for Maintenance features enabled, available under Preview Features in the Azure portal.
+
+- An Azure VMware Solution private cloud in place.
+- A subscription with Early Access and Self Serve for Maintenance features enabled, available under Preview Features in the Azure portal.
 
 ## Schedule maintenance
 To schedule maintenance, follow these steps:
+
 1.	Access the Maintenance pane by clicking the Schedule link in the banner. You see a list of upcoming maintenance events.
 
     :::image type="content" source="media/self-service-orchestration/schedule-maintenance.png" alt-text="Screenshot showing the Maintenance pane with upcoming maintenance events and the Schedule button highlighted." lightbox="media/self-service-orchestration/schedule-maintenance.png":::

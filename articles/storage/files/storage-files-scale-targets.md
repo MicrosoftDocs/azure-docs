@@ -19,6 +19,8 @@ Other variables in your deployment can affect the targets listed in this article
 ## Applies to
 | Management model | Billing model | Media tier | Redundancy | SMB | NFS |
 |-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v2 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -40,20 +42,20 @@ Storage account scale targets apply at the storage account level. There are two 
 
 - **General purpose version 2 (GPv2) storage accounts**: GPv2 storage accounts allow you to deploy pay-as-you-go file shares on HDD-based hardware. In addition to storing Azure file shares, GPv2 storage accounts can store other storage resources such as blob containers, queues, or tables.
 
-| Attribute | SSD provisioned v1 | HDD provisioned v2 | HDD pay-as-you-go |
-|-|-|-|-|
-| Storage account kind | FileStorage | FileStorage | StorageV2 |
-| SKUs | <ul><li>Premium_LRS</li><li>Premium_ZRS</li></ul> | <ul><li>StandardV2_LRS</li><li>StandardV2_ZRS</li><li>StandardV2_GRS</li><li>StandardV2_GZRS</li></ul> | <ul><li>Standard_LRS</li><li>Standard_ZRS</li><li>Standard_GRS</li><li>Standard_GZRS</li></ul> |
-| Number of storage accounts per region per subscription | 250 | 250 | 250 |
-| Maximum storage capacity | 100 TiB | 4 PiB | 5 PiB |
-| Maximum number of file shares | 1024 (recommended using 50 or fewer) | 50 | Unlimited (recommended using 50 or fewer) |
-| Maximum IOPS | 102,400 IOPS | 50,000 IOPS | 20,000 IOPS |
-| Maximum throughput | 10,340 MiB / sec | 5,120 MiB / sec | <ul><li>Select regions:<ul><li>Ingress: 7,680 MiB / sec</li><li>Egress: 25,600 MiB / sec</li></ul></li><li>Default:<ul><li>Ingress: 3,200 MiB / sec</li><li>Egress: 6,400 MiB / sec</li></ul></li></ul> |
-| Maximum number of virtual network rules | 200 | 200 | 200 |
-| Maximum number of IP address rules | 200 | 200 | 200 |
-| Management read operations | 800 per 5 minutes | 800 per 5 minutes | 800 per 5 minutes |
-| Management write operations | 10 per second/1200 per hour | 10 per second/1200 per hour | 10 per second/1200 per hour |
-| Management list operations | 100 per 5 minutes | 100 per 5 minutes | 100 per 5 minutes |
+| Attribute | SSD provisioned v2 | HDD provisioned v2 | SSD provisioned v1 | HDD pay-as-you-go |
+|-|-|-|-|-|
+| Storage account kind | FileStorage | FileStorage | FileStorage | StorageV2 |
+| SKUs | <ul><li>PremiumV2_LRS</li><li>PremiumV2_ZRS</li></ul> | <ul><li>StandardV2_LRS</li><li>StandardV2_ZRS</li><li>StandardV2_GRS</li><li>StandardV2_GZRS</li></ul> | <ul><li>Premium_LRS</li><li>Premium_ZRS</li></ul> | <ul><li>Standard_LRS</li><li>Standard_ZRS</li><li>Standard_GRS</li><li>Standard_GZRS</li></ul> |
+| Number of storage accounts per region per subscription | 250 | 250 | 250 | 250 |
+| Maximum storage capacity | 256 TiB | 4 PiB | 100 TiB | 5 PiB |
+| Maximum number of file shares | 50 | 50 | 1024 (recommended using 50 or fewer) | Unlimited (recommended using 50 or fewer) |
+| Maximum IOPS | 102,400 IOPS | 50,000 IOPS | 102,400 IOPS | 20,000 IOPS |
+| Maximum throughput | 10,340 MiB / sec | 5,120 MiB / sec | 10,340 MiB / sec | <ul><li>Select regions:<ul><li>Ingress: 7,680 MiB / sec</li><li>Egress: 25,600 MiB / sec</li></ul></li><li>Default:<ul><li>Ingress: 3,200 MiB / sec</li><li>Egress: 6,400 MiB / sec</li></ul></li></ul> |
+| Maximum number of virtual network rules | 200 | 200 | 200 | 200 |
+| Maximum number of IP address rules | 200 | 200 | 200 | 200 |
+| Management read operations | 800 per 5 minutes | 800 per 5 minutes | 800 per 5 minutes | 800 per 5 minutes |
+| Management write operations | 10 per second/1200 per hour | 10 per second/1200 per hour | 10 per second/1200 per hour | 10 per second/1200 per hour |
+| Management list operations | 100 per 5 minutes | 100 per 5 minutes | 100 per 5 minutes | 100 per 5 minutes |
 
 #### Selected regions with increased maximum throughput for HDD pay-as-you-go
 The following regions have an increased maximum throughput for HDD pay-as-you-go storage accounts (StorageV2): 
@@ -92,23 +94,23 @@ The following regions have an increased maximum throughput for HDD pay-as-you-go
 ### Azure file share scale targets
 Azure file share scale targets apply at the file share level.
 
-| Attribute | SSD provisioned v1 | HDD provisioned v2 | HDD pay-as-you-go |
-|-|-|-|
-| Storage provisioning unit | 1 GiB | 1 GiB | N/A |
-| IOPS provisioning unit | N/A | 1 IO / sec | N/A |
-| Throughput provisioning unit | N/A | 1 MiB / sec | N/A |
-| Minimum storage size | 100 GiB (provisioned) | 32 GiB (provisioned) | 0 bytes |
-| Maximum storage size | 100 TiB | 256 TiB | 100 TiB |
-| Maximum number of files | Unlimited | Unlimited | Unlimited |
-| Maximum IOPS (Data) | 102,400 IOPS (dependent on provisioning) | 50,000 IOPS (dependent on provisioning) | 20,000 IOPS |
-| Maximum IOPS (Metadata<sup>1</sup>) | Up to 35,000 IOPS<sup>2</sup> | Up to 12,000 IOPS | Up to 12,000 IOPS |
-| Maximum throughput | 10,340 MiB / sec (dependent on provisioning) | 5,120 MiB / sec (dependent on provisioning) | Up to storage account limits |
-| Maximum number of share snapshots | 200 snapshots | 200 snapshots | 200 snapshots |
-| Maximum filename length<sup>3</sup> (full pathname including all directories, file names, and backslash characters) | 2,048 characters | 2,048 characters | 2,048 characters |
-| Maximum length of individual pathname component (in the path \A\B\C\D, each letter represents a directory or file that is an individual component) | 255 characters | 255 characters | 255 characters |
-| Hard link limit (NFS only) | 178 | N/A | N/A |
-| Maximum number of SMB Multichannel channels | 4 | N/A | N/A |
-| Maximum number of stored access policies per file share | 5 | 5 | 5 |
+| Attribute | SSD provisioned v2 | HDD provisioned v2 | SSD provisioned v1 | HDD pay-as-you-go |
+|-|-|-|-|-|
+| Storage provisioning unit | 1 GiB | 1 GiB | 1 GiB | N/A |
+| IOPS provisioning unit | 1 IO / sec | 1 IO / sec | N/A | N/A |
+| Throughput provisioning unit | 1 MiB / sec | 1 MiB / sec | N/A | N/A |
+| Minimum storage size | 32 GiB (provisioned) | 32 GiB (provisioned) | 100 GiB (provisioned) | 0 bytes |
+| Maximum storage size | 256 TiB | 256 TiB | 100 TiB | 100 TiB |
+| Maximum number of files | Unlimited | Unlimited | Unlimited | Unlimited |
+| Maximum IOPS (Data) | 102,400 IOPS (dependent on provisioning) | 50,000 IOPS (dependent on provisioning) | 102,400 IOPS (dependent on provisioning) | 20,000 IOPS |
+| Maximum IOPS (Metadata<sup>1</sup>) | Up to 35,000 IOPS | Up to 12,000 IOPS | Up to 35,000 IOPS | Up to 12,000 IOPS |
+| Maximum throughput | 10,340 MiB / sec (dependent on provisioning) | 5,120 MiB / sec (dependent on provisioning) | 10,340 MiB / sec (dependent on provisioning) | Up to storage account limits |
+| Maximum number of share snapshots | 200 snapshots | 200 snapshots | 200 snapshots | 200 snapshots |
+| Maximum filename length<sup>2</sup> (full pathname including all directories, file names, and backslash characters) | 2,048 characters | 2,048 characters | 2,048 characters | 2,048 characters |
+| Maximum length of individual pathname component (in the path \A\B\C\D, each letter represents a directory or file that is an individual component) | 255 characters | 255 characters | 255 characters | 255 characters |
+| Hard link limit (NFS only) | 178 | N/A | 178 | N/A |
+| Maximum number of SMB Multichannel channels | 4 | N/A | 4 | N/A |
+| Maximum number of stored access policies per file share | 5 | 5 | 5 | 5 |
 
 <sup>1</sup> Metadata IOPS (open/close/delete). See [Monitor Metadata IOPS](analyze-files-metrics.md#monitor-utilization-by-metadata-iops) for guidance.<br>
 <sup>2</sup> Scaling to 35,000 IOPS for SSD file shares requires [registering for the metadata caching feature](smb-performance.md#register-for-the-metadata-caching-feature).<br>
@@ -117,13 +119,13 @@ Azure file share scale targets apply at the file share level.
 ### File scale targets
 File scale targets apply to individual files stored in Azure file shares.
 
-| Attribute | SSD provisioned v1 | HDD provisioned v2 | HDD pay-as-you-go |
-|-|-|-|
-| Maximum file size | 4 TiB | 4 TiB | 4 TiB |
-| Maximum data IOPS per file | 8,000 IOPS | 1,000 IOPS | 1,000 IOPS |
-| Maximum throughput per file | 1,024 MiB / sec | 60 MiB / sec | 60 MiB / sec |
-| Maximum concurrent handles for root directory | 10,000 handles | 10,000 handles | 10,000 handles  |
-| Maximum concurrent handles per file and directory | 2,000 handles\* | 2,000 handles | 2,000 handles |
+| Attribute | SSD provisioned v2 | HDD provisioned v2 | SSD provisioned v1 | HDD pay-as-you-go |
+|-|-|-|-|-|
+| Maximum file size | 4 TiB | 4 TiB | 4 TiB | 4 TiB |
+| Maximum data IOPS per file | 8,000 IOPS | 1,000 IOPS | 8,000 IOPS | 1,000 IOPS |
+| Maximum throughput per file | 1,024 MiB / sec | 60 MiB / sec | 1,024 MiB / sec | 60 MiB / sec |
+| Maximum concurrent handles for root directory | 10,000 handles | 10,000 handles | 10,000 handles | 10,000 handles |
+| Maximum concurrent handles per file and directory | 2,000 handles | 2,000 handles | 2,000 handles | 2,000 handles |
 
 \* The maximum number of concurrent handles per file and directory is a soft limit for SSD SMB file shares. If you need to scale beyond this limit, you can [enable metadata caching](smb-performance.md#register-for-the-metadata-caching-feature), and register for [increased file handle limits (preview)](smb-performance.md#register-for-increased-file-handle-limits-preview).
 
