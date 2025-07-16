@@ -11,7 +11,7 @@ ms.custom: fasttrack-edit
 
 # Orchestration versioning in Durable Functions (Azure Functions)
 
-Orchestration versioning addresses [the core challenge](durable-functions-versioning.md) of deploying changes to orchestrator functions while maintaining the deterministic execution model that Durable Functions requires. Without this feature, breaking changes to orchestrator logic or activity function signatures would cause in-flight orchestration instances to fail during replay because they would break the [determinism requirement](durable-functions-code-constraints.md) that ensures reliable orchestration execution.
+Orchestration versioning addresses [the core challenge](durable-functions-versioning.md) of deploying changes to orchestrator functions while maintaining the deterministic execution model that Durable Functions requires. Without this feature, breaking changes to orchestrator logic or activity function signatures would cause in-flight orchestration instances to fail during replay because they would break the [determinism requirement](durable-functions-code-constraints.md) that ensures reliable orchestration execution. This built-in feature provides automatic version isolation with minimal configuration. It's backend agnostic, so it can be used by apps leveraging any of the Durable Function's [storage providers](durable-functions-storage-providers.md).
 
 ## Terminology
 
@@ -20,14 +20,6 @@ This article uses two related but distinct terms:
 - **Orchestration instance** (or simply "orchestration"): Refers to a specific running execution of an orchestrator function, with its own state, instance ID, and inputs. Multiple orchestration instances can run concurrently from the same orchestrator function.
 
 Understanding this distinction is crucial for orchestration versioning, where the orchestrator function code contains version-aware logic, while orchestration instances are permanently associated with a specific version when created.
-
-## Key benefits
-
-- **Zero-downtime deployments**: Deploy breaking changes without waiting for in-flight orchestrations to complete.
-- **Rolling upgrades**: Workers running different versions of orchestrator code can coexist safely.
-- **Automatic version isolation**: The runtime ensures version compatibility automatically.
-- **Minimal configuration**: Built-in feature requiring only basic `host.json` configuration.
-- **Backend agnostic**: Feature can be used by apps leveraging any of the Durable Function's [storage backends](durable-functions-storage-providers.md).
 
 ## How it works
 
