@@ -24,6 +24,8 @@ This article describes the Microsoft Sentinel experience in the Defender portal.
 
 [!INCLUDE [sentinel-azure-deprecation.md](includes/sentinel-azure-deprecation.md)] 
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 
 ## New and improved capabilities
 

@@ -93,7 +93,7 @@ Use the following steps to onboard to the Microsoft Sentinel data lake from the 
     :::image type="content" source="./media/sentinel-lake-onboarding/onboarding-banner.png" lightbox="./media/sentinel-lake-onboarding/onboarding-banner.png" alt-text="A screenshot showing the Defender portal home page with the onboarding banner for Microsoft Sentinel data lake.":::
 
     > [!NOTE]
-    > If you accidentally close the banner, you can initiate onboarding by navigating to the data lake settings page under **System** >  **Settings** > **Microsoft Sentinel** > **data lake**.
+    > If you accidentally close the banner, you can initiate onboarding by navigating to the data lake settings page under **System** >  **Settings** > **Microsoft Sentinel** > **Data lake**.
 
 
 1. If you don't have the correct roles to set up the data lake, a side panel appears indicating that you don't have the required permissions. Request that your administrator completes the onboarding process.

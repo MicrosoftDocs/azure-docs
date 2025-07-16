@@ -38,7 +38,7 @@ For more information about Microsoft Sentinel workspace permissions, see [Roles 
 
 To view and manage table settings in the Microsoft Defender portal:
 
-1. Select **System** > **Data management** > **Table management** from the left navigation pane.
+1. Select **Microsoft Sentinel** > **Configuration** > **Tables** from the left navigation pane.
 
     The **Table** screen lists all the tables you can manage in the Microsoft Defender portal and the settings of each table. 
 
