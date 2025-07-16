@@ -73,7 +73,8 @@ Find and update a bookmark from the bookmark tab.
 
 5. Make your changes as needed. Your changes are automatically saved.
 
-> [!NOTE] You can only view up to 1,000 bookmarks in the bookmark tab. You can view the rest of your bookmarked data in your logs. [Learn more](#view-bookmarked-data-in-logs)
+> [!NOTE]
+> You can only view up to 1,000 bookmarks in the bookmark tab. You can view the rest of your bookmarked data in your logs. [Learn more](#view-bookmarked-data-in-logs)
 
 ## Exploring bookmarks in the investigation graph
 
