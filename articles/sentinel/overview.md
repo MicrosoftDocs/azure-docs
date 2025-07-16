@@ -133,8 +133,32 @@ The following table highlights the key capabilities in Microsoft Sentinel for th
 
 [!INCLUDE [sentinel-azure-deprecation](includes/sentinel-azure-deprecation.md)]
 
+### Changes for new customers starting July 2025
+
+For the sake of the changes described in this section, new Microsoft Sentinel customers are customers who are [onboarding the first workspace in their tenant to Microsoft Sentinel](quickstart-onboard.md).
+
+Starting **July, 2025**, such new customers who also have the permissions of a subscription [Owner](/azure/role-based-access-control/built-in-roles#owner) or a [User access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator), and are not Azure Lighthouse-delegated users, have their workspaces automatically onboarded to the Defender portal together with onboarding to Microsoft Sentinel. 
+
+Users of such workspaces, who also aren't Azure Lighthouse-delegated users, see links in Microsoft Sentinel in the Azure portal that redirect them to the Defender portal.
+
+For example:
+
+:::image type="content" source="media/overview/redirect-no-defender.png" alt-text="Screenshot of a redirect link from the Azure portal to the Defender portal.":::
+
+Such users use Microsoft Sentinel in the Defender portal only.
+
+New customers who don't have relevant permissions aren't automatically onboarded to the Defender portal, but they do still see redirection links in the Azure portal, together with prompts to have a user with relevant permissions manually onboard the workspace to the Defender portal.
+
+The following table summarizes these experiences:
+
+|Customer type| Experience|
+|---------|---------|
+|**Existing customers** creating new workspaces in a tenant where there is already a workspace enabled for Microsoft Sentinel | Workspaces are not automatically onboarded, and users don't see redirection links |
+|**Azure Lighthouse-delegated users** creating new workspaces in any tenant | Workspaces are not automatically onboarded, and users don't see redirection links |
+|**New customers** onboarding the first workspace in their tenant to Microsoft Sentinel | - **Users who have the required permissions** have their workspace automatically onboarded. Other users of such workspaces see redirection links in the Azure portal. <br><br>- **Users who don't have the required permissions** don't have their workspace automatically onboarded. All users of such workspaces see redirection links in the Azure portal, and a user with the required permissions must onboard the workspace to the Defender portal. |
+
 ## Related content
 
-- [Quickstart: Onboard Microsoft Sentinel](quickstart-onboard.md)
+- [Onboard Microsoft Sentinel](quickstart-onboard.md)
 - [Deployment guide for Microsoft Sentinel](deploy-overview.md)
 - [Plan costs and understand Microsoft Sentinel pricing and billing](billing.md)
