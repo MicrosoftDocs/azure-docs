@@ -14,7 +14,7 @@ ms.custom: UpdateFrequency2
 
 This article provides information on how to track the cost of your lab by applying tags to the lab to filter costs so that you can use [Microsoft Cost Management](../cost-management-billing/cost-management-billing-overview.md).
 
-DevTest Labs can create extra resource groups for resources related to your lab. The number of resource groups created depends on the features used by the lab and their settings. Because of the extra resource groups, it's often not straightforward to get a view of the total costs for your lab just by looking at **Resource groups** in the Azure portal. To create a single view of costs per lab in the Azure portal, you can use resource group **Tags**. 
+DevTest Labs can create extra resource groups for resources related to your lab. The number of resource groups created depends on the features used by the lab and their settings. Because of the extra resource groups, it's not always easy to get a view of the total costs for your lab just by looking at **Resource groups** in the Azure portal. To create a single view of costs per lab in the Azure portal, you can use resource group **Tags**. 
 
 ## Apply Cost Management for DevTest Labs
 
@@ -37,12 +37,12 @@ You can enable tag inheritance by using billing properties or by using Azure Pol
 
 The following articles describe how to create tags and enable tag inheritance:
 
-- [Group and allocate costs by using tag inheritance](../cost-management-billing/costs/enable-tag-inheritance.md)
+- [Group and allocate costs by using tag inheritance in billing properties](../cost-management-billing/costs/enable-tag-inheritance.md)
 - [Use the "Inherit a tag from the resource group" Azure Policy](../azure-resource-manager/management/tag-policies.md)
 
-If the lab is updated correctly by using the billing properties method, you can see that **Tag inheritance** is **Enabled**: 
+If the lab is updated correctly by using the billing properties method, you can see that **Tag inheritance** is **Enabled** on the Cost Management **Configuration** page: 
 
-:::image type="content" source="./media/devtest-lab-configure-cost-management/devtest-tag-inheritance.png" alt-text="Screenshot that shows that Tag inheritance is Enabled for cost management in the Azure portal." lightbox="./media/devtest-lab-configure-cost-management/devtest-tag-inheritance.png":::
+:::image type="content" source="./media/devtest-lab-configure-cost-management/devtest-tag-inheritance.png" alt-text="Screenshot that shows that Tag inheritance is Enabled for Cost Management in the Azure portal." lightbox="./media/devtest-lab-configure-cost-management/devtest-tag-inheritance.png":::
 
 ## Apply tags to DevTest Labs
 
@@ -82,5 +82,5 @@ For a quick view of costs per lab, complete these steps:
 ## Related content
 
 - [Use tags to organize your Azure resources and management hierarchy](/azure/azure-resource-manager/management/tag-resources)
-- Review the [resource naming and tagging decision guide - Cost management and optimization](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming-and-tagging-decision-guide)
+- Review the [resource naming and tagging decision guide](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming-and-tagging-decision-guide)
 - [Define DevTest Labs policies](devtest-lab-set-lab-policy.md)
