@@ -10,7 +10,7 @@ ms.author: anhoward
 
 ## Overview
 
-The [H-series virtual machines](/azure/virtual-machines/windows/sizes-hpc) (VMs) are the latest HPC offerings on Azure. HB-series VMs offer 60-core AMD EPYC processors and are optimized for running applications with high memory-bandwidth requirements, such as explicit finite element analysis, fluid dynamics, and weather modeling. The HC-series VMs have 44-core Intel Xeon Skylake processors and are optimized for applications requiring intensive CPU calculations, like molecular dynamics and implicit finite element analysis. HB and HC VMs feature 100 Gb/s EDR InfiniBand and support the latest MPI types and versions. For more information on how to scale HPC applications on HB and HC VMs, see the [Scaling HPC Applications Guide](/azure/virtual-machines/workloads/hpc/compiling-scaling-applications).
+The [H-series virtual machines](/azure/virtual-machines/windows/sizes-hpc) (VMs) are the latest HPC offerings on Azure. HB-series VMs offer 60-core AMD EPYC processors and are optimized for running applications with high memory-bandwidth requirements, such as explicit finite element analysis, fluid dynamics, and weather modeling. The HC-series VMs have 44-core Intel Xeon Skylake processors and are optimized for applications requiring intensive CPU calculations, like molecular dynamics and implicit finite element analysis. HB and HC VMs feature 100-Gb/s EDR InfiniBand and support the latest MPI types and versions. For more information on how to scale HPC applications on HB and HC VMs, see the [Scaling HPC Applications Guide](/azure/virtual-machines/workloads/hpc/compiling-scaling-applications).
 
 Azure CycleCloud supports the new H-series VMs, but for the best experience and performance, follow the guidelines and best practices in this article.
 
@@ -35,7 +35,7 @@ By default, SElinux only considers `/root` and `/home` to be valid paths for hom
 
 ## Running MPI jobs with Slurm
 
-MPI jobs running on HB or HC VMs need to run in the same virtual machine scale set (VMSS). To ensure proper autoscale placement of VMs for MPI jobs running with Slurm, set the following attribute in your cluster template:
+MPI jobs running on HB or HC VMs need to run in the same virtual machine scale set. To ensure proper autoscale placement of VMs for MPI jobs running with Slurm, set the following attribute in your cluster template:
 
 ```ini
 [[nodearray execute]]

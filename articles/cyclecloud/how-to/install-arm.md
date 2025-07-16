@@ -12,7 +12,7 @@ You can install Azure CycleCloud on Azure resources by using an Azure Resource M
 
 1. Deploys a virtual network with three separate subnets:
     * *cycle*: The subnet where the CycleCloud server starts
-    * *compute*: A /22 subnet for the HPC clusters
+    * *compute*: A /22 subnet for the High Performance Computing (HPC) clusters
     * *user*: The subnet for creating user authentications
 1. Provisions a VM in the *cycle* subnet and installs Azure CycleCloud on it.
 

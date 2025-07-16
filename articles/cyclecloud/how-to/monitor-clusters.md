@@ -22,7 +22,7 @@ You can search the log for a specific event or keyword with the search bar in th
 * Priority
 * Time frame
 
-Use the drop down menus to select the event log parameters. The page automatically refreshes to show the appropriate information. 
+Use the drop-down menus to select the event log parameters. The page automatically refreshes to show the appropriate information. 
 
 ::: moniker range="=cyclecloud-7"
 ## Alerting
