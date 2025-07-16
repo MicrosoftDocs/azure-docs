@@ -29,7 +29,7 @@ Check the VM status in the Azure portal by completing these steps:
 
 1. Go to the **Overview** page for the DevTest Labs lab VM and confirm the machine status is _Running_:
 
-   :::image type="content" source="media/devtest-lab-troubleshoot-apply-artifacts/check-lab-machine.png" border="false" alt-text="Screenshot that shows how to confirm that the DevTest Labs virtual machine is running." lightbox="media/devtest-lab-troubleshoot-apply-artifacts/check-lab-machine-large.png":::
+   :::image type="content" source="media/devtest-lab-troubleshoot-apply-artifacts/check-lab-machine.png" alt-text="Screenshot that shows how to confirm that the DevTest Labs virtual machine is running." lightbox="media/devtest-lab-troubleshoot-apply-artifacts/check-lab-machine.png":::
 
 1. Select **Artifacts** to open the artifacts list for the lab VM:
 
@@ -137,7 +137,7 @@ Identify repository connection issues to the Azure Storage account by completing
 
    1. Rest your mouse pointer over the **Storage account** resource, move the pointer to the **i** icon to see the pop-up menu, and then select **View**:
 
-      :::image type="content" source="media/devtest-lab-troubleshoot-apply-artifacts/select-storage-account.png" alt-text="Screenshot that shows how to select the View option for the storage account for a DevTest Labs lab resource." lightbox="media/devtest-lab-troubleshoot-apply-artifacts/select-storage-account-large.png":::
+      :::image type="content" source="media/devtest-lab-troubleshoot-apply-artifacts/select-storage-account.png" alt-text="Screenshot that shows how to select the View option for the storage account for a DevTest Labs lab resource." lightbox="media/devtest-lab-troubleshoot-apply-artifacts/select-storage-account.png":::
 
    1. On the storage account **Overview** page, expand the **Security + networking** section on the left menu, and then select **Networking**:
 
