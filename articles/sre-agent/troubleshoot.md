@@ -10,7 +10,11 @@ ms.service: azure
 
 # Troubleshoot common issues in Azure SRE Agent (preview)
 
+This guide covers the common problems faced when working with Azure SRE Agent and provides practical solutions to resolve them. The issues are typically related to permissions, regional availability, and administrative access requirements.
 
+## Common troubleshooting scenarios
+
+The following table outlines frequent issues you might encounter and their solutions:
 
 | Scenario | Reason | Remarks |
 |---|---|---|
