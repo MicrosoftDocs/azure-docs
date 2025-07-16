@@ -199,11 +199,13 @@ To deploy a new zone-redundant App Service plan, you must use the [Premium v2-4 
 
 ::: zone pivot="isolated"
 
-- **Create a new zone-redundant App Service plan.**  To learn how to create a new zone-redundant Isolated v2 App Service plan, see [Create a new Isolated v2 App Service plan with zone redundancy](../app-service/environment/configure-zone-redundancy-ase.md#create-a-new-isolated-v2-app-service-plan-with-zone-redundancy).
+- **Create a new zone-redundant App Service Environment and plan.** To learn how to create a new zone-redundant App Service Environment and Isolated v2 App Service plan, see [Configure App Service Environment for zone redundancy](../app-service/environment/configure-zone-redundancy-ase.md).
 
-- **Enable or disable zone redundancy on an existing App Service plan.** For Isolated v2 App Service plans, if the App Service Environment is zone redundant, the App Service plans can also be set as zone redundant. However, each App Service plan has its own independent zone redundancy setting, which means that you can have a mix of zone redundant and non-zone redundant plans in an App Service Environment.
+- **Enable or disable zone redundancy on an existing App Service Environment.** You can enable and disable zone redundancy on an App Service Environment. If the App Service Environment is zone redundant, the App Service plans can also be set as zone redundant. However, each App Service plan has its own independent zone redundancy setting, which means that you can have a mix of zone redundant and non-zone redundant plans in an App Service Environment.
 
-> [NOTE]
+    To learn how to configure zone redundancy on an existing App Service Environment and its plans, see [Configure App Service Environment for zone redundancy](../app-service/environment/configure-zone-redundancy-ase.md).
+
+> [!NOTE]
 > When you change the zone redundancy status of the App Service Environment, you initiate an upgrade that takes 12-24 hours to complete. During the upgrade process, you don't experience any downtime or performance problems.
 
 ::: zone-end
