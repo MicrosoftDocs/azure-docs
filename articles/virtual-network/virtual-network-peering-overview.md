@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 03/31/2025
+ms.date: 07/16/2025
 ms.author: allensu
 # Customer intent: As a cloud architect, I need to know how to use virtual network peering for connecting virtual networks. This knowledge will allow me to design connectivity correctly and understand future scalability options and limitations.
 ---
@@ -14,6 +14,18 @@ ms.author: allensu
 # Azure virtual network peering
 
 Azure Virtual Network peering enables you to seamlessly connect two or more virtual networks in Azure, making them appear as one for connectivity purposes. This powerful feature allows you to create secure, high-performance connections between virtual networks while keeping all traffic on Microsoft's private backbone infrastructure, eliminating the need for public internet routing.
+
+**What you'll learn in this article:**
+
+- How virtual network peering works and its key benefits
+
+- Different types of peering (local and global)
+
+- How to implement connectivity and service chaining
+
+- Troubleshooting common peering issues
+
+Whether you're designing a hub-and-spoke topology or connecting networks across regions, this guide will help you understand the capabilities and limitations of virtual network peering.
 
 By default, a virtual network is peered with up to 500 other virtual networks. By using the [connectivity configuration for Azure Virtual Network Manager](../virtual-network-manager/concept-connectivity-configuration.md), you can increase this limit to peer up to 1,000 virtual networks to a single virtual network. With this larger size, you can create a hub-and-spoke topology with 1,000-spoke virtual networks, for example. You can also create a mesh of 1,000-spoke virtual networks where all spoke virtual networks are directly interconnected.
 
@@ -146,3 +158,18 @@ Gateway transit is a peering property that enables a virtual network to use a vi
 * To learn about all virtual network peering settings, see [Create, change, or delete a virtual network peering](virtual-network-manage-peering.md).
 
 * For answers to common virtual network peering and global virtual network peering questions, see [Virtual network peering](virtual-networks-faq.md#virtual-network-peering).
+
+## Next steps
+
+Ready to implement virtual network peering? Choose your scenario:
+
+### Get started with tutorials
+- **[Create peering in same subscription](tutorial-connect-virtual-networks-portal.md)** - Perfect for testing and development environments
+- **[Create peering across subscriptions](create-peering-different-subscriptions.md)** - Ideal for enterprise scenarios with multiple subscriptions
+
+### Advanced configurations  
+- **[Build a hub-and-spoke topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)** - Scale your network architecture
+- **[Manage peering settings](virtual-network-manage-peering.md)** - Complete reference for all peering options
+
+### Need help?
+- **[Virtual network peering FAQ](virtual-networks-faq.md#virtual-network-peering)** - Common questions and answers
