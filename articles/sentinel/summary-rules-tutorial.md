@@ -19,8 +19,7 @@ ms.collection: usx-security
 This article provides an example of how to use summary rules to aggregate insights from an [auxiliary logs table](basic-logs-use-cases.md) to an Analytics table. In this example, you ingest Common Event Format (CEF) data from Logstash by deploying a custom connector using an ARM template.
 
 > [!IMPORTANT]
-> Summary rules are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 >
 
