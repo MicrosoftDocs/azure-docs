@@ -76,7 +76,7 @@ The following table summarizes capabilities available when using Messaging Conne
 
 > **Note**: Future updates will include support for more SDKs, sender types, and additional partners.
 
-## Authentication
+## Authentication: Secure Access with Azure Identity
 
 To send messages through Messaging Connect, your application must authenticate with Azure Communication Services (ACS) using one of the supported identity models. This step verifies that your app has permission to send messages through your ACS resource and ensures your messages are associated with the correct Azure subscription.
 
@@ -142,11 +142,63 @@ Learn more: [Delivery Reports on Azure Event Grid Events](https://learn.microsof
 
 > [!TIP] 
 > To ensure full visibility into your message traffic, we strongly recommend configuring event subscriptions for delivery reports. This allows you to monitor message status, troubleshoot failures, and integrate with your existing telemetry systems.
-Learn how to configure SMS events : Handle SMS events - Azure Communication Services | Microsoft Learn
+Learn how to configure SMS events : [Handle SMS events](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/sms/handle-sms-events) 
 
 > [!NOTE]
-> If your message fails, check the messagingConnect object for accuracy, review the delivery report, and consult partner documentation for downstream error codes.
+> If your message fails, check the `messagingConnect` object for accuracy, review the delivery report, and consult partner documentation for downstream error codes.
 
 > [!IMPORTANT]
 > Microsoft does not retain any credentials used to access external Messaging Connect partners. Partner API keys are used solely for the purpose of processing an individual message request and are immediately discarded once the request is completed. These credentials are not stored, logged, or persisted in any form.
+
+## Country Availability
+
+Messaging Connect significantly expands the number of countries you can reach with Azure Communication Services—supporting over 190 countries through our global partner network.
+During Public Preview, you can acquire and use two types of sender identities from the Messaging Connect Partner:
+
+- Long Codes – Standard local phone numbers or mobile numbers that support two-way SMS. Often known as Virtual Long codes. 
+- Dynamic Alphanumeric Sender IDs – One-way, branded senders (e.g., “CONTOSO”) where permitted. You can enable DASID only in non-ACS supported countries.
+
+When you search for a country and number type in the Azure portal, you’ll be offered Messaging Connect as an option if ACS doesn’t support that configuration directly. You’ll then complete the provisioning process through the partner’s portal.
+
+- 🌐 Country availability is determined by the Messaging Connect partner. The number types, compliance requirements, and onboarding steps vary by country and are handled entirely by the Messaging Connect partner (e.g., Infobip).
+- 📌 Short codes are not yet supported in Public Preview but are planned for General Availability.
+
+## Global Access with Secure and Compliant Messaging
+
+Messaging Connect is built for global use—whether you're operating from Asia, Africa, South America, or the European Union. This section explains how data flows across regions, how privacy is maintained, and how Azure ensures compliance with residency requirements.
+
+### 1. Message Routing and Data Flow
+
+Messaging Connect separates message delivery (handled by the partner) from processing and observability (handled by Azure). Here’s how it works:
+
+- Outbound messages: You send an SMS using the ACS API and include partner routing info via `messagingConnect` object. Azure logs the message, performs validation, and then routes it to the selected Messaging Connect partner.
+- Inbound messages: The partner receives the SMS and forwards it to Azure’s infrastructure. From there, it’s handled just like messages sent to ACS-native numbers—events through Event Grid.
+
+Although the partner handles delivery, Azure provides:
+
+- Delivery receipts and observability- 
+- Standard ACS APIs and SDKs
+- Transient message processing only—no message content is stored
+
+Azure Communication Services does not retain SMS message content after delivery or failure. Messages and metadata are processed temporarily in memory only as needed for routing and diagnostics.
+
+> [!IMPORTANT]
+> Microsoft does not retain any credentials used to access external Messaging Connect partners. Partner API keys are used solely for the purpose of processing an individual message request and are immediately discarded once the request is completed. These credentials are not stored, logged, or persisted in any form.
+
+Learn more: [Data residency and user privacy](https://learn.microsoft.com/en-us/azure/communication-services/concepts/privacy#sms)
+
+### 2. EU Data Boundary (EUDB)
+
+Azure Communication Services guarantees that SMS data within the EUDB is stored in EUDB regions. As of today, we process and store data in the Netherlands, Ireland, or Switzerland regions, ensuring no unauthorized data transfer outside the EEA (European Economic Area). Also, Azure Communication Services employs advanced security measures, including encryption, to protect SMS data both at rest and in transit. Customers can select their preferred data residency within the EUDB, making sure data remains within the designated EU regions.
+
+Learn more: [European Union Data Boundary (EUDB)](https://learn.microsoft.com/en-us/azure/communication-services/concepts/european-union-data-boundary#sms)
+
+### 3.Using Messaging Connect from Anywhere
+
+Messaging Connect is designed for global use. Once you’ve acquired a number through a Messaging Connect partner, you can integrate it into your application using ACS APIs—regardless of where your application is hosted.
+That said, some countries may enforce local telecom regulations on how numbers are used, what types of content can be sent, or whether traffic must originate from specific regions. These requirements are handled by the Messaging Connect partner during the number provisioning process.
+Delivery routes are optimized by the partner, not by Azure. Messages may be routed through local or regional routing infrastructure, depending on the number type, country regulations, and the Messaging Connect partner account configuration. 
+
+
+
 
