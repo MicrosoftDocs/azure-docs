@@ -31,7 +31,7 @@ Check the VM status in the Azure portal by completing these steps:
 
    :::image type="content" source="media/devtest-lab-troubleshoot-apply-artifacts/check-lab-machine.png" border="false" alt-text="Screenshot that shows how to confirm that the DevTest Labs virtual machine is running." lightbox="media/devtest-lab-troubleshoot-apply-artifacts/check-lab-machine-large.png":::
 
-1. Select **Artifacts** and open the artifacts list for the lab VM:
+1. Select **Artifacts** to open the artifacts list for the lab VM:
 
    :::image type="content" source="media/devtest-lab-troubleshoot-apply-artifacts/open-artifacts-list.png" alt-text="Screenshot that shows how to open the Artifacts list for the lab virtual machine.":::
 
@@ -47,7 +47,7 @@ Check the VM status in the Azure portal by completing these steps:
 
 You can also use Azure PowerShell to check whether your lab VM can receive applied artifacts.
 
-The following `GET` command returns the `canApplyArtifacts` flag with a value of True or False. To run the command, replace the `$LabName/$VmName` parameter with your lab name and VM name, and specify your lab resource group in the `$LabRgName` parameter.
+The following `GET` command returns the `canApplyArtifacts` flag with a value of True or False. To run the command, replace the `$SubscriptionId` parameter with your subscription ID, the `$LabName/$VmName` parameter with your lab name and VM name, and the `$LabRgName` parameter with your lab resource group name.
 
 ```powershell
 Select-AzSubscription -SubscriptionId $SubscriptionId | Out-Null
@@ -131,11 +131,11 @@ Identify repository connection issues to the Azure Storage account by completing
 
    The default storage account is the first storage account created during lab creation. The name usually starts with the letter "a" and ends with a multi-digit number: `a<labname>#`.
 
-   1. Go to the **Overview** page for the DevTest Labs lab VM, and select **Resource visualizer**.
+   1. Go to the **Overview** page for the DevTest Labs lab, and select **Resource visualizer**.
 
    1. In the diagram, locate the **Storage account** that has a name that matches the described naming convention, `a<labname>#`.
 
-   1. Select the **Storage account** resource to see the pop-up menu, and then select **View**:
+   1. Rest your mouse pointer over the **Storage account** resource, move the pointer to the **i** icon to see the pop-up menu, and then select **View**:
 
       :::image type="content" source="media/devtest-lab-troubleshoot-apply-artifacts/select-storage-account.png" alt-text="Screenshot that shows how to select the View option for the storage account for a DevTest Labs lab resource." lightbox="media/devtest-lab-troubleshoot-apply-artifacts/select-storage-account-large.png":::
 
