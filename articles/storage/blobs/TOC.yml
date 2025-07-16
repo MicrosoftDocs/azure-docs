@@ -974,7 +974,7 @@ items:
       items:
       - name: Use the Azurite open-source emulator
         items:
-        - name: Overview
+        - name: About Azurite
           href: ../common/storage-use-azurite.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Install and run Azurite
           href: ../common/storage-install-azurite.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
