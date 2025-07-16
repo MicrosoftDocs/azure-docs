@@ -51,9 +51,16 @@ Your App Service Environment can be configured as *zone redundant*, which means 
 
 However, you can enable or disable zone redundancy on each plan, regardless of the setting on the App Service Environment. This means that you can have some plans in your environment that are zone redundant and others that aren't.
 
-### Instance distribution across zones
-
 When you create a zone-redundant Isolated v2 App Service plan in your environment, the instances of your App Service Isolated v2 plan are distributed across the availability zones in the region. For more information, see [Instance distribution across zones](../reliability/reliability-app-service.md#instance-distribution-across-zones).
+
+See [Reliability in Azure App Service](../reliability/reliability-app-service.md#capacity-planning-and-management) for detailed information on zone redundancy in App Service, including:
+
+- [Capacity planning and management](../reliability/reliability-app-service.md#capacity-planning-and-management)
+- [Normal operations](../reliability/reliability-app-service.md#normal-operations)
+- [Zone-down experience](../reliability/reliability-app-service.md#zone-down-experience) 
+- [Failback](../reliability/reliability-app-service.md#failback)
+- [Testing for zone failures](../reliability/reliability-app-service.md#testing-for-zone-failures)
+
 
 ### Region support
 
@@ -96,60 +103,17 @@ If you enable availability zones but specify a capacity of less than two, the pl
 > When you change the zone redundancy status of the App Service Environment, you initiate an upgrade that takes 12-24 hours to complete. During the upgrade process, you don't experience any downtime or performance problems.
 
 
-### Capacity planning and management
-
-To prepare for availability zone failure, consider *over-provisioning* the capacity of your App Service plan. Over-provisioning allows the solution to tolerate some degree of capacity loss and continue to function without degraded performance. For more information, see [Manage capacity with over-provisioning](./concept-redundancy-replication-backup.md#manage-capacity-with-over-provisioning).
-
-### Normal operations
-
-The following section describes what to expect when App Service plans are configured for zone redundancy and all availability zones are operational:
-
-- **Traffic routing between zones:** During normal operations, traffic is routed between all of your available App Service plan instances across all availability zones.
-
-- **Data replication between zones:** During normal operations, any state stored in your application's file system is stored in zone-redundant storage and synchronously replicated between availability zones.
-
-### Zone-down experience
-
-During an availability zone outage, some aspects of Azure App Service might be affected, even though the application continues to serve traffic. These behaviors include App Service plan scaling, application creation, application configuration, and application publishing.
-
-The following section describes what to expect when App Service plans are configured for zone redundancy and one or more availability zones are unavailable:
-
-- **Detection and response:** The App Service platform automatically detects failures in an availability zone and initiates a response. No manual intervention is required to initiate a zone failover.
-
-- **Active requests:** When an availability zone is unavailable, any requests in progress that are connected to an App Service plan instance in the faulty availability zone are terminated. They need to be retried.
-
-- **Traffic rerouting:** When a zone is unavailable, App Service detects the lost instances from that zone and automatically attempts to find new replacement instances.  Once it finds replacements, it then distributes traffic across the new instances as needed.
-
-    If autoscale is configured and it determines that more instances are needed, it issues a request to App Service to add those instances. Autoscale behavior operates independently of App Service platform behavior, meaning that your instance count specification doesn't need to be a multiple of two. For more information, see [Scale up an app in App Service](/azure/app-service/manage-scale-up) and [Autoscale overview](/azure/azure-monitor/autoscale/autoscale-overview).
-
-    > [!IMPORTANT]
-    > There's no guarantee that requests for more instances in a zone-down scenario succeed. The backfilling of lost instances occurs on a best-effort basis. If you need guaranteed capacity when an availability zone is lost, you should create and configure your App Service plans to account for the loss of a zone. You can achieve this by [over-provisioning the capacity of your App Service plan](#capacity-planning-and-management).
-
-- **Nonruntime behaviors:** Applications that are deployed in a zone-redundant App Service plan continue to run and serve traffic even if an availability zone experiences an outage. However, nonruntime behaviors might be affected during an availability zone outage. These behaviors include App Service plan scaling, application creation, application configuration, and application publishing.
-
-### Failback
-
-When the availability zone recovers, App Service automatically creates instances in the recovered availability zone, removes any temporary instances created in the other availability zones, and routes traffic between your instances as usual.
-
-### Testing for zone failures
-
-The App Service platform manages traffic routing, failover, and failback for zone-redundant App Service plans. Because this feature is fully managed, you don't need to initiate or validate availability zone failure processes.
-
-
 ## Multi-region support
 
-App Service Environment is a single-region service. If the region becomes unavailable, your application is also unavailable.
+App Service Environment is a single-region service. If the region becomes unavailable, your application is also unavailable. However, to reduce the risk of a single-region failure affecting your application, deploy across multiple regions. The following steps help strengthen resilience:
 
-### Alternative multi-region approaches
-
-To reduce the risk of a single-region failure affecting your application, deploy across multiple regions. The following steps help strengthen resilience:
-
-- Deploy your application to the instances in each region.
+- Deploy your environment to the instances in each region.
 - Configure load balancing and failover policies.
 - Replicate your data across regions so that you can recover your last application state.
 
 
 For an example approach that illustrates this architecture, see [High availability enterprise deployment by using App Service Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment).
+
 
 
 ## Backups
