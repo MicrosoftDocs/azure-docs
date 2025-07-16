@@ -182,7 +182,7 @@ When you have a zone-redundant App Service plan, the platform automatically plac
 
 # [Azure portal](#tab/portal)
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your App Service app.
+1. In the [Azure portal](https://portal.azure.com), navigate to your App Service app. If you have multiple apps in a plan, you can select any app.
  
 1. Select the **Health check** blade.
 

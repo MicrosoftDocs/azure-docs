@@ -125,13 +125,27 @@ You must use the [Premium v2-4 plan types](/azure/app-service/overview-hosting-p
 
 - You must use the [Premium v2-4 or Isolated v2 plan types](/azure/app-service/overview-hosting-plans) and have a minimum of two instances of the plan.
 
+- You must deploy a minimum of two instances in your plan.
+
+::: zone-end
+
+::: zone pivot="premium"
+
 - Availability zones are supported only on newer App Service scale units. Even if you use one of the supported regions, if availability zones aren't supported for the scale unit that you use, then you receive an error when you create a zone-redundant App Service plan.
 
     The scale unit that you're assigned to is based on the resource group that you deploy an App Service plan to. To ensure that your workloads land on a scale unit that supports availability zones, you might need to create a new resource group and create a new App Service plan and App Service app within the new resource group. 
 
     To learn whether or not the scale unit that your App Service plan is on supports zone redundancy, see [Check for zone redundancy support for an App Service plan](../app-service/configure-zone-redundancy.md#check-for-zone-redundancy-support-for-an-app-service-plan).
 
-- You must deploy a minimum of two instances in your plan.
+::: zone-end
+
+::: zone pivot="isolated"
+
+- Your App Service Environment must be configured for zone redundancy.
+
+    The scale unit that you're assigned to is based on the resource group that you deploy an App Service Environment to. To ensure that your workloads land on a scale unit that supports availability zones, you might need to create a new resource group and create a new App Service Environment within the new resource group. 
+
+    To learn whether or not the App Service Environment supports zone redundancy, see [Check for zone redundancy support for an App Service Environment](../app-service/environment/configure-zone-redundancy-ase.md#check-for-zone-redundancy-support-for-an-app-service-environment).
 
 ::: zone-end
 
