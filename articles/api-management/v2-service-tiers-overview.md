@@ -27,7 +27,7 @@ The following v2 tiers are generally available:
 
 The following v2 tier is in preview:
 
-* **Premium v2** - Premium v2 offers enterprise features including full virtual network isolation and scaling for high volume workloads.
+* **Premium v2** - Premium v2 offers enterprise features including full virtual network isolation, scaling for high volume workloads, and workspaces.
 
 ## Key capabilities
 
