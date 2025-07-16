@@ -2,8 +2,8 @@
 ms.service: azure-policy
 ms.topic: include
 ms.date: 03/25/2025
-ms.author: jasongroce
-author: jasongroce
+ms.author: robmcm
+author: rmcmurray
 ms.custom: generated
 ---
 
