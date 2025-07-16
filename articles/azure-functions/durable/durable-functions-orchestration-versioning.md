@@ -197,6 +197,8 @@ public static async Task<string> ProcessOrder(
 # [C# (Isolated)](#tab/csharp-isolated)
 
 ```csharp
+using DurableTask.Core.Settings;
+
 [Function("ProcessOrderOrchestrator")]
 public static async Task<string> ProcessOrder(
     [OrchestrationTrigger] TaskOrchestrationContext context)
@@ -205,12 +207,12 @@ public static async Task<string> ProcessOrder(
 
     await context.CallActivityAsync("ValidateOrder", orderId);
 
-    if (context.Version == "1.0")
+    if (VersioningSettings.CompareVersions(context.Version, "1.0") <= 0)
     {
         // Preserve original logic for existing instances
         await context.CallActivityAsync("ProcessPayment", orderId);
     }
-    else // version 2.0 and later
+    else // a higher version (including 2.0)
     {
         // New logic with discount processing (replaces payment processing)
         await context.CallActivityAsync("ApplyDiscount", orderId);
