@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 07/08/2025
 
-#CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
+#CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster for testing and evaluation scenarios, so that I can evaluate the solution before deploying it to production.
 ---
 
 # Deploy Azure IoT operations to a test cluster
