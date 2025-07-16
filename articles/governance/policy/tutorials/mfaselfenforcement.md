@@ -26,13 +26,15 @@ On the left-hand menu or home dashboard, select Policy under Azure services. If 
 - Click Assign policy at the top of the assignments page.
 - In the Scope section, click Select scope.
 - Choose the appropriate subscription, resource group, or management group where you want to apply the policy. Click Select to confirm your choice.
-![image1](/./Desktop/AssignmentScreenshot.png)
+<img width="670" height="303" alt="image" src="https://github.com/user-attachments/assets/3979890d-a756-4994-ab1f-affd64519c32" />
+
 
 *4. Configure Selectors for gradual rollout of policy enforcement*
 _To enable safe rollout of policy enforcement, we recommend leveraging Azure Policy’s resource selectors to gradually rollout policy enforcement across your resources._
 - In the 'Basics' tab, you’ll see 'Resource Selectors'. Click expand.
 - Click 'Add a resource selector'
-![==image_1==.png](/.attachments/==image_1==-643fd389-400f-42f9-a66d-12606e13cf07.png) 
+<img width="388" height="272" alt="image" src="https://github.com/user-attachments/assets/69a7539c-7351-4f73-8e85-cea64a7f51f2" />
+
 
 - In your resource selector, add a name for your selector.
 - Toggle resourceLocation to enable it. Pick a few low-risk regions that you’d like to enforce on. This means that the policy assignment will only evaluate Azure resources in those regions.
