@@ -388,7 +388,7 @@ The following table lists the currently supported partners. More partners will b
 
 | Partner | Brief Description | Country/region availability | Pricing |
 |---------|-------------------|-----------------------------|---------|
-| Infobip | Global communications platform with direct carrier connections in over 70 countries. Infobip supports all sender types including short codes, long codes (virtual long codes or VLNs), and alphanumeric (alphas). [More info](https://www.infobip.com/docs/sms/get-started/senders-and-numbers) | One-way messaging is available for virtually all networks in all countries and territories. Two-way messaging is supported in over 100 countries. [Country coverage](https://www.infobip.com/docs/essentials/getting-started/sms-coverage-and-connectivity) | Infobip offers a flexible pay-as-you-go pricing model for SMS. [View rates](https://www.infobip.com/sms/pricing). For custom pricing, [contact sales](https://www.infobip.com/contact). |
+| Infobip | Global communications platform with direct connections to over 800 carriers in more than 200 countries and territories. Infobip supports all sender types including short codes, long codes (virtual long codes or VLNs), and alphanumeric (alphas). [More info](https://www.infobip.com/docs/sms/get-started/senders-and-numbers) | One-way messaging is available for virtually all networks in all countries and territories. Two-way messaging is supported in over 100 countries. [Country coverage](https://www.infobip.com/docs/essentials/getting-started/sms-coverage-and-connectivity) | Infobip offers a flexible pay-as-you-go pricing model for SMS. [View rates](https://www.infobip.com/sms/pricing). For custom pricing, [contact sales](https://www.infobip.com/contact). |
 
 
 > [!IMPORTANT]
