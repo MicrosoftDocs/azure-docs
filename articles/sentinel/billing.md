@@ -67,7 +67,7 @@ There are two ways to pay for the analytics tier: **Pay-As-You-Go** and **Commit
 
 The data lake tier is a cost-effective option for ingesting secondary security data. They're charged at a flat, low rate per GB. The data lake tier provides querying and jobs scheduling capabilities and once enabled, mirrors all data available in the analytics tier.
 
-For more information, see [Microsoft Sentinel data lake](graph/sentinel-lake-overview.md)  
+For more information, see [Microsoft Sentinel data lake](datalake/sentinel-lake-overview.md)  
 
 The data lake tier incurs charges based on usage of various data like capabilities. 
 - **Data lake ingestion** charges are incurred per GB of data ingested for tables in Lake only mode.
@@ -210,7 +210,7 @@ After you enable Microsoft Sentinel on a Log Analytics workspace, consider these
 
 - Retain all data ingested into the workspace at no charge for the first 90 days. Retention beyond 90 days is charged per the standard [Log Analytics retention prices](https://azure.microsoft.com/pricing/details/monitor/).
 - Specify different retention settings for individual data types. Learn about [retention by data type](/azure/azure-monitor/logs/data-retention-configure#configure-table-level-retention). 
-- Extend retention of data with total retention so you have access to historical logs. The Microsoft Sentinel data lake, currently in preview, is a low-cost retention state for the preservation of data for such things as regulatory compliance. It's charged based on the volume of data stored and scanned. Use **Data management > Tables** to adjust the Analytics and Total retention period and learn more in [What is Microsoft Sentinel data lake?](graph/sentinel-lake-overview.md). 
+- Extend retention of data with total retention so you have access to historical logs. The Microsoft Sentinel data lake, currently in preview, is a low-cost retention state for the preservation of data for such things as regulatory compliance. It's charged based on the volume of data stored and scanned. Use **Data management > Tables** to adjust the Analytics and Total retention period and learn more in [What is Microsoft Sentinel data lake?](datalake/sentinel-lake-overview.md). 
 - Switch tables that contain secondary security data to **Lake tier**. This enables you to store high-volume, low-value logs at a low price, with querying capabilities built in. Use **Data management > Tables** to switch tables from **Analytics** to **Lake** tier.
 
 ## Other CEF ingestion costs

@@ -6,7 +6,7 @@
   - name: What is Microsoft Sentinel?
     href: overview.md
   - name: Microsoft Sentinel data lake overview
-    href: graph/sentinel-lake-overview.md
+    href: datalake/sentinel-lake-overview.md
     displayName: data lake
   - name: What's new
     href: whats-new.md
@@ -19,39 +19,39 @@
   - name: KQL for the Microsoft Sentinel data lake
     items:
     - name: Overview 
-      href: graph/kql-overview.md
+      href: datalake/kql-overview.md
       displayName: data lake
     - name: Run KQL queries
-      href: graph/kql-queries.md
+      href: datalake/kql-queries.md
       displayName: data lake
     - name: Sample data lake queries
-      href: graph/kql-samples.md
+      href: datalake/kql-samples.md
       displayName: data lake  
     - name: Create KQL jobs
-      href: graph/kql-jobs.md 
+      href: datalake/kql-jobs.md 
       displayName: data lake 
     - name: Manage KQL jobs
-      href: graph/kql-manage-jobs.md
+      href: datalake/kql-manage-jobs.md
       displayName: data lake
     - name: Troubleshoot KQL for the lake
-      href: graph/kql-troubleshoot.md
+      href: datalake/kql-troubleshoot.md
       displayName: data lake  
   - name: Notebooks for data lake exploration
     items:
     - name: Overview
-      href: graph/notebooks-overview.md
+      href: datalake/notebooks-overview.md
       displayName: data lake
     - name: Run notebooks
-      href: graph/notebooks.md
+      href: datalake/notebooks.md
       displayName: data lake
     - name: Microsoft Sentinel provider class reference
-      href: graph/sentinel-provider-class-reference.md
+      href: datalake/sentinel-provider-class-reference.md
       displayName: data lake
     - name: Create and manage notebook jobs
-      href: graph/notebook-jobs.md
+      href: datalake/notebook-jobs.md
       displayName: data lake
     - name: Notebook examples for data lake exploration
-      href: graph/notebook-examples.md
+      href: datalake/notebook-examples.md
 - name: Plan
   items:
   - name: Deployment planning guide  
@@ -96,10 +96,10 @@
   - name: Connect Microsoft Sentinel to the Defender portal
     href: /unified-secops-platform/microsoft-sentinel-onboard?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Onboard to Microsoft Sentinel data lake
-    href: graph/sentinel-lake-onboarding.md
+    href: datalake/sentinel-lake-onboarding.md
     displayName: data lake
   - name: Set up connectors for the Microsoft Sentinel data lake
-    href: graph/sentinel-lake-connectors.md
+    href: datalake/sentinel-lake-connectors.md
     displayName: data lake    
   - name: Configure content
     href: configure-content.md
@@ -769,7 +769,7 @@
   - name: Auditing Microsoft Sentinel with Azure Activity Logs
     href: audit-sentinel-data.md
   - name: Audit log for Microsoft Sentinel data lake
-    href: graph/auditing-lake-activities.md
+    href: datalake/auditing-lake-activities.md
     displayName: data lake
   - name: Remove Microsoft Sentinel from your workspaces
     href: offboard.md
@@ -814,7 +814,7 @@
   - name: Microsoft Sentinel service limits
     href: sentinel-service-limits.md
   - name: Microsoft Sentinel data lake service limits
-    href: graph/sentinel-lake-service-limits.md  
+    href: datalake/sentinel-lake-service-limits.md  
     displayName: data lake
   - name: Microsoft Sentinel REST-API
     href: /rest/api/securityinsights/

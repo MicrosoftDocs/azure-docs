@@ -79,7 +79,7 @@ For more information about dedicated clusters, see [Log Analytics dedicated clus
 
 ## Reduce data retention costs with total retention
 
-Microsoft Sentinel retains analytics tier data by default for the first 90 days in analytics retention. As data ages, it loses its value for real-time analytics and investigation. Security operations center (SOC) users might not access older data as frequently but still want to access the data for wider historical investigations or audit purposes. To help you reduce Microsoft Sentinel data retention costs, total retention is available. Data that ages out of its analytics retention state can still be retained, at a much-reduced cost, and accessed using data lake exploration capabilities. For more information, see [Lake exploration, KQL queries](graph/kql-overview.md).
+Microsoft Sentinel retains analytics tier data by default for the first 90 days in analytics retention. As data ages, it loses its value for real-time analytics and investigation. Security operations center (SOC) users might not access older data as frequently but still want to access the data for wider historical investigations or audit purposes. To help you reduce Microsoft Sentinel data retention costs, total retention is available. Data that ages out of its analytics retention state can still be retained, at a much-reduced cost, and accessed using data lake exploration capabilities. For more information, see [Lake exploration, KQL queries](datalake/kql-overview.md).
 
 Use **Data management > Tables** to adjust the Analytics and Total retention period.
 
@@ -98,5 +98,5 @@ Besides for the predefined sets of events that you can select to ingest, such as
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
 - For more tips on reducing Log Analytics data volume, see [Azure Monitor best practices - Cost management](/azure/azure-monitor/best-practices-cost).
-- To understand more about Microsoft Sentinel data lake (Preview), see [Microsoft Sentinel data lake (Preview)](graph/sentinel-lake-overview.md).
-- To onboard to Microsoft Sentinel data lake (Preview), see [Onboard data to Microsoft Sentinel data lake (Preview)](graph/sentinel-lake-onboarding.md). 
+- To understand more about Microsoft Sentinel data lake (Preview), see [Microsoft Sentinel data lake (Preview)](datalake/sentinel-lake-overview.md).
+- To onboard to Microsoft Sentinel data lake (Preview), see [Onboard data to Microsoft Sentinel data lake (Preview)](datalake/sentinel-lake-onboarding.md). 

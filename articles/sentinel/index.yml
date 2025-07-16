@@ -58,25 +58,25 @@ landingContent:
       - linkListType: overview
         links:           
           - text: "What is Microsoft Sentinel data lake"
-            url: graph/sentinel-lake-overview.md
+            url: datalake/sentinel-lake-overview.md
       - linkListType: deploy
         links:
           - text: "Onboarding to Microsoft Sentinel data lake"
-            url: graph/sentinel-lake-onboarding.md
+            url: datalake/sentinel-lake-onboarding.md
           - text: "Set up connectors for the Microsoft Sentinel data lake"
-            url: graph/sentinel-lake-connectors.md
+            url: datalake/sentinel-lake-connectors.md
       - linkListType: concept
         links:
           - text: KQL and Microsoft Sentinel data lake (Preview)  
-            url: graph/kql-overview.md
+            url: datalake/kql-overview.md
           - text: Notebooks and Microsoft Sentinel data lake (Preview)
-            url: graph/notebooks-overview.md
+            url: datalake/notebooks-overview.md
       - linkListType: how-to-guide
         links:
           - text: Run KQL queries (Preview)
-            url: graph/kql-queries.md
+            url: datalake/kql-queries.md
           - text: Running notebooks (Preview)
-            url: graph/notebooks.md
+            url: datalake/notebooks.md
   # Card
   - title: Unified security operations
     linkLists:
