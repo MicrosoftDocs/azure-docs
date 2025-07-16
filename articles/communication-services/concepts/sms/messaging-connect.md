@@ -22,7 +22,7 @@ ms.custom: references_regions
 
 Welcome to Messaging Connect—the new way to deliver Short Message Service (SMS) globally with Azure Communication Services.
 
-This is not just a new feature. This is a platform evolution. Messaging Connect is a partner-powered model that dramatically expands Azure’s messaging reach while preserving everything developers love about ACS: unified APIs, strong observability, and deep integration across Microsoft services.
+This isn't just a new feature—it's a platform evolution. Messaging Connect is a partner-powered model that dramatically expands Azure’s messaging reach while preserving everything developers love about ACS: unified APIs, strong observability, and deep integration across Microsoft services.
 
 With Messaging Connect, you don’t need to build and maintain separate integrations with providers around the world. Instead, you connect once through Azure Communication Services to access global SMS coverage via trusted partners. Number leasing and compliance are handled through the partner, but everything else—messaging, observability, and AI workflows—stays in your Azure environment, where you already build, monitor, and scale.
 
@@ -136,7 +136,6 @@ If your request passes synchronous validation, it’s not guaranteed to be hande
 Once a message is passed to the partner, any downstream delivery failures—like number unreachable, expired validity period, or carrier-level rejection—are also returned asynchronously via delivery reports. You can view delivery statuses in:
 
 - Azure delivery reports <- Event Grid events (if configured)
-- Partner documentation for error interpretation
 
 Learn more: [Delivery Reports on Azure Event Grid Events](https://learn.microsoft.com/azure/event-grid/communication-services-telephony-sms-events)
 
@@ -371,8 +370,7 @@ await smsClient.send(
 **SMS Error Codes**
 
 When you send SMS messages through Messaging Connect, you may encounter error codes—either as part of synchronous validation (immediate API response) or in asynchronous delivery reports.
-
-Azure Communication Services uses the same error model across all SMS traffic, including Messaging Connect. For a full list of HTTP status codes, delivery error codes, and failure reasons, refer to the official ACS documentation.
+Azure Communication Services uses the same error model across all SMS traffic, including Messaging Connect.
 
 Learn more: [See full list of SMS error codes](https://learn.microsoft.com/azure/communication-services/resources/troubleshooting/voice-video-calling/troubleshooting-codes?pivots=sms#sms-error-codes)
 
