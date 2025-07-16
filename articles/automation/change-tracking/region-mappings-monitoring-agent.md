@@ -1,7 +1,7 @@
 ---
-title: Supported regions for Change tracking and inventory using Azure Monitoring Agent
+title: Supported Regions for Change Tracking and Inventory using Azure Monitoring Agent
 description: This article describes the supported region mappings between an Automation account and monitoring agent workspace as it relates to certain features of Azure Automation.
-ms.date: 09/09/2024
+ms.date: 07/16/2025
 services: automation
 ms.topic: overview
 ms.custom: references_regions
@@ -28,9 +28,11 @@ The following table shows the supported mappings:
 |**France**| FranceCentral|
 |**Germany** | Germany WestCentral|
 |**India**| CentralIndia|
+|**Italy**| ItalyNorth|
 |**Japan**| JapanEast|
 |**Korea**| KoreaCentral|
 |**Norway**| NorwayEast|
+|**Spain**| SpainCentral|
 |**Sweden** | SwedenCentral|
 |**Switzerland**| SwitzerlandNorth|
 |**United Arab Emirates**| UAENorth|
