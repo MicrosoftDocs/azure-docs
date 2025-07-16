@@ -43,6 +43,8 @@
     items:
     - name: Azure App Service
       href: reliability-app-service.md
+    - name: Azure App Service Environment
+      href: reliability-app-service-environment.md
     - name: Azure Batch
       href: reliability-batch.md
     - name: Azure Container Apps
