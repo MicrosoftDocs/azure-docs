@@ -167,7 +167,7 @@ To enable or disable zone redundancy on an existing App Service plan, you can us
 
 # [Azure portal](#tab/portal)
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your App Service plan.
+1. In the [Azure portal](https://portal.azure.com), go to your App Service plan.
 1. Select **Settings > Scale out (App Service plan)** in the left navigation pane.
 1. Select **Zone redundancy** if you wish to enable zone redundancy. Deselect if you wish to disable it.
  
