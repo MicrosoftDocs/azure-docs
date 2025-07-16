@@ -12,6 +12,8 @@ ms.custom:  references_regions
 
 # Manage IP addresses with Azure Virtual Network Manager
 
+[!INCLUDE [virtual-network-manager-ipam](../../includes/virtual-network-manager-ipam.md)]
+
 Azure Virtual Network Manager allows you to manage IP addresses by creating and assigning IP address pools to your virtual networks. This article shows you how to create and assign IP address pools to your virtual networks with IP address management (IPAM) in Azure Virtual Network Manager.
 
 ## Prerequisites
@@ -21,8 +23,7 @@ Azure Virtual Network Manager allows you to manage IP addresses by creating and 
 - A virtual network that you want to associate with an IP address pool.
 - To manage IP addresses in your network manager, you have the **Network Contributor** role with [role-based access control](../role-based-access-control/quickstart-assign-role-user-portal.md) Classic Admin/legacy authorization isn't supported.
 
-> [!IMPORTANT]
-> The IPAM feature in Azure Virtual Network Manager is generally available in select regions. For the most up-to-date information on region availability, see [Available IPAM Regions](./concept-ip-address-management.md#available-regions-for-ipam-in-azure-virtual-network-manager).
+
 
 ## Create an IP address pool
 

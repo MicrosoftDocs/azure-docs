@@ -5,7 +5,7 @@ services: virtual-network-manager
 author: mbender-ms
 ms.service: azure-virtual-network-manager
 ms.topic: faq
-ms.date: 11/25/2024
+ms.date: 07/16/2025
 ms.author: mbender
 ms.custom:
   - reference_regions
@@ -24,10 +24,6 @@ For current information about region support, refer to [Products available by re
 
 > [!NOTE]
 > All regions have [availability zones](../reliability/availability-zones-region-support.md), except France Central.
-
-### Which Azure regions support IP address management (IPAM) in Azure Virtual Network Manager?
-
-The IPAM feature in Azure Virtual Network Manager is generally available in select regions. For the most up-to-date information on region availability, see [Available IPAM Regions](./concept-ip-address-management.md#available-regions-for-ipam-in-azure-virtual-network-manager).
 
 ### What are common use cases for Azure Virtual Network Manager?
 
