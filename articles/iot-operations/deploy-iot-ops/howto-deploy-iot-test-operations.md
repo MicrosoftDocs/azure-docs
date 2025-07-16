@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure IoT Operations to a Test Cluster
-description: Use the Azure portal to deploy Azure IoT Operations to an test Arc-enabled Kubernetes cluster.
+description: Use the Azure portal to deploy Azure IoT Operations to test an Arc-enabled Kubernetes cluster.
 author: SoniaLopezBravo
 ms.author: sonialopez
 ms.topic: how-to
