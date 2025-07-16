@@ -1,5 +1,5 @@
 ---
-title: How to connect to a Sign-In Node through Bastion
+title: How to connect to a Login Node through Bastion
 description: How to securely connect using SSH to a Sign-In Node through Bastion
 author: xpillons
 ms.date: 07/01/2025
