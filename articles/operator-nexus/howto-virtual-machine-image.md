@@ -34,7 +34,7 @@ Ensure you have an operational Azure Container Registry (ACR) and Docker install
 
    * Ensure your Virtual Network Function (VNF) image is in qcow2 format that can boot with cloud-init.
 
-   * You need to configure the bootloader, kernel, and init system in your image to enable a text-based serial console. This configuration is required to enable console support for your virtual machine (VM). Make sure the serial port settings on your system and terminal match to establish proper communication.
+   * You need to configure the bootloader, kernel, and init system in your image to enable both serial connectivity and text-based console. Use both GRUB_TERMINAL="console serial" and kernel cmdline settings. This configuration is required to enable serial access for troubleshooting deployment issues and console support for your virtual machine (VM) after deployment. Make sure the serial port settings on your system and terminal match to establish proper communication.
 
    * You need to ensure your VM image supports cloud-init version 2, enabling advanced configuration options during the VM initialization process.
 

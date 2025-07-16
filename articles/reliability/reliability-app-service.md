@@ -21,7 +21,9 @@ Azure App Service is an HTTP-based service for hosting web applications, REST AP
 
 ::: zone pivot="free-shared-basic"
 
+
 - Use Premium v3/v4 App Service plans to [Enable zone redundancy](#availability-zone-support).To see requirements for enabling zone redundancy, go to [Availability zone support requirements](#requirements).   
+
 
 ::: zone-end
 

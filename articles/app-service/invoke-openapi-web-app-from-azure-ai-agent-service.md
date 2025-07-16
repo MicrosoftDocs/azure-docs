@@ -3,7 +3,7 @@ title: 'Invoke an App Service web app from Azure AI Foundry Agent Service'
 description: Learn how to integrate App Service with AI Foundry Agent Service and get started with agentic AI
 author: seligj95
 ms.author: jordanselig
-ms.date: 06/13/2025
+ms.date: 07/11/2025
 ms.update-cycle: 180-days
 ms.topic: article
 ms.custom:
@@ -95,7 +95,7 @@ For detailed guidance with screenshots and additional information, see [Add Open
 After setting up the AI Agent and adding the OpenAPI Specified Tool, you need to configure your App Service with the appropriate environment variables so the app knows which agent to connect to. The app already has a managed identity assigned that gives it access to the AI Agent Service. This managed identity is required for the app to reach the agent and is created with the azd template.
 
 1. From the Agents dashboard where you added the OpenAPI tool, note the **agent ID**. It's in the format `asst_<unique-identifier>`.
-1. Select **Overview** in the menu note the **project's connection string**. It's in the format `<region>.api.azureml.ms;<subscription-id>;<resource-group-name>;<project-name>`.
+1. Select **Overview** in the menu and note the **project's connection string**. It's in the format `<region>.api.azureml.ms;<subscription-id>;<resource-group-name>;<project-name>`.
 1. Navigate to your App Service in the Azure portal.
 1. Select **Environment variables** in the left menu.
 1. In the **App settings** tab, select **+ Add** and add the following setting:
