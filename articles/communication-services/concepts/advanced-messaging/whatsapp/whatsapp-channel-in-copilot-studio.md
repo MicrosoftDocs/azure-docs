@@ -51,7 +51,7 @@ When following those instructions, here are helpful tips:
 
 ## Get a phone number
 
-You can [provision a Toll-free number with SMS enabled from Azure Communication Services](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/get-phone-number?tabs=windows&pivots=platform-azp-new)
+You can [provision a SMS enabled phone number from Azure Communication Services](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/get-phone-number?tabs=windows&pivots=platform-azp-new)
 or bring your own phone number.
 
 Make sure the phone number has the following capabilities:
@@ -169,19 +169,25 @@ When following those instructions, here are helpful tips:
     - Under a solution provider other than Azure Communication Services, follow these instructions to [migrate your phone number to Azure Communication Services](https://developers.facebook.com/docs/whatsapp/solution-providers/support/migrating-phone-numbers-among-solution-partners-via-embedded-signup/). Create a [support ticket](https://azure.microsoft.com/support/create-ticket/) if help is needed.
     - An existing WhatsApp number and want to migrate it to a WhatsApp business account, follow these [instructions](https://developers.facebook.com/docs/whatsapp/cloud-api/get-started/migrate-existing-whatsapp-number-to-a-business-account/). Create a [support ticket](https://azure.microsoft.com/support/create-ticket/) if help is needed.
 
+    :::image type="content" source="./media/add-phone-number-options.png" lightbox="./media/add-phone-number-options.png" alt-text="Screenshot that shows the options to add your phone number for WhatsApp.":::
+
 15. Select **Add a new number**. Choose to either verify your phone number through a text message or phone call.
 
+    :::image type="content" source="./media/verify-phone-number-text-message.png" lightbox="./media/verify-phone-number-text-message.png" alt-text="Screenshot that shows verifying your phone number for WhatsApp by text message option.":::
+
 16. The Event Grid view you deployed will receive the text message of the verification code.
+    
+    :::image type="content" source="./media/event-grid-viewer-verification-code.png" lightbox="./media/event-grid-viewer-verification-codee.png" alt-text="Screenshot that shows the Event Grid Viewer with the verification code.":::
 
 17. Enter the verification code and select **Next**.
+
+    :::image type="content" source="./media/verify-phone-number.png" lightbox="./media/verify-phone-number.png" alt-text="Screenshot that shows verifying your phone number.":::
 
 18. Review the access request and select **Continue**.
 
 19. Select **Finish**.
 
-20. Going back to your Azure portal, you should see this screen which summarizes which phone number you used and your WhatsApp business account information that you've successfully linked. Select **Close**.
-
-21. Now in your Azure Communication Service resource, under **Channels**, you will see a new channel connected with a status of **Display name review pending**.
+20. Now in your Azure Communication Service resource, under **Channels**, you will see a new channel connected with a status of **Display name review pending**.
 
     The status of your WhatsApp Business account is displayed in the Azure portal. Once approved, you will see an **Active** status.
 
