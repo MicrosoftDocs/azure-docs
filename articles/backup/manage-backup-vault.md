@@ -2,7 +2,7 @@
 title: Manage Backup vaults
 description: Learn how to manage the Backup vaults.
 ms.topic: how-to
-ms.date: 06/23/2025
+ms.date: 07/16/2025
 ms.custom: references_regions
 ms.service: azure-backup
 author: jyothisuri
@@ -200,4 +200,5 @@ You can configure and manage azure monitor based alerts from the **Alerts** pane
 ## Related content
 
 - [Create a Backup vault using REST API](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md).
-- [Configure backup on Azure PostgreSQL databases](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases)
+- [Troubleshoot Azure Backup Vault related operations](backup-azure-backup-vault-troubleshoot.md).
+- [Configure backup on Azure PostgreSQL databases](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases).

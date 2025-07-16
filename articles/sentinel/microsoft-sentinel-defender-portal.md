@@ -4,7 +4,7 @@ description: Learn about the Microsoft Sentinel experience when you onboard Micr
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 06/22/2025
+ms.date: 06/23/2025
 appliesto: 
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
@@ -20,13 +20,13 @@ Microsoft Defender provides a unified cybersecurity solution that integrates end
 
 Microsoft Sentinel is generally available in the Microsoft Defender portal, either with [Microsoft Defender XDR](/microsoft-365/security/defender), or on its own, delivering a unified experience across SIEM and XDR for faster and more accurate threat detection and response, simplified workflows, and enhanced operational efficiency.
 
-This article describes the Microsoft Sentinel experience in the Defender portal. We recommend that customers using Microsoft Sentinel in the Azure portal move into Microsoft Defender to take advantage of the unified security operations available and the latest capabilities. For more information, see [Transition your Microsoft Sentinel environment to the Defender portal](move-to-defender.md).
+This article describes the Microsoft Sentinel experience in the Defender portal.
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## New and improved capabilities
 
 The following table describes the new or improved capabilities available in the Defender portal with the integration of Microsoft Sentinel. Microsoft continues to innovate in this new experience with features that might be exclusive to the Defender portal.
-
 
 | Capabilities      | Description              | Learn more |
 | ----------------- | ------------------------ | ---------- |

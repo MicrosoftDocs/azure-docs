@@ -71,7 +71,7 @@ To send SMS, you must have a sender ID—this can be a phone number or an alphan
 | Puerto Rico      | ✅        | –          | –     | –              | –              | –              |
 | United Kingdom   | –         | ✅         | –     | ✅             | –             | ✅             |
 | Australia        | –         | –          | –     | ✅             | –              | ✅             |
-| Austria          | –         | –          | –     | –              | ✅              | ✅             |
+| Austria          | –         | –          | –     | –              | ✅              |–              |
 | Germany          | –         | –          | –     | –              | ✅             | –              |
 | France           | –         | –          | –     | –              | ✅             | –              |
 | Italy            | –         | –          | –     | –              | –              | ✅             |
