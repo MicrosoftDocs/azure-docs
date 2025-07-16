@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/create-single-tenant-workflows-templates.md",
+            "redirect_url": "/azure/logic-apps/create-workflows-from-templates",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/workflow-definition-language-functions-reference.md",
+            "redirect_url": "/azure/logic-apps/expression-functions-reference",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/create-workflow-with-trigger-or-action.md",
             "redirect_url": "/azure/logic-apps/add-trigger-action-workflow",
             "redirect_document_id": true

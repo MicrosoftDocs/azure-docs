@@ -177,7 +177,7 @@ This example shows how to create a container in the storage account:
 
 ### [Bicep](#tab/bicep)
 
-:::code language="bicep" source="~/function-flex-consumption/IaC/bicep/core/storage/storage-account.bicep" range="46-57" :::
+<! :::code language="bicep" source="~/function-flex-consumption/IaC/bicep/core/storage/storage-account.bicep" range="46-57" ::: >
 
 For the snippet in context, see [this deployment example](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/core/storage/storage-account.bicep#L46).
 
@@ -320,7 +320,7 @@ This example section creates Flex Consumption plan:
 
 ### [Bicep](#tab/bicep)
 
-:::code language="bicep" source="~/function-flex-consumption/IaC/bicep/core/host/function.bicep" range="21-33" :::
+<! :::code language="bicep" source="~/function-flex-consumption/IaC/bicep/core/host/function.bicep" range="21-33" ::: >
 
 For more context, see the complete [function.bicep](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/core/host/function.bicep#L21) file in the Flex Consumption plan sample repository.
 
@@ -795,7 +795,7 @@ Flex Consumption replaces many of the standard application settings and site con
  
 ### [Bicep](#tab/bicep)
 
-:::code language="bicep" source="~/function-flex-consumption/IaC/bicep/core/host/function.bicep" range="35-77" :::
+<! :::code language="bicep" source="~/function-flex-consumption/IaC/bicep/core/host/function.bicep" range="35-77" ::: >
 
 For more context, see the complete [function.bicep](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/core/host/function.bicep#L35) file in the Flex Consumption plan sample repository.
 
@@ -1224,7 +1224,7 @@ This example uses a system assigned managed identity to access the specified blo
 
 ### [Bicep](#tab/bicep)
 
-:::code language="bicep" source="~/function-flex-consumption/IaC/bicep/core/host/function.bicep" range="58-66" :::
+<! :::code language="bicep" source="~/function-flex-consumption/IaC/bicep/core/host/function.bicep" range="58-66" ::: >
 
 ### [ARM template](#tab/json)
 
@@ -1236,7 +1236,7 @@ When using managed identities, you must also enable the function app to access t
 
  ### [Bicep](#tab/bicep)
 
-:::code language="bicep" source="~/function-flex-consumption/IaC/bicep/core/host/function.bicep" range="81-90" :::
+<! :::code language="bicep" source="~/function-flex-consumption/IaC/bicep/core/host/function.bicep" range="81-90" ::: >
 
 For a complete reference example, see [this Bicep file](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/IaC/bicep/core/host/function.bicep).
 
