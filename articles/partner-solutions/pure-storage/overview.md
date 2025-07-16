@@ -35,8 +35,9 @@ The following features distinguish Azure Native Pure Storage Cloud and support e
 
 ## Subscribe to Azure Native Pure Storage Cloud
 
-<!--TODO: remove before publish-->
-**CONFIRM STEPS HERE**
+[!INCLUDE [subscribe](../includes/subscribe.md)] *Pure Storage Cloud*.
+
+[!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
 ## Azure Native Pure Storage Cloud links
 
