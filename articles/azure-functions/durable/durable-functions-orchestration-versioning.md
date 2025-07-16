@@ -37,7 +37,7 @@ Understanding this distinction is crucial for orchestration versioning, where th
 - **Minimal configuration**: Built-in feature requiring only basic `host.json` configuration.
 - **Backend agnostic**: Feature can be used by apps leveraging any of the Durable Function's [storage backends](durable-functions-storage-providers.md).
 
-### How It Works
+### How it works
 
 The Orchestration Versioning feature operates on these core principles:
 
@@ -57,7 +57,7 @@ The Orchestration Versioning feature operates on these core principles:
 
 The most common use case for Orchestration Versioning is when you need to make breaking changes to your orchestrator logic while keeping existing in-flight orchestration instances running with their original version. All you need to do is update the `defaultVersion` in your `host.json` and modify your orchestrator code to check the orchestration version and branch execution accordingly. Let's walk through the required steps.
 
-### Step 1: defaultVersion Configuration
+### Step 1: defaultVersion configuration
 
 To configure the default version for your orchestrations, you need to add or update the `defaultVersion` setting in the `host.json` file in your Azure Functions project:
 
@@ -79,7 +79,7 @@ The version string can follow any format that suits your versioning strategy:
 
 After you set the `defaultVersion`, all new orchestration instances will be permanently associated with that version.
 
-### Step 2: Orchestrator Function Logic
+### Step 2: Orchestrator function logic
 
 To implement version-aware logic in your orchestrator function, you can use the context parameter passed to the orchestrator to access the current orchestration instance's version, which allows you to branch your orchestrator logic based on the version.
 
@@ -118,7 +118,7 @@ public static async Task<string> RunOrchestrator(
 > [!TIP]
 > Depending on your situation, you may prefer branching on different levels. You can make a local change precisely where this change is required, like the example shows. Alternatively, you can branch at a higher level, even at the entire orchestrator implementation level, which introduces some code duplication, but may keep the execution flow clear. It's up to you to choose the approach that best fits your scenario and coding style.
 
-### What Happens After Deployment
+### What happens after deployment
 
 Here's what to expect once you deploy your updated orchestrator function with the new version logic:
 
@@ -136,7 +136,7 @@ Here's what to expect once you deploy your updated orchestrator function with th
 > [!NOTE]
 > The behavior described in this section targets the most common situations, and this is what the default configuration provides. However, it can be modified if needed (see [Advanced usage](#advanced-usage) for details).
 
-### Example: Replacing an Activity in the Sequence
+### Example: Replacing an activity in the sequence
 
 This example shows how to replace one activity with a different activity in the middle of a sequence using Orchestration Versioning.
 
@@ -227,7 +227,7 @@ For more sophisticated versioning scenarios, you can configure other settings to
 > [!TIP]
 > Use the default configuration (`CurrentOrOlder` with `Reject`) for most scenarios to enable safe rolling deployments while preserving orchestration state during version transitions. We recommend proceeding with the advanced configuration only if you have specific requirements that can't be met with the default behavior.
 
-### Version Matching
+### Version matching
 
 The `versionMatchStrategy` setting determines how the runtime matches orchestration versions when loading orchestrator functions. It controls which orchestration instances a worker can process based on version compatibility.
 
@@ -260,7 +260,7 @@ When the `CurrentOrOlder` strategy is selected, the runtime compares the orchest
 3. If both versions can be parsed as `System.Version`, semantic comparison is used.
 4. Otherwise, case-insensitive string comparison is performed.
 
-### Version Mismatch Handling
+### Version mismatch handling
 
 The `versionFailureStrategy` setting determines what happens when an orchestration instance version doesn't match the current `defaultVersion`.
 
@@ -282,7 +282,7 @@ The `versionFailureStrategy` setting determines what happens when an orchestrati
 
 - **`Fail`**: Fail the orchestration. This strategy immediately terminates the orchestration instance with a failure state, which may be appropriate in scenarios where version mismatches indicate serious deployment issues.
 
-### Starting New Orchestrations with Specific Versions
+### Starting new orchestrations with specific versions
 
 By default, all new orchestration instances are created with the current `defaultVersion` specified in your `host.json` configuration. However, you may have scenarios where you need to create orchestrations with a specific version, even if it differs from the current default.
 
@@ -319,7 +319,7 @@ public static async Task<HttpResponseData> HttpStart(
 > [!NOTE]
 > When you specify a version explicitly during orchestration creation, that version takes precedence over the `defaultVersion` in `host.json`. The orchestration instance will be permanently associated with the specified version, regardless of any future changes to the default version.
 
-### Removing Legacy Code Paths
+### Removing legacy code paths
 
 Over time, you may want to remove legacy code paths from your orchestrator functions to simplify maintenance and reduce technical debt. However, removing code must be done carefully to avoid breaking existing orchestration instances.
 
@@ -340,19 +340,19 @@ Over time, you may want to remove legacy code paths from your orchestrator funct
 
 ## Best practices
 
-### Version Management
+### Version management
 
 1. **Use semantic versioning**: Adopt a consistent versioning scheme like `major.minor.patch`.
 1. **Document breaking changes**: Clearly document what changes require a new version.
 1. **Plan version lifecycle**: Define when to remove legacy code paths.
 
-### Code Organization
+### Code organization
 
 1. **Separate version logic**: Use clear branching or separate methods for different versions.
 1. **Preserve determinism**: Never modify existing version logic once deployed.
 1. **Test thoroughly**: Test all version paths, especially during transitions.
 
-### Monitoring and Observability
+### Monitoring and observability
 
 1. **Log version information**: Include version in your logging for easier debugging.
 1. **Monitor version distribution**: Track which versions are actively running.
@@ -360,7 +360,7 @@ Over time, you may want to remove legacy code paths from your orchestrator funct
 
 ## Troubleshooting
 
-### Common Issues
+### Common issues
 
 - **Issue**: Orchestration instances created with version 1.0 are failing after deploying version 2.0
    - **Solution**: Ensure the version 1.0 code path in your orchestrator remains exactly the same. Any changes to the execution sequence may break deterministic replay.
