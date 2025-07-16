@@ -65,7 +65,7 @@ Some CI/CD pipeline managers have existing open-source plug-ins that can manage 
 
 ## Next steps
 
-- [Integrate DevTest Labs into Azure Pipelines](devtest-lab-integrate-ci-cd.md).
+- [Integrate DevTest Labs into Azure Pipelines](devtest-lab-integrate-ci-cd.md)
 - [Integrate environments into your CI/CD pipelines](integrate-environments-devops-pipeline.md)
 - [Use DevTest Labs in Azure Pipelines build and release pipelines](use-devtest-labs-build-release-pipelines.md)
  
