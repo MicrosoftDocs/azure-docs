@@ -1,18 +1,18 @@
 ---
 title: Migrate QRadar detection rules to Microsoft Sentinel | Microsoft Docs
-description: Identify, compare, and migrate your QRadar detection rules to Microsoft Sentinel analytics rules using Content Hub solutions.
+description: Identify, compare, and migrate your QRadar detection rules to Microsoft Sentinel analytics rules.
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
 ms.date: 07/03/2025
 
-#Customer intent: As a security engineer, I want to migrate QRadar detection rules to Microsoft Sentinel so that analysts can leverage machine learning analytics and content from Content Hub solutions for more efficient threat detection and incident response.
+#Customer intent: As a security engineer, I want to migrate QRadar detection rules to Microsoft Sentinel so that analysts can leverage machine learning analytics for more efficient threat detection and incident response.
 
 ---
 
 # Migrate QRadar detection rules to Microsoft Sentinel
 
-This article describes how to identify, compare, and migrate your QRadar detection rules to Microsoft Sentinel analytics rules available through Content Hub solutions.
+This article describes how to identify, compare, and migrate your QRadar detection rules to Microsoft Sentinel built-in rules.
 
 ## Identify and migrate rules
 
@@ -23,7 +23,7 @@ Microsoft Sentinel uses machine learning analytics to create high-fidelity and a
 - Check that you understand the [rule terminology](#compare-rule-terminology).
 - Review any rules that haven't triggered any alerts in the past 6-12 months, and determine whether they're still relevant.
 - Eliminate low-level threats or alerts that you routinely ignore.
-- Use existing functionality available through Content Hub solutions. Browse the [Content Hub](https://docs.microsoft.com/azure/sentinel/sentinel-solutions-catalog) to find solutions that contain analytics rule templates addressing your current use cases. Because Microsoft Sentinel uses machine learning analytics to produce high-fidelity and actionable incidents, it's likely that some of your existing detections won't be required anymore.
+- Use existing functionality and check whether Microsoft Sentinel’s [built-in analytics rules](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) might address your current use cases. Because Microsoft Sentinel uses machine learning analytics to produce high-fidelity and actionable incidents, it’s likely that some of your existing detections won’t be required anymore.
 - Confirm connected data sources and review your data connection methods. Revisit data collection conversations to ensure data depth and breadth across the use cases you plan to detect.
 - Explore community resources such as the [SOC Prime Threat Detection Marketplace](https://my.socprime.com/platform-overview/) to check whether your rules are available.
 - Consider whether an online query converter such as Uncoder.io might work for your rules. 
@@ -41,19 +41,16 @@ Learn more about [best practices for migrating detection rules](https://techcomm
 
     1. **Confirm that you have any required data sources connected,** and review your data connection methods.
 
-1. Verify whether your detections are available through Content Hub solutions in Microsoft Sentinel:
+1. Verify whether your detections are available as built in templates in the Content Hub:
 
-    - **If suitable analytics rule templates are available in Content Hub solutions**, install the relevant solutions and use the templates to create rules for your workspace.
+    - **If the built in rules are sufficient**, install the relevant solutions and use the templates to create rules for your workspace.
 
         1. In Microsoft Sentinel, go to **Content management > Content hub**.
-        2. Search for and install solutions that contain analytics rules relevant to your security scenarios.
-        3. After installing solutions, go to **Configuration > Analytics > Rule templates** tab.
-        4. Filter by solution name to find the templates from your installed solutions.
-        5. Create and configure each relevant analytics rule from the templates.
+        1. Search for and install the relevant analytics rule.
 
         For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md) and [Create scheduled analytics rules from templates](create-analytics-rule-from-template.md).
 
-    - **If you have detections that aren't covered by Content Hub solutions**, try an online query converter, such as [Uncoder.io](https://uncoder.io/) to convert your queries to KQL.
+    - **If you have detections that aren't covered by the built in rules available in theContent Hub**, try an online query converter, such as [Uncoder.io](https://uncoder.io/) to convert your queries to KQL.
 
         Identify the trigger condition and rule action, and then construct and review your KQL query.
 
@@ -63,7 +60,7 @@ Learn more about [best practices for migrating detection rules](https://techcomm
 
         1. **Identify any attributes, fields, or entities** in your data that you want to use in your rules.
 
-        1. **Identify your rule criteria and logic**. At this stage, you may want to examine analytics rule templates from Content Hub solutions as samples for how to construct your KQL queries.
+        1. **Identify your rule criteria and logic**. At this stage, you may want to use rule templates as samples for how to construct your KQL queries as samples for how to construct your KQL queries.
 
             Consider filters, correlation rules, active lists, reference sets, watchlists, detection anomalies, aggregations, and so on. You might use references provided by your legacy SIEM to understand [how to best map your query syntax](#map-and-compare-rule-samples).            
 
@@ -90,11 +87,10 @@ This table helps you to clarify the concept of a rule in Microsoft Sentinel comp
 |**Criteria** |Define in test condition |Define in KQL |
 |**Trigger condition** |Define in rule |Threshold: Number of query results |
 |**Action** |• Create offense<br>• Dispatch new event<br>• Add to reference set or data<br>• And more |• Create alert or incident<br>• Integrates with Logic Apps |
-|**Rule location** |Built into product |Available through Content Hub solutions |
 
 ## Map and compare rule samples
 
-Use these samples to compare and map rules from QRadar to Microsoft Sentinel in various scenarios. When creating custom rules in Microsoft Sentinel, consider first checking Content Hub for solutions that might contain similar rule templates.
+Use these samples to compare and map rules from QRadar to Microsoft Sentinel in various scenarios.
 
 |Rule  |Syntax |Sample detection rule (QRadar)  |Sample KQL query  |Resources  |
 |---------|---------|---------|---------|---------|
