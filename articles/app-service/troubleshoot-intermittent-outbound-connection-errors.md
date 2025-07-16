@@ -100,7 +100,7 @@ Although PHP doesn't support connection pooling, you can try using persistent da
 #### Python
 
 * [MySQL](https://dev.mysql.com/doc/connector-python/en/connector-python-connection-pooling.html)
-* [MariaDB](https://mariadb.com/docs/ent/connect/programming-languages/python/connection-pools/)
+* [MariaDB](https://mariadb.com/docs/connectors/mariadb-connector-python/api/pool/)
 * [PostgreSQL](https://www.psycopg.org/docs/pool.html)
 * [Pyodbc](https://github.com/mkleehammer/pyodbc/wiki/The-pyodbc-Module#pooling)
 * [SQLAlchemy](https://docs.sqlalchemy.org/en/20/core/pooling.html)

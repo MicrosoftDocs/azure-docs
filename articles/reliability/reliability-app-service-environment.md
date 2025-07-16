@@ -13,9 +13,9 @@ ms.date: 07/16/2025
 
 # Reliability in Azure App Service Environment
 
-Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale. Unlike the App Service public multitenant offering where supporting infrastructure is shared, with App Service Environment, compute is dedicated to a single customer.
+Azure App Service Environment is an Azure App Service feature that provides a fully Isolated v2 and dedicated environment for running App Service apps securely at high scale. Unlike the App Service public multitenant offering where supporting infrastructure is shared, with App Service Environment, compute is dedicated to a single customer.
 
-Azure App Service Environment offers enhanced reliability features through its dedicated, isolated infrastructure. This dedicated environment provides better control over scaling, security, and availability compared to the multitenant App Service offering. The isolated nature of App Service Environment allows for more predictable performance and reduces the impact of noisy neighbor scenarios that can affect reliability in shared environments.
+Azure App Service Environment offers enhanced reliability features through its dedicated, Isolated v2 infrastructure. This dedicated environment provides better control over scaling, security, and availability compared to the multitenant App Service offering. The Isolated v2 nature of App Service Environment allows for more predictable performance and reduces the impact of noisy neighbor scenarios that can affect reliability in shared environments.
 
 Key reliability benefits include dedicated compute resources that aren't shared with other customers, enhanced network isolation for improved security and stability, and the ability to deploy in your own virtual network for greater control over traffic routing and security policies.
 
@@ -26,13 +26,13 @@ This article describes reliability support in [Azure App Service Environment](..
 
 ## Production deployment recommendations
 
-[Enable zone redundancy](#availability-zone-support) on your environment, which requires that your App Service Isolated plans use a minimum of two instances. For more information, see [Instance distribution across zones](../reliability/reliability-app-service.md#instance-distribution-across-zones).
+[Enable zone redundancy](#availability-zone-support) on your environment, which requires that your App Service Isolated v2 plans use a minimum of two instances. For more information, see [Instance distribution across zones](../reliability/reliability-app-service.md#instance-distribution-across-zones).
 
 ## Reliability architecture overview
 
-When you implement [Azure App Service Environment](/azure/app-service/environment/overview), you deploy the environment as the container for your Isolated tier App Service plans and web apps. During the set-up procedure for your environment, you configure core networking settings and optional hardware isolation. You also choose whether or not to support zone redundancy on the environment, if the region supports availability zones.
+When you implement [Azure App Service Environment](/azure/app-service/environment/overview), you deploy the environment as the container for your Isolated v2 tier App Service plans and web apps. During the set-up procedure for your environment, you configure core networking settings and optional hardware isolation. You also choose whether or not to support zone redundancy on the environment, if the region supports availability zones.
 
-After you have created your environment, then you can create one or more [Isolated App Service plans](../app-service/overview-hosting-plans.md).
+After you have created your environment, then you can create one or more [Isolated v2 App Service plans](../app-service/overview-hosting-plans.md).
 
 For further information on reliability architecture in Azure App Service, see [Reliability in Azure App Service](./reliability-app-service.md#reliability-architecture-overview).
 
@@ -47,13 +47,13 @@ For information on transient fault handling in Azure App Service, see [Reliabili
 [!INCLUDE [Availability zone support description](includes/reliability-availability-zone-description-include.md)]
 
 
-Your App Service Environment can be configured as *zone redundant*, which means that your App Service Isolated plans are distributed across multiple availability zones. 
+Your App Service Environment can be configured as *zone redundant*, which means that your App Service Isolated v2 plans are distributed across multiple availability zones. 
 
 However, you can enable or disable zone redundancy on each plan, regardless of the setting on the App Service Environment. This means that you can have some plans in your environment that are zone redundant and others that aren't.
 
 ### Instance distribution across zones
 
-When you create a zone-redundant App Service plan in your environment, the instances of your App Service Isolated plan are distributed across the availability zones in the region. For more information, see [Instance distribution across zones](../reliability/reliability-app-service.md#instance-distribution-across-zones).
+When you create a zone-redundant Isolated v2 App Service plan in your environment, the instances of your App Service Isolated v2 plan are distributed across the availability zones in the region. For more information, see [Instance distribution across zones](../reliability/reliability-app-service.md#instance-distribution-across-zones).
 
 ### Region support
 
@@ -64,7 +64,7 @@ To see which regions support availability zones for App Service Environment v3, 
 
 To enable zone-redundancy for your App Service Environment you must:
 
-- Use [Isolated v2 plan types](/azure/app-service/overview-hosting-plans) and have a minimum of two instances of the plan.
+- Use [Isolated v2 v2 plan types](/azure/app-service/overview-hosting-plans) and have a minimum of two instances of the plan.
 
 - Deploy a minimum of two instances in your plan.
 
@@ -163,7 +163,7 @@ For service maintenance in Azure App Service, see [Reliability in Azure App Serv
 
 The service-level agreement (SLA) for App Service Environment describes the expected availability of the service and the conditions that must be met to achieve that availability expectation. For more information, see [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
-When you deploy a zone-redundant App Service Isolated plan, the uptime percentage defined in the SLA increases.
+When you deploy a zone-redundant App Service Isolated v2 plan, the uptime percentage defined in the SLA increases.
 
 ## Related content
 
