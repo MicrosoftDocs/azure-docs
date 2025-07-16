@@ -186,7 +186,7 @@ This change adds a new function call to *SendNotification* between *Foo* and *Ba
 Here are some of the strategies for dealing with versioning challenges:
 
 * Do nothing (not recommended)
-* Orchestration Versioning (recommended in most cases)
+* Orchestration versioning (recommended in most cases)
 * Stop all in-flight instances
 * Side-by-side deployments
 
@@ -204,11 +204,11 @@ Because of these potential failures, the "do nothing" strategy is not recommende
 ### Orchestration versioning
 
 > [!NOTE]
-> Orchestration Versioning is currently in public preview.
+> Orchestration versioning is currently in public preview.
 
-The Orchestration Versioning feature allows different versions of orchestrations to coexist and execute concurrently without conflicts and non-determinism issues, making it possible to deploy updates while allowing in-flight orchestration instances to complete without manual intervention.
+The orchestration versioning feature allows different versions of orchestrations to coexist and execute concurrently without conflicts and non-determinism issues, making it possible to deploy updates while allowing in-flight orchestration instances to complete without manual intervention.
 
-With Orchestration Versioning:
+With orchestration versioning:
 - Each orchestration instance gets a version permanently associated with it when created
 - Orchestrator functions can examine their version and branch execution accordingly  
 - Workers running newer orchestrator function versions can continue executing orchestration instances created by older versions
@@ -216,7 +216,7 @@ With Orchestration Versioning:
 
 This strategy is recommended for applications that need to support breaking changes while maintaining [zero-downtime deployments](durable-functions-zero-downtime-deployment.md). The feature is currently available .NET isolated apps.
 
-For detailed configuration and implementation guidance, see [Orchestration Versioning in Durable Functions](durable-functions-orchestration-versioning.md).
+For detailed configuration and implementation guidance, see [Orchestration versioning in Durable Functions](durable-functions-orchestration-versioning.md).
 
 ### Stop all in-flight instances
 
@@ -248,7 +248,7 @@ When doing side-by-side deployments in Azure Functions or Azure App Service, we 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about Orchestration Versioning](durable-functions-orchestration-versioning.md)
+> [Learn about orchestration versioning](durable-functions-orchestration-versioning.md)
 
 > [!div class="nextstepaction"]
 > [Learn about using and choosing storage providers](durable-functions-storage-providers.md)
