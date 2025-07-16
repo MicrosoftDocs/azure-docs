@@ -8,6 +8,8 @@ ms.author: adjohnso
 
 # Plan your CycleCloud production deployment
 
+Before you deploy Azure CycleCloud in a production environment, you need to carefully plan your infrastructure, configuration, and operational processes. This article provides guidance on key decisions and requirements to ensure a successful and reliable CycleCloud deployment. It covers initial setup, application integration, data management, and disaster recovery.
+
 ## Azure CycleCloud deployment
 
 * Choose the version of CycleCloud to deploy:

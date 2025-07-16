@@ -1,6 +1,6 @@
 ---
 title: Projects
-description: Learn about projects in Azure CycleCloud. A project is a collection of resources which define node configurations. Projects contain specs.
+description: Learn about projects in Azure CycleCloud. A project is a collection of resources that define node configurations. Projects contain specs.
 author: KimliW
 ms.date: 07/01/2025
 ms.author: adjohnso
@@ -32,7 +32,7 @@ A **locker** is a reference to a storage account container and credential. Nodes
 
 Azure CycleCloud uses a shorthand for storage accounts. For example, you can write _`https://mystorage.blob.core.windows.net/mycontainer`_ as _az://mystorage/mycontainer_.
 
-The node uses the pogo tool to download each project it references from the locker:
+The node uses the `pogo` tool to download each project it references from the locker:
 
 ```azurecli-interactive
 pogo get az://mystorage/mycontainer/projects/okta/1.3.0/bind
@@ -48,7 +48,7 @@ You're responsible for mirroring any extra projects to the locker. The [CycleClo
 cyclecloud project init myproject
 ```
 
-and mirror projects to lockers:
+And, mirror projects to lockers:
 
 ```azurecli-interactive
 cyclecloud project init mylocker
