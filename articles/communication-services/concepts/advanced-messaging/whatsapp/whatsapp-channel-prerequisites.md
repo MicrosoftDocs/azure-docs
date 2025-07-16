@@ -60,7 +60,10 @@ Make sure the phone number has the following capabilities:
 1. Able to receive SMS so your phone number can be verified by Meta
 2. Phone number isn't already associated with a WhatsApp Business Account
 
-## Setup and Deploy Event Grid Viewer
+If you're using an Azure Communication Services phone number, continue to follow the [subsequential steps](#setup-and-deploy-event-grid-viewer). 
+If you're bringing your own phone number, jump to next [section](#connect-whatsapp-business-account-as-a-channel-in-azure-communication-services-resource). 
+
+### Setup and Deploy Event Grid Viewer
 
 The following steps are only needed if you chose to use an Azure Communication Services phone number with SMS enabled. The Event Grid Viewer displays notification information for events it's subscribed to.
 
@@ -91,12 +94,12 @@ The following steps are only needed if you chose to use an Azure Communication S
 
     :::image type="content" source="./media/event-grid-viewer-web-app.png" lightbox="./media/event-grid-viewer-web-app.png" alt-text="Screenshot that shows URL of Event Grid Viewer web app.":::
 
-7. Launch that site in your browser and keep it running so you can receive the verification code when you're [linking your WhatsApp business account to Azure Communication Services resource](#link-whatsapp-business-account-as-a-channel-in-azure-communication-services-resource). The Event Grid Viewer should look like this.
+7. Launch that site in your browser and keep it running so you can receive the verification code when you're [connecting your WhatsApp business account to Azure Communication Services resource](#connect-whatsapp-business-account-as-a-channel-in-azure-communication-services-resource). The Event Grid Viewer should look like this.
 
     :::image type="content" source="./media/event-grid-viewer-site.png" lightbox="./media/event-grid-viewer-site.png" alt-text="Screenshot that shows the Event Grid Viewer web app.":::
 
 
-## Subscribe to SMS received event
+### Subscribe to SMS received event
 
 Getting the verification code is required to link your WhatsApp business account to Azure Communication Services resource. Follow these instructions to have the [Azure Event Grid subscribe to the SMS Received event](../../../quickstarts/sms/handle-sms-events#subscribe-to-sms-events-by-using-web-hooks).
 
