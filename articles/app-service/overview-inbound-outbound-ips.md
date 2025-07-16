@@ -111,12 +111,12 @@ The tag can be used to allow outbound traffic in a Network security group (NSG) 
 > [!NOTE]
 > Service tag helps you define network access, but it shouldn't be considered as a replacement for proper network security measures as it doesn't provide granular control over individual IP addresses.
 
-## Inbound IPv6 support
+## Inbound IPv6 support (public preview)
 
 Azure App Service supports IPv6 for inbound traffic. Apps can receive traffic over both IPv4 and IPv6 protocols, providing compatibility with modern networks and clients that require IPv6 connectivity.
 
 > [!NOTE]
-> Outbound IPv6 support is in public preview for Windows apps. For more information, see [Announcing App Service Outbound IPv6 Support in Public Preview](https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-app-service-outbound-ipv6-support-in-public-preview/4423368). All outbound connections from your Linux apps still use IPv4.
+> Inbound IPv6 support is in public preview. Outbound IPv6 support is in public preview just for Windows apps. For more information on outbound IPv6 support, see [Announcing App Service Outbound IPv6 Support in Public Preview](https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-app-service-outbound-ipv6-support-in-public-preview/4423368). All outbound connections from your Linux apps still use IPv4.
 
 ### Prerequisites
 
