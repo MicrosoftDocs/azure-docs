@@ -20,7 +20,7 @@ Jupyter notebooks provide an interactive environment for exploring, analyzing, a
 This article shows you how to explore and interact with data lake data using Jupyter notebooks in Visual Studio Code. 
 
 > [!NOTE]  
-> The Microsoft Sentinel extension is currently in Public Preview. Some functionality and performance limits may change as new releases are made available.  
+> The Microsoft Sentinel extension is currently in preview. Some functionality and performance limits may change as new releases are made available.  
  
 ## Prerequisites
 
@@ -177,28 +177,51 @@ You can schedule jobs to run at specific times or intervals using the Microsoft 
 
 The following table lists common errors you may encounter when working with notebooks, their root causes and suggested actions to resolve them.
 
-| Area | Error message | Display surface | Message description  | Root cause | Suggested action |
-|-------|--------------|-----------------|----------------------|------------|------------------|
-| Spark compute | LIVY_JOB_TIMED_OUT: Livy session has failed. Session state: Dead. Error code: LIVY_JOB_TIMED_OUT. Job failed during run time with state=[dead]. Source: Unknown.  | In-Line. | Session timed out or user stopped the session. | Session timed out or user stopped the session.  | Execute the cell again.  |
-| Spark compute | Not enough capacity is available. User requested for X vCores but only {number-of-cores} vCores are available. | Output channel – “Window”. | Spark compute pool not available. | Compute pool hasn't started or is being used by other users or jobs. | Retry with a smaller pool, stop any active Notebooks locally, or stop any active Notebook Job Runs. |
-| Spark compute | Unable to access Spark Pool – 403 Forbidden. | Output channel – “Window”. | Spark pools aren't displayed. | User doesn't have the required roles to run interactive notebook or schedule job. | Check if you have the required role for interactive notebooks or notebook jobs. |
-| Spark compute | Spark Pool – \<name\> – is being upgraded. | Toast alert. | One of the Spark pools is Not available. | Spark pool is being upgraded to the latest version of Microsoft Sentinel Provider. | Wait for ~20-30 mins for the Pool to be available. |
-| Spark compute | An error occurred while calling z:org.apache.spark.api.python.PythonRDD.collectAndServe. : org.apache.spark.SparkException: Job aborted due to stage failure: Total size of serialized results (4.0 GB) is bigger than spark.driver.maxResultSize (4.0 GB) | Inline. | Driver memory exceeded or executor failure. | Job ran out of driver memory, or one or more executors failed. | View job run logs or optimize your query. Avoid using toPandas() on large datasets. Consider setting `spark.conf.set("spark.sql.execution.arrow.pyspark.enabled", "true")` if needed. |
-|Spark compute|	Failed to connect to the remote Jupyter Server 'https://api.securityplatform.microsoft.com/spark-notebook/interactive'. Verify the server is running and reachable.|	Toast alert |	User stopped the session, and failed to connect to server. |	User stopped the session.	| Run the cell again to reconnect the session.|
-| VS Code Runtime | Kernel with id – k1 - has been disposed. | Output channel – “Jupyter”. | Kernel not connected. | VS Code lost connection to the compute kernel. | Reselect the Spark pool and execute a cell. |
-| VS Code Runtime | ModuleNotFoundError: No module named 'MicrosoftSentinelProvider'. | Inline. | Module not found. | Missing import for example, Microsoft Sentinel Library library | Run the setup/init cell again. |
-| VS Code Runtime | Cell In[{cell number}], line 1 if: ^ SyntaxError: invalid syntax. | Inline. | Invalid syntax. | Python or PySpark syntax error. | Review code syntax; check for missing colons, parentheses, or quotes. |
-| VS Code Runtime | NameError Traceback (most recent call last) Cell In[{cell number}], line 1 ----> 1 data_loader12 NameError: name 'data_loader' is not defined. | Inline. | Unbound variable. | Variable used before assignment. | Ensure all required setup cells were run in order. |
-| Interactive notebook | {"level": "ERROR", "run_id": "...", "message": "Error loading table {table-name}: No container of kind 'DeltaParquet' found for table '...\|{table-name}'."}. | Inline. | The specified source table doesn't exist.  | One or more source tables don't exist in the given workspaces. The table may have been recently deleted from your workspace | Verify if source tables exist in the workspace. |
-| Interactive notebook | {"level": "ERROR", "run_id": "...", "message": "Database Name {table-name} doesnt exist."}. | Inline. | The workspace or database name provided in the query is invalid or inaccessible.  | The referenced database doesn't exist. | Confirm the database name is correct. |
-| Interactive notebook | 401 Unauthorized. | Output channel – “Window”. | Gateway 401 error. | Gateway has a 1 hour timeout that was reached. | Run a cell again to establish a new connection. |
-| Library | 403 Forbidden. | Inline. | Access denied. | User doesn’t have permission to read/write/delete the specified table. | Verify user has the role required. |
-| Library | TableOperationException: Error saving DataFrame to table {table-name}_SPRK: 'schema'. | Inline. | Schema mismatch on write. | save_as_table() is writing data that doesn’t match the existing schema. | Check the dataframe schema and align it with the destination table. |
-| Library | {"level": "ERROR", "run_id": "...", "message": "Error saving DataFrame to table {table-name}: Tables created in MSG database must have suffix '_SPRK'"}. | Inline. | Missing suffix _SPRK for writing table to data lake. | save_as_table() is writing data to a table that requires _SPRK. | Add _SPRK as suffix for writing to a custom table in the data lake. |
-| Library.| {"level": "ERROR", "run_id": "...", "message": "Error saving DataFrame to table siva_test_0624_1: Tables created in LA database must have suffix '_SPRK_CL'"}. | Inline. | Missing suffix _SPRK_CL for writing table to analytics tier | save_as_table() is writing data to a table that requires _SPRK_CL. | Add _SPRK_CL as suffix for writing to custom table in analytics tier. |
-| Library | {"level": "ERROR", "run_id": "...", "message": "Error saving DataFrame to table EntraUsers: Tables created in MSG database must have suffix '_SPRK'"}. | Inline. | Invalid write. | Attempted to write to system table, this action isn't permitted.  | Specify a custom table to write to. |
-| Library | TypeError: DataProviderImpl.save_as_table() missing 1 required positional argument: 'table_name'. | Inline. | Invalid notebook. | Incorrect arguments passed to a library method (for example, missing ‘mode’ in save_as_table). | Validate parameter names and values. Refer to method documentation. |
-| Job | Job Run status shows the Status as Failed. | Inline. | Job Run failure. | The notebook is corrupted or contains unsupported syntax for scheduled execution. | Open the Notebook Run Snapshot and validate that all cells run sequentially without manual input. |
+### Spark compute
+
+| **Error message** | Display surface | Message description  | Root cause | Suggested action |
+|-------------------|-----------------|----------------------|------------|------------------|
+| **LIVY_JOB_TIMED_OUT: Livy session has failed. Session state: Dead. Error code: LIVY_JOB_TIMED_OUT. Job failed during run time with state=[dead]. Source: Unknown.**  | In-Line. | Session timed out or user stopped the session. | Session timed out or user stopped the session.  | Execute the cell again.  |
+| **Not enough capacity is available. User requested for X vCores but only {number-of-cores} vCores are available.** | Output channel – “Window”. | Spark compute pool not available. | Compute pool hasn't started or is being used by other users or jobs. | Retry with a smaller pool, stop any active Notebooks locally, or stop any active Notebook Job Runs. |
+| **Unable to access Spark Pool – 403 Forbidden.** | Output channel – “Window”. | Spark pools aren't displayed. | User doesn't have the required roles to run interactive notebook or schedule job. | Check if you have the required role for interactive notebooks or notebook jobs. |
+| **Spark Pool – \<name\> – is being upgraded.** | Toast alert. | One of the Spark pools is Not available. | Spark pool is being upgraded to the latest version of Microsoft Sentinel Provider. | Wait for ~20-30 mins for the Pool to be available. |
+| **An error occurred while calling z:org.apache.spark.api.python.PythonRDD.collectAndServe. : org.apache.spark.SparkException: Job aborted due to stage failure: Total size of serialized results (4.0 GB) is bigger than spark.driver.maxResultSize (4.0 GB)** | Inline. | Driver memory exceeded or executor failure. | Job ran out of driver memory, or one or more executors failed. | View job run logs or optimize your query. Avoid using toPandas() on large datasets. Consider setting `spark.conf.set("spark.sql.execution.arrow.pyspark.enabled", "true")` if needed. |
+| **Failed to connect to the remote Jupyter Server 'https://api.securityplatform.microsoft.com/spark-notebook/interactive'. Verify the server is running and reachable.**|	Toast alert |	User stopped the session, and failed to connect to server. |	User stopped the session.	| Run the cell again to reconnect the session.|
+
+### VS Code Runtime
+
+| **Error message** | Display surface | Message description  | Root cause | Suggested action |
+|-------------------|-----------------|----------------------|------------|------------------|
+| **Kernel with id – k1 - has been disposed.** | Output channel – “Jupyter”. | Kernel not connected. | VS Code lost connection to the compute kernel. | Reselect the Spark pool and execute a cell. |
+| **ModuleNotFoundError: No module named 'MicrosoftSentinelProvider'.** | Inline. | Module not found. | Missing import for example, Microsoft Sentinel Library library | Run the setup/init cell again. |
+| **Cell In[{cell number}], line 1 if: ^ SyntaxError: invalid syntax.** | Inline. | Invalid syntax. | Python or PySpark syntax error. | Review code syntax; check for missing colons, parentheses, or quotes. |
+| **NameError Traceback (most recent call last) Cell In[{cell number}], line 1 ----> 1 data_loader12 NameError: name 'data_loader' is not defined.** | Inline. | Unbound variable. | Variable used before assignment. | Ensure all required setup cells were run in order. |
+
+### Interactive notebooks
+
+| **Error message** | Display surface | Message description  | Root cause | Suggested action |
+|-------------------|-----------------|----------------------|------------|------------------|
+| **{"level": "ERROR", "run_id": "...", "message": "Error loading table {table-name}: No container of kind 'DeltaParquet' found for table '...\|{table-name}'."}.** | Inline. | The specified source table doesn't exist.  | One or more source tables don't exist in the given workspaces. The table may have been recently deleted from your workspace | Verify if source tables exist in the workspace. |
+| **{"level": "ERROR", "run_id": "...", "message": "Database Name {table-name} doesnt exist."}.** | Inline. | The workspace or database name provided in the query is invalid or inaccessible.  | The referenced database doesn't exist. | Confirm the database name is correct. |
+| **401 Unauthorized.** | Output channel – “Window”. | Gateway 401 error. | Gateway has a 1 hour timeout that was reached. | Run a cell again to establish a new connection. |
+
+### Library
+
+| **Error message** | Display surface | Message description  | Root cause | Suggested action |
+|-------------------|-----------------|----------------------|------------|------------------|
+| **403 Forbidden.** | Inline. | Access denied. | User doesn’t have permission to read/write/delete the specified table. | Verify user has the role required. |
+| **TableOperationException: Error saving DataFrame to table {table-name}_SPRK: 'schema'.** | Inline. | Schema mismatch on write. | save_as_table() is writing data that doesn’t match the existing schema. | Check the dataframe schema and align it with the destination table. |
+| **{"level": "ERROR", "run_id": "...", "message": "Error saving DataFrame to table {table-name}: Tables created in MSG database must have suffix '_SPRK'"}**. | Inline. | Missing suffix _SPRK for writing table to data lake. | save_as_table() is writing data to a table that requires _SPRK. | Add _SPRK as suffix for writing to a custom table in the data lake. |
+| **{"level": "ERROR", "run_id": "...", "message": "Error saving DataFrame to table siva_test_0624_1: Tables created in LA database must have suffix '_SPRK_CL'"}**. | Inline. | Missing suffix _SPRK_CL for writing table to analytics tier | save_as_table() is writing data to a table that requires _SPRK_CL. | Add _SPRK_CL as suffix for writing to custom table in analytics tier. |
+| **{"level": "ERROR", "run_id": "...", "message": "Error saving DataFrame to table EntraUsers: Tables created in MSG database must have suffix '_SPRK'"}**. | Inline. | Invalid write. | Attempted to write to system table, this action isn't permitted.  | Specify a custom table to write to. |
+| **TypeError: DataProviderImpl.save_as_table() missing 1 required positional argument: 'table_name'.** | Inline. | Invalid notebook. | Incorrect arguments passed to a library method (for example, missing ‘mode’ in save_as_table). | Validate parameter names and values. Refer to method documentation. |
+
+### Jobs
+
+| **Error message** | Display surface | Message description  | Root cause | Suggested action |
+|-------------------|-----------------|----------------------|------------|------------------|
+| **Job Run status shows the Status as Failed.** | Inline. | Job Run failure. | The notebook is corrupted or contains unsupported syntax for scheduled execution. | Open the Notebook Run Snapshot and validate that all cells run sequentially without manual input. |
+
 
 
 
