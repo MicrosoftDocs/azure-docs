@@ -115,7 +115,7 @@ When you send a message using a Messaging Connect number, your request must incl
 The `messagingConnect` object is required whenever you use a number provisioned through Messaging Connect. If it’s missing or misconfigured, your message will not be accepted.
 Once this metadata is included, Azure performs validation checks in two stages: first, immediately upon receiving your request, and later, after it’s submitted to the partner.
 
-##### 1. Synchronous Validation (Happens Immediately)
+##### 1. Synchronous Validation
 This is the first layer of validation, and it happens the moment your message request is received. If something is missing or invalid—such as the partner name, the API key, or the association between the number and your ACS resource—you’ll receive an immediate error response. This prevents messages from being sent incorrectly or routed to the wrong provider.
 Common validation outcomes:
 
@@ -130,7 +130,7 @@ Common validation outcomes:
 
 These errors are returned synchronously in your API response and will also appear in Azure diagnostics and logs.
 
-##### 2. Asynchronous Delivery Errors (Reported Later)
+##### 2. Asynchronous Delivery Errors
 
 If your request passes synchronous validation, it’s not guaranteed to be handed off to the Messaging Connect partner. There are scenarios where ACS will stop the message before handoff—for example, if the recipient has previously opted out or if there’s a known delivery block from the partner. These situations still result in a delivery report, so you’re always informed of the message outcome.
 Once a message is passed to the partner, any downstream delivery failures—like number unreachable, expired validity period, or carrier-level rejection—are also returned asynchronously via delivery reports. You can view delivery statuses in:
@@ -364,7 +364,7 @@ await smsClient.send(
 ```
 
 > [!TIP]
-> If you're using a Messaging Connect number but don’t include the `messagingConnect` object, the request will fail with a validation error. 
+> If you're using a Messaging Connect number but don’t include the `messagingConnect` object, the request will fail with a validation error. For more details [See Table of Synchronous Validation](##### 1. Synchronous Validation)
 
 **SMS Error Codes**
 
