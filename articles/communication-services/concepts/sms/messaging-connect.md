@@ -302,35 +302,34 @@ After the partner assigns the numbers to you, they initiate the sync with ACS. A
 :::image type="content" source="./media/mc-provision-number-6.png" alt-text="Provisioned numbers appear in ACS." lightbox="./media/mc-provision-number-6.png":::
 
 > [!NOTE]
-> The approval and activation timeline is determined by the Messaging Connect partner and varies by country and number type. Messaging Connect does not currently support instant provisioning, and Microsoft is not involved in the vetting or approval process.
+> The Messaging Connect partner sets the approval and activation timeline, which varies by country and number type. Messaging Connect does not currently support instant provisioning, and Microsoft is not involved in the vetting or approval process.
 
 **Important notes:**
-- Microsoft does not manage compliance or vetting for Messaging Connect numbers. This is handled entirely by the partner.
+- Microsoft does not manage compliance or vetting for Messaging Connect numbers. The partner handles this process entirely.
 - Each partner has different provisioning flows and service-level agreements (SLAs) depending on the region and local telecom regulations.
-- Numbers acquired through Messaging Connect will appear in the Azure portal with a “Operator Name” label so you can distinguish them from ACS-managed numbers.
+- Numbers acquired through Messaging Connect appear in the Azure portal with an "Operator Name" label so you can distinguish them from ACS-managed numbers.
 - To send messages with these numbers, don’t forget to include the `MessagingConnect` object in your API request. 
 
 
 ### SMS SDK Tutorial 
 
-Messaging Connect uses the same SMS APIs and SDKs as the rest of Azure Communication Services. If you've already followed the [Send SMS Quickstart](https://learn.microsoft.com/azure/communication-services/quickstarts/sms/send?tabs=linux&pivots=programming-language-csharp), you're already 90% of the way there. Make sure to use the ‘Send SMS with options’ method.
-
-There’s no separate SDK or client for Messaging Connect. You authenticate, create your `SmsClient`, and call the send method just as you would for any other ACS number. The only difference is that your request must include a `MessagingConnect` object in the options field when you're using a number provisioned through Messaging Connect.
-
 > [!IMPORTANT]
-> These are the API and SDK versions supported during the Messaging Connect Public Preview:
+> The following API and SDK versions are supported during the Messaging Connect Public Preview:
 >
 > - **API version:** `2025-05-29-preview`
 > - **JavaScript SDK:** [`1.2.0-beta.4`](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/communication-sms/CHANGELOG.md)
 > - **.NET SDK:** [`1.1.0-beta.3`](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.Sms/CHANGELOG.md)
 
+Messaging Connect uses the same SMS APIs and SDKs as the rest of Azure Communication Services. If you've already followed the [Send SMS Quickstart](https://learn.microsoft.com/azure/communication-services/quickstarts/sms/send?tabs=linux&pivots=programming-language-csharp), you're already 90% of the way there. Make sure to use the ‘Send SMS with options’ method.
+
+There’s no separate SDK or client for Messaging Connect. You authenticate, create your `SmsClient`, and call the send method just as you would for any other ACS number. The only difference is that your request must include a `MessagingConnect` object in the options field when you're using a number provisioned through Messaging Connect.
 
 This object contains:
-- The partner name (e.g., "infobip")
+- The partner name (for example, "infobip")
 - The partner API key you received after acquiring the number
 
-Your ACS token continues to authorize the request to Azure, and the partner key tells Azure how to route the message.
-Below are example snippets for C# and JavaScript showing how to send a message with Messaging Connect.
+Your Azure Communication Services token continues to authorize the request to Azure, and the partner key tells Azure Communication Services how to route the message.
+The following examples show how to send a message with Messaging Connect using C# and JavaScript.
 
 **C# Example**
 
@@ -364,7 +363,7 @@ await smsClient.send(
 ```
 
 > [!TIP]
-> If you're using a Messaging Connect number but don’t include the `messagingConnect` object, the request will fail with a validation error. For a list of possible validation errors and responses, [jump to the validation outcomes table](#1-synchronous-validation).
+> If you're using a Messaging Connect number but don’t include the messagingConnect object, the request fails with a validation error. For a list of possible validation errors and responses, [jump to the validation outcomes table](#1-synchronous-validation).
 
 **SMS Error Codes**
 
