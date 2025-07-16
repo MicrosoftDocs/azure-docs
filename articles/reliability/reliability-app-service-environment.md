@@ -116,15 +116,6 @@ For an example approach that illustrates this architecture, see [High availabili
 
 
 
-## Backups
-
-For back information in App Service, see [Reliability in Azure App Service - Backups](../reliability/reliability-app-service.md#backups).
-
-
-## Reliability during service maintenance
-
-For service maintenance in Azure App Service, see [Reliability in Azure App Service - Service maintenance](../reliability/reliability-app-service.md#reliability-during-service-maintenance).
-
 ## Service-level agreement (SLA)
 
 The service-level agreement (SLA) for App Service Environment describes the expected availability of the service and the conditions that must be met to achieve that availability expectation. For more information, see [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
@@ -134,3 +125,5 @@ When you deploy a zone-redundant App Service Isolated v2 plan, the uptime percen
 ## Related content
 
 - [Reliability in Azure](./overview.md)
+- For information on Backups in App Service, see [Reliability in Azure App Service - Backups](../reliability/reliability-app-service.md#backups).
+- For service maintenance in Azure App Service, see [Reliability in Azure App Service - Service maintenance](../reliability/reliability-app-service.md#reliability-during-service-maintenance).
