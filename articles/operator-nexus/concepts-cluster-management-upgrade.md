@@ -24,7 +24,7 @@ Cluster Manager update is triggered independently when the release is available 
 There's no disruption to running workloads or instantiating new workloads, and on-premises resources retain availability throughout the upgrade. Therefore, the customer sees no impact. 
 
 ## Duration of on-premises updates
-These updates take up to one hour to complete per cluster.
+Updates take up to one hour to complete per cluster.
 
 ## Related Information
 For concepts on Network Fabric management upgrades, see [Azure Operator Nexus Network Fabric management upgrade overview](./concepts-fabric-management-upgrade.md).
