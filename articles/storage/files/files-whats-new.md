@@ -24,7 +24,7 @@ The provisioned v2 model for Azure Files SSD (premium) pairs predictability of t
 To learn more, see [understanding the provisioned v2 model](./understanding-billing.md#provisioned-v2-model).
 
 #### Azure File Sync Agent now available via Azure Arc extension
-Windows servers connected through Azure Arc can now install the Azure File Sync agent using a new extension called Azure File Sync Agent for Windows. The new extension is published by Microsoft and can be managed using the Azure Portal, PowerShell, or Azure CLI. To learn more, see the [Azure File Sync agent extension documentation](../file-sync/file-sync-extension.md).
+Windows servers connected through Azure Arc can now install the Azure File Sync agent using a new extension called Azure File Sync Agent for Windows. The new extension is published by Microsoft and can be managed using the Azure portal, PowerShell, or Azure CLI. To learn more, see the [Azure File Sync agent extension documentation](../file-sync/file-sync-extension.md).
 
 ### 2025 quarter 2 (April, May, June)
 
@@ -56,7 +56,7 @@ Data plane REST API access to NFS Azure file shares will enable further developm
 
 #### Support for customer initiated LRS-ZRS redundancy conversion for SSD file shares
 
-Azure Files now supports customer initiated LRS to ZRS (and vice versa) redundancy conversions for SSD file shares. NFS file shares supported if using private endpoints. You can easily manage the migration of your storage accounts through the Azure Portal, PowerShell, or CLI. To learn more, see [Azure Files data redundancy](files-redundancy.md).
+Azure Files now supports customer initiated LRS to ZRS (and vice versa) redundancy conversions for SSD file shares. NFS file shares supported if using private endpoints. You can easily manage the migration of your storage accounts through the Azure portal, PowerShell, or CLI. To learn more, see [Azure Files data redundancy](files-redundancy.md).
 
 ## What's new in 2024
 
