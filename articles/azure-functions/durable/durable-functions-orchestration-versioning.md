@@ -274,7 +274,7 @@ The `versionFailureStrategy` setting determines what happens when an orchestrati
 
 **Available strategies:**
 
-- **`Reject`** (default): Don't change the orchestration state. The orchestration instance remains in its current state and can be retried later when a compatible worker becomes available. This strategy is the safest option as it preserves orchestration state.
+- **`Reject`** (default): Don't process the orchestration. The orchestration instance remains in its current state and can be retried later when a compatible worker becomes available. This strategy is the safest option as it preserves orchestration state.
 
 - **`Fail`**: Fail the orchestration. This strategy immediately terminates the orchestration instance with a failure state, which may be appropriate in scenarios where version mismatches indicate serious deployment issues.
 
