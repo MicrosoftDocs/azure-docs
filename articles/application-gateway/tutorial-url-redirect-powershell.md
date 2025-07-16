@@ -4,7 +4,7 @@ description: Learn how to create an application gateway with URL path-based redi
 services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
-ms.date: 07/09/2025
+ms.date: 07/16/2025
 ms.author: mbender
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
@@ -600,15 +600,15 @@ Although IIS isn't required to create the application gateway, you installed it 
    - `http://203.0.113.1:8080/video/test.htm` (video path)
    - `http://203.0.113.1:8081/images/test.htm` (redirection test)
 
-![Test base URL in application gateway](./media/tutorial-url-redirect-powershell/application-gateway-iistest.png)
+:::image type="content" source="./media/tutorial-url-redirect-powershell/application-gateway-iistest.png" alt-text="Screenshot showing the default IIS welcome page when testing the base URL of the application gateway." lightbox="./media/tutorial-url-redirect-powershell/application-gateway-iistest.png":::
 
 Change the URL to `http://<ip-address>:8080/images/test.htm`, substituting your IP address for `<ip-address>`, and you should see something like the following example:
 
-![Test images URL in application gateway](./media/tutorial-url-redirect-powershell/application-gateway-iistest-images.png)
+:::image type="content" source="./media/tutorial-url-redirect-powershell/application-gateway-iistest-images.png" alt-text="Screenshot showing the images backend pool test page when accessing the /images path on the application gateway." lightbox="./media/tutorial-url-redirect-powershell/application-gateway-iistest-images.png":::
 
 Change the URL to `http://<ip-address>:8080/video/test.htm`, substituting your IP address for `<ip-address>`, and you should see something like the following example:
 
-![Test video URL in application gateway](./media/tutorial-url-redirect-powershell/application-gateway-iistest-video.png)
+:::image type="content" source="./media/tutorial-url-redirect-powershell/application-gateway-iistest-video.png" alt-text="Screenshot showing the video backend pool test page when accessing the /video path on the application gateway." lightbox="./media/tutorial-url-redirect-powershell/application-gateway-iistest-video.png":::
 
 Now, change the URL to `http://<ip-address>:8081/images/test.htm`, substituting your IP address for `<ip-address>`, and you should see traffic redirected back to the images backend pool at `http://<ip-address>:8080/images`.
 
@@ -620,7 +620,7 @@ Monitor key Application Gateway metrics for optimal performance:
 - **Response Time**: Average response time for requests
 - **Unhealthy Host Count**: Number of unhealthy backend servers
 - **Throughput**: Data transfer rate through the Application Gateway
-- 
+
 ## Clean up resources
 
 When no longer needed, remove the resource group, application gateway, and all related resources using [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
