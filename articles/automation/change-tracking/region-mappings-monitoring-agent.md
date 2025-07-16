@@ -28,11 +28,11 @@ The following table shows the supported mappings:
 |**France**| FranceCentral|
 |**Germany** | Germany WestCentral|
 |**India**| CentralIndia|
-|**Italy, MAW region**| ItalyNorth|
+|**Italy**| ItalyNorth|
 |**Japan**| JapanEast|
 |**Korea**| KoreaCentral|
 |**Norway**| NorwayEast|
-|**Spain, MAW region**| SpainCentral|
+|**Spain**| SpainCentral|
 |**Sweden** | SwedenCentral|
 |**Switzerland**| SwitzerlandNorth|
 |**United Arab Emirates**| UAENorth|
