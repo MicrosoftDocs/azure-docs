@@ -53,6 +53,9 @@ The Orchestration Versioning feature operates on these core principles:
 
 The most common use case for Orchestration Versioning is when you need to make breaking changes to your orchestrator logic while keeping existing in-flight orchestration instances running with their original version. All you need to do is update the `defaultVersion` in your `host.json` and modify your orchestrator code to check the orchestration version and branch execution accordingly. Let's walk through the required steps.
 
+> [!NOTE]
+> The behavior described in this section targets the most common situations, and this is what the default configuration provides. However, it can be modified if needed (see [Advanced usage](#advanced-usage) for details).
+
 ### Step 1: defaultVersion configuration
 
 To configure the default version for your orchestrations, you need to add or update the `defaultVersion` setting in the `host.json` file in your Azure Functions project:
@@ -137,9 +140,6 @@ Here's what to expect once you deploy your updated orchestrator function with th
 
 > [!NOTE]
 > The presence of orchestration versions alone does not control worker lifecycle. The Azure Functions platform will not automatically start or stop workers just because of versioning. Instead, workers are provisioned and decommissioned based on regular rules, depending on the specific hosting configuration. In most scenarios, the lifetime of workers is managed by the platform, and the platform will automatically ensure that all workers are permanently replaced by the new version soon after a deployment. This is why it's important to make sure the latest orchestrator code remains backward compatible and is able to process orchestrations of older versions. In more sophisticated configurations where the user controls worker lifecycle, the user must ensure an adequate number of new workers is provided and old workers are eventually decommissioned.
-
-> [!NOTE]
-> The behavior described in this section targets the most common situations, and this is what the default configuration provides. However, it can be modified if needed (see [Advanced usage](#advanced-usage) for details).
 
 ### Example: Replacing an activity in the sequence
 
