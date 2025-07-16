@@ -68,7 +68,7 @@ To configure the default version for your orchestrations, you need to add or upd
 ```
 
 The version string can follow any format that suits your versioning strategy:
-- Semantic versioning: `"1.0.0"`, `"2.1.0"`
+- Multi-part versioning: `"1.0.0"`, `"2.1.0"`
 - Simple numbering: `"1"`, `"2"`
 - Date-based: `"2025-01-01"`
 - Custom format: `"v1.0-release"`
@@ -253,7 +253,7 @@ When the `CurrentOrOlder` strategy is selected, the runtime compares the orchest
 
 1. Empty or null versions are treated as equal.
 2. An empty or null version is considered older than any defined version.
-3. If both versions can be parsed as `System.Version`, semantic comparison is used.
+3. If both versions can be parsed as `System.Version`, the `CompareTo` method is used.
 4. Otherwise, case-insensitive string comparison is performed.
 
 ### Version mismatch handling
@@ -338,7 +338,7 @@ Over time, you may want to remove legacy code paths from your orchestrator funct
 
 ### Version management
 
-1. **Use semantic versioning**: Adopt a consistent versioning scheme like `major.minor.patch`.
+1. **Use multi-part versioning**: Adopt a consistent versioning scheme like `major.minor.patch`.
 1. **Document breaking changes**: Clearly document what changes require a new version.
 1. **Plan version lifecycle**: Define when to remove legacy code paths.
 
