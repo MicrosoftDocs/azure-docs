@@ -8,7 +8,7 @@ ms.author: doclayto
 
 # Virtual machine security configuration
 
-CycleCloud 8.5 supports creating Vms with a security type of either [Trusted Launch](https://go.microsoft.com/fwlink/?LinkId=2153371) or [Confidential](https://aka.ms/ConfidentialVM).
+CycleCloud 8.5 supports creating VMs with a security type of either [Trusted Launch](https://go.microsoft.com/fwlink/?LinkId=2153371) or [Confidential](https://aka.ms/ConfidentialVM).
 
 > [!NOTE]
 > Using these features might come with some limitations. These limitations include not supporting backup, managed disks, and ephemeral OS disks. In addition, these features require specific images and VM sizes. For more information, see the documentation in the preceding links.

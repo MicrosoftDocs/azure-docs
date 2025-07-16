@@ -57,7 +57,7 @@ If you grant a user authentication access through a shared permission, remove th
 
 ## Disable the built-in user management system
 
-Every CycleCloud installation enables the built-in user management system by default. This setting applies to the entire installation. All clusters that the CycleCloud server manages have this setting enabled. To disable it, go to the **CycleCloud** section of the **Settings** page. The pop-up box has an option for **Node Authentication**. Select **Disabled** from the drop down to make sure the system doesn't create any local user accounts aside from the VM agent user.
+Every CycleCloud installation enables the built-in user management system by default. This setting applies to the entire installation. All clusters that the CycleCloud server manages have this setting enabled. To disable it, go to the **CycleCloud** section of the **Settings** page. The pop-up box has an option for **Node Authentication**. Select **Disabled** from the drop-down to make sure the system doesn't create any local user accounts aside from the VM agent user.
 
 ![Disable Node Authentication](~/articles/cyclecloud/images/node-auth-disabled.png)
 
