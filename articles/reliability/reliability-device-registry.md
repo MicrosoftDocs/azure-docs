@@ -87,27 +87,25 @@ The Azure Device Registry platform manages traffic routing, failover, and failba
 
 Device Registry is a single-region service. If the region becomes unavailable, your Device Registry resources are also unavailable.
 
-However, if your resources are in a [region that's paired](./regions-paired.md), your registry's data is replicated to the paired region.
-
-In the event of a prolonged region outage, Microsoft might elect to fail over to the paired region. If this happens, your registry continues to be available in the paired region.
+However, your registry's data is replicated to the paired region. In the event of a prolonged region outage, Microsoft might elect to fail over to the paired region. If this happens, your registry continues to be available in the paired region.
 
 ### Region support
 
-Default replication and failover is only supported in regions that are paired.
+Default replication and failover is supported in all regions that Device Registry is available in, because [all of these regions are paired](./regions-paired.md).
 
 ### Cost
 
-For hubs in regions that are paired, there's no extra cost for cross-region data replication or failover.
+There's no extra cost for cross-region data replication or failover.
 
 ### Configure replication and prepare for failover
 
-By default, cross-region data replication is automatically configured when you create Device Registry resources in a paired region. This process is a default option and requires no intervention from you.
+By default, cross-region data replication is automatically configured when you create Device Registry resources in a region with a pair. This process is a default option and requires no intervention from you.
 
 ### Normal operations
 
 This section describes what to expect when a device regsitry is configured for cross-region replication and failover, and the primary region is operational.
 
-- **Data replication between regions:** Data is replicated automatically to the paired region. Replication occurs asynchronously, which means that some data loss is expected if a failover occurs. There's no data replication between regions for device registeries in nonpaired regions.
+- **Data replication between regions:** Data is replicated automatically to the paired region. Replication occurs asynchronously, which means that some data loss is expected if a failover occurs.
 
 - **Traffic routing between regions:** In normal operations, traffic only flows to the primary region.
 
@@ -121,7 +119,7 @@ This section describes what to expect when a device registry is configured for c
 
 - **Active requests:** Any requests that the primary region is processing during a failover are likely to be lost. Clients should retry requests after failover completes.
 
-- **Expected data loss:** For regions that are paired, data is replicated asynchronously to the paired region. As a result, some data loss is expected after failover. You can expect less than 15 minutes of data loss following a region failover.
+- **Expected data loss:** Data is replicated asynchronously to the paired region. As a result, some data loss is expected after failover. You can expect less than 15 minutes of data loss following a region failover.
 
 - **Expected downtime:** Expect approximately 24 hours of downtime from when the region is lost to when the resource is available in the paired region.
 
