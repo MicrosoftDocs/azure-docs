@@ -60,6 +60,10 @@ During a zone-wide outage, you don't need to take any action to fail over to a h
 
 Firmware analysis resources are associated with one Azure region. Firmware analysis is a single-region service. If the region becomes unavailable, your firmware analysis resource is also unavailable.
 
+### Alternative multi-region approaches
+
+To improve resilience against regional outages, you can deploy backup firmware analysis workspaces in additional Azure regions. This allows you to continue submitting firmware for analysis even if one region is temporarily offline. Because firmware scans produce the same results regardless of the region of the workspace, the scanning experience is consistent across all regions.
+
 
 ### Region down experience
 
