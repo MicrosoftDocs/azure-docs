@@ -16,7 +16,7 @@ Find the private SSH key file that matches the public key you provide during dep
 ## Step 2 – Get the resource ID of the authentication node
 In the CycleCloud UI, select the authentication node you want to connect to and double-click that line to open the detail view for the node. Select the **VM** tab to display the resource details, and copy the `ResourceId`.
 
-:::image type="content" source="../../images/ccws/login-node-resource-id.png" alt-text="Screenshot of authentication node properties":::
+:::image type="content" source="../../images/ccws/login-node-resource-id.png" alt-text="Screenshot of authentication node properties.":::
 
 ## Step 3 – Create a connect script
 Create an authentication script using the following template. Paste the authentication node `resourceID` from the previous step, and specify the resource group and the private SSH key file to use.
