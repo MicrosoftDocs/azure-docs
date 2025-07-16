@@ -128,19 +128,17 @@ Common validation outcomes:
 
 
 
-These errors are returned synchronously in your API response and will also appear in Azure diagnostics and logs.
+These errors return synchronously in your API response and also appear in Azure diagnostics and logs.
 
 ##### 2. Asynchronous Delivery Errors
 
-If your request passes synchronous validation, it’s not guaranteed to be handed off to the Messaging Connect partner. There are scenarios where ACS will stop the message before handoff—for example, if the recipient has previously opted out or if there’s a known delivery block from the partner. These situations still result in a delivery report, so you’re always informed of the message outcome.
-Once a message is passed to the partner, any downstream delivery failures—like number unreachable, expired validity period, or carrier-level rejection—are also returned asynchronously via delivery reports. You can view delivery statuses in:
-
-- Azure delivery reports <- Event Grid events (if configured)
+Even if your request passes synchronous validation, Azure Communication Services might still not hand it off to the Messaging Connect partner. In some cases, ACS stops the message before handoff—for example, if the recipient previously opted out or there's a known delivery block from the partner. These situations still result in a delivery report, so you’re always informed of the message outcome.
+Once a message is passed to the partner, any downstream delivery failures—like number unreachable, expired validity period, or carrier-level rejection—are also returned asynchronously via delivery reports. You can view delivery statuses in your delivery reports from Azure Event Grid events (if configured).
 
 Learn more: [Delivery Reports on Azure Event Grid Events](https://learn.microsoft.com/azure/event-grid/communication-services-telephony-sms-events)
 
 > [!TIP] 
-> To ensure full visibility into your message traffic, we strongly recommend configuring event subscriptions for delivery reports. This allows you to monitor message status, troubleshoot failures, and integrate with your existing telemetry systems.
+> To ensure full visibility into your message traffic, we strongly recommend configuring event subscriptions for delivery reports. This setup lets you monitor message status, troubleshoot failures, and integrate with your existing telemetry systems.
 Learn how to configure SMS events : [Handle SMS events](https://learn.microsoft.com/azure/communication-services/quickstarts/sms/handle-sms-events) 
 
 > [!NOTE]
