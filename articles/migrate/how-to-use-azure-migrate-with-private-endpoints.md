@@ -4,7 +4,7 @@ description: Use Azure Migrate to discover, assess, and migrate servers by using
 author: vijain
 ms.author: vijain
 ms.custom: subject-rbac-steps, engagement-fy23
-ms.topic: how-to
+ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 02/06/2024
 # Customer intent: As a cloud architect, I want to use Azure Migrate with private endpoints so that I can securely discover, assess, and migrate servers without relying on public networks.
@@ -12,7 +12,7 @@ ms.date: 02/06/2024
 
 # Support requirements and considerations for private endpoint connectivity
 
-The article series describes how to use Azure Migrate to discover, assess, and migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the Azure Migrate Discovery and Assessment tool and the Azure Migrate and Modernize tool to connect to Azure Migrate over an Azure ExpressRoute private peering connection or a site-to-site (S2S) VPN connection by using Private Link. For more information about these tools, see [What is Azure Migrate?](migrate-services-overview.md).
+This article describes how to use Azure Migrate to discover, assess, and migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the Azure Migrate Discovery and Assessment tool and the Azure Migrate and Modernize tool to connect to Azure Migrate over an Azure ExpressRoute private peering connection or a site-to-site VPN connection by using Private Link. For more information about these tools, see [What is Azure Migrate?](migrate-services-overview.md).
 
 We recommend the method of private endpoint connectivity when there's an organizational requirement to access Azure Migrate and other Azure resources without traversing public networks. By using Private Link, you can use your existing ExpressRoute private peering circuits for better bandwidth or latency requirements.
 
@@ -22,7 +22,7 @@ The functionality is now in general availability in supported [public cloud](sup
 
 ## Required permissions
 
-You must have Contributor + User Access Administrator or Owner permissions on the subscription.
+You must have Contributor, User Access Administrator, or Owner permissions on the subscription.
 
 ## Supported scenarios and tools
 
@@ -51,7 +51,7 @@ Consideration | Details
 --- | ---
 Pricing | See [Azure page blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) and [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 Virtual network requirements | The ExpressRoute/VPN gateway endpoint should reside in the selected virtual network or a virtual network connected to it. You might need about 15 IP addresses in the virtual network.
-PowerShell support | PowerShell isn't supported. We recommend using the Azure portal or REST APIs for Azure Migrate Private Link support.
+PowerShell support | PowerShell isn't supported. We recommend using the Azure portal or REST APIs for Private Link support in Azure Migrate.
 
 ## Related content
 

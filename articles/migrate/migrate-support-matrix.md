@@ -20,7 +20,7 @@ Deployment | Details
 Discovery | Discover server metadata and dynamic performance data.
 Software inventory | Discover apps, roles, and features running on VMware virtual machines (VMs). Currently, this feature is limited to discovery only. Assessment is currently at the server level. We don't yet offer app, role, or feature-based assessments.
 Assessment | Assess on-premises workloads and data running on VMware VMs, Hyper-V VMs, and physical servers. Assess by using Azure Migrate Discovery and Assessment, Microsoft Data Migration Assistant, and tools from other software development companies.
-Migration | Migrate workloads and data running on physical servers, VMware VMs, Hyper-V VMs, physical servers, and cloud-based VMs to Azure. Migrate by using the Azure Migrate and Modernize tool, Azure Database Migration Service, and tools from other software development companies.
+Migration | Migrate workloads and data running on physical servers, VMware VMs, Hyper-V VMs, physical servers, and cloud-based VMs to Azure. Migrate by using Azure Migrate and Modernize, Azure Database Migration Service, and tools from other software development companies.
 
 ## Project
 

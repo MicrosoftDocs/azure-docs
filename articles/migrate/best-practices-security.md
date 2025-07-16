@@ -13,7 +13,7 @@ ms.custom:
 
 # Security best practices for deploying the Azure Migrate appliance
 
-[Azure Migrate](./migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools and offerings from non-Microsoft software development companies.
+[Azure Migrate](./migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, along with offerings from other software development companies.
 
 This article summarizes the best practices to follow when you're deploying the Azure Migrate appliance. These best practices help ensure the security of your migration.
 
@@ -72,7 +72,7 @@ All the credentials provided on the appliance configuration manager are stored l
 
 Follow these recommendations for handling credentials:
 
-- Depending on the workloads that you discover, use least privileged credentials specifically for the scenarios that you plan to use Azure Migrate appliance for.
+- Depending on the workloads that you discover, use least privileged credentials specifically for the scenarios that you plan to use the Azure Migrate appliance for.
 - Use a domain account to reduce the total number of accounts required for discovery. This approach reduces the operational overhead in managing multiple user accounts. It also builds agility to update the credentials in the event of a security breach.  
 
 ## Identity and access management

@@ -70,7 +70,7 @@ For quick discovery of software inventory, server dependencies, and database ins
 | Quick guest discovery  | Software inventory <br /><br /> Server dependencies (limited data) <br /><br />Inventory of database instances  | Windows <br /><br /> Linux | Local guest user account <br /><br /> Any non-Sudo guest user account |
 
 > [!NOTE]
-> You can use a Windows guest or a Linux non-Sudo user account to get dependency-mapping data. But with least privileged accounts, you might not collect process information (like process name or app name) for some processes that run with higher privileges. These processes appear as **Unknown** under the machine in the single-server view.
+> You can use a Windows guest or a Linux non-Sudo user account to get dependency mapping data. But with least privileged accounts, you might not collect process information (like process name or app name) for some processes that run with higher privileges. These processes appear as **Unknown** under the machine in the single-server view.
 
 #### In-depth guest discovery
 
@@ -79,7 +79,7 @@ For in-depth discovery of software inventory, server dependencies, and web apps 
 | Use case  | Discovered metadata  | Credential type| Required permissions |
 | --- | --- | --- | --- |
 | In-depth guest discovery  | Software inventory <br /><br /> Server dependencies (full data)<br /><br /> Inventory of database instances <br /><br /> Web apps like .NET and Java Tomcat  | Windows | Administrator  |
-|In-depth guest discovery | Software inventory <br /><br /> Server dependencies (full data)<br /><br /> Inventory of database instances <br /><br /> Web apps like .NET and Java Tomcat  | Linux  | The following Sudo permissions are required to identify server dependencies:  <br /><br /> `/usr/bin/netstat`, `/usr/bin/ls` <br /><br /> If `netstat` is not available, Sudo permissions on `ss` are required. <br /><br /> For Java web app discovery (Tomcat servers), the user should have read and execute (`r-x`) permissions on all Catalina homes. <br /><br /> Use the following command to find all Catalina homes: <br /><br /> `ps -ef \| grep catalina.home` <br /><br /> Here's a sample command to set up a least privileged user: <br /><br /> `setfacl -m u:johndoe:rx <catalina/home/path>`  |
+|In-depth guest discovery | Software inventory <br /><br /> Server dependencies (full data)<br /><br /> Inventory of database instances <br /><br /> Web apps like .NET and Java Tomcat  | Linux  | The following Sudo permissions are required to identify server dependencies: `/usr/bin/netstat` and `/usr/bin/ls`. <br /><br /> If `netstat` is not available, Sudo permissions on `ss` are required. <br /><br /> For Java web app discovery (Tomcat servers), the user should have read and execute (`r-x`) permissions on all Catalina homes. <br /><br /> Use the following command to find all Catalina homes: `ps -ef \| grep catalina.home`. <br /><br /> Here's a sample command to set up a least privileged user: `setfacl -m u:<username>:rx <catalina/home/path>`.  |
 
 ## Discovery of the Hyper-V estate
 
@@ -161,9 +161,9 @@ For quick discovery of Linux servers:
 
 For in-depth discovery of software inventory, server dependencies, and web apps such as .NET and Java Tomcat, you need the following permissions:
 
-| Use case | Discovered metadata   | Credentials type | Commands to configure |
+| Use case | Discovered metadata   | Credential type | Commands to configure |
 | --- | --- | --- | --- |
-| In-depth server discovery | In-depth discovery of web apps such as .NET and Java Tomcat <br /><br />Agentless dependency analysis (full data) |Windows <br /><br /> Linux | Administrator permissions are required. <br /><br /> To discover Java web apps on Tomcat servers, the user account needs read and execute (`r-x`) permissions on all Catalina home directories.<br /><br />Use the following command to find all Catalina homes: `ps -ef \| grep catalina.home`.<br /><br />Here's a sample command to set up a least privileged user: `setfacl -m u:johndoe:rx <catalina/home/path>`.  |
+| In-depth server discovery | In-depth discovery of web apps such as .NET and Java Tomcat <br /><br />Agentless dependency analysis (full data) |Windows <br /><br /> Linux | Administrator permissions are required. <br /><br /> To discover Java web apps on Tomcat servers, the user account needs read and execute (`r-x`) permissions on all Catalina home directories.<br /><br />Use the following command to find all Catalina homes: `ps -ef \| grep catalina.home`.<br /><br />Here's a sample command to set up a least privileged user: `setfacl -m u:<username>:rx <catalina/home/path>`.  |
 
 ## Database discovery
 
@@ -358,8 +358,8 @@ To discover MySQL databases, add MySQL database credentials to the appliance.
 
 Ensure that the user who corresponds to the added MySQL credentials has the following privileges:
 
-- Select permission on `information_schema` tables.
-- Select permission on `mysql.users` tables.
+- Select permission on `information_schema` tables
+- Select permission on `mysql.users` tables
 
 Use the following commands to grant the necessary privileges to the MySQL user:
 
