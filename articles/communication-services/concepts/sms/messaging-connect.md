@@ -285,10 +285,6 @@ Or you can go directly to the Messaging Connect blade and choose a partner from 
 </table>
 
 
-:::image type="content" source="./media/mc-provision-number-2.png" alt-text="Select Messaging Connect partner." lightbox="./media/mc-provision-number-2.png":::
-
-:::image type="content" source="./media/mc-provision-number-3.png" alt-text="Redirected to partner portal for number acquisition." lightbox="./media/mc-provision-number-3.png":::
-
 #### STEP 2: Acquire the number on the partner’s portal
 
 Follow the partner’s prompts to purchase the number. Depending on the country, you may need to upload supporting documents or complete identity verification. Once approved, the number is assigned to your partner account.
@@ -309,6 +305,12 @@ After the partner assigns the numbers to you, they initiate the sync with ACS. O
 
 > [!NOTE]
 > The approval and activation timeline is determined by the Messaging Connect partner and varies by country and number type. Messaging Connect does not currently support instant provisioning, and Microsoft is not involved in the vetting or approval process.
+
+**Important notes:**
+- Microsoft does not manage compliance or vetting for Messaging Connect numbers. This is handled entirely by the partner.
+- Each partner has different provisioning flows and SLAs depending on the region and local telecom regulations.
+- Numbers acquired through Messaging Connect will appear in the Azure portal with a “Operator Name” label so you can distinguish them from ACS-managed numbers.
+- To send messages with these numbers, don’t forget to include the `MessagingConnect` object in your API request. 
 
 
 
