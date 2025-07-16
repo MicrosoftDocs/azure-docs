@@ -4,7 +4,7 @@ description: Learn about best practices to employ when managing your Log Analyti
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: conceptual
-ms.date: 07/09/2025
+ms.date: 07/16/2025
 
 
 #Customer intent: As a security operations center (SOC) analyst, I want to implement best practices for deploying and managing a cloud-based SIEM solution so that I can enhance threat detection, incident response, and overall security posture.
@@ -43,7 +43,7 @@ More than ingesting alerts and logs from other sources, Microsoft Sentinel also:
 
 For more information about integrating data from other services or providers, see [Microsoft Sentinel data connectors](connect-data-sources.md).
 
-Consider onboarding Microsoft Sentinel to the Microsoft Defender portal to unify capabilities with Microsoft Defender XDR like incident management and advanced hunting. For more information, see the following articles:
+If you're using Microsoft Sentinel in the Azure portal, consider onboarding Microsoft Sentinel to the Microsoft Defender portal to unify capabilities with Microsoft Defender XDR like incident management and advanced hunting. For more information, see the following articles:
 
 - [Connect Microsoft Sentinel to Microsoft Defender XDR](/defender-xdr/microsoft-sentinel-onboard)
 - [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
