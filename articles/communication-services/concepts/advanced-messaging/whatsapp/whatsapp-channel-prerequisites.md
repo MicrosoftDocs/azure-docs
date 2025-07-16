@@ -126,7 +126,7 @@ When following those instructions, here are helpful tips:
     :::image type="content" source="./media/whatsapp-prerequisites.png" lightbox="./media/whatsapp-prerequisites.png" alt-text="Screenshot that shows Connect to WhatsApp prerequisites.":::
 
 4. Select the **Next** button to continue
-5. Select the SMS enabled phone number you wish to use to connect to your WhatsApp Business Account. This can be either the [Azure Communication Services phone number](#provision-an-azure-communication-services-phone-number) you previously provisioned or bring your own phone number.
+5. Select the SMS enabled phone number you wish to use to connect to your WhatsApp Business Account. This can be either the [Azure Communication Services phone number](#get-a-phone-number) you previously provisioned or bring your own phone number.
 
     :::image type="content" source="./media/phone-number-selection.png" lightbox="./media/phone-number-selection.png" alt-text="Screenshot that shows Connect to WhatsApp phone number selection.":::
 
