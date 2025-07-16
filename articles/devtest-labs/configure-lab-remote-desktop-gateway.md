@@ -202,6 +202,6 @@ To further secure the lab, add a network security group (NSG) to the virtual net
 
 :::image type="content" source="./media/configure-lab-remote-desktop-gateway/network-security-group-rules.png" alt-text="Screenshot of a network security group rule." lightbox="./media/configure-lab-remote-desktop-gateway/network-security-group-rules.png":::
 
-## Related content
+## Next step
 
 - [Deploy your remote desktop environment](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure)
