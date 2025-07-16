@@ -1,7 +1,7 @@
 ---
 title: Manage telemetry settings in Microsoft Azure Backup Server (MABS)
 description: This article provides information about how to manage the telemetry settings in MABS.
-ms.date:  06/12/2025
+ms.date:  07/15/2025
 ms.topic: how-to
 author: jyothisuri
 ms.author: jsuri
@@ -47,4 +47,8 @@ To enable/disable telemetry from the MABS console, follow these steps:
 
 ## Next steps
 
-[Protect workloads](./back-up-hyper-v-virtual-machines-mabs.md)
+[Protect workloads](./back-up-hyper-v-virtual-machines-mabs.md).
+
+## Related content
+
+[Run an unattended installation of MABS](backup-mabs-unattended-install.md).
