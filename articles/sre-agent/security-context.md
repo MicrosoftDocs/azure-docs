@@ -28,7 +28,7 @@ The security requirements for users are different depending on if you're creatin
 
 | Action | User account requirements |
 |---|---|
-| Create agent | The user account needs to be in the *Owner* or *User Access Administrator* role with *Owner or *Admin* permissions in the subscription. |
+| Create agent | The user account needs to be in the *Owner* or *User Access Administrator* role with *Owner* or *Admin* permissions in the subscription. |
 | Access/run the agent | The user account must have *Contributor* permissions to the resource group the agent is running in, or for the agent instance.<br><br>**Note**: This requirement doesn't mean the user account needs *Contributor* access to the entire subscription or all resource groups.|
 
 ## Agent security context

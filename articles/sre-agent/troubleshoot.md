@@ -18,7 +18,7 @@ The following table outlines frequent issues you might encounter and their solut
 
 | Scenario | Reason | Remarks |
 |---|---|---|
-| The agent shows a permissions error in the chat and knowledge graph. | The agent is created with *Contributor* access and a account with only *Reader* permissions attempts to interact with the agent. | Deny assignments or Azure Policy blocks identity assignment to the agent resource group.  |
+| The agent shows a permissions error in the chat and knowledge graph. | The agent is created with *Contributor* access and an account with only *Reader* permissions attempts to interact with the agent. | Deny assignments or Azure Policy blocks identity assignment to the agent resource group.  |
 | The location dropdown is blank. | A non-US region policy blocks access to Sweden Central. | If your subscription or management group limits to US-only deployments, then the creation step fails. |
 | The *Create* button is disabled. | Lack of administrative permissions. | Agent identity assignments fail if the user account lacks *Owner* or *User Access Administrator* permissions. |
 
