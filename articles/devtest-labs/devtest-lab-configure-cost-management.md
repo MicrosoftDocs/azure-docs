@@ -1,10 +1,10 @@
 ---
-title: Track costs associated with a lab in Azure DevTest Labs
-description: Track the cost of your lab through Microsoft Cost Management with custom tags, tag inheritance, and filtered views.
+title: Track Costs Associated with a Lab in Azure DevTest Labs
+description: Track the cost of your lab by using Microsoft Cost Management and custom tags, tag inheritance, and filtered views.
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 06/03/2024
+ms.date: 07/18/2025
 ms.custom: UpdateFrequency2
 
 #customer intent: As a developer, I want to use Microsoft Cost Management to track and manage the costs associated with my DevTest Labs resources.
