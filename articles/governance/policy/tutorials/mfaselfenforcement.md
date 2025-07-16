@@ -19,13 +19,14 @@ Navigate to the Azure Portal at portal.azure.com
 
 **2. Access Azure Policy Service**
 On the left-hand menu or home dashboard, select Policy under Azure services. If you don't see it, type 'Policy' in the search bar at the top and select it from the results.
-![]()![==image_0==.png](/.attachments/==image_0==-2739c4d5-eb45-4a84-b6f3-1e98c0098d22.png) 
+
 
 **3. Choose the Scope for Assignment**
 - In the Policy dashboard, click on Assignments in the left pane.
 - Click Assign policy at the top of the assignments page.
 - In the Scope section, click Select scope.
 - Choose the appropriate subscription, resource group, or management group where you want to apply the policy. Click Select to confirm your choice.
+![image1](/./Desktop/AssignmentScreenshot.png)
 
 *4. Configure Selectors for gradual rollout of policy enforcement*
 _To enable safe rollout of policy enforcement, we recommend leveraging Azure Policy’s resource selectors to gradually rollout policy enforcement across your resources._
