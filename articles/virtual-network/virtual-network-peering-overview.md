@@ -25,7 +25,7 @@ Azure Virtual Network peering enables you to seamlessly connect two or more virt
 
 - Troubleshooting common peering issues
 
-Whether you're designing a hub-and-spoke topology or connecting networks across regions, this guide will help you understand the capabilities and limitations of virtual network peering.
+Whether you're designing a hub-and-spoke topology or connecting networks across regions, this guide helps you understand the capabilities and limitations of virtual network peering.
 
 By default, a virtual network is peered with up to 500 other virtual networks. By using the [connectivity configuration for Azure Virtual Network Manager](../virtual-network-manager/concept-connectivity-configuration.md), you can increase this limit to peer up to 1,000 virtual networks to a single virtual network. With this larger size, you can create a hub-and-spoke topology with 1,000-spoke virtual networks, for example. You can also create a mesh of 1,000-spoke virtual networks where all spoke virtual networks are directly interconnected.
 
