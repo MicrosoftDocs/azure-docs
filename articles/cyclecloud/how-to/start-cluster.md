@@ -17,11 +17,11 @@ the event log on the Clusters page. You can edit your node settings and retry th
 
 ::: moniker range="=cyclecloud-7"
 ![start cluster dialog](../images/version-7/start-cluster.png)
-:::
+::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
 ![start cluster dialog](../images/version-8/start-cluster.png)
-:::
+::: moniker-end
 
 ## Starting via CycleCloud CLI
 
