@@ -123,6 +123,7 @@ Now that you have confirmed the feature flag allocations are working as expected
     let evaluated_users =
         customEvents
         | where name == "FeatureEvaluation"
+        | where tostring(customDimensions.FeatureFlagReference) == "https://<store-endpoint>/kv/.appconfig.featureflag/<feature-flag-name>?label=<feature-flag-label>"
         | extend TargetingId = tostring(customDimensions.TargetingId),
                 Variant = tostring(customDimensions.Variant)
         | summarize Variant = any(Variant) by TargetingId;
