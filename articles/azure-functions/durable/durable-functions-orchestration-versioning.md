@@ -342,7 +342,7 @@ Over time, you may want to remove legacy code paths from your orchestrator funct
 ### Code organization
 
 1. **Separate version logic**: Use clear branching or separate methods for different versions.
-1. **Preserve determinism**: Never modify existing version logic once deployed.
+1. **Preserve determinism**: Avoid modifying existing version logic once deployed. If changes are absolutely necessary (such as critical bug fixes), ensure they maintain deterministic behavior and don't alter the sequence of operations, or expect the newer orchestrator versions to fail when processing older orchestrations.
 1. **Test thoroughly**: Test all version paths, especially during transitions.
 
 ### Monitoring and observability
