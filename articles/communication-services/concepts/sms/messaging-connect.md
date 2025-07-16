@@ -329,6 +329,15 @@ This object contains:
 - The partner API key you received after acquiring the number
 
 Your Azure Communication Services token continues to authorize the request to Azure, and the partner key tells Azure Communication Services how to route the message.
+
+> [!TIP]  
+> **How to Get Your Partner API Key from Infobip**  
+> To send messages with Messaging Connect, you’ll need an Infobip API key:  
+> 1. Sign in to the [Infobip Portal](https://portal.infobip.com/dev/api-keys) using your Infobip credentials.  
+> 2. Select **Create New API Key**.  
+> 3. Under **API Scopes**, enable: `sms:message:send`.  
+> 4. Save your API key in a secure location. You’ll use it in your Azure API call.
+
 The following examples show how to send a message with Messaging Connect using C# and JavaScript.
 
 **C# Example**
