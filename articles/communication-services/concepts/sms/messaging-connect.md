@@ -364,7 +364,7 @@ await smsClient.send(
 ```
 
 > [!TIP]
-> If you're using a Messaging Connect number but don’t include the `messagingConnect` object, the request will fail with a validation error. 
+> If you're using a Messaging Connect number but don’t include the `messagingConnect` object, the request will fail with a validation error. For a list of possible validation errors and responses, [jump to the validation outcomes table](#1-synchronous-validation).
 
 **SMS Error Codes**
 
