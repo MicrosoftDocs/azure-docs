@@ -13,8 +13,6 @@ ms.custom: fasttrack-edit
 
 Orchestration versioning addresses [the core challenge](durable-functions-versioning.md) of deploying changes to orchestrator functions while maintaining the deterministic execution model that Durable Functions requires. Without this feature, breaking changes to orchestrator logic or activity function signatures would cause in-flight orchestration instances to fail during replay because they would break the [determinism requirement](durable-functions-code-constraints.md) that ensures reliable orchestration execution.
 
-Sub-orchestrations can also leverage this feature. 
-
 ## Terminology
 
 This article uses two related but distinct terms:
