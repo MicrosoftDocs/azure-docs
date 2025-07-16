@@ -8,8 +8,8 @@ metadata:
   ms.service: azure-synapse-analytics
   ms.topic: faq
   ms.subservice: synapse-link
-  ms.date: 10/21/2024
-  ms.custom: references_regions
+  ms.date: 05/07/2025
+  ms.custom: references_regions, build-2025
 title: Azure Synapse Link for SQL FAQ
 summary: In this guide, find the most frequently asked questions for Azure Synapse Link for SQL.
 
@@ -23,7 +23,7 @@ sections:
       - question: |
           Does Azure Synapse Link for SQL support Azure SQL Managed Instance as a source store?
         answer: |
-          No, currently Azure Synapse Link for SQL only supports Azure SQL Database and SQL Server (starting with SQL Server 2022) as the source.
+          No, currently Azure Synapse Link for SQL only supports Azure SQL Database and SQL Server 2022 as the source.
       - question: |
           Do I need to stop the link connection when I want to add or remove tables to be replicated?
         answer: |
@@ -124,7 +124,7 @@ sections:
         answer: |
           A new change feed processor has been integrated into the Azure SQL Database and SQL Server 2022 engine to enable this functionality.
       - question: |
-          How do I rotate or change the SAS for the Landing Zone for Azure Synapse Link for SQL Server?
+          How do I rotate or change the SAS for the Landing Zone for Azure Synapse Link for SQL Server 2022?
         answer: |
           If the SAS has expired for the user managed storage account for the Landing Zone, use [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql) to update the database credential for the new SAS. 
       - question: |
@@ -132,10 +132,10 @@ sections:
         answer: |
           If the Azure Synapse workspace is removed, Azure SQL Database will stop data replication from landing zone into Azure Synapse. The system stored procedure [sp_change_feed_drop_table_group](/sql/relational-databases/system-stored-procedures/sp-change-feed-drop-table-group) will be called automatically, and the storage account for the landing zone is managed and will be cleaned up automatically. If this fails, you might receive error 22739 from the SynapseGatewayClient in [sys.dm_change_feed_errors](/sql/relational-databases/system-dynamic-management-views/sys-dm-change-feed-errors). If this occurs, you can manually drop the `changefeed` table group with `sp_change_feed_drop_table_group`.
       - question: |
-          What is the impact when a user removes the Azure Synapse workspace that contains an Azure Synapse Link for SQL Server?
+          What is the impact when a user removes the Azure Synapse workspace that contains an Azure Synapse Link for SQL Server 2022?
         answer: | 
-          In SQL Server, since landing zone storage account is user managed, data will continue to be published to the landing zone. You should disable the Azure Synapse Link by dropping the relevant table groups with [sp_change_feed_drop_table_group](/sql/relational-databases/system-stored-procedures/sp-change-feed-drop-table-group), and manually remove the storage account for the landing zone.
+          In SQL Server 2022, since landing zone storage account is user managed, data will continue to be published to the landing zone. You should disable the Azure Synapse Link by dropping the relevant table groups with [sp_change_feed_drop_table_group](/sql/relational-databases/system-stored-procedures/sp-change-feed-drop-table-group), and manually remove the storage account for the landing zone.
       - question: |
-          What is the impact when a user intentionally removes the Azure Synapse Link landing zone for Azure Synapse Link for SQL Server?
+          What is the impact when a user intentionally removes the Azure Synapse Link landing zone for Azure Synapse Link for SQL Server 2022?
         answer: | 
-          In SQL Server, the landing zone storage account is user managed. If the landing zone storage account is no longer accessible, you will see errors in the [sys.dm_change_feed_errors](/sql/relational-databases/system-dynamic-management-views/sys-dm-change-feed-errors). You should disable the Azure Synapse Link by dropping the relevant table groups with [sp_change_feed_drop_table_group](/sql/relational-databases/system-stored-procedures/sp-change-feed-drop-table-group).
+          In SQL Server 2022, the landing zone storage account is user managed. If the landing zone storage account is no longer accessible, you will see errors in the [sys.dm_change_feed_errors](/sql/relational-databases/system-dynamic-management-views/sys-dm-change-feed-errors). You should disable the Azure Synapse Link by dropping the relevant table groups with [sp_change_feed_drop_table_group](/sql/relational-databases/system-stored-procedures/sp-change-feed-drop-table-group).

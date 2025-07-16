@@ -3,7 +3,7 @@ title: Template structure and syntax
 description: Describes the structure and properties of Azure Resource Manager templates (ARM templates) using declarative JSON syntax.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 10/23/2024
+ms.date: 04/28/2025
 ---
 
 # Understand the structure and syntax of ARM templates
@@ -57,7 +57,7 @@ In the `definitions` section of the template, specify the schemas used for valid
 
 ```json
 "definitions": {
-  "<definition-name": {
+  "<definition-name>": {
     "type": "<data-type-of-definition>",
     "allowedValues": [ "<array-of-allowed-values>" ],
     "minValue": <minimum-value-for-int>,
@@ -287,8 +287,8 @@ You define resources with the following structure:
         "<settings-for-the-resource>",
         "copy": [
             {
-                "name": ,
-                "count": ,
+                "name": "<name-of-copy-loop>",
+                "count": <number-of-iterations>,
                 "input": {}
             }
         ]

@@ -2,11 +2,11 @@
 title: Save for Azure App Service with reserved capacity
 description: Learn how you can save costs for Azure App Service Premium v3 and Isolated v2 reserved instances.
 author: pri-mittal
-ms.reviewer: sapnakeshari
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 03/26/2025
+ms.date: 07/08/2025
 ms.author: primittal
 ms.custom: references_regions
 ---

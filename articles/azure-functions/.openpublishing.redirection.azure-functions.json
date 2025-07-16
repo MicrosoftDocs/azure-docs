@@ -1,6 +1,36 @@
 {
     "redirections": [
         {
+          "source_path": "articles/azure=functions/durable/durable-task-scheduler/develop-with-durable-task-scheduler.md",
+          "redirect_url": "/azure/durable-task-scheduler/develop-with-durable-task-scheduler",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/azure=functions/durable/durable-task-scheduler/troubleshoot-durable-task-scheduler.md",
+          "redirect_url": "/azure/durable-task-scheduler/troubleshoot-durable-task-scheduler",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/azure=functions/durable/durable-task-scheduler/quickstart-durable-task-scheduler.md",
+          "redirect_url": "/azure/durable-task-scheduler/quickstart-durable-task-scheduler",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/azure=functions/durable/durable-task-scheduler/durable-task-scheduler.md",
+          "redirect_url": "/azure/durable-task-scheduler/durable-task-scheduler",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/azure=functions/durable/durable-task-scheduler/durable-task-scheduler-dedicated-sku.md",
+          "redirect_url": "/azure/durable-task-scheduler/durable-task-scheduler-dedicated-sku",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/azure=functions/durable/durable-task-scheduler/durable-task-scheduler-dashboard.md",
+          "redirect_url": "/azure/durable-task-scheduler/durable-task-scheduler-dashboard",
+          "redirect_document_id": false
+        },      
+        {
             "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-node_uiex.md",
             "redirect_url": "/azure/azure-functions/create-first-function-vs-code-node",
             "redirect_document_id": false

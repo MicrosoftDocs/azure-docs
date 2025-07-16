@@ -21,6 +21,7 @@ ms.subservice: b2c
 ---
 
 # Validate custom policy files by using TrustFrameworkPolicy schema  
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 You can improve your productivity when editing or writing custom policy files by validating your files before you upload them. You can let Azure Active Directory B2C (Azure AD B2C) to validate the XML policy files when you upload them, but most errors cause the upload to fail. So, we recommend you validate your custom policy files before you upload them. An example of invalid policy file is improperly formatted XML.
 

@@ -1,11 +1,13 @@
 ---
 title: Extend Microsoft Sentinel across workspaces and tenants
 description: How to use Microsoft Sentinel to query and analyze data across workspaces and tenants.
-author: yelevin
+author: batamig
 ms.topic: concept-article
-ms.date: 03/17/2025
-ms.author: yelevin
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+ms.date: 06/10/2025
+ms.author: bagol
+appliesto:
+    - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 
 #Customer intent: As a security analyst, I want to query data across multiple workspaces and tenants so that I can centralize incident management and enhance threat detection capabilities.
 
@@ -51,6 +53,8 @@ Query [multiple workspaces](/azure/azure-monitor/logs/cross-workspace-query) to 
    ```
 
    Then, write a query across both workspaces by beginning with `unionSecurityEvent | where ...` .
+
+Cross-workspace queries for  Log Analytics data remain subject to [Log Analytics limitations](/azure/azure-monitor/logs/cross-workspace-query#limitations).
 
 ### Include cross-workspace queries in scheduled analytics rules<a name="scheduled-alerts"></a>
 

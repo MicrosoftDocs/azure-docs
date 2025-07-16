@@ -1,13 +1,14 @@
 ---
-title: PowerShell Samples
+title: PowerShell Script Samples
 description: This article provides links to PowerShell script samples that use Azure Backup to back up and restore data.
 ms.topic: sample
-ms.date: 06/23/2021
+ms.date: 05/20/2025
 ms.custom: mvc
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a system administrator, I want to access PowerShell script samples for Azure Backup, so that I can effectively back up and restore my data while optimizing my workflow."
 ---
-# Azure Backup PowerShell samples
+# Azure Backup PowerShell script samples
 
 The following table links to PowerShell script samples that use Azure Backup to back up and restore data.
 

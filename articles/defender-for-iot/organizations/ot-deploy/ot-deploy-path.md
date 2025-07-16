@@ -158,7 +158,7 @@ For more information, see [Control the OT traffic monitored by Microsoft Defende
 
 ### Verify and update your detected device inventory
 
-After your devices are fully detected, review the device inventory and modify the device details as needed. For example, you might identify duplicate device entries that can be merged, device types or other properties to modify, and more.
+After your devices are fully detected, review the device inventory and modify the device details as needed. For example, you might identify device types or other properties to modify, and more.
 
 For more information, see [Verify and update your detected device inventory](update-device-inventory.md).
 

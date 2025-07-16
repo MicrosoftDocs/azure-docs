@@ -1,7 +1,7 @@
 ---
 title: Azure Cloud Services (extended support) Definition Schema (csdef File) | Microsoft Docs
 description: Information related to the definition schema (csdef) for Cloud Services (extended support)
-ms.topic: article
+ms.topic: concept-article
 ms.service: azure-cloud-services-extended-support
 ms.date: 07/24/2024
 author: gachandw

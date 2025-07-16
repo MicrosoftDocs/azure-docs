@@ -5,9 +5,10 @@ services: databox
 author: stevenmatthew
 
 ms.service: azure-data-box-heavy
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/06/2025
 ms.author: shaas
+# Customer intent: "As a data engineer, I want to understand the limits and recommended sizes for the Azure Data Box Heavy components, so that I can effectively plan my data transfer and storage strategy."
 ---
 
 # Azure Data Box Heavy limits

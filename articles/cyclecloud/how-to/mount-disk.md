@@ -37,7 +37,7 @@ By defining volumes with a `mountpoint` attribute, the device names will be auto
   Azure.LUN=0
 ```
 
-In Azure, devices are assigned using [Logical Unit Numbers (LUN)](/powershell/module/servicemanagement/azure.service/add-azuredatadisk)
+In Azure, devices are assigned using [Logical Unit Numbers (LUN)](/powershell/module)
 
 In most cases, Azure CycleCloud will automatically assign devices for you. Specifying devices manually is advanced usage, and useful in cases where the image you are using for your node has volumes that will be automatically attached because their attachment was baked into the image. Specifying the devices by hand can also be useful when the ordering of devices has special meaning.
 
@@ -76,7 +76,7 @@ The above example shows there are three volumes that should be attached to the n
 ## Disk Encryption
 CycleCloud supports server-side encryption (SSE) for OS and data disk Volumes using [Azure Disk Encryption Sets](/azure/virtual-machines/disk-encryption).
 Azure uses _Platform Managed Keys_ (PMK) by default. However, to use _Customer Managed Keys_ (CMK), you must first set up an Azure Disk Encryption Set and a Key Vault with your key.
-Follow the documention here to [set up your Disk Encryption Set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal).  
+Follow the documentation here to [set up your Disk Encryption Set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal).  
 
 Record the ``Resource ID`` of the Disk Encryption Set when you create it.  You can find this in the Azure Portal under **Properties** in the **Disk Encryption Sets** blade.
 

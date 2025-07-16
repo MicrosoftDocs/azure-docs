@@ -20,6 +20,8 @@ ms.subservice: b2c
 
 # Single-page application sign-in using the OAuth 2.0 implicit flow in Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 Many modern applications have a single-page app (SPA) front end that is written primarily in JavaScript. Often, the app is written by using a framework like React, Angular, or Vue.js. SPAs and other JavaScript apps that run primarily in a browser have some additional challenges for authentication:
 
 - The security characteristics of these apps are different from traditional server-based web applications.

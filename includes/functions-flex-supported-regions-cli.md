@@ -15,8 +15,8 @@ ms.author: glenga
 
     The [`az login`](/cli/azure/reference-index#az-login) command signs you into your Azure account.
 
-2. Use the `az functionapp list-flexconsumption-locations` command to review the list of regions that currently support Flex Consumption. 
+2. Use the `az functionapp list-flexconsumption-locations` command to review the list of regions that currently support Flex Consumption in alphabetical order. 
 
     ```azurecli-interactive
-    az functionapp list-flexconsumption-locations --output table
+    az functionapp list-flexconsumption-locations --query "sort_by(@, &name)[].{Region:name}" -o table
     ```

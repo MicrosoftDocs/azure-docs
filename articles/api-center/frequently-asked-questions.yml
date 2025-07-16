@@ -50,7 +50,7 @@ sections:
           To upgrade your API center from the Free plan to the Standard plan, follow these steps:
 
           1. In the Azure portal, navigate to your API center.
-          2. In the left menu, select **Overview** > **Select plan**.
+          2. In the left menu, select **Overview** > **Manage plan**.
           3. Select **Standard plan**.
           4. Select **Submit**.
 

@@ -4,9 +4,10 @@ description: Learn how to create import and export jobs in the Azure portal for 
 author: stevenmatthew
 services: storage
 ms.service: azure-import-export
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/31/2023
 ms.author: shaas
+# Customer intent: As a data administrator, I want to securely transfer large datasets to and from Azure Storage using the Import/Export service, so that I can efficiently manage data migration, backups, and recovery without relying on slow network transfers.
 ---
 # What is Azure Import/Export service?
 

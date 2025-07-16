@@ -6,8 +6,8 @@ author: batamig
 ms.author: bagol
 ms.date: 10/16/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -70,11 +70,11 @@ If you want to create an automation rule to apply to a specific analytics rule, 
 
 1. From the **Automation** page in the Microsoft Sentinel navigation menu, select **Create** from the top menu and choose **Automation rule**.
 
-    #### [Azure portal](#tab/azure-portal)
-    :::image type="content" source="./media/create-manage-use-automation-rules/add-rule-automation.png" alt-text="Screenshot of creating a new automation rule in the Automation page." lightbox="./media/create-manage-use-automation-rules/add-rule-automation.png":::
-
     #### [Defender portal](#tab/defender-portal)
     :::image type="content" source="./media/create-manage-use-automation-rules/add-rule-automation-defender.png" alt-text="Screenshot of creating a new automation rule in the Automation page." lightbox="./media/create-manage-use-automation-rules/add-rule-automation-defender.png":::
+
+    #### [Azure portal](#tab/azure-portal)
+    :::image type="content" source="./media/create-manage-use-automation-rules/add-rule-automation.png" alt-text="Screenshot of creating a new automation rule in the Automation page." lightbox="./media/create-manage-use-automation-rules/add-rule-automation.png":::
 
     ---
 
@@ -118,7 +118,7 @@ Use the options in the **Conditions** area to define conditions for your automat
 
         If you selected one of the incident triggers and you want the automation rule to take effect only on incidents created in Microsoft Sentinel, or alternatively, only on those imported from Microsoft Defender XDR, specify the source in the **If Incident provider equals** condition. (This condition is displayed only if an incident trigger is selected.)
 
-    - **Analytic rule name**: For all trigger types, if you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name contains** condition. (This condition isn't displayed if Microsoft Defender XDR is selected as the incident provider.)
+    - **Analytic rule name**: For all trigger types, if you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name contains** condition. (This condition isn't displayed if Microsoft  XDR is selected as the incident provider.)
 
     Then, continue by selecting one of the following operators:
 

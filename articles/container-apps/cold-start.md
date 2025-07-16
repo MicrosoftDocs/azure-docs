@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 04/15/2025
+ms.date: 05/06/2025
 ms.author: cshoe
 ---
 
@@ -27,12 +27,11 @@ Often images transition training to inference usage with only minimal tweaks. Ma
 
 Use container registries close to your Container Apps environment. Usually this means you want to use an Azure Container Registry deployed in the same region as your environment, or a premium registry that features global distribution.
 
-## Use artifact streaming
+## Manage large downloads
 
-Azure Container Registry [offers image streaming](/azure/container-apps/serverless-gpu-nim#enable-artifact-streaming-recommended-but-optional) which can speed up image startup by up to 15%.
+Use [storage mounts to hold critical data close to your container app](storage-mounts.md), especially when the file sizes are large. For instance, if your app requires a large language model, you can pre-download the model to your storage account. By reading large files from a storage account, you avoid the latency of pulling files across the internet.
 
-> [!NOTE]
-> Artifact streaming is only supported with [serverless GPUs](./gpu-serverless-overview.md).
+If you are creating a storage mount for AI workloads, make sure you use the most appropriate [mount options](/troubleshoot/azure/azure-kubernetes/storage/mountoptions-settings-azure-files) for your needs.
 
 ## Implement custom liveness health probe or start listening early
 

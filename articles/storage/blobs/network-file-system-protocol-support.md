@@ -6,9 +6,10 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.custom: linux-related-content
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/18/2023
 ms.author: normesta
+# Customer intent: "As a cloud developer, I want to leverage NFS 3.0 support in Azure Blob Storage, so that I can efficiently run legacy high-throughput applications with hierarchical namespace access from both Azure VMs and on-premises systems."
 ---
 
 # Network File System (NFS) 3.0 protocol support for Azure Blob Storage

@@ -17,8 +17,6 @@ ms.subservice: web-apps
 
 # Quickstart: Add app authentication to your web app running on Azure App Service
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 [!INCLUDE [start](./includes/tutorial-set-up-app-service-authentication/intro.md)]
 
 [!INCLUDE [start](./includes/tutorial-set-up-app-service-authentication/after.md)]

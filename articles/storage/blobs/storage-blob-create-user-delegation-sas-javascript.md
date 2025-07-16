@@ -12,6 +12,7 @@ ms.date: 08/05/2024
 
 ms.custom: template-how-to, devx-track-js, devguide-js
 
+# Customer intent: "As a JavaScript developer, I want to create user delegation SAS tokens for Azure Blob Storage, so that I can securely authorize access to containers and blobs in my applications."
 ---
 
 # Create a user delegation SAS token with Azure Blob Storage and JavaScript

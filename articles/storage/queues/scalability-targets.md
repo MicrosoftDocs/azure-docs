@@ -6,8 +6,9 @@ author: akashdubey-ms
 services: storage
 ms.author: akashdubey
 ms.date: 12/18/2019
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-queue-storage
+# Customer intent: "As a software architect, I want to understand the scalability and performance targets for Queue Storage, so that I can design applications that effectively manage data and optimize resource usage."
 ---
 
 # Scalability and performance targets for Queue Storage

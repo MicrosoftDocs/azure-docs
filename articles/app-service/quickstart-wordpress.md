@@ -8,11 +8,14 @@ ms.subservice: wordpress
 ms.topic: quickstart
 ms.date: 04/11/2025
 ms.author: msangapu
-ms.custom: mvc, linux-related-content
+ms.custom:
+  - mvc
+  - linux-related-content
+  - build-2025
 ---
 # Create a WordPress site
 
-In this quickstart, you'll learn how to create and deploy your first [WordPress](https://www.wordpress.org/) site to [Azure App Service on Linux](overview.md#app-service-on-linux) with [Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/) using the [WordPress Azure Marketplace item by App Service](https://azuremarketplace.microsoft.com/marketplace/apps/WordPress.WordPress?tab=Overview). This quickstart uses the **Standard** tier for your app and a **Burstable, B2s** tier for your database, and incurs a cost for your Azure Subscription. For pricing, visit [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/), [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/), [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/storage/blobs/), and [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/). You can learn more about WordPress on App Service in the [overview](overview-wordpress.md).
+In this quickstart, you'll learn how to create and deploy your first [WordPress](https://www.wordpress.org/) site to [Azure App Service](overview.md) with [Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/) using the [WordPress Azure Marketplace item by App Service](https://azuremarketplace.microsoft.com/marketplace/apps/WordPress.WordPress?tab=Overview). This quickstart uses the **Standard** tier for your app and a **Burstable, B2s** tier for your database, and incurs a cost for your Azure Subscription. For pricing, visit [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/), [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/), [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/storage/blobs/), and [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/). You can learn more about WordPress on App Service in the [overview](overview-wordpress.md).
 
 To complete this quickstart, you need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs).
 
@@ -63,6 +66,8 @@ In the Add-ins tab, recommended settings are already enabled by default:
    - Azure Content Delivery Network helps in improving performance, availability, and security by using a distributed network of servers that can store cached content in point-of-presence locations, close to end users.
    - Azure Front Door (AFD) provides dynamic site acceleration that reduces response times while also allowing content delivery by caching at nearest edge servers for faster media downloads.
    - Azure Blob Storage allows you to store and access images, videos and other files. This effectively reduces the load on your web server thereby improving performance and user experience.
+
+See [add-ins and more](https://techcommunity.microsoft.com/blog/appsonazureblog/add-ins-and-more-%E2%80%93-wordpress-on-app-service/4408925) to learn more about WordPress add-ins.
 
 ## Manage the MySQL flexible server, username, or password (optional)
 

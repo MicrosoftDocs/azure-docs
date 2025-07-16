@@ -2,11 +2,12 @@
 title: gRPC with Application Gateway for Containers
 description: Learn how to configure Application Gateway for Containers with support for gRPC.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 9/16/2024
-ms.author: greglin
+ms.author: mbender
+# Customer intent: "As a cloud application developer, I want to configure gRPC routing using Application Gateway for Containers, so that I can efficiently manage inter-service communication and improve performance in my cloud-native applications."
 ---
 
 # gRPC on Application Gateway for Containers
@@ -23,7 +24,7 @@ gRPC offers comprehensive support across most popular development stacks, includ
 
 ## gRPC Benefits
 
-gRPC uses HTTP/2 for its transport protocol. While compatible with HTTP 1.1, HTTP/2 features many advanced capabilities:
+gRPC uses HTTP/2 for its transport protocol bringing many advanced capabilities:
 
 - A binary framing protocol for data transport - unlike HTTP 1.1, which is text based.
 - Multiplexing support for sending multiple parallel requests over the same connection - HTTP 1.1 limits processing to one request/response message at a time.

@@ -7,7 +7,7 @@ ms.reviewer: jojoh
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
-ms.date: 01/07/2025
+ms.date: 06/26/2025
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm, devx-track-azurecli, devx-track-bicep
 ---
 

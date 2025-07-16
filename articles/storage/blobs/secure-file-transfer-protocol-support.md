@@ -5,11 +5,12 @@ description: Blob storage now supports the SSH File Transfer Protocol (SFTP).
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/15/2024
 ms.custom: references_regions
 ms.author: normesta
 
+# Customer intent: "As a cloud storage administrator, I want to enable SFTP support for Azure Blob Storage, so that I can facilitate secure and efficient file transfers without complex infrastructure management."
 ---
 
 # SSH File Transfer Protocol (SFTP) support for Azure Blob Storage

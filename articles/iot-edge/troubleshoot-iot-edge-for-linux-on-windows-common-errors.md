@@ -1,9 +1,9 @@
 ---
-title: Common issues - Azure IoT Edge for Linux on Windows
+title: Troubleshoot Azure IoT Edge for Linux on Windows common issues
 description: Learn how to resolve common issues encountered when deploying an IoT Edge for Linux on Windows (EFLOW) solution.
 author: PatAltimore
 ms.author: patricka
-ms.date: 06/06/2024
+ms.date: 06/03/2025
 ms.topic: troubleshooting-general
 ms.service: azure-iot-edge
 services: iot-edge
@@ -13,11 +13,11 @@ ms.custom: amqp, mqtt, linux-related-content
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-Use this article to help resolve common issues that can occur when deploying IoT Edge for Linux on Windows solutions. 
+Use this article to fix common issues that can happen when you deploy IoT Edge for Linux on Windows solutions. 
 
 ## Installation and Deployment
 
-The following section addresses the common errors when installing the EFLOW MSI and deploying the EFLOW virtual machine. Ensure you have an understanding of the following EFLOW concepts:
+The following section addresses the common errors when installing the EFLOW MSI and deploying the EFLOW virtual machine. Make sure you understand the following EFLOW concepts:
 - [Azure IoT Edge for Linux on Windows prerequisites](https://aka.ms/AzEFLOW-Requirements)
 - [Nested virtualization for Azure IoT Edge for Linux on Windows](./nested-virtualization.md)
 - [Networking configuration for Azure IoT Edge for Linux on Windows](./how-to-configure-iot-edge-for-linux-on-windows-networking.md)
@@ -46,7 +46,7 @@ The following section addresses the common errors when installing the EFLOW MSI 
 
 ## Provisioning and IoT Edge runtime
 
-The following section addresses the common errors when provisioning the EFLOW virtual machine and interact with the IoT Edge runtime. Ensure you have an understanding of the following EFLOW concepts:
+This section covers common errors when setting up the EFLOW virtual machine and interacting with the IoT Edge runtime. Make sure you understand the following EFLOW concepts:
 - [What is Azure IoT Hub Device Provisioning Service?](../iot-dps/about-iot-dps.md)
 - [Understand the Azure IoT Edge runtime and its architecture](./iot-edge-runtime.md)
 - [Troubleshoot your IoT Edge device](./troubleshoot.md)
@@ -69,7 +69,7 @@ The following section addresses the common errors when provisioning the EFLOW vi
 
 ## Interaction with the VM
 
-The following section addresses the common errors when interacting with the EFLOW virtual machine, and configure the EFLOW device passthrough options. Ensure you have an understanding of the following EFLOW concepts:
+This section covers common errors when you interact with the EFLOW virtual machine and set up EFLOW device passthrough options. Make sure you understand the following EFLOW concepts:
 - [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions.md)
 - [GPU acceleration for Azure IoT Edge for Linux on Windows](./gpu-acceleration.md)
 
@@ -84,6 +84,7 @@ The following section addresses the common errors when interacting with the EFLO
 > | Unknown feature '$feature' is provided. | The *Set-EflowVmFeature* cmdlet supports _DpsTpm_ and _Defender_ as the two features that can be enabled or disabled. | For more information about `Set-EflowVmFeature` PowerShell cmdlet, see [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions.md). | 
 > | Unsupported DDA Type: $gpuName | Currently, GPU DDA is only supported for _NVIDIA Tesla T4_ and _NVIDIA A2_. If the user provides another GPU name, the GPU passthrough fails. | Verify all the GPU prerequisites are met. For more information about EFLOW GPU support, check [Azure IoT Edge for Linux on Windows GPU passthrough](https://aka.ms./azeflow-gpu). 
 > | Invalid GPU configuration requested, <br/> Passthrough enabled but requested gpuCount == $gpuCount <br/> GPU PassthroughType '$gpuPassthroughType' not supported by '$script:WssdProviderVmms' WssdProvider <br/> Requested GPU configuration cannot be supported by Host, <br/> GPU '$gpuName' not available <br/> Requested GPU configuration cannot be supported by Host, <br/> not enough GPUs available - Requested($gpuCount), Available($($selectedGpuDevice.Count)) <br/> Requested GPU configuration cannot be supported by Host, <br/> GPU PassthroughType '$gpuPassthroughType' not supported <br/> Invalid GPU configuration requested, Passthrough disabled but gpuCount > 0" | These errors are generally related to one or more the GPU dependencies not being met. | Make sure all the GPU prerequisites are met. For more information about EFLOW GPU support, check [Azure IoT Edge for Linux on Windows GPU passthrough](https://aka.ms./azeflow-gpu). |
+> | Failed to Connect to EFLOW VM | When attempting to connect to the EFLOW VM using the Connect-EflowVm PowerShell cmdlet, the connection fails with an "authentication handshake failed" error. | The cause is that the WSSDAgent certificate has expired. The WSSDAgent certificate expires one year after a new installation of EFLOW. Please execute updateWssdCert.ps1 to extend the certificate validity period. Note that updating EFLOW does not extend the validity period of the WSSDAgent certificate, check [updateWssdCert.ps1](https://github.com/Azure/iotedge-eflow/blob/main/eflow-util/updateWssdCert.ps1).|
 
 ## Networking
 

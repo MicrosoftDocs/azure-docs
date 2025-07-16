@@ -14,7 +14,7 @@ ms.date: 04/04/2025
 
 This article describes reliability support in [Azure Data Factory](../data-factory/introduction.md). It covers intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
-Reliability is a shared responsibility between you and Microsoft. This article describes ways for you to create a reliable solution that meets your needs.
+[!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
 You can use Data Factory to create flexible and powerful data pipelines for serverless data integration and data transformation. As a result, when you define your [business continuity plan](concept-business-continuity-high-availability-disaster-recovery.md) for reliability, you need to consider the reliability requirements and guidance for:
 

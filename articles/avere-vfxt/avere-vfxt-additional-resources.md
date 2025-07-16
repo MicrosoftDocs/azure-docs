@@ -3,9 +3,10 @@ title: Additional links about Avere vFXT for Azure
 description: Use these resources for additional information about Avere vFXT for Azure, including Avere cluster documentation and vFXT management documentation.
 author: ekpgh
 ms.service: azure-avere-vfxt
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/13/2020
 ms.author: rohogue
+# Customer intent: "As an Avere cluster administrator, I want to access comprehensive documentation on Avere vFXT management, so that I can effectively configure and monitor my cloud cluster for optimal performance."
 ---
 
 # Additional documentation

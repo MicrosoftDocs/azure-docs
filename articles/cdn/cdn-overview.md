@@ -11,6 +11,7 @@ ms.topic: overview
 ms.date: 03/31/2025
 ms.custom: mvc
 ROBOTS: NOINDEX
+# Customer intent: "As a web developer, I want to implement a content delivery network, so that I can improve the performance and user experience of my applications by delivering high-bandwidth content efficiently to end users."
 ---
 
 # What is a content delivery network on Azure?
@@ -39,7 +40,7 @@ For a list of current content delivery network node locations, see [Azure Conten
 
 3. The origin server returns the file to an edge server in the POP.
 
-4. An edge server in the POP caches the file and returns the file to the original requestor (Alice). The file remains cached on the edge server in the POP until the time to live (TTL) specified by its HTTP headers expires. If the origin server didn't specify a TTL, the default TTL is seven days.
+4. An edge server in the POP caches the file and returns the file to the original requester (Alice). The file remains cached on the edge server in the POP until the time to live (TTL) specified by its HTTP headers expires. If the origin server didn't specify a TTL, the default TTL is seven days.
 
 5. More users can then request the same file by using the same URL that Alice used, and gets directed to the same POP.
 
@@ -49,7 +50,7 @@ For a list of current content delivery network node locations, see [Azure Conten
 
 - To use Azure Content Delivery Network, you must own at least one Azure subscription.
 - You also need to create a content delivery network profile, which is a collection of content delivery network endpoints. Every content delivery network endpoint is a specific configuration which users can customize with required content delivery behavior and access. To organize your content delivery network endpoints by internet domain, web application, or some other criteria, you can use multiple profiles.
-- Since [Azure Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/) gets applied at the content delivery network profile level, so if you want to use a mix of pricing tiers you must create multiple content delivery network profiles. For information about the Azure content delivery network billing structure, see [Understanding Azure Content Delivery Network billing](cdn-billing.md).
+- For information about the Azure content delivery network billing structure, see [Understanding Azure Content Delivery Network billing](cdn-billing.md).
 
 ### Limitations
 

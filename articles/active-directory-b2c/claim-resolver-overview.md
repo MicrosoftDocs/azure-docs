@@ -19,6 +19,7 @@ ms.subservice: b2c
 ---
 
 # About claim resolvers in Azure Active Directory B2C custom policies
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Claim resolvers in Azure Active Directory B2C (Azure AD B2C) [custom policies](custom-policy-overview.md) provide context information about an authorization request, such as the policy name, request correlation ID, user interface language, and more.
 

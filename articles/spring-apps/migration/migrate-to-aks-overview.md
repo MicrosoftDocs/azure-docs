@@ -79,7 +79,7 @@ Alongside the application deployment, you also need to define a [Service](https:
 
 When deploying Spring Cloud components, such as Spring Cloud Config or Spring Cloud Gateway, you would generally use Deployments for stateless services. For backend services that need stable storage or state, you might choose StatefulSets.
 
-The following links provide reference examples of container images and manifest files for Spring Cloud Components:
+The following links provide reference examples on how to set up Java component projects based on Open Source libraries, build container images, and deploy components to AKS:
 
 - [Eureka Server](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure-kubernetes-service/docs/02-create-eureka-server.md)
 - [Config Server](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure-kubernetes-service/docs/03-create-config-server.md)

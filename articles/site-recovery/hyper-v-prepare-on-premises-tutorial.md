@@ -5,9 +5,10 @@ ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 05/23/2024
 ms.custom: MVC, engagement-fy23
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
 
+# Customer intent: As an IT administrator, I want to prepare my on-premises Hyper-V servers for disaster recovery to Azure, so that I can ensure continuity of services in the event of a disaster.
 ---
 
 # Prepare on-premises Hyper-V servers for disaster recovery to Azure

@@ -5,10 +5,11 @@ ms.devlang: azurecli
 ms.custom:
   - ignite-2024
 ms.topic: quickstart
-ms.date: 02/27/2025
+ms.date: 05/22/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an IT administrator, I want to create a backup policy for Azure Files using the Azure portal, so that I can ensure data protection and establish a reliable schedule for backup and recovery.
 ---
 
 #  Quickstart: Create a backup policy for Azure Files using Azure portal
@@ -59,7 +60,8 @@ To create a backup policy, follow these steps:
 
 ## Next steps
 
-[Configure backup for Azure Files using Azure portal](tutorial-backup-azure-files-vault-tier-portal.md#configure-backup).
+- [Configure backup for Azure Files using Azure portal](tutorial-backup-azure-files-vault-tier-portal.md#configure-backup).
+- Manage Azure Files backups using [Azure portal](manage-afs-backup.md), [Azure PowerShell](manage-afs-powershell.md), [Azure CLI](manage-afs-backup-cli.md), [REST API](manage-azure-file-share-rest-api.md).
 
 
 

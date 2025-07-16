@@ -21,6 +21,7 @@ ms.subservice: b2c
 ---
 
 # Set up a sign-up and sign-in flow with a social account by using Azure Active Directory B2C custom policy
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In [Set up a sign-up and sign-in flow by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in.md) article, we set up sign-in flow for a local account by using Azure Active Directory B2C (Azure AD B2C).  
 

@@ -2,11 +2,12 @@
 title: Container networking with Azure Application Gateway for Containers
 description: Learn how Azure Application Gateway for Containers works with different container networking interfaces.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
 ms.date: 3/24/2025
-ms.author: greglin
+ms.author: mbender
+# Customer intent: "As a Kubernetes administrator, I want to configure and deploy Application Gateway for Containers with different CNI plugins, so that I can manage networking efficiently and ensure seamless connectivity between pods in my Azure Kubernetes Service cluster."
 ---
 
 # Container networking with Application Gateway for Containers

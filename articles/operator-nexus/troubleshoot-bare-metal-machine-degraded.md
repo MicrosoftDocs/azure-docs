@@ -4,7 +4,7 @@ description: Troubleshooting guide for Bare Metal Machines in 'Degraded' status 
 ms.service: azure-operator-nexus
 ms.custom: azure-operator-nexus
 ms.topic: troubleshooting
-ms.date: 03/03/2025
+ms.date: 05/21/2025
 author: robertstarling
 ms.author: robstarling
 ms.reviewer: ekarandjeff
@@ -25,9 +25,10 @@ Bare Metal Machines (BMM) which are in _Degraded_ state exhibit the following sy
 
 | Detailed status message         | Details and mitigation                                           |
 | ------------------------------- | ---------------------------------------------------------------- |
+| `Degraded: NIC failed`          | [`Degraded: NIC failed`](#degraded-nic-failed)                   |
 | `Degraded: port down`           | [`Degraded: port down`](#degraded-port-down)                     |
-| `Degraded: port flapping`       | [`Degraded: port flapping`](#degraded-port-flapping)             |
 | `Degraded: LACP status is down` | [`Degraded: LACP status is down`](#degraded-lacp-status-is-down) |
+| `Degraded: port flapping`       | [`Degraded: port flapping`](#degraded-port-flapping)             |
 
 _Degraded_ status messages and associated automatic cordoning behavior are present in Azure Operator Nexus version 2502.1 and higher.
 
@@ -131,7 +132,7 @@ This example shows an automatically cordoned BMM with two active _Degraded_ cond
     "cordonStatus": "Cordoned",
     "degradedStartTime": "2025-03-04T03:27:00Z",
     "detailedStatus": "Provisioned",
-    "detailedStatusMessage": "The OS is provisioned to the machine. Degraded: port flapping Degraded: port down",
+    "detailedStatusMessage": "The OS is provisioned to the machine. Degraded: port flapping Degraded: port down"
   }
 }
 ```
@@ -149,6 +150,34 @@ If an uncordoned Compute BMM remains in a _Degraded_ state for more than 15 minu
 Note: only BMMs used for _Compute_ are automatically cordoned. Control and Management nodes aren't automatically cordoned.
 
 For more information about investigating the root cause of an automatic cordon, see [Troubleshooting](#troubleshooting).
+
+## `Degraded: NIC Failed`
+
+This message indicates that one of the expected Mellanox Network Interface Cards (NICs) on the underlying compute host is failed or missing.
+This message typically indicates a hardware failure on the NIC, or that the card isn't correctly seated in the host.
+
+To troubleshoot this issue:
+
+- to identify the nonoperational NIC, check the Ethernet link status indicators on the underlying compute host
+- check that the NIC is correctly installed and seated
+- sign into the Baseboard Management Controller (BMC) to check the hardware status of the NIC
+- review detailed hardware logs by generating a Dell TSR (Technical Support Report) as described in the Dell Knowledge Base article [Export a SupportAssist Collection Using an iDRAC](https://www.dell.com/support/kbdoc/en-us/000126308/export-a-supportassist-collection-via-idrac9)
+- review the most recent time of failure reported by the Bare Metal Machine `conditions`, as described in the [Troubleshooting](#troubleshooting) section
+- power cycle the host by executing a "Restart" action on the Bare Metal Machine resource, and see if the condition clears.
+
+**Example `conditions` output for NIC failed**
+
+```json
+"conditions": [
+  {
+    "lastTransitionTime": "2025-05-21T16:49:29Z",
+    "message": "Expected 2 devices in oam-bond, found 1: 98_pf0vf0_vf",
+    "reason": "OamDevicesUnhealthy",
+    "status": "False",
+    "type": "BmmNicsHealthy"
+  },
+],
+```
 
 ## `Degraded: port down`
 

@@ -2,10 +2,11 @@
 title: Configure and manage enhanced soft delete for Azure Backup
 description: This article describes about how to configure and manage enhanced soft delete for Azure Backup.
 ms.topic: how-to
-ms.date: 03/27/2025
+ms.date: 05/26/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a backup administrator, I want to configure enhanced soft delete for my backup vault, so that I can protect my backup data from accidental deletion and ensure its recoverability over a specified retention period.
 ---
 
 # Configure and manage enhanced soft delete in Azure Backup
@@ -195,7 +196,7 @@ Here are some points to note:
 
 - Unregistering a container while its backup items are soft deleted (not permanently deleted) will change the state of the container to Soft deleted. 
 
-- You can re-register containers that are in soft deleted state to another vault. However, in such scenarios, the existing backups (that is soft deleted) will continue to be in the original vault and will be permanently deleted when the soft delete retention period expires. 
+-  You can reregister containers in a soft deleted state to a different vault. However, their existing backups stay in the original vault and get permanently deleted after the soft delete retention period ends. This process doesn’t work with Immutable vaults because the **Delete** operation isn't allowed, and you can’t access items in the Soft Delete state. Learn about [restricted operations for Immutable vault](backup-azure-immutable-vault-concept.md?tabs=recovery-services-vault#restricted-operations).
 
 - You can also *undelete* the container. Once undeleted, it's re-registered to the original vault.
 

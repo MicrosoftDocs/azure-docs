@@ -2,9 +2,11 @@
 title: Troubleshooting dual-stack Nexus Kubernetes Cluster configuration issues
 description: Troubleshooting the configuration of a dual-stack IP.
 ms.service: azure-operator-nexus
-ms.custom: troubleshooting
+ms.custom:
+  - troubleshooting
+  - build-2025
 ms.topic: troubleshooting
-ms.date: 10/19/2023
+ms.date: 04/09/2025
 ms.author: v-yamohammed
 author: yasat93
 ---
@@ -50,7 +52,7 @@ Dual-stack configuration involves running both IPv4 and IPv6 protocols on your C
   1. Execute the command `az networkcloud kubernetescluster show` to retrieve information about your cluster.
   2. Examine the `networkConfiguration` section in the `az networkcloud kubernetescluster show` output.
   3. Confirm that `podCidrs` and `serviceCidrs` are set as arrays, each containing one IPv4 prefix and one IPv6 prefix.
-  4. To enable the Kubernetes service to have a dual-stack address, make sure that the IP pool configuration includes both IPv4 and IPv6 addresses. For additional information, refer to the IP address pool configuration section in the how-to available at [IP address pool configuration](howto-kubernetes-service-load-balancer.md#bicep-template-parameters-for-ip-address-pool-configuration) for more details.
+  4. To enable the Kubernetes service to have a dual-stack address, make sure that the IP pool configuration includes both IPv4 and IPv6 addresses. For additional information, refer to the IP address pool configuration section in the how-to available at [IP address pool configuration](howto-kubernetes-service-load-balancer.md#bicep-file-parameters-for-ip-address-pool-configuration) for more details.
   
   By following these steps, you can guarantee the correct setup of dual-stack networking in your Nexus Kubernetes cluster.
 

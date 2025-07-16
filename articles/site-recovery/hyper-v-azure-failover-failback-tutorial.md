@@ -5,8 +5,9 @@ ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 12/15/2023
 ms.custom: MVC
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
+# Customer intent: As an IT administrator managing Hyper-V environments, I want to execute a failover of Hyper-V VMs to cloud infrastructure, so that I can ensure business continuity and recover from on-premises site failures effectively.
 ---
 
 # Fail over Hyper-V VMs to Azure

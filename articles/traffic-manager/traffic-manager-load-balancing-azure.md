@@ -2,13 +2,14 @@
 title: Using load-balancing services in Azure
 description: 'This tutorial shows you how to create a scenario by using the Azure load-balancing portfolio: Traffic Manager, Application Gateway, and Load Balancer.'
 services: traffic-manager
-author: greg-lindsay
+author: asudbring
 manager: kumudD
 ms.service: azure-traffic-manager
 ms.topic: how-to
 ms.date: 04/30/2024
-ms.author: greglin
+ms.author: allensu
 ms.custom: template-how-to
+# Customer intent: "As a system architect, I want to implement a load-balancing solution using multiple Azure services, so that I can ensure high availability, reduced latency, and scalable traffic management for our web applications."
 ---
 
 # Using load-balancing services in Azure
@@ -22,7 +23,7 @@ In this tutorial, we first define a customer use case and see how it can be made
 At a conceptual level, each of these services plays a distinct role in the load-balancing hierarchy.
 
 * **Traffic Manager** provides global DNS load balancing. It looks at incoming DNS requests and responds with a healthy endpoint, in accordance with the routing policy the customer has selected. Options for routing methods are:
-  * Performance routing to send the requestor to the closest endpoint in terms of latency.
+  * Performance routing to send the requester to the closest endpoint in terms of latency.
   * Priority routing to direct all traffic to an endpoint, with other endpoints as backup.
   * Weighted round-robin routing, which distributes traffic based on the weighting that is assigned to each endpoint.
   * Geography-based routing to distribute the traffic to your application endpoints based on geographic location of the user.

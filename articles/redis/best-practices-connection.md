@@ -1,17 +1,20 @@
 ---
-title: Best practices for connection resilience for Azure Managed Redis(preview)
+title: Best practices for connection resilience for Azure Managed Redis
 description: Learn how to make your Azure Managed Redis connections resilient.
-
-
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
-ms.custom: linux-related-content, ignite-2024
 ms.topic: conceptual
-ms.date: 11/15/2024
-appliesto:
+ms.custom:
+  - linux-related-content
+  - ignite-2024
+  - build-2025
+  - appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Connection resilience with Azure Managed Redis (preview)
+# Connection resilience with Azure Managed Redis
+
+In this article, we discuss how to make resilient connections to your cache.
 
 ## Retry commands
 
@@ -29,7 +32,7 @@ We recommend these TCP settings:
 |---------|---------|
 | `net.ipv4.tcp_retries2`   | 5 |
 
-For more information about the scenario, see [Connection does not re-establish for 15 minutes when running on Linux](https://github.com/StackExchange/StackExchange.Redis/issues/1848#issuecomment-913064646). While this discussion is about the _StackExchange.Redis_ library, other client libraries running on Linux are affected as well. The explanation is still useful and you can generalize to other libraries.
+For more information about the scenario, see [Connection doesn't re-establish for 15 minutes when running on Linux](https://github.com/StackExchange/StackExchange.Redis/issues/1848#issuecomment-913064646). While this discussion is about the _StackExchange.Redis_ library, other client libraries running on Linux are affected as well. The explanation is still useful and you can generalize to other libraries.
 
 ## Using ForceReconnect with StackExchange.Redis
 
@@ -66,19 +69,11 @@ Avoid creating many connections at the same time when reconnecting after a conne
 If you're reconnecting many client instances, consider staggering the new connections to avoid your new connections from being throttled.
 
 > [!NOTE]
-> When you use the _StackExchange.Redis_ client library, set `abortConnect` to `false` in your connection string.  We recommend letting the `ConnectionMultiplexer` handle reconnection. For more information, see [_StackExchange.Redis_ best practices](management-faq.yml#stackexchangeredis-best-practices).
+> When you use the _StackExchange.Redis_ client library, set `abortConnect` to `false` in your connection string. We recommend letting the `ConnectionMultiplexer` handle reconnection. For more information, see [_StackExchange.Redis_ best practices](management-faq.yml#stackexchangeredis-best-practices).
 
 ## Avoid leftover connections
 
 Caches have limits on the number of client connections per cache tier. Ensure that when your client application recreates connections that it closes and removes the old connections.
-
-<!-- ## Advance maintenance notification -->
-<!-- FXL - check with Umang if this is ok. -->
-<!-- Use notifications to learn of upcoming maintenance. For more information, see [Can I be notified in advance of a planned maintenance](failover.md#can-i-be-notified-in-advance-of-maintenance). -->
-
-## Schedule maintenance window
-
-Adjust your cache settings to accommodate maintenance. For more information about creating a maintenance window to reduce any negative effects to your cache, see [Update channel and Schedule updates](administration.md#update-channel-and-schedule-updates).
 
 ## More design patterns for resilience
 
@@ -86,7 +81,7 @@ Apply design patterns for resiliency. For more information, see [How do I make m
 
 ## Idle timeout
 
-Azure Managed Redis (preview) has a 10-minute timeout for idle connections. The 10-minute timeout allows the server to automatically clean up leaky connections or connections orphaned by a client application. Most Redis client libraries have a built-in capability to send `heartbeat` or `keepalive` commands periodically to prevent connections from being closed even if there are no requests from the client application.
+Azure Managed Redis has a 10-minute timeout for idle connections. The 10-minute timeout allows the server to automatically clean up leaky connections or connections orphaned by a client application. Most Redis client libraries have a built-in capability to send `heartbeat` or `keepalive` commands periodically to prevent connections from being closed even if there are no requests from the client application.
 
 If there's any risk of your connections being idle for 10 minutes, configure the `keepalive` interval to a value less than 10 minutes. If your application is using a client library that doesn't have native support for `keepalive` functionality, you can implement it in your application by periodically sending a `PING` command.
 

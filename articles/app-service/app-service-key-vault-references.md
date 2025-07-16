@@ -14,8 +14,6 @@ ms.custom: AppServiceConnectivity
 
 This article shows you how to use secrets from Azure Key Vault as values of [app settings](configure-common.md#configure-app-settings) or [connection strings](configure-common.md#configure-connection-strings) in your Azure App Service or Azure Functions apps.
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 [Key Vault](/azure/key-vault/general/overview) is a service that provides centralized secrets management, with full control over access policies and audit history. When an app setting or connection string is a Key Vault reference, your application code can use it like any other app setting or connection string. This way, you can maintain secrets apart from your app's configuration. App settings are securely encrypted at rest, but if you need capabilities for managing secrets, they should go into a key vault.
 
 ## Grant your app access to a key vault
@@ -94,6 +92,8 @@ This setting applies to all Key Vault references for the app.
 If the secret version isn't specified in the reference, the app uses the latest version that exists in the key vault. When newer versions become available, such as with rotation, the app is automatically updated and begins using the latest version within 24 hours.
 
 The delay is because App Service caches the values of the Key Vault references and refetches them every 24 hours. Any configuration change to the app causes an app restart and an immediate refetch of all referenced secrets.
+
+To force resolution of your app's Key Vault references, make an authenticated POST request to the API endpoint `https://management.azure.com/[Resource ID]/config/configreferences/appsettings/refresh?api-version=2022-03-01`.
 
 ## <a name = "source-app-settings-from-key-vault"></a> Understand source app settings from Key Vault
 

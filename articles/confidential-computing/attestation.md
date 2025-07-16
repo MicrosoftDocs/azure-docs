@@ -5,9 +5,10 @@ services: virtual-machines
 author: ju-shim
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/20/2021
 ms.author: jushiman
+# Customer intent: As a developer, I want to implement attestation for my Intel SGX enclaves, so that I can ensure my applications run securely and maintain trust in the confidential computing environment.
 ---
 
 # Attestation for SGX Enclaves

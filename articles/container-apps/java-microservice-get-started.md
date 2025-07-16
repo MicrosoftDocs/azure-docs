@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: yiliu6
 ms.service: azure-container-apps
-ms.custom: devx-track-extended-java
+ms.custom: devx-track-java
 ms.topic: quickstart
 ms.date: 11/25/2024
 ---

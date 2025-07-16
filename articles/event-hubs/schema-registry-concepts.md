@@ -107,7 +107,7 @@ You can use one of the following libraries to include an Avro serializer. You ca
 | **.NET** | [Microsoft.Azure.Data.SchemaRegistry.ApacheAvro](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro) | [.NET Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro/tests/Samples) |
 | **Java** | [azure-data-schemaregistry-avro](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry/azure-data-schemaregistry-apacheavro) | [Java samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry/azure-data-schemaregistry-apacheavro/src/samples)|
 |**Python** | [azure-schemaregistry-avroserializer](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/schemaregistry/azure-schemaregistry-avroencoder/) | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/schemaregistry/azure-schemaregistry-avroencoder/samples)|
-|**JavaScript** | [@azure/schema-registry-avro](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/schemaregistry/schema-registry-avro) | [NodeJS samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/schemaregistry/schema-registry-avro/samples) |
+|**JavaScript** | [@azure/schema-registry-avro](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/schemaregistry/schema-registry-avro) | [Node.js samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/schemaregistry/schema-registry-avro/samples) |
 
 Additionally, the below libraries are also available based on your workloads.
 * **Apache Kafka**: Run [Kafka-integrated Avro](https://github.com/Azure/azure-schema-registry-for-kafka/) serializers and deserializers backed by Schema Registry. The Java client's Apache Kafka client serializer for Schema Registry can be used in any Apache Kafka scenario and with any Apache Kafka-based deployment or cloud service.
@@ -129,8 +129,8 @@ To access a schema registry programmatically, follow these steps:
 | ---- | ----------- |
 | Owner | Read, write, and delete schema registry groups and schemas |
 | Contributor | Read, write, and delete schema registry groups and schemas |
-| [Schema Registry Reader](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Read and list schema registry groups and schemas |
-| [Schema Registry Contributor](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Read, write, and delete schema registry groups and schemas |
+| [Schema Registry Reader](../role-based-access-control/built-in-roles/analytics.md#schema-registry-reader) | Read and list schema registry groups and schemas |
+| [Schema Registry Contributor](../role-based-access-control/built-in-roles/analytics.md#schema-registry-contributor) | Read, write, and delete schema registry groups and schemas |
 
 To learn how to create and register an application by using the Azure portal, see [Register an application with Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md). You need the client ID (application ID), the tenant ID, and the secret to use in the code.
 

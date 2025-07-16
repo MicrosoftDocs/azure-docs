@@ -21,7 +21,7 @@ Microsoft Dev Box builds on the same foundations as [Azure Deployment Environmen
 
 This diagram shows the key components of Dev Box and how they relate to each other. You can learn more about each component in the following sections.
 
-:::image type="content" source="media/concept-key-concepts/dev-box-architecture.png" alt-text="Diagram showing the major components of Microsoft Dev Box and the relationships between them." lightbox="media/concept-key-concepts/dev-box-architecture.png" :::
+:::image type="content" source="media/concept-key-concepts/dev-box-concepts-overview.png" alt-text="Diagram showing the major components of Microsoft Dev Box and the relationships between them." lightbox="media/concept-key-concepts/dev-box-concepts-overview.png" :::
 
 For more in-depth information about the Microsoft Dev Box architecture, see the [architecture overview](./concept-dev-box-architecture.md) article.
 
@@ -38,7 +38,7 @@ A dev center is a collection of [Projects](#project) that require similar settin
 
 The Dev Box quick start catalog contains tasks and scripts that you can use to configure your dev box during the final stage of the creation process. Microsoft provides a [*quick start catalog*](https://github.com/microsoft/devcenter-catalog) that contains a set of sample tasks. You can attach the quick start catalog to a dev center to make these tasks available to all the projects associated with the dev center. You can modify the sample tasks to suit your needs, and you can create your own catalog of tasks. 
 
-To learn how to create Dev Box customizations, see [Microsoft Dev Box team customizations](concept-what-are-team-customizations.md).
+To learn how to create Dev Box customizations, see [Microsoft Dev Box customizations](concept-what-are-dev-box-customizations.md).
 
 ## Project
 
@@ -89,6 +89,8 @@ A dev box pool is a collection of dev boxes that you manage together and to whic
 A dev box is a preconfigured workstation that you create through the self-service developer portal. A new dev box has all the tools, binaries, and configuration required for a dev box user to be productive immediately. You can create and manage multiple dev boxes to work on multiple workstreams.
 
 As a dev box user, you have control over your own dev boxes. You can create more as you need them and delete them when you finish using them.
+
+[!INCLUDE [dev-box-get-started-links](includes/dev-box-get-started-links.md)]
 
 ## Related content
 

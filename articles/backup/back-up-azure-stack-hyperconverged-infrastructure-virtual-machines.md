@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: engagement-fy24
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to back up and recover Azure Local virtual machines using a backup server, so that I can ensure data protection and quick recovery for my virtual infrastructure."
 ---
 
 # Back up Azure Local virtual machines with Azure Backup Server

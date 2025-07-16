@@ -6,7 +6,7 @@ ms.author: baanders
 ms.topic: tutorial
 ms.custom:
   - ignite-2023
-ms.date: 11/04/2024
+ms.date: 03/26/2025
 
 #CustomerIntent: As an OT user, I want to create a visual report for my processed OPC UA data that I can use to analyze and derive insights from it.
 ---
@@ -19,7 +19,7 @@ These operations are the last steps in the sample end-to-end tutorial experience
 
 ## Prerequisites
 
-Before you begin this tutorial, you must complete [Tutorial: Send asset telemetry to the cloud using a data flow](tutorial-upload-telemetry-to-cloud.md)
+Before you begin this tutorial, you must complete [Tutorial: Send messages from assets to the cloud using a data flow](tutorial-upload-messages-to-cloud.md)
 
 You also need a Microsoft Fabric subscription. In your subscription, you need access to a workspace with **Contributor** or above permissions.
 
@@ -69,7 +69,7 @@ Follow these steps to check your work so far, and make sure data is flowing into
     :::image type="content" source="media/tutorial-get-insights/source-added-data.png" alt-text="Screenshot of the eventstream with data from the AzureEventHub source.":::
 
 >[!TIP]
->If data has not arrived in your eventstream, you may want to check your event hub activity to [verify that it's receiving messages](tutorial-upload-telemetry-to-cloud.md#verify-data-is-flowing). This will help you isolate which section of the flow to debug.
+>If data has not arrived in your eventstream, you may want to check your event hub activity to [verify that it's receiving messages](tutorial-upload-messages-to-cloud.md#verify-data-is-flowing). This will help you isolate which section of the flow to debug.
 
 ### Prepare KQL resources
 

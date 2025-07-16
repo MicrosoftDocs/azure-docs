@@ -11,6 +11,7 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
+# Customer intent: As a cloud developer, I want to set up an event-driven Azure Function that triggers on blob rehydration events, so that I can automate logging and processing when blobs transition from the archive tier.
 ---
 
 # Run an Azure Function in response to a blob rehydration event

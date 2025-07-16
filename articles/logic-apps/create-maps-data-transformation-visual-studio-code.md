@@ -4,9 +4,9 @@ description: Create maps to convert data elements between schemas for Standard w
 services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
-ms.reviewer: estfan, kewear, azla
+ms.reviewer: estfan, shahparth, azla
 ms.topic: how-to
-ms.date: 02/12/2025
+ms.date: 04/18/2025
 # Customer intent: As a developer, I want to convert data between different formats for a Standard workflow in Azure Logic Apps by creating a map with Visual Studio Code.
 ---
 
@@ -42,8 +42,6 @@ This how-to guide shows how to create an empty data map, choose your source and 
 
 - To use the maps that you create with Data Mapper with workflows in the Azure portal, you must [add them directly to your Standard logic app resource](logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
 
-- Custom functions currently aren't supported in this release.
-
 ## Prerequisites
 
 - [Visual Studio Code and the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites) to create Standard logic app workflows.
@@ -57,17 +55,16 @@ This how-to guide shows how to create an empty data map, choose your source and 
 - The source and target schema files that describe the data types to transform. These files can have either the following formats:
 
   - An XML schema definition file with the .xsd file extension
+
   - A JavaScript Object Notation file with the .json file extension
 
 - A Standard logic app project that includes a stateful or stateless workflow with a trigger at minimum. If you don't have a project, follow these steps in Visual Studio Code:
 
   1. [Connect to your Azure account](create-single-tenant-workflows-visual-studio-code.md#connect-azure-account), if you haven't already.
 
-  1. [Create a local folder, a local Standard logic app project, and a stateful or stateless workflow](create-single-tenant-workflows-visual-studio-code.md#create-project). During workflow creation, select **Open in current window**.
+  1. [Create a local folder, a Standard logic app workspace and project, and a stateful or stateless workflow](create-single-tenant-workflows-visual-studio-code.md#create-project). During workflow creation, select **Open in current window**.
 
 - Sample input data if you want to test the map and check that the transformation works as you expect.
-
-- To use the **Run XSLT** function, your XSLT snippets must exist in files that use either the **.xml** or **.xslt** file name extension. You must put your XSLT snippets in the **InlineXslt** folder in your local project folder structure: **Artifacts** > **DataMapper** > **Extensions** > **InlineXslt**. If this folder structure doesn't exist, create the missing folders.
 
 ## Create a data map
 
@@ -81,7 +78,7 @@ This how-to guide shows how to create an empty data map, choose your source and 
 
    On the Visual Studio Code title bar, a prompt box opens so you can provide a name for your map.
 
-1. In the prompt box, enter a data map name.
+1. In the prompt box, enter a name for the map.
 
    For this guide, these steps use the name **Example-data-map**.
 
@@ -109,8 +106,8 @@ This how-to guide shows how to create an empty data map, choose your source and 
 
 > [!TIP]
 >
-> If you experience problems loading your schemas, you can locally add your source and target 
-> schema files to your logic app project's **Artifacts**\/**Schemas** folder. In this scenario, 
+> If you experience problems loading your schemas, you can add your source and target 
+> schema files to your logic app project's local **Artifacts**\/**Schemas** folder. In this scenario, 
 > to specify your source and target schema in Data Mapper, on the **Source** and **Destination** 
 > panes, open the **Select existing** list, rather than use **Add new**, and select your schema.
 
@@ -376,10 +373,10 @@ In the following example, when the purchase quantity exceeds 20 items, the mappi
 
 When you're done, on the map toolbar, select **Save**.
 
-Visual Studio Code saves your map as the following artifacts:
+Visual Studio Code saves your data map as the following artifacts:
 
-- A **<*your-map-name*>.lml** file in the **Artifacts** > **MapDefinitions** project folder
-- An **<*your-map-name*>.xslt** file in the **Artifacts** > **Maps** project folder
+- A Data Mapper (**<*your-map-name*>.lml**) file in the **Artifacts** > **MapDefinitions** project folder
+- A data map (**<*your-map-name*>.xslt**) file in the **Artifacts** > **Maps** project folder
 
 ## Test your map
 
@@ -411,83 +408,197 @@ To confirm that the transformation works as you expect, you'll need sample input
 
    To use the same **Transform using Data Mapper XSLT** action in the Azure portal, you must [add the map to the Standard logic app resource](logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
 
-<!---<a name="create-custom-function"></a>
+<a name="run-xslt"></a>
 
-## Create a custom function
+## Run XSLT from a data map
 
-To create your own function that you can use with Data Mapper, follow these steps:
+You can run executable XSLT snippets within a data map (**.xslt**) file by using the **Run XSLT** function. When you use this function, you get a data map file that contains the actual executable XSLT. The Data Mapper (**.lml**) file contains a reference to the executable XSLT (**.xslt**  or **.xml**) file.
 
-1. Create an XML (.xml) file that has a meaningful name that describes your function's purpose.
+To complete this task, follow these steps:
 
-   If you have multiple related functions, you can use a single file for these functions. Although you can use any file name, a meaningful file name or category makes your functions easier to identify, find, and discover.
+1. Create a new data map (**.xslt** or **.xml**) file that contains the executable XSLT snippet that you want to run.
 
-1. In your XML file, you must use the following schema for the function definition:
+1. Put or move the XSLT snippet file into the following project folder:
 
-   ```xml
-   <?xml version="1.0" encoding="utf-8"?>
-   <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-      <xs:element name="customfunctions">
-         <xs:complexType>
-            <xs:sequence>
-               <xs:element maxOccurs="unbounded" name="function">
-                  <xs:complexType>
-                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" name="param">
-                           <xs:complexType>
-                               <xs:attribute name="name" type="xs:string" use="required" />
-                               <xs:attribute name="as" type="xs:string" use="required" />
-                           </xs:complexType>
-                        </xs:element>
-                        <xs:any minOccurs="0" />
-                     </xs:sequence>
-                     <xs:attribute name="name" type="xs:string" use="required" />
-                     <xs:attribute name="as" type="xs:string" use="required" />
-                     <xs:attribute name="description" type="xs:string" use="required" />
-                  </xs:complexType>
-               </xs:element>
-            </xs:sequence>
-         </xs:complexType>
-      </xs:element>
-   </xs:schema>
-   ```
+   **Artifacts** > **DataMapper\Extensions** > **InlineXSLT**
 
-   Each XML element named **"function"** implements an XSLT3.0 style function with a few more attributes. The Data Mapper functions list includes the function name, description, parameter names, and parameter types.
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/inline-xslt-project-structure.png" alt-text="Screenshot shows Visual Studio Code, Standard logic app project, and InlineXslt project folder with InlineXslt.xsd file." lightbox="media/create-maps-data-transformation-visual-studio-code/inline-xslt-project-structure.png":::
 
-   The following example shows the implementation for a **SampleFunctions.xml** file:
+   > [!NOTE]
+   >
+   > If you create or save this executable XSLT file in Visual Studio Code, the file automatically appears in the 
+   > **Artifacts** > **Maps** project folder. Make sure to move XSLT snippet files to the **InlineXslt** folder.
 
-   ```xml
-   <?xml version="1.0" encoding="utf-8" ?>
-   <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-   <customfunctions>
-      <function name="age" as="xs:float" description="Returns the current age.">
-         <param name="inputDate" as="xs:date"/> 
-         <value-of select="round(days-from-duration(current-date() - xs:date($inputDate)) div 365.25, 1)"/>
-      </function> 
-      <function name="custom-if-then-else" as="xs:string" description="Evaluates the condition and returns corresponding value.">
-         <param name="condition" as="xs:boolean"/>
-         <param name="thenResult" as="xs:anyAtomicType"/>
-         <param name="elseResult" as="xs:anyAtomicType"/>
-         <choose>
-            <when test="$condition">
-               <value-of select="$thenResult"></value-of>
-            </when>
-            <otherwise>
-               <value-of select="$elseResult"></value-of>
-            </otherwise>
-         </choose>
-      </function>
-   </customfunctions>
-   ```
+1. Open the data map from where you want to run the XSLT.
 
-1. On your local computer, open the folder for your Standard logic app project.
+1. From the **Functions** pane, under **Utility**, select **Run XSLT** to add the function to the mapper surface.
 
-1. Open the **Artifacts** folder, and create the following folder structure, if none exists: **DataMapper** > **Extensions** > **Functions**.
+1. On the mapper surface, select **Run XSLT**.
 
-1. In the **Functions** folder, save your function's XML file.
+1. From the **File** dropdown list, select the executable **.xslt** file that you added to the **InlineXSLT** folder, for example:
 
-1. To find your custom function in the Data Mapper **Functions** list, search for the function, or expand the **Custom functions** collection.
--->
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/run-xslt.png" alt-text="Screenshot shows opened data mapper surface and Run XSLT function with selected InlineXslt.xsd file." lightbox="media/create-maps-data-transformation-visual-studio-code/run-xslt.png":::
+
+1. Connect the **Run XSLT** function to the destination node where you want to apply the XSLT logic, for example:
+
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/run-xslt-destination.png" alt-text="Screenshot shows opened data mapper surface and Run XSLT function connected to destination node." lightbox="media/create-maps-data-transformation-visual-studio-code/run-xslt-destination.png":::
+
+   As the XSLT logic applies only to the destination node, you don't have to connect the **Run XSLT** function to a source node.
+
+1. Test your map to confirm that the expected results appear in the destination schema.
+
+For deployment, you only need the resulting data map with the inline executable XSLT.
+
+<a name="extract-values-from-nested-xml"></a>
+
+## Access nodes in nested XML
+
+Suppose you have a schema that has nested XML nodes, and you wanted to work with these nodes in the following ways:
+
+- Access attributes or nested elements.
+- Apply logic based on the structure or content from incoming data.
+
+To complete these tasks, use the **Execute XPath** function:
+
+1. Open the data map that you want to work on.
+
+1. From the **Functions** pane, under **Utility**, select **Execute XPath** to add the function to the mapper surface.
+
+1. On the mapper surface, select **Execute XPath**.
+
+1. In the **XPATH expression** box, enter an expression that performs the work you want.
+
+   For information about expression syntax, see [XPath Syntax](https://www.w3schools.com/xml/xpath_syntax.asp).
+
+   This example uses the **`//Address`** expression along with a test payload:
+
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/execute-xpath.png" alt-text="Screenshot shows opened data mapper surface and Execute XPath function with expression." lightbox="media/create-maps-data-transformation-visual-studio-code/execute-xpath.png":::
+
+   > [!NOTE]
+   >
+   > Double forward slashes (**`//`**) select nodes from the current 
+   > node that match the selection, regardless where the nodes exist.
+
+1. Connect the **Execute XPath** function to the destination node where you want to run the function.
+
+   This example connects the function to the **Address** node in the destination schema:
+
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/execute-xpath-destination.png" alt-text="Screenshot shows opened data mapper surface and Execute XPath function connected to destination node." lightbox="media/create-maps-data-transformation-visual-studio-code/execute-xpath-destination.png":::
+
+   > [!NOTE]
+   >
+   > Node names are automatically enclosed by double quotation marks (**" "**). 
+
+1. Test your map to confirm that the expected results appear in the destination schema.
+
+   This example uses a test payload and correctly produces results with multiple **Address** nodes because the source **Address** node exists in an **Employee** array, while the destination **Address** node exists in a **Person** array.
+
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/execute-xpath-results.png" alt-text="Screenshot shows opened data mapper surface, Execute XPath function, and test results in destination schema." lightbox="media/create-maps-data-transformation-visual-studio-code/execute-xpath-results.png":::
+
+   > [!NOTE]
+   >
+   > If you create a mapping between arrays in the source and target schemas, a loop automatically 
+   > appears on the mapper surface to iterate through the array elements. However, you still have to 
+   > create mappings between the source and target array elements. For information about looping 
+   > through arrays, see [Iterate through arrays](#loop-through-array).
+
+## Create custom XML functions
+
+To define reusable logic across your map, you can create custom XML functions, which provide the following benefits:
+
+- Reduce duplication and support schema-specific transformations.
+- Wrap complex logic into manageable components.
+- Handle schema-specific edge cases.
+
+To create a custom XML function, follow these steps:
+
+1. Create an XML (**.xml**) file with a meaningful name that describes your function's purpose.
+
+   Your XML file must use a [specific schema for function definitions](#review-schema-for-a-function-definition). If you have multiple related functions, you can use a single file for these functions. Although you can use any file name, a meaningful file name or category makes your functions easier to identify, find, and discover.
+
+1. Add this XML file to your logic app project in the following folder:
+
+   **Artifacts** > **DataMapper\Extensions** > **Functions**
+
+1. Open the data map where you want to use your function.
+
+1. From the **Functions** pane, under **Utility**, select your custom function, which now appears on the mapper surface.
+
+1. On the mapper surface, select your function. Provide the input that the function needs to work.
+
+1. Connect the function to the required endpoints.
+
+   The following example shows a custom function named **Age** that returns the age for the provided birthdate. The function connects to the **Dat_of_Birth** source node and the **Other** destination node. To review the definition for this custom function, see [Review the sample function definition](#review-the-sample-function-definitions).
+
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/custom-function-age.png" alt-text="Screenshot shows opened data mapper surface and custom function named Age." lightbox="media/create-maps-data-transformation-visual-studio-code/custom-function-age.png":::
+
+1. Test your map to confirm that the expected results appear in the destination schema, for example:
+
+   :::image type="content" source="media/create-maps-data-transformation-visual-studio-code/custom-function-age-results.png" alt-text="Screenshot shows opened data mapper surface, custom function named Age, and function results." lightbox="media/create-maps-data-transformation-visual-studio-code/custom-function-age-results.png":::
+
+### Review schema for a function definition
+
+Your XML file must use the following schema for a function definition. Each XML element that has the **`"function"`** name implements an XSLT 3.0 style function with a few more attributes. The Data Mapper functions list includes the function name, description, parameter names, and parameter types.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="customfunctions">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="function">
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element maxOccurs="unbounded" name="param">
+                        <xs:complexType>
+                           <xs:attribute name="name" type="xs:string" use="required" />
+                           <xs:attribute name="as" type="xs:string" use="required" />
+                        </xs:complexType>
+                     </xs:element>
+                     <xs:any minOccurs="0" />
+                  </xs:sequence>
+                  <xs:attribute name="name" type="xs:string" use="required" />
+                  <xs:attribute name="as" type="xs:string" use="required" />
+                  <xs:attribute name="description" type="xs:string" use="required" />
+               </xs:complexType>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>
+```
+
+### Review the sample function definitions
+
+The following **SampleFunctions.xml** file shows the implementation for the following functions:
+
+- **`"age"`**
+- **`"custom-if-then-else"`**
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<customfunctions>
+   <function name="age" as="xs:float" description="Returns the current age.">
+      <param name="inputDate" as="xs:date"/> 
+      <value-of select="round(days-from-duration(current-date() - xs:date($inputDate)) div 365.25, 1)"/>
+   </function> 
+   <function name="custom-if-then-else" as="xs:string" description="Evaluates the condition and returns corresponding value.">
+      <param name="condition" as="xs:boolean"/>
+      <param name="thenResult" as="xs:anyAtomicType"/>
+      <param name="elseResult" as="xs:anyAtomicType"/>
+      <choose>
+         <when test="$condition">
+            <value-of select="$thenResult"></value-of>
+         </when>
+         <otherwise>
+            <value-of select="$elseResult"></value-of>
+         </otherwise>
+      </choose>
+   </function>
+</customfunctions>
+```
 
 ## Related content
 
-- For data transformations using B2B operations in Azure Logic Apps, see [Add maps for transformations in workflows with Azure Logic Apps](logic-apps-enterprise-integration-maps.md)
+- [Add maps for transformations in workflows with Azure Logic Apps](logic-apps-enterprise-integration-maps.md)

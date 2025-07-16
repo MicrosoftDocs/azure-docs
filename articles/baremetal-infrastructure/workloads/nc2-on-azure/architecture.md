@@ -6,8 +6,9 @@ description: Learn about the architecture of several configurations of BareMetal
 ms.topic: reference
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 04/08/2025
+ms.date: 04/23/2025
 ms.service: azure-baremetal-infrastructure
+# Customer intent: "As a cloud architect, I want to understand the architecture of BareMetal Infrastructure for NC2 on Azure, so that I can design scalable and efficient private cloud solutions integrated with existing services."
 ---
 
 # Nutanix Cloud Clusters (NC2) on Azure architectural concepts
@@ -103,23 +104,27 @@ The following table describes the network topologies supported by each network f
 | :------------------- |:---------------:|
 |Connectivity to BareMetal Infrastructure (BMI) in a local VNet| Yes |
 |Connectivity to BMI in a peered VNet (Same region)|Yes |
-|Connectivity to BMI in a peered VNet\* (Cross region or global peering) with VWAN\*|Yes |
-|Connectivity to BMI in a peered VNet* (Cross region or global peering)* without VWAN| No|
-|On-premises connectivity to Delegated Subnet via Global and Local Expressroute |Yes|
-|ExpressRoute (ER) FastPath |No |
+|Connectivity to BMI in a peered VNet (Cross region or global peering) with VWAN |Yes |
+|Connectivity to BMI in a peered VNet (Cross region or global peering) without VWAN*| No|
+|On-premises connectivity to Delegated Subnet via Global and Local ExpressRoute |Yes|
 |Connectivity from on-premises to BMI in a spoke VNet over ExpressRoute gateway and VNet peering with gateway transit|Yes |
-|On-premises connectivity to Delegated Subnet via VPN GW| Yes |
+|ExpressRoute (ER) FastPath |No |
+|On-premises connectivity to Delegated Subnet via VPN Gateway| Yes |
 |Connectivity from on-premises to BMI in a spoke VNet over VPN gateway and VNet peering with gateway transit| Yes |
-|Connectivity over Active/Passive VPN gateways| Yes |
-|Connectivity over Active/Active VPN gateways| No |
+|Connectivity over Active/Passive VPN Gateways| Yes |
+|Connectivity over Active/Active VPN Gateways| No |
 |Connectivity over Active/Active Zone Redundant gateways| No |
 |Transit connectivity via vWAN for Spoke Delegated VNETS| Yes |
 |On-premises connectivity to Delegated subnet via vWAN attached SD-WAN| No|
-|On-premises connectivity via Secured HUB(Az Firewall NVA) | No|
-|Connectivity from UVMs on NC2 nodes to Azure resources|Yes|
+|VWAN enables traffic inspection via NVA (Secure vWAN)**|Yes|
+|[User-defined routes (UDRs)](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) on NC2 on Azure-delegated subnets| Yes|
+|Connectivity from BareMetal to [service endpoints](../../../virtual-network/virtual-network-service-endpoints-overview.md) or [private endpoints][def] in a different spoke Vnet connected to vWAN|Yes|
+|Connectivity from BareMetal to [service endpoints](../../../virtual-network/virtual-network-service-endpoints-overview.md) or [private endpoints][def] in the same Vnet on Azure-delegated subnets|No|
+|Connectivity from User VMs (UVMs) on NC2 nodes to Azure resources|Yes|
 
 \* You can overcome this limitation by setting Site-to-Site VPN.
 
+\** If using Routing Intent you must add either the full delegated subnet CIDR or a more specific CIDR range as "Additional Prefixes" section under the Routing Intent and Routing Policies page in the portal 
 ## Constraints
 
 The following table describes what’s supported for each network features configuration:
@@ -127,10 +132,6 @@ The following table describes what’s supported for each network features confi
 |Features |Support or Limit|
 | :------------------- | -------------------: |
 |Delegated subnet per VNet |1|
-|VWAN enables traffic inspection via NVA (Virtual WAN Hub routing intent)|Yes|
-|[User-defined routes (UDRs)](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) on NC2 on Azure-delegated subnets without VWAN| Yes|
-|Connectivity from BareMetal to [service endpoints](../../../virtual-network/virtual-network-service-endpoints-overview.md) or [private endpoints][def] in a different spoke Vnet connected to vWAN|Yes|
-|Connectivity from BareMetal to [service endpoints](../../../virtual-network/virtual-network-service-endpoints-overview.md) or [private endpoints][def] in the same Vnet on Azure-delegated subnets|No|
 |[Network Security Groups](../../../virtual-network/network-security-groups-overview.md) on NC2 on Azure-delegated subnets|No|
 |Load balancers for NC2 on Azure traffic|No|
 |Dual stack (IPv4 and IPv6) virtual network|IPv4 only supported|

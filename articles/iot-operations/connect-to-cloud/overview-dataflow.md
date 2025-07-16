@@ -5,8 +5,8 @@ author: PatAltimore
 ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
-ms.topic: conceptual
-ms.date: 03/17/2025
+ms.topic: concept-article
+ms.date: 05/21/2025
 
 #CustomerIntent: As an operator, I want to understand how I can use data flows to connect data sources.
 ---
@@ -74,6 +74,6 @@ The local MQTT broker message queue is stored in memory by default. You can conf
 
 ## Related content
 
-- [Tutorial: Send asset telemetry to the cloud by using a data flow](../end-to-end-tutorials/tutorial-upload-telemetry-to-cloud.md)
+- [Tutorial: Send messages from assets to the cloud using a data flow](../end-to-end-tutorials/tutorial-upload-messages-to-cloud.md)
 - [Create a data flow](howto-create-dataflow.md)
 - [Create a data flow endpoint](howto-configure-dataflow-endpoint.md)

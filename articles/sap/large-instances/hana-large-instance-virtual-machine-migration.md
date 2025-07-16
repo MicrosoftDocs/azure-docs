@@ -22,7 +22,7 @@ This article isn't a step-by-step configuration document. It describes the commo
 
 ## Assumptions
 This article makes the following assumptions:
-- We'll only consider a homogenous HANA database compute service migration from Hana Large Instance (HLI) to Azure VM without significant software upgrade or patching. These minor updates include the use of a more recent operating system (OS) version or HANA version explicitly stated as supported by relevant SAP notes. 
+- We'll only consider a homogeneous HANA database compute service migration from Hana Large Instance (HLI) to Azure VM without significant software upgrade or patching. These minor updates include the use of a more recent operating system (OS) version or HANA version explicitly stated as supported by relevant SAP notes. 
 - You'll do all updates/upgrades activities before or after the migration.  For example, SAP HANA MCOS converting to MDC deployment. 
 - The migration approach offering the least downtime is SAP HANA System Replication. Other migration methods aren't part of the scope of this document.
 - This guidance is applicable for both Rev3 and Rev4 SKUs of HLI.

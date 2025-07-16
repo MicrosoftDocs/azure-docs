@@ -1,14 +1,17 @@
 ---
-title: Virtual network flow logs
+title: Virtual Network Flow Logs
 titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher virtual network flow logs and how to use them to record your virtual network's traffic. 
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 04/14/2025
+ms.date: 05/19/2025
 
 #CustomerIntent: As an Azure administrator, I want to learn about virtual network flow logs so that I can log my network traffic to analyze and optimize network performance.
+ms.custom:
+  - build-2025
+# Customer intent: As an Azure administrator, I want to implement virtual network flow logs so that I can effectively monitor network traffic, optimize performance, and ensure compliance within my virtual network.
 ---
 
 # Virtual network flow logs
@@ -223,15 +226,18 @@ Traffic can't be recorded at the private endpoint itself. You can capture traffi
 
 Currently, these Azure services don't support virtual network flow logs:
 
-- [Azure Container Instances](/azure/container-instances/container-instances-overview)
-- [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
-- [Azure Functions](../azure-functions/functions-overview.md)
-- [Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md)
-- [App Service](../app-service/overview.md)
-- [Azure Database for MariaDB](/azure/mariadb/overview)
-- [Azure Database for MySQL](/azure/mysql/single-server/overview)
-- [Azure Database for PostgreSQL](/azure/postgresql/single-server/overview)
-- [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction)
+- [Azure Container Instances](/azure/container-instances/container-instances-overview?toc=/azure/network-watcher/toc.json)
+- [Azure Container Apps](/azure/container-apps/overview?toc=/azure/network-watcher/toc.json)
+- [Azure Logic Apps](../logic-apps/logic-apps-overview.md?toc=/azure/network-watcher/toc.json) 
+- [Azure Functions](../azure-functions/functions-overview.md?toc=/azure/network-watcher/toc.json)
+- [Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md?toc=/azure/network-watcher/toc.json)
+- [App Service](../app-service/overview.md?toc=/azure/network-watcher/toc.json)
+- [Azure Database for MariaDB](/azure/mariadb/overview?toc=/azure/network-watcher/toc.json)
+- [Azure Database for MySQL](/azure/mysql/single-server/overview?toc=/azure/network-watcher/toc.json)
+- [Azure Database for PostgreSQL](/azure/postgresql/single-server/overview?toc=/azure/network-watcher/toc.json)
+- [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview?toc=/azure/network-watcher/toc.json)
+- [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction?toc=/azure/network-watcher/toc.json)
+- [Microsoft Power Platform](/power-platform?toc=/azure/network-watcher/toc.json)
 
 > [!NOTE]
 > App services deployed under an Azure App Service plan don't support virtual network flow logs. To learn more, see [How virtual network integration works](../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works).

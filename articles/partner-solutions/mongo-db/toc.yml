@@ -1,0 +1,24 @@
+items:
+- name: MongoDB Atlas documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is MongoDB Atlas?
+    href: overview.md 
+  - name: Resources and developer tools
+    href: tools.md 
+- name: Quickstart
+  expanded: true
+  items:
+  - name: Create a resource
+    href: create.md
+- name: How to
+  expanded: true
+  items:
+  - name: Manage a resource
+    href: manage.md
+  - name: Get support
+    href: https://www.mongodb.com/company/contact
+  - name: Troubleshoot
+    href: troubleshoot.md

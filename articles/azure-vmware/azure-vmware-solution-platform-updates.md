@@ -4,13 +4,23 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 4/15/2025
+ms.date: 5/23/2025
 ---
 
 # What's new in Azure VMware Solution
 
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-host-remediation.md#host-maintenance-and-lifecycle-management).
 
+## May 2025
+
+
+**vSAN ESA (Express Storage Architecture) support**
+
+Azure VMware Solution will now support vSAN ESA (Express Storage Architecture) as the default vSAN architecture for AV48 (including Stretched Clusters) and AV64 (Gen 2) host types.
+
+**HCX Upgrade and Hybridity Depot Decommissioning**
+
+The HCX Hybridity Depot has been decommissioned by Broadcom. All Azure VMware Solution customers will be upgraded to HCX 4.11.0 in the coming weeks. Until customers are fully upgraded to HCX 4.11.0, they must submit a support request (SR) to obtain the required HCX Connector upgrade bundles. Once customers are upgraded to HCX 4.11.0, previous and current HCX Connector upgrade bundles will be available directly to them from their vSAN datastore. 
 ## April 2025
 
 **AV48 SKU**
@@ -19,7 +29,7 @@ Azure VMware Solution AV48 node size is now available in the Japan East region. 
 
 **Azure Native Pure Storage Cloud (preview)**
 
-Azure Native Pure Storage Cloud for Azure VMware Solution is now in public preview. You can now use Azure Native Pure Storage Cloud from Pure Storage to deploy vVols-based block storage for AVS, enabling you to scale storage independently for your virtual workloads. [Learn more](configure-azure-native-pure-storage-cloud.md)
+Azure Native Pure Storage Cloud for Azure VMware Solution is now in public preview. You can now use Azure Native Pure Storage Cloud from Pure Storage to deploy vVols-based block storage for Azure VMware Solution, enabling you to scale storage independently for your virtual workloads. [Learn more](configure-azure-native-pure-storage-cloud.md)
 
 **Azure VMware Solution Generation 2 Private Clouds (preview)**
 

@@ -16,7 +16,7 @@ ms.author: v-vprasannak
 ## Provision a custom domain
 
 To provision a custom domain, you need to:
-    
+
 * Verify the custom domain ownership by adding a TXT record in your Domain Name System (DNS).
 * Configure the sender authentication by adding Sender Policy Framework (SPF) and DomainKeys Identified Mail (DKIM) records.
 
@@ -30,15 +30,15 @@ using Azure.ResourceManager.Communication;
 
 ## Subscription ID
 
-You'll need to know the ID of your Azure subscription. This can be acquired from the portal:
+You need to know the ID of your Azure subscription. You can get your ID from the portal:
 
-1.  Login into your Azure account
-2.  Select Subscriptions in the left sidebar
-3.  Select whichever subscription is needed
-4.  Click on Overview
-5.  Select your Subscription ID
+1.  Sign in into your Azure account.
+2.  Select **Subscriptions** in the left sidebar.
+3.  Select whichever subscription is needed.
+4.  Click **Overview**.
+5.  Select your Subscription ID.
 
-In this quickstart, we'll assume that you've stored the subscription ID in an environment variable called `AZURE_SUBSCRIPTION_ID`.
+This example assumes that you stored the subscription ID in an environment variable called `AZURE_SUBSCRIPTION_ID`.
 
 ## Authentication
 
@@ -46,9 +46,9 @@ To communicate with Domain resource, you must first authenticate yourself to Azu
 
 ### Authenticate the Client
 
-The default option to create an authenticated client is to use DefaultAzureCredential. Since all management APIs go through the same endpoint, in order to interact with resources, only one top-level ArmClient has to be created.
+The default option to create an authenticated client is to use `DefaultAzureCredential`. Since all management APIs go through the same endpoint, in order to interact with resources, You only need to create one top-level `ArmClient`.
 
-To authenticate to Azure and create an ArmClient, do the following code:
+To authenticate to Azure and create an `ArmClient`, run the following code:
 
 ```csharp
 using System;
@@ -68,15 +68,13 @@ ArmClient client = new ArmClient(cred);
 
 ## Interacting with Azure resources
 
-Now that you're authenticated.
+For each of the following examples, we assign our Domain resources to an existing Email communication service.
 
-For each of the following examples, we'll be assigning our Domain resources to an existing Email communication service.
-
-If you need to create an Email Communication Service, you can do so by using the [Azure portal](../../../../communication-services/quickstarts/email/create-email-communication-resource.md). 
+If you need to create an Email Communication Service, use the [Azure portal](../../../../communication-services/quickstarts/email/create-email-communication-resource.md). 
 
 ## Create a Domain resource
 
-When creating a Domain resource, you'll specify the resource group name, Email Communication Service name, resource name and DomainManagement.
+When creating a Domain resource, specify the resource group name, Email Communication Service name, resource name, and DomainManagement.
 
 > [!NOTE]
 > The `Location` property is always `global`.
@@ -189,7 +187,7 @@ Console.WriteLine($"Succeeded: {result}");
 
 ## Verification operation for your Domain resource
 
-To configure sender authentication for your domains, refer Configure sender authentication for custom domain section from the Azure portal tab.
+To configure sender authentication for your domains, see the **Configure sender authentication for custom domain** section from the Azure portal tab.
 
 ### Initiate Verification
 
@@ -249,4 +247,4 @@ Console.WriteLine($"Succeeded");
 ```
 
 > [!NOTE]
-> Resource deletion is **permanent** and no data, including event grid filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.
+> Resource deletion is **permanent** and no data, including Event Grid filters, phone numbers, or other data tied to your resource, can be recovered if you delete the resource.

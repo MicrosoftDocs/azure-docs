@@ -6,6 +6,7 @@ ms.service: azure-container-storage
 ms.date: 07/23/2024
 ms.author: kendownie
 ms.topic: how-to
+# Customer intent: "As a cloud administrator, I want to remove Azure Container Storage from my AKS environment, so that I can clean up resources and ensure no unnecessary costs are incurred for unused components."
 ---
 
 # Remove Azure Container Storage

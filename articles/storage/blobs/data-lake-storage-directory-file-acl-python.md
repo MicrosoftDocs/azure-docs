@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.reviewer: prishet
 ms.devlang: python
 ms.custom: devx-track-python
+# Customer intent: "As a Python developer, I want to manage files and directories in Azure Data Lake Storage using Python, so that I can efficiently organize and manipulate data stored in hierarchical namespaces."
 ---
 
 # Use Python to manage directories and files in Azure Data Lake Storage

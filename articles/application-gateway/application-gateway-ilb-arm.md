@@ -2,12 +2,13 @@
 title: Use with Internal Load Balancer - Azure Application Gateway
 description: This article provides instructions to create, configure, start, and delete an Azure application gateway with internal load balancer (ILB)
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 09/13/2022
-ms.author: greglin 
+ms.author: mbender 
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud engineer, I want to create and configure an application gateway with an internal load balancer, so that I can efficiently manage traffic for internal applications without exposing them to the Internet.
 ---
 
 # Create an application gateway with an internal load balancer (ILB)

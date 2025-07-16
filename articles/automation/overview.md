@@ -3,9 +3,11 @@ title: Azure Automation overview
 description: This article tells what Azure Automation is and how to use it to automate the lifecycle of infrastructure and applications.
 services: automation
 keywords: azure automation, DSC, powershell, state configuration, change tracking, DSC, inventory, runbooks, python, graphical
-ms.date: 03/21/2025
+ms.date: 04/24/2025
 ms.topic: overview
 ms.custom: linux-related-content
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # What is Azure Automation?
@@ -134,3 +136,4 @@ You can review the prices associated with Azure Automation on the [pricing](http
 
 > [!div class="nextstepaction"]
 > [Create an Automation account](./quickstarts/create-azure-automation-account-portal.md)
+> [Well-architected recommendations for implementing automation](/azure/well-architected/operational-excellence/automate-tasks#evaluate-tasks-to-automate)

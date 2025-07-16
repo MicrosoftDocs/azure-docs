@@ -6,11 +6,12 @@ services: storage
 author: akashdubey-ms
 
 ms.service: azure-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/26/2023
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
+# Customer intent: "As a cloud administrator, I want to migrate my classic storage accounts to Azure Resource Manager, so that I can ensure continued access and benefit from the latest features and updates before the retirement date of August 31, 2024."
 ---
 
 # Migrate your classic storage accounts to Azure Resource Manager by August 31, 2024

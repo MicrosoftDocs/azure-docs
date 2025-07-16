@@ -119,15 +119,7 @@ For more information on the network architecture of Azure Virtual Desktop, see [
 
 Microsoft Dev Box doesn't support third-party connection brokers.
 
-## Get started with Microsoft Dev Box
-To get started with Microsoft Dev Box, you need to set up a dev center. A dev center is a container for your projects and resources. You can create a dev center in the Azure portal, and then create projects within that dev center. Each project can have its own set of resources, including dev boxes, networks, and images.
-
-Start your Dev Box journey with a basic template: [Microsoft Dev Box](https://portal.azure.com/#view/Microsoft_Azure_DevCenter/DevCenterMenuBlade/~/overview).
-
-## What's new in Microsoft Dev Box
-
-To learn about the latest features and updates in Microsoft Dev Box, see [What's new in Microsoft Dev Box](https://aka.ms/devbox/WhatsNew).
-
+[!INCLUDE [dev-box-get-started-links](includes/dev-box-get-started-links.md)]
 
 ## Related content
 

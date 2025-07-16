@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/14/2025
+ms.date: 04/28/2025
 
 #customer intent: As a developer, I want to know the prerequisites and details about using SAP with Azure Logic Apps, so I can connect to an SAP server from my Consumption or Standard workflow.
 ---
@@ -59,8 +59,8 @@ The SAP connector has different versions, based on [logic app type and host envi
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**, and the built-in connector, which appears in the connector gallery under **Runtime** > **In-App** and is [service provider-based](../custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string without an on-premises data gateway. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [SAP built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sap/) <br><br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) <br>- [Built-in connectors in Azure Logic Apps](../../connectors/built-in.md) |
+| **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the connector gallery under the **Shared** filter. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**, and the built-in connector, which appears in the connector gallery under the **Built-in** filter and is [service provider-based](../custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string without an on-premises data gateway. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [SAP built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sap/) <br><br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) <br>- [Built-in connectors in Azure Logic Apps](../../connectors/built-in.md) |
 
 ## Connector differences
 
@@ -69,6 +69,12 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 * On-premises connections don't require the on-premises data gateway.
 
   Instead, the SAP built-in connector communicates directly with your SAP server in the integrated virtual network, which avoids hops, latency, and failure points for a network gateway. Make sure that you upload or deploy the non-redistributable SAP client libraries with your logic app workflow application. For more information, see the [Prerequisites](#prerequisites) in this guide.
+
+* Standard logic app workflows require and use the SAP NCo 3.1 client library, not the SAP NCo 3.0 version. For more information, see [Prerequisites](#prerequisites).
+
+* By default, the SAP built-in connector operations are *stateless*. However, you can [enable stateful mode (affinity) for these operations](../../connectors/enable-stateful-affinity-built-in-connectors.md).
+
+  In stateful mode, the SAP built-in connector supports high availability and horizontal scale-out configurations. By comparison, the SAP managed connector has restrictions regarding the on-premises data gateway limited to a single instance for triggers and to clusters only in failover mode for actions. For more information, see [SAP managed connector - Known issues and limitations](#known-issues-limitations).
 
 * Payload sizes up to 100 MB are supported, so you don't have to use a blob URI for large requests.
 
@@ -82,25 +88,143 @@ The SAP built-in connector significantly differs from the SAP managed connector 
   
     This capability addresses a problem with the SAP managed connector where the outcome from the autocommit behavior is silent and observable only through logs.
 
-* A longer time out at 5 minutes compared to the managed connector.
-
-  The SAP built-in connector doesn't use the shared or global connector infrastructure, which means time-outs are longer at 5 minutes compared to the SAP managed connector (two minutes). Long-running requests work without you having to implement the long-running webhook-based request action pattern.
-
-* By default, the SAP built-in connector operations are *stateless*. However, you can [enable stateful mode (affinity) for these operations](../../connectors/enable-stateful-affinity-built-in-connectors.md).
-
-  In stateful mode, the SAP built-in connector supports high availability and horizontal scale-out configurations. By comparison, the SAP managed connector has restrictions regarding the on-premises data gateway limited to a single instance for triggers and to clusters only in failover mode for actions. For more information, see [SAP managed connector - Known issues and limitations](#known-issues-limitations).
-
-* Standard logic app workflows require and use the SAP NCo 3.1 client library, not the SAP NCo 3.0 version. For more information, see [Prerequisites](#prerequisites).
-
 * Standard logic app workflows provide application settings where you can specify a Personal Security Environment (PSE) and PSE password.
 
   This change prevents you from uploading multiple PSE files, which isn't supported and results in SAP connection failures. In Consumption logic app workflows, the SAP managed connector lets you specify these values through connection parameters, which allowed you to upload multiple PSE files and isn't supported, causing SAP connection failures.
 
-* **Generate Schema** action
+* A longer time-out compared to the SAP managed connector.
+
+  The SAP built-in connector natively runs on the Azure Logic Apps runtime, unlike the SAP managed connector that runs on the shared, global, multitenant Azure infrastructure. This design difference means that you can change the default time-out value on the Standard logic app resource by using the **host.json** settings named [**Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout**](/azure/logic-apps/edit-app-settings-host-settings?tabs=azure-portal#run-actions) and [**functionTimeout**](/azure/logic-apps/edit-app-settings-host-settings?tabs=azure-portal#run-actions).
+
+  The capability to adjust the time-out value means that you can use the SAP built-in connector as-is for long-running synchronous requests. Otherwise, these requests have to use the action pattern for long-running webhook-based requests in the SAP managed connector, which has a much shorter two-minute time-out for synchronous requests.
+
+* Where to find the **`guid`** and **`tId`** parameters
+
+  The XML parameters for **`guid`** and **`tId`** are no longer available in input and output XML payloads. Instead, you can find the parameters as explicit parameters in the workflow designer on the **Parameters** tab and as dynamic output expressions.
+
+* Handling empty XML elements
+
+  - SAP built-in connector: An empty XML element is treated as an SAP parameter with an explicit empty value or default value. To omit sending the parameter to SAP, you can just remove the empty element from the input payload.
+
+  - SAP managed connector: An empty XML element is interpreted as a missing parameter and isn't sent to the SAP function.
+
+  **Example**
+
+  Suppose you have the following SAP RFC input payload:
+  
+  ```xml
+  <RfcName>
+     <Parameter></Parameter>
+  </RfcName>
+  ```
+
+  - In SAP built-in connector, the SAP RFC call includes the parameter as an explicit empty value ('').
+
+  - In the SAP managed connector, the SAP RFC call omits the parameter entirely.
+
+* Trimming whitespace characters
+
+  The SAP built-in connector automatically trims whitespace characters in XML elements.
+
+  For example, suppose you have the following input:
+
+  ```xml
+  <RfcName>
+     <Parameter>   </Parameter>
+  </RfcName>
+  ```
+
+  In the SAP RFC function call, the whitespace in the **Parameter** value is treated as an empty string ('') and is trimmed. To make sure that the call keeps whitespace exactly as provided in the payload, include the **`xml:space="preserve"`** attribute with the element to comply with the W3C specification [2.10 White Space Handling](https://www.w3.org/TR/xml/#sec-white-space), for example:
+
+  ```xml
+  <RfcName>
+     <Parameter xml:space="preserve">   </Parameter>
+  </RfcName>
+  ```
+
+* Validating IDoc format
+
+  - SAP built-in connector: Strictly validates the input payload against the **`IDoc Format`** specified in the action inputs. If a mismatch exists between the provided **`IDoc Format`** and the input XML IDoc structure, the built-in connector throws an error.
+
+  - SAP managed connector: Directly infers the IDoc format from the input payload, allowing for more flexibility by not requiring an exactly matching format.
+
+* Handling BizTalk XML group segments
+
+  - SAP built-in connector: Strictly follows the schema defined by the schema generator.
+
+    - A segment that ends with **`GRP`** (group segment) must define any child segments only one time per instance.
+
+    - To represent multiple sets of child segments, create multiple instances of the group segment so that each instance contains its own individual set of child segments.
+
+  - SAP managed connector: Allows multiple repetitions of child elements within a single group segment. These repetitions are interpreted as multiple instances of the group segment.
+
+  **Example behavior**
+
+  In the following structure, a single group segment defines multiple sequences of child elements, which is rejected by the SAP built-in connector:
+  
+  ```xml
+  <ns2:E2EDKT1002GRP>
+     <ns2:E2EDKT1002>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDID>FD</ns2:TDID>
+     </ns2:E2EDKT1002>
+     <ns2:E2EDKT2001>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDLINE>CRSD</ns2:TDLINE>
+     </ns2:E2EDKT2001>
+     <ns2:E2EDKT1002>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDID>DTP</ns2:TDID>
+     </ns2:E2EDKT1002>
+     <ns2:E2EDKT2001>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDLINE>OriginalRelease:0|</ns2:TDLINE>
+        <ns2:TDFORMAT>/</ns2:TDFORMAT>
+     </ns2:E2EDKT2001>
+  </ns2:E2EDKT1002GRP>
+  ```
+
+  Instead, use following structure for the SAP built-in connector where each **`E2EDKT1002GRP`** group instance contains only a single sequence of child segments:
+
+  ```xml
+  <ns2:E2EDKT1002GRP>
+     <ns2:E2EDKT1002>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDID>FD</ns2:TDID>
+     </ns2:E2EDKT1002>
+     <ns2:E2EDKT2001>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDLINE>CRSD</ns2:TDLINE>
+     </ns2:E2EDKT2001>
+  </ns2:E2EDKT1002GRP>
+  <ns2:E2EDKT1002GRP>
+     <ns2:E2EDKT1002>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDID>DTP</ns2:TDID>
+     </ns2:E2EDKT1002>
+     <ns2:E2EDKT2001>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDLINE>OriginalRelease:0|</ns2:TDLINE>
+        <ns2:TDFORMAT>/</ns2:TDFORMAT>
+     </ns2:E2EDKT2001>
+  </ns2:E2EDKT1002GRP>
+  ```
+
+* Built-in trigger behavior
+
+  - Namespace construction
+
+    The trigger constructs the namespace in the SAP trigger payload by using the release version number from IDoc metadata, which is retrieved before parsing an IDoc (BizTalk XML or plain XML). To override this source and use the release version number from the control record instead, go to the workflow designer, and in the trigger input parameters, set the **EnforceControlRecordNamespace** property to **true**.
+
+  - Handling empty elements
+
+    By default, the SAP trigger doesn't include empty elements in the output payload. To include empty elements in the trigger output, go to the workflow designer, and in the trigger input parameters, set the **EnableEmptyXmlNode** property to **true**.
+
+* Built-in **Generate Schema** action
 
   * You can select from multiple operation types, such as BAPI, IDoc, RFC, and tRFC, versus the same action in the SAP managed connector, which uses the **SapActionUris** parameter and a file system picker experience.
 
-  * You can directly provide a parameter name as a custom value. For example, you can specify the **RFC Name** parameter from the **Call RFC** action. By comparison, in the SAP managed connector, you had to provide a complex **Action URI** parameter name.
+  * You can directly provide a parameter name as a custom value. For example, you can specify the **RFC Name** parameter from the **Call RFC** action. By comparison, in the SAP managed connector, you have to provide a complex **Action URI** parameter name.
 
   * By design, this action doesn't support generating multiple schemas for RFCs, BAPIs, or IDocs in single action execution, which the SAP managed connector supports. This capability change now prevents attempts to send large amounts of content in a single call.
 
@@ -1185,7 +1309,7 @@ After your SAP operations run in your logic app workflow, you can review the tel
 
    :::image type="content" source="./media/sap/application-insights-query-panel.png" alt-text="Screenshot shows Azure portal with Application Insights open to the Logs page for creating queries." lightbox="./media/sap/application-insights-query-panel.png":::
 
-1. On the **Logs** page, you can create a [query](/kusto/query/) by using the [Kusto Query Language (KQL)](/kusto/concepts/) based on your specific requirements.
+1. On the **Logs** page, you can create a [query that uses Kusto Query Language (KQL)](/kusto/query/?view=azure-monitor&preserve-view=true), based on your specific requirements.
 
    You can use a query pattern similar to the following example query:
 

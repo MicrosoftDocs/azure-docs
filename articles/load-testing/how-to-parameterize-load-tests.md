@@ -47,7 +47,7 @@ To use secrets with Azure Load Testing, you perform the following steps:
 
 You can use Azure Key Vault to pass secret values to your test script in Azure Load Testing. You add a reference to the secret in the Azure Load Testing configuration. Azure Load Testing then uses this reference to retrieve the secret value in the test script.
 
-You also need to grant Azure Load Testing access to your Azure key vault to retrieve the secret value.
+You also need to grant Azure Load Testing access to your Azure Key Vault to retrieve the secret value.
 
 > [!NOTE]
 > If you run a load test as part of your CI/CD process, you might also use the related secret store. Skip to [Use the CI/CD secret store](#cicd_secrets).
@@ -57,11 +57,11 @@ You also need to grant Azure Load Testing access to your Azure key vault to retr
 1. [Add the secret value to your key vault](/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault), if you haven't already done so.
 
     > [!IMPORTANT]
-    > If you restricted access to your Azure key vault by a firewall or virtual networking, follow these steps to [grant access to trusted Azure services](/azure/key-vault/general/overview-vnet-service-endpoints#grant-access-to-trusted-azure-services).
+    > If you restricted access to your Azure Key Vault by a firewall or virtual networking, follow these steps to [grant access to trusted Azure services](/azure/key-vault/general/overview-vnet-service-endpoints#grant-access-to-trusted-azure-services).
 
 1. Retrieve the key vault **secret identifier** for your secret. You use this secret identifier to configure your load test.
     
-    The **secret identifier** is the full URI of the secret in the Azure key vault. Optionally, you can also include a version number. For example, `https://myvault.vault.azure.net/secrets/mysecret/` or `https://myvault.vault.azure.net/secrets/mysecret/abcdef01-2345-6789-0abc-def012345678`.
+    The **secret identifier** is the full URI of the secret in the Azure Key Vault. Optionally, you can also include a version number. For example, `https://myvault.vault.azure.net/secrets/mysecret/` or `https://myvault.vault.azure.net/secrets/mysecret/abcdef01-2345-6789-0abc-def012345678`.
 
 #### Add the secret to your load test
 
@@ -89,7 +89,7 @@ You also need to grant Azure Load Testing access to your Azure key vault to retr
 
     * If you're configuring a CI/CD workflow and use Azure Key Vault, you can specify the reference identity in the YAML configuration file by using the `keyVaultReferenceIdentity` property. For more information about the syntax, see the [Test configuration YAML reference](./reference-test-config-yaml.md).
 
-#### Grant access to your Azure key vault
+#### Grant access to your Azure Key Vault
 
 [!INCLUDE [include-grant-key-vault-access-secrets](includes/include-grant-key-vault-access-secrets.md)]
 

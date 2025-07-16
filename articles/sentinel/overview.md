@@ -20,10 +20,6 @@ Microsoft Sentinel also natively incorporates proven Azure services, like Log An
 
 Use Microsoft Sentinel to alleviate the stress of increasingly sophisticated attacks, increasing volumes of alerts, and long resolution time frames. This article highlights the key capabilities in Microsoft Sentinel.
 
-
-[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
-
-
 Microsoft Sentinel inherits the Azure Monitor [tamper-proofing and immutability](/azure/azure-monitor/logs/data-security#tamper-proofing-and-immutability) practices. While Azure Monitor is an append-only data platform, it includes provisions to delete data for compliance purposes.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service-no-note.md)]
@@ -32,13 +28,13 @@ Microsoft Sentinel inherits the Azure Monitor [tamper-proofing and immutability]
 
 Microsoft Sentinel provides security content packaged in SIEM solutions that enable you to ingest data, monitor, alert, hunt, investigate, respond, and connect with different products, platforms, and services.
 
-# [Azure portal](#tab/azure-portal)
-
-:::image type="content" source="media/overview/content-hub-azure-portal.png" lightbox="media/overview/content-hub-azure-portal.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Azure portal that shows the security content available with a solution.":::
-
 # [Defender portal](#tab/defender-portal)
 
 :::image type="content" source="media/overview/content-hub-defender-portal.png" lightbox="media/overview/content-hub-defender-portal.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Defender portal that shows the security content available with a solution.":::
+
+# [Azure portal](#tab/azure-portal)
+
+:::image type="content" source="media/overview/content-hub-azure-portal.png" lightbox="media/overview/content-hub-azure-portal.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Azure portal that shows the security content available with a solution.":::
 
 ---
 
@@ -48,13 +44,13 @@ For more information, see [About Microsoft Sentinel content and solutions](senti
 
 Collect data across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.
 
-# [Azure portal](#tab/azure-portal)
-
-:::image type="content" source="media/overview/data-connectors.png" lightbox="media/overview/data-connectors.png" alt-text="Screenshot of the data connectors page in Microsoft Sentinel that shows a list of available connectors.":::
-
 # [Defender portal](#tab/defender-portal)
 
 :::image type="content" source="media/overview/data-connector-list-defender.png" lightbox="media/overview/data-connector-list-defender.png" alt-text="Screenshot of the Microsoft Sentinel data connectors page in the Defender portal that shows a list of available connectors.":::
+
+# [Azure portal](#tab/azure-portal)
+
+:::image type="content" source="media/overview/data-connectors.png" lightbox="media/overview/data-connectors.png" alt-text="Screenshot of the data connectors page in Microsoft Sentinel that shows a list of available connectors.":::
 
 ---
 
@@ -70,13 +66,13 @@ The following table highlights the key capabilities in Microsoft Sentinel for da
 
 Detect previously undetected threats, and minimize false positives using Microsoft's analytics and unparalleled threat intelligence.
 
-# [Azure portal](#tab/azure-portal)
-
-:::image type="content" source="media/overview/mitre-coverage.png" lightbox="media/overview/mitre-coverage.png" alt-text="Screenshot of the MITRE coverage page with both active and simulated indicators selected.":::
-
 # [Defender portal](#tab/defender-portal)
 
 :::image type="content" source="media/overview/mitre-coverage-defender.png" lightbox="media/overview/mitre-coverage-defender.png" alt-text="Screenshot of the MITRE coverage page with both active and simulated indicators selected in Microsoft Defender.":::
+
+# [Azure portal](#tab/azure-portal)
+
+:::image type="content" source="media/overview/mitre-coverage.png" lightbox="media/overview/mitre-coverage.png" alt-text="Screenshot of the MITRE coverage page with both active and simulated indicators selected.":::
 
 ---
 
@@ -119,6 +115,10 @@ The following table highlights the key capabilities in Microsoft Sentinel for th
 |---------|---------|---------|
 |Automation rules|Centrally manage the automation of incident handling in Microsoft Sentinel by defining and coordinating a small set of rules that cover different scenarios. |[Automate threat response in Microsoft Sentinel with automation rules](automate-incident-handling-with-automation-rules.md)|
 |Playbooks|Automate and orchestrate your threat response by using playbooks, which are a collection of remediation actions. Run a playbook on-demand or automatically in response to specific alerts or incidents, when triggered by an automation rule. <br><br>  To build playbooks with Azure Logic Apps, choose from a constantly expanding gallery of connectors for various services and systems like ServiceNow, Jira, and more. These connectors allow you to apply any custom logic in your workflow. |[Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md)<br><br>[List of all Logic App connectors](/connectors/connector-reference/connector-reference-logicapps-connectors)|
+
+## Microsoft Sentinel in the Azure portal retirement timeline
+
+[!INCLUDE [sentinel-azure-deprecation](includes/sentinel-azure-deprecation.md)]
 
 ## Related content
 

@@ -5,12 +5,13 @@ description: Example role assignment conditions and Azure attribute-based access
 author: pauljewellmsft
 
 ms.service: azure-queue-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: pauljewell
 ms.reviewer: nachakra
 ms.custom: devx-track-azurepowershell
 ms.date: 12/13/2023
 #Customer intent: As a dev, devops, or IT admin, I want to learn about the conditions so that I write more complex conditions.
+# Customer intent: As a developer or IT admin, I want to learn how to implement role assignment conditions for Azure Queue Storage, so that I can effectively manage access control based on attributes and improve security for my resources.
 ---
 
 # Example Azure role assignment conditions for Queue Storage

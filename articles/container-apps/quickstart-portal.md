@@ -47,6 +47,7 @@ In the *Basics* tab, do the following actions.
     | Subscription | Select your Azure subscription. |
     | Resource group | Select **Create new** and enter **my-container-apps**. |
     | Container app name |  Enter **my-container-app**. |
+    | Optimize for Azure Functions |  Leave the checkbox unchecked. Select it only if you want to [create a Functions app](../container-apps/functions-usage.md). |
     | Deployment source | Select **Container image**. |
 
 1. Enter the following values in the "Container Apps Environment" section.

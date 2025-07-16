@@ -7,7 +7,7 @@ ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ms.topic: how-to
-ms.date: 03/04/2024
+ms.date: 04/29/2025
 ms.author: patricka
 ms.reviewer: mattmcinnes
 ---
@@ -39,9 +39,9 @@ This article covers using symmetric keys as your authentication method. If you w
 > [!NOTE]
 > If you have many devices to set up and don't want to manually provision each one, use one of the following articles to learn how IoT Edge works with the IoT Hub device provisioning service:
 >
-> * [Create and provision IoT Edge devices at scale using X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)
-> * [Create and provision IoT Edge devices at scale with a TPM](how-to-provision-devices-at-scale-linux-tpm.md)
-> * [Create and provision IoT Edge devices at scale using symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md)
+> * [Create and provision IoT Edge devices at scale on Linux using X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)
+> * [Create and provision IoT Edge devices at scale with a TPM on Linux](how-to-provision-devices-at-scale-linux-tpm.md)
+> * [Create and provision IoT Edge devices at scale on Linux using symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md)
 
 ## Prerequisites
 
@@ -56,7 +56,7 @@ This article shows how to register your IoT Edge device and install IoT Edge (al
 <!-- Azure IoT extensions for Visual Studio Code-->
 ### Visual Studio Code extensions
 
-If you are using Visual Studio Code, there are helpful Azure IoT extensions that make the device creation and management process easier.
+If you're using Visual Studio Code, there are helpful Azure IoT extensions that make the device creation and management process easier.
 
 Install both the Azure IoT Edge and Azure IoT Hub extensions:
 
@@ -167,7 +167,7 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
    sudo iotedge check
    ```
 
-   You can expect a range of responses that may include **OK** (green), **Warning** (yellow), or **Error** (red). For troubleshooting common errors, see [Solutions to common issues for Azure IoT Edge](troubleshoot-common-errors.md).
+   You can expect a range of responses that might include **OK** (green), **Warning** (yellow), or **Error** (red). For troubleshooting common errors, see [Solutions to common issues for Azure IoT Edge](troubleshoot-common-errors.md).
 
    :::image type="content" source="media/how-to-provision-single-device-linux-symmetric/config-checks.png" alt-text="Screenshot of sample responses from the check command." lightbox="media/how-to-provision-single-device-linux-symmetric/config-checks.png":::
 
@@ -175,17 +175,17 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
    >Always use `sudo` to run the check tool, even after your permissions are updated. The tool needs elevated privileges to access the config file to verify configuration status.
 
    >[!NOTE]
-   >On a newly provisioned device, you may see an error related to IoT Edge Hub:
+   >On a newly provisioned device, you might see an error related to IoT Edge Hub:
    >
    >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
    >**Could not check current state of edgeHub container**
    >
-   >This error is expected on a newly provisioned device because the IoT Edge Hub module is not yet running. Be sure your IoT Edge modules were deployed in the previous steps. Deployment resolves this error.
+   >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't yet running. Be sure your IoT Edge modules were deployed in the previous steps. Deployment resolves this error.
    >
-   >Alternatively, you may see a status code as `417 -- The device's deployment configuration is not set`. Once your modules are deployed, this status will change.
+   >Alternatively, you might see a status code as `417 -- The device's deployment configuration is not set`. Once your modules are deployed, this status changes.
    >
 
-1. When the service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
+1. When the service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any other modules that you deploy to your device.
 
    Check that your device and modules are deployed and running, by viewing your device page in the Azure portal.
 
@@ -199,14 +199,14 @@ Verify that the runtime was successfully installed and configured on your IoT Ed
 
 ## Offline or specific version installation (optional)
 
-The steps in this section are for scenarios not covered by the standard installation steps. This may include:
+The steps in this section are for scenarios not covered by the standard installation steps. These scenarios might include:
 
 * Installing IoT Edge while offline
 * Installing a release candidate version
 
-Use the steps in this section if you want to install a [specific version of the Azure IoT Edge runtime](version-history.md) that isn't available through your package manager. The Microsoft package list only contains a limited set of recent versions and their sub-versions, so these steps are for anyone who wants to install an older version or a release candidate version.
+Use the steps in this section if you want to install a [specific version of the Azure IoT Edge runtime](version-history.md) that isn't available through your package manager. The Microsoft package list only contains a limited set of recent versions and their subversions, so these steps are for anyone who wants to install an older version or a release candidate version.
 
-If you are using Ubuntu snaps, you can download a snap and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
+If you're using Ubuntu snaps, you can download a snap and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
 
 Using curl commands, you can target the component files directly from the IoT Edge GitHub repository.
 
@@ -231,7 +231,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
       ```
 
       # [Ubuntu Core snaps](#tab/snaps)
-      If you are using Ubuntu snaps, you can download a snap package and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
+      If you're using Ubuntu snaps, you can download a snap package and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
 
       ---
 
@@ -250,7 +250,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
       ```
 
       # [Ubuntu Core snaps](#tab/snaps)
-      If you are using Ubuntu snaps, you can download a snap package and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
+      If you're using Ubuntu snaps, you can download a snap package and install it offline. For more information, see [Download snaps and install offline](https://forum.snapcraft.io/t/download-snaps-and-install-offline/15713).
 
       ---
 

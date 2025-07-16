@@ -8,7 +8,7 @@ ms.date: 10/14/2024
 ms.author: jefmarti
 ---
 
-# Configure error pages on App Service (preview)
+# Configure error pages on App Service
 
 This article explains how to configure custom error pages on your web app. With App Service you can configure an error page for specific errors that will be presented to users instead of the default error page. 
 
@@ -23,7 +23,7 @@ For this example, we're uploading and testing a 403 error page to present to the
 Select the error code that you'd like to upload an error page for and click **Edit**. On the next screen, click the folder icon to select your html file. The file must be in html format and within the 10 kb size limit. Find your .html file and click on the **Upload** button at the bottom of the screen. Notice the Status in the table updates from Not Configured to Configured. Then click **Save** to complete the upload. 
 
 ## Confirm error page
-Once the custom error page is uploaded and saved, we can trigger and view the page. In this example, we can trigger the 403 error by using an IP restriction.
+Once the custom error page is uploaded and saved, we can trigger and view the page. In this example, we can trigger the 403 error by using an IP restriction however you can also trigger a 403 error page by stopping the site.
 
 To set an IP restriction, go to the **Networking** blade and click the **Enabled with access restrictions** link under **Inbound traffic configuration**.
 
@@ -47,8 +47,15 @@ App Service currently supports three types of error codes that are available to 
 ## FAQ
 1. I've uploaded my error page, why doesn't it show when the error is triggered?
 
-Currently, error pages are only triggered when the error is coming from the front end. Errors that get triggered at the app level should still be handled through the app. 
+Custom error pages are triggered from front end failures. If the error is coming from the app level, it won't trigger or show the configured error page. If you want the error page to show for all requests, check the **Apply to all requests** box under the configured error code. This will show the error page for all requests matching the status code regardless of where it failed. Note, when this box is checked it will override any existing error pages that are configured for the app.
 
 2. Why is the error page feature greyed out?
 
 Error pages are currently a Premium feature. You need to use at least a Premium SKU to enable the feature. 
+
+3. How can I reference a single error page across multiple apps?
+
+If you need to use the same error page across multiple apps, you can link to your error page hosted in a storage account in your uploaded html file. Upload your error page to a [storage account](/azure/storage/common/storage-account-overview) and add the provided storage URL for your page in an `<iframe>` tag located in the html file uploaded to the app. 
+
+
+

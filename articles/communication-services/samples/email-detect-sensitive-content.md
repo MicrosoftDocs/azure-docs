@@ -1,5 +1,5 @@
 ---
-title: Pre-send email analysis - Detecting sensitive data and inappropriate content using Azure AI 
+title: Detect sensitive data using Azure AI
 titleSuffix: An Azure Communication Services sample
 description: How to detect sensitive data and inappropriate content in email messages before sending, using Azure AI in Azure Communication Services.
 author: MsftPMACS
@@ -13,52 +13,54 @@ ms.service: azure-communication-services
 ms.subservice: email
 ---
 
-# Pre-send email analysis: Detecting sensitive data and inappropriate content using Azure AI
+# Detect sensitive data using Azure AI
 
-Azure Communication Services email enables organizations to send high volume messages to their customers using their applications. This tutorial shows how to leverage Azure AI to ensure that your messages accurately reflect your business’s brand and reputation before sending them. Azure AI offers services to analyze your email content for sensitive data and identify inappropriate content.
+This article describes presend email analysis, which detects sensitive data and inappropriate content using Azure AI.
 
-This tutorial describes how to use Azure AI Text Analytics to check for sensitive data and Azure AI Content Safety to identify inappropriate text content. Use these functions to check your content before sending the email using Azure Communication Services.
+Azure Communication Services email enables organizations to send high volume messages to their customers using their applications. This tutorial shows how to use Azure AI to ensure that your messages accurately reflect your business’s brand and reputation before sending them. Azure AI offers services to analyze your email content for sensitive data and identify inappropriate content.
 
-## Prerequisites 
+The following sections describe how to use Azure AI Text Analytics to check for sensitive data and Azure AI Content Safety to identify inappropriate text content. Use these functions to check your content before sending the email using Azure Communication Services.
 
-You need to complete these quickstarts to set up the Azure AI resources: 
+## Prerequisites
 
-- [Quickstart: Detect Personally Identifying Information (PII) in text](/azure/ai-services/language-service/personally-identifiable-information/quickstart) 
+You need to complete these quickstarts to set up the Azure AI resources:
 
-- [Quickstart: Moderate text and images with content safety in Azure AI Foundry portal](/azure/ai-studio/quickstarts/content-safety)
+- [Detect Personally Identifying Information (PII) in text](/azure/ai-services/language-service/personally-identifiable-information/quickstart)
+
+- [Moderate text and images with content safety in Azure AI Foundry portal](/azure/ai-studio/quickstarts/content-safety)
 
 ## Prerequisite check
 
 1. In a terminal or command window, run the dotnet command to check that the .NET client library is installed.
 
    `reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP"`
-   
+
 2. View the subdomains associated with your Email Communication Services resource. Sign in to the Azure portal. Locate your Email Communication Services resource. Open the **Provision domains** tab from the left navigation pane.
 
    :::image type="content" source="./media/email-view-subdomains.png" alt-text="Screenshot showing the email subdomains in your Email Communication Services resource in the Azure portal.":::
-   
+
    > [!NOTE]
    > Make sure that the email sub-domain you plan to use for sending email is verified in your email communication resource. For more information, see [Quickstart: How to add custom verified email domains](../quickstarts/email/add-custom-verified-domains.md).
- 
+
 3. View the domains connected to your Azure Communication Services resource. Sign in to the Azure portal. Locate your Azure Communication Services resource. Open the **Email** > **Domains** tab from the left navigation pane.
-   
+
    :::image type="content" source="./media/email-view-connected-domains.png" alt-text="Screenshot showing the email domains connected to your Email Communication Services resource in the Azure portal.":::
 
    > [!NOTE]
-   > Verified custom sub-domains must be connected with your Azure Communication Services resource before you use the resource to send emails. For more information, see [Quickstart: How to connect a verified email domain](../quickstarts/email/connect-email-communication-resource.md).
+   > Verified custom subdomains must be connected with your Azure Communication Services resource before you use the resource to send emails. For more information, see [Quickstart: How to connect a verified email domain](../quickstarts/email/connect-email-communication-resource.md).
 
 ## Create a new C# application
 
 This section describes how to create a new C# application, install required packages, and create the Main function.
 
 1. In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `EmailPreCheck`. This command creates a simple "Hello World" C# project with a single source file: `Program.cs`.
-   
+
    `dotnet new console -o EmailPreCheck`
-   
+
 2. Change your directory to the newly created `EmailPreCheck` app folder and use the `dotnet build` command to compile your application.
-   
+
    `cd EmailPreCheck`
-   
+
    `dotnet build`
 
 ### Install required packages
@@ -121,7 +123,7 @@ private static async Task<bool> AnalyzeSensitiveData(List<string> documents)
 
 ### Create the Text Analytics client with authentication
 
-Create a new function with a Text Analytics client that also retrieves your connection information. Add the following code into the `AnalyzeSensitiveData` function to retrieve the connection key and endpoint for the resource from environment variables named `LANGUAGE_KEY` and `LANGUAGE_ENDPOINT`. It also creates the new `TextAnalyticsClient` and `AzureKeyCredential` variables. For more information about managing your Text Analytics connection information, see [Quickstart: Detect Personally Identifiable Information \(PII\) > Get your key and endpoint](/azure/ai-services/language-service/personally-identifiable-information/quickstart#get-your-key-and-endpoint).
+Create a new function with a Text Analytics client that also retrieves your connection information. Add the following code into the `AnalyzeSensitiveData` function to retrieve the connection key and endpoint for the resource from environment variables named `LANGUAGE_KEY` and `LANGUAGE_ENDPOINT`. It also creates the new `TextAnalyticsClient` and `AzureKeyCredential` variables. For more information about managing your Text Analytics connection information, see [Quickstart: Detect Personally Identifiable Information (PII) > Get your key and endpoint](/azure/ai-services/language-service/personally-identifiable-information/quickstart#get-your-key-and-endpoint).
 
 ```csharp
 // This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
@@ -237,7 +239,7 @@ return inappropriateTextDetected; // No inappropriate content detected
 Now that you added the two functions for checking for sensitive data and inappropriate content, you can call them before sending email from Azure Communication Services.
 
 ### Create and authenticate the email client
- 
+
 You have a few options available for authenticating to an email client. This example fetches your connection string from an environment variable.
 
 Open `Program.cs` in an editor. Add the following code to the body of the Main function to initialize an `EmailClient` with your connection string. This code retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. For more information about managing your resource  connection string, see [Quickstart: Create and manage Communication Services resources > Store your connection string](../quickstarts/create-communication-resource.md#store-your-connection-string).
@@ -271,7 +273,7 @@ htmlContent += "</body></html>";
 List<string> documents = new List<string> { subject, htmlContent };
 ```
 
-### Pre-check content before sending email
+### Precheck content before sending email
 
 You need to call the two functions to look for violations and use the results to determine whether or not to send the email. Add the following code to the Main function after the sample content.
 

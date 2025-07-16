@@ -14,7 +14,7 @@
 1. If you are on the **Topics** page of your Event Grid namespace in the Azure portal, select your topic from the list of topics. If you are on the **Topics** page, follow instructions from [create, view, and manage a namespace topics](../create-view-manage-namespace-topics.md) to identify the topic you want to use to create the event subscription.
 
     :::image type="content" source="../media/create-view-manage-event-subscriptions/select-topic.png" alt-text="Screenshot showing Event Grid topics page with a topic selected." lightbox="../media/create-view-manage-event-subscriptions/select-topic.png":::
-1. On the **Event Gird Namespace Topic** page, select **Subscriptions** option in the **Entities** section on the left menu.
+1. On the **Event Grid Namespace Topic** page, select **Subscriptions** option in the **Entities** section on the left menu.
 1. On the **Subscriptions** page, select "**+ Subscription**" button on the command bar.
 
     :::image type="content" source="../media/create-view-manage-event-subscriptions/event-subscription-create.png" alt-text="Screenshot showing Event Grid event subscription create." lightbox="../media/create-view-manage-event-subscriptions/event-subscription-create.png":::

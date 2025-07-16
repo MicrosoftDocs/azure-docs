@@ -12,6 +12,7 @@ Easily provision, manage, and tightly integrate *independent software vendor (IS
 
 Currently, services are publicly available in these areas: 
 
+- AI
 - Observability
 - Data and storage
 - Networking and security
@@ -20,7 +21,7 @@ For a list of available partner services, see [Extend Azure with Azure Native In
 
 ## Features
 
-Each Azure Native Integrations offers unified operations and integrations. 
+Each Azure Native Integration offers unified operations and integrations. 
 
 ### Unified operations
 
@@ -30,6 +31,6 @@ Each Azure Native Integrations offers unified operations and integrations.
 
 ### Integrations
 
-- **Logs and metrics:** Seamlessly direct logs and metrics from Azure Monitor to the Azure Native Integrations using just a few gestures. You can configure autodiscovery of resources to monitor, and set up automatic log forwarding and metrics shipping. You can easily do the setup in Azure, without needing to create more infrastructure or write custom code.
+- **Logs and metrics:** Seamlessly direct logs and metrics from Azure Monitor to the Azure Native Integration using just a few gestures. You can configure autodiscovery of resources to monitor, and set up automatic log forwarding and metrics shipping. You can easily do the setup in Azure, without needing to create more infrastructure or write custom code.
 - **Virtual network injection:** Provides private data plane access to Azure Native Integrations from customers’ virtual networks.
-- **Unified billing:** Engage with a single entity, Microsoft Azure Marketplace, for billing. No separate license purchase is required to use Azure Native Integrations.
+- **Unified billing:** Engage with a single entity, Microsoft Azure Marketplace, for billing. No separate license is required to use Azure Native Integrations.

@@ -8,6 +8,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 12/02/2022
 ms.author: akashdubey
+# Customer intent: As a Linux administrator, I want to use the BlobFuse2 command set to mount blob storage containers as file systems, so that I can efficiently manage and interact with cloud storage directly from the Linux environment.
 ---
 
 # How to use the BlobFuse2 command set

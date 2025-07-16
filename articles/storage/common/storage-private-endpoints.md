@@ -6,12 +6,13 @@ services: storage
 author: normesta
 
 ms.service: azure-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/05/2024
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23
+# Customer intent: As a network administrator, I want to configure private endpoints for Azure Storage, so that I can securely connect clients on a virtual network to storage resources while controlling access and minimizing exposure to the public internet.
 ---
 
 # Use private endpoints for Azure Storage

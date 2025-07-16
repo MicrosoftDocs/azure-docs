@@ -3,10 +3,11 @@ title: Monitor Azure Blob Storage
 description: Start here to learn how to monitor Azure Blob Storage.
 ms.date: 02/07/2024
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: concept-article
 author: normesta
 ms.author: normesta
 ms.service: azure-blob-storage
+# Customer intent: As a cloud administrator, I want to monitor Azure Blob Storage metrics and logs, so that I can ensure optimal performance, analyze usage patterns, and troubleshoot any issues effectively.
 ---
 
 # Monitor Azure Blob Storage
@@ -224,7 +225,7 @@ The following example shows how to read `UsedCapacity` data at the account level
 
 For multidimensional metrics, you need to define metadata filters if you want to read metric data on specific dimension values.
 
-The following example shows how to read metric data on the metric supporting multidimension:
+The following example shows how to read metric data on the metric supporting multidimensional values:
 
 ```csharp
     public static async Task ReadStorageMetricValueTest()

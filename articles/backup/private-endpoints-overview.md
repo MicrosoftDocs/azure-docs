@@ -2,11 +2,12 @@
 title: Private endpoints overview
 description: Understand the use of private endpoints for Azure Backup and the scenarios where using private endpoints helps maintain the security of your resources.
 ms.topic: overview
-ms.date: 04/04/2025
+ms.date: 06/26/2025
 ms.custom:
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a cloud administrator, I want to implement private endpoints for Azure Backup so that I can enhance the security of my backup operations and ensure that all data traffic remains within my virtual network.
 ---
 
 # Overview and concepts of private endpoints (v1 experience) for Azure Backup
@@ -24,7 +25,7 @@ This article will help you understand how private endpoints for Azure Backup wor
 - CMK with network restricted key vault isn't supported with private endpoint enabled vault.
 - One virtual network can contain private endpoints for multiple Recovery Services vaults. Also, one Recovery Services vault can have private endpoints for it in multiple virtual networks. However, the maximum number of private endpoints that can be created for a vault is 12.
 - If the public network access for the vault is set to **Allow from all networks**, the vault allows backups and restores from any machine registered to the vault. If the public network access for the vault is set to **Deny**, the vault only allows backups and restores from the machines registered to the vault that are requesting backups/restores via private IPs allocated for the vault.
-- A private endpoint connection for Backup uses a total of 11 private IPs in your subnet, including those used by Azure Backup for storage. This number may be higher for certain Azure regions. So we suggest that you have enough private IPs (/26) available when you attempt to create private endpoints for Backup.
+- A private endpoint connection for Backup uses a total of 11 private IPs in your subnet, including those used by Azure Backup for storage. This number may be higher for certain Azure regions. We recommend that you have enough private IPs (/25) available when you attempt to create private endpoints for Backup.
 - While a Recovery Services vault is used by (both) Azure Backup and Azure Site Recovery, this article discusses use of private endpoints for Azure Backup only.
 - Private endpoints for Backup don’t include access to Microsoft Entra ID and the same needs to be ensured separately. So, IPs and FQDNs required for Microsoft Entra ID to work in a region will need outbound access to be allowed from the secured network when performing backup of databases in Azure VMs and backup using the MARS agent. You can also use NSG tags and Azure Firewall tags for allowing access to Microsoft Entra ID, as applicable.
 - You need to re-register the Recovery Services resource provider with the subscription if you registered it before May 1 2020. To re-register the provider, go to your subscription in the Azure portal, navigate to **Resource provider** on the left navigation bar, then select **Microsoft.RecoveryServices** and select **Re-register**.

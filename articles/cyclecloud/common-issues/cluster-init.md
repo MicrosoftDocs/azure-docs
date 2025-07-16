@@ -10,18 +10,18 @@ ms.custom: compute-evergreen
 ---
 
 
-# Common Issues: Cluster Init
+# Common issues: Cluster init
 
-## Possible Error Messages
+## Possible error messages
 
 - `{ERROR} while executing {SCRIPT} in project`
 - `Failed to execute cluster-init script {SCRIPT} in project`
 
 ## Resolution
 
-Azure CycleCloud provides users the ability to configure VMs that become nodes of the cluster by running custom scripts during the VM preparation phase. This functionality is provided through the [CycleCloud Projects](~/articles/cyclecloud/how-to/projects.md) system, and is also known as Cluster-Init.
+Azure CycleCloud lets you configure VMs that become nodes of the cluster by running custom scripts during the VM preparation phase. You get this functionality through the [CycleCloud Projects](~/articles/cyclecloud/how-to/projects.md) system. It's also known as Cluster-Init.
 
-If there are failures or errors when these scripts are executed, Cyclecloud versions 7.9 and later surface these errors in the node details page. The STDERR and STDOUT output of the scripts are included in these error messages. 
+If these scripts fail or return errors, CycleCloud versions 7.9 and later show these errors in the node details page. The error messages include the STDERR and STDOUT output of the scripts.
 
-- If you are able to identify the problem from the STDERR or STDOUT output of the scripts, fix the error in the scripts and re-upload the project using the CycleCloud CLI.
-- Otherwise, SSH into the VM either as the `cyclecloud` user or your own user account and attempt to run the commands in the script manually to troubleshoot. Once you have identified the problem, edit the cluster-init script and re-upload the project.
+- If you can identify the problem from the STDERR or STDOUT output of the scripts, fix the error in the scripts and re-upload the project using the CycleCloud CLI.
+- Otherwise, SSH into the VM as either the `cyclecloud` user or your own user account. Try running the commands in the script manually to troubleshoot. Once you identify the problem, edit the cluster-init script and re-upload the project.

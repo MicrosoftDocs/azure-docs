@@ -1,24 +1,26 @@
 ---
-title: 'Quickstart: Use Azure Cache for Redis in Python'
+title: "Quickstart: Use Azure Cache for Redis in Python"
 description: In this quickstart, you learn how to create a Python script that uses Azure Redis.
-
-
-
-ms.date: 07/09/2024
+ms.date: 05/18/2025
 ms.topic: quickstart
-
+ms.custom:
+  - mvc
+  - devx-track-python
+  - mode-api
+  - py-fresh-zinc
+  - ignite-2024
+  - build-2025
 ms.devlang: python
-ms.custom: mvc, devx-track-python, mode-api, py-fresh-zinc, ignite-2024
 zone_pivot_groups: redis-type
 appliesto:
-  - ✅ Azure Managed Redis
   - ✅ Azure Cache for Redis
-#customer intent: As a cloud developer, I want to quickly see a cache so that understand how to use Python with Azure Redis.
+  - ✅ Azure Managed Redis
+# customer intent: As a cloud developer, I want to quickly see a cache so that understand how to use Python with Azure Redis.
 ---
 
 # Quickstart: Use Azure Redis in Python
 
-In this Quickstart, you incorporate Azure Managed Redis (preview) or Azure Cache for Redis into a Python script to have access to a secure, dedicated cache that is accessible from any application within Azure.
+In this Quickstart, you incorporate Azure Managed Redis or Azure Cache for Redis into a Python script to have access to a secure, dedicated cache that is accessible from any application within Azure.
 
 ## Skip to the code on GitHub
 
@@ -33,7 +35,7 @@ If you want to skip straight to the code, see the [Python quickstart](https://gi
 
 ::: zone pivot="azure-managed-redis"
 
-## Create an Azure Managed Redis (preview) instance
+## Create an Azure Managed Redis instance
 
 [!INCLUDE [managed-redis-create](includes/managed-redis-create.md)]
 
@@ -59,7 +61,7 @@ The following example used `pip3` for Python 3 to install `redis-py` on Windows 
 
 ## Create a Python script to access your cache
 
-Create a Python script to that uses either Microsoft Entra ID or access keys to connect to your Azure Managed Redis (preview) instance. We recommend you use Microsoft Entra ID.
+Create a Python script to that uses either Microsoft Entra ID or access keys to connect to your Azure Managed Redis instance. We recommend you use Microsoft Entra ID.
 
 ## [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
 
@@ -134,7 +136,7 @@ Microsoft Entra ID access tokens have limited lifespans, [averaging 75 minutes](
 
 1. Create a new text file, add the following script. Then, save the file as `PythonApplication2.py`.
 
-1. Replace `<Your Host Name>` with the value from your Azure Managed Redis (preview) instance. Your host name is of the form `<DNS name>.<region>.redis.azure.net`.
+1. Replace `<Your Host Name>` with the value from your Azure Managed Redis instance. Your host name is of the form `<DNS name>.<region>.redis.azure.net`.
 
 1. Replace `<Your Username>` with the values from your Microsoft Entra ID user.
 
@@ -210,6 +212,8 @@ Microsoft Entra ID access tokens have limited lifespans, [averaging 75 minutes](
    Unlike the first example, If your token expires, this example automatically refreshes it.
 
 ## [Access Key Authentication](#tab/accesskey)
+
+[!INCLUDE [redis-access-key-alert](includes/redis-access-key-alert.md)]
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 

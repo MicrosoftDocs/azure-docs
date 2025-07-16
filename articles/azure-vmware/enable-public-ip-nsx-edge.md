@@ -112,7 +112,7 @@ A Source Network Address Translation (SNAT) service with Port Address Translatio
 Logging is turned on via the logging slider.
 
 For more information on VMware NSX NAT configuration and options, see the
-[NSX Data Center NAT Administration Guide](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-1-1/administration-guide/network-address-translation.html).
+[NSX Data Center NAT Administration Guide](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-2/administration-guide/network-address-translation.html).
 
 #### Create a No-NAT rule
 
@@ -171,8 +171,8 @@ You can provide security protection for your network traffic in and out of the p
 
 If **Match Internal Address** was specified, the destination is the internal or private IP address of the VM.
 
-For more information on the NSX gateway firewall, see the [NSX Gateway Firewall Administration Guide](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-1-1/administration-guide/security/gateway-firewall.html).
-The distributed firewall can be used to filter traffic to VMs. For more information, see [NSX Distributed Firewall Administration Guide](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-1-1/administration-guide/security/distributed-firewall.html).
+For more information on the NSX gateway firewall, see the [NSX Gateway Firewall Administration Guide](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-2/administration-guide/security/gateway-firewall.html).
+The distributed firewall can be used to filter traffic to VMs. For more information, see [NSX Distributed Firewall Administration Guide](https://techdocs.broadcom.com/us/en/vmware-cis/nsx/vmware-nsx/4-2/administration-guide/security/distributed-firewall.html).
 
 ## Related content
 

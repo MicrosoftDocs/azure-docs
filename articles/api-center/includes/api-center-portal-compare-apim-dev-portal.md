@@ -29,7 +29,7 @@ While the two portals share some features, they also have distinct differences. 
 | Integrate with Microsoft Entra ID | ✔️ | ✔️ |
 | Add custom widgets | ✔️ | ❌ |
 | Customize with WordPress | ✔️ | ❌ |
-| Test APIs in test console | ✔️ | ❌ |
+| Test APIs in test console | ✔️ | ✔️ |
 | Subscribe to APIs | ✔️ | ❌ |
 | View API usage analytics | ✔️ | ❌ |
 

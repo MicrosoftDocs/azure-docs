@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 05/31/2024
+# Customer intent: "As a security administrator, I want to configure custom rules for a web application firewall, so that I can protect my web applications from various types of malicious attacks and control access based on defined conditions."
 ---
 
 # Custom rules for Azure Web Application Firewall on Azure Front Door

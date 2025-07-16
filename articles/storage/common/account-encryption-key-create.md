@@ -12,6 +12,7 @@ ms.author: akashdubey
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
+# Customer intent: "As a cloud administrator, I want to create a storage account that supports customer-managed keys for tables and queues, so that I can ensure data encryption meets our organization's security and compliance requirements."
 ---
 
 # Create an account that supports customer-managed keys for tables and queues

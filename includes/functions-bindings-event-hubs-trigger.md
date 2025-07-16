@@ -4,9 +4,11 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/04/2023
 ms.author: glenga
+ms.custom:
+  - build-2025
 ---
 
-Use the function trigger to respond to an event sent to an event hub event stream. You must have read access to the underlying event hub to set up the trigger. When the function is triggered, the message passed to the function is typed as a string.
+Use the function trigger to respond to an event sent to an event hub event stream. You need read access to the underlying event hub to set up the trigger. When the function is triggered, the message passed to the function is typed as a string.
 
 Event Hubs scaling decisions for the Consumption and Premium plans are done via Target Based Scaling. For more information, see [Target Based Scaling](../articles/azure-functions/functions-target-based-scaling.md).
 
@@ -54,7 +56,7 @@ public void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConn
 }
 ```
 
-To get access to [event metadata](#event-metadata) in function code, bind to an [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object. You can also access the same properties by using binding expressions in the method signature.  The following example shows both ways to get the same data:
+To get access to [event metadata](#event-metadata) in function code, bind to an [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object. You can also access the same properties by using binding expressions in the method signature. The following example shows both ways to get the same data:
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -80,7 +82,7 @@ public void Run(
 To receive events in a batch, make `string` or `EventData` an array.  
 
 > [!NOTE]
-> When receiving in a batch you cannot bind to method parameters like in the above example with `DateTime enqueuedTimeUtc` and must receive these from each `EventData` object  
+> When receiving in a batch, you cannot bind to method parameters like in the above example with `DateTime enqueuedTimeUtc` and must receive these from each `EventData` object  
 
 ```cs
 [FunctionName("EventHubTriggerCSharp")]
@@ -201,6 +203,33 @@ $eventHubMessages | ForEach-Object { Write-Host "Processed message: $_" }
 
 ::: zone-end 
 ::: zone pivot="programming-language-python"  
+This example uses SDK types to directly access the underlying [`EventData`](/python/api/azure-eventhub/azure.eventhub.eventdata) object provided by the Event Hubs trigger: 
+
+The function reads the event body and logs it.
+```python
+import logging
+import azure.functions as func
+import azurefunctions.extensions.bindings.eventhub as eh
+
+app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
+
+@app.event_hub_message_trigger(
+    arg_name="event", event_hub_name="EVENTHUB_NAME", connection="EventHubConnection"
+)
+def eventhub_trigger(event: eh.EventData):
+    logging.info(
+        "Python EventHub trigger processed an event %s",
+        event.body_as_str()
+    )
+```
+For examples of using the EventData type, see the [`EventData`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-eventhub/samples/eventhub_samples_eventdata/function_app.py) samples. For a step-by-step tutorial on how to include SDK-type bindings in your function app, follow the [Python SDK Bindings for Event Hubs Sample](https://github.com/Azure-Samples/azure-functions-eventhub-sdk-bindings-python).
+
+> [!NOTE]  
+> Known limitations include:
+> - The `enqueued_time` property is not supported.
+> - Batch message support is supported with runtime version 4.1039 or greater.
+
+To learn more, including what other SDK type bindings are supported, see [SDK type bindings](../articles/azure-functions/functions-reference-python.md#sdk-type-bindings).
 
 The following example shows an Event Hubs trigger binding and a Python function that uses the binding. The function reads [event metadata](#event-metadata) and logs the message. The example depends on whether you use the [v1 or v2 Python programming model](../articles/azure-functions/functions-reference-python.md).
 
@@ -272,7 +301,7 @@ public void eventHubProcessor(
  }
 ```
 
- In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `EventHubTrigger` annotation on parameters whose value comes from the event hub. Parameters with these annotations cause the function to run when an event arrives.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
+ In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `EventHubTrigger` annotation on parameters whose value comes from the event hub. Parameters with these annotations cause the function to run when an event arrives. This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
 
 
 The following example illustrates extensive use of `SystemProperties` and other Binding options for further introspection of the Event along with providing a well-formed `BlobOutput` path that is Date hierarchical.
@@ -409,7 +438,7 @@ The following table explains the properties that you can set on the `options` ob
 |---------|-----------------------|
 |**eventHubName** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. Can be referenced via [app settings](../articles/azure-functions/functions-bindings-expressions-patterns.md#binding-expressions---app-settings) `%eventHubName%` |
 |**consumerGroup** |An optional property that sets the [consumer group](../articles/event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. |
-|**cardinality** | Set to `many` in order to enable batching.  If omitted or set to `one`, a single message is passed to the function.|
+|**cardinality** | Set to `many` in order to enable batching. If omitted or set to `one`, a single message is passed to the function.|
 |**connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. See [Connections](#connections).|
 
 # [Model v3](#tab/nodejs-v3)
@@ -423,7 +452,7 @@ The following table explains the binding configuration properties that you set i
 |**name** |  The name of the variable that represents the event item in function code. |
 |**eventHubName** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. Can be referenced via [app settings](../articles/azure-functions/functions-bindings-expressions-patterns.md#binding-expressions---app-settings) `%eventHubName%` |
 |**consumerGroup** |An optional property that sets the [consumer group](../articles/event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. |
-|**cardinality** | Set to `many` in order to enable batching.  If omitted or set to `one`, a single message is passed to the function.|
+|**cardinality** | Set to `many` in order to enable batching. If omitted or set to `one`, a single message is passed to the function.|
 |**connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. See [Connections](#connections).|
 
 ---
@@ -442,20 +471,20 @@ The following table explains the trigger configuration properties that you set i
 |**name** |  The name of the variable that represents the event item in function code. |
 |**eventHubName** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. Can be referenced via [app settings](../articles/azure-functions/functions-bindings-expressions-patterns.md#binding-expressions---app-settings) `%eventHubName%` |
 |**consumerGroup** |An optional property that sets the [consumer group](../articles/event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. |
-|**cardinality** | Set to `many` in order to enable batching.  If omitted or set to `one`, a single message is passed to the function.|
+|**cardinality** | Set to `many` in order to enable batching. If omitted or set to `one`, a single message is passed to the function.|
 |**connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. See [Connections](#connections).|
 
 # [Functions 1.x](#tab/functionsv1)
 
-|function.json property | Description|
-|---------|----------------------|
-|**type** |  Must be set to `eventHubTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|**direction** |  Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
-|**name** |  The name of the variable that represents the event item in function code. |
-|**path** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
-|**consumerGroup** |An optional property that sets the [consumer group](../articles/event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. |
-|**cardinality** | Set to `many` in order to enable batching.  If omitted or set to `one`, a single message is passed to the function.|
-|**connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. See [Connections](#connections).|
+|function.json property | Description                                                                                                                                                                                                   |
+|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|**type** | Must be set to `eventHubTrigger`. This property is set automatically when you create the trigger in the Azure portal.                                                                                         |
+|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal.                                                                                                      |
+|**name** | The name of the variable that represents the event item in function code.                                                                                                                                     |
+|**path** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime.                                                                   |
+|**consumerGroup** | An optional property that sets the [consumer group](../articles/event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. |
+|**cardinality** | Set to `many` in order to enable batching. If omitted or set to `one`, a single message is passed to the function.                                                                                            |
+|**connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. See [Connections](#connections).                                                                                |
 
 ---
 
@@ -466,6 +495,16 @@ The following table explains the trigger configuration properties that you set i
 ## Usage
 
 To learn more about how Event Hubs trigger and IoT Hub trigger scales, see [Consuming Events with Azure Functions](/azure/architecture/serverless/event-hubs-functions/event-hubs-functions#consuming-events-with-azure-functions).
+
+::: zone pivot="programming-language-python" 
+Functions also supports Python SDK type bindings for Azure Event Hubs, which lets you work with data using these underlying SDK types:
+
++ [`EventData`](/python/api/azure-eventhub/azure.eventhub.eventdata)
+
+> [!IMPORTANT]  
+> Support for Event Hubs SDK types in Python is in Preview and is only supported for the Python v2 programming model. For more information, see [SDK types in Python](../articles/azure-functions/functions-reference-python.md#sdk-type-bindings).
+
+::: zone-end 
 
 ::: zone pivot="programming-language-csharp"  
 The parameter type supported by the Event Hubs output binding depends on the Functions runtime version, the extension package version, and the C# modality used. 
@@ -496,7 +535,7 @@ In-process C# class library functions supports the following types:
 
 # [Extension v3.x+](#tab/extensionv3/isolated-process)
 
-Requires you to define a custom type, or use a string. Additional options are available to **Extension v5.x+**.
+Requires you to define a custom type, or use a string. More options are available to **Extension v5.x+**.
 
 ---
 

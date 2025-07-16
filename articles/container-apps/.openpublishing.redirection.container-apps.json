@@ -114,11 +114,6 @@
             "source_path_from_root": "/articles/container-apps/vnet-custom-internal.md",
             "redirect_url": "/azure/container-apps/vnet-custom",
             "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/container-apps/rule-based-routing.md",
-            "redirect_url": "/azure/container-apps/user-defined-routes",
-            "redirect_document_id": false
         }
     ]
 }

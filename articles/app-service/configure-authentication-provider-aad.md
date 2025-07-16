@@ -12,8 +12,6 @@ ms.author: cephalin
 
 # Configure your App Service or Azure Functions app to use Microsoft Entra sign-in
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 Select another authentication provider to jump to it.
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -81,7 +79,7 @@ To use an existing registration, select either:
 
 If you need to manually create an app registration in a workforce tenant, see [Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app). As you go through the registration process, be sure to note the application (client) ID and client secret values.
 
-During the registration process, in the **Redirect URIs** section, select **Web** for platform and enter `<app-url>/.auth/login/aad/callback`. For example, enter `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
+During the registration process, in the **Redirect URIs** section, select **Web** for platform, and enter a redirect URI. For example, enter `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 
 Now, modify the app registration:
 
@@ -168,7 +166,7 @@ To use an existing registration, select **Provide the details of an existing app
 
 If you need to manually create an app registration in an external tenant, see [Register an app in your external tenant](/entra/external-id/customers/how-to-register-ciam-app?tabs=webapp#register-your-web-app).
 
-During the registration process, in the **Redirect URIs** section, select **Web** for platform and enter `<app-url>/.auth/login/aad/callback`. For example, enter `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
+During the registration process, in the **Redirect URIs** section, select **Web** for platform, and enter a redirect URI. For example, enter `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 
 Now, modify the app registration:
 
@@ -267,7 +265,7 @@ The created app registration authenticates incoming requests for your Microsoft 
 
 Your application code is often the best place to handle custom authorization logic. However, for common scenarios, the Microsoft identity platform provides built-in checks that you can use to limit access.
 
-This section shows how to enable built-in checks by using the [App Service authentication V2 API](./configure-authentication-api-version.md). Currently, the only way to configure these built-in checks is by using [Azure Resource Manager templates](/azure/templates/microsoft.web/sites/config-authsettingsv2) or the [REST API](/rest/api/appservice/web-apps/update-auth-settings-v2).
+This section shows how to enable built-in checks by using the [App Service authentication V2 API](./configure-authentication-api-version.md). Currently, the only way to configure these built-in checks is by using [Azure Resource Manager templates](/azure/templates/microsoft.web/sites/config-authsettingsv2) or the [REST API](/rest/api/appservice/web-apps/update-auth-settings-v-2).
 
 Within the API object, the Microsoft Entra identity provider configuration has a `validation` section that can include a `defaultAuthorizationPolicy` object, as shown in the following structure:
 
@@ -364,7 +362,7 @@ You can register native clients to request access to your App Service app's APIs
 
 1. On the **Register an application** pane, for **Name**, enter a name for your app registration.
 
-1. In **Redirect URI**, select **Public client/native (mobile & desktop)** and enter the URL `<app-url>/.auth/login/aad/callback`. For example, enter `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
+1. In **Redirect URI**, select **Public client/native (mobile & desktop)** and enter the redirect URL. For example, enter `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 
 1. Select **Register**.
 

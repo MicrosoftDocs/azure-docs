@@ -276,7 +276,9 @@ Azure NetApp Files requires a delegated subnet, which must be part of the same v
 
 1. Create the delegated subnet for *Microsoft.NetApp/volumes*.
 
-   ![Screenshot that shows selections for adding a delegated subnet.](media/lama/sap-lama-addsubnet-50.png)
+   ![Screenshot that shows selections for adding subnet.](media/lama/sap-lama-addsubnet-50.png)
+   
+   ![Screenshot that shows selections for choosing subnet delegation.](media/lama/sap-lama-addsubnet2-50.png)
 
    ![Screenshot that shows a list of subnets.](media/lama/sap-lama-subnets.png)
 
@@ -322,10 +324,10 @@ Azure NetApp Files requires a delegated subnet, which must be part of the same v
    1. Mount the Azure NetApp Files volumes by using the following commands:
 
       ```bash
-      # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-home-sidadm /home/an1adm
-      # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-sapmnt-sid /sapmnt/AN1
-      # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-usr-sap-sid /usr/sap/AN1
-      # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/global-usr-sap-trans /usr/sap/trans
+      # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 10.1.0.133:/an1-home-sidadm /home/an1adm
+      # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 10.1.0.134:/an1-sapmnt-sid /sapmnt/AN1
+      # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 10.1.0.134:/an1-usr-sap-sid /usr/sap/AN1
+      # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 10.1.0.134:/global-usr-sap-trans /usr/sap/trans
       ```
 
       You can also look up the mount commands from the portal. The local mount points need to be adjusted.

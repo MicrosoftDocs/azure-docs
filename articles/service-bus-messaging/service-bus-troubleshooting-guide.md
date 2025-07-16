@@ -2,7 +2,9 @@
 title: Troubleshooting guide for Azure Service Bus | Microsoft Docs
 description: Learn about troubleshooting tips and recommendations for a few issues that you see when using Azure Service Bus.
 ms.topic: article
-ms.date: 02/23/2024
+ms.date: 05/15/2025
+ms.custom:
+  - build-2025
 ---
 
 # Troubleshooting guide for Azure Service Bus
@@ -81,7 +83,7 @@ Most of the spans are self-explanatory and are started and stopped during the op
 
 :::image type="content" source="./media/service-bus-troubleshooting-guide/distributed-trace-example.png" alt-text="Image showing a sample distributed trace.":::
 
-In the above screenshot, you see the end-to-end transaction that can be viewed in Application Insights in the portal. In this scenario, the application is sending messages and using the [ServiceBusSessionProcessor](/dotnet/api/azure.messaging.servicebus.servicebussessionprocessor) to process them. The `Message` activity is linked to `ServiceBusSender.Send`, `ServiceBusReceiver.Receive`, `ServiceBusSessionProcessor.ProcessSessionMessage`, and `ServiceBusReceiver.Complete`. 
+In the screenshot, you see the end-to-end transaction that can be viewed in Application Insights in the portal. In this scenario, the application is sending messages and using the [ServiceBusSessionProcessor](/dotnet/api/azure.messaging.servicebus.servicebussessionprocessor) to process them. The `Message` activity is linked to `ServiceBusSender.Send`, `ServiceBusReceiver.Receive`, `ServiceBusSessionProcessor.ProcessSessionMessage`, and `ServiceBusReceiver.Complete`. 
 
 > [!NOTE]
 > For more information, see [Distributed tracing and correlation through Service Bus messaging](service-bus-end-to-end-tracing.md).
@@ -97,13 +99,13 @@ A message batch is either [`ServiceBusMessageBatch`][ServiceBusMessageBatch] con
 ## Troubleshoot receiver issues
 
 ### Number of messages returned doesn't match number requested in batch receive
-When attempting to do a batch receive operation, that is, passing a `maxMessages` value of two or greater to the [ReceiveMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.receivemessagesasync) method, you aren't guaranteed to receive the number of messages requested, even if the queue or subscription has that many messages available at that time, and even if the entire configured `maxWaitTime` hasn't yet elapsed. To maximize throughput and avoid lock expiration, once the first message comes over the wire, the receiver waits an additional 20 milliseconds for any additional messages before dispatching the messages for processing. The `maxWaitTime` controls how long the receiver waits to receive the *first* message - subsequent messages are waited for 20 milliseconds. Therefore, your application shouldn't assume that all messages available are received in one call.
+When attempting to do a batch receive operation, that is, passing a `maxMessages` value of two or greater to the [ReceiveMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.receivemessagesasync) method, you aren't guaranteed to receive the number of messages requested, even if the queue or subscription has that many messages available at that time, and even if the entire configured `maxWaitTime` hasn't yet elapsed. To maximize throughput and avoid lock expiration, once the first message comes over the wire, the receiver waits an extra 20 milliseconds for any extra messages before dispatching the messages for processing. The `maxWaitTime` controls how long the receiver waits to receive the *first* message - subsequent messages are waited for 20 milliseconds. Therefore, your application shouldn't assume that all messages available are received in one call.
 
 ### Message or session lock is lost before lock expiration time
-The Service Bus service uses the AMQP protocol, which is stateful. Due to the nature of the protocol, if the link that connects the client and the service is detached after a message is received, but before the message is settled, the message isn't able to be settled on reconnecting the link. Links can be detached due to a short-term transient network failure, a network outage, or due to the service enforced 10-minute idle timeout. The reconnection of the link happens automatically as a part of any operation that requires the link, that is, settling or receiving messages. In this situation, you receive a `ServiceBusException` with `Reason` of `MessageLockLost` or `SessionLockLost` even if the lock expiration time hasn't yet passed. 
+The Service Bus service uses the AMQP protocol, which is stateful. Due to the nature of the protocol, if the link that connects the client and the service is detached after a message is received, but before the message is settled, the message isn't able to be settled on reconnecting the link. Links can be detached due to a short-term transient network failure, a network outage, or due to the service enforced 10-minute idle timeout. The reconnection of the link happens automatically as a part of any operation that requires the link, that is, settling or receiving messages. In this situation, you receive a `ServiceBusException` with `Reason` of `MessageLockLost` or `SessionLockLost` even if the lock expiration time isn't yet passed. 
 
 ### How to browse scheduled or deferred messages
-Scheduled and deferred messages are included when peeking messages. They can be identified by the [ServiceBusReceivedMessage.State](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.state) property. Once you have the [SequenceNumber](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.sequencenumber) of a deferred message, you can receive it with a lock via the [ReceiveDeferredMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.receivedeferredmessagesasync) method.
+Scheduled and deferred messages are included when peeking messages. They are identified by the [ServiceBusReceivedMessage.State](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.state) property. Once you have the [SequenceNumber](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.sequencenumber) of a deferred message, you can receive it with a lock via the [ReceiveDeferredMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.receivedeferredmessagesasync) method.
 
 When working with topics, you can't peek scheduled messages on the subscription, as the messages remain in the topic until the scheduled enqueue time. As a workaround, you can construct a [ServiceBusReceiver][ServiceBusReceiver] passing in the topic name in order to peek such messages. No other operations with the receiver work when using a topic name.
 
@@ -119,7 +121,7 @@ This issue occurs most often in interop scenarios when receiving a message sent 
 Autolock renewal relies on the system time to determine when to renew a lock for a message or session. If your system time isn't accurate, for example, your clock is slow, then lock renewal might not happen before the lock is lost. Ensure that your system time is accurate if autolock renewal isn't working.
 
 ### Processor appears to hang or have latency issues when using high concurrency
-This behavior is often caused by thread starvation, particularly when using the session processor and using a very high value for [MaxConcurrentSessions][MaxConcurrentSessions], relative to the number of cores on the machine. The first thing to check would be to make sure you aren't doing sync-over-async in any of your event handlers. Sync-over-async is an easy way to cause deadlocks and thread starvation. Even if you aren't doing sync over async, any pure sync code in your handlers could contribute to thread starvation. If you've determined that isn't the issue, for example, because you have pure async code, you can try increasing your [TryTimeout][TryTimeout]. It relieves pressure on the thread pool by reducing the number of context switches and timeouts that occur when using the session processor in particular. The default value for [TryTimeout][TryTimeout] is 60 seconds, but it can be set all the way up to 1 hour. We recommend testing with the `TryTimeout` set to 5 minutes as a starting point and iterate from there. If none of these suggestions work, you simply need to scale out to multiple hosts, reducing the concurrency in your application, but running the application on multiple hosts to achieve the desired overall concurrency.
+Thread starvation usually causes this behavior, particularly when using the session processor and using a very high value for [MaxConcurrentSessions][MaxConcurrentSessions], relative to the number of cores on the machine. The first thing to check would be to make sure you aren't doing sync-over-async in any of your event handlers. Sync-over-async is an easy way to cause deadlocks and thread starvation. Even if you aren't doing sync over async, any pure sync code in your handlers could contribute to thread starvation. If you determined that isn't the issue, for example, because you have pure async code, you can try increasing your [TryTimeout][TryTimeout]. It relieves pressure on the thread pool by reducing the number of context switches and timeouts that occur when using the session processor in particular. The default value for [TryTimeout][TryTimeout] is 60 seconds, but it can be set all the way up to 1 hour. We recommend testing with the `TryTimeout` set to 5 minutes as a starting point and iterate from there. If none of these suggestions work, you simply need to scale out to multiple hosts, reducing the concurrency in your application, but running the application on multiple hosts to achieve the desired overall concurrency.
 
 Further reading:
 - [Debug thread pool starvation][DebugThreadPoolStarvation]
@@ -128,11 +130,11 @@ Further reading:
 
 ### Session processor takes too long to switch sessions
 
-This can be configured using the [SessionIdleTimeout][SessionIdleTimeout], which tells the processor how long to wait to receive a message from a session, before giving up and moving to another one. It's useful if you have many sparsely populated sessions, where each session only has a few messages. If you expect that each session will have many messages that trickle in, setting it too low can be counter productive, as it results in unnecessary closing of the session.
+This setting can be configured using the [SessionIdleTimeout][SessionIdleTimeout], which tells the processor how long to wait to receive a message from a session, before giving up and moving to another one. It's useful if you have many sparsely populated sessions, where each session only has a few messages. If you expect that each session will have many messages that trickle in, setting it too low can be counter productive, as it results in unnecessary closing of the session.
 
 ### Processor stops immediately
 
-This is often observed for demo or testing scenarios. `StartProcessingAsync` returns immediately after the processor has started. Calling this method won't block and keep your application alive while the processor is running, so you need some other mechanism to do so. For demos or testing, it's sufficient to just add a `Console.ReadKey()` call after you start the processor. For production scenarios, you'll likely want to use some sort of framework integration like [BackgroundService][BackgroundService] to provide convenient application lifecycle hooks that can be used for starting and disposing the processor.
+This behavior is often observed for demo or testing scenarios. `StartProcessingAsync` returns immediately after the processor started. Calling this method doesn't block and keep your application alive while the processor is running, so you need some other mechanism to do so. For demos or testing, it's sufficient to just add a `Console.ReadKey()` call after you start the processor. For production scenarios, you likely want to use some sort of framework integration like [BackgroundService][BackgroundService] to provide convenient application lifecycle hooks that can be used for starting and disposing the processor.
 
 ## Troubleshoot transactions
 
@@ -148,7 +150,7 @@ A transaction times out after a [period of time][TransactionTimeout], so it's im
 
 ### Operations in a transaction aren't retried
 
-This is by design. Consider the following scenario - you're attempting to complete a message within a transaction, but there's some transient error that occurs, for example, `ServiceBusException` with a `Reason` of `ServiceCommunicationProblem`. Suppose the request does actually make it to the service. If the client were to retry, the service would see two complete requests. The first complete won't be finalized until the transaction is committed. The second complete isn't able to even be evaluated before the first complete finishes. The transaction on the client is waiting for the complete to finish. This creates a deadlock where the service is waiting for the client to complete the transaction, but the client is waiting for the service to acknowledge the second complete operation. The transaction will eventually time out after 2 minutes, but this is a bad user experience. For this reason, we don't retry operations within a transaction.
+This behavior is by design. Consider the following scenario - you're attempting to complete a message within a transaction, but there's some transient error that occurs, for example, `ServiceBusException` with a `Reason` of `ServiceCommunicationProblem`. Suppose the request does actually make it to the service. If the client were to retry, the service would see two complete requests. The first complete isn't finalized until the transaction is committed. The second complete isn't able to even be evaluated before the first complete finishes. The transaction on the client is waiting for the complete to finish. It creates a deadlock where the service is waiting for the client to complete the transaction, but the client is waiting for the service to acknowledge the second complete operation. The transaction will eventually time out after 2 minutes, but it's a bad user experience. For this reason, we don't retry operations within a transaction.
 
 ### Transactions across entities aren't working
 
@@ -179,13 +181,13 @@ The following steps help you with troubleshooting connectivity/certificate/timeo
         </Detail>
     </Error>
     ```
-- Run the following command to check if any port is blocked on the firewall. Ports used are 443 (HTTPS), 5671 and 5672 (AMQP) and 9354 (Net Messaging/SBMP). Depending on the library you use, other ports are also used. Here's the sample command that check whether the 5671 port is blocked. C 
+- Run the following command to check if any port is blocked on the firewall. Ports used are 443 (HTTPS), 5671 and 5672 (AMQP) and 9354 (Net Messaging/SBMP). Depending on the library you use, other ports are also used. Here's the sample command that check whether the 5671 port is blocked. 
 
     ```powershell
     tnc <yournamespacename>.servicebus.windows.net -port 5671
     ```
 
-    On Linux:
+   On Linux:
 
     ```shell
     telnet <yournamespacename>.servicebus.windows.net 5671
@@ -242,7 +244,7 @@ You receive the following error message:
 [!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 ### Cause
-Number of authentication tokens for concurrent links in a single connection to a Service Bus namespace has exceeded the limit: 1000. 
+Number of authentication tokens for concurrent links in a single connection to a Service Bus namespace exceeded the limit: 1000. 
 
 ### Resolution
 Do one of the following steps:
@@ -254,7 +256,7 @@ Do one of the following steps:
 ## Resource locks don't work when using the data plane SDK
 
 ### Symptoms
-You have configured a delete lock on a Service Bus namespace, but you're able to delete resources in the namespace (queues, topics, etc.) by using the Service Bus Explorer. 
+You configured a delete lock on a Service Bus namespace, but you're able to delete resources in the namespace (queues, topics, etc.) by using the Service Bus Explorer. 
 
 ### Cause
 Resource lock is preserved in Azure Resource Manager (control plane) and it doesn't prevent the data plane SDK call from deleting the resource directly from the namespace. The standalone Service Bus Explorer uses the data plane SDK, so the deletion goes through. 
@@ -283,7 +285,6 @@ See the following articles:
 
 [ServiceBusMessageBatch]: /dotnet/api/azure.messaging.servicebus.servicebusmessagebatch
 [SendMessages]: /dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync
-[ServiceBusMessageBatch]: /dotnet/api/azure.messaging.servicebus.servicebusmessagebatch
 [ServiceBusReceiver]: /dotnet/api/azure.messaging.servicebus.servicebusreceiver
 [ServiceBusSessionReceiver]: /dotnet/api/azure.messaging.servicebus.servicebussessionreceiver
 [MessageBody]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample14_AMQPMessage.md#message-body
