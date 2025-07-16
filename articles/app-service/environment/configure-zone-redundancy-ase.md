@@ -17,9 +17,9 @@ This article shows you how to create and modify your App Service Environment zon
 
 ## Create an App Service Environment with zone redundancy
 
-To create a new App Service Environment with zone redundancy, follow the steps in [Create an App Service Environment](../app-service/environment/creation.md). Make sure to select *Enabled* for **Zone redundancy**.
+To create a new App Service Environment with zone redundancy, follow the steps in [Create an App Service Environment](creation.md). Make sure to select *Enabled* for **Zone redundancy**.
 
-To create plans in your App Service Environment, you must use the Isolated v2 pricing tier. To learn how to create an Isolated v2 App Service plan with zone redundancy, see [Configure Isolated v2 App Service plans with zone redundancy](../app-service/environment/configure-zone-redundancy-isolated.md).
+To create plans in your App Service Environment, you must use the Isolated v2 pricing tier. To learn how to create an Isolated v2 App Service plan with zone redundancy, see [Configure Isolated v2 App Service plans with zone redundancy](configure-zone-redundancy-isolated.md).
 
 ## Set zone redundancy for an existing App Service Environment
 
@@ -107,6 +107,6 @@ output zoneRedundant bool = appServiceEnvironment.properties.zoneRedundant
 
 
 ## Related content
-- [Configure zone redundancy for Isolated v2 App Service plans](../app-service/environment/configure-zone-redundancy-isolated.md)
+- [Configure zone redundancy for Isolated v2 App Service plans](configure-zone-redundancy-isolated.md)
 - [Configure App Service plans for reliability](../configure-zone-redundancy.md)
-- [Reliability in Azure App Service Environments](../../reliability/reliability-app-service-environments.md)
+- [Reliability in Azure App Service Environments](../../reliability/reliability-app-service-environment.md)
