@@ -1,7 +1,7 @@
 ---
 title: Prerequisites to Configure WhatsApp as a Channel in Microsoft Copilot Studio
 titleSuffix: An Azure Communication Services article
-description: Learn about Azure Communication Services Advanced Messaging for WhatsApp.
+description: Prerequisites to Configure WhatsApp as a Channel in Microsoft Copilot Studio.
 author: anniewang
 manager: darmour
 services: azure-communication-services
