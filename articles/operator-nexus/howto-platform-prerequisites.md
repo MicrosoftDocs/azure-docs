@@ -1,11 +1,11 @@
 ---
 title: "Azure Operator Nexus: Before you start platform deployment prerequisites"
 description: Learn the prerequisite steps for deploying the Operator Nexus platform software.
-author: pjw711
-ms.author: peterwhiting
+author: jac0bsmith
+ms.author: jac0bsmith
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 03/13/2023
+ms.date: 07/13/2025
 ms.custom:
   - template-how-to
   - build-2025
@@ -669,7 +669,7 @@ An example design of three on-premises instances from the same NFC/CM pair, usin
 
 #### Minimum recommended BIOS and firmware versions for Nexus Cluster runtime
 
-As a best practice, starting from the following minimum recommended BIOS and firmware versions are deployed based on your Nexus Cluster, based on the selected runtime version and BOM.
+As a best practice, the following BIOS and firmware versions need to be installed on the servers prior to deployment, based on the selected runtime version and BOM.
 For reference, version N is the latest available runtime version. N-1 and N-2 are the previous supported runtime versions.
 
 #### Nexus Cluster runtime version N
