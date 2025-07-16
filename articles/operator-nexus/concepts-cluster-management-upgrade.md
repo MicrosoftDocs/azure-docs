@@ -21,7 +21,7 @@ For Compute management, Microsoft delivers new software to the extensions and ag
 The update rolls out to the Azure regions and the Cluster Manager is updated when the release is available in that region.
 
 ## Impact to customer workloads
-There is no disruption to running workloads or instantiating new workloads, and on-premises resources retain availability throughout the upgrade. Therefore, the customer sees no impact. 
+There's no disruption to running workloads or instantiating new workloads, and on-premises resources retain availability throughout the upgrade. Therefore, the customer sees no impact. 
 
 ## Duration of on-premises updates
 These updates take up to one hour to complete per cluster.
