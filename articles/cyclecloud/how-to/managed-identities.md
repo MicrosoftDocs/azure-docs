@@ -20,11 +20,11 @@ When you install Azure CycleCloud on an Azure VM and assign a Managed Identity t
 
 ::: moniker range="=cyclecloud-7"
 ![Add Subscription Managed Identities](../images/version-7/create-account-managed-identity.png)
-:::
+::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
 ![Add Subscription Managed Identities](../images/version-8/add-subscription-managed-identity-8.7.png)
-:::
+::: moniker-end
 
 You can still enter the standard set of credentials by selecting the **App Registration** authentication option. When you select this option, the standard fields appear in the form. You can also use a different **Subscription ID**; the provided value is just for convenience.
 

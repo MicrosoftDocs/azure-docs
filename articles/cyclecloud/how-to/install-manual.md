@@ -73,13 +73,13 @@ Finally, install CycleCloud with `apt`:
 ```bash
 sudo apt -y install cyclecloud
 ```
-:::
+::: moniker-end
 
 ::: moniker range="=cyclecloud-8"
 ```bash
 sudo apt-get -y -q install cyclecloud8
 ```
-:::
+::: moniker-end
 
 > [!NOTE]
 > The CycleCloud Apt repository distribution release for Ubuntu family platform uses a floating "stable" moniker. CycleCloud officially supports all Ubuntu LTS releases that Canonical supports. The CycleCloud package files don't target a specific version of GLIBC (GNU C Library) or Ubuntu release.
