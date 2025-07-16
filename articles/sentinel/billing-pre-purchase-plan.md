@@ -1,18 +1,18 @@
 ---
-title: Optimize costs with a pre-purchase plan
+title: Optimize costs with a prepurchase plan
 titleSuffix: Microsoft Sentinel
-description: Learn how to save costs and buy a Microsoft Sentinel pre-purchase plan
+description: Learn how to save costs and buy a Microsoft Sentinel prepurchase plan
 author: EdB-MSFT
 ms.topic: how-to
 ms.date: 07/07/2025
 ms.author: edbaynash
 
-#customerintent: As a SOC administrator or a billing specialist, I want to know how to buy a pre-purchase plan and whether commit units will benefit us financially.
+#customerintent: As a SOC administrator or a billing specialist, I want to know how to buy a prepurchase plan and whether commit units will benefit us financially.
 ---
 
 # Optimize Microsoft Sentinel costs with a pre-purchase plan
 
-Save on your Microsoft Sentinel analytics tier costs when you buy a prepurchase plan. Pre-purchase plans are commit units (CUs) bought at discounted tiers in your purchasing currency for a specific product. The more you buy, the greater the discount. Purchased CUs pay down qualifying costs in US dollars (USD). So, if Microsoft Sentinel generates a retail cost of $100, then 100 Microsoft Sentinel CUs (SCUs) are consumed. 
+Save on your Microsoft Sentinel analytics tier costs when you buy a pre-purchase plan. Pre-purchase plans are commit units (CUs) bought at discounted tiers in your purchasing currency for a specific product. The more you buy, the greater the discount. Purchased CUs pay down qualifying costs in US dollars (USD). So, if Microsoft Sentinel generates a retail cost of $100, then 100 Microsoft Sentinel CUs (SCUs) are consumed. 
 
 Your Microsoft Sentinel pre-purchase plan automatically uses your SCUs to pay for eligible analytics tier costs during its one-year term or until the SCUs run out. Your pre-purchase plan SCUs start paying for your Microsoft Sentinel workspace costs without having to redeploy or reassign the plan. By default, plans are configured to renew at the end of the one year term.
 
