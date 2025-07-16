@@ -188,11 +188,11 @@ To override the UID and GID values, select the **edit** button for both the `sch
 
 ::: moniker range="=cyclecloud-7"
 ![Edit Scheduler](~/articles/cyclecloud/images/version-7/slurm-master-node-edit.png "Edit Scheduler")
-:::
+::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
 ![Edit Scheduler](~/articles/cyclecloud/images/version-8/slurm-schedule-node-edit.png "Edit Scheduler")
-:::
+::: moniker-end
 
 And the `execute` nodearray:
 ![Edit Nodearray](~/articles/cyclecloud/images/slurmnodearraytab.png "Edit nodearray")
