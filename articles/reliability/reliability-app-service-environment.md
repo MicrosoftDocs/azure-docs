@@ -65,19 +65,17 @@ To see which regions support availability zones for App Service Environment v3, 
 
 ### Requirements
 
-To enable zone-redundancy for your App Service Environment you must:
+To enable zone redundancy for your App Service Environment you must:
 
 - Use [Isolated v2 plan types](/azure/app-service/overview-hosting-plans).
 
 - Deploy a minimum of two instances in your plan.
 
+- Be located on a scale unit that supports availability zones. When you create an App Service Environment, the environment is assigned to a scale unit. The scale unit that you're assigned to is based on the resource group that you deploy an App Service Environment to. If your scale unit doesn't support availability zones, you need to create a new environment in a new resource group.
+
 - Configure your App Service Environment to support zone redundancy. You can do this during the creation of the App Service Environment or by updating an existing environment.
 
-<!-- This section is muddy - not clear what we are doing here. That the scale unit is based on the resource group and that the user needs to check for zr after creating the environment, seems like a crap shoot that may or may not turn up the desired result. Can we clarify the process we want to communicate here?-->
->[!IMPORTANT]
->When you create an App Service Environment, the instance is assigned to a scale unit. The scale unit that you're assigned to is based on the resource group that you deploy an App Service Environment to. To ensure that your environment lands on a scale unit that supports availability zones, you might need to create a new resource group and create a new App Service Environment within a new resource group.
->
->To learn whether or not the App Service Environment supports zone redundancy, see [Check for zone redundancy support for an App Service Environment](../app-service/environment/configure-zone-redundancy-ase.md#check-for-zone-redundancy-support-for-an-app-service-environment).
+    To learn whether or not the App Service Environment is configured for zone redundancy, see [Check for zone redundancy support for an App Service Environment](../app-service/environment/configure-zone-redundancy-ase.md#check-for-zone-redundancy-support-for-an-app-service-environment).
 
 ### Cost
 
