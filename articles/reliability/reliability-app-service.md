@@ -22,7 +22,7 @@ If you are using App Service Environment, see [Reliability in Azure App Service 
 
 ## Production deployment recommendations
 
-Use Premium v3/v4 App Service plans to [Enable zone redundancy](#availability-zone-support), which requires your App Service plan to use a minimum of two instances. To see requirements for enabling zone redundancy, go to [Availability zone support requirements](#requirements).  
+Use **Premium v3/v4 App Service plans** to [Enable zone redundancy](#availability-zone-support), which requires your App Service plan to use a minimum of two instances. To see requirements for enabling zone redundancy, go to [Availability zone support requirements](#requirements).  
 
 ## Reliability architecture overview
 
@@ -32,7 +32,7 @@ App Service offers the following redundancy features:
 
 - **Distribution across fault domains:** At the platform level - without any configuration from you - Azure automatically distributes your App Service plan’s VM instances across [fault domains](/azure/virtual-machines/availability-set-overview#fault-domains) within the Azure region. This distribution minimizes the risk of localized hardware failures by grouping virtual machines that share a common power source and network switch. 
 
-- **Distribution across availability zones:** If you enable zone redundancy on an App Service Premium v2-4 plan, Azure also distributes your instances across availability zones within the region, offering higher resiliency in the event of a zone outage. To learn more about zone redundancy, see [Availability zone support](#availability-zone-support).
+- **Distribution across availability zones:** If you enable zone redundancy on an App Service **Premium v2-4** plan, Azure also distributes your instances across availability zones within the region, offering higher resiliency in the event of a zone outage. To learn more about zone redundancy, see [Availability zone support](#availability-zone-support).
 
 - **Scaling apps:**. If you configure your App Service plan to run five VM instances, then all apps in the plan run on all five instances by default. However, if you configure your plan for autoscaling, then all apps in the plan scale out together, based on the autoscale settings. You can customize how many plan instances run a specific app by using [per-app scaling](/azure/app-service/manage-scale-per-app).
 
@@ -101,7 +101,7 @@ To enable zone-redundancy you must:
 
 For **Premium v2-4** plans, during an availability zone outage, some aspects of Azure App Service might be affected, even though the application continues to serve traffic. These behaviors include App Service plan scaling, application creation, application configuration, and application publishing.
 
-When you enable zone redundancy on your App Service Premium v2-4 plan, you also improve your resiliency to updates that the App Service platform rolls out. To learn more, see [Reliability during service maintenance](#reliability-during-service-maintenance).
+When you enable zone redundancy on your App Service **Premium v2-4** plan, you also improve your resiliency to updates that the App Service platform rolls out. To learn more, see [Reliability during service maintenance](#reliability-during-service-maintenance).
 
 *Instance distribution* in a zone-redundant deployment follows specific rules. These rules remain applicable as the app scales in and scales out. To learn about these rules, see [App Service plan instance distribution across zones](#instance-distribution-across-zones).
 
@@ -115,9 +115,6 @@ If you enable availability zones but specify a capacity of less than two, the pl
 
 
 ### Configure availability zone support
-
->[!IMPORTANT]
->To deploy a zone-redundant App Service plan, you must use the [Premium v2-4 plan types](/azure/app-service/overview-hosting-plans).
 
 - **Create a new zone-redundant App Service plan.** To learn how to create a new zone-redundant App Service plan, see [Create a new App Service plan with zone redundancy](../app-service/configure-zone-redundancy.md#create-a-new-app-service-plan-with-zone-redundancy).
 
