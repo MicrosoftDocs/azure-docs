@@ -23,7 +23,7 @@ To create plans in your App Service Environment, you must use the Isolated v2 pr
 
 ## Set zone redundancy for an existing App Service Environment
 
-To enable or disable zone redundancy on an existing App Service Environment, you can use Azure portal, Azure CLI, or Bicep:
+To enable or disable zone redundancy on an existing App Service Environment, you can use Azure CLI or Bicep:
 
 # [Azure portal](#tab/portal)
 
