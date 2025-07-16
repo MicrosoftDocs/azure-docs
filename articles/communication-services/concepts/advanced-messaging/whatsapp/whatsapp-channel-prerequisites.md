@@ -69,7 +69,7 @@ The following steps are only needed if you chose to use an Azure Communication S
 
 1. Click on the following button to launch a custom template for the Azure portal instance that you're logged into to set up the Event Grid Viewer.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmain%2Fazuredeploy.json" target="_blank"><img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true"/></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmain%2Fazuredeploy.json" target="_blank"><img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true" alt="Button to deploy Event Grid Viewer"/></a>
     
 2. Fill in the required fields. Because the site name creates a DNS entry, it needs to be globally unique. We recommend that you include your alias in the name for this step. Here are suggestions for filling out the deployment details:
     - `Subscription` - Select the subscription that contains your Azure Communication Services resource.
@@ -181,7 +181,7 @@ When following those instructions, here are helpful tips:
 
 16. The Event Grid view you deployed will receive the text message of the verification code.
     
-    :::image type="content" source="./media/event-grid-viewer-verification-code.png" lightbox="./media/event-grid-viewer-verification-codee.png" alt-text="Screenshot that shows the Event Grid Viewer with the verification code.":::
+    :::image type="content" source="./media/event-grid-viewer-verification-code.png" lightbox="./media/event-grid-viewer-verification-code.png" alt-text="Screenshot that shows the Event Grid Viewer with the verification code.":::
 
 17. Enter the verification code and select **Next**.
 
@@ -227,7 +227,7 @@ This article described the prerequisite steps to configuring WhatsApp as a Chann
 
 ## Related articles
 
--    [WhatsApp Business Account FAQ](./whatsapp-business-account-faq.md)
+-    [WhatsApp Business Account FAQ](../../../quickstarts/advanced-messaging/whatsapp/whatsapp-business-account-faq.md)
 -    [WhatsApp Business Help Center](https://www.facebook.com/business/help/524220081677109?id=2129163877102343)
 -    [WhatsApp Business Display Name Policy](https://www.facebook.com/business/help/338047025165344)
 -    [Business Verification](https://www.facebook.com/business/help/1095661473946872?id=180505742745347) 
