@@ -3,7 +3,7 @@ title: Template functions - objects
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with objects.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 02/12/2025
+ms.date: 07/10/2025
 ---
 
 # Object functions for ARM templates
@@ -539,6 +539,73 @@ The output from the preceding example with the default values is:
 **firstOutput** shows the properties from the merging objects are combined into a new object. If there are conflicting properties (i.e., properties with the same name), the property from the last object being merged usually takes precedence.
 
 **secondOutput** shows the shallow merge doesn't recursively merge these nested objects. Instead, the entire nested object is replaced by the corresponding property from the merging object.
+
+## tryGet
+
+`tryGet(itemToTest, keyOrIndex)`
+
+`tryGet` helps you avoid deployment failures when trying to access a non-existent property or index in an object or array. If the specified key or index doesn't exist, `tryGet` returns null instead of throwing an error. 
+
+In Bicep, use the [safe-dereference](../bicep/operator-safe-dereference.md#safe-dereference) operator.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| itemToTest |Yes |array, object |An object or array to look into. |
+| keyOrIndex |Yes |string, int |A key or index to retrieve from the array or object. A property name for objects or index for arrays.|
+
+### Return value
+
+Returns the value at the key/index if it exists. Returns null if the key/index is missing or out of bounds.
+
+### Example
+
+The following example checks whether an array, object, and string are empty.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "users": {
+      "name": "John Doe",
+      "age": 30
+    },
+    "colors": [
+      "red",
+      "green"
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "region": {
+      "type": "string",
+      "nullable": true,
+      "value": "[tryGet(variables('users'), 'region')]"
+    },
+    "name": {
+      "type": "string",
+      "nullable": true,
+      "value": "[tryGet(variables('users'), 'name')]"
+    },
+    "firstColor": {
+      "type": "string",
+      "nullable": true,
+      "value": "[tryGet(variables('colors'), 0)]"
+    }
+  }
+}
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| region | String | (NULL) |
+| name | String | John Doe |
+| firstColor | String | Red |
 
 ## union
 

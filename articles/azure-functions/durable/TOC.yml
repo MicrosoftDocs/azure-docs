@@ -134,6 +134,8 @@
     items:
     - name: Configure autoscale for Azure Container Apps hosting
       href: ./durable-task-scheduler/durable-task-scheduler-auto-scaling.md
+    - name: Versioning
+      href: ./durable-task-scheduler/durable-task-scheduler-versioning.md
   - name: Billing
     href: ./durable-task-scheduler/durable-task-scheduler-dedicated-sku.md
   - name: Troubleshoot
