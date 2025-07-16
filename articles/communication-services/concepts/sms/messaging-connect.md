@@ -145,7 +145,7 @@ Learn how to configure SMS events : [Handle SMS events](https://learn.microsoft.
 > If your message fails, check the `messagingConnect` object for accuracy, review the delivery report, and consult partner documentation for downstream error codes.
 
 > [!IMPORTANT]
-> Microsoft does not retain any credentials used to access external Messaging Connect partners. Partner API keys are used solely for the purpose of processing an individual message request and are immediately discarded once the request is completed. These credentials are not stored, logged, or persisted in any form.
+> Microsoft does not retain any credentials used to access external Messaging Connect partners. Partner API keys are used solely to process an individual message request and are immediately discarded once the request is complete. These credentials are not stored, logged, or persisted in any form.
 
 ### Country Availability
 
@@ -153,11 +153,11 @@ Messaging Connect significantly expands the number of countries you can reach wi
 During Public Preview, you can acquire and use two types of sender identities from the Messaging Connect Partner:
 
 - Long Codes – Standard local phone numbers or mobile numbers that support two-way SMS. Often known as Virtual Long codes. 
-- Dynamic Alphanumeric Sender IDs – One-way, branded senders (e.g., “CONTOSO”) where permitted. You can enable DASID only in non-ACS supported countries.
+- Dynamic Alphanumeric Sender IDs – One-way, branded senders (for example, “CONTOSO”) where permitted. You can enable DASID only in non-ACS supported countries.
 
-When you search for a country and number type in the Azure portal, you’ll be offered Messaging Connect as an option if ACS doesn’t support that configuration directly. You’ll then complete the provisioning process through the partner’s portal.
+When you search for a country and number type in the Azure portal, you are offered Messaging Connect as an option if ACS doesn’t support that configuration directly. You then complete the provisioning process through the partner’s portal.
 
-🌐 Country availability is determined by the Messaging Connect partner. The number types, compliance requirements, and onboarding steps vary by country and are handled entirely by the Messaging Connect partner (e.g., Infobip).
+🌐 The Messaging Connect partner determines country availability. The Messaging Connect partner (for example, Infobip) handles number types, compliance requirements, and onboarding steps, which vary by country.
 
 📌 Short codes are not yet supported in Public Preview but are planned for General Availability.
 
@@ -170,7 +170,7 @@ Messaging Connect is built for global use—whether you're operating from Asia, 
 Messaging Connect separates message delivery (handled by the partner) from processing and observability (handled by Azure). Here’s how it works:
 
 - Outbound messages: You send an SMS using the ACS API and include partner routing info via `messagingConnect` object. Azure logs the message, performs validation, and then routes it to the selected Messaging Connect partner.
-- Inbound messages: The partner receives the SMS and forwards it to Azure’s infrastructure. From there, it’s handled just like messages sent to ACS-native numbers—events through Event Grid.
+- Inbound messages: The partner receives the SMS and forwards it to Azure’s infrastructure. From there, Azure Communication Services handles the message like any sent to ACS-native numbers—triggering events through Event Grid.
 
 Although the partner handles delivery, Azure provides:
 
