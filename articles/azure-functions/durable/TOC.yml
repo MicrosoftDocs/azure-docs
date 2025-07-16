@@ -101,7 +101,11 @@
   - name: Instance management
     href: durable-functions-instance-management.md
   - name: Versioning
-    href: durable-functions-versioning.md
+    items:
+    - name: Versioning challenges and approaches
+      href: durable-functions-versioning.md
+    - name: Orchestration versioning
+      href: durable-functions-orchestration-versioning.md
   - name: Storage providers
     href: durable-functions-storage-providers.md
   - name: Performance and scale
@@ -134,6 +138,8 @@
     items:
     - name: Configure autoscale for Azure Container Apps hosting
       href: ./durable-task-scheduler/durable-task-scheduler-auto-scaling.md
+    - name: Versioning
+      href: ./durable-task-scheduler/durable-task-scheduler-versioning.md
   - name: Billing
     href: ./durable-task-scheduler/durable-task-scheduler-dedicated-sku.md
   - name: Troubleshoot
