@@ -109,4 +109,4 @@ When a user attempts to perform a create, update, or delete operation without an
 
 ## Limitations in the Preview Timeframe
 - In some cases, you may not be prompted to complete MFA after receiving an error. In such cases, please re-authenticate with MFA before retrying the operation (e.g., through Azure Portal).
-- In some cases, the error message may not indicate that the operation is blocked due to the policy in-place. Please take note of the error message samples shared above in order to familiarize your organization about how to take action.
+- In some cases, the error message may not indicate that the operation is blocked due to the policy assignment in-place. Please take note of the error message samples shared above in order to familiarize your organization on what error messages they may receive.
