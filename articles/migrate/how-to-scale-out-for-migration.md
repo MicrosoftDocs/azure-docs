@@ -8,6 +8,7 @@ ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 10/03/2024
 ms.custom: engagement-fy24
+# Customer intent: As an IT administrator managing VMware environments, I want to set up a scale-out appliance for agentless migration to Azure, so that I can efficiently replicate and migrate a large number of virtual machines concurrently.
 ---
 
 
@@ -167,7 +168,7 @@ To complete the registration of the scale-out appliance, select **import** to ge
 1. In the pop-up window opened in the previous step, select the location of the copied configuration zip file and select **Save**.
 
     Once the files are successfully imported, the registration of the scale-out appliance completes and it shows you the timestamp of the last successful import. You can also see the registration details by selecting **View details**.
-1. **Install the VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If the VDDK isn't installed, download VDDK 6.7, 7, or 8(depending on the compatibility of VDDK and ESXi versions) from VMware. Extract the downloaded zip file contents to the specified location on the appliance, as indicated in the *Installation instructions*.
+1. **Install the VDDK**: The appliance checks if the VMware vSphere Virtual Disk Development Kit (VDDK) is installed. Download VDDK version 8.0 from the [Broadcom Developer portal](https://developer.broadcom.com/sdks/vmware-virtual-disk-development-kit-vddk/8.0). After downloading, extract the zip file to the default location: C:\Program Files\VMware\VMware Virtual Disk Development Kit, as mentioned in the installation instructions.
 
     The Migration and modernization tool uses the VDDK to replicate servers during migration to Azure.
 

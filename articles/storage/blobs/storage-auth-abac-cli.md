@@ -10,6 +10,7 @@ ms.topic: tutorial
 ms.reviewer: nachakra
 ms.custom: devx-track-azurecli
 ms.date: 06/26/2023
+# Customer intent: "As a cloud administrator, I want to implement role assignment conditions for blob access so that I can enforce granular access control based on tags, ensuring users only access permitted resources."
 ---
 
 # Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI

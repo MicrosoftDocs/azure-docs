@@ -9,6 +9,7 @@ ms.reviewer: ozguns
 ms.date: 02/06/2025
 ms.topic: how-to
 ms.service: azure-queue-storage
+# Customer intent: "As a cloud administrator, I want to choose between using a Microsoft Entra account or an access key to authorize access to queue data in the Azure portal, so that I can manage permissions and ensure secure access for users effectively."
 ---
 
 # Choose how to authorize access to queue data in the Azure portal

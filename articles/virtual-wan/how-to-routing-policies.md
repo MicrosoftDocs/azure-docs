@@ -367,12 +367,21 @@ Using the sample VPN configuration and VPN site from above, create firewall rule
 
 #### Performance for Encrypted ExpressRoute
 
-Configuring private routing policies with Encrypted ExpressRoute routes VPN ESP packets through the next hop security appliance deployed in the hub. As a result, you can expect Encrypted ExpressRoute maximum VPN tunnel throughput of 1 Gbps in both directions (inbound from on-premises and outbound from Azure). To achieve the maximum VPN tunnel throughput, consider the following deployment optimizations:
+Configuring private routing policies with Encrypted ExpressRoute routes VPN ESP packets through the next hop security appliance deployed in the hub. Encrypted ExpressRoute performance is impacted by two main factors:
+* You can expect Encrypted ExpressRoute VPN tunnels to have a maximum throughput of 1 Gbps due to ESP traffic being forwarded through the next hop security appliance deployed in the Virtual WAN hub. 
+* In practice, Encrypted ExpressRoute VPN tunnel throughput is also impacted by the maximum per-tunnel packets-per-second (PPS) supported by the VPN Gateway scale unit. For smaller packet sizes, you may see lower tunnel throughput. See [Site-to-site VPN performance](virtual-wan-faq.md#packets) for more information.
+
+
+To achieve the maximum VPN tunnel throughput, consider the following deployment optimizations:
 
 * Deploy Azure Firewall Premium instead of Azure Firewall Standard or Azure Firewall Basic.
 * Ensure Azure Firewall processes the rule that allows traffic between the VPN tunnel endpoints (192.168.1.4 and 192.168.1.5 in the example above) first by making the rule have the highest priority in your Azure Firewall policy. For more information about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](../firewall/rule-processing.md#rule-processing-using-firewall-policy).
 * Turn off deep-packet for traffic between the VPN tunnel endpoints. For information on how to configure Azure Firewall to exclude traffic from deep-packet inspection, reference [IDPS bypass list documentation](../firewall/premium-features.md#idps).
 * Configure VPN devices to use GCMAES256 for both IPSEC Encryption and Integrity to maximize performance.
+
+To achieve maximum aggregate throughput, consider the following optimization:
+
+* To increase throughput between a single on-premises site and Azure, create multiple tunnels between on-premises devices and the Site-to-site VPN Gateway in Virtual WAN. Ensure your on-premises VPN device is configured to load-balance traffic across all active tunnels.
 
 #### Direct routing to NVA instances for dual-role connectivity and firewall NVAs
 

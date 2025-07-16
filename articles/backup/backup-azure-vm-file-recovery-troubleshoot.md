@@ -6,6 +6,7 @@ ms.custom: linux-related-content
 ms.date: 06/12/2025
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to troubleshoot file recovery issues from an Azure VM backup, so that I can effectively restore the necessary files and folders without disruption to services."
 ---
 
 # Troubleshoot issues in file recovery of an Azure VM backup

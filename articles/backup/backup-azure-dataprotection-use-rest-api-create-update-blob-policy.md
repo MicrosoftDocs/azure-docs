@@ -8,6 +8,7 @@ ms.service: azure-backup
 ms.custom: engagement-fy23
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a cloud administrator, I want to create backup policies for Azure blobs using REST API, so that I can efficiently manage retention and ensure data protection across multiple storage accounts."
 ---
 
 # Create Azure Data Protection backup policies for blobs using REST API

@@ -7,6 +7,7 @@ ms.service: azure-backup
 ms.custom: devx-track-azurecli, engagement-fy24
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to restore SQL server databases in Azure VMs using the command line, so that I can efficiently manage backups and recover data based on specific scenarios or requirements."
 ---
 
 # Restore SQL databases in an Azure VM using Azure CLI

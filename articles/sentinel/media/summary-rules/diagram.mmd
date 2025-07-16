@@ -1,0 +1,29 @@
+---
+config:
+  look: neo
+  theme: default
+  sequence:
+    actorFontSize: 22
+    messageFontSize: 20
+    noteFontSize: 20
+---
+sequenceDiagram
+  actor User as User
+  participant Entra ID as Entra ID
+  participant Azure Monitor as Azure Monitor
+  participant Log Analytics Workspace as Log Analytics Workspace
+  participant VM as VM
+  User ->> Entra ID: 1. Register Microsoft Entra application
+  Entra ID ->> User: Provide Application ID and secret
+  User ->> Azure Monitor: 2. Create DCE, DCR, and custom Auxiliary table using ARM template
+  Azure Monitor ->> User: Provide DCE URI and DCR Immutable ID
+  User ->> Azure Monitor: 3. Grant your application permission to send data to the DCE
+  User ->> VM: 4. Update Logstash configuration file
+  VM ->> Azure Monitor: Send data to DCE
+  Azure Monitor ->> Log Analytics Workspace: Ingest raw data into CommonSecurityLog_CL table
+  User ->> Log Analytics Workspace: 5. Query Auxiliary table to verify data ingestion
+  User ->> Azure Monitor: 6. Create summary rule
+  VM ->> Azure Monitor: Send data to DCE
+  Azure Monitor ->> Log Analytics Workspace: Ingest raw data into CommonSecurityLog_CL table
+  Azure Monitor ->> Log Analytics Workspace: Ingest aggregated data into custom Analytics table
+  User ->> Log Analytics Workspace: 7. Query Analytics table to view aggregated data  

@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.custom: references_regions
 ms.date: 05/20/2025
 ms.author: anfdocs
+# Customer intent: As a cloud storage administrator, I want to configure data encryption using customer-managed keys and a managed Hardware Security Module for Azure NetApp Files, so that I can ensure secure management of encryption keys in compliance with regulatory standards.
 ---
 # Configure customer-managed keys with managed Hardware Security Module for Azure NetApp Files volume encryption 
 
