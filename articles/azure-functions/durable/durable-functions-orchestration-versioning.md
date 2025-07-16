@@ -312,9 +312,6 @@ public static async Task<HttpResponseData> HttpStart(
 
 ---
 
-> [!NOTE]
-> When you specify a version explicitly during orchestration creation, that version takes precedence over the `defaultVersion` in `host.json`. The orchestration instance will be permanently associated with the specified version, regardless of any future changes to the default version.
-
 ### Removing legacy code paths
 
 Over time, you may want to remove legacy code paths from your orchestrator functions to simplify maintenance and reduce technical debt. However, removing code must be done carefully to avoid breaking existing orchestration instances.
