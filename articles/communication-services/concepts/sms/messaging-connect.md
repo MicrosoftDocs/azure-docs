@@ -20,7 +20,7 @@ ms.custom: references_regions
 
 ## Introduction
 
-Welcome to Messaging Connect—the new way to deliver SMS globally with Azure Communication Services.
+Welcome to Messaging Connect—the new way to deliver Short Message Service (SMS) globally with Azure Communication Services.
 
 This is not just a new feature. This is a platform evolution. Messaging Connect is a partner-powered model that dramatically expands Azure’s messaging reach while preserving everything developers love about ACS: unified APIs, strong observability, and deep integration across Microsoft services.
 
@@ -43,7 +43,7 @@ The process starts in the Azure portal. When you search for an SMS number type a
 
 You can send and receive SMS using the standard ACS SMS APIs. When you send messages, you’ll authenticate with ACS as usual and include a key from your Messaging Connect partner at runtime so we can route your traffic appropriately. Message delivery is handled by the partner, but observability—like delivery receipts, diagnostics, and logging—remains in Azure, alongside your other services.
 
-This model works well in real-world scenarios. For example, if you're a logistics company needing local sender IDs in Brazil and India, Azure Communication Services via Messaging Connect helps you acquire them through a partner and use them via a single Azure Communication Services SMS SDK. If you're building an AI-powered appointment assistant with Copilot Studio, you can use Messaging Connect numbers to send reminders in markets where ACS doesn’t provide direct coverage. If you're managing bookings, alerts, or re-engagement campaigns across dozens of countries, you can use Messaging Connect to reach users globally—while keeping control and insight inside Azure.
+This model works well in real-world scenarios. For example, if you're a logistics company needing local sender IDs in Brazil and India, Azure Communication Services via Messaging Connect helps you acquire them through a partner and use them via a single Azure Communication Services SMS SDK (software development kit). If you're building an AI-powered appointment assistant with Copilot Studio, you can use Messaging Connect numbers to send reminders in markets where ACS doesn’t provide direct coverage. If you're managing bookings, alerts, or re-engagement campaigns across dozens of countries, you can use Messaging Connect to reach users globally—while keeping control and insight inside Azure.
 
 :::image type="content" source="./media/mc-runtime-concept.png" alt-text="Runtime architecture using Messaging Connect and ACS API."lightbox="./media/mc-runtime-concept.png":::
 
@@ -226,7 +226,7 @@ Messaging Connect uses a dual-fee model to separate Microsoft’s platform usage
 You pay a platform fee to use Azure Communication Services APIs and infrastructure for Messaging Connect. This covers message processing, diagnostics, delivery tracking, and API-level observability.
 
 - $0.0025 per message segment submitted to ACS — This is a platform fee charged for each SMS send request, whether or not the message is ultimately delivered by the partner. Microsoft does not charge for delivery. 
-- This fee is MACC-eligible and appears as part of your normal Azure invoice.
+- This fee is MACC (Microsoft Azure Consumption Commitment)-eligible and appears as part of your normal Azure invoice.
 
 Microsoft does not handle the message delivery itself—this is done by the Messaging Connect partner. 
 
