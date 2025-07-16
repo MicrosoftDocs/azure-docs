@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 06/30/2025
+ms.date: 07/11/2025
 ms.author: kendownie
 ms.custom:
   - build-2025
@@ -18,9 +18,12 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 ## What's new in 2025
 
 ### 2025 quarter 3 (July, August, September)
+#### Provisioned v2 for SSD file shares
+The provisioned v2 model for Azure Files SSD (premium) pairs predictability of total cost of ownership with flexibility, allowing you to create a file share that meets your exact storage and performance requirements. Provisioned v2 SSD shares enable independent provisioning of storage, IOPS, and throughput. In addition to predictable pricing and flexible provisioning, provisioned v2 SSD also enables increased file share size range from 32 GiB up to 256 TiB.
+
+To learn more, see [understanding the provisioned v2 model](./understanding-billing.md#provisioned-v2-model).
 
 #### Azure File Sync Agent now available via Azure Arc extension
-
 Windows servers connected through Azure Arc can now install the Azure File Sync agent using a new extension called Azure File Sync Agent for Windows. The new extension is published by Microsoft and can be managed using the Azure Portal, PowerShell, or Azure CLI. To learn more, see the [Azure File Sync agent extension documentation](../file-sync/file-sync-extension.md).
 
 ### 2025 quarter 2 (April, May, June)
