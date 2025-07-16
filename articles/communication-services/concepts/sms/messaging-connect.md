@@ -174,7 +174,7 @@ Messaging Connect separates message delivery (handled by the partner) from proce
 
 Although the partner handles delivery, Azure provides:
 
-- Delivery receipts and observability- 
+- Delivery receipts and observability
 - Standard ACS APIs and SDKs
 - Transient message processing only—no message content is stored
 
@@ -193,9 +193,9 @@ Learn more: [European Union Data Boundary (EUDB)](https://learn.microsoft.com/az
 
 #### 3.Using Messaging Connect from Anywhere
 
-Messaging Connect is designed for global use. Once you’ve acquired a number through a Messaging Connect partner, you can integrate it into your application using ACS APIs—regardless of where your application is hosted.
-That said, some countries may enforce local telecom regulations on how numbers are used, what types of content can be sent, or whether traffic must originate from specific regions. These requirements are handled by the Messaging Connect partner during the number provisioning process.
-Delivery routes are optimized by the partner, not by Azure. Messages may be routed through local or regional routing infrastructure, depending on the number type, country regulations, and the Messaging Connect partner account configuration. 
+Messaging Connect is designed for global use. After you acquire a number through a Messaging Connect partner, you can integrate it into your application using ACS APIs—regardless of where it's hosted.
+However, some countries enforce local telecom rules on number usage, allowed content types, or traffic origination requirements. The Messaging Connect partner manages these requirements during the number provisioning process.
+The partner, not Azure Communication Services, optimizes delivery routes. Depending on the number type, local rules, and partner setup, messages may route through local or regional infrastructure.
 
 ### Opt-out Management
 
