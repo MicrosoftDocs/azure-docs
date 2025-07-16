@@ -13,7 +13,7 @@ ms.custom: UpdateFrequency2
 
 This article describes how to set up and use a gateway for secure [remote desktop](/windows-server/remote/remote-desktop-services/Welcome-to-rds) access to lab virtual machines (VMs) in Azure DevTest Labs. Using a gateway improves security because you don't expose the VMs' Remote Desktop Protocol (RDP) ports to the internet. This remote desktop gateway solution also supports token authentication.
 
-DevTest Labs provides a central place for lab users to view and connect to their VMs. Selecting **Connect** > **RDP** on a lab VM's **Overview** page creates a machine-specific RDP file, and users can open the file to connect to the VM.
+DevTest Labs provides a central place for lab users to view and connect to their VMs. Selecting **Connect** > **Connect via RDP** on a lab VM's **Overview** page creates a machine-specific RDP file, and users can open the file to connect to the VM.
 
 With a remote desktop gateway, lab users connect to their VMs through a gateway machine. Users authenticate directly to the gateway machine and can use company-supplied credentials on domain-joined machines. Token authentication provides an extra layer of security.
 
