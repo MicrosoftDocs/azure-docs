@@ -21,7 +21,7 @@ In the operations experience web UI, an _instance_ represents an Azure IoT Opera
 
 [!INCLUDE [iot-operations-device-definition](../includes/iot-operations-device-definition.md)]
 
-An _inbound endpoint_ is a logical endpoint that you create to represent a physical device or asset. Inbound endpoints have a type, such as OPC UA or ONVIF, that determines the type of of physical device or asset to connect to. The available types of inbound endpoints depend on the connector templates the IT admin configured in the Azure portal. Each type of inbound endpoint has it's own set of properties that you can configure. For example, an OPC UA inbound endpoint has properties such as the OPC UA server URL, security mode, and security policy.
+An _inbound endpoint_ is a logical endpoint that you create to represent a physical device or asset. Inbound endpoints have a type, such as OPC UA or ONVIF, that determines the type of physical device or asset to connect to. The available types of inbound endpoints depend on the connector templates the IT admin configured in the Azure portal. Each type of inbound endpoint has its own set of properties that you can configure. For example, an OPC UA inbound endpoint has properties such as the OPC UA server URL, security mode, and security policy.
 
 This article describes how to use the operations experience web UI:
 
