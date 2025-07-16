@@ -78,7 +78,7 @@ The version string can follow any format that suits your versioning strategy:
 
 After you set the `defaultVersion`, all new orchestration instances will be permanently associated with that version.
 
-### Version comparison rules
+#### Version comparison rules
 
 When the `Strict` or `CurrentOrOlder` strategy is selected (see [Version matching](#version-matching)), the runtime compares the orchestration instance's version with the `defaultVersion` value of the worker using the following rules:
 
