@@ -17,14 +17,19 @@ Orchestration Versioning addresses the core challenge of deploying changes to or
 
 Sub-orchestrations can also leverage this feature. 
 
-> [!NOTE]
-> **Terminology**: This article uses two related but distinct terms:
+### Terminology
+
+This article uses two related but distinct terms:
+- **Orchestrator function** (or simply "orchestrator"): Refers to the function code that defines the workflow logic - the template or blueprint for how a workflow should execute.
+- **Orchestration instance** (or simply "orchestration"): Refers to a specific running execution of an orchestrator function, with its own state, instance ID, and inputs. Multiple orchestration instances can run concurrently from the same orchestrator function.
+
+Understanding this distinction is crucial for orchestration versioning, where the orchestrator function code contains version-aware logic, while orchestration instances are permanently associated with a specific version when created.
 > - **Orchestrator function** (or simply "orchestrator"): Refers to the function code that defines the workflow logic - the template or blueprint for how a workflow should execute.
 > - **Orchestration instance** (or simply "orchestration"): Refers to a specific running execution of an orchestrator function, with its own state, instance ID, and inputs. Multiple orchestration instances can run concurrently from the same orchestrator function.
 > 
 > Understanding this distinction is crucial for orchestration versioning, where the orchestrator function code contains version-aware logic, while orchestration instances are permanently associated with a specific version when created.
 
-### Key Benefits
+### Key benefits
 
 - **Zero-downtime deployments**: Deploy breaking changes without waiting for in-flight orchestrations to complete.
 - **Rolling upgrades**: Workers running different versions of orchestrator code can coexist safely.
@@ -42,7 +47,7 @@ The Orchestration Versioning feature operates on these core principles:
 
 2. **Backward Compatibility**: Workers running newer orchestrator versions can continue executing orchestration instances created by older orchestrator versions.
 
-3. **Forward Protection**: The runtime automatically prevents workers running older orchestrator versions from executing orchestrations with newer versions.
+3. **Forward Protection**: The runtime automatically prevents workers running older orchestrator versions from executing orchestrations started by newer orchestrator versions.
 
 > [!IMPORTANT]
 > Orchestration Versioning is currently in public preview for apps running in the .NET isolated model. Use `Microsoft.Azure.Functions.Worker.Extensions.DurableTask` package version **>=1.5.0**.
@@ -108,7 +113,7 @@ public static async Task<string> RunOrchestrator(
 > The `context.Version` property is **read-only** and reflects the version that was permanently associated with the orchestration instance when it was created. You cannot modify this value during orchestration execution. If you want to specify a version through means other than `host.json`, you can do so when starting an orchestration instance with the orchestration client APIs (see [Starting New Orchestrations with Specific Versions](#starting-new-orchestrations-with-specific-versions)).
 
 > [!TIP]
-> If you're just starting to use Orchestration Versioning and you already have in-flight orchestrations that were created before you specified a `defaultVersion`, it's not too late! Feel free to add the `defaultVersion` setting to your `host.json` now. For all previously created orchestrations, `context.Version` returns `null` (or an equivalent language-dependent value), so you can structure your orchestrator logic to handle both the legacy (null version) and new versioned orchestrations accordingly. In C#, you can check for `context.Version == null` or `context.Version is null` to handle the legacy case. Please also note that specifying `"defaultVersion": null` in `host.json` is equivalent to not specifying it at all.
+> If you're just starting to use Orchestration Versioning and you already have in-flight orchestrations that were created before you specified a `defaultVersion`, you can still add the `defaultVersion` setting to your `host.json` now. For all previously created orchestrations, `context.Version` returns `null` (or an equivalent language-dependent value), so you can structure your orchestrator logic to handle both the legacy (null version) and new versioned orchestrations accordingly. In C#, you can check for `context.Version == null` or `context.Version is null` to handle the legacy case. Please also note that specifying `"defaultVersion": null` in `host.json` is equivalent to not specifying it at all.
 
 > [!TIP]
 > Depending on your situation, you may prefer branching on different levels. You can make a local change precisely where this change is required, like the example shows. Alternatively, you can branch at a higher level, even at the entire orchestrator implementation level, which introduces some code duplication, but may keep the execution flow clear. It's up to you to choose the approach that best fits your scenario and coding style.
@@ -119,7 +124,7 @@ Here's what to expect once you deploy your updated orchestrator function with th
 
 1. **Worker Coexistence**: Workers containing the new orchestrator function code will start, while some workers with the old code are potentially still active.
 
-2. **Version Assignment for New Instances**: All new orchestrations and sub-orchestrations created by the new workers will get the version from `defaultVersion` assigned to them. Note that the parent orchestration _doesn't_ propagate its version to sub-orchestrations it starts. 
+2. **Version Assignment for New Instances**: All new orchestrations and sub-orchestrations created by the new workers will get the version from `defaultVersion` assigned to them.
 
 3. **New Worker Compatibility**: New workers will be able to process both the newly created orchestrations and the previously existing orchestrations because the changes performed in Step 2 of the previous section ensure backward compatibility through version-aware branching logic.
 
@@ -135,7 +140,7 @@ Here's what to expect once you deploy your updated orchestrator function with th
 
 This example shows how to replace one activity with a different activity in the middle of a sequence using Orchestration Versioning.
 
-#### Before (Version 1.0)
+#### Version 1.0
 
 **host.json configuration:**
 ```json
@@ -169,7 +174,7 @@ public static async Task<string> ProcessOrder(
 
 ---
 
-#### After (Version 2.0 with discount processing)
+#### Version 2.0 with discount processing
 
 **host.json configuration:**
 ```json
@@ -217,7 +222,7 @@ public static async Task<string> ProcessOrder(
 
 ## Advanced usage
 
-For more sophisticated versioning scenarios, you can configure other settings to control how the runtime handles version matching and version mismatches.
+For more sophisticated versioning scenarios, you can configure other settings to control how the runtime handles version matches and mismatches.
 
 > [!TIP]
 > Use the default configuration (`CurrentOrOlder` with `Reject`) for most scenarios to enable safe rolling deployments while preserving orchestration state during version transitions. We recommend proceeding with the advanced configuration only if you have specific requirements that can't be met with the default behavior.
@@ -240,7 +245,7 @@ The `versionMatchStrategy` setting determines how the runtime matches orchestrat
 
 **Available strategies:**
 
-- **`None`**: Ignore orchestration version completely. All work received is processed regardless of version. This strategy effectively disables version checking and allows any worker to process any orchestration instance (not recommended).
+- **`None`** (not recommended): Ignore orchestration version completely. All work received is processed regardless of version. This strategy effectively disables version checking and allows any worker to process any orchestration instance.
 
 - **`Strict`**: Only process tasks from orchestrations with the exact same version as the version specified by `defaultVersion` in the worker's `host.json`. This strategy provides the highest level of version isolation but requires careful deployment coordination to avoid orphaned orchestrations.
 

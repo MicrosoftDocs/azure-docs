@@ -201,7 +201,7 @@ The naive approach to versioning is to do nothing and let in-flight orchestratio
 
 Because of these potential failures, the "do nothing" strategy is not recommended.
 
-### Orchestration Versioning
+### Orchestration versioning
 
 > [!NOTE]
 > Orchestration Versioning is currently in public preview.
