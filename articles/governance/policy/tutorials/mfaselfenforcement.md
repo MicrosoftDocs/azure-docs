@@ -13,7 +13,6 @@ Azure Policy is a powerful governance tool that allows you to enforce organizati
 This guide walks you through the process of applying Azure Policy assignments to self-enforce multi-factor authentication across your organization.
 
 Apply Azure Policy enforcement through Azure Portal
-===================================================
 
 **1. Sign In to Azure Portal**
 Navigate to the Azure Portal at portal.azure.com
