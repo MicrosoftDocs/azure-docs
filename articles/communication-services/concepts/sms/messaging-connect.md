@@ -375,7 +375,7 @@ Learn more: [See full list of SMS error codes](https://learn.microsoft.com/azure
 ## Messaging Connect Partner Directory
 
 Messaging Connect works through direct integrations with trusted global SMS providers. These partners handle number provisioning, compliance, delivery, and opt-out enforcement—while Azure provides the developer platform, observability, and message orchestration.
-Below is the list of currently supported partners. More partners will be added over time to provide broader coverage and redundancy.
+The following table lists the currently supported partners. More partners will be added over time to provide broader coverage and redundancy.
 
 | Partner | Brief Description | Country/region availability | Pricing |
 |---------|-------------------|-----------------------------|---------|
