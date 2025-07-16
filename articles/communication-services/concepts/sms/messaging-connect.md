@@ -76,17 +76,77 @@ The following table summarizes capabilities available when using Messaging Conne
 
 > **Note**: Future updates will include support for more SDKs, sender types, and additional partners.
 
+## Authentication
+
+To send messages through Messaging Connect, your application must authenticate with Azure Communication Services (ACS) using one of the supported identity models. This step verifies that your app has permission to send messages through your ACS resource and ensures your messages are associated with the correct Azure subscription.
+
+ACS supports the following authentication methods:
+
+- Access Key Authentication (Connection strings)
+- Microsoft Entra ID Authentication
+
+You’ll authenticate with ACS the same way you would for any other SMS request. Messaging Connect does not change the way authentication works at the platform level—it simply adds a partner-based routing step after your message is validated.
+
+Learn more: [Authenticate to Azure Communication Services](https://learn.microsoft.com/en-us/azure/communication-services/concepts/authentication)
+
+Once authenticated, your application also includes a partner API key at runtime to route the message through the correct Messaging Connect partner. This is part of the message payload and is explained further in the next section.
+
+## How Messaging Connect Validates Your Requests 
+
+Before a message can be sent using Messaging Connect, Azure checks that your request contains the necessary routing information and is correctly authenticated. To do this, your payload must include specific metadata that identifies the Messaging Connect partner and allows ACS to route the message through their infrastructure.
+
+### Required Payload Format
+
+When you send a message using a Messaging Connect number, your request must include a `messagingConnect` object. This object contains the API key provided by the Messaging Connect partner (e.g., Infobip) and the partner’s name. Azure uses this information to authorize the request and determine how to route the message.
+
+```json
+{
+  "from": "+447700900123",
+  "to": ["+14155550100"],
+  "message": "Hello from Messaging Connect!",
+  "options": {
+    "messagingConnect": {
+      "apiKey": "your-partner-api-key",
+      "partner": "[PARTNER NAME]"
+    }
+  }
+}
+```
+The `messagingConnect` object is required whenever you use a number provisioned through Messaging Connect. If it’s missing or misconfigured, your message will not be accepted.
+Once this metadata is included, Azure performs validation checks in two stages: first, immediately upon receiving your request, and later, after it’s submitted to the partner.
+
+#### 1. Synchronous Validation (Happens Immediately)
+This is the first layer of validation, and it happens the moment your message request is received. If something is missing or invalid—such as the partner name, the API key, or the association between the number and your ACS resource—you’ll receive an immediate error response. This prevents messages from being sent incorrectly or routed to the wrong provider.
+Common validation outcomes:
+
+| Scenario                                                    | Response                                                                 |
+|-------------------------------------------------------------|--------------------------------------------------------------------------|
+| Missing `messagingConnect` fields                           | 400 Bad Request with validation details                                  |
+| Unauthorized sender number                                  | 401 Unauthorized                                                         |
+| Missing `messagingConnect` for Messaging Connect phone number | 400 Bad Request – “MessagingConnect option hasn't been provided.”       |
+| Partner mismatch                                            | 400 Bad Request – “MessagingConnect option is not matching with the number information.” |
 
 
 
+These errors are returned synchronously in your API response and will also appear in Azure diagnostics and logs.
 
+#### 2. Asynchronous Delivery Errors (Reported Later)
 
+If your request passes synchronous validation, it’s not guaranteed to be handed off to the Messaging Connect partner. There are scenarios where ACS will stop the message before handoff—for example, if the recipient has previously opted out or if there’s a known delivery block from the partner. These situations still result in a delivery report, so you’re always informed of the message outcome.
+Once a message is passed to the partner, any downstream delivery failures—like number unreachable, expired validity period, or carrier-level rejection—are also returned asynchronously via delivery reports. You can view delivery statuses in:
 
+- Azure delivery reports <- Event Grid events (if configured)
+- Partner documentation for error interpretation
 
+Learn more: [Delivery Reports on Azure Event Grid Events](https://learn.microsoft.com/en-us/azure/event-grid/communication-services-telephony-sms-events)
 
-![mc-provision-number-1](./media/mc-provision-number-1.png)  
-![mc-provision-number-2](./media/mc-provision-number-2.png)  
-![mc-provision-number-3](./media/mc-provision-number-3.png)  
-![mc-provision-number-4](./media/mc-provision-number-4.png)  
-![mc-provision-number-5](./media/mc-provision-number-5.png)  
-![mc-provision-number-6](./media/mc-provision-number-6.png)  
+> [!TIP] 
+> To ensure full visibility into your message traffic, we strongly recommend configuring event subscriptions for delivery reports. This allows you to monitor message status, troubleshoot failures, and integrate with your existing telemetry systems.
+Learn how to configure SMS events : Handle SMS events - Azure Communication Services | Microsoft Learn
+
+> [!NOTE]
+> If your message fails, check the messagingConnect object for accuracy, review the delivery report, and consult partner documentation for downstream error codes.
+
+> [!IMPORTANT]
+> Microsoft does not retain any credentials used to access external Messaging Connect partners. Partner API keys are used solely for the purpose of processing an individual message request and are immediately discarded once the request is completed. These credentials are not stored, logged, or persisted in any form.
+
