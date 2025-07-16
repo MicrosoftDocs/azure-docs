@@ -14,15 +14,15 @@ This article shows how to create a new cluster from an existing template. For mo
 
 ## Using a web browser
 
-Select **Add** in the lower left of the clusters page. You see a list of icons. Each icon represents a cluster template that you can use to create a new cluster. If you want to import a new cluster template so that it appears on this page, see [Importing a Cluster Template](#importing-a-cluster-template). Select one of the templates and enter a unique name for the new cluster.
+Select **Add** in the lower left of the clusters page. You see a list of icons. Each icon represents a cluster template that you can use to create a new cluster. If you want to import a new cluster template so that it appears on this page, see [Importing a Cluster Template](#import-a-cluster-template). Select one of the templates and enter a unique name for the new cluster.
 
 ::: moniker range="=cyclecloud-7"
 ![CycleCloud Create New Cluster Screen](../images/version-7/create-cluster-selection.png)
-:::
+::: moniker-end
 
 ::: moniker range="=cyclecloud-8"
 ![CycleCloud Create New Cluster Screen](../images/version-8/create-cluster-selection.png)
-:::
+::: moniker-end
 
 Fill out the new cluster form and select **Save** to create the new cluster. You can change these values later by using **Edit** on the cluster page, though most changes require terminating the cluster first.
 
@@ -30,7 +30,7 @@ Fill out the new cluster form and select **Save** to create the new cluster. You
 
 The cluster form is based on two things: the [cluster parameters](../how-to/cluster-templates.md#cluster-template-parameters), which are grouped into sections, and automatic sections that CycleCloud adds.
 
-:::
+::: moniker-end
 
 ### Cluster parameters
 
@@ -76,6 +76,8 @@ If the values match across all standalone nodes and node arrays, the **Apply to 
 
 > [!WARNING]
 > When you toggle the **Apply to all** setting and select **Save**, you update all standalone nodes and node arrays with the new settings in the form.
+
+::: moniker-end
 
 ## Using the CycleCloud CLI
 

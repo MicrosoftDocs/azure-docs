@@ -13,7 +13,7 @@ ms.author: aevdokimova
 > [!NOTE]
 > When you permission users for an App Registration, they get the assigned access and role for all CycleCloud installations that use that App Registration. To segregate users between multiple CycleCloud installations, create a separate App Registration for each CycleCloud.
 
-## Create the CycleCloud app registration
+## Creating the CycleCloud app registration
 
 > [!NOTE]
 > If you use a service principal for CycleCloud that the CLI generates, it doesn't have an associated Enterprise Application required for Microsoft Entra ID.
