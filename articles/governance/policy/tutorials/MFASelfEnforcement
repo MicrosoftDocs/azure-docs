@@ -1,23 +1,32 @@
-How to Apply MFA Self-Enforcement through Azure Policy
-Step-by-Step Guide
-Introduction
+---
+title: "Tutorial: Apply MFA Self-Enforcement through Azure Policy"
+description: Learn how to gather audit events or enforce MFA enforcement on your environment
+ms.date: 07/17/2025
+ms.topic: how-to
+author: nehakulkarni
+ms.author: nehakulkarni
+---
+# Tutorial: Apply MFA Self-Enforcement through Azure Policy
+
+# Introduction
 Azure Policy is a powerful governance tool that allows you to enforce organizational standards and assess compliance at-scale. You can also use Azure Policy to get ahead of the curve and prepare your organization for upcoming enforcement of multi-factor authentication across Azure clients. 
 This guide walks you through the process of applying Azure Policy assignments to self-enforce multi-factor authentication across your organization. 
-Apply Azure Policy enforcement through Azure Portal
+
+## Apply Azure Policy enforcement through Azure Portal
 1. Sign In to Azure Portal
-•	Navigate to the Azure Portal at portal.azure.com
+- Navigate to the Azure Portal at portal.azure.com
 2. Access Azure Policy Service
-•	On the left-hand menu or home dashboard, select Policy under Azure services. If you don't see it, type "Policy" in the search bar at the top and select it from the results.
+- On the left-hand menu or home dashboard, select Policy under Azure services. If you don't see it, type "Policy" in the search bar at the top and select it from the results.
  
 3. Choose the Scope for Assignment
-•	In the Policy dashboard, click on Assignments in the left pane.
-•	Click Assign policy at the top of the assignments page.
-•	In the Scope section, click Select scope.
-•	Choose the appropriate subscription, resource group, or management group where you want to apply the policy. Click Select to confirm your choice.
+- In the Policy dashboard, click on Assignments in the left pane.
+- Click Assign policy at the top of the assignments page.
+- In the Scope section, click Select scope.
+- Choose the appropriate subscription, resource group, or management group where you want to apply the policy. Click Select to confirm your choice.
 4. Configure Selectors for gradual rollout of policy enforcement
 To enable safe rollout of policy enforcement, we recommend leveraging Azure Policy’s resource selectors to gradually rollout policy enforcement across your resources. 
-•	In the ‘Basics’ tab, you’ll see ‘Resource Selectors’. Click expand.
-•	Click ‘Add a resource selector’
+- In the ‘Basics’ tab, you’ll see ‘Resource Selectors’. Click expand.
+- Click ‘Add a resource selector’
  
 •	In your resource selector, add a name for your selector.
 •	Toggle resourceLocation to enable it. Pick a few low-risk regions that you’d like to enforce on. This means that the policy assignment will only evaluate Azure resources in those regions. 
