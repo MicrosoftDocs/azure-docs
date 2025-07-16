@@ -128,7 +128,7 @@ Task hub names must start with a letter and consist of only letters and numbers.
 |traceReplayEvents|false|A value indicating whether to write orchestration replay events to Application Insights.|
 |eventGridTopicEndpoint ||The URL of an Azure Event Grid custom topic endpoint. When this property is set, orchestration life-cycle notification events are published to this endpoint. This property supports App Settings resolution.|
 |eventGridKeySettingName ||The name of the app setting containing the key used for authenticating with the Azure Event Grid custom topic at `EventGridTopicEndpoint`.|
-|eventGridPublishRetryCount|0|The number of times to retry if publishing to the Event Grid Topic fails.|
+|eventGridPublishRetryCount|0|The number of times to retry if publishing to the Event Grid topic fails.|
 |eventGridPublishRetryInterval|5 minutes|The Event Grid publishes retry interval in the *hh:mm:ss* format.|
 |eventGridPublishEventTypes||A list of event types to publish to Event Grid. If not specified, all event types will be published. Allowed values include `Started`, `Completed`, `Failed`, `Terminated`.|
 |useAppLease|true|When set to `true`, apps will require acquiring an app-level blob lease before processing task hub messages. For more information, see the [disaster recovery and geo-distribution](../articles/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md) documentation. Available starting in v2.3.0.|
