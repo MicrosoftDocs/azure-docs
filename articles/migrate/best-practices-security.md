@@ -49,7 +49,7 @@ Follow these best practices for networks:
   - Hyper-V hosts over WinRM port 5986/5985.
   - Linux servers over TCP port 22.
 
-  The appliance server sends the collected metadata to the Azure Migrate Discovery and Assessment tool and the Migration and Modernization tool over SSL port 443.
+  The appliance server sends the collected metadata to the Azure Migrate Discovery and Assessment tool and the Azure Migrate and Modernize tool over SSL port 443.
 
 ## OS image hardening
 
