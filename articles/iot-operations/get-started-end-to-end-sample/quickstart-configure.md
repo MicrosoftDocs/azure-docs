@@ -47,7 +47,7 @@ kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-ope
 ```
 
 > [!CAUTION]
-> This configuration uses a self-signed application instance certificate. Don't use this configuration in a production environment. To learn more, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md).
+> This configuration uses a self-signed application instance certificate. Don't use this configuration in a production environment. To learn more, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md).
 
 ---
 

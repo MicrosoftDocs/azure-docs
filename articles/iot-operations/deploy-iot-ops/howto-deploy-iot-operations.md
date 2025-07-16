@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
 ms.date: 04/08/2025
 
-#CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
+#CustomerIntent: As an IT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
 
 # Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster
@@ -20,7 +20,7 @@ In this article, we discuss Azure IoT Operations *deployments* and *instances*, 
   * An Azure IoT Operations instance
   * Arc extensions
   * Custom locations
-  * Resources that you can configure in your Azure IoT Operations solution, like assets and asset endpoints.
+  * Resources that you can configure in your Azure IoT Operations solution, like assets and devices.
 
 * An Azure IoT Operations *instance* is the parent resource that bundles the suite of services that are defined in [What is Azure IoT Operations?](../overview-iot-operations.md) like MQTT broker, data flows, and connector for OPC UA.
 

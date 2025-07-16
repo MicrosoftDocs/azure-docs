@@ -37,17 +37,17 @@ To configure the secrets for the *username* and *password* values in the [operat
 
 1. Navigate to your list of asset endpoints:
 
-    :::image type="content" source="media/howto-configure-opcua-authentication-options/asset-endpoint-list.png" alt-text="Screenshot that shows the list of asset endpoints.":::
+    :::image type="content" source="media/howto-configure-opc-ua-authentication-options/asset-endpoint-list.png" alt-text="Screenshot that shows the list of asset endpoints.":::
 
 1. Select **Create asset endpoint**.
 
 1. Select **Username password** as the authentication mode:
 
-    :::image type="content" source="media/howto-configure-opcua-authentication-options/authentication-mode.png" alt-text="Screenshot that shows the username and password authentication mode selected.":::
+    :::image type="content" source="media/howto-configure-opc-ua-authentication-options/authentication-mode.png" alt-text="Screenshot that shows the username and password authentication mode selected.":::
 
 1. Enter a synced secret name and then select the username and password references from the linked Azure Key Vault:
 
-    :::image type="content" source="media/howto-configure-opcua-authentication-options/select-from-key-vault.png" alt-text="Screenshot that shows the username and password references from Azure Key Vault.":::
+    :::image type="content" source="media/howto-configure-opc-ua-authentication-options/select-from-key-vault.png" alt-text="Screenshot that shows the username and password references from Azure Key Vault.":::
 
     > [!TIP]
     > You have the option to create new secrets in Azure Key Vault if you haven't already added them.

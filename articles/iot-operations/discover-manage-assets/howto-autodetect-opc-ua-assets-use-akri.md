@@ -12,7 +12,11 @@ ms.date: 04/02/2025
 
 # Automatically discover and configure OPC UA assets (preview)
 
-In this article, you learn how to automatically discover and configure OPC UA assets connected to your Azure IoT Operations deployment. The automatic discovery process starts when you add an asset endpoint with the **Enable discovery** option selected.
+The Akri services and connector for OPC UA are a turnkey solution that lets you discover assets connected to an OPC UA server and add the asset configurations into Azure Device Registry. The connector for OPC UA discovers assets at the edge and Akri services maps them to assets in Azure Device Registry. The assets send messages, such as sensor data, to upstream brokers and components. The Akri services let you eliminate the time-consuming and error-prone process of manually configuring and onboarding the assets to your cluster and Azure Device Registry.
+
+To discover OPC UA assets, the assets must be compliant with the [OPC 10000-100: Devices](https://reference.opcfoundation.org/DI/v103/docs/) companion specification. The connector for OPC UA and Akri services follow the process described in [OPC 10000-110: Asset Management Basics](https://reference.opcfoundation.org/AMB/v101/docs/) to discover OPC UA assets and onboard them into Azure Device Registry.
+
+In this article, you learn how to automatically discover and configure OPC UA devices and assets connected to your Azure IoT Operations deployment. The automatic discovery process starts when you add an asset endpoint with the **Enable discovery** option selected.
 
 To learn more, see [What is asset discovery (preview)?](overview-akri.md).
 
@@ -108,7 +112,7 @@ From the list of discovered assets, you can import an asset into your Azure IoT 
 
     :::image type="content" source="media/howto-autodetect-opc-ua-assets-use-akri/provisioned-asset.png" alt-text="Screenshot that shows how to view the imported asset.":::
 
-To learn more about managing asset configurations, see [Manage asset configurations remotely](howto-manage-assets-remotely.md).
+To learn more about managing asset configurations, see [Manage asset configurations](howto-manage-assets-devices.md).
 
 ## Review the asset definitions in the Azure portal (optional)
 

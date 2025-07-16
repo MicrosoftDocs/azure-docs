@@ -36,7 +36,7 @@ After you enable secure settings, the resource group that contains your Azure Io
 
 Ensure that when you configure secure settings that you [give your user account permissions to manage secrets](/azure/key-vault/secrets/quick-create-cli#give-your-user-account-permissions-to-manage-secrets-in-key-vault) with the **Key Vault Secrets Officer** role.
 
-To sign in to the operations experience web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Operations experience web UI](../discover-manage-assets/howto-manage-assets-remotely.md#prerequisites).
+To sign in to the operations experience web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Operations experience web UI](../discover-manage-assets/howto-configure-opc-ua.md#prerequisites).
 
 Unless otherwise noted, you can run the console commands in this tutorial in either a Bash or PowerShell environment.
 
@@ -76,7 +76,7 @@ Before the OPC PLC simulator can send data to the connector for OPC UA, you need
 - The connector for OPC UA's application instance certificate is stored in the `aio-opc-opcuabroker-default-application-cert` Kubernetes secret.
 
 > [!IMPORTANT]
-> In a production environment use enterprise grade application instance certificates to establish the mutual trust. To learn more, see [Configure an enterprise grade application instance certificate](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md#configure-an-enterprise-grade-application-instance-certificate).
+> In a production environment use enterprise grade application instance certificates to establish the mutual trust. To learn more, see [Configure an enterprise grade application instance certificate](../discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md#configure-an-enterprise-grade-application-instance-certificate).
 
 ### Add the connector's certificate to the simulator's trust list
 
