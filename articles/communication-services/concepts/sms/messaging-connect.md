@@ -242,7 +242,7 @@ There are no subscription restrictions. You can use Messaging Connect with any A
 
 If you prefer to consolidate charges into your Azure invoice, you can request that the partner offer Messaging Connect through the Azure Marketplace.
 Here’s how the Marketplace flow works:
-1.	You ask the partner (e.g., Infobip) for a private offer.
+1.	You ask the partner (for example, Infobip) to submit a private offer via Azure Marketplace.
 2.	Your Azure administrator accepts the offer in the Azure portal.
 3.	Each month, the partner sends usage data to Microsoft.
 4.	Microsoft bills you on behalf of the partner (a pass-through charge).
@@ -265,11 +265,11 @@ Let's go step-by-step:
 
 #### STEP 1: Search for a number in the Azure portal
 
-Go to your Communication Services resource and search for a phone number by country and type. If that configuration isn’t available through ACS directly, you’ll be offered the option to use Messaging Connect. Click on it and select a partner. You’ll be redirected to the partner’s portal.
+Go to your Communication Services resource and search for a phone number by country and type. If that configuration isn’t available through ACS directly, you are offered the option to use Messaging Connect. Click on it and select a partner. You are redirected to the partner’s portal.
 
 :::image type="content" source="./media/mc-provision-number-1.png" alt-text="Search for a number in the Azure portal." lightbox="./media/mc-provision-number-1.png":::
 
-Or you can go directly to the Messaging Connect blade and choose a partner from the list. You’ll be redirected to the partner’s website to complete the number acquisition.
+Or you can go directly to the Messaging Connect blade and choose a partner from the list. You are redirected to the partner’s website to complete the number acquisition.
 
 <table>
   <tr>
@@ -291,13 +291,13 @@ Follow the partner’s prompts to purchase the number. Depending on the country,
 
 #### STEP 3: Return to Azure and accept terms
 
-After acquiring the number, come back to the Azure portal. You'll need to accept the Messaging Connect terms.
+After acquiring the number, come back to the Azure portal. You need to accept the Messaging Connect terms.
 
 :::image type="content" source="./media/mc-provision-number-5.png" alt-text="Accept Messaging Connect terms in Azure." lightbox="./media/mc-provision-number-5.png":::
 
 #### STEP 4: Number are available in Azure Portal
 
-After the partner assigns the numbers to you, they initiate the sync with ACS. Once the sync is complete, the numbers will automatically appear in your ACS resource—ready to use with the ACS SMS API, just like any number provisioned directly through Azure. No additional setup is required on your end.
+After the partner assigns the numbers to you, they initiate the sync with ACS. After the sync completes, the numbers automatically appear in your ACS resource—ready to use with the ACS SMS API, just like any number provisioned directly through Azure Communication Services. No extra setup is required on your end.
 
 :::image type="content" source="./media/mc-provision-number-6.png" alt-text="Provisioned numbers appear in ACS." lightbox="./media/mc-provision-number-6.png":::
 
