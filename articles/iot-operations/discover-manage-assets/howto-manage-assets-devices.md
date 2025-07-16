@@ -1,15 +1,17 @@
 ---
-title: Manage asset and device configurations
-description: Use the operations experience web UI or the Azure CLI to manage your asset and device configurations.
+title: Manage resources in the operations experience UI
+description: Use the operations experience web UI to manage resources such as your asset and device configurations.
 author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
-ms.date: 06/25/2025
+ms.date: 07/15/2025
 
-#CustomerIntent: As an OT user, I want to understand the capabilities of the operations experience and Azure CLI that are common to all assets and devices.
+#CustomerIntent: As an OT user, I want to understand the capabilities of the operations experience that are common to all assets and devices.
 ---
 
-# Manage asset configurations
+# Use the operations experience to manage resources such as assets, devices, and data flows
+
+The *operations experience* lets OT users manage resources such as their assets, devices, and data flows. The operations experience is a web-based user interface that provides a consistent way to manage assets and devices across different Azure IoT Operations sites and instances.
 
 A _site_ is a collection of Azure IoT Operations instances. Sites typically group instances by physical location and make it easier for OT users to locate and manage assets. Your IT administrator creates sites and assigns Azure IoT Operations instances to them. To learn more, see [What is Azure Arc site manager (preview)?](/azure/azure-arc/site-manager/overview).
 
@@ -19,16 +21,13 @@ In the operations experience web UI, an _instance_ represents an Azure IoT Opera
 
 [!INCLUDE [iot-operations-device-definition](../includes/iot-operations-device-definition.md)]
 
-An _inbound endpoint_ is a logical endpoint that you create to represent a physical device or asset. Inbound endpoints have a type, such as OPC UA or ONVIF, that determines the type of of physical device or asset to connect to. The available types of inbound endpoints depend on the connector templates the IT admin configured in the Azure portal. Each type of inbound endpoint has it's own set of properties that you can configure. For example, an OPC UA inbound endpoint has properties such as the OPC UA server URL, security mode, and security policy.
+An _inbound endpoint_ is a logical endpoint that you create to represent a physical device or asset. Inbound endpoints have a type, such as OPC UA or ONVIF, that determines the type of physical device or asset to connect to. The available types of inbound endpoints depend on the connector templates the IT admin configured in the Azure portal. Each type of inbound endpoint has its own set of properties that you can configure. For example, an OPC UA inbound endpoint has properties such as the OPC UA server URL, security mode, and security policy.
 
-In the operations experience web UI, an _instance_ represents an Azure IoT Operations cluster.
-
-This article describes how to use the operations experience web UI and the Azure CLI to:
+This article describes how to use the operations experience web UI:
 
 - View sites and instances.
 - Import and export devices and assets.
-- View devices and assets.
-- Use notifications and activity logs
+- Use notifications and activity logs.
 
 ## Prerequisites
 
@@ -61,16 +60,6 @@ After you select a site, the operations experience displays a list of the Azure 
 
 > [!TIP]
 > You can use the filter box to search for instances.
-
-# [Azure CLI](#tab/cli)
-
-Before you use the `az iot ops asset` commands, sign in to the subscription that contains your Azure IoT Operations deployment:
-
-```azurecli
-az login
-```
-
----
 
 After you select your instance, the operations experience displays the **Overview** page for the instance. The **Overview** page shows the status of the instance and the resources, such as assets, that are associated with it:
 
@@ -173,7 +162,7 @@ The JSON file that you export contains the asset definition. You can use this fi
 
 ## Notifications
 
-Whenever you make a change to asset in the operations experience, you see a notification that reports the status of the operation:
+Whenever you make a change to a resource in the operations experience, you see a notification that reports the status of the operation:
 
 :::image type="content" source="media/howto-manage-assets-devices/portal-notifications.png" alt-text="A screenshot that shows the notifications in the operations experience." lightbox="media/howto-manage-assets-devices/portal-notifications.png":::
 
@@ -190,5 +179,7 @@ To view activity logs as the resource level, select the resource that you want t
 ## Related content
 
 - [Connector for OPC UA overview](overview-opc-ua-connector.md)
-- [az iot ops asset](/cli/azure/iot/ops/asset)
-- [az iot ops device](/cli/azure/iot/ops/asset/endpoint)
+- [Connector for ONVIF overview](overview-onvif-connector.md)
+- [Media connector overview](overview-media-connector.md)
+- [Connector for REST/HTTP overview](overview-http-connector.md)
+- [Process and route data with data flows](../connect-to-cloud/overview-dataflow.md)

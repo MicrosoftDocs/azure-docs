@@ -68,7 +68,7 @@ items:
       - name: Understand discovery with Akri services
         href: discover-manage-assets/overview-akri.md
         displayName: OPC UA, akri, detect, device, registry, southbound
-      - name: Use the operations experience and CLI
+      - name: Use the operations experience UI
         href: discover-manage-assets/howto-manage-assets-devices.md
         displayName: operations, experience, site, instance, device, data points, events, CLI, kubectl, southbound
       - name: Connect to OPC UA servers
