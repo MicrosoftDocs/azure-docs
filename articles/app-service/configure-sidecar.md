@@ -85,7 +85,7 @@ Create a sidecar-enabled app with [az webapp create](/cli/azure/webapp#az-webapp
 az webapp create --name <app-name> --resource-group <group-name> --sitecontainers-app
 ```
 
-Create a sidecar container with [az webapp sitecontainers create](/cli/azure/webapp/sitecontainers?view=azure-cli-latest#az-webapp-sitecontainers-create). For example:
+Create a sidecar container with [az webapp sitecontainers create](/cli/azure/webapp/sitecontainers#az-webapp-sitecontainers-create). For example:
 
 ```azurecli-interactive
 az webapp sitecontainers create --name <app-name> --resource-group <group-name> --container-name <container> --image <image> --target-port <port>
