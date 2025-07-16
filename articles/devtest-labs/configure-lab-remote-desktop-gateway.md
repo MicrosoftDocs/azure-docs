@@ -25,7 +25,7 @@ The following diagram shows how a remote desktop gateway applies token authentic
 
 :::image type="content" source="./media/configure-lab-remote-desktop-gateway/architecture.png" alt-text="Diagram that shows the remote desktop gateway architecture." lightbox="./media/configure-lab-remote-desktop-gateway/architecture.png":::
 
-1. Selecting **Connect** > **RDP** from a lab VM invokes the [getRdpFileContents](/rest/api/dtl/virtualmachines/getrdpfilecontents) REST command:
+1. Selecting **Connect** > **Connect via RDP** from a lab VM invokes the [getRdpFileContents](/rest/api/dtl/virtualmachines/getrdpfilecontents) REST command:
 
    ```http
    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualmachines/{name}/getRdpFileContents
