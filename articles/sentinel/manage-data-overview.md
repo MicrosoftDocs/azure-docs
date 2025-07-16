@@ -1,11 +1,11 @@
 ---
 title: Manage data tiers and retention in Microsoft Sentinel (preview)
-description: Manage log data in Microsoft Sentinel (SIEM) and Microsoft Defender XDR through the Microsoft Defender Portal to optimize security operations and cost efficiency.
+description: Manage log data in Microsoft Sentinel and with Microsoft Defender XDR services in the Microsoft Defender portal to optimize security operations and cost efficiency.
 ms.reviewer: dzatakovi
 ms.author: guywild
 author: guywi-ms
 ms.topic: conceptual
-ms.date: 05/06/2025
+ms.date: 07/16/2025
 # Customer intent: As an Microsoft Defender Portal administrator or subscription owner, I want to configure log table tiers and data retention settings to optimize security operations needs and cost efficiency.
 ---
 
@@ -26,7 +26,7 @@ This section describes the table types you can manage in the Defender portal.
 
 | Table type                      | Description                                                                                                    | Examples                                             | Is in Microsoft Sentinel workspace?         |
 |----------------------------------|----------------------------------------------------------------------------------------------------------------|------------------------------------------------------|----------------------------------|
-| **Sentinel**    | Built-in tables, including:<br>- Azure tables, such as AzureDiagnostics and SigninLogs.<br>- Microsoft Sentinel tables.<br>- [Supported Defender XDR advanced hunting tables](#preview-limitations), which are created in your Microsoft Sentinel workspace when you increase the retention period beyond 30 days. See the **XDR** table type for Defender XDR tables that are currently unsupported.             | - Azure tables: `AzureDiagnostics`, `SigninLogs`<br>- Microsoft Sentinel tables: `AWSCloudTrail`, `SecurityAlert`<br>- XDR tables: `DeviceEvents`,<br>`AlertInfo`                 | Yes                              |
+| **Microsoft Sentinel**    | Built-in tables, including:<br>- Azure tables, such as AzureDiagnostics and SigninLogs.<br>- Microsoft Sentinel tables.<br>- [Supported Defender XDR advanced hunting tables](#preview-limitations), which are created in your Microsoft Sentinel workspace when you increase the retention period beyond 30 days. See the **XDR** table type for Defender XDR tables that are currently unsupported.             | - Azure tables: `AzureDiagnostics`, `SigninLogs`<br>- Microsoft Sentinel tables: `AWSCloudTrail`, `SecurityAlert`<br>- XDR tables: `DeviceEvents`,<br>`AlertInfo`                 | Yes                              |
 | **Custom**                | Tables you create manually or through jobs in your Microsoft Sentinel workspace, including summary rule and search job results tables, and custom data source tables. | Tables with `_CL` or `_SRCH` suffixes.                                                      | Yes                              |
 | **XDR**| Tables in the XDR default tier, which have 30 days of analytics retention by default. You can view these tables, but you can't manage them from the Defender portal.                                                                       | `IdentityInfo` | No |
 

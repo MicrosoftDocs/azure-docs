@@ -1,5 +1,5 @@
 ---  
-title: Microsoft Sentinel data lake overview(preview).
+title: Microsoft Sentinel data lake overview (preview)
 titleSuffix: Microsoft Security  
 description: An overview of Microsoft Sentinel data lake, a cloud-native platform that extends Microsoft Sentinel with highly scalable, cost-effective long-term storage, advanced analytics, and AI-driven security operations.
 author: EdB-MSFT  
@@ -7,7 +7,7 @@ ms.service: microsoft-sentinel
 ms.subservice: sentinel-graph
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 07/09/2025
+ms.date: 07/16/2025
 ms.author: edbaynash  
 
 ms.collection: ms-security  
@@ -40,7 +40,7 @@ Microsoft Sentinel data lake, built on Azure's scalable infrastructure, facilita
 + Support for multiple analytics engines to unlock insights from your security data. 
 + Native integration with Microsoft Sentinel SIEM and its security operations workflows. 
 
-### Storage Tiers
+### Storage tiers
 
 Microsoft Sentinel is designed with two distinct storage tiers to optimize cost and performance:
 

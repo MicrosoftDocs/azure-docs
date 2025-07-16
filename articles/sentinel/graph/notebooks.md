@@ -7,7 +7,7 @@ ms.author: edbaynash
 ms.topic: how-to  
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-graph
-ms.date: 07/15/2025
+ms.date: 07/16/2025
  
 
 # Customer intent: As a security engineer or data scientist, I want to explore and analyze security data in the Microsoft Sentinel data lake using Jupyter notebooks, so that I can gain insights and build advanced analytics solutions.
@@ -179,7 +179,7 @@ The following table lists common errors you may encounter when working with note
 
 ### Spark compute
 
-| **Error message** | Display surface | Message description  | Root cause | Suggested action |
+| Error message| Display surface | Message description  | Root cause | Suggested action |
 |-------------------|-----------------|----------------------|------------|------------------|
 | **LIVY_JOB_TIMED_OUT: Livy session has failed. Session state: Dead. Error code: LIVY_JOB_TIMED_OUT. Job failed during run time with state=[dead]. Source: Unknown.**  | In-Line. | Session timed out or user stopped the session. | Session timed out or user stopped the session.  | Execute the cell again.  |
 | **Not enough capacity is available. User requested for X vCores but only {number-of-cores} vCores are available.** | Output channel – “Window”. | Spark compute pool not available. | Compute pool hasn't started or is being used by other users or jobs. | Retry with a smaller pool, stop any active Notebooks locally, or stop any active Notebook Job Runs. |
@@ -190,7 +190,7 @@ The following table lists common errors you may encounter when working with note
 
 ### VS Code Runtime
 
-| **Error message** | Display surface | Message description  | Root cause | Suggested action |
+| Error message | Display surface | Message description  | Root cause | Suggested action |
 |-------------------|-----------------|----------------------|------------|------------------|
 | **Kernel with id – k1 - has been disposed.** | Output channel – “Jupyter”. | Kernel not connected. | VS Code lost connection to the compute kernel. | Reselect the Spark pool and execute a cell. |
 | **ModuleNotFoundError: No module named 'MicrosoftSentinelProvider'.** | Inline. | Module not found. | Missing import for example, Microsoft Sentinel Library library | Run the setup/init cell again. |
@@ -199,7 +199,7 @@ The following table lists common errors you may encounter when working with note
 
 ### Interactive notebooks
 
-| **Error message** | Display surface | Message description  | Root cause | Suggested action |
+| Error message | Display surface | Message description  | Root cause | Suggested action |
 |-------------------|-----------------|----------------------|------------|------------------|
 | **{"level": "ERROR", "run_id": "...", "message": "Error loading table {table-name}: No container of kind 'DeltaParquet' found for table '...\|{table-name}'."}.** | Inline. | The specified source table doesn't exist.  | One or more source tables don't exist in the given workspaces. The table may have been recently deleted from your workspace | Verify if source tables exist in the workspace. |
 | **{"level": "ERROR", "run_id": "...", "message": "Database Name {table-name} doesnt exist."}.** | Inline. | The workspace or database name provided in the query is invalid or inaccessible.  | The referenced database doesn't exist. | Confirm the database name is correct. |
@@ -207,7 +207,7 @@ The following table lists common errors you may encounter when working with note
 
 ### Library
 
-| **Error message** | Display surface | Message description  | Root cause | Suggested action |
+| Error message| Display surface | Message description  | Root cause | Suggested action |
 |-------------------|-----------------|----------------------|------------|------------------|
 | **403 Forbidden.** | Inline. | Access denied. | User doesn’t have permission to read/write/delete the specified table. | Verify user has the role required. |
 | **TableOperationException: Error saving DataFrame to table {table-name}_SPRK: 'schema'.** | Inline. | Schema mismatch on write. | save_as_table() is writing data that doesn’t match the existing schema. | Check the dataframe schema and align it with the destination table. |
@@ -218,7 +218,7 @@ The following table lists common errors you may encounter when working with note
 
 ### Jobs
 
-| **Error message** | Display surface | Message description  | Root cause | Suggested action |
+| Error message | Display surface | Message description  | Root cause | Suggested action |
 |-------------------|-----------------|----------------------|------------|------------------|
 | **Job Run status shows the Status as Failed.** | Inline. | Job Run failure. | The notebook is corrupted or contains unsupported syntax for scheduled execution. | Open the Notebook Run Snapshot and validate that all cells run sequentially without manual input. |
 
