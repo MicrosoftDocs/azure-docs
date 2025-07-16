@@ -7,6 +7,7 @@ ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 01/28/2025
 ms.author: mbender
+# Customer intent: As a cloud architect, I want to migrate inbound NAT rules from version 1 to version 2 in Azure Load Balancer, so that I can ensure compliance with the upcoming retirement timeline and leverage improved deployment efficiency and optimized updates for my backend infrastructure.
 ---
 
 # Migrate from Inbound NAT rules version 1 to version 2

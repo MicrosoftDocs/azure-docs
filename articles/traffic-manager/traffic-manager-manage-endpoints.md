@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 08/08/2024
 ms.author: allensu
 ms.custom: template-how-to
+# Customer intent: As a cloud administrator, I want to manage endpoints in a traffic management solution, so that I can optimize traffic routing and maintain high availability for my applications across different datacenters.
 ---
 
 # Add, disable, enable, delete, or move endpoints

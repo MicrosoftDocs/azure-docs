@@ -1,11 +1,11 @@
 ---
-title: Quickstart - Add video effects to your video calls (Windows)
-titleSuffix: An Azure Communication Services quickstart
-description: Learn how to add video effects in your video calls using Azure Communication Services.
+title: Enable video background effects
+titleSuffix: An Azure Communication Services article
+description: This article describes how to add video effects in your video calls using Azure Communication Services.
 author: jsaurezlee
 
 ms.author: micahvivion
-ms.date: 04/04/2023
+ms.date: 06/24/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -13,11 +13,13 @@ ms.custom: mode-other
 ---
 
 > [!Note]
-> In order to use Video Effects on the Windows Calling SDK, a machine learning model is downloaded to the customer's device. We encourage you to review the privacy notes in your application and update them accordingly, if necessary.
+> To use Video Effects on the Windows Calling SDK, a machine learning model is downloaded to the customer's device. We encourage you to review the privacy notes in your application and update them accordingly, if necessary.
 
-You can use the Video Effects feature to add effects to your video in video calls. Background blur provides users with the mechanism to remove distractions behind a participant so that participants can communicate without disruptive activity or confidential information in the background. This feature is especially useful the context of telehealth, where a provider or patient might want to obscure their surroundings to protect sensitive information or personal data. Background blur can be applied across all virtual appointment scenarios, including telebanking and virtual hearings, to protect user privacy.
+You can use the Video Effects feature to add effects to your video in video calls. Background blur provides users with the mechanism to remove distractions behind a participant so that participants can communicate without disruptive activity or confidential information in the background.
 
-This quickstart builds on [Quickstart: Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-windows) for Windows.
+This feature is most useful the context of telehealth, where a provider or patient might want to obscure their surroundings to protect sensitive information or personal data. Background blur can be applied across all virtual appointment scenarios, including telebanking and virtual hearings, to protect user privacy.
+
+This article builds on [Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-windows) for Windows.
 
 ## Using video effects
 
@@ -27,13 +29,13 @@ The `VideoEffectsLocalVideoStreamFeature` object has the following API structure
 
 - `EnableEffect`: Enables a Video Effect on the `LocalVideoStream` instance.
 - `DisableEffect`: Disables a Video Effect on the `LocalVideoStream` instance.
-- `VideoEffectEnabled`: Event that is triggered when a Video Effect has been enabled successfully.
-- `VideoEffectDisabledListener`: Event that is triggered when a Video Effect has been disabled successfully.
+- `VideoEffectEnabled`: Event that is triggered when a Video Effect is enabled successfully.
+- `VideoEffectDisabledListener`: Event that is triggered when a Video Effect is disabled successfully.
 - `VideoEffectErrorListener`: Event that is triggered when a Video Effect operation fails.
 
-The `VideoEffectEnabledEvent`, `VideoEffectDisabledEvent` and `VideoEffectErrorEvent` objects have the following API structure:
+The `VideoEffectEnabledEvent`, `VideoEffectDisabledEvent`, and `VideoEffectErrorEvent` objects have the following API structure:
 
- - `VideoEffectName`: Gets the name of the Video Effect that triggered the event.
+- `VideoEffectName`: Gets the name of the Video Effect that triggered the event.
 
 Once you have the `VideoEffectsLocalVideoStreamFeature` object, you can subscribe to the events:
 
@@ -45,7 +47,7 @@ public sealed partial class MainPage : Page
     private LocalVideoEffectsFeature localVideoEffectsFeature;
 }
 ```
-Once you've created a `LocalVideoStream`, you need to get the `VideoEffects` feature API of the `LocalVideoStream` to enable/disable Video Effects.
+Once you create a `LocalVideoStream`, you need to get the `VideoEffects` feature API of the `LocalVideoStream` to enable/disable Video Effects.
 
 ```C#
 private async void CameraList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -87,7 +89,7 @@ videoEffectsFeature.VideoEffectDisabled += VideoEffectsFeature_OnVideoEffectDisa
 videoEffectsFeature.VideoEffectError += VideoEffectsFeature_OnVideoEffectError;
 ```
 
-and start using the APIs to enable and disable Video Effects:
+Then start using the APIs to enable and disable Video Effects:
 
 ```C#
 videoEffectsLocalVideoStreamFeature.EnableEffect( {{VIDEO_EFFECT_TO_ENABLE}} );
@@ -96,7 +98,7 @@ videoEffectsLocalVideoStreamFeature.DisableEffect( {{VIDEO_EFFECT_TO_DISABLE}} )
 
 ### Background blur
 
-Background Blur is a Video Effect that allows a person's background to be blurred. In order to use Background Video Effect, you need to obtain a `VideoEffectsLocalVideoStreamFeature` feature from a valid `LocalVideoStream`.
+Background Blur is a Video Effect that enables the application to blur a person's background. To use Background Video Effect, you need to obtain a `VideoEffectsLocalVideoStreamFeature` feature from a valid `LocalVideoStream`.
 
 To enable Background Blur Video Effect:
 
@@ -161,7 +163,7 @@ private async void BackgroundBlur_Click(object sender, RoutedEventArgs e)
 
 ### Background replacement
 
-Background Replacement is a Video Effect that allows a person's background to be replaced. In order to use Background Video Effect, you need to obtain a `VideoEffectsLocalVideoStreamFeature` feature from a valid `LocalVideoStream`.
+Background Replacement is a Video Effect that enables the application to replace a person's background. In order to use Background Video Effect, you need to obtain a `VideoEffectsLocalVideoStreamFeature` feature from a valid `LocalVideoStream`.
 
 To enable Background Replacement Video Effect:
 

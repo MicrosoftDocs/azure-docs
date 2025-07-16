@@ -29,7 +29,7 @@ Before you start developing a Python function app, you must meet these requireme
 
 ## Memory profiling process
 
-1. In your requirements.txt, add `memory-profiler` to ensure the package is bundled with your deployment. If you're developing on your local machine, you may want to [activate a Python virtual environment](create-first-function-cli-python.md#create-venv) and do a package resolution by `pip install -r requirements.txt`.
+1. In your requirements.txt, add `memory-profiler` to ensure the package is bundled with your deployment. If you're developing on your local machine, you may want to [activate a Python virtual environment](how-to-create-function-azure-cli.md?pivots=programming-language-python#create-venv) and do a package resolution by `pip install -r requirements.txt`.
 
 2. In your function script (for example, *\_\_init\_\_.py* for the Python v1 programming model and *function_app.py* for the v2 model), add the following lines above the `main()` function. These lines ensure the root logger reports the child logger names, so that the memory profiling logs are distinguishable by the prefix `memory_profiler_logs`.
 

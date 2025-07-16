@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backups
 description: Get a summary of support settings and limitations for backing up Azure VMs by using the Azure Backup service.
 ms.topic: reference
-ms.date: 06/12/2025
+ms.date: 06/23/2025
 ms.custom:
   - references_regions
   - linux-related-content
@@ -11,6 +11,7 @@ ms.reviewer: nikhilsarode
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As an IT administrator, I want to understand the support settings and limitations for backing up Azure VMs using a backup service, so that I can ensure comprehensive data protection for our virtual machines.
 ---
 
 # Support matrix for Azure VM backups
@@ -183,6 +184,7 @@ Back up Azure VMs with locks | Supported for managed VMs. <br><br> Not supported
 [Restore spot VMs](/azure/virtual-machines/spot-vms) | Not supported. <br><br/> Azure Backup restores spot VMs as regular Azure VMs.
 [Restore VMs in an Azure dedicated host](/azure/virtual-machines/dedicated-hosts) | Supported.<br></br>When you're restoring an Azure VM through the [Create new](backup-azure-arm-restore-vms.md#create-a-vm) option, the VM can't be restored in the dedicated host, even when the restore is successful. To achieve this, we recommend that you [restore as disks](backup-azure-arm-restore-vms.md#restore-disks). While you're restoring as disks by using the template, create a VM in a dedicated host, and then attach the disks.<br></br>This is not applicable in a secondary region while you're performing [cross-region restore](backup-azure-arm-restore-vms.md#cross-region-restore).
 Configure standalone Azure VMs in Windows Storage Spaces | Not supported.
+Configure standalone Azure VMs in Windows Storage Spaces direct | Not supported.
 [Restore Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration) | Supported for the flexible orchestration model to back up and restore a single Azure VM.
 Restore with managed identities | Supported for managed Azure VMs. <br><br> Not supported for classic and unmanaged Azure VMs. <br><br> Cross-region restore isn't supported with managed identities. <br><br> Currently, this is available in all Azure public and national cloud regions. <br><br> [Learn more](backup-azure-arm-restore-vms.md#restore-vms-with-managed-identities).
 <a name="tvm-backup">Back up trusted launch VMs</a>    |  Supported via [Enhanced policy](backup-azure-vms-enhanced-policy.md) and [Standard policy](backup-instant-restore-capability.md). <br><br>    **Feature details**:  <br><br> - Backup is supported in all regions where trusted launch VMs are available.  <br>   - Item-level restore is supported for the [applicable scenarios](#support-for-file-level-restore).      <br><br>  **Backup support via Enhanced policy**:  <br><br> - Azure portal, PowerShell, and REST API clients support trusted launch VM backup with Enhanced policy.   <br>  - The Azure portal allows you to enable backup through a [Recovery Services vault](backup-azure-arm-vms-prepare.md), the [VM management pane](backup-during-vm-creation.md#run-an-on-demand-backup-after-vm-creation), and the VM creation pane.   <br>  - Azure Business Continuity Center supports [backup](../business-continuity-center/tutorial-configure-protection-datasource.md), [alerts](../business-continuity-center/tutorial-monitor-alerts-metrics.md), and [monitoring](../business-continuity-center/tutorial-monitor-protection-summary.md) for trusted launch VMs.    <br><br>       **Backup support via Standard policy**:    <br><br>  - CLI (version 2.73.0 and later), PowerShell (version Az 14.0.0 and later), and REST API (version 2025-01-01 and later) only support trusted launch VM backup with Standard policy.  <br>  - Trusted Launch virtual machines with standard policy use managed disk snapshots for Instant Restore. In this scenario, you incur Snapshot storage cost same as that of Enhanced policy. [Learn more](backup-instant-restore-capability.md#cost-impact).    <br><br>    Note that migration of an existing Gen2 VM (protected by Azure Backup Standard policy) to Trusted Launch VM requires first [switching to Enhanced policy](backup-azure-vm-migrate-enhanced-policy.md).
@@ -194,7 +196,7 @@ Backup of VMs with SSE and CMK encryption using HSM | Supported. <br><br> You mu
 **Component** | **Support**
 --- | ---
 Azure VM data disks | Support for backup of Azure VMs is up to 32 disks.<br><br> Support for backup of Azure VMs with unmanaged disks or classic VMs is deprecated. <br><br> *Note that backup support for disks in Azure Classic Storage is no longer available. To ensure continued functionality, migrate these disks to Azure Resource Manager (ARM) Storage, as Classic Storage accounts don't support ARM-based Virtual Machines (VMs). Also, backup for all Classic VMs is set to be deprecated on September 30, 2025. To prevent disruptions, migrate Classic VMs and associated disks to ARM Storage before this timeline.*
-Data disk size | Individual disk size can be up to 64 TB and a maximum of 512 TB combined for all disks in a VM.
+Data disk size | Individual disk size can be up to 64 TB and a maximum of 512 TB combined for all disks in a VM. <br><br> Note that it's available only in specific regions - East Asia, North Europe, West Europe, East US 2, North Central US, West Central US, West US 3, Central US.
 Storage type | Standard HDD, Standard SSD, Premium SSD. <br><br>  Backup and restore of [zone-redundant storage disks](/azure/virtual-machines/disks-redundancy#zone-redundant-storage-for-managed-disks) is supported.
 Managed disks | Supported.
 Encrypted disks | Supported.<br/><br/> Azure VMs enabled with Azure Disk Encryption can be backed up (with or without the Microsoft Entra app).<br/><br/> Encrypted VMs can't be recovered at the file or folder level. You must recover the entire VM.<br/><br/> You can enable encryption on VMs that Azure Backup is already protecting. <br><br> You can back up and restore disks encrypted via platform-managed keys or customer-managed keys. You can also assign a disk-encryption set while restoring in the same region. That is, providing a disk-encryption set while performing cross-region restore is currently not supported. However, you can assign the disk-encryption set to the restored disk after the restore is complete.

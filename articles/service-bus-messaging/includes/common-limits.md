@@ -23,7 +23,7 @@ The following limits are common across all tiers.
 | Size of SQL filters or actions | Maximum length of filter condition string: 1,024 (1 K).<br /><br />Maximum length of rule action string: 1,024 (1 K).<br /><br />Maximum number of expressions per rule action: 32. |Subsequent requests for creation of additional filters are rejected, and the calling code receives an exception. |
 | Number of shared access authorization rules per namespace, queue, or topic | Maximum number of rules per entity type: 12. <br /><br /> Rules that are configured on a Service Bus namespace apply to all types: queues, topics. | Subsequent requests for creation of additional rules are rejected, and the calling code receives an exception. |
 | Number of messages per transaction | 100 <br /><br /> For both **Send()** and **SendAsync()** operations. | Additional incoming messages are rejected, and the calling code receives an exception with the message: Can't send more than 100 messages in a single transaction. |
-| Maximum number of messages deleted in DeleteMessagesAsync call | 4000 | 
+| Maximum number of messages deleted in DeleteMessagesAsync call | 500 | 	The DeleteMessagesAsync API supports deleting up to 500 messages per call. Requests exceeding this limit (e.g., 4000) will throw an ArgumentOutOfRangeException.|
 | Maximum number of messages returned in PeekMessagesAsync call | 250 | 
 | Number of virtual network and IP filter rules |  128 |&nbsp; |
 

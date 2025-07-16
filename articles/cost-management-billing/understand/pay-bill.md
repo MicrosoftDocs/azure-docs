@@ -110,7 +110,9 @@ Although you can generally use debit cards to pay your Azure bill, consider thes
 
 - Hong Kong Special Administrative Region and Brazil don't allow the use of debit cards. They support only credit cards.
 - India supports debit and credit cards through Visa and Mastercard.
-- You can't use virtual and prepaid debit cards to pay your Azure bill.
+- You can't use virtual cards to pay your Azure bill.
+
+- Prepaid cards (aka stored value cards, Visa gift cards, MasterCard gift cards, etc.) are not accepted as valid payment instruments.
 
 ## Wire transfer
 
@@ -123,6 +125,9 @@ Alternatively, if your invoice is under the threshold amount for your currency, 
 
 >[!NOTE]
 > When multiple invoices are remitted in a single wire transfer, you must specify the invoice numbers for all of the invoices.
+
+>[!IMPORTANT]
+> SEPA (Single Euro Payments Area) transfers allow up to 140 characters in the payment details field. Exceeding this limit might cause processing issues.
 
 ### Bank details used to send wire transfer payments
 <a name="wire-bank-details"></a>

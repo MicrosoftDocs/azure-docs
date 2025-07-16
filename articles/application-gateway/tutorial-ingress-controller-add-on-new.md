@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 02/07/2024
 ms.author: mbender
 ms.custom: devx-track-azurecli
+# Customer intent: As a cloud administrator, I want to deploy a new AKS cluster with the Ingress Controller enabled, so that I can efficiently manage application traffic using an Azure application gateway.
 ---
 
 # Tutorial: Enable the ingress controller add-on for a new AKS cluster with a new application gateway instance

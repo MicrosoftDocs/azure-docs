@@ -2,11 +2,12 @@
 title: Overview of Recovery Services vaults
 description: An overview of Recovery Services vaults.
 ms.topic: overview
-ms.date: 05/28/2025
+ms.date: 06/23/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: As an IT administrator, I want to utilize a Recovery Services vault for backing up data and managing recovery points, so that I can ensure data security, minimize management overhead, and efficiently restore backups in various scenarios.
 ---
 # Recovery Services vaults overview
 
@@ -72,7 +73,8 @@ Azure Advisor provides hourly [recommendations](/azure/advisor/advisor-high-avai
 
 Use the following articles to:
 
-- Create a Recovery Services vault using [Azure portal](backup-create-recovery-services-vault.md#create-a-recovery-services-vault), [REST API](backup-azure-arm-userestapi-createorupdatevault.md)
-- [Back up an IaaS VM](backup-azure-arm-vms-prepare.md)
-- [Back up an Azure Backup Server](backup-azure-microsoft-azure-backup.md)
-- [Back up a Windows Server](backup-windows-with-mars-agent.md)
+- Create a Recovery Services vault using [Azure portal](backup-create-recovery-services-vault.md#create-a-recovery-services-vault), [REST API](backup-azure-arm-userestapi-createorupdatevault.md).
+- [Update the soft delete state for Recovery Services vault using REST API](use-restapi-update-vault-properties.md).
+- [Back up an IaaS VM](backup-azure-arm-vms-prepare.md).
+- [Back up an Azure Backup Server](backup-azure-microsoft-azure-backup.md).
+- [Back up a Windows Server](backup-windows-with-mars-agent.md).

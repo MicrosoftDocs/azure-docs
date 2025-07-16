@@ -7,6 +7,7 @@ ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: "As a system administrator, I want to understand the architecture and features of the cloud backup solution, so that I can effectively manage data protection and recovery for both on-premises and Azure virtual machines."
 ---
 
 # Azure Backup architecture and components

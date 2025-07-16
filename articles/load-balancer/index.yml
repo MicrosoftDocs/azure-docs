@@ -46,6 +46,8 @@ landingContent:
         links:
           - text: Load-balancing options
             url: /azure/architecture/guide/technology-choices/load-balancing-overview
+          - text: Architecture best practices for Azure Load Balancer
+            url: /azure/well-architected/service-guides/azure-load-balancer
           - text: Azure Load Balancer algorithm
             url: /azure/load-balancer/concepts
           - text: Gateway load balancer overview
@@ -138,8 +140,10 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Documentation
-            url: https://aka.ms/loadbalancingandcontentdeliverydocs
+          - text: What is Load Balancing and Content Delivery?
+            url: /azure/networking/load-balancer-content-delivery/load-balancing-content-delivery-overview
+          - text: Learn more about load balancing and content delivery
+            url: /azure/networking/load-balancer-content-delivery/
       - linkListType: overview
         links:
           - text: Azure Front Door overview
