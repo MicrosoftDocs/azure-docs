@@ -1,5 +1,5 @@
 ---
-title: Web app as MCP server in GitHub Copilot Chat agent mode
+title: Web app as MCP server in GitHub Copilot Chat agent mode (.NET)
 description: Empower GitHub Copilot Chat with your existing web apps by integrating their capabilities as Model Context Protocol servers, enabling Copilot Chat to perform real-world tasks.
 author: cephalin
 ms.author: cephalin

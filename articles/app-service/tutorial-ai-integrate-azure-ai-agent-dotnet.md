@@ -1,5 +1,5 @@
 ---
-title: Integrate web app with OpenAPI in Azure AI Foundry Agent Service
+title: Integrate web app with OpenAPI in Azure AI Foundry Agent Service (.NET)
 description: Empower your existing web apps by integrating their capabilities into Azure AI Foundry Agent Service with OpenAPI, enabling AI agents to perform real-world tasks.
 author: cephalin
 ms.author: cephalin
@@ -167,7 +167,7 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
 
 1. Back in the codespace terminal, deploy your changes by committing your changes (GitHub Actions method) or run `azd up` (Azure Developer CLI method).
 
-1. Once your changes are deployed, navigate to https://<your-app's-url>/swagger/v1/swagger.json and copy the schema for later.
+1. Once your changes are deployed, navigate to `https://<your-app's-url>/swagger/v1/swagger.json` and copy the schema for later.
 
 ## Create an agent in Azure AI Foundry
 
@@ -204,5 +204,5 @@ To take the next step and learn how to run your agent directly within Azure App 
 
 ## More resources
 
-[Integrate AI into your Azure App Service applications](overview-ai-integration.md)
-[What is Azure AI Foundry Agent Service?](/azure/ai-services/agents/overview)
+- [Integrate AI into your Azure App Service applications](overview-ai-integration.md)
+- [What is Azure AI Foundry Agent Service?](/azure/ai-services/agents/overview)
