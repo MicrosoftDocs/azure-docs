@@ -171,6 +171,6 @@ To switch a cluster to this mode, add `SuspendTime=-1` to the `slurm.conf` file 
 
 6. All Slurm binaries are inside the `azure-slurm-install-pkg*.tar.gz` file, under `slurm-pkgs`. They're pulled from a specific binary release. The current binary release is [4.0.0](https://github.com/Azure/cyclecloud-slurm/releases/tag/4.0.0).
 
-7. For MPI jobs, the only default network boundary is the partition. Unlike version 2.x, each partition doesn't include multiple "placement groups". So you only have one colocated VMSS per partition. There's no need for the topology plugin anymore, so the job submission plugin isn't needed either. Instead, submitting to multiple partitions is the recommended option for use cases that require jobs submission to multiple placement groups.
+7. For MPI jobs, the only default network boundary is the partition. Unlike version 2.x, each partition doesn't include multiple "placement groups". So you only have one colocated Virtual Machine Scale Set per partition. There's no need for the topology plugin anymore, so the job submission plugin isn't needed either. Instead, submitting to multiple partitions is the recommended option for use cases that require jobs submission to multiple placement groups.
 
 [!INCLUDE [scheduler-integration](~/articles/cyclecloud/includes/scheduler-integration.md)]
