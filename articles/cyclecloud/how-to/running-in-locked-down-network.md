@@ -40,18 +40,18 @@ You can limit outbound internet access from the CycleCloud VM by configuring a s
 
 1. Add the following NSG Outbound rule to *Deny* outbound access by default using the  "**Internet**" destination Service Tag:
 
-| Priority    | Name              | Port       | Protocol | Source   | Destination    | Action |
-| ----------- | ----------------- | ---------- | -------- | -------- | -------------- | ------ |
-| 4000        | BlockOutbound       | Any        | Any      | Any      | Internet             | Deny   |
+   | Priority    | Name              | Port       | Protocol | Source   | Destination    | Action |
+   | ----------- | ----------------- | ---------- | -------- | -------- | -------------- | ------ |
+   | 4000        | BlockOutbound       | Any        | Any      | Any      | Internet             | Deny   |
 
 1. Add the following NSG Outbound rules to *Allow* outbound access to the required Azure services by destination Service Tag:
 
-| Priority    | Name                 | Port       | Protocol | Source   | Destination          | Action |
-| ----------- | -------------------- | ---------- | -------- | -------- | -------------------- | ------ |
-| 100         | AllowAzureStorage    | 443        | TCP      | Any      | Storage              | Allow  |
-| 101         | AllowActiveDirectory | 443        | TCP      | Any      | AzureActiveDirectory | Allow  |
-| 102         | AllowAzureMonitor    | 443        | TCP      | Any      | AzureMonitor         | Allow  |
-| 103         | AllowAzureRM         | 443        | TCP      | Any      | AzureResourceManager | Allow  |
+   | Priority    | Name                 | Port       | Protocol | Source   | Destination          | Action |
+   | ----------- | -------------------- | ---------- | -------- | -------- | -------------------- | ------ |
+   | 100         | AllowAzureStorage    | 443        | TCP      | Any      | Storage              | Allow  |
+   | 101         | AllowActiveDirectory | 443        | TCP      | Any      | AzureActiveDirectory | Allow  |
+   | 102         | AllowAzureMonitor    | 443        | TCP      | Any      | AzureMonitor         | Allow  |
+   | 103         | AllowAzureRM         | 443        | TCP      | Any      | AzureResourceManager | Allow  |
 
 ## Internal communications between cluster nodes and CycleCloud
 
