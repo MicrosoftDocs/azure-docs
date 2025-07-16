@@ -1,41 +1,41 @@
 ---
-title: Troubleshoot artifacts on lab virtual machines
+title: Troubleshoot Artifacts on Lab Virtual Machines
 titleSuffix: Azure DevTest Labs
 description: Troubleshoot issues with applying artifacts on lab virtual machines in Azure DevTest Labs, including script problems, failure errors, and analyzing log data.
 ms.topic: troubleshooting-general
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 06/11/2024
+ms.date: 07/18/2025
 ms.custom: UpdateFrequency2
 
-#customer intent: As a developer, I want to analyze errors and log data about my lab artifacts in Azure DevTest Labs so I can troubleshoot and resolve issues.
+#customer intent: As a developer, I want to analyze errors and log data about my lab artifacts in Azure DevTest Labs so that I can troubleshoot and resolve issues.
 ---
 
 # Troubleshoot artifacts on lab virtual machines in Azure DevTest Labs 
 
 This article guides you through possible causes and troubleshooting steps for artifact failures on your Azure DevTest Labs virtual machine (VM) resources.
 
-Artifacts are tools, actions, or software you can install on lab VMs during or after VM creation. Lab owners can [preselect mandatory artifacts](devtest-lab-mandatory-artifacts.md) to apply to all lab VMs at creation, and lab users can [apply artifacts to VMs](add-artifact-vm.md) that they own. Several possible issues can cause artifacts to fail to install and apply to a lab or run correctly on a lab VM.
+Artifacts are tools, actions, or software that you can install on lab VMs during or after VM creation. Lab owners can [preselect mandatory artifacts](devtest-lab-mandatory-artifacts.md) to apply to all lab VMs at creation, and lab users can [apply artifacts to VMs](add-artifact-vm.md) that they own. Several possible issues can cause artifacts to fail to install and apply to a lab or run correctly on a lab VM.
 
 When an artifact appears to stop responding, the first step is to try to determine why the process is stuck. Artifact installation can be blocked during the initial request or fail during request execution. You can troubleshoot artifact failures from the Azure portal or from the VM where the artifact failure occurs.
 
 ## Troubleshoot in the Azure portal
 
-If an artifact isn't successfully applying to your lab VM, you can start by investigating the status of your VM in the Azure portal. You can find information about the state of the VM, confirm it's running, and verify artifacts can be applied. The Activity log data for the lab VM shows entries about installation processes. You can check the entries to find information about artifact failures. 
+If an artifact isn't successfully applying to your lab VM, you can start by investigating the status of your VM in the Azure portal. You can find information about the state of the VM, confirm it's running, and verify that artifacts can be applied. The Activity log data for the lab VM shows entries about installation processes. You can check the entries to find information about artifact failures. 
 
 ### Check VM status
 
-Check the VM state in the Azure portal by following these steps:
+Check the VM status in the Azure portal by completing these steps:
 
-1. Browse to the **Overview** page for the DevTest Labs lab VM and confirm the machine is _Running_:
+1. Go to the **Overview** page for the DevTest Labs lab VM and confirm the machine status is _Running_:
 
-   :::image type="content" source="media/devtest-lab-troubleshoot-apply-artifacts/check-lab-machine.png" border="false" alt-text="Screenshot that shows how to confirm the DevTest Labs virtual machine is running." lightbox="media/devtest-lab-troubleshoot-apply-artifacts/check-lab-machine-large.png":::
+   :::image type="content" source="media/devtest-lab-troubleshoot-apply-artifacts/check-lab-machine.png" border="false" alt-text="Screenshot that shows how to confirm that the DevTest Labs virtual machine is running." lightbox="media/devtest-lab-troubleshoot-apply-artifacts/check-lab-machine-large.png":::
 
 1. Select **Artifacts** and open the artifacts list for the lab VM:
 
    :::image type="content" source="media/devtest-lab-troubleshoot-apply-artifacts/open-artifacts-list.png" alt-text="Screenshot that shows how to open the Artifacts list for the lab virtual machine.":::
 
-1. Check the **Apply artifacts** option and confirm the lab VM is ready to accept applied artifacts:
+1. Check the **Apply artifacts** option and confirm that the lab VM is ready to accept applied artifacts:
 
    :::image type="content" source="media/devtest-lab-troubleshoot-apply-artifacts/check-apply-artifacts.png" alt-text="Screenshot that shows how to confirm artifacts can be applied to the DevTest Labs virtual machine.":::
 
