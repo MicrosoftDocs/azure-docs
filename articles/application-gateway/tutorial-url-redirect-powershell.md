@@ -13,12 +13,12 @@ ms.custom: devx-track-azurepowershell
 
 # Create an application gateway with URL path-based redirection using Azure PowerShell
 
-main
+ 
 You can use Azure PowerShell to configure [URL-based routing rules](./url-route-overview.md) when you create an [application gateway](./overview.md). In this tutorial, you create backend pools using [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview). You then create URL routing rules that redirect web traffic to the appropriate backend pool based on the request URL path.
 You can use Azure PowerShell to configure advanced [URL-based routing rules](./url-route-overview.md) when you create an [application gateway](./overview.md).
 
 This tutorial covers production-ready configurations including security best practices, performance optimization, and monitoring setup.
-main
+ 
 
 In this tutorial, you learn how to:
 
@@ -68,14 +68,14 @@ Write-Output "Resource group '$resourceGroupName' created successfully in '$loca
 
 ## Create network resources
 
-main
+ 
 Create the subnet configurations for *myBackendSubnet* and *myAGSubnet* using [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Create the virtual network named *myVNet* using [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) with the subnet configurations. Finally, create the public IP address named *myAGPublicIPAddress* using [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). These resources provide network connectivity to the application gateway and its associated resources.
 
 > [!IMPORTANT]
 > The application gateway subnet (*myAGSubnet*) can contain only application gateways. No other resources are allowed in this subnet.
 Create the subnet configurations for *myBackendSubnet* and *myAGSubnet* using [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). The Application Gateway requires a dedicated subnet with minimum /24 CIDR for proper operation and future scaling. Create the virtual network named *myVNet* using [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) with the subnet configurations. Finally, create the public IP address with Standard SKU and static allocation for improved security and performance using [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress).
 
-main
+ 
 
 ```azurepowershell-interactive
 # Create backend subnet configuration with appropriate CIDR for scale sets
@@ -469,11 +469,11 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 In this example, you create three virtual machine scale sets that support the three backend pools that you created. The scale sets are named *myvmss1*, *myvmss2*, and *myvmss3*. Each scale set contains two virtual machine instances on which you install IIS. You assign the scale set to the backend pool when you configure the IP settings.
 
- main
+  
 > [!IMPORTANT]
 > Replace `<username>` and `<password>` with your own values before running the script. Use a strong password that meets Azure's security requirements.
 **Security Note**: Replace `<username>` and `<password>` with secure credentials. Consider using Azure Key Vault for credential management in production scenarios.
-main
+ 
 
 ```azurepowershell-interactive
 # Get network and Application Gateway references
