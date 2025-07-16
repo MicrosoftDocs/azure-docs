@@ -276,6 +276,6 @@ Follow these steps to add Azurite HTTPS to Storage Explorer:
 
 ## Next steps
 
+- [Configure Azure Storage connection strings](storage-configure-connection-string.md) explains how to assemble a valid Azure Storage connection string.
 - [Use Azurite to run automated tests](use-azurite-to-run-automated-tests.md) describes how to write automated tests using the Azurite storage emulator.
 - [Use the Azure Storage Emulator for development and testing](storage-use-emulator.md) documents the legacy Azure Storage Emulator, which is superseded by Azurite.
-- [Configure Azure Storage connection strings](storage-configure-connection-string.md) explains how to assemble a valid Azure Storage connection string.
