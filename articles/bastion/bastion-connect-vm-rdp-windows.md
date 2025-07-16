@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/31/2025
 ms.author: abell
 
+# Customer intent: "As a cloud administrator, I want to establish a secure RDP connection to a Windows VM using a Bastion host, so that I can access my virtual machines without exposing them to the public internet."
 ---
 
 # Create an RDP connection to a Windows VM using Azure Bastion

@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.date: 03/04/2025
 ms.author: mbender
+# Customer intent: As an IT administrator, I want to configure a TLS policy for the Application Gateway, so that I can centralize certificate management and ensure compliance with security standards while optimizing backend performance.
 ---
 
 # Application Gateway TLS policy overview

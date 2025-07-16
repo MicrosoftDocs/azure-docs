@@ -6,6 +6,7 @@ ms.service: azure-dns
 ms.topic: concept-article
 ms.date: 02/07/2024
 ms.author: allensu
+# Customer intent: As a DNS administrator, I want to understand the types and configurations of DNS records in Azure Private DNS, so that I can effectively manage and optimize the DNS infrastructure for my applications.
 ---
 
 # Overview of private DNS records

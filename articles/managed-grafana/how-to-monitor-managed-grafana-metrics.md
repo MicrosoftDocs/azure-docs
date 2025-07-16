@@ -42,7 +42,7 @@ These metrics can be accessed from your Azure Managed Grafana workspace, from Az
 
    :::image type="content" source="media/monitoring-metrics/metric-chart.png" alt-text="Screenshot of the Azure platform showing a metric chart.":::
 
-1. Optionally create a new alert rule to be notified if the metric you configured exceeds or drops below a threshhold, or pin your dashboard to an Azure Dashboard, Grafana workspace or a Workbook.
+1. Optionally create a new alert rule to be notified if the metric you configured exceeds or drops below a threshold, or pin your dashboard to an Azure Dashboard, Grafana workspace or a Workbook.
 
 ## Next step
 

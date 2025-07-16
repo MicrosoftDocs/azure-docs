@@ -1,7 +1,7 @@
 ---
 title: Azure EA agreements and amendments
 description: The article describes how Azure EA agreements and amendments might affect your access, use, and payments for Azure services.
-author: RaniChegondi
+author: racheg-microsoft
 ms.author: racheg
 ms.date: 06/12/2025
 ms.topic: conceptual

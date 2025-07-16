@@ -8,6 +8,7 @@ ms.service: azure-dns
 ms.topic: concept-article
 ms.date: 11/30/2023 #Required; mm/dd/yyyy format.
 #Customer intent: As a customer, I want to understand reliability support for Azure DNS Private Resolver. I need to avoid failures and respond to them so that I can minimize down time and data loss.
+# Customer intent: As a DevOps engineer, I want to understand the resiliency features of Azure DNS Private Resolver, so that I can ensure reliable DNS resolution and minimize downtime during regional outages or failures.
 ---
 
 # Resiliency in Azure DNS Private Resolver

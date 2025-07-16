@@ -4,7 +4,8 @@ description: Learn how inbound and outbound IP addresses are used in Azure App S
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: article
-ms.date: 06/16/2025
+ms.date: 03/10/2025
+ms.update-cycle: 1095-days
 ms.custom:
   - UpdateFrequency3
   - build-2025

@@ -44,7 +44,7 @@ az containerapp env create \
 
 The variable `$INFRASTRUCTURE_SUBNET` is the Resource ID of a subnet in the customer virtual network, which is for infrastructure components and user app containers. For more information, see the [Create an environment](../../container-apps/vnet-custom.md#create-an-environment) section of [Provide a virtual network to an Azure Container Apps environment](../../container-apps/vnet-custom.md).
 
-Choosing to use a customer virtual network in Azure Container Apps doesn't mean that your container app can't accept public requests. If you want to completely limit access to the customer virtual network only, you need to set the `--internal-only` parameter to `true`. This setting ensures that no public endpoints are created. For more information, see the [Virtual IP](../../container-apps/networking.md#virtual-ip) section of [Networking in Azure Container Apps environment](../../container-apps/networking.md) and [Provide a virtual network to an internal Azure Container Apps environment](../../container-apps/vnet-custom.md).
+Choosing to use a custom virtual network in Azure Container Apps doesn't mean that your container app can't accept public requests. If you want to completely limit access to the customer virtual network only, you need to set the `--internal-only` parameter to `true`. This setting ensures that no public endpoints are created. For more information, see the [Accessibility level](../../container-apps/networking.md#accessibility-level) section of [Networking in Azure Container Apps environment](../../container-apps/networking.md) and [Provide a virtual network to an internal Azure Container Apps environment](../../container-apps/vnet-custom.md).
 
 ## Migrate App to Azure Container Apps
 
@@ -67,7 +67,7 @@ The following table maps the configuration properties between the two services:
 
 Azure Container Apps doesn't permit users to specify a custom timeout value. Instead, it enforces a built-in request timeout for HTTP requests, which is capped at 240 seconds. So, if a request exceeds this duration, the connection is automatically terminated to ensure efficient resource management and prevent long-running requests from monopolizing the system.
 
-Azure Container Apps doesn't directly support a `session-max-age` configuration item. However, you can manage session durations and behaviors through other related settings. For instance, you can use the [cookieExpiration](/rest/api/appservice/web-apps/get-auth-settings-v2#cookieexpiration) setting in the `EasyAuth` configuration to control how long an authentication session lasts. This setting enables you to specify the duration for which the authentication cookie remains valid.
+Azure Container Apps doesn't directly support a `session-max-age` configuration item. However, you can manage session durations and behaviors through other related settings. For instance, you can use the [cookieExpiration](/rest/api/appservice/web-apps/get-auth-settings-v-2#cookieexpiration) setting in the `EasyAuth` configuration to control how long an authentication session lasts. This setting enables you to specify the duration for which the authentication cookie remains valid.
 
 For more information about ingress settings provided by Azure Container Apps, see [Ingress in Azure Container Apps](../../container-apps/ingress-overview.md).
 
@@ -100,7 +100,7 @@ Both Azure Spring Apps and Azure Container Apps offer ways to control outbound t
 - A dedicated subnet for the Azure Container Apps service runtime subnet isn't required.
 - Azure Container Apps provide a more flexible way to support UDR. In Azure Container Apps, there's no need to explicitly set the option `--outbound-type` to `userDefinedRouting` when provisioning Azure Spring Apps.
 
-For more information, see the [Routes](../../container-apps/networking.md#routes) section of [Subnet configuration with CLI](../../container-apps/networking.md) and [Control outbound traffic in Azure Container Apps with user defined routes](../../container-apps/user-defined-routes.md).
+For more information, see [Control outbound traffic in Azure Container Apps with user defined routes](../../container-apps/user-defined-routes.md).
 
 In Azure Container Apps, only workload profiles of the *environment* type support UDR. Additionally, Azure Container Apps support egress through NAT Gateway and the creation of private endpoints on the container app environment.
 
@@ -126,7 +126,7 @@ For more information, see [Securing a custom VNET in Azure Container Apps with N
 
 Both Azure Spring Apps and Azure Container Apps support the use of custom DNS servers in a customer virtual network. We recommend adding Azure DNS IP `168.63.129.16` as the upstream DNS server in the custom DNS server.
 
-For more information, see the [DNS](../../container-apps/networking.md#dns) section of [Networking in Azure Container Apps environment](../../container-apps/networking.md).
+For more information, see [DNS for virtual networks in Azure Container Apps environments](../../container-apps/private-endpoints-with-dns.md#dns).
 
 Currently, Azure Container Apps in a Consumption-only environment type doesn't support flushing DNS settings changes as Azure Spring Apps does. For more information, see [Flush DNS settings changes in Azure Spring Apps](../basic-standard/how-to-use-flush-dns-settings.md). However, the workload profile type of environment automatically refreshes DNS settings every 5 minutes.
 
@@ -134,7 +134,7 @@ Azure Container Apps supports deployment with a private DNS zone. For more infor
 
 ## Access an app in Azure Container Apps within a customer virtual network
 
-Azure Container Apps provides both [Public network access](../../container-apps/networking.md#public-network-access) and [Private endpoint](../../container-apps/networking.md#private-endpoint) features to expose applications to the internet or to secure them within a private network. Similarly, Azure Spring Apps supports these features as described in the following articles:
+Azure Container Apps provides both [Public network access](../../container-apps/networking.md#public-network-access) and [Private endpoint](../../container-apps/private-endpoints-with-dns.md) features to expose applications to the internet or to secure them within a private network. Similarly, Azure Spring Apps supports these features as described in the following articles:
 
 - [Access an app in Azure Spring Apps in a virtual network](../basic-standard/access-app-virtual-network.md)
 - [Access applications using Azure Spring Apps Standard consumption and dedicated plan in a virtual network](../consumption-dedicated/quickstart-access-standard-consumption-within-virtual-network.md)

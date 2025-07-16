@@ -9,6 +9,7 @@ ms.topic: overview
 ms.date: 05/16/2025
 ms.custom: references_regions, ignite-2024
 #CustomerIntent: As a network security administrator, I want to understand how to use Network Security Perimeter to control network access to Azure PaaS resources.
+# Customer intent: As a network security administrator, I want to implement a network security perimeter for Azure PaaS resources, so that I can ensure secure communication and control access within a defined logical boundary while preventing unauthorized public access.
 ---
 
 # What is a network security perimeter?
@@ -97,6 +98,7 @@ A network security perimeter-aware private link resource is a PaaS resource that
 | [Key Vault](/azure/key-vault/general/network-security#network-security-perimeter-preview)                 | Microsoft.KeyVault/vaults | - |
 | [SQL DB](/azure/azure-sql/database/network-security-perimeter)                    | Microsoft.Sql/servers | - |
 | [Storage](/azure/storage/common/storage-network-security#network-secuirty-perimeter-preview)               | Microsoft.Storage/storageAccounts | - |
+| [Azure OpenAI service](/azure/ai-services/openai/how-to/network-security-perimeter) | Microsoft.CognitiveServices | - |
 
 > [!NOTE]
 > Refer to the respective private link resource documentation for information on currently unsupported scenarios.

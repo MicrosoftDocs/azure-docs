@@ -7,6 +7,7 @@ ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 04/28/2023
 ms.author: duau
+# Customer intent: "As a compliance officer in a regulated industry, I want to review the certifications of Azure Firewall, so that I can ensure it meets the necessary regulatory requirements for our organization."
 ---
 
 # Azure Firewall certifications

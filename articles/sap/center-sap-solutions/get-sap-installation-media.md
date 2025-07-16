@@ -89,7 +89,7 @@ Next, set up a virtual machine (VM) where you will download the SAP components l
     curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
     ```
 
-1. If the Azure CLI version is not version 2.30.0 or higher, [Update the Azure CLI](/cli/azure/update-azure-cli). You can run below command to check the version
+1. If the Azure CLI version is not version 2.30.0 or higher(except 2.74.0), [Update the Azure CLI](/cli/azure/update-azure-cli). You can run below command to check the version
 
     ```azurecli
     az --version
@@ -108,20 +108,20 @@ Next, set up a virtual machine (VM) where you will download the SAP components l
     sudo apt install python3-pip
     ```
 
-1. Install Ansible 2.11.12 on the VM.
+1. Install Ansible 2.16.14 on the VM.
 
     ```Bash
-    sudo pip3 install ansible-core==2.11.12
+    sudo pip3 install ansible-core==2.16.14
     ```
 
 1. Install Ansible galaxy collection modules
 
     ```Bash
-   sudo ansible-galaxy collection install ansible.netcommon:==5.0.0 -p /opt/ansible/collections
-   sudo ansible-galaxy collection install ansible.posix:==1.5.1 -p /opt/ansible/collections
-   sudo ansible-galaxy collection install ansible.utils:==2.9.0 -p /opt/ansible/collections
-   sudo ansible-galaxy collection install ansible.windows:==1.13.0 -p /opt/ansible/collections
-   sudo ansible-galaxy collection install community.general:==6.4.0 -p /opt/ansible/collections
+    sudo ansible-galaxy collection install ansible.netcommon:==7.2.0 -p /opt/ansible/collections
+    sudo ansible-galaxy collection install ansible.posix:==2.0.0 -p /opt/ansible/collections
+    sudo ansible-galaxy collection install ansible.utils:==5.1.2 -p /opt/ansible/collections
+    sudo ansible-galaxy collection install ansible.windows:==2.8.0 -p /opt/ansible/collections
+    sudo ansible-galaxy collection install community.general:==10.5.0 -p /opt/ansible/collections
     ```
 
 1. Clone the SAP automation samples repository from GitHub.

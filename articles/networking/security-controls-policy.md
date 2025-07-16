@@ -7,6 +7,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network
 ms.custom: subject-policy-compliancecontrols
+# Customer intent: As a compliance officer, I want to access built-in Azure Policy definitions for networking services so that I can ensure our Azure resources meet regulatory compliance standards efficiently.
 ---
 # Azure Policy Regulatory Compliance controls for Azure networking services
 
@@ -19,7 +20,7 @@ compliant with the specific standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-network](../../includes/policy/standards/byrp/microsoft.network.md)]
+[!INCLUDE [azure-policy-compliancecontrols-network](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.network.md)]
 
 ## Next steps
 

@@ -11,6 +11,7 @@ ms.author: pauljewell
 ms.reviewer: nachakra
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, engagement-fy23, devx-track-java, devx-track-extended-java
+# Customer intent: As a Java developer, I want to create a service shared access signature (SAS) for a container or blob, so that I can securely delegate limited access to Azure Blob Storage resources in my applications.
 ---
 
 # Create a service SAS for a container or blob with Java

@@ -7,6 +7,7 @@ ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a backup administrator, I want to monitor the status and alerts of my Azure Backup workloads, so that I can ensure data protection and respond to any issues promptly."
 ---
 
 # Monitoring Azure Backup workloads

@@ -4,7 +4,7 @@ description: Use the operations experience web UI or the Azure CLI to manage you
 author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
-ms.date: 11/15/2024
+ms.date: 05/12/2025
 ms.custom:
   - ignite-2023
   - devx-track-azurecli
@@ -44,7 +44,7 @@ To sign in to the operations experience web UI, you need a Microsoft Entra ID ac
 1. On the **Members** page, add your new user to the role.
 1. Select **Review and assign** to complete setting up the new user.
 
-You can now use the new user account to sign in to the [Azure IoT Operations](https://iotoperations.azure.com) portal.
+You can now use the new user account to sign in to the [operations experience](https://iotoperations.azure.com) web UI.
 
 ## Sign in
 
@@ -155,6 +155,52 @@ To use the `UsernamePassword` authentication mode, complete the following steps:
     ```
 
 ---
+
+### Import and export asset endpoints
+
+Use the **Import** and **Export** buttons to import or export an asset endpoint in the operations experience:
+
+:::image type="content" source="media/howto-manage-assets-remotely/export-import-asset-endpoints.png" alt-text="Screenshot showing the options to import and export an asset endpoint.":::
+
+The JSON file that you export contains the asset endpoint definition. You can use this file to import the asset endpoint into another instance of Azure IoT Operations or modify it to create a new asset endpoint in the current instance:
+
+```yml
+{
+  "name": "<your asset endpoint name>",
+  "type": "microsoft.deviceregistry/assetendpointprofiles",
+  "location": "<your location>",
+  "extendedLocation": {
+    "type": "CustomLocation",
+    "name": "/subscriptions/<your subscription id>/resourceGroups/<your resource group>/providers/Microsoft.ExtendedLocation/customLocations/<your custom location>"
+  },
+  "properties": {
+    "targetAddress": "<your target address>",
+    "endpointProfileType": "Microsoft.OpcUa",
+    "additionalConfiguration": "{\"runAssetDiscovery\":true}",
+    "authentication": {
+      "method": "Anonymous"
+    }
+  },
+  "apiVersion": "2024-11-01"
+}
+```
+
+> [!TIP]
+> Export an existing asset endpoint to discover the `extendedLocation Name` value.
+
+> [!TIP]
+> You can also use the `az iot ops asset endpoint show` and `az iot ops asset endpoint create` commands to view and create asset endpoints.
+
+## Manage certificates and secrets
+
+On the **Asset endpoints** page, you can manage the certificates and secrets that your asset endpoints use:
+
+- The **Certificates** tab shows the trusted certificates list and issuer certificates list for the OPC UA servers you want to connect to.
+
+  - To learn more about the OPC UA certificates infrastructure, see [OPC UA certificates infrastructure for the connector for OPC UA](overview-opcua-broker-certificates-management.md).
+  - To learn more about how to configure the trusted certificates and issuers lists, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](howto-configure-opcua-certificates-infrastructure.md).
+
+- The **Secrets** tab shows the secrets that contain the usernames and passwords for the OPC UA servers you want to connect to. To learn more about OPC UA user authentication, see [Configure OPC UA user authentication options for the connector for OPC UA](howto-configure-opcua-authentication-options.md).
 
 ## Add an asset, tags, and events
 
@@ -440,6 +486,66 @@ az iot ops asset delete --name thermostat -g {your resource group name}
 ```
 
 ---
+
+## Import and export assets
+
+Use the **Import** and **Export** buttons to import or export an asset in the operations experience:
+
+:::image type="content" source="media/howto-manage-assets-remotely/export-import-assets.png" alt-text="Screenshot showing the options to import and export an asset.":::
+
+The JSON file that you export contains the asset definition. You can use this file to import the asset into another instance of Azure IoT Operations or modify it to create a new asset in the current instance. The following JSON example shows an example import file to use to create a thermostat asset:
+
+```yml
+{
+  "name": "thermostat",
+  "type": "microsoft.deviceregistry/assets",
+  "location": "<your location>",
+  "extendedLocation": {
+    "type": "CustomLocation",
+    "name": "/subscriptions/<your subscription id>/resourceGroups/<your resource group>/providers/Microsoft.ExtendedLocation/customLocations/<your custom location>"
+  },
+  "properties": {
+    "enabled": true,
+    "displayName": "thermostat",
+    "description": "A simulated thermostat asset",
+    "assetEndpointProfileRef": "opc-ua-connector-1",
+    "version": 1,
+    "attributes": {
+      "batch": "102",
+      "customer": "Contoso",
+      "equipment": "Boiler",
+      "isSpare": "true",
+      "location": "Seattle"
+    },
+    "defaultDatasetsConfiguration": "{\"publishingInterval\":1000,\"samplingInterval\":1000,\"queueSize\":1}",
+    "defaultEventsConfiguration": "{\"publishingInterval\":1000,\"queueSize\":1}",
+    "defaultTopic": {
+      "path": "azure-iot-operations/data/thermostat",
+      "retain": "Never"
+    },
+    "datasets": [
+      {
+        "name": "default",
+        "dataPoints": [
+          {
+            "name": "temperature",
+            "dataSource": "ns=3;s=SpikeData",
+            "observabilityMode": "None",
+            "dataPointConfiguration": "{}"
+          }
+        ]
+      }
+    ]
+  },
+  "apiVersion": "2024-11-01"
+}
+```
+
+> [!TIP]
+> Export an existing asset endpoint to discover the `extendedLocation Name` value.
+
+> [!TIP]
+> You can also use the `az iot ops asset show` and `az iot ops asset create` commands to view and create asset endpoints.
 
 ## Notifications
 

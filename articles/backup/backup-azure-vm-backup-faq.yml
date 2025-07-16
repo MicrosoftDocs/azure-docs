@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 06/12/2025
+  ms.date: 06/23/2025
   author: jyothisuri
   ms.author: jsuri
   ms.custom: build-2025
@@ -239,7 +239,7 @@ sections:
 
       - question: Is there a limit to trigger restore in a day?
         answer: |
-          Yes, the default maximum limit to trigger restore is 20 attempts per VM in 24 hours, and 24 hours window gets reset at *UTC 00:00*.
+          The restore limit applies per data source within a 24-hour window. You can restore the same VM up to 20 times in that period. Restoring multiple VMs simultaneously is allowed, but may trigger throttling from other Azure services, such as [Azure Resource Manager (ARM) due to request limits](/azure/azure-resource-manager/management/request-limits-and-throttling#migrating-to-regional-throttling-and-token-bucket-algorithm).
 
       - question: How does restored disk SKU depend on target SA provided?
         answer: |
@@ -265,7 +265,7 @@ sections:
 
       - question: Can I restore an Azure Virtual Machine in a different subscription?
         answer: |
-          Yes, [Cross Subscription Restore now](backup-azure-arm-restore-vms.md#restore-options) allows you to restore Azure VMs from a recovery point in one subscription to another under tenant as per Azure role-based access control (Azure RBAC) rules. Cross Subscription Restore is unsupported from [snapshots](backup-azure-vms-introduction.md#snapshot-creation) and [secondary region](backup-azure-arm-restore-vms.md#restore-in-secondary-region) restores.
+          Yes, [Cross Subscription Restore now](backup-azure-arm-restore-vms.md#restore-options) allows you to restore Azure VMs from a recovery point in one subscription to another under tenant as per Azure role-based access control (Azure RBAC) rules. Cross Subscription Restore is unsupported from [snapshots](backup-azure-vms-introduction.md#snapshot-creation).
 
       - question: Does Cross Subscription Restore support all Azure VM?
         answer: |
@@ -277,7 +277,7 @@ sections:
 
       - question: Can I perform Cross Subscription Restore for Azure VMs running in secondary regions?
         answer: |
-          No, [Cross Subscription Restore](backup-azure-arm-restore-vms.md#restore-options) does not support restore from [secondary regions](backup-azure-arm-restore-vms.md#restore-in-secondary-region).
+          Yes.
 
       - question: Can I use Enhanced policy for Cross Subscription Restore?
         answer: |
