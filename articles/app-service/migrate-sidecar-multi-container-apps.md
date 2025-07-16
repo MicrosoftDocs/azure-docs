@@ -104,7 +104,7 @@ If your Docker Compose file is straightforward, you can use the official migrati
     az webapp config set --name <webapp-name> --resource-group <resource-group> --slot <slot-name> --linux-fx-version "sitecontainers"
     ```
 
-7. Restart the deployment slot, then validate the functionatity of the migrated app in the deployment slot.
+7. Restart the deployment slot, then validate the functionality of the migrated app in the deployment slot.
 
     ```azurecli
     az webapp restart --name <webapp-name> --resource-group <resource-group> --slot <slot-name>

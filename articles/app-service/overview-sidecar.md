@@ -25,7 +25,7 @@ Sidecars enable you to add new capabilities, such as monitoring, caching, AI, or
 - **Container roles:** Each sidecar-enabled app has one main container (`isMain: true`) and up to nine sidecar containers (`isMain: false`). In the container configuration, `isMain: true` designates the main app container. All others must have `isMain: false`.
 - **Networking:** All containers in the app share the same network namespace and communicate over `localhost`. There is no need for service name resolution, so use `localhost:<port>`. Each container must listen on a unique port. Only ports 80 and 8080 are supported for external HTTP traffic. For internal communication, use any available unique port.
 - **Lifecycle:** Sidecars start, stop, and scale together with the main app container. When your app scales out or in, all associated sidecar containers follow the same lifecycle automatically.
-- **Configuration:** Sidecars can be configured via the Azure Portal, ARM templates, or CLI. You specify the container image, environment variables, and other settings for each container. App settings are shared across all containers. You can also set container-specific environment variables.
+- **Configuration:** Sidecars can be configured via the Azure portal, ARM templates, or CLI. You specify the container image, environment variables, and other settings for each container. App settings are shared across all containers. You can also set container-specific environment variables.
 - **Volume mounts:** Each container can have its own volume mounts.
 - **Authentication:** Sidecars can pull images from public or private registries, including Azure Container Registry. Use managed identity or admin credentials for private registries.
 
@@ -47,7 +47,7 @@ For existing Linux code-only apps (in built-in containers), see [Tutorial: Confi
 For existing custom container apps, see [Enable sidecar support for Linux custom containers](configure-sidecar.md#enable-sidecar-support-for-linux-custom-containers).
 
 ### How do I monitor and troubleshoot sidecars?
-Use Azure Monitor, Log Analytics, and the Diagnose & Solve blade in the Azure Portal. Logs from all containers are available in the App Service log stream.
+Use Azure Monitor, Log Analytics, and the Diagnose & Solve blade in the Azure portal. Logs from all containers are available in the App Service log stream.
 
 ### Are there any limitations?
 Persistent Azure storage is not supported for sidecars. App Service Environment (ASE) and national clouds may not be supported yet. Check the latest Azure documentation for updates.

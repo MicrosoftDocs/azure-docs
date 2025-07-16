@@ -13,7 +13,7 @@ This article provides practical steps for enabling and configuring sidecars in y
 
 ## Create a sidecar in the Azure portal
 
-1. Go to your App Service resource in the Azure Portal.
+1. Go to your App Service resource in the Azure portal.
 2. Select **Deployment Center** and go to the **Containers** tab.
 3. Click **Add container** to add a sidecar.
 4. Fill in the image name, registry authentication (if needed), and environment variables.
@@ -176,7 +176,7 @@ The **Port** field in the Portal is metadata only and not used by App Service fo
 
 ## Add volume mounts
 
-By default, the default `/home` volume is mounted to all containers unless disabled. You can configure additional volumn mounts for your sidecars. 
+By default, the default `/home` volume is mounted to all containers unless disabled. You can configure additional volume mounts for your sidecars. 
 
 Volume mounts enable you to share non-persistent files and directories between containers within your Web App.
 
