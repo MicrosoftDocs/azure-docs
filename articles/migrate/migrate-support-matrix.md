@@ -98,6 +98,8 @@ Geography | Metadata storage location
 --- | ---
 Microsoft Azure operated by 21Vianet | China North 2
 
+::: moniker-end
+
 ## VMware assessment and migration
 
 [Review](migrate-support-matrix-vmware.md) the support matrix for using the Azure Migrate Discovery and Assessment tool and the Azure Migrate and Modernize tool to discover VMware VMs.
