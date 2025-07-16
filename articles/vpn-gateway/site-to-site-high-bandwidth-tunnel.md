@@ -232,7 +232,7 @@ static routing:
     10.1.0.0/24 next-hop: tunnel 3
 ```
 
-### <a name="configure-connect"></a>Configure custom encryption algoriths (optional)
+### <a name="configure-connect"></a>Configure custom encryption algorithms (optional)
 
 In each VPN Connection you can define a custom IKEv2 and IPsec policy to match the encryption requirements. For more information, see [Configure custom IPsec/IKE connection policies](ipsec-ike-policy-howto.md).
 
@@ -252,13 +252,15 @@ You can customize site-to-site configurations in various ways. For more informat
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete these resources.
+If you are not going to continue to use these resources, your should delete them.
 
 1. Enter the name of your resource group in the **Search** box at the top of the portal and select it from the search results.
 1. Select **Delete resource group**.
 1. Enter your resource group for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
-### <a name="additional"></a>Limitations
+## Next steps
+
+For more information about VPN Gateway, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md).
 
 <!--Link References-->
 
