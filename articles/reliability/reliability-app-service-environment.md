@@ -86,11 +86,13 @@ If you enable availability zones but specify a capacity of less than two, the pl
 
 ### Configure availability zone support
 
-- **Create a zone-redundant App Service Environment.** To learn how to create a new zone-redundant App Service Environment, see [Create a new App Service Environment plan with zone redundancy](../app-service/environment/creation.md). Make sure to set **Zone redundancy** to *Enabled*. To create plans in your App Service Environment, you must use the Isolated v2 pricing tier. To learn how to create an Isolated v2 App Service plan with zone redundancy, see [Configure Isolated v2 App Service plans with zone redundancy](../app-service/environment/configure-zone-redundancy-isolated.md).
+- **Create a zone-redundant App Service Environment.** 
+    - To learn how to create a new zone-redundant App Service Environment, see [Create a new App Service Environment plan with zone redundancy](../app-service/environment/creation.md). Make sure to set **Zone redundancy** to *Enabled*. 
+    - To create plans in your App Service Environment, you must use the Isolated v2 pricing tier. To learn how to create an Isolated v2 App Service plan with zone redundancy, see [Configure Isolated v2 App Service plans with zone redundancy](../app-service/environment/configure-zone-redundancy-isolated.md).
 
 - **Enable or disable zone redundancy on an existing App Service Environment.** To learn how to enable or disable zone redundancy on App Service Environment, see [Set zone redundancy for an existing App Service Environment](../app-service/environment/configure-zone-redundancy-ase.md#set-zone-redundancy-for-an-existing-app-service-environment). To learn how to enable or disable zone redundancy on an existing Isolated v2 App Service plan inside your environment, see [Set zone redundancy for an existing Isolated v2 App Service plan](../app-service/environment/configure-zone-redundancy-isolated.md#set-zone-redundancy-for-an-existing-isolated-v2-app-service-plan).
 
-> [NOTE]
+> [!NOTE]
 > When you change the zone redundancy status of the App Service Environment, you initiate an upgrade that takes 12-24 hours to complete. During the upgrade process, you don't experience any downtime or performance problems.
 
 
