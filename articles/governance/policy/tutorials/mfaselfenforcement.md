@@ -33,19 +33,16 @@ On the left-hand menu or home dashboard, select Policy under Azure services. If 
 _To enable safe rollout of policy enforcement, we recommend leveraging Azure Policy’s resource selectors to gradually rollout policy enforcement across your resources._
 - In the 'Basics' tab, you’ll see 'Resource Selectors'. Click expand.
 - Click 'Add a resource selector'
-<img width="388" height="272" alt="image" src="https://github.com/user-attachments/assets/69a7539c-7351-4f73-8e85-cea64a7f51f2" />
-
 
 - In your resource selector, add a name for your selector.
 - Toggle resourceLocation to enable it. Pick a few low-risk regions that you’d like to enforce on. This means that the policy assignment will only evaluate Azure resources in those regions.
-![==image_2==.png](/.attachments/==image_2==-c7912959-be1b-445d-87bb-1587c073325f.png) 
 - You can update this assignment later to add more regions by adding additional resourceLocation selectors or updating the existing resourceLocation selector to add more regions.
 
 *5. Select a Policy Definition*
 - Under 'Basics', click on Policy definition.
 - Browse or search for the multi-factor policy definition – there will be 2 of them. Pick one for now:
-   [[Preview]: Users must authenticate with multi-factor authentication to delete resources - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdb4a9d17-db75-4f46-9fcb-9f9526604417/version/1.0.0-preview/scopes/%5B%22%2Fsubscriptions%2F12015272-f077-4945-81de-a5f607d067e1%22%2C%22%2Fsubscriptions%2F0ba674a6-9fde-43b4-8370-a7e16fdf0641%22%5D/contextRender/)
-   [[Preview]: Users must authenticate with multi-factor authentication to create or update resources - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4e6c27d5-a6ee-49cf-b2b4-d8fe90fa2b8b/version/1.0.0-preview/scopes/%5B%22%2Fsubscriptions%2F12015272-f077-4945-81de-a5f607d067e1%22%2C%22%2Fsubscriptions%2F0ba674a6-9fde-43b4-8370-a7e16fdf0641%22%5D/contextRender/)
+- [[Preview]: Users must authenticate with multi-factor authentication to delete resources - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdb4a9d17-db75-4f46-9fcb-9f9526604417/version/1.0.0-preview/scopes/%5B%22%2Fsubscriptions%2F12015272-f077-4945-81de-a5f607d067e1%22%2C%22%2Fsubscriptions%2F0ba674a6-9fde-43b4-8370-a7e16fdf0641%22%5D/contextRender/)
+- [[Preview]: Users must authenticate with multi-factor authentication to create or update resources - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4e6c27d5-a6ee-49cf-b2b4-d8fe90fa2b8b/version/1.0.0-preview/scopes/%5B%22%2Fsubscriptions%2F12015272-f077-4945-81de-a5f607d067e1%22%2C%22%2Fsubscriptions%2F0ba674a6-9fde-43b4-8370-a7e16fdf0641%22%5D/contextRender/)
 - Select the policy definition from the list.
 ![==image_3==.png](/.attachments/==image_3==-a0099b88-e590-499e-b133-3ee4c26e3d68.png) 
 
@@ -81,12 +78,9 @@ Once you are ready, you may update the policy assignment to enable enforcement. 
 - Click 'Review + save', then 'Create'.
 - Once you have confirmed no unexpected impact for this initial application, you may update the existing override to add additional regions, then monitor for any impact. Repeat this step as many times as needed to eventually add all regions.
 
-User Experience during Preview
-------------------------------
+# User Experience during Preview
 
-Audit Mode
-----------
-
+## Audit Mode
 Users can discover audit events in their activity log when this policy assignment is applied in audit mode and they attempt to create, update or delete a resource without being MFA authenticated.
 Here is a sample query that can be used:
 `az monitor activity-log list \
@@ -95,21 +89,19 @@ Here is a sample query that can be used:
 jq -r '"ResourceName\tResourceId\tPolicyDefinitionDisplayName", (.[] as $event | ($event.Policies | fromjson[] | "\($event.ResourceId | split("/") | last)\t\($event.ResourceId)\t\(.policyDefinitionDisplayName)"))' | \
 column -t -s $'\t'`
 
-Enforcement Mode
-----------------
-
+## Enforcement Mode
 Users can expect the following experience when this policy assignment is applied in enforcement mode and they attempt to create, update or delete a resource without being MFA authenticated.
 **NOTE:** In preview timeframe, the error message(s) displayed to the user may differ depending on the client and command being run. This error messaging will continue to improve to be consistent across clients used as this feature matures to GA availability.
-**Azure Portal**
+### Azure Portal
 ![==image_7==.png](/.attachments/==image_7==-4334daf6-8bea-4c9a-b95d-5a9601b1d24c.png) 
-**Azure CLI**
+### Azure CLI
 When a user attempts to perform a create, update, or delete operation without an MFA-authenticated token, the Azure CLI may return:
 ![==image_8==.png](/.attachments/==image_8==-4a887f1b-1859-4c31-bfdf-632b716aa80f.png) 
 
-**PowerShell Error Messages**
+### PowerShell Error Messages
 When a user attempts to perform a create, update, or delete operation without an MFA-authenticated token, Azure PowerShell may return:
 ![==image_9==.png](/.attachments/==image_9==-68867215-bed9-4b0c-a71c-fc5529fce79e.png) 
 
-**Limitations in the Preview Timeframe**
-*   In some cases, you may not be prompted to complete MFA after receiving an error. In such cases, please re-authenticate with MFA before retrying the operation (e.g., through Azure Portal).
-*   In some cases, the error message may not indicate that the operation is blocked due to the policy in-place. Please take note of the error message samples shared above in order to familiarize your organization about how to take action.
+## Limitations in the Preview Timeframe
+- In some cases, you may not be prompted to complete MFA after receiving an error. In such cases, please re-authenticate with MFA before retrying the operation (e.g., through Azure Portal).
+- In some cases, the error message may not indicate that the operation is blocked due to the policy in-place. Please take note of the error message samples shared above in order to familiarize your organization about how to take action.
