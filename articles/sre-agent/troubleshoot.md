@@ -14,10 +14,14 @@ This guide covers the common problems faced when working with Azure SRE Agent an
 
 ## Common troubleshooting scenarios
 
-The following table outlines frequent issues you might encounter and their solutions:
+The following table outlines frequent issues you might encounter and their solutions. For more information about how roles and permissions are applied to an agent, see [Security contexts in Azure SRE Agent](./security-context.md).
 
 | Scenario | Reason | Remarks |
 |---|---|---|
 | The agent shows a permissions error in the chat and knowledge graph. | The agent is created with a high-privileged account and low-privilege account attempts to interact with the agent. | Deny assignments or Azure Policy blocks identity assignment to the agent resource group.  |
 | The location dropdown is blank. | A non-US region policy blocks access to Sweden Central. | If your subscription or management group limits to US-only deployments, then the creation step fails. |
 | The *Create* button is disabled. | Lack of administrative permissions. | Agent identity assignments fail if the user account lacks *Owner* or *User Access Administrator* permissions. |
+
+## Related content
+
+- [Security contexts](./security-context.md)

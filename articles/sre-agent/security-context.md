@@ -33,27 +33,33 @@ The security requirements for users are different depending on if you're creatin
 
 ## Agent security context
 
-When you create an agent, a managed identity is created and automatically configured with the appropriate roles and permissions required for the agent to run in the assigned resource groups.
+Azure SRE Agent has its own managed identity that gives the agent the required credentials to act on your behalf as it manages assigned resource groups. You have full control over the roles and permissions applied to the managed identity.
 
-By default the agent is granted *Reader* permissions on the resource groups it manages. If higher privileges are needed for a specific operation, temporary *Contributor* permissions are granted with user approval.
+When you create the agent from the portal, you can select from different permissions levels best suited for your situation. When you create an agent, you can apply the *Reader* or *Privileged* permission level.
 
-When you create the agent, assigning the resource groups you select to manage are associated to the agent's managed identity.
-
-As resource groups are added or removed from the agent's scope, the managed identity's permissions are updated accordingly. Removing a resource group revokes the agent's access to the group entirely.
-
-If the agent lacks permissions for an action, it prompts the user for authorization to complete the action.
-
-### Agent permissions level
-
-When you create an agent, you can allow the agent to run as a *Reader* or with a *Privileged* permission level. The following table describes the difference between the two levels.
+The following table describes the difference between the two levels.
 
 | Permission level | Description |
 |---|---|
-| Reader | The agent has read-only permissions on the resource groups it manages. When an action is required that requires elevated permissions, the agent prompts the user for temporary to complete the action. |
-| Privileged | The agent has permissions to take approved actions on resources and resource types detected in its assigned resource groups. |
+| Reader | Initially configured with read-only permissions on the resource groups it manages. When an action is required that requires elevated permissions, the agent prompts the user for temporary to complete the action. |
+| Privileged | Initially configured to take approved actions on resources and resource types detected in its assigned resource groups. |
+
+At any time, you can change which permissions are available to the agent's managed identity by modifying the access control (IAM) settings of a resource group manged by the agent.
+
+As resource groups are added or removed from the agent's scope, the managed identity's permissions are updated accordingly. Removing a resource group revokes the agent's access to the group entirely.
 
 > [!NOTE]
 > You can't directly remove specific permissions from the agent. To restrict the agent's access, you must remove the entire resource group from the agent's scope.
+
+### Roles
+
+The agent's managed identity is often preconfigured with the following role assignments for a managed resource group:
+
+* Log Analytics Reader
+* Azure Reader
+* Monitoring Reader
+
+Plus any required roles related to specific Azure services in resource groups managed by the agent. 
 
 ## Agent behavior
 
