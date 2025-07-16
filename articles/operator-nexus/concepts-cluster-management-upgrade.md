@@ -18,7 +18,7 @@ The releases update components on the Cluster Manager to enable new functionalit
 For Compute management, Microsoft delivers new software to the extensions and agents that exist on the platform to provide new functionality and maintain security and communication back to Azure.
 
 ## Delivery
-The release rolls out to the Azure regions and the Cluster Manager update is triggered independently when the release is available in that region.
+Cluster Manager update is triggered independently when the release is available in the region.
 
 ## Impact to customer workloads
 There's no disruption to running workloads or instantiating new workloads, and on-premises resources retain availability throughout the upgrade. Therefore, the customer sees no impact. 
