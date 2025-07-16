@@ -199,7 +199,7 @@ The partner, not Azure Communication Services, optimizes delivery routes. Depend
 
 ### Opt-out Management
 
-Opt-out and opt-in compliance is a critical part of SMS messaging, particularly in regulated markets. With Messaging Connect, this responsibility is shared among you (the customer), the partner (for example, Infobip), and Microsoft—each playing a distinct role.
+Opt-out and opt-in compliance is a critical part of SMS messaging, particularly in regulated markets. With Messaging Connect, this responsibility is shared among you (the customer), the partner (for example, Infobip), and Microsoft, with each playing a distinct role.
 
 #### Key Responsibilities
 
@@ -320,7 +320,7 @@ After the partner assigns the numbers to you, they initiate the sync with ACS. A
 > - **JavaScript SDK:** [`1.2.0-beta.4`](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/communication-sms/CHANGELOG.md)
 > - **.NET SDK:** [`1.1.0-beta.3`](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.Sms/CHANGELOG.md)
 
-Messaging Connect uses the same SMS APIs and SDKs as the rest of Azure Communication Services. If you've already followed the [Send SMS Quickstart](https://learn.microsoft.com/azure/communication-services/quickstarts/sms/send?tabs=linux&pivots=programming-language-csharp), you're already 90% of the way there. Make sure to use the ‘Send SMS with options’ method.
+Messaging Connect uses the same SMS APIs and SDKs as the rest of Azure Communication Services. If you've already followed the [Send SMS Quickstart](https://learn.microsoft.com/azure/communication-services/quickstarts/sms/send?tabs=linux&pivots=programming-language-csharp), you're already 90% of the way there.Make sure to use the "Send SMS with options" method.
 
 There’s no separate SDK or client for Messaging Connect. You authenticate, create your `SmsClient`, and call the send method just as you would for any other ACS number. The only difference is that your request must include a `MessagingConnect` object in the options field when you're using a number provisioned through Messaging Connect.
 
