@@ -1,6 +1,6 @@
 ---
 title: Azure Operator Nexus Network Fabric management upgrade overview
-description: Get an overview of Nework Fabric management upgrade for Azure Operator Nexus.
+description: Get an overview of Network Fabric management upgrade for Azure Operator Nexus.
 author: bartpinto
 ms.author: bpinto
 ms.service: azure-operator-nexus
@@ -21,7 +21,7 @@ For Fabric Device management, Microsoft delivers new software to the extensions 
 The update rolls out to the Azure regions and the Network Fabric Controller is updated when the release is available in that region.
 
 ## Impact to customer workloads
-There is no disruption to running workloads or instantiating new workloads, and on-premises resources retain availability throughout the upgrade. Therefore, the customer sees no impact. 
+There's no disruption to running workloads or instantiating new workloads, and on-premises resources retain availability throughout the upgrade. Therefore, the customer sees no impact. 
 
 ## Duration of on-premises updates
 These updates take up to one hour to complete per Network Fabric.
