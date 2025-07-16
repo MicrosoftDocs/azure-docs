@@ -63,6 +63,21 @@ Follow these steps to migrate to a new gateway using the Azure portal:
 > - Expect a possible interruption of up to 3 minutes during migration.
 > - Once committed, the connection name can't be changed. To rename the connection, it must be deleted and recreated. Contact Azure support for assistance if needed.
 
+# New Express Route gateway public IP is managed by Microsoft
+## Hosted-On-Behalf-Of(HOBO) public IP
+The Hosted-On-Behalf-Of (HOBO) Public IP feature simplifies ExpressRoute gateway deployment by allowing Microsoft to manage the required public IP address on your behalf and is not visible on your subscription or gateway anymore. For PowerShell/CLI, you are no longer required to create or maintain a separate public IP resource for your gateway.
+
+Key benefits:
+
+Improved security: The public IP is managed internally by Microsoft and isn't exposed to you, reducing risks associated with open management ports.
+Reduced complexity: You aren't required to provision or manage a public IP resource.
+Streamlined deployment: The Azure PowerShell and CLI no longer prompt for a public IP during gateway creation.
+How it works:
+When you create an ExpressRoute gateway, Microsoft automatically provisions and manages the public IP address in a secure, backend subscription. This IP is encapsulated within the gateway resource, enabling Microsoft to enforce policies such as data rate limits and enhance auditability.
+
+Availability:
+HOBO Public IP is not available for Virtual WAN (vWAN) or Extended Zone deployments.
+
 ## Next steps
 
 * Learn more about [designing for high availability](designing-for-high-availability-with-expressroute.md).
