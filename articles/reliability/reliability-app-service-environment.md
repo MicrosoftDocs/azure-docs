@@ -13,14 +13,13 @@ ms.date: 07/16/2025
 
 # Reliability in Azure App Service Environment
 
-Azure App Service Environment is an Azure App Service feature that provides a fully Isolated v2 and dedicated environment for running App Service apps securely at high scale. Unlike the App Service public multitenant offering where supporting infrastructure is shared, with App Service Environment, compute is dedicated to a single customer.
-
-Azure App Service Environment offers enhanced reliability features through its dedicated, Isolated v2 infrastructure. This dedicated environment provides better control over scaling, security, and availability compared to the multitenant App Service offering. The Isolated v2 nature of App Service Environment allows for more predictable performance and reduces the impact of noisy neighbor scenarios that can affect reliability in shared environments.
+Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale. Unlike the App Service public multitenant offering where supporting infrastructure is shared, with App Service Environment, compute is dedicated to a single customer.
 
 Key reliability benefits include dedicated compute resources that aren't shared with other customers, enhanced network isolation for improved security and stability, and the ability to deploy in your own virtual network for greater control over traffic routing and security policies.
 
 This article describes reliability support in [Azure App Service Environment](../app-service/environment/overview.md), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
+To use App Service Environment, you must use the [Isolated v2 pricing tier](/azure/app-service/overview-hosting-plans#isolated-v2). The Isolated v2 pricing tier supports zone redundancy and is designed for high-scale, mission-critical applications.
 
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
