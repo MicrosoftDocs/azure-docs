@@ -97,7 +97,7 @@ Before a message can be sent using Messaging Connect, Azure checks that your req
 
 #### Required Payload Format
 
-When you send a message using a Messaging Connect number, your request must include a `messagingConnect` object. This object contains the API key provided by the Messaging Connect partner (e.g., Infobip) and the partner’s name. Azure uses this information to authorize the request and determine how to route the message.
+When you send a message using a Messaging Connect number, your request must include a `messagingConnect` object. This object contains the API key provided by the Messaging Connect partner (for example, Infobip) and the partner’s name. Azure uses this information to authorize the request and determine how to route the message.
 
 ```json
 {
@@ -112,11 +112,11 @@ When you send a message using a Messaging Connect number, your request must incl
   }
 }
 ```
-The `messagingConnect` object is required whenever you use a number provisioned through Messaging Connect. If it’s missing or misconfigured, your message will not be accepted.
-Once this metadata is included, Azure performs validation checks in two stages: first, immediately upon receiving your request, and later, after it’s submitted to the partner.
+The `messagingConnect` object is required whenever you use a number provisioned through Messaging Connect. If it’s missing or misconfigured, your message won't be accepted.
+Once this metadata is included, Azure Communication Services performs validation checks in two stages: first, immediately when Azure Communication Services receives your request, and later, after it's submitted to the partner.
 
 ##### 1. Synchronous Validation
-This is the first layer of validation, and it happens the moment your message request is received. If something is missing or invalid—such as the partner name, the API key, or the association between the number and your ACS resource—you’ll receive an immediate error response. This prevents messages from being sent incorrectly or routed to the wrong provider.
+This first layer of validation happens as soon as Azure Communication Services receives your message request. If something is missing or invalid—such as the partner name, the API key, or the association between the number and your ACS resource—you receive an immediate error response. This check prevents messages from being sent incorrectly or routed to the wrong partner.
 Common validation outcomes:
 
 | Scenario                                                    | Response                                                                 |
