@@ -69,7 +69,7 @@ The gateway machine must have the following configuration:
 
 - The ability to handle requests to `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}`.
 
-You can use the [Application Routing Request module for Internet Information Server (IIS)](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) to redirect `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` requests to the function app.
+You can use the [Application Routing Request module for Internet Information Services (IIS)](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) to redirect `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` requests to the function app.
 
 ### Azure Functions requirements
 
@@ -126,8 +126,8 @@ Follow these steps to set up a sample remote desktop gateway farm.
    |`adminUsername`             |Required |Administrator user name for the gateway machines. |
    |`adminPassword`             |Required |Password for the administrator account for the gateway machines. |
    |`instanceCount`             |             |Number of gateway machines to create. |
-   |`alwaysOn`                  |             |Whether to keep the created Azure Functions app warmed (on). Keeping the app on avoids delays when users first try to connect to their lab VMs, but it has cost implications. |
-   |`tokenLifetime`             |             |The length of time, in HH:MM:SS, format that the created token is valid. |
+   |`alwaysOn`                  |             |Whether to keep the created Azure Functions app on. Keeping the app on avoids delays when users first try to connect to their lab VMs, but it has cost implications. |
+   |`tokenLifetime`             |             |The length of time, in HH:MM:SS format, that the created token is valid. |
    |`sslCertificate`            |Required |The Base64 encoding of the TLS/SSL certificate for the gateway machine. |
    |`sslCertificatePassword`    |Required |The password of the TLS/SSL certificate for the gateway machine. |
    |`sslCertificateThumbprint`  |Required |The certificate thumbprint for identification in the local certificate store of the signing certificate. |
