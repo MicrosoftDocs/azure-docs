@@ -1,11 +1,13 @@
 ---
-title: Integrate Azure DevTest Labs with DevOps CI/CD pipelines
+title: Integrate Azure DevTest Labs with DevOps CI/CD Pipelines
 description: Learn how to use Azure DevTest Labs with continuous integration (CI) and continuous delivery (CD) pipelines in an enterprise environment.
-ms.topic: conceptual
+ms.topic: concept-article 
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 09/30/2023
+ms.date: 07/18/2025
 ms.custom: UpdateFrequency2
+
+#customer intent: As a developer, I want to integrate Azure DevTest Labs with DevOps so that I can take advantage of the benefits of CI/CD pipelines.
 ---
 
 # Integrate DevTest Labs and DevOps CI/CD pipelines
