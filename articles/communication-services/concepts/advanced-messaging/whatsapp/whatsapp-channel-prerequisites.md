@@ -61,6 +61,7 @@ Make sure the phone number has the following capabilities:
 2. Phone number isn't already associated with a WhatsApp Business Account
 
 If you're using an Azure Communication Services phone number, continue to follow the [subsequential steps](#setup-and-deploy-event-grid-viewer). 
+
 If you're bringing your own phone number, jump to next [section](#connect-whatsapp-business-account-as-a-channel-in-azure-communication-services-resource). 
 
 ### Setup and Deploy Event Grid Viewer
