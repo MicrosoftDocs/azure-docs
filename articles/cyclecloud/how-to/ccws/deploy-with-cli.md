@@ -14,9 +14,9 @@ Prerequisites: Install the Azure CLI and Git, and then sign in or set your Azure
 
 1. Clone the Azure CycleCloud Workspace for Slurm on the latest stable release
 
-```bash
-git clone --depth 1 https://github.com/azure/cyclecloud-slurm-workspace.git
-```
+   ```bash
+   git clone --depth 1 https://github.com/azure/cyclecloud-slurm-workspace.git
+   ```
 
 1. Copy the content of the UI definition file `./uidefinitions/createUiDefinition.json`
 
@@ -24,25 +24,25 @@ git clone --depth 1 https://github.com/azure/cyclecloud-slurm-workspace.git
     - For Azure Public Cloud [Azure Public portal](https://portal.azure.com/#view/Microsoft_Azure_CreateUIDef/SandboxBlade)
     - For Azure US Gov [Azure US Gov portal](https://portal.azure.us/#view/Microsoft_Azure_CreateUIDef/SandboxBlade)
 
-- Paste the content of the UI Definition file into the multiline text box on the right,
-- Select `Preview >>` in the bottom-left corner to bring up a UI experience. 
-- Go through each page of the UI flow to make sure that necessary values appear in the output payload described in the next step,
-- Go through the UI flow to the `Review + create` page and then select the link labeled `View outputs payload` to the right of the `Create` button to generate a pane with JSON-formatted text in its body on the right-hand side of the browser window,
-- Copy the JSON-formatted text into a local JSON file, 
-- Save it as `parameters.json` and note the path to it. This file is the Parameters File for the deployment,
-- Open the shell of your choice and go to the folder or directory that contains the `cyclecloud-slurm-workspace` repository you cloned earlier,
-- Accept the terms of the Cycle image plan:
+1. Paste the content of the UI Definition file into the multiline text box on the right.
+1. Select `Preview >>` in the bottom-left corner to bring up a UI experience. 
+1. Go through each page of the UI flow to make sure that necessary values appear in the output payload described in the next step.
+1. Go through the UI flow to the `Review + create` page and then select the link labeled `View outputs payload` to the right of the `Create` button to generate a pane with JSON-formatted text in its body on the right-hand side of the browser window.
+1. Copy the JSON-formatted text into a local JSON file.
+1. Save it as `parameters.json` and note the path to it. This file is the Parameters File for the deployment.
+1. Open the shell of your choice and go to the folder or directory that contains the `cyclecloud-slurm-workspace` repository you cloned earlier.
+1. Accept the terms of the Cycle image plan:
 
-```bash
-az vm image terms accept --urn azurecyclecloud:azure-cyclecloud:cyclecloud8-gen2:latest
-```
-- Run the following deployment command in a shell. Substitute values for fields in square brackets (be sure to delete the brackets). The current directory is as described in the previous step.
+   ```bash
+   az vm image terms accept --urn azurecyclecloud:azure-cyclecloud:cyclecloud8-gen2:latest
+   ```
+1. Run the following deployment command in a shell. Substitute values for fields in square brackets (be sure to delete the brackets). The current directory is as described in the previous step.
 
-```bash
-az deployment sub create --template-file ./cyclecloud-slurm-workspace/bicep/mainTemplate.bicep --parameters parameters.json --location [ANY AZURE LOCATION E.G. eastus] --name [OPTIONAL BUT HELPFUL, DELETE IF UNUSED] 
-```
+   ```bash
+   az deployment sub create --template-file ./cyclecloud-slurm-workspace/bicep/mainTemplate.bicep --parameters parameters.json --location [ANY AZURE LOCATION E.G. eastus] --name [OPTIONAL BUT HELPFUL, DELETE IF UNUSED] 
+   ```
 
-- Wait until the shell indicates that the deployment was successful. You can also track the progress of the deployment in the Azure portal. Go to the resource group shown in the UI, select **Deployments** from the Settings menu, and check the status of the deployment name that begins with "pid-" at the bottom of the displayed list.
+1. Wait until the shell indicates that the deployment was successful. You can also track the progress of the deployment in the Azure portal. Go to the resource group shown in the UI, select **Deployments** from the Settings menu, and check the status of the deployment name that begins with "pid-" at the bottom of the displayed list.
 
 ## Resources
 
