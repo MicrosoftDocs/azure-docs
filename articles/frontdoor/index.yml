@@ -26,7 +26,7 @@ landingContent:
             url: front-door-overview.md
           - text: Choose a load balancer
             url: /azure/architecture/guide/technology-choices/load-balancing-overview
-          - text: Well-architected framework
+          - text: Architecture best practices for Azure Front Door
             url: /azure/well-architected/service-guides/azure-front-door
       - linkListType: training
         links:
@@ -60,7 +60,7 @@ landingContent:
             url: ../web-application-firewall/afds/waf-front-door-rate-limit.md
       - linkListType: architecture
         links:
-          - text: Perserve original HTTP hostname
+          - text: Preserve original HTTP hostname
             url: /azure/architecture/best-practices/host-name-preservation
           - text: Global routing redundancy for mission critical web applications
             url: /azure/architecture/guide/networking/global-web-applications/overview

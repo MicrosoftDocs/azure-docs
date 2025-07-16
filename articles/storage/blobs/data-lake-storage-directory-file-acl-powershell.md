@@ -11,6 +11,7 @@ ms.author: normesta
 ms.reviewer: prishet
 ms.devlang: powershell
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud administrator, I want to use PowerShell to manage directories and files in Azure Data Lake Storage, so that I can efficiently organize and control access to data stored in a hierarchical namespace.
 ---
 
 # Use PowerShell to manage directories and files in Azure Data Lake Storage

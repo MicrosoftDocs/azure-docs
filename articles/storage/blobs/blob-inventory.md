@@ -9,6 +9,7 @@ ms.date: 03/28/2024
 ms.topic: concept-article
 ms.author: normesta
 ms.custom: references_regions
+# Customer intent: "As a cloud storage administrator, I want to generate inventory reports for blob data, so that I can audit data properties and automate workflows to efficiently manage storage resources."
 ---
 
 # Azure Storage blob inventory
@@ -432,6 +433,16 @@ You can't configure an inventory policy in the account if support for version-le
 If a container or directory is deleted with soft-delete enabled, then the container or directory and all its contents are marked as soft-deleted. However, only the container or directory (reported as a zero-length blob) appears in an inventory report and not the soft-deleted blobs in that container or directory even if you set the `includeDeleted` field of the policy to **true**.  This can lead to a difference between what appears in capacity metrics that you obtain in the Azure portal and what is reported by an inventory report. 
 
 Only blobs that are explicitly deleted appear in reports. Therefore, to obtain a complete listing of all soft-deleted blobs (directory and all child blobs), workloads should delete each blob in a directory before deleting the directory itself.
+
+### Handling duplicates in Blob Inventory
+
+Blob Inventory operates on a distributed system, which means that in rare cases, duplicate blob entries might appear in your reports.
+
+If when post processing your inventory report, your use case requires unique blob entries, you can use the `Name` field to identify and return only the unique blobs. 
+
+  
+If your report includes blob versions, use both the `Name` and `Version ID` fields together to identify and return only the unique blobs and versions.
+
 
 ## Next steps
 

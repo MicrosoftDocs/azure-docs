@@ -10,6 +10,7 @@ ms.devlang: python
 ms.topic: how-to
 ms.date: 06/24/2025
 ms.author: ikivanc
+# Customer intent: "As a software developer, I want to run automated tests against Azure Blob Storage using a local emulator, so that I can efficiently validate my code without relying on a cloud environment."
 ---
 
 # Run automated tests by using Azurite

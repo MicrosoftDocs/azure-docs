@@ -6,6 +6,7 @@ ms.date: 01/31/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to back up SQL Server databases on an Azure VM to a cloud-based recovery vault, so that I can ensure data protection and meet recovery objectives efficiently."
 ---
 
 # Tutorial: Back up a SQL Server database in an Azure VM

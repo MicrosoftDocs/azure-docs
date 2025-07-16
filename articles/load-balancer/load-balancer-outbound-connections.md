@@ -8,6 +8,7 @@ ms.service: azure-load-balancer
 ms.topic: concept-article
 ms.date: 06/26/2024
 ms.author: mbender
+# Customer intent: "As a cloud architect, I want to configure Source Network Address Translation (SNAT) for my virtual machines, so that I can ensure secure and reliable outbound internet connectivity while managing SNAT port allocation effectively to avoid exhaustion."
 ---
 
 # Use Source Network Address Translation (SNAT) for outbound connections

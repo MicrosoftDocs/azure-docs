@@ -7,6 +7,7 @@ ms.service: azure-application-gateway
 ms.date: 03/05/2025
 ms.author: mbender
 ms.topic: concept-article
+# Customer intent: "As a cloud architect, I want to configure multi-site hosting on an application gateway, so that I can efficiently manage traffic for multiple web applications using a single gateway and optimize resource allocation."
 ---
 
 # Application Gateway multi-site hosting

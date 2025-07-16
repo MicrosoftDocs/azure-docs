@@ -8,6 +8,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024
 ms.custom: devx-track-python, devguide-python
+# Customer intent: "As a developer working with Azure Blob Storage in Python, I want to implement a configurable retry policy, so that my application can effectively handle transient faults and improve its stability and resiliency during service interruptions."
 ---
 
 # Implement a retry policy with Python

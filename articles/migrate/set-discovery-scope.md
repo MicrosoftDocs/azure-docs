@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 05/12/2025
 ms.custom: vmware-scenario-422, engagement-fy23
+# Customer intent: As a cloud architect, I want to configure the discovery scope for servers in a VMware vSphere environment using Azure Migrate, so that I can streamline the assessment and migration processes while ensuring appropriate access controls are in place.
 ---
 
 # Set discovery scope for servers in VMware vSphere environment

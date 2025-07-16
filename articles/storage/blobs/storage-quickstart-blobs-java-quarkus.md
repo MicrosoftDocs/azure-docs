@@ -9,6 +9,7 @@ ms.date: 03/18/2025
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: java
+# Customer intent: As a Java developer, I want to utilize the Quarkus extension for Azure Blob Storage so that I can efficiently manage blob storage operations like creating containers, uploading, and downloading blobs in my applications.
 ---
 
 # Quickstart: Quarkus extension for Azure Blob Storage

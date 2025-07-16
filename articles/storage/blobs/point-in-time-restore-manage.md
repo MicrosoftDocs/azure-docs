@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 01/29/2021
 ms.author: normesta
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a cloud storage administrator, I want to perform point-in-time restores on block blob data, so that I can recover files to a previous state in case of accidental deletion or data corruption."
 ---
 
 # Perform a point-in-time restore on block blob data

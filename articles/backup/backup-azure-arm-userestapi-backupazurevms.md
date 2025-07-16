@@ -7,6 +7,7 @@ ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
+# Customer intent: As an IT administrator, I want to configure and manage Azure VM backups using REST API, so that I can automate backup operations and maintain data protection efficiently.
 ---
 
 # Back up an Azure VM using Azure Backup via REST API
