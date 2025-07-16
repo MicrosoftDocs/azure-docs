@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 02/18/2022
+ms.date: 07/11/2025
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell
 # Customer intent: "As an IT admin, I want to configure mutual authentication for my Application Gateway using PowerShell, so that I can ensure secure client-server communication through certificate verification."

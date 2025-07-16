@@ -1,5 +1,5 @@
 ---
-title: SMB FAQs for Azure NetApp Files | Microsoft Docs
+title: SMB FAQs for Azure NetApp Files 
 description: Answers frequently asked questions (FAQs) about the SMB protocol of Azure NetApp Files.
 ms.service: azure-netapp-files
 ms.topic: concept-article
