@@ -15,7 +15,7 @@ ms.custom:
 
 # Federated API management with workspaces
 
-[!INCLUDE [api-management-availability-premium](../../includes/api-management-availability-premium.md)]
+[!INCLUDE [api-management-availability-premium-premiumv2](../../includes/api-management-availability-premium-premiumv2.md)]
 
 This article provides an overview of API Management *workspaces* and how they empower decentralized API development teams to manage and productize their APIs in a common service infrastructure. 
 

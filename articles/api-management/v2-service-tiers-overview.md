@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 06/16/2025
+ms.date: 07/15/2025
 ms.author: danlep
 ms.custom:
   - references_regions
