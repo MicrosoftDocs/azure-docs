@@ -36,22 +36,23 @@ The following video demonstrates this process.
 - [Active Meta Business account](https://www.facebook.com/business/tools/meta-business-suite)
 - An Azure account with an active subscription where you have the role of an owner. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 
-## Create an Azure Communication Services resource in Azure Portal
+## Create an Azure Communication Services resource in Azure portal
 
-Follow the instructions in [Create an Azure Communication Services resource using Azure portal](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp#create-an-azure-communication-services-resource-using-azure-portal) section.
+Follow the instructions in [Create an Azure Communication Services resource using Azure portal](../../../quickstarts
+/create-communication-resource.md) section.
 
 When following those instructions, here are helpful tips:
 
 - Use the following image as an example of how you can fill in your project details and instance details to create your resource.
 
-    :::image type="content" source="./media/create-acs-resource.png" lightbox="./media/create-acs-resource.png" alt-text="Screenshot that shows populated fields to create a Azure Communication Services Resource in the Azure portal.":::
+    :::image type="content" source="./media/create-acs-resource.png" lightbox="./media/create-acs-resource.png" alt-text="Screenshot that shows populated fields to create an Azure Communication Services Resource in the Azure portal.":::
 
 - Assigning tags to your resource is optional.
 - Once your resource is deployed, continue with the below instructions.
 
 ## Get a phone number
 
-You can [provision a SMS enabled phone number from Azure Communication Services](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/telephony/get-phone-number?tabs=windows&pivots=platform-azp-new)
+You can [provision a SMS enabled phone number from Azure Communication Services](../../../quickstarts/telephony/get-phone-number.md)
 or bring your own phone number.
 
 Make sure the phone number has the following capabilities:
@@ -61,9 +62,9 @@ Make sure the phone number has the following capabilities:
 
 ## Setup and Deploy Event Grid Viewer
 
-The following steps are only needed if you chose to use a Toll-free number from Azure Communication Services phone number with SMS enabled. The Event Grid Viewer display notification information for events it is subscribed to.
+The following steps are only needed if you chose to use a Toll-free number from Azure Communication Services phone number with SMS enabled. The Event Grid Viewer displays notification information for events it's subscribed to.
 
-1. Click on the following button to will launch a custom template for the Azure portal instance that you are logged into to set up the Event Grid Viewer.
+1. Click on the following button to launch a custom template for the Azure portal instance that you're logged into to set up the Event Grid Viewer.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmain%2Fazuredeploy.json" target="_blank"><img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true"/></a>
     
@@ -97,7 +98,7 @@ The following steps are only needed if you chose to use a Toll-free number from 
 
 ## Subscribe to SMS received event
 
-Getting the verification code is required to link your WhatsApp business account to Azure Communication Services resource. Follow these instructions to have the [Azure Event Grid subscribe to the SMS Received event](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/sms/handle-sms-events#subscribe-to-sms-events-by-using-web-hooks).
+Getting the verification code is required to link your WhatsApp business account to Azure Communication Services resource. Follow these instructions to have the [Azure Event Grid subscribe to the SMS Received event](../../../quickstarts/sms/handle-sms-events#subscribe-to-sms-events-by-using-web-hooks).
 
 When following those instructions, here are helpful tips:
 
@@ -125,7 +126,7 @@ When following those instructions, here are helpful tips:
     :::image type="content" source="./media/whatsapp-prerequisites.png" lightbox="./media/whatsapp-prerequisites.png" alt-text="Screenshot that shows Connect to WhatsApp prerequisites.":::
 
 4. Select the **Next** button to continue
-5. Select the SMS enabled phone number you wish to use to connect to your WhatsApp Business Account. This can be either the [Azure Communication Services Toll-free phone number](#provision-an-azure-communication-services-phone-number) you previously provisioned or bring your own phone number.
+5. Select the SMS enabled phone number you wish to use to connect to your WhatsApp Business Account. This can be either the [Azure Communication Services phone number](#provision-an-azure-communication-services-phone-number) you previously provisioned or bring your own phone number.
 
     :::image type="content" source="./media/phone-number-selection.png" lightbox="./media/phone-number-selection.png" alt-text="Screenshot that shows Connect to WhatsApp phone number selection.":::
 
@@ -187,7 +188,7 @@ When following those instructions, here are helpful tips:
 
 19. Select **Finish**.
 
-20. Now in your Azure Communication Service resource, under **Channels**, you will see a new channel connected with a status of **Display name review pending**.
+20. Now in your Azure Communication Service resource, under **Channels**, you'll see a new channel connected with a status of **Display name review pending**.
 
     The status of your WhatsApp Business account is displayed in the Azure portal. Once approved, you will see an **Active** status.
 
