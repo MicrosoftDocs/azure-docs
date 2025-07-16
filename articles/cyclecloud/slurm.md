@@ -16,6 +16,35 @@ Slurm is a highly configurable open source workload manager. For more informatio
 > Starting with CycleCloud 8.4.0, we rewrote the Slurm integration to support new features and functionality. For more information, see [Slurm 3.0](slurm-3.md) documentation.
 
 ::: moniker range="=cyclecloud-7"
+To enable Slurm on a CycleCloud cluster, modify the 'run_list', available in the configuration section of your cluster definition. A Slurm cluster has two main parts: the master (or scheduler) node, which runs the Slurm software on a shared file system, and the executed nodes, which mount that file system and run the submitted jobs. For example, a simple cluster template snippet may look like:
+
+``` ini
+[cluster custom-slurm]
+
+[[node master]]
+    ImageName = cycle.image.centos7
+    MachineType = Standard_A4 # 8 cores
+
+    [[[cluster-init cyclecloud/slurm:default]]]
+    [[[cluster-init cyclecloud/slurm:master]]]
+    [[[configuration]]]
+    run_list = role[slurm_master_role]
+
+[[nodearray execute]]
+    ImageName = cycle.image.centos7
+    MachineType = Standard_A1  # 1 core
+
+    [[[cluster-init cyclecloud/slurm:default]]]
+    [[[cluster-init cyclecloud/slurm:execute]]]
+    [[[configuration]]]
+    run_list = role[slurm_master_role]
+    slurm.autoscale = true
+    # Set to true if nodes are used for tightly-coupled multi-node jobs
+    slurm.hpc = true
+    slurm.default_partition = true
+```
+
+::: moniker-end
 ::: moniker range=">=cyclecloud-8"
 To enable Slurm on a CycleCloud cluster, modify the `run_list` in the configuration section of your cluster definition. A Slurm cluster has two main parts: the scheduler node, which provides a shared file system and runs the Slurm software, and the execute nodes, which mount the shared file system and run the submitted jobs. For example, a simple cluster template snippet might look like:
 
@@ -46,6 +75,7 @@ To enable Slurm on a CycleCloud cluster, modify the `run_list` in the configurat
 ```
 
 ::: moniker-end
+
 ## Editing existing Slurm clusters
 
 Slurm clusters running in CycleCloud versions 7.8 and later use an updated version of the autoscaling APIs that allows the clusters to use multiple node arrays and partitions. To make this functionality work in Slurm, CycleCloud prepopulates the executed nodes in the cluster. Because of this prepopulation, you need to run a command on the Slurm scheduler node after you make any changes to the cluster, such as changing the autoscale limits or VM types.
