@@ -14,7 +14,7 @@ ms.subservice: advanced-messaging
 
 # Prerequisites to Configure WhatsApp as a Channel in Microsoft Copilot Studio
 
-Azure Communication Services Advanced Messaging SDK enables AI agents in Microsoft Copilot Studio to send and receive WhatsApp messages to users. AI agents are associated to a unique WhatsApp Business account phone number.
+Azure Communication Services Advanced Messaging SDK enables AI agents in Microsoft Copilot Studio to send and receive WhatsApp messages to users. Each AI agents are s linked to a unique WhatsApp Business phone number.
 
 ## Overview
 
@@ -38,8 +38,7 @@ The following video demonstrates this process.
 
 ## Create an Azure Communication Services resource in Azure portal
 
-Follow the instructions in [Create an Azure Communication Services resource using Azure portal](../../../quickstarts
-/create-communication-resource.md) section.
+Follow the instructions in [Create an Azure Communication Services resource using Azure portal](../../../quickstarts/create-communication-resource.md) section.
 
 When following those instructions, here are helpful tips:
 
@@ -143,7 +142,7 @@ When following those instructions, here are helpful tips:
 
     :::image type="content" source="./media/facebook-login.png" lightbox="./media/facebook-login.png" alt-text="Screenshot that shows Facebook Sign-In screen.":::
 
-9. The next screen notifies you that the Azure Communication Services app will receive your name and profile picture. It gives permission to Azure Communication Service APIs to manage your WhatsApp Business Account. Select **Continue**.
+9. The next screen notifies you that the Azure Communication Services app will receive your name and profile picture. It gives permission to Azure Communication Services APIs to manage your WhatsApp Business Account. Select **Continue**.
 
     :::image type="content" source="./media/facebook-authorization.png" lightbox="./media/facebook-authorization.png" alt-text="Screenshot that shows Facebook authorization page.":::
 
@@ -158,7 +157,6 @@ When following those instructions, here are helpful tips:
 12. Select or create a WhatsApp Business Account.
 
     :::image type="content" source="./media/create-whatsapp-business-account.png" lightbox="./media/create-whatsapp-business-account.png" alt-text="Screenshot that shows Creating or selecting WhatsApp Business account.":::
-    [image show create business account and select business profile]
 
 13. Select or create a WhatsApp Business Profile. Fill out the required information.
 
@@ -166,9 +164,9 @@ When following those instructions, here are helpful tips:
 
     :::image type="content" source="./media/whatsapp-business-profile-details.png" lightbox="./media/whatsapp-business-profile-details.png" alt-text="Screenshot that shows details need to create a WhatsApp Business profile.":::
 
-14. The phone number you provide will be linked to your WhatsApp Business Account. Another WhatsApp Business account can't use this phone number.
+14. The phone number you provide will be linked to your WhatsApp Business Account and can't be used by another WhatsApp Business account.
 
-    Use the Azure Communication Service phone number you provisioned previously or bring your own phone number.
+    Use the Azure Communication Services phone number you provisioned previously or bring your own phone number.
 
     If the phone number you're bringing is:
     - Under a solution provider other than Azure Communication Services, follow these instructions to [migrate your phone number to Azure Communication Services](https://developers.facebook.com/docs/whatsapp/solution-providers/support/migrating-phone-numbers-among-solution-partners-via-embedded-signup/). Create a [support ticket](https://azure.microsoft.com/support/create-ticket/) if help is needed.
@@ -192,7 +190,7 @@ When following those instructions, here are helpful tips:
 
 19. Select **Finish**.
 
-20. Now in your Azure Communication Service resource, under **Channels**, you'll see a new channel connected with a status of **Display name review pending**.
+20. Now in your Azure Communication Services resource, under **Channels**, you'll see a new channel connected with a status of **Display name review pending**.
 
     The status of your WhatsApp Business account is displayed in the Azure portal. Once approved, you will see an **Active** status.
 
