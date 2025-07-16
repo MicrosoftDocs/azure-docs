@@ -82,13 +82,31 @@ GitHub Codespaces provides the most streamlined experience and can get the devel
     1. Set up port forwarding for ports `1883`, `8883`, and `8884` to enable TLS
     1. Create a local container registry
     
-1. For the next step you will need non-root access to the cluster, run the following command:
+1. For the nexts step you will need non-root access to the cluster, run the following command:
 
     ```bash
     mkdir ~/.kube; sudo install -o $USER -g $USER -m 600 /root/.kube/config ~/.kube/config
     ```
 
     This command gives your non-root user access to the Kubernetes cluster by copying the cluster configuration file from the root account to your user account, ensuring you have the correct permissions to use Kubernetes tools like kubectl without needing root access.
+
+1. Run the following command to increase the [user watch/instance limits](https://www.suse.com/support/kb/doc/?id=000020048).
+
+   ```bash
+   echo fs.inotify.max_user_instances=8192 | sudo tee -a /etc/sysctl.conf
+   echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+
+   sudo sysctl -p
+   ```
+
+1. For better performance, increase the file descriptor limit:
+
+   ```bash
+   echo fs.file-max = 100000 | sudo tee -a /etc/sysctl.conf
+
+   sudo sysctl -p
+   ```
+
 
 ### [Visual Studio Code Dev Containers](#tab/vscode-dev-containers)
 
