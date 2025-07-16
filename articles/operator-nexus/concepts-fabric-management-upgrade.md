@@ -18,13 +18,13 @@ The releases update components on the Network Fabric Controller to enable new fu
 For Fabric Device management, Microsoft delivers new software to the extensions and agents that exist on the platform to provide new functionality and maintain security and communication back to Azure.
 
 ## Delivery
-The update rolls out to the Azure regions and the Network Fabric Controller is updated when the release is available in that region.
+The release rolls out to the Azure regions and the Network Fabric Controller update is triggered independently when the release is available in that region.
 
 ## Impact to customer workloads
 There's no disruption to running workloads or instantiating new workloads, and on-premises resources retain availability throughout the upgrade. Therefore, the customer sees no impact. 
 
 ## Duration of on-premises updates
-These updates take up to one hour to complete per Network Fabric.
+These updates take approximately 10 minutes to complete per Network Fabric.
 
 ## Related Information
 For concepts on Cluster management upgrades, see [Azure Operator Nexus Cluster management upgrade overview](./concepts-cluster-management-upgrade.md).
