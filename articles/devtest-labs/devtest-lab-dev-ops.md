@@ -21,7 +21,7 @@ DevOps methodology also covers:
 
 One component of DevOps methodology is the continuous integration (CI) and continuous delivery (CD) pipeline. A CI/CD pipeline moves information, code, and resources from a source control commit through a series of steps to produce the system. Steps include build, test, and release.
 
-You can use Azure DevTest Labs in CI/CD pipelines. This article discusses using DevTest Labs in CI/CD build and release pipelines in an enterprise environment.
+You can use Azure DevTest Labs in CI/CD pipelines. This article discusses using DevTest Labs in CI/CD build, test, and release pipelines in an enterprise environment.
 
 ## Benefits of using DevTest Labs in DevOps workflows
 
