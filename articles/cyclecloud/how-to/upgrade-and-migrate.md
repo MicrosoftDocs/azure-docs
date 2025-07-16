@@ -33,7 +33,7 @@ Upgrade the CycleCloud package with the following command:
 sudo apt update
 sudo apt -y upgrade cyclecloud
 ```
-:::
+::: moniker-end
 
 ::: moniker range="=cyclecloud-8"
 To upgrade from one version of CycleCloud 8 to a newer version, run the following command:
@@ -42,15 +42,14 @@ sudo apt update
 sudo apt -y upgrade cyclecloud8
 ```
 
-> [!TIP]
-> To upgrade from CycleCloud 7 to CycleCloud 8, run the following command:
+To upgrade from CycleCloud 7 to CycleCloud 8, run the following command:
 
 ```bash
 sudo apt update
 sudo apt -y remove cyclecloud
 sudo apt -y install cyclecloud8
 ```
-:::
+::: moniker-end
 
 Removing `cyclecloud` doesn't remove the data. Installing `cyclecloud8` doesn't overwrite the data.
 
@@ -64,7 +63,7 @@ Upgrade the CycleCloud package by running:
 ```bash
 sudo yum -y upgrade cyclecloud
 ```
-:::
+::: moniker-end
 
 ::: moniker range="=cyclecloud-8"
 
@@ -81,7 +80,7 @@ sudo yum -y install cyclecloud8
 ```
 
 Removing `cyclecloud` doesn't remove the data. Installing `cyclecloud8` doesn't overwrite the data.
-:::
+::: moniker-end
 
 ::: moniker range="<=cyclecloud-7"
 ## Upgrading from the Microsoft Download Center
@@ -103,7 +102,7 @@ For RedHat variants, use:
 ```bash
 rpm -U cyclecloud_7.9.2.rpm
 ```
-::: 
+::: moniker-end
 
 > [!IMPORTANT]
 > Upgrading CycleCloud might cause issues in your environment and affect any running clusters. To reduce risk for production workloads, Microsoft recommends testing all upgrades in a development or staging environment.
