@@ -29,6 +29,8 @@
       href: ../../reliability/reliability-app-service.md?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
     - name: Configure App Service Environment for zone redundancy
       href: configure-zone-redundancy-ase.md
+    - name: Configure Isolated v2 App Service plans with zone redundancy
+      href: configure-zone-redundancy-isolated.md
   - name: Certificates
     href: overview-certificates.md
   - name: Diagnostics
