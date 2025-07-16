@@ -35,13 +35,13 @@ Understanding this distinction is crucial for orchestration versioning, where th
 
 The orchestration versioning feature operates on these core principles:
 
-1. **Version Association**: When an orchestration instance is created, it gets a version permanently associated with it.
+- **Version Association**: When an orchestration instance is created, it gets a version permanently associated with it.
 
-1. **Version-aware Execution**: Orchestrator function code can examine the version value associated with the current orchestration instance and branch execution accordingly.
+- **Version-aware Execution**: Orchestrator function code can examine the version value associated with the current orchestration instance and branch execution accordingly.
 
-2. **Backward Compatibility**: Workers running newer orchestrator versions can continue executing orchestration instances created by older orchestrator versions.
+- **Backward Compatibility**: Workers running newer orchestrator versions can continue executing orchestration instances created by older orchestrator versions.
 
-3. **Forward Protection**: The runtime automatically prevents workers running older orchestrator versions from executing orchestrations started by newer orchestrator versions.
+- **Forward Protection**: The runtime automatically prevents workers running older orchestrator versions from executing orchestrations started by newer orchestrator versions.
 
 > [!IMPORTANT]
 > Orchestration versioning is currently in public preview for apps running in the .NET isolated model. Use `Microsoft.Azure.Functions.Worker.Extensions.DurableTask` package version **>=1.5.0**.
@@ -79,10 +79,10 @@ After you set the `defaultVersion`, all new orchestration instances will be perm
 
 When the `Strict` or `CurrentOrOlder` strategy is selected (see [Version matching](#version-matching)), the runtime compares the orchestration instance's version with the `defaultVersion` value of the worker using the following rules:
 
-1. Empty or null versions are treated as equal.
-2. An empty or null version is considered older than any defined version.
-3. If both versions can be parsed as `System.Version`, the `CompareTo` method is used.
-4. Otherwise, case-insensitive string comparison is performed.
+- Empty or null versions are treated as equal.
+- An empty or null version is considered older than any defined version.
+- If both versions can be parsed as `System.Version`, the `CompareTo` method is used.
+- Otherwise, case-insensitive string comparison is performed.
 
 ### Step 2: Orchestrator function logic
 
@@ -127,13 +127,13 @@ public static async Task<string> RunOrchestrator(
 
 Here's what to expect once you deploy your updated orchestrator function with the new version logic:
 
-1. **Worker Coexistence**: Workers containing the new orchestrator function code will start, while some workers with the old code are potentially still active.
+- **Worker Coexistence**: Workers containing the new orchestrator function code will start, while some workers with the old code are potentially still active.
 
-2. **Version Assignment for New Instances**: All new orchestrations and sub-orchestrations created by the new workers will get the version from `defaultVersion` assigned to them.
+- **Version Assignment for New Instances**: All new orchestrations and sub-orchestrations created by the new workers will get the version from `defaultVersion` assigned to them.
 
-3. **New Worker Compatibility**: New workers will be able to process both the newly created orchestrations and the previously existing orchestrations because the changes performed in Step 2 of the previous section ensure backward compatibility through version-aware branching logic.
+- **New Worker Compatibility**: New workers will be able to process both the newly created orchestrations and the previously existing orchestrations because the changes performed in Step 2 of the previous section ensure backward compatibility through version-aware branching logic.
 
-4. **Old Worker Restrictions**: Old workers will be allowed to process only the orchestrations with a version _equal to or lower_ than the version specified in their own `defaultVersion` in `host.json`, because they aren't expected to have orchestrator code compatible with newer versions. This restriction prevents execution errors and unexpected behavior.
+- **Old Worker Restrictions**: Old workers will be allowed to process only the orchestrations with a version _equal to or lower_ than the version specified in their own `defaultVersion` in `host.json`, because they aren't expected to have orchestrator code compatible with newer versions. This restriction prevents execution errors and unexpected behavior.
 
 > [!NOTE]
 > Orchestration versioning doesn't influence worker lifecycle. The Azure Functions platform manages worker provisioning and decommissioning based on regular rules depending on hosting options.
@@ -323,10 +323,10 @@ Over time, you may want to remove legacy code paths from your orchestrator funct
 - A sufficient time period has passed since the old version was last deployed (considering your business continuity requirements)
 
 **Best practices for removal:**
-1. **Monitor actively running instances**: Use the Durable Functions management APIs to query for instances using specific versions.
-2. **Set retention policies**: Define how long you intend to maintain backward compatibility for each version.
-3. **Remove incrementally**: Consider removing one version at a time rather than multiple versions simultaneously.
-4. **Document removal**: Maintain clear records of when versions were removed and why.
+- **Monitor actively running instances**: Use the Durable Functions management APIs to query for instances using specific versions.
+- **Set retention policies**: Define how long you intend to maintain backward compatibility for each version.
+- **Remove incrementally**: Consider removing one version at a time rather than multiple versions simultaneously.
+- **Document removal**: Maintain clear records of when versions were removed and why.
 
 > [!WARNING]
 > Removing legacy code paths while orchestration instances are still running those versions may cause deterministic replay failures or unexpected behavior. Always verify that no instances are using the legacy version before removing the code.
@@ -335,21 +335,21 @@ Over time, you may want to remove legacy code paths from your orchestrator funct
 
 ### Version management
 
-1. **Use multi-part versioning**: Adopt a consistent versioning scheme like `major.minor.patch`.
-1. **Document breaking changes**: Clearly document what changes require a new version.
-1. **Plan version lifecycle**: Define when to remove legacy code paths.
+- **Use multi-part versioning**: Adopt a consistent versioning scheme like `major.minor.patch`.
+- **Document breaking changes**: Clearly document what changes require a new version.
+- **Plan version lifecycle**: Define when to remove legacy code paths.
 
 ### Code organization
 
-1. **Separate version logic**: Use clear branching or separate methods for different versions.
-1. **Preserve determinism**: Avoid modifying existing version logic once deployed. If changes are absolutely necessary (such as critical bug fixes), ensure they maintain deterministic behavior and don't alter the sequence of operations, or expect the newer orchestrator versions to fail when processing older orchestrations.
-1. **Test thoroughly**: Test all version paths, especially during transitions.
+- **Separate version logic**: Use clear branching or separate methods for different versions.
+- **Preserve determinism**: Avoid modifying existing version logic once deployed. If changes are absolutely necessary (such as critical bug fixes), ensure they maintain deterministic behavior and don't alter the sequence of operations, or expect the newer orchestrator versions to fail when processing older orchestrations.
+- **Test thoroughly**: Test all version paths, especially during transitions.
 
 ### Monitoring and observability
 
-1. **Log version information**: Include version in your logging for easier debugging.
-1. **Monitor version distribution**: Track which versions are actively running.
-1. **Set up alerts**: Monitor for any version-related errors.
+- **Log version information**: Include version in your logging for easier debugging.
+- **Monitor version distribution**: Track which versions are actively running.
+- **Set up alerts**: Monitor for any version-related errors.
 
 ## Troubleshooting
 
