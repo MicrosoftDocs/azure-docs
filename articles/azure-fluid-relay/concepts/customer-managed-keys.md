@@ -32,15 +32,14 @@ Before configuring CMK on your Azure Fluid Relay resource, the following prerequ
 - A user assigned managed identity must be created with necessary permission (GET, WRAP and UNWRAP) to the key vault in step 1. More information [here](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md). Grant GET, WRAP and UNWRAP under Key Permissions in AKV.
 - Azure Key Vault, user assigned identity, and the Fluid Relay resource must be in the same region and in the same Microsoft Entra tenant.
 - The Key Vault and the key must remain active for the entire lifetime of your Fluid Relay resources.
-  - **Do NOT** delete or disable the key vault or the key until all associated Fluid Relay services have been deleted.
-  Otherwise, your Fluid Relay resource will enter an **unusable state**. In this case, please [recover your key or key vault](/azure/key-vault/general/key-vault-recovery?tabs=azure-portal).
-  Azure Fluid Relay cannot recover your key or key vault, as they are fully managed by you (the client).
+  - **Do NOT** delete or disable the key vault or the key until all associated Fluid Relay services are deleted.
+  Otherwise, your Fluid Relay resource enters an **unusable state**. In this case, you need to [recover your key or key vault](/azure/key-vault/general/key-vault-recovery?tabs=azure-portal) first.
 - If you provide the key URL with a specific key version, **only that version** is used for CMK purposes.
 If you later add a new key version, you must **manually** update the key URL in the CMK settings of the Fluid Relay resource to make the new version effective.
 The Fluid Relay service fails if the specified key version is deleted or disabled without updating the resource to use a valid version.
 - To allow the Fluid Relay service to automatically use the latest key version of the key from your key vault, you can omit the key version in the encryption key URL. This setting makes Fluid Relay Service's storage dependency to check the key vault daily for a new version of the customer-managed key and automatically updates the key to the latest version.
   However, you are still responsible for managing and rotating key versions in your Key Vault.
-  - Due to resource limitations, switching to this auto-update setting may fail. If that happens, please specify a key version explicitly and perform a manual update on your Fluid Relay resource for new [key](/azure/key-vault/keys/about-keys) versions.
+  - Due to resource limitations, switching to this auto-update setting may fail. If that happens, specify a key version explicitly and perform a manual update on your Fluid Relay resource for new [key](/azure/key-vault/keys/about-keys) versions.
 
 
 ## Create a Fluid Relay resource with CMK
@@ -149,7 +148,7 @@ You cannot disable CMK on existing Fluid Relay resource once it is enabled.
 
 Before updating the key encryption key (by identifier or version), ensure that **the previous key version is still enabled and has not expired in your key vault**. Otherwise, the update operation fails.
 
-When using the update command, you may specify only the parameters that have changed—unchanged arguments can be omitted.
+When using the update command, you may specify only the parameters that are changed—unchanged arguments can be omitted.
 
 All updates must satisfy the [prerequisites](#prerequisites) described in this page.
 
