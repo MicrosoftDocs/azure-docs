@@ -24,7 +24,7 @@ This article describes reliability support in Azure Device Registry. It covers b
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
-Clients interact with Device Registry by using Azure Resource Manager. Commonly, you use the Azure portal, Azure CLI, or Azure SDKs to interact with Device Registry resources, and these tools provide automatic handling of transient faults. If you use the Resource Manager APIs directly, ensure you handle transient faults.
+Clients interact with Device Registry by using Azure Resource Manager. Commonly, you use the Azure portal, Azure CLI, or Azure SDKs to interact with Device Registry resources, and these tools provide automatic handling of transient faults. If you use the Resource Manager APIs directly, make sure to handle transient faults.
 
 ## Availability zone support
 
@@ -38,12 +38,12 @@ Microsoft manages setup and configuration for zone redundancy in Azure Device Re
 
 The following list of regions support availability zones in Azure Device Registry:
 
-| Americas         | Europe               | Middle East   | Africa             | Asia Pacific   |
-|------------------|----------------------|---------------|--------------------|----------------|
-| East US          | North Europe         |               |                    |                |
-| East US 2        | West Europe          |               |                    |                |
-| West US 2        |                      |               |                    |                |
-| West US 3        |                      |               |                    |                |
+| Americas         | Europe               | 
+|------------------|----------------------|
+| East US          | North Europe         | 
+| East US 2        | West Europe          |
+| West US 2        |                      |  
+| West US 3        |                      |  
 
 ### Cost
 
@@ -69,7 +69,7 @@ The following information describes what happens when you have a zone-redundant 
 
 - **Notification:** Zone failure events can be monitored through Azure Service Health. Set up alerts to receive notifications of zone-level issues.
 
-- **Active requests:** Any active requests could be dropped and might need to be retried. Follow [transient fault handling guidance](#transient-faults) to ensure your application is resilient to any transient faults.
+- **Active requests:** Some active requests may be dropped and so may need to be retried.  To make sure that your application is resilient to any transient faults, see [transient fault handling guidance](#transient-faults).
 
 - **Expected data loss:** A zone failure isn't expected to cause any data loss.
 
