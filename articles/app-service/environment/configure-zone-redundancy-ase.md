@@ -67,7 +67,7 @@ This operation is not yet supported in the Azure portal. Use the Azure CLI or Bi
 ---
 
 > [!NOTE]
-> When you change the zone redundancy status of the App Service Environment plans, you initiate an upgrade that takes 12-24 hours to complete. During the upgrade process, you don't experience any downtime or performance problems.
+> When you change the zone redundancy status of the App Service Environment, you initiate an upgrade that takes 12-24 hours to complete. During the upgrade process, you don't experience any downtime or performance problems.
 
 ## Check for zone redundancy support for an App Service Environment
 
