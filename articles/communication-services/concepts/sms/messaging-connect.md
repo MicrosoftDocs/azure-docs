@@ -223,10 +223,10 @@ Messaging Connect uses a dual-fee model to separate Microsoft’s platform usage
 
 You pay a platform fee to use Azure Communication Services APIs and infrastructure for Messaging Connect. This covers message processing, diagnostics, delivery tracking, and API-level observability.
 
-- $0.0025 per message segment submitted to ACS — This is a platform fee charged for each SMS send request, whether or not the message is ultimately delivered by the partner. Microsoft does not charge for delivery. 
+- $0.0025 per message segment submitted to ACS—this platform fee applies to each SMS send request, whether or not the message is ultimately delivered by the partner. Microsoft does not charge for delivery. 
 - This fee is MACC (Microsoft Azure Consumption Commitment)-eligible and appears as part of your normal Azure invoice.
 
-Microsoft does not handle the message delivery itself—this is done by the Messaging Connect partner. 
+The Messaging Connect partner, not Microsoft, handles message delivery.
 
 #### 2. What You Pay the Partner
 
@@ -235,7 +235,7 @@ You pay the Messaging Connect partner directly for:
 - Phone number leasing (monthly or annually)
 - Per-message delivery fees, which vary by country and route
 
-The partner defines commercial terms and support levels. By default, delivery and number leasing fees are billed to you directly by the Messaging Connect partner (e.g., Infobip). These charges do not appear on your Azure invoice unless you explicitly set up Marketplace billing.
+The partner defines commercial terms and support levels. By default, the Messaging Connect partner (for example, Infobip) bills you directly for delivery and number leasing fees. These charges do not appear on your Azure invoice unless you explicitly set up Marketplace billing.
 There are no subscription restrictions. You can use Messaging Connect with any Azure subscription type, including Pay-as-you-go and Enterprise Agreements. Unlike Microsoft's legacy direct SMS offers, Messaging Connect is not a telecom service—it's a developer platform model.
 
 #### Optional: Consolidated Billing via Azure Marketplace
