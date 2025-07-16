@@ -153,7 +153,7 @@ Follow these steps to set up a sample remote desktop gateway farm.
      - `{container-name}` is the container in the `{storage-account-name}` that holds the files you uploaded.
      - `{utc-expiration-date}` is the date, in UTC, when the SAS token expires and can no longer be used to access the storage account.
 
-1. Record the values for `gatewayFQDN` and `gatewayIP` from the template deployment output. Also save the value of the key for the newly created function, which you can find in the function app's [Application settings tab](../azure-functions/functions-how-to-use-azure-function-app-settings.md#settings).
+1. Record the values for `gatewayFQDN` and `gatewayIP` from the template deployment output. Also save the value of the key for the newly created function, which you can find in the function app's [App settings tab](../azure-functions/functions-how-to-use-azure-function-app-settings.md#settings).
 
 1. Configure DNS so that the FQDN of the TLS/SSL certificate directs to the `gatewayIP` IP address.
 
