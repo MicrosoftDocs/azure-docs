@@ -241,29 +241,7 @@ cd ~/app-service-sidecar-tutorial-prereqs
 azd down
 ```
 
-## Frequently asked questions
-
-- [How do sidecar containers handle internal communication?](#how-do-sidecar-containers-handle-internal-communication)
-- [Can a sidecar container receive internet requests?](#can-a-sidecar-container-receive-internet-requests)
-- [How do I instrument other language stacks?](#how-do-i-instrument-other-language-stacks)
-
-[!INCLUDE [common-faqs](includes/tutorial-sidecar/common-faqs.md)]
-
-### How do I instrument other language stacks?
-
-You can use a similar approach to instrument apps in other language stacks. For more information, see OpenTelemetry documentation:
-
-- [.NET](https://opentelemetry.io/docs/zero-code/net/)
-- [PHP](https://opentelemetry.io/docs/zero-code/php/)
-- [Python](https://opentelemetry.io/docs/zero-code/python/)
-- [Java](https://opentelemetry.io/docs/zero-code/java/)
-- [Node.js](https://opentelemetry.io/docs/zero-code/js/)
-
 ## More resources
 
-- [Tutorial: Run chatbot in App Service with a Phi-3 sidecar extension (ASP.NET Core)](tutorial-ai-slm-dotnet.md)
-- [Tutorial: Run chatbot in App Service with a Phi-3 sidecar extension (Spring Boot)](tutorial-ai-slm-spring-boot.md)
-- [Tutorial: Run chatbot in App Service with a Phi-3 sidecar extension (FastAPI)](tutorial-ai-slm-fastapi.md)
-- [Tutorial: Run chatbot in App Service with a Phi-3 sidecar extension (Express.js)](tutorial-ai-slm-expressjs.md)
-- [REST API: Web Apps - Create Or Update Site Container](/rest/api/appservice/web-apps/create-or-update-site-container)
-- [Infrastructure as Code: Microsoft.Web sites/sitecontainers](/azure/templates/microsoft.web/sites/sitecontainers)
+- [Sidecars overview](overview-sidecar.md)
+- [Configure sidecar](configure-sidecar.md)

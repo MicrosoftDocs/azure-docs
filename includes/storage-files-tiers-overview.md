@@ -5,13 +5,13 @@
  author: khdownie
  ms.service: azure-file-storage
  ms.topic: include
- ms.date: 03/31/2024
+ ms.date: 07/11/2025
  ms.author: kendownie
  ms.custom: include file
 ---
 Azure Files offers two different media tiers of storage, SSD (solid-state disks) and HDD (hard disk drives), which allow you to tailor your shares to the performance and price requirements of your scenario:
 
-- **SSD (premium)**: SSD file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for IO-intensive workloads. SSD file shares are suitable for a wide variety of workloads like databases, web site hosting, and development environments. SSD file shares can be used with both Server Message Block (SMB) and Network File System (NFS) protocols. SSD file shares are available in the [provisioned v1](../articles/storage/files/understanding-billing.md#provisioned-v1-model) billing model. SSD file shares offer a [higher availability SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) than HDD file shares (see "Azure Files Premium Tier").
+- **SSD (premium)**: SSD file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for IO-intensive workloads. SSD file shares are suitable for a wide variety of workloads like databases, web site hosting, and development environments. SSD file shares can be used with both Server Message Block (SMB) and Network File System (NFS) protocols. SSD file shares are available in the [provisioned v2](../articles/storage/files/understanding-billing.md#provisioned-v2-model) and  [provisioned v1](../articles/storage/files/understanding-billing.md#provisioned-v1-model) billing model. SSD file shares offer a [higher availability SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) than HDD file shares (see "Azure Files Premium Tier").
 
 - **HDD (standard)**: HDD file shares provide a cost-effective storage option for general purpose file shares. HDD file shares available with the [provisioned v2](../articles/storage/files/understanding-billing.md#provisioned-v2-model) and [pay-as-you-go](../articles/storage/files/understanding-billing.md#pay-as-you-go-model) billing models, although we recommend the provisioned v2 model for new file share deployments. For information about the SLA, see the [Azure service-level agreements page](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) (see "Storage Accounts"). 
 

@@ -2,7 +2,7 @@
 title: Create a simple NFS and file share
 description: How to create a simple network file server that can be used in CycleCloud
 author: mvrequa
-ms.date: 01/20/2020
+ms.date: 07/01/2025
 ms.author: adjohnso
 ---
 
@@ -20,15 +20,13 @@ type = nfs
 export_path = /mnt/exports/nfs_data
 ```
 
-The above configuration `cyclecloud.exports.nfs_data` specifies that you are configuring directory `/mnt/exports/nfs_data` to be exported as an NFS filesystem named `nfs_data`. The attributes within the configuration section describe the exported filesystem properties.
+The preceding configuration `cyclecloud.exports.nfs_data` specifies that you're configuring directory `/mnt/exports/nfs_data` to be exported as an NFS filesystem named `nfs_data`. The attributes within the configuration section describe the exported filesystem properties.
 
-Note that you can only have one fileserver per cluster otherwise the discovery mechanisms will interfere.
+You can only have one file server per cluster. Otherwise, the discovery mechanisms interfere.
 
 ## Creating exports
 
-NFS exports can also be configured in a cluster template. A node can have an arbitrary number of exports but only one node in
-a cluster may be a fileserver. In the example below we show configs to add to a node to disable the default nfs exports and add
-a new export named _backup_. This export will then be available to other nodes via the mount configurations in this page.
+You can also configure NFS exports in a cluster template. A node can have any number of exports, but only one node in a cluster can be the file server. The following example shows configurations to add to a node to disable the default NFS exports and add a new export named **backup**. Other nodes can access this export through the mount configurations described in this article.
 
 ``` ini
         [[[configuration]]]
@@ -48,9 +46,9 @@ a new export named _backup_. This export will then be available to other nodes v
 
 ## Configuring an NFS server and file share
 
-Most HPC workflows will mount a network file system (NFS) to nodes that can be used for shared application data and job results. A file server node can be defined in a CycleCloud cluster template. The template configs provide very fine control over the file system properties. The local filesystem is defined by `volumes` and `mounts` and the NFS service is defined by `exports`. 
+Most HPC workflows mount a network file system (NFS) to nodes that you can use for shared application data and job results. You can define a file server node in a CycleCloud cluster template. You can set file system properties through the template configs. You define the local filesystem by using `volumes` and `mounts`, and you define the NFS service by using `exports`. 
 
-The following example pulls these topics together in a single node file share.
+The following example brings these topics together in a single node file share.
 
 ```ini
     [[node fileserver]]
@@ -92,28 +90,28 @@ The following example pulls these topics together in a single node file share.
     DefaultValue = 1024
 ```
 
-The `configuration` section contains automation parameters interpreted by the node when it starts. These instructions are necessary to invoke the NFS configuration.
+The `configuration` section contains automation parameters that the node interprets when it starts. These instructions are necessary to invoke the NFS configuration.
 
-This example defines two SSD volumes, or Azure Premium Disks, which will be mounted in a RAID 0 configuration to the mount point _/data_. 
-The two `volume` sections define the volumes while the `cyclecloud.mounts` section defines how the volumes are mounted.
+This example defines two SSD volumes, or Azure Premium Disks, which you mount in a RAID 0 configuration to the mount point _/data_. 
+The two `volume` sections define the volumes while the `cyclecloud.mounts` section defines how you mount the volumes.
 
-The `exports` section then specifies which directory to export. Since the `export_path` falls under the RAID volume, data written to this export will be handled by the RAID volume.
+The `exports` section specifies which directory to export. Because the `export_path` is under the RAID volume, the RAID volume handles data written to this export.
 
 > [!NOTE]
-> Using local disks for a file share is not supported. The `volume` section refers to Azure Disk Storage.
+> You can't use local disks for a file share. The `volume` section refers to Azure Disk Storage.
 
-## Export Configuration Options
+## Export configuration options
 
 | Option | Definition |
 | ------ | ---------- |
-| type         | *REQUIRED* The type attribute must be set to `nfs` for all NFS exports to differentiate from other shared filesystem types. |
-| export_path  | The local path to export as an NFS filesystem.  If the directory does not exist already, it will be created. |
-| owner        | The user account that should own the exported directory.  |
-| group        | The group of the user that should own the exported directory. |
-| mode         | The default filesystem permissions on the exported directory.  |
-| network      | The network interface on which the directory is exported.  Defaults to all: `*`.  |
-| sync         | Synchronous/asynchronous export option.  Defaults to `true`.   |
-| writable     | The ro/rw export option for the filesystem. Defaults to `true`.  |
+| type         | *REQUIRED* Set the type attribute to `nfs` for all NFS exports to differentiate from other shared filesystem types. |
+| export_path  | Set the local path to export as an NFS filesystem. If the directory doesn't exist, the process creates it. |
+| owner        | Set the user account that owns the exported directory.  |
+| group        | Set the group of the user that owns the exported directory. |
+| mode         | Set the default filesystem permissions on the exported directory.  |
+| network      | Set the network interface on which the directory is exported. Defaults to all: `*`.  |
+| sync         | Set the synchronous/asynchronous export option. Defaults to `true`.   |
+| writable     | Set the ro/rw export option for the filesystem. Defaults to `true`.  |
 | options      | Any non-default options to use when exporting the filesystem.   |
 
 ## Further Reading

@@ -694,6 +694,8 @@ items:
       href: diagnostics/bcp135.md
     - name: BCP139
       href: diagnostics/bcp139.md
+    - name: BCP144
+      href: diagnostics/bcp144.md
     - name: BCP147
       href: diagnostics/bcp147.md
     - name: BCP152

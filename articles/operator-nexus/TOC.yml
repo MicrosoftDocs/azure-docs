@@ -38,6 +38,8 @@
           href: concepts-network-fabric.md
         - name: Network Fabric Controller
           href: concepts-network-fabric-controller.md
+        - name: Network Fabric management upgrade
+          href: concepts-fabric-management-upgrade.md
         - name: Network Fabric Services
           href: concepts-network-fabric-services.md
         - name: Network Fabric resource update and commit

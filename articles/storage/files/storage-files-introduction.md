@@ -18,7 +18,9 @@ Here are some videos on common use cases for Azure Files:
 * [Replace your file server with a serverless Azure file share](https://youtu.be/H04e9AgbcSc)
 * [Getting started with FSLogix profile containers on Azure Files in Azure Virtual Desktop leveraging AD authentication](https://www.youtube.com/embed/9S5A1IJqfOQ)
 
-To get started using Azure Files, see [How to create an SMB Azure file share](storage-how-to-create-file-share.md).
+To get started using SMB Azure file shares, see [How to create an SMB Azure file share](storage-how-to-create-file-share.md) and [Migrate to SMB Azure file shares](storage-files-migration-overview.md).
+
+To get started using NFS Azure file shares, see [How to create an NFS Azure file share](storage-files-quick-create-use-linux.md) and [Migrate to NFS Azure file shares](storage-files-migration-nfs.md).
 
 ## Why Azure Files is useful
 

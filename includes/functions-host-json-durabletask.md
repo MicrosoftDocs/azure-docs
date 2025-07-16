@@ -25,6 +25,9 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
  "extensions": {
   "durableTask": {
     "hubName": "MyTaskHub",
+    "defaultVersion": "1.0",
+    "versionMatchStrategy": "CurrentOrOlder",
+    "versionFailureStrategy": "Reject",
     "storageProvider": {
       "connectionStringName": "AzureWebJobsStorage",
       "controlQueueBatchSize": 32,
@@ -106,6 +109,9 @@ Task hub names must start with a letter and consist of only letters and numbers.
 |Property  |Default | Description |
 |---------|---------|----------|
 |hubName|TestHubName (DurableFunctionsHub if using Durable Functions 1.x)|Alternate [task hub](../articles/azure-functions/durable/durable-functions-task-hubs.md) names can be used to isolate multiple Durable Functions applications from each other, even if they're using the same storage backend.|
+|defaultVersion||The default version to assign to new orchestration instances. When specified, new orchestration instances are permanently associated with this version value. Used by the [orchestration versioning](../articles/azure-functions/durable/durable-functions-orchestration-versioning.md) feature to enable scenarios like zero-downtime deployments with breaking changes. You can use any string value for the version.|
+|versionMatchStrategy|CurrentOrOlder|Determines how orchestration versions are matched when loading orchestrator functions. Valid values are `None`, `Strict`, and `CurrentOrOlder`. For detailed explanations, see [orchestration versioning](../articles/azure-functions/durable/durable-functions-orchestration-versioning.md).|
+|versionFailureStrategy|Reject|Determines what happens when an orchestration version does not match the current `defaultVersion`. Valid values are `Reject` and `Fail`. For detailed explanations, see [orchestration versioning](../articles/azure-functions/durable/durable-functions-orchestration-versioning.md).|
 |controlQueueBatchSize|32|The number of messages to pull from the control queue at a time.|
 |controlQueueBufferThreshold| **Consumption plan for Python**: 32 <br> **Consumption plan for other languages**: 128 <br> **Dedicated/Premium plan**: 256 |The number of control queue messages that can be buffered in memory at a time, at which point the dispatcher will wait before dequeuing any additional messages. In some situations, reducing this value can significantly reduce memory consumption.|
 |partitionCount |4|The partition count for the control queue. May be a positive integer between 1 and 16. Changing this value requires configuring a new task hub.|
@@ -122,10 +128,10 @@ Task hub names must start with a letter and consist of only letters and numbers.
 |traceReplayEvents|false|A value indicating whether to write orchestration replay events to Application Insights.|
 |eventGridTopicEndpoint ||The URL of an Azure Event Grid custom topic endpoint. When this property is set, orchestration life-cycle notification events are published to this endpoint. This property supports App Settings resolution.|
 |eventGridKeySettingName ||The name of the app setting containing the key used for authenticating with the Azure Event Grid custom topic at `EventGridTopicEndpoint`.|
-|eventGridPublishRetryCount|0|The number of times to retry if publishing to the Event Grid Topic fails.|
+|eventGridPublishRetryCount|0|The number of times to retry if publishing to the Event Grid topic fails.|
 |eventGridPublishRetryInterval|5 minutes|The Event Grid publishes retry interval in the *hh:mm:ss* format.|
 |eventGridPublishEventTypes||A list of event types to publish to Event Grid. If not specified, all event types will be published. Allowed values include `Started`, `Completed`, `Failed`, `Terminated`.|
-|useAppLease|true|When set to `true`, apps will require acquiring an app-level blob lease before processing task hub messages. For more information, see the [disaster recovery and geo-distribution](../articles/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md) documentation. Available starting in v2.3.0.
+|useAppLease|true|When set to `true`, apps will require acquiring an app-level blob lease before processing task hub messages. For more information, see the [disaster recovery and geo-distribution](../articles/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md) documentation. Available starting in v2.3.0.|
 |useLegacyPartitionManagement|false|When set to `false`, uses a partition management algorithm that reduces the possibility of duplicate function execution when scaling out. Available starting in v2.3.0. **Setting this value to `true` is not recommended**.|
 |useTablePartitionManagement|`true` in v3.x extension versions<br>`false` in v2.x extension versions|When set to `true`, uses a partition management algorithm designed to reduce costs for Azure Storage V2 accounts. Available starting in WebJobs.Extensions.DurableTask v2.10.0. Using this setting with managed identity requires WebJobs.Extensions.DurableTask v3.x or later, or Worker.Extensions.DurableTask versions earlier than v1.2.x or later.|
 |useGracefulShutdown|false|(Preview) Enable gracefully shutting down to reduce the chance of host shutdowns failing in-process function executions.|

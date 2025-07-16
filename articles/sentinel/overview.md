@@ -5,7 +5,7 @@ author: batamig
 ms.author: bagol
 ms.topic: overview
 ms.service: microsoft-sentinel
-ms.date: 07/01/2025
+ms.date: 07/16/2025
 
 
 #CustomerIntent: As a business decision maker, I want to understand what Microsoft Sentinel offers so that I can determine whether the service meets my organization's requirements.

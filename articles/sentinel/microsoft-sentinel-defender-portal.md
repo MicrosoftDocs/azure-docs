@@ -4,7 +4,7 @@ description: Learn about the Microsoft Sentinel experience when you onboard Micr
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 06/23/2025
+ms.date: 07/16/2025
 appliesto: 
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
