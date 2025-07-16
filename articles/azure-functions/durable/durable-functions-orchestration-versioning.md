@@ -91,8 +91,6 @@ To implement version-aware logic in your orchestrator function, you can use the 
 > [!IMPORTANT]
 > When implementing version-aware logic, it's **critically important** to preserve the exact orchestrator logic for older versions. Any changes to the sequence, order, or signature of activity calls for existing versions may break deterministic replay and cause in-flight orchestrations to fail or produce incorrect results. The old version code paths must remain unchanged once deployed.
 
-# [C# (Isolated)](#tab/csharp-isolated)
-
 ```csharp
 [Function("MyOrchestrator")]
 public static async Task<string> RunOrchestrator(
@@ -111,8 +109,6 @@ public static async Task<string> RunOrchestrator(
     ...
 }
 ```
-
----
 
 > [!NOTE]
 > The `context.Version` property is **read-only** and reflects the version that was permanently associated with the orchestration instance when it was created. You cannot modify this value during orchestration execution. If you want to specify a version through means other than `host.json`, you can do so when starting an orchestration instance with the orchestration client APIs (see [Starting New Orchestrations with Specific Versions](#starting-new-orchestrations-with-specific-versions)).
@@ -157,8 +153,6 @@ This example shows how to replace one activity with a different activity in the 
 
 **Orchestrator function:**
 
-# [C# (Isolated)](#tab/csharp-isolated)
-
 ```csharp
 [Function("ProcessOrderOrchestrator")]
 public static async Task<string> ProcessOrder(
@@ -174,8 +168,6 @@ public static async Task<string> ProcessOrder(
 }
 ```
 
----
-
 #### Version 2.0 with discount processing
 
 **host.json configuration:**
@@ -190,8 +182,6 @@ public static async Task<string> ProcessOrder(
 ```
 
 **Orchestrator function:**
-
-# [C# (Isolated)](#tab/csharp-isolated)
 
 ```csharp
 using DurableTask.Core.Settings;
@@ -221,8 +211,6 @@ public static async Task<string> ProcessOrder(
     return "Order processed successfully";
 }
 ```
-
----
 
 ## Advanced usage
 
@@ -290,8 +278,6 @@ By default, all new orchestration instances are created with the current `defaul
 
 You can override the default version by providing a specific version value when creating new orchestration instances using the orchestration client APIs. This allows fine-grained control over which version each new orchestration instance uses.
 
-# [C# (Isolated)](#tab/csharp-isolated)
-
 ```csharp
 [Function("HttpStart")]
 public static async Task<HttpResponseData> HttpStart(
@@ -309,8 +295,6 @@ public static async Task<HttpResponseData> HttpStart(
     // ...
 }
 ```
-
----
 
 ### Removing legacy code paths
 
