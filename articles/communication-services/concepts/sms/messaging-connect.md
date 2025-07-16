@@ -199,14 +199,15 @@ The partner, not Azure Communication Services, optimizes delivery routes. Depend
 
 ### Opt-out Management
 
-Opt-out and opt-in compliance is a critical part of SMS messaging, particularly in regulated markets. With Messaging Connect, this responsibility is shared between you (the customer), the partner (e.g., Infobip), and Microsoft, each playing a distinct role.
+Opt-out and opt-in compliance is a critical part of SMS messaging, particularly in regulated markets. With Messaging Connect, this responsibility is shared among you (the customer), the partner (for example, Infobip), and Microsoft—each playing a distinct role.
 
 #### Key Responsibilities
 
-- The partner (e.g., Infobip) supports detection of opt-out and opt-in keywords like “STOP” or “START,” but the behavior is not automatic.
-These keywords must be explicitly configured by you through the partner's portal.
-Infobip can maintain a blocklist of opted-out users, but clients are expected to manage their own list—especially if opt-outs happen through other channels (e.g., email or web forms).
-- Confirmation messages such as “You have been unsubscribed” are not sent by default. If desired, you must configure them explicitly with the partner or implement them in your own application.
+- The partner (for example, Infobip) supports detection of opt-out and opt-in keywords like "STOP" or "START," but the behavior isn't automatic.
+> [!NOTE]
+> You must explicitly configure these keywords through the partner's portal.
+Infobip can maintain a blocklist of opted-out users, but you are expected to manage your own list—especially if opt-outs happen through other channels (for example, email or web forms).
+- Confirmation messages such as “You have been unsubscribed” aren't sent by default. If desired, you must configure them explicitly with the partner or implement them in your own application.
 - You, the customer, are responsible for ensuring your messaging experience complies with local regulations, including opt-out handling, keyword configuration, and end-user consent management.
 - ACS does not process opt-out keywords or send any automated responses. However, Microsoft does maintain a set of predefined opt-out keywords for observability.
 
