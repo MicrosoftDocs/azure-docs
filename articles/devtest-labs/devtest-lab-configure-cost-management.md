@@ -48,16 +48,16 @@ If the lab is updated correctly by using the billing properties method, you can 
 
 DevTest Labs automatically propagates tags applied at the lab level to resources created by the lab. For virtual machines, tags are applied to the billable resources. For environments, tags are applied to the resource group for the environment. To apply tags to your labs, complete the steps in [Add tags to a lab](devtest-lab-add-tag.md).
 
-:::image type="content" source="./media/devtest-lab-configure-cost-management/devtest-tags.png" alt-text="Screenshot that shows tags added for a DevTest Labs resource in the Azure portal." lightbox="./media/devtest-lab-configure-cost-management/devtest-tags-large.png":::
+:::image type="content" source="./media/devtest-lab-configure-cost-management/devtest-tags-large.png" alt-text="Screenshot that shows tags added for a DevTest Labs resource in the Azure portal." lightbox="./media/devtest-lab-configure-cost-management/devtest-tags-large.png":::
 
 > [!NOTE]
 > After you apply a new tag to your lab, the tag is automatically applied to new lab resources when they're created. If you want to apply a new or updated tag to existing resources, you can use a script to propagate the tag correctly. Use the [Update-DevTestLabsTags script](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/UpdateDtlTags) that's in the DevTest Labs GitHub repository.
 
 ## Provide permissions to view costs 
 
-DevTest Labs users don't automatically have permission to view costs for their resources by using Cost Management. To add the permissions, complete the instructions in [enable users to view billing information](../cost-management-billing/costs/assign-access-acm-data.md#assign-billing-account-scope-access). Assign the _Billing Reader_ permission to users at the subscription level, if they don't already have permissions that include Billing Reader access.
+DevTest Labs users don't automatically have permission to view costs for their resources by using Cost Management. To add the permissions, follow the instructions in [enable users to view billing information](../cost-management-billing/costs/assign-access-acm-data.md#assign-billing-account-scope-access). Assign the _Billing Reader_ permission to users at the subscription level, if they don't already have permissions that include Billing Reader access.
 
-For more information, see [Manage access to Azure billing - Microsof Cost Management](../cost-management-billing/manage/manage-billing-access.md).
+For more information, see [Manage access to Azure billing](../cost-management-billing/manage/manage-billing-access.md).
 
 ## View and filter costs
 
@@ -65,7 +65,7 @@ After DevTest Labs is configured to provide the lab-specific information for Cos
 
 For a quick view of costs per lab, complete these steps: 
 
-1. In the [Azure portal](https://portal.azure.com), go to your lab and select a resource group that has tags.
+1. In the [Azure portal](https://portal.azure.com), go your lab and select a resource group that has tags.
 
 1. In the left pane, expand **Cost Management** and select **Cost analysis**.
 
