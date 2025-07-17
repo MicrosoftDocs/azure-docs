@@ -7,16 +7,16 @@ ms.author: danlep
 ---
 ## Configure policies for the MCP server
 
-Configure one or more API Management [policies](api-management-howto-policies.md) to help manage the MCP server. The policies are applied to all API operations exposed as tools in the MCP server and can be used to control access, authentication, and other aspects of the tools.
+Configure one or more API Management [policies](../articles/api-management/api-management-howto-policies.md) to help manage the MCP server. The policies are applied to all API operations exposed as tools in the MCP server and can be used to control access, authentication, and other aspects of the tools.
 
 For a tutorial on how to configure policies, see [Transform and protect your API](../articles/api-management/transform-api.md).
 
 To configure policies for the MCP server:
 
-1. In the portal, under **APIs**, select **MCP Servers**.
-1. Select the MCP server you created.
-1. In the left menu, under **MCP**, select **Policies**.
-1. In the policy editor, add or edit the policies you want to apply to the MCP server's tools. The policies are defined in XML format. For example, you can add a policy to limit calls to the MCP server's tools (in this example, 5 calls per 30 second per client IP address).
+1. In the portal, under **APIs**, select **MCP servers**.
+1. Select the MCP server that you created.
+1. In the left menu, under **Details**, select **Policies**.
+1. In the policy editor, add or edit the policies you want to apply to the MCP server's tools. The policies are defined in XML format. For example, you can add a policy to limit calls to the MCP server's tools (in this example, 5 calls per 30 seconds per client IP address).
 
     ```xml
     <rate-limit-by-key calls="5" renewal-period="30" counter-key="@(context.Request.IpAddress)" remaining-calls-variable-name="remainingCallsPerIP" />
@@ -26,11 +26,11 @@ To configure policies for the MCP server:
 
 ## Secure access to the MCP server
 
-You can secure the following aspects of the MCP server: inbound access (from an MCP client to API Management) and outbound access (from API Management to the MCP server).
+You can secure both inbound access to the MCP server (from an MCP client to API Management) and outbound access (from API Management to the MCP server backend).
 
 ### Secure inbound access
 
-One option to secure inbound access is to validate a JSON Web Token (JWT) in the incoming requests. This ensures that only authorized clients can access the MCP server. Use the [validate-jwt](../articles/api-management/validate-jwt-token-policy.md) or [validate-azure-ad-token](../articles/api-management/validate-azure-ad-token-policy.md) policy to validate the JWT token in the incoming requests. For example:
+One option to secure inbound access is to configure a policy to validate a JSON web token (JWT) in the incoming requests. This ensures that only authorized clients can access the MCP server. Use the [validate-jwt](../articles/api-management/validate-jwt-policy.md) or [validate-azure-ad-token](../articles/api-management/validate-azure-ad-token-policy.md) policy to validate the JWT token in the incoming requests. For example:
     
 <!-- update to validate-azure-ad-token-policy.md if preferred -->
 ```xml
@@ -52,18 +52,18 @@ One option to secure inbound access is to validate a JSON Web Token (JWT) in the
 
 ### Secure outbound access
 
-You can use API Maangement's [credential manager](../articles/api-management/credentials-overview.md) to securely inject secrets or tokens for outbound calls. At a high level, the process is as follows:
+You can use API Management's [credential manager](../articles/api-management/credentials-overview.md) to securely inject secrets or tokens for calls to a backend API. At a high level, the process is as follows:
 
 1. Register an application in a supported identity provider.
 1. Create a credential provider resource in API Management to manage the credentials from the identity provider.
 1. Configure a connection to the provider in API Management.
 1. Configure `get-authorization-context` and `set-header` policies to fetch the token credentials and present them in an **Authorization** header of the API requests.
 
-For a step-by-step guide to call a backend GitHub API using credentials generated in credential manager, see [Configure credential manager - GitHub](../articles/api-management/credentials-how-to-github.md).
+For a step-by-step guide to call an example backend API using credentials generated in credential manager, see [Configure credential manager - GitHub](../articles/api-management/credentials-how-to-github.md).
  
 ## Monitor the MCP server
 
-Use API Management's integration with [Azure Monitor](../articles/api-management/monitor-api-management.md.md) features to track the usage of the MCP server. Log request successes and failures, monitor performance, and analyze traffic patterns. 
+Use API Management's integration with [Azure Monitor](../articles/api-management/monitor-api-management.md) features to track the usage of the MCP server. Log request successes and failures, monitor performance, and analyze traffic patterns. 
 
 <!-- Are MCP servers covered in Gateway logs? -->
 <!-- Is there a separate dashboard for MCP servers? -->
@@ -118,13 +118,13 @@ After adding an MCP server, you can use tools in agent mode.
     
     :::image type="content" source="../articles/api-management/media/export-rest-mcp-server/chat-results-visual-studio-code.png" alt-text="Screenshot of chat results in Visual Studio Code.":::
 
-## Troubleshooting
+## Troubleshooting and known issues
 
 | **Problem**                                | **Cause**                                 | **Solution**                                           |
 |-------------------------------------------|-------------------------------------------|--------------------------------------------------------|
 | `401 Unauthorized` error from backend           | Authorization header not forwarded        | Use `set-header` policy to manually attach token         |
-| API call works in API Managementbut fails in agent | Incorrect base URL or missing token       | Double-check security policies and endpoint            |
-| Not able to create MCP server           | MCP feature is not available in Consumption or Developer tier, and must be enabled using update group in classic Basic, Standard, and Premium tiers  | Use a supported classic or v2 tier - see Prerequisites |
+| API call works in API Management but fails in agent | Incorrect base URL or missing token       | Double-check security policies and endpoint            |
+| Not able to create MCP server           | MCP server capability is not available in Consumption or Developer tier, and must be enabled using [update group](../articles/api-management/configure-service-update-settings.md) in classic Basic, Standard, and Premium tiers  | Use a supported classic or v2 tier - see Prerequisites |
 
 
 
@@ -135,9 +135,9 @@ After adding an MCP server, you can use tools in agent mode.
 
 * [MCP client authorization lab](https://github.com/Azure-Samples/AI-Gateway/tree/main/labs/mcp-client-authorization)
 
-* [Use the Azure API Management extension for VS Code to import and manage APIs](visual-studio-code-tutorial.md)
+* [Use the Azure API Management extension for VS Code to import and manage APIs](../articles/api-management/visual-studio-code-tutorial.md)
 
-* [Register and discover remote MCP servers in Azure API Center](../api-center/register-discover-mcp-server.md)
+* [Register and discover remote MCP servers in Azure API Center](../articles/api-center/register-discover-mcp-server.md)
 
 * [Expose REST API in API Management as an MCP server](../articles/api-management/export-rest-mcp-server.md)
 

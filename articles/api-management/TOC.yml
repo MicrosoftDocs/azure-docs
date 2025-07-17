@@ -247,7 +247,7 @@
     - name: Import Google Gemini API
       href: openai-compatible-google-gemini-api.md
     - name: Import Amazon Bedrock API
-      href: amazon-bedrock-passthrough-llm-api.
+      href: amazon-bedrock-passthrough-llm-api.md
     - name: Semantic caching for LLM API requests
       href: azure-openai-enable-semantic-caching.md
     - name: Authenticate and authorize to Azure OpenAI
@@ -256,8 +256,8 @@
     items:
     - name: Expose REST API as MCP server
       href: export-rest-mcp-server.md
-    - name: Connect and govern existing MCP server
-      href: connect-govern-existing-mcp-server.md
+    - name: Expose existing MCP server
+      href: expose-existing-mcp-server.md
 - name: Manage APIs with policies
   items:
   - name: API Management policies overview
