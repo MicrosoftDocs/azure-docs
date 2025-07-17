@@ -413,6 +413,7 @@ As part of the deployment script, the following files are created in the local e
 
 Check the troubleshooting guide for common issues in the Azure IoT Operations SDKs github repository: [Troubleshooting](https://github.com/Azure/iot-operations-sdks/blob/main/doc/troubleshooting.md).
 
+<!-- TODO: Next step should be the tutorial "Develop an edge app" -->
 ## Next steps
 In this Quickstart, you set up the Azure IoT Operations SDKs and ran a sample application. To learn more about developing with the SDKs, check out the following resources:
 
