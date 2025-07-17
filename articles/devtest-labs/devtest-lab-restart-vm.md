@@ -21,7 +21,7 @@ You can quickly and easily restart a virtual machine in  DevTest Labs by followi
     :::image type="content" source="media/devtest-lab-restart-vm/devtest-lab-restart-vm-apply-artifacts.png" alt-text="Screenshot showing the warning that appears if you try to restart a VM while artifacts are being applied." lightbox="media/devtest-lab-restart-vm/devtest-lab-restart-vm-apply-artifacts.png":::
 
    > [!NOTE]
-   > If a VM stalls while applying an artifact, you can use the restart VM feature to potentially resolve the issue.
+   > If a VM stalls while you're applying an artifact, restarting the VM might resolve the issue.
 
 To restart a VM: 
 
