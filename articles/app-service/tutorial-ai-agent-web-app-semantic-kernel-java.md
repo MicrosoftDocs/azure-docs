@@ -12,9 +12,9 @@ ms.custom:
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Tutorial: Build an agentic web app in Azure App Service with Microsoft Semantic Kernel (Java)
+# Tutorial: Build an agentic web app in Azure App Service with Microsoft Semantic Kernel (Spring Boot)
 
-This tutorial demonstrates how to add agentic capability to an existing data-driven CRUD application. It does this using Microsoft Semantic Kernel.
+This tutorial demonstrates how to add agentic capability to an existing data-driven Spring Boot WebFlux CRUD application. It does this using Microsoft Semantic Kernel.
 
 If your web application already has useful features, like shopping, hotel booking, or data management, it's relatively straightforward to add agent functionality to your web application by wrapping those functionalities in a plugin (for Semantic Kernel). In this tutorial, you start with a simple to-do list app. By the end, you'll be able to create, update, and manage tasks with an agent in an App Service app.
 
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Convert existing app functionality into a plugin for Semantic Kernel.
 > * Add the plugin to a Semantic Kernel agent and use it in a web app.
-- Assign the required permissions for managed identity connectivity.
+> * Assign the required permissions for managed identity connectivity.
 
 ## Prerequisites
 
@@ -38,6 +38,8 @@ In this tutorial, you learn how to:
 ## Open the sample with Codespaces
 
 The easiest way to get started is by using GitHub Codespaces, which provides a complete development environment with all required tools preinstalled.
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/app-service-agentic-semantic-kernel-java)
 
 1. Navigate to the GitHub repository at [https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-java](https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-java).
 
@@ -55,9 +57,9 @@ The easiest way to get started is by using GitHub Codespaces, which provides a c
 
 ## Review the agent code
 
-The Semantic Kernel agent is initialized in [src/main/java/com/example/crudtaskswithagent/controller/AgentController.java](), when the user enters the first prompt in a new browser session. 
+The Semantic Kernel agent is initialized in [src/main/java/com/example/crudtaskswithagent/controller/AgentController.java](https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-java/blob/main/src/main/java/com/example/crudtaskswithagent/controller/AgentController.java), when the user enters the first prompt in a new browser session. 
 
-You can find the initialization code in the `SemanticKernelAgentService` contructor (in [src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java]()). The initialization code does the following: 
+You can find the initialization code in the `SemanticKernelAgentService` contructor (in [src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java](https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-java/blob/main/src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java)). The initialization code does the following: 
 
 - Creates a kernel with chat completion.
 - Adds a kernel plugin that encapsulates the functionality of the CRUD application (in *src/main/java/com/example/crudtaskswithagent/plugin/TaskCrudPlugin.java*). The interesting parts of the plugin are the `DefineKernelFunction` annotations on the method declarations and the `description` and `returnType` parameters that help the kernel call the plugin intelligently.
@@ -66,7 +68,7 @@ You can find the initialization code in the `SemanticKernelAgentService` contruc
 
 :::code language="csharp" source="~/app-service-agentic-semantic-kernel-java/src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java" range="38-90" highlight="11-48,58" :::
 
-Each time the prompt is received, the server code uses ChatCompletionAgent.invokeAsync() invoke the agent with the user prompt.
+Each time the prompt is received, the server code uses `ChatCompletionAgent.invokeAsync()` to invoke the agent with the user prompt and the agent thread. the agent thread keeps track of the chat history.
 
 :::code language="csharp" source="~/app-service-agentic-semantic-kernel-java/src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java" range="109-158" highlight="8" :::
 

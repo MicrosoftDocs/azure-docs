@@ -14,7 +14,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Tutorial: Build an agentic web app in Azure App Service with Microsoft Semantic Kernel or Azure AI Foundry Agent Service (.NET)
 
-This tutorial demonstrates how to add agentic capability to an existing data-driven CRUD application. It does this using two different approaches: Microsoft Semantic Kernel and Azure AI Foundry Agent Service.
+This tutorial demonstrates how to add agentic capability to an existing data-driven ASP.NET Core CRUD application. It does this using two different approaches: Microsoft Semantic Kernel and Azure AI Foundry Agent Service.
 
 If your web application already has useful features, like shopping, hotel booking, or data management, it's relatively straightforward to add agent functionality to your web application by wrapping those functionalities in a plugin (for Semantic Kernel) or as an OpenAPI endpoint (for AI Foundry Agent Service). In this tutorial, you start with a simple to-do list app. By the end, you'll be able to create, update, and manage tasks with an agent in an App Service app.
 

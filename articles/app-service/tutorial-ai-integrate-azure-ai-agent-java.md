@@ -10,9 +10,9 @@ ms.custom:
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Add an App Service app as a tool in Azure AI Foundry Agent Service (Java)
+# Add an App Service app as a tool in Azure AI Foundry Agent Service (Spring Boot)
 
-In this tutorial, you'll learn how to expose your app's functionality through OpenAPI, add it as a tool to Azure AI Foundry Agent Service, and interact with your app using natural language in the agents playground. 
+In this tutorial, you'll learn how to expose a Spring Boot web app's functionality through OpenAPI, add it as a tool to Azure AI Foundry Agent Service, and interact with your app using natural language in the agents playground. 
 
 If your web application already has useful features, like shopping, hotel booking, or data management, it's easy to make those capabilities available to an AI agent in Azure AI Foundry Agent Service. By simply adding an OpenAPI schema to your app, you enable the agent to understand and use your app's capabilities when it responds to users' prompts. This means anything your app can do, your AI agent can do too, with minimal effort beyond creating an OpenAPI endpoint for your app. In this tutorial, you start with a simple to-do list app. By the end, you'll be able to create, update, and manage tasks with an agent through conversational AI.
 
@@ -26,7 +26,7 @@ If your web application already has useful features, like shopping, hotel bookin
 
 ## Prerequisites
 
-This tutorial assumes you're working with the sample used in[Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB](tutorial-java-spring-cosmosdb.md). 
+This tutorial assumes you're working with the sample used in [Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB](tutorial-java-spring-cosmosdb.md). 
 
 At a minimum, open the [sample application](https://github.com/Azure-Samples/msdocs-spring-boot-mongodb-sample-app) in GitHub Codespaces and deploy the app by running `azd up`.
 
@@ -35,7 +35,7 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
 > [!TIP]
 > You can make all the following changes by telling GitHub Copilot in Agent mode:
 >
-> `I'd generate OpenAPI functionality using Spring Boot OpenAPI. Please also generate the server URL and operation ID in the schema.`
+> `I'd like to generate OpenAPI functionality using Spring Boot OpenAPI. Please also generate the server URL and operation ID in the schema.`
 
 1. In the codespace, open *pom.xml* and add the following dependency:
 
@@ -115,7 +115,7 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
 
 1. Navigate to the Swagger UI by adding `/swagger-ui.html` to the URL.
 
-1. Confirm that the API operations work by trying them out. in the Swagger UI.
+1. Confirm that the API operations work by trying them out in the Swagger UI.
 
 1. Back in the codespace terminal, deploy your changes by committing your changes (GitHub Actions method) or run `azd up` (Azure Developer CLI method).
 
@@ -123,7 +123,7 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
 
 ## Create an agent in Azure AI Foundry
 
-1. Create an agent in the Azure AI Foundry portal by following the steps at:[Quickstart: Create a new agent](/azure/ai-services/agents/quickstart?pivots=ai-foundry-portal).
+1. Create an agent in the Azure AI Foundry portal by following the steps at: [Quickstart: Create a new agent](/azure/ai-services/agents/quickstart?pivots=ai-foundry-portal).
 
     Note the [models you can use and the available regions](/azure/ai-services/agents/concepts/model-region-support#azure-openai-models). 
 
@@ -144,6 +144,23 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
     - Change that to "Come up with three knock-knock jokes."
     
     :::image type="content" source="media/tutorial-ai-integrate-azure-ai-agent-dotnet/agents-playground.png" alt-text="Screenshot showing the agents playground in the middle of a conversation that takes actions by using the OpenAPI tool.":::
+
+## Security best practices
+
+When exposing APIs via OpenAPI in Azure App Service, follow these security best practices:
+
+- **Authentication and Authorization**: Protect your OpenAPI endpoints in App Service behind [Azure API Management with Microsoft Entra ID](/azure/api-management/api-management-howto-protect-backend-with-aad) and ensure only authorized users or agents can access the tools.
+- **Validate and sanitize input data:** The example code in this tutorial omits input validation and sanitization for simplicity and clarity. In production scenarios, always implement proper validation and sanitization to protect your application. For Spring, see [Spring: Validating Form Input](https://spring.io/guides/gs/validating-form-input).
+- **Use HTTPS:** The sample relies on Azure App Service, which enforces HTTPS by default and provides free TLS/SSL certificates to encrypt data in transit.
+- **Limit CORS:** Restrict Cross-Origin Resource Sharing (CORS) to trusted domains only. For more information, see [Enable CORS](app-service-web-tutorial-rest-api.md#enable-cors).
+- **Apply rate limiting:** Use [API Management](/azure/api-management/api-management-sample-flexible-throttling) or custom middleware to prevent abuse and denial-of-service attacks.
+- **Hide sensitive endpoints:** Avoid exposing internal or admin APIs in your OpenAPI schema.
+- **Review OpenAPI schema:** Ensure your OpenAPI schema doesn't leak sensitive information (such as internal URLs, secrets, or implementation details).
+- **Keep dependencies updated:** Regularly update NuGet packages and monitor for security advisories.
+- **Monitor and log activity:** Enable logging and monitor access to detect suspicious activity.
+- **Use managed identities:** When calling other Azure services, use managed identities instead of hardcoded credentials.
+
+For more guidance, see [Secure your App Service app](https://learn.microsoft.com/azure/app-service/security-overview) and [Best practices for REST API security](https://learn.microsoft.com/azure/architecture/best-practices/api-design#security).
 
 ## Next step
 
