@@ -300,7 +300,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Norseman, Inc](https://www.norseman.com)|
 |[Nortec](https://www.nortec.com)|
 |[Northrop Grumman](https://www.northropgrumman.com)|
-|[NTS Cloud](http://ntscloud.com/)|
+|[NTS Cloud](https://ntscloud.com/)|
 |[NTT America, Inc.](https://www.us.ntt.net)|
 |[Nubelity LLC](http://www.nubelity.com)|
 |[NuSoft Solutions (Atrio Systems, Inc.)](https://nusoftsolutions.com)|
