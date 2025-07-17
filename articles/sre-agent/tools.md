@@ -1,6 +1,6 @@
 ---
 title: Tools used by agents in Azure SRE Agent (preview)
-description: 
+description: Learn about the comprehensive suite of specialized tools to automate incident response, troubleshooting, and site reliability engineering tasks.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
