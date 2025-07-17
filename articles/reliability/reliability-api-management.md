@@ -6,7 +6,7 @@ ms.author: danlep
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-api-management
-ms.date: 07/14/2025
+ms.date: 07/17/2025
 ---
 
 # Reliability in Azure API Management
@@ -57,6 +57,8 @@ Azure API Management offers two types of availability zone support when you depl
     
 - *Manual*. Azure API Management offers manual availability zone support when you explicitly specify which availability zones to use. 
 
+With availability zone support, Azure API Management replicates service components across zones for high availability. In the primary region, these components include the gateway (scale units), management plane, and developer portal. In secondary regions, only the gateway units are replicated. See [Multi-region support](#multi-region-support) for more information about secondary regions.
+
 ### Automatic availability zone support
 
 With automatic availability zone support, you can choose either a single unit or multi-unit instance configuration to achieve zone-redundancy:
@@ -69,7 +71,7 @@ With automatic availability zone support, you can choose either a single unit or
 
 If you want to explicitly select the availability zones to use, you can choose between zone-redundant and zonal configurations:
 
-- *Zone-redundant*: Manually configure zone redundancy for an API Management instance in a supported region to provide redundancy for service components. In the primary region, these components include the gateway, management plane, and developer portal. In secondary regions, only the gateway is replicated. When you select two or more availability zones to use, Azure automatically replicates the service components across the selected zones.
+- *Zone-redundant*: Manually configure zone redundancy for an API Management instance in a supported region to provide redundancy for service components. When you select two or more availability zones to use, Azure automatically replicates the service components across the selected zones.
 
 - *Zonal*: The API Management service components are deployed in a single zone that you select within an Azure region. All of the units are placed into the same availability zone.
 
@@ -203,7 +205,7 @@ When adding a region, you configure:
 
 - The number of units that region is to host.
 
-- Optional [availability zone support](#availability-zone-support), if that region provides availability zones.
+- [Availability zone support](#availability-zone-support), if that region provides availability zones.
 
 - [Virtual network settings](/azure/api-management/virtual-network-concepts) in the added region, if networking is configured in the existing region or regions.
 

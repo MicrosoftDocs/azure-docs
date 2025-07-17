@@ -1,10 +1,10 @@
 ---
-title: Enable availability support on Azure API Management instances
+title: Enable availability zones for Azure API Management instances
 description: Learn how to enable availability zone support on your Premium tier Azure API Management instances.
 author: dlepow 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 07/14/2025
+ms.date: 07/17/2025
 ms.author: danlep
 ms.custom: references_regions, subject-reliability
 #Customer intent: As an engineer responsible for business continuity, I want to learn how to enable zone redundancy for my Azure API Management instances. 
@@ -30,7 +30,7 @@ For more detailed information about reliability features of API Management, such
 
 ## Default availability zone support
 
-When you create a new API Management instance in the **Premium** tier in a region that supports availability zones, or you [deploy API Management to a new region](api-management-howto-deploy-multi-region.md), API Management offers two types of availability zone support:
+When you create a new API Management instance in the **Premium** tier in a region that supports availability zones, or you [deploy API Management to an additional region](api-management-howto-deploy-multi-region.md), API Management offers two types of availability zone support:
 
 *Automatic*. Azure API Management offers automatic availability zone support when you don't specify which availability zones to use.
 
