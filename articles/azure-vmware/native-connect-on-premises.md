@@ -31,7 +31,7 @@ Connectivity to on-premises is performed using a standard ExpressRoute connectio
 ## Related topics
 
 - [Connectivity to an Azure Virtual Network](native-network-connectivity.md)
-(native-internet-connectivity-design-considerations.md)
+- [Internet connectivity options](native-internet-connectivity-design-considerations.md)
 - [Connect multiple Gen 2 private clouds](native-connect-multiple-private-clouds.md)
 - [Connect Gen 2 private clouds and Gen 1 private clouds](native-connect-private-cloud-previous-edition.md)
 - [Public and Private DNS forward lookup zone configuration](native-dns-forward-lookup-zone.md)

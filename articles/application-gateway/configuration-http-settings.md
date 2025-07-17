@@ -32,7 +32,7 @@ Azure Application Gateway uses gateway-managed cookies for maintaining user sess
 This feature is useful when you want to keep a user session on the same server and when session state is saved locally on the server for a user session. If the application can't handle cookie-based affinity, you can't use this feature. To use it, make sure that the clients support cookies.
 
 > [!NOTE]
-> Some vulnerability scans may flag the Application Gateway affinity cookie because the Secure or HttpOnly flags are not set. These scans don't take into account that the data in the cookie is generated using a one-way hash. The cookie doesn't contain any user information and is used purely for routing. 
+> Some vulnerability scans may flag the Application Gateway affinity cookie because the Secure or HttpOnly flags aren't set. These scans don't take into account that the data in the cookie is generated using a one-way hash. The cookie doesn't contain any user information and is used purely for routing. 
 
 
 The [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chromiumdash.appspot.com/schedule) brought a mandate where HTTP cookies without [SameSite](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-rfc6265bis-03#rfc.section.5.3.7) attribute have to be treated as SameSite=Lax. For CORS (Cross-Origin Resource Sharing) requests, if the cookie has to be sent in a third-party context, it has to use *SameSite=None; Secure* attributes and it should be sent over HTTPS only. Otherwise, in an HTTP only scenario, the browser doesn't send the cookies in the third-party context. The goal of this update from Chrome is to enhance security and to avoid Cross-Site Request Forgery (CSRF) attacks. 
@@ -78,7 +78,7 @@ By default, the Application Gateway resource includes popular CA certificates, a
 
 ### Request timeout
 
-This setting is the number of seconds that the application gateway waits to receive a response from the backend server. The default value is 20 seconds. However, you may wish to adjust this setting to the needs of your application.
+This setting is the number of seconds that the application gateway waits to receive a response from the backend server. The default value is 20 seconds. However, you may wish to adjust this setting to the needs of your application. Acceptable values are from 1 second to 86400 seconds (24 hours).
 
 ### Override backend path
 
@@ -152,7 +152,7 @@ This setting specifies the port where the backend servers listen to traffic from
 
 ### Timeout
 
-This setting is the number of seconds that the application gateway waits before closing the frontend and backend connections in case there is no transmission of any data.
+This setting is the number of seconds that the application gateway waits before closing the frontend and backend connections in case there's no transmission of any data. Acceptable values are from 1 second to 86400 seconds (24 hours).
 
 ### Trusted root certificate 
 

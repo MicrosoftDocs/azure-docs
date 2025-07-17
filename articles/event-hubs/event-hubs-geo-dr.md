@@ -7,7 +7,10 @@ ms.date: 07/29/2024
 ---
 
 # Azure Event Hubs - Geo-disaster recovery 
-This article describes the Geo-disaster recovery feature that replicates metadata and is generally available. It doesn't describe the public preview Geo-replication feature, which replicates both data and metadata. For more information, see [Geo-replication](./geo-replication.md).
+
+> [!NOTE]
+> This article describes the Geo-disaster recovery feature that replicates metadata only. For more information, regarding Geo-replication feature, which replicates both data and metadata, see [Geo-replication](./geo-replication.md).
+>
 
 The all-active Azure Event Hubs cluster model with [availability zone support](../reliability/reliability-event-hubs.md) provides resiliency against  hardware and datacenter outages. However, if a disaster where an entire region and all zones are unavailable, you can use Geo-disaster recovery to recover your workload and application configuration. Geo-Disaster recovery ensures that the entire configuration of a namespace (Event Hubs, Consumer Groups, and settings) is continuously replicated from a primary namespace to a secondary namespace when paired. 
 

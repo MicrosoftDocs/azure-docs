@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/12/2024
+ms.date: 07/16/2025
 ---
 
 # Connect to Oracle Database from Azure Logic Apps

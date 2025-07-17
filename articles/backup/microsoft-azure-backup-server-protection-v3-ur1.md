@@ -1,7 +1,7 @@
 ---
 title: MABS (Azure Backup Server) V3 UR1 protection matrix
 description: This article provides a support matrix listing all workloads, data types, and installations that Azure Backup Server protects.
-ms.date: 07/14/2025
+ms.date: 07/17/2025
 ms.topic: reference
 ms.custom: engagement-fy24, linux-related-content
 ms.service: azure-backup
@@ -169,4 +169,4 @@ MABS doesn't support protecting the following data types:
 
 - [Support matrix for backup with Microsoft Azure Backup Server or System Center DPM](backup-support-matrix-mabs-dpm.md).
 - [Manage telemetry settings in MABS](manage-telemetry.md).
-
+- [Azure Backup Server V3 RTM protection matrix](microsoft-azure-backup-server-protection-v3.md).
