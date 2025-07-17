@@ -1,14 +1,15 @@
 ---
-title: Set up retention policy
-description: Learn how to configure a retention policy, clean up the factory, and retire old images from DevTest Labs. 
+title: Set Up an Image Retention Policy
+description: Learn how to configure an image retention policy, clean up an image factory, and retire old images in DevTest Labs. 
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 06/26/2020
+ms.date: 07/21/2025
 ms.custom: UpdateFrequency2
 ---
 
-# Set up retention policy in Azure DevTest Labs
+# Set up an image retention policy in Azure DevTest Labs
+
 This article covers setting a retention policy, cleaning up the factory, and retiring old images from all the other DevTest Labs in the organization. 
 
 ## Prerequisites
