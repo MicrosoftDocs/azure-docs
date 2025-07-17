@@ -19,7 +19,6 @@ Key reliability benefits include dedicated compute resources that aren't shared 
 
 This article describes reliability support in [Azure App Service Environment](../app-service/environment/overview.md), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
-To use App Service Environment, you must use the [Isolated v2 pricing tier](/azure/app-service/overview-hosting-plans#isolated-v2). The Isolated v2 pricing tier supports zone redundancy and is designed for high-scale, mission-critical applications.
 
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
@@ -28,6 +27,8 @@ To use App Service Environment, you must use the [Isolated v2 pricing tier](/azu
 [Enable zone redundancy](#availability-zone-support) on your environment, which requires that your App Service Isolated v2 plans use a minimum of two instances. For more information, see [Instance distribution across zones](../reliability/reliability-app-service.md#instance-distribution-across-zones).
 
 ## Reliability architecture overview
+
+To use App Service Environment, you must use the [Isolated v2 pricing tier](/azure/app-service/overview-hosting-plans#isolated-v2). The Isolated v2 pricing tier supports zone redundancy and is designed for high-scale, mission-critical applications.
 
 When you implement [Azure App Service Environment](/azure/app-service/environment/overview), you deploy the environment as the container for your Isolated v2 tier App Service plans and web apps. During the set-up procedure for your environment, you configure core networking settings and optional hardware isolation. You also choose whether or not to support zone redundancy on the environment, if the region supports availability zones.
 
@@ -84,8 +85,7 @@ To enable zone-redundancy for your App Service Environment you must:
 
 ### Cost
 
-When you enable zone redundancy for your App Service Environment, you pay for the additional instances that are created in the availability zones. The cost is based on the App Service plan SKU and the capacity that you specify.
-When you use the App Service Isolated v2 plan, there's no extra cost associated with enabling availability zones as long as you have two or more instances in your App Service plan. You're charged based on your App Service plan SKU, the capacity that you specify, and any instances that you scale to based on your autoscale criteria.
+When you enable zone redundancy for your App Service Environment, you pay for the additional instances that are created in the availability zones.When you use the App Service Isolated v2 plan, there's no extra cost associated with enabling availability zones as long as you have two or more instances in your App Service plan. You're charged based on your App Service plan SKU, the capacity that you specify, and any instances that you scale to based on your autoscale criteria.
 
 If you enable availability zones but specify a capacity of less than two, the platform enforces a minimum instance count of two. The platform charges you for those two instances.
 

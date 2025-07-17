@@ -22,7 +22,7 @@ If you are using App Service Environment, see [Reliability in Azure App Service 
 
 ## Production deployment recommendations
 
-Use **Premium v3/v4 App Service plans** to [Enable zone redundancy](#availability-zone-support), which requires your App Service plan to use a minimum of two instances. To see requirements for enabling zone redundancy, go to [Availability zone support requirements](#requirements).  
+For production deployments, see the [Architecture best practices for Azure App Service (Web Apps)](https://docs.microsoft.com/azure/architecture/framework/) for guidance on building reliable applications.
 
 ## Reliability architecture overview
 
