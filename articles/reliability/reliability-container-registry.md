@@ -71,7 +71,7 @@ Zone redundancy in the Premium tier of Azure Container Registry provides protect
 Zone redundancy provides higher availability compared to single-zone deployments without requiring configuration changes to your container workloads.
 
 ### Region support
-
+ 
 Zone-redundant Premium registries can be deployed into [any region that supports availability zones](./regions-list.md).
 
 If availability zones are added to an existing region, any previously created registries aren't automatically made zone-redundant. You need to create a new Premium registry to make it zone-redundant.
