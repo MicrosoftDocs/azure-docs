@@ -7,7 +7,7 @@ author: praveensri
 ms.author: psrivas
 ms.reviewer: estfan, divswa, azla
 ms.topic: conceptual
-ms.date: 01/04/2024
+ms.date: 07/16/2025
 ---
 
 # 997 functional acknowledgments and error codes for X12 messages in Azure Logic Apps
