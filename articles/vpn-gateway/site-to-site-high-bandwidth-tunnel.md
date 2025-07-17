@@ -12,7 +12,7 @@ ms.date: 07/14/2025
 ---
 
 # Create a Site-to-Site High Bandwidth tunnels in the Azure portal
-The Azure VPN Gateway High Bandwidth tunnels feature, a part of the Advanced Connectivity set of features, introduces significant improvements in tunnel throughput, enabling high-performance IPsec connections between the on-premises network and the Azure VNet. These High Bandwidth tunnels are established between a VPN device on-premises and the Azure VPN Gateway deployed in the Azure VNet, transiting through an ExpressRoute private peering. Utilizing private IP address networks on-premises, these tunnels create a secure overlay network between the on-premises infrastructure and the Azure VNet.
+The Azure VPN Gateway High Bandwidth tunnels feature, a part of the Advanced Connectivity set of features, introduces significant improvements in tunnel throughput, enabling high-performance IPsec connections between the on-premises network and the Azure virtual network. These High Bandwidth tunnels are established between a VPN device on-premises and the Azure VPN Gateway deployed in the Azure virtual network, transiting through an ExpressRoute private peering. Utilizing private IP address networks on-premises, these tunnels create a secure overlay network between the on-premises infrastructure and the Azure virtual network.
 
 The High Bandwidth tunnels meet customer security compliance requirements by providing end-to-end encryption, effectively overcoming encryption bottlenecks. It allows for the establishment of four tunnels between the Azure VPN Gateway and the on-premises VPN device. The High Bandwidth tunnels allow for the creation of two Connections with two IPsec tunnels for each Connection. Each IPsec tunnel can deliver a throughput of 5 Gbps, achieving a total encrypted aggregate throughput of 20 Gbps. The network diagram clarifies the configuration:
 
@@ -21,7 +21,7 @@ The High Bandwidth tunnels meet customer security compliance requirements by pro
 ## Prerequisites
 The VPN High Bandwidth tunnels require the presence of FastPath in an ExpressRoute Connection. Currently FastPath is supported only in ExpressRoute Direct Port Pair. Therefore, the ExpressRoute circuit required to be deployed on ExpressRoute Direct port pair for the correct setting of the solution.
 
-This article assumes the presence in the Azure subscription of an ExpressRoute circuit configured on Direct port pair with private peering, along with a Virtual Network (VNet). The Azure VNet is created with address space 10.1.0.0./16 and Gateway subnet 10.1.0.0/26
+This article assumes the presence in the Azure subscription of an ExpressRoute circuit configured on Direct port pair with private peering, along with a virtual network. The Azure virtual network is created with address space 10.1.0.0./16 and Gateway subnet 10.1.0.0/26
 
 The full list of required objects are:
  - ExpressRoute Direct Port
@@ -63,14 +63,14 @@ $connection.EnablePrivateLinkFastPath = $true
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
 ```
 
-At this stage of deployment, the Azure VNet is connected to the on-premises networks, and ExpressRoute is properly configured to support High Bandwidth tunnels.
+At this stage of deployment, the Azure virtual network is connected to the on-premises networks, and ExpressRoute is properly configured to support High Bandwidth tunnels.
 
 ## <a name="on-premises network"></a>Advertisement of the on-premises network to the ExpressRoute circuit
-IPsec tunnels are established via transit through ExpressRoute private peering. To enable these tunnels, the private IP addresses of the on-premises VPN devices must be advertised from the customer’s edge routers to the Microsoft Enterprise Edge (MSEE) routers. If other on-prem networks are advertised to ExpressRoute, this runs the risk of "leaking" these routes to the VNet, which could bypass the VPN Gateway and traffic could go directly to the ExpressRoute gateway, bypassing encryption. So it's important to only advertise the VPN Device tunnel IPs over ExpressRoute.
+IPsec tunnels are established via transit through ExpressRoute private peering. To enable these tunnels, the private IP addresses of the on-premises VPN devices must be advertised from the customer’s edge routers to the Microsoft Enterprise Edge (MSEE) routers. If other on-premises networks are advertised to ExpressRoute, this runs the risk of "leaking" these routes to the virtual network, which could bypass the VPN Gateway and traffic could go directly to the ExpressRoute gateway, bypassing encryption. So it's important to only advertise the VPN Device tunnel IPs over ExpressRoute.
 
-The routes between the VPN Device and the VPN Gateway should contain the detailed on-prem networks, routing can be via static routes or Border Gateway Protocol (BGP). By keeping your on-prem networks in this routing "channel" you'll ensure Azure traffic to on-prem is encrypted before entering the ExpressRoute data path, traveling inside the VPN tunnel.
+The routes between the VPN Device and the VPN Gateway should contain the detailed on-premises networks. Routing can be via either static routes or Border Gateway Protocol (BGP). By keeping your on-premises networks in this routing "channel" you ensure Azure traffic to on-premises is encrypted before entering the ExpressRoute data path, traveling inside the VPN tunnel.
 
-If you do add routes to ExpressRoute that you wish to encrypt, a UDR will be needed on the VNets pointing to the VPN Gateway as the next hop to ensure that traffic is put into the encrypted tunnel before transiting ExpressRoute.
+If you do add routes to ExpressRoute BGP that you wish to encrypt, they will leak around the VPN Gateway and NOT be encrypted. To prevent this a UDR can be used on the virtual networks sending traffic to point to the VPN Gateway as the next hop to ensure that traffic is put into the encrypted tunnel before transiting ExpressRoute.
 
 ## <a name="VNetGateway"></a>Create a VPN gateway High Bandwidth tunnel
 In this step, you create a virtual network gateway (VPN gateway) High Bandwidth tunnels for your virtual network. The High Bandwidth tunnel is supported only on VpnGw5AZ SKU.
@@ -135,7 +135,7 @@ Create two local network gateways by using the following values:
 
 ![8]
 
-After the deployment of the two Local Network Gateways you're ready to proceed with VPN Connections.
+After the deployment of the two Local Network Gateways, you're ready to proceed with VPN Connections.
 
 ## <a name="CreateConnection"></a>Create VPN Connections
 The VPN High Bandwidth Gateway supports a maximum of two VPN Connections. 
@@ -169,7 +169,7 @@ Create two Connections by using the following values:
 > [!NOTE]
 > Only after the deployment of two VPN Connections, through the Azure portal you can discover the private IP addresses assigned to the VPN Gateway instances.
 
-In Azure portal select the Azure VPN Gateway and then **Settings** and **Connections**
+In Azure portal, select the Azure VPN Gateway and then **Settings** and **Connections**
 
 ![15]
 
@@ -192,7 +192,7 @@ When you configure your VPN device, you need the following values:
 * **Shared key**: This shared key is the same one that you specify when you create your site-to-site VPN connection. In our examples, we use a simple shared key. We recommend that you generate a more complex key to use.
 * **private IP addresses of tunnels in VPN Gateway**: each VPN gateway instance has two tunnel IPs. The High Bandwidth tunnels expect to have four IPsec tunnels. In some VPN devices, the configuration can be implemented through Virtual Tunnel Interfaces (VTIs). Each private IP address on the outbound interface of the on-premises VPN device can be associated with up to two virtual tunnel interfaces.
 
-* **IP address space assigned to the Azure VNet**
+* **IP address space assigned to the Azure virtual network**
 
 ![17]
 
@@ -234,7 +234,7 @@ static routing:
 
 ### <a name="configure-connect"></a>Configure custom encryption algorithms (optional)
 
-In each VPN Connection you can define a custom IKEv2 and IPsec policy to match the encryption requirements. For more information, see [Configure custom IPsec/IKE connection policies](ipsec-ike-policy-howto.md).
+In each VPN Connection, you can define a custom IKEv2 and IPsec policy to match the encryption requirements. For more information, see [Configure custom IPsec/IKE connection policies](ipsec-ike-policy-howto.md).
 
 [!INCLUDE [Configure additional connection settings with screenshot](../../includes/vpn-gateway-connection-settings-portal-include.md)]
 
