@@ -14,15 +14,15 @@ ms.date: 03/21/2024
 
 # Enable conditional features with feature filters
 
-Feature flags allow you to activate or deactivate functionality in your application. A simple feature flag is either on or off. The application always behaves the same way. For example, you could roll out a new feature behind a feature flag. When the feature flag is enabled, all users see the new feature. Disabling the feature flag hides the new feature.
+You can use feature flags to activate or deactivate functionality in your application. A basic feature flag is either on or off. The application behaves the same way in all circumstances. For example, you can roll out a new feature behind a feature flag. When the feature flag is enabled, all users see the new feature. Disabling the feature flag hides the new feature.
 
-In contrast, a _conditional feature flag_ allows the feature flag to be enabled or disabled dynamically. The application may behave differently, depending on the feature flag criteria. Suppose you want to show your new feature to a small subset of users at first. A conditional feature flag allows you to enable the feature flag for some users while disabling it for others. 
+In contrast, a _conditional feature flag_ provides a way for a feature flag to be enabled or disabled dynamically. The behavior of the application then depends on the feature flag criteria. This capability is useful when you want to show your new feature to a small subset of users at first. You can use a conditional feature flag to enable the feature flag for some users while disabling it for others. 
 
 ## What is a feature filter?
 
-_Feature filters_ are conditions for determining the state of the feature flag. Adding feature filters to a feature flag allows you to invoke custom code each time the feature flag is evaluated.
+_Feature filters_ are conditions for determining the state of a feature flag. Adding feature filters to a feature flag allows you to invoke custom code each time the feature flag is evaluated.
 
-The Microsoft feature management libraries include the following built-in feature filters configurable from the Azure App Configuration portal.
+The Microsoft feature management libraries include the following built-in feature filters, which you can configure in the Azure portal:
 
 - **Time window filter** enables the feature flag during a specified window of time.
 - **Targeting filter** enables the feature flag for specified users and groups.
