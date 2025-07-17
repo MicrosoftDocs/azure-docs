@@ -1,5 +1,5 @@
 ---
-title: Configure App Service Environment and Isolated v2 App Service plan for zone redundancy
+title: Configure App Service Environment and Isolated v2 App Service plans for zone redundancy
 description: Learn how to configure your App Service Environment and Isolated v2 App Service plan for zone redundancy
 ms.topic: conceptual
 ms.service: azure-app-service
@@ -8,14 +8,13 @@ author: anaharris
 ms.author: anaharris
 
 ---
-# Configure App Service Environment and Isolated v2 App Service plan for zone redundancy
+# Configure App Service Environment and Isolated v2 App Service plans for zone redundancy
 
 [App Service Environment](./overview.md) is a single-tenant deployment of Azure App Service that integrates with an Azure virtual network. Each App Service Environment deployment requires a dedicated subnet, which you can't use for other resources.
 
 This article shows you how to create and modify your App Service Environment zone redundancy settings, as well as how to check for zone redundancy support. It also shows you how to set up and modifiy zone redundancy settings for your plan. 
 
-To learn more details about how App Service Environment supports zone redundancy, see [Reliability in Azure App Service Environment](../../reliability/reliability-app-service.md).
-
+To learn more details about how App Service Environment supports zone redundancy, see [Reliability in Azure App Service Environment](../../reliability/reliability-app-service-environment.md).
 
 ## Configure zone redundancy for an App Service Environment
 
