@@ -5,7 +5,7 @@ author: karengu0
 ms.author: karenguo
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.date: 02/07/2025
+ms.date: 07/17/2025
 ms.service: azure
 ---
 
