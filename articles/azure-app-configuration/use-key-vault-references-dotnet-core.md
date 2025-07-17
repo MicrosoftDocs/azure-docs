@@ -34,7 +34,7 @@ In this tutorial, you:
 
 1. Go to the [Azure portal](https://portal.azure.com/#home), and then select **Create a resource**.
 
-   :::image type="content" source="./media/quickstarts/search-services.png" alt-text="Screenshot of the Azure portal. Under Azure services, Create a resource is highlighted, and icons for several resource types are pictured.":::
+   :::image type="content" source="./media/quickstarts/search-services.png" alt-text="Screenshot of the Azure portal. Under Azure services, Create a resource is highlighted, and icons for several resource types are pictured." lightbox="./media/quickstarts/search-services.png":::
 
 1. In the search box, enter **Key Vault**. In the result list, select **Key Vault**.
 
@@ -157,7 +157,7 @@ You can replace `DefaultAzureCredential` with any explicit credential type. Howe
 
 Alternatively, you can set the `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` environment variables. When you do, `DefaultAzureCredential` uses these variables and `EnvironmentCredential` to authenticate with your key vault.
 
-After you deploy your app to an Azure service with managed identity enabled, such as Azure App Service, Azure Kubernetes Service, or Azure Container Instance, you grant the managed identity of the Azure service permission to access your key vault. `DefaultAzureCredential` automatically uses `ManagedIdentityCredential` when your app is running in Azure. You can use the same managed identity to authenticate with both App Configuration and Key Vault. For more information, see [How to use managed identities to access App Configuration](howto-integrate-azure-managed-service-identity.md).
+After you deploy your app to an Azure service with managed identity enabled, such as Azure App Service, Azure Kubernetes Service, or Azure Container Instance, you grant the managed identity of the Azure service permission to access your key vault. `DefaultAzureCredential` automatically uses `ManagedIdentityCredential` when your app is running in Azure. You can use the same managed identity to authenticate with both App Configuration and Key Vault. For more information, see [Use managed identities to access App Configuration](howto-integrate-azure-managed-service-identity.md).
 
 ## Build and run the app locally
 
