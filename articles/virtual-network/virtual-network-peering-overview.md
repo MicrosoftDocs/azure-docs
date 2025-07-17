@@ -144,21 +144,6 @@ Gateway transit is a peering property that enables a virtual network to use a vi
 >[!NOTE]
 > A previous version of this document stated that virtual network peering charges wouldn't apply on the spoke virtual network (or nongateway virtual network) with gateway transit. It now reflects accurate pricing per the pricing page.
 
-## Related content
-
-* You can create a peering between two virtual networks. The networks can belong to the same subscription or different subscriptions. Complete a tutorial for one of the following scenarios:
-
-    |Azure deployment model             | Subscription  |
-    |---------                          |---------|
-    |Resource Manager              |[Same](tutorial-connect-virtual-networks-portal.md)|
-    |                                   |[Different](create-peering-different-subscriptions.md)|
-
-* To learn how to create a hub-and-spoke network topology, see [Hub-and-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
-* To learn about all virtual network peering settings, see [Create, change, or delete a virtual network peering](virtual-network-manage-peering.md).
-
-* For answers to common virtual network peering and global virtual network peering questions, see [Virtual network peering](virtual-networks-faq.md#virtual-network-peering).
-
 ## Next steps
 
 Ready to implement virtual network peering? Choose your scenario:
