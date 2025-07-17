@@ -1,148 +1,185 @@
 ---
-title: Connect to IBM Informix database
-description: Automate tasks and workflows that manage resources stored in IBM Informix by using Azure Logic Apps
+title: Connect workflows to IBM Informix
+description: Learn how to access resources in IBM Informix databases from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-author: ju-shim
-ms.author: jushiman
-ms.reviewer: estfan, azla
+ms.reviewer: estfan, hcampos, azla
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 07/17/2025
+
+#Customer intent: As a developer, I want to access resources in an IBM Informix database from workflows in Azure Logic Apps.
 ---
 
-# Manage IBM Informix database resources by using Azure Logic Apps
+# Access resources in IBM Informix databases from workflows in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Informix connector](/connectors/informix/), you can create automated tasks and workflows that manage resources in an IBM Informix database. This connector includes a Microsoft client that communicates with remote Informix server computers across a TCP/IP network, including cloud-based databases such as IBM Informix for Windows running in Azure virtualization and on-premises databases when you use the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). You can connect to these Informix platforms and versions if they are configured to support Distributed Relational Database Architecture (DRDA) client connections:
+To run automated tasks that manage resources in IBM Informix databases from workflows in Azure Logic Apps, you can use the IBM **Informix** connector. This connector includes a Microsoft client that communicates with remote Informix server computers across a TCP/IP network, including cloud-based databases such as IBM Informix for Windows running in Azure virtualization and on-premises databases.
+
+You can connect to the following Informix platforms and versions if they are configured to support the following Distributed Relational Database Architecture (DRDA) client connections:
 
 * IBM Informix 12.1
 * IBM Informix 11.7
 
-This topic shows you how to use the connector in a logic app to process database operations.
+This article shows how to connect from a workflow in Azure Logic Apps to an Informix database process database operations and add operations for performing various tasks.
+
+## Connector technical reference
+
+For technical information based on the connector's Swagger description, such as operations, limits, and other details, see the [connector reference article](/connectors/informix/).
+
+The following table provides more information about the available connector actions:
+
+| Action | Description | Parameters and descriptions |
+|--------|-------------|-----------------------------|
+| **Delete row** | Remove a row from the specified Informix table by running an Informix `DELETE` statement. | - **Table name**: The name for the Informix table that you want <br>- **Row ID**: The unique ID for the row to delete, for example, `9999` |
+| **Get row** | Get a single row from the specified Informix table by running an Informix `SELECT WHERE` statement. | - **Table name**: The name for the Informix table that you want. <br>- **Row ID**: The unique ID for the row, for example, `9999`. |
+| **Get rows** | Get all the rows in the specified Informix table by running an Informix `SELECT *` statement. | **Table name**: The name for the Informix table that you. want <br><br>To add other parameters to this action, add them from the **Advanced parameters** list. For more information, see the [connector reference article](/connectors/informix/). |
+| **Get tables** | List Informix tables by running an Informix `CALL` statement. | None |
+| **Insert row** | Add a row to the specified Informix table by running an Informix `INSERT` statement. | - **Table name**: The name for the Informix table that you want. <br>- **Row**: The row with the values to add. |
+| **Update row** | Edit a row in the specified Informix table by running an Informix `UPDATE` statement. | - **Table name**: The name for the Informix table that you want <br>- **Row ID**: The unique ID for the row to update, for example, `9999`. <br>- **Row**: The row with the updated values, for example, `102`. |
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* For on-premises databases, [download and install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a local computer and then [create an Azure data gateway resource in the Azure portal](../logic-apps/logic-apps-gateway-connection.md).
+* To connect with on-premises Informix databases, you need to [download and install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a local computer and then [create an Azure data gateway resource in the Azure portal](../logic-apps/logic-apps-gateway-connection.md).
 
-* The logic app where you need access to your Informix database. This connector provides only actions, so your logic app must already start with a trigger, for example, the [Recurrence trigger](../connectors/connectors-native-recurrence.md). 
+* The Consumption or Standard logic app workflow where you need access to your Informix database.
+
+  The Informix connector provides only actions, so your workflow must start with an existing trigger that best suits your scenario. This example uses the [**Recurrence** trigger](../connectors/connectors-native-recurrence.md).
+
+  If you don't have a logic app workflow, see the following articles:
+
+  * [Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md)
+
+  * [Create an example Standard logic app workflow](../logic-apps/create-single-tenant-workflows-azure-portal.md)
 
 ## Add an Informix action
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer, if not already open.
+Based on whether you have a Consumption or Standard workflow, follow the steps on the corresponding tab:
 
-1. Under the step where you want to add the Informix action, select **New step**.
+### [Consumption](#tab/consumption)
 
-   To add an action between existing steps, move your mouse over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource.
 
-1. In the search box, enter `informix` as your filter. From actions list, select the action that you want, for example:
+1. On the resource sidebar, under **Development Tools**, select the designer to open the workflow.
 
-   ![Select the Informix action to run](./media/connectors-create-api-informix/select-informix-connector-action.png)
+1. On the designer, follow these [general steps to add the **Informix** action that you want](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-action) to your workflow.
 
-   The connector provides these actions, which run the corresponding database operations:
+1. On the connection pane, provide the [connection information for your Informix database](#create-connection).
 
-   * Get tables - List database tables by using a `CALL` statement
-   * Get rows - Read all rows by using a `SELECT *` statement
-   * Get row - Read a row by using a `SELECT WHERE` statement
-   * Add a row by using an `INSERT` statement
-   * Edit a row by using an `UPDATE` statement
-   * Delete a row by using a `DELETE` statement
+1. After you successfully create the connection, on the action pane, provide the necessary information for the action.
 
-1. If you're prompted to provide connection details for your Informix database, follow the [steps to create the connection](#create-connection), and then continue with the next step.
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
-1. Provide the information for your selected action:
+1. Either [test your workflow](#test-workflow) or continue adding actions to your workflow.
 
-   | Action | Description | Properties and descriptions |
-   |--------|-------------|-----------------------------|
-   | **Get tables** | List database tables by running an Informix CALL statement. | None |
-   | **Get rows** | Fetch all the rows in the specified table by running an Informix `SELECT *` statement. | **Table name**: The name for the Informix table that you want <p><p>To add other properties to this action, select them from the **Add new parameter** list. For more information, see the [connector's reference topic](/connectors/informix/). |
-   | **Get row** | Fetch a row from the specified table by running an Informix `SELECT WHERE` statement. | - **Table name**: The name for the Informix table that you want <br>- **Row ID**: The unique ID for the row, for example, `9999` |
-   | **Insert row** | Add a row to the specified Informix table by running an Informix `INSERT` statement. | - **Table name**: The name for the Informix table that you want <br>- **item**: The row with the values to add |
-   | **Update row** | Change a row in the specified Informix table by running an Informix `UPDATE` statement. | - **Table name**: The name for the Informix table that you want <br>- **Row ID**: The unique ID for the row to update, for example, `9999` <br>- **Row**: The row with the updated values, for example, `102` |
-   | **Delete row** | Remove a row from the specified Informix table by running an Informix `DELETE` statement. | - **Table name**: The name for the Informix table that you want <br>- **Row ID**: The unique ID for the row to delete, for example, `9999` |
-   ||||
+### [Standard](#tab/standard)
 
-1. Save your logic app. Now, either [test your logic app](#test-logic-app) or continue building your logic app.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
+
+1. On the resource sidebar, under **Workflows**, select **Workflows**, and then select your workflow.
+
+1. On the workflow sidebar, under **Tools**, select the designer to open the workflow.
+
+1. On the designer, follow these [general steps to add the **Informix** action that you want](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-action) to your workflow.
+
+1. On the connection pane, provide the [connection information for your Informix database](#create-connection).
+
+1. After you successfully create the connection, on the action pane, provide the necessary information for the action.
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
+
+1. Either [test your workflow](#test-logic-app) or continue adding actions to your workflow.
+
+---
 
 <a name="create-connection"></a>
 
-## Connect to Informix
+## Connection information
 
-1. If your logic app connects to an on-premises database, select **Connect via on-premises data gateway**.
+1. For an on-premises Informix database, select **Connect via on-premises data gateway** to view the related required parameters.
 
-1. Provide this connection information and then select **Create**.
+1. Specify the following connection information:
 
-   | Property | JSON property | Required | Example value | Description |
-   |----------|---------------|----------|---------------|-------------|
-   | Connection name | `name` | Yes | `informix-demo-connection` | The name to use for the connection to your Informix database |
-   | Server | `server` | Yes | - Cloud: `informixdemo.cloudapp.net:9089` <br>- On-premises: `informixdemo:9089` | The TCP/IP address or alias that is in either IPv4 or IPv6 format, followed by a colon and a TCP/IP port number |
-   | Database | `database` | Yes | `nwind` | The DRDA Relational Database Name (RDBNAM) or Informix database name (dbname). Informix accepts a 128-byte string. |
-   | Authentication | `authentication` | On-premises only | **Basic** or **Windows** (kerberos) | The authentication type that's required by your Informix database. This property appears only when you select **Connect via on-premises data gateway**. |
-   | Username | `username` | No | <*database-user-name*> | A user name for the database |
-   | Password | `password` | No | <*database-password*> | A password for the database |
-   | Gateway | `gateway` | On-premises only | - <*Azure-subscription*> <br>- <*Azure-on-premises-data-gateway-resource*> | The Azure subscription and Azure resource name for the on-premises data gateway that you created in the Azure portal. The **Gateway** property and sub-properties appears only when you select **Connect via on-premises data gateway**. |
-   ||||||
+   | Parameter name | JSON parameter name | Required | Example value | Description |
+   |----------------|---------------------|----------|---------------|-------------|
+   | **Connection Name** | `name` | Yes | `informix-demo-connection` | The name for the connection. |
+   | **Server** | `server` | Yes | - Cloud database: `informixdemo.cloudapp.net:9089` <br><br>- On-premises database: `informixdemo:9089` | The TCP/IP address or alias that is in either IPv4 or IPv6 format, followed by a colon and a TCP/IP port number |
+   | **Database** | `database` | Yes | `nwind` | The DRDA Relational Database Name (RDBNAM) or Informix database name (dbname). Informix accepts a 128-byte string. |
+   | **Username** | `username` | No | <*database-user-name*> | Your user name for the database. |
+   | **Password** | `password` | No | <*database-password*> | Your password for the database. |
+   | **Authentication** | `authentication` | On-premises only | **Windows** (kerberos) or **Basic** | The authentication type required by your database. This parameter appears only when you select **Connect via on-premises data gateway**. <br><br>**Important**: Basic authentication has significant security disadvantages, such as sending credentials with every request and being susceptible to cross-site request forgery (CSRF) attacks. While this method might suit certain scenarios, consider more secure authentication methods when available. For more information, see the following resources: <br><br>- [Authentication guidance](#authentication-guidance) <br><br>- [Kerberos authentication overview in Windows Server](/windows-server/security/kerberos/kerberos-authentication-overview) <br><br>- [Authentication and verification methods available in Microsoft Entra ID](/entra/identity/authentication/concept-authentication-methods) |
+   | **Gateway** | `gateway` | On-premises only | - **Subscription**: <*Azure-subscription*> <br><br>- <*Azure-on-premises-data-gateway-resource*> | The Azure subscription and Azure resource name for the on-premises data gateway that you created in the Azure portal. The **Gateway** property and sub-properties appears only when you select **Connect via on-premises data gateway**. |
 
-   For example:
+   The following examples show sample connections for cloud databases and on-premises databases:
 
    * **Cloud database**
 
-     ![Cloud database connection information](./media/connectors-create-api-informix/informix-cloud-connection.png)
+     :::image type="content" source="media/connectors-create-api-informix/connection-cloud-database.png" alt-text="Screenshot shows connection pane with example details for Informix cloud database." lightbox="media/connectors-create-api-informix/connection-cloud-database.png":::
 
    * **On-premises database**
 
-     ![On-premises database connection information](./media/connectors-create-api-informix/informix-on-premises-connection.png)
+     :::image type="content" source="media/connectors-create-api-informix/connection-on-premises-database.png" alt-text="Screenshot shows connection pane with example details for Informix on-premises database." lightbox="media/connectors-create-api-informix/connection-on-premises-database.png":::
 
-1. Save your logic app.
+1. When you're done, select **Create new**.
 
-<a name="test-logic-app"></a>
+1. Continue with the next steps for [Consumption](connectors-create-api-informix.md?tabs=consumption#add-an-informix-action) or [Standard](connectors-create-api-informix.md?tabs=standard#add-an-informix-action) workflows.
 
-## Test your logic app
+## Authentication guidance
 
-1. On the Logic App Designer toolbar, select **Run**. After your logic app runs, you can view the outputs from that run.
+- When possible, avoid methods that employ a username and password or tokens.
 
-1. From your logic app's menu, select **Overview**. On the overview pane, under **Summary** > **Runs history**, select the most recent run.
+  [!INCLUDE [guidance-authentication-flows](../logic-apps/includes/guidance-authentication-flows.md)]
 
-1. Under **Logic app run**, select **Run Details**.
+- Make sure that you secure and protect sensitive and personal data.
 
-1. From the actions list, select the action with the outputs that you want to view, for example, **Get_tables**.
+  [!INCLUDE [secrets-guidance](../logic-apps/includes/secrets-guidance.md)]
+
+<a id="test-workflow"></a>
+
+## Test your workflow
+
+Based on whether you have a Consumption or Standard workflow, follow the steps on the corresponding tab:
+
+### [Consumption](#tab/consumption)
+
+1. On the designer toolbar, select **Run** > **Run**.
+
+   After the workflow runs, you can view the outputs from that run.
+
+1. [Follow the general steps to view the latest workflow run and the information for each step in the workflow](../logic-apps/view-workflow-status-run-history.md?tabs=consumption#review-run-history).
+
+1. On the run history pane toolbar, select **Run details**.
+
+1. On the run details pane, from the actions list, select the action with the outputs that you want to view. 
+
+1. To view the inputs, under **Inputs Link**, select the URL link. To view the outputs, under **Outputs Link** link, select the URL link.
+
+### [Standard](#tab/standard)
+
+1. On the designer toolbar, select **Run** > **Run**.
+
+   After the workflow runs, you can view the outputs from that run.
+
+1. [Follow the general steps to view the latest workflow run and the information for each step in the workflow](../logic-apps/view-workflow-status-run-history.md?tabs=standard#review-run-history).
+
+1. On the run history pane, select the operation with the inputs and outputs that you want to review.
+
+1. On the run details pane, from the actions list, select the action with the outputs that you want to view, for example, **Get_tables**.
 
    If the action was successful, their **Status** property is marked as **Succeeded**.
 
 1. To view the inputs, under **Inputs Link**, select the URL link. To view the outputs, under **Outputs Link** link, select the URL link. Here are some example outputs:
 
-   * **Get_tables** shows a list of tables:
+---
 
-     ![Outputs from "Get tables" action](./media/connectors-create-api-informix/InformixconnectorGetTablesLogicAppRunOutputs.png)
+The following examples show sample output from the **Get rows** action:
 
-   * **Get_rows** shows a list of rows:
+:::image type="content" source="media/connectors-create-api-informix/get-rows-outputs.png" alt-text="Screenshot shows outputs from action named Get rows." lightbox="media/connectors-create-api-informix/get-rows-outputs.png":::
 
-     ![Outputs from "Get rows" action](./media/connectors-create-api-informix/InformixconnectorGetRowsOutputs.png)
+## Related content
 
-   * **Get_row** shows the specified row:
-
-     ![Outputs from "Get row" action](./media/connectors-create-api-informix/InformixconnectorGetRowOutputs.png)
-
-   * **Insert_row** shows the new row:
-
-     ![Outputs from "Insert row" action](./media/connectors-create-api-informix/InformixconnectorInsertRowOutputs.png)
-
-   * **Update_row** shows the updated row:
-
-     ![Outputs from "Update row" action](./media/connectors-create-api-informix/InformixconnectorUpdateRowOutputs.png)
-
-   * **Delete_row** shows the deleted row:
-
-     ![Outputs from "Delete row" action](./media/connectors-create-api-informix/InformixconnectorDeleteRowOutputs.png)
-
-## Connector-specific details
-
-For technical details about triggers, actions, and limits, which are described by the connector's Swagger description, review the [connector's reference page](/connectors/informix/).
-
-## Next steps
-
+* [What are connectors in Azure Logic Apps](introduction.md)
 * [Managed connectors for Azure Logic Apps](managed.md)
 * [Built-in connectors for Azure Logic Apps](built-in.md)
-* [What are connectors in Azure Logic Apps](introduction.md)
