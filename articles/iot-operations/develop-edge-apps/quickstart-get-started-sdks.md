@@ -71,7 +71,8 @@ GitHub Codespaces provides the most streamlined experience and can get the devel
 
     1. Install prerequisites including:
         1. `Docker` if not already installed
-        1. `k3d` to run lightweight Kubernetes clusters 
+        1. `Mosquitto` MQTT client for testing
+        1. `k3d` to run lightweight Kubernetes clusters
         1. `Helm` for Kubernetes package management
         1. `Step CLI` for certificate management
         1. `Azure CLI` for managing Azure resources
@@ -182,6 +183,7 @@ GitHub Codespaces provides the most streamlined experience and can get the devel
     This script does the following:
 
     1. Install prerequisites including:
+        1. `Mosquitto` MQTT client for testing
         1. `k3d` to run lightweight Kubernetes clusters 
         1. `Helm` for Kubernetes package management
         1. `Step CLI` for certificate management
@@ -207,27 +209,19 @@ Open a new bash terminal and do the following steps:
     cd <REPOSITORY ROOT>
     ```
 
-1. Edit the `.env` file to set the values for your environment:
-
-    > [!NOTE]
-    > The `.env` file contains the environment variables used by the `install-aio-arc.sh` script, and the samples to connect to the MQTT Broker. You can use the default values provided in the file or set your own values.
-
-    To edit the `.env` file, you can use any text editor of your choice. For example, using `nano`:
-
-    ```bash
-    nano .env
-    ```
-
-1. Load the environment variables into your shell, run the following command in your terminal:
+1. Run the `install-aio-arc.sh` script to arc-enable your cluster and deploy Azure IoT Operations, replacing the placeholders with your values:
+    
+    | Parameter | Value |
+    | --------- | ----- |
+    | LOCATION | An Azure region close to you. For the list of currently supported regions, see [Supported regions](../overview-iot-operations.md#supported-regions). |
+    | RESOURCE_GROUP | A name for a new Azure resource group where your cluster will be created. |
+    | CLUSTER_NAME | A name for your Kubernetes cluster. |
+    | STORAGE_ACCOUNT_NAME | A name for your storage account. Storage account names must be between 3 and 24 characters in length and only contain numbers and lowercase letters. |
+    | SCHEMA_REGISTRY_NAME | A name for your schema registry. Schema registry names can only contain numbers, lowercase letters, and hyphens. |
+    | SCHEMA_REGISTRY_NAMESPACE | A name for your schema registry namespace. The namespace uniquely identifies a schema registry within a tenant. Schema registry namespace names can only contain numbers, lowercase letters, and hyphens. |
 
     ```bash
-    source .env
-    ```
-
-1. Run the `install-aio-arc.sh` script to arc-enable your cluster and deploy Azure IoT Operations:
-
-    ```bash
-    ./tools/deployment/install-aio-arc.sh
+    ./tools/deployment/install-aio-arc.sh -l <LOCATION> -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -s <STORAGE_ACCOUNT_NAME> -r <SCHEMA_REGISTRY_NAME> -n <SCHEMA_REGISTRY_NAMESPACE>
     ```
     
     This script does the following:
@@ -272,15 +266,21 @@ After Azure IoT Operations is deployed, you need to configure it for development
     1. Create the trust bundle ConfigMap for the Broker to authentication x509 clients
     1. Configure a `BrokerListener` and `BrokerAuthentication` resources for SAT and x509 auth
 
-<!-- ## Shell configuration
+## Shell configuration
 
-The samples within [Azure IoT Operations SDKs github repository](https://github.com/Azure/iot-operations-sdks) read configuration from environment variables. We have provided an `.env` file in the repository root that exports the variables used by the samples to connect to the MQTT Broker. Edit the `.env` file to set the values for your environment, or use the default values provided in the file.
+The samples within [Azure IoT Operations SDKs github repository](https://github.com/Azure/iot-operations-sdks) read configuration from environment variables. We have provided an `.env` file in the repository root that exports the variables used by the samples to connect to the MQTT Broker. Edit the `.env` file to set the values for your environment, or use the default values provided in the file:
 
-To load the environment variables into your shell, run the following command in your terminal:
+1. Navigate to the repository root directory:
 
-```bash
-source <REPOSITORY ROOT>/.env
-``` -->
+    ```bash
+    cd <REPOSITORY ROOT>
+    ```
+
+1. Load the environment variables into your shell:
+
+    ```bash
+    source .env
+    ```
 
 <!-- TODO: Check why this only works with VSCode Dev Containers when I do: kubectl port-forward -n azure-iot-operations service/aio-broker-external 8883:8883 -->
 ## Testing the installation
@@ -310,6 +310,12 @@ To test the setup is working correctly, use `mosquitto_pub` to connect to the MQ
     ```bash
     mosquitto_pub -L mqtts://localhost:8884/hello -m world --cafile $SESSION/broker-ca.crt -D CONNECT authentication-method K8S-SAT -D CONNECT authentication-data $(cat $SESSION/token.txt) --debug
     ```
+
+## Testing MQTT session client sample
+
+This sample demonstrates connecting to MQTT broker using the MQTT session client, and sending and receiving telemetry.
+
+- TODO
 
 ## Configuration summary
 
