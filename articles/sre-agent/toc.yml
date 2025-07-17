@@ -23,3 +23,7 @@ items:
       href: troubleshoot.md
     - name: Billing
       href: billing.md
+- name: Reference
+  items:
+    - name: Tools used by Azure SRE Agent
+      href: tools.md
