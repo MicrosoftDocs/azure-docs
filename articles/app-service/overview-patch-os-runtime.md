@@ -14,7 +14,7 @@ ms.author: cephalin
 
 # Azure App Service OS and runtime patching
 
-This article explains how [Azure App Service](overview.md) updates the operating system (OS) and runtime software, how you can get version information, and how you can manually upgrade to new versions.
+This article explains how [Azure App Service](overview.md) updates operating system (OS) and runtime software, how you can get version information, and how you can manually upgrade to new versions.
 
 App Service is a Platform-as-a-Service (PaaS), so Azure manages the OS and application stack for you. You manage only your application and its data. If you need more control over the OS and application stack, you can use [Azure Virtual Machines](/azure/virtual-machines/).
 
@@ -72,24 +72,24 @@ az webapp config set --java-version 1.8 --java-container Tomcat --java-container
 
 ## How can I query OS and runtime update status on my instances?
 
-Critical OS information is locked down from access. For more information, see [Operating system functionality on Azure App Service](operating-system-functionality.md). However, the [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console) lets you query regarding the OS version and runtime versions of your App Service instances. 
+The [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console) lets you query the OS version and runtime versions of your App Service instances. Critical OS information is locked down from access. For more information, see [Operating system functionality on Azure App Service](operating-system-functionality.md).
 
 The following table shows how to use Kudu or Cloud Shell commands to find the Windows and language runtime versions that are running your apps. Replace `<appname>` and `<groupname>` with your app and resource group names.
 
-| Information | Where to find it | 
+| Information | Where to find it |
 |-|-|
-| Windows version | See `https://<appname>.scm.azurewebsites.net/Env#sysinfo |
-| .NET version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command at the command prompt: <br>`reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full"` |
-| .NET Core version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command: <br> `dotnet --version` |
-| PHP version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command: <br> `php --version` |
-| Default Node.js version | In the [Cloud Shell](../cloud-shell/overview.md), run the following command: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
-| Python version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command: <br> `python --version` |  
-| Java version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command: <br> `java -version` |  
+| Windows version | See `https://<appname>.scm.azurewebsites.net/Env#sysinfo`. |
+| .NET version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command at the command prompt: <br>`reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full"`. |
+| .NET Core version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run `dotnet --version`. |
+| PHP version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run `php --version`. |
+| Default Node.js version | In the [Cloud Shell](../cloud-shell/overview.md), run the following command: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"`. |
+| Python version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run `python --version`. |
+| Java version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run `java -version`. |
 
 > [!NOTE]  
 > Access to registry location `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, where information on [Security Bulletins](/security-updates/SecurityBulletins/securitybulletins) is stored, is locked down.
 
 ## Related content
 
-[Microsoft Security](https://www.microsoft.com/security)
-[64 bit ASP.NET Core on Azure App Service](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)
+- [Microsoft Security](https://www.microsoft.com/security)
+- [64-bit ASP.NET Core on Azure App Service](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)
