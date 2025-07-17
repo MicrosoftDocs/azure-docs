@@ -2,8 +2,8 @@
 ms.service: azure-policy
 ms.topic: include
 ms.date: 03/19/2025
-author: jasongroce
-ms.author: jasongroce
+author: rmcmurray
+ms.author: robmcm
 ---
 
 ### Policy exemptions per assignment
