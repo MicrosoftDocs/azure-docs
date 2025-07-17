@@ -2,6 +2,7 @@
 title: Manage settings for your Elastic resource in the Azure portal
 description: Manage settings, view resources, reconfigure metrics/logs, and more for your Elastic resource by using the Azure portal.
 ms.topic: how-to
+zone_pivot_groups: elastic-resource-type
 ms.date: 07/16/2025
 #customer intent: As an Azure developer, I want to use the Azure portal manage my Elastic resources that use search, log analytics, and security monitoring functions for Azure environments.
 
@@ -17,7 +18,7 @@ This article shows how to manage the settings for Elastic resources.
 
 :::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of an Elastic resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/resource-overview.png":::
 
-# [Elastic Search](#tab/elastic-search)
+::: zone pivot="elastic-search"
 
 The details include:
 
@@ -151,7 +152,9 @@ You can easily manage the corresponding Elastic deployments or Azure resources u
 > - A single Azure Marketplace SaaS unifies billing for multiple Elastic deployments.
 > - If you wish to completely stop billing for the marketplace SaaS, delete all linked Elastic deployments created from the Azure portal or Elastic portal.
 
-# [Elastic Observability](#tab/elastic-observability)
+::: zone-end
+
+::: zone pivot="elastic-observability"
 
 The details include:
 
@@ -285,7 +288,9 @@ You can easily manage the corresponding Elastic deployments or Azure resources u
 > - A single Azure Marketplace SaaS unifies billing for multiple Elastic deployments.
 > - If you wish to completely stop billing for the marketplace SaaS, delete all linked Elastic deployments created from the Azure portal or Elastic portal.
 
-# [Elastic Security](#tab/elastic-security)
+::: zone-end
+
+::: zone pivot="elastic-security"
 
 The details include:
 
@@ -419,8 +424,7 @@ You can easily manage the corresponding Elastic deployments or Azure resources u
 > - A single Azure Marketplace SaaS unifies billing for multiple Elastic deployments.
 > - If you wish to completely stop billing for the marketplace SaaS, delete all linked Elastic deployments created from the Azure portal or Elastic portal.
 
----
-
+::: zone-end
 
 ## Get support
 
