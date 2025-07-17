@@ -4,7 +4,7 @@ description: Provides an include file for the general Microsoft Sentinel Azure p
 services: microsoft-sentinel
 author: batamig
 ms.topic: "include"
-ms.date: 07/01/2025
+ms.date: 07/16/2025
 ms.author: bagol
 ms.custom: "include file"
 ---
