@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-app-service
-ms.date: 07/16/2025
+ms.date: 07/17/2025
 
 #Customer intent: As an engineer responsible for business continuity, I want to understand the details of how Azure App Service Environment works from a reliability perspective and plan resiliency strategies in alignment with the exact processes that Azure services follow during different kinds of situations.
 ---
@@ -24,41 +24,35 @@ This article describes reliability support in [Azure App Service Environment](..
 
 ## Production deployment recommendations
 
-[Enable zone redundancy](#availability-zone-support) on your environment, which requires that your App Service Isolated v2 plans use a minimum of two instances. For more information, see [Instance distribution across zones](../reliability/reliability-app-service.md#instance-distribution-across-zones).
+<!-- John: Do we point to WAF here too?-->
+[Enable zone redundancy](#availability-zone-support) on your environment, which requires that your App Service plans use a minimum of two instances. For more information, see [Instance distribution across zones](../reliability/reliability-app-service.md#instance-distribution-across-zones).
 
 ## Reliability architecture overview
 
 To use App Service Environment, you must use the [Isolated v2 pricing tier](/azure/app-service/overview-hosting-plans#isolated-v2). The Isolated v2 pricing tier supports zone redundancy and is designed for high-scale, mission-critical applications.
 
-When you implement [Azure App Service Environment](/azure/app-service/environment/overview), you deploy the environment as the container for your Isolated v2 tier App Service plans and web apps. During the set-up procedure for your environment, you configure core networking settings and optional hardware isolation. You also choose whether or not to support zone redundancy on the environment, if the region supports availability zones.
+When you implement [Azure App Service Environment](/azure/app-service/environment/overview), you deploy the environment as the container for your App Service plans and web apps. During the set-up procedure for your environment, you configure core networking settings and optional hardware isolation. You also choose whether or not to support zone redundancy on the environment, if the region supports availability zones.
 
 After you have created your environment, then you can create one or more [Isolated v2 App Service plans](../app-service/overview-hosting-plans.md).
 
-For further information on reliability architecture in Azure App Service, see [Reliability in Azure App Service](./reliability-app-service.md#reliability-architecture-overview).
+[!INCLUDE [App Service reliability architecture overview](includes/app-service/reliability-architecture-overview.md)]
 
 ## Transient faults
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
-For information on transient fault handling in Azure App Service, see [Reliability in Azure App Service](./reliability-app-service.md#transient-faults).
+[!INCLUDE [Transient fault handling app service description](includes/app-service/reliability-transient-fault-handling-include.md)]
 
 ## Availability zone support
 
 [!INCLUDE [Availability zone support description](includes/reliability-availability-zone-description-include.md)]
 
-Your App Service Environment can be configured as *zone redundant*. You can then configure your App Service Isolated v2 plans to also be zone redundant, which means they're distributed across multiple availability zones.
+Your App Service Environment can be configured as *zone redundant*. You can then configure your App Service plans to also be zone redundant, which means they're distributed across multiple availability zones.
 
 However, you can enable or disable zone redundancy on each plan, regardless of the setting on the App Service Environment. This means that you can have some plans in your environment that are zone redundant and others that aren't.
 
-When you create a zone-redundant Isolated v2 App Service plan in your environment, the instances of your App Service Isolated v2 plan are distributed across the availability zones in the region. For more information, see [Instance distribution across zones](../reliability/reliability-app-service.md#instance-distribution-across-zones).
+When you create a zone-redundant App Service plan in your environment, the instances of your App Service plan are distributed across the availability zones in the region. For more information, see [Instance distribution across zones](../reliability/reliability-app-service.md#instance-distribution-across-zones).
 
-See [Reliability in Azure App Service](../reliability/reliability-app-service.md#capacity-planning-and-management) for detailed information on zone redundancy in App Service, including:
-
-- [Capacity planning and management](../reliability/reliability-app-service.md#capacity-planning-and-management)
-- [Normal operations](../reliability/reliability-app-service.md#normal-operations)
-- [Zone-down experience](../reliability/reliability-app-service.md#zone-down-experience) 
-- [Failback](../reliability/reliability-app-service.md#failback)
-- [Testing for zone failures](../reliability/reliability-app-service.md#testing-for-zone-failures)
 
 ### Region support
 
@@ -78,11 +72,23 @@ To enable zone redundancy for your App Service Environment you must:
 
     To learn whether or not the App Service Environment is configured for zone redundancy, see [Check for zone redundancy support for an App Service Environment](../app-service/environment/configure-zone-redundancy-ase.md#check-for-zone-redundancy-support-for-an-app-service-environment).
 
+### Instance distribution across zones
+
+[!INCLUDE [Instance distribution across zones description](includes/app-service/reliability-instance-distribution-across-zones-include.md)]
+
+### Considerations
+
+During an availability zone outage, some aspects of Azure App Service might be affected, even though the application continues to serve traffic. These behaviors include App Service plan scaling, application creation, application configuration, and application publishing.
+
+When you enable zone redundancy on your App Service plan, you also improve your resiliency to updates that the App Service platform rolls out. To learn more, see [Reliability during service maintenance](#reliability-during-service-maintenance).
+
+For App Service plans that aren't configured as zone redundant, the underlying VM instances aren't resilient to availability zone failures. They can experience downtime during an outage in any zone in that region.
+
 ### Cost
 
 There's no additional cost to enable zone redundancy on an App Service Environment or its plans. However, zone redundancy for a plan requires that it has two or more instances. You're charged based on your App Service plan SKU, the capacity that you specify, and any instances that you scale to based on your autoscale criteria.
 
-If you enable availability zones but specify a capacity of less than two, the platform enforces a minimum instance count of two. The platform charges you for those two instances.
+If you enable availability zones but specify a capacity of less than two, the platform enforces a minimum instance count of two. The platform charges you for  those two instances.
 
 ### Configure availability zone support
 
@@ -90,10 +96,33 @@ If you enable availability zones but specify a capacity of less than two, the pl
     - To learn how to create a new zone-redundant App Service Environment, see [Create a new App Service Environment plan with zone redundancy](../app-service/environment/creation.md). Make sure to set **Zone redundancy** to *Enabled*. 
     - To create plans in your App Service Environment, you must use the Isolated v2 pricing tier. To learn how to create an Isolated v2 App Service plan with zone redundancy, see [Configure Isolated v2 App Service plans with zone redundancy](../app-service/environment/configure-zone-redundancy-isolated.md).
 
-- **Enable or disable zone redundancy on an existing App Service Environment.** To learn how to enable or disable zone redundancy on App Service Environment, see [Set zone redundancy for an existing App Service Environment](../app-service/environment/configure-zone-redundancy-ase.md#set-zone-redundancy-for-an-existing-app-service-environment). To learn how to enable or disable zone redundancy on an existing Isolated v2 App Service plan inside your environment, see [Set zone redundancy for an existing Isolated v2 App Service plan](../app-service/environment/configure-zone-redundancy-isolated.md#set-zone-redundancy-for-an-existing-isolated-v2-app-service-plan).
+- **Enable or disable zone redundancy on an existing App Service Environment.** To learn how to enable or disable zone redundancy on App Service Environment, see [Set zone redundancy for an existing App Service Environment](../app-service/environment/configure-zone-redundancy-ase.md#set-zone-redundancy-for-an-existing-app-service-environment). To learn how to enable or disable zone redundancy on an existing App Service plan inside your environment, see [Set zone redundancy for an existing Isolated v2 App Service plan](../app-service/environment/configure-zone-redundancy-isolated.md#set-zone-redundancy-for-an-existing-isolated-v2-app-service-plan).
 
 > [!NOTE]
 > When you change the zone redundancy status of the App Service Environment, you initiate an upgrade that takes 12-24 hours to complete. During the upgrade process, you don't experience any downtime or performance problems.
+
+### Capacity planning and management
+
+[!INCLUDE [Capacity planning and management description](includes/app-service/reliability-capacity-planning-and-management-include.md)]
+
+
+### Normal operations
+
+[!INCLUDE [Normal operations description](includes/app-service/reliability-normal-operations-include.md)]
+
+### Zone-down experience
+
+[!INCLUDE [Zone-down experience description](includes/app-service/reliability-zone-down-experience-include.md)]
+
+
+### Failback
+
+[!INCLUDE [Failback description](includes/app-service/reliability-failback-include.md)]
+
+### Testing for zone failures
+
+
+[!INCLUDE [Testing for zone failures description](includes/app-service/reliability-testing-for-zone-failures-include.md)]
 
 ## Multi-region support
 
@@ -109,14 +138,21 @@ To reduce the risk of a single-region failure affecting your application, deploy
 
 For an example approach that illustrates this architecture, see [High availability enterprise deployment by using App Service Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment).
 
+## Backups
+
+[!INCLUDE [Backups description](includes/app-service/reliability-backups-include.md)]
+
+## Reliability during service maintenance
+
+[!INCLUDE [Reliability during service maintenance description](includes/app-service/reliability-maintenance-include.md)]
+
 ## Service-level agreement (SLA)
 
 The service-level agreement (SLA) for App Service describes the expected availability of the service and the conditions that must be met to achieve that availability expectation. For more information, see [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
-When you deploy a zone-redundant App Service Isolated v2 plan, the uptime percentage defined in the SLA increases.
+When you deploy a zone-redundant App Service plan, the uptime percentage defined in the SLA increases.
 
 ## Related content
 
 - [Reliability in Azure](./overview.md)
-- For information on Backups in App Service, see [Reliability in Azure App Service - Backups](../reliability/reliability-app-service.md#backups).
-- For service maintenance in Azure App Service, see [Reliability in Azure App Service - Service maintenance](../reliability/reliability-app-service.md#reliability-during-service-maintenance).
+- [Reliability in Azure App Service](../reliability/reliability-app-service.md)
