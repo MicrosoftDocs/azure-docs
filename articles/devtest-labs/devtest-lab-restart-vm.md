@@ -16,7 +16,7 @@ You can quickly and easily restart a virtual machine in  DevTest Labs by followi
 
 - The VM must be running for the restart feature to be enabled.
 - If you're connected to a running VM when you perform a restart, you need to reconnect to the VM after it starts back up.
-- If an artifact is being applied when you restart the VM, you might receive a warning that the artifact might not be applied:
+- If an artifact is being applied when you restart the VM, you might receive a warning stating that the artifact might not be applied:
 
     :::image type="content" source="media/devtest-lab-restart-vm/devtest-lab-restart-vm-apply-artifacts.png" alt-text="Screenshot showing the warning that appears if you try to restart a VM while artifacts are being applied." lightbox="media/devtest-lab-restart-vm/devtest-lab-restart-vm-apply-artifacts.png":::
 
@@ -28,7 +28,7 @@ To restart a VM:
 1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Go to the lab that includes the VM  you want to restart.
 1. In the list of VMs, select a running VM.
-1. At the top of the VM management pane, select **Restart**:
+1. At the top of the VM Overview page, select **Restart**:
 
     :::image type="content" source="media/devtest-lab-restart-vm/devtest-lab-restart-vm.png" alt-text="Screenshot of the Azure portal showing the VM Restart button." lightbox="media/devtest-lab-restart-vm/devtest-lab-restart-vm.png":::
 
