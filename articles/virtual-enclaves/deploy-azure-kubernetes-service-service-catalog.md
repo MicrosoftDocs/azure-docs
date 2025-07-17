@@ -48,7 +48,7 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
     - `Storage File`, `Storage Queue`, `Storage Blob`, and `Storage Table` are required when making a Storage Account from this template or the more customizable [Storage Account template](./deploy-storage-account-service-catalog.md).
     - `privatelink.{regionName}.azmk8s.io` under `Additional Private DNS Zone names` which is required to access AKS privately.
 3. Create an RSA key for SSH named **aks-ssh-public-key** and store it as a secret in your key vault. To create the public key type use ssh-keygen from PowerShell: `ssh-keygen -t RSA -f test`
-    - Two files are be created and you use the public key. (located in test.pub)
+    - Two files are created and you use the public key. (located in test.pub)
     - Save this as a secret named 'aks-ssh-public-key' in your keyvault
     > [!NOTE]
     >
