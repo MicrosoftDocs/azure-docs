@@ -118,6 +118,12 @@ items:
           href: tutorial-ai-openai-search-java.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-spring-boot.md
+        - name: Add MCP server to app
+          href: tutorial-ai-model-context-protocol-server-java.md
+        - name: AI Foundry Agent calling web app
+          href: tutorial-ai-integrate-azure-ai-agent-java.md
+        - name: Agentic web app
+          href: tutorial-ai-agent-web-app-semantic-kernel-java.md
   - name: Node.js
     items:
     - name: Quickstart
