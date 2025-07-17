@@ -35,6 +35,7 @@ Build AI-powered .NET applications with these tutorials:
 - [Build a RAG application with Azure OpenAI and Azure SQL](deploy-intelligent-apps-dotnet-to-azure-sql.md) - Use Azure SQL as a vector database for RAG applications.
 - [Run a chatbot with a local SLM sidecar extension](tutorial-ai-slm-dotnet.md) - Deploy a chatbot that uses a local SLM without requiring an external AI service.
 - [Invoke a web app from Azure AI Foundry Agent](invoke-openapi-web-app-from-azure-ai-agent-service.md) - Make your web API available to AI agents.
+- [Build an agentic web app with Semantic Kernel Agent2Agent (A2A) Protocol integration](https://techcommunity.microsoft.com/blog/appsonazureblog/building-agent-to-agent-a2a-applications-on-azure-app-service/4433114) - Deploy a multi-agent system where a main agent coordinates with specialized agents using [A2A](https://a2aproject.github.io/A2A/latest/).
 
 ## Java applications
 
