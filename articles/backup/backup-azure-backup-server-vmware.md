@@ -2,7 +2,7 @@
 title: Back up VMware VMs using Azure Backup Server
 description: Learn how to back up VMware VMs running on VMware ESXi hosts/vCenter Server to Azure using Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 06/27/2025
+ms.date: 07/15/2025
 author: jyothisuri
 ms.author: jsuri
 ms.service: azure-backup
@@ -607,3 +607,7 @@ Windows Registry Editor Version 5.00
 ## Next steps
 
 [Troubleshoot issues about setting up of backups using Azure Backup Server](./backup-azure-mabs-troubleshoot.md).
+
+## Related content
+
+[Run an unattended installation of MABS](backup-mabs-unattended-install.md).

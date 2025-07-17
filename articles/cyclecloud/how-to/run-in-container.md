@@ -2,52 +2,51 @@
 title: Run CycleCloud in a Container Instance
 description: Know how to run Azure CycleCloud in a container instance, which is useful for intermittent CycleCloud users who want to shut it down between job runs.
 author: mvrequa
-ms.date: 01/21/2020
+ms.date: 07/01/2025
 ms.author: adjohnso
 ---
 
 # Run Azure CycleCloud in a Container Instance
 
-Running Azure CycleCloud in a [Container Instance](https://azure.microsoft.com/services/container-instances/) is an excellent solution for customers who use CycleCloud intermittently and wish to shut it down between job runs to avoid the costs associated with long-running virtual machines.
+Running Azure CycleCloud in a [Container Instance](https://azure.microsoft.com/services/container-instances/) is an excellent solution for customers who use CycleCloud intermittently and want to shut it down between job runs to avoid the costs associated with long-running virtual machines.
 
 ## Prerequisites
 
-You will need to have [Docker](https://www.docker.com) installed and running on the machine or server you will access CycleCloud from. Download the appropriate [install package](https://www.docker.com/get-started) for your OS and follow Docker's installation instructions.
+You need to have [Docker](https://www.docker.com) installed and running on the machine or server you use to access CycleCloud. Download the appropriate [install package](https://www.docker.com/get-started) for your operating system and follow Docker's installation instructions.
 
-## CycleCloud Container Image
+## CycleCloud container image
 
-Once Docker is set up and working, you can run the following command to pull down the CycleCloud container image from Microsoft's Container Registry:
+After you set up Docker, run the following command to get the CycleCloud container image from Microsoft Container Registry:
 
 ```sh
 docker run mcr.microsoft.com/hpc/azure-cyclecloud
 ```
 
-That's it! The container will start and CycleCloud will be accessible via web browser
- at _https://localhost_. From there, follow the configuration menus.
+That's it! The container starts, and you can access CycleCloud through a web browser at _https://localhost_. From there, follow the configuration menus.
 
 ## Configuration
 
-The container runs web applications for http (80) and https (443). As CycleCloud is running a JVM (Java Virtual Machine), the HeapSize of the JVM and the memory allocated to the container should be coordinated. It is recommended that the HeapSize be set to one half the container memory allocation. Use the command `docker run -m` with an environment variable specified in MB. For example:
+The container runs web applications for HTTP (80) and HTTPS (443). Because CycleCloud runs on a JVM (Java Virtual Machine), you need to coordinate the HeapSize of the JVM with the memory you allocate to the container. We recommend setting the HeapSize to half of the container memory allocation. Use the `docker run -m` command with an environment variable specified in MB. For example:
 
 ```sh
 docker run -m 2G -e "JAVA_HEAP_SIZE=1024" -p 8080:80 -p 8443:443 myrepo/cyclecloud:$ver
 ```
 
 > [!WARNING]
-> If the CycleCloud service fails, the container process will terminate and all cluster data will be lost. To avoid this scenario, configure your container instance to be backed with persistent storage.
+> If the CycleCloud service fails, the container process terminates and all cluster data is lost. To avoid this scenario, configure your container instance to use persistent storage.
 
-## Persistent Storage
+## Persistent storage
 
-If the Azure Container Instance should fail, your data could be lost and recovering the managed running state your of HPC clusters would not be possible. It is strongly advised to configure the Azure Container Instance to be backed with durable storage from [Azure File Share](/azure/storage/files/storage-how-to-create-file-share).
+If the Azure Container Instance fails, you could lose your data. You also can't recover the managed running state of your HPC clusters. We strongly recommend that you configure the Azure Container Instance to use durable storage from [Azure File Share](/azure/storage/files/storage-how-to-create-file-share).
 
-Provided that an Azure File Share is mounted at `/azurecyclecloud`, the CycleCloud container will use durable storage for:
+If you mount an Azure File Share at `/azurecyclecloud`, the CycleCloud container uses durable storage for:
 
 * Logs
-* Backup Recovery Points
+* Backup recovery points
 
-For a better understanding of Azure File Share, please see the documentation demonstrating the [integration with Azure Container Instance](/azure/container-instances/container-instances-volume-azure-files).
+For more information about Azure File Share, see the documentation on [integration with Azure Container Instance](/azure/container-instances/container-instances-volume-azure-files).
 
-In the example below, a storage share will be mounted at /azurecyclecloud and will collect logs and backup points. With this configuration, the Azure CycleCloud data can be recovered from failure or used to migrate to hosting in another service, such as a Virtual Machine.
+In the following example, a storage share is mounted at `/azurecyclecloud` to collect logs and backup points. With this configuration, you can recover Azure CycleCloud data from failure or use it to migrate hosting to another service, such as a virtual machine.
 
 ``` sample
 az container create \
@@ -67,9 +66,9 @@ az container create \
   --azure-file-volume-mount-path /azurecyclecloud
   ```
 
-## Supported Versions
+## Supported versions
 
-Supported versions of the CycleCloud Container Image can be found in the product [dockerhub page](https://hub.docker.com/r/microsoft/hpc-azure-cyclecloud). The image can be launched as an Azure Container instance (using existing resource group, location, and preferred container and dns names). CycleCloud has SSL certificate generation included, so if you specify the arguments twice (once for az cli and again to set environment variables), then the container is able to establish valid SSL certificates automatically.
+You can find supported versions of the CycleCloud Container Image on the product [Docker Hub page](https://hub.docker.com/r/microsoft/hpc-azure-cyclecloud). You can launch the image as an Azure Container instance by using an existing resource group and location, and by choosing your preferred container and DNS names. CycleCloud includes SSL certificate generation, so if you specify the arguments twice (once for Azure CLI and again to set environment variables), the container can automatically establish valid SSL certificates.
 
 ``` sample
 #!/bin/bash
@@ -89,11 +88,11 @@ az container create -g ${ResourceGroup} \
   -e JAVA_HEAP_SIZE=2048
 ```
 
-In the above example, the container and the cyclecloud UI will be available at `https://${CIDNSName}.${Location}.azurecontainer.io`.
+In the preceding example, you can access the container and the CycleCloud UI at `https://${CIDNSName}.${Location}.azurecontainer.io`.
 
-## Additional Configuration
+## Additional configuration
 
-The container runs web applications for http (80) and https (443). As CycleCloud is running a JVM (Java Virtual Machine), the HeapSize of the JVM and the memory allocated to the container should be coordinated. It is recommended that the HeapSize be set to one half the container memory allocation. Use the command `docker run -m` with an environment variable specified in MB. For example:
+The container runs web applications for HTTP (80) and HTTPS (443). Because CycleCloud runs a JVM (Java Virtual Machine), you need to coordinate the HeapSize of the JVM with the memory you allocate to the container. We recommend setting the HeapSize to half of the container memory allocation. Use the `docker run -m` command with an environment variable specified in MB. For example:
 
 ```sh
 docker run -m 2G -e "JAVA_HEAP_SIZE=1024" -p 8080:80 -p 8443:443 mcr.microsoft.com/hpc/azure-cyclecloud
