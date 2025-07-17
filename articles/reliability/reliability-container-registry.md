@@ -16,25 +16,16 @@ This article describes reliability support in Azure Container Registry (ACR), co
 
 Azure Container Registry is a managed container registry service used to store and manage your private Docker container images and related artifacts for your container deployments. For more information, see [What is Azure Container Registry?](/azure/container-registry/container-registry-intro).
 
-## Shared responsibility
-<!-- Anastasia: What do you think about this section? It's not in our template. Leaving it to you to work out what to do with it. -->
-
 [!INCLUDE [Shared responsibility](includes/reliability-shared-responsibility-include.md)]
-
-Microsoft manages the underlying Azure Container Registry infrastructure, including maintaining the control plane for registry management and the data plane for container image operations across regions and availability zones.
-
-As a customer, you're responsible for:
-
-- **Application-level resilience**: Implementing appropriate retry logic and failover handling in your container applications and orchestration platforms.
-- **Zone redundancy configuration**: Enabling zone redundancy for regions where your container registry is deployed or replicated.
-- **Geo-replication configuration**: Selecting appropriate regions for geo-replication based on your geographic distribution, compliance, and performance requirements.
 
 ## Production deployment recommendations
 
 For production workloads, we recommend that you:
+
 - Use the Premium tier of Azure Container Registry, which provides the most comprehensive reliability features. The Premium tier also provides higher performance limits, enhanced security features, and advanced capabilities that are essential for production container workloads. For complete information on service tiers and features, see [Azure Container Registry service tiers](/azure/container-registry/container-registry-skus).
 - Enable zone redundancy to protect against zone-level failures within a region.
 - For multi-region scenarios, configure geo-replication to distribute your registry across multiple regions based on your specific geographic and compliance requirements.
+
 
 ## Reliability architecture overview
 
@@ -46,10 +37,22 @@ Azure Container Registry is built on Azure's distributed infrastructure to provi
 - **Data plane**: Distributed service that handles container image push and pull operations across regions and availability zones
 - **Storage layer**: Content-addressable Azure Storage to persist container images and artifacts, with automatic deduplication, encryption at rest, and built-in replication
 
+Microsoft is responsible for managing the underlying Azure Container Registry infrastructure, which includes:
+ - *Control plane maintenance* for registry management.
+ - *Data plane maintenance* for container image operations across regions and availability zones.
+ 
+As a customer, you're responsible for:
+ 
+- *Application-level resilience*: Implementing appropriate retry logic and failover handling in your container applications and orchestration platforms
+- *Zonal-resiliency configuration*: Selecting to enable zone redundancy for regions where your container registry is deployed.
+- *Geo-replication configuration*: Selecting appropriate regions for geo-replication based on your geographic distribution, compliance, and performance requirements
+
 Azure Container Registry also supports *tasks*, which can help you to automate your container builds and maintenance operations. Tasks run on compute infrastructure managed by Microsoft, and can be triggered to run manually, based on events, or based on a schedule. To learn more, see [Automate container image builds and maintenance with Azure Container Registry tasks](/azure/container-registry/container-registry-tasks-overview).
 
 > [!NOTE]
 > Azure Container Registry supports [connected registries](/azure/container-registry/intro-connected-registry), which are on-premises or remote replicas that synchronize with your cloud-based Azure container registry. When you use connected registries, you're responsible for configuring them to meet your reliability requirements. Connected registries are beyond the scope of this article.
+
+
 
 ## Transient faults
 
