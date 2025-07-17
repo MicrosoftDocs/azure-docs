@@ -274,10 +274,10 @@ Or you can go directly to the Messaging Connect blade and choose a partner from 
 <table>
   <tr>
     <td>
-      <img src="./media/mc-provision-number-2.png" alt="Select Messaging Connect partner." width="400"/>
+      <img src="./media/mesagge-connect-provision-number-2.png" alt="Select Messaging Connect partner." width="400"/>
     </td>
     <td>
-      <img src="./media/mc-provision-number-3.png" alt="Redirected to partner portal for number acquisition." width="400"/>
+      <img src="./media/mesagge-connect-provision-number-3.png" alt="Redirected to partner portal for number acquisition." width="400"/>
     </td>
   </tr>
 </table>
