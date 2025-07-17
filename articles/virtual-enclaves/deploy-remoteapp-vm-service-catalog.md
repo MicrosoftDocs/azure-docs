@@ -39,19 +39,19 @@ The RemoteApp template can be deployed in multiple configurations:
 There are guardrail requirements on the enclaves to ensure enclave resources are using Customer-Managed Keys (CMK) encryption. This requires a key and identity to access the key to be accessible in the enclave. Create the CMK (optional Key Vault) and Managed Identity in the [Common Dependencies service catalog template](./deploy-common-dependencies-service-catalog.md)
 
 1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation. The private endpoint subnet should have no [subnet delegation](../virtual-network/subnet-delegation-overview.md) for the private endpoints to work properly.
-2. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you will create:
+2. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you create next:
     - `Key Vault` required when creating a Key Vault from this template or the more customizable [Key Vault template](./deploy-key-vault-service-catalog.md).
     - `Storage File`, `Storage Queue`, `Storage Blob`, and `Storage Table` are required when making a Storage Account from this template or the more customizable [Storage Account template](./deploy-storage-account-service-catalog.md).
 3. A Key Vault, Customer Managed Key (CMK), and Managed Identity are required for this template. Create a Key Vault, CMK, and Managed Identity in the [Common Dependencies service catalog quickstart](./deploy-common-dependencies-service-catalog.md) or create your own.
     - These resources should be created inside a [workload resource group](./create-workload-portal.md#create-workload-resource-groups)
-    - After creating the User Managed Identity ensure it has access to the CMK key
-        - Assign the `Key Vault Crypto Service Encryption User` RBAC role to the managed identity scoped to the key vault with [these instructions](./create-user-managed-identity.md#assign-role-to-managed-identity). This allows you to then assign the managed identity to another resource, like a Virtual Machine, and that Virtual Machine will be able to encrypt the operating system disk with the CMK in the key vault without having permissions to do other operations on the key vault following least privilege.
+    - After creating the User Managed Identity, ensure it has access to the CMK key
+        - Assign the `Key Vault Crypto Service Encryption User` RBAC role to the managed identity scoped to the key vault with [these instructions](./create-user-managed-identity.md#assign-role-to-managed-identity). This allows you to then assign the managed identity to another resource, like a Virtual Machine, and that Virtual Machine can encrypt the operating system disk with the CMK in the key vault without having permissions to do other operations on the key vault following least privilege.
 4. (optional) An existing domain to join if the Admin VM will be domain joined.
 
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
 2. Select `+Add an Azure Service` button.
-3. Select the `RemoteApp VM` service service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
+3. Select the `RemoteApp VM` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
 
 ![Screenshot showing the RemoteApp VM (aka Virtual Machine) template selected from the service catalog list.](./media/service-catalog-list-virtual-machine.png)
 
@@ -71,7 +71,7 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
    * `Domain admin username` and `Domain admin password` should match the domain joining credentials for the domain controller
 
 3. For the `Microsoft Entra ID` Domain join option
-   * First you need to [deploy an Entra Domain Services managed domain](/entra/identity/domain-services/tutorial-create-instance)
+   * First you need to [deploy an Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/tutorial-create-instance)
    * Next you need to use this domain to [create an OU](/entra/identity/domain-services/create-ou)
    * Use the previously created OU and Domain to fill in these respective parameters
 
@@ -81,7 +81,7 @@ If you publish your application, all of the following fields on this tab must be
 
 > [!NOTE]
 > 
-> When testing domain join for the first time, it might be easiest to deploy a VM without domain joining, remotely sign in to the VM (e.g. via Bastion) and manually domain join to observe the errors and troubleshoot more quickly.
+> When testing domain join for the first time, it might be easiest to deploy a VM without domain joining, remotely sign in to the VM (for example, via Bastion) and manually domain join to observe the errors and troubleshoot more quickly.
 
 It can take 20+ minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 

@@ -34,7 +34,7 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
 1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation. The private endpoint subnet should have no [subnet delegation](../virtual-network/subnet-delegation-overview.md) for the private endpoints to work properly.
   - Create new subnet `AzureVirtualEnclaveSubnet /26 [example: 10.0.2.0 - 10.0.2.63]`
     - Add NSG rule set
-    - Do not delegate this subnet
+    - Don't delegate this subnet
     - Use this subnet for private endpoint resources
   - Create new subnet `AppServiceSubnet /26 [example: 10.0.2.64 - 10.0.2.127]`
     - Add NSG rule set
@@ -46,14 +46,14 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
     - Use this subnet for Function App resources
 > [!NOTE]
 > 
-> You will not be able to resize a subnet once resources have been deployed inside of it.
-2. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you will create:
+> You can't resize a subnet once resources are deployed inside the subnet.
+2. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you create next:
     - Create `privatelink.azurewebsites.net` under `Additional Private DNS Zone names` which is required to access the web app privately.
 
 ## Deploy the template
 1. Navigate to the [workload](./what-workload.md) for the intended deployment.
 2. Select `+Add Azure Service` button.
-3. Select the `App Service` service service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
+3. Select the `App Service` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
 
 ![Screenshot showing the App Service template selected from the service catalog list.](./media/service-catalog-list-app-service.png)
 

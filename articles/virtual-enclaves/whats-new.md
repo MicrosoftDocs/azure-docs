@@ -17,7 +17,7 @@ Azure Virtual Enclaves is updated regularly. Stay up to date with the latest ann
 * [Known issues](#known-issues)
 * Deprecated functionality (if applicable)
 
-You can also find the latest Azure Virtual WAN updates and subscribe to the RSS feed [here](https://azure.microsoft.com/updates?filters=%5B%22Virtual+Enclaves%22%5D).
+You can also find the latest Azure Virtual WAN updates and subscribe to the [RSS feed](https://azure.microsoft.com/updates?filters=%5B%22Virtual+Enclaves%22%5D).
 
 ## Recent releases
 
@@ -70,7 +70,7 @@ The following features are currently in gated preview. After working with the li
 
 |Type of preview|Feature |Description|Contact alias|Limitations|
 |---|---|---|---|---|
-| Private Preview | Approvals | Approvals require more oversight on critical Azure Virtual Enclaves actions. Approvals enable administrators to queue the creation of new resources or change existing resources while requiring oversight and approval before the change can be made. Emails us if you want to test this private preview feature. | vepm@microsoft.com | |
+| Preview | Approvals | Approvals require more oversight on critical Azure Virtual Enclaves actions. Approvals enable administrators to queue the creation of new resources or change existing resources while requiring oversight and approval before the change can be made. Emails us if you want to test this preview feature. | vepm@microsoft.com | |
 
 ## Known issues
 

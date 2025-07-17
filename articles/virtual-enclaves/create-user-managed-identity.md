@@ -34,7 +34,7 @@ Create a user-assigned managed identity to grant least privileges to specific se
 3. Select `+Add Role Assignment`.
 4. For `Scope` select `Key Vault`.
 5. Confirm the subscription.
-6. For `Resource` enter the name of your Key Vault. The [Common Dependencies](./deploy-common-dependencies-service-catalog.md) template is a good quickstate for creating a KV. You can also use the [Key Vault](./deploy-key-vault-service-catalog.md) template for more customization. 
+6. For `Resource` enter the name of your Key Vault. The [Common Dependencies](./deploy-common-dependencies-service-catalog.md) template is a good quickstart for creating a key vault. You can also use the [Key Vault](./deploy-key-vault-service-catalog.md) template for more customizations. 
 7. The Key Vault should be using Role Base Access Control (RBAC), then select the `Key Vault Crypto Service Encryption User` role.
 
 ## References

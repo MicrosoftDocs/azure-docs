@@ -30,7 +30,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
 2. Select `Add Service` button.
-3. Select the `Private DNS Zones` service service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
+3. Select the `Private DNS Zones` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
 
 ![Screenshot showing the private DNS zones template selected from the service catalog list.](./media/service-catalog-list-private-dns-zones.png)
 
@@ -55,7 +55,7 @@ Go to the specified resource group to confirm the intended resources were create
 If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted.
 
 ## Private DNS Zones
-This template has multiple options you can select based on the resources you want to create next.
+This template has multiple options you can select based on the resources you want to create next:
 - Storage file: required for file share storage
 - Storage queue: required for queue storage
 - Storage table: required for table storage
@@ -63,7 +63,7 @@ This template has multiple options you can select based on the resources you wan
 - Key vault: required for Key Vaults
 - Azure SQL: required for Azure SQL
 - Container registry: required for Container Registries
-- Additional: optional array of DNS zone names to deploy. Example: ["privatelink.table.cosmos.azure.com","privatezone1.com"] where the first name is for Cosmos DB and the second name is a custom name created by the you.
+- Additional: optional array of DNS zone names to deploy. Example: ["privatelink.table.cosmos.azure.com","privatezone1.com"] where the first name is for Cosmos DB and the second name is a custom name created by you.
 
 ## Recommendations
 - [Add tags](../azure-resource-manager/management/tag-resources.md) to service catalog deployments to track important information for that resource such as:

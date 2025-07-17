@@ -32,7 +32,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 ## Deploy a template from the service catalog
 The service catalog templates are publicly available here in Azure Public: https://veservicecatalogprod.z22.web.core.windows.net/inventory.xml
 
-Download a specific template by using the name found in the inventory above (e.g. https://veservicecatalogprod.z22.web.core.windows.net/adminVM/deploy-adminVM-1.0.1.json)
+Download a specific template by using the name found in the inventory above (for example, https://veservicecatalogprod.z22.web.core.windows.net/adminVM/deploy-adminVM-1.0.1.json)
 
 1. List the available templates on the service catalog:
 
@@ -69,7 +69,7 @@ Download a specific template by using the name found in the inventory above (e.g
     }
     ```
 
-4. Open the template and determine which parameters you need to provide values for. In this example we'll use "storageAccount/deploy-storage-account-1.0.0.json"
+4. Open the template and determine which parameters you need to provide values for. In this example, we use "storageAccount/deploy-storage-account-1.0.0.json"
 
     Note which parameters are required and which parameters have default values.
     
@@ -126,7 +126,7 @@ Download a specific template by using the name found in the inventory above (e.g
     ```
     az rest --method get --uri "<enclave-resource-id>?api-version=2024-01-01-preview"
     ```
-    You will still need to fetch values privateLinkSubnetName, keyName, userAssignedIdentityObject
+    You'll still need to fetch values privateLinkSubnetName, keyName, userAssignedIdentityObject
 
 6. List the subnets in the virtual network (privateLinkSubnetName)
     ```

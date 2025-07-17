@@ -1,7 +1,7 @@
 ---
-title: Application Installation using RemoteApp VM
+title: Application Installation on RemoteApp Virtual Machine
 titleSuffix: Azure Virtual Enclaves
-description: Application Installation using RemoteApp VM.
+description: Application Installation on RemoteApp Virtual Machine.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -9,13 +9,13 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# Application installation using RemoteApp VM
+# Application installation using RemoteApp Virtual Machine
 
 Install an application via RemoteAppVM Template
 
 The application installation scripting supports the following scenarios:
 
-  - The most common use case for the RemoteApp app installation is to deploy remote applications which can be accessed from an Azure Virtual Destop.
+  - The most common use case for the RemoteApp app installation is to deploy remote applications that can be accessed from an Azure Virtual Destop.
   - Install customer prerequisites such as cyber security and monitoring agents.
   - Script configuration changes for compliance or application setup.
 
@@ -27,6 +27,7 @@ The application installation scripting supports the following scenarios:
 ## Prerequisites
 The RemoteApp template supports scripting to automate the process of installing applications and configuring the VM. Before you can start using the RemoteAppVM app installation, you need to make sure you have the following:
 - You need a [community](./what-community.md), [enclave](./what-enclave.md), [workload](./what-workload.md), and at least one [workload resource group](./what-workload.md#workload-resource-group) and permissions to create resources inside the workload resource group.
+- Enable `Advanced` [maintenance mode](./maintenance-mode.md) for your enclave so you can add the Private Link resources to your enclave managed resource group.
 - A [container](../storage/blobs/blob-containers-portal.md) (artifacts) within the [storage account](./deploy-storage-account-service-catalog.md).
 - A [community endpoint](./create-community-endpoint-portal.md) to the storage account and AzToolBox.
 - A copy of AzCopy.exe
@@ -42,7 +43,7 @@ The RemoteApp template supports scripting to automate the process of installing 
             ```
         ![Screenshot showing storage container organization structure.](./media/remoteapp-container-artifacts.png)
 
-        - Like the picture above, multiple app folders can be in the same container and utilize the same copy of AzCopy.exe.
+        - The picture shows multiple app folders can be in the same container and utilize the same copy of AzCopy.exe.
 - [Enclave connections](./create-enclave-connection-portal.md) to the previously made community endpoints using IP groups `(enclave-name}`-ipg-eas and another at `{enclave-name}`-ipg-mgmt-vms.
 
 ![Screenshot showing example community endpoint rules.](./media/remoteapp-community-endpoint-rules.png)
@@ -103,7 +104,7 @@ The RemoteApp template supports scripting to automate the process of installing 
     - For `Virtual Machine name`, input the name of the VM.
     - For  `Admin username` and `Admin password`, input the username and password you use to log into your VM.
 6. App Tab:
-    - For `App folder URI` input the URI to the container. Select on an artifact within the container, copy its URI, **remove everything** after the folder name in the URI.
+    - For `App folder URI`, input the URI to the container. Select on an artifact within the container, copy its URI, **remove everything** after the folder name in the URI.
         ![Screenshot showing the application folder URI for use in this deployment.](./media/remoteapp-vm-app-folder-uri.png)
 
         | Original URI | Fixed URI |
@@ -118,7 +119,7 @@ The RemoteApp template supports scripting to automate the process of installing 
 
 ### Private Container:
 
-1. For `App folder in private container` select "true". This allows reader role access to the storage account via the VM. 
+1. For `App folder in private container` select `true` to allow `reader` role access to the storage account via the Virtual Machine. 
 2. For `Storage container resource id` get the following three parts: `<storage-account-resource-id>` + '/blobServices/default/containers/' + `<container-name>`.
     - To get `Storage container resource id`, from the storage account, select "Overview," select "JSON View" in the far right corner, copy the storage account resource ID.
 

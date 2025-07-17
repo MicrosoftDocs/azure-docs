@@ -59,8 +59,8 @@ In this tutorial, part four of eight, you create Azure resources using service c
 ![Screenshot showing the basics input screen for an App Service web app.](./media/service-catalog-app-service-basics.png)
 
 5. Select `Next` to confirm the networking information prepopulated by the service catalog. Ensure the App Service subnet has a delegation to 'Microsoft.Web/serverfarms' and the private link subnet doesn't.
-   - **Dedicated App Service Subnet Name:** Enter `WorkloadSubnet` which is the subnet delegated in the previous step.
-   - **Private Link Subnet Name:** Enter `mySubnet`
+   - **Dedicated App Service Subnet Name:** Enter `WorkloadSubnet` for the subnet delegated in the previous step.
+   - **Private Link Subnet Name:** Enter `mySubnet` for the subnet containing the private endpoints.
 
 ![Screenshot showing the networking input screen for an App Service web app.](./media/service-catalog-app-service-networking.png)
 
