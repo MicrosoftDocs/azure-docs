@@ -138,9 +138,11 @@ The following resources are related to this approach:
 
 ## Service-level agreement (SLA)
 
-The service-level agreement (SLA) for App Service describes the expected availability of the service and the conditions that must be met to achieve that availability expectation. For more information, see [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+[!INCLUDE [SLA description](includes/reliability-sla-include.md)]
 
-When you deploy a zone-redundant App Service plan, the uptime percentage defined in the SLA increases.
+[!INCLUDE [SLA description for zone-redundant App Service plans](includes/app-service/reliability-app-service-sla-include.md)]
+
+
 
 ## Related content
 

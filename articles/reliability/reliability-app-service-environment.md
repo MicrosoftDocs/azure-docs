@@ -19,6 +19,7 @@ Key reliability benefits include dedicated compute resources that aren't shared 
 
 This article describes reliability support in [Azure App Service Environment](../app-service/environment/overview.md), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
+If you are not using App Service Environment, refer to [Reliability in Azure App Service](./reliability-app-service.md) for more information about reliability support in App Service.
 
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
@@ -148,7 +149,9 @@ For an example approach that illustrates this architecture, see [High availabili
 
 ## Service-level agreement (SLA)
 
-The service-level agreement (SLA) for App Service describes the expected availability of the service and the conditions that must be met to achieve that availability expectation. For more information, see [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+[!INCLUDE [SLA description](includes/reliability-sla-include.md)]
+
+[!INCLUDE [SLA description for App Service plans](includes/app-service/reliability-app-service-sla-include.md)]
 
 When you deploy a zone-redundant App Service plan, the uptime percentage defined in the SLA increases.
 
