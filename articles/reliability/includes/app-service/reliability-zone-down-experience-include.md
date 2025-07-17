@@ -1,4 +1,13 @@
-
+---
+ title: include file
+ description: include file
+ author: anaharris-ms
+ ms.service: azure
+ ms.topic: include
+ ms.date: 07/17/2025
+ ms.author: anaharris
+ ms.custom: include file
+---
 During an availability zone outage, some aspects of Azure App Service might be affected, even though the application continues to serve traffic. These behaviors include App Service plan scaling, application creation, application configuration, and application publishing.
 
 The following section describes what to expect when App Service plans are configured for zone redundancy and one or more availability zones are unavailable:
