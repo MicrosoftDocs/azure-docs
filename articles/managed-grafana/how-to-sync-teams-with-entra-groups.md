@@ -64,6 +64,7 @@ Set up a Microsoft Entra ID-backed Grafana team.
 ### Assign access to a Grafana folder or dashboard
 
 1. In the Grafana UI, open a folder or a dashboard.
+1. Select **Settings**.
 1. In the **Permissions** tab, select **Add a permission**.
 
    :::image type="content" source="media/azure-ad-group-sync/add-permission.png" alt-text="Screenshot of the Azure portal, selecting Add a permission." lightbox="media/azure-ad-group-sync/add-permission.png":::
