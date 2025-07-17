@@ -243,33 +243,36 @@ items:
       - name: Clean up observability resources
         href: configure-observability-monitoring/howto-clean-up-observability-resources.md
         displayName: container insights, prometheus, opentelemetry, otel, metrics, Azure Monitor, Grafana, Log Analytics
-    - name: Create edge apps
+    - name: 🔵Develop edge applications
       items:
-      - name: MQTT client app guidance
-        href: create-edge-apps/edge-apps-overview.md
-        displayName: state store, dapr, developer
-      - name: State store
+      - name: 🟢Azure IoT Operations SDKs
+        href: develop-edge-apps/overview-iot-operations-sdks.md
+      - name: 🟢Start developing with the SDKs
+        href: develop-edge-apps/quickstart-get-started-sdks.md
+      - name: Tutorials
         items:
-        - name: State store overview
-          href: create-edge-apps/overview-state-store.md
-          displayName: MQTT, client app, developer
-        - name: About the state store protocol 
-          href: create-edge-apps/concept-about-state-store-protocol.md
-          displayName: MQTT, client app, developer
-      - name: Dapr apps
+        - name: 🟢Develop an edge app
+          href: develop-edge-apps/tutorial-develop-edge-app.md
+      - name: Concepts
         items:
-        - name: Deploy Dapr
-          href: create-edge-apps/howto-deploy-dapr.md
-          displayName: MQTT, client app, developer
-        - name: Develop Dapr apps
-          href: create-edge-apps/howto-develop-dapr-apps.md
-          displayName: MQTT, client app, developer
-        - name: Build an event-driven app with Dapr
-          href: create-edge-apps/tutorial-event-driven-with-dapr.md
-          displayName: MQTT, client app, developer
-      - name: Develop MQTTnet apps
-        href: create-edge-apps/howto-develop-mqttnet-apps.md
-        displayName: MQTT, client app, developer
+        - name: 🔵Highly available edge apps
+          href: develop-edge-apps/overview-edge-apps.md
+        - name: 🔵Data persistence in the state store
+          href: develop-edge-apps/overview-state-store.md
+      - name: Reference
+        items:
+          - name: 🔵State store protocol
+            href: develop-edge-apps/reference-state-store-protocol.md
+          - name: SDKS reference documentation
+            href: https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/README.md
+          - name: Dapr apps
+            items:
+            - name: Deploy Dapr
+              href: develop-edge-apps/howto-deploy-dapr.md
+            - name: Develop Dapr apps
+              href: develop-edge-apps/howto-develop-dapr-apps.md
+            - name: Build an event-driven app with Dapr
+              href: develop-edge-apps/tutorial-event-driven-with-dapr.md
     - name: Tutorials
       items:
       - name: End-to-end sample

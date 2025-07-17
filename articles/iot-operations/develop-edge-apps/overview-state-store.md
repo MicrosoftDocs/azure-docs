@@ -1,19 +1,18 @@
 ---
-title: Persisting data in the MQTT broker state store
-description: Understand how to develop application that persist data between sessions using the state store.
+title: Data persistence in the MQTT broker state store
+description: Understand how to develop applications that persist data between sessions using the state store.
 author: PatAltimore
 ms.subservice: azure-mqtt-broker
 ms.author: patricka
 ms.topic: concept-article
 ms.custom:
   - ignite-2023
-ms.date: 11/12/2024
+ms.date: 05/09/2025
 
 #CustomerIntent: As an developer, I want understand how to develop application that persist data between sessions using the state store.
-ms.service: azure-iot-operations
 ---
 
-# Persisting data in the state store
+# Data persistence in the MQTT broker state store
 
 The state store is a distributed storage system, deployed as part of Azure IoT Operations. Using the state store, applications can get, set, and delete key-value pairs, without needing to install more services, such as Redis. The state store also provides versioning of the data, and also the primitives for building distributed locks, ideal for highly available applications.
 

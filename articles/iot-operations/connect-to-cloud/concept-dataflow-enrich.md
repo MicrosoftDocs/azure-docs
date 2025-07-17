@@ -26,7 +26,7 @@ For example, consider the following dataset with a few records, using the [JSON 
 { "Position": "Receptionist", "BaseSalary": 43000, "WorkingHours": "Regular" }
 ```
 
-The mapper accesses the reference dataset stored in the Azure IoT Operations [state store](../create-edge-apps/concept-about-state-store-protocol.md) by using a key value based on a *condition* specified in the mapping configuration. Key names in the state store correspond to a dataset in the data flow configuration.
+The mapper accesses the reference dataset stored in the Azure IoT Operations [state store](../develop-edge-apps/concept-about-state-store-protocol.md) by using a key value based on a *condition* specified in the mapping configuration. Key names in the state store correspond to a dataset in the data flow configuration.
 
 # [Bicep](#tab/bicep)
 
