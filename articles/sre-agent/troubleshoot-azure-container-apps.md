@@ -121,7 +121,7 @@ Next, create an agent to monitor the *my-aca-app-group* resource group.
     | Property | Value |
     |---|---|
     | Agent name | Enter **my-aca-sre-agent**. |
-    | Region | Select **Sweden Central**.<br><br>During preview, Azure SRE Agent is only available in the *Sweden Central* region, but the agent can monitor resources in any Azure region.<br><br>If don't see any options in the dropdown, then you may not have permissions to access to the Sweden Central region. |
+    | Region | Select **Sweden Central**.<br><br>During preview, Azure SRE Agent is only available in the *Sweden Central* region, but the agent can monitor resources in any Azure region.<br><br>If you don't see any options in the dropdown, then you may not have permissions to access to the Sweden Central region. |
 
 1. In the *Managed resource groups* section, select the **Select resource groups** button.
 

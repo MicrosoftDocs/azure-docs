@@ -196,7 +196,7 @@ Now, create an Azure SRE Agent to monitor your App Service app.
     | Subscription | Your Azure subscription |  |
     | Resource group | `my-sre-agent-group` | New group for the Azure SRE Agent |
     | Name | `my-sre-agent` |  |
-    | Region | **Sweden Central** | During preview, Azure SRE Agent is only available in the *Sweden Central* region, but the agent can monitor resources in any Azure region.<br><br>If don't see any options in the dropdown, then you may not have permissions to access to the Sweden Central region. |
+    | Region | **Sweden Central** | During preview, Azure SRE Agent is only available in the *Sweden Central* region, but the agent can monitor resources in any Azure region.<br><br>If you don't see any options in the dropdown, then you may not have permissions to access to the Sweden Central region. |
 
 1. Select **Select resource groups**.
 
