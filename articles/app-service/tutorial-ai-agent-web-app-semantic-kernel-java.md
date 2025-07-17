@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 
 The easiest way to get started is by using GitHub Codespaces, which provides a complete development environment with all required tools preinstalled.
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/app-service-agentic-semantic-kernel-java)
+[![Open in GitHub Codespaces.](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/app-service-agentic-semantic-kernel-java)
 
 1. Navigate to the GitHub repository at [https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-java](https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-java).
 
