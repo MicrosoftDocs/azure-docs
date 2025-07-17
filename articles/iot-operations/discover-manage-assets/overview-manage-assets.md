@@ -68,6 +68,21 @@ An operator configures and manages devices and assets in the operations experien
 
 To learn more, see [Define assets and devices](concept-assets-devices.md).
 
+## Understand asset endpoints
+
+Azure IoT Operations versions 1.1.x and before use *asset endpoints* to define the connection to assets in a similar way to how the current version uses *devices*. Devices offer greater flexibility and more capabilities than asset endpoints, such the ability to define multiple endpoints within a single device. The current version of Azure IoT Operations supports the use of both devices and asset endpoints, but the recommended approach is to use devices.
+
+| Azure IoT Operations version | Devices supported | Asset endpoints supported |
+|-----------------------------|-------------------|--------------------------|
+| v1.1.x and before           | No                | Yes                      |
+| v1.2.x and later            | Yes (recommended) | Yes                      |
+
+To view the asset endpoint documentation, see [Asset management overview](https://go.microsoft.com/fwlink/?linkid=2328508&clcid=0x409) on the previous versions site.
+
+You can manage asset endpoints in the operations experience web UI and by using the Azure CLI:
+
+:::image type="content" source="media/overview-manage-assets/access-asset-endpoints.png" alt-text="Screenshot that shows how to access asset endpoint configuration.":::
+
 ## Understand services for managing assets
 
 Azure IoT Operations includes several services that help you manage devices and assets.
