@@ -66,8 +66,8 @@ A new and growing source of log data is Internet of Things (IoT)-connected devic
 
 ## Next steps
 
-- [What is the Microsoft Sentinel data lake? (preview)](graph/sentinel-lake-overview.md)
+- [What is the Microsoft Sentinel data lake? (preview)](datalake/sentinel-lake-overview.md)
 - [Manage data tiers and retention in Microsoft Defender Portal (preview)](manage-data-overview.md)
-- [KQL and the Microsoft Sentinel data lake (preview)](graph/kql-overview.md)
-- [Jupyter notebooks in the Microsoft Sentinel data lake (preview)](graph/notebooks-overview.md)
+- [KQL and the Microsoft Sentinel data lake (preview)](datalake/kql-overview.md)
+- [Jupyter notebooks in the Microsoft Sentinel data lake (preview)](datalake/notebooks-overview.md)
 

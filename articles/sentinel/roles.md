@@ -85,7 +85,7 @@ When you assign Microsoft Sentinel-specific Azure roles, you might come across o
 
 ## Roles and permissions for the Microsoft Sentinel data lake (preview)
 
-To use the Microsoft Sentinel data lake, your workspace must be [onboarded to the Defender portal](/unified-secops-platform/microsoft-sentinel-onboard?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json) and the [Microsoft Sentinel data lake](graph/sentinel-lake-overview.md).
+To use the Microsoft Sentinel data lake, your workspace must be [onboarded to the Defender portal](/unified-secops-platform/microsoft-sentinel-onboard?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json) and the [Microsoft Sentinel data lake](datalake/sentinel-lake-overview.md).
 
 
 ### Microsoft Sentinel data lake read permissions

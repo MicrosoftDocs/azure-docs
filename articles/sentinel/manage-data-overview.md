@@ -42,7 +42,7 @@ You can retain data in Microsoft Sentinel in one of two tiers:
   - **Analytics retention**: In this "hot" state, data is fully available for real-time analytics - including high-performance queries and analytics rules - and threat hunting. By default, Microsoft Sentinel and Microsoft Defender XDR retain data in this tier for 30 days. You can extend the retention period of all tables to up to two years at a prorated monthly long-term retention charge. You can extend the retention period of Microsoft Sentinel solution tables to 90 days for free. 
   - **Total retention**: By default, all data in the analytics tier is mirrored to the data lake for the same retention period. You can extend the retention of your data in the lake beyond the analytics retention, for up to 12 years of total retention at a low cost. 
 
-* **Data lake tier**: In this low-cost "cold" tier, Microsoft Sentinel retains your data in the lake only.  Data in the data lake tier isn't available for real-time analytics features and threat hunting. However, you can access data in the lake whenever you need it through [KQL jobs](graph/kql-jobs.md), analyze trends over time by running scheduled KQL or Spark jobs, and aggregate insights from incoming data at a regular cadence by using summary rules. 
+* **Data lake tier**: In this low-cost "cold" tier, Microsoft Sentinel retains your data in the lake only.  Data in the data lake tier isn't available for real-time analytics features and threat hunting. However, you can access data in the lake whenever you need it through [KQL jobs](datalake/kql-jobs.md), analyze trends over time by running scheduled KQL or Spark jobs, and aggregate insights from incoming data at a regular cadence by using summary rules. 
 
 For more information about the differences between these two retention types, see [Compare the analytics and data lake tiers](#compare-the-analytics-and-data-lake-tiers).
 
@@ -52,7 +52,7 @@ This diagram shows the retention components of the analytics, data lake, and XDR
 
 :::image type="content" source="media/manage-data-overview/tiers-retention-defender-portal.png" lightbox="media/manage-data-overview/tiers-retention-defender-portal.png" alt-text="Diagram that depicts the analytics and data lake tiers in the Microsoft Defender portal.":::
 
-For more information about the Microsoft Sentinel data lake, see [What is Microsoft Sentinel data lake](graph/sentinel-lake-overview.md).
+For more information about the Microsoft Sentinel data lake, see [What is Microsoft Sentinel data lake](datalake/sentinel-lake-overview.md).
 
 ## Compare the analytics and data lake tiers
 

@@ -90,6 +90,6 @@ To view and manage table settings in the Microsoft Defender portal:
 
 Learn more about:
 
-- [Microsoft Sentinel data lake (preview)](graph/sentinel-lake-overview.md)
-- [KQL jobs in Microsoft Sentinel (preview)](graph/kql-jobs.md)
+- [Microsoft Sentinel data lake (preview)](datalake/sentinel-lake-overview.md)
+- [KQL jobs in Microsoft Sentinel (preview)](datalake/kql-jobs.md)
 
