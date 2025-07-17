@@ -159,3 +159,4 @@ MABS doesn't support protecting the following data types:
 - [Run an unattended installation of MABS](backup-mabs-unattended-install.md).
 - [Back up a SharePoint farm on Azure Stack](backup-mabs-sharepoint-azure-stack.md).
 - [Back up SQL Server on Azure Stack](backup-mabs-sql-azure-stack.md).
+- [Azure Backup Server V3 RTM protection matrix](microsoft-azure-backup-server-protection-v3.md).
