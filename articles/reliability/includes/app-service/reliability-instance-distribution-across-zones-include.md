@@ -15,7 +15,7 @@ Instance distribution in a zone-redundant deployment follows specific rules. The
 
 - **Minimum instances:** Your App Service plan must have a minimum of two instances for zone redundancy.
 
-- **Maximum availability zones supported by your plan:** Azure determines the number of availability zones that your plan can use, which is referred to as *maximumNumberOfZones*. To view the number of availability zones that your specific plan is able to use, see [Check zone redundancy support for an App Service plan](/azure/app-service/configure-zone-redundancy#check-for-zone-redundancy-support-for-an-app-service-plan).
+- **Maximum availability zones supported by your plan:** Azure determines the number of availability zones that your plan can use, which is referred to as *maximumNumberOfZones*. To view the number of availability zones that your specific plan is able to use, see [Check zone redundancy support for an App Service plan](/azure/app-service/configure-zone-redundancy#check-for-zone-redundancy-support-on-an-app-service-plan).
 
 - **Instance distribution:** When zone redundancy is enabled, plan instances are distributed across multiple availability zones automatically. The distribution is based on the following rules:
 

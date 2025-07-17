@@ -120,7 +120,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' = {
 
     ---
 
-## Check for zone redundancy support for an App Service plan
+## Check for zone redundancy support on an App Service plan
 
 To see whether an existing App Service plan supports zone redundancy:
 
