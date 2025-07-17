@@ -11,6 +11,15 @@ ms.date: 07/08/2025
 
 # Enable telemetry for feature flags
 
+Telemetry is the automated process of collecting, transmitting, and analyzing data about how your application and its features are used. Enabling telemetry for feature flags offers valuable insights into the behavior and impact of feature rollouts, helping teams iterate faster, enhance user experience, detect issues early, and validate the effectiveness of new features. With telemetry, teams can answer critical questions such as:
+
+- Is a feature enabled or disabled as expected?  
+- Are specific user segments accessing the new feature?  
+- Is a feature causing performance regressions or errors?  
+- What is the impact of a feature on key metrics like engagement or conversion?
+
+By leveraging telemetry data, organizations can make informed, data-driven decisions, quickly identify and resolve issues, and optimize feature delivery for better business and user outcomes.
+
 Telemetry is the process of collecting, transmitting, and analyzing data about the usage and performance of your application. It helps you monitor feature flag behavior and make data-driven decisions. When a feature flag change is deployed, it's often important to analyze its effect on an application. For example, here are a few questions that may arise:
 
 - Are my flags enabled/disabled as expected?
@@ -52,7 +61,7 @@ These types of questions can be answered through the emission and analysis of fe
     * [Python](./howto-telemetry-python.md)
     * [JavaScript](./howto-telemetry-javascript.md)
 
-## Review telemetry for the feature flag
+## Review telemetry results in Azure App Configuration
 
 1. Navigate to the **Application Insights** blade in the App Configuration portal. You should see a graph displaying all events from your application. This graph provides an initial overview of activity patterns.
     > [!div class="mx-imgBorder"]
@@ -112,7 +121,7 @@ Other possible reasons include "Group Override" or "User Override" if configured
 > ![Screenshot of the Azure portal, view unique user count by assignment reason in telemetry tab.](./media/howto-telemetry/unique-user-count-by-assignment-reason-disabled.png)
 
 
-## Analyze in Application Insights
+## Analyze telemetry in Application Insights
 
 Now that you have confirmed the feature flag allocations are working as expected, you can dive deeper into the telemetry events to see how different variants are performing based on the likes emitted for users.
 
