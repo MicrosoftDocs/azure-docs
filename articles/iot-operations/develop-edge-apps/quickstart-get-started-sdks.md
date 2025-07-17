@@ -23,12 +23,10 @@ Before you begin, prepare the following prerequisites:
 
 * Azure access permissions. For more information, see [Deployment details > Required permissions](../deploy-iot-ops/overview-deploy.md#required-permissions).
 
-<!-- TODO: Confirm it works for options VS Code Dev Containers and WSL -->
 ## Setting up
 
 Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with Azure IoT Operations deployed. Additional configuration will allow the MQTT broker to be accessed directly from the developer environment.
 
-<!-- TODO: Point to the new article Production Cluster when published -->
 > [!IMPORTANT]
 > The following development environment setup options, use [K3s](https://k3s.io/) running in [K3d](https://k3d.io/) for a lightweight Kubernetes cluster, and deploys Azure IoT Operations with [test settings](../deploy-iot-ops/overview-deploy.md#test-settings-deployment). For production deployments, choose [secure settings](../deploy-iot-ops/overview-deploy.md#secure-settings-deployment). <br> If you want to use secure settings, we recommend you follow the instructions in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) to create a K3s cluster on Ubuntu and [Deploy Azure IoT Operations to a production cluster](../deploy-iot-ops/howto-deploy-iot-operations.md) to deploy with secure settings. Then proceed to [configure Azure IoT Operations for deployment](#configure-azure-iot-operations-for-deployment).
 
@@ -109,93 +107,6 @@ GitHub Codespaces provides the most streamlined experience and can get the devel
    sudo sysctl -p
    ```
 
-
-### [Visual Studio Code Dev Containers](#tab/vscode-dev-containers)
-
-> [!WARNING]
-> The latest WSL release **doesn't support Azure IoT Operations**. You will need to install [WSL v2.3.14](https://github.com/microsoft/WSL/releases/tag/2.3.14) as outlined in the steps below.
-
-1. Install [WSL v2.3.14](https://github.com/microsoft/WSL/releases/tag/2.3.14) (contains kernel v6.6)
-
-1. Install [Docker Desktop for Windows](https://docs.docker.com/desktop/features/wsl/) with WSL 2 backend, and confirm it's running the **v6.6 kernel**:
-
-    ```bash
-    wsl -d docker-desktop -e uname -a
-    ```
-
-    output:
-
-    ```output
-    Linux docker-desktop 6.6.36.3-microsoft-standard-WSL2 ...
-    ```
-
-1. Install [VS Code](https://code.visualstudio.com/) and the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-
-1. Launch VS Code, and clone the repository in a container:
-
-    `F1 > Dev Containers: Clone Repository in Container Volume...`
-
-1. When prompted, enter the *Azure IoT Operations SDKs* URL and select the `main` branch:
-
-    ```bash
-    https://github.com/azure/iot-operations-sdks
-    ```
-
-> [!TIP]
-> To reconnect to the container in VSCode, choose `F1 > Dev Containers: Attach to Running Container...` and then select the container name created previously.
-
-### [Windows Subsystem for Linux (WSL)](#tab/wsl)
-
-> [!WARNING]
-> The latest WSL release **doesn't support Azure IoT Operations**. You will need to install [WSL v2.3.14](https://github.com/microsoft/WSL/releases/tag/2.3.14) as outlined in the steps below.
-
-1. Install [WSL v2.3.14](https://github.com/microsoft/WSL/releases/tag/2.3.14) (contains kernel v6.6)
-
-1. Install [Docker Desktop for Windows](https://docs.docker.com/desktop/features/wsl/) with WSL 2 backend, and confirm it's running the **v6.6 kernel**:
-
-    ```bash
-    wsl -d docker-desktop -e uname -a
-    ```
-
-    output:
-
-    ```output
-    Linux docker-desktop 6.6.36.3-microsoft-standard-WSL2 ...
-    ```
-
-1. Clone the *Azure IoT Operations SDKs* repository:
-
-    ```bash
-    git clone https://github.com/Azure/iot-operations-sdks
-    ```
-
-1. Navigate to the repository root directory:
-
-    ```bash
-    cd <REPOSITORY ROOT>
-    ```
-
-1. Initialize the cluster and install required dependencies using the `initialize-cluster.sh` script:
-
-    ```bash
-    sudo ./tools/deployment/initialize-cluster.sh
-    ```
-
-    This script does the following:
-
-    1. Install prerequisites including:
-        1. `Mosquitto` MQTT client for testing
-        1. `k3d` to run lightweight Kubernetes clusters 
-        1. `Helm` for Kubernetes package management
-        1. `Step CLI` for certificate management
-        1. `Azure CLI` for managing Azure resources
-        1. `kubectl` (Kubernetes CLI) for interacting with Kubernetes clusters
-        1. `k9s` for managing Kubernetes clusters
-    1. **DELETE** any existing k3d cluster
-    1. Deploy a new k3d cluster
-    1. Set up port forwarding for ports `1883`, `8883`, and `8884` to enable TLS
-    1. Create a local container registry
-
 ---
 
 ## Deploy Azure IoT Operations
@@ -243,7 +154,6 @@ Open a new bash terminal and do the following steps:
     az iot ops check
     ```
 
-<!-- TODO: Confirm that this works well on a K3s cluster running AIO with Secure Settings -->
 ## Configure Azure IoT Operations for development
 
 After Azure IoT Operations is deployed, you need to configure it for development. This includes setting up the MQTT broker and authentication methods, as well as ensuring that the necessary environment variables are set for your development environment:
@@ -267,7 +177,6 @@ After Azure IoT Operations is deployed, you need to configure it for development
     1. Create the trust bundle ConfigMap for the Broker to authentication x509 clients
     1. Configure a `BrokerListener` and `BrokerAuthentication` resources for SAT and x509 auth
 
-<!-- TODO: Check why this only works with VSCode Dev Containers when I do: kubectl port-forward -n azure-iot-operations service/aio-broker-external 8883:8883 -->
 ## Testing the installation
 
 To test the setup is working correctly, use `mosquitto_pub` to connect to the MQTT broker to validate the x509 certs, SAT and trust bundle.
@@ -296,7 +205,6 @@ To test the setup is working correctly, use `mosquitto_pub` to connect to the MQ
     mosquitto_pub -L mqtts://localhost:8884/hello -m world --cafile $SESSION/broker-ca.crt -D CONNECT authentication-method K8S-SAT -D CONNECT authentication-data $(cat $SESSION/token.txt) --debug
     ```
 
-<!-- TODO: Add the Go and Rust samples -->
 ## Run a Sample
 
 This sample demonstrates a simple communication between a client and a server using [telemetry](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/telemetry.md) and [remote procedure call (RPC)](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/rpc-protocol.md). The server tracks the value of a counter and accepts RPC requests from the client to either read or increment that counter.
@@ -413,7 +321,6 @@ As part of the deployment script, the following files are created in the local e
 
 Check the troubleshooting guide for common issues in the Azure IoT Operations SDKs github repository: [Troubleshooting](https://github.com/Azure/iot-operations-sdks/blob/main/doc/troubleshooting.md).
 
-<!-- TODO: Next step should be the tutorial "Develop an edge app" -->
 ## Next steps
 In this Quickstart, you set up the Azure IoT Operations SDKs and ran a sample application. To learn more about developing with the SDKs, check out the following resources:
 

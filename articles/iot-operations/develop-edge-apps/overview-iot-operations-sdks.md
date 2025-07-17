@@ -68,8 +68,6 @@ The SDKs provide a number of components available for simplicity and ease of use
 
 Read further about the underlying terminology and different components of the SDKs:
 
-<!-- TODO: Move all .md files under /doc, /doc/edge_application, /doc/akri_connector, /samples/event_driven_app folders to learn? -->
-
 * [Terminology](https://github.com/Azure/iot-operations-sdks/blob/main/doc/terminology.md) - Understand the different terms used to describe the concepts and construction of the SDKs.
 * [Components](https://github.com/Azure/iot-operations-sdks/blob/main/doc/components.md) - An outline of each component and their function.
 
@@ -89,7 +87,7 @@ The SDKs supports the following application types:
 
 Review the [samples](https://github.com/Azure/iot-operations-sdks/tree/main/samples) directory for samples about creating applications for Azure IoT Operation on the supported languages.
 
-To deploy a fully functional application to a cluster and see the SDKs in action, follow the [Tutorial: Develop an edge app with Azure IoT Operations SDKs for efficient data handling](tutorial-develop-edge-app.md).
+To deploy a fully functional application to a cluster and see the SDKs in action, follow the [Tutorial: Build an event-driven app](https://github.com/Azure/iot-operations-sdks/blob/main/samples/event_driven_app/README.md).
 
 ## SDKs reference documentation
 

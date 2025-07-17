@@ -243,36 +243,41 @@ items:
       - name: Clean up observability resources
         href: configure-observability-monitoring/howto-clean-up-observability-resources.md
         displayName: container insights, prometheus, opentelemetry, otel, metrics, Azure Monitor, Grafana, Log Analytics
-    - name: 🔵Develop edge applications
+    - name: Develop edge applications
       items:
-      - name: 🟢Azure IoT Operations SDKs
+      - name: Azure IoT Operations SDKs
         href: develop-edge-apps/overview-iot-operations-sdks.md
-      - name: 🟢Start developing with the SDKs
+        displayName: MQTT, client app, developer, C#, .Net, Go, Rust
+      - name: Start developing with the SDKs
         href: develop-edge-apps/quickstart-get-started-sdks.md
-      - name: Tutorials
-        items:
-        - name: 🟢Develop an edge app
-          href: develop-edge-apps/tutorial-develop-edge-app.md
+        displayName: MQTT, client app, developer, C#, .Net, Go, Rust, quickstart, get started
       - name: Concepts
         items:
-        - name: 🔵Highly available edge apps
+        - name: Highly available edge apps
           href: develop-edge-apps/overview-edge-apps.md
-        - name: 🔵Data persistence in the state store
+          displayName: MQTT, client app, developer
+        - name: Data persistence in the state store
           href: develop-edge-apps/overview-state-store.md
+          displayName: MQTT, client app, developer
       - name: Reference
         items:
-          - name: 🔵State store protocol
+          - name: State store protocol
             href: develop-edge-apps/reference-state-store-protocol.md
+            displayName: MQTT, client app, developer
           - name: SDKS reference documentation
             href: https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/README.md
+            displayName: MQTT, client app, developer
           - name: Dapr apps
             items:
             - name: Deploy Dapr
               href: develop-edge-apps/howto-deploy-dapr.md
+              displayName: MQTT, client app, developer
             - name: Develop Dapr apps
               href: develop-edge-apps/howto-develop-dapr-apps.md
+              displayName: MQTT, client app, developer
             - name: Build an event-driven app with Dapr
               href: develop-edge-apps/tutorial-event-driven-with-dapr.md
+              displayName: MQTT, client app, developer
     - name: Tutorials
       items:
       - name: End-to-end sample
