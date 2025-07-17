@@ -31,7 +31,7 @@ By using event processor features, you can easily build robust applications that
 The Call Automation event processor first needs to consume events that were sent from the service. After the event arrives at the callback endpoint, pass the event to the event processor.
 
 > [!IMPORTANT]
-> Have you established a webhook callback events endpoint? The event processor still needs to consume callback events through a webhook callback. For information on how to establish webhook endpoints, see [Quickstart: Make an outbound call by using Call Automation](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md).
+> Have you established a webhook callback events endpoint? The event processor still needs to consume callback events through a webhook callback. For information on how to establish webhook endpoints, see [Make an outbound call by using Call Automation](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md).
 
 ```csharp
 using Azure.Communication.CallAutomation;
@@ -79,14 +79,14 @@ With the event processor, you can easily wait for the `CallConnected` event unti
 Now that the call is established, try to play some audio in the call, and then wait until the media plays.
 
 ```csharp
-// Play my prompt to everyone
+// Play my prompt to everyone.
 FileSource fileSource = new FileSource(playPrompt);
 PlayResult playResult = await callConnection.GetCallMedia().PlayToAllAsync(fileSource);
 
-// Wait for play to complete
+// Wait for play to complete.
 PlayEventResult playEventResult = await playResult.WaitForEventProcessorAsync();
 
-// Check if the play was completed successfully
+// Check if the play was completed successfully.
 if (playEventResult.IsSuccess)
 {
     // Success play!
@@ -100,7 +100,7 @@ else
 ```
 
 > [!WARNING]
-> The event processor uses `OperationContext` to track an event with its related request. If `OperationContext` wasn't set during the request, the event processor sets generated GUID to track future events to the request. If you set your own `OperationContext` during the request, the event processor still works, but we recommend that you set them differently from request to request. In this way, the event processor can distinguish the first request's event and the second request's event.
+> The event processor uses `OperationContext` to track an event with its related request. If `OperationContext` wasn't set during the request, the event processor sets generated GUID to track future events to the request. If you set `OperationContext` during the request, the event processor still works, but we recommend that you set them differently from request to request. In this way, the event processor can distinguish the first request's event and the second request's event.
 
 ## Handle events with the ongoing event processor
 
@@ -117,7 +117,7 @@ eventProcessor.AttachOngoingEventProcessor<ParticipantsUpdated>(callConnectionId
 });
 ```
 
-With this specific ongoing event processor, you can now print the number or participants or the participants on the call whenever people join or leave the call.
+With this specific ongoing event processor, you can now print the number of participants or the participants on the call whenever people join or leave the call.
 
 > [!TIP]
 > You can attach an ongoing handler to any event type. This capability opens the possibility to build your application with a callback design pattern.
