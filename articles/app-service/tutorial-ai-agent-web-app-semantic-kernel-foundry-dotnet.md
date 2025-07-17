@@ -58,9 +58,9 @@ The easiest way to get started is by using GitHub Codespaces, which provides a c
 
 1. Navigate to the GitHub repository at [https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-ai-foundry-agent](https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-ai-foundry-agent).
 
-2. Select the **Code** button, select the **Codespaces** tab, and click **Create codespace on main**.
+2. Select the **Code** button, select the **Codespaces** tab, and select **Create codespace on main**.
 
-3. Wait a few moments for your Codespace to initialize. When ready, you'll see a fully configured VS Code environment in your browser.
+3. Wait a few moments for your Codespace to initialize. When ready, you'll see a fully configured development environment in your browser.
 
 4. Run the application locally:
 
@@ -103,6 +103,8 @@ The OpenAPI code is defined in *Program.cs*. For example, the "get tasks" API de
 -----
 
 ## Deploy the sample application
+
+The sample respository contains an Azure Developer CLI (AZD) template, which creates an App Service app with managed identity and deploys your sample application.
 
 1. In the terminal, log into Azure using Azure Developer CLI:
 
@@ -243,7 +245,7 @@ When you're done with the application, you can delete the App Service resources 
 azd down --purge
 ```
 
-Sind the AZD template doesn't include the Azure AI Foundry resources, you need to delete them manually if you want.
+Since the AZD template doesn't include the Azure AI Foundry resources, you need to delete them manually if you want.
 
 ## More resources
 

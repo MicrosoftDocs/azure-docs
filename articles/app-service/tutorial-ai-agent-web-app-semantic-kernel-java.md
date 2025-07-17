@@ -43,9 +43,9 @@ The easiest way to get started is by using GitHub Codespaces, which provides a c
 
 1. Navigate to the GitHub repository at [https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-java](https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-java).
 
-2. Select the **Code** button, select the **Codespaces** tab, and click **Create codespace on main**.
+2. Select the **Code** button, select the **Codespaces** tab, and select **Create codespace on main**.
 
-3. Wait a few moments for your Codespace to initialize. When ready, you'll see a fully configured VS Code environment in your browser.
+3. Wait a few moments for your Codespace to initialize. When ready, you'll see a fully configured development environment in your browser.
 
 4. Run the application locally:
 
@@ -59,7 +59,7 @@ The easiest way to get started is by using GitHub Codespaces, which provides a c
 
 The Semantic Kernel agent is initialized in [src/main/java/com/example/crudtaskswithagent/controller/AgentController.java](https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-java/blob/main/src/main/java/com/example/crudtaskswithagent/controller/AgentController.java), when the user enters the first prompt in a new browser session. 
 
-You can find the initialization code in the `SemanticKernelAgentService` contructor (in [src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java](https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-java/blob/main/src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java)). The initialization code does the following: 
+You can find the initialization code in the `SemanticKernelAgentService` constructor (in [src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java](https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-java/blob/main/src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java)). The initialization code does the following: 
 
 - Creates a kernel with chat completion.
 - Adds a kernel plugin that encapsulates the functionality of the CRUD application (in *src/main/java/com/example/crudtaskswithagent/plugin/TaskCrudPlugin.java*). The interesting parts of the plugin are the `DefineKernelFunction` annotations on the method declarations and the `description` and `returnType` parameters that help the kernel call the plugin intelligently.
@@ -68,11 +68,13 @@ You can find the initialization code in the `SemanticKernelAgentService` contruc
 
 :::code language="csharp" source="~/app-service-agentic-semantic-kernel-java/src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java" range="38-90" highlight="11-48,58" :::
 
-Each time the prompt is received, the server code uses `ChatCompletionAgent.invokeAsync()` to invoke the agent with the user prompt and the agent thread. the agent thread keeps track of the chat history.
+Each time the prompt is received, the server code uses `ChatCompletionAgent.invokeAsync()` to invoke the agent with the user prompt and the agent thread. The agent thread keeps track of the chat history.
 
 :::code language="csharp" source="~/app-service-agentic-semantic-kernel-java/src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java" range="109-158" highlight="8" :::
 
 ## Deploy the sample application
+
+The sample respository contains an Azure Developer CLI (AZD) template, which creates an App Service app with managed identity and deploys your sample application.
 
 1. In the terminal, log into Azure using Azure Developer CLI:
 
@@ -113,7 +115,7 @@ Each time the prompt is received, the server code uses `ChatCompletionAgent.invo
 
 ## Create and configure the Azure AI Foundry resource
 
-1. In the [Azure AI Foundry portal](https://ai.azure.com), deploy a model of your choice (see [Quickstart: Get started with Azure AI Foundry](/azure/ai-foundry/quickstarts/get-started-code?tabs=azure-ai-foundry&pivots=fdp-project)). A project and a model deployment is created for you in the process.
+1. In the [Azure AI Foundry portal](https://ai.azure.com), deploy a model of your choice (see [Quickstart: Get started with Azure AI Foundry](/azure/ai-foundry/quickstarts/get-started-code?tabs=azure-ai-foundry&pivots=fdp-project)). A project and a model deployment are created for you in the process.
 
 1. From the left menu, select **Overview**.
 
@@ -187,7 +189,7 @@ When you're done with the application, you can delete the App Service resources 
 azd down --purge
 ```
 
-Sind the AZD template doesn't include the Azure AI Foundry resources, you need to delete them manually if you want.
+Since the AZD template doesn't include the Azure AI Foundry resources, you need to delete them manually if you want.
 
 ## More resources
 

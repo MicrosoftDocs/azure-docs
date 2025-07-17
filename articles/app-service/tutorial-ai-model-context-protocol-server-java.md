@@ -36,7 +36,7 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
 
 ## Add MCP server to your web app
 
-1. In the codespace, open *pom.xml* add the `spring-ai-starter-mcp-server-webmvc` package to your project:
+1. In the codespace, open *pom.xml*  and add the `spring-ai-starter-mcp-server-webmvc` package to your project:
 
     ```xml
     <dependency>
@@ -46,7 +46,7 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
     </dependency>
     ```
 
-1. Open *src/main/java/com/microsoft/azure/appservice/examples/springbootmongodb/TodoApplication.java*. For simplicity of the scenario, you will add all of your MCP server code here.
+1. Open *src/main/java/com/microsoft/azure/appservice/examples/springbootmongodb/TodoApplication.java*. For simplicity of the scenario, you'll add all of your MCP server code here.
 
 1. At the end of *TodoApplication.java*, add the following class. 
 
@@ -115,7 +115,7 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
     }
     ```
 
-    This method provides the tools in `TodoListToolService` as callbacks for Spring AI. By default, the MCP Server auto-configuration in the `spring-ai-starter-mcp-server-webmvc` package automatically wires up these tool callbacks. Also, by default, the MCP Server endpoint is `<base-url>/sse`.
+    This method provides the tools in `TodoListToolService` as callbacks for Spring AI. By default, the MCP Server autoconfiguration in the `spring-ai-starter-mcp-server-webmvc` package automatically wires up these tool callbacks. Also, by default, the MCP Server endpoint is `<base-url>/sse`.
 
 1. At the top of *TodoApplication.java*, add the following imports.
 
@@ -196,7 +196,7 @@ When your MCP server is called by an agent powered by large language models (LLM
 - **Authentication and Authorization**: Protect your MCP endpoints in App Service behind [Azure API Management with Microsoft Entra ID](/azure/api-management/api-management-howto-protect-backend-with-aad) and ensure only authorized users or agents can access the tools.
 - **Input Validation and Sanitization**: The example code in this tutorial omits input validation and sanitization for simplicity and clarity. In production scenarios, always implement proper validation and sanitization to protect your application. For Spring, see [Spring: Validating Form Input](https://spring.io/guides/gs/validating-form-input).
 - **HTTPS:** The sample relies on Azure App Service, which enforces HTTPS by default and provides free TLS/SSL certificates to encrypt data in transit.
-- **Least Privilege Principle**: Expose only the necessary tools and data required for your use case. Avoid exposing sensitive operations unless absolutely necessary.
+- **Least Privilege Principle**: Expose only the necessary tools and data required for your use case. Avoid exposing sensitive operations unless necessary.
 - **Rate Limiting and Throttling**: Use [API Management](/azure/api-management/api-management-sample-flexible-throttling) or custom middleware to prevent abuse and denial-of-service attacks.
 - **Logging and Monitoring**: Log access and usage of MCP endpoints for auditing and anomaly detection. Monitor for suspicious activity.
 - **CORS Configuration**: Restrict cross-origin requests to trusted domains if your MCP server is accessed from browsers. For more information, see [Enable CORS](app-service-web-tutorial-rest-api.md#enable-cors).

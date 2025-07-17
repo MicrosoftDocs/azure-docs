@@ -208,7 +208,7 @@ When exposing APIs via OpenAPI in Azure App Service, follow these security best 
 - **Monitor and log activity:** Enable logging and monitor access to detect suspicious activity.
 - **Use managed identities:** When calling other Azure services, use managed identities instead of hardcoded credentials.
 
-For more guidance, see [Secure your App Service app](overview-security.md) and [Best practices for REST API security](/azure/architecture/best-practices/api-design#security).
+For more information, see [Secure your App Service app](overview-security.md) and [Best practices for REST API security](/azure/architecture/best-practices/api-design#security).
 
 ## Next step
 
