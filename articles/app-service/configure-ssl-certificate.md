@@ -55,7 +55,7 @@ You can add up to 1,000 private certificates per webspace.
 
 ## Create a free managed certificate
 
-The free App Service managed certificate is a turnkey solution that helps to secure your custom DNS name in App Service. App Service manages this TLS/SSL server certificate without any action from you.
+The free App Service managed certificate is a turn-key solution for helping to secure your custom DNS name in App Service. Without any action from you, this TLS/SSL server certificate is fully managed by App Service and is automatically renewed, as long as the prerequisites that you set up stay the same. All the associated bindings are updated with the renewed certificate. You create and bind the certificate to a custom domain, and let App Service do the rest.
 
 Before you create a free managed certificate, make sure that you [meet the prerequisites](#prerequisites) for your app.
 

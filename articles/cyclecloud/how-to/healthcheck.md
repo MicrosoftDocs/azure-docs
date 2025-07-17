@@ -2,48 +2,48 @@
 title: Health Checks Services
 description: Learn about the HealthCheck service in Azure CycleCloud. HealthCheck can be used to terminate VMs that are in an unhealthy state.
 author: aevdokimova
-ms.date: 11/17/2023
+ms.date: 07/01/2025
 ms.author: adjohnso
 ---
 
 # Health Checks
  
-CycleCloud offers two mechanisms for checking the health of VMs: Node Health Checks is newer feature that performs the checks during the provisioning stage and prevents the unhealthy VMs from joining, while HealthCheck runs them periodically after the VM has joined the cluster as a node. 
+CycleCloud offers two mechanisms for checking the health of VMs: Node Health Checks is newer feature that performs the checks during the provisioning stage and prevents the unhealthy VMs from joining, while HealthCheck runs them periodically after the VM joins the cluster as a node.
  
 ## Node Health Checks
  
-Node Health Checks can detect unhealthy hardware before a VM is allowed to join CycleCloud cluster. The current version of this feature will run health check scripts built into the official AzureHPC images that can be found under _/opt/azurehpc/test/azurehpc-health-checks/_. The source for these scripts is located in the [AzureHPC Node Health Checks repository](https://github.com/Azure/azurehpc-health-checks/tree/main), but please note that the version built into your cluster's version of the AzureHPC image may not be the latest one available in the repository.
- 
+Node Health Checks detects unhealthy hardware before a VM joins a CycleCloud cluster. This feature runs health check scripts built into the official AzureHPC images that you can find under _/opt/azurehpc/test/azurehpc-health-checks/_. The source for these scripts is located in the [AzureHPC Node Health Checks repository](https://github.com/Azure/azurehpc-health-checks/tree/main), but the version built into your cluster's version of the AzureHPC image might not be the latest one available in the repository.
+
 ### Requirements
  
-The current version of Node Health Checks only supports AzureHPC images released after November 7th, 2023 (containing azurehpc-health-checks version v2.0.6 or greater) and custom images derived from them.
-Node Health Checks is currently unsupported in Windows.
+The current version of Node Health Checks only supports AzureHPC images released after November 7, 2023 (containing azurehpc-health-checks version v2.0.6 or greater) and custom images derived from them.
+Node Health Checks currently doesn't support Windows.
  
-### Enabling Node Health Checks for Slurm Clusters
+### Enable Node Health Checks for Slurm Clusters
  
-The Slurm cluster creation form offers a checkbox to enable Node Health Checks located under the **Advanced Settings** tab. Checking the box enables Node Health Checks on the HPC node array of the cluster. If you want to enable Node Health Checks on other node arrays (or for other cluster types), you must use a custom cluster template.
+The Slurm cluster creation form offers a checkbox to enable Node Health Checks located under the **Advanced Settings** tab. When you select the checkbox, you enable Node Health Checks on the HPC node array of the cluster. To enable Node Health Checks on other node arrays or for other cluster types, use a custom cluster template.
  
-Node Health Checks can be disabled on a running cluster by simply unchecking the box. There is no need to scale the node array down for the changes to take effect.
+You can disable Node Health Checks on a running cluster by clearing the checkbox. You don't need to scale the node array down for the changes to take effect.
  
 ![Node Health Checks GUI](../images/node-health-checks-template.png)
- 
-### Understanding Node Health Checks results
- 
-After a VM passes health checks, it will move on to the software configuration phase.
- 
-If a VM fails any of the health check scripts, then an error message will be sent to CycleCloud and the VM will be automatically prevented from joining the cluster.
+
+### Understanding node health check results
+
+After a VM passes health checks, it moves on to the software configuration phase.
+
+If a VM fails any of the health check scripts, it sends an error message to CycleCloud and automatically prevents the VM from joining the cluster.
 
 ![Node Health Checks error logs](../images/node-health-checks-error-logs.png)
- 
-If the VM is started in a NodeArray with over-provisioning enabled (ex. the Slurm hpc Node Array) then the VM should be replaced automatically as part of over-provisioning. In that case, there is no action required and the healthy VMs will be selected to join the cluster (though you will see an error message on your cluster page indicating that one or more VMs failed checks).
- 
-If the VM is started for a single Node, a Node Array with over-provisioning disabled (ex. the Slurm htc Node Array), or if more VMs fail health checks than are supported by over-provisioning, then the Node will move to the Failed state and allocation will fail. CycleCloud may attempt to re-image the VM to correct the problem, but if the re-image fails then the node will need to be terminated and replaced (manually by an admin or automatically by the autoscaler).
- 
+
+If you start the VM in a NodeArray with over-provisioning enabled (for example, the Slurm hpc Node Array), the VM is automatically replaced as part of over-provisioning. In that case, you don't need to take any action. The healthy VMs join the cluster, though you see an error message on your cluster page indicating that one or more VMs failed checks.
+
+If you start the VM for a single node but disable over-provisioning on the node array (such as the Slurm htc node array), or if more VMs fail health checks than over-provisioning supports, the node moves to the **Failed** state and allocation fails. CycleCloud might try to reimage the VM to fix the problem. If reimaging fails, you need to terminate and replace the node. An admin can do this step manually, or the autoscaler can do it automatically.
+
 > [!NOTE]
-> If you have enabled Node Health Checks, but the VM image does not meet the requirements above, then all the VMs will be allowed to join the cluster, but the status will contain a warning indicating that checks are unsupported.
+> If you enable node health checks but the VM image doesn't meet the requirements, all the VMs can join the cluster. However, the status shows a warning that indicates checks are unsupported.
 > ![Node Health Checks error details](../images/node-health-checks-warning.png)
- 
-## Attribute Reference
+
+## Attribute reference
  
 Attribute | Type | Definition
 ------ | ----- | ----------
@@ -51,27 +51,27 @@ EnableNodeHealthChecks | Boolean | (Optional) Enable on-boot Node Health Checks 
 
 ## HealthCheck
 
-Azure CycleCloud provides a mechanism for terminating virtual machines (VMs) that are in an unhealthy state called HealthCheck. Both system and user defined scripts (Python and Bash) are run on a periodic basis (5 minutes on Windows, 10 minutes on Linux) to determine the overall health of a VM. HealthCheck allows administrators to define conditions under which VMs should be terminated without having to manually monitor and remediate.
+Azure CycleCloud provides a mechanism for terminating virtual machines (VMs) that are in an unhealthy state called HealthCheck. Both system and user-defined scripts (Python and Bash) run on a periodic basis (five minutes on Windows, 10 minutes on Linux) to determine the overall health of a VM. HealthCheck allows administrators to define conditions under which VMs should be terminated without having to manually monitor and remediate.
 
-### Built in HealthCheck scripts
+### Built-in HealthCheck scripts
 
-CycleCloud enabled VMs come with two default HealthCheck scripts:
+CycleCloud enabled VMs include two default HealthCheck scripts:
 
-* The **converge_timeout** script will terminate an instance that has not finished software configuration within four hours of launch. This timeout period can be controlled with the `cyclecloud.keepalive.timeout` setting (defined in seconds).
-* The **scheduled_shutdown** script looks for maker files in _$JETPACK_HOME/run/scheduled_shutdown_ which contain a single line giving a shutdown time in [Unix timestamp seconds](https://en.wikipedia.org/wiki/Unix_time) and an optional second line with an explanation. When the current time is later than the earliest timestamp in the files, the VM is considered unhealthy.
+* The **converge_timeout** script terminates an instance that doesn't finish software configuration within four hours of launch. You can control this timeout period with the `cyclecloud.keepalive.timeout` setting (defined in seconds).
+* The **scheduled_shutdown** script looks for marker files in _$JETPACK_HOME/run/scheduled_shutdown_ which contain a single line giving a shutdown time in [Unix timestamp seconds](https://en.wikipedia.org/wiki/Unix_time) and an optional second line with an explanation. When the current time is later than the earliest timestamp in the files, the VM is considered unhealthy.
 
 ### How it works
 
-The HealthCheck scripts are located in the _$JETPACK_HOME/config/healthcheck.d_ directory. Linux supports both Python and Bash scripts, while Windows supports only Python scripts. The script should determine the health of the VM. If the VM is found to be unhealthy the script should exit with a status of `254`, which indicates to CycleCloud that the VM is unhealthy and should be terminated.
+The HealthCheck scripts are in the _$JETPACK_HOME/config/healthcheck.d_ directory. Linux supports both Python and Bash scripts, while Windows supports only Python scripts. The script checks the health of the VM. If the script finds the VM unhealthy, it exits with a status of `254`. This status tells CycleCloud that the VM is unhealthy and should be terminated.
 
-When logged onto a VM that is running HealthCheck you can keep the VM from being shutdown by running the command [jetpack keepalive](../jetpack.md#jetpack-keepalive). On Linux instances you can specify a timeframe in hours or `forever` while on Windows `forever` is the only option.
+When you sign in to a VM running HealthCheck, you can prevent the VM from shutting down by running the command [jetpack keepalive](../jetpack.md#jetpack-keepalive). On Linux instances, you can specify a timeframe in hours or `forever`. On Windows, `forever` is the only option.
 
 > [!NOTE]
-> When a VM is determined to be unhealthy, the HealthCheck agent will make a request for CycleCloud to terminate the VM, the VM will never be shutdown locally via `shutdown` command. In the event that the VM is unable to communicate with CycleCloud, the VM will stay up even though it is unhealthy until a time at which CycleCloud can be reached.
+> When the HealthCheck agent determines that a VM is unhealthy, it requests that CycleCloud terminate the VM. The agent doesn't shut down the VM locally by using the `shutdown` command. If the VM can't communicate with CycleCloud, the VM stays up even though it's unhealthy until the VM can reach CycleCloud.
 
 ### Example
 
-As a simple example we will write a HealthCheck script which will ensure that a Linux VM is not active for more than 24 hours. This script could be used to simulate low priority evictions to test how a workflow reacts to an evicted VM. This script would be placed in _/opt/cycle/jetpack/config/healthcheck.d/healthcheck_example.sh_
+As a simple example, you write a HealthCheck script that ensures a Linux VM isn't active for more than 24 hours. Use this script to simulate low priority evictions and test how a workflow reacts to an evicted VM. Place this script in _/opt/cycle/jetpack/config/healthcheck.d/healthcheck_example.sh_.
 
 ```bash
 #!/bin/bash
@@ -85,4 +85,4 @@ fi
 ```
 
 > [!NOTE]
-> This script can be placed on a VM via [CycleCloud Project](~/articles/cyclecloud/how-to/projects.md) or by adding it directly when [Creating a Custom Image](create-custom-image.md).
+> Place this script on a VM by using [CycleCloud Project](~/articles/cyclecloud/how-to/projects.md) or by adding it directly when [Creating a Custom Image](create-custom-image.md).
