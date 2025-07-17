@@ -266,22 +266,6 @@ After Azure IoT Operations is deployed, you need to configure it for development
     1. Create the trust bundle ConfigMap for the Broker to authentication x509 clients
     1. Configure a `BrokerListener` and `BrokerAuthentication` resources for SAT and x509 auth
 
-## Shell configuration
-
-The samples within [Azure IoT Operations SDKs github repository](https://github.com/Azure/iot-operations-sdks) read configuration from environment variables. We have provided an `.env` file in the repository root that exports the variables used by the samples to connect to the MQTT Broker. Edit the `.env` file to set the values for your environment, or use the default values provided in the file:
-
-1. Navigate to the repository root directory:
-
-    ```bash
-    cd <REPOSITORY ROOT>
-    ```
-
-1. Load the environment variables into your shell:
-
-    ```bash
-    source .env
-    ```
-
 <!-- TODO: Check why this only works with VSCode Dev Containers when I do: kubectl port-forward -n azure-iot-operations service/aio-broker-external 8883:8883 -->
 ## Testing the installation
 
@@ -311,11 +295,79 @@ To test the setup is working correctly, use `mosquitto_pub` to connect to the MQ
     mosquitto_pub -L mqtts://localhost:8884/hello -m world --cafile $SESSION/broker-ca.crt -D CONNECT authentication-method K8S-SAT -D CONNECT authentication-data $(cat $SESSION/token.txt) --debug
     ```
 
-## Testing MQTT session client sample
+## Run a Sample
 
-This sample demonstrates connecting to MQTT broker using the MQTT session client, and sending and receiving telemetry.
+This sample demonstrates a simple communication between a client and a server using [telemetry](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/telemetry.md) and [remote procedure call (RPC)](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/rpc-protocol.md). The server tracks the value of a counter and accepts RPC requests from the client to either read or increment that counter.
 
-- TODO
+1. Install the [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
+
+1. The samples within [Azure IoT Operations SDKs github repository](https://github.com/Azure/iot-operations-sdks) read configuration from environment variables. We have provided an `.env` file in the repository root that exports the variables used by the samples to connect to the MQTT Broker. Edit the `.env` file to set the values for your environment, or use the default values provided in the file.
+
+1. Navigate to the `CounterServer` sample directory:
+
+    ```bash
+    cd <REPOSITORY ROOT>/dotnet/samples/Protocol/Counter/CounterServer/
+    ```
+
+1. Build the sample:
+
+    ```bash
+    dotnet build
+    ```
+
+1. Run the sample:
+
+    ```bash
+    source `git rev-parse --show-toplevel`/.env; export AIO_MQTT_CLIENT_ID=counter-server; dotnet run
+    ```
+
+1. Open a new shell and navigate to the `CounterClient` sample directory:
+
+    ```bash
+    cd <REPOSITORY ROOT>/dotnet/samples/Protocol/Counter/CounterClient/
+    ```
+
+1. Build the sample:
+
+    ```bash
+    dotnet build
+    ```
+
+1. Run the sample:
+
+    ```bash
+    source `git rev-parse --show-toplevel`/.env; export AIO_MQTT_CLIENT_ID=counter-client; export COUNTER_SERVER_ID=counter-server; dotnet run
+    ```
+
+1. You should see the client and server communicating, with the client sending requests to read and increment the counter value. This is an example of the output you might see:
+
+    ```output
+    info: CounterClient.CounterClient[0]
+      Telemetry received from counter-server: CounterValue=1
+    info: CounterClient.CounterClient[0]
+          Telemetry received from counter-server: CounterValue=2
+    info: CounterClient.CounterClient[0]
+          Telemetry received from counter-server: CounterValue=3
+    ...
+    ```
+
+<!-- ## Shell configuration
+
+The samples within [Azure IoT Operations SDKs github repository](https://github.com/Azure/iot-operations-sdks) read configuration from environment variables. We have provided an `.env` file in the repository root that exports the variables used by the samples to connect to the MQTT Broker. Edit the `.env` file to set the values for your environment, or use the default values provided in the file:
+
+1. Navigate to the repository root directory:
+
+    ```bash
+    cd <REPOSITORY ROOT>
+    ```
+
+1. Load the environment variables into your shell:
+
+    ```bash
+    source .env
+    ``` 
+-->
+
 
 ## Configuration summary
 
