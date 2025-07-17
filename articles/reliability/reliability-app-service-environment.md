@@ -46,8 +46,7 @@ For information on transient fault handling in Azure App Service, see [Reliabili
 
 [!INCLUDE [Availability zone support description](includes/reliability-availability-zone-description-include.md)]
 
-
-Your App Service Environment can be configured as *zone redundant*, which means that your App Service Isolated v2 plans are distributed across multiple availability zones. 
+Your App Service Environment can be configured as *zone redundant*. You can then configure your App Service Isolated v2 plans to also be zone redundant, which means they're distributed across multiple availability zones.
 
 However, you can enable or disable zone redundancy on each plan, regardless of the setting on the App Service Environment. This means that you can have some plans in your environment that are zone redundant and others that aren't.
 
@@ -61,34 +60,29 @@ See [Reliability in Azure App Service](../reliability/reliability-app-service.md
 - [Failback](../reliability/reliability-app-service.md#failback)
 - [Testing for zone failures](../reliability/reliability-app-service.md#testing-for-zone-failures)
 
-
 ### Region support
 
 To see which regions support availability zones for App Service Environment v3, see [Regions](../app-service/environment/overview.md#regions).
 
-
 ### Requirements
 
-To enable zone-redundancy for your App Service Environment you must:
+To enable zone redundancy for your App Service Environment you must:
 
-- Use [Isolated v2 v2 plan types](/azure/app-service/overview-hosting-plans) and have a minimum of two instances of the plan.
+- Use [Isolated v2 plan types](/azure/app-service/overview-hosting-plans).
 
 - Deploy a minimum of two instances in your plan.
 
+- Be located on a scale unit that supports availability zones. When you create an App Service Environment, the environment is assigned to a scale unit. The scale unit that you're assigned to is based on the resource group that you deploy an App Service Environment to. If your scale unit doesn't support availability zones, you need to create a new environment in a new resource group.
+
 - Configure your App Service Environment to support zone redundancy. You can do this during the creation of the App Service Environment or by updating an existing environment.
 
-<!-- This section is muddy - not clear what we are doing here. That the scale unit is based on the resource group and that the user needs to check for zr after creating the environment, seems like a crap shoot that may or may not turn up the desired result. Can we clarify the process we want to communicate here?-->
->[!IMPORTANT]
->When you create an App Service Environment, the instance is assigned to a scale unit. The scale unit that you're assigned to is based on the resource group that you deploy an App Service Environment to. To ensure that your environment lands on a scale unit that supports availability zones, you might need to create a new resource group and create a new App Service Environment within a new resource group.
->
->To learn whether or not the App Service Environment supports zone redundancy, see [Check for zone redundancy support for an App Service Environment](../app-service/environment/configure-zone-redundancy-ase.md#check-for-zone-redundancy-support-for-an-app-service-environment).
+    To learn whether or not the App Service Environment is configured for zone redundancy, see [Check for zone redundancy support for an App Service Environment](../app-service/environment/configure-zone-redundancy-ase.md#check-for-zone-redundancy-support-for-an-app-service-environment).
 
 ### Cost
 
-When you enable zone redundancy for your App Service Environment, you pay for the additional instances that are created in the availability zones.When you use the App Service Isolated v2 plan, there's no extra cost associated with enabling availability zones as long as you have two or more instances in your App Service plan. You're charged based on your App Service plan SKU, the capacity that you specify, and any instances that you scale to based on your autoscale criteria.
+There's no additional cost to enable zone redundancy on an App Service Environment or its plans. However, zone redundancy for a plan requires that it has two or more instances. You're charged based on your App Service plan SKU, the capacity that you specify, and any instances that you scale to based on your autoscale criteria.
 
 If you enable availability zones but specify a capacity of less than two, the platform enforces a minimum instance count of two. The platform charges you for those two instances.
-
 
 ### Configure availability zone support
 
@@ -101,23 +95,23 @@ If you enable availability zones but specify a capacity of less than two, the pl
 > [!NOTE]
 > When you change the zone redundancy status of the App Service Environment, you initiate an upgrade that takes 12-24 hours to complete. During the upgrade process, you don't experience any downtime or performance problems.
 
-
 ## Multi-region support
 
-App Service Environment is a single-region service. If the region becomes unavailable, your application is also unavailable. However, to reduce the risk of a single-region failure affecting your application, deploy across multiple regions. The following steps help strengthen resilience:
+App Service is a single-region service. If the region becomes unavailable, your environment and its plans and apps are also unavailable.
 
-- Deploy your environment to the instances in each region.
+### Alternative multi-region approaches
+
+To reduce the risk of a single-region failure affecting your application, deploy multiple App Service Environments across multiple regions. The following steps help strengthen resilience:
+
+- Deploy your application to the App Service Environments in each region.
 - Configure load balancing and failover policies.
 - Replicate your data across regions so that you can recover your last application state.
 
-
 For an example approach that illustrates this architecture, see [High availability enterprise deployment by using App Service Environment](/azure/architecture/web-apps/app-service-environment/architectures/ase-high-availability-deployment).
-
-
 
 ## Service-level agreement (SLA)
 
-The service-level agreement (SLA) for App Service Environment describes the expected availability of the service and the conditions that must be met to achieve that availability expectation. For more information, see [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+The service-level agreement (SLA) for App Service describes the expected availability of the service and the conditions that must be met to achieve that availability expectation. For more information, see [SLAs for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 When you deploy a zone-redundant App Service Isolated v2 plan, the uptime percentage defined in the SLA increases.
 
