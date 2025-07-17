@@ -14,9 +14,9 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 Deploy a service catalog template for Common Dependencies when deploying Azure services into an existing workload from the Portal. The template includes the options to create a:
   - [Key Vault](/azure/key-vault/general/overview)
-  - [Customer Managed Key (CMK)](../storage/common/customer-managed-keys-overview) for encryption
+  - [Customer Managed Key (CMK)](../storage/common/customer-managed-keys-overview.md) for encryption
   - [Disk Encryption Set (DES)](/azure/virtual-machines/disk-encryption#full-control-of-your-keys) for disk encryption
-  - [Storage Account](../storage/common/storage-account-overview) quickstart. See the separate Storage Account service catalog template for more deployment customization
+  - [Storage Account](../storage/common/storage-account-overview.md) quickstart. See the separate Storage Account service catalog template for more deployment customization
   - [Managed Identity](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) to securely access your resources within Azure Virtual Enclaves
 
 > [!NOTE]

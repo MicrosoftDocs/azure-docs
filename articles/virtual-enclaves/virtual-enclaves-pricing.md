@@ -21,7 +21,8 @@ A description of Azure Virtual Enclaves pricing.
 ## General
 Azure Virtual Enclaves offers customers the flexibility of an hourly pay-as-you-go rate. This service enables efficient organization, acceleration, and management of secure, isolated, and compliant cloud environments tailored for sensitive missions and workloads across both commercial and air-gapped settings. Consequently, clients can concentrate on their critical workloads.
 
-Enclaves
+Enclave pricing
+
 | Type | Price |
 |--|--|
 | Number of Enclaves | $1.67 per hour |

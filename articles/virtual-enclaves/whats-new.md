@@ -70,7 +70,7 @@ The following features are currently in gated preview. After working with the li
 
 |Type of preview|Feature |Description|Contact alias|Limitations|
 |---|---|---|---|---|
-| Private Preview | Approvals | Approvals require more oversight on critical Azure Virtual Enclaves actions. Approvals enable administrators to queue the creation of new resources or change existing resources while requiring oversight and approval before the change can be made. [Learn more](./understand-approvals.md) | vepm@microsoft.com | |
+| Private Preview | Approvals | Approvals require more oversight on critical Azure Virtual Enclaves actions. Approvals enable administrators to queue the creation of new resources or change existing resources while requiring oversight and approval before the change can be made. Emails us if you want to test this private preview feature. | vepm@microsoft.com | |
 
 ## Known issues
 

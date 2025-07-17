@@ -17,7 +17,7 @@ This is the current list of Azure services and workload templates in the service
 |--|--|--|
 | Admin VM | [link](#admin-vm) | Available |
 | Common Dependencies | [link](#common-dependencies) | Available |
-| Private DNS Zones | [link](#private-dns-zone) | Available |
+| Private DNS Zones | [link](#private-dns-zones) | Available |
 | RemoteApp | [link](#remoteapp-vm) | Available |
 | Storage Account | [link](#storage-account) | Available |
 | Key Vault | [link](#key-vault) | Available |
@@ -48,9 +48,9 @@ Description: This template creates the resources needed to secure the other reso
 
 Documentation:
   - [Key Vault](/azure/key-vault/general/overview)
-  - [Customer Managed Key (CMK)](../storage/common/customer-managed-keys-overview) for encryption
+  - [Customer Managed Key (CMK)](../storage/common/customer-managed-keys-overview.md) for encryption
   - [Disk Encryption Set (DES)](/azure/virtual-machines/disk-encryption#full-control-of-your-keys) for disk encryption
-  - [Storage Account](../storage/common/storage-account-overview) quickstart. See the separate Storage Account service catalog template for more deployment customization
+  - [Storage Account](../storage/common/storage-account-overview.md) quickstart. See the separate Storage Account service catalog template for more deployment customization
   - [Managed Identity](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) to securely access your resources within Azure Virtual Enclaves
 
 ## Private DNS Zones
@@ -63,10 +63,10 @@ Description: This template makes it easier to create create the [Private DNS Zon
 [How to create a RemoteApp VM](./deploy-remoteapp-vm-service-catalog.md)
 
 Description:
-This template and deploy a virtual machine that is domain joined and optionally published as a [RemoteApp](../virtual-desktop/publish-applications-stream-remoteapp.md) by joining and deploying a host pool, app location group, and workspace. The default application published as a RemoteApp is the edge browser.
+This template and deploy a virtual machine that is domain joined and optionally published as a [RemoteApp](/azure/virtual-desktop/publish-applications-stream-remoteapp) by joining and deploying a host pool, app location group, and workspace. The default application published as a RemoteApp is the edge browser.
 
 Documentation:
-[RemoteApp Streaming Overview](../virtual-desktop/remote-app-streaming/overview.md)
+[RemoteApp Streaming Overview](/azure/virtual-desktop/remote-app-streaming/overview)
 [How-to deploy a Streaming App (RemoteApp)](./deploy-remoteapp-vm-service-catalog.md)
 
 

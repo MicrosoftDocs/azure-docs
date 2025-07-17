@@ -54,8 +54,6 @@
       href: what-service-catalog.md
     - name: List of service catalog Templates
       href: list-service-catalog-templates.md
-    - name: Understand approvals
-      href: understand-approvals.md
     - name: Understand resource groups
       href: virtual-enclaves-resource-groups.md
 #     - name: Understanding Enclave Networking

@@ -12,7 +12,7 @@ ms.date: 04/08/2025
 
 Azure Virtual Enclaves (AVE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
 
-- Deploy a service catalog template for Private DNS Zones into an existing enclave from the Portal. The template includes the options to create private DNS zones for Azure storage, key vault, SQL, container registry, or a specified private DNS zone name like one you created or another one from this [list of Azure Private DNS Zones](../private-link/private-endpoint-dns). This allows you to connect privately and securely to the Azure service. [Learn more](../private-link/private-link-overview)
+- Deploy a service catalog template for Private DNS Zones into an existing enclave from the Portal. The template includes the options to create private DNS zones for Azure storage, key vault, SQL, container registry, or a specified private DNS zone name like one you created or another one from this [list of Azure Private DNS Zones](../private-link/private-endpoint-dns.md). This allows you to connect privately and securely to the Azure service. [Learn more](../private-link/private-link-overview.md)
 
 > [!NOTE]
 >

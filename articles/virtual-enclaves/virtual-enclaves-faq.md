@@ -50,7 +50,7 @@ Currently, Azure Virtual Enclaves recommends following the [Tutorial: Disallow r
 As an example, to prevent deploying Communities to a Subscription, you would assign the `Not allowed resource type` [policy definition](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6c112d4e-5bc7-47ae-a041-ea2d9dccd749) while including `Microsoft.Mission/communities` in the parameter list of not allowed resource types.
 
 ### Can I `move` my enclave?
-Moving the enclave resource itself isn't supported and moves for some of the resources deployed in the enclave managed resource group also don't support moves actions (for example bastion, IP groups, and user assigned managed identity). [Learn more](../azure-resource-manager/management/move-support-resources).
+Moving the enclave resource itself isn't supported and moves for some of the resources deployed in the enclave managed resource group also don't support moves actions (for example bastion, IP groups, and user assigned managed identity). [Learn more](/azure/azure-resource-manager/management/move-support-resources).
 
 ## Billing
 Questions related to Azure Virtual Enclaves billing.
