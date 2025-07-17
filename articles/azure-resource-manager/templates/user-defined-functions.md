@@ -72,7 +72,7 @@ The following example shows a template that includes a user-defined function to 
  "resources": [
    {
      "type": "Microsoft.Storage/storageAccounts",
-     "apiVersion": "2022-09-01",
+     "apiVersion": "2025-01-01",
      "name": "[contoso.uniqueName(parameters('storageNamePrefix'))]",
      "location": "South Central US",
      "sku": {
