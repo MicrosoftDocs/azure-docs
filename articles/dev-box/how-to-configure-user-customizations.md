@@ -49,11 +49,11 @@ To complete the steps in this article:
 
 To create and apply customizations to a dev box, you need the following permissions:
 
-| Action                                           | Permission or role       |
-|--------------------------------------------------|-------------------------|
-| Create a customization file                      | None specified. Anyone can create a customization file. |
+| Action                                             | Permission or role       |
+|----------------------------------------------------|-------------------------|
+| Enable or disable user customizations on a project | Write permission on the project. |
+| Create a customization file                        | None specified. Anyone can create a customization file. |
 | Use the developer portal to upload and apply a YAML file during dev box creation | Dev Box User           |
-
 
 ## Create a user customization file
 
