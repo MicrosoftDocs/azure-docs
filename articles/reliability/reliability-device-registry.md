@@ -38,12 +38,13 @@ Microsoft manages setup and configuration for zone redundancy in Azure Device Re
 
 The following list of regions support availability zones in Azure Device Registry:
 
-| Americas         | Europe               | 
-|------------------|----------------------|
-| East US          | North Europe         | 
-| East US 2        | West Europe          |
-| West US 2        |                      |  
-| West US 3        |                      |  
+| Americas         | Europe               | Asia Pacific     |
+|------------------|----------------------|------------------|
+| East US          | Germany West Central | Southeast Asia   |
+| East US 2        | North Europe         |                  |
+| West US          | West Europe          |                  |
+| West US 2        |                      |                  |
+| West US 3        |                      |                  |
 
 ### Cost
 
