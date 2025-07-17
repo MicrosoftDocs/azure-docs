@@ -289,6 +289,24 @@ public static async Task<HttpResponseData> HttpStart(
 }
 ```
 
+You can also start sub-orchestrations with specific versions from within an orchestrator function:
+
+```csharp
+[Function("MainOrchestrator")]
+public static async Task<string> RunMainOrchestrator(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    var subOptions = new SubOrchestratorOptions
+    {
+        Version = "1.0"
+    };
+    
+    var result = await context.CallSubOrchestratorAsync<string>("ProcessPaymentOrchestrator", orderId, subOptions);
+    
+    // ...
+}
+```
+
 ### Removing legacy code paths
 
 Over time, you may want to remove legacy code paths from your orchestrator functions to simplify maintenance and reduce technical debt. However, removing code must be done carefully to avoid breaking existing orchestration instances.
