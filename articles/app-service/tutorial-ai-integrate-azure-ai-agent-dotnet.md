@@ -198,7 +198,7 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
 When exposing APIs via OpenAPI in Azure App Service, follow these security best practices:
 
 - **Authentication and Authorization**: Protect your OpenAPI endpoints in App Service behind [Azure API Management with Microsoft Entra ID](/azure/api-management/api-management-howto-protect-backend-with-aad) and ensure only authorized users or agents can access the tools.
-- **Validate input data:** The sample code checks `ModelState.IsValid` in the `CreateTodo` method, which ensures that the incoming data matches the model's validation attributes. For more information, see [Model validation in ASP.NET Core](https://learn.microsoft.com/aspnet/core/mvc/models/validation).
+- **Validate input data:** The sample code checks `ModelState.IsValid` in the `CreateTodo` method, which ensures that the incoming data matches the model's validation attributes. For more information, see [Model validation in ASP.NET Core](/aspnet/core/mvc/models/validation).
 - **Use HTTPS:** The sample relies on Azure App Service, which enforces HTTPS by default and provides free TLS/SSL certificates to encrypt data in transit.
 - **Limit CORS:** Restrict Cross-Origin Resource Sharing (CORS) to trusted domains only. For more information, see [Enable CORS](app-service-web-tutorial-rest-api.md#enable-cors).
 - **Apply rate limiting:** Use [API Management](/azure/api-management/api-management-sample-flexible-throttling) or custom middleware to prevent abuse and denial-of-service attacks.
@@ -208,7 +208,7 @@ When exposing APIs via OpenAPI in Azure App Service, follow these security best 
 - **Monitor and log activity:** Enable logging and monitor access to detect suspicious activity.
 - **Use managed identities:** When calling other Azure services, use managed identities instead of hardcoded credentials.
 
-For more guidance, see [Secure your App Service app](https://learn.microsoft.com/azure/app-service/security-overview) and [Best practices for REST API security](https://learn.microsoft.com/azure/architecture/best-practices/api-design#security).
+For more guidance, see [Secure your App Service app](security-overview.md) and [Best practices for REST API security](/azure/architecture/best-practices/api-design#security).
 
 ## Next step
 
