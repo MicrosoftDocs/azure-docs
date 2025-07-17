@@ -1,12 +1,12 @@
 ---
 title: Integrate web app with OpenAPI in Azure AI Foundry Agent Service (Java)
-description: Empower your existing web apps by integrating their capabilities into Azure AI Foundry Agent Service with OpenAPI, enabling AI agents to perform real-world tasks.
+description: Empower your existing Java web apps by integrating their capabilities into Azure AI Foundry Agent Service with OpenAPI, enabling AI agents to perform real-world tasks.
 author: cephalin
 ms.author: cephalin
 ms.date: 07/16/2025
 ms.topic: tutorial
 ms.custom:
-  - devx-track-dotnet
+  - devx-track-java
 ms.collection: ce-skilling-ai-copilot
 ---
 

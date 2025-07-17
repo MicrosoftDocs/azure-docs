@@ -1,5 +1,5 @@
 ---
-title: Agentic app with Semantic Kernel or Azure AI Foundry (.NET)
+title: Agentic app with Semantic Kernel (Java)
 description: Learn how to quickly deploy a production-ready, agentic web application using Java with Azure App Service and Microsoft Semantic Kernel.
 ms.service: azure-app-service
 author: cephalin
@@ -8,7 +8,7 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/16/2025
 ms.custom:
-  - devx-track-dotnet
+  - devx-track-java
 ms.collection: ce-skilling-ai-copilot
 ---
 
@@ -18,7 +18,7 @@ This tutorial demonstrates how to add agentic capability to an existing data-dri
 
 If your web application already has useful features, like shopping, hotel booking, or data management, it's relatively straightforward to add agent functionality to your web application by wrapping those functionalities in a plugin (for Semantic Kernel). In this tutorial, you start with a simple to-do list app. By the end, you'll be able to create, update, and manage tasks with an agent in an App Service app.
 
-:::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/semantic-kernel-agent.png" alt-text="Screenshot of a chat completion session with a semantic kernel agent.":::
+:::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-java/semantic-kernel-agent.png" alt-text="Screenshot of a chat completion session with a semantic kernel agent.":::
 
 > [!NOTE]
 > Azure AI Foundry Agent Service currently doesn't have a Java SDK, so isn't included in the scope of this article.
@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/free/java).
 - GitHub account to use GitHub Codespaces - [Learn more about GitHub Codespaces](https://docs.github.com/codespaces/overview).
 
 ## Open the sample with Codespaces
@@ -48,7 +48,7 @@ The easiest way to get started is by using GitHub Codespaces, which provides a c
 4. Run the application locally:
 
    ```bash
-   dotnet run
+   mvn spring-boot:run
    ```
 
 5. When you see **Your application running on port 8080 is available**, select **Open in Browser** and add a few tasks.
@@ -64,11 +64,11 @@ You can find the initialization code in the `SemanticKernelAgentService` contruc
 - Creates a [chat completion agent](/semantic-kernel/frameworks/agent/agent-types/chat-completion-agent?pivots=programming-language-java), and configures it to let the AI model automatically invoke functions (`FunctionChoiceBehavior.auto(true)`).
 - Creates an agent thread that automatically manages the chat history.
 
-:::code language="csharp" source="~/app-service-agentic-semantic-kernel-java/src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java" range="41-93" highlight="11-48,58" :::
+:::code language="csharp" source="~/app-service-agentic-semantic-kernel-java/src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java" range="38-90" highlight="11-48,58" :::
 
 Each time the prompt is received, the server code uses ChatCompletionAgent.invokeAsync() invoke the agent with the user prompt.
 
-:::code language="csharp" source="~/app-service-agentic-semantic-kernel-java/src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java" range="112-161" highlight="8" :::
+:::code language="csharp" source="~/app-service-agentic-semantic-kernel-java/src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java" range="109-158" highlight="8" :::
 
 ## Deploy the sample application
 
@@ -111,13 +111,17 @@ Each time the prompt is received, the server code uses ChatCompletionAgent.invok
 
 ## Create and configure the Azure AI Foundry resource
 
-1. In the [Azure AI Foundry portal](https://ai.azure.com), deploy a model of your choice (see [Quickstart: Get started with Azure AI Foundry](/azure/ai-foundry/quickstarts/get-started-code?tabs=azure-ai-foundry&pivots=fdp-project)). A project and a default agent are created for you in the process.
+1. In the [Azure AI Foundry portal](https://ai.azure.com), deploy a model of your choice (see [Quickstart: Get started with Azure AI Foundry](/azure/ai-foundry/quickstarts/get-started-code?tabs=azure-ai-foundry&pivots=fdp-project)). A project and a model deployment is created for you in the process.
 
 1. From the left menu, select **Overview**.
 
 1. Select **Azure OpenAI** and copy the URL in **Azure OpenAI endpoint** for later.
 
-    :::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/foundry-project-endpoints.png" alt-text="Screenshot showing how to copy the OpenAI endpoint and the foundry project endpoint in the foundry portal.":::
+    :::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-java/foundry-openai-endpoint.png" alt-text="Screenshot showing how to copy the OpenAI endpoint in the foundry portal.":::
+
+1. Select **Models + endpoints** and copy the name of the model deployment for later.
+
+    :::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-java/foundry-model-deployment.png" alt-text="Screenshot showing how to copy the model deployment name in the foundry portal.":::
 
 ## Assign required permissions
 
@@ -140,7 +144,7 @@ Each time the prompt is received, the server code uses ChatCompletionAgent.invok
     | Variable                      | Description                                              |
     |-------------------------------|----------------------------------------------------------|
     | `azure.openai.endpoint`         | Azure OpenAI endpoint (copied from the Overview page). This is needed by the Semantic Kernel agent. |
-    | `azure.openai.deployment`             | Model name in the deployment (copied from the Agents setup pane). This is needed by the Semantic Kernel agent. |
+    | `azure.openai.deployment`             | Model name in the deployment (copied from the Models + endpoints page). This is needed by the Semantic Kernel agent. |
     
     > [!NOTE]
     > To keep the tutorial simple, you'll use these variables in *src/main/resources/application.properties* instead of overwriting them with app settings in App Service.
@@ -171,7 +175,7 @@ Each time the prompt is received, the server code uses ChatCompletionAgent.invok
 
 1. Navigate to the deployed application again and test the chat agents.
 
-:::image type="content" source="media/tutorial-ai-agent-web-app-semantic-java/semantic-kernel-agent.png" alt-text="Screenshot of a chat completion session with a semantic kernel agent.":::
+:::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-java/semantic-kernel-agent.png" alt-text="Screenshot of a chat completion session with a semantic kernel agent.":::
 
 ## Clean up resources
 
