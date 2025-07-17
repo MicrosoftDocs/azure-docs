@@ -14,7 +14,7 @@ ms.date: 07/17/2025
 # Reliability in Azure App Service Environment
 
 Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale. Unlike the App Service public multitenant offering where supporting infrastructure is shared, with App Service Environment, compute is dedicated to a single customer.
-
+  
 Key reliability benefits include dedicated compute resources that aren't shared with other customers, enhanced network isolation for improved security and stability, and the ability to deploy in your own virtual network for greater control over traffic routing and security policies.
 
 This article describes reliability support in [Azure App Service Environment](../app-service/environment/overview.md), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
@@ -93,11 +93,8 @@ If you enable availability zones but specify a capacity of less than two, the pl
 
 ### Configure availability zone support
 
-- **Create a zone-redundant App Service Environment.** 
-    - To learn how to create a new zone-redundant App Service Environment, see [Create a new App Service Environment plan with zone redundancy](../app-service/environment/creation.md). Make sure to set **Zone redundancy** to *Enabled*. 
-    - To create plans in your App Service Environment, you must use the Isolated v2 pricing tier. To learn how to create an Isolated v2 App Service plan with zone redundancy, see [Configure Isolated v2 App Service plans with zone redundancy](../app-service/environment/configure-zone-redundancy-isolated.md).
+- **Configure a zone-redundant App Service Environment and App Service plans.** To learn how to create, enable, or disable a new zone-redundant App Service Environment and new zone redundant App Service Plans, see  [Configure App Service Environment and Isolated v2 App Service plan for zone redundancy](../app-service/environment/configure-zone-redundancy-ase.md).
 
-- **Enable or disable zone redundancy on an existing App Service Environment.** To learn how to enable or disable zone redundancy on App Service Environment, see [Set zone redundancy for an existing App Service Environment](../app-service/environment/configure-zone-redundancy-ase.md#set-zone-redundancy-for-an-existing-app-service-environment). To learn how to enable or disable zone redundancy on an existing App Service plan inside your environment, see [Set zone redundancy for an existing Isolated v2 App Service plan](../app-service/environment/configure-zone-redundancy-isolated.md#set-zone-redundancy-for-an-existing-isolated-v2-app-service-plan).
 
 > [!NOTE]
 > When you change the zone redundancy status of the App Service Environment, you initiate an upgrade that takes 12-24 hours to complete. During the upgrade process, you don't experience any downtime or performance problems.
