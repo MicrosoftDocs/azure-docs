@@ -28,7 +28,7 @@ The full list of required objects are:
  - ExpressRoute Circuit
  - ExpressRoute Virtual Network Gateway
  - Connection between the ExpressRoute circuit and the virtual network gateway WITH FastPath enabled.
- - VPN Gateway of sku type VpnGw5AZ with Advanced Connectivity enabled
+ - VPN Gateway of SKU type VpnGw5AZ with Advanced Connectivity enabled
  - VPN Local Network Gateway
  - User Defined Route (UDR) to push ER traffic to the VPN Gateway
 
@@ -53,7 +53,7 @@ Set-AzVirtualNetworkGatewayConnection  -VirtualNetworkGatewayConnection $connect
 ```
 After enabling FastPath, the value of **$connection.ExpressRouteGatewayBypass** should have the value **$true**.
 
-In the Azure management portal, navigate to the Connections blade of your ExpressRoute circuit. Under Settings-Configuration, verified the FastPath setting to Enable
+In the Azure portal, navigate to the Connections page of your ExpressRoute circuit. Under Settings-Configuration, verified the FastPath setting to Enable
 
 ![3]
 
@@ -70,7 +70,7 @@ IPsec tunnels are established via transit through ExpressRoute private peering. 
 
 The routes between the VPN Device and the VPN Gateway should contain the detailed on-premises networks. Routing can be via either static routes or Border Gateway Protocol (BGP). By keeping your on-premises networks in this routing "channel" you ensure Azure traffic to on-premises is encrypted before entering the ExpressRoute data path, traveling inside the VPN tunnel.
 
-If you do add routes to ExpressRoute BGP that you wish to encrypt, they will leak around the VPN Gateway and NOT be encrypted. To prevent this a UDR can be used on the virtual networks sending traffic to point to the VPN Gateway as the next hop to ensure that traffic is put into the encrypted tunnel before transiting ExpressRoute.
+If you do add routes to ExpressRoute BGP, they leak around the VPN Gateway and are NOT be encrypted. To prevent route leaks, a UDR can be used on the virtual networks sending traffic to point to the VPN Gateway as the next hop to ensure that traffic is put into the encrypted tunnel before transiting ExpressRoute.
 
 ## <a name="VNetGateway"></a>Create a VPN gateway High Bandwidth tunnel
 In this step, you create a virtual network gateway (VPN gateway) High Bandwidth tunnels for your virtual network. The High Bandwidth tunnel is supported only on VpnGw5AZ SKU.
