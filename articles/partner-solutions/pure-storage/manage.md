@@ -71,18 +71,26 @@ Once you create a resource, you must create a storage pool to connect to an Azur
 
 ### Connect a Storage Pool to an Azure VMware Solution resource
 
-Once you create a storage pool, link the storage pool to an Azure VMware Solution resource from the Azure portal.
-
 > [!IMPORTANT]
-> In order to connect your storage pool to an Azure VMware Solution resource, you must be an *Owner* or *RBACAdministrator* in your subscription.
+>
+> - Before you can connect a storage pool to an Azure VMware Solution resource, you must create a [Storage Pool](#create-a-storage-pool) and an [Azure VMware solution](../../azure-vmware/tutorial-create-private-cloud.md).
+> - All hosts must be in the same Host Location within the same Azure Subscription. 
+> - In order to connect your storage pool to an Azure VMware Solution resource, you must be an *Owner* or *RBACAdministrator* in your subscription.
+
+Once you create a storage pool, link the storage pool to an Azure VMware Solution resource from the Azure portal.
 
 [!INCLUDE [manage](../includes/manage.md)]
 
 To connect a storage pool to an Azure VMware Solution resource, select the **Connect Azure VMware Solution** button from the working pane's command bar.
 
-<!--TODO: remove before publish-->
-**INSERT SCREENSHOT HERE**
+:::image type="content" source="media/manage/connect-vm.png" alt-text="A screenshot of a Storage Pool resource inside Azure portal with the Connect Azure VMware Solution button emphasized":::
+
+### Related content
+[Pure Storage Resource Guide](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Azure_Native_Pure_Storage_Cloud/management/c_psc_management.html)
 
 ## Get support
 
 Contact [Pure Storage](https://support.purestorage.com/bundle/m_contact_us/page/Pure_Storage_Technical_Services/Technical_Services_Information/topics/reference/r_contact_us.html) for customer support.
+
+See the [Pure Storage troubleshooting documentation](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Azure_Native_Pure_Storage_Cloud/troubleshooting/c_troubleshooting.html) for more information.
+
