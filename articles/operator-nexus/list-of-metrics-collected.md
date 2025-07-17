@@ -85,8 +85,8 @@ All these metrics for Nexus Cluster are collected and delivered to Azure Monitor
 | Metric      | Category | Display Name  | Unit | Description | Dimensions   |
 |-------------|:-------------:|:-----:|:----------:|:-----------:|:--------------------------:|
 |ContainerFsIoTimeSecondsTotal|Container|Container FS I/O Time Seconds Total (Preview)|Seconds|Time taken for container Input/Output (I/O) operations. In the absence of data, this metric retains the most recent value emitted|Device, Host|
-|ContainerMemoryFailcnt|Container|Container Memory Fail Count|Count|Number of times a container's memory usage limit is hit. In the absence of data, this metric will default to 0|Container, Host, Namespace, Pod|
-|ContainerMemoryUsageBytes|Container|Container Memory Usage Bytes|Bytes|Current memory usage, including all memory regardless of when it was accessed. In the absence of data, this metric will default to 0|Container, Host, Namespace, Pod|
+|ContainerMemoryFailcnt|Container|Container Memory Fail Count|Count|Number of times a container's memory usage limit is hit. In the absence of data, this metric defaults to 0|Container, Host, Namespace, Pod|
+|ContainerMemoryUsageBytes|Container|Container Memory Usage Bytes|Bytes|Current memory usage, including all memory regardless of when it was accessed. In the absence of data, this metric defaults to 0|Container, Host, Namespace, Pod|
 |ContainerNetworkReceiveErrorsTotal|Container|Container Net Rx Errors (Preview)|Count|Number of errors encountered while receiving bytes over the network. In the absence of data, this metric retains the most recent value emitted|Interface, Namespace, Pod|
 |ContainerNetworkTransmitErrorsTotal|Container|Container Net Tx Err Total (Preview)|Count|Number of errors encountered while transmitting bytes over the network. In the absence of data, this metric retains the most recent value emitted|Interface, Namespace, Pod|
 |ContainerScrapeError|Container|Container Scrape Error|Unspecified|Indicates whether there was an error while getting container metrics. In the absence of data, this metric retains the most recent value emitted|Host|
@@ -120,9 +120,9 @@ All these metrics for Nexus Cluster are collected and delivered to Azure Monitor
 
 | Metric      | Category | Display Name  | Unit | Description | Dimensions   |
 |-------------|:-------------:|:-----:|:----------:|:-----------:|:--------------------------:|
-|KubeDaemonsetStatusCurrentNumberScheduled|Daemonset|Daemonsets Current Number Scheduled|Count|Number of daemonsets currently scheduled. In the absence of data, this metric will default to 0|Daemonset, Namespace|
-|KubeDaemonsetStatusDesiredNumberScheduled|Daemonset|Daemonsets Desired Number Scheduled|Count|Number of daemonsets desired scheduled. In the absence of data, this metric will default to 0|Daemonset, Namespace|
-|KubeDaemonsetStatusNotScheduled|Daemonset|Daemonsets Not Scheduled|Count|Number of daemonsets not scheduled. In the absence of data, this metric will default to 150|Daemonset, Namespace|
+|KubeDaemonsetStatusCurrentNumberScheduled|Daemonset|Daemonsets Current Number Scheduled|Count|Number of daemonsets currently scheduled. In the absence of data, this metric defaults to 0|Daemonset, Namespace|
+|KubeDaemonsetStatusDesiredNumberScheduled|Daemonset|Daemonsets Desired Number Scheduled|Count|Number of daemonsets desired scheduled. In the absence of data, this metric defaults to 0|Daemonset, Namespace|
+|KubeDaemonsetStatusNotScheduled|Daemonset|Daemonsets Not Scheduled|Count|Number of daemonsets not scheduled. In the absence of data, this metric defaults to 150|Daemonset, Namespace|
 
 ### ***Kubernetes Deployment***
 
@@ -131,16 +131,16 @@ All these metrics for Nexus Cluster are collected and delivered to Azure Monitor
 |KubeDeploymentStatusReplicasAvailable|Deployment|Deployment Replicas Available|Count|Number of deployment replicas available. In the absence of data, this metric retains the most recent value emitted|Deployment, Namespace|
 |KubeDeploymentStatusReplicasUnavailable|Deployment|Deployment Replicas Unavailable|Count|Number of deployment replicas unavailable. In the absence of data, this metric retains the most recent value emitted|Deployment, Namespace|
 |KubeDeploymentStatusReplicasReady|Deployment|Deployment Replicas Ready|Count|Number of deployment replicas ready. In the absence of data, this metric retains the most recent value emitted.|Deployment, Namespace|
-|KubeDeploymentStatusReplicasAvailablePercent|Deployment|Deployment Replicas Available Percent|Percent|Percentage of deployment replicas available. In the absence of data, this metric will default to 0|Deployment, Namespace|
+|KubeDeploymentStatusReplicasAvailablePercent|Deployment|Deployment Replicas Available Percent|Percent|Percentage of deployment replicas available. In the absence of data, this metric defaults to 0|Deployment, Namespace|
 
 ### ***etcD***
 
 | Metric      | Category | Display Name  | Unit | Description | Dimensions   |
 |-------------|:-------------:|:-----:|:----------:|:-----------:|:--------------------------:|
-|EtcdDBUtilizationPercent|Etcd|Etcd Database Utilization Percentage|Percent|The percentage of the Etcd Database utilized. In the absence of data, this metric will default to 0|Pod Name|
+|EtcdDBUtilizationPercent|Etcd|Etcd Database Utilization Percentage|Percent|The percentage of the Etcd Database utilized. In the absence of data, this metric defaults to 0|Pod Name|
 |EtcdDiskBackendCommitDurationSecondsSum|Etcd|Etcd Disk Backend Commit Duration Sec|Seconds|The cumulative sum of the time taken for etcd to commit transactions to its backend disk storage. In the absence of data, this metric retains the most recent value emitted|Component, Pod Name, Tier|
 |EtcdDiskWalFsyncDurationSecondsSum|Etcd|Etcd Disk WAL Fsync Duration Sec|Seconds|The cumulative sum of the time that etcd has spent performing fsync operations on the write-ahead log (WAL) file. In the absence of data, this metric retains the most recent value emitted|Component, Pod Name, Tier|
-|EtcdServerHealthFailures|Etcd|Etcd Server Health Failures|Count|Total number of failed health checks performed on an etcd server. In the absence of data, this metric will default to 0|Pod Name|
+|EtcdServerHealthFailures|Etcd|Etcd Server Health Failures|Count|Total number of failed health checks performed on an etcd server. In the absence of data, this metric defaults to 0|Pod Name|
 |EtcdServerIsLeader|Etcd|Etcd Server Is Leader|Unspecified|Indicates whether an etcd server is the leader of the cluster; 1, 0 otherwise. In the absence of data, this metric retains the most recent value emitted|Component, Pod Name, Tier|
 |EtcdServerIsLearner|Etcd|Etcd Server Is Learner|Unspecified|Indicates whether an etcd server is a learner within the cluster; 1, 0 otherwise. In the absence of data, this metric retains the most recent value emitted|Component, Pod Name, Tier|
 |EtcdServerLeaderChangesSeenTotal|Etcd|Etcd Server Leader Changes Seen Total|Count|The number of leader changes seen within the etcd cluster. In the absence of data, this metric retains the most recent value emitted|Component, Pod Name, Tier|
@@ -153,9 +153,9 @@ All these metrics for Nexus Cluster are collected and delivered to Azure Monitor
 
 | Metric      | Category | Display Name  | Unit | Description | Dimensions   |
 |-------------|:-------------:|:-----:|:----------:|:-----------:|:--------------------------:|
-|KubeJobStatusActive|Job|Jobs Active|Count|Number of jobs active. In the absence of data, this metric will default to 0|Job, Namespace|
+|KubeJobStatusActive|Job|Jobs Active|Count|Number of jobs active. In the absence of data, this metric defaults to 0|Job, Namespace|
 |KubeJobStatusFailedReasons|Job|Jobs Failed|Count|Number and reason of jobs failed. In the absence of data, this metric retains the most recent value emitted|Job, Namespace, Reason|
-|KubeJobStatusSucceeded|Job|Jobs Succeeded|Count|Number of jobs succeeded. In the absence of data, this metric will default to 0|Job, Namespace|
+|KubeJobStatusSucceeded|Job|Jobs Succeeded|Count|Number of jobs succeeded. In the absence of data, this metric defaults to 0|Job, Namespace|
 
 ### ***kubelet***
 
@@ -178,36 +178,36 @@ All these metrics for Nexus Cluster are collected and delivered to Azure Monitor
 
 | Metric      | Category | Display Name  | Unit | Description | Dimensions   |
 |-------------|:-------------:|:-----:|:----------:|:-----------:|:--------------------------:|
-|KubePodContainerResourceLimits|Pod|Container Resources Limits|Count|The container's resources limits. In the absence of data, this metric will default to 0|Container, Namespace, Node, Pod, Resource, Unit|
-|KubePodContainerResourceRequests|Pod|Container Resources Requests|Count|The container's resources requested. In the absence of data, this metric will default to 0|Container, Namespace, Node, Pod, Resource, Unit|
-|KubePodContainerStateStarted|Pod|Container State Started (Preview)|Count|Unix timestamp start time of a container. In the absence of data, this metric will default to 0|Container, Namespace, Pod|
-|KubePodContainerStatusLastTerminatedReason|Pod|Container Status Last Terminated Reason|Count|The reason of a container's last terminated status. In the absence of data, this metric will default to 0|Container, Namespace, Pod, Reason|
-|KubePodContainerStatusReady|Pod|Container Status Ready|Count|Describes whether the container's readiness check succeeded. In the absence of data, this metric will default to 0|Container, Namespace, Pod|
+|KubePodContainerResourceLimits|Pod|Container Resources Limits|Count|The container's resources limits. In the absence of data, this metric defaults to 0|Container, Namespace, Node, Pod, Resource, Unit|
+|KubePodContainerResourceRequests|Pod|Container Resources Requests|Count|The container's resources requested. In the absence of data, this metric defaults to 0|Container, Namespace, Node, Pod, Resource, Unit|
+|KubePodContainerStateStarted|Pod|Container State Started (Preview)|Count|Unix timestamp start time of a container. In the absence of data, this metric defaults to 0|Container, Namespace, Pod|
+|KubePodContainerStatusLastTerminatedReason|Pod|Container Status Last Terminated Reason|Count|The reason of a container's last terminated status. In the absence of data, this metric defaults to 0|Container, Namespace, Pod, Reason|
+|KubePodContainerStatusReady|Pod|Container Status Ready|Count|Describes whether the container's readiness check succeeded. In the absence of data, this metric defaults to 0|Container, Namespace, Pod|
 |KubePodContainerStatusRestartsTotal|Pod|Container Restarts|Count|The number of container restarts. In the absence of data, this metric retains the most recent value emitted|Container, Namespace, Pod|
-|KubePodContainerStatusRunning|Pod|Container Status Running|Count|The number of containers with a status of 'running'. In the absence of data, this metric will default to 0|Container, Namespace, Pod|
-|KubePodContainerStatusTerminated|Pod|Container Status Terminated|Count|The number of containers with a status of 'terminated'. In the absence of data, this metric will default to 0|Container, Namespace, Pod|
+|KubePodContainerStatusRunning|Pod|Container Status Running|Count|The number of containers with a status of 'running'. In the absence of data, this metric defaults to 0|Container, Namespace, Pod|
+|KubePodContainerStatusTerminated|Pod|Container Status Terminated|Count|The number of containers with a status of 'terminated'. In the absence of data, this metric defaults to 0|Container, Namespace, Pod|
 |KubePodContainerStatusTerminatedReasons|Pod|Container Status Terminated Reason|Count|The number and reason of containers with a status of 'terminated'. In the absence of data, this metric retains the most recent value emitted|Container, Namespace, Pod, Reason|
-|KubePodContainerStatusWaiting|Pod|Container Status Waiting|Count|The number of containers with a status of 'waiting'. In the absence of data, this metric will default to 0|Container, Namespace, Pod|
+|KubePodContainerStatusWaiting|Pod|Container Status Waiting|Count|The number of containers with a status of 'waiting'. In the absence of data, this metric defaults to 0|Container, Namespace, Pod|
 |KubePodContainerStatusWaitingReason|Pod|Container Status Waiting Reason|Count|The number and reason of containers with a status of 'waiting'. In the absence of data, this metric retains the most recent value emitted|Container, Namespace, Pod, Reason|
-|KubePodDeletionTimestamp|Pod|Pod Deletion Timestamp (Preview)|Count|The timestamp of the pod's deletion. In the absence of data, this metric will default to 0|Namespace, Pod|
-|KubePodInitContainerStatusReady|Pod|Pod Init Container Ready|Count|The number of ready pod init containers. In the absence of data, this metric will default to 0|Namespace, Container, Pod|
+|KubePodDeletionTimestamp|Pod|Pod Deletion Timestamp (Preview)|Count|The timestamp of the pod's deletion. In the absence of data, this metric defaults to 0|Namespace, Pod|
+|KubePodInitContainerStatusReady|Pod|Pod Init Container Ready|Count|The number of ready pod init containers. In the absence of data, this metric defaults to 0|Namespace, Container, Pod|
 |KubePodInitContainerStatusRestartsTotal|Pod|Pod Init Container Restarts|Count|The number of pod init containers restarts. In the absence of data, this metric retains the most recent value emitted|Namespace, Container, Pod|
-|KubePodInitContainerStatusRunning|Pod|Pod Init Container Running|Count|The number of running pod init containers. In the absence of data, this metric will default to 0|Namespace, Container, Pod|
-|KubePodInitContainerStatusTerminated|Pod|Pod Init Container Terminated|Count|The number of terminated pod init containers. In the absence of data, this metric will default to 0|Namespace, Container, Pod|
-|KubePodInitContainerStatusTerminatedReason|Pod|Pod Init Container Terminated Reason|Count|The number of pod init containers with terminated reason. In the absence of data, this metric will default to 0|Namespace, Container, Pod, Reason|
-|KubePodInitContainerStatusWaiting|Pod|Pod Init Container Waiting|Count|The number of pod init containers waiting. In the absence of data, this metric will default to 0|Namespace, Container, Pod|
-|KubePodInitContainerStatusWaitingReason|Pod|Pod Init Container Waiting Reason|Count|The reason the pod init container is waiting. In the absence of data, this metric will default to 0|Namespace, Container, Pod, Reason|
-|KubePodStatusPhases|Pod|Pod Status Phase|Count|The pod status phase. In the absence of data, this metric will default to 0|Namespace, Pod, Phase|
-|KubePodStatusReady|Pod|Pod Ready State|Count|Signifies if the pod is in ready state. In the absence of data, this metric will default to 0|Namespace, Pod, Condition|
-|KubePodStatusReason|Pod|Pod Status Reason|Count|The pod status reason <Evicted/NodeAffinity/NodeLost/Shutdown/UnexpectedAdmissionError>. In the absence of data, this metric will default to 0|NamespacePod, Reason|
+|KubePodInitContainerStatusRunning|Pod|Pod Init Container Running|Count|The number of running pod init containers. In the absence of data, this metric defaults to 0|Namespace, Container, Pod|
+|KubePodInitContainerStatusTerminated|Pod|Pod Init Container Terminated|Count|The number of terminated pod init containers. In the absence of data, this metric defaults to 0|Namespace, Container, Pod|
+|KubePodInitContainerStatusTerminatedReason|Pod|Pod Init Container Terminated Reason|Count|The number of pod init containers with terminated reason. In the absence of data, this metric defaults to 0|Namespace, Container, Pod, Reason|
+|KubePodInitContainerStatusWaiting|Pod|Pod Init Container Waiting|Count|The number of pod init containers waiting. In the absence of data, this metric defaults to 0|Namespace, Container, Pod|
+|KubePodInitContainerStatusWaitingReason|Pod|Pod Init Container Waiting Reason|Count|The reason the pod init container is waiting. In the absence of data, this metric defaults to 0|Namespace, Container, Pod, Reason|
+|KubePodStatusPhases|Pod|Pod Status Phase|Count|The pod status phase. In the absence of data, this metric defaults to 0|Namespace, Pod, Phase|
+|KubePodStatusReady|Pod|Pod Ready State|Count|Signifies if the pod is in ready state. In the absence of data, this metric defaults to 0|Namespace, Pod, Condition|
+|KubePodStatusReason|Pod|Pod Status Reason|Count|The pod status reason <Evicted/NodeAffinity/NodeLost/Shutdown/UnexpectedAdmissionError>. In the absence of data, this metric defaults to 0|NamespacePod, Reason|
 
 ### ***Kubernetes StatefulSet***
 
 | Metric      | Category | Display Name  | Unit | Description | Dimensions   |
 |-------------|:-------------:|:-----:|:----------:|:-----------:|:--------------------------:|
 |KubeStatefulsetReplicas|Statefulset|Statefulset Desired Replicas Number|Count|The desired number of statefulset replicas. In the absence of data, this metric retains the most recent value emitted|Namespace, Statefulset|
-|KubeStatefulsetStatusReplicas|Statefulset|Statefulset Replicas Number|Count|The number of replicas per statefulset. In the absence of data, this metric will default to 0|Namespace, Statefulset|
-|KubeStatefulsetStatusReplicaDifference|Statefulset|Statefulset Replicas Difference|Count|The difference between desired and current number of replicas per statefulset. In the absence of data, this metric will default to 0|Namespace, Statefulset|
+|KubeStatefulsetStatusReplicas|Statefulset|Statefulset Replicas Number|Count|The number of replicas per statefulset. In the absence of data, this metric defaults to 0|Namespace, Statefulset|
+|KubeStatefulsetStatusReplicaDifference|Statefulset|Statefulset Replicas Difference|Count|The difference between desired and current number of replicas per statefulset. In the absence of data, this metric defaults to 0|Namespace, Statefulset|
 |KubeletRunningContainers|Kubelet|Kubelet Running Containers|Count|Number of containers currently running. In the absence of data, this metric retains the most recent value emitted|Container State, Host|
 
 ### ***Virtual Machine Orchestrator***
@@ -215,20 +215,20 @@ All these metrics for Nexus Cluster are collected and delivered to Azure Monitor
 | Metric      | Category | Display Name  | Unit | Description | Dimensions   |
 |-------------|:-------------:|:-----:|:----------:|:-----------:|:--------------------------:|
 |KubevirtInfo|VMOrchestrator|Kubevirt Info|Unspecified|Kubevirt version information. In the absence of data, this metric retains the most recent value emitted|Kube Version|
-|KubevirtVirtControllerLeading|VMOrchestrator|Kubevirt Virt Controller Leading|Unspecified|Indication of whether the virt-controller is leading. The value is 1 if the virt-controller is leading, 0 otherwise. In the absence of data, this metric will default to 0|Pod Name|
-|KubevirtVirtControllerReady|VMOrchestrator|Kubevirt Virt Controller Ready|Unspecified|Indication for a virt-controller that is ready to take the lead. The value is 1 if the virt-controller is ready, 0 otherwise. In the absence of data, this metric will default to 0|Pod Name|
-|KubevirtVirtOperatorReady|VMOrchestrator|Kubevirt Virt Operator Ready|Unspecified|Indication for a virt operator being ready. The value is 1 if the virt operator is ready, 0 otherwise. In the absence of data, this metric will default to 0|Pod Name|
-|KubevirtVmiMemoryActualBalloonBytes|VMOrchestrator|Kubevirt VMI Memory Balloon Bytes|Bytes|Current balloon size. In the absence of data, this metric will default to 0|Name, Node|
-|KubevirtVmiMemoryAvailableBytes|VMOrchestrator|Kubevirt VMI Memory Available Bytes|Bytes|Amount of usable memory as seen by the domain. This value may not be accurate if a balloon driver is in use or if the guest OS doesn't initialize all assigned pages. In the absence of data, this metric will default to 0|Name, Node|
+|KubevirtVirtControllerLeading|VMOrchestrator|Kubevirt Virt Controller Leading|Unspecified|Indication of whether the virt-controller is leading. The value is 1 if the virt-controller is leading, 0 otherwise. In the absence of data, this metric defaults to 0|Pod Name|
+|KubevirtVirtControllerReady|VMOrchestrator|Kubevirt Virt Controller Ready|Unspecified|Indication for a virt-controller that is ready to take the lead. The value is 1 if the virt-controller is ready, 0 otherwise. In the absence of data, this metric defaults to 0|Pod Name|
+|KubevirtVirtOperatorReady|VMOrchestrator|Kubevirt Virt Operator Ready|Unspecified|Indication for a virt operator being ready. The value is 1 if the virt operator is ready, 0 otherwise. In the absence of data, this metric defaults to 0|Pod Name|
+|KubevirtVmiMemoryActualBalloonBytes|VMOrchestrator|Kubevirt VMI Memory Balloon Bytes|Bytes|Current balloon size. In the absence of data, this metric defaults to 0|Name, Node|
+|KubevirtVmiMemoryAvailableBytes|VMOrchestrator|Kubevirt VMI Memory Available Bytes|Bytes|Amount of usable memory as seen by the domain. This value may not be accurate if a balloon driver is in use or if the guest OS doesn't initialize all assigned pages. In the absence of data, this metric defaults to 0|Name, Node|
 |KubevirtVmiMemorySwapInTrafficBytesTotal|VMOrchestrator|Kubevirt VMI Mem Swp In Traffic Bytes|Bytes|The total amount of data read from swap space of the guest. In the absence of data, this metric retains the most recent value emitted|Name, Node|
 |KubevirtVmiMemoryDomainBytesTotal|VMOrchestrator|Kubevirt VMI Mem Dom Bytes (Preview)|Bytes|The amount of memory allocated to the domain. The memory value in the domain XML file. In the absence of data, this metric retains the most recent value emitted|Node|
 |KubevirtVmiMemorySwapOutTrafficBytesTotal|VMOrchestrator|Kubevirt VMI Mem Swp Out Traffic Bytes|Bytes|The total amount of memory written out to swap space of the guest. In the absence of data, this metric retains the most recent value emitted|Name, Node|
-|KubevirtVmiMemoryUnusedBytes|VMOrchestrator|Kubevirt VMI Memory Unused Bytes|Bytes|The amount of memory left unused by the system. Memory that is available but used for reclaimable caches should NOT be reported as free. In the absence of data, this metric will default to 0|Name, Node|
-|KubevirtVmiMemoryUsage|VMOrchestrator|Kubevirt VMI Memory Usage|Percent|The amount of memory used as a percentage. In the absence of data, this metric will default to 0|Name, Node|
+|KubevirtVmiMemoryUnusedBytes|VMOrchestrator|Kubevirt VMI Memory Unused Bytes|Bytes|The amount of memory left unused by the system. Memory that is available but used for reclaimable caches should NOT be reported as free. In the absence of data, this metric defaults to 0|Name, Node|
+|KubevirtVmiMemoryUsage|VMOrchestrator|Kubevirt VMI Memory Usage|Percent|The amount of memory used as a percentage. In the absence of data, this metric defaults to 0|Name, Node|
 |KubevirtVmiNetworkReceivePacketsTotal|VMOrchestrator|Kubevirt VMI Net Rx Packets|Bytes|Total network traffic received packets. In the absence of data, this metric retains the most recent value emitted|Interface, Name, Node|
 |KubevirtVmiNetworkTransmitPacketsDroppedTotal|VMOrchestrator|Kubevirt VMI Net Tx Packets Drop|Bytes|The total number of transmit packets dropped on virtual NIC (vNIC) interfaces. In the absence of data, this metric retains the most recent value emitted|Interface, Name, Node|
 |KubevirtVmiNetworkTransmitPacketsTotal|VMOrchestrator|Kubevirt VMI Net Tx Packets Total|Bytes|Total network traffic transmitted packets. In the absence of data, this metric retains the most recent value emitted|Interface, Name, Node|
-|KubevirtVmiOutdatedInstances|VMOrchestrator|Kubevirt VMI Outdated Count|Count|Indication for the total number of VirtualMachineInstance (VMI) workloads that aren't running within the most up-to-date version of the virt-launcher environment. In the absence of data, this metric will default to 0||
+|KubevirtVmiOutdatedInstances|VMOrchestrator|Kubevirt VMI Outdated Count|Count|Indication for the total number of VirtualMachineInstance (VMI) workloads that aren't running within the most up-to-date version of the virt-launcher environment. In the absence of data, this metric defaults to 0||
 |KubevirtVmiPhaseCount|VMOrchestrator|Kubevirt VMI Phase Count|Count|Sum of Virtual Machine Instances (VMIs) per phase and node. Phase can be one of the following values: Pending, Scheduling, Scheduled, Running, Succeeded, Failed, Unknown. In the absence of data, this metric retains the most recent value emitted|Node, Phase, Workload|
 |KubevirtVmiStorageIopsReadTotal|VMOrchestrator|Kubevirt VMI Storage IOPS Read Total|Count|Total number of Input/Output (I/O) read operations. In the absence of data, this metric retains the most recent value emitted|Drive, Name, Node|
 |KubevirtVmiStorageIopsWriteTotal|VMOrchestrator|Kubevirt VMI Storage IOPS Write Total|Count|Total number of Input/Output (I/O) write operations. In the absence of data, this metric retains the most recent value emitted|Drive, Name, Node|
@@ -242,7 +242,7 @@ All these metrics for Nexus Cluster are collected and delivered to Azure Monitor
 |-------------|:-------------:|:-----:|:----------:|:-----------:|:--------------------------:|
 |NfsVolumeSizeBytes|Storage|NFS Volume Size Bytes|Bytes|Total Size of the NFS volume. In the absence of data, this metric retains the most recent value emitted|CSN Name|
 |NfsVolumeUsedBytes|Storage|NFS Volume Used Bytes|Bytes|Size of NFS volume used. In the absence of data, this metric retains the most recent value emitted|CSN Name|
-|StorageControlPlaneConnectivity|Storage|Storage control-plane connectivity (Preview)|Count|Cluster's connectivity status to the storage appliance. In the absence of data, this metric will default to 0|Node, Endpoint, State|
+|StorageControlPlaneConnectivity|Storage|Storage control-plane connectivity (Preview)|Count|Cluster's connectivity status to the storage appliance. In the absence of data, this metric defaults to 0|Node, Endpoint, State|
 
 ### ***telegraf***
 
@@ -253,7 +253,7 @@ All these metrics for Nexus Cluster are collected and delivered to Azure Monitor
 |TelegrafInternalAgentMetricsDropped|Telegraf|Telegraf Internal Agent Metrics Dropped|Count|This metric tracks the number of metrics that have been dropped by the Telegraf agent during its operation. Metrics can be dropped for various reasons, such as buffer overflows, write errors, or other issues that prevent the metrics from being successfully processed and sent to the output destination. In the absence of data, this metric retains the most recent value emitted|Host|
 |TelegrafInternalAgentMetricsGathered|Telegraf|Telegraf Internal Agent Metrics Gathered|Count|This metric tracks the number of metrics that have been successfully gathered by the Telegraf agent. In the absence of data, this metric retains the most recent value emitted|Host|
 |TelegrafInternalAgentMetricsWritten|Telegraf|Telegraf Internal Agent Metrics Written|Count|This metric tracks the number of metrics that have been successfully written by the Telegraf agent to the output destination. In the absence of data, this metric retains the most recent value emitted|Host|
-|TelegrafWriteBufferPercentUsed|Telegraf|Telegraf Write Buffer Percent Used|Percent|Percentage of metric write buffer that is being used. In the absence of data, this metric will default to 0|Host, Output|
+|TelegrafWriteBufferPercentUsed|Telegraf|Telegraf Write Buffer Percent Used|Percent|Percentage of metric write buffer that is being used. In the absence of data, this metric defaults to 0|Host, Output|
 
 ### ***Platform Cluster***
 
@@ -274,16 +274,16 @@ Baremetal server metrics are collected and delivered to Azure Monitor per minute
 |HostDiskReadSeconds|Disk|Host Disk Read Seconds (Preview)|Seconds|Total time spent reading from disk. In the absence of data, this metric retains the most recent value emitted|Device, Host|
 |HostDiskWriteCompleted|Disk|Total Number of Writes Completed|Count|Total number of disk writes completed successfully. In the absence of data, this metric retains the most recent value emitted|Device, Host|
 |HostDiskWriteSeconds|Disk|Host Disk Write Seconds (Preview)|Seconds|Total time spent writing to disk. In the absence of data, this metric retains the most recent value emitted|Device, Host|
-|HostDmiInformation|System|Host DMI Info|Unspecified|Environment information about the Desktop Management Interface (DMI), value is always 1. Includes labels about the system's manufacturer, model, version, serial number and UUID. In the absence of data, this metric will default to 0.|Bios Date, Bios Release, Bios Vendor, Bios Version, Board Name, Board Vendor, Board Version, Host, Product Family, Product Name, Product Sku, System Vendor|
+|HostDmiInformation|System|Host DMI Info|Unspecified|Environment information about the Desktop Management Interface (DMI), value is always 1. Includes labels about the system's manufacturer, model, version, serial number and UUID. In the absence of data, this metric defaults to 0.|Bios Date, Bios Release, Bios Vendor, Bios Version, Board Name, Board Vendor, Board Version, Host, Product Family, Product Name, Product Sku, System Vendor|
 |HostEntropyAvailableBits|Filesystem|Host Entropy Available Bits (Preview)|Count|Available node entropy, in bits. In the absence of data, this metric retains the most recent value emitted|Host|
-|HostFilesystemAvailBytes|Filesystem|Host Filesystem Available Bytes|Count|Bytes in the filesystem on nodes which are available to non-root users. In the absence of data, this metric will default to 0|Device, FS Type, Host, Mount Point|
-|HostFilesystemDeviceError|Filesystem|Host Filesystem Device Errors|Count|Indicates if there was an error getting information from the filesystem. Value is 1 if there was an error, 0 otherwise. In the absence of data, this metric will default to 0|Device, FS Type, Host, Mount Point|
-|HostFilesystemFiles|Filesystem|Host Filesystem Files|Count|Total number of permitted inodes (file nodes). In the absence of data, this metric will default to 0.|Device, FS Type, Host, Mount Point|
-|HostFilesystemFilesFree|Filesystem|Total Number of Free inodes|Count|Total number of free (not occupied or reserved) inodes (file nodes). In the absence of data, this metric will default to 0.|Device, FS Type, Host, Mount Point|
-|HostFilesystemFilesPercentFree|Filesystem|Host Filesystem Files Percent Free|Percent|Percentage of permitted inodes which are free to be used. In the absence of data, this metric will default to 150.|Device, FS Type, Host, Mount Point|
+|HostFilesystemAvailBytes|Filesystem|Host Filesystem Available Bytes|Count|Bytes in the filesystem on nodes which are available to non-root users. In the absence of data, this metric defaults to 0|Device, FS Type, Host, Mount Point|
+|HostFilesystemDeviceError|Filesystem|Host Filesystem Device Errors|Count|Indicates if there was an error getting information from the filesystem. Value is 1 if there was an error, 0 otherwise. In the absence of data, this metric defaults to 0|Device, FS Type, Host, Mount Point|
+|HostFilesystemFiles|Filesystem|Host Filesystem Files|Count|Total number of permitted inodes (file nodes). In the absence of data, this metric defaults to 0.|Device, FS Type, Host, Mount Point|
+|HostFilesystemFilesFree|Filesystem|Total Number of Free inodes|Count|Total number of free (not occupied or reserved) inodes (file nodes). In the absence of data, this metric defaults to 0.|Device, FS Type, Host, Mount Point|
+|HostFilesystemFilesPercentFree|Filesystem|Host Filesystem Files Percent Free|Percent|Percentage of permitted inodes which are free to be used. In the absence of data, this metric defaults to 150.|Device, FS Type, Host, Mount Point|
 |HostFilesystemReadOnly|Filesystem|Host Filesystem Read Only|Unspecified|Indication of whether a filesystem is readonly or not. Value is 1 if readonly, 0 otherwise. In the absence of data, this metric retains the most recent value emitted|Device, FS Type, Host, Mount Point|
 |HostFilesystemSizeBytes|Filesystem|Host Filesystem Size In Bytes|Count|Host filesystem size in bytes. In the absence of data, this metric retains the most recent value emitted|Device, FS Type, Host, Mount Point|
-|HostFilesystemUsage|Filesystem|Host Filesystem Usage In Percentage|Percent|Percentage of filesystem which is in use. In the absence of data, this metric will default to 150.|Device, FS Type, Host, Mount Point|
+|HostFilesystemUsage|Filesystem|Host Filesystem Usage In Percentage|Percent|Percentage of filesystem which is in use. In the absence of data, this metric defaults to 150.|Device, FS Type, Host, Mount Point|
 |HostHwmonTempCelsius|HardwareMonitor|Host Hardware Monitor Temp|Count|Temperature (in Celsius) of different hardware components. In the absence of data, this metric retains the most recent value emitted|Chip, Host, Sensor|
 |HostHwmonTempMax|HardwareMonitor|Host Hardware Monitor Temp Max|Count|Maximum temperature (in Celsius) of different hardware components. In the absence of data, this metric retains the most recent value emitted|Chip, Host, Sensor|
 |HostInletTemp|HardwareMonitor|Host Hardware Inlet Temp|Count|Inlet temperature for hardware nodes (in Celsius). In the absence of data, this metric retains the most recent value emitted|Host|
@@ -297,12 +297,12 @@ Baremetal server metrics are collected and delivered to Azure Monitor per minute
 |HostMemTotalBytes|Memory|Host Memory Total Bytes|Bytes|Total amount of physical memory on nodes. In the absence of data, this metric retains the most recent value emitted|Host|
 |HostMemSwapFreeBytes|Memory|Host Memory Swap Free Bytes|Bytes|Total swap memory that is free. In the absence of data, this metric retains the most recent value emitted|Host|
 |HostMemSwapTotalBytes|Memory|Host Memory Swap Total Bytes|Bytes|Total amount of swap memory. In the absence of data, this metric retains the most recent value emitted|Host|
-|HostMemSwapAvailableSpace|Memory|Host Memory Swap Available Percentage|Percent|Percentage of swap memory that is available. In the absence of data, this metric will default to 0|Host|
+|HostMemSwapAvailableSpace|Memory|Host Memory Swap Available Percentage|Percent|Percentage of swap memory that is available. In the absence of data, this metric defaults to 0|Host|
 |HostSpecificCPUUtilization|CPU|Host Specific CPU Utilization (Preview)|Seconds|A counter metric quantifying the CPU time that each CPU has spent in different states (or 'modes'). In the absence of data, this metric retains the most recent value emitted|Cpu, Host, Mode|
-|IdracPowerCapacityWatts|HardwareMonitor|IDRAC Power Capacity Watts|Unspecified|IDRAC Power Capacity in Watts. In the absence of data, this metric will default to 0|Host, PSU|
-|IdracPowerInputWatts|HardwareMonitor|IDRAC Power Input Watts|Unspecified|IDRAC Power Input in Watts. In the absence of data, this metric will default to 0|Host, PSU|
-|IdracPowerOn|HardwareMonitor|IDRAC Power On|Unspecified|IDRAC Power On Status. Value is 1 if on, 0 otherwise. In the absence of data, this metric will default to 0|Host|
-|IdracPowerOutputWatts|HardwareMonitor|IDRAC Power Output Watts|Unspecified|IDRAC Power Output in Watts. In the absence of data, this metric will default to 0|Host, PSU|
+|IdracPowerCapacityWatts|HardwareMonitor|IDRAC Power Capacity Watts|Unspecified|IDRAC Power Capacity in Watts. In the absence of data, this metric defaults to 0|Host, PSU|
+|IdracPowerInputWatts|HardwareMonitor|IDRAC Power Input Watts|Unspecified|IDRAC Power Input in Watts. In the absence of data, this metric defaults to 0|Host, PSU|
+|IdracPowerOn|HardwareMonitor|IDRAC Power On|Unspecified|IDRAC Power On Status. Value is 1 if on, 0 otherwise. In the absence of data, this metric defaults to 0|Host|
+|IdracPowerOutputWatts|HardwareMonitor|IDRAC Power Output Watts|Unspecified|IDRAC Power Output in Watts. In the absence of data, this metric defaults to 0|Host, PSU|
 |IdracSensorsTemperature|HardwareMonitor|IDRAC Sensors Temperature|Unspecified|IDRAC sensor temperature (in Celsius). In the absence of data, this metric retains the most recent value emitted|Host, Name, Units|
 |NcNodeNetworkReceiveErrsTotal|Network|Network Device Receive Errors|Count|Total number of errors encountered by network devices while receiving data. In the absence of data, this metric retains the most recent value emitted|Hostname, Interface Name|
 |NcNodeNetworkTransmitErrsTotal|Network|Network Device Transmit Errors|Count|Total number of errors encountered by network devices while transmitting data. In the absence of data, this metric retains the most recent value emitted|Hostname, Interface Name|
@@ -317,10 +317,10 @@ Baremetal server metrics are collected and delivered to Azure Monitor per minute
 |NodeMemNumaShem|Memory|Node Memory NUMA (Shared Memory)|Bytes|Total amount of NUMA memory that is shared between nodes. In the absence of data, this metric retains the most recent value emitted|Host, Node|
 |NodeMemNumaUsed|Memory|Node Memory NUMA (Used Memory)|Bytes|Total amount of used NUMA memory. In the absence of data, this metric retains the most recent value emitted|Host, Node|
 |NodeNetworkCarrierChanges|Network|Node Network Carrier Changes|Count|Total number of network carrier changes. In the absence of data, this metric retains the most recent value emitted|Device, Host|
-|NodeNetworkMtuBytes|Network|Node Network Max Transmission|Bytes|Maximum Transmission Unit (MTU) for node network interfaces. In the absence of data, this metric will default to 0|Device, Host|
+|NodeNetworkMtuBytes|Network|Node Network Max Transmission|Bytes|Maximum Transmission Unit (MTU) for node network interfaces. In the absence of data, this metric defaults to 0|Device, Host|
 |NodeNetworkReceiveMulticastTotal|Network|Node Network Received Multicast Total|Bytes|Total amount of multicast traffic received by the node network interfaces. In the absence of data, this metric retains the most recent value emitted|Device, Host|
 |NodeNetworkReceivePackets|Network|Node Network Received Packets|Count|Total number of packets received by the node network interfaces. In the absence of data, this metric retains the most recent value emitted|Device, Host|
-|NodeNetworkSpeedBytes|Network|Node Network Speed Bytes|Bytes|Current network speed, in bytes per second, for the node network interfaces. In the absence of data, this metric will default to 0|Device, Host|
+|NodeNetworkSpeedBytes|Network|Node Network Speed Bytes|Bytes|Current network speed, in bytes per second, for the node network interfaces. In the absence of data, this metric defaults to 0|Device, Host|
 |NodeNetworkTransmitPackets|Network|Node Network Transmitted Packets|Count|Total number of packets transmitted by the node network interfaces. In the absence of data, this metric retains the most recent value emitted|Device, Host|
 |NodeNetworkStatus|Network|Node Network Up|Count|Indicates the operational status of the nodes network interfaces. Value is 1 if operational state is 'up', 0 otherwise. In the absence of data, this metric retains the most recent value emitted|Device, Host|
 |NodeNtpLeap|System|Node NTP Leap|Count|The raw leap flag value of the local NTP daemon. This indicates the status of leap seconds. Value is 0 if no adjustment is needed, 1 to add a leap second, 2 to delete a leap second, and 3 if the clock is unsynchronized. In the absence of data, this metric retains the most recent value emitted|Host|
@@ -328,7 +328,7 @@ Baremetal server metrics are collected and delivered to Azure Monitor per minute
 |NodeNtpRtt (Deprecated)|System|Node NTP RTT|Seconds|Deprecated - Round-trip time from node exporter collector to local NTP daemon. In the absence of data, this metric retains the most recent value emitted|Host|
 |NodeNtpSanity|System|Node NTP Sanity|Count|The aggregate health of the local NTP daemon. This includes checks for stratum, leap flag, freshness, root distance, and causality violations. Value is 1 if all checks pass, 0 otherwise. In the absence of data, this metric retains the most recent value emitted|Host|
 |NodeNtpStratum|System|Node NTP Stratum|Count|The stratum level of the local NTP daemon. This indicates the distance from the reference clock, with lower numbers representing closer proximity and higher accuracy. Values range from 1 (directly connected to reference clock) to 15 (further away), with 16 indicating the clock is unsynchronized. In the absence of data, this metric retains the most recent value emitted|Host|
-|NodeNvmeInfo|Disk|Node NVMe Info (Preview)|Count|Non-Volatile Memory express (NVMe) information, value is always 1. Provides state for a device. In the absence of data, this metric will default to 0|Device, State|
+|NodeNvmeInfo|Disk|Node NVMe Info (Preview)|Count|Non-Volatile Memory express (NVMe) information, value is always 1. Provides state for a device. In the absence of data, this metric defaults to 0|Device, State|
 |NodeOsInfo|System|Node OS Info|Count|Node OS information, value is always 1. Provides name and version for a device. In the absence of data, this metric retains the most recent value emitted|Host, Name, Version|
 |NodeProcessState|System|Node Processes State|Count|The number of processes in each state. The possible states are D (UNINTERRUPTABLE_SLEEP), R (RUNNING & RUNNABLE), S (INTERRUPTABLE_SLEEP), T (STOPPED) and Z (ZOMBIE). In the absence of data, this metric retains the most recent value emitted|Host, State|
 |NodeTimexMaxErrorSeconds|System|Node Timex Max Error Seconds|Seconds|Maximum time error between the local system and reference clock. In the absence of data, this metric retains the most recent value emitted|Host|
@@ -337,17 +337,17 @@ Baremetal server metrics are collected and delivered to Azure Monitor per minute
 |NodeVmOomKill|VM Stat|Node VM Out Of Memory Kill|Count|Total number of times a process has been terminated due to a critical lack of memory. In the absence of data, this metric retains the most recent value emitted|Host|
 |NodeVmstatPswpIn|VM Stat|Node VM PSWP In|Count|Total number of pages swapped in from disk to memory on the node. In the absence of data, this metric retains the most recent value emitted|Host|
 |NodeVmstatPswpout|VM Stat|Node VM PSWP Out|Count|Total number of pages swapped out from memory to disk on the node. In the absence of data, this metric retains the most recent value emitted|Host|
-|CpuUsageGuest|CPU|CPU Guest Usage|Count|Percentage of time that the CPU is running a virtual CPU for a guest operating system. In the absence of data, this metric will default to 0|Host, CPU|
-|CpuUsageGuestNice|CPU|CPU Guest Nice Usage|Count|Percentage of time that the CPU is running low-priority processes on a virtual CPU for a guest operating system. In the absence of data, this metric will default to 0|Host, CPU|
-|CpuUsageIdle|CPU|CPU Usage Idle|Count|Percentage of time that the CPU is idle. In the absence of data, this metric will default to 0|Host, CPU|
-|CpuUsageIowait|CPU|CPU Usage IO Wait|Count|Percentage of time that the CPU is waiting for I/O operations to complete. In the absence of data, this metric will default to 0|Host, CPU|
-|CpuUsageIrq|CPU|CPU Usage IRQ|Count|Percentage of time that the CPU is servicing hardware interrupt requests. In the absence of data, this metric will default to 0|Host, CPU|
-|CpuUsageNice|CPU|CPU Usage Nice|Count|Percentage of time that the CPU is in user mode, running low-priority processes. In the absence of data, this metric will default to 0|Host, CPU|
-|CpuUsageSoftirq|CPU|CPU Usage Soft IRQ|Count|Percentage of time that the CPU is servicing software interrupt requests. In the absence of data, this metric will default to 0|Host, CPU|
-|CpuUsageSteal|CPU|CPU Usage Steal|Count|Percentage of time that the CPU is in stolen time, which is time spent in other operating systems in a virtualized environment. In the absence of data, this metric will default to 0|Host, CPU|
-|CpuUsageSystem|CPU|CPU Usage System|Count|Percentage of time that the CPU is in system mode. In the absence of data, this metric will default to 0|Host, CPU|
-|CpuUsageTotal|CPU|CPU Usage Total|Percent|Percentage of time that the CPU is active (not idle). In the absence of data, this metric will default to 150|Host, CPU|
-|CpuUsageUser|CPU|CPU Usage User|Count|Percentage of time that the CPU is in user mode. In the absence of data, this metric will default to 0|Host, CPU|
+|CpuUsageGuest|CPU|CPU Guest Usage|Count|Percentage of time that the CPU is running a virtual CPU for a guest operating system. In the absence of data, this metric defaults to 0|Host, CPU|
+|CpuUsageGuestNice|CPU|CPU Guest Nice Usage|Count|Percentage of time that the CPU is running low-priority processes on a virtual CPU for a guest operating system. In the absence of data, this metric defaults to 0|Host, CPU|
+|CpuUsageIdle|CPU|CPU Usage Idle|Count|Percentage of time that the CPU is idle. In the absence of data, this metric defaults to 0|Host, CPU|
+|CpuUsageIowait|CPU|CPU Usage IO Wait|Count|Percentage of time that the CPU is waiting for I/O operations to complete. In the absence of data, this metric defaults to 0|Host, CPU|
+|CpuUsageIrq|CPU|CPU Usage IRQ|Count|Percentage of time that the CPU is servicing hardware interrupt requests. In the absence of data, this metric defaults to 0|Host, CPU|
+|CpuUsageNice|CPU|CPU Usage Nice|Count|Percentage of time that the CPU is in user mode, running low-priority processes. In the absence of data, this metric defaults to 0|Host, CPU|
+|CpuUsageSoftirq|CPU|CPU Usage Soft IRQ|Count|Percentage of time that the CPU is servicing software interrupt requests. In the absence of data, this metric defaults to 0|Host, CPU|
+|CpuUsageSteal|CPU|CPU Usage Steal|Count|Percentage of time that the CPU is in stolen time, which is time spent in other operating systems in a virtualized environment. In the absence of data, this metric defaults to 0|Host, CPU|
+|CpuUsageSystem|CPU|CPU Usage System|Count|Percentage of time that the CPU is in system mode. In the absence of data, this metric defaults to 0|Host, CPU|
+|CpuUsageTotal|CPU|CPU Usage Total|Percent|Percentage of time that the CPU is active (not idle). In the absence of data, this metric defaults to 150|Host, CPU|
+|CpuUsageUser|CPU|CPU Usage User|Count|Percentage of time that the CPU is in user mode. In the absence of data, this metric defaults to 0|Host, CPU|
 | MellanoxEffectivePhysicalBer | Mellanox | Effective Physical BER | Count | This point in time metric represents the number of errors that occurred in the physical layer of the network since the last collection. This metric is used for assessing the quality and reliability of the network link. In the absence of data, this metric retains the most recent value emitted | Host, Interface Name |
 | MellanoxEffectivePhysicalErrors | Mellanox | Effective Physical Errors | Count | This point in time metric represents the number of physical layer errors that have been detected and could not be corrected by error correction mechanisms since the last collection. These errors are critical for assessing the quality and reliability of the network link. In the absence of data, this metric retains the most recent value emitted | Host, Interface Name |
 | MellanoxMstregTemperature | Mellanox | MST Register Temperature | Unspecified | Temperature (in Celsius) reported by the MST (Mellanox Software Tools) register. In the absence of data, this metric retains the most recent value emitted | Host, Interface Name |
@@ -373,8 +373,8 @@ All the metrics from Storage appliance are collected and delivered to Azure Moni
 |PurefaArrayPerformanceAverageBytes|Storage Array|Nexus Storage Array Performance Average Bytes|Bytes|The average operations size by dimension, where dimension can be mirrored_write_bytes_per_sec, read_bytes_per_sec or write_bytes_per_sec. In the absence of data, this metric retains the most recent value emitted|Dimension|
 |PurefaArrayPerformanceAvgBlockBytes|Storage Array|Nexus Storage Array Avg Block Bytes (Deprecated)|Bytes|Deprecated - The average block size processed by the array. In the absence of data, this metric retains the most recent value emitted|Dimension|
 |PurefaArrayPerformanceBandwidthBytes|Storage Array|Nexus Storage Array Bandwidth Bytes|Bytes|Performance of the pure storage array bandwidth in bytes per second. In the absence of data, this metric retains the most recent value emitted|Dimension|
-|PurefaArrayPerformanceIOPS|Storage Array|Nexus Storage Array IOPS (Deprecated)|Count|Deprecated - Performance of pure storage array based on input/output processing per second. In the absence of data, this metric will default to 0|Dimension|
-|PurefaArrayPerformanceLatencyMs|Storage Array|Nexus Storage Array Latency|MilliSeconds|Latency of the pure storage array. In the absence of data, this metric will default to 0|Dimension|
+|PurefaArrayPerformanceIOPS|Storage Array|Nexus Storage Array IOPS (Deprecated)|Count|Deprecated - Performance of pure storage array based on input/output processing per second. In the absence of data, this metric defaults to 0|Dimension|
+|PurefaArrayPerformanceLatencyMs|Storage Array|Nexus Storage Array Latency|MilliSeconds|Latency of the pure storage array. In the absence of data, this metric defaults to 0|Dimension|
 |PurefaArrayPerformanceQdepth|Storage Array|Nexus Storage Array Queue Depth (Deprecated)|Bytes|Deprecated - Queue depth of the pure storage array. In the absence of data, this metric retains the most recent value emitted||
 |PurefaArrayPerformanceQueueDepthOps|Storage Array|Nexus Storage Array Performance Queue Depth Operations|Count|The array queue depth size by number of operations. In the absence of data, this metric retains the most recent value emitted||
 |PurefaArrayPerformanceThroughputIops|Storage Array|Nexus Storage Array Performance Throughput Iops|Count|The array throughput in operations per second. In the absence of data, this metric retains the most recent value emitted|Dimension|
@@ -383,32 +383,32 @@ All the metrics from Storage appliance are collected and delivered to Azure Moni
 |PurefaArraySpaceDataReductionRatioV2|Storage Array|Nexus Storage Array Space Data Reduction Ratio|Count|Storage array overall data reduction ratio. In the absence of data, this metric retains the most recent value emitted||
 |PurefaArraySpaceDatareductionRatio|Storage Array|Nexus Storage Array Space DRR (Deprecated)|Count|Deprecated - Data reduction ratio of the pure storage array. In the absence of data, this metric retains the most recent value emitted||
 |PurefaArraySpaceProvisionedBytes|Storage Array|Nexus Storage Array Space Prov (Deprecated)|Bytes|Deprecated - Overall space provisioned for the pure storage array. In the absence of data, this metric retains the most recent value emitted||
-|PurefaArraySpaceUsage|Storage Array|Nexus Storage Array Space Used (Deprecated)|Percent|Deprecated - Space usage of the pure storage array in percentage. In the absence of data, this metric will default to 0||
+|PurefaArraySpaceUsage|Storage Array|Nexus Storage Array Space Used (Deprecated)|Percent|Deprecated - Space usage of the pure storage array in percentage. In the absence of data, this metric defaults to 0||
 |PurefaArraySpaceUsedBytes|Storage Array|Nexus Storage Array Space Used Bytes (Deprecated)|Bytes|Deprecated - Overall space used for the pure storage array. In the absence of data, this metric retains the most recent value emitted|Dimension|
-|PurefaHardwareChassisHealth|Storage Array|Nexus Storage HW Chassis Health (Deprecated)|Count|Deprecated - Denotes whether a hardware chassis of the pure storage array is healthy or not. A value of 0 means the chassis is healthy, a value of 1 means it's unhealthy. In the absence of data, this metric will default to 0||
-|PurefaHardwareControllerHealth|Storage Array|Nexus Storage HW Controller Health (Deprecated)|Count|Deprecated - Denotes whether a hardware controller of the pure storage array is healthy or not. A value of 0 means the controller is healthy, a value of 1 means it's unhealthy. In the absence of data, this metric will default to 0|Controller|
-|PurefaHardwarePowerVolt|Storage Array|Nexus Storage Hardware Power Volts (Deprecated)|Unspecified|Deprecated - Hardware power supply voltage of the pure storage array. In the absence of data, this metric will default to 0|Power Supply|
+|PurefaHardwareChassisHealth|Storage Array|Nexus Storage HW Chassis Health (Deprecated)|Count|Deprecated - Denotes whether a hardware chassis of the pure storage array is healthy or not. A value of 0 means the chassis is healthy, a value of 1 means it's unhealthy. In the absence of data, this metric defaults to 0||
+|PurefaHardwareControllerHealth|Storage Array|Nexus Storage HW Controller Health (Deprecated)|Count|Deprecated - Denotes whether a hardware controller of the pure storage array is healthy or not. A value of 0 means the controller is healthy, a value of 1 means it's unhealthy. In the absence of data, this metric defaults to 0|Controller|
+|PurefaHardwarePowerVolt|Storage Array|Nexus Storage Hardware Power Volts (Deprecated)|Unspecified|Deprecated - Hardware power supply voltage of the pure storage array. In the absence of data, this metric defaults to 0|Power Supply|
 |PurefaHardwareTemperatureCelsiusByChassis|Storage Array|Nexus Storage Hardware Temp Celsius By Chassis (Deprecated)|Unspecified|Deprecated - Hardware temperature, in Celsius, of the controller in the pure storage array. In the absence of data, this metric retains the most recent value emitted|Sensor, Chassis|
 |PurefaHardwareTemperatureCelsiusByController|Storage Array|Nexus Storage Hardware Temp Celsius By Controller (Deprecated)|Unspecified|Deprecated - Hardware temperature, in Celsius, of the controller in the pure storage array. In the absence of data, this metric retains the most recent value emitted|Controller, Sensor|
 |PurefaHostPerformanceBandwidthBytes|Host|Nexus Storage Host Bandwidth Bytes|Bytes|Host bandwidth of the pure storage array in bytes per second. In the absence of data, this metric retains the most recent value emitted|Dimension, Host|
-|PurefaHostPerformanceIOPS|Host|Nexus Storage Host IOPS (Deprecated)|Count|Deprecated - Performance of pure storage array hosts in I/O operations per second. In the absence of data, this metric will default to 0|Dimension, Host|
-|PurefaHostPerformanceLatencyMs|Host|Nexus Storage Host Latency|MilliSeconds|Latency of the pure storage array hosts. In the absence of data, this metric will default to 0|Dimension, Host|
+|PurefaHostPerformanceIOPS|Host|Nexus Storage Host IOPS (Deprecated)|Count|Deprecated - Performance of pure storage array hosts in I/O operations per second. In the absence of data, this metric defaults to 0|Dimension, Host|
+|PurefaHostPerformanceLatencyMs|Host|Nexus Storage Host Latency|MilliSeconds|Latency of the pure storage array hosts. In the absence of data, this metric defaults to 0|Dimension, Host|
 |PurefaHostPerformanceThroughputIops|Host|Nexus Storage Host Performance Throughput Iops|Count|The host throughput in I/O operations per second. In the absence of data, this metric retains the most recent value emitted|Host, Dimension|
 |PurefaHostSpaceBytes|Host|Nexus Storage Host Space Bytes (Deprecated)|Bytes|Deprecated - Storage array host space. In the absence of data, this metric retains the most recent value emitted|Dimension, Host|
 |PurefaHostSpaceBytesV2|Host|Nexus Storage Host Space Bytes|Bytes|Storage array host space. In the absence of data, this metric retains the most recent value emitted|Host, Space|
 |PurefaHostSpaceDataReductionRatioV2|Host|Nexus Storage Host Space Data Reduction Ratio|Count|Host space data reduction ratio. In the absence of data, this metric retains the most recent value emitted|Host|
 |PurefaHostSpaceDatareductionRatio|Host|Nexus Storage Host Space DRR (Deprecated)|Count|Deprecated - Data reduction ratio of the pure storage array hosts. In the absence of data, this metric retains the most recent value emitted|Host|
 |PurefaHostSpaceSizeBytes|Host|Nexus Storage Host Space Size Bytes (Deprecated)|Bytes|Deprecated - Pure storage array hosts space size. In the absence of data, this metric retains the most recent value emitted|Host|
-|PurefaHostSpaceUsage|Host|Nexus Storage Host Space Used (Deprecated)|Percent|Deprecated - Space usage of the pure storage array's host. In the absence of data, this metric will default to 0|Host|
+|PurefaHostSpaceUsage|Host|Nexus Storage Host Space Used (Deprecated)|Percent|Deprecated - Space usage of the pure storage array's host. In the absence of data, this metric defaults to 0|Host|
 |PurefaHwComponentStatus|Storage Array|Nexus Storage Hardware Component Status|Count|Status of a hardware component. In the absence of data, this metric retains the most recent value emitted|Component Name, Component Type, Component Status|
 |PurefaHwComponentTemperatureCelsius|Storage Array|Nexus Storage Hardware Component Temperature Celsius|Unspecified|Temperature of the temperature sensor component in Celsius. In the absence of data, this metric retains the most recent value emitted|Component Name|
 |PurefaHwComponentVoltageVolt|Storage Array|Nexus Storage Hardware Component Voltage|Unspecified|Voltage used by the power supply component in volts. In the absence of data, this metric retains the most recent value emitted|Component Name|
-|PurefaInfo|Storage Array|Nexus Storage Info (Preview)|Unspecified|Storage array system information. In the absence of data, this metric will default to 0|Array Name|
+|PurefaInfo|Storage Array|Nexus Storage Info (Preview)|Unspecified|Storage array system information. In the absence of data, this metric defaults to 0|Array Name|
 |PurefaNetworkInterfacePerformanceErrors|Storage Array|Nexus Storage Network Interface Performance Errors|Count|The number of network interface errors per second. In the absence of data, this metric retains the most recent value emitted|Dimension, Name, Type|
 |PurefaVolumePerformanceBandwidthBytesV2|Volume|Nexus Storage Volume Performance Bandwidth Bytes|Bytes|Volume throughput in bytes per second. In the absence of data, this metric retains the most recent value emitted|Name, Dimension|
-|PurefaVolumePerformanceIOPS|Volume|Nexus Storage Volume Performance IOPS (Deprecated)|Count|Deprecated - Performance of pure storage array volumes based on input/output processing per second. In the absence of data, this metric will default to 0|Dimension, Volume|
-|PurefaVolumePerformanceLatencyMs|Volume|Nexus Storage Vol Perf Latency (Deprecated)|MilliSeconds|Deprecated - Latency of the pure storage array volumes. In the absence of data, this metric will default to 0|Dimension, Volume|
-|PurefaVolumePerformanceLatencyMsV2|Volume|Nexus Storage Volume Latency|MilliSeconds|Latency of the pure storage array volumes. In the absence of data, this metric will default to 0|Dimension, Name|
+|PurefaVolumePerformanceIOPS|Volume|Nexus Storage Volume Performance IOPS (Deprecated)|Count|Deprecated - Performance of pure storage array volumes based on input/output processing per second. In the absence of data, this metric defaults to 0|Dimension, Volume|
+|PurefaVolumePerformanceLatencyMs|Volume|Nexus Storage Vol Perf Latency (Deprecated)|MilliSeconds|Deprecated - Latency of the pure storage array volumes. In the absence of data, this metric defaults to 0|Dimension, Volume|
+|PurefaVolumePerformanceLatencyMsV2|Volume|Nexus Storage Volume Latency|MilliSeconds|Latency of the pure storage array volumes. In the absence of data, this metric defaults to 0|Dimension, Name|
 |PurefaVolumePerformanceThroughputBytes|Volume|Nexus Storage Vol Perf Throughput (Deprecated)|Bytes|Deprecated - Pure storage array volume throughput. In the absence of data, this metric retains the most recent value emitted|Dimension, Volume|
 |PurefaVolumePerformanceThroughputIops|Volume|Nexus Storage Volume Performance Throughput Iops|Count|Volume throughput in operations per second. In the absence of data, this metric retains the most recent value emitted|Name, Dimension|
 |PurefaVolumeSpaceBytes|Volume|Nexus Storage Volume Space Bytes (Deprecated)|Bytes|Deprecated - Pure storage array volume space. In the absence of data, this metric retains the most recent value emitted|Dimension, Volume|
@@ -416,7 +416,7 @@ All the metrics from Storage appliance are collected and delivered to Azure Moni
 |PurefaVolumeSpaceDataReductionRatioV2|Volume|Nexus Storage Volume Space Data Reduction Ratio|Unspecified|Volume space data reduction ratio. In the absence of data, this metric retains the most recent value emitted|Name|
 |PurefaVolumeSpaceDatareductionRatio|Volume|Nexus Storage Vol Space DRR (Deprecated)|Count|Deprecated - Data reduction ratio of the pure storage array volumes. In the absence of data, this metric retains the most recent value emitted|Volume|
 |PurefaVolumeSpaceSizeBytes|Volume|Nexus Storage Volume Space Size Bytes (Deprecated)|Bytes|Deprecated - Size of the pure storage array volumes. In the absence of data, this metric retains the most recent value emitted|Volume|
-|PurefaVolumeSpaceUsage|Volume|Nexus Storage Volume Space Used (Deprecated)|Percent|Deprecated - Space usage of the pure storage array volumes. In the absence of data, this metric will default to 0|Volume|
+|PurefaVolumeSpaceUsage|Volume|Nexus Storage Volume Space Used (Deprecated)|Percent|Deprecated - Space usage of the pure storage array volumes. In the absence of data, this metric defaults to 0|Volume|
 
 ## Cluster Management
 All the metrics from Cluster Management are collected and delivered to Azure Monitor per minute.
@@ -426,7 +426,7 @@ All the metrics from Cluster Management are collected and delivered to Azure Mon
 | Metric      | Category | Display Name  | Unit | Description | Dimensions   |
 |-------------|:-------------:|:-----:|:----------:|:-----------:|:--------------------------:|
 |NexusClusterDeployClusterRequests|Nexus Cluster|Cluster Deploy Requests|Count|Number of cluster deploy requests|Cluster Version|
-|NexusClusterConnectionStatus|Nexus Cluster|Cluster Connection Status|Count|Tracks changes in the connection status of the Cluster(s) managed by the Cluster Manager. The reason filter describes the connection status. In the absence of data, this metric will default to 0.|Cluster Name, Reason|
+|NexusClusterConnectionStatus|Nexus Cluster|Cluster Connection Status|Count|Tracks changes in the connection status of the Cluster(s) managed by the Cluster Manager. The reason filter describes the connection status. In the absence of data, this metric defaults to 0.|Cluster Name, Reason|
 |NexusClusterMachineUpgrade|Nexus Cluster|Cluster Machine Upgrade|Count|Nexus machine upgrade request, successful will have a value of 0 while unsuccessful will have a value of 1.|Cluster Name, Cluster Version, Result, Upgraded From Version, Upgraded To Version, Upgrade Strategy|
 |NexusClusterManagementBundleUpgrade|Nexus Cluster|Cluster Management Bundle Upgrade|Count|Nexus Cluster management bundle upgrade, successful will have a value of 0 while unsuccessful will have a value of 1.|Cluster Name, Cluster Version, Result, Upgraded From Version, Upgraded To Version|
 |NexusClusterRuntimeBundleUpgrade|Nexus Cluster|Cluster Runtime Bundle Upgrade|Count|Nexus Cluster runtime bundle upgrade, successful will have a value of 0 while unsuccessful will have a value of 1.|Cluster Name, Cluster Version, Result, Upgraded From Version, Upgraded To Version|
