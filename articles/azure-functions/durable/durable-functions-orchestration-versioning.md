@@ -259,7 +259,7 @@ The `versionFailureStrategy` setting determines what happens when an orchestrati
 
 - **`Fail`**: Fail the orchestration. This strategy immediately terminates the orchestration instance with a failure state, which may be appropriate in scenarios where version mismatches indicate serious deployment issues.
 
-### Starting new orchestrations with specific versions
+### Starting new orchestrations and sub-orchestrations with specific versions
 
 By default, all new orchestration instances are created with the current `defaultVersion` specified in your `host.json` configuration. However, you may have scenarios where you need to create orchestrations with a specific version, even if it differs from the current default.
 
