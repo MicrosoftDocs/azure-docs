@@ -28,9 +28,10 @@ In this tutorial, you:
 ## Prerequisites
 
 - The ASP.NET Core web app that you create when you complete the [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) quickstart. This tutorial shows you how to implement Key Vault references in your code. It builds on the web app introduced in the ASP.NET Core quickstart.
+- The App Configuration store that you create when you complete the [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) quickstart.
 - A code editor. You can use any editor to complete the steps in this tutorial. For example, [Visual Studio Code](https://code.visualstudio.com/) is a cross-platform code editor that's available for the Windows, macOS, and Linux operating systems.
 
-## Create a vault
+## Create a key vault
 
 1. Go to the [Azure portal](https://portal.azure.com/#home), and then select **Create a resource**.
 
@@ -73,21 +74,21 @@ To test Key Vault retrieval in your app, first add a secret to the vault by taki
 
 ## Add a Key Vault reference to App Configuration
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and then select the App Configuration instance that you created in the [quickstart](./quickstart-aspnet-core-app.md).
+1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and then select the App Configuration store that you create in the [quickstart](./quickstart-aspnet-core-app.md).
 
 1. Select **Configuration explorer**.
 
 1. Select **Create** > **Key Vault reference**, and then enter the following values:
    - For **Key**: Enter **TestApp:Settings:KeyVaultMessage**.
    - For **Label**: Leave the value blank.
-   - For **Subscription**, **Resource group**, and **Key Vault**: Enter the same values you used when you created the key vault earlier in this tutorial.
-   - For **Secret**: Select the secret named **Message** that you created in the previous section.
+   - For **Subscription**, **Resource group**, and **Key Vault**: Enter the values you use when you create the key vault earlier in this tutorial.
+   - For **Secret**: Select the secret named **Message** that you create in the previous section.
 
    :::image type="content" source="./media/create-key-vault-reference.png" alt-text="Screenshot of the dialog for creating a Key Vault reference. The Key, Subscription, Resource group, Key Vault, and Secret fields are populated.":::
 
 ## Update your code to use a Key Vault reference
 
-1. Go to the folder that contains the ASP.NET Core web app project that you created in the [quickstart](./quickstart-aspnet-core-app.md).
+1. Go to the folder that contains the ASP.NET Core web app project that you create in the [quickstart](./quickstart-aspnet-core-app.md).
 
 1. At a command prompt, run the following command. This command adds the `Azure.Identity` NuGet package reference to your project file or updates it.
 
@@ -106,13 +107,13 @@ To test Key Vault retrieval in your app, first add a secret to the vault by taki
    ```csharp
    var builder = WebApplication.CreateBuilder(args);
 
-   // Retrieve the connection string.
-   string connectionString = builder.Configuration.GetConnectionString("AppConfig");
+   // Retrieve the App Configuration endpoint.
+   string endpoint = builder.Configuration.GetValue<string>("Endpoints:AppConfiguration")
 
    // Load the configuration from App Configuration.
    builder.Configuration.AddAzureAppConfiguration(options =>
    {
-       options.Connect(connectionString);
+       options.Connect(new Uri(endpoint), new DefaultAzureCredential());
 
        options.ConfigureKeyVault(keyVaultOptions =>
        {
@@ -179,7 +180,7 @@ After you deploy your app to an Azure service with managed identity enabled, suc
 
    The text on the webpage includes the following components:
 
-   - The value that's associated with the `TestApp:Settings:Message` key in your instance of App Configuration
+   - The value that's associated with the `TestApp:Settings:Message` key in your App Configuration store
    - The value of the **Message** secret stored in your key vault
 
 ## Clean up resources
