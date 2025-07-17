@@ -116,15 +116,15 @@ Based on whether you have a Consumption or Standard workflow, follow the steps o
 
    * **Cloud database**
 
-     :::image type="content" source="media/ibm-informix/connection-cloud-database.png" alt-text="Screenshot shows connection pane with example details for Informix cloud database." lightbox="media/ibm-informix/connection-cloud-database.png":::
+     :::image type="content" source="media/informix/connection-cloud-database.png" alt-text="Screenshot shows connection pane with example details for Informix cloud database." lightbox="media/informix/connection-cloud-database.png":::
 
    * **On-premises database**
 
-     :::image type="content" source="media/ibm-informix/connection-on-premises-database.png" alt-text="Screenshot shows connection pane with example details for Informix on-premises database." lightbox="media/ibm-informix/connection-on-premises-database.png":::
+     :::image type="content" source="media/informix/connection-on-premises-database.png" alt-text="Screenshot shows connection pane with example details for Informix on-premises database." lightbox="media/informix/connection-on-premises-database.png":::
 
 1. When you're done, select **Create new**.
 
-1. Continue with the next steps for [Consumption](ibm-informix.md?tabs=consumption#add-an-informix-action) or [Standard](ibm-informix.md?tabs=standard#add-an-informix-action) workflows.
+1. Continue with the next steps for [Consumption](informix.md?tabs=consumption#add-an-informix-action) or [Standard](informix.md?tabs=standard#add-an-informix-action) workflows.
 
 ## Authentication guidance
 
@@ -172,7 +172,7 @@ Based on whether you have a Consumption or Standard workflow, follow the steps o
 
 The following example shows sample output from the **Get rows** action in a Consumption workflow:
 
-:::image type="content" source="media/ibm-informix/get-rows-outputs.png" alt-text="Screenshot shows outputs from action named Get rows." lightbox="media/ibm-informix/get-rows-outputs.png":::
+:::image type="content" source="media/informix/get-rows-outputs.png" alt-text="Screenshot shows outputs from action named Get rows." lightbox="media/informix/get-rows-outputs.png":::
 
 ## Related content
 
