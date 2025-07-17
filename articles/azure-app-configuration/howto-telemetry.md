@@ -11,6 +11,15 @@ ms.date: 07/08/2025
 
 # Enable telemetry for feature flags
 
+Telemetry is the automated process of collecting, transmitting, and analyzing data about how your application and its features are used. Enabling telemetry for feature flags offers valuable insights into the behavior and impact of feature rollouts, helping teams iterate faster, enhance user experience, detect issues early, and validate the effectiveness of new features. With telemetry, teams can answer critical questions such as:
+
+- Is a feature enabled or disabled as expected?  
+- Are specific user segments accessing the new feature?  
+- Is a feature causing performance regressions or errors?  
+- What is the impact of a feature on key metrics like engagement or conversion?
+
+By leveraging telemetry data, organizations can make informed, data-driven decisions, quickly identify and resolve issues, and optimize feature delivery for better business and user outcomes.
+
 Telemetry is the process of collecting, transmitting, and analyzing data about the usage and performance of your application. It helps you monitor feature flag behavior and make data-driven decisions. When a feature flag change is deployed, it's often important to analyze its effect on an application. For example, here are a few questions that may arise:
 
 - Are my flags enabled/disabled as expected?
