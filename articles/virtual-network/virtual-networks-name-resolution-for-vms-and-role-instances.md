@@ -5,7 +5,7 @@ description: Name resolution scenarios for Azure IaaS, hybrid solutions, between
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 08/02/2024
+ms.date: 07/17/2025
 ms.author: allensu
 ms.custom: fasttrack-edit, linux-related-content
 # Customer intent: As a cloud network administrator, I want to implement effective name resolution for resources within Azure virtual networks so that I can facilitate seamless communication between virtual machines and services across both Azure and hybrid environments.
@@ -13,7 +13,7 @@ ms.custom: fasttrack-edit, linux-related-content
 
 # Name resolution for resources in Azure virtual networks
 
-You can host infrastructure as a service (IaaS), platform as a service (PaaS), and hybrid solutions on Azure. To enable communication between VMs and other resources in a virtual network, you should allow them to communicate with each other. Using easily remembered and consistent names simplifies the communication process, rather than relying on IP addresses.
+Azure virtual networks require proper name resolution configuration to enable seamless communication between virtual machines and resources. You can host infrastructure as a service (IaaS), platform as a service (PaaS), and hybrid solutions on Azure. To enable communication between VMs and other resources in a virtual network, you should configure name resolution to use easily remembered and consistent names rather than relying on IP addresses.
 
 When resources deployed in virtual networks need to resolve domain names to internal IP addresses, they can use one of four methods:
 
