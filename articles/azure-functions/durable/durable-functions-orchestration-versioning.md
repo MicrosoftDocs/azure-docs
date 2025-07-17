@@ -11,7 +11,10 @@ ms.custom: fasttrack-edit
 
 # Orchestration versioning in Durable Functions (Azure Functions)
 
-Orchestration versioning addresses [the core challenge](durable-functions-versioning.md) of deploying changes to orchestrator functions while maintaining the deterministic execution model that Durable Functions requires. Without this feature, breaking changes to orchestrator logic or activity function signatures would cause in-flight orchestration instances to fail during replay because they would break the [determinism requirement](durable-functions-code-constraints.md) that ensures reliable orchestration execution. This built-in feature provides automatic version isolation with minimal configuration. It's backend agnostic, so it can be used by apps leveraging any of the Durable Function's [storage providers](durable-functions-storage-providers.md).
+Orchestration versioning addresses [the core challenge](durable-functions-versioning.md) of deploying changes to orchestrator functions while maintaining the deterministic execution model that Durable Functions requires. Without this feature, breaking changes to orchestrator logic or activity function signatures would cause in-flight orchestration instances to fail during replay because they would break the [determinism requirement](durable-functions-code-constraints.md) that ensures reliable orchestration execution. This built-in feature provides automatic version isolation with minimal configuration. It's backend agnostic, so it can be used by apps leveraging any of the Durable Function's [storage providers](durable-functions-storage-providers.md), including the [Durable Task Scheduler](./durable-task-scheduler/durable-task-scheduler.md).
+
+> [!NOTE]
+> For Durable Task Scheduler users, if you're using the Durable Task SDKs instead of Durable functions, you should refer to the [Durable Task SDKs versioning article](./durable-task-scheduler/durable-task-scheduler-versioning.md). 
 
 ## Terminology
 
