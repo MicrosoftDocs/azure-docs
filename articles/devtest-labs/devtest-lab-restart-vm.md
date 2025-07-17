@@ -26,10 +26,8 @@ You can quickly and easily restart a virtual machine in  DevTest Labs by followi
 To restart a VM: 
 
 1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Select **All Services**, and then select **DevTest Labs** from the list.
-1. From the list of labs, select the lab that includes the VM  you want to restart.
-1. In the left pane, select **My Virtual Machines**.
-1. From the list of VMs, select a running VM.
+1. Go to the lab that includes the VM  you want to restart.
+1. In the list of VMs, select a running VM.
 1. At the top of the VM management pane, select **Restart**:
 
     :::image type="content" source="media/devtest-lab-restart-vm/devtest-lab-restart-vm.png" alt-text="Screenshot of the Azure portal showing the VM Restart button." lightbox="media/devtest-lab-restart-vm/devtest-lab-restart-vm.png":::
@@ -38,7 +36,7 @@ To restart a VM:
 
     :::image type="content" source="media/devtest-lab-restart-vm/devtest-lab-restart-notification.png" alt-text="Screenshot showing the notification button and message." lightbox="media/devtest-lab-restart-vm/devtest-lab-restart-notification.png":::
 
-You can also restart a running VM by selecting the associated ellipsis button (**...**) in the list of **My Virtual Machines**:
+You can also restart a running VM by selecting the associated ellipsis button (**...**) in the **My virtual machines** list:
 
 :::image type="content" source="media/devtest-lab-restart-vm/devtest-lab-restart-ellipses.png" alt-text="Screenshot showing the VM Restart option in the ellipses menu." lightbox="media/devtest-lab-restart-vm/devtest-lab-restart-ellipses.png":::
 
