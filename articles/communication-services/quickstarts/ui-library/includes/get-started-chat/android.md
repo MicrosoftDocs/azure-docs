@@ -75,7 +75,7 @@ To add the repository:
         ...
     }
     ```
-#### [Kotlin](#tab/kotlin)
+#### [Kotlin](#tab/kotlin-maven)
     ```kotlin
     // dependencyResolutionManagement 
     repositories {
