@@ -148,7 +148,7 @@ Customization files stored in a repository must be named *workload.yaml*. Custom
 
 ## Disable user customizations
 
-User customizations are controlled at the project level and are enabled by default. You can disable them during or after project creation. When disabled, developers can't apply their own customization files to new dev boxes. Enabling user customizations doesn't bypass existing project guardrails; developers can only use tasks from a catalog, and can't run privileged tasks unless they have administrative privileges. 
+User customizations are controlled at the project level and are enabled by default. You can disable them during or after project creation. When disabled, developers can't apply their own customization files to new dev boxes. Enabling user customizations doesn't bypass existing project guardrails; developers can only use tasks provided in the attached catalog and cannot run tasks with elevated privileges unless an administrator has explicitly included an administrative task in the catalog.
 
 :::image type="content" source="media/how-to-configure-user-customizations/user-customizations-enabled.png" alt-text="Screenshot of a dev box project showing the user customizations feature enabled in the dev box settings." lightbox="media/how-to-configure-user-customizations/user-customizations-enabled.png":::
 
