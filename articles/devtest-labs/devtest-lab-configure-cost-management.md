@@ -65,7 +65,7 @@ After DevTest Labs is configured to provide the lab-specific information for Cos
 
 For a quick view of costs per lab, complete these steps: 
 
-1. In the [Azure portal](https://portal.azure.com), go your lab and select a resource group that has tags.
+1. In the [Azure portal](https://portal.azure.com), go to your lab and select a resource group that has tags.
 
 1. In the left pane, expand **Cost Management** and select **Cost analysis**.
 
