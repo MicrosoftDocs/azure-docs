@@ -13,7 +13,7 @@ This is the current list of Azure services and workload templates in the service
 
 ## Table of Azure Service templates
 
-| Template Name | Link | Status |
+| Template Name | Description | Status |
 |--|--|--|
 | Admin VM | [link](#admin-vm) | Available |
 | Common Dependencies | [link](#common-dependencies) | Available |
@@ -28,7 +28,6 @@ This is the current list of Azure services and workload templates in the service
 | Azure Container Registry (ACR) | [link](#azure-container-registry-acr) | Available |
 | Azure Cosmos DB | [link](#azure-cosmos-db) | Available |
 | Service Bus | [link](#service-bus) | Available |
-| Azure Compute Gallery | [link](#azure-compute-gallery) | Future |
 
 New templates will be added over time.
 
@@ -128,13 +127,6 @@ Description: Azure Cosmos DB simplifies and expedites your application developme
 [How to create an AVE compliant Service Bus](./deploy-service-bus-service-catalog.md)
 
 Description: Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics. Service Bus is used to decouple applications and services from each other. [Learn more](../service-bus-messaging/service-bus-messaging-overview.md)
-
-
-## Azure Compute Gallery
-
-Description: An Azure Compute Gallery helps you build structure and organization around your Azure resources, like images and applications. [Learn more](/azure/virtual-machines/azure-compute-gallery)
-
-Status: **Future Development**
 
 ## Request new service
 Submit a feature request using [this form](https://aka.ms/ave/scask)

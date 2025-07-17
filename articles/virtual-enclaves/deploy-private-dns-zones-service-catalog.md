@@ -12,7 +12,7 @@ ms.date: 04/08/2025
 
 Azure Virtual Enclaves (AVE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
 
-- Deploy a service catalog template for Private DNS Zones into an existing workload from the Portal. The template includes the options to create private DNS zones for Azure storage, key vault, SQL, container registry, or a customer private DNS zone name.
+- Deploy a service catalog template for Private DNS Zones into an existing enclave from the Portal. The template includes the options to create private DNS zones for Azure storage, key vault, SQL, container registry, or a specified private DNS zone name like one you created or another one from this [list of Azure Private DNS Zones](../private-link/private-endpoint-dns). This allows you to connect privately and securely to the Azure service. [Learn more](../private-link/private-link-overview)
 
 > [!NOTE]
 >
@@ -23,8 +23,9 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [deployed community](./what-community.md), [deployed Enclave](./what-enclave.md), and [deployed workload](./what-workload.md) and permissions to create resources inside the workload.
+- You need a [community](./what-community.md), [enclave](./what-enclave.md), and [workload](./what-workload.md) and permissions to create resources inside the enclave managed resource group.
 
+- Enable `General` (minimum) or `Advanced` [maintenance mode](./maintenance-mode.md) for your enclave so you can add the Private Link resources to your enclave managed resource group.
 
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
@@ -52,6 +53,17 @@ Go to the specified resource group to confirm the intended resources were create
 
 ## Delete the deployment
 If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted.
+
+## Private DNS Zones
+This template has multiple options you can select based on the resources you want to create next.
+- Storage file: required for file share storage
+- Storage queue: required for queue storage
+- Storage table: required for table storage
+- Storage blob: required for blob storage
+- Key vault: required for Key Vaults
+- Azure SQL: required for Azure SQL
+- Container registry: required for Container Registries
+- Additional: optional array of DNS zone names to deploy. Example: ["privatelink.table.cosmos.azure.com","privatezone1.com"] where the first name is for Cosmos DB and the second name is a custom name created by the you.
 
 ## Recommendations
 - [Add tags](../azure-resource-manager/management/tag-resources.md) to service catalog deployments to track important information for that resource such as:

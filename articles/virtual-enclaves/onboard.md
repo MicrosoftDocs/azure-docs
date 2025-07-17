@@ -24,7 +24,10 @@ This guide provides the steps to onboard to Azure Virtual Enclaves (AVE) by enab
 
 You can run the following code to quickly register all required resource providers to begin using AVE.
 1. Sign-in to your Azure tenant and open the subscription resource
-2. In the Azure portal, select the `Cloud Shell` icon at the top of the window here ![Screenshot showing the location of the Cloud Shell icon in the portal.'](./media/portal-cloud-shell-link.png)
+2. In the Azure portal, select the `Cloud Shell` icon at the top of the window here
+
+![Screenshot showing the location of the Cloud Shell icon in the portal.'](./media/portal-cloud-shell-link.png)
+
 3. [Set context](https://learn.microsoft.com/powershell/azure/context-persistence#create-a-new-azure-context-from-subscription-information) to your subscription.
 4. Copy and paste this code into the Cloud Shell and press enter.
 

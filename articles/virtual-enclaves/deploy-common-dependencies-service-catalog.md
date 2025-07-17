@@ -28,7 +28,20 @@ Deploy a service catalog template for Common Dependencies when deploying Azure s
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [deployed community](./what-community.md), [deployed Enclave](./what-enclave.md), and [deployed workload](./what-workload.md) and permissions to create resources inside the workload.
+- You need a [community](./what-community.md), [enclave](./what-enclave.md), [workload](./what-workload.md), and at least one [workload resource group](./what-workload.md#workload-resource-group) and permissions to create resources inside the workload resource group.
+
+- Enable `General` (minimum) or `Advanced` [maintenance mode](./maintenance-mode.md) for your enclave so you can add the Private Link resources to your enclave managed resource group.
+
+## Prerequisites
+There are guardrails in the enclaves to ensure resources are using private endpoints. This requires a key vault key and managed identity with access to the key in the enclave. 
+> [!NOTE]
+> 
+> These resources are not deployed with the enclave or workload by default. Required:
+
+1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation.
+2. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you will create:
+    - `Key Vault` required when creating a Key Vault from this template or the more customizable [Key Vault template](./deploy-key-vault-service-catalog.md).
+    - `Storage File`, `Storage Queue`, `Storage Blob`, and `Storage Table` are required when making a Storage Account from this template or the more customizable [Storage Account template](./deploy-storage-account-service-catalog.md).
 
 
 ## Deploy the template
@@ -58,3 +71,8 @@ If you don't plan on keeping these resources, clean up unnecessary resources to 
   - Service Catalog Name: `<RemoteApp>`
   - Service Catalog Version: `<version you deployed>`
 - Consider adding an [Azure Policy to enforce and inherit tags](../azure-resource-manager/management/tag-policies.md)
+
+## Troubleshooting
+
+### Expriation date doesn't match
+If you deploy the Common Dependencies template and see an error about the expiration date not matching for the CMK (Customer Managed Key) resource, you probably have a CMK (a Key Vault key) with the same name already. This can occur if you deploy the template with the same inputs twice since the expiration date can't be updated through a redeployment. This means that your CMK already exists and you can use it as-is. If you need to update the CMK, you can login to your Admin VM then access the key vault via the portal to make changes. You can also redeploy the Common Dependencies template again and change the name of the CMK to create a new CMK.

@@ -10,7 +10,7 @@ ms.date: 04/08/2025
 
 # Maintenance Mode
 
-Maintenance mode is a feature that allows enclave owners to temporarily place their enclaves into a "maintenance mode" state. This mode permits privileged users to make certain changes to the underlying managed resources in an enclave that are normally protected by Deny Assignments. This helps maintain the enclave isolation and network boundary.
+Maintenance mode is a feature that allows enclave owners to temporarily place their enclaves into a "maintenance mode" state where changes are allowed. This mode permits privileged users to make certain changes to the underlying managed resources in an enclave that are normally protected by Deny Assignments. This helps maintain the enclave isolation and network boundary.
 
 ## Key features
 The following are the key features of Maintenance Mode:
@@ -21,8 +21,8 @@ The following are the key features of Maintenance Mode:
 
 ## Maintenance mode options
 
-- `Off` - A deny assignment created by Azure is in-place to protect underlying managed resources in an enclave.
-- `General` - A partial deny assignment created by Azure allows privileged users to modify certain existing resources only in the underlying managed resources in an enclave. These operations include resources joining the enclave virtual network and creating Private DNS Zone records. By default, enclaves are deployed in `Off` mode, but create enclaves in `General` mode and provide appropriate Microsoft Entra ID identities for deny assignment exclusion.
+- `Off` - Deny assignments created by Azure Virtual Enclaves is in-place to protect underlying [managed resource groups](./virtual-enclaves-resource-groups.md) for an enclave or community.
+- `General` - The `Allow Dataplane Actions` deny assignment created by Azure allows privileged users to modify certain existing resources only in the underlying managed resources in an enclave. These operations include resources joining the enclave virtual network and creating Private DNS Zone records. By default, enclaves are deployed in `Off` mode, but create enclaves in `General` mode and provide appropriate Microsoft Entra ID identities for deny assignment exclusion.
 - `Advanced` - The deny assignment created by Azure is temporarily removed to allow privileged users to make elevated changes on the underlying managed resources in an enclave.
 
 ## Justification options
@@ -64,3 +64,29 @@ The following are the key features of Maintenance Mode:
 
 - **Communicate**: Inform relevant team members about the activation and deactivation of maintenance mode to avoid any confusion.
 - **Understand the impact**: Privileged users should fully understand the changes they're making, and steps to undo or remediate those changes. Making manual changes to underlying managed resources in an enclave while in maintenance mode might cause unintended drift in your environment from ideal states.
+
+## Permissions managed by maintenance mode
+The following permissions are managed by maintenance mode and users will be blocked from performing these actions unless they are listed as a principal in the maintenance mode configuration for the enclave and maintenance mode is enabled.
+
+## Maintenance mode "Off"
+
+
+### General maintenance mode
+General maintenance mode will not prevent any action for that enclave or community managed resource group for the maintenance mode principles (for example, users or groups) except these operations.  A user may still be limited by their assigned roles.
+
+| Operation | Action Type | Explanation |
+|--|--|
+| *	| Action | Deny all actions except specified below |
+| */read | NotAction | Allow "read" actions on all resources |
+| Microsoft.Insights/alertRules/* | NotAction | Allow all actions on "alertRuels" |
+| Microsoft.Resources/deployments/* | NotAction | Allow all actions on "deployments" |
+| Microsoft.Support/* | NotAction | Allow all actions on "Support" |
+| Microsoft.Network/privateDnsZones/* | NotAction | Allow all actions on "privateDnsZones" |
+| Microsoft.Network/privateDnsOperationResults/* | NotAction | Allow all actions on "privateDnsOperationResults" |
+| Microsoft.Network/privateDnsOperationStatuses/* | NotAction | Allow all actions on "privateDnsOperationStatuses" |
+| Microsoft.Network/virtualNetworks/join/action | NotAction | Allow this action |
+| Microsoft.Network/virtualNetworks/subnets/join/action | NotAction | Allow this action |
+| Microsoft.Authorization/policyExemptions/* | NotAction | Allow all actions on "policyExemptions" |
+
+### Advanced maintenance mode
+Advanced maintenance mode will not prevent any actions for that enclave or community managed resource group for the maintenance mode principles (for example, users or groups). A user may still be limited by their assigned roles.
