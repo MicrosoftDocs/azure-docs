@@ -3,7 +3,7 @@ title: Connect workflows to IBM Informix
 description: Learn how to access resources in IBM Informix databases from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, hcampos, azla
+ms.reviewers: estfan, hcampos, azla
 ms.topic: how-to
 ms.date: 07/17/2025
 
@@ -64,7 +64,7 @@ Based on whether you have a Consumption or Standard workflow, follow the steps o
 
 1. On the resource sidebar, under **Development Tools**, select the designer to open the workflow.
 
-1. On the designer, follow these [general steps to add the **Informix** action that you want](add-trigger-action-workflow.md?tabs=consumption#add-action) to your workflow.
+1. On the designer, follow these [general steps to add the **Informix** action that you want](../add-trigger-action-workflow.md?tabs=consumption#add-action) to your workflow.
 
 1. On the connection pane, provide the [connection information for your Informix database](#create-connection).
 
