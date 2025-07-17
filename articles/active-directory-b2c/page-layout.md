@@ -66,7 +66,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 ## Self-asserted page (selfasserted)
 
 **2.1.36** 
-- The CAPTCHA input now correctly renders French accents, addressing previous display issues linked to font encoding and localization errors.
+- The CAPTCHA input now displays French accented characters correctly. This update resolves previous font encoding and localization errors that affected character rendering
 
 **2.1.35**
 - Enhanced CAPTCHA error handling now ensures that any validation failures—such as “unmatched challenge”—returned by the backend are consistently captured and displayed in the UI.
