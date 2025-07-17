@@ -4,7 +4,7 @@ description: Understand concepts and options needed to manage the devices and as
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 06/24/2025
+ms.date: 07/17/2025
 ai-usage: ai-assisted
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to understand the key components in the Azure IoT Operations for managing devices and assets, so that I can effectively manage the devices and assets in my solution. 
@@ -73,7 +73,9 @@ To learn more, see [Define assets and devices](concept-assets-devices.md).
 Azure IoT Operations includes several services that help you manage devices and assets.
 
 - The **operations experience** is a web UI that lets you create and configure assets in your solution. The web UI simplifies the task of managing assets and is the recommended service to manage assets.
-- **Azure Device Registry** is a backend service that enables the cloud and edge management of assets. Device Registry projects assets defined in your edge environment as Azure resources in the cloud. It provides a single unified registry so that all apps and services that interact with your assets can connect to a single source. Device Registry also manages the synchronization between assets in the cloud and assets as custom resources in Kubernetes on the edge.
+- **Azure Device Registry** is a backend service that enables the cloud and edge management of assets. Device Registry uses _namespaces_ to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. Multiple instances can share a single namespace.
+
+  Device Registry projects assets defined in your edge environment as Azure resources in the cloud. It provides a single unified registry so that all apps and services that interact with your assets can connect to a single source. Device Registry also manages the synchronization between assets in the cloud and assets as custom resources in Kubernetes on the edge.
 - The schema registry is a service that lets you define and manage the schema for your assets. Data flows use schemas to deserialize and serialize messages.
 - The **connector for OPC UA** is a data ingress and protocol translation service that enables Azure IoT Operations to ingress data from OPC UA servers. A key requirement in industrial environments is for a common standard or protocol for machine-to-machine and machine-to-cloud data exchange. [OPC UA](https://opcfoundation.org/about/opc-technologies/opc-ua/) is a specification for a platform independent service-oriented architecture that enables data exchange in industrial environments. The connector receives messages and events from your assets and publishes the data to topics in the MQTT broker.
 - The **media connector (preview)** is a service that makes media from media sources such as edge-attached cameras available to other Azure IoT Operations components.

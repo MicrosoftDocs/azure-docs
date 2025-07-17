@@ -968,6 +968,14 @@ Casing rules: Always lowercase.
 
 Applies to: IoT Hub
 
+## N
+
+### Namespace
+
+In the context of Azure IoT Operations, Azure Device Registry  uses *namespaces* to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. Multiple instances can share a single namespace.
+
+Applies to: Azure IoT Operations, Azure Device Registry
+
 ## O
 
 ### Ontology
