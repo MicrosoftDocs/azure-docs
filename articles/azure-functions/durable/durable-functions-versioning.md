@@ -7,11 +7,11 @@ ms.date: 12/07/2022
 ms.author: azfuncdf
 ---
 
-# Versioning in Durable Functions (Azure Functions)
+# Versioning challenges and approaches in Durable Functions (Azure Functions)
 
 It is inevitable that functions will be added, removed, and changed over the lifetime of an application. [Durable Functions](durable-functions-overview.md) allows chaining functions together in ways that weren't previously possible, and this chaining affects how you can handle versioning.
 
-## How to handle breaking changes
+## Types of breaking changes
 
 There are several examples of breaking changes to be aware of. This article discusses the most common ones. The main theme behind all of them is that both new and existing function orchestrations are impacted by changes to function code.
 
@@ -186,6 +186,7 @@ This change adds a new function call to *SendNotification* between *Foo* and *Ba
 Here are some of the strategies for dealing with versioning challenges:
 
 * Do nothing (not recommended)
+* Orchestration versioning (recommended in most cases)
 * Stop all in-flight instances
 * Side-by-side deployments
 
@@ -200,12 +201,29 @@ The naive approach to versioning is to do nothing and let in-flight orchestratio
 
 Because of these potential failures, the "do nothing" strategy is not recommended.
 
+### Orchestration versioning
+
+> [!NOTE]
+> Orchestration versioning is currently in public preview.
+
+The orchestration versioning feature allows different versions of orchestrations to coexist and execute concurrently without conflicts and non-determinism issues, making it possible to deploy updates while allowing in-flight orchestration instances to complete without manual intervention.
+
+With orchestration versioning:
+- Each orchestration instance gets a version permanently associated with it when created
+- Orchestrator functions can examine their version and branch execution accordingly  
+- Workers running newer orchestrator function versions can continue executing orchestration instances created by older versions
+- The runtime prevents workers running older orchestrator function versions from executing orchestrations of newer versions
+
+This strategy is recommended for applications that need to support breaking changes while maintaining [zero-downtime deployments](durable-functions-zero-downtime-deployment.md). The feature is currently available .NET isolated apps.
+
+For detailed configuration and implementation guidance, see [Orchestration versioning in Durable Functions](durable-functions-orchestration-versioning.md).
+
 ### Stop all in-flight instances
 
 Another option is to stop all in-flight instances. If you're using the default [Azure Storage provider for Durable Functions](durable-functions-storage-providers.md#azure-storage), stopping all instances can be done by clearing the contents of the internal **control-queue** and **workitem-queue** queues. You can alternatively stop the function app, delete these queues, and restart the app again. The queues will be recreated automatically once the app restarts. The previous orchestration instances may remain in the "Running" state indefinitely, but they will not clutter your logs with failure messages or cause any harm to your app. This approach is ideal in rapid prototype development, including local development.
 
 > [!NOTE]
-> This approach requires direct access to the underlying storage resources, and my not be appropriate for all storage providers supported by Durable Functions.
+> This approach requires direct access to the underlying storage resources, and might not be appropriate for all storage providers supported by Durable Functions.
 
 ### Side-by-side deployments
 
@@ -228,6 +246,9 @@ When doing side-by-side deployments in Azure Functions or Azure App Service, we 
 > This strategy works best when you use HTTP and webhook triggers for orchestrator functions. For non-HTTP triggers, such as queues or Event Hubs, the trigger definition should [derive from an app setting](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) that gets updated as part of the swap operation.
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Learn about orchestration versioning](durable-functions-orchestration-versioning.md)
 
 > [!div class="nextstepaction"]
 > [Learn about using and choosing storage providers](durable-functions-storage-providers.md)
