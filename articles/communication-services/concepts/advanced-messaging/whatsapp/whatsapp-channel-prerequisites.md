@@ -20,7 +20,7 @@ Azure Communication Services Advanced Messaging SDK enables AI agents in Microso
 
 This article covers the prerequisites to configuring WhatsApp as a Channel in Microsoft Copilot Studio.
 
-1. Create an Azure Communication Services resource in Azure Portal.
+1. Create an Azure Communication Services resource in Azure portal.
 2. Get a phone number that can receive SMS.
 3. Setup and Deploy Event Grid Viewer
 4. Setup Event subscription for SMS received.
@@ -54,9 +54,8 @@ You can [provision a SMS enabled phone number from Azure Communication Services]
 or bring your own phone number.
 
 Make sure the phone number has the following capabilities:
-
-1. Able to receive SMS so your phone number can be verified by Meta
-2. Phone number isn't already associated with a WhatsApp Business Account
+- Able to receive SMS so your phone number can be verified by Meta
+- Phone number isn't already associated with a WhatsApp Business Account
 
 If you're using an Azure Communication Services phone number, continue to follow the [subsequential steps](#setup-and-deploy-event-grid-viewer). 
 
