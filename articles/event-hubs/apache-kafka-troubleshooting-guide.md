@@ -53,8 +53,7 @@ Apache Kafka vs. Event Hubs Kafka. For the most part, Azure Event Hubs' Kafka in
 
 - The max length of the `group.id` property is 256 characters
 - The max size of `offset.metadata.max.bytes` is 1,024 bytes
-- Offset commits are throttled to 4 calls/second per partition with a maximum internal log size of 1 MB
-
+- Offset commits are throttled to 2 calls/second per partition with a maximum internal log size of 1 MB
 
 ## Next steps
 To learn more about Event Hubs and Event Hubs for Kafka, see the following articles:  
