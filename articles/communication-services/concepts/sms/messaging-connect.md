@@ -236,7 +236,7 @@ You pay the Messaging Connect partner directly for:
 - Per-message delivery fees, which vary by country and route
 
 The partner defines commercial terms and support levels. By default, the Messaging Connect partner (for example, Infobip) bills you directly for delivery and number leasing fees. These charges do not appear on your Azure invoice unless you explicitly set up Marketplace billing.
-There are no subscription restrictions. You can use Messaging Connect with any Azure subscription type, including Pay-as-you-go and Enterprise Agreements. Unlike Microsoft's legacy direct SMS offers, Messaging Connect is not a telecom service—it's a developer platform model.
+There are no subscription restrictions. You can use Messaging Connect with any Azure subscription type, including Pay-as-you-go and Enterprise Agreements. Unlike Microsoft's direct SMS offers, Messaging Connect is not a telecom service—it's a developer platform model.
 
 #### Optional: Consolidated Billing via Azure Marketplace
 
