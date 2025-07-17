@@ -40,7 +40,7 @@ You can also restart a running VM by selecting the associated ellipsis button (*
 
 :::image type="content" source="media/devtest-lab-restart-vm/devtest-lab-restart-ellipses.png" alt-text="Screenshot showing the VM Restart option in the ellipses menu." lightbox="media/devtest-lab-restart-vm/devtest-lab-restart-ellipses.png":::
 
-After the VM restarts, you can reconnect to it by selecting **Connect** on the VM management pane.
+After the VM restarts, you can reconnect to it by selecting **Connect** on the VM's Overview page.
 
 ## Related content
 
