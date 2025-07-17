@@ -86,7 +86,7 @@ If you enable availability zones but specify a capacity of less than two, the pl
 
 ### Capacity planning and management
 
-[!INCLUDE [Capacity planning and management description](includes/app-service/reliability-capacity-planning-and-management-include.md)]
+[!INCLUDE [Capacity planning and management description](includes/app-service/reliability-capacity-planning-management-include.md)]
 
 ### Normal operations
 
