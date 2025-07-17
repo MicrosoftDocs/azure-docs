@@ -16,7 +16,7 @@
     href: microsoft-sentinel-defender-portal.md
 - name: Data lake exploration
   items:  
-  - name: KQL for the Microsoft Sentinel data lake
+  - name: KQL for data lake exploration
     items:
     - name: Overview 
       href: datalake/kql-overview.md
