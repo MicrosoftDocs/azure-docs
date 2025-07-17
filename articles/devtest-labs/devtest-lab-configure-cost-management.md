@@ -82,5 +82,5 @@ For a quick view of costs per lab, complete these steps:
 ## Related content
 
 - [Use tags to organize your Azure resources and management hierarchy](/azure/azure-resource-manager/management/tag-resources)
-- Review the [resource naming and tagging decision guide](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming-and-tagging-decision-guide)
+- [Review the resource naming and tagging decision guide](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming-and-tagging-decision-guide)
 - [Define DevTest Labs policies](devtest-lab-set-lab-policy.md)
