@@ -61,7 +61,7 @@ These types of questions can be answered through the emission and analysis of fe
     * [Python](./howto-telemetry-python.md)
     * [JavaScript](./howto-telemetry-javascript.md)
 
-## Review telemetry for the feature flag
+## Review telemetry results in Azure App Configuration
 
 1. Navigate to the **Application Insights** blade in the App Configuration portal. You should see a graph displaying all events from your application. This graph provides an initial overview of activity patterns.
     > [!div class="mx-imgBorder"]
