@@ -74,25 +74,6 @@ Service endpoints provide the following benefits:
 
 - A virtual network can be associated with up to 200 different subscriptions and regions by each supported service with active virtual network rules configured.
 
-## Service Endpoint vs Private Endpoint
-
-The following table compares Azure Service Endpoints and Private Endpoints across key features:
-
-| Feature                         | Service Endpoints                                                                 | Private Endpoints                                                      |
-|----------------------------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------|
-| Scope                           | Per service                                                                      | Per instance                                                          |
-| Connectivity                    | Uses Azure PaaS public IP; traffic goes over Azure backbone                      | PaaS resource gets a private IP in your VNET; traffic stays within the VNET |
-| Data Security                   | Traffic leaves VNET to Azure backbone                                             | No data exfiltration; traffic remains private                         |
-| On-Premises Connectivity        | Not supported natively; requires public IP added to allow list.                        | Supported via ExpressRoute and VPN                                    |
-| UDRs and NSGs                   | No specific overlaps; traffic can bypass endpoint                                | May require special configuration to avoid bypass                     |
-| Data Protection                 | Requires integration with firewall/NVA for exfiltration protection               | Built-in data protection                                              |
-| Cost                            | No additional cost                                                               | Charged based on traffic and number of endpoints                      |
-| Complexity                      | Easy to configure via Azure Portal                                               | Requires DNS updates and endpoint placement decisions                 |
-| Cross-Region Support            | Not supported                                                                    | Fully supported                                                       |
-| DNS Configuration               | Not required                                                                     | Required (often via Azure Private DNS)                                |
-| Access Control                  | Broad access to service from VNET                                                | Granular access to specific resource instances                        |
-| On-Premises & Peered VNET Access| Not supported                                                                    | Supported                                                             |
-
 ## Secure Azure services to virtual networks
 
 - A virtual network service endpoint provides the identity of your virtual network to the Azure service. Once you enable service endpoints in your virtual network, you can add a virtual network rule to secure the Azure service resources to your virtual network.
