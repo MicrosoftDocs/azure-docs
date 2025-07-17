@@ -116,7 +116,7 @@ Other possible reasons include "Group Override" or "User Override" if configured
 
 Now that you have confirmed the feature flag allocations are working as expected, you can dive deeper into the telemetry events to see how different variants are performing based on the likes emitted for users.
 
-1. Open your Application Insights resource in the Azure portal and select **Logs** under **Monitoring**. In the query window, run the following query to see the telemetry events:
+Open your Application Insights resource in the Azure portal and select **Logs** under **Monitoring**. In the query window, run the following query to see the telemetry events:
 
 ```kusto
 // Step 1: Get distinct users and their Variant from FeatureEvaluation (Replace <store-endpoint> with your store's endpoint)
