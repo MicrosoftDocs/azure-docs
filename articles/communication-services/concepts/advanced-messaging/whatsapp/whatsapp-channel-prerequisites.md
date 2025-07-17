@@ -100,7 +100,7 @@ The following steps are only needed if you chose to use an Azure Communication S
 
 ### Subscribe to SMS received event
 
-Getting the verification code is required to link your WhatsApp business account to Azure Communication Services resource. Follow these instructions to have the [Azure Event Grid subscribe to the SMS Received event](../../../quickstarts/sms/handle-sms-events#subscribe-to-sms-events-by-using-web-hooks).
+Getting the verification code is required to link your WhatsApp business account to Azure Communication Services resource. Follow these instructions to have the [Azure Event Grid subscribe to the SMS Received event](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/sms/handle-sms-events#subscribe-to-sms-events-by-using-web-hooks).
 
 When following those instructions, here are helpful tips:
 
