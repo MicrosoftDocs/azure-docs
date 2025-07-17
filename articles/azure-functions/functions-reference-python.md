@@ -1408,6 +1408,7 @@ To view the library for your Python version, go to:
 * [Python 3.10 standard library](https://docs.python.org/3.10/library/)
 * [Python 3.11 standard library](https://docs.python.org/3.11/library/)
 * [Python 3.12 standard library](https://docs.python.org/3.12/library/)
+* [Python 3.13 standard library](https://docs.python.org/3.13/library/)
 
 ### Azure Functions Python worker dependencies
 
