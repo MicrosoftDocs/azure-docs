@@ -68,7 +68,7 @@ Follow these steps to expose an existing MCP server to API Management:
     1. In **Base URL**, configure the final URL where the MCP server will be accessible in API Management.
 1. Select **Create**.
 
-:::image type="content" source="media/expose-existing-mcp-server/create-mcp-server-small.png" alt-text="Screenshot of creating an MCP server in the portal." :::
+:::image type="content" source="media/expose-existing-mcp-server/create-mcp-server.png" alt-text="Screenshot of creating an MCP server in the portal." :::
 
 The MCP server is connected and is listed in the **MCP servers** pane. The **URL** column shows the MCP server URL that you can call for testing or within a client application.
 

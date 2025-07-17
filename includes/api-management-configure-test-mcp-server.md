@@ -141,4 +141,4 @@ After adding an MCP server, you can use tools in agent mode.
 
 * [Expose REST API in API Management as an MCP server](../articles/api-management/export-rest-mcp-server.md)
 
-* [Connect and govern existing MCP server](../articles/api-management/connect-govern-existing-mcp-server.md)
+* [Expose and govern existing MCP server](../articles/api-management/expose-existing-mcp-server.md)
