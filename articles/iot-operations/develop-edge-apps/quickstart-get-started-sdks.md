@@ -23,6 +23,7 @@ Before you begin, prepare the following prerequisites:
 
 * Azure access permissions. For more information, see [Deployment details > Required permissions](../deploy-iot-ops/overview-deploy.md#required-permissions).
 
+<!-- TODO: Confirm it works for options VS Code Dev Containers and WSL -->
 ## Setting up
 
 Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with Azure IoT Operations deployed. Additional configuration will allow the MQTT broker to be accessed directly from the developer environment.
@@ -295,6 +296,7 @@ To test the setup is working correctly, use `mosquitto_pub` to connect to the MQ
     mosquitto_pub -L mqtts://localhost:8884/hello -m world --cafile $SESSION/broker-ca.crt -D CONNECT authentication-method K8S-SAT -D CONNECT authentication-data $(cat $SESSION/token.txt) --debug
     ```
 
+<!-- TODO: Add the Go and Rust samples -->
 ## Run a Sample
 
 This sample demonstrates a simple communication between a client and a server using [telemetry](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/telemetry.md) and [remote procedure call (RPC)](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/rpc-protocol.md). The server tracks the value of a counter and accepts RPC requests from the client to either read or increment that counter.
@@ -339,34 +341,31 @@ This sample demonstrates a simple communication between a client and a server us
     source `git rev-parse --show-toplevel`/.env; export AIO_MQTT_CLIENT_ID=counter-client; export COUNTER_SERVER_ID=counter-server; dotnet run
     ```
 
-1. You should see the client and server communicating, with the client sending requests to read and increment the counter value. This is an example of the output you might see:
-
+1. You should see the client and server communicating, with the client sending requests to read and increment the counter value. This is an example of the output messages that you can see:
+    
+    **CounterClient output:**
     ```output
-    info: CounterClient.CounterClient[0]
-      Telemetry received from counter-server: CounterValue=1
-    info: CounterClient.CounterClient[0]
-          Telemetry received from counter-server: CounterValue=2
-    info: CounterClient.CounterClient[0]
-          Telemetry received from counter-server: CounterValue=3
-    ...
+    CounterClient Information: 0 : Invoked command 'readCounter' with correlation ID 12345 to topic 'rpc/command-samples/counter-server/readCounter'
+    CounterClient Information: 0 : Invoked command 'increment' with correlation ID 123456 to topic 'rpc/command-samples/counter-server/increment'
+    info: CounterClient.RpcCommandRunner[0] called counter.incr 1 with id 12346
+    info: CounterClient.CounterClient[0] Telemetry received from counter-server: CounterValue=1
+    info: CounterClient.RpcCommandRunner[0] counter 32 with id 12345
+    info: CounterClient.RpcCommandRunner[0] Current telemetry count: 32
+    ```
+    
+    **CounterServer output:**
+    ```output
+    CounterServer Information: 0 : Command executor for 'reset' started.
+    CounterServer Information: 0 : Command executor for 'increment' started.
+    CounterServer Information: 0 : Command executor for 'readCounter' started.
+    CounterServer.CounterService[0] --> Executing Counter.ReadCounter with id 12345 for counter-client
+    CounterServer.CounterService[0] --> Executed Counter.ReadCounter with id 12345 for counter-client
+    CounterServer.CounterService[0] --> Executing Counter.Increment with id 12346 for counter-client
+    CounterServer.CounterService[0] --> Executed Counter.Increment with id 12346 for counter-client
+    CounterServer Information: 0 : Telemetry sent successfully to the topic 'telemetry/telemetry-samples/counterValue'
     ```
 
-<!-- ## Shell configuration
-
-The samples within [Azure IoT Operations SDKs github repository](https://github.com/Azure/iot-operations-sdks) read configuration from environment variables. We have provided an `.env` file in the repository root that exports the variables used by the samples to connect to the MQTT Broker. Edit the `.env` file to set the values for your environment, or use the default values provided in the file:
-
-1. Navigate to the repository root directory:
-
-    ```bash
-    cd <REPOSITORY ROOT>
-    ```
-
-1. Load the environment variables into your shell:
-
-    ```bash
-    source .env
-    ``` 
--->
+1. The `CounterClient` sample will automatically exit when it is completed. You can also stop the `CounterServer` sample by pressing `Ctrl+C` in its terminal.
 
 
 ## Configuration summary
@@ -410,40 +409,11 @@ As part of the deployment script, the following files are created in the local e
 | `client.key` | A x509 client private key for authenticating with the MQTT broker on port `8883` |
 
 
-<!-- 10. ## Troubleshooting -------------------------------------------------------------
-Optional:  If you're aware that people commonly run into trouble, help them resolve those
-issues in this section.
-
-- Describe common errors and exceptions. Help unpack them if necessary. Include guidance
-  for graceful handling and recovery.
-- Provide information to help developers avoid throttling or other service-enforced
-  errors. For example, provide guidance and examples for using retry or connection
-  policies if the library supports it.
-- If the client library or a related library supports it, include tips for logging or
-  enabling instrumentation to help debug code.
-
--->
-
 ## Troubleshooting
-TODO: Add troubleshooting section.
 
-<!-- 11. ## Next steps ------------------------------------------------------------------
-Required: Provide a link to the next step for a developer, for instance, a tutorial. 
+Check the troubleshooting guide for common issues in the Azure IoT Operations SDKs github repository: [Troubleshooting](https://github.com/Azure/iot-operations-sdks/blob/main/doc/troubleshooting.md).
 
-- Summarize the tasks the developer completed in this Quickstart.
-- Provide a button for a suggested next step.
- 
-Use the `[!div class="nextstepaction"]` extension.
-
-> [!div class="nextstepaction"]
-> [Link text](link)
-
-
--->
 ## Next steps
-TODO: Add summary and button.
+In this Quickstart, you set up the Azure IoT Operations SDKs and ran a sample application. To learn more about developing with the SDKs, check out the following resources:
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
-
--->
+- [Azure IoT Operations SDKs documentation](https://github.com/Azure/iot-operations-sdks/blob/main/doc)
