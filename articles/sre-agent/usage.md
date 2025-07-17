@@ -64,7 +64,7 @@ To create an SRE Agent, follow these steps:
     | Property | Value |
     |---|---|
     | Agent name | Enter a name for your agent. |
-    | Region | Select **Sweden Central**.<br><br>During preview, Azure SRE Agent is only available in the *Sweden Central* region, but the agent can monitor resources in any Azure region. If don't see any options in the dropdown, then you may not have permissions to access to the Sweden Central region. |
+    | Region | Select **Sweden Central**.<br><br>During preview, Azure SRE Agent is only available in the *Sweden Central* region, but the agent can monitor resources in any Azure region.<br><br>If you don't see any options in the dropdown, then you may not have permissions to access to the Sweden Central region. |
 
 1. Select **Choose resource groups**.
 
