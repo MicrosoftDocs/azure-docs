@@ -8,7 +8,7 @@ ms.date: 12/27/2024
 ms.update-cycle: 180-days
 ms.author: jsuri
 ms.custom: UpdateFrequency.5
-#Customer intent: As an Azure admin, I want to understand how Azure Resource Mover works.
+# Customer intent: "As an Azure administrator, I want to understand the process of moving resources across regions, so that I can effectively manage dependencies and minimize downtime during the transition."
 ---
 
 # About the move process

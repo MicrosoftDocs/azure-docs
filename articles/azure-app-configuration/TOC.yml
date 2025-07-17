@@ -210,6 +210,8 @@
       href: howto-targetingfilter.md
     - name: ASP.NET Core
       href: howto-targetingfilter-aspnet-core.md
+    - name: JavaScript
+      href: howto-targetingfilter-javascript.md
   - name: Use variant feature flags
     items:
     - name: Overview
@@ -226,6 +228,8 @@
       href: howto-telemetry.md
     - name: Python
       href: howto-telemetry-python.md
+    - name: JavaScript
+      href: howto-telemetry-javascript.md
 - name: CI/CD integration
   items:
   - name: Use configuration files
@@ -427,6 +431,10 @@
       items:
       - name: Feature reference
         href: ./feature-management-javascript-reference.md
+    - name: Telemetry
+      items:
+      - name: Feature flag telemetry reference
+        href: feature-flag-telemetry-reference.md
   - name: Deployment
     items:
     - name: ARM template

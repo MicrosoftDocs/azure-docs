@@ -5,6 +5,7 @@ ms.topic: sample
 ms.date: 06/23/2021
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As an IT administrator, I want to use a PowerShell script to install the latest MARS agent on my on-premises Windows servers, so that I can ensure my backup solutions are up-to-date and effectively managing our data protection."
 ---
 
 # PowerShell Script to install the latest MARS agent on an on-premises Windows server

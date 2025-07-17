@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a developer working with Azure Blob Storage, I want to manage system properties and user-defined metadata using JavaScript, so that I can organize and maintain blobs efficiently for my application's needs.
 ---
 
 # Manage blob properties and metadata with JavaScript

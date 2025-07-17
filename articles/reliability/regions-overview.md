@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-reliability
 ms.topic: conceptual
-ms.date: 03/07/2025
+ms.date: 07/03/2025
 ms.author: anaharris
 ms.custom: subject-reliability, ai-video-concept
 ---
@@ -14,7 +14,7 @@ ms.custom: subject-reliability, ai-video-concept
 
 >[!VIDEO https://learn-video.azurefd.net/vod/player?id=d36b5b2d-8bd2-43df-a796-b0c77b2f82fc]
 
-Azure provides over 60 regions globally. Regions are located across many different *geographies*. Each geography represents a data residency boundary, for example the United States, or Europe, and may contain one or more regions. Each region is a set of physical facilities that include datacenters and networking infrastructure.
+Azure provides over 70 regions globally. Regions are located across many different *geographies*. Each geography represents a data residency boundary, for example the United States, or Europe, and may contain one or more regions. Each region is a set of physical facilities that include datacenters and networking infrastructure.
 
 Regions provide certain types of resiliency options. Many regions provide [availability zones](./availability-zones-overview.md), and some have a paired region while other regions are nonpaired. When you choose a region for your services, it's important to pay attention to the resiliency options that are available in that region. This article helps you understand Azure regions, and gives you an overview of the resiliency options that some Azure regions support, while offering links to more detailed information on each topic.
 
@@ -32,6 +32,18 @@ Every region is contained within a single *geography* that serves as a fixed dat
 ## List of regions
 
 For a list of Azure regions, see [List of Azure regions](./regions-list.md). If you want more details on regions, including data residency and regulatory compliance, see the [Microsoft Datacenters Map](https://datacenters.microsoft.com/globe/explore/).
+
+## Choosing Azure regions
+
+When you design a solution, you need to choose the Azure regions that you want to use. The regions you choose can affect the resiliency of your solution, as well as many other aspects of your solution.
+
+When you select regions, consider the following factors:
+
+- **Latency**. Select regions that are geographically close to your users to reduce latency. For example, if your users are in the United States, you might select a region in the United States or Canada.
+- **Availability zones**. Select regions that support availability zones to provide redundancy and fault isolation. Make sure that you spread your resources across multiple availability zones in the region. 
+- **Data residency:** Ensure that any regions you select are within a data residency boundary that your organization requires.
+
+For more detailed information on how to select regions, see [Select Azure regions](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions).
 
 ## Regional resiliency options
 

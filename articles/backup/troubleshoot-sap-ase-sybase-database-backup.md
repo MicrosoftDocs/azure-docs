@@ -6,6 +6,7 @@ ms.date: 05/13/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: As a database administrator, I want to troubleshoot SAP ASE database backup errors, so that I can ensure successful operation and restore processes using Azure Backup.
 ---
 
 # Troubleshooting SAP ASE (Sybase) database backup

@@ -8,6 +8,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 06/24/2024
 ms.author: cherylmc
+# Customer intent: As a Linux user, I want to configure an OpenVPN client for point-to-site connections using certificate authentication, so that I can securely connect to my Azure virtual network.
 ---
 
 # Configure OpenVPN client for P2S certificate authentication connections - Linux

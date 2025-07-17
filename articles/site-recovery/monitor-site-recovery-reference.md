@@ -7,6 +7,7 @@ ms.topic: reference
 ms.author: jsuri
 author: jyothisuri
 ms.service: azure-site-recovery
+# Customer intent: As an IT administrator, I want to access monitoring data for Azure Site Recovery, so that I can effectively track replication status, job details, and performance metrics to ensure reliable disaster recovery processes.
 ---
 
 # Azure Site Recovery monitoring data reference

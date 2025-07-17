@@ -10,6 +10,7 @@ ms.date: 06/17/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
+# Customer intent: "As a database administrator, I want to configure backup for Azure Database for PostgreSQL using a Bicep file, so that I can automate the backup process and ensure data protection for my database servers."
 ---
 
 # Quickstart: Configure backup for Azure Database for PostgreSQL - Flexible Servers with a Bicep file
