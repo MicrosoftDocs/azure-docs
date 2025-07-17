@@ -166,15 +166,11 @@ Based on whether you have a Consumption or Standard workflow, follow the steps o
 
 1. On the run history pane, select the operation with the inputs and outputs that you want to review.
 
-1. On the run details pane, from the actions list, select the action with the outputs that you want to view, for example, **Get_tables**.
-
-   If the action was successful, their **Status** property is marked as **Succeeded**.
-
-1. To view the inputs, under **Inputs Link**, select the URL link. To view the outputs, under **Outputs Link** link, select the URL link. Here are some example outputs:
+   The information pane opens and shows the available inputs and outputs for the selected operation.
 
 ---
 
-The following examples show sample output from the **Get rows** action:
+The following example shows sample output from the **Get rows** action in a Consumption workflow:
 
 :::image type="content" source="media/connectors-create-api-informix/get-rows-outputs.png" alt-text="Screenshot shows outputs from action named Get rows." lightbox="media/connectors-create-api-informix/get-rows-outputs.png":::
 
