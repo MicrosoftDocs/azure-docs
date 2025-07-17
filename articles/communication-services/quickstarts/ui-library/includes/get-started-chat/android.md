@@ -65,7 +65,7 @@ To add the repository:
 1. In your project Gradle scripts, ensure that the following repositories are added. For Android Studio (2020.\*), `repositories` is in `settings.gradle`, under `dependencyResolutionManagement(Gradle version 6.8 or greater)`. For earlier versions of Android Studio (4.\*), `repositories` is in the project-level `build.gradle`, under `allprojects{}`.
 
 #### [Groovy](#tab/groovy)
-    ```groovy
+```groovy
     // dependencyResolutionManagement
     repositories {
         ...
@@ -74,16 +74,16 @@ To add the repository:
         }
         ...
     }
-    ```
+```
 #### [Kotlin](#tab/kotlin-maven)
-    ```kotlin
+```kotlin
     // dependencyResolutionManagement 
     repositories {
         maven {
             url = uri("https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1")
         }
     }
-    ```
+```
 
 1. Sync your project with the Gradle files. To sync the project, on the **File** menu, select **Sync Project With Gradle Files**.
 
