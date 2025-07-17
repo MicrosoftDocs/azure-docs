@@ -77,7 +77,7 @@ To enable or disable zone redundancy on an existing  Isolated v2 App Service pla
 1. Select **Settings > Scale out (App Service plan)** in the left navigation pane.
 1. Select **Zone redundancy** if you wish to enable zone redundancy. Deselect if you wish to disable it.
  
-:::image type="content" source="./media/configure-reliability/app-service-plan-zone-redundancy-portal-isolated.png" alt-text="Screenshot of zone redundancy property for an App Service plan in the Azure portal.":::
+:::image type="content" source="./media/configure-zone-redundancy/app-service-plan-zone-redundancy-portal-isolated.png" alt-text="Screenshot of zone redundancy property for an App Service plan in the Azure portal.":::
 
 >[!IMPORTANT]
 >If you have *Rules Based* scaling enabled, you can't use the Azure portal to enable zone redundancy for your App Service plan. You must use the Azure CLI or Bicep/Resource Manager instead.

@@ -20,7 +20,7 @@ To create a new App Service plan with zone redundancy:
 
 Follow the guidance in [Create an App Service plan](../app-service/app-service-plan-manage.md#create-an-app-service-plan). Make sure to select *Enabled* for **Zone redundancy**.
 
-:::image type="content" source="./media/configure-reliability/app-service-create-zr-plan.png" alt-text="Screenshot of zone redundancy enablement during App Service plan creation in the Azure portal.":::
+:::image type="content" source="./media/configure-zone-redundancy/app-service-create-zr-plan.png" alt-text="Screenshot of zone redundancy enablement during App Service plan creation in the Azure portal.":::
 
 # [Azure CLI](#tab/azurecli)
 
@@ -71,7 +71,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' = {
     
         Changing the zone redundancy status of an App Service plan is almost instantaneous. You don't experience downtime or performance problems during the process. 
     
-        :::image type="content" source="./media/configure-reliability/app-service-plan-zone-redundancy-portal.png" alt-text="Screenshot of zone redundancy property for an App Service plan in the Azure portal.":::
+        :::image type="content" source="./media/configure-zone-redundancy/app-service-plan-zone-redundancy-portal.png" alt-text="Screenshot of zone redundancy property for an App Service plan in the Azure portal.":::
 
     > [!IMPORTANT]
     > If you have *Rules Based* scaling enabled, you can't use the Azure portal to enable zone redundancy. You must use the Azure CLI or Bicep/Resource Manager instead.
@@ -134,7 +134,7 @@ To see whether an existing App Service plan supports zone redundancy:
     
         The maximum number of zones that your App Service plan can use is shown in **Maximum available zones**. 
     
-        :::image type="content" source="./media/configure-reliability/app-service-plan-max-zones-portal.png" alt-text="Screenshot of maximum available zones property in the Scale out blade in the Azure portal for an App Service plan.":::
+        :::image type="content" source="./media/configure-zone-redundancy/app-service-plan-max-zones-portal.png" alt-text="Screenshot of maximum available zones property in the Scale out blade in the Azure portal for an App Service plan.":::
     
     # [Azure CLI](#tab/azurecli)
     
@@ -184,7 +184,7 @@ When you have a zone-redundant App Service plan, the platform automatically plac
 
 1. Select the **Instances** tab to view the physical zone placement for each of your instances.
     
-    :::image type="content" source="./media/configure-reliability/app-service-physical-zones.png" alt-text="Screenshot of the Instances tab in the Health Check blade with the physical zone information in the Azure portal for an App Service app.":::
+    :::image type="content" source="./media/configure-zone-redundancy/app-service-physical-zones.png" alt-text="Screenshot of the Instances tab in the Health Check blade with the physical zone information in the Azure portal for an App Service app.":::
 
 # [Azure CLI](#tab/azurecli)
 
