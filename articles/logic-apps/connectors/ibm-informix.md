@@ -90,7 +90,7 @@ Based on whether you have a Consumption or Standard workflow, follow the steps o
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
-1. Either [test your workflow](#test-logic-app) or continue adding actions to your workflow.
+1. Either [test your workflow](#test-workflow) or continue adding actions to your workflow.
 
 ---
 
