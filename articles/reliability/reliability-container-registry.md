@@ -44,7 +44,7 @@ Microsoft is responsible for managing the underlying Azure Container Registry in
 As a customer, you're responsible for:
  
 - *Application-level resilience*: Implementing appropriate retry logic and failover handling in your container applications and orchestration platforms
-- *Zonal-resiliency configuration*: Selecting to enable zone redundancy for regions where your container registry is deployed.
+- *Zone resiliency configuration*: Selecting to enable zone redundancy for regions where your container registry is deployed.
 - *Geo-replication configuration*: Selecting appropriate regions for geo-replication based on your geographic distribution, compliance, and performance requirements
 
 Azure Container Registry also supports *tasks*, which can help you to automate your container builds and maintenance operations. Tasks run on compute infrastructure managed by Microsoft, and can be triggered to run manually, based on events, or based on a schedule. To learn more, see [Automate container image builds and maintenance with Azure Container Registry tasks](/azure/container-registry/container-registry-tasks-overview).
