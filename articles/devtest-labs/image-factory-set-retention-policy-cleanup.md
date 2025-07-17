@@ -20,7 +20,6 @@ This article covers setting an image retention policy, cleaning up an image fact
 - One or more target  DevTest labs where the factory will distribute golden images.
 - An Azure DevOps project to automate the image factory.
 - A source code location that contains the scripts and configuration. (It can be DevOps project noted in the preceding prerequisite.)
-- A build definition to orchestrate the Azure PowerShell tasks.
 - Completion of the steps in these articles: 
    - [Create an image factory](image-factory-create.md)
    - [Run an image factory from Azure DevOps](image-factory-set-up-devops-lab.md)
