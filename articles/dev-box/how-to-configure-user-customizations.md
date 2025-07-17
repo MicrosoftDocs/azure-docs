@@ -160,7 +160,7 @@ If you create a dev box with user customizations in a project where user customi
 
    :::image type="content" source="media/how-to-configure-user-customizations/user-customizations-disabled-tile-error.png" alt-text="Screenshot of a dev box tile showing the message We encountered errors while applying customizations. A See details button is highlighted.":::
 
-1. The details say to contact your admin.
+1. The details advise you to contact your admin.
 
    :::image type="content" source="media/how-to-configure-user-customizations/user-customizations-disabled-error-details.png" alt-text="Screenshot of the error details pane in the developer portal, displaying a message that customizations failed and advising the user to contact their administrator.":::
 
