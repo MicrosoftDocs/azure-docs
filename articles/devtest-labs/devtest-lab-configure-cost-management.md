@@ -33,7 +33,7 @@ The details for these steps are described in the following sections.
 
 When DevTest Labs creates [environments](devtest-lab-create-environment-from-arm.md), it places each environment in its own resource group. For billing purposes, you must enable tag inheritance to ensure the lab tag definitions flow down from the resource group to the resources. 
 
-You can enable tag inheritance by using billing properties or by using Azure Policy. The billing properties method is the easiest and fastest to configure. However, it might affect billing reporting for other resources in the subscription. 
+You can enable tag inheritance by using billing properties or by using Azure Policy. The billing properties method is the easiest and fastest. However, it might affect billing reporting for other resources in the subscription. 
 
 The following articles describe how to create tags and enable tag inheritance:
 
@@ -77,7 +77,7 @@ For a quick view of costs per lab, complete these steps:
 
    :::image type="content" source="./media/devtest-lab-configure-cost-management/group-by-tag.png" border="false" alt-text="Screenshot that shows how to change the Group by filter to show cost details based on applied tags.":::
 
-   The updated view shows costs in the subscription grouped by the tag according to the lab its resources. For more information, see [Group and filter options in Cost Analysis and Budgets](../cost-management-billing/costs/group-filter.md).
+   The updated view shows costs in the subscription grouped by the tag according to the lab resources. For more information, see [Group and filter options in Cost Analysis and Budgets](../cost-management-billing/costs/group-filter.md).
 
 ## Related content
 
