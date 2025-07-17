@@ -52,7 +52,7 @@ the package provides functions to construct Relay URIs and tokens.
    }, (res) => {
         let error;
         if (res.statusCode !== 200) {
-            console.error('Request Failed.\n Status Code: ${statusCode}');
+            console.error(`Request Failed.\n Status Code: ${res.statusCode}`);
             res.resume();
         } 
         else {
@@ -89,7 +89,7 @@ the package provides functions to construct Relay URIs and tokens.
     }, (res) => {
         let error;
         if (res.statusCode !== 200) {
-            console.error('Request Failed.\n Status Code: ${statusCode}');
+            console.error(`Request Failed.\n Status Code: ${res.statusCode}`);
             res.resume();
         } 
         else {
