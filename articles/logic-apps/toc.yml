@@ -402,7 +402,7 @@ items:
     - name: IBM IMS
       href: ../connectors/integrate-ims-apps-ibm-mainframe.md
     - name: IBM Informix
-      href: ../connectors/connectors-create-api-informix.md
+      href: connectors/ibm-informix.md
     - name: IBM MQ
       href: ../connectors/connectors-create-api-mq.md
     - name: Integration Account

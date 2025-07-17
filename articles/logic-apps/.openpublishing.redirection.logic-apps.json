@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/connectors/connectors-create-api-informix.md",
+            "redirect_url": "/azure/logic-apps/connectors/ibm-informix",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/create-single-tenant-workflows-templates.md",
             "redirect_url": "/azure/logic-apps/create-workflows-from-templates",
             "redirect_document_id": true
