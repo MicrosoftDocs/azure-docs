@@ -11,7 +11,9 @@ ms.date: 07/17/2025
 
 # Connect to a data source privately
 
-In this guide, you learn how to connect your Azure Managed Grafana workspace to a data source using Managed Private Endpoint. Managed private endpoints for Azure Managed Grafana are endpoints created in a Managed Virtual Network that the Azure Managed Grafana service uses. They establish private links from that network to your Azure data sources. Azure Managed Grafana sets up and manages these private endpoints on your behalf. You can create managed private endpoints from your Azure Managed Grafana to access:
+In this guide, you learn how to connect your Azure Managed Grafana workspace to a data source using Managed Private Endpoint. Managed private endpoints for Azure Managed Grafana are endpoints created in a Managed Virtual Network that the Azure Managed Grafana service uses. They establish private links from that network to your Azure data sources. Azure Managed Grafana sets up and manages these private endpoints on your behalf.
+
+You can create managed private endpoints from your Azure Managed Grafana to access:
 
 - Other Azure managed services, for example, Azure Monitor private link scope or Azure Monitor workspace
 - Your own self-hosted data sources, for example, connecting to your self-hosted Prometheus behind a private link service
