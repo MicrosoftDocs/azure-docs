@@ -27,10 +27,7 @@ Microsoft Sentinel stores summary rule results in custom tables with the **Analy
 This article explains how to create summary rules or deploy pre-built summary rule templates in Microsoft Sentinel, and provides examples of common scenarios for using summary rules.
 
 > [!IMPORTANT]
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 > [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
->
 
 ## Prerequisites
 
