@@ -121,7 +121,7 @@ Other possible reasons include "Group Override" or "User Override" if configured
 > ![Screenshot of the Azure portal, view unique user count by assignment reason in telemetry tab.](./media/howto-telemetry/unique-user-count-by-assignment-reason-disabled.png)
 
 
-## Analyze in Application Insights
+## Analyze telemetry in Application Insights
 
 Now that you have confirmed the feature flag allocations are working as expected, you can dive deeper into the telemetry events to see how different variants are performing based on the likes emitted for users.
 
