@@ -268,7 +268,7 @@ To create an alert if a registered server is failing to communicate with the Sto
 1. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
 1. Select **Create alert rule**.
 
-To create an alert if the cloud tiering recall size excedes 500 GiB in a day:
+To create an alert if the cloud tiering recall size exceeds 500 GiB in a day:
 
 1. In the **Azure portal**, navigate to respective **Storage Sync Service**.
 1. Go to the **Monitoring** section and select **Alerts**.

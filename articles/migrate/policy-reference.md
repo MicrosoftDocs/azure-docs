@@ -20,7 +20,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure Migrate
 
-[!INCLUDE [azure-policy-reference-cat-migrate](../../includes/policy/reference/bycat/policies-migrate.md)]
+[!INCLUDE [azure-policy-reference-cat-migrate](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policies-migrate.md)]
 
 ## Next steps
 

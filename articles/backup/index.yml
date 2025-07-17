@@ -8,9 +8,9 @@ metadata:
   description: The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
   ms.service: azure-backup
   ms.topic: landing-page
-  author: jyothisuri
-  ms.author: jsuri
-  ms.date: 07/02/2025
+  author: AbhishekMallick-MS
+  ms.author: v-mallicka
+  ms.date: 07/16/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -164,6 +164,10 @@ landingContent:
             url: backup-support-matrix-mars-agent.md
           - text: FAQ - MARS agent
             url: backup-azure-file-folder-backup-faq.yml 
+      - linkListType: how-to-guide
+        links:
+          - text: Offline backup for MARS with customer-owned disks
+            url: backup-azure-backup-import-export.md              
 # Card
   - title: Back up with Microsoft Azure Backup Server (MABS) and DPM
     linkLists:
@@ -181,10 +185,14 @@ landingContent:
         links:
           - text: Offline backup using Azure Data Box
             url: offline-backup-azure-data-box.md
+          - text: Manage backup to Azure for DPM servers via PowerShell
+            url: backup-dpm-automation.md  
           - text: Offline backup using Azure Data Box for DPM and MABS  
             url: offline-backup-azure-data-box-dpm-mabs.md
-          - text: Offline backup for MARS with customer-owned disks
-            url: backup-azure-backup-import-export.md
+          - text: Manage telemetry settings in MABS
+            url: manage-telemetry.md
+          - text: Back up an Exchange server with DPM
+            url: backup-azure-backup-exchange-server.md
 # Card
   - title: Manage at scale
     linkLists:

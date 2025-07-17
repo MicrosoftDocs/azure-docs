@@ -37,6 +37,7 @@ Information in the following table is updated regularly. Capacity availability i
 | East US 2 | ✅ | ✅ | ✅ | ✅ |
 | France Central  | ✅ | ✅ | | ✅ |
 | Germany West Central  | ✅ | ✅ | ✅ | ✅ |
+| Italy North | ✅ | ✅ |  |  |
 | Japan East | ✅ | ✅ | | ✅ |
 | Korea Central | ✅ | ✅ | ✅ | | 
 | North Central US | ✅ | ✅ |  | ✅ |
@@ -45,7 +46,8 @@ Information in the following table is updated regularly. Capacity availability i
 | South Africa North | ✅ | ✅ | |  |
 | South Central US | ✅ | ✅ |  |  |
 | South India | ✅ | ✅ |  |  |
-| Southeast Asia | ✅ | ✅ | | ✅ |
+| Sweden Central | ✅ | ✅ | | |
+| South India | ✅ | ✅ |  |  |
 | Switzerland North | ✅ |✅ |  | |
 | UK South | ✅  | ✅ | ✅ | ✅ |
 | UK West | ✅  | ✅ | | |
