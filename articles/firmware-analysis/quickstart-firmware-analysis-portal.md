@@ -26,6 +26,9 @@ If you don't have an Azure subscription, you can [create an account for free](ht
 ## Onboard your subscription
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and search for **firmware analysis**. Select the blue **Get started** button or go to the **Firmware workspaces** tab.
+
+:::image type="content" source="media/tutorial-firmware-analysis/firmware-analysis-landing.png" alt-text="Screenshot of the 'Getting started' page." lightbox="media/tutorial-firmware-analysis/firmware-analysis-landing.png":::
+
 3. Select **Create a workspace**.
 4. In the **Create a workspace** pane:
    - Choose your subscription.
@@ -33,6 +36,9 @@ If you don't have an Azure subscription, you can [create an account for free](ht
    - Enter a workspace name.
    - Choose a region.
 5. Select **Onboard** to complete the setup.
+
+:::image type="content" source="media/tutorial-firmware-analysis/completed-onboarding.png" alt-text="Screenshot of the 'Onboard subscription' pane when it's completed." lightbox="media/tutorial-firmware-analysis/completed-onboarding.png":::
+
 
 ## Upload a firmware image
 
@@ -45,10 +51,14 @@ If you don't have an Azure subscription, you can [create an account for free](ht
 
 Your firmware will appear in the **All firmware** grid.
 
+:::image type="content" source="media/tutorial-firmware-analysis/upload.png" alt-text="Screenshot that shows clicking the Upload option within firmware analysis." lightbox="media/tutorial-firmware-analysis/upload.png":::
+
 ## View analysis results
 1. In the Azure portal, go to **firmware analysis** > **All firmware**, or navigate to your workspace.
 2. Select the firmware row to open the **Firmware overview** pane.
 3. Select **View results** to see detailed analysis.
+
+:::image type="content" source="media/tutorial-firmware-analysis/overview.png" alt-text="Screenshot that shows clicking view results button for a detailed analysis of the firmware image." lightbox="media/tutorial-firmware-analysis/overview.png":::
 
 The results include:
 
