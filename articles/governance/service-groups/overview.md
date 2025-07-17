@@ -66,19 +66,7 @@ This table shows a summary of the differences between the groups.
 
 ### Scenario comparison
 
-|Scenario|Resource Group|Subscription|Management Group|Service Group|Tags|
-|--------|--------------|------------|----------------|-------------|----|
-|Require Inheritance from assignment on scope to each member/descendant resource|Supported*|Supported|Supported|Not Supported|Not Supported|
-|Consolidation of resources for reduction of Role Assignments/Policy Assignments|Supported|Supported|Supported|Not Supported|Not Supported|
-|Grouping of resources that are shared across scope boundaries. Ex. Global Networking resources in one subscription/resource group that are shared across multiple applications that have their own subscriptions/resource groups. |Not Supported| Not Supported|Not Supported|Supported|Supported|
-|Create separate groupings that allow for separate aggregations of metrics|Not Supported|Supported|Supported|Supported|Supported**|
-|Enforce enterprise-wide restrictions or organizational configurations across many resources|Supported*|Supported*|Supported*|Not Supported|Supported***|
-
-*: When a policy is applied to a scope, the enforcement is to all of the members within the scope  Ex. On a Resource Group, it only applies to the resources under it.
-
-**: Tags can be applied across scopes and are added to resources individually. Azure Policy has built-in policies that can help manage tags.
-
-***: Azure tags can be used as criteria within Azure Policy to apply policies to certain resources. Azure tags are subject to limitations.
+[!INCLUDE [scenario-comparison](../../includes/scenario-comparison.md)]
 
 ### Important facts about service groups
 
