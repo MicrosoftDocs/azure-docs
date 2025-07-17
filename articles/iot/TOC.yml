@@ -137,14 +137,3 @@ items:
         href: ../azure-maps/index.yml
       - name: Time Series Insights
         href: ../time-series-insights/index.yml
-    - name: Azure IoT SDKs
-      items:
-      - name: Device and service SDKs
-        href: iot-sdks.md
-      - name: Azure IoT Operations SDKs
-        href: https://github.com/Azure/iot-operations-sdks
-    - name: Azure IoT Tools for VS Code
-      href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
-    - name: Azure IoT Explorer tool
-      href: https://github.com/Azure/azure-iot-explorer
-

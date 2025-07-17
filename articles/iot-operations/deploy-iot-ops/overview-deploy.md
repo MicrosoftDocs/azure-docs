@@ -5,7 +5,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.topic: conceptual
 ms.custom:
-ms.date: 04/28/2025
+ms.date: 07/16/2025
 
 #CustomerIntent: As an IT professional, I want to understand the components and deployment details before I start using Azure IoT Operations.
 ---
@@ -18,8 +18,8 @@ When you deploy Azure IoT Operations, you install a suite of services on an Azur
 
 [!INCLUDE [supported-environments-table](../includes/supported-environments-table.md)]
 
->[!NOTE]
->Billing usage records are collected on any environment where Azure IoT Operations is installed, regardless of support or availability levels.
+> [!NOTE]
+> Billing usage records are collected on any environment where Azure IoT Operations is installed, regardless of support or availability levels.
 
 To install Azure IoT Operations, have the following hardware requirements available for Azure IoT Operations. If you're using a multi-node cluster that enables fault tolerance, scale up to the recommended capacity for better performance.
 
@@ -29,8 +29,8 @@ To install Azure IoT Operations, have the following hardware requirements availa
 | Available memory for Azure IoT Operations (RAM) | 10-GB | Depends on usage |
 | CPU  | 4 vCPUs | 8 vCPUs     |
 
->[!NOTE]
->The minimum configuration is appropriate when running AIO only.
+> [!NOTE]
+> The minimum configuration is appropriate when running AIO only.
 
 ## Choose your features
 
@@ -38,26 +38,33 @@ Azure IoT Operations offers two deployment modes. You can choose to deploy with 
 
 ### Test settings deployment
 
-A deployment with only test settings:
+A deployment with only test settings has the following characteristics:
 
-* Doesn't configure secrets or user-assigned managed identity capabilities.
-* Is meant to enable the end-to-end quickstart sample for evaluation purposes, so supports the OPC PLC simulator and connects to cloud resources using system-assigned managed identity.
-* Can be upgraded to use secure settings.
+* It doesn't configure secrets or user-assigned managed identity capabilities.
+* It's meant to enable the end-to-end quickstart sample for evaluation purposes, so supports the OPC PLC simulator and connects to cloud resources using system-assigned managed identity.
+* It can be upgraded to use secure settings.
 
-The quickstart scenario, [Quickstart: Run Azure IoT Operations in GitHub Codespaces](../get-started-end-to-end-sample/quickstart-deploy.md), uses test settings.
+For a quickstart experience, you can use the [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) scenario. This scenario uses a lightweight Kubernetes distribution (K3s) and runs in GitHub Codespaces, so you don't need to set up a cluster or install any tools locally.
 
-At any point, you can upgrade an Azure IoT Operations instance to use secure settings by following the steps in [Enable secure settings](howto-enable-secure-settings.md).
+To deploy Azure IoT Operations with test settings, follow these articles:
+
+1. Start with [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) to configure and Arc-enable your cluster.
+1. Then, follow the steps in [Deploy Azure IoT Operations to a test cluster](./howto-deploy-iot-test-operations.md).
+
+> [!TIP]
+> At any point, you can upgrade an Azure IoT Operations instance to use secure settings by following the steps in [Enable secure settings](howto-enable-secure-settings.md).
 
 ### Secure settings deployment
 
-A deployment with secure settings:
+A deployment with secure settings has the following characteristics:
 
-* Enables secrets and user-assignment managed identity, both of which are important capabilities for developing a production-ready scenario. Secrets are used whenever Azure IoT Operations components connect to a resource outside of the cluster; for example, an OPC UA server or a data flow endpoint.
+* It's meant for production-ready scenarios.
+* It enables secrets and user-assignment managed identity, both of which are important capabilities for developing a production-ready scenario. Secrets are used whenever Azure IoT Operations components connect to a resource outside of the cluster; for example, an OPC UA server or a data flow endpoint.
 
 To deploy Azure IoT Operations with secure settings, follow these articles:
 
 1. Start with [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) to configure and Arc-enable your cluster.
-1. Then, [Deploy Azure IoT Operations](./howto-deploy-iot-operations.md).
+1. Then, follow the steps in [Deploy Azure IoT Operations to a production cluster](./howto-deploy-iot-operations.md).
 
 ## Required permissions
 
@@ -92,8 +99,8 @@ If you use enterprise firewalls or proxies to manage outbound traffic, configure
 
 * Endpoints in the [Azure Arc-enabled Kubernetes endpoints](/azure/azure-arc/network-requirements-consolidated#azure-arc-enabled-kubernetes-endpoints).
 
-  >[!NOTE]
-  >If you use *Azure Arc Gateway* to connect your cluster to Arc, you can configure a smaller set of endpoints based on the [Arc Gateway guidance](/azure/azure-arc/servers/arc-gateway#step-3-ensure-the-required-urls-are-allowed-in-your-environment).
+  > [!NOTE]
+  > If you use *Azure Arc Gateway* to connect your cluster to Arc, you can configure a smaller set of endpoints based on the [Arc Gateway guidance](/azure/azure-arc/servers/arc-gateway#step-3-ensure-the-required-urls-are-allowed-in-your-environment).
 
 * Endpoints in [Azure CLI endpoints](/cli/azure/azure-cli-endpoints?tabs=azure-cloud#endpoints).
 
