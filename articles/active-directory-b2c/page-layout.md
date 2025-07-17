@@ -231,7 +231,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 > If you localize your page to support multiple locales, or languages in a user flow. The [localization IDs](localization-string-ids.md) article provides the list of localization IDs that you can use for the page version you select.
 
 **2.1.24**
-- This release fixes rendering issues for French accents in the CAPTCHA input. Previously, accented characters would not display correctly due to font or encoding limitations; these issues have now been resolved, ensuring proper display of all French-specific characters.
+- This release resolves issues with French accents in the CAPTCHA input. Accented characters now appear correctly, and font and encoding limitations no longer affect their display. All French-specific characters show as intended.
 
 **2.1.23**
 - Enhanced CAPTCHA error handling now ensures that any validation failures—such as “unmatched challenge”—returned by the backend are consistently captured and displayed in the UI.
