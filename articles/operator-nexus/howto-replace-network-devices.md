@@ -38,7 +38,7 @@ Device replacement may be required in the following situations:
     - Interface Speed Validation
 
         - Confirm that the ma1 interface speed is set to 100 Mbps or higher.
-        
+
         - If the speed is below 100 Mbps, update it accordingly to prevent delays or potential timeouts during the RMA process.
 
     - Device Storage Check
@@ -49,16 +49,7 @@ Device replacement may be required in the following situations:
 
 ## Steps to replace a device
 
-1. Shutdown and remove the device from service (If reachable).
-
-If the original device is still reachable and connected to the Network Fabric:
-
-Manually power it down and remove it from service.
-
-> [!Important]
-> This step is manual and applicable only if the device is responsive.
-
-2. Disable administrative state.
+1. Disable administrative state.
 
 Use the following command to disable the administrative state of the device:
 
@@ -81,7 +72,7 @@ This action:
     
     - Fabric upgrades
 
-3. Update the serial number.
+2. Update the serial number.
 
 Once the replacement device is physically installed, update its serial number in the fabric resource:
 
@@ -92,14 +83,14 @@ az networkfabric device update \
   --resource-group "resource-group-name"
 ```
 
-4. Ensure device is in ZTP Mode.
+3. Ensure device is in ZTP Mode.
 
 Verify that the replacement device is in ZTP mode. If not, configure the device for ZTP before continuing.
 
 > [!Note]
 > ZTP enables automatic configuration retrieval during the RMA process.
 
-5. Set RMA State.
+4. Set RMA State.
 
 Initiate the RMA process using the following command:
 
@@ -116,6 +107,16 @@ This will:
 
 - Retry the operation if there is transient failures until success is confirmed.
 
+5. Refresh configuration
+
+This step pushes the latest configuration to the device after it enters maintenance mode (applicable only for CE and TOR).
+
+```Azure CLI
+az networkfabric device refresh-configuration --resource-name <resource-name> --resource-group <rg-name>
+```
+
+This will push the latest config to the device.
+
 6. Enable administrative state.
 
 Once configuration is applied successfully, bring the device back into active service:
@@ -129,7 +130,6 @@ az networkfabric device update-admin-state \
 
 This will: 
 
-- Performs a partial reconcile of the device state.
 - Sets device state to Enabled once it's fully healthy and synchronized with the fabric.
 
 ## Summary
