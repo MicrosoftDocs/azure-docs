@@ -1,7 +1,7 @@
 ---
 title: Deploy Azure DevTest Labs (Enterprise Reference Architecture)
-description: View a reference architecture and considerations for deploying Azure DevTest Labs in an enterprise.
-ms.topic: how-to
+description: Review a reference architecture and considerations for deploying Azure DevTest Labs in an enterprise.
+ms.topic: concept-article
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 07/22/2025
@@ -16,7 +16,7 @@ ms.custom: UpdateFrequency2
 This article provides a reference architecture for deploying Azure DevTest Labs in an enterprise. The architecture includes the following key elements:
 
 - On-premises connectivity via Azure ExpressRoute
-- A remote desktop gateway to remotely sign in to virtual machines (VMs)
+- A remote desktop gateway for remote sign-ins to virtual machines (VMs)
 - Connectivity to a private artifact repository
 - Other platform as a service (PaaS) components that labs use
 
@@ -66,11 +66,11 @@ DevTest Labs has no built-in quotas or limits, but other Azure resources that la
   - [All VMs go in the same resource group](resource-group-control.md). This strategy helps you meet the resource group limit, but it affects the resource-type-per-resource-group limit.
   - [Use shared public IPs](devtest-lab-shared-ip.md). If VMs are allowed to have public IP addresses, put all VMs of the same size and region into the same resource group. This configuration can help you meet both resource group quotas and resource-type-per-resource-group quotas.
 
-- Resources per resource group, per resource type. The default limit for [resources per resource group, per resource type is 800](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-group-limits). If you put all VMs in the same resource group,  you reach this limit much sooner, especially if the VMs have many extra disks.
+- Resources per resource group, per resource type. The default limit for [resources per resource group, per resource type is 800](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-group-limits). If you put all VMs in the same resource group, you reach this limit much sooner, especially if the VMs have many extra disks.
 
 - Storage accounts. Every lab in DevTest Labs comes with a storage account. The Azure quota for [number of storage accounts per region per subscription is 250](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits) by default. So the maximum number of DevTest Labs in one region is also 250. With a quota increase, you can create as many as 500 storage accounts per region. For more information, see [Increase Azure Storage account quotas](/azure/quotas/storage-account-quota-requests).
 
-- Role assignments. A role assignment gives a user or principal access to a resource. Azure has a limit of [2,000 role assignments per subscription](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits).
+- Role assignments. A role assignment gives a user or principal access to a resource. Azure has a limit of [4,000 role assignments per subscription](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits).
 
   By default, DevTest Labs creates a resource group for each lab VM. The VM creator gets *owner* permission for the VM and *reader* permission to the resource group. So each lab VM uses two role assignments. Granting user permissions to the lab also uses role assignments.
   
