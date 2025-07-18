@@ -131,7 +131,7 @@ By following the steps outlined here, the `network_features` argument in the `te
 
 Changing the network features for an Azure NetApp Files volume can impact the network features of other Azure NetApp Files volumes. Volumes in the same network sibling set must have the same network features setting. Therefore, before you change the network features of one volume, you must determine all volumes affected by the change using the Azure portal.
 
-1. Log in to the Azure portal. 
+1. Sign in to the Azure portal. 
 1. Navigate to the volume for which you want to change the network features option.
 1. Select the **Change network features**. ***Do **not** select Save.***
 1. Record the paths of the affected volumes then select **Cancel**. 
@@ -174,7 +174,7 @@ The `ignore_changes` feature is intended to be used when a resource’s referenc
     :::image type="content" source="./media/configure-network-features/terraform-plan-output.png" alt-text="Screenshot of terraform plan command output." lightbox="./media/configure-network-features/terraform-plan-output.png":::
 
     >[!IMPORTANT]
-    > As a safety precaution, execute `terraform plan` before executing `terraform apply`. The command `terraform plan` allows you to create a “plan” file, which contains the changes to your remote resources. This plan allows you to know if any of your affected volumes can be destroyed by running `terraform apply`.
+    > As a safety precaution, execute `terraform plan` before executing `terraform apply`. The command `terraform plan` allows you to create a "plan" file, which contains the changes to your remote resources. This plan allows you to know if any of your affected volumes can be destroyed by running `terraform apply`.
 
 1. Run `terraform apply` to update the `terraform.tfstate` file.
 
