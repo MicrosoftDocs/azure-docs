@@ -66,7 +66,7 @@ This table shows a summary of the differences between the groups.
 
 ### Scenario comparison
 
-[!INCLUDE [scenario-comparison](../../includes/scenario-comparison.md)]
+[!INCLUDE [scenario-comparison](../includes/scenario-comparison.md)]
 
 ### Important facts about service groups
 
