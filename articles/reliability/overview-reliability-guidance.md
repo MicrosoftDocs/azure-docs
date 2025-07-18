@@ -37,12 +37,11 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure AI Health Insights| [Reliability in Azure AI Health Insights](reliability-health-insights.md)||
 |Azure AI Search| | [Reliability in Azure AI Search](/azure/search/search-reliability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure API Center| [Reliability in Azure API Center](reliability-api-center.md) ||
-|Azure API Management||[Ensure API Management availability and reliability](../api-management/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p> [How to implement disaster recovery using service backup and restore](../api-management/api-management-howto-disaster-recovery-backup-restore.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
+|Azure API Management | [Reliability in Azure API Management](reliability-api-management.md) ||
 |Azure App Configuration||[How does App Configuration ensure high data availability?](../azure-app-configuration/faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-does-app-configuration-ensure-high-data-availability) </p> [Resiliency and disaster recovery](../azure-app-configuration/concept-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&tabs=core2x)|
 |Azure Application Gateway (V2)||[Autoscaling and High Availability](../application-gateway/application-gateway-autoscaling-zone-redundant.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Application Gateway for Containers| [Reliability in Azure Application Gateway for Containers](reliability-app-gateway-containers.md )    ||
 |Azure API for FHIR®||[Disaster recovery for Azure API for FHIR](../healthcare-apis/azure-api-for-fhir/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
-|Azure API Management||[Ensure API Management availability and reliability](../api-management/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) </p>[How to implement disaster recovery using service backup and restore](../api-management/api-management-howto-disaster-recovery-backup-restore.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure App Service| [Reliability in Azure App Service](reliability-app-service.md)||
 |Azure Backup| [Reliability in Azure Backup](reliability-backup.md)||
 |Azure Batch| [Reliability in Azure Batch](reliability-batch.md)||

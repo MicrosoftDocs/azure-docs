@@ -23,7 +23,7 @@ This article shows you how to integrate Adaptive Cards into your chat applicatio
 
 ## Explore Adaptive Card examples in Storybook
 
-For more information about adding Adaptive Cards in chat, see [Messages with Adaptive Card](https://aka.ms/acsstorybook).
+For more information about adding Adaptive Cards in chat, see [Messages with Adaptive Card](https://azure.github.io/communication-ui-library/?path=/docs/components-message-thread-messagethread-with-adaptive-card-message--docs).
 
 
 ## Clean up resources
