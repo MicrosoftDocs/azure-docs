@@ -15,7 +15,7 @@ Maintenance mode is a feature that allows enclave owners to temporarily place th
 ## Key features
 The following are the key features of Maintenance Mode:
 - *Exclusion from Deny Assignments*: Enclave owners can temporarily exclude themselves from deny assignments, enabling them to perform necessary maintenance tasks or create complex workloads.
-- *Privileged action*: As this is considered a privileged action, Azure recommends only using maintenance mode when performing certain elevated actions. Privileged users making changes should understand changes they're making, and steps to undo or remediate those changes.
+- *Privileged action*: As this is considered as a privileged action, Azure recommends only using maintenance mode when performing certain elevated actions. Privileged users making changes should understand changes they're making, and steps to undo or remediate those changes.
 - *User-friendly interface*: The feature is designed with a user-friendly interface, making it easy to activate and deactivate maintenance mode as needed.
 - *Enhanced flexibility*: Maintenance mode provides users with the flexibility to manage their workloads more effectively, ensuring that they can perform tasks without unnecessary interruptions.
 
@@ -66,29 +66,27 @@ The following are the key features of Maintenance Mode:
 - **Understand the impact**: Privileged users should fully understand the changes they're making, and steps to undo or remediate those changes. Making manual changes to underlying managed resources in an enclave while in maintenance mode might cause unintended drift in your environment from ideal states.
 
 ## Permissions managed by maintenance mode
-The following permissions are managed by maintenance mode and users will be blocked from performing these actions unless they are listed as a principal in the maintenance mode configuration for the enclave and maintenance mode is enabled.
+The following permissions are managed by maintenance mode and users are blocked from performing these actions unless they're listed as a principal in the maintenance mode configuration for the enclave and maintenance mode is enabled.
 
 ## Maintenance mode "Off"
 
 
 ### General maintenance mode
-General maintenance mode will not prevent any action for that enclave or community managed resource group for the maintenance mode principles (for example, users or groups) except these operations.  A user may still be limited by their assigned roles.
-
 When `General` maintenance mode is enabled, the maintenance mode `principals` (for example, users or groups) are excluded from the `Deny All` deny assignment for the community or enclave managed resource group. This allows the users identified in the maintenance mode principals to perform that actions that would otherwise be blocked by the `Deny All` deny assignment. The `Allow Dataplane Actions` deny assignments are still in effect for all principals (including the maintenance mode principals). A user may still be limited by their assigned roles.
 
-Deny Assignment: Deny All
+Deny Assignment: `Deny All`
 
 | Operation | Action Type | Explanation: maintenance mode principals | Explanation: All non-maintenance mode principals |
 |---------------------------------------------|--|----------|----------|
-| *	| Action | Allowed here but blocked by `Allow Dataplace Actions` deny assignment | Deny all actions except specified below |
+| *	| Action | Allowed here but blocked by `Allow Dataplace Actions` deny assignment | Deny all actions except specified in this table |
 | */read | NotAction | Allowed | Allow "read" actions on all resources |
 | Microsoft.Resources/tags/* | NotAction | Allowed | Allow "tags" actions on all resources |
 
-Deny Assignment: Allow Dataplane Actions
+Deny Assignment: `Allow Dataplane Actions`
 
 | Operation | Action Type | Explanation: maintenance mode principals | Explanation: All non-maintenance mode principals |
 |---------------------------------------------|--|----------|----------|
-| *	| Action | Deny all actions except specified below | Deny all actions except specified below |
+| *	| Action | Deny all actions except specified below | Deny all actions except specified in this table |
 | */read | NotAction | Allow "read" actions on all resources | Allow "read" actions on all resources |
 | Microsoft.Insights/alertRules/* | NotAction | Allow all actions on "alertRuels" | Allow all actions on "alertRuels" |
 | Microsoft.Resources/deployments/* | NotAction | Allow all actions on "deployments" | Allow all actions on "deployments" |
@@ -101,23 +99,21 @@ Deny Assignment: Allow Dataplane Actions
 | Microsoft.Authorization/policyExemptions/* | NotAction | Allow all actions on "policyExemptions" | Allow all actions on "policyExemptions" |
 
 ### Advanced maintenance mode
-Advanced maintenance mode will not prevent any actions for that enclave or community managed resource group for the maintenance mode principles (for example, users or groups). A user may still be limited by their assigned roles.
-
 When `Advanced` maintenance mode is enabled, the maintenance mode `principals` (for example, users or groups) are excluded from the `Deny All` and the `Allow Dataplace Actions` deny assignments for the community or enclave managed resource group. This allows the users identified in the maintenance mode principals to perform that actions that would otherwise be blocked by the `Deny All` and the `Allow Dataplace Actions` deny assignments. A user may still be limited by their assigned roles.
 
-Deny Assignment: Deny All
+Deny Assignment: `Deny All`
 
 | Operation | Action Type | Explanation: maintenance mode principals | Explanation: All non-maintenance mode principals |
 |---------------------------------------------|--|----------|----------|
-| *	| Action | Allowed | Deny all actions except specified below |
+| *	| Action | Allowed | Deny all actions except specified in this table |
 | */read | NotAction | Allowed | Allow "read" actions on all resources |
 | Microsoft.Resources/tags/* | NotAction | Allowed | Allow "tags" actions on all resources |
 
-Deny Assignment: Allow Dataplane Actions
+Deny Assignment: `Allow Dataplane Actions`
 
 | Operation | Action Type | Explanation: maintenance mode principals | Explanation: All non-maintenance mode principals |
 |---------------------------------------------|--|----------|----------|
-| *	| Action | Allowed | Deny all actions except specified below |
+| *	| Action | Allowed | Deny all actions except specified in this table |
 | */read | NotAction | Allowed | Allow "read" actions on all resources |
 | Microsoft.Insights/alertRules/* | NotAction | Allowed | Allow all actions on "alertRuels" |
 | Microsoft.Resources/deployments/* | NotAction | Allowed | Allow all actions on "deployments" |
