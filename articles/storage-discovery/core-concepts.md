@@ -13,7 +13,7 @@ ms.author: shaas
 The concepts and terminology used throughout this documentation are defined below.
 
 ### Azure Storage Discovery Workspace (ASDW) 
-The Azure Storage Discovery Workspace is the resource used to deploy and manage Storage Discovery in your subscription. It defines the scope of analysis - such as subscriptions or resource groups and once created, it enables visibility into capacity, transactions, and configuration trends across selected storage accounts.
+The Azure Storage Discovery Workspace is the resource used to deploy and manage Storage Discovery in your subscription. It defines the scope of analysis - such as subscriptions or resource groups and once created, it enables visibility into capacity, transactions, and configuration trends across storage accounts within the selected "scope".
 
 ### Workspace Root
 Azure Resource Manager (ARM) resource identifiers that define the root-level boundaries of an Azure Storage Discovery Workspace (ASDW). These roots specify the top-level Azure resources - such as subscriptions and/or resource groups - over which the discovery workspace will operate.
@@ -43,10 +43,10 @@ Deploying Azure Storage Discovery workspace in one of your Azure subscriptions i
 
 ## Select a subscription and region for Azure Storage Discovery workspace deployment
 
-Azure Storage Discovery workspace can be deployed in a subscription of your choice and in one of the supported regions as described. 
+Azure Storage Discovery workspace can be deployed in a subscription of your choice and in one of the supported region.  
 [!INCLUDE [control-plane-regions](includes/control-plane-regions.md)]
 
-Once created, a Discovery workspace can aggregate metrics from storage accounts within its "Scope", regardless of whether those accounts reside in different regions. 
+Once a discovery workspace is created in a specific region, it can aggregate metrics from storage accounts located across a broader set of supported regions, irrespective of the region in which the discovery workspace itself resides.
 [!INCLUDE [data-plane-regions](includes/data-plane-regions.md)]
 
 ## Permissions
@@ -55,7 +55,7 @@ To deploy a Discovery Workspace, user must have following access:
 
 | Scenario | Minimal RBAC role assignments needed |
 |---|---| 
-| To deploy Discovery workspace | Contributor access on the subscription | 
+| To deploy Discovery workspace | Contributor access on the subscription or the resource group| 
 | To include the subscription or resource groups in a Discovery workspace as part of *workspaceRoots* | Microsoft.Storage/storageAccounts/read access on the subscription or resource group | 
 | To view Discovery reports | Reader access on the Discovery workspace |
 
@@ -66,7 +66,7 @@ Storage Discovery is available in two different SKUs or pricing plans.
 | Pricing Plan | Best for | Capacity | Transactions | Configuration | History |
 |---|---|---|---|---|---|
 | Free | Small-scale deployments and evaluation | • Trends<br>• Distributions<br>• Top storage accounts | Not available | • Resource configuration | • Backfill: 15 days<br>• Retention: 15 days |
-| Standard | Production deployments with comprehensive insights | • Trends<br>• Distributions<br>• Top storage accounts | • Trends<br>• Distributions<br>• Top storage accounts | • Resource configuration<br>• Security configuration | • Backfill: 30 days<sup>1</sup> <br>• Retention: 18 months |
+| Standard | Production deployments with comprehensive insights | • Trends<br>• Distributions<br>• Top storage accounts | • Trends<br>• Distributions<br>• Top storage accounts | • Resource configuration<br>• Security configuration | • Backfill: 30 days <br>• Retention: 18 months |
 
-<sup>1</sup> Storage Discovery will soon support 6 months of historical data through upcoming backfill enhancements for Standard pricing plan.<br><br>
+<br><br>
 Refer [Storage Discovery Pricing page](pricing.md) for more details.

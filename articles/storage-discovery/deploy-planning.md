@@ -14,8 +14,7 @@ Azure Storage Discovery empowers organizations to gain deep, actionable insights
 
 ## Workspace Region Availability
 
-Azure Storage Discovery Workspaces (ASDW) are the foundational resource for configuring and visualizing your storage insights. During the preview phase, workspaces can be created in the following Azure regions:
-
+Azure Storage Discovery Workspaces (ASDW) are the foundational resource for configuring and visualizing your storage insights.
 [!INCLUDE [control-plane-regions](includes/control-plane-regions.md)]
 
 ### What This Means for You
@@ -37,7 +36,6 @@ When selecting a region for your workspace:
 ## Regions for Storage Insights Aggregation
 
 While the workspace defines where your insights are processed and stored, the actual data being analyzed comes from storage accounts across multiple regions.
-
 [!INCLUDE [data-plane-regions](includes/data-plane-regions.md)]
 
 ### What This Means for You
@@ -58,7 +56,7 @@ To maximize the value of Azure Storage Discovery:
 1. **Deploy your workspace in a supported region**: Ensure your chosen region is enabled for workspace creation.
 2. **Define scopes strategically**: Use tenant, subscription, or resource group levels to group storage accounts logically.
 3. **Use tags for filtering**: Apply Azure tags to storage accounts to selectively include them in your discovery scope.
-4. **Verify access**: Ensure users have Contributor access to the ASDW resource to view reports.
+4. **Verify access**: Ensure users have Reader access to the ASDW resource to view reports.
 5. **Allow time for data to populate**: Metrics typically begin appearing within 24 hours of scope configuration.
 
 For questions or feedback, contact the team at [StorageDiscovery@microsoft.com](mailto:StorageDiscovery@microsoft.com).

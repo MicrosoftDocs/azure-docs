@@ -21,7 +21,7 @@ For each Discovery workspace, you can select from free or paid options. The numb
 | Discovery pricing plan | Description |
 |---|---| 
 | Free | Includes limited Capacity and Resource configuration insights for up to 15 days with daily updates of the data. | 
-| Standard | Includes insights for Capacity, Operations, Resource and security configurations. Upon workspace creation, historic data is aggregated for the prior 15 days and all data is retained for up to 18 months.| 
+| Standard | Includes insights for Capacity, Operations, Resource and security configurations with hourly updates. Upon workspace creation, historic data is aggregated for the prior 30 days and all data is retained for up to 18 months.| 
 
 ### Azure Storage Discovery meters
 
