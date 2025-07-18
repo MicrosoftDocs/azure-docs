@@ -6,8 +6,8 @@ ms.date: 06/11/2025
 ms.reviewer: sharrai
 ms.service: azure-backup
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As an Azure administrator, I want to configure an Enhanced backup policy for Azure VMs so that I can utilize advanced backup features like frequent snapshots and zonal resiliency to ensure better data protection and recovery options.
 ---
 # Back up an Azure VM using Enhanced policy
