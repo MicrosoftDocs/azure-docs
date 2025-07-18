@@ -4,7 +4,7 @@ description: Learn how SRE Agent uses different security contexts to handle agen
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
-ms.date: 07/16/2025
+ms.date: 07/17/2025
 ms.service: azure
 ---
 
@@ -71,10 +71,10 @@ The following table details how the agent behaves when attempting to conduct a r
 
 | Agent has permission? | Execution mode | Agent behavior |
 |---|---|---|
-| Yes | Review | Reads required data and doesn't prompt for approval |
-| No | Review | Prompts for approval to take action |
-| Yes | Auto | Executes action without requiring approval |
-| No | Auto | Prompts for approval, and executes action based on approval status |
+| Yes | Review | Uses its permissions to perform the action. |
+| No | Review | Prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow). |
+| Yes | Auto | Uses its permissions to perform the action |
+| No | Auto | Prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
 
 ### Write actions
 
@@ -82,10 +82,10 @@ The following table details how the agent behaves when attempting to conduct a w
 
 | Agent has permission? | Execution mode | Agent behavior |
 |---|---|---|
-| Yes | Review | Prompts for approval to take action |
-| No | Review | Prompts for approval to take action, if granted the agent temporarily inherits the required permissions from the user |
-| Yes | Auto | Executes action without requiring approval |
-| No | Auto | Prompts for approval, and executes action based on approval status |
+| Yes | Review | Prompts for approval to take action, then the agent uses its permissions to perform the action upon approval |
+| No | Review | First prompts for approval to take action, then prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
+| Yes | Auto | Uses its permissions to perform the action |
+| No | Auto | Prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
 
 ## Related content
 
