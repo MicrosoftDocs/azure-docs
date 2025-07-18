@@ -70,23 +70,21 @@ IoT Edge for Linux on Windows updates are serviced using Microsoft Update channe
 
 - **Manually manage Microsoft Updates** - To opt in to Microsoft Updates, see [Opt-In to Microsoft Update](/windows/win32/wua_sdk/opt-in-to-microsoft-update).
 
-## Migration between EFLOW 1.1LTS and EFLOW 1.4LTS
+## Migration between EFLOW with Azure Linux 2.0 to EFLOW with Azure Linux 3.0
 
-IoT Edge for Linux on Windows doesn't support migrations between the different release trains. If you want to move from the 1.1LTS or 1.4LTS version to the Continuous Release (CR) version or viceversa, you have to uninstall the current version and install the new desired version. 
-
-Migration between EFLOW 1.1LTS to EFLOW 1.4LTS was introduced as part of EFLOW 1.1LTS [(1.1.2212.12122)](https://aka.ms/AzEFLOWMSI-Update-1_1_2212_12122) update. This migration handles the EFLOW VM migration from 1.1LTS version to 1.4LTS version, including the following:
+Migration between Azure Linux 2.0 and Azure Linux 3.0 was introduced as part of EFLOW 1.5.5.07025 update. This migration handles the EFLOW VM migration from EFLOW 1.5.4.07025 with Azure Linux 2.0 to EFLOW 1.5.5.07025 with Azure Linux 3.0, including the following:
 - IoT Edge runtime
 - IoT Edge configurations
 - Containers
 - Networking and VM configuration
 - Stored files
 
-To migrate between EFLOW 1.1LTS to EFLOW 1.4LTS, use the following steps.
+To migrate from EFLOW 1.5.4.07025 with Azure Linux 2.0 to EFLOW 1.5.5.07025 with Azure Linux 3.0, use the following steps.
 
-1. Get the latest Azure EFLOW 1.1LTS [(1.1.2212.12122)](https://aka.ms/AzEFLOWMSI-Update-1_1_2212_12122) update. If you're using Windows Update, *Check Updates* to get the latest EFLOW update.
-1. For auto-download migration (needs internet connection), skip this step. If the EFLOW VM has limited/no internet access, download the necessary files before starting the migration.
-    - [1.4.2.12122 Standalone MSI](https://aka.ms/AzEFLOW-Update-1_1-to-1_4_SA)
-    - [1.4.2.12122 Update MSI](https://aka.ms/AzEFLOW-Update-1_1-to-1_4_Update)
+1. Get the latest Azure EFLOW 1.5.4.07025 update. If you're using Windows Update, *Check Updates* to get the latest EFLOW update.
+1. For auto-download migration (needs internet connection), skip this step. If the EFLOW VM has limited/no internet access, download the necessary files before starting the migration (download one of the following).
+    - [1.5.5.07025 x64 Update MSI](https://aka.ms/AzEFLOW-Update-azl2-to-azl3_Update_x64)
+    - [1.5.5.07025 ARM64 Update MSI](https://aka.ms/AzEFLOW-Update-azl2-to-azl3_Update_arm64)
 1. Open an elevated PowerShell session
 1. Start the EFLOW migration
 
@@ -97,22 +95,22 @@ To migrate between EFLOW 1.1LTS to EFLOW 1.4LTS, use the following steps.
         ```powershell
         Start-EflowMigration
         ```
-    1. If you downloaded the MSI in **Step 2**, use the downloaded files to apply the migration.
+    1. If you downloaded the MSI in **Step 2**, use the downloaded files to apply the migration (replace "X64" with "ARM64" in the filepath if using ARM64).
         ```powershell
-        Start-EflowMigration -standaloneMsiPath "<path-to-folder>\AzureIoTEdge_LTS_1.4.2.12122_X64.msi" 
+        Start-EflowMigration -standaloneMsiPath "<path-to-folder>\AzureIoTEdge_Update_LTS_1.5.5.07025_X64.msi" 
         ```
 1. Confirm the EFLOW migration
     1. If you're using the auto-download migration option, run the following cmdlet
         ```powershell
         Confirm-EflowMigration
         ```
-    1. If you downloaded the MSI in **Step 2**, use the downloaded files to apply the migration.
+    1. If you downloaded the MSI in **Step 2**, use the downloaded files to apply the migration (replace "X64" with "ARM64" in the filepath if using ARM64).
         ```powershell
-        Confirm-EflowMigration -updateMsiPath "<path-to-folder>\AzureIoTEdge_LTS_Update_1.4.2.12122_X64.msi" 
+        Confirm-EflowMigration -updateMsiPath "<path-to-folder>\AzureIoTEdge_Update_LTS_1.5.5.07025_X64.msi" 
         ```
 
 >[!WARNING]
-> If the migration fails for any reason, the EFLOW VM is restored to its original 1.1LTS version.
+> If the migration fails for any reason, the EFLOW VM is restored to its original EFLOW 1.5.4.07025 version with Azure Linux 2.0.
 > To cancel the migration or manually restore the EFLOW VM to its prior state, run the `Start-EflowMigration` cmdlet and then `Restore-EflowPriorToMigration`.
 
 For more information, check `Start-EflowMigration`, `Confirm-EflowMigration` and `Restore-EflowPriorToMigration` cmdlet documentation by using the `Get-Help <cmdlet> -full` command. 
