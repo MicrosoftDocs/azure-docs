@@ -30,7 +30,7 @@ An individual VM is sometimes called a *single instance VM*, and it runs in one 
 
 An individual VM is sometimes called a *single instance VM*. It runs on a specific host - a physical server - rather than being distributed across multiple servers. Most VMs share their host with other VMs.
 
-Azure provides you with the ability to control where a VM runs, and to make tradeoffs between different factors like reliability and latency:
+Azure gives you control over where your virtual machines (VMs) run by letting you make tradeoffs between reliability, latency, and proximity. These options help you influence how Azure places your VM on that underlying infrastructure:
 
 - **Region:** You can select which [Azure region](./regions-overview.md) your VM should run in. A region is a broad geographic area that contains multiple datacenters and hosts.
 
