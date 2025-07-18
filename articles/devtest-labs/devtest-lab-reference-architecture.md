@@ -1,12 +1,14 @@
 ---
-title: Deploy Azure DevTest Labs (enterprise reference architecture)
-description: See a reference architecture and considerations for Azure DevTest Labs in an enterprise.
+title: Deploy Azure DevTest Labs (Enterprise Reference Architecture)
+description: View a reference architecture and considerations for deploying Azure DevTest Labs in an enterprise.
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 09/30/2023
+ms.date: 07/22/2025
 ms.reviewer: christianreddington,anthdela,juselph
 ms.custom: UpdateFrequency2
+
+#customer intent: 
 ---
 
 # DevTest Labs enterprise reference architecture
