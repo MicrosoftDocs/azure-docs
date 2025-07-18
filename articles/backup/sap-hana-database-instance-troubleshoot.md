@@ -4,8 +4,8 @@ description: This article describes how to troubleshoot common errors that might
 ms.topic: troubleshooting
 ms.date: 09/30/2024
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to troubleshoot backup errors for SAP HANA instances, so that I can ensure successful backups and optimal performance of my database workloads."
 ---
 

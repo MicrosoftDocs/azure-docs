@@ -5,8 +5,8 @@ ms.topic: overview
 ms.date: 02/28/2025
 ms.service: azure-backup
 ms.custom: engagement-fy24
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a system administrator, I want to implement the MARS agent for Azure Backup, so that I can efficiently back up and recover files, folders, and system states from on-premises computers to Azure."
 ---
 
