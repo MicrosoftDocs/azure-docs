@@ -84,12 +84,12 @@ You don't need to configure anything on your Application Gateway for the backend
 * For V2 SKUs: the connections to backend servers will always be with preferred TLS v1.3 and minimum up to TLS v1.2
 * For V1 SKUs: the connections to backend servers will always be with TLS v1.2
 
-You must ensure that your servers in the backend pools are compatible with these updated protocol versions. This compatibility avoids any disruptions when establishing a TLS/HTTPS connection with those backend servers.
+You must ensure that your servers in the backend pools are compatible with these updated protocol versions. This compatibility avoids any disruptions when establishing an TLS/HTTPS connection with those backend servers.
 
 ## Identification methods
 
 ### Metrics
-To determine whether clients connecting to your Application Gateway resource are utilising TLS 1.0 or 1.1, use the `Client TLS protocol` metric provided by Application Gateway. For further details, see the [metrics documentation](monitor-application-gateway-reference.md#metrics). You can view it from the Portal by following these steps.
+To determine whether clients connecting to your Application Gateway resource are utilizing TLS 1.0 or 1.1, use the `Client TLS protocol` metric provided by Application Gateway. For more information, see the [metrics documentation](monitor-application-gateway-reference.md#metrics). You can view it from the Portal by following these steps.
 
 1. Go to the Application Gateway resource in the Azure portal.
 2. In the left menu pane, open the "Metrics" blade in Monitoring section.
