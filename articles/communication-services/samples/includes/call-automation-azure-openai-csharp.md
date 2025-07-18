@@ -33,7 +33,7 @@ This server-side application helps you create a virtual assistant that can handl
 
 Before you run this sample, you need to set up the resources with the following configuration updates.
 
-#### 1. Set up and host your dev tunnel
+#### Step 1: Set up and host your dev tunnel
 
 With [dev tunnels](/azure/developer/dev-tunnels/overview), you can share local web services that are hosted on the internet. Use the commands to connect your local development environment to the public internet. This process creates a tunnel with a persistent endpoint URL and allows anonymous access. We use this endpoint to notify your application of calling events from Call Automation.
 
@@ -43,7 +43,7 @@ devtunnel port create -p 5165
 devtunnel host
 ```
 
-#### 2. Add the required API keys and endpoints
+#### Step 2: Add the required API keys and endpoints
 
 Open the appsettings.json file to configure the following settings:
 

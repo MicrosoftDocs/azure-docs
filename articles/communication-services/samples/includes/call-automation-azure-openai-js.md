@@ -38,7 +38,7 @@ This server-side application helps you create a virtual assistant that can handl
 1. Use the command `cd` to access the `callautomation-az-openai-voice` folder.
 1. From the root of the folder, and with a node installed, run `npm install`.
 
-#### 1. Set up and host your dev tunnel
+#### Step 1: Set up and host your dev tunnel
 
 With [dev tunnels](/azure/developer/dev-tunnels/overview), you can share local web services that are hosted on the internet. Use the commands to connect your local development environment to the public internet. This process creates a tunnel with a persistent endpoint URL and allows anonymous access. We use this endpoint to notify your application of calling events from Call Automation.
 
@@ -48,7 +48,7 @@ devtunnel port create -p 8080
 devtunnel host
 ```
 
-#### 2. Add the required API keys and endpoints
+#### Step 2: Add the required API keys and endpoints
 
 Open the `.env` file to configure the following settings:
 

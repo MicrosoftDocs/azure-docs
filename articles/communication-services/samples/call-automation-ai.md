@@ -1,7 +1,7 @@
 ---
 title: Call Automation AI Sample
 titleSuffix: An Azure Communication Services sample overview
-description: This Call Automation AI hero sample that uses Azure Communication Services enables developers to learn how to incorporate AI into their workflows.
+description: This Call Automation AI hero sample that uses Azure Communication Services shows developers how to incorporate AI into their workflows.
 author: kpunjabi
 manager: visho
 services: azure-communication-services

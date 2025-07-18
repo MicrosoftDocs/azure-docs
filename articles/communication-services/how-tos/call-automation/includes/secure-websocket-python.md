@@ -1,6 +1,6 @@
 ---
-title: include file
-description: Python websocket callback security
+title: Include file
+description: Python WebSocket callback security
 services: azure-communication-services
 author: Kunaal Punjabi
 ms.service: azure-communication-services

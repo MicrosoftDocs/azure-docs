@@ -26,7 +26,7 @@ This Azure Communication Services Call Automation AI sample demonstrates how to 
 - An Azure account with an active subscription. For more information, see [Create an account for free](https://azure.microsoft.com/free/).
 - An Azure Communication Services resource. For more information, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). You need to record your resource *connection string* for this sample.
 - A calling-enabled telephone number. For more information, see [Get a phone number](../../quickstarts/telephony/get-phone-number.md).
-- The Azure dev tunnel CLI. For more information, see [Enable dev tunnels](/azure/developer/dev-tunnels/get-started).
+- The Azure `devtunnel` CLI. For more information, see [Enable dev tunnels](/azure/developer/dev-tunnels/get-started).
 - An Azure AI services resource. For more information, see [Create an Azure AI services resource](/azure/ai-services/multi-service-resource).
 - An Azure OpenAI resource and deployed model. For more information, see [Create an Azure OpenAI resource and deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal).
 
@@ -34,7 +34,7 @@ This Azure Communication Services Call Automation AI sample demonstrates how to 
 
 Before you run this sample, you need to set up the resources mentioned in the preceding section with the following configuration updates.
 
-#### 1. Set up and host your dev tunnel
+#### Step 1: Set up and host your Azure dev tunnel
 
 With [dev tunnels](/azure/developer/dev-tunnels/overview), you can share local web services that are hosted on the internet. Use the following commands to connect your local development environment to the public internet. This process creates a tunnel with a persistent endpoint URL and allows anonymous access. We use this endpoint to notify your application of calling events from Call Automation.
 
@@ -46,11 +46,11 @@ devtunnel host
 
 <a name='2-add-a-managed-identity-to-the-acs-resource-that-connects-to-the-cognitive-services-resource'></a>
 
-#### 2. Add a managed identity to the Azure Communication Services resource that connects to the Azure AI services resource
+#### Step 2: Add a managed identity to the Azure Communication Services resource that connects to the Azure AI services resource
 
 Follow the instructions in [Connect Azure Communication Services with Azure AI services](/azure/communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration).
 
-#### 3. Add the required API keys and endpoints
+#### Step 3: Add the required API keys and endpoints
 
 Open the appsettings.json file to configure the following settings:
 

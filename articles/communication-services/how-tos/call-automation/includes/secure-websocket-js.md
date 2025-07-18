@@ -1,6 +1,6 @@
 ---
-title: include file
-description: JavaScript websocket callback security
+title: Include file
+description: JavaScript WebSocket callback security
 services: azure-communication-services
 author: Kunaal Punjabi
 ms.service: azure-communication-services

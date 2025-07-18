@@ -28,7 +28,7 @@ This Azure Communication Services Call Automation AI sample demonstrates how to 
 - A [phone number](../../quickstarts/telephony/get-phone-number.md) in your Azure Communication Services resource that can make outbound calls. Phone numbers aren't available in free subscriptions.
 - [Java Development Kit (JDK) Microsoft.OpenJDK.17](/java/openjdk/download).
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- A dev tunnel. For more information, see [Enable dev tunnels](/azure/developer/dev-tunnels/get-started).
+- An Azure dev tunnel. For more information, see [Enable dev tunnels](/azure/developer/dev-tunnels/get-started).
 - An Azure AI services resource. For more information, see [Create an Azure AI services resource](/azure/ai-services/multi-service-resource).
 - An Azure OpenAI resource and deployed model. For more information, see [Create an Azure OpenAI resource and deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal).
 
@@ -43,7 +43,7 @@ Open the application.yml file in the resources folder to configure the following
 - `azureOpenAiServiceEndpoint`: Azure OpenAI service endpoint.
 - `openAiModelName`: Azure OpenAI model name.
 
-### Set up and host your dev tunnel
+### Set up and host your Azure dev tunnel
 
 With [dev tunnels](/azure/developer/dev-tunnels/overview), you can share local web services that are hosted on the internet. Use the following commands to connect your local development environment to the public internet. This process creates a tunnel with a persistent endpoint URL and allows anonymous access. We use this endpoint to notify your application of calling events from Call Automation.
 

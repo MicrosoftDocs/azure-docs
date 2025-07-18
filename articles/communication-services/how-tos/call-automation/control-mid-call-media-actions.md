@@ -25,7 +25,7 @@ Call Automation supports other actions to manage calls and recordings that aren'
 
 - Read the Call Automation [concepts article](../../concepts/call-automation/call-automation.md#call-actions) that describes the action-event programming model and event callbacks.
 - Learn about the [user identifiers](../../concepts/identifiers.md#the-communicationidentifier-type) like `CommunicationUserIdentifier` and `PhoneNumberIdentifier` that are used in this article.
-- Learn more about [how to control and steer calls with Call Automation](./actions-for-call-control.md), which teaches you about dealing with the basics of dealing with a call.
+- Learn more about how to [control and steer calls with Call Automation](./actions-for-call-control.md), which teaches you about the basics of dealing with a call.
 
 For all the code samples, `client` is the `CallAutomationClient` object that you can create, as shown, and `callConnection` is the `CallConnection` object that you obtain from the `Answer` or `CreateCall` response. You can also obtain it from callback events that your application receives.
 

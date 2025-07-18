@@ -436,7 +436,7 @@ call_invite = CallInvite(
 -----
 No events are published for redirect. If the target is an Azure Communication Services user or a phone number that your resource owns, it generates a new `IncomingCall` event with the `to` field set to the target that you specify.
 
-## Transfer a participant in call
+## Transfer a participant in a call
 
 When your application answers a call or places an outbound call to an endpoint, your app can transfer the endpoint to another destination endpoint. Transferring a 1:1 call removes your application from the call and removes its ability to control the call by using Call Automation. The call invite to the target shows the caller ID of the endpoint being transferred. Providing a custom caller ID isn't supported.
 

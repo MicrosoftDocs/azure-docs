@@ -1,5 +1,5 @@
 ---
-title: include file
+title: Include file
 description: Python webhook callback security
 services: azure-communication-services
 author: Richard Cho
@@ -27,7 +27,7 @@ pip install flask pyjwt
 1. Configure your application to validate the JWT and the configuration of your Azure Communication Services resource. You need the `audience` value as it appears in the JWT payload.
 1. Validate the issuer, the audience, and the JWT:
    - The audience is your Azure Communication Services resource ID that you used to set up your Call Automation client. For information about how to get it, see [Get your Azure resource ID](../../../quickstarts/voice-video-calling/get-resource-id.md).
-   - The JSON Web Key Set (JWKS) endpoint in the OpenId configuration contains the keys that are used to validate the JWT. When the signature is valid and the token hasn't expired (within five minutes of generation), the client can use the token for authorization.
+   - The JSON Web Key Set endpoint in the OpenId configuration contains the keys that are used to validate the JWT. When the signature is valid and the token hasn't expired (within five minutes of generation), the client can use the token for authorization.
 
 This sample code demonstrates how to configure the OIDC client to validate a webhook payload by using JWT:
 

@@ -19,7 +19,7 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 Securing the delivery of messages from end to end is crucial for ensuring the confidentiality, integrity, and trustworthiness of sensitive information transmitted between systems. Your ability and willingness to trust information received from a remote system relies on the sender providing their identity. Call Automation has two ways of communicating events that can be secured: the shared `IncomingCall` event sent by Azure Event Grid and all other mid-call events sent by the Call Automation platform via webhook.
 
-## Incoming Call Event
+## Incoming call event
 
 Azure Communication Services relies on Azure Event Grid subscriptions to deliver the [IncomingCall event](../../concepts/call-automation/incoming-call-notification.md). For more information, see [Deliver events to Microsoft Entra protected endpoints](../../../event-grid/secure-webhook-delivery.md).
 

@@ -26,8 +26,8 @@ This Azure Communication Services Call Automation AI sample demonstrates how to 
 - An Azure account with an active subscription. For more information, see [Create an account for free](https://azure.microsoft.com/free/).
 - An Azure Communication Services resource. For more information, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). You need to record your resource *connection string* for this sample.
 - A calling-enabled telephone number. For more information, see [Get a phone number](../../quickstarts/telephony/get-phone-number.md).
-- A dev tunnel. For more information, see [Enable dev tunnels](/azure/developer/dev-tunnels/get-started).
-- An Azure AI multi-service resource. For more information, see [Create an Azure AI services resource](/azure/ai-services/multi-service-resource).
+- An Azure dev tunnel. For more information, see [Enable dev tunnels](/azure/developer/dev-tunnels/get-started).
+- An Azure AI multiservice resource. For more information, see [Create an Azure AI services resource](/azure/ai-services/multi-service-resource).
 - An Azure OpenAI resource and deployed model. For more information, see [Create an Azure OpenAI resource and deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal).
 - [Python](https://www.python.org/downloads/) 3.7 or later. Currently, version 3.12 doesn't have support for OpenAI libraries.
 
@@ -35,7 +35,7 @@ This Azure Communication Services Call Automation AI sample demonstrates how to 
 
 Before you run this sample, you need to set up the resources mentioned in the preceding section with the following configuration updates.
 
-##### 1. Set up a Python environment 
+##### Step 1: Set up a Python environment 
 
 Create and activate a Python virtual environment and install the required packages by using the following command:
 
@@ -43,7 +43,7 @@ Create and activate a Python virtual environment and install the required packag
 pip install -r requirements.txt
 ```
 
-#### 2. Set up and host your dev tunnel
+#### Step 2: Set up and host your Azure dev tunnel
 
 With [dev tunnels](/azure/developer/dev-tunnels/overview), you can share local web services that are hosted on the internet. Use the following commands to connect your local development environment to the public internet. This process creates a tunnel with a persistent endpoint URL and allows anonymous access. We use this endpoint to notify your application of calling events from Call Automation.
 
@@ -55,11 +55,11 @@ devtunnel host
 
 <a name='2-add-a-managed-identity-to-the-acs-resource-that-connects-to-the-cognitive-services-resource'></a>
 
-#### 3. Add a managed identity to the Azure Communication Services resource that connects to the Azure AI services resource
+#### Step 3: Add a managed identity to the Azure Communication Services resource that connects to the Azure AI services resource
 
 Follow the instructions in [Connect Azure Communication Services with Azure AI services](/azure/communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration).
 
-#### 4. Add the required API keys and endpoints
+#### Step 4: Add the required API keys and endpoints
 
 Open the `main.py` file to configure the following settings:
 

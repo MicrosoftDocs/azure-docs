@@ -71,8 +71,7 @@ CallConnected returnedEvent = eventResult.SuccessResult;
 
 With the event processor, you can easily wait for the `CallConnected` event until the call is established. If the call was never established (that is, the caller never picked up the phone), it throws a timeout exception. If the creation of the call otherwise fails, you receive `CallDisconnected` and `CreateCallFailed` events with error codes for further troubleshooting. For more information on Call Automation error codes, see [Troubleshooting call end response codes](./../../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md).
 
-> [!NOTE]
-> If a specific timeout wasn't given when you waited on the event processor, it waits until its default timeout happens. The default timeout is four minutes.
+If a specific timeout wasn't given when you waited on the event processor, it waits until its default timeout happens. The default timeout is four minutes.
 
 ## Use the play request's response to wait for Play events
 
@@ -119,8 +118,7 @@ eventProcessor.AttachOngoingEventProcessor<ParticipantsUpdated>(callConnectionId
 
 With this specific ongoing event processor, you can now print the number of participants or the participants on the call whenever people join or leave the call.
 
-> [!TIP]
-> You can attach an ongoing handler to any event type. This capability opens the possibility to build your application with a callback design pattern.
+You can attach an ongoing handler to any event type. This capability opens the possibility to build your application with a callback design pattern.
 
 ## Advanced: Use a predicate to wait for a specific event
 
