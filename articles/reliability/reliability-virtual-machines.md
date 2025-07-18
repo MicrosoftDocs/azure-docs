@@ -28,6 +28,8 @@ VMs are the fundamental compute unit in Azure, whether you provision the VMs you
 
 An individual VM is sometimes called a *single instance VM*, and it runs in one place. VMs run on a *host*, which is a physical server. Most VMs run on shared hosts.
 
+An individual VM is sometimes called a *single instance VM*. It runs on a specific host - a physical server - rather than being distributed across multiple servers. Most VMs share their host with other VMs.
+
 Azure provides you with the ability to control where a VM runs, and to make tradeoffs between different factors like reliability and latency:
 
 - **Region:** You can select which [Azure region](./regions-overview.md) your VM should run in.
