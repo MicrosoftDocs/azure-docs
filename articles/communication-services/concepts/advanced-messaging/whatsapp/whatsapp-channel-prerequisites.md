@@ -140,7 +140,9 @@ When following those instructions, here are helpful tips:
 
     :::image type="content" source="./media/facebook-login.png" lightbox="./media/facebook-login.png" alt-text="Screenshot that shows Facebook Sign-In screen.":::
 
-9. The next screen notifies you that the Azure Communication Services app will receive your name and profile picture. It gives permission to Azure Communication Services APIs to manage your WhatsApp Business Account. Select **Continue**.
+9. The next screen notifies you that the Azure Communication Services app will receive your name and profile picture. It gives permission to Azure Communication Services APIs to manage your WhatsApp Business Account. Select **Continue**. 
+
+    Note that from here on out, the experience is managed by Facebook and not Azure so the screens are subject to change. 
 
     :::image type="content" source="./media/facebook-authorization.png" lightbox="./media/facebook-authorization.png" alt-text="Screenshot that shows Facebook authorization page.":::
 
