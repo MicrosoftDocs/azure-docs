@@ -174,6 +174,12 @@ The `check` command displays a warning about missing data flows, which is normal
 
 You can check the configurations of topic maps, QoS, and message routes by adding the `--detail-level 2` parameter to the `check` command for a verbose view.
 
+You can view all versions of the Azure IoT Operations CLI extension that are available by running the following command:
+
+```azurecli
+az iot ops get-versions
+```
+
 ## Next steps
 
 The Azure IoT Operations instance you deployed is configured for testing scenarios. If you want to enable secure setting and prepare the instance for production scenarios, follow the steps in [Enable secure settings on an existing Azure IoT Operations instance](./howto-enable-secure-settings.md).
