@@ -34,7 +34,7 @@ The following table lists all the upcoming breaking changes and feature retireme
 | [ADAL-based Microsoft Entra ID identity provider retirement][msal2025] | September 30, 2025 |
 | [CAPTCHA endpoint update][captcha2025] | September 30, 2025 |
 | [Built-in analytics dashboard retirement][analytics2027] | March 15, 2027 |
-| [Managed certificates suspension][managed-certificates-suspension-august-2025] | August 15, 2025 |
+
 <!-- Links -->
 [bc1]: ./rp-source-ip-address-change-mar-2023.md
 [rp2023]: ./rp-source-ip-address-change-sep-2023.md 
