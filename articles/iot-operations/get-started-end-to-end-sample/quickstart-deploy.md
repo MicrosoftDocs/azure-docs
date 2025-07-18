@@ -78,7 +78,7 @@ To create your codespace and cluster, use the following steps:
    | LOCATION | An Azure region close to you. For the list of currently supported regions, see [Supported regions](../overview-iot-operations.md#supported-regions). |
 
    >[!TIP]
-   >The values you provide as secrets in this step get saved on your GitHub account to be used in this and future codespaces. They're added as environment variables in the codespace terminal, and you can use those environment variables in the CLI commands in the next section.
+   >The values you provide as secrets in this step get saved on your GitHub account to be used in this and future Codespaces. They're added as environment variables in the codespace terminal, and you can use those environment variables in the CLI commands in the next section.
    >
    >Additionally, this codespace creates a `CLUSTER_NAME` environment variable which is set with the codespace name.
 
@@ -108,7 +108,7 @@ To connect your cluster to Azure Arc:
    > If you're using the GitHub codespace environment in a browser rather than VS Code desktop, running `az login` returns a localhost error. To fix the error, either:
    >
    > * Open the codespace in VS Code desktop, and then return to the browser terminal and rerun `az login`.
-   > * Or, after you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
+   > * Or, after you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!"
 
 1. After you sign in, Azure CLI displays all of your subscriptions and indicates your default subscription with an asterisk `*`. To continue with your default subscription, select `Enter`. Otherwise, type the number of the Azure subscription that you want to use.
 
