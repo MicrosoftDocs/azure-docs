@@ -38,7 +38,7 @@ Commit Workflow v2 is built around a structured change management flow. The foll
 
 Before using Commit Workflow v2, ensure the following environment requirements are met:
 
-## Commit workflow comaptible versions
+## Commit workflow compatible versions
 
 The Commit Workflow version supported depends on the combination of Fabric runtime, portal release version, and API version in use. Use the table below to identify which Commit Workflow is applicable for your environment:
 
@@ -56,7 +56,7 @@ The Commit Workflow version supported depends on the combination of Fabric runti
 
 ### Required versions
 
-If you're unsure which Commit Workflow version applies to your setup, refer to the [Commit workflow comaptible versions](#Commit-workflow-comaptible-versions).
+If you're unsure which Commit Workflow version applies to your setup, refer to the [Commit workflow compatible versions](#Commit-workflow-compatible-versions).
 
 * **Runtime version**: `5.0.1` or later is required for Commit Workflow v2.
 
