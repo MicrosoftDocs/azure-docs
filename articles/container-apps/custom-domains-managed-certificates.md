@@ -47,7 +47,7 @@ The requirements are:
    1. Select the desired *Ingress traffic* setting.
    1. Enter the *Target port*.
    1. Select **Save**.
- 
+
 1. Under the *Settings* section, select **Custom domains**.
 
 1. Select **Add custom domain**.
@@ -63,7 +63,7 @@ The requirements are:
     | Apex domain | A record | An apex domain is a domain at the root level of your domain. For example, if your DNS zone is `contoso.com`, then `contoso.com` is the apex domain. |
     | Subdomain | CNAME | A subdomain is a domain that is part of another domain. For example, if your DNS zone is `contoso.com`, then `www.contoso.com` is an example of a subdomain that can be configured in the zone. |
 
-1. Using the DNS provider that is hosting your domain, create DNS records based on the *Hostname record type* you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you're the owner. 
+1. Using the DNS provider that is hosting your domain, create DNS records based on the *Hostname record type* you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you're the owner.
 
     - If you selected *A record*, create the following DNS records:
 
@@ -78,13 +78,12 @@ The requirements are:
         |--|--|--|
         | CNAME | The subdomain (for example, `www`) | The generated domain of your container app. |
         | TXT | `asuid.` followed by the subdomain (for example, `asuid.www`) | The domain verification code. |
-    
+
 1. Select **Validate**.
 
 1. Once validation succeeds, select **Add**.
 
     It might take several minutes to issue the certificate and add the domain to your container app.
-
 
 1. Once the operation is complete, you see your domain name in the list of custom domains with a status of *Secured*. Navigate to your domain to verify that it's accessible.
 
