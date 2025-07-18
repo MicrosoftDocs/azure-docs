@@ -14,7 +14,7 @@ ms.date: 07/24/2025
 
 # What is Azure Deployment Environments?
 
-Azure Deployment Environments empowers development teams to quickly and easily spin up app infrastructure with project-based templates that establish consistency and best practices while maximizing security. This on-demand access to secure environments speeds up the stages of the software development lifecycle in a compliant and cost-efficient way.
+Azure Deployment Environments empowers development teams to quickly and easily spin up app infrastructure with project-based templates that establish consistency and best practices while maximizing security. This on-demand access to secure environments speeds up the stages of the software development lifecycle in a compliant and cost-efficient way. This article provides an overview of Development Environments
 
 A [*deployment environment*](./concept-environments-key-concepts.md#environments) is a collection of Azure infrastructure resources defined in a template called an [*environment definition*](./concept-environments-key-concepts.md#environment-definitions). Developers can deploy infrastructure defined in the templates in subscriptions where they have access and build their applications on the infrastructure. For example, you can define a deployment environment that includes a web app, a database, and a storage account. Your web developer can begin coding the web app without worrying about the underlying infrastructure.
 
@@ -68,7 +68,7 @@ In this scenario:
 Deployment Environments provides the following benefits to creating, configuring, and managing environments in the cloud:
 
 - **Standardization and collaboration**.
-Capture and share IaC templates in source control within your team or organization, to easily create on-demand environments. Promote collaboration through inner-sourcing of templates from source control repositories.
+Capture and share IaC templates in source control within your team or organization to easily create on-demand environments. Promote collaboration through inner-sourcing of templates from source control repositories.
 
 - **Compliance and governance**.
 Platform engineering teams can curate environment definitions to enforce enterprise security policies and map projects to Azure subscriptions, identities, and permissions by environment types.
