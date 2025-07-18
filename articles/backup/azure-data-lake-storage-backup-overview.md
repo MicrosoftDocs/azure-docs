@@ -3,8 +3,8 @@ title: About Azure Data Lake Storage Vaulted Backup (preview)
 description: Learn how the Azure Data Lake Storage vaulted backup works
 ms.topic: overview
 ms.date: 06/20/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
 # Customer intent: As a data engineer, I want to understand the backup aspects before configuring vaulted backups for Azure Data Lake Storage, so that I can ensure reliable data protection and restore capabilities for my storage accounts.
 --- 
