@@ -64,7 +64,7 @@ To create an App Service Environment in the Azure portal, complete the following
 > [!NOTE]
 > If you use an existing subnet that has either a network security group or route table associated with it, you must either delegate the subnet to `Microsoft.web/hostingEnvironments` yourself or ensure you have have at a minimum the following RBAC permissions for your associated resources:
 > * `Microsoft.Network/routeTables/join/action`
-> `* Microsoft.Network/networkSecurityGroups/join/action`
+> * `Microsoft.Network/networkSecurityGroups/join/action`
 
    :::image type="content" source="./media/creation/creation-networking-internal.png" alt-text="Screenshot that shows App Service Environment networking (App Service Environment Internal) selections." border="true":::
 
