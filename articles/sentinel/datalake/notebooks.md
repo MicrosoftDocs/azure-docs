@@ -129,10 +129,21 @@ When the session is started, the code in the notebook runs and the results are d
 
 For sample notebooks that demonstrate how to interact with the Microsoft Sentinel data lake, see [Sample notebooks for Microsoft Sentinel data lake](./notebook-examples.md).
 
+## Use GitHub Copilot in notebooks
 
-## Microsoft Sentinel Provider class 
+Use GitHub Copilot to help you write code in notebooks. GitHub Copilot provides code suggestions and autocompletion based on the context of your code. To use GitHub Copilot, ensure that you have the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) installed in Visual Studio Code.
 
-To connect to the Microsoft Sentinel data lake,  use the `SentinelLakeProvider` class.
+Copy code from the [Sample notebooks for Microsoft Sentinel data lake](./notebook-examples.md) and save it in your notebooks folder to provide context for GitHub Copilot. GitHub Copilot will then be able to suggest code completions based on the context of your notebook.
+
+The following example shows GitHub Copilot generating a code review.
+
+:::image type="content" source="./media/notebooks/copilot.png" lightbox="./media/notebooks/copilot.png" alt-text="A screenshot showing GitHub Copilot generating a code review.":::
+
+
+
+## Microsoft Sentinel Provider class
+
+To connect to the Microsoft Sentinel data lake, use the `SentinelLakeProvider` class.
 This class is part of the `access_module.data_loader` module and provides methods to interact with the data lake. To use this class, import it and create an instance of the class using a `spark` session.
 
 ```python

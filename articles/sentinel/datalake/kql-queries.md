@@ -94,11 +94,6 @@ external_table("microsoft.entra.id.AADRiskyUsers")
 | take 100
 ```
 
-
-## Sample KQL queries
- 
-For sample queries, see [KQL sample queries for the data lake](kql-samples.md). You can use these queries as a starting point and modify them to suit your requirements. 
-
 ## Query considerations and limitations
 
 + Queries are run against a single workspace. Make sure you select the correct workspace before running a query.

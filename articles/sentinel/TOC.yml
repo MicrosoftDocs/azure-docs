@@ -24,9 +24,6 @@
     - name: Run KQL queries
       href: datalake/kql-queries.md
       displayName: data lake
-    - name: Sample data lake queries
-      href: datalake/kql-samples.md
-      displayName: data lake  
     - name: Create KQL jobs
       href: datalake/kql-jobs.md 
       displayName: data lake 
