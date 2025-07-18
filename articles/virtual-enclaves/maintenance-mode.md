@@ -79,15 +79,15 @@ When `General` maintenance mode is enabled, the maintenance mode `principals` (f
 Deny Assignment: Deny All
 
 | Operation | Action Type | Explanation: maintenance mode principals | Explanation: All non-maintenance mode principals |
-|--|--|
+|---------------------------------------------|--|----------|----------|
 | *	| Action | Allowed here but blocked by `Allow Dataplace Actions` deny assignment | Deny all actions except specified below |
 | */read | NotAction | Allowed | Allow "read" actions on all resources |
-| Microsoft.Resources/tags/* | Allowed | NotAction | Allow "tags" actions on all resources |
+| Microsoft.Resources/tags/* | NotAction | Allowed | Allow "tags" actions on all resources |
 
 Deny Assignment: Allow Dataplane Actions
 
 | Operation | Action Type | Explanation: maintenance mode principals | Explanation: All non-maintenance mode principals |
-|--|--|
+|---------------------------------------------|--|----------|----------|
 | *	| Action | Deny all actions except specified below | Deny all actions except specified below |
 | */read | NotAction | Allow "read" actions on all resources | Allow "read" actions on all resources |
 | Microsoft.Insights/alertRules/* | NotAction | Allow all actions on "alertRuels" | Allow all actions on "alertRuels" |
@@ -108,15 +108,15 @@ When `Advanced` maintenance mode is enabled, the maintenance mode `principals` (
 Deny Assignment: Deny All
 
 | Operation | Action Type | Explanation: maintenance mode principals | Explanation: All non-maintenance mode principals |
-|--|--|
+|---------------------------------------------|--|----------|----------|
 | *	| Action | Allowed | Deny all actions except specified below |
 | */read | NotAction | Allowed | Allow "read" actions on all resources |
-| Microsoft.Resources/tags/* | Allowed | NotAction | Allow "tags" actions on all resources |
+| Microsoft.Resources/tags/* | NotAction | Allowed | Allow "tags" actions on all resources |
 
 Deny Assignment: Allow Dataplane Actions
 
 | Operation | Action Type | Explanation: maintenance mode principals | Explanation: All non-maintenance mode principals |
-|--|--|
+|---------------------------------------------|--|----------|----------|
 | *	| Action | Allowed | Deny all actions except specified below |
 | */read | NotAction | Allowed | Allow "read" actions on all resources |
 | Microsoft.Insights/alertRules/* | NotAction | Allowed | Allow all actions on "alertRuels" |
