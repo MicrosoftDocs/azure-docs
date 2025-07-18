@@ -29,7 +29,7 @@ In this article, you will learn how to add and configure a targeting filter for 
 1. In the **Edit feature flag** pane that opens, check the **Enable feature flag** checkbox if it isn't already enabled. Then check the **Use feature filter** checkbox and select **Create**.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, filling out the form 'Edit feature flag'.](./media/feature-filters/edit-a-feature-flag.png)
+    > ![Screenshot of the Azure portal, filling out the form 'Edit feature flag'.](./media/feature-filters/edit-feature-flag.png)
 
 1. The pane **Create a new filter** opens. Under **Filter type**, select the **Targeting filter** in the dropdown.
 
