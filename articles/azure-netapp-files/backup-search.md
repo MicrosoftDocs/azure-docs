@@ -1,11 +1,11 @@
 ---
 title: Search backups of Azure NetApp Files volumes 
-description: Describes how to display and search backups of Azure NetApp Files volumes at the volume level and the NetApp account level.
+description: You can display and search for backups at the NetApp account level or the volume level. 
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 04/24/2024
+ms.date: 07/18/2025
 ms.author: anfdocs
 # Customer intent: As a cloud administrator, I want to search for backups of Azure NetApp Files volumes, so that I can efficiently manage and restore backups according to my data protection strategy.
 ---
@@ -17,6 +17,16 @@ If a volume is deleted, its backups are retained. The backups are listed in the 
 
 >[!IMPORTANT]
 >All existing backups must be migrated to backup vaults. You can search for backups, but you are unable to perform any operations on a backup until the backup has been migrated to a backup vault. For more information about this procedure, see [Manage a backup vault](backup-vault-manage.md).
+
+
+In addition to name, size, and type, backups display time-based information:
+
+| Field | Description |
+| - | - | 
+| Started | Date and time the snapshot was created | 
+| Initiated | Date and time the backup was created |
+| Completed | Date and time the backup was completed | 
+| Duration | The elapsed time from the creation of the snapshot to the completion of the backup time. When a backup is performed using an existing snapshot, the reported backup duration may appear longer than the actual time required to execute the backup operation. |
 
 ## Search backups from backup vault 
 
@@ -42,7 +52,7 @@ You can display and search backups at the volume level:
     A partial search is supported; you don’t have to specify the entire backup name. The search filters the backups based on the search string.
 
     :::image type="content" source="./media/backup-search/backup-search-volume-level.png" alt-text="Screenshot that shows a list of backup for a volume." lightbox="./media/backup-search/backup-search-volume-level.png":::
-    
+
 ## Next steps  
 
 * [Understand Azure NetApp Files backup](backup-introduction.md)
