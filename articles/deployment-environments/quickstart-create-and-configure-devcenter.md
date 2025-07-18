@@ -9,39 +9,39 @@ ms.service: azure-deployment-environments
 ms.custom: build-2023
 ms.date: 07/24/2025
 
-#customer intent: 
+#customer intent: As a platform engineer, I want to learn how to set up the resources for getting started with Azure Deployment Environments so that I can enable self-service deployments for my development teams. 
 ---
 
 # Quickstart: Configure Azure Deployment Environments
 
-In this quickstart, you set up all the resources in Azure Deployment Environments to enable self-service deployment environments for development teams. Learn how to create and configure a dev center, add a catalog to the dev center, and define an environment type. Then associate a project with the dev center, add environment types, and allow dev access to the project.
+In this quickstart, you set up all the resources in Azure Deployment Environments to enable self-service deployment environments for development teams. Learn how to create and configure a dev center, add a catalog to the dev center, and define an environment type. Then associate a project with the dev center, add environment types, and allow developer access to the project.
 
-A dev center is the top-level resource for Azure Deployment Environments that contains the collection of development projects. In the dev center, you specify the common configuration for your projects, such as catalogs with application templates, and the types of environments to which development teams can deploy their code.
+A dev center is the top-level resource for Deployment Environments that contains the collection of development projects. In the dev center, you specify the common configuration for your projects, such as catalogs with application templates, and the types of environments to which development teams can deploy their code.
 
 A platform engineering team typically sets up the dev center, attaches external catalogs to the dev center, creates projects, and provides access to development teams. Development teams then create [environments](concept-environments-key-concepts.md#environments) by using [environment definitions](concept-environments-key-concepts.md#environment-definitions), connect to individual resources, and deploy applications. 
 
 After you complete this quickstart, developers can use the [developer portal](quickstart-create-access-environments.md), the [Azure CLI](how-to-create-access-environments.md), or the [Azure Developer CLI](how-to-configure-azure-developer-cli-deployment-environments.md ) to create environments in the project to deploy their applications.
 
-To learn more about the components of Azure Deployment Environments, see [Key concepts for Azure Deployment Environments](concept-environments-key-concepts.md).
+To learn more about the components of Deployment Environments, see [Key concepts for Deployment Environments](concept-environments-key-concepts.md).
 
-You need to perform the steps in this quickstart and then [create a project](quickstart-create-and-configure-projects.md) before you can [create a deployment environment](quickstart-create-access-environments.md). Alternatively to creating these resources manually, you can also follow this quickstart to [deploy the dev center and project using an ARM template](./quickstart-create-dev-center-project-azure-resource-manager.md).
+You need to perform the steps in this quickstart and then [create a project](quickstart-create-and-configure-projects.md) before you can [create a deployment environment](quickstart-create-access-environments.md). Alternatively to creating these resources manually, you can [deploy the dev center and project by using an ARM template](./quickstart-create-dev-center-project-azure-resource-manager.md).
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure role-based access control role with permissions to create and manage resources in the subscription, such as [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner).
+- An Azure role-based access control role that has permissions to create and manage resources in the subscription, such as [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner).
 
 ## Create a dev center
 
 First, you create a dev center and attach a catalog to it. The catalog contains the application templates, called environment definitions, that development teams can use to create environments. In this quickstart, you attach the *Microsoft quick start catalog*, which contains sample environment definitions to help you get started. 
 
-To create and configure a dev center in Azure Deployment Environments by using the Azure portal:
+To create and configure a dev center in Deployment Environments by using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Azure Deployment Environments**, and then select the service in the results.
 1. In **Dev centers**, select **Create**.
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/deployment-environments-add-devcenter.png" alt-text="Screenshot that shows how to create a dev center in Azure Deployment Environments." lightbox="media/quickstart-create-and-configure-devcenter/deployment-environments-add-devcenter.png":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/deployment-environments-add-devcenter.png" alt-text="Screenshot that shows how to create a dev center in Deployment Environments." lightbox="media/quickstart-create-and-configure-devcenter/deployment-environments-add-devcenter.png":::
 
 1. In **Create a dev center**, on the **Basics** tab, select or enter the following information:
 
@@ -67,7 +67,7 @@ To create and configure a dev center in Azure Deployment Environments by using t
 
 ## Configure a managed identity for the dev center
 
-To allow the creation of environments, the dev center requires permissions on the subscription. You can attach an [identity](concept-environments-key-concepts.md#identities) to the dev center, and then assign the necessary permissions to that identity. You can attach either a system-assigned managed identity or a user-assigned managed identity. Learn about the two [types of identities](how-to-configure-managed-identity.md#add-a-managed-identity).
+To allow the creation of environments, you need to give the dev center permissions on the subscription. You can attach an [identity](concept-environments-key-concepts.md#identities) to the dev center, and then assign the necessary permissions to that identity. You can attach either a system-assigned managed identity or a user-assigned managed identity. For information about the two types of identities, see [Add a managed identity](how-to-configure-managed-identity.md#add-a-managed-identity).
 
 In this quickstart, you configure a system-assigned managed identity for your dev center. You then assign roles to the managed identity to allow the dev center to create environment types in your subscription.
 
