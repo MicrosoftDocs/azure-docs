@@ -16,7 +16,7 @@ ms.author: danlep
 
 Azure managed certificates for new custom domains in API Management will be temporarily turned off from August 15, 2025 to March 15, 2026. Existing managed certificates will be auto-renewed and remain unaffected.
 
-In the classic service tiers, Azure API Management offers [free, managed TLS certificates for custom domains](../configure-custom-domain.md#domain-certificate-options), allowing customers to secure their endpoints without purchasing and managing their own certificates. Because of an industry-wide deprecation of CNAME-based Domain Control Validation (DCV), our Certificate Authority (CA), DigiCert, will migrate to a new validation platform to meet Multi-Perspective Issuance Corroboration (MPIC) requirements,which requires a temporary suspension of managed certificates for new custom domains.
+In the classic service tiers, Azure API Management offers [free, managed TLS certificates for custom domains](../configure-custom-domain.md#domain-certificate-options), allowing customers to secure their endpoints without purchasing and managing their own certificates. Because of an industry-wide deprecation of CNAME-based Domain Control Validation (DCV), our Certificate Authority (CA), DigiCert, will migrate to a new validation platform to meet Multi-Perspective Issuance Corroboration (MPIC) requirements. This migration requires a temporary suspension of managed certificates for new custom domains.
 
 ## Is my service affected by this?
 
@@ -24,7 +24,7 @@ You are affected if you plan to create new managed certificates for custom domai
 
 ## What is the deadline for the change?
 
-The suspension of managed certificates for new custom domains will be enforced from August 15, 2025 to March 15, 2026. The service will resume after the migration to the new validation platform is complete.
+The suspension of managed certificates for new custom domains will be enforced from August 15, 2025 to March 15, 2026. The capability to create managed certificates will resume after the migration to the new validation platform is complete.
 
 ## What do I need to do?
 
