@@ -24,7 +24,7 @@ To learn about how to deploy VMs to support your solution's reliability requirem
 
 ## Reliability architecture overview
 
-VMs are the fundamental unit of compute in Azure. You can provision a VM yourself to run your own applications, or you can use other Azure compute services, many of which create and manage VMs transparently to you.
+VMs are the fundamental compute unit in Azure, whether you provision the VMs yourself or use other Azure compute services that transparently provision and manage them for you.
 
 An individual VM is sometimes called a *single instance VM*, and it runs in one place. VMs run on a *host*, which is a physical server. Most VMs run on shared hosts.
 
