@@ -5,8 +5,8 @@ ms.topic: quickstart
 ms.custom: mvc, mode-ui
 ms.date: 03/18/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to configure automatic backups for Azure Database for PostgreSQL server, so that I can ensure data protection and recoverability in case of data loss or corruption."
 ---
 
