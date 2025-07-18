@@ -217,8 +217,6 @@
           href: howto-delete-layer-3-isolation-domains.md
         - name: Cross-subscription deployments and required RBAC for Network Fabric
           href: concepts-cross-subscription-deployments-required-rbac-for-network-fabric.md
-        - name: How to replace network devices in Azure Operator Nexus Network Fabric
-          href: howto-replace-network-devices.md
         - name: How to put a device into maintenance mode
           href: howto-put-device-in-maintenance-mode.md
         - name: How to set up break glass access

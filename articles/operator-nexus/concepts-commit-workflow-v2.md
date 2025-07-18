@@ -56,7 +56,7 @@ The Commit Workflow version supported depends on the combination of Fabric runti
 
 ### Required versions
 
-If you're unsure which Commit Workflow version applies to your setup, refer to the [Commit Workflow Version Matrix](#commit-workflow-version-matrix).
+If you're unsure which Commit Workflow version applies to your setup, refer to the [Commit workflow compatible versions](#Commit-workflow-comaptible-versions).
 
 * **Runtime version**: `5.0.1` or later is required for Commit Workflow v2.
 
