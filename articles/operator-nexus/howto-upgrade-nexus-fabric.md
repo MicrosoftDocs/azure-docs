@@ -29,8 +29,10 @@ Runtime changes are categorized as follows:
 
 - Confirm that the Network Fabric Controller is in a 'Provisioned' state.
 
-- Make sure that all the Network Fabric devices are in healthy state before proceeding with major runtime version upgrade.  
- 
+- Ensure that all Fabric devices are checked for potential [cabling issues](./how-to-validate-cables.md).
+
+- Ensure all Network Fabric devices are in a healthy state before initiating a major runtime version upgrade. This validation is not required for minor runtime version upgrades. 
+
 ### **Upgrade workflow**
 
 #### **Step 1: Verify Fabric runtime version**
