@@ -114,15 +114,15 @@ Install an application on your RemoteApp VM using one of these methods or a meth
             - app installer (ex: VSCodeSetup.exe)
             - main script to install the application (and any other supporting scripts)
     2. A copy of [AzCopy.exe](./application-deployment-using-remote-app-vm.md#prerequisites)
-    1. A [community endpoint](./create-community-endpoint-portal.md) to the storage account and AzToolBox.
-    1. [Enclave connections](./create-enclave-connection-portal.md) to the previously made community endpoint.
-        1. Make an enclave connection to your IP Groups ending in `(enclave-name}`-ipg-eas and another at `{enclave-name}`-ipg-mgmt-vms.
+    3. A [community endpoint](./create-community-endpoint-portal.md) to the storage account and AzToolBox.
+    4. [Enclave connections](./create-enclave-connection-portal.md) to the previously made community endpoint.
+        -  Make an enclave connection to your IP Groups ending in `(enclave-name}`-ipg-eas and another at `{enclave-name}`-ipg-mgmt-vms.
         
         > [!NOTE]
         > 
         > If the storage account is in a different enclave, create an [enclave endpoint](./create-enclave-endpoint-portal.md) in the enclave with the storage account and [enclave connection](./create-enclave-connection-portal.md) to that storage account.
 
-1. Install Application:
+- Install Application:
     1. On the workload overview page, select `Add an Azure Service`.
     2. For `Service`, select `RemoteApp VM`.
     3. For `Version`, if not selected by default, select the most recent version (for example, 1.0.1(latest)).
@@ -140,7 +140,7 @@ Install an application on your RemoteApp VM using one of these methods or a meth
         > 
         > If in Microsoft Azure for U.S. Government, do the following steps: 
         > For the `AzCopy File URI` add the URI to the azcopy.exe from the container.
-    1. Select `Review + Create`, if all validations have passed, select `Create`.
+    7. Select `Review + Create`, if all validations have passed, select `Create`.
 
 Otherwise, start using the RemoteApp VM 
 

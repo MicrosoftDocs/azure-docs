@@ -54,7 +54,7 @@ Go to the specified resource group to confirm the intended resources were create
 ## Delete the deployment
 If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted.
 
-## Private DNS Zones
+## Private DNS zones
 This template has multiple options you can select based on the resources you want to create next:
 - Storage file: required for file share storage
 - Storage queue: required for queue storage

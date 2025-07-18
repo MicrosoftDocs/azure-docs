@@ -19,64 +19,13 @@ Azure Virtual Enclaves is updated regularly. Stay up to date with the latest ann
 
 You can also find the latest Azure Virtual WAN updates and subscribe to the [RSS feed](https://azure.microsoft.com/updates?filters=%5B%22Virtual+Enclaves%22%5D).
 
-## Recent releases
-
-### Community
-
-| Type |Area |Name |Description | Date added | Limitations |
-| --- |---|---|---|---|---|
-| | | | | | |
-
-
-### Enclave
-
-| Type |Area |Name |Description | Date added | Limitations |
-| --- |---|---|---|---|---|
-| | | | | | |
-
-### Workloads
-
-| Type |Area |Name |Description | Date added | Limitations |
-| --- |---|---|---|---|---|
-| | | | | | |
-
-### Community Endpoints
-
-| Type |Area |Name |Description | Date added | Limitations |
-| --- |---|---|---|---|---|
-| | | | | | |
-
-### Enclave Endpoints
-
-| Type |Area |Name |Description | Date added | Limitations |
-| --- |---|---|---|---|---|
-| | | | | | |
-
-### Enclave Connections
-
-| Type |Area |Name |Description | Date added | Limitations |
-| --- |---|---|---|---|---|
-| | | | | | |
-
-### Transit Hubs
-
-| Type |Area |Name |Description | Date added | Limitations |
-| --- |---|---|---|---|---|
-| | | | | | |
-
 ## Preview
 
 The following features are currently in gated preview. After working with the listed articles, you have questions or require support, reach out to the contact alias (if available) that corresponds to the feature.
 
-|Type of preview|Feature |Description|Contact alias|Limitations|
-|---|---|---|---|---|
-| Preview | Approvals | Approvals require more oversight on critical Azure Virtual Enclaves actions. Approvals enable administrators to queue the creation of new resources or change existing resources while requiring oversight and approval before the change can be made. Emails us if you want to test this preview feature. | vepm@microsoft.com | |
-
-## Known issues
-
-|#|Issue|Description |Date first reported|Mitigation|
-|---|---|---|---|---|
-| | | | | | |
+|Type of preview|Feature |Description|Limitations|
+|---|---|---|---|
+| Preview | Approvals | Approvals require more oversight on critical Azure Virtual Enclaves actions. Approvals enable administrators to queue the creation of new resources or change existing resources while requiring oversight and approval before the change can be made. | |
 
 ## Next steps
 
