@@ -78,7 +78,7 @@ To successfully create a data connection, you must first ensure that you've comp
 1. On the leftmost pane, select **Access control (IAM)**.
 1. Search and select the **Reader** role.
 1. Search and select the **EASM API** as the member for the role assignment. 
-![Screenshot that shows Members for role assignments, specifically the EASM API app.](media/data-connections/data-connector-13.png)
+![Screenshot that shows Members for role assignments, specifically the EASM API app.](media/data-connections/add-role-assignment.png)
 1. Be sure the Assignment type is **Permanent** and then click **Review + assign**.
 1. Repeat this and add the **Monitoring Contributor**, **Log Analytics Contributor**, and the **Monitoring Metrics Publisher** roles for the **EASM API** app.
 
@@ -90,7 +90,7 @@ To successfully create a data connection, you must first ensure that you've comp
 1. Open the Subscription that contains the Resource Group and Log Analytics workspace.
 1. On the leftmost pane, under **Settings** select **Resource Providers**.
 1. Search for **microsoft.insights** and register the provider.
-    ![Screenshot that shows Resource providers, specifically microsoft.insights.](media/data-connections/data-connector-14.png)
+    ![Screenshot that shows Resource providers, specifically microsoft.insights.](media/data-connections/register-resource-provider.png)
 
 > [!NOTE] 
 > Using the new Log Analytics API, the Defender EASM resource and Log Analytics workspace that will ingest your Defender EASM data **must be in the same tenant**.
