@@ -171,7 +171,7 @@ To learn how to save a secret in a key vault, see [Add a secret to Key Vault](/a
 
 To configure a lab's **Gateway hostname** and **Gateway token secret** to use token authentication with the gateway machine or machines, complete these steps:
 
-1. On the lab's **Overview** page, select **Configuration and policies** in the left pane.
+1. On the lab's **Overview** page, in the left pane, select **Configuration and policies**.
 
 1. On the **Configuration and policies** page, select **Lab settings** in the **Settings** section in the left pane.
 
