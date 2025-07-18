@@ -69,6 +69,8 @@ Extract the binary from the downloaded file. You should see the following folder
 ├── maven.default.index
 ├── jdtls/
 ├── static-report/
+├── maven-wrapper/
+├── .appcat-ignore
 ├── rulesets/
 ├── readme.md
 └── readme.html
