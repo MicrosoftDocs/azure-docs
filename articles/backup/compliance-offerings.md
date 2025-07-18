@@ -49,8 +49,8 @@ In this article, you'll learn about the various compliance offerings for Azure B
 
 ## Regional
 
-* [CCSL/IRAP (Australia)](/microsoft-365/compliance/offering-ccsl-irap-australia)
-* [GDPR (EU)](https://www.microsoft.com/trustcenter/privacy/gdpr)
+* [`CCSL/IRAP (Australia)`](/microsoft-365/compliance/offering-ccsl-irap-australia)
+* [`GDPR (EU)`](https://www.microsoft.com/trustcenter/privacy/gdpr)
 
 ## Next steps
 
