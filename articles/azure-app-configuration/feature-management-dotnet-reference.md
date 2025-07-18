@@ -13,54 +13,56 @@ ms.date: 01/07/2024
 #Customer intent: I want to control feature availability in my app by using the Feature Management library.
 ---
 
-# .NET Feature Management
+# .NET feature management
 
 [![Microsoft.FeatureManagement](https://img.shields.io/nuget/v/Microsoft.FeatureManagement?label=Microsoft.FeatureManagement)](https://www.nuget.org/packages/Microsoft.FeatureManagement)<br>
 [![Microsoft.FeatureManagement.AspNetCore](https://img.shields.io/nuget/v/Microsoft.FeatureManagement.AspNetCore?label=Microsoft.FeatureManagement.AspNetCore)](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore)<br>
 [![Microsoft.FeatureManagement.Telemetry.ApplicationInsights](https://img.shields.io/nuget/v/Microsoft.FeatureManagement.Telemetry.ApplicationInsights?label=Microsoft.FeatureManagement.Telemetry.ApplicationInsights)](https://www.nuget.org/packages/Microsoft.FeatureManagement.Telemetry.ApplicationInsights)<br>
 
-.NET feature management library provides a way to develop and expose application functionality based on feature flags. Once a new feature is developed, many applications have special requirements, such as when the feature should be enabled and under what conditions. This library provides a way to define these relationships, and also integrates into common .NET code patterns to make exposing these features possible.
+The .NET feature management library provides a way to develop and expose application functionality based on feature flags. When a new feature is developed, many applications have special requirements, such as when the feature should be enabled and under what conditions. This library provides a way to define these relationships. It also integrates into common .NET code patterns to make exposing these features possible.
 
-Feature flags provide a way for .NET and ASP.NET Core applications to turn features on or off dynamically. Developers can use feature flags in simple use cases like conditional statements to more advanced scenarios like conditionally adding routes or MVC filters. Feature flags are built on top of the .NET Core configuration system. Any .NET Core configuration provider is capable of acting as the backbone for feature flags.
+Feature flags provide a way for .NET and ASP.NET Core applications to turn features on or off dynamically. Developers can use feature flags in basic use cases like conditional statements. You can also use feature flags in more advanced scenarios like conditionally adding routes or model–view–controller (MVC) filters. Feature flags are built on top of the .NET Core configuration system. Any .NET Core configuration provider is capable of acting as the backbone for feature flags.
 
-Here are some of the benefits of using .NET feature management library:
+Here are some of the benefits of using the .NET feature management library:
 
-* A common convention for feature management
-* Low barrier-to-entry
-  * Built on `IConfiguration`
-  * Supports JSON file feature flag setup
-* Feature Flag lifetime management
-  * Configuration values can change in real-time; feature flags can be consistent across the entire request
-* Simple to Complex Scenarios Covered
-  * Toggle on/off features through declarative configuration file
-  * Surface different variants of a feature to different users
-  * Dynamically evaluate state of feature based on call to server
-* API extensions for ASP.NET Core and MVC framework
+* It uses common conventions for feature management.
+* It has a low barrier to entry:
+  * It's built on the `IConfiguration` interface.
+  * It supports JSON file feature flag setup.
+* It provides feature flag lifetime management.
+  * Configuration values can change in real time.
+  * Feature flags can be consistent across the entire request.
+* It covers basic to complex scenarios by offering support for the following capabilities:
+  * Turning features on and off through a declarative configuration file
+  * Presenting different variants of a feature to different users
+  * Dynamically evaluating the state of a feature based on a call to a server
+* It provides API extensions for ASP.NET Core and MVC framework in the following areas:
   * Routing
   * Filters
-  * Action Attributes
+  * Action attributes
 
-  The .NET feature management library is open source. For more information, visit the [GitHub repo](https://github.com/microsoft/FeatureManagement-Dotnet).
+  The .NET feature management library is open source. For more information, visit the [FeatureManagement-Dotnet GitHub repo](https://github.com/microsoft/FeatureManagement-Dotnet).
 
-## Feature Flags
+## Feature flags
 Feature flags can be either enabled or disabled. The state of a flag can be made conditional through the use of feature filters.
 
-### Feature Filters
-Feature filters define a scenario for when a feature should be enabled. When a feature is evaluated as on or off, its list of feature filters are traversed until one of the filters determines the feature is enabled. At this point, traversal through the feature filters stops. If no feature filter indicates that the feature should be enabled, it is considered disabled.
+### Feature filters
 
-As an example, a Microsoft Edge browser feature filter could be designed. This feature filter would activate any features it is attached to as long as an HTTP request is coming from Microsoft Edge.
+Feature filters define a scenario for when a feature should be enabled. To evaluate the state of a feature, its list of feature filters are traversed until one of the filters determines the feature is enabled. At this point, traversal through the feature filters stops. If no feature filter indicates that the feature should be enabled, it's considered disabled.
 
-### Feature Flag Configuration
+For example, suppose you design a Microsoft Edge browser feature filter. For all HTTP requests that come from Microsoft Edge, your feature filter would activate any features it's attached to.
 
-The .NET Core configuration system is used to determine the state of feature flags. The foundation of this system is `IConfiguration`. Any provider for `IConfiguration` can be used as the feature state provider for the feature flag library. This system enables scenarios ranging from appsettings.json to Azure App Configuration and more.
+### Feature flag configuration
 
-### Feature Flag Declaration
+The .NET Core configuration system is used to determine the state of feature flags. The foundation of this system is the `IConfiguration` interface. Any provider for `IConfiguration` can be used as the feature state provider for the feature flag library. This system supports scenarios ranging from the *appsettings.json* configuration file to Azure App Configuration.
 
-The feature management library supports appsettings.json as a feature flag source since it's a provider for .NET Core's `IConfiguration` system. Feature flags are declared using the [`Microsoft Feature Management schema`](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureManagement.v2.0.0.schema.json). This schema is language agnostic in origin and is supported across all Microsoft feature management libraries.
+### Feature flag declaration
 
-The following example declares feature flags in a json file.
+The feature management library supports the *appsettings.json* configuration file as a feature flag source because it's a provider for the .NET Core `IConfiguration` system. Feature flags are declared by using the [`Microsoft Feature Management schema`](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureManagement.v2.0.0.schema.json). This schema is language agnostic in origin and is supported across all Microsoft feature management libraries.
 
-``` JavaScript
+The code in the following example declares feature flags in a JSON file:
+
+```json
 {
     "Logging": {
         "LogLevel": {
@@ -68,7 +70,7 @@ The following example declares feature flags in a json file.
         }
     },
 
-    // Define feature flags in a json file
+    // Define feature flags in a JSON file.
     "feature_management": {
         "feature_flags": [
             {
@@ -88,8 +90,8 @@ The following example declares feature flags in a json file.
                         {  
                             "name": "Microsoft.TimeWindow",
                             "parameters": {
-                                "Start": "Mon, 01 May 2023 13:59:59 GMT",
-                                "End": "Sat, 01 July 2023 00:00:00 GMT"
+                                "Start": "Sun, 01 June 2025 13:59:59 GMT",
+                                "End": "Fri, 01 August 2025 00:00:00 GMT"
                             }
                         }
                     ]
@@ -100,20 +102,34 @@ The following example declares feature flags in a json file.
 }
 ```
 
-The `feature_management` section of the json document is used by convention to load feature flag settings. Feature flag objects must be listed in the `feature_flags` array under the `feature_management` section. In the previous section, we see that we have provided three different features. A feature flag has `id` and `enabled` properties. The `id` is the name used to identify and reference the feature flag. The `enabled` property specifies the enabled state of the feature flag. A feature is *OFF* if `enabled` is false. If `enabled` is true, then the state of the feature depends on the `conditions`. If there are no `conditions`, then the feature is *ON*. If there are `conditions`, and they're met, then the feature is *ON*. If there are `conditions` and they aren't met then the feature is *OFF*. The `conditions` property declares the conditions used to dynamically enable the feature. Features define their feature filters in the `client_filters` array. `FeatureV` specifies a feature filter named `Microsoft.TimeWindow`. This filter is an example of a configurable feature filter. We can see in the example that the filter has a `Parameters` property. This property is used to configure the filter. In this case, the start and end times for the feature to be active are configured.
+The `feature_management` section of the JSON document is used by convention to load feature flag settings. You must list feature flag objects in the `feature_flags` array in this section. This code lists three feature flags. Each feature flag object has an `id` and an `enabled` property.
 
-**Advanced:** The usage of colon ':' is forbidden in feature flag names.
+* The `id` value is the name you use to identify and reference the feature flag.
+* The `enabled` property specifies the enabled state of the feature flag.
+
+A feature is off if `enabled` is `false`. If `enabled` is `true`, the state of the feature depends on the `conditions` property. The `conditions` property declares the conditions that are used to dynamically enable the feature.
+
+* If a feature flag doesn't have a `conditions` property, the feature is on.
+* If a feature flag has a `conditions` property and its conditions are met, the feature is on.
+* If a feature flag has a `conditions` property and its conditions aren't met, the feature is off.
+
+Feature filters are defined in the `client_filters` array. In this code, the `FeatureV` feature flag has a feature filter named `Microsoft.TimeWindow`. This filter is an example of a configurable feature filter. In this code, this filter has a `parameters` property. This property is used to configure the filter. In this case, the start and end times for the feature to be active are configured.
+
+**Advanced:** The colon character (`:`) is forbidden in feature flag names.
 
 #### Requirement type
 
-The `requirement_type` property of `conditions` is used to determine if the filters should use `Any` or `All` logic when evaluating the state of a feature. If `requirement_type` isn't specified, the default value is `Any`.
+Within the `conditions` property, the `requirement_type` property is used to determine whether the filters should use `Any` or `All` logic when evaluating the state of a feature. If `requirement_type` isn't specified, the default value is `Any`. The  `requirement_type` values result in the following behavior:
 
-* `Any` means only one filter needs to evaluate to true for the feature to be enabled. 
-* `All` means every filter needs to evaluate to true for the feature to be enabled.
+* `Any`: Only one filter needs to evaluate to `true` for the feature to be enabled. 
+* `All`: Every filter needs to evaluate to `true` for the feature to be enabled.
 
-A `requirement_type` of `All` changes the traversal. First, if there is no filter, the feature is disabled. If there are filters, then the feature filters are traversed until one of the filters decides that the feature should be disabled. If no filter indicates that the feature should be disabled, then it is considered enabled.
+A `requirement_type` of `All` changes the way the filters are traversed:
 
-``` JavaScript
+- If no filters are listed, the feature is disabled.
+- If filters are listed, they're traversed until the conditions of one specify that the feature should be disabled. If no filter indicates that the feature should be disabled, it's considered enabled.
+
+```json
 {
     "id": "FeatureW",
     "enabled": true,
@@ -123,8 +139,8 @@ A `requirement_type` of `All` changes the traversal. First, if there is no filte
             {
                 "name": "Microsoft.TimeWindow",
                 "parameters": {
-                    "Start": "Mon, 01 May 2023 13:59:59 GMT",
-                    "End": "Sat, 01 Jul 2023 00:00:00 GMT"
+                    "Start": "Sun, 01 June 2025 13:59:59 GMT",
+                    "End": "Fri, 01 August 00:00:00 GMT"
                 }
             },
             {
@@ -138,34 +154,36 @@ A `requirement_type` of `All` changes the traversal. First, if there is no filte
 }
 ```
 
-In this example, `FeatureW` specifies a `requirement_type` of `All`, meaning all of its filters must evaluate to true for the feature to be enabled. In this case, the feature is enabled for 50% of users during the specified time window.
+In this example, the `FeatureW` feature flag has a `requirement_type` value of `All`. As a result, all of its filters must evaluate to `true` for the feature to be enabled. In this case, the feature is enabled for 50 percent of users during the specified time window.
 
-### .NET Feature Management schema
+### .NET feature management schema
 
-In previous versions, the primary schema for the feature management library was the [`.NET feature management schema`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/schemas/FeatureManagement.Dotnet.v1.0.0.schema.json). Starting from v4.0.0, new features including variants and telemetry are not supported for the .NET feature management schema.
+In previous versions of the feature management library, the primary schema was the [.NET feature management schema](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/schemas/FeatureManagement.Dotnet.v1.0.0.schema.json).
+
+Starting with version 4.0.0 of the library, new features, including variants and telemetry, aren't supported in the .NET feature management schema.
 
 > [!NOTE]
-> If there is a feature flag declaration that can be found in both the `feature_management` and `FeatureManagement` sections, the one from the `feature_management` section will be adopted.
+> If the feature flag configuration includes a declaration that's listed in both the `feature_management` and `FeatureManagement` sections, the one from the `feature_management` section gets adopted.
 
 ## Consumption
 
-The basic form of feature management is checking if a feature flag is enabled and then performing actions based on the result. This check is done through the `IVariantFeatureManager`'s `IsEnabledAsync` method.
+In a basic implementation, feature management checks whether a feature flag is enabled. Then it performs actions based on the result. This check is done through the `IsEnabledAsync` method of `IVariantFeatureManager`.
 
-``` C#
+```csharp
 …
 IVariantFeatureManager featureManager;
 …
 if (await featureManager.IsEnabledAsync("FeatureX"))
 {
-    // Do something
+    // Do something.
 }
 ```
 
-### Service Registration
+### Service registration
 
-Feature management relies on .NET Core dependency injection. We can register the feature management services using standard conventions.
+Feature management relies on .NET Core dependency injection. As the following code shows, you can use standard conventions to register feature management services:
 
-``` C#
+```csharp
 using Microsoft.FeatureManagement;
 
 public class Startup
@@ -177,10 +195,10 @@ public class Startup
 }
 ```
 
-By default, the feature manager retrieves feature flag configuration from the "FeatureManagement" section of the .NET Core configuration data. If the "FeatureManagement" section doesn't exist, the configuration is considered empty.
+By default, the feature manager retrieves feature flag configuration from the `FeatureManagement` section of the .NET Core configuration data. If the `FeatureManagement` section doesn't exist, the configuration is considered empty.
 
 > [!NOTE]
-> You can also specify that feature flag configuration should be retrieved from a different configuration section by passing the section to `AddFeatureManagement`. The following example tells the feature manager to read from a different section called "MyFeatureFlags" instead:
+> You can also specify that feature flag configuration should be retrieved from a different configuration section by passing the section to `AddFeatureManagement`. The following example specifies that the feature manager should read from a section called `MyFeatureFlags` instead:
 >
 > ``` C#
 > services.AddFeatureManagement(configuration.GetSection("MyFeatureFlags"));
@@ -188,7 +206,7 @@ By default, the feature manager retrieves feature flag configuration from the "F
 
 ### Dependency Injection
 
-When using the feature management library with MVC, the `IVariantFeatureManager` can be obtained through dependency injection.
+When you use the feature management library with MVC, you can obtain the object that implements `IVariantFeatureManager` by using dependency injection.
 
 ``` C#
 public class HomeController : Controller
@@ -202,21 +220,23 @@ public class HomeController : Controller
 }
 ```
 
-### Scoped Feature Management Services
+### Scoped feature management services
 
-The `AddFeatureManagement` method adds feature management services as singletons within the application, but there are scenarios where it may be necessary for feature management services to be added as scoped services instead. For example, users may want to use feature filters that consume scoped services for context information. In this case, the `AddScopedFeatureManagement` method should be used instead. This method ensures that feature management services, including feature filters, are added as scoped services.
+The `AddFeatureManagement` method adds feature management services as singletons within an application. But some scenarios require feature management services to be added as scoped services instead. For example, users might want to use feature filters that consume scoped services for context information. In this case, the `AddScopedFeatureManagement` method should be used instead. This method ensures that feature management services, including feature filters, are added as scoped services.
 
 ``` C#
 services.AddScopedFeatureManagement();
 ```
 
-## ASP.NET Core Integration
+## ASP.NET Core integration
 
 The feature management library provides functionality in ASP.NET Core and MVC to enable common feature flag scenarios in web applications. These capabilities are available by referencing the [Microsoft.FeatureManagement.AspNetCore](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore/) NuGet package.
 
-### Controllers and Actions
+### Controllers and cctions
 
-MVC controller and actions can require that a given feature, or one of any list of features, be enabled in order to execute. This requirement can be done by using a `FeatureGateAttribute`, which can be found in the `Microsoft.FeatureManagement.Mvc` namespace. 
+An MVC controller and actions can require that a given feature, or one of any list of features, be enabled in order to run. You can fulfill this requirement by using a `FeatureGateAttribute` object. The `FeatureGateAttribute` class is defined in the `Microsoft.FeatureManagement.Mvc` namespace. 
+
+In the following example, the `HomeController` class is gated by `FeatureX`. `HomeController` actions can run only if the `FeatureX` feature is enabled.
 
 ``` C#
 [FeatureGate("FeatureX")]
@@ -226,7 +246,7 @@ public class HomeController : Controller
 }
 ```
 
-In this example, the `HomeController` is gated by "FeatureX". "FeatureX" must be enabled before any action the `HomeController` contains can be executed. 
+In the following example, the `Index` MVC action can run only if the `FeatureX` feature is enabled. 
 
 ``` C#
 [FeatureGate("FeatureX")]
@@ -236,11 +256,9 @@ public IActionResult Index()
 }
 ```
 
-In this example, the `Index` MVC action requires "FeatureX" to be enabled before it can be executed. 
+### Disabled action handling
 
-### Disabled Action Handling
-
-When an MVC controller or action is blocked because none of the features it specifies are enabled, a registered `IDisabledFeaturesHandler` is invoked. By default, a minimalistic handler is registered which returns HTTP 404. This handler can be overridden using the `IFeatureManagementBuilder` when registering feature flags.
+When an MVC controller or action is blocked because none of the features it specifies are enabled, a registered implementation of `IDisabledFeaturesHandler` is invoked. By default, a minimalistic handler is registered which returns an HTTP 404 error. You can override this handler by using `IFeatureManagementBuilder` when you register feature flags.
 
 ``` C#
 public interface IDisabledFeaturesHandler
@@ -251,59 +269,59 @@ public interface IDisabledFeaturesHandler
 
 ### View
 
-In MVC views `<feature>` tags can be used to conditionally render content based on whether a feature is enabled or whether specific variant of a feature is assigned. For more information, see the [variants](#variants) section.
+You can use `<feature>` tags in MVC views to conditionally render content. You can base the rendering conditions on whether a feature is enabled or whether a specific variant of a feature is assigned. For more information, see [Variants](#variants), later in this article.
 
 ``` HTML+Razor
 <feature name="FeatureX">
-  <p>This can only be seen if 'FeatureX' is enabled.</p>
+  <p>This content appears only when 'FeatureX' is enabled.</p>
 </feature>
 ```
 
 ``` HTML+Razor
 <feature name="FeatureX" variant="Alpha">
-  <p>This can only be seen if variant 'Alpha' of 'FeatureX' is assigned.</p>
+  <p>This content appears only when variant 'Alpha' of 'FeatureX' is assigned.</p>
 </feature>
 ```
 
-You can also negate the tag helper evaluation to display content when a feature or set of features are disabled. By setting `negate="true"` in the following example, the content is only rendered if `FeatureX` is disabled.
+You can also negate the tag helper evaluation if you want to display content when a feature or set of features are disabled. If you specify `negate="true"`, as in the following examples, the content is rendered only when `FeatureX` is disabled.
 
 ``` HTML+Razor
 <feature negate="true" name="FeatureX">
-  <p>This can only be seen if 'FeatureX' is disabled.</p>
+  <p>This content appears only when 'FeatureX' is disabled.</p>
 </feature>
 ```
 
 ``` HTML+Razor
 <feature negate="true" name="FeatureX" variant="Alpha">
-  <p>This can only be seen if variant 'Alpha' of 'FeatureX' isn't assigned.</p>
+  <p>This content appears only when variant 'Alpha' of 'FeatureX' isn't assigned.</p>
 </feature>
 ```
 
-The `<feature>` tag can reference multiple features/variants by specifying a comma separated list of features/variants in the `name`/`variant` attribute. 
+You can use the `<feature>` tag to reference multiple features and variants. To do so, specify a comma-separated list of features in the `name` attribute, or a comma-separated list of variants in the `variant` attribute.
 
 ``` HTML+Razor
 <feature name="FeatureX,FeatureY">
-  <p>This can only be seen if 'FeatureX' and 'FeatureY' are enabled.</p>
+  <p>This content appears only when 'FeatureX' and 'FeatureY' are enabled.</p>
 </feature>
 ```
 
 ``` HTML+Razor
 <feature name="FeatureX" variant="Alpha,Beta">
-  <p>This can only be seen if variant 'Alpha' or 'Beta' of 'FeatureX' is assigned.</p>
+  <p>This content appears only when variant 'Alpha' or 'Beta' of 'FeatureX' is assigned.</p>
 </feature>
 ```
 
 > [!NOTE]
-> If `variant` is specified, only *one* feature should be specified. 
+> If you specify a variant, you should specify only *one* feature. 
 
-By default, all listed features must be enabled for the feature tag to be rendered. This behavior can be overridden by adding the `requirement` attribute as seen in the following example.
+By default, all listed features must be enabled for the feature tag to be rendered. You can override this behavior by adding the `requirement` attribute, as the following example shows.
 
 > [!NOTE]
-> If a `requirement` of `And` is used in conjunction with `variant` an error will be thrown, as multiple variants can never be assigned.
+> If you use a `requirement` value of `And` in conjunction with the `variant` attribute, an error is thrown. You can't assign multiple variants.
 
 ``` HTML+Razor
 <feature name="FeatureX,FeatureY" requirement="Any">
-  <p>This can only be seen if either 'FeatureX' or 'FeatureY' or both are enabled.</p>
+  <p>This content appears only when 'FeatureX,' 'FeatureY,' or both are enabled.</p>
 </feature>
 ```
 
