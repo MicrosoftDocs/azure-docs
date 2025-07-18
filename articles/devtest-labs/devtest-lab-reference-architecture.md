@@ -36,7 +36,7 @@ In the preceding diagram, **Team Lab 1** in **Azure Subscription 1** shows an ex
 
 You need on-premises connectivity if your labs must access on-premises corporate resources. Common scenarios are:
 
-- Some on-premises data can't move to the cloud.
+- Some on-premises data can't be moved to the cloud.
 - You want to join lab VMs to an on-premises domain.
 - You want to force all cloud network traffic through an on-premises firewall for security or compliance.
 
@@ -63,7 +63,7 @@ DevTest Labs has no built-in quotas or limits, but other Azure resources that la
 
   Two strategies can help you stay within resource group limits:
 
-  - [All VMs go in the same resource group](resource-group-control.md). This strategy helps you meet the resource group limit, but it affects the resource-type-per-resource-group limit.
+  - [Put all VMs in the same resource group](resource-group-control.md). This strategy helps you meet the resource group limit, but it affects the resource-type-per-resource-group limit.
   - [Use shared public IPs](devtest-lab-shared-ip.md). If VMs are allowed to have public IP addresses, put all VMs of the same size and region into the same resource group. This configuration can help you meet both resource group quotas and resource-type-per-resource-group quotas.
 
 - Resources per resource group, per resource type. The default limit for [resources per resource group, per resource type is 800](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-group-limits). If you put all VMs in the same resource group, you reach this limit much sooner, especially if the VMs have many extra disks.
@@ -72,7 +72,7 @@ DevTest Labs has no built-in quotas or limits, but other Azure resources that la
 
 - Role assignments. A role assignment gives a user or principal access to a resource. Azure has a limit of [4,000 role assignments per subscription](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits).
 
-  By default, DevTest Labs creates a resource group for each lab VM. The VM creator gets *owner* permission for the VM and *reader* permission to the resource group. So each lab VM uses two role assignments. Granting user permissions to the lab also uses role assignments.
+  By default, DevTest Labs creates a resource group for each lab VM. The VM creator gets *owner* permission for the VM and *reader* permission for the resource group. So each lab VM uses two role assignments. Granting user permissions to the lab also uses role assignments.
   
 - API reads/writes. You can automate Azure and DevTest Labs by using REST APIs, PowerShell, Azure CLI, and Azure SDK. Each Azure subscription allows as many as [12,000 read requests and 1,200 write requests per hour](../azure-resource-manager/management/request-limits-and-throttling.md). If you automate DevTest Labs, you might reach the limit on API requests.
 
@@ -84,7 +84,7 @@ Here are some examples of using scripting in DevTest Labs deployments:
 
 - Changing lab settings. Update a specific lab setting across all labs by using PowerShell scripts, Azure CLI, or REST APIs. For example, update all labs to allow a new VM instance size.
 
-- Updating artifact repository personal access tokens (PATs). PATs for Git repositories typically expire in 90 days, one year, or two years. To ensure continuity, it's important to extend the PAT. Or, you can create a new PAT and use automation to apply it to all labs.
+- Updating artifact repository personal access tokens (PATs). PATs for Git repositories typically expire in 90 days, one year, or two years. To ensure continuity, it's important to extend the PAT. Or you can create a new PAT and use automation to apply it to all labs.
 
 - Restricting changes to lab settings. To restrict certain settings, such as allowing marketplace image use, you can use Azure Policy to prevent changes to a resource type. Or you can create a custom role and grant users that role instead of a built-in lab role. You can restrict changes for most lab settings, such as internal support, lab announcements, and allowed VM sizes.
 
