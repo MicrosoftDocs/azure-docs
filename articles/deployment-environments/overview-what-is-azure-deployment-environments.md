@@ -26,7 +26,7 @@ The following diagram shows an overview of Deployment Environments capabilities.
 
 :::image type="content" source="./media/overview-what-is-azure-deployment-environments/azure-deployment-environments-scenarios-sml.png" lightbox="./media/overview-what-is-azure-deployment-environments/azure-deployment-environments-scenarios.png" alt-text="Diagram that shows the Deployment Environments scenario flow.":::
 
-For more information, see [key concepts for Azure Deployment Environments](./concept-environments-key-concepts.md).
+For more information, see [Key concepts for Azure Deployment Environments](./concept-environments-key-concepts.md).
 
 ## Usage scenarios
 
