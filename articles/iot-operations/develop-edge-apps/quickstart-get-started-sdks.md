@@ -25,7 +25,7 @@ Before you begin, prepare the following prerequisites:
 
 ## Setting up
 
-Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with Azure IoT Operations deployed. Additional configuration will allow the MQTT broker to be accessed directly from the developer environment.
+Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with Azure IoT Operations deployed. Further configuration allows the MQTT broker to be accessed directly from the developer environment.
 
 > [!IMPORTANT]
 > The following development environment setup options, use [K3s](https://k3s.io/) running in [K3d](https://k3d.io/) for a lightweight Kubernetes cluster, and deploys Azure IoT Operations with [test settings](../deploy-iot-ops/overview-deploy.md#test-settings-deployment). For production deployments, choose [secure settings](../deploy-iot-ops/overview-deploy.md#secure-settings-deployment). <br> If you want to use secure settings, we recommend you follow the instructions in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md) to create a K3s cluster on Ubuntu and [Deploy Azure IoT Operations to a production cluster](../deploy-iot-ops/howto-deploy-iot-operations.md) to deploy with secure settings. Then proceed to [configure Azure IoT Operations for deployment](#configure-azure-iot-operations-for-deployment).
@@ -33,7 +33,7 @@ Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with
 ### [Codespaces](#tab/codespaces)
 
 > [!CAUTION]
-> We are currently experiencing container corruption with Azure IoT Operations deployed in a codespace, so we don't recommend this path until we have resolved the issue with the GitHub team.
+> We're currently experiencing container corruption with Azure IoT Operations deployed in a codespace, so we don't recommend this path until we resolve the issue with the GitHub team.
 
 GitHub Codespaces provides the most streamlined experience and can get the development environment up and running in a couple of minutes.
 
@@ -41,7 +41,7 @@ GitHub Codespaces provides the most streamlined experience and can get the devel
 
     [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure/iot-operations-sdks?quickstart=1&editor=vscode)
 
-1. Once the codespace is created, you will have a container with the developer tools and a local K3s cluster running in K3d pre-installed.
+1. Once the codespace is created, you have a container with the developer tools and a local K3s cluster running in K3d preinstalled.
 
 
 ### [Ubuntu](#tab/ubuntu)
@@ -82,13 +82,13 @@ GitHub Codespaces provides the most streamlined experience and can get the devel
     1. Set up port forwarding for ports `1883`, `8883`, and `8884` to enable TLS
     1. Create a local container registry
     
-1. For the nexts step you will need non-root access to the cluster, run the following command:
+1. For the nexts step you need nonroot access to the cluster, run the following command:
 
     ```bash
     mkdir ~/.kube; sudo install -o $USER -g $USER -m 600 /root/.kube/config ~/.kube/config
     ```
 
-    This command gives your non-root user access to the Kubernetes cluster by copying the cluster configuration file from the root account to your user account, ensuring you have the correct permissions to use Kubernetes tools like kubectl without needing root access.
+    This command gives your nonroot user access to the Kubernetes cluster by copying the cluster configuration file from the root account to your user account, ensuring you have the correct permissions to use Kubernetes tools like kubectl without needing root access.
 
 1. Run the following command to increase the [user watch/instance limits](https://www.suse.com/support/kb/doc/?id=000020048).
 
@@ -111,7 +111,7 @@ GitHub Codespaces provides the most streamlined experience and can get the devel
 
 ## Deploy Azure IoT Operations
 
-You will arc-enable the development cluster created in the previous step and deploy Azure IoT Operations with [test settings](../deploy-iot-ops/overview-deploy.md#test-settings-deployment).
+You'll arc-enable the development cluster created in the previous step and deploy Azure IoT Operations with [test settings](../deploy-iot-ops/overview-deploy.md#test-settings-deployment).
 
 Open a new bash terminal and do the following steps:
 
@@ -156,7 +156,7 @@ Open a new bash terminal and do the following steps:
 
 ## Configure Azure IoT Operations for development
 
-After Azure IoT Operations is deployed, you need to configure it for development. This includes setting up the MQTT broker and authentication methods, as well as ensuring that the necessary environment variables are set for your development environment:
+After Azure IoT Operations is deployed, you need to configure it for development. This includes setting up the MQTT broker and authentication methods, and ensuring that the necessary environment variables are set for your development environment:
 
 1. Navigate to the repository root directory:
 
@@ -179,7 +179,7 @@ After Azure IoT Operations is deployed, you need to configure it for development
 
 ## Testing the installation
 
-To test the setup is working correctly, use `mosquitto_pub` to connect to the MQTT broker to validate the x509 certs, SAT and trust bundle.
+To test the setup is working correctly, use `mosquitto_pub` to connect to the MQTT broker to validate the x509 certs, SAT, and trust bundle.
 
 1. Export the `.session` directory:
 
@@ -207,11 +207,11 @@ To test the setup is working correctly, use `mosquitto_pub` to connect to the MQ
 
 ## Run a Sample
 
-This sample demonstrates a simple communication between a client and a server using [telemetry](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/telemetry.md) and [remote procedure call (RPC)](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/rpc-protocol.md). The server tracks the value of a counter and accepts RPC requests from the client to either read or increment that counter.
+This sample demonstrates a simple communication between a client and a server using [Telemetry](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/telemetry.md) and [remote procedure call (RPC)](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/rpc-protocol.md). The server tracks the value of a counter and accepts RPC requests from the client to either read or increment that counter.
 
 1. Install the [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
 
-1. The samples within [Azure IoT Operations SDKs github repository](https://github.com/Azure/iot-operations-sdks) read configuration from environment variables. We have provided an `.env` file in the repository root that exports the variables used by the samples to connect to the MQTT Broker. Edit the `.env` file to set the values for your environment, or use the default values provided in the file.
+1. The samples within [Azure IoT Operations SDKs GitHub repository](https://github.com/Azure/iot-operations-sdks) read configuration from environment variables. We provide an `.env` file in the repository root that exports the variables used by the samples to connect to the MQTT Broker. Edit the `.env` file to set the values for your environment, or use the default values provided in the file.
 
 1. Navigate to the `CounterServer` sample directory:
 
@@ -273,14 +273,14 @@ This sample demonstrates a simple communication between a client and a server us
     CounterServer Information: 0 : Telemetry sent successfully to the topic 'telemetry/telemetry-samples/counterValue'
     ```
 
-1. The `CounterClient` sample will automatically exit when it is completed. You can also stop the `CounterServer` sample by pressing `Ctrl+C` in its terminal.
+1. The `CounterClient` sample automatically exits when it's completed. You can also stop the `CounterServer` sample by pressing `Ctrl+C` in its terminal.
 
 
 ## Configuration summary
 
 ### MQTT broker configuration
 
- With the installation complete, the cluster will contain the following MQTT broker definitions:
+ With the installation complete, the cluster contains the following MQTT broker definitions:
 
 | Component Type | Name | Description |
 |-|-|-|
@@ -292,11 +292,11 @@ This sample demonstrates a simple communication between a client and a server us
 
 ### MQTT broker access
 
-The MQTT broker can be accessed both on-cluster and off-cluster using the connection information below. Refer to [Connection Settings](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/connection-settings.md) for information on which environment variables to use when configuration your application.
+The MQTT broker can be accessed both on-cluster and off-cluster using the connection information as described in the following table. Refer to [Connection Settings](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/connection-settings.md) for information on which environment variables to use when configuration your application.
 
 > [!NOTE]
 >
-> The hostname when accessing the MQTT broker off-cluster may differ from `localhost` depending on your setup.
+> The hostname when accessing the MQTT broker off-cluster might differ from `localhost` depending on your setup.
 
 | Hostname | Authentication | TLS | On cluster port | Off cluster port |
 |-|-|-|-|-|
@@ -319,7 +319,7 @@ As part of the deployment script, the following files are created in the local e
 
 ## Troubleshooting
 
-Check the troubleshooting guide for common issues in the Azure IoT Operations SDKs github repository: [Troubleshooting](https://github.com/Azure/iot-operations-sdks/blob/main/doc/troubleshooting.md).
+Check the troubleshooting guide for common issues in the Azure IoT Operations SDKs GitHub repository: [Troubleshooting](https://github.com/Azure/iot-operations-sdks/blob/main/doc/troubleshooting.md).
 
 ## Next steps
 In this Quickstart, you set up the Azure IoT Operations SDKs and ran a sample application. To learn more about developing with the SDKs, check out the following resources:

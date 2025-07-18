@@ -22,7 +22,7 @@ The Azure IoT Operations SDKs are a suite of tools and libraries across multiple
 | **Low latency** | Optimized layering and tight MQTT client coupling minimized overheads. |
 | **Integration with Azure IoT Operations services** | Libraries provide access to services such as state store. |
 | **Simplify complex messaging** | Provide support for communication between applications via MQTT v5 using a remote procedure call (RPC) implementation. |
-| **Support** | The SDKs are maintained and supported by a dedicated team at Microsoft. |
+| **Support** | A dedicated team at Microsoft maintains and supports the SDKs. |
 
 The SDKs are open source and available on GitHub:
 
@@ -32,7 +32,7 @@ The SDKs are open source and available on GitHub:
 
 > [!IMPORTANT]
 > Azure IoT Operations SDKs is currently in PREVIEW.
-> The assets in the [Azure IoT Operations SDKs GitHub repository](https://github.com/Azure/iot-operations-sdks) have been made available for early access and feedback purposes.
+> The assets in the [Azure IoT Operations SDKs GitHub repository](https://github.com/Azure/iot-operations-sdks) are available for early access and feedback purposes.
 
 ## Goal of the SDKs
 
@@ -42,25 +42,25 @@ The SDKs can be used to build highly available applications at the edge, that in
 
 ## Benefits of using the SDKs
 
-The SDKs provide a number of benefits compared to using the MQTT client directly:
+The SDKs provide many benefits compared to using the MQTT client directly:
 
 | Feature | Benefit |
 |-|-|
 | **Connectivity** | Maintain a secure connection to the MQTT Broker, including rotating server certificates and authentication keys. |
 | **Security** | Support SAT or X.509 certificate authentication with credential rotation. |
-| **Configuration** | Configure the MQTT Broker connection through the file system, environment or connection string. |
+| **Configuration** | Configure the MQTT Broker connection through the file system, environment, or connection string. |
 | **Services** | Provides client libraries to Azure IoT Operations services for simplified development. |
-| **Protocol Compiler (codegen)** | Provides contract guarantees between client and servers via RPC and telemetry. |
-| **High availability** | Building blocks for building highly available apps via state store, lease lock and leader election clients. |
+| **Protocol Compiler (codegen)** | Provides contract guarantees between client and servers via RPC and Telemetry. |
+| **High availability** | Building blocks for building highly available apps via state store, lease lock, and leader election clients. |
 | **Payload formats** | Supports multiple serialization formats, built in. |
 
 ## Components of the SDKs
 
-The SDKs provide a number of components available for simplicity and ease of use:
+The SDKs provide many components available for simplicity and ease of use:
 
-* A **session client**, that augments the MQTT client, adding reconnection and authentication to provide a seamless connectivity experience.
+* A **session client** that augments the MQTT client adding reconnection and authentication to provide a seamless connectivity experience.
 
-* A set of protocol primitives, designed to assist in creating applications, built on the fundamental protocol implementations: **Commands** and **Telemetry**. 
+* A set of protocol primitives, designed to help creating applications, built on the fundamental protocol implementations: **Commands** and **Telemetry**. 
 
 * A set of clients providing integration with Azure IoT Operations services such as **state store**, **leader election**, **lease lock**, and **schema registry**.
 
@@ -78,10 +78,10 @@ The SDKs supports the following application types:
 | Application type | Description |
 |-|-|
 | [Edge application](https://github.com/Azure/iot-operations-sdks/blob/main/doc/edge_application/README.md) | A generic edge application that needs to interface with various Azure IoT Operations services such as the MQTT broker and state store. The SDKs provides convenient clients to simplify the development experience. </br></br>*An Edge Application is a customer managed artifact, including deployment to the cluster and monitoring execution.* |
-| [Akri connector](https://github.com/Azure/iot-operations-sdks/blob/main/doc/akri_connector/README.md)</br>*(in development)*| A specialized edge application deployed by the Akri Operator and designed to interface with on-premises asset endpoints. The Akri connector is responsible for discovering assets available via the endpoint, and relaying information to and from those assets.</br></br>*The Akri connector's deployment is managed automatically by the Akri Operator.* |
+| [Akri connector](https://github.com/Azure/iot-operations-sdks/blob/main/doc/akri_connector/README.md)</br>*(in development)*| A specialized edge application deployed by the Akri Operator and designed to interface with on-premises asset endpoints. The Akri connector is responsible for discovering assets available via the endpoint, and relaying information to and from those assets. </br></br>*The Akri connector's deployment is managed automatically by the Akri Operator.* |
 
 > [!NOTE]
-> The Akri connector is part of the Akri services (preview), which is under active development and will be available in the near future.
+> The Akri connector is part of the Akri services (preview), which is under active development and will be available soon.
 
 ## Samples and tutorials
 
@@ -91,7 +91,7 @@ To deploy a fully functional application to a cluster and see the SDKs in action
 
 ## SDKs reference documentation
 
-For documentation related to the implementation of the SDKs, it's fundamentals primitives and protocols as well as the underlying topic and payload structure used for communication over MQTT, see [Azure IoT Operatios SDKs reference documentation](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/README.md).
+For documentation related to the implementation of the SDKs, it's fundamentals primitives and protocols as well as the underlying topic and payload structure used for communication over MQTT, see [Azure IoT Operations SDKs reference documentation](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/README.md).
 
 ## Next step
 
