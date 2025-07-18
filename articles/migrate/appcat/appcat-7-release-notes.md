@@ -18,8 +18,10 @@ This article provides the release notes for Azure Migrate application and code a
 ## Release history
 
 ### 7.7.0.1
+
 This release contains the following fixes and enhancements:
-- Change `--output-format` default value to `json`
+
+- Change the default value of `--output-format` to `json`.
 
 ### 7.7.0.0 (GA)
 
