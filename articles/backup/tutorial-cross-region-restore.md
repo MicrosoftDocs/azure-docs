@@ -4,7 +4,7 @@ description: Learn how to configure and run Cross Region Restore for Azure datab
 ms.topic: tutorial
 ms.date: 11/22/2024
 ms.service: azure-backup
-ms.author: jsuri
+ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to configure and run Cross Region Restore for Azure PostgreSQL databases, so that I can ensure data resiliency and perform recovery drills without downtime in the primary region."
 ---
 
