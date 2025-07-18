@@ -13,20 +13,20 @@ ms.date: 07/17/2025
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../../includes/logic-apps-sku-consumption-standard.md)]
 
-To run automated tasks that manage resources in IBM Informix databases from workflows in Azure Logic Apps, you can use the IBM **Informix** connector. This connector includes a Microsoft client that communicates with remote Informix server computers across a TCP/IP network, including cloud-based databases such as IBM Informix for Windows running in Azure virtualization and on-premises databases.
+To automate tasks that manage resources in IBM Informix databases by using workflows in Azure Logic Apps, you can use the IBM **Informix** connector. This connector includes a Microsoft client that communicates with remote Informix server computers across a TCP/IP network, including cloud-based databases such as IBM Informix for Windows running in Azure virtualization and on-premises databases.
 
-You can connect to the following Informix platforms and versions if they are configured to support the following Distributed Relational Database Architecture (DRDA) client connections:
+You can connect to the following Informix platforms and versions if they are configured to support Distributed Relational Database Architecture (DRDA) client connections:
 
 * IBM Informix 12.1
 * IBM Informix 11.7
 
-This article shows how to connect from a workflow in Azure Logic Apps to an Informix database and add operations that perform various tasks.
+This article shows how to connect from a workflow in Azure Logic Apps to an Informix database and add operations for various tasks.
 
 ## Connector technical reference
 
 For technical information based on the connector's Swagger description, such as operations, limits, and other details, see the [connector reference article](/connectors/informix/).
 
-The following table provides more information about the available connector actions:
+The following table provides more information about the available connector operations:
 
 | Action | Description | Parameters and descriptions |
 |--------|-------------|-----------------------------|
@@ -55,7 +55,7 @@ The following table provides more information about the available connector acti
 
 ## Add an Informix action
 
-Based on whether you have a Consumption or Standard workflow, follow the steps on the corresponding tab:
+Based on whether you have a Consumption or Standard workflow, follow the corresponding steps on the matching tab:
 
 ### [Consumption](#tab/consumption)
 
