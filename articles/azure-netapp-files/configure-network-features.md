@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 07/18/2025
+ms.date: 03/04/2025
 ms.custom: references_regions
 ms.author: anfdocs
 # Customer intent: As an Azure NetApp Files administrator, I want to configure network features for my volumes, so that I can optimize resource allocation and leverage VNet capabilities based on my workload requirements.
@@ -100,76 +100,9 @@ You can edit the network features option of existing volumes from *Basic* to *St
 
 ### Edit network features 
 
-# [Portal](#tab/portal)
-
 1. Navigate to the volume for which you want to change the network features option. 
 1. Select **Change network features**. 
-1. The **Edit network features** window displays the volumes that are in the same network sibling set. Confirm you want to modify the network features option. 
-
-# [Azure CLI](#tab/cli)
-
-You must be running version 2.75.0 or later of the Azure CLI. Confirm the version with the `az version` command. If necessary, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
-
-1. Run the following command to update the network features on a volume:
-
-```azurecli
-  az netappfiles volume update --resource-group <resourceGroupName> --account-name <accountName>      --pool-name <capacityPoolName> --name <volumeName> --network-features Basic|Standard 
-```
-
-# [PowerShell](#tab/powershell)
-
-1. Copy the following script: 
-```
-# Import CSV 
-
-$volumes = Import-Csv -Path "anf_volumes.csv" 
-foreach ($vol in $volumes) { 
-    Write-Host "Processing volume: $($vol.VolumeName) in $($vol.ResourceGroup)..." 
-    # Get the volume 
-
-    $volume = Get-AzNetAppFilesVolume -ResourceGroupName $vol.ResourceGroup ` 
-                                      -AccountName $vol.AccountName ` 
-                                      -PoolName $vol.PoolName ` 
-                                      -Name $vol.VolumeName 
-    if ($volume -ne $null) { 
-        # Update network feature to Standard 
-
-        Update-AzNetAppFilesNetworkSiblingSet -Location $vol.Location ` 
-                                              -NetworkSiblingSetId $volume.NetworkSiblingSetId ` 
-                                              -SubnetId $vol.SubnetId ` 
-                                              -NetworkSiblingSetStateId $volume.NetworkSiblingSetStateId ` 
-                                              -NetworkFeature "Standard" 
-        Write-Host "Updated volume $($vol.VolumeName) to Standard." 
-    } else { 
-        Write-Warning "Volume $($vol.VolumeName) not found." 
-    } 
-
-} 
-```
-
-# [REST API](#tab/rest-api)
-
-You must be using API version 2025-01-01 or later. 
-
-1. Send a PATCH request to update the network features. Set the "networkFeatures" property to Basic or Standard. : 
-
-```json
-{
-  "id": "/subscriptions/subscriptionId/resourceGroups/<resourceGroup>/providers/Microsoft.NetApp/netAppAccounts/<account>/capacityPools/<capacityPoolName>/volumes/<volumeName>",
-  "name": "<account>/<capacityPool>/<volume>",
-  "type": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes",
-  "location": "<location>",
-  "properties": {
-    "networkFeatures": "Basic|Standard"
-    }
-  }
-}
-```
-
-1. When you receive a 200 status code, the operation has undertaken. You can confirm a successful update with a GET request on the volume. 
-
-
----
+1. The **Edit network features** window displays the volumes that are in the same network sibling set. Confirm whether you want to modify the network features option. 
 
 ### Update Terraform-managed Azure NetApp Files volume from Basic to Standard 
 
