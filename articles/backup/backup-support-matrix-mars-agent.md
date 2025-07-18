@@ -4,8 +4,8 @@ description: This article summarizes Azure Backup support when you back up machi
 ms.date: 02/28/2025
 ms.topic: reference
 ms.custom: engagement-fy24
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As an IT administrator managing backups, I want to understand the support matrix for the MARS agent, so that I can ensure proper backup configuration and compliance with our data protection requirements.
 ---
 

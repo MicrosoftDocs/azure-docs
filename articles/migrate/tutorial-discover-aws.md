@@ -83,8 +83,8 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 Set up an account that the appliance can use to access AWS instances.
 
-- For **Windows servers**, set up a local user account on all the Windows servers that you want to include in the discovery. Add the user account to the following groups: - Remote Management Users - Performance Monitor Users - Performance Log users.
- - For **Linux servers**, you need a root account on the Linux servers that you want to discover. Refer to the instructions in the [support matrix](migrate-support-matrix-physical.md#permissions-for-linux-server) for an alternative.
+- For **Windows servers**, set up a local user account on all the Windows servers that you want to include in the discovery. Add the user account to the following groups: - Remote Management Users - Performance Monitor Users - Performance Log users. Refer the [instructions](tutorial-discover-physical.md#prepare-windows-server).
+ - For **Linux servers**, you need a root account on the Linux servers that you want to discover. Refer the [instructions](tutorial-discover-physical.md#prepare-linux-server).
 - Azure Migrate uses password authentication when discovering AWS instances. AWS instances don't support password authentication by default. Before you can discover instance, you need to enable password authentication.
     - For Windows servers, allow WinRM port 5985 (HTTP). This allows remote WMI calls.
     - For Linux servers:

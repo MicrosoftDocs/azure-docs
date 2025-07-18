@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 07/16/2025
 ms.custom: references_regions
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As an IT administrator, I want to effectively manage Backup vaults in Azure, so that I can ensure secure storage and efficient recovery of backup data across different regions and subscriptions."
 ---
 # Manage Backup vaults

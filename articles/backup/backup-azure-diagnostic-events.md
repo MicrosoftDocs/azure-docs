@@ -4,8 +4,8 @@ description: This article describes how to use the old and new diagnostics event
 ms,service: backup
 ms.topic: how-to
 ms.date: 12/30/2024
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy2
 # Customer intent: "As an Azure Backup user, I want to configure diagnostics settings for my Recovery Services vaults, so that I can collect and analyze detailed backup diagnostics events to improve my backup monitoring and reporting capabilities."
 ---

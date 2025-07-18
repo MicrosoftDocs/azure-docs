@@ -43,6 +43,12 @@ Service account owners can manage consent requests and private endpoints through
 
 When creating a private endpoint, you must specify the App Configuration store to which it connects. If you enable the geo-replication for an App Configuration store, you can connect to all replicas of the store using the same private endpoint. If you have multiple App Configuration stores, you need a separate private endpoint for each store.
 
+### Considerations for geo-replicated App Configuration stores
+
+When geo-replication is enabled for your App Configuration store, you can use a single private endpoint to connect to all replicas. However, since private endpoints are regional resources, this approach may not ensure connectivity in the event of a regional outage.
+
+For enhanced resilience, consider creating private endpoints for each replica of your geo-replicated store, in addition to a private endpoint for the origin store. This ensures that if one region becomes unavailable, clients can access the store through private endpoints provisioned in the same region as a replica. Ensure the relevant [DNS changes](#dns-changes-for-private-endpoints) are made so the endpoint for each replica resolves to the relevant IP address for the private endpoint in the respective replica's region.
+
 ### Connecting to private endpoints
 
 Azure relies upon DNS resolution to route connections from the VNet to the configuration store over a private link. You can quickly find connections strings in the Azure portal by selecting your App Configuration store, then selecting **Settings** > **Access Keys**.  

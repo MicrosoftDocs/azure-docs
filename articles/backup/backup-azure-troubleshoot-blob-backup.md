@@ -5,8 +5,8 @@ ms.topic: troubleshooting
 ms.date: 07/03/2025
 ms.service: azure-backup
 ms.reviewer: geg
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
 # Customer intent: As a backup administrator, I want to troubleshoot Azure Blob backup and restore issues, so that I can ensure seamless data protection and recovery for our cloud-based storage solutions.
 ---

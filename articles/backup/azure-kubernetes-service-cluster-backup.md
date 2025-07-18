@@ -4,8 +4,8 @@ description: Learn how to back up Azure Kubernetes Service (AKS) by using Azure 
 ms.topic: how-to
 ms.service: azure-backup
 ms.date: 01/30/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a DevOps engineer, I want to configure and manage Azure Backup for my AKS clusters so that I can ensure data protection and restore capabilities for my containerized applications."
 ---
 

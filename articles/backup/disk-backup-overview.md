@@ -4,8 +4,8 @@ description: Learn about the Azure Disk backup solution.
 ms.topic: overview
 ms.date: 04/16/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to implement Azure Disk Backup for managed disks, so that I can ensure frequent, cost-effective, and agentless backups without impacting production performance while meeting my organization's data recovery objectives.
 ---
 

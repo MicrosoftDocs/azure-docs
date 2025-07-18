@@ -3,8 +3,8 @@ title: Troubleshoot encrypted Azure VM backup errors
 description: Describes how to troubleshoot common errors that might occur when you use Azure Backup to back up an encrypted VM.
 ms.topic: troubleshooting
 ms.date: 03/27/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As an IT administrator managing encrypted Azure virtual machines, I want to troubleshoot backup errors effectively, so that I can ensure successful data protection and recovery for my encrypted VM backup operation.
 ---
 

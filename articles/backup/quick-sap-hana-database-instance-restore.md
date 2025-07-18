@@ -6,8 +6,8 @@ ms.topic: quickstart
 ms.date: 11/26/2024
 ms.custom: mvc, mode-api, engagement-fy24
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to restore the entire SAP HANA system from a snapshot restore point, so that I can ensure data availability and continuity in case of system failures or data loss."
 ---
 

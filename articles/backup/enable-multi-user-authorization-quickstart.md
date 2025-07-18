@@ -4,8 +4,8 @@ description: In this quickstart, learn how to use Multi-user authorization to pr
 ms.topic: quickstart
 ms.date: 06/09/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a backup administrator, I want to enable Multi-user authorization for my Recovery Services and Backup vaults, so that I can enhance security and protect critical operations against unauthorized access.
 ---
 

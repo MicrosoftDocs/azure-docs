@@ -6,8 +6,8 @@ ms.date: 07/02/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023, engagement-fy24
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a DevOps engineer, I want to install the backup extension in an AKS cluster, so that I can efficiently manage backup and restore operations for my containerized applications."
 ---
 

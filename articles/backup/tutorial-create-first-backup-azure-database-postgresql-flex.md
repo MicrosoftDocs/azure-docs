@@ -6,8 +6,8 @@ ms.date: 02/28/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to back up Azure Database for PostgreSQL - Flexible Server using the Azure portal, so that I can ensure data protection and recovery in case of unexpected data loss."
 ---
 

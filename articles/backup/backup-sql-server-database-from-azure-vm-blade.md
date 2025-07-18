@@ -4,8 +4,8 @@ description: In this article, learn how to back up SQL Server databases from the
 ms.topic: how-to
 ms.date: 06/03/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a database administrator, I want to configure and manage backups for SQL Server databases running on Azure VMs, so that I can ensure data protection and meet recovery objectives.
 ---
 # Back up a SQL Server from the Azure SQL Server VM pane

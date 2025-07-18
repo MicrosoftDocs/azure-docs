@@ -5,8 +5,8 @@ ms.topic: reference
 ms.date: 05/29/2025
 ms.custom: references_regions 
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a database administrator, I want to understand the support matrix for SQL Server Backup in Azure VMs so that I can ensure compliance with the system requirements and optimize my backup strategy for our SQL Server environments.
 ---
 

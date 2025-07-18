@@ -4,8 +4,8 @@ description: Learn how to perform file-level restores on an Azure VM with Backup
 ms.topic: tutorial
 ms.date: 11/20/2024
 ms.custom: mvc, devx-track-azurecli, engagement-fy24
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a system administrator, I want to restore individual files from a recovery point to my Azure VM, so that I can recover lost or modified files quickly without needing to restore the entire virtual machine.
 ---
 

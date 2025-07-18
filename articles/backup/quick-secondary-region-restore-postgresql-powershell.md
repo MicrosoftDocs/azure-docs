@@ -5,8 +5,8 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 12/03/2024
 ms.custom: mvc, devx-track-azurepowershell, mode-api
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to restore an Azure Database for PostgreSQL across regions using PowerShell, so that I can ensure data availability and disaster recovery in different geographical locations."
 ---
 

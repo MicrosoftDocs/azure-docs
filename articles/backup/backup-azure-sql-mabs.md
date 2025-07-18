@@ -3,8 +3,8 @@ title: Back up SQL Server by using Azure Backup Server
 description: In this article, learn the configuration to back up SQL Server databases by using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
 ms.date: 07/15/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.service: azure-backup
 ms.custom: engagement-fy24
 # Customer intent: As a database administrator, I want to configure Azure Backup Server to back up SQL Server databases, so that I can ensure data protection and recovery capabilities for my organization's critical SQL databases.

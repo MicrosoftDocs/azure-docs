@@ -4,8 +4,8 @@ description: Create automated tasks to receive periodic reports via email
 ms.topic: how-to
 ms.date: 09/20/2024
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
 # Customer intent: As an IT administrator, I want to automate the email distribution of backup reports, so that I can efficiently monitor backup statuses and retrieve relevant data without manual intervention.
 ---

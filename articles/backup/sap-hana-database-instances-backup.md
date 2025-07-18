@@ -4,8 +4,8 @@ description: In this article, you'll learn how to back up SAP HANA database inst
 ms.topic: how-to
 ms.date: 06/05/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As an IT administrator managing SAP HANA databases on Azure VMs, I want to configure a snapshot-based backup policy, so that I can ensure consistent backups and simplify the recovery process while adhering to SAP's backup requirements.
 ---
 

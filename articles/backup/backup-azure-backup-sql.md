@@ -4,8 +4,8 @@ description: An introduction to backing up SQL Server databases by using the Azu
 ms.topic: how-to
 ms.date: 07/15/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
 # Customer intent: "As a database administrator, I want to back up SQL Server databases to Azure using a defined backup policy, so that I can ensure data protection and facilitate efficient recovery processes for my organization's SQL Server workloads."
 ---

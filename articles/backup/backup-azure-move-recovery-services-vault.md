@@ -6,8 +6,8 @@ ms.date: 06/17/2025
 ms.custom: references_regions, engagement-fy24
 ms.reviewer: caishwarya
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As an IT administrator, I want to move Recovery Services vaults between subscriptions and resource groups, so that I can effectively manage my backup resources and maintain compliance with organizational policies."
 ---
 

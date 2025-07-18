@@ -7,8 +7,8 @@ ms.custom:
   - ignite-2023
   - ignite-2024
 ms.date: 04/15/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to understand more about AKS before configuring scheduled backups for my AKS clusters, so that I can ensure the protection and easy restoration of containerized applications and data in case of failures or operational needs.
 ---
 

@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.custom: references_regions
 ms.date: 03/25/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As an IT security administrator, I want to integrate ransomware alerts from a security management system with backup solutions, so that I can ensure the preservation of backup recovery points in case of an attack."
 ---
 

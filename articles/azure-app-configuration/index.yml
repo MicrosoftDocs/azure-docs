@@ -151,6 +151,10 @@ landingContent:
           url: quickstart-feature-flag-python.md
         - text: Node.js app
           url: quickstart-feature-flag-javascript.md
+        - text: Go console app
+          url: quickstart-feature-flag-go-console.md
+        - text: Go Gin web app
+          url: quickstart-feature-flag-go-gin.md
       - linkListType: tutorial
         links: 
         - text: Enable conditional features with feature filters
@@ -179,6 +183,8 @@ landingContent:
           url: https://microsoft.github.io/FeatureManagement-Python/html/index.html
         - text: JavaScript feature management
           url: feature-management-javascript-reference.md
+        - text: Go feature management
+          url: https://pkg.go.dev/github.com/microsoft/Featuremanagement-Go/featuremanagement
 
   - title: Client libraries and tools
     linkLists:

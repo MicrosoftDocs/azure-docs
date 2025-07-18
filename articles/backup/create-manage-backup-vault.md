@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 07/16/2025
 ms.custom: references_regions
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to create and delete Backup vaults, so that I can efficiently manage and organize backup data for Azure services while ensuring data security and compliance.
 ---
 # Create and delete Backup vaults

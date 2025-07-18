@@ -5,8 +5,8 @@ ms.topic: tutorial
 ms.date: 01/20/2025
 ms.custom: mvc, devx-track-azurecli
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As an IT administrator managing virtual machines, I want to restore a VM from a recovery point using command-line tools, so that I can efficiently recover data without unnecessary manual steps."
 ---
 

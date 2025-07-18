@@ -3,8 +3,8 @@ title: Back Up an Azure Database for MySQL Flexible Server by Using Azure Backup
 description: Learn how to back up an Azure Database for MySQL flexible server.
 ms.topic: how-to
 ms.date: 11/21/2024
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to configure and manage backup policies for Azure Database for MySQL Flexible Server, so that I can ensure data protection and meet compliance requirements through scheduled and on-demand backups."
 ---
 
