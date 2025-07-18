@@ -18,7 +18,8 @@ In this article, you learn about the architecture and key concepts for Microsoft
 
 Microsoft Dev Box builds on the same foundations as [Azure Deployment Environments](/azure/deployment-environments/overview-what-is-azure-deployment-environments). Deployment Environments provides developers with preconfigured cloud-based environments for developing applications. Both services are complementary and share certain architectural components, such as a dev center or project.
 
-For an overview of Microsoft Dev Box, see [Beyond VDI: Get secure cloud dev environments with Microsoft Dev Box](https://devblogs.microsoft.com/develop-from-the-cloud/devboxignite2024/).
+Watch this video to learn more about Microsoft Dev Box:
+>[!VIDEO https://learn-video.azurefd.net/vod/player?id=c0df17f8-bafe-494d-9a64-6743de3e5555]
 
 ## How does Microsoft Dev Box work?
 
@@ -30,7 +31,7 @@ A dev center is the top-level resource for Microsoft Dev Box. A dev center conta
 
 A dev box project is the point of access for development teams. You assign a developer the Dev Box User role to a project to grant the developer permissions to create dev boxes. You can create one or more projects in a dev center.
 
-A dev box definition specifies the configuration of the dev boxes, such as the virtual machine image and compute resources for the dev box. You can either choose a VM image from the Azure Marketplace, or use an Azure compute gallery to use custom VM images.
+A dev box definition specifies the configuration of the dev boxes, such as the virtual machine image and compute resources for the dev box. You can either choose a VM image from Azure Marketplace, or use an Azure compute gallery to use custom VM images.
 
 A project contains the collection of dev box pools. A dev box pool specifies the configuration for dev boxes, such as the dev box definition, the network connection, and other settings. All dev boxes that are created from a dev box pool share the same configuration.
 
@@ -50,7 +51,7 @@ Microsoft Dev Box manages the capacity and in-region availability in the Microso
 
 To protect your data, Microsoft Dev Box encrypts the disk by default using a platform-managed key. You don't need to enable BitLocker and doing so can prevent you from accessing your dev box.
 
-For more information about data storage and protection in Azure services see: [Azure customer data protection](/azure/security/fundamentals/protection-customer-data). 
+For more information about data storage and protection in Azure services, see: [Azure customer data protection](/azure/security/fundamentals/protection-customer-data). 
 
 For the network connection, you can also choose between a Microsoft-hosted network connection, and an Azure network connection that you create in your own subscription.
 
@@ -62,7 +63,7 @@ The following diagrams show the logical architecture of Microsoft Dev Box.
 
 Network connections control where dev boxes are created and hosted, and enable you to connect to other Azure or corporate resources. Depending on your level of control, you can use Microsoft-hosted network connections or bring your own Azure network connections.
 
-Microsoft-hosted network connections provide network connectivity in a SaaS manner. Microsoft manages the network infrastructure and related services for your dev boxes. Microsoft-hosted networks are a cloud-only deployment with support for Microsoft Entra join. This option isn't compatible with the Microsoft Entra hybrid join model.
+Microsoft-hosted network connections provide network connectivity in an SaaS manner. Microsoft manages the network infrastructure and related services for your dev boxes. Microsoft-hosted networks are a cloud-only deployment with support for Microsoft Entra join. This option isn't compatible with the Microsoft Entra hybrid join model.
 
 You can also use Azure network connections (bring your own network) to connect to Azure virtual networks and optionally connect to corporate resources. With Azure network connections, you manage and control the entire network setup and configuration. You can use either Microsoft Entra join or Microsoft Entra hybrid join options with Azure network connections, enabling you to connect to on-premises Azure Active Directory Domain Services.
 
