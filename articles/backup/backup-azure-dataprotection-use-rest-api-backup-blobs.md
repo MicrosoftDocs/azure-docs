@@ -6,8 +6,8 @@ ms.date: 06/17/2025
 ms.assetid: 7c244b94-d736-40a8-b94d-c72077080bbe
 ms.service: azure-backup
 ms.custom: engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to configure and manage blob backups in a storage account using REST API so that I can ensure data protection and compliance for critical applications.
 ---
 
