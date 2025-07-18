@@ -72,6 +72,8 @@ To learn more, see [Define assets and devices](concept-assets-devices.md).
 
 Azure IoT Operations versions 1.1.x and before use *asset endpoints* to define the connection to assets in a similar way to how the current version uses *devices*. Devices offer greater flexibility and more capabilities than asset endpoints, such the ability to define multiple endpoints within a single device. The current version of Azure IoT Operations supports the use of both devices and asset endpoints, but the recommended approach is to use devices.
 
+Assets associated with a device are known as *namespaced assets*, assets that are associated with an asset endpoint are simply known as *assets*. The following table shows the differences between devices and asset endpoints:
+
 | Azure IoT Operations version | Devices supported | Asset endpoints supported |
 |-----------------------------|-------------------|--------------------------|
 | v1.1.x and before           | No                | Yes                      |
@@ -131,9 +133,57 @@ This screenshot shows the same thermostat asset in the Azure portal:
 
 :::image type="content" source="media/overview-manage-assets/asset-portal.png" alt-text="A screenshot that shows the thermostat asset in the Azure portal.":::
 
-And the final screenshot shows the same thermostat asset as a Kubernetes custom resource:
+And the final example shows the same thermostat asset as a Kubernetes custom resource:
 
-:::image type="content" source="media/overview-manage-assets/asset-kubernetes.png" alt-text="A screenshot that shows the thermostat asset as a Kubernetes custom resource.":::
+```yaml
+Name:         thermostat
+Namespace:    azure-iot-operations
+Labels:       <none>
+API Version:  namespaces.deviceregistry.microsoft.com/v1beta1
+Kind:         Asset
+Spec:
+  Attributes:
+    Batch:      102
+    Customer:   Contoso
+    Equipment:  Boiler
+    Is Spare:   true
+    Location:   Seattle
+  Datasets:
+    Data Points:
+      Data Point Configuration:  {"publishingInterval":1000,"samplingInterval":1000,"queueSize":1,"keyFrameCount":0}
+      Data Source:               ns=3;s=SpikeData
+      Name:                      temperature
+    Data Source:                 default
+    Dataset Configuration:       {"publishingInterval":1000,"samplingInterval":1000,"queueSize":1,"keyFrameCount":0}
+    Destinations:
+      Configuration:
+        Qos:                       Qos1
+        Retain:                    Keep
+        Topic:                     /
+      Target:                      Mqtt
+    Name:                          default
+  Default Datasets Configuration:  {"publishingInterval":1000,"samplingInterval":1000,"queueSize":1,"keyFrameCount":0}
+  Default Events Configuration:    {"publishingInterval":1000,"samplingInterval":1000,"queueSize":1,"keyFrameCount":0}
+  Device Ref:
+    Device Name:    opc-ua-connector
+    Endpoint Name:  opc-ua-connector-0
+  Display Name:     thermostat
+  Enabled:          true
+  Events:
+    Destinations:
+      Configuration:
+        Qos:              Qos1
+        Retain:           Keep
+        Topic:            /
+      Target:             Mqtt
+    Event Configuration:  {"publishingInterval":1000,"samplingInterval":1000,"queueSize":1,"keyFrameCount":0}
+    Event Notifier:       default
+    Name:                 default
+  External Asset Id:      0000aaaa-11bb-cccc-dd22-eeeeee333333
+  Uuid:                   0000aaaa-11bb-cccc-dd22-eeeeee333333
+  Version:                1
+Events:                   <none>
+```
 
 ### Automatic asset discovery
 
