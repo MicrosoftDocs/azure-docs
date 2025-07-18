@@ -99,7 +99,7 @@ To determine whether clients connecting to your Application Gateway resource are
 ![A diagram showing metrics page with TLS version split for application gateway traffic.](media/application-gateway-tls-version-retirement/metric-tls-version.png)
 
 ### Logs
-You can also refer to the [Application Gateway Access logs](monitor-application-gateway-reference.md#access-log-category) to view this information in the logs format.
+You can also check the [Application Gateway Access logs](monitor-application-gateway-reference.md#access-log-category) to view this information in log format.
 
 ### Error information
 Once support for TLS versions 1.0 and 1.1 is discontinued, clients may encounter errors such as `curl: (35) error:0A000410:SSL routines::sslv3 alert handshake failure`. Depending on the browser being used, various messages indicating TLS handshake failures may be displayed.
