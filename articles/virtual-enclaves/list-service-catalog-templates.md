@@ -115,7 +115,7 @@ Description: Azure Cosmos DB simplifies and expedites your application developme
 ## Service Bus
 [How to create an AVE compliant Service Bus](./deploy-service-bus-service-catalog.md)
 
-Description: Azure Service Bus is a fully managed enterprise message broker with message [queues](../service-bus-messaging/service-bus-queues-topics-subscriptions#queues) and [topics and subscriptions](../service-bus-messaging/service-bus-queues-topics-subscriptions#topics-and-subscriptions). Service Bus is used to decouple applications and services from each other. [Learn more](../service-bus-messaging/service-bus-messaging-overview.md)
+Description: Azure Service Bus is a fully managed enterprise message broker with message [queues](../service-bus-messaging/service-bus-queues-topics-subscriptions.md) and [topics and subscriptions](../service-bus-messaging/service-bus-queues-topics-subscriptions#topics-and-subscriptions.md). Service Bus is used to decouple applications and services from each other. [Learn more](../service-bus-messaging/service-bus-messaging-overview.md)
 
 ## Request new service
 Submit a feature request using [this form](https://aka.ms/ave/scask)
