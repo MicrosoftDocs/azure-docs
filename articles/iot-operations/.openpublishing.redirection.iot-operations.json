@@ -282,7 +282,7 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/develop/concept-about-state-store-protocol.md",
-            "redirect_url": "/azure/iot-operations/develop-edge-apps/concept-about-state-store-protocol",
+            "redirect_url": "/azure/iot-operations/develop-edge-apps/reference-state-store-protocol",
             "redirect_document_id": false
         },
         {
@@ -597,7 +597,7 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/create-edge-apps/concept-about-state-store-protocol.md",
-            "redirect_url": "/azure/iot-operations/develop-edge-apps/concept-about-state-store-protocol",
+            "redirect_url": "/azure/iot-operations/develop-edge-apps/reference-state-store-protocol",
             "redirect_document_id": true
         },
         {

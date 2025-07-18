@@ -48,5 +48,5 @@ For instructions on using the tool, refer to the [state store CLI GitHub](https:
 
 ## Related content
 
-* [Learn about the MQTT broker state store protocol](concept-about-state-store-protocol.md)
+* [Learn about the MQTT broker state store protocol](reference-state-store-protocol.md)
 * [Configure MQTT broker authorization](../manage-mqtt-broker/howto-configure-authorization.md)
