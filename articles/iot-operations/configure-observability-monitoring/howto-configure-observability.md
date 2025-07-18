@@ -43,8 +43,8 @@ Complete the steps in this article *before* deploying Azure IoT Operations to yo
 1. Install Azure CLI extensions for Metrics collection for Azure Arc-enabled clusters and Azure Managed Grafana.
 
    ```azurecli
-   az extension add --name k8s-extension
-   az extension add --name amg
+   az extension add --upgrade --name k8s-extension
+   az extension add --upgrade --name amg
    ```
 
 1. Create an Azure Monitor workspace to enable metric collection for your Azure Arc-enabled Kubernetes cluster.

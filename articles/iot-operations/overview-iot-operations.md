@@ -144,6 +144,7 @@ Azure IoT Operations supports clusters that are Arc-enabled in the following reg
 | West US 3    | westus3     |
 | West Europe  | westeurope  |
 | North Europe | northeurope |
+|Germany West Central | germanywestcentral |
 
 This list of supported regions only applies to the region that you use when connecting your cluster to Azure Arc. This list doesn't restrict you from using your preferred Azure region for your cloud resources. Azure IoT Operations components and other resources deployed to your cluster in these supported regions can still connect to cloud resources in different regions.
 
