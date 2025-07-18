@@ -7,7 +7,7 @@ ms.workload: identity
 author: jenniferf-skc    
 manager: pmwongera
 ms.author: jfields
-ms.date: 07/07/2025
+ms.date: 07/18/2025
 ms.custom: generated
 ---
 
@@ -560,6 +560,9 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='resource-policy-contributor'></a>[Resource Policy Contributor](./built-in-roles/management-and-governance.md#resource-policy-contributor) | Users with rights to create/modify resource policy, create support ticket and read resources/hierarchy. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | <a name='savings-plan-purchaser'></a>[Savings plan Purchaser](./built-in-roles/management-and-governance.md#savings-plan-purchaser) | Lets you purchase savings plans | 3d24a3a0-c154-4f6f-a5ed-adc8e01ddb74 |
 > | <a name='scheduled-patching-contributor'></a>[Scheduled Patching Contributor](./built-in-roles/management-and-governance.md#scheduled-patching-contributor) | Provides access to manage maintenance configurations with maintenance scope InGuestPatch and corresponding configuration assignments | cd08ab90-6b14-449c-ad9a-8f8e549482c6 |
+> | <a name='service-group-administrator'></a>[Service Group Administrator](./built-in-roles/management-and-governance.md#service-group-administrator) | Manage all aspects of service groups and relationships. The default role assigned to users when they create a service group. Includes an ABAC condition to constrain role assignments. | 4e50c84c-c78e-4e37-b47e-e60ffea0a775 |
+> | <a name='service-group-contributor'></a>[Service Group Contributor](./built-in-roles/management-and-governance.md#service-group-contributor) | Manage all aspects of service groups and relationships, but does not allow you to assign roles. | 32e6a4ec-6095-4e37-b54b-12aa350ba81f |
+> | <a name='service-group-reader'></a>[Service Group Reader](./built-in-roles/management-and-governance.md#service-group-reader) | Read service groups and view the connected relationships. | de754d53-652d-4c75-a67f-1e48d8b49c97 
 > | <a name='site-recovery-contributor'></a>[Site Recovery Contributor](./built-in-roles/management-and-governance.md#site-recovery-contributor) | Lets you manage Site Recovery service except vault creation and role assignment | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
 > | <a name='site-recovery-operator'></a>[Site Recovery Operator](./built-in-roles/management-and-governance.md#site-recovery-operator) | Lets you failover and failback but not perform other Site Recovery management operations | 494ae006-db33-4328-bf46-533a6560a3ca |
 > | <a name='site-recovery-reader'></a>[Site Recovery Reader](./built-in-roles/management-and-governance.md#site-recovery-reader) | Lets you view Site Recovery status but not perform other management operations | dbaa88c4-0c30-4179-9fb3-46319faa6149 |
