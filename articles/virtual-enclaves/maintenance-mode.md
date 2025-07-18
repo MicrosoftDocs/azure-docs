@@ -69,7 +69,31 @@ The following are the key features of Maintenance Mode:
 The following permissions are managed by maintenance mode and users are blocked from performing these actions unless they're listed as a principal in the maintenance mode configuration for the enclave and maintenance mode is enabled.
 
 ## Maintenance mode "Off"
+When maintenance mode is disabled or `Off`, all principals (for example, users or groups) are prevented from performing actions unless the deny assignments allow it for all users for the community or enclave managed resource group. A user may still be limited by their assigned roles.
 
+Deny Assignment: `Deny All`
+
+| Operation | Action Type | Explanation: maintenance mode principals | Explanation: All non-maintenance mode principals |
+|---------------------------------------------|--|----------|----------|
+| *	| Action | Deny all actions except specified in this table | Deny all actions except specified in this table |
+| */read | NotAction | Allow "read" actions on all resources | Allow "read" actions on all resources |
+| Microsoft.Resources/tags/* | NotAction | Allow "tags" actions on all resources | Allow "tags" actions on all resources |
+
+Deny Assignment: `Allow Dataplane Actions`
+
+| Operation | Action Type | Explanation: maintenance mode principals | Explanation: All non-maintenance mode principals |
+|---------------------------------------------|--|----------|----------|
+| *	| Action | Deny all actions except specified in this table | Deny all actions except specified in this table |
+| */read | NotAction | Allow "read" actions on all resources | Allow "read" actions on all resources |
+| Microsoft.Insights/alertRules/* | NotAction | Allow all actions on "alertRuels" | Allow all actions on "alertRuels" |
+| Microsoft.Resources/deployments/* | NotAction | Allow all actions on "deployments" | Allow all actions on "deployments" |
+| Microsoft.Support/* | NotAction | Allow all actions on "Support" | Allow all actions on "Support" |
+| Microsoft.Network/privateDnsZones/* | NotAction | Allow all actions on "privateDnsZones" | Allow all actions on "privateDnsZones" |
+| Microsoft.Network/privateDnsOperationResults/* | NotAction | Allow all actions on "privateDnsOperationResults" | Allow all actions on "privateDnsOperationResults" |
+| Microsoft.Network/privateDnsOperationStatuses/* | NotAction | Allow all actions on "privateDnsOperationStatuses" | Allow all actions on "privateDnsOperationStatuses" |
+| Microsoft.Network/virtualNetworks/join/action | NotAction | Allow this action | Allow this action |
+| Microsoft.Network/virtualNetworks/subnets/join/action | NotAction | Allow this action | Allow this action |
+| Microsoft.Authorization/policyExemptions/* | NotAction | Allow all actions on "policyExemptions" | Allow all actions on "policyExemptions" |
 
 ### General maintenance mode
 When `General` maintenance mode is enabled, the maintenance mode `principals` (for example, users or groups) are excluded from the `Deny All` deny assignment for the community or enclave managed resource group. This allows the users identified in the maintenance mode principals to perform that actions that would otherwise be blocked by the `Deny All` deny assignment. The `Allow Dataplane Actions` deny assignments are still in effect for all principals (including the maintenance mode principals). A user may still be limited by their assigned roles.
@@ -86,7 +110,7 @@ Deny Assignment: `Allow Dataplane Actions`
 
 | Operation | Action Type | Explanation: maintenance mode principals | Explanation: All non-maintenance mode principals |
 |---------------------------------------------|--|----------|----------|
-| *	| Action | Deny all actions except specified below | Deny all actions except specified in this table |
+| *	| Action | Deny all actions except specified in this table | Deny all actions except specified in this table |
 | */read | NotAction | Allow "read" actions on all resources | Allow "read" actions on all resources |
 | Microsoft.Insights/alertRules/* | NotAction | Allow all actions on "alertRuels" | Allow all actions on "alertRuels" |
 | Microsoft.Resources/deployments/* | NotAction | Allow all actions on "deployments" | Allow all actions on "deployments" |
