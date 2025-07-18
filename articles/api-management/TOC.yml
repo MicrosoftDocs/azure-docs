@@ -254,6 +254,8 @@
       href: api-management-authenticate-authorize-azure-openai.md
   - name: Manage MCP servers
     items:
+    - name: MCP server capabilities
+      href: mcp-server-overview.md
     - name: Expose REST API as MCP server
       href: export-rest-mcp-server.md
     - name: Expose existing MCP server

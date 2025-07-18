@@ -12,8 +12,10 @@ Configure one or more API Management [policies](../articles/api-management/api-m
 For a tutorial on how to configure policies, see [Transform and protect your API](../articles/api-management/transform-api.md).
 
 To configure policies for the MCP server:
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+    [!INCLUDE [preview-callout-mcp-feature-flag](includes/preview/preview-callout-mcp-feature-flag.md)]
 
-1. In the portal, under **APIs**, select **MCP servers**.
+1. In the left-hand menu, under **APIs**, select **MCP servers**.
 1. Select the MCP server that you created.
 1. In the left menu, under **Details**, select **Policies**.
 1. In the policy editor, add or edit the policies you want to apply to the MCP server's tools. The policies are defined in XML format. For example, you can add a policy to limit calls to the MCP server's tools (in this example, 5 calls per 30 seconds per client IP address).
@@ -23,50 +25,6 @@ To configure policies for the MCP server:
     ```
 
     :::image type="content" source="../articles/api-management/media/export-rest-mcp-server/mcp-server-policies-small.png" alt-text="Screenshot of the policy editor for an MCP server." lightbox="../articles/api-management/media/export-rest-mcp-server/mcp-server-policies.png":::
-
-## Secure access to the MCP server
-
-You can secure both inbound access to the MCP server (from an MCP client to API Management) and outbound access (from API Management to the MCP server backend).
-
-### Secure inbound access
-
-One option to secure inbound access is to configure a policy to validate a JSON web token (JWT) in the incoming requests. This ensures that only authorized clients can access the MCP server. Use the [validate-jwt](../articles/api-management/validate-jwt-policy.md) or [validate-azure-ad-token](../articles/api-management/validate-azure-ad-token-policy.md) policy to validate the JWT token in the incoming requests. For example:
-    
-<!-- update to validate-azure-ad-token-policy.md if preferred -->
-```xml
-<validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid."> 
-    <openid-config url="https://login.microsoftonline.com/{tenant-id}/v2.0/.well-known/openid-configuration" /> 
-    <audiences> 
-        <audience>your-client-id</audience> 
-    </audiences> 
-    <issuers> 
-        <issuer>https://sts.windows.net/{tenant-id}/</issuer> 
-    </issuers> 
-</validate-jwt>
-
-```
-
-> [!IMPORTANT]
-> When you use an MCP server in API Management, incoming headers like **Authorization** are not automatically passed to your backend API. If your backend needs a token, you can add it as an input parameter in your API definition. Alternatively, use policies like `get-authorization-context` and `set-header` to generate and attach the token, as noted in the following section.
-
-
-### Secure outbound access
-
-You can use API Management's [credential manager](../articles/api-management/credentials-overview.md) to securely inject secrets or tokens for calls to a backend API. At a high level, the process is as follows:
-
-1. Register an application in a supported identity provider.
-1. Create a credential provider resource in API Management to manage the credentials from the identity provider.
-1. Configure a connection to the provider in API Management.
-1. Configure `get-authorization-context` and `set-header` policies to fetch the token credentials and present them in an **Authorization** header of the API requests.
-
-For a step-by-step guide to call an example backend API using credentials generated in credential manager, see [Configure credential manager - GitHub](../articles/api-management/credentials-how-to-github.md).
- 
-## Monitor the MCP server
-
-Use API Management's integration with [Azure Monitor](../articles/api-management/monitor-api-management.md) features to track the usage of the MCP server. Log request successes and failures, monitor performance, and analyze traffic patterns. 
-
-<!-- Are MCP servers covered in Gateway logs? -->
-<!-- Is there a separate dashboard for MCP servers? -->
 
 ## Validate and use the MCP server
 

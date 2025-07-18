@@ -14,7 +14,9 @@ ms.custom:
 
 [!INCLUDE [api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2.md)]
 
-This article shows how Azure API Management supports secure integration with existing MCP-compatible servers - tool servers hosted outside of API Management - through its built-in [AI gateway](genai-gateway-capabilities.md). 
+This article shows how to use API Management to expose and govern an existing MCP-compatible server - a tool server hosted outside of API Management. Expose the server's tools through API Management so that MCP clients can call them using the MCP protocol. 
+
+[!INCLUDE [preview-callout-mcp-servers](includes/preview/preview-callout-mcp-servers.md)]
 
 Example scenarios include:
 
@@ -23,21 +25,13 @@ Example scenarios include:
 - Centralize MCP server tools from Azure Functions and open-source runtimes into [Azure API Center](../api-center/register-discover-mcp-server.md).
 - Enable GitHub Copilot, Claude by Anthropic, or ChatGPT to interact securely with tools across your enterprise.
 
-API Management also supports MCP servers natively exposed in API Management from managed REST APIs. For more information, see [Expose a REST API as an MCP server](export-rest-mcp-server.md)
+API Management also supports MCP servers natively exposed in API Management from managed REST APIs. For more information, see [Expose a REST API as an MCP server](export-rest-mcp-server.md).
 
-API Management provides centralized control over MCP server authentication, authorization, and monitoring. It simplifies the management of MCP servers while helping to mitigate common security risks and ensuring scalability.
+Learn more about:
 
-[!INCLUDE [preview-callout-mcp-servers](includes/preview/preview-callout-mcp-servers.md)]
+* [MCP server support in API Management](mcp-server-overview.md)
+* [AI gateway capabilities](genai-gateway-capabilities.md)
 
-In this article, you learn how to:
-
-* Connect API Management to an existing MCP server
-* Configure policies for the MCP server
-* Secure access to the MCP server
-* Monitor the MCP server
-* Validate and use the MCP server
-
-[!INCLUDE [about-mcp-servers](../api-center/includes/about-mcp-servers.md)]
 
 ## Prerequisites
 
@@ -53,6 +47,8 @@ In this article, you learn how to:
 Follow these steps to expose an existing MCP server to API Management:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+    [!INCLUDE [preview-callout-mcp-feature-flag](includes/preview/preview-callout-mcp-feature-flag.md)]
+
 1. In the left-hand menu, select **MCP servers** > **+ Create MCP server**.
 1. Select **Connect existing MCP server**.
 1. In **Backend API**:
