@@ -6,7 +6,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.topic: reference
 ai-usage: ai-assisted
-ms.date: 07/17/2025
+ms.date: 07/18/2025
 ms.author: danlep
 ---
 
@@ -14,13 +14,13 @@ ms.author: danlep
 
 [!INCLUDE [premium-dev-standard-basic.md](../../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-Azure managed certificates for new custom domains in API Management will be temporarily turned off from August 15, 2025 to March 15, 2026. Existing managed certificates will be auto-renewed and remain unaffected.
+Azure managed certificates for new custom domains in API Management will be temporarily turned off from August 15, 2025 to March 15, 2026. Existing managed certificates will be autorenewed and remain unaffected.
 
 In the classic service tiers, Azure API Management offers [free, managed TLS certificates for custom domains](../configure-custom-domain.md#domain-certificate-options), allowing customers to secure their endpoints without purchasing and managing their own certificates. Because of an industry-wide deprecation of CNAME-based Domain Control Validation (DCV), our Certificate Authority (CA), DigiCert, will migrate to a new validation platform to meet Multi-Perspective Issuance Corroboration (MPIC) requirements. This migration requires a temporary suspension of managed certificates for new custom domains.
 
 ## Is my service affected by this?
 
-You are affected if you plan to create new managed certificates for custom domains in Azure API Management between August 15, 2025 and March 15, 2026. Existing managed certificates will be auto-renewed before August 15, 2025 and will continue to function normally. There is no impact to existing managed certificates or custom domains already using them.
+You're affected if you plan to create new managed certificates for new custom domains in Azure API Management between August 15, 2025 and March 15, 2026. Existing managed certificates will be autorenewed before August 15, 2025 and will continue to function normally. There's no impact to existing managed certificates or custom domains already using them.
 
 ## What is the deadline for the change?
 
