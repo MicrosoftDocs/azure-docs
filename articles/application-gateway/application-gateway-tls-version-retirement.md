@@ -96,7 +96,7 @@ To determine whether clients connecting to your Application Gateway resource are
 3. Select metric as `Client TLS protocol` from the dropdown.
 4. To view granular protocol version information, select "Apply splitting" and choose "TLS protocol".
 
-![A diagram showing metrics page with TLS version split for application gateway traffic.](media/application-gateway-tls-version-retirement/metric-tls-version.png)
+[![A diagram showing metrics page with TLS version split for application gateway traffic.](media/application-gateway-tls-version-retirement/metric-tls-version.png)](media/application-gateway-tls-version-retirement/metric-tls-version.png#lightbox)
 
 ### Logs
 You can also check the [Application Gateway Access logs](monitor-application-gateway-reference.md#access-log-category) to view this information in log format.
