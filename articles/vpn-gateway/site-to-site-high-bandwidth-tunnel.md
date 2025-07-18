@@ -221,7 +221,7 @@ When configuring your VPN device, you need the following details:
 - **Private tunnel IP addresses of the Azure VPN Gateway**: Each VPN Gateway instance provides two private tunnel IPs, for a total of four IPsec tunnels in a High Bandwidth configuration. Many VPN devices support this setup using Virtual Tunnel Interfaces (VTIs), allowing each on-premises outbound interface IP to be associated with up to two VTIs.
 - **Azure virtual network address space**: The address range assigned to your Azure virtual network.
 
-:::image type="content" source="media/site-to-site-high-bandwidth-tunnel/s2s-tunnels-azure-on-premises.png" alt-text="Diagram showing IPsec tunnels between on-premises device and Azure VPN Gateway.":::
+:::image type="content" source="media/site-to-site-high-bandwidth-tunnel/site-to-site-tunnels-azure-on-premises.png" alt-text="Diagram showing IPsec tunnels between on-premises device and Azure VPN Gateway.":::
 
 A sample configuration for your on-premises VPN device might look like:
 
