@@ -20,9 +20,9 @@ Each mid-call webhook callback sent by Call Automation uses a signed JSON Web To
     - [flask pypi](https://pypi.org/project/Flask/)
     - [PyJWT pypi](https://pypi.org/project/PyJWT/)
 
-```console
-pip install flask pyjwt
-```
+    ```console
+    pip install flask pyjwt
+    ```
 
 1. Configure your application to validate the JWT and the configuration of your Azure Communication Services resource. You need the `audience` value as it appears in the JWT payload.
 1. Validate the issuer, the audience, and the JWT:

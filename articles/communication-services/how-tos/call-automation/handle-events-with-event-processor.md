@@ -73,7 +73,7 @@ With the event processor, you can easily wait for the `CallConnected` event unti
 
 If a specific timeout wasn't given when you waited on the event processor, it waits until its default timeout happens. The default timeout is four minutes.
 
-## Use the play request's response to wait for Play events
+## Use the Play request response to wait for Play events
 
 Now that the call is established, try to play some audio in the call, and then wait until the media plays.
 

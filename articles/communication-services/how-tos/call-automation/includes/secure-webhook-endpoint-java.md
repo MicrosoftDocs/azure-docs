@@ -18,21 +18,21 @@ Each mid-call webhook callback sent by Call Automation uses a signed JSON Web To
 1. Obtain the OpenID configuration URL: <https://acscallautomation.communication.azure.com/calling/.well-known/acsopenidconfiguration>
 1. The following sample uses the Spring framework, which is created by using [spring initializr](https://start.spring.io/) with Maven as the project build tool.
 1. Add the following dependencies in your `pom.xml`:
-
-```
-  <dependency>
-   <groupId>org.springframework.boot</groupId>
-   <artifactId>spring-boot-starter-security</artifactId>
-  </dependency>
-  <dependency>
-   <groupId>org.springframework.security</groupId>
-   <artifactId>spring-security-oauth2-jose</artifactId>
-  </dependency>
-  <dependency>
-   <groupId>org.springframework.security</groupId>
-   <artifactId>spring-security-oauth2-resource-server</artifactId>
-  </dependency>
-```
+    
+    ```
+      <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-security</artifactId>
+      </dependency>
+      <dependency>
+       <groupId>org.springframework.security</groupId>
+       <artifactId>spring-security-oauth2-jose</artifactId>
+      </dependency>
+      <dependency>
+       <groupId>org.springframework.security</groupId>
+       <artifactId>spring-security-oauth2-resource-server</artifactId>
+      </dependency>
+    ```
 
 1. Configure your application to validate the JWT and the configuration of your Azure Communication Services resource. You need the `audience` value as it appears in the JWT payload.
 1. Validate the issuer, the audience, and the JWT:

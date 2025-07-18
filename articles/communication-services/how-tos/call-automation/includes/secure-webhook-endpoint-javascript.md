@@ -20,10 +20,10 @@ Each mid-call webhook callback sent by Call Automation uses a signed JSON Web To
     - [express npm](https://www.npmjs.com/package/express)
     - [jwks-rsa npm](https://www.npmjs.com/package/jwks-rsa)
     - [jsonwebtoken npm](https://www.npmjs.com/package/jsonwebtoken)
-
-```console
-npm install express jwks-rsa jsonwebtoken
-```
+    
+    ```console
+    npm install express jwks-rsa jsonwebtoken
+    ```
 
 1. Configure your application to validate the JWT and the configuration of your Azure Communication Services resource. You need the `audience` value as it appears in the JWT payload.
 1. Validate the issuer, the audience, and the JWT:

@@ -25,7 +25,7 @@ This server-side application helps you create a virtual assistant that can handl
 - [Node.js](https://nodejs.org/en/download) installed.
 - An Azure Communication Services resource. For more information, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). You need to record your resource *connection string* for this sample.
 - A phone number for your new Azure Communication Services resource. For more information, see [Get a phone number](../../quickstarts/telephony/get-phone-number.md).
-- A dev tunnel. For more information, see [Enable dev tunnels](/azure/developer/dev-tunnels/get-started).
+- An Azure dev tunnel. For more information, see [Enable dev tunnels](/azure/developer/dev-tunnels/get-started).
 - An Azure OpenAI resource and deployed model. For more information, see [Create an Azure OpenAI resource and deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal).
 
 > [!NOTE]

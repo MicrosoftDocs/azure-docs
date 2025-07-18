@@ -35,7 +35,7 @@ This Azure Communication Services Call Automation AI sample demonstrates how to 
 
 Before you run this sample, you need to set up the resources mentioned in the preceding section with the following configuration updates.
 
-##### Step 1: Set up a Python environment 
+#### Step 1: Set up a Python environment 
 
 Create and activate a Python virtual environment and install the required packages by using the following command:
 
