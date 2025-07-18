@@ -23,7 +23,7 @@ In this article, you learn how to add and configure a time window filter for you
 
 1. In the **Edit** pane that opens, check the **Enable feature flag** checkbox if it's currently unchecked, then check the **Use feature filter** checkbox and select **Create**.
 
-    :::image type="content" source="media/time-window-filters/edit-feature-flag.png" alt-text="Screenshot of the Azure portal showing how to edit a feature flag.":::
+    :::image type="content" source="media/time-window-filters/edit-a-feature-flag.png" alt-text="Screenshot of the Azure portal showing how to edit a feature flag.":::
 
 1. The **Create a new filter** pane opens on the side. Under **Filter type**, select **Time window filter** in the dropdown.
 
