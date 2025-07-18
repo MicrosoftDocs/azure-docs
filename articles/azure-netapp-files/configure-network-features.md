@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 07/18/2025
+ms.date: 07/19/2025
 ms.custom: references_regions
 ms.author: anfdocs
 # Customer intent: As an Azure NetApp Files administrator, I want to configure network features for my volumes, so that I can optimize resource allocation and leverage VNet capabilities based on my workload requirements.
@@ -24,7 +24,7 @@ Two settings are available for network features:
     If you need higher IP limits or VNet features such as [network security groups (NSGs)](../virtual-network/network-security-groups-overview.md), [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined), or additional connectivity patterns, set **Network Features** to *Standard*.
 
 * ***Basic***  
-    This setting provides reduced IP limits (<1000) and no additional VNet features for the volumes.
+    This setting provides reduced IP limits (less than 1,000 IP addresses) and no additional VNet features for the volumes.
 
     You should set **Network Features** to *Basic* if you don't require VNet features.  
 
@@ -166,11 +166,11 @@ You must be using API version 2025-01-01 or later.
 }
 ```
 
-1. When you receive a 200 status code, the operation has undertaken. You can confirm a successful update with a GET request on the volume. 
-
+1. Confirm the operation has succeded with a GET request where the network features property displays your selection.  
 
 ---
 
+<!-- in question -->
 ### Update Terraform-managed Azure NetApp Files volume from Basic to Standard 
 
 If your Azure NetApp Files volume is managed using Terraform, editing the network features requires additional steps. Terraform-managed Azure resources store their state in a local file, which is in your Terraform module or in Terraform Cloud. 
