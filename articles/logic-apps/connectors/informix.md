@@ -1,13 +1,12 @@
 ---
-title: Connect workflows to IBM Informix
+title: Connect Workflows to IBM Informix
 description: Learn how to access resources in IBM Informix databases from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, hcampos, azla
 ms.topic: how-to
 ms.date: 07/17/2025
-
-#Customer intent: As a developer, I want to access resources in an IBM Informix database from workflows in Azure Logic Apps.
+#Customer intent: As an integration developer, I want to access resources in an IBM Informix database from workflows in Azure Logic Apps.
 ---
 
 # Access resources in IBM Informix databases from workflows in Azure Logic Apps
