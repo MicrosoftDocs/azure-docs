@@ -4,8 +4,8 @@ description: In this article, learn how to prepare your environment to protect a
 ms.topic: how-to
 ms.date: 07/15/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
 # Customer intent: "As an IT administrator, I want to set up Azure Backup Server to back up application workloads, so that I can ensure data protection and recovery for my organization's critical systems."
 ---

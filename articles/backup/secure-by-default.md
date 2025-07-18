@@ -3,8 +3,8 @@ title: Secure by Default with Azure Backup (Preview)
 description: Learn how to Secure by Default with Azure Backup (Preview).
 ms.topic: overview
 ms.date: 11/20/2024
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24, ignite-2024
 # Customer intent: As a data administrator, I want to utilize soft delete features in Azure Backup, so that I can ensure the recoverability of deleted backup data for up to 180 days and protect against accidental or malicious deletions.
 ---
