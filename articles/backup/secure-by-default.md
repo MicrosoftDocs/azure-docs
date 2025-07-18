@@ -20,7 +20,7 @@ Secure by default with soft delete for Azure Backup enables you to recover your 
 *Soft delete* and *Enhanced Soft delete* are Generally available for Recovery Services vaults for a while; with enabling soft delete at vault level, we're now providing secure by default promise for all customers where all the backup data will be recoverable by default for 14 days. 
 
 >[!Note]
->Secure by default and soft delete for vaults is currently in limited preview in the following region: East Asia.
+>Secure by default and soft delete for vaults is currently in limited preview in the following region: East Asia, West Central US, Australia East, North Europe, Brazil South, Canada Central, Central US, East US, South Central US, West US.
 >
 >Since this is a preview feature, disabling soft delete is allowed from REST API, PS, CLI commands. A complete secure by default experience will be available from the GA of this feature.
 
