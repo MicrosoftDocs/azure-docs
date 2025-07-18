@@ -173,7 +173,7 @@ To configure a lab's **Gateway hostname** and **Gateway token secret** to use to
 
 1. On the lab's **Overview** page, in the left pane, select **Configuration and policies**.
 
-1. On the **Configuration and policies** page, select **Lab settings** in the **Settings** section in the left pane.
+1. On the **Configuration and policies** page, in the **Settings** section in the left pane, select **Lab settings**.
 
 1. In the **Remote desktop connection** section:
 
