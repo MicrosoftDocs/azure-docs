@@ -5,8 +5,8 @@ ms.topic: reference
 ms.date: 11/21/2024
 ms.custom: references_regions
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a database administrator, I want to understand the backup and long-term retention capabilities for Azure Database for MySQL - Flexible Server, so that I can ensure my data is protected and easily recoverable in compliance with my organization’s policies.
 ---
 
