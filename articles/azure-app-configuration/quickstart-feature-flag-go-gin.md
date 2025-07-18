@@ -316,7 +316,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 1. Open a browser window, and go to `http://localhost:8080`. Your browser should display a page similar to the image below.
 
-:::image type="content" source="./media/quickstarts/gin-app-feature-flag-before.png" alt-text="Screenshot of gin web app before enabling feature flag.":::
+    :::image type="content" source="./media/quickstarts/gin-app-feature-flag-before.png" alt-text="Screenshot of gin web app before enabling feature flag.":::
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store that you created previously.
 
@@ -324,11 +324,11 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 1. Refresh the browser a few times. When the refresh interval time window passes, the page displays with updated content:
 
-:::image type="content" source="./media/quickstarts/gin-app-feature-flag-after.png" alt-text="Screenshot of gin web app after enabling feature flag.":::
+    :::image type="content" source="./media/quickstarts/gin-app-feature-flag-after.png" alt-text="Screenshot of gin web app after enabling feature flag.":::
 
 1. Notice that the **Beta** menu item now appears in the navigation bar. Click on it to access the beta page:
 
-:::image type="content" source="./media/quickstarts/gin-app-feature-flag-beta-page.png" alt-text="Screenshot of gin web app beta page.":::
+    :::image type="content" source="./media/quickstarts/gin-app-feature-flag-beta-page.png" alt-text="Screenshot of gin web app beta page.":::
 
 
 ## Clean up resources
