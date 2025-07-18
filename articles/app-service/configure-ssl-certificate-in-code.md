@@ -12,7 +12,7 @@ author: msangapu-msft
 
 # Use TLS/SSL certificates in your application code
 
-[!INCLUDE [app-service-managed-certificate](./includes/managed-certs-note.md)]
+[!INCLUDE [app-service-managed-certificate](./includes/managed-certs/managed-certs-note.md)]
 
 In your application code, you can access the [public or private certificates that you add to Azure App Service](configure-ssl-certificate.md). Your app code might act as a client and access an external service that requires certificate authentication. It might also need to perform cryptographic tasks. This article shows how to use public or private certificates in your application code.
 

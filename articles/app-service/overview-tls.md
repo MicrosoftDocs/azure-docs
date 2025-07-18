@@ -14,7 +14,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # What is TLS/SSL in Azure App Service?
 
-[!INCLUDE [app-service-managed-certificate](./includes/managed-certs-note.md)]
+[!INCLUDE [app-service-managed-certificate](./includes/managed-certs/managed-certs-note.md)]
 
 Transport Layer Security (TLS) is a widely adopted security protocol that is designed to secure connections and communications between servers and clients. In Azure App Service, you can use TLS and Secure Sockets Layer (SSL) certificates to help secure incoming requests in your web apps.
 

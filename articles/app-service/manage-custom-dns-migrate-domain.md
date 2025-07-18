@@ -11,7 +11,7 @@ ms.date: 02/14/2025
 ---
 # Migrate an existing domain to Azure App Service
 
-[!INCLUDE [app-service-managed-certificate](./includes/managed-certs-note.md)]
+[!INCLUDE [app-service-managed-certificate](./includes/managed-certs/managed-certs-note.md)]
 
 This article shows you how to migrate an active DNS name to [Azure App Service](../app-service/overview.md) without any downtime.
 
