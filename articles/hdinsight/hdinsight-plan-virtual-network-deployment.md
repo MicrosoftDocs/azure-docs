@@ -209,7 +209,7 @@ When you create an Azure HDInsight cluster in a custom virtual network (VNet), t
 Private Endpoints will be used to connect your cluster privately and securely to the Azure services, such as Azure Storage and Azure SQL Databases, over the Microsoft backbone network.
 
 ### Policy Impact on Private Endpoint Creation
-If your organization has Azure Policies that deny the creation of private endpoints or deny the creation of cross-tenant private endpoint according to the document [Limit cross-tenant private endpoint connections in Azure](../azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections) in the resource group, HDInsight cluster creation will fail. This is because:
+If your organization has Azure Policies that deny the creation of private endpoints or deny the creation of cross-tenant private endpoint according to the document [Limit cross-tenant private endpoint connections in Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections)in the resource group, HDInsight cluster creation will fail. This is because:
 
 * The HDInsight RP is unable to create the necessary private endpoint resources.
 * The cluster will transition into error state.
