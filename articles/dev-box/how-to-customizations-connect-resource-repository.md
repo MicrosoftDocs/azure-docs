@@ -12,7 +12,7 @@ ms.custom:
   - ai-seo-date:05/10/2025
   - ai-gen-description
 ms.topic: how-to
-ms.date: 05/10/2025
+ms.date: 07/18/2025
 ---
 
 # Connect to Azure resources or clone private repositories by using customizations
@@ -74,7 +74,7 @@ tasks:
 
 The Dev Box VS Code extension and Dev Box CLI don't support hydrating secrets in the inner-loop testing workflow for customizations. 
 
-## Configure key vault access
+### Configure key vault access
 
 The dev center needs access to your key vault. Because dev centers don't support service tags, if your key vault is private, let trusted Microsoft services bypass the firewall.
 
@@ -82,6 +82,65 @@ The dev center needs access to your key vault. Because dev centers don't support
 
 To learn how to let trusted Microsoft services bypass the firewall, see [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
+## Authenticate with service principals
+
+You can use service principals to authenticate with Azure resources in your customizations. Service principals are a secure way to access Azure resources without using user credentials.
+
+Create a Service Principal with required role assignments, and use it to log in in a customizations tasks, hydrating its credentials at customization time using the existing secrets feature. The next section provides the necessary steps.
+
+1. Create a service principal in Azure Active Directory (Azure AD) and assign it the necessary roles for the resources you want to access.
+
+   ```azurecli
+   $ az ad sp create-for-rbac -n DevBoxCustomizationsTest
+    
+   {
+     "appId": "...",
+     "displayName": "DevBoxCustomizationsTest",
+     "password": "...",
+     "tenant": "..."
+   }
+   ```
+
+The output is a JSON object containing the service principal's appId, displayName, password, and tenant, which are used for authentication and authorization in Azure automation scenarios. 
+
+Store the password returned above in a Key Vault secret, e.g.
+
+https://mykeyvault.vault.azure.net/secrets/password
+
+On the Key Vault, grant the "Key Vault Secrets User" role to the project identity
+
+Now you can authenticate in customization tasks, hydrating the service principal password from the Key Vault at customization time. E.g. to download a file from storage account:
+
+The following YAML snippet defines a Dev Box customization that performs two main tasks:
+
+1. Installs the Azure CLI using the winget package manager.
+1. Runs a PowerShell script that:
+   - Logs in to Azure using a service principal, with the password securely retrieved from Azure Key Vault.
+   - Downloads a blob (file) from an Azure Storage account using the authenticated session.
+
+```yaml
+$schema: "1.0"
+name: "devbox-customization"
+tasks:
+  - name: ~/winget
+    parameters:
+      package: Microsoft.AzureCLI
+  - name: ~/powershell
+    parameters:
+      command: |
+        az login --service-principal `
+          --username <appId> `
+          --password {{https://mykeyvault.vault.azure.net/secrets/password}} `
+          --tenant <tenantId>
+        az storage blob download `
+          --account-name <storage_account_name> `
+          --container-name <container_name> `
+          --name <blob_name> `
+          --file <local_file_path> `
+          --auth-mode login
+``` 
+
+This setup allows automated, secure access to Azure resources during Dev Box provisioning, without exposing credentials in the script.
 
 ## Related content
 
