@@ -1,5 +1,5 @@
 ---
-title: 'Create a Site-to-Site High Bandwidth tunnels in the Azure portal'
+title: 'Create a site-to-site high bandwidth tunnels in the Azure portal'
 description: In this article, you learn how to create a VPN Gateway site-to-site IPsec with High Bandwidth tunnels to establish connection between your on-premises network and a virtual network through the ExpressRoute private peering.
 titleSuffix: Azure VPN Gateway
 author: fabferri
@@ -11,7 +11,7 @@ ms.date: 07/18/2025
 #customer intent: As a network engineer, I want to create a site-to-site VPN connection between my on-premises location and my Azure virtual network with High Bandwidth tunnels with transit through ExpressRoute private peering.
 ---
 
-# Create a Site-to-Site High Bandwidth tunnels in the Azure portal
+# Create a site-to-site high bandwidth tunnels in the Azure portal
 
 The Azure VPN Gateway High Bandwidth tunnels feature, part of the Advanced Connectivity capabilities, delivers enhanced tunnel throughput for high-performance IPsec connections between your on-premises network and Azure virtual network. These tunnels are established between your on-premises VPN device and the Azure VPN Gateway, with traffic transiting through ExpressRoute private peering. High Bandwidth tunnels use private IP addresses on-premises to establish a secure, encrypted overlay network between your on-premises infrastructure and Azure.
 
