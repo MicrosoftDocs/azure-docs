@@ -39,7 +39,7 @@ With up to 30 days<sup>1</sup> of historical data and automatic backfill of the 
 ### Seamless Integration and Scalability
 Discovery integrates with Azure Storage Center and other data management tools, offering a scalable solution that grows with your data estate.
 
-<sup>1</sup> Storage Discovery will soon support 6 months of historical data through upcoming backfill enhancements for Standard pricing plan.
+<sup>1</sup> Storage Discovery will soon support 3 months of historical data through upcoming backfill enhancements for Standard pricing plan.
 
 ## Why It Matters
 
