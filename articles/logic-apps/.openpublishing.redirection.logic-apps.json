@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/update-workflow-definition-language-schema.md",
+            "redirect_url": "/azure/logic-apps/workflow-definition-language-schema",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-workflow-definition-language.md",
+            "redirect_url": "/azure/logic-apps/workflow-definition-language-schema",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/connectors/connectors-create-api-informix.md",
             "redirect_url": "/azure/logic-apps/connectors/informix",
             "redirect_document_id": true

@@ -187,11 +187,33 @@ For the exponential interval retry policy, the following table shows the general
 
 ## Manage the "run after" behavior
 
-When you add actions in the workflow designer, you implicitly declare the order to use for running those actions. After an action finishes running, that action is marked with a status such as **Succeeded**, **Failed**, **Skipped**, or **TimedOut**. By default, an action that you add in the designer runs only after the predecessor completes with **Succeeded** status. In an action's underlying JSON definition, the `runAfter` property specifies that the predecessor action that must first finish and the statuses permitted for that predecessor before the successor action can run.
+When you add actions in the workflow designer, you implicitly declare the order to use for running those actions. After an action finishes running, that action is marked with a status such as **Succeeded**, **Failed**, **Skipped**, or **TimedOut**.
+
+By default, an action that you add in the designer only *runs after* the preceding action completes with **Succeeded** status. This "run after" behavior precisely specifies the run order for actions in a workflow. Basically, the predecessor action must first finish with any of the permitted statuses before the successor action can run.
+
+You can change the default "run after" behavior for an action by [editing the action's **Run after** setting](#change-run-after-designer). In an action's underlying JSON definition, the `runAfter` property specifies one or more predecessor actions that must first finish with the specific permitted statuses before the successor action can run. The `runAfter` property is a JSON object that provides flexibility by letting you specify all the predecessor actions that must finish before the successor action runs. This object also defines an array of acceptable statuses.
+
+For example, to have an action run after action A succeeds and also after action B succeeds or fails when you're working on an action's JSON definition, set up the following `runAfter` property:
+
+```json
+{
+   // Other parts in action definition
+   "runAfter": {
+      "Action A": ["Succeeded"],
+      "Action B": ["Succeeded", "Failed"]
+    }
+}
+```
+
+> [!NOTE]
+>
+> The **Run after** setting is available only on actions that follow the first action in a workflow. 
+> The first action in a workflow must always run after the trigger, so the **Run after** setting 
+> doesn't apply and isn't available for the first action.
 
 When an action throws an unhandled error or exception, the action is marked **Failed**, and any successor action is marked **Skipped**. If this behavior happens for an action that has parallel branches, the Azure Logic Apps engine follows the other branches to determine their completion statuses. For example, if a branch ends with a **Skipped** action, that branch's completion status is based on that skipped action's predecessor status. After the workflow run completes, the engine determines the entire run's status by evaluating all the branch statuses. If any branch ends in failure, the entire workflow run is marked **Failed**.
 
-![Conceptual diagram with examples that show how run statuses are evaluated.](./media/error-exception-handling/status-evaluation-for-parallel-branches.png)
+:::image type="content" source="media/error-exception-handling/status-evaluation-for-parallel-branches.png" alt-text="Conceptual diagram with examples that show how run statuses are evaluated." lightbox="media/error-exception-handling/status-evaluation-for-parallel-branches.png":::
 
 To make sure that an action can still run despite its predecessor's status, you can change an action's "run after" behavior to handle the predecessor's unsuccessful statuses. That way, the action runs when the predecessor's status is **Succeeded**, **Failed**, **Skipped**, **TimedOut**, or all these statuses.
 
