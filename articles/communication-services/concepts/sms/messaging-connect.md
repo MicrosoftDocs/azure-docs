@@ -87,7 +87,7 @@ Azure Communication Services supports the following authentication methods:
 
 You authenticate with Azure Communication Services the same way you would for any other SMS request. Messaging Connect does not change the way authentication works at the platform level—it simply adds a partner-based routing step after your message is validated.
 
-Learn more: [Authenticate to Azure Communication Services](https://learn.microsoft.com/azure/communication-services/concepts/authentication)
+Learn more: [Authenticate to Azure Communication Services](../concepts/authentication.md)
 
 Once authenticated, your application also includes a partner API key at runtime to route the message through the correct Messaging Connect partner. This is part of the message payload and is explained further in the next section.
 
@@ -135,11 +135,11 @@ These errors return synchronously in your API response and also appear in Azure 
 Even if your request passes synchronous validation, Azure Communication Services might still not hand it off to the Messaging Connect partner. In some cases, Azure Communication Services stops the message before handoff—for example, if the recipient previously opted out or there's a known delivery block from the partner. These situations still result in a delivery report, so you’re always informed of the message outcome.
 Once a message is passed to the partner, any downstream delivery failures—like number unreachable, expired validity period, or carrier-level rejection—are also returned asynchronously via delivery reports. You can view delivery statuses in your delivery reports from Azure Event Grid events (if configured).
 
-Learn more: [Delivery Reports on Azure Event Grid Events](https://learn.microsoft.com/azure/event-grid/communication-services-telephony-sms-events)
+Learn more: [Delivery Reports on Azure Event Grid Events](../../../../azure/event-grid/communication-services-telephony-sms-events.md)
 
 > [!TIP] 
 > To ensure full visibility into your message traffic, we strongly recommend configuring event subscriptions for delivery reports. This setup lets you monitor message status, troubleshoot failures, and integrate with your existing telemetry systems.
-Learn how to configure SMS events : [Handle SMS events](https://learn.microsoft.com/azure/communication-services/quickstarts/sms/handle-sms-events) 
+Learn how to configure SMS events : [Handle SMS events](../../quickstarts/sms/handle-sms-events.md) 
 
 > [!NOTE]
 > If your message fails, check the `messagingConnect` object for accuracy, review the delivery report, and consult partner documentation for downstream error codes.
@@ -183,13 +183,13 @@ Azure Communication Services does not retain SMS message content after delivery 
 > [!IMPORTANT]
 > Microsoft does not retain any credentials used to access external Messaging Connect partners. Partner API keys are used solely for the purpose of processing an individual message request and are immediately discarded once the request is completed. These credentials are not stored, logged, or persisted in any form.
 
-Learn more: [Data residency and user privacy](https://learn.microsoft.com/azure/communication-services/concepts/privacy#sms)
+Learn more: [Data residency and user privacy](../privacy#sms.md)
 
 #### 2. EU Data Boundary (EUDB)
 
 Azure Communication Services guarantees that SMS data within the EUDB is stored in EUDB regions. As of today, we process and store data in the Netherlands, Ireland, or Switzerland regions, ensuring no unauthorized data transfer outside the EEA (European Economic Area). Also, Azure Communication Services employs advanced security measures, including encryption, to protect SMS data both at rest and in transit. Customers can select their preferred data residency within the EUDB, making sure data remains within the designated EU regions.
 
-Learn more: [European Union Data Boundary (EUDB)](https://learn.microsoft.com/azure/communication-services/concepts/european-union-data-boundary#sms)
+Learn more: [European Union Data Boundary (EUDB)](../european-union-data-boundary#sms)
 
 #### 3.Using Messaging Connect from Anywhere
 
@@ -262,7 +262,7 @@ Messaging Connect introduces a new provisioning model: instead of getting number
 This process lets you access SMS numbers in over 190 countries while the partner handles local compliance, documentation, and approval flows. 
 
 > [!TIP]
-> If you’re new to Azure Communication Services, we recommend starting with the [Create a Communication Services resource](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource?tabs=linux&pivots=platform-azp) guide to get set up and ready to onboard SMS with Messaging Connect.
+> If you’re new to Azure Communication Services, we recommend starting with the [Create a Communication Services resource](../../quickstarts/create-communication-resource?tabs=linux&pivots=platform-azp.md) guide to get set up and ready to onboard SMS with Messaging Connect.
 
 Let's go step-by-step:
 
@@ -313,7 +313,7 @@ Once the partner confirms that your numbers are provisioned, they trigger the sy
 > - **JavaScript SDK:** [`1.2.0-beta.4`](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/communication-sms/CHANGELOG.md)
 > - **.NET SDK:** [`1.1.0-beta.3`](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.Sms/CHANGELOG.md)
 
-Messaging Connect uses the same SMS APIs and SDKs as the rest of Azure Communication Services. If you've already followed the [Send SMS Quickstart](https://learn.microsoft.com/azure/communication-services/quickstarts/sms/send?tabs=linux&pivots=programming-language-csharp), you're already 90% of the way there.Make sure to use the "Send SMS with options" method.
+Messaging Connect uses the same SMS APIs and SDKs as the rest of Azure Communication Services. If you've already followed the [Send SMS Quickstart](../../quickstarts/sms/send?tabs=linux&pivots=programming-language-csharp.md), you're already 90% of the way there.Make sure to use the "Send SMS with options" method.
 
 There’s no separate SDK or client for Messaging Connect. You authenticate, create your `SmsClient`, and call the send method just as you would for any other Azure Communication Services number. The only difference is that your request must include a `MessagingConnect` object in the options field when you're using a number provisioned through Messaging Connect.
 
@@ -372,7 +372,7 @@ await smsClient.send(
 When you send SMS messages through Messaging Connect, you may encounter error codes—either as part of synchronous validation (immediate API response) or in asynchronous delivery reports.
 Azure Communication Services uses the same error model across all SMS traffic, including Messaging Connect.
 
-Learn more: [See full list of SMS error codes](https://learn.microsoft.com/azure/communication-services/resources/troubleshooting/voice-video-calling/troubleshooting-codes?pivots=sms#sms-error-codes)
+Learn more: [See full list of SMS error codes](../../resources/troubleshooting/voice-video-calling/troubleshooting-codes?pivots=sms#sms-error-codes.md)
 
 ## Messaging Connect Partner Directory
 
