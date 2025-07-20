@@ -160,23 +160,11 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
 ## Test your workflow
 
-To test and trigger the workflow, follow these steps:
+To run your workflow, follow these steps:
 
-### [Standard](#tab/standard)
-
-1. On the workflow menu, select **Overview**.
-
-1. On the **Overview** toolbar, select **Run** > **Run**.
+1. On the designer toolbar, select **Run** > **Run**.
 
 1. Reproduce the conditions that the trigger requires for your workflow to run.
-
-### [Consumption](#tab/consumption)
-
-1. On the designer toolbar, select **Run Trigger** > **Run**.
-
-1. Reproduce the conditions that the trigger requires for your workflow to run.
-
----
 
 ## Return rows based on a filter
 
