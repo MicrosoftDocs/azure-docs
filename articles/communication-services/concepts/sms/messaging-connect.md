@@ -45,7 +45,7 @@ You can send and receive SMS using the standard Azure Communication Services SMS
 
 This model works well in real-world scenarios. Whether you're building an AI-powered appointment assistant with Copilot Studio, managing logistics with local sender IDs in Brazil and India, or running global campaigns across dozens of countries, you can use Messaging Connect to reach users worldwide. Azure Communication Services, via Messaging Connect, enables you to acquire the right sender identities through a trusted partner and use them with your preferred Azure Communication Services SMS SDK—while keeping full control and observability in Azure.
 
-:::image type="content" source="./media/message-connect-runtime-concept.png" alt-text="Runtime architecture using Messaging Connect and ACS API."lightbox="./media/message-connect-runtime-concept.png":::
+:::image type="content" source="./media/message-connect-send-receive-sms.png" alt-text="Runtime architecture using Messaging Connect and ACS API."lightbox="./media/message-connect-send-receive-sms.png":::
 
 ### Capabilities
 
