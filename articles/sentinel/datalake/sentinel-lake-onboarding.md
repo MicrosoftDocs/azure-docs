@@ -4,7 +4,7 @@ titleSuffix: Microsoft Security
 description: This article describes how to onboard to the Microsoft Sentinel data lake  
 author: EdB-MSFT
 ms.topic: how-to  
-ms.date: 07/13/2025
+ms.date: 07/20/2025
 ms.author: edbaynash
 ms.service: microsoft-sentinel
 ms.subservice: sentinel-graph
@@ -25,7 +25,7 @@ Onboarding makes the following changes once complete:
 
 + Your data lake is provisioned for your selected subscription and resource group. 
 
-+ Your primary and other workspaces connected to Microsoft Defender that are located in the same region as your Entra tenant home region are attached to your Microsoft Sentinel data lake. Unconnected workspaces will not be attached to the data lake. 
++ Your primary and other workspaces connected to Microsoft Defender that are located in the same region as your Microsoft Entra tenant home region are attached to your Microsoft Sentinel data lake. Unconnected workspaces won't be attached to the data lake. 
 
 + Once Microsoft Sentinel data lake is enabled, data in the Microsoft Sentinel analytics tier is also available in the Microsoft Sentinel data lake tier from that point forward without extra charge. You can use existing Microsoft Sentinel workspace connectors to ingest new data to both the analytics and the data lake tiers, or just the data lake tier. 
 
@@ -38,6 +38,7 @@ Onboarding makes the following changes once complete:
 
 + If your organization currently uses Microsoft Sentinel SIEM (Security Information and Event Management), the billing and pricing for features like search jobs and queries, auxiliary logs, and long-term retention also known as "archive", switch to Microsoft Sentinel data lake-based billing, potentially increasing your costs.
 + Auxiliary log tables are integrated into the Microsoft Sentinel data lake. Auxiliary tables in Microsoft Defender connected workspaces that are onboarded to the Microsoft Sentinel data lake become an integral part of the data lake, making them available for use in data lake queries and jobs.
++ A managed identity is created with the prefix `msg-resources-` followed by a guid.  This managed identity is required for data lake functionality. Don't delete or remove required permissions from this managed identity. The identity has the Azure Reader role over subscriptions onboarded into the data lake. To enable custom table creation in the analytics tier, assign **Log Analytics Contributor** role to this identity for the relevant Log Analytics workspaces. For more information, see [Create KQL jobs in the Microsoft Sentinel data lake (preview)](./kql-jobs.md#permissions).
 
 > [!NOTE]
 > Auxiliary log tables for Microsoft Defender connected workspaces are no longer accessible from Microsoft Defender Advanced hunting once the data lake is enabled.
@@ -74,7 +75,7 @@ The following roles that are required to set up billing and authorize ingestion 
 
 ## Existing Microsoft Sentinel workspaces
 
-The Microsoft Sentinel data lake mirrors data from Microsoft Sentinel workspaces that are connected to the Defender portal. You must connect your Sentinel workspaces to the Defender portal to include them in the data lake.  If you have connected Sentinel to the Defender portal, to onboard to the data lake, the primary workspace must be in the tenant's home geographic region. If you haven't connected Microsoft Sentinel to the Defender portal, you can connect your Microsoft Sentinel workspaces to the Defender portal after onboarding, and the data will be mirrored to the data lake. For more information, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard).
+The Microsoft Sentinel data lake mirrors data from Microsoft Sentinel workspaces that are connected to the Defender portal. You must connect your Microsoft Sentinel workspaces to the Defender portal to include them in the data lake. If you have connected Sentinel to the Defender portal, to onboard to the data lake, the primary workspace must be in the tenant's home geographic region. If you haven't connected Microsoft Sentinel to the Defender portal, you can connect your Microsoft Sentinel workspaces to the Defender portal after onboarding, and the data will be mirrored to the data lake. For more information, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard).
 
 
 ## Onboarding steps
