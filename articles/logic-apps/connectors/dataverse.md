@@ -168,37 +168,22 @@ To run your workflow, follow these steps:
 
 ## Return rows based on a filter
 
-For actions that return rows, such as the **List rows** action, you can use an ODATA query that returns rows based on the specified filter. For example, you can set up the action to return only rows for active accounts. For more information about the example action, see [List rows](/connectors/commondataserviceforapps/#list-rows).
+For actions that return rows, such as the **List rows** action, you can use an ODATA query that returns rows based on the specified filter. For example, you can set up the action to return only rows for active accounts.
 
-### [Standard](#tab/standard)
+1. On the designer, in the action, open the **Advanced parameters** list, and select the **Filter rows** parameter.
 
-1. On the designer, in the action, open the **Advanced parameters** list, and select the **Filter rows** property.
+   :::image type="content" source="media/dataverse/dataverse-action-filter-rows.png" alt-text="Screenshot shows workflow and parameter named Filter rows." lightbox="media/dataverse/dataverse-action-filter-rows.png":::
 
-   ![Screenshot shows Standard workflow and property named Filter rows.](media/dataverse/dataverse-action-filter-rows-standard.png)
-
-1. In the **Filter rows** property that now appears in the action, enter an ODATA query expression, for example:
+1. In the **Filter rows** parameter that now appears in the action, enter an ODATA query expression, for example:
 
    `statuscode eq 1`
 
-   ![Screenshot shows Standard workflow and property named Filter rows with ODATA query.](media/dataverse/dataverse-action-filter-rows-query-standard.png)
+   :::image type="content" source="media/dataverse/dataverse-action-filter-rows-query.png" alt-text="Screenshot shows Standard workflow and parameter named Filter rows with ODATA query." lightbox="media/dataverse/dataverse-action-filter-rows-query.png":::
 
-For more information about `$filter` system query options, see [Query data using the Web API - Filter results](/power-apps/developer/data-platform/webapi/query-data-web-api#filter-results).
+For more information, see the following documentation:
 
-### [Consumption](#tab/consumption)
-
-1. On the designer, in the action, open the **Add new parameter** list, and select the **Filter rows** property.
-
-   ![Screenshot shows Consumption workflow and property named Filter rows.](media/dataverse/dataverse-action-filter-rows-consumption.png)
-
-1. In the **Filter rows** property that now appears in the action, enter an ODATA query expression, for example:
-
-   `statuscode eq 1`
-
-   ![Screenshot shows Consumption workflow and property named Filter rows property with ODATA query.](media/dataverse/dataverse-action-filter-rows-query-consumption.png)
-
-For more information about `$filter` system query options, see [Query data using the Web API - Filter results](/power-apps/developer/data-platform/webapi/query-data-web-api#filter-results).
-
----
+- [List rows](/connectors/commondataserviceforapps/#list-rows)
+- [`$filter` system query options](/power-apps/developer/data-platform/webapi/query-data-web-api#filter-results)
 
 ## Return rows based on a sort order
 
