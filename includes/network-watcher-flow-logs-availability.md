@@ -76,6 +76,7 @@ ms.custom: include file, references_regions
 > | Taiwan North | ✓ | ✓ | ✓ |  |
 > | Taiwan Northwest | ✓ | ✓ |  |  |
 > | West India | ✓ | ✓ |  |  |
+> | New Zealand North | ✓ | ✓ | ✓ |  |
 
 # [Middle East / Africa](#tab/MiddleEast)
 
