@@ -135,7 +135,7 @@ These errors return synchronously in your API response and also appear in Azure 
 Even if your request passes synchronous validation, Azure Communication Services might still not hand it off to the Messaging Connect partner. In some cases, Azure Communication Services stops the message before handoff—for example, if the recipient previously opted out or there's a known delivery block from the partner. These situations still result in a delivery report, so you’re always informed of the message outcome.
 Once a message is passed to the partner, any downstream delivery failures—like number unreachable, expired validity period, or carrier-level rejection—are also returned asynchronously via delivery reports. You can view delivery statuses in your delivery reports from Azure Event Grid events (if configured).
 
-Learn more: [Delivery Reports on Azure Event Grid Events](https://learn.microsoft.com/azure/event-grid/communication-services-telephony-sms-events)
+Learn more: [Delivery Reports on Azure Event Grid Events](../../../event-grid/communication-services-telephony-sms-events.md)
 
 > [!TIP] 
 > To ensure full visibility into your message traffic, we strongly recommend configuring event subscriptions for delivery reports. This setup lets you monitor message status, troubleshoot failures, and integrate with your existing telemetry systems.
@@ -249,7 +249,7 @@ Here’s how the Marketplace flow works:
 
 This setup simplifies procurement and allows Messaging Connect usage to count toward your Azure MACC commitment.
 
-Learn more: [Azure Marketplace](https://learn.microsoft.com/marketplace/azure-marketplace-overview)
+Learn more: [Azure Marketplace](../../../marketplace/azure-marketplace-overview.md)
 
 > [!TIP] 
 > Whether you choose Partner or Marketplace billing, the technical experience in Azure remains exactly the same.
