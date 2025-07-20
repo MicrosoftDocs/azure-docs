@@ -262,7 +262,7 @@ Messaging Connect introduces a new provisioning model: instead of getting number
 This process lets you access SMS numbers in over 190 countries while the partner handles local compliance, documentation, and approval flows. 
 
 > [!TIP]
-> If you’re new to Azure Communication Services, we recommend starting with the [Create a Communication Services resource](../../quickstarts/create-communication-resource?tabs=linux&pivots=platform-azp.md) guide to get set up and ready to onboard SMS with Messaging Connect.
+> If you’re new to Azure Communication Services, we recommend starting with the [Create a Communication Services resource](../../quickstarts/create-communication-resource.md) guide to get set up and ready to onboard SMS with Messaging Connect.
 
 Let's go step-by-step:
 
