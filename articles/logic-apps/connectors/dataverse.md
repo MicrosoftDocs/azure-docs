@@ -78,7 +78,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
    The following example shows the sample trigger:
 
-   :::image type="content" source="media/dataverse/dataverse-trigger-example-consumption.png" alt-text="Screenshot shows Consumption workflow designer and example trigger." lightbox="media/dataverse/dataverse-trigger-example-consumption.png":::
+   :::image type="content" source="media/dataverse/dataverse-trigger-example.png" alt-text="Screenshot shows Consumption workflow designer and example trigger." lightbox="media/dataverse/dataverse-trigger-example.png":::
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
@@ -104,7 +104,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
    The following example shows the sample trigger:
 
-   :::image type="content" source="media/dataverse/dataverse-trigger-example-standard.png" alt-text="Screenshot shows Standard workflow designer and example trigger." lightbox="media/dataverse/dataverse-trigger-example-standard.png":::
+   :::image type="content" source="media/dataverse/dataverse-trigger-example.png" alt-text="Screenshot shows Standard workflow designer and example trigger." lightbox="media/dataverse/dataverse-trigger-example.png":::
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
@@ -132,7 +132,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
    The following example shows the sample action:
 
-   :::image type="content" source="media/dataverse/dataverse-action-example-consumption.png" alt-text="Screenshot shows Consumption workflow designer and example action." lightbox="media/dataverse/dataverse-action-example-consumption.png":::
+   :::image type="content" source="media/dataverse/dataverse-action-example.png" alt-text="Screenshot shows Consumption workflow designer and example action." lightbox="media/dataverse/dataverse-action-example.png":::
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
@@ -150,7 +150,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
    This example continues with the action named [**Add a new row**](/connectors/commondataserviceforapps/#add-a-new-row).
 
-   :::image type="content" source="media/dataverse/dataverse-action-example-standard.png" alt-text="Screenshot shows Standard workflow designer and example action." lightbox="media/dataverse/dataverse-action-example-standard.png":::
+   :::image type="content" source="media/dataverse/dataverse-action-example.png" alt-text="Screenshot shows Standard workflow designer and example action." lightbox="media/dataverse/dataverse-action-example.png":::
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
