@@ -183,7 +183,7 @@ Azure Communication Services does not retain SMS message content after delivery 
 > [!IMPORTANT]
 > Microsoft does not retain any credentials used to access external Messaging Connect partners. Partner API keys are used solely for the purpose of processing an individual message request and are immediately discarded once the request is completed. These credentials are not stored, logged, or persisted in any form.
 
-Learn more: [Data residency and user privacy](../../concepts/privacy#sms.md)
+Learn more: [Data residency and user privacy](../privacy.md#sms)
 
 #### 2. EU Data Boundary (EUDB)
 
