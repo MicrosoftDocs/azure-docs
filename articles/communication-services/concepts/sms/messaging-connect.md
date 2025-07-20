@@ -183,13 +183,13 @@ Azure Communication Services does not retain SMS message content after delivery 
 > [!IMPORTANT]
 > Microsoft does not retain any credentials used to access external Messaging Connect partners. Partner API keys are used solely for the purpose of processing an individual message request and are immediately discarded once the request is completed. These credentials are not stored, logged, or persisted in any form.
 
-Learn more: [Data residency and user privacy](../privacy#sms.md)
+Learn more: [Data residency and user privacy](../../concepts/privacy#sms.md)
 
 #### 2. EU Data Boundary (EUDB)
 
 Azure Communication Services guarantees that SMS data within the EUDB is stored in EUDB regions. As of today, we process and store data in the Netherlands, Ireland, or Switzerland regions, ensuring no unauthorized data transfer outside the EEA (European Economic Area). Also, Azure Communication Services employs advanced security measures, including encryption, to protect SMS data both at rest and in transit. Customers can select their preferred data residency within the EUDB, making sure data remains within the designated EU regions.
 
-Learn more: [European Union Data Boundary (EUDB)](../european-union-data-boundary#sms)
+Learn more: [European Union Data Boundary (EUDB)](../../concepts/european-union-data-boundary#sms)
 
 #### 3.Using Messaging Connect from Anywhere
 
@@ -372,7 +372,7 @@ await smsClient.send(
 When you send SMS messages through Messaging Connect, you may encounter error codes—either as part of synchronous validation (immediate API response) or in asynchronous delivery reports.
 Azure Communication Services uses the same error model across all SMS traffic, including Messaging Connect.
 
-Learn more: [See full list of SMS error codes](../../resources/troubleshooting/voice-video-calling/troubleshooting-codes?pivots=sms#sms-error-codes.md)
+Learn more: [See full list of SMS error codes](../../../resources/troubleshooting/voice-video-calling/troubleshooting-codes?pivots=sms#sms-error-codes.md)
 
 ## Messaging Connect Partner Directory
 
