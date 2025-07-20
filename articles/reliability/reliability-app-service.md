@@ -21,7 +21,7 @@ If you are using App Service Environment, see [Reliability in Azure App Service 
 
 ## Production deployment recommendations
 
-To learn about how to deploy Azure API Management to support your solution's reliability requirements, and how reliability affects other aspects of your architecture, see [Architecture best practices for Azure App Service (Web Apps) in the Azure Well-Architected Framework](/azure/well-architected/service-guides/app-service-web-apps).
+To learn about how to deploy Azure App Service to support your solution's reliability requirements, and how reliability affects other aspects of your architecture, see [Architecture best practices for Azure App Service (Web Apps) in the Azure Well-Architected Framework](/azure/well-architected/service-guides/app-service-web-apps).
 
 ## Reliability architecture overview
 
