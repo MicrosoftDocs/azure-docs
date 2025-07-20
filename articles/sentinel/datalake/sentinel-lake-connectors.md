@@ -45,6 +45,6 @@ When a customer has onboarded to both Defender and Microsoft Sentinel onboards t
 ## Related articles
 
 - [Onboarding to Microsoft Sentinel data lake](sentinel-lake-onboarding.md)
-- [Manage data tiers and retention in Microsoft Defender Portal (preview)](https://aka.ms/manage-data-defender-portal-overview)
+- [Manage data tiers and retention in Microsoft Defender Portal (preview)](../manage-data-overview.md)
 - [KQL and the Microsoft Sentinel data lake (preview)](kql-overview.md)
 - [Jupyter notebooks and the Microsoft Sentinel data lake (preview)](notebooks-overview.md)
