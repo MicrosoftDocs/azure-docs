@@ -372,7 +372,7 @@ await smsClient.send(
 When you send SMS messages through Messaging Connect, you may encounter error codes—either as part of synchronous validation (immediate API response) or in asynchronous delivery reports.
 Azure Communication Services uses the same error model across all SMS traffic, including Messaging Connect.
 
-Learn more: [See full list of SMS error codes](../../../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md#sms)
+Learn more: [See full list of SMS error codes](../../../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md)
 
 ## Messaging Connect Partner Directory
 
