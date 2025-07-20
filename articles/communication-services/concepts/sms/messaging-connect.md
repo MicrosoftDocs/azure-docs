@@ -261,15 +261,14 @@ Learn more: [Azure Marketplace](https://learn.microsoft.com/marketplace/azure-ma
 Messaging Connect introduces a new provisioning model: instead of getting numbers directly from Microsoft, you acquire them through a trusted partner—starting with Infobip—and then connect them to your Azure Communication Services resource.
 This process lets you access SMS numbers in over 190 countries while the partner handles local compliance, documentation, and approval flows. 
 
+> [!TIP]
+> If you’re new to Azure Communication Services, we recommend starting with the [Create a Communication Services resource](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/create-communication-resource?tabs=linux&pivots=platform-azp) guide to get set up and ready to onboard SMS with Messaging Connect.
+
 Let's go step-by-step:
 
-#### STEP 1: Search for a number in the Azure portal
+#### STEP 1: Connect your Messaging Connect Partner
 
-Go to your Communication Services resource and search for a phone number by country and type. If that configuration isn’t available through Azure Communication Services directly, you are offered the option to use Messaging Connect. Click on it and select a partner. You are redirected to the partner’s portal.
-
-:::image type="content" source="./media/message-connect-provision-number-1.png" alt-text="Search for a number in the Azure portal." lightbox="./media/message-connect-provision-number-1.png":::
-
-Or you can go directly to the Messaging Connect blade and choose a partner from the list. You are redirected to the partner’s website to complete the number acquisition.
+In Azure Portal, in your communication services resource, go directly to the Messaging Connect blade and choose a partner from the list. Accept the terms. You are redirected to the partner’s website to complete the number acquisition.
 
 <table>
   <tr>
@@ -289,15 +288,9 @@ Follow the partner’s prompts to purchase the number. Depending on the country,
 
 :::image type="content" source="./media/message-connect-provision-number-4.png" alt-text="Partner assigns number and syncs with ACS." lightbox="./media/message-connect-provision-number-4.png":::
 
-#### STEP 3: Return to Azure and accept terms
+#### STEP 3: Return to Azure Portal
 
-After acquiring the number, come back to the Azure portal. You need to accept the Messaging Connect terms.
-
-:::image type="content" source="./media/message-connect-provision-number-5.png" alt-text="Accept Messaging Connect terms in Azure." lightbox="./media/message-connect-provision-number-5.png":::
-
-#### STEP 4: Number are available in Azure Portal
-
-After the partner assigns the numbers to you, they initiate the sync with Azure Communication Services. After the sync completes, the numbers automatically appear in your Azure Communication Services resource—ready to use with the Azure Communication Services SMS API, just like any number provisioned directly through Azure Communication Services. No extra setup is required on your end.
+Once the partner confirms that your numbers are provisioned, they trigger the sync with Azure Communication Services. After the sync is complete, the numbers automatically appear in your ACS resource—ready to use with the ACS SMS API, just like any number provisioned directly through Azure Communication Services. No additional setup is required on your side.
 
 :::image type="content" source="./media/message-connect-provision-number-6.png" alt-text="Provisioned numbers appear in ACS." lightbox="./media/message-connect-provision-number-6.png":::
 
