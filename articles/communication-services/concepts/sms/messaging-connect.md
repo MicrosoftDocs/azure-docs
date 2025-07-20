@@ -87,7 +87,7 @@ Azure Communication Services supports the following authentication methods:
 
 You authenticate with Azure Communication Services the same way you would for any other SMS request. Messaging Connect does not change the way authentication works at the platform level—it simply adds a partner-based routing step after your message is validated.
 
-Learn more: [Authenticate to Azure Communication Services](../concepts/authentication.md)
+Learn more: [Authenticate to Azure Communication Services](../../concepts/authentication.md)
 
 Once authenticated, your application also includes a partner API key at runtime to route the message through the correct Messaging Connect partner. This is part of the message payload and is explained further in the next section.
 
