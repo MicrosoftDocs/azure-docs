@@ -144,8 +144,22 @@ tasks:
 This setup allows automated, secure access to Azure resources during Dev Box provisioning, without exposing credentials in the script.
 
 ### Example: Download an artifact from Azure DevOps
+You can also download build artifacts from Azure DevOps (ADO) by using a service principal for authentication. First, add the service principal as a user in your Azure DevOps organization and then assign it to the *Readers* group. This grants the necessary permissions to access build artifacts.
 
-Downloading a build artifact from ADO is similarly possible. Instead of making a role assignment to the SP, it needs to be added as a user to the ADO organization...
+- Add the service principal's Application ID (appId) as a user in your Azure DevOps organization.
+- Assign the service principal to the **Readers** group to provide read access to artifacts.
+
+Once configured, you can use the service principal credentials in your customization tasks to authenticate and download artifacts securely from Azure DevOps.
+
+To add a service principal to your Azure DevOps organization and the Readers group:
+
+1. Go to your Azure DevOps organization settings.
+2. Select **Users** and click **Add users**.
+3. Enter the service principal's Application ID (appId) as the user email.
+4. Assign the user to the **Readers** group.
+5. Complete the process to grant the necessary permissions.
+
+For detailed steps, see [Add users and groups to Azure DevOps](/azure/devops/organizations/security/add-users-team-project).
 
 ## Related content
 
