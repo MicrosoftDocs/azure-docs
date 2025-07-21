@@ -5,8 +5,10 @@ services: automation
 ms.service: azure-automation
 ms.subservice: desired-state-config
 ms.topic: how-to
-ms.date: 08/20/2024
+ms.date: 04/01/2025
 ms.custom:
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Enable Azure Automation State Configuration
@@ -122,8 +124,7 @@ a `PSCredential` object, as described in [Manage credentials in Azure Automation
    creating metaconfigurations, and a command to kick off the metaconfiguration creation.
 
    > [!NOTE]
-   > State Configuration Node Configuration names are case-sensitive in the Azure portal. If the
-   > case is mismatched, the node will not show up under the **Nodes** tab.
+   > State Configuration Node Configuration names are case-sensitive in the Azure portal. If the case is mismatched, the node will not show up under the Nodes tab.  This process is for Non-Azure VMs.  Registering an Azure VM as a Hybrid node will result in DSC charges.  
 
    ```powershell
    # The DSC configuration that will generate metaconfigurations

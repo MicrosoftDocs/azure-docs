@@ -1,8 +1,8 @@
 ---
 title: Manage compute resources for dedicated SQL pool
 description: Learn how to scale, pause, or resume compute resources for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics. 
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 02/06/2025
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw

@@ -2,8 +2,10 @@
 title: Parameters in Bicep files
 description: Learn how to define and use parameters in a Bicep file.
 ms.topic: conceptual
-ms.date: 01/10/2025
-ms.custom: devx-track-bicep
+ms.custom:
+  - devx-track-bicep
+  - build-2025
+ms.date: 05/09/2025
 ---
 
 # Parameters in Bicep
@@ -20,7 +22,7 @@ For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
 ### Training resources
 
-See the [Build reusable Bicep templates by using parameters](/training/modules/build-reusable-bicep-templates-parameters) Learn module for step-by-step guidance about parameters.
+See the [Build reusable Bicep files by using parameters](/training/modules/build-reusable-bicep-templates-parameters) Learn module for step-by-step guidance about parameters.
 
 ## Define parameters
 
@@ -58,7 +60,7 @@ param storageAccountConfig {
 }
 ```
 
-For more information, see [User-defined data types](./user-defined-data-types.md#define-types).
+For more information, see [User-defined data types in Bicep](./user-defined-data-types.md#define-types).
 
 ## Set default values
 
@@ -68,7 +70,7 @@ You can specify a default value for a parameter. The default value is used when 
 param demoParam string = 'Contoso'
 ```
 
-You can use expressions with the default value. Expressions aren't allowed with other parameter properties. You can't use the [reference](bicep-functions-resource.md#reference) function or any of the [list](bicep-functions-resource.md#list) functions in the parameters section. These functions get the resource's runtime state, and can't be executed before deployment when parameters are resolved.
+You can use expressions with the default value. Expressions aren't allowed with other parameter properties. You can't use the [`reference`](bicep-functions-resource.md#reference) function or any of the [`list`](bicep-functions-resource.md#list) functions in the parameters section. These functions get the resource's runtime state and can't be executed before deployment when parameters are resolved.
 
 ```bicep
 param location string = resourceGroup().location
@@ -88,7 +90,7 @@ However, you can't reference a [variable](./variables.md) as the default value.
 
 ## Use decorators
 
-Parameters use decorators for constraints or metadata. The decorators are in the format `@expression` and are placed above the parameter's declaration. The following table shows the available decorators for parameters.
+Parameters use decorators for constraints or metadata. The decorators are in the format `@expression` and are placed above the parameter's declaration. The following table shows the available decorators for parameters:
 
 | Decorator | Apply to | Argument | Description |
 | --------- | ---- | ----------- | ------- |
@@ -140,7 +142,7 @@ Markdown-formatted text can be used for the description text:
 ```bicep
 @description('''
 Storage account name restrictions:
-- Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
+- Storage account names must be between 3 and 24 characters in length and can only contain numbers and lowercase letters.
 - Your storage account name must be unique within Azure. No two storage accounts can have the same name.
 ''')
 @minLength(3)
@@ -150,9 +152,9 @@ param storageAccountName string
 
 When you hover your cursor over **storageAccountName** in Visual Studio Code, you see the formatted text:
 
-:::image type="content" source="./media/parameters/vscode-bicep-extension-description-decorator-markdown.png" alt-text="Use Markdown-formatted text in VSCode":::
+:::image type="content" source="./media/parameters/vscode-bicep-extension-description-decorator-markdown.png" alt-text="Use Markdown-formatted text in VS Code":::
 
-Make sure the text follows proper Markdown formatting; otherwise, it may not display correctly when rendered.
+Make sure the text follows proper Markdown formatting; otherwise, it might not display correctly when rendered.
 
 ### Discriminator
 
@@ -172,7 +174,7 @@ param month int
 
 You can specify minimum and maximum lengths for string and array parameters. You can set one or both constraints. For strings, the length indicates the number of characters. For arrays, the length indicates the number of items in the array.
 
-The following example declares two parameters. One parameter is for a storage account name that must have 3-24 characters. The other parameter is an array that must have from 1-5 items.
+The following example declares two parameters. One parameter is for a storage account name that must have 3 to 24 characters. The other parameter is an array that must have 1 to 5 items.
 
 ```bicep
 @minLength(3)
@@ -199,7 +201,7 @@ You might use this decorator to track information about the parameter that doesn
 param settings object
 ```
 
-When you provide a `@metadata()` decorator with a property that conflicts with another decorator, that decorator always takes precedence over anything in the `@metadata()` decorator. So, the conflicting property within the `@metadata()` value is redundant and will be replaced. For more information, see [No conflicting metadata](./linter-rule-no-conflicting-metadata.md).
+When you provide a `@metadata()` decorator with a property that conflicts with another decorator, that decorator always takes precedence over anything in the `@metadata()` decorator so that the conflicting property within the `@metadata()` value is redundant and will be replaced. For more information, see [Linter rule - no conflicting metadata](./linter-rule-no-conflicting-metadata.md).
 
 ### Sealed
 
@@ -207,7 +209,7 @@ See [Elevate error level](./user-defined-data-types.md#elevate-error-level).
 
 ### Secure parameters
 
-You can mark string or object parameters as secure. The value of a secure parameter isn't saved to the deployment history and isn't logged.
+You can mark string or object parameters as secure. When a parameter is decorated with `@secure()`, Azure Resource Manager treats the parameter value as sensitive, preventing it from being logged or displayed in deployment history, Azure Portal, or command-line outputs.
 
 ```bicep
 @secure()
@@ -232,11 +234,13 @@ resource keyvault 'Microsoft.KeyVault/vaults@2019-09-01' = {
 }
 ```
 
+The `@secure()` decorator is valid only for parameters of type string or object, as these align with the [secureString](../templates/syntax.md#parameters) and [secureObject](../templates/syntax.md#parameters) types in ARM templates. To pass arrays or numbers securely, wrap them in a secureObject or serialize them as a secureString.
+
 ## Use objects as parameters
 
 It can be easier to organize related values by passing them in as an object. This approach also reduces the number of parameters in the template.
 
-The following example shows a parameter that is an object. The default value shows the expected properties for the object. Those properties are used when defining the resource to deploy.
+The following example shows a parameter that's an object. The default value shows the expected properties for the object. Those properties are used when defining the resource to deploy.
 
 ```bicep
 param vNetSettings object = {
@@ -289,6 +293,6 @@ resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
 
 ## Next steps
 
-- To learn about the properties available for parameters, see [Understand the structure and syntax of Bicep files](file.md).
-- To learn about passing in parameter values as a file, see [Create parameters files for Bicep deployment](parameter-files.md).
+- To learn about the properties available for parameters, see [Bicep file structure and syntax](file.md).
+- To learn about passing in parameter values as a file, see [Create a parameters file for Bicep deployment](parameter-files.md).
 - To learn about providing parameter values at deployment, see [Deploy Bicep files with the Azure CLI](deploy-cli.md) and [Azure PowerShell](deploy-powershell.md).

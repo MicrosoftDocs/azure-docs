@@ -7,6 +7,7 @@ ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 07/22/2024
 ms.author: allensu
+# Customer intent: "As a network engineer, I want to configure virtual networks in Azure so that I can establish secure, private communication between cloud resources and extend our on-premises infrastructure efficiently."
 ---
 
 # Azure Virtual Network frequently asked questions (FAQ)
@@ -697,6 +698,10 @@ Scenarios that aren't supported include:
 ### Where can I find more information about migration from classic to Resource Manager?
 
 See [Frequently asked questions about classic to Azure Resource Manager migration](/azure/virtual-machines/migration-classic-resource-manager-faq).
+
+### Can I recover a deleted public IP address?
+
+No. Once an Azure public IP address is deleted, it cannot be recovered. For more information, see [View, modify settings for, or delete a public IP address](ip-services/virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address).
 
 ### How can I report a problem?
 

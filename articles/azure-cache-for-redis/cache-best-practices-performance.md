@@ -8,6 +8,8 @@ ms.topic: conceptual
 ms.custom:
   - ignite-2024
 ms.date: 11/08/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 ---
 
 # Performance testing
@@ -30,7 +32,7 @@ Fortunately, several tools exist to make benchmarking Redis easier. Two of the m
 
 1. `Redis-benchmark` uses port 6379 by default. Use the `-p` parameter to override this setting. You need to do use `-p`, if you're using the SSL/TLS (port 6380) or are using the Enterprise tier (port 10000).
 
-1. If you're using an Azure Cache for Redis instance that uses [clustering](cache-how-to-scale.md), you need to add the `--cluster` parameter to your `redis-benchmark` command. Enterprise tier caches using the Enterprise [Clustering](managed-redis/managed-redis-architecture.md#clustering) can be treated as nonclustered caches and don't need this setting.
+1. If you're using an Azure Cache for Redis instance that uses [clustering](cache-how-to-scale.md), you need to add the `--cluster` parameter to your `redis-benchmark` command. Enterprise tier caches using the Enterprise [Clustering](../redis/architecture.md#clustering) can be treated as nonclustered caches and don't need this setting.
 
 1. Launch `redis-benchmark` from the CLI or shell of the VM. For instructions on how to configure and run the tool, see the [redis-benchmark documentation](https://redis.io/docs/management/optimization/benchmarks/) and the [redis-benchmark examples](#redis-benchmark-examples) sections.
 
@@ -176,7 +178,7 @@ memtier_benchmark -h {your-cache-name}.{region}.redis.azure.net -p 10000 -a {you
 
 #### Enterprise & Enterprise Flash tiers
 
-The Enterprise and Enterprise Flash tiers offer a choice of cluster policy: _Enterprise_ and _OSS_. Enterprise cluster policy is a simpler configuration that doesn't require the client to support clustering. OSS cluster policy, on the other hand, uses the [Redis cluster protocol](https://redis.io/docs/management/scaling) to support higher throughputs. We recommend using OSS cluster policy in most cases. For more information, see [Clustering](managed-redis/managed-redis-architecture.md#clustering) . Benchmarks for both cluster policies are shown in the following tables.
+The Enterprise and Enterprise Flash tiers offer a choice of cluster policy: _Enterprise_ and _OSS_. Enterprise cluster policy is a simpler configuration that doesn't require the client to support clustering. OSS cluster policy, on the other hand, uses the [Redis cluster protocol](https://redis.io/docs/management/scaling) to support higher throughputs. We recommend using OSS cluster policy in most cases. For more information, see [Clustering](../redis/architecture.md#clustering) . Benchmarks for both cluster policies are shown in the following tables.
 
 The following configuration was used to benchmark throughput for the Enterprise and Enterprise flash tiers:
 
@@ -213,7 +215,7 @@ redis-benchmark -h yourcache.region.redisenterprise.cache.azure.net -p 10000 -a 
 
 #### Enterprise & Enterprise Flash Tiers - Scaled Out
 
-In addition to scaling up by moving to larger cache size, you can boost performance by [scaling out](cache-how-to-scale.md#how-to-scale-up-and-out---enterprise-and-enterprise-flash-tiers). In the Enterprise tiers, scaling out is called increasing the _capacity_ of the cache instance. A cache instance by default has capacity of two--meaning a primary and replica node. An Enterprise cache instance with a capacity of four indicates that the instance was scaled out by a factor of two. Scaling out provides access to more memory and vCPUs. Details on how many vCPUs are used by the core Redis process at each cache size and capacity can be found at the [Sharding configuration](managed-redis/managed-redis-architecture.md#sharding-configuration). Scaling out is most effective when using the OSS cluster policy.
+In addition to scaling up by moving to larger cache size, you can boost performance by [scaling out](cache-how-to-scale.md#how-to-scale-up-and-out---enterprise-and-enterprise-flash-tiers). In the Enterprise tiers, scaling out is called increasing the _capacity_ of the cache instance. A cache instance by default has capacity of two--meaning a primary and replica node. An Enterprise cache instance with a capacity of four indicates that the instance was scaled out by a factor of two. Scaling out provides access to more memory and vCPUs. Details on how many vCPUs are used by the core Redis process at each cache size and capacity can be found at the [Sharding configuration](../redis/architecture.md#sharding-configuration). Scaling out is most effective when using the OSS cluster policy.
 
 The following tables show the `GET` requests per second at different capacities, using SSL and a 1-kB value size.
 

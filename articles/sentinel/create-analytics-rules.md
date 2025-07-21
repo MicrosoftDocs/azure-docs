@@ -6,8 +6,8 @@ ms.author: yelevin
 ms.topic: how-to
 ms.date: 10/16/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -19,6 +19,9 @@ ms.collection: usx-security
 You’ve set up [connectors and other means of collecting activity data](connect-data-sources.md) across your digital estate. Now you need to dig through all that data to detect patterns of activity and discover activities that don’t fit those patterns and that could represent a security threat.
 
 Microsoft Sentinel and its many [solutions provided in the Content hub](sentinel-solutions.md) offer templates for the most commonly used types of analytics rules, and you’re strongly encouraged to make use of those templates, customizing them to fit your specific scenarios. But it’s possible you might need something completely different, so in that case you can create a rule from scratch, using the analytics rule wizard.
+
+> [!NOTE]
+> If you're reviewing the details of a SOC optimization recommendation in the **SOC optimization** page and followed the **Learn more** link to this page, you might be looking for the list of suggested analytics rules. In this case, scroll to the bottom of the optimization details tab and select **Go to Content hub** to find and install the recommended rules specific to that recommendation. For more information, see [SOC optimization usage flow](soc-optimization/soc-optimization-access.md#soc-optimization-usage-flow).
 
 This article describes the process of creating an analytics rule from scratch, including using the **Analytics rule wizard**. It's accompanied by screenshots and directions to access the wizard in both the Azure portal and the Defender portal.
 
@@ -58,17 +61,17 @@ This section describes how to create a rule using the Azure or Defender portals.
 
 To get started, go to the **Analytics** page in Microsoft Sentinel to create a scheduled analytics rule.
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Analytics**.<br>For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com), select **Microsoft Sentinel** > **Configuration** > **Analytics**.
+1. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com), select **Microsoft Sentinel** > **Configuration** > **Analytics**. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Analytics**.
 
 1. Select **+Create** and select **Scheduled query rule**.
-
-    # [Azure portal](#tab/azure-portal)
-
-    :::image type="content" source="media/create-analytics-rules/create-scheduled-query.png" alt-text="Screenshot of Analytics screen in Azure portal." lightbox="media/create-analytics-rules/create-scheduled-query.png":::
 
     # [Defender portal](#tab/defender-portal)
 
     :::image type="content" source="media/create-analytics-rules/defender-create-scheduled-query.png" alt-text="Screenshot of Analytics screen in Defender portal." lightbox="media/create-analytics-rules/defender-create-scheduled-query.png":::
+
+    # [Azure portal](#tab/azure-portal)
+
+    :::image type="content" source="media/create-analytics-rules/create-scheduled-query.png" alt-text="Screenshot of Analytics screen in Azure portal." lightbox="media/create-analytics-rules/create-scheduled-query.png":::
 
     ---
 
@@ -88,13 +91,13 @@ In the Azure portal, stages are represented visually as tabs. In the Defender po
 
 1. Select **Next: Set rule logic**.
 
-   # [Azure portal](#tab/azure-portal)
-
-   :::image type="content" source="media/create-analytics-rules/general-tab.png" alt-text="Screenshot of opening screen of analytics rule wizard in the Azure portal.":::
-
    # [Defender portal](#tab/defender-portal)
 
    :::image type="content" source="media/create-analytics-rules/defender-wizard-general.png" alt-text="Screenshot of opening screen of analytics rule wizard in the Defender portal.":::
+
+   # [Azure portal](#tab/azure-portal)
+
+   :::image type="content" source="media/create-analytics-rules/general-tab.png" alt-text="Screenshot of opening screen of analytics rule wizard in the Azure portal.":::
 
    ---
 
@@ -150,17 +153,17 @@ The next step is to set the rule logic which includes adding the Kusto query tha
 
 1. Select **Next: Incident settings**.
 
-# [Azure portal](#tab/azure-portal)
-
-:::image type="content" source="media/create-analytics-rules/set-rule-logic-1.png" alt-text="Screenshot of first half of set rule logic tab in the analytics rule wizard in the Azure portal.":::
-
-:::image type="content" source="media/create-analytics-rules/set-rule-logic-2.png" alt-text="Screenshot of second half of set rule logic tab in the analytics rule wizard in the Azure portal.":::
-
 # [Defender portal](#tab/defender-portal)
 
 :::image type="content" source="media/create-analytics-rules/defender-set-rule-logic-1.png" alt-text="Screenshot of first half of set rule logic tab in the analytics rule wizard in the Defender portal.":::
 
 :::image type="content" source="media/create-analytics-rules/defender-set-rule-logic-2.png" alt-text="Screenshot of second half of set rule logic tab in the analytics rule wizard in the Defender portal.":::
+
+# [Azure portal](#tab/azure-portal)
+
+:::image type="content" source="media/create-analytics-rules/set-rule-logic-1.png" alt-text="Screenshot of first half of set rule logic tab in the analytics rule wizard in the Azure portal.":::
+
+:::image type="content" source="media/create-analytics-rules/set-rule-logic-2.png" alt-text="Screenshot of second half of set rule logic tab in the analytics rule wizard in the Azure portal.":::
 
 ---
 
@@ -179,7 +182,7 @@ In the **Incident settings** tab, choose whether Microsoft Sentinel turns alerts
      >
      > - In this scenario, incidents are created by Microsoft Defender XDR, not by Microsoft Sentinel.
      > - These incidents appear in the incidents queue in both the Azure and Defender portals.
-     > - In the Azure portal, new incidents are displayed with "Microsoft Defender XDR" as the **incident provider name**.
+     > - In the Azure portal, new incidents are displayed with "Microsoft XDR" as the **incident provider name**.
 
    - If you want a single incident to be created from a group of alerts, instead of one for every single alert, see the next step.
 
@@ -217,13 +220,13 @@ In the **Incident settings** tab, choose whether Microsoft Sentinel turns alerts
 
 1. Select **Next: Automated response**.
 
-    # [Azure portal](#tab/azure-portal)
-
-    :::image type="content" source="media/create-analytics-rules/incident-settings-tab.png" alt-text="Screenshot of incident settings screen of analytics rule wizard in the Azure portal.":::
-
     # [Defender portal](#tab/defender-portal)
 
     :::image type="content" source="media/create-analytics-rules/defender-incident-settings.png" alt-text="Screenshot of incident settings screen of analytics rule wizard in the Defender portal.":::
+
+    # [Azure portal](#tab/azure-portal)
+
+    :::image type="content" source="media/create-analytics-rules/incident-settings-tab.png" alt-text="Screenshot of incident settings screen of analytics rule wizard in the Azure portal.":::
 
     ---
 
@@ -241,13 +244,13 @@ In the **Incident settings** tab, choose whether Microsoft Sentinel turns alerts
 
         - If you still have any playbooks listed here, you should instead create an automation rule based on the **alert created trigger** and invoke the playbook from the automation rule. After you've done that, select the ellipsis at the end of the line of the playbook listed here, and select **Remove**. See [Migrate your Microsoft Sentinel alert-trigger playbooks to automation rules](migrate-playbooks-to-automation-rules.md) for full instructions.
 
-    # [Azure portal](#tab/azure-portal)
-
-    :::image type="content" source="media/create-analytics-rules/automated-response-tab.png" alt-text="Screenshot of automated response screen of analytics rule wizard in the Azure portal.":::
-
     # [Defender portal](#tab/defender-portal)
 
     :::image type="content" source="media/create-analytics-rules/defender-automated-response.png" alt-text="Screenshot of automated response screen of analytics rule wizard in the Defender portal.":::
+
+    # [Azure portal](#tab/azure-portal)
+
+    :::image type="content" source="media/create-analytics-rules/automated-response-tab.png" alt-text="Screenshot of automated response screen of analytics rule wizard in the Azure portal.":::
 
     ---
 
@@ -261,13 +264,13 @@ In the **Incident settings** tab, choose whether Microsoft Sentinel turns alerts
 
 1. Correct the error and go back to the **Review and create** tab to run the validation again.
 
-# [Azure portal](#tab/azure-portal)
-
-:::image type="content" source="media/create-analytics-rules/review-and-create-tab.png" alt-text="Screenshot of validation screen of analytics rule wizard in the Azure portal.":::
-
 # [Defender portal](#tab/defender-portal)
 
 :::image type="content" source="media/create-analytics-rules/defender-review-and-create.png" alt-text="Screenshot of validation screen of analytics rule wizard in the Defender portal.":::
+
+# [Azure portal](#tab/azure-portal)
+
+:::image type="content" source="media/create-analytics-rules/review-and-create-tab.png" alt-text="Screenshot of validation screen of analytics rule wizard in the Azure portal.":::
 
 ---
 
@@ -279,17 +282,17 @@ You can find your newly created custom rule (of type "Scheduled") in the table u
 
 ### View the results of the rule
 
-# [Azure portal](#tab/azure-portal)
-
-To view the results of the analytics rules you create in the Azure portal, go to the **Incidents** page, where you can triage incidents, [investigate them](investigate-cases.md), and [remediate the threats](respond-threats-during-investigation.md).
-
-:::image type="content" source="media/create-analytics-rules/view-incidents.png" alt-text="Screenshot of incidents page in the Azure portal." lightbox="media/create-analytics-rules/view-incidents.png":::
-
 # [Defender portal](#tab/defender-portal)
 
 To view the results of the analytics rules you create in the Defender portal, expand **Investigation & response** in the navigation menu, then **Incidents & alerts**. View incidents on the **Incidents** page, where you can triage incidents, [investigate them](investigate-cases.md), and [remediate the threats](respond-threats-during-investigation.md). View individual alerts on the **Alerts** page.
 
 :::image type="content" source="media/create-analytics-rules/defender-view-incidents.png" alt-text="Screenshot of incidents page in the Azure portal." lightbox="media/create-analytics-rules/defender-view-incidents.png":::
+
+# [Azure portal](#tab/azure-portal)
+
+To view the results of the analytics rules you create in the Azure portal, go to the **Incidents** page, where you can triage incidents, [investigate them](investigate-cases.md), and [remediate the threats](respond-threats-during-investigation.md).
+
+:::image type="content" source="media/create-analytics-rules/view-incidents.png" alt-text="Screenshot of incidents page in the Azure portal." lightbox="media/create-analytics-rules/view-incidents.png":::
 
 ---
 

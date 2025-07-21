@@ -5,7 +5,7 @@ services: azure-communication-services
 author: shamkh
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 12/15/2024
+ms.date: 05/01/25
 ms.topic: include
 ms.custom: include file
 ms.author: shamkh
@@ -35,7 +35,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Common configuration
 
-Follow these steps to configure your application:
+To configure your application, complete the following steps:
 
 - [Authenticate the client](#authenticate-the-client).
 - [Set channel registration ID](#set-channel-registration-id).
@@ -50,7 +50,7 @@ Follow these steps to add the required code snippets to the Main method in your 
 
 ### Send a reaction message to a WhatsApp user
 
-The Azure Communication Services SDK enables Contoso to send reaction messages to WhatsApp users when initiated by the users. To send a reaction message, ensure the following:
+The Azure Communication Services SDK enables Contoso to send reaction messages to WhatsApp users when initiated by the users. To send a reaction message, you need:
 - [Authenticated NotificationMessagesClient](#authenticate-the-client).
 - [WhatsApp channel ID](#set-channel-registration-id).
 - [Recipient phone number in E.164 format](#set-recipient-list).
@@ -60,17 +60,19 @@ The Azure Communication Services SDK enables Contoso to send reaction messages t
 | Action Type                     | Description                                       |
 |---------------------------------|---------------------------------------------------|
 | `ReactionNotificationContent`   | Class defining the reaction message content.      |
-| `Emoji`                         | Specifies the emoji reaction (e.g., 😄).         |
+| `Emoji`                         | Specifies the emoji reaction, such as 😄.         |
 | `MessageId`                     | ID of the message being replied to.              |
 
 In this example, the business sends a reaction message to the WhatsApp user:
 
 Assemble the reaction content:
+
 ```csharp
 var reactionNotificationContent = new ReactionNotificationContent(channelRegistrationId, recipientList, "\uD83D\uDE00", "<ReplyMessageIdGuid>");
 ```
 
 Send the reaction message:
+
 ```csharp
 var reactionResponse = await notificationMessagesClient.SendAsync(reactionNotificationContent);
 ```

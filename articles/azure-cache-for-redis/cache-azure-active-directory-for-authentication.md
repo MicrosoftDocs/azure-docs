@@ -5,6 +5,8 @@ ms.custom: references_regions, ignite-2024
 
 ms.topic: conceptual
 ms.date: 07/17/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 ---
 
 # Use Microsoft Entra for cache authentication
@@ -27,6 +29,7 @@ To use the ACL integration, your client application must assume the identity of 
 
 - Microsoft Entra authentication is supported for SSL connections and TLS 1.2 or higher.
 - Microsoft Entra authentication isn't supported in the Enterprise tiers of Azure Cache for Redis Enterprise.
+- Microsoft Entra groups are not supported.
 - Some Redis commands are blocked. For a full list of blocked commands, see [Redis commands not supported in Azure Cache for Redis](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis).
 
 > [!IMPORTANT]

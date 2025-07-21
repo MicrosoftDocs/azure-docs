@@ -35,6 +35,11 @@ Create the UAMI(s) required for accessing the necessary resources.
 
 For more information on creating managed identities, refer to [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
 
+>[!Note]
+> When creating a User-Assigned Managed Identity (UAMI) to be used with Network Fabric, ensure that the total length of the fabric name + UAMI name does not exceed 48 characters. This is due to an internal platform constraint on the naming length used during resource configuration.<br>
+For example, if your fabric name is nf-westus-prod-01 (18 characters), the UAMI name should be 30 characters or fewer.
+
+
 ## Step 2: Configure the storage account
 
 ### 2.1 Create or identify a storage account
@@ -78,9 +83,9 @@ When using UAMI to access a storage account, the NNF platform requires provision
 6. Click **Review and assign**.
 
 > [!Note]
-> When using a User-Assigned Managed Identity (UAMI) to access a Storage account, it is essential to provision access to that identity for the NNF platform. Specifically, the Microsoft.ManagedIdentity/userAssignedIdentities/assign/action permission needs to be added to the User-assigned identity for the Managed Network Fabric RP Microsoft Entra ID. This permission ensures that the UAMI can be properly assigned and utilized within the NNF platform. It is a known limitation of the platform that this specific permission assignment is required. However, this limitation will be addressed in a future release.
+> UAMI name length limitation no longer applies starting with Network Fabric release 8.2.<br> Previously, the combined length of the Network Fabric name and the User-Assigned Managed Identity (UAMI) name was limited to 48 characters. This restriction was removed in release 8.2. <br> However, in release 8.2, a known limitation affected fabrics that already had a UAMI assigned. Attempting to patch such fabrics with a new UAMI—regardless of its length—would result in an error. <br> This limitation has been removed in release 8.3, and fabrics can now be successfully patched with any UAMI, regardless of previous assignments or name length.
 
-## Step 4: Update Cluster with UAMI and Storage Account configuration
+## Step 4: Update Network Fabric with UAMI and Storage Account configuration
 
 When creating or updating an NNF instance, both the User-Assigned Managed Identity and Storage Account must be supplied together.
 

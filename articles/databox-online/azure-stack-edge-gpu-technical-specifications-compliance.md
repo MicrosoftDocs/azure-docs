@@ -73,7 +73,7 @@ Here are the details for the Mellanox card:
 
 For a full list of supported cables, switches, and transceivers for these network cards, go to:
 
-- [`Qlogic` Cavium 25G NDC adapter interoperability matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
+- [`Qlogic` Cavium 25G NDC adapter interoperability matrix](https://www.marvell.com/content/dam/marvell/en/public-collateral/ethernet-adaptersandcontrollers/marvell-ethernet-adapters-fastlinq-41000-interoperability-matrix.pdf).
 
 ## Storage specifications
 

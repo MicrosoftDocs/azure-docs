@@ -41,6 +41,19 @@ directCommands:
     summary: Use the operating system native keychain for persistent credentials. The default is `true`.
   - name: --no-use-keychain, -nu
     summary: Disable use of the operating system native keychain.
+  globalParameters:
+  - name: --version, -v
+    summary: Display the version number.
+  - name: --verbose, --V [level]
+    summary: Enable verbose output. Level values include `silly`, `info`, `log` (default), and `silent`.
+  - name: --config, -c [path]
+    summary: Path to the swa-cli.config.json file.
+  - name: --config-name, -cn
+    summary: Configuration used by the CLI.
+  - name: --print-config, -g
+    summary: Print all resolved options. Default is `false`.
+  - name: --help, -h
+    summary: Show context-sensitive help.
 - uid: swa_init
   name: swa init
   summary: Configures a new Azure Static Web Apps project.
@@ -84,6 +97,19 @@ directCommands:
   optionalParameters:
   - name: --yes, -y
     summary: Answers "yes" to all prompts, which disables interactive mode. Default is `false`.
+  globalParameters:
+  - name: --version, -v
+    summary: Display the version number.
+  - name: --verbose, --V [level]
+    summary: Enable verbose output. Level values include `silly`, `info`, `log` (default), and `silent`.
+  - name: --config, -c [path]
+    summary: Path to the swa-cli.config.json file.
+  - name: --config-name, -cn
+    summary: Configuration used by the CLI.
+  - name: --print-config, -g
+    summary: Print all resolved options. Default is `false`.
+  - name: --help, -h
+    summary: Show context-sensitive help.
 - uid: swa_start
   name: swa start
   summary: Start the Azure Static Web Apps emulator from a directory or bind to a running dev server.
@@ -186,7 +212,6 @@ directCommands:
       ```azstatic-cli
       swa start ./src --data-api-location swa-db-connections
       ```
-
   examples:
   - summary: Start the application with defaults.
     syntax: swa start
@@ -229,6 +254,19 @@ directCommands:
     summary: Open the browser to the dev server. Default is false.
   - name: --func-args, -f <FUNCTION_ARGUMENTS>
     summary: Pass additional arguments to the `func start` command.
+  globalParameters:
+  - name: --version, -v
+    summary: Display the version number.
+  - name: --verbose, --V [level]
+    summary: Enable verbose output. Level values include `silly`, `info`, `log` (default), and `silent`.
+  - name: --config, -c [path]
+    summary: Path to the swa-cli.config.json file.
+  - name: --config-name, -cn
+    summary: Configuration used by the CLI.
+  - name: --print-config, -g
+    summary: Print all resolved options. Default is `false`.
+  - name: --help, -h
+    summary: Show context-sensitive help.
 - uid: swa_build
   name: swa build
   status: GA
@@ -266,6 +304,19 @@ directCommands:
     summary: Builds the API application.
   - name: --auto
     summary: Automatically detects how to build your front-end and API applications. Default is `false`.
+  globalParameters:
+  - name: --version, -v
+    summary: Display the version number.
+  - name: --verbose, --V [level]
+    summary: Enable verbose output. Level values include `silly`, `info`, `log` (default), and `silent`.
+  - name: --config, -c [path]
+    summary: Path to the swa-cli.config.json file.
+  - name: --config-name, -cn
+    summary: Configuration used by the CLI.
+  - name: --print-config, -g
+    summary: Print all resolved options. Default is `false`.
+  - name: --help, -h
+    summary: Show context-sensitive help.
 - uid: swa_deploy
   name: swa deploy
   status: GA
@@ -423,6 +474,19 @@ directCommands:
     syntax: swa deploy --print-token
   - summary: Deploy to a specific environment
     syntax: swa deploy --env production
+  globalParameters:
+  - name: --version, -v
+    summary: Display the version number.
+  - name: --verbose, --V [level]
+    summary: Enable verbose output. Level values include `silly`, `info`, `log` (default), and `silent`.
+  - name: --config, -c [path]
+    summary: Path to the swa-cli.config.json file.
+  - name: --config-name, -cn
+    summary: Configuration used by the CLI.
+  - name: --print-config, -g
+    summary: Print all resolved options. Default is `false`.
+  - name: --help, -h
+    summary: Show context-sensitive help.
 - uid: swa_db
   name: swa db
   status: GA
@@ -448,21 +512,22 @@ directCommands:
     summary:  The container of your cosmosdb account you want to connect.
   - name: --help, -h
     summary: Display help for command.
-globalParameters:
-- name: --version, -v
-  summary: Display the version number.
-- name: --verbose, --V [level]
-  summary: Enable verbose output. Level values include `silly`, `info`, `log` (default), and `silent`.
-- name: --config, -c [path]
-  summary: Path to the swa-cli.config.json file.
-- name: --config-name, -cn
-  summary: Configuration used by the CLI.
-- name: --print-config, -g
-  summary: Print all resolved options. Default is `false`.
-- name: --help, -h
-  summary: Show context-sensitive help.
+  globalParameters:
+  - name: --version, -v
+    summary: Display the version number.
+  - name: --verbose, --V [level]
+    summary: Enable verbose output. Level values include `silly`, `info`, `log` (default), and `silent`.
+  - name: --config, -c [path]
+    summary: Path to the swa-cli.config.json file.
+  - name: --config-name, -cn
+    summary: Configuration used by the CLI.
+  - name: --print-config, -g
+    summary: Print all resolved options. Default is `false`.
+  - name: --help, -h
+    summary: Show context-sensitive help.
 commands:
 - swa_login
+- swa_init
 - swa_build
 - swa_start
 - swa_deploy

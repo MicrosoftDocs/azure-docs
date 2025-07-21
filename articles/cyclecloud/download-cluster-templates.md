@@ -2,23 +2,23 @@
 title: Download Cluster Projects and Templates
 description: Azure CycleCloud has built-in templates you can configure and edit to make your own custom templates.
 author: adriankjohnson
-ms.date: 07/17/2019
+ms.date: 06/10/2025
 ms.author: adjohnso
 ---
 
-# Cluster Template Downloads
+# Cluster template downloads
 
-Azure CycleCloud comes with built-in cluster templates that you can use out of the box, or customize to [build a template](~/articles/cyclecloud/how-to/cluster-templates.md) for your specific needs. For the full list of available cluster templates, please take a look at the "cyclecloud" repositories in [Microsoft Azure GitHub](https://github.com/Azure?q=cyclecloud).
+Azure CycleCloud comes with built-in cluster templates that you can use out of the box, or customize to [build a template](~/articles/cyclecloud/how-to/cluster-templates.md) for your specific needs. For the full list of available cluster templates, see the "cyclecloud" repositories in [Microsoft Azure GitHub](https://github.com/Azure?q=cyclecloud).
 
-Customized templates can be imported into CycleCloud using the CycleCloud CLI:
+You can import customized templates into CycleCloud using the CycleCloud CLI:
 
 ```azurecli-interactive
 cyclecloud import_template -f templates/template-name.template.txt
 ```
 
-## Available Template Types
+## Available template types
 
-| Project/Template Type  | CycleCloud Repo | Description  |
+| Project/template type  | CycleCloud repo | Description  |
 | --------------------- | ---------------- | ------------ | --- |
 | [![BeeGFS Logo](~/articles/cyclecloud/media/index/beegfs.png)](https://www.beegfs.io/content/) | [BeeGFS](https://github.com/Azure/cyclecloud-beegfs) | CycleCloud project to enable configuration, orchestration, and management of BeeGFS file systems in Azure CycleCloud HPC clusters. |
 | [![Grid Engine Logo](~/articles/cyclecloud/media/index/grid-engine.png)](http://gridscheduler.sourceforge.net/) | [Grid Engine](https://github.com/Azure/cyclecloud-gridengine)    | Azure CycleCloud GridEngine cluster template.  |

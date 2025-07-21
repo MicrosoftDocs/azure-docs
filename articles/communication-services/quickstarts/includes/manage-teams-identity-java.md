@@ -109,13 +109,13 @@ Set<String> scope = new HashSet<String>();
 scope.add("https://auth.msft.communication.azure.com/Teams.ManageCalls");
 scope.add("https://auth.msft.communication.azure.com/Teams.ManageChats");
 
-// Create an instance of InteractiveRequestParameters for acquiring the AAD token and object ID of a Teams user
+// Create an instance of InteractiveRequestParameters for acquiring the Microsoft Entra ID token and object ID of a Teams user
 InteractiveRequestParameters parameters = InteractiveRequestParameters
                     .builder(new URI(redirectUri))
                     .scopes(scope)
                     .build();
 
-// Retrieve the AAD token and object ID of a Teams user
+// Retrieve the Microsoft Entra ID token and object ID of a Teams user
 IAuthenticationResult result = pca.acquireToken(parameters).get();
 String teamsUserAadToken = result.accessToken();
 String[] accountIds = result.account().homeAccountId().split("\\.");

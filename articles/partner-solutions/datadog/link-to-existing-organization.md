@@ -17,11 +17,11 @@ In this quickstart, you link to an existing organization of Datadog.
 
 ## Prerequisites
 
-[!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
+[!INCLUDE [create-prerequisites-owner](../includes/create-prerequisites-owner.md)]
 - You must [configure your environment](prerequisites.md).
 - You must [subscribe to Datadog](overview.md#subscribe-to-datadog).
 
-## Create a New Relic resource
+## Create a Datadog resource
 
 Begin by signing in to the [Azure portal](https://portal.azure.com/).
 
@@ -31,7 +31,7 @@ Begin by signing in to the [Azure portal](https://portal.azure.com/).
 
 1. Select the **+ Create** option under **Link Azure subscription to an existing Datadog org**.
 
-The **Create** resource pane displays in the working pane with the *Basics* tab open by default.
+The **Create** resource pane shows in the working pane with the *Basics* tab open by default.
 
 ### Basics tab
 

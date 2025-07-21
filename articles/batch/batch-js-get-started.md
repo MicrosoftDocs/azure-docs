@@ -2,9 +2,10 @@
 title: Use the Azure Batch client library for JavaScript
 description: Learn the basic concepts of Azure Batch and build a simple solution using JavaScript.
 ms.topic: how-to
-ms.date: 05/16/2023
+ms.date: 04/02/2025
 ms.devlang: javascript
 ms.custom: devx-track-js, linux-related-content
+# Customer intent: "As a JavaScript developer, I want to use the Azure Batch client library to create and manage a batch processing solution, so that I can efficiently run parallel tasks for data processing from Azure Blob storage."
 ---
 
 # Get started with Batch SDK for JavaScript

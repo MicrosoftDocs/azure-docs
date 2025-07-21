@@ -1,7 +1,7 @@
 ---
 title: Avoid charges with your Azure free account
 description: Understand why you see charges for your Azure free account. Learn ways to avoid these charges.
-author: bandersmsft
+author: shrutis06
 ms.reviewer: shrshett
 ms.service: cost-management-billing
 ms.subservice: billing

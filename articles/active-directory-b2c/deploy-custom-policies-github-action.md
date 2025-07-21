@@ -19,6 +19,7 @@ ms.subservice: b2c
 ---
 
 # Deploy custom policies with GitHub Actions
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [GitHub Actions](https://docs.github.com/actions/quickstart) allows you to create custom continuous integration (CI) and continuous deployment (CD) workflows directly in your GitHub repository. This article describes how to automate the deployment of Azure Active Directory B2C (Azure AD B2C) [custom policies](user-flow-overview.md) using GitHub Actions.
 

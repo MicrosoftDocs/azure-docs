@@ -1,21 +1,19 @@
 ---
-title: Azure Front Door WebSocket (preview)
+title: Azure Front Door WebSocket
 description: This article describes how WebSocket work on Azure Front Door for real-time bidirectional communication between a server and client over a long running TCP connection.
 author: jessie-jyy
 ms.author: halkazwini
 manager: KumudD
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 11/11/2024
+ms.date: 03/31/2025
 ---
 
-# Azure Front Door WebSocket (preview)
+# Azure Front Door WebSocket
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 Azure Front Door supports WebSocket on both Standard and Premium tiers without requiring any extra configurations. WebSocket, standardized in [RFC6455](https://tools.ietf.org/html/rfc6455), is a TCP-based protocol that facilitates full-duplex communication between a server and a client over a long-running TCP connection. It eliminates the need for polling as required in HTTP and avoids some of the overhead of HTTP. It can reuse the same TCP connection for multiple requests or responses, resulting in a more efficient utilization of resources. This enables more interactive and real-time scenarios.
-
-> [!IMPORTANT]
-> Azure Front Door websocket is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 WebSocket is ideal for applications needing real-time updates or continuous data streams, such as chat apps, dashboards, financial updates, GPS, online education, live streaming, and gaming. For instance, a trading website can use WebSocket to push and update pricing data in real-time.
 
@@ -29,6 +27,7 @@ When using WebSocket on Azure Front Door, consider the following:
 - Disable caching for WebSocket routes. For routes with caching enabled, Azure Front Door doesn't forward the WebSocket Upgrade header to the origin and treats it as an HTTP request, disregarding cache rules. This results in a failed WebSocket upgrade request.
 - The idle timeout is 5 minutes. If Azure Front Door doesn't detect any data transmission from the origin or the client within the past 5 minutes, the connection is considered idle and is closed.
 - Currently, WebSocket connections on Azure Front Door remain open for no longer than 4 hours. The WebSocket connection can be dropped due to underlying server upgrades or other maintenance activities. We highly recommend you implement retry logic in your application.
+- Currently, each Azure Front Door profile supports up to 3,000 concurrent global connections. For more information, see [Azure Front Door Standard and Premium service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-standard-and-premium-service-limits).
 
 ## How the WebSocket protocol works
 

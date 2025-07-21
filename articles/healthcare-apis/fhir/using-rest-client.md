@@ -17,7 +17,7 @@ In this article, you learn how to access Azure Health Data Services using [REST 
 
 Select the Extensions icon on the left side panel of your Visual Studio Code, and search for "REST Client". Find the [REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) and install.
 
-[![REST Client VSCode extension](media/rest-install.png)](media/rest-install.png#lightbox)
+[![REST Client VS Code extension](media/rest-install.png)](media/rest-install.png#lightbox)
 
 ## Create a `.http` file and define variables
 

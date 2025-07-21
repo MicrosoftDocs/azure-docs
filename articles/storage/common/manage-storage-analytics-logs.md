@@ -3,13 +3,14 @@ title: Enable and manage Azure Storage Analytics logs (classic)
 description: Learn how to monitor a storage account in Azure by using Azure Storage Analytics.
 author: normesta
 ms.service: azure-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/30/2022
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: storage-common-concepts
 ms.devlang: csharp
 ms.custom: monitoring, devx-track-azurepowershell
+# Customer intent: "As a storage account administrator, I want to enable and manage Azure Storage Analytics logs, so that I can monitor and retain log data efficiently while controlling storage costs."
 ---
 
 # Enable and manage Azure Storage Analytics logs (classic)

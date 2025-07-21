@@ -1,6 +1,6 @@
 ---
 title: include file
-description: Multiple recipients Java SDK include file
+description: Multiple recipients Java SDK
 author: natekimball-msft
 manager: koagbakp
 services: azure-communication-services
@@ -55,5 +55,4 @@ System.out.println("Operation Id: " + response.getValue().getId());
 
 ### Sample code
 
-You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email-advanced)
-
+You can download the sample app demonstrating this action from GitHub Azure Samples [Send Email for Java](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email-advanced).

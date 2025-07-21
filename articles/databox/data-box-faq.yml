@@ -1,22 +1,22 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Data Box, Azure Data Box Heavy FAQ   
-  description: Contains frequently asked questions and answers for Azure Data Box and Azure Data Box Heavy, a cloud solution that enables you to transfer large amounts of data into Azure.
+  title: Azure Data Box, Azure Data Box Next Gen, and Azure Data Box Heavy FAQ   
+  description: Contains frequently asked questions and answers for Azure Data Box, Data Box Next Gen, and Data Box Heavy, a cloud solution that enables you to transfer large amounts of data into Azure.
   services: databox
   author: v-dalc
     
   ms.service: azure-databox
   ms.topic: faq
-  ms.date: 06/06/2022
+  ms.date: 03/06/2025
   ms.author: shaas
   ms.custom: references_regions
+  zone_pivot_groups: data-box-sku
 
 title: "Azure Data Box: Frequently Asked Questions"
 summary:
-  The Azure Data Box and Azure Data Box Heavy hybrid solution enables you to send terabytes of data to Azure in a quick, inexpensive, and reliable way using a transfer device. This FAQ contains questions and answers that you may have when you use Data Box in the Azure portal.
+  The Azure Data Box, Data Box Next Gen, and Data Box Heavy hybrid solution enables you to send terabytes of data to Azure in a quick, inexpensive, and reliable way using a transfer device. This FAQ contains questions and answers that you may have when you use Data Box in the Azure portal.
 
-  Sections with tabs have some questions that apply to **Data Box only** and **Data Box Heavy only**.
-
+  Sections with tabs have some questions that apply to **Data Box only**, **Data Box Next Gen**, and **Data Box Heavy only**.
 
 sections:
   - name: Ignored
@@ -26,8 +26,11 @@ sections:
         answer: |
           ## [Data Box & Data Box Heavy](#tab/data-box-and-data-box-heavy)
           
-          ### What is Azure Data Box service? 
-          
+          ### What is Azure Data Box service?
+          :::zone pivot="dbx-ng"
+          The Microsoft Azure Data Box cloud solution lets you send terabytes of data into and out of Azure in a quick, inexpensive, and reliable way. The secure data transfer is accelerated by shipping you a proprietary Data Box storage device. These storage devices come in two variations having a maximum usable storage capacity of 120 TB and 525 TB respectively. These are transported to your data center through a regional carrier. These devices have a rugged casing to protect and secure data during the transit. 
+          :::zone-end
+
           Azure Data Box service is designed for offline data ingestion. This service manages an array of products of differing storage capacities, all tailored for data transport. 
             
           ### What is Azure Data Box?
@@ -36,11 +39,11 @@ sections:
 
           ### Which Data Box model should I use?
 
-          If you have 40 - 500 TB of data that you want to transfer to or from Azure, you would benefit from using Data Box. For data sizes < 40 TB, use [Data Box Disk](data-box-overview.md), and for data sizes > 500 TB, sign up for [Data Box Heavy](data-box-heavy-overview.md).
+          If you have 40 - 480 TB of data that you want to transfer to or from Azure, you would benefit from using Data Box 120. For data sizes < 40 TB, use [Data Box Disk](data-box-overview.md), and for data sizes > 480 TB, use Data Box 525. If you have 40 - 500 TB of data that you want to transfer to or from Azure, you would benefit from using Data Box. For data sizes < 40 TB, use [Data Box Disk](data-box-overview.md), and for data sizes > 500 TB, sign up for [Data Box Heavy](data-box-heavy-overview.md).
 
           ### What is the price of Data Box?
 
-          Data Box is available at a nominal charge for 10 days. When you select the product model while creating an order in the Azure portal, the charges for the device are displayed. Standard shipping charges and charges for Azure storage also apply. Export orders follow a similar pricing model as for import orders, though additional egress charges may apply.
+          Data Box 120 and Data Box is available at a nominal charge for 10 days. Data Box 525 is available at a nominal charge for 20 days. When you select the product model while creating an order in the Azure portal, the charges for the device are displayed. Standard shipping charges and charges for Azure storage also apply. Export orders follow a similar pricing model as for import orders, though additional egress charges may apply.
 
           For more information, go to [Azure Data Box pricing](https://azure.microsoft.com/pricing/details/storage/databox/) and [Azure Data Box Heavy pricing]( https://azure.microsoft.com/en-us/pricing/details/databox/heavy/). For egress charges, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
 
@@ -74,7 +77,7 @@ sections:
           
           ### What is the maximum amount of data I can transfer with one Data Box device?
           
-          Data Box has a raw capacity of 100 TB and usable capacity of 80 TB. You can transfer up to 80 TB of data with Data Box. To transfer more data, you need to order more devices.
+          Data Box 120 has a usable capacity of 120 TB while Data Box 525 has a usable capacity of 525 TB. Data Box has a raw capacity of 100 TB and usable capacity of 80 TB. You can transfer data up to usable capacity of each Data Box device. To transfer more data, you need to order more devices.
 
           ### How can I check if Data Box is available in my region? 
         
@@ -105,7 +108,7 @@ sections:
           
           ### I couldn't create a Data Box/Data Box Heavy order in the Azure portal. Why?
 
-          If you can't create a Data Box or Data Box Heavy order, there's a problem with either your subscription type or access.
+           If you can't create a Data Box order, there's a problem with either your subscription type or access.
 
           Check your subscription. Data Box is only available for Enterprise Agreement (EA) and Cloud solution provider (CSP) subscription offers. If you don't have either of these subscription types, contact Microsoft Support to upgrade your subscription.
 
@@ -113,11 +116,11 @@ sections:
 
           ### I ordered a couple of Data Box devices. I can't create any additional orders. Why?
 
-          We allow a maximum of five active orders per subscription per commerce boundary (combination of country/region and region selected) for any Data Box product. You can have five active Data Box orders and five active Data Box Heavy orders. If you need to order an additional device, contact Microsoft Support to increase the limit for your subscription. 
+          We allow a maximum of five active orders per subscription per commerce boundary (combination of country/region and region selected) for any Data Box product. You can have up to five active Data Box 120 orders, five active Data Box 525 orders, five active Data Box orders, and five active Data Box Heavy orders. If you need to order an additional device, contact Microsoft Support to increase the limit for your subscription. 
 
           ### When I try to create an order, I receive a notification that the Data Box service is not available. What does this mean?
 
-          The Data Box service isn't available for the combination of country/region and region you selected for the selected product - either Data Box or Data Box Heavy. Changing this combination would likely allow you to avail of the Data Box service. For a list of the regions where the service is available, go to [Region availability for Data Box](data-box-overview.md#region-availability) or [Region availability for Data Box Heavy](data-box-heavy-overview.md#region-availability).
+          The Data Box service isn't available for the combination of country/region and region you selected for the selected product - either Data Box 120, Data Box 525, Data Box, or Data Box Heavy. Changing this combination would likely allow you to avail of the Data Box service. For a list of the regions where the service is available, go to [Region availability for Data Box](data-box-overview.md#region-availability) or [Region availability for Data Box Heavy](data-box-heavy-overview.md#region-availability).
 
           ### My Data Box is dispatched, but now I want to cancel this order. Why is the cancel button not available?
 
@@ -182,11 +185,11 @@ sections:
 
           ### Can I connect a Data Box to multiple host computers to transfer data at the same time?
 
-          Yes. Multiple host computers can connect to Data Box to transfer data and multiple copy jobs can be run in parallel. For more information, go to [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md) or [Tutorial: Copy data to Azure Data Box Heavy](data-box-heavy-deploy-copy-data.md).
+          Yes. Multiple host computers can connect to Data Box to transfer data and multiple copy jobs can be run in parallel. For more information, go to [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md).
 
-          ### Can I connect to both of the 10-GbE interfaces on the Data Box to transfer data?
+          ### Can I connect to both of the 10-GbE interfaces on the Data Box, or the 100-GbE interfaces on the Data Box Next-Gen, to transfer data?
 
-          Yes. Both of the 10-GbE interfaces can be connected on the Data Box to copy data at the same time. For more information on how to copy data, go to [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md) or [Tutorial: Copy data to Azure Data Box Heavy](data-box-heavy-deploy-copy-data.md).
+          Yes. Both of the interfaces can be connected on the Data Box or Data Box Next-Gen to copy data at the same time. For more information on how to copy data, go to [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md).
 
           ### I can't access the Data Box unlock password in the Azure portal. Why?
 
@@ -246,10 +249,8 @@ sections:
 
           ### How do I return my Data Box?
 
-          If the carriers in your region support E-link, Microsoft displays a shipping label on the E-ink display. E-link is supported in the United States and EU regions. 
-          
-          For other locations, go to **Overview > Download shipping label**. Download and print the label, and insert the label in the clear plastic tag on the device where it's clearly visible. 
-          
+          Go to **Overview > Download shipping label**. Download and print the label, and paste the label on the packaging box of the device where it's clearly visible. 
+                  
           Then drop off the device at your shipping carrier location.
 
           In some regions, you can use self-managed shipping. For eligibility and instructions, see [Use self-managed shipping](data-box-portal-customer-managed-shipping.md).
@@ -267,7 +268,7 @@ sections:
         answer: |
           ### What is the maximum data size that can be used with Data Box?
 
-          Data Box has a usable storage capacity of 80 TB. You can use a single Data Box device for data that ranges in size from 40 TB - 80 TB. For larger data sizes up to 500 TB, you can order multiple Data Box devices. For data sizes exceeding 500 TB, sign up for Data Box Heavy.
+          Data Box 120 has a usable storage capacity of 120 TB. You can use a single Data Box device for data that ranges in size from 40 TB - 120 TB. For larger data sizes up to 480 TB, you can order multiple Data Box 120 devices. For data sizes exceeding 480 TB, order Data Box 525. Data Box has a usable storage capacity of 80 TB. You can use a single Data Box device for data that ranges in size from 40 TB - 80 TB. For larger data sizes up to 500 TB, you can order multiple Data Box devices. For data sizes exceeding 500 TB, sign up for Data Box Heavy.
 
           ### What are the maximum block blob and page blob sizes supported by Data Box? 
 
@@ -314,12 +315,12 @@ sections:
           
           ### Will my Data Box devices cross country/region borders during shipping?
 
-          All Data Box devices are shipped from within the same country/region as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where devices can ship to and from any EU country/region. This policy applies to both Data Box and Data Box Heavy devices.
+          All Data Box devices are shipped from within the same country/region as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where devices can ship to and from any EU country/region. This policy applies to both Data Box devices.
 
           ### How is my data protected during transit?
 
           During transit, the following features on the Data Box help protect the data.
-          - The Data Box disks are encrypted with AES 256-bit encryption. 
+          - The Data Box disks are encrypted with AES 256-bit encryption and RAID controller hardware encryption.
           - The device is locked and needs an unlock password to enter and access data.
           For more information, go to [Data Box security features](data-box-security.md).
 
@@ -351,9 +352,9 @@ sections:
 
           ### E-ink display is not showing the return shipment label. What should I do?
 
-          E-link is only supported in the United States and EU regions. If the E-ink display in the Azure portal doesn't show the return shipping label, you can download the shipping label from the local web UI on the device after completing the **Prepare to ship** step. For more information, see [Prepare to ship](data-box-deploy-prepare-to-ship.md#prepare-to-ship).
+          Whether or not the E-Ink showing return shipment label, you must download the shipping label from the local web UI on the device after completing the **Prepare to ship** step. For more information, see [Prepare to ship](data-box-deploy-prepare-to-ship.md#prepare-to-ship).
           
-          When you have the shipping label, remove the old label and any sticker from the previous shipment. Insert the new label into the clear plastic sleeve attached to the device, ensuring that the shipping label is clearly visible.
+          When you have the shipping label, remove the old label from the device packaging and any sticker from the previous shipment. Paste the new label onto the packaging box, ensuring that the shipping label is clearly visible.
 
           ### Can I transport the Data Box to the Azure datacenter?
 
@@ -421,7 +422,7 @@ sections:
         answer: |
           ## [Data Box & Data Box Heavy](#tab/data-box-and-data-box-heavy)
           
-          ### How does Azure Data Box service help support customers’ chain of custody procedure?
+          ### How does Azure Data Box service help support customers' chain of custody procedure?
 
           Azure Data Box service natively provides reports that you can use for your chain of custody documentation. The audit and copy logs are available in your storage account in Azure and you can [download the order history](data-box-portal-admin.md#download-order-history) in the Azure portal after the order is complete.
 
@@ -449,6 +450,6 @@ additionalContent: |
 
   ## Next steps
   
-  - Review the [Data Box system requirements](data-box-system-requirements.md) and [Data Box Heavy system requirements](data-box-heavy-system-requirements.md).
-  - Understand the [Data Box limits](data-box-limits.md) and [Data Box Heavy limits](data-box-heavy-limits.md).
-  - Quickly deploy [Data Box](data-box-quickstart-portal.md) or [Data Box Heavy](data-box-heavy-quickstart-portal.md) in the Azure portal.
+  - Review the [Data Box system requirements](data-box-system-requirements.md).
+  - Understand the [Data Box limits](data-box-limits.md).
+  - Quickly deploy [Data Box](data-box-quickstart-portal.md) in the Azure portal.

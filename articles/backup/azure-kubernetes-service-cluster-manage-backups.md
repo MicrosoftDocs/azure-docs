@@ -7,9 +7,10 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
   - ignite-2024
-ms.date: 01/16/2025
-author: jyothisuri
-ms.author: jsuri
+ms.date: 06/18/2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to manage backups for Azure Kubernetes Service clusters using Azure Backup, so that I can ensure data protection and recovery for my applications and services."
 ---
 
 # Manage Azure Kubernetes Service backups using Azure Backup 
@@ -22,8 +23,9 @@ In addition, it helps to describe how to manage backup for the Azure Kubernetes 
 
 ## Resource provider registrations
 
-- You must register these resource providers on the subscription before initiating any backup and restore operation.
-- Once the registration is complete, you can perform backup and restore operations on all the cluster under the subscription.
+Resource Provider registration is required for installing the Backup Extension, and initiating any backup and restore operation. You can  do this registration as a Subscription Owner. Generally, the Resource Provider is already registered in an Azure subscription. If not, register the `Microsoft.KubernetesConfiguration` resource provider.
+
+After the registration is complete, you can perform backup and restore operations on all the cluster under the subscription.
 
 ### Register the Backup Extension
 
@@ -113,11 +115,11 @@ Azure Backup for AKS relies on pods deployed within the AKS cluster as part of t
 #### Default Resource Reservations
 
 ```
-       1. Memory: requests - 128Mi, limits - 1280Mi
+       1. Memory: requests - 256Mi, limits - 1280Mi
        2. CPU: requests - 500m, limits - 1000m
 ```
 
-However, if the number of resources in the cluster exceeds 1000, the pods may require additional CPU and memory beyond the default reservation. If the required resources exceed the allocated limits, you might encounter a BackupPluginPodRestarted error due to OOMKilled (Out of Memory) error during backup jobs.
+However, if the number of resources in the cluster exceeds 1000, the extension pod `dataprotection-microsoft-kubernetes-agent` may require additional CPU and memory beyond the default reservation. If the required resources exceed the allocated limits, you might encounter a UserErrorBackupPluginPodRestartedDuringBackup or UserErrorBackupPluginPodRestartedDuringRestore error due to OOMKilled (Out of Memory) error during backup or restore operation.
 
 #### Resolving OOMKilled Errors by Increasing CPU and Memory
 
@@ -141,6 +143,11 @@ To ensure successful backup and restore operations, manually update the resource
 
     ![Screenshot shows how to add values under configuration settings.](./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster-extension-azure-aks-backup-configuration-update.png)
 
+> [!NOTE]
+>
+> If the node where the extension pod is provisioned doesn't have the required CPU or memory, and you've only updated the resource limits, the pod may be repeatedly killed. To resolve this, update the configuration settings using `resources.requests.cpu` and `resources.requests.memory`. This ensures the pod is scheduled on a node that meets the requested resource requirements.
+
+ 
 #### Verifying the Changes
 
 After applying the changes, either wait for a scheduled backup to run or initiate an on-demand backup. If you still experience an OOMKilled failure, repeat the steps above and gradually increase memory limits and if it still persists increase `resources.limits.cpu` parameter also.

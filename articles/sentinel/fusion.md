@@ -5,8 +5,8 @@ author: yelevin
 ms.topic: concept-article
 ms.date: 11/26/2024
 ms.author: yelevin
-appliesto: 
-  - Microsoft Sentinel in the Azure portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
 #Customer intent: As a security analyst, I want to leverage advanced multistage attack detection using machine learning so that I can identify and respond to sophisticated threats with high accuracy and minimal false positives.
 ---
 
@@ -77,9 +77,9 @@ When the Fusion engine's correlations result in the detection of an emerging thr
 Microsoft Sentinel's Fusion engine generates an incident when it detects multiple alerts of different types from the following data sources, and determines that they might be related to ransomware activity:
 
 - [Microsoft Defender for Cloud](connect-defender-for-cloud.md)
-- [Microsoft Defender for Endpoint](./data-connectors/microsoft-defender-for-endpoint.md)
-- [Microsoft Defender for Identity connector](./data-connectors/microsoft-defender-for-identity.md)
-- [Microsoft Defender for Cloud Apps](./data-connectors/microsoft-defender-for-cloud-apps.md)
+- [Microsoft Defender for Endpoint](./data-connectors-reference.md#microsoft-defender-for-endpoint)
+- [Microsoft Defender for Identity connector](./data-connectors-reference.md#microsoft-defender-for-identity)
+- [Microsoft Defender for Cloud Apps](./data-connectors-reference.md#microsoft-defender-for-cloud-apps)
 - [Microsoft Sentinel scheduled analytics rules](scheduled-rules-overview.md). Fusion only considers scheduled analytics rules with tactics information and mapped entities.
 
 Such Fusion incidents are named **Multiple alerts possibly related to Ransomware activity detected**, and are generated when relevant alerts are detected during a specific time-frame and are associated with the **Execution** and **Defense Evasion** stages of an attack.

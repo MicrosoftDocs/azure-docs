@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 01/27/2025
 
 #CustomerIntent: As an Azure administrator, I want to learn what connectivity problems I can use Connection troubleshoot to diagnose so that I can use it to resolve those problems.
+# Customer intent: As an Azure administrator, I want to understand the capabilities of the Connection troubleshoot tool so that I can effectively diagnose and resolve network connectivity issues in my cloud infrastructure.
 ---
 
 # Connection troubleshoot overview

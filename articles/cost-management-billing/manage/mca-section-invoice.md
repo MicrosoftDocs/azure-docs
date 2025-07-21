@@ -1,13 +1,13 @@
 ---
 title: Organize your invoice based on your needs - Azure
 description: Learn how to organize costs on your invoice. You can customize your billing account by creating billing profiles and invoice sections.
-author: bandersmsft
-ms.reviewer: amberb
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 01/22/2025
-ms.author: banders
+ms.author: jkinma
 ---
 
 # Organize costs by customizing your billing account
@@ -88,7 +88,9 @@ To create an invoice section, you need to be a **billing profile owner** or a **
 
    :::image type="content" border="true" source="./media/mca-section-invoice/mca-create-invoice-section.png" lightbox="./media/mca-section-invoice/mca-create-invoice-section-zoomed-in.png" alt-text="Screenshot that shows the invoice section creation page.":::
 
-6. Select **Create**.
+1. Select **Create**.
+
+1. To change the name after creation, select the Invoice section and navigate to the Properties blade.  Select **Update name** under the invoice section name.
 
 ## Create a new billing profile
 
@@ -123,7 +125,7 @@ To create a billing profile, you need to be a **billing account owner** or a **b
 
 ## Link charges to invoice sections and billing profiles
 
-Once you customized your billing account based on your needs, you can link subscriptions and other products to your desired invoice section and billing profile.
+Once you customized your billing account based on your needs, you can link subscriptions and other products to your desired invoice section and billing profile. These changes will be reflected on your next invoice.  Existing invoices cannot be amended to reflect these changes.
 
 ### Link a new subscription
 

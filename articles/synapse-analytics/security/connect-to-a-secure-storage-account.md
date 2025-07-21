@@ -7,7 +7,6 @@ ms.topic: how-to
 ms.subservice: security 
 ms.date: 02/05/2025 
 ms.author: seshin
-ms.reviewer: whhender
 ---
 
 # Connect to a secure Azure storage account from a Synapse workspace

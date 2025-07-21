@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 1/8/2024
 ms.custom: engagement-fy23
+# Customer intent: As a cloud architect, I want to establish network connections between multiple Azure VMware Solution private clouds in the same region, so that I can enable communication and optimize resource management across these environments.
 ---
 
 # Connect multiple Azure VMware Solution private clouds in the same region

@@ -24,16 +24,48 @@ Support for applying configurations through machine configuration is introduced 
 
 Operating systems where the module can be installed:
 
-- Ubuntu 18 or higher
+- Ubuntu 20
 - Windows
 
 The module can be installed on a machine running PowerShell 7.x. Install the versions of PowerShell
 listed in the following table for your operating system.
 
-|    OS     |   PowerShell Version   |
-| --------- | ---------------------- |
-| Windows   | [PowerShell 7.1.3][01] |
-| Ubuntu 18 | [PowerShell 7.2.4][02] |
+| OS         | Minimum Required PowerShell Version | Installation                           |
+|------------|:-----------------------------------:|----------------------------------------|
+| Windows    |               `7.1.3`               | [Installing PowerShell on Windows][01] |
+| Ubuntu 20  |               `7.2.4`               | [Installing PowerShell on Ubuntu][02]  |
+
+For Linux, the following shell script downloads and installs PowerShell 7.2.4.
+
+```sh
+###################################
+# Prerequisites
+
+# Update the list of packages
+sudo apt-get update
+
+# Install pre-requisite packages.
+sudo apt-get install -y wget
+
+# Download the PowerShell package file
+wget https://github.com/PowerShell/PowerShell/releases/download/v7.2.4/powershell_7.2.4-1.deb_amd64.deb
+
+###################################
+# Install the PowerShell package
+sudo dpkg -i powershell_7.2.4-1.deb_amd64.deb
+
+# Resolve missing dependencies and finish the install (if necessary)
+sudo apt-get install -f
+
+# Delete the downloaded package file
+rm powershell_7.2.4-1.deb_amd64.deb
+
+# Switch the user to root before launching PowerShell
+sudo su
+
+# Start PowerShell
+pwsh
+```
 
 The **GuestConfiguration** module requires the following software:
 
@@ -41,7 +73,7 @@ The **GuestConfiguration** module requires the following software:
   with the **GuestConfiguration** module, or you can follow [these instructions][03].
 
 
-### Install the module from the PowerShell Gallery
+### Install the GuestConfiguration module from the PowerShell Gallery
 
 To install the **GuestConfiguration** module on either Windows or Linux, run the following command
 in PowerShell 7.
@@ -55,7 +87,32 @@ Validate that the module has been imported:
 
 ```powershell
 # Get a list of commands for the imported GuestConfiguration module
-Get-Command -Module 'GuestConfiguration'
+Get-Command -Module GuestConfiguration
+```
+
+### Install the PSDesiredStateConfiguration module from the PowerShell Gallery
+
+On Windows, to install the **PSDesiredStateConfiguration** module, run the following command in PowerShell 7.
+
+```powershell
+# Install PSDesiredStateConfiguration version 2.0.7 (the stable release)
+Install-Module -Name PSDesiredStateConfiguration -RequiredVersion 2.0.7
+Import-Module -Name PSDesiredStateConfiguration
+```
+
+On Linux, to install the **PSDesiredStateConfiguration** module, run the following command in PowerShell 7.
+
+```powershell
+# Install PSDesiredStateConfiguration prerelease version 3.0.0
+Install-Module -Name PSDesiredStateConfiguration -RequiredVersion 3.0.0-beta1 -AllowPrerelease
+Import-Module -Name PSDesiredStateConfiguration
+```
+
+Validate that the module has been imported:
+
+```powershell
+# Get a list of commands for the imported PSDesiredStateConfiguration module
+Get-Command -Module PSDesiredStateConfiguration
 ```
 
 ## Next step
@@ -64,6 +121,6 @@ Get-Command -Module 'GuestConfiguration'
 > [Create a custom machine configuration package](./2-create-package.md)
 
 <!-- Reference link definitions -->
-[01]: https://github.com/PowerShell/PowerShell/releases/tag/v7.1.3
-[02]: https://github.com/PowerShell/PowerShell/releases/tag/v7.2.4
+[01]: /powershell/scripting/install/installing-powershell-on-windows
+[02]: /powershell/scripting/install/install-ubuntu
 [03]: /powershell/azure/install-az-ps

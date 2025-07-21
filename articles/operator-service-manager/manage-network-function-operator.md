@@ -41,6 +41,7 @@ az k8s-extension create --cluster-name
                         [--config global.networkfunctionextension.webhook.pod.mutation.matchConditionExpression=]
                         [--config global.networkfunctionextension.clusterRegistry.clusterRegistryGCCadence=]
                         [--config global.networkfunctionextension.clusterRegistry.clusterRegistryGCThreshold=]
+                        [--config global.networkfunctionextension.clusterRegistry.registryService.scale={"small", "medium", "large"}]
                         [--version]
 ```
 
@@ -102,6 +103,7 @@ The referenced matchCondition implies that the pods getting accepted in kube-sys
 * This condition comes into play only when the CNF/Component/Application are getting installed into the namespace as per the rules and namespaceSelectors. If there are more pods getting spin up in that namespace, this condition is applied.   
 
 #### Cluster Registry
+
 `--config global.networkfunctionextension.enableClusterRegistry=`
 * This configuration provisions a registry in the cluster to locally cache artifacts.
 * Default values enable lazy loading mode unless global.networkfunctionextension.enableEarlyLoading=true.
@@ -111,6 +113,7 @@ The referenced matchCondition implies that the pods getting accepted in kube-sys
 `--config global.networkfunctionextension.clusterRegistry.highAvailability.enabled=`
 * This configuration provisions the cluster registry in high availability mode if cluster registry is enabled.
 * Default value is true and uses Nexus Azure kubernetes service (NAKS) nexus-shared volume on AKS recommendation is set false.
+* Registry Pod Replica Count: minimum: 3, maximum: 5
 * Accepted values: true, false.
 * Default value: true.
 
@@ -145,6 +148,16 @@ The referenced matchCondition implies that the pods getting accepted in kube-sys
   * Azure Stack Edge (ASE): managed-premium
 * Default value: nexus-shared.
 
+> [!NOTE]
+> * When managing a NAKS cluster with AOSM, the default parameter values enable HA as the recommended configuration.
+> * When managing a AKS cluster with AOSM, HA must be disabled using the following configuration options:
+>
+>```
+>    --config global.networkfunctionextension.clusterRegistry.highAvailability.enabled=false
+>    --config global.networkfunctionextension.webhook.highAvailability.enabled=false
+>    --config global.networkfunctionextension.clusterRegistry.storageClassName=managed-csi
+>```
+
 `--config global.networkfunctionextension.clusterRegistry.storageSize=`
 * This configuration must be provided when global.networkfunctionextension.enableClusterRegistry=true.
 * This configuration configures the size we reserve for cluster registry.
@@ -161,15 +174,21 @@ The referenced matchCondition implies that the pods getting accepted in kube-sys
 * This configuration triggers garbage collection process when cluster registry usage exceeds this value.
 * Default value: 0.
 
-> [!NOTE]
-> * When managing a NAKS cluster with AOSM, the default parameter values enable HA as the recommended configuration.
-> * When managing a AKS cluster with AOSM, HA must be disabled using the following configuration options:
->
->```
->    --config global.networkfunctionextension.clusterRegistry.highAvailability.enabled=false
->    --config global.networkfunctionextension.webhook.highAvailability.enabled=false
->    --config global.networkfunctionextension.clusterRegistry.storageClassName=managed-csi
->```
+`--config global.networkfunctionextension.clusterRegistry.registryService.scale=`
+* This configuration sets the CPU and memory resources for cluster registry to a pre-defined scale option.
+* Accetped values: small, medium, large.
+* Default value: medium.
+*  Following are the registry resource specifications for all 3 scales:
+```
+    - requests:
+      - small: cpu: 100m, memory: 250Mi
+      - medium: cpu: 250m, memory: 500Mi
+      - large: cpu: 500m, memory: 1Gi
+    - limits:
+      - small: cpu: 100m, memory: 2Gi
+      - medium: cpu: 500m, memory: 2Gi
+      - large: cpu: 1, memory: 4Gi
+```     
 
 ## Update network function extension
 The Azure CLI command 'az k8s-extension update' is executed to update the NFO extension.

@@ -357,6 +357,23 @@ In the prior event, the error case can be monitored from the [admission webhook 
 
 Regardless of the scenario, Azure policy retains the last known policy on the cluster and keeps the guardrails in place.
 
+### Scenario: The regex I provided in my policy assignment isn't matching the resources I expected it to match
+
+#### Cause
+The `regex.match` function in rego uses RE2, which is not the default flavor served by many online regex matchers. If you are testing your regex in an online matcher, you may see different results from what will be evaluated on the cluster.
+
+#### Resolution
+
+You will need to select the RE2 or golang flavor of regex in your matcher. See [the rego docs](https://docs.styra.com/opa/rego-by-example/builtins/regex/match) for more details on the RE2 flavor and what online tooling is recommended to test your regex.
+
+### Scenario: I'm seeing a large number of updates on constraint.gatekeeper.sh CRDs and other Gatekeeper resources
+
+#### Cause
+This is caused by a standalone instance of Gatekeeper being installed alongside the addon's Gatekeeper instance.
+
+#### Resolution
+Check for the existence of multiple Gatekeeper installations. Remove all Gatekeeper components not managed by AKS.
+
 ## Next steps
 
 If your problem isn't listed in this article or you can't resolve it, get support by visiting one of the following channels:

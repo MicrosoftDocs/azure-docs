@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: information-protection
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/15/2024
+ms.date: 04/16/2025
 ---
 
 # Customer Lockbox for Microsoft Azure

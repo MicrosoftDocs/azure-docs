@@ -121,7 +121,7 @@ When upgrading the micro agent from version 4.2.* to 4.6.2, you would first need
 
 **Micro agent GA announcement**
 
-Azure Defender for IoT micro agent is now generally available.
+Microsoft Defender for IoT micro agent is now generally available.
 
 ## July 2022
 

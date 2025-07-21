@@ -6,8 +6,8 @@ author: batamig
 ms.author: bagol
 ms.date: 03/14/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -80,7 +80,7 @@ For example:
 
 ## Customize a playbook from a template
 
-This procedure describes how to deploy playbook templates, and can be repeated to create multiple playbooks from the same template.
+This procedure describes how to deploy playbook templates and can be repeated to create multiple playbooks from the same template.
 
 While most playbook templates can be used as they are, we recommend that you adjust them as needed to fit your playbook to your SOC needs.
 

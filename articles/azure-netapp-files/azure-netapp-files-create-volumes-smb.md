@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 12/11/2024
 ms.author: anfdocs
+# Customer intent: As a cloud administrator, I want to create an SMB volume in Azure NetApp Files, so that I can leverage scalable storage solutions that meet my organization’s data management and sharing requirements.
 ---
 # Create an SMB volume for Azure NetApp Files
 
@@ -73,9 +74,9 @@ Before creating an SMB volume, you need to create an Active Directory connection
         The subnet you specify must be delegated to Azure NetApp Files. 
         
         If you haven't delegated a subnet, you can select **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
+      
+        :::image type="content" source="./media/shared/azure-netapp-files-create-subnet.png" alt-text="Screenshot of create new subnet interface." lightbox="./media/shared/azure-netapp-files-create-subnet.png":::
     
-        ![Create subnet](./media/shared/azure-netapp-files-create-subnet.png)
-
     * **Network features**  
         In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
 

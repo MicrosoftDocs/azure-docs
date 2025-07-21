@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot viewing your billing account in the Azure portal
 description: This article helps you troubleshoot problems when trying to view your billing account in the Azure portal.
-author: bandersmsft
+author: jkinma39
 ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 03/21/2024
+ms.date: 04/29/2025
 ms.author: jkinma
 ---
 

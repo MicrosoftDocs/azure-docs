@@ -3,7 +3,7 @@ title: Device authentication in Azure IoT Central
 description: This article introduces key IoT Central device authentication concepts such as enrollment groups, shared access signatures, and X.509 certificates.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/01/2024
+ms.date: 04/22/2025
 ms.topic: conceptual
 ms.service: azure-iot-central
 services: iot-central
@@ -15,7 +15,7 @@ ms.custom:  [amqp, mqtt, device-developer]
 
 # Device authentication concepts in IoT Central
 
-This article describes how devices authenticate to an IoT Central application. To learn more about the overall connection process, see [Connect a device](overview-iot-central-developer.md#how-devices-connect).
+This article describes how devices authenticate to an IoT Central application. To learn more about the overall connection process, see [How devices connect](overview-iot-central-developer.md#how-devices-connect).
 
 Devices authenticate with the IoT Central application by using either a _shared access signature (SAS) token_ or an _X.509 certificate_. X.509 certificates are recommended in production environments.
 
@@ -31,7 +31,7 @@ Each of these authentication options requires that each device has a unique devi
 
 ## X.509 enrollment group
 
-In a production environment, using X.509 certificates is the recommended device authentication mechanism for IoT Central. To learn more, see [Device Authentication using X.509 CA Certificates](../../iot-hub/iot-hub-x509ca-overview.md).
+In a production environment, using X.509 certificates is the recommended device authentication mechanism for IoT Central. To learn more, see [Authenticate identities with X.509 certificates](../../iot-hub/iot-hub-x509ca-overview.md).
 
 An X.509 enrollment group contains a root or intermediate X.509 certificate. Devices can authenticate if they have a valid leaf certificate derived from the root or intermediate certificate.
 
@@ -43,14 +43,14 @@ To connect a device with an X.509 certificate to your application:
 
 Each enrollment group should use a unique X.509 certificate. IoT Central doesn't support using the same X.509 certificate across multiple enrollment groups.
 
-To learn more, see [How to connect devices with X.509 certificates](how-to-connect-devices-x509.md).
+To learn more, see [How to connect devices with X.509 certificates to IoT Central Application](how-to-connect-devices-x509.md).
 
 ### For testing purposes only
 
 In a production environment, use certificates from your certificate provider. For testing only, you can use the following utilities to generate root, intermediate, and device certificates:
 
-- [Tools for the Azure IoT Device Provisioning Device SDK](https://github.com/Azure/azure-iot-sdk-node/blob/main/provisioning/tools/readme.md): a collection of Node.js tools that you can use to generate and verify X.509 certificates and keys.
-- [Manage test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md): a collection of PowerShell and Bash scripts to:
+- [Tools for the Azure IoT Device Provisioning Device SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/main/provisioning/tools/readme.md): a collection of Node.js tools that you can use to generate and verify X.509 certificates and keys.
+- [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md): a collection of PowerShell and Bash scripts to:
   - Create a certificate chain.
   - Save the certificates as .cer files to upload to your IoT Central application.
   - Use the verification code from the IoT Central application to generate the verification certificate.
@@ -82,7 +82,7 @@ If you use the default **SAS-IoT-Devices** enrollment group, IoT Central generat
 
 ## Individual enrollment
 
-Typically, devices connect by using credentials derived from an enrollment group X.509 certificate or SAS key. However, if your devices each have their own credentials, you can use individual enrollments. An individual enrollment is an entry for a single device allowing it to connect. Individual enrollments can use either X.509 leaf certificates or SAS tokens (from a physical or virtual trusted platform module) as attestation mechanisms. For more information, see [DPS individual enrollment](../../iot-dps/concepts-service.md#individual-enrollment).
+Typically, devices connect by using credentials derived from an enrollment group X.509 certificate or SAS key. However, if your devices each have their own credentials, you can use individual enrollments. An individual enrollment is an entry for a single device allowing it to connect. Individual enrollments can use either X.509 leaf certificates or SAS tokens (from a physical or virtual trusted platform module) as attestation mechanisms. For more information, see [Individual enrollment](../../iot-dps/concepts-service.md#individual-enrollment).
 
 > [!NOTE]
 > When you create an individual enrollment for a device, it takes precedence over the default enrollment group options in your IoT Central application.
@@ -145,6 +145,6 @@ Some suggested next steps are to:
 
 - Review [best practices](concepts-device-implementation.md#best-practices) for developing devices.
 - Review some sample code that shows how to use SAS tokens in [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md)
-- Learn how to [How to connect devices with X.509 certificates using Node.js device SDK for IoT Central Application](how-to-connect-devices-x509.md)
-- Learn how to [Monitor device connectivity using Azure CLI](./howto-monitor-devices-azure-cli.md)
+- Learn [how to connect devices with X.509 certificates to IoT Central Application](how-to-connect-devices-x509.md)
+- Learn how to [monitor device connectivity using Azure CLI](./howto-monitor-devices-azure-cli.md)
 - Read about [Azure IoT Edge devices and Azure IoT Central](./concepts-iot-edge.md)

@@ -7,8 +7,9 @@ ms.author: halkazwini
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: azure-cdn
 ms.topic: quickstart
-ms.date: 03/20/2024
+ms.date: 03/31/2025
 ROBOTS: NOINDEX
+# Customer intent: As a website administrator, I want to create a content delivery network profile and endpoint, so that I can efficiently deliver content to my users and improve load times for my web applications.
 ---
 
 # Quickstart: Create an Azure Content Delivery Network profile and endpoint

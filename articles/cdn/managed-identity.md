@@ -8,7 +8,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: concept-article
-ms.date: 03/20/2024
+ms.date: 03/31/2025
+# Customer intent: As a cloud administrator, I want to configure managed identities for my content delivery network, so that I can securely access Azure Key Vault certificates without managing secrets or passwords.
 ---
 
 # Use managed identities for Azure Content Delivery Network to access Azure Key Vault certificates

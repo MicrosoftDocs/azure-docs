@@ -1,9 +1,8 @@
 ---
 title: "Tutorial: Get started analyze data with dedicated SQL pools"
 description: In this tutorial, use the NYC Taxi sample data to explore SQL pool's analytic capabilities.
-author: whhender
-ms.author: whhender
-ms.reviewer: whhender, wiassaf
+author: azaricstefan
+ms.author:  stefanazaric
 ms.date: 12/11/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql

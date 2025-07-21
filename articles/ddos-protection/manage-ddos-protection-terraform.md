@@ -6,15 +6,16 @@ ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.custom: devx-track-terraform
 ms.author: tarcher
-ms.date: 07/17/2024
+ms.date: 03/17/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+# Customer intent: As a cloud architect, I want to create and configure a DDoS protection plan using Terraform, so that I can enhance the security of my Azure virtual networks across multiple subscriptions.
 ---
 
 # QuickStart: Create and configure Azure DDoS Network Protection using Terraform
 
-This QuickStart describes how to use Terraform to create and enable a [distributed denial of service (DDoS) protection plan](ddos-protection-overview.md) and [Azure virtual network (VNet)](/azure/virtual-network/virtual-networks-overview). An Azure DDoS Network Protection plan defines a set of virtual networks that have DDoS protection enabled across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan.
+This QuickStart describes how to use Terraform to create and enable a [distributed denial of service (DDoS) protection plan](ddos-protection-overview.md) and [Azure virtual network](/azure/virtual-network/virtual-networks-overview). An Azure DDoS Network Protection plan defines a set of virtual networks that have DDoS protection enabled across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan.
 
 :::image type="content" source="./media/manage-ddos-protection/ddos-network-protection-diagram-simple.png" alt-text="Diagram of DDoS Network Protection." lightbox="./media/manage-ddos-protection/ddos-network-protection-diagram-simple.png":::
 

@@ -12,11 +12,12 @@ ms.service: azure-virtual-machines
 
 ms.subservice: azure-confidential-computing
 
-ms.topic: conceptual
+ms.topic: concept-article
 
 ms.date: 04/20/2023
 
 ms.author: kapilv
+# Customer intent: As a data scientist, I want to leverage confidential computing solutions for multi-party data analytics, so that I can securely collaborate with other organizations while preserving the privacy of sensitive data and intellectual property.
 ---
 
 # Cleanroom and Multi-party Data Analytics

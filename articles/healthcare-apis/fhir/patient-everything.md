@@ -27,7 +27,7 @@ GET {FHIRURL}/Patient/{ID}/$everything
 FHIR service validates that it can find the patient matching the provided patient ID. If a result is found, the response is a bundle of type `searchset` with the following information:
  
 * [Patient resource](https://www.hl7.org/fhir/patient.html).
-* Resources that are directly referenced by the patient resource, except [link](https://www.hl7.org/fhir/patient-definitions.html#Patient.link) references that aren't of [see also](https://www.hl7.org/fhir/codesystem-link-type.html#content) or if the `seealso` link references a `RelatedPerson`.
+* Resources that are directly referenced by the patient resource
 * If there are `seealso` link references to other patients, the results include Patient-everything operation against the `seealso` patients listed.
 * Resources in the [Patient Compartment](https://www.hl7.org/fhir/compartmentdefinition-patient.html).
 * [Device resources](https://www.hl7.org/fhir/device.html) that reference the patient resource. 
@@ -67,7 +67,7 @@ The Patient-everything operation in the FHIR service processes patient links in 
 > [!Note]
 > A link can also reference a `RelatedPerson`. Right now, `RelatedPerson` resources are not processed in Patient-everything and are not returned in the bundle.
 
-Right now, [replaces](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-replaces) and [refer](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-refer) links are ignored by the Patient-everything operation, and the linked patient isn't returned in the bundle. 
+Right now, [replaces](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-replaces) and [refer](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-refer) links are included in the Patient-everything operation as part of linked patient within the patient compartment.
 
 As described, [seealso](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-seealso) links reference another patient that's considered equally valid to the original. After the Patient-everything operation is run, if the patient has `seealso` links to other patients, the operation runs Patient-everything on each `seealso` link. This means if a patient links to five other patients with a type `seealso` link, we run Patient-everything on each of those five patients.
 

@@ -5,8 +5,9 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 01/28/2025
+ms.date: 03/27/2025
 ms.author: anfdocs
+# Customer intent: "As a cloud administrator, I want to delete an application volume group, so that I can manage storage resources efficiently after removing all contained volumes."
 ---
 # Delete an application volume group
 
@@ -14,6 +15,8 @@ This article describes how to delete an application volume group.
 
 > [!IMPORTANT]
 > You can delete a volume group only if it contains no volumes. Before deleting a volume group, delete all volumes in the group. If the volume group contains _any_ volume, an error message prevents you from deleting the volume group.
+>
+> Network interfaces related to volumes groups cannot be deleted manually. They are deleted automatically when the volume group is deleted.
 
 ## Steps
 

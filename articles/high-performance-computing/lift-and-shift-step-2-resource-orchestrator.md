@@ -1,15 +1,16 @@
 ---
-title: "Deployment step 2: base services - resource orchestrator component"
-description: Learn about the configuration of the resource orchestrator during migration deployment step two.
+title: "Resource orchestration"
+description: Learn how to configure resource orchestration during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: As a cloud architect, I want to configure resource orchestration for high-performance computing migrations, so that I can effectively provision and manage computational resources in the cloud while ensuring job execution efficiency and compliance with performance requirements.
 ---
 
-# Deployment step 2: base services - resource orchestrator component
+# Resource orchestration
 
 Typically, resources in an on-premises environment are fully available for usage. When you migrate to the cloud, resources need to be provisioned (that is, set-up and configured). This requirement is a core difference between on-premises and cloud environments. Resource orchestrator's provisions the compute nodes and other components (for example, storage and network), **on demand**, to allow the execution of user jobs. In the context of a lift and shift architecture, this component would:
 
@@ -91,7 +92,7 @@ This section outlines the steps for installing and configuring Azure CycleCloud,
 
    - **Install CycleCloud Slurm workspace:**
 
-      - Navigate to the Azure Marketplace and search for "Azure CycleCloud Slurm Workspace."
+      - Navigate to Azure Marketplace and search for "Azure CycleCloud Slurm Workspace."
       - Follow the prompts to deploy the CycleCloud Slurm Workspace, specifying the required parameters such as resource group, location, and virtual network.
       - After deployment, configure the environment through the CycleCloud portal.
       - Ensure the Slurm scheduler is set up and ready for job submissions.

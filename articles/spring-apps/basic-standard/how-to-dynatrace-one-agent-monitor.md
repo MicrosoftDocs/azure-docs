@@ -180,7 +180,7 @@ You can find **Backtrace** from **Databases/Details/Backtrace**:
 
 ## View Dynatrace OneAgent logs
 
-By default, Azure Spring Apps prints the *info* level logs of the Dynatrace OneAgent to `STDOUT`. The logs are mixed with the application logs. You can find the explicit agent version from the application logs.
+By default, Azure Spring Apps prints the `info` level logs of the Dynatrace OneAgent to `STDOUT`. The logs are mixed with the application logs. You can find the explicit agent version from the application logs.
 
 You can also get the logs of the Dynatrace agent from the following locations:
 

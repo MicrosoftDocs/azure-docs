@@ -3,7 +3,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: include
-ms.date: 06/19/2023
+ms.date: 05/08/2025
 ms.custom: include file
 ---
 
@@ -15,12 +15,12 @@ ms.custom: include file
 | Front-end hosts, which include custom domains per resource | 500 |
 | Routing rules per resource | 500 |
 | Rules per Rule set | 25 |
-| Back-end pools per resource<sup>2</sup> | 50 |
+| Back-end pools per resource <sup>2</sup> | 50 |
 | Back ends per back-end pool | 100 |
 | Path patterns to match for a routing rule | 25 |
 | URLs in a single cache purge call | 100 |
-| Maximum bandwidth<sup>1</sup> | 75 Gbps |
-| Maximum requests per second per profile<sup>1</sup> | 100,000 |
+| Maximum bandwidth <sup>1</sup> | 75 Gbps |
+| Maximum requests per second per profile <sup>1</sup> | 100,000 |
 | HTTP header size limit (per header) | 32 KB |
 | Custom web application firewall rules per policy | 100 |
 | Web application firewall policy per subscription | 100 |
@@ -35,9 +35,9 @@ ms.custom: include file
 | Web application firewall HTTP request body inspection limit | 128 KB |
 | Web application firewall custom response body length | 32 KB |
 
-<sup>1</sup>If the traffic isn't globally distributed and concentrated in one or more regions, or if a higher quota limited is need, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+<sup>1</sup> If the traffic isn't globally distributed and concentrated in one or more regions, or if a higher quota limited is need, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-<sup>2</sup>To request a limit increase, create an [Azure Support request][azure-support]. Free subscriptions including [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) and [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) aren't eligible for limit or quota increases. If you have a free subscription, you can [upgrade](../articles/cost-management-billing/manage/upgrade-azure-subscription.md) to a Pay-As-You-Go subscription.<br />
+<sup>2</sup> To request a limit increase, create an [Azure Support request][azure-support]. Free subscriptions including [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) and [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) aren't eligible for limit or quota increases. If you have a free subscription, you can [upgrade](../articles/cost-management-billing/manage/upgrade-azure-subscription.md) to a Pay-As-You-Go subscription.<br />
 
 <!-- LINKS - External -->
 [azure-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
@@ -60,8 +60,9 @@ ms.custom: include file
 | Maximum rule set per profile | 100 | 200 |
 | Maximum rules per route | 100 | 100 |
 | Maximum rules per rule set | 100 | 100 |
-| Maximum bandwidth<sup>1</sup> | 75 Gbps | 75 Gbps |
-| Maximum requests per second per profile<sup>1,</sup><sup>2</sup> | 100,000 | 100,000 |
+| Maximum bandwidth <sup>1</sup> | 75 Gbps | 75 Gbps |
+| Maximum requests per second per profile <sup>1,</sup> <sup>2</sup> | 100,000 | 100,000 |
+| Maximum concurrent WebSocket connections per profile <sup>3</sup> | 3,000 | 3,000 |
 | Path patterns to match for a routing rule | 25 | 50 |
 | URLs in a single cache purge call | 100 | 100 |
 | Maximum security policy per profile | 100 | 200 |
@@ -82,9 +83,11 @@ ms.custom: include file
 | WAF HTTP request body and file upload inspection limit | 128 KB | 128 KB |
 | WAF custom response body length | 32 KB | 32 KB |
 
-<sup>1</sup>If the traffic isn't globally distributed and concentrated in one or more regions, or if a higher quota limited is need, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+<sup>1</sup> If the traffic isn't globally distributed and concentrated in one or more regions, or if a higher quota limit is needed, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-<sup>2</sup>Azure Front Door currently has a 5,000 request per seconds per POP limit.
+<sup>2</sup> There's currently a 5,000 requests per second per POP limit for each Front Door profile. Beyond this limit, the POP location will drop connections. If requests are concentrated in one of more regions and exceed this limit, you can request a higher POP limit by submitting an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
+
+<sup>3</sup> If you need more than 3,000 concurrent WebSocket connections, submit an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 #### Timeout values
 
@@ -117,4 +120,4 @@ ms.custom: include file
 - Maximum ETag header size: 128 bytes
 - Maximum endpoint name for Standard and Premium: 46 characters.
 
-For more information about limits that apply to Rules Engine configurations, see [rules engine terminology](../articles/frontdoor/front-door-rules-engine.md#terminology)
+For more information about limits that apply to Rules Engine configurations, see [rules engine terminology](../articles/frontdoor/front-door-rules-engine.md#terminology).

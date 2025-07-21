@@ -3,7 +3,7 @@ title: Serverless SQL pool self-help
 description: This article contains information that can help you troubleshoot problems with serverless SQL pool.
 author: azaricstefan
 ms.author: stefanazaric
-ms.reviewer: whhender, wiassaf
+
 ms.topic: troubleshooting-known-issue
 ms.service: azure-synapse-analytics
 ms.subservice: sql

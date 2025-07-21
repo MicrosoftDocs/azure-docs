@@ -8,8 +8,9 @@ ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 12/31/2024
+ms.date: 05/22/2025
 ms.author: radeltch
+# Customer intent: "As an SAP administrator, I want to configure a highly available SAP HANA scale-out system using HANA system replication and Pacemaker on Red Hat Enterprise Linux, so that I can ensure data reliability and automatic failover in my Azure environment."
 ---
 
 # High availability of SAP HANA scale-out system on Red Hat Enterprise Linux
@@ -69,6 +70,7 @@ Some readers will benefit from consulting a variety of SAP notes and resources b
 * Azure-specific RHEL documentation:
   * [Install SAP HANA on Red Hat Enterprise Linux for use in Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure).
   * [Red Hat Enterprise Linux Solution for SAP HANA scale-out and system replication](https://access.redhat.com/solutions/4386601).
+  * [What is the fast_stop option for a Filesystem resource in a Pacemaker cluster?](https://access.redhat.com/solutions/4801371).
 * [Azure NetApp Files documentation][anf-azure-doc].
 * [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md).
 * [Azure Files documentation](../../storage/files/storage-files-introduction.md)  
@@ -157,6 +159,9 @@ In the instructions that follow, we assume that you've already created the resou
        az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s2-db3-hsr --accelerated-networking true
        ```
 
+       > [!NOTE]
+       > You don’t have to install the Azure CLI package on your HANA nodes to run `az` command. You can run it from any machine that has the CLI installed, or use Azure Cloud Shell.
+
 6. Start the HANA DB virtual machines.
 
 ### Configure Azure load balancer
@@ -168,7 +173,7 @@ During VM configuration, you have an option to create or select exiting load bal
 > * For HANA scale out, select the NIC for the `client` subnet when adding the virtual machines in the backend pool.
 > * The full set of command in Azure CLI and PowerShell adds the VMs with primary NIC in the backend pool.
 
-#### [Azure Portal](#tab/lb-portal)
+#### [Azure portal](#tab/lb-portal)
 
 [!INCLUDE [Configure Azure standard load balancer using Azure portal](../../../includes/sap-load-balancer-db-portal.md)]
 
@@ -185,7 +190,6 @@ The full set of PowerShell code display the setup of the load balancer, which in
 [!INCLUDE [Configure Azure standard load balancer using PowerShell](../../../includes/sap-load-balancer-db-powershell.md)]
 
 ---
-
 
 > [!NOTE]
 > When you're using the standard load balancer, you should be aware of the following limitation. When you place VMs without public IP addresses in the back-end pool of an internal load balancer, there's no outbound internet connectivity. To allow routing to public end points, you need to perform additional configuration. For more information, see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
@@ -685,6 +689,9 @@ The following steps get you set up for system replication:
     hdbsql -d HN1 -u SYSTEM -p "passwd" -i 03 "BACKUP DATA USING FILE ('initialbackupHN1')"
     ```
 
+   > [!NOTE]
+   > When using Local Secure Store (LSS), SAP HANA backups are self-contained and require you to set a backup password for the encryption root keys. Refer to SAP Note [3571561](https://me.sap.com/notes/0003571561) for detailed instructions. The password must be set for SYSTEMDB and individual tenant database.
+
    Copy the system PKI files to the secondary site:
 
     ```bash
@@ -814,12 +821,12 @@ For the next part of this process, you need to create file system resources. Her
        ```bash
        # /hana/shared file system for site 1
        pcs resource create fs_hana_shared_s1 --disabled ocf:heartbeat:Filesystem device=10.23.1.7:/HN1-shared-s1  directory=/hana/shared \
-       fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,noatime,sec=sys,nfsvers=4.1,lock,_netdev' op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
+       fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,noatime,sec=sys,nfsvers=4.1,lock,_netdev' fast_stop=no op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
        op start interval=0 timeout=120 op stop interval=0 timeout=120
        
        # /hana/shared file system for site 2
        pcs resource create fs_hana_shared_s2 --disabled ocf:heartbeat:Filesystem device=10.23.1.7:/HN1-shared-s1 directory=/hana/shared \
-       fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,noatime,sec=sys,nfsvers=4.1,lock,_netdev' op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
+       fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,noatime,sec=sys,nfsvers=4.1,lock,_netdev' fast_stop=no op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
        op start interval=0 timeout=120 op stop interval=0 timeout=120
        
        # clone the /hana/shared file system resources for both site1 and site2
@@ -833,12 +840,12 @@ For the next part of this process, you need to create file system resources. Her
         ```bash
         # /hana/shared file system for site 1
         pcs resource create fs_hana_shared_s1 --disabled ocf:heartbeat:Filesystem device=sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s1  directory=/hana/shared \
-        fstype=nfs options='defaults,rw,hard,proto=tcp,noatime,nfsvers=4.1,lock' op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
+        fstype=nfs options='defaults,rw,hard,proto=tcp,noatime,nfsvers=4.1,lock' fast_stop=no op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
         op start interval=0 timeout=120 op stop interval=0 timeout=120
          
         # /hana/shared file system for site 2
         pcs resource create fs_hana_shared_s2 --disabled ocf:heartbeat:Filesystem device=sapnfsafs.file.core.windows.net:/sapnfsafs/hn1-shared-s2 directory=/hana/shared \
-        fstype=nfs options='defaults,rw,hard,proto=tcp,noatime,nfsvers=4.1,lock' op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
+        fstype=nfs options='defaults,rw,hard,proto=tcp,noatime,nfsvers=4.1,lock' fast_stop=no op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
         op start interval=0 timeout=120 op stop interval=0 timeout=120
         
         # clone the /hana/shared file system resources for both site1 and site2

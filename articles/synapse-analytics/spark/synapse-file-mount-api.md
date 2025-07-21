@@ -7,7 +7,6 @@ ms.topic: reference
 ms.subservice: spark
 ms.date: 07/27/2022
 ms.author: jingzh
-ms.reviewer: whhender
 ms.custom: subject-rbac-steps
 ---
 

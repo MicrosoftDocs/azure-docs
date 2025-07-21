@@ -7,8 +7,9 @@ ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
+ms.date: 03/31/2025
 ROBOTS: NOINDEX
+# Customer intent: "As a network administrator, I want to monitor the health of my Content Delivery Network resources, so that I can identify and resolve any issues affecting global delivery and API capabilities."
 ---
 
 # Monitor the health of Azure Content Delivery Network resources

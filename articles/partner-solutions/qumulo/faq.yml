@@ -1,0 +1,42 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Native Qumulo frequently asked questions
+  description: Answers to common questions about using Azure Native Qumulo
+  ms.topic: faq 
+  ms.date: 04/24/2025
+
+title: Azure Native Qumulo FAQ
+summary: |
+
+sections:
+  - name: General
+    questions:
+      - question: Where can I learn more about Azure Native Qumulo?
+        answer: Go to Qumulo's documentation to learn more about [how Azure Native Qumulo works](https://docs.qumulo.com/azure-native-administrator-guide/getting-started/how-azure-native-qumulo-works.html).
+      - question: What is the difference between Azure Native Qumulo (ANQ) and Cloud Native Qumulo (CNQ)?
+        answer: |
+            [Azure Native Qumulo (ANQ)](https://learn.microsoft.com/azure/partner-solutions/qumulo/overview) is a codeveloped service by Microsoft and Qumulo, offered and managed as a fully managed Storage-as-a-Service. ANQ manages the underlying infrastructure and software automatically. <br />
+            [Cloud Native Qumulo (CNQ) on Microsoft Azure](https://qumulo.com/product/azure-cnq/) uses the same technology as ANQ but operates as a user-managed Platform-as-a-Service system within the customer’s tenant. CNQ users manually control the architectural resources. Elastic performance is managed through the system controls and capacity expands dynamically as the organization adds more data.
+      - question: What storage class options are available with Azure Native Qumulo?
+        answer: | 
+              Azure Native Qumulo offers multiple storage class options, including Hot and Cold Locally Redundant Storage (LRS) and Hot Zone-Redundant Storage (ZRS). See Qumulo's documentation to learn more about [storage class options](https://docs.qumulo.com/azure-native-administrator-guide/getting-started/how-azure-native-qumulo-works.html#using-cold-workloads). 
+      - question: Where can I learn more about billing for Azure Native Qumulo? 
+        answer: |
+              See Qumulo's documentation for [billing information](https://docs.qumulo.com/azure-native-administrator-guide/getting-started/how-azure-native-qumulo-works.html#usage-billing-and-metering-for-azure-native-qumulo). <br />
+              You can choose between available plans when you create your Qumulo resource. Each ANQ deployment appears as a single line item in your Azure bill, including infrastructure and software.
+      - question: What developer tools and interfaces are available for Azure Native Qumulo?
+        answer: |
+              Qumulo offers a comprehensive suite of developer tools, including [Qumulo CLI](https://docs.qumulo.com/qq-cli-command-guide/), [Qumulo REST API](https://docs.qumulo.com/rest-api-guide/), and [Qumulo PowerShell Toolkit](https://github.com/Qumulo/PowerShellToolkit).
+      - question: What resources are available for Azure Native Qumulo administrators?
+        answer: |
+              Azure Native Qumulo offers a [guide for administrators](https://docs.qumulo.com/azure-native-administrator-guide/), which explains how the service works and how to get started. 
+      - question: Does Azure Native Qumulo offer disaster recovery? 
+        answer: |
+              Yes. Azure Native Qumulo provides several options for disaster recover to ensure data availability and business continuity. For more information, see [Disaster Recovery with Azure Native Qumulo Scalable File Service](https://qumulo.com/resources/disaster-recovery-with-azure-native-qumulo-scalable-file-service/).     
+      - question: Can I edit videos with Azure Native Qumulo?
+        answer: | 
+              Yes. With Azure Native Qumulo (ANQ), video editing teams can work and collaborate remotely and still meet the demands for high-quality video content. 
+              For more information, see [Video editing with Azure Native Qumulo](https://qumulo.com/resources/video-editing-with-azure-native-qumulo-scalable-file-service/). 
+      - question: Can I deploy a Vendor-Neutral Archive (VNA) solution with Azure Native Qumulo?
+        answer: | 
+              Yes. You can learn about Vendor-Neutral Archives, including solution architecture, benefits, components, potential use cases, and scenarios, by reviewing [Azure Native Qumulo's reference architecture - Vendor-Neutral Archives for PACS](https://qumulo.com/resources/azure-native-qumulo-reference-architecture-vendor-neutral-archive-for-pacs/).

@@ -1,11 +1,12 @@
 ---
-title: Replace or extend Windows file servers with Azure Files and Azure File Sync
+title: Replace Windows File Servers with Azure File Sync
 description: Azure Files and Azure File Sync can be useful when replacing your on-premises Windows file servers or extending them into the cloud. Learn how you can use Azure storage services to increase flexibility, improve data protection, and reduce TCO for file storage.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
-ms.date: 03/17/2023
+ms.topic: concept-article
+ms.date: 07/15/2025
 ms.author: kendownie
+# Customer intent: As an IT manager planning to modernize file storage, I want to replace or extend on-premises Windows file servers with Azure Files and Azure File Sync, so that I can enhance flexibility, reduce total cost of ownership, and simplify data protection.
 ---
 
 # Replace or extend Windows file servers with Azure Files and Azure File Sync
@@ -18,14 +19,21 @@ Most customers take one of two deployment approaches:
 - **Hybrid deployment:** Use [Azure File Sync](../file-sync/file-sync-introduction.md) to synchronize existing Windows file servers with an SMB Azure file share. Optionally use cloud tiering to scale file data in the cloud while turning on-premises servers into local caches for hot files.
 
 ## Applies to
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![Yes, this article applies to standard SMB Azure file shares LRS/ZRS.](../media/icons/yes-icon.png) | ![No, this article doesn't apply to NFS Azure file shares.](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![Yes, this article applies to standard SMB Azure file shares GRS/GZRS.](../media/icons/yes-icon.png) | ![No this article doesn't apply to NFS Azure file shares.](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes, this article applies to premium SMB Azure file shares.](../media/icons/yes-icon.png) | ![No, this article doesn't apply to premium NFS Azure file shares.](../media/icons/no-icon.png) |
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 
-## Reduce TCO with fully managed file shares
+## Reduce TCO with cloud file shares
 
 There's more to file share TCO than the price per GiB of storage. By centralizing your file shares in Azure, you can reduce TCO in many ways:  
 
@@ -37,7 +45,7 @@ There's more to file share TCO than the price per GiB of storage. By centralizin
 
 - Differential snapshots and integration with Azure Backup offer economical data protection.  
 
-- Choose between multiple storage tiers, from premium low latency SSD to cost-effective cool storage, allowing you to choose the tier that best fits your workload.  
+- Choose between multiple storage tiers, from low latency SSD to cost-effective HDD storage, allowing you to choose the tier that best fits your workload.  
 
 - Azure Files Reservations discounts enable up to 36% savings for pre-committed storage.
 
@@ -76,5 +84,5 @@ With Azure Files you benefit from multi-layered security provided by Microsoft a
 Access control works just like your Windows file servers. You can [use identity-based authentication](storage-files-active-directory-overview.md) and integrate SMB Azure file shares with your on-premises Active Directory environment or Microsoft Entra ID, and control share-level and directory/file-level access as well as administrator privileges.
 
 ## See also
-- [Migrate to Azure Files](storage-files-migration-overview.md)
+- [Migrate to SMB Azure file shares](storage-files-migration-overview.md)
 - [Azure Files networking considerations](storage-files-networking-overview.md)

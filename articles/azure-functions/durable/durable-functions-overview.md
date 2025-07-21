@@ -1,9 +1,9 @@
 ---
 title: Durable Functions Overview - Azure
-description: Introduction to the Durable Functions extension for Azure Functions.
+description: Learn how to use the Durable Functions extension for Azure Functions to write stateful functions in a serverless compute environment.
 author: cgillum
 ms.topic: overview
-ms.date: 02/13/2023
+ms.date: 03/10/2025
 ms.author: cgillum
 ms.custom: devdivchpfy22, devx-track-extended-java, devx-track-js, devx-track-python
 ms.reviewer: azfuncdf
@@ -19,13 +19,13 @@ zone_pivot_groups: df-languages
 
 Durable Functions is designed to work with all Azure Functions programming languages but might have different minimum requirements for each language. The following table shows the minimum supported app configurations:
 
-| Language stack | Azure Functions Runtime versions | Language worker version | Minimum bundles version |
+| Language stack | Azure Functions runtime versions | Language worker version | Minimum bundles version |
 | - | - | - | - |
-| .NET / C# / F# | Functions 1.0+ | In-process <br/> Out-of-process | n/a |
-| JavaScript/TypeScript (V3 prog. model) | Functions 2.0+ | Node 8+ | 2.x bundles |
-| JavaScript/TypeScript (V4 prog. model) | Functions 4.25+ | Node 18+ | 3.15+ bundles |
+| .NET / C# / F# | Functions 1.0+ | In-process <br> Out-of-process | n/a |
+| JavaScript/TypeScript (v3 prog. model) | Functions 2.0+ | Node 8+ | 2.x bundles |
+| JavaScript/TypeScript (v4 prog. model) | Functions 4.25+ | Node 18+ | 3.15+ bundles |
 | Python | Functions 2.0+ | Python 3.7+ | 2.x bundles |
-| Python (V2 prog. model) | Functions 4.0+ | Python 3.7+ | 3.15+ bundles |
+| Python (v2 prog. model) | Functions 4.0+ | Python 3.7+ | 3.15+ bundles |
 | PowerShell | Functions 3.0+ | PowerShell 7+ | 2.x bundles |
 | Java | Functions 4.0+ | Java 8+ | 4.x bundles |
 
@@ -35,10 +35,10 @@ Durable Functions is designed to work with all Azure Functions programming langu
 
 ::: zone pivot="python"
 > [!IMPORTANT]
-> This article uses tabs to support multiple versions of the Python programming model. The v2 model is generally available and is designed to provide a more code-centric way for authoring functions through decorators. For more details about how the v2 model works, refer to the [Azure Functions Python developer guide](../functions-reference-python.md). 
+> This article uses tabs to support multiple versions of the Python programming model. The v2 model is generally available and is designed to provide a more code-centric way for authoring functions through decorators. For more information about the v2 model, see the [Azure Functions Python developer guide](../functions-reference-python.md).
 ::: zone-end
 
-Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio](durable-functions-isolated-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
+Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio](durable-functions-isolated-create-first-csharp.md?pivots=code-editor-visualstudio), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
 
 ## Application patterns
 
@@ -53,18 +53,20 @@ The primary use case for Durable Functions is simplifying complex, stateful coor
 
 ### <a name="chaining"></a>Pattern #1: Function chaining
 
-In the function chaining pattern, a sequence of functions executes in a specific order. In this pattern, the output of one function is applied to the input of another function. The use of queues between each function ensures that the system stays durable and scalable, even though there is a flow of control from one function to the next.
+In the function chaining pattern, a sequence of functions executes in a specific order. In this pattern, the output of one function is applied to the input of another function. The use of queues between each function ensures that the system stays durable and scalable, even though there's a flow of control from one function to the next.
 
-
-![A diagram of the function chaining pattern](./media/durable-functions-concepts/function-chaining.png)
+:::image type="content" source="media/durable-functions-concepts/function-chaining.png" alt-text="Diagram of the function chaining pattern.":::
 
 You can use Durable Functions to implement the function chaining pattern concisely as shown in the following example.
-
-In this example, the values `F1`, `F2`, `F3`, and `F4` are the names of other functions in the same function app. You can implement control flow by using normal imperative coding constructs. Code executes from the top down. The code can involve existing language control flow semantics, like conditionals and loops. You can include error handling logic in `try`/`catch`/`finally` blocks.
 
 ::: zone pivot="csharp"
 
 #### [In-process](#tab/in-process)
+
+> [!IMPORTANT]
+> [Support ends for the in-process model on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model). We highly recommend that you [migrate your apps to the isolated worker model](../migrate-dotnet-to-isolated-model.md).
+
+In this example, the values `F1`, `F2`, `F3`, and `F4` are the names of other functions in the same function app. You can implement control flow by using normal imperative coding constructs. Code executes from the top down. The code can involve existing language control flow semantics, like conditionals and loops. You can include error handling logic in `try`/`catch`/`finally` blocks.
 
 ```csharp
 [FunctionName("Chaining")]
@@ -85,9 +87,11 @@ public static async Task<object> Run(
 }
 ```
 
-You can use the `context` parameter to invoke other functions by name, pass parameters, and return function output. Each time the code calls `await`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `await` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+You can use the `context` parameter to invoke other functions by name, pass parameters, and return function output. Each time the code calls `await`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `await` call. For more information, see the next section, Pattern #2: Fan-out/fan-in.
 
 #### [Isolated worker process](#tab/isolated-process)
+
+In this example, the values `F1`, `F2`, `F3`, and `F4` are the names of other functions in the same function app. You can implement control flow by using normal imperative coding constructs. Code executes from the top down. The code can involve existing language control flow semantics, like conditionals and loops. You can include error handling logic in `try`/`catch`/`finally` blocks.
 
 ```csharp
 [Function("Chaining")]
@@ -108,12 +112,14 @@ public static async Task<object> Run(
 }
 ```
 
-You can use the `context` parameter to invoke other functions by name, pass parameters, and return function output. Each time the code calls `await`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `await` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+You can use the `context` parameter to invoke other functions by name, pass parameters, and return function output. Each time the code calls `await`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `await` call. For more information, see the next section, Pattern #2: Fan-out/fan-in.
 
 ::: zone-end
 ::: zone pivot="javascript"
 
 # [Model v3](#tab/nodejs-v3)
+
+In this example, the values `F1`, `F2`, `F3`, and `F4` are the names of other functions in the same function app. You can implement control flow by using normal imperative coding constructs. Code executes from the top down. The code can involve existing language control flow semantics, like conditionals and loops. You can include error handling logic in `try`/`catch`/`finally` blocks.
 
 ```javascript
 const df = require("durable-functions");
@@ -130,12 +136,14 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-You can use the `context.df` object to invoke other functions by name, pass parameters, and return function output. Each time the code calls `yield`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `yield` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+You can use the `context.df` object to invoke other functions by name, pass parameters, and return function output. Each time the code calls `yield`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `yield` call. For more information, see the next section, Pattern #2: Fan-out/fan-in.
 
 > [!NOTE]
 > The `context` object in JavaScript represents the entire [function context](../functions-reference-node.md#context-object). Access the Durable Functions context using the `df` property on the main context.
 
 # [Model v4](#tab/nodejs-v4)
+
+In this example, the values `F1`, `F2`, `F3`, and `F4` are the names of other functions in the same function app. You can implement control flow by using normal imperative coding constructs. Code executes from the top down. The code can involve existing language control flow semantics, like conditionals and loops. You can include error handling logic in `try`/`catch`/`finally` blocks.
 
 ```javascript
 const df = require("durable-functions");
@@ -152,19 +160,21 @@ df.app.orchestration("chainingDemo", function* (context) {
 });
 ```
 
-You can use the `context.df` object to invoke other functions by name, pass parameters, and return function output. Each time the code calls `yield`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `yield` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+You can use the `context.df` object to invoke other functions by name, pass parameters, and return function output. Each time the code calls `yield`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `yield` call. For more information, see the next section, Pattern #2: Fan-out/fan-in.
 
 > [!NOTE]
 > The `context` object in JavaScript represents the entire [function context](../functions-reference-node.md#context-object). Access the Durable Functions context using the `df` property on the main context.
 
 ::: zone-end
+
 ::: zone pivot="python"
 # [Python](#tab/v1-model)
+
+In this example, the values `F1`, `F2`, `F3`, and `F4` are the names of other functions in the same function app. You can implement control flow by using normal imperative coding constructs. Code executes from the top down. The code can involve existing language control flow semantics, like conditionals and loops.
 
 ```python
 import azure.functions as func
 import azure.durable_functions as df
-
 
 def orchestrator_function(context: df.DurableOrchestrationContext):
     x = yield context.call_activity("F1", None)
@@ -173,16 +183,17 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     result = yield context.call_activity("F4", z)
     return result
 
-
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
-You can use the `context` object to invoke other functions by name, pass parameters, and return function output. Each time the code calls `yield`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `yield` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+You can use the `context` object to invoke other functions by name, pass parameters, and return function output. Each time the code calls `yield`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `yield` call. For more information, see the next section, Pattern #2: Fan-out/fan-in.
 
 > [!NOTE]
 > The `context` object in Python represents the orchestration context. Access the main Azure Functions context using the `function_context` property on the orchestration context.
 
 # [Python (V2 model)](#tab/v2-model)
+
+In this example, the values `F1`, `F2`, `F3`, and `F4` are the names of other functions in the same function app. You can implement control flow by using normal imperative coding constructs. Code executes from the top down. The code can involve existing language control flow semantics, like conditionals and loops.
 
 ```python
 import azure.functions as func
@@ -200,13 +211,15 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 ```
 
-You can use the `context` object to invoke other functions by name, pass parameters, and return function output. Each time the code calls `yield`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `yield` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+You can use the `context` object to invoke other functions by name, pass parameters, and return function output. Each time the code calls `yield`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `yield` call. For more information, see the next section, Pattern #2: Fan-out/fan-in.
 
 > [!NOTE]
 > The `context` object in Python represents the orchestration context. Access the main Azure Functions context using the `function_context` property on the orchestration context.
 
 ::: zone-end
 ::: zone pivot="powershell"
+
+In this example, the values `F1`, `F2`, `F3`, and `F4` are the names of other functions in the same function app. You can implement control flow by using normal imperative coding constructs. Code executes from the top down. The code can involve existing language control flow semantics, like conditionals and loops.
 
 ```PowerShell
 param($Context)
@@ -217,10 +230,12 @@ $Z = Invoke-DurableActivity -FunctionName 'F3' -Input $Y
 Invoke-DurableActivity -FunctionName 'F4' -Input $Z
 ```
 
-You can use the `Invoke-DurableActivity` command to invoke other functions by name, pass parameters, and return function output. Each time the code calls `Invoke-DurableActivity` without the `NoWait` switch, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `Invoke-DurableActivity` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+You can use the `Invoke-DurableActivity` command to invoke other functions by name, pass parameters, and return function output. Each time the code calls `Invoke-DurableActivity` without the `NoWait` switch, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `Invoke-DurableActivity` call. For more information, see the next section, Pattern #2: Fan-out/fan-in.
 
 ::: zone-end
 ::: zone pivot="java"
+
+In this example, the values `F1`, `F2`, `F3`, and `F4` are the names of other functions in the same function app. You can implement control flow by using normal imperative coding constructs. Code executes from the top down. The code can involve existing language control flow semantics, like conditionals and loops.
 
 ```java
 @FunctionName("Chaining")
@@ -234,15 +249,15 @@ public double functionChaining(
 }
 ```
 
-You can use the `ctx` object to invoke other functions by name, pass parameters, and return function output. The output of these methods is a `Task<V>` object where `V` is the type of data returned by the invoked function. Each time you call `Task<V>.await()`, the Durable Functions framework checkpoints the progress of the current function instance. If the process unexpectedly recycles midway through the execution, the function instance resumes from the preceding `Task<V>.await()` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+You can use the `ctx` object to invoke other functions by name, pass parameters, and return function output. The output of these methods is a `Task<V>` object where `V` is the type of data returned by the invoked function. Each time you call `Task<V>.await()`, the Durable Functions framework checkpoints the progress of the current function instance. If the process unexpectedly recycles midway through the execution, the function instance resumes from the preceding `Task<V>.await()` call. For more information, see the next section, Pattern #2: Fan-out/fan-in.
 
 ::: zone-end
 
-### <a name="fan-in-out"></a>Pattern #2: Fan out/fan in
+### <a name="fan-in-out"></a>Pattern #2: Fan-out/fan-in
 
-In the fan out/fan in pattern, you execute multiple functions in parallel and then wait for all functions to finish. Often, some aggregation work is done on the results that are returned from the functions.
+In the fan-out/fan-in pattern, you execute multiple functions in parallel and then wait for all functions to finish. Often, some aggregation work is done on the results that are returned from the functions.
 
-![A diagram of the fan out/fan pattern](./media/durable-functions-concepts/fan-out-fan-in.png)
+:::image type="content" source="media/durable-functions-concepts/fan-out-fan-in.png" alt-text="Diagram of the fan-out fan-in pattern.":::
 
 With normal functions, you can fan out by having the function send multiple messages to a queue. Fanning back in is much more challenging. To fan in, in a normal function, you write code to track when the queue-triggered functions end, and then store function outputs.
 
@@ -471,15 +486,15 @@ The automatic checkpointing that happens at the `.await()` call on `ctx.allOf(pa
 ::: zone-end
 
 > [!NOTE]
-> In rare circumstances, it's possible that a crash could happen in the window after an activity function completes but before its completion is saved into the orchestration history. If this happens, the activity function would re-run from the beginning after the process recovers.
+> In rare circumstances, it's possible that a crash could happen in the window after an activity function completes but before its completion is saved into the orchestration history. If this happens, the activity function would rerun from the beginning after the process recovers.
 
 ### <a name="async-http"></a>Pattern #3: Async HTTP APIs
 
 The async HTTP API pattern addresses the problem of coordinating the state of long-running operations with external clients. A common way to implement this pattern is by having an HTTP endpoint trigger the long-running action. Then, redirect the client to a status endpoint that the client polls to learn when the operation is finished.
 
-![A diagram of the HTTP API pattern](./media/durable-functions-concepts/async-http-api.png)
+:::image type="content" source="media/durable-functions-concepts/async-http-api.png" alt-text="Diagram that shows the HTTP API pattern.":::
 
-Durable Functions provides **built-in support** for this pattern, simplifying or even removing the code you need to write to interact with long-running function executions. For example, the Durable Functions quickstart samples ([C#](durable-functions-isolated-create-first-csharp.md), [JavaScript](quickstart-js-vscode.md), [TypeScript](quickstart-ts-vscode.md), [Python](quickstart-python-vscode.md), [PowerShell](quickstart-powershell-vscode.md), and [Java](quickstart-java.md)) show a simple REST command that you can use to start new orchestrator function instances. After an instance starts, the extension exposes webhook HTTP APIs that query the orchestrator function status. 
+Durable Functions provides *built-in support* for this pattern, simplifying or even removing the code you need to write to interact with long-running function executions. For example, the Durable Functions quickstart samples ([C#](durable-functions-isolated-create-first-csharp.md), [JavaScript](quickstart-js-vscode.md), [TypeScript](quickstart-ts-vscode.md), [Python](quickstart-python-vscode.md), [PowerShell](quickstart-powershell-vscode.md), and [Java](quickstart-java.md)) show a simple REST command that you can use to start new orchestrator function instances. After an instance starts, the extension exposes webhook HTTP APIs that query the orchestrator function status. 
 
 The following example shows REST commands that start an orchestrator and query its status. For clarity, some protocol details are omitted from the example.
 
@@ -518,7 +533,7 @@ The monitor pattern refers to a flexible, recurring process in a workflow. An ex
 
 An example of the monitor pattern is to reverse the earlier async HTTP API scenario. Instead of exposing an endpoint for an external client to monitor a long-running operation, the long-running monitor consumes an external endpoint, and then waits for a state change.
 
-![A diagram of the monitor pattern](./media/durable-functions-concepts/monitor.png)
+:::image type="content" source="media/durable-functions-concepts/monitor.png" alt-text="Diagram that shows the monitor pattern.":::
 
 In a few lines of code, you can use Durable Functions to create multiple monitors that observe arbitrary endpoints. The monitors can end execution when a condition is met, or another function can use the durable orchestration client to terminate the monitors. You can change a monitor's `wait` interval based on a specific condition (for example, exponential backoff.) 
 
@@ -774,18 +789,17 @@ public String monitorOrchestrator(
 
 ::: zone-end
 
-
-When a request is received, a new orchestration instance is created for that job ID. The instance polls a status until either a condition is met or until a timeout expires. A durable timer controls the polling interval. Then, more work can be performed, or the orchestration can end.
+When a request is received, a new orchestration instance is created for that job ID. The instance polls a status until either a condition is met or until a time out expires. A durable timer controls the polling interval. Then, more work can be performed, or the orchestration can end.
 
 ### <a name="human"></a>Pattern #5: Human interaction
 
-Many automated processes involve some kind of human interaction. Involving humans in an automated process is tricky because people aren't as highly available and as responsive as cloud services. An automated process might allow for this interaction by using timeouts and compensation logic.
+Many automated processes involve some kind of human interaction. Involving humans in an automated process is tricky because people aren't as highly available and as responsive as cloud services. An automated process might allow for this interaction by using time-outs and compensation logic.
 
 An approval process is an example of a business process that involves human interaction. Approval from a manager might be required for an expense report that exceeds a certain dollar amount. If the manager doesn't approve the expense report within 72 hours (might be the manager went on vacation), an escalation process kicks in to get the approval from someone else (perhaps the manager's manager).
 
-![A diagram of the human interaction pattern](./media/durable-functions-concepts/approval.png)
+:::image type="content" source="media/durable-functions-concepts/approval.png" alt-text="Diagram of the human interaction pattern.":::
 
-You can implement the pattern in this example by using an orchestrator function. The orchestrator uses a [durable timer](durable-functions-timers.md) to request approval. The orchestrator escalates if timeout occurs. The orchestrator waits for an [external event](durable-functions-external-events.md), such as a notification that's generated by a human interaction.
+You can implement the pattern in this example by using an orchestrator function. The orchestrator uses a [durable timer](durable-functions-timers.md) to request approval. The orchestrator escalates if time out occurs. The orchestrator waits for an [external event](durable-functions-external-events.md), such as a notification that's generated by a human interaction.
 
 These examples create an approval process to demonstrate the human interaction pattern:
 
@@ -818,7 +832,7 @@ public static async Task Run(
 }
 ```
 
-To create the durable timer, call `context.CreateTimer`. The notification is received by `context.WaitForExternalEvent`. Then, `Task.WhenAny` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
+To create the durable timer, call `context.CreateTimer`. The notification is received by `context.WaitForExternalEvent`. Then, `Task.WhenAny` is called to decide whether to escalate (time-out happens first) or process the approval (the approval is received before time-out).
 
 #### [Isolated worker process](#tab/isolated-process)
 
@@ -847,7 +861,7 @@ public static async Task Run(
 }
 ```
 
-To create the durable timer, call `context.CreateTimer`. The notification is received by `context.WaitForExternalEvent`. Then, `Task.WhenAny` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
+To create the durable timer, call `context.CreateTimer`. The notification is received by `context.WaitForExternalEvent`. Then, `Task.WhenAny` is called to decide whether to escalate (time out happens first) or process the approval (the approval is received before time-out).
 
 ::: zone-end
 ::: zone pivot="javascript"
@@ -875,7 +889,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-To create the durable timer, call `context.df.createTimer`. The notification is received by `context.df.waitForExternalEvent`. Then, `context.df.Task.any` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
+To create the durable timer, call `context.df.createTimer`. The notification is received by `context.df.waitForExternalEvent`. Then, `context.df.Task.any` is called to decide whether to escalate (time-out happens first) or process the approval (the approval is received before time-out).
 
 # [Model v4](#tab/nodejs-v4)
 
@@ -900,7 +914,7 @@ df.app.orchestration("humanInteractionDemo", function* (context) {
 });
 ```
 
-To create the durable timer, call `context.df.createTimer`. The notification is received by `context.df.waitForExternalEvent`. Then, `context.df.Task.any` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
+To create the durable timer, call `context.df.createTimer`. The notification is received by `context.df.waitForExternalEvent`. Then, `context.df.Task.any` is called to decide whether to escalate (time-out happens first) or process the approval (the approval is received before time-out).
 
 ::: zone-end
 ::: zone pivot="python"
@@ -932,7 +946,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
-To create the durable timer, call `context.create_timer`. The notification is received by `context.wait_for_external_event`. Then, `context.task_any` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
+To create the durable timer, call `context.create_timer`. The notification is received by `context.wait_for_external_event`. Then, `context.task_any` is called to decide whether to escalate (time-out happens first) or process the approval (the approval is received before time-out).
 
 # [Python (V2 model)](#tab/v2-model)
 
@@ -962,7 +976,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
         yield context.call_activity("Escalate", None)
 ```
 
-To create the durable timer, call `context.create_timer`. The notification is received by `context.wait_for_external_event`. Then, `context.task_any` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
+To create the durable timer, call `context.create_timer`. The notification is received by `context.wait_for_external_event`. Then, `context.task_any` is called to decide whether to escalate (time-out happens first) or process the approval (the approval is received before time-out).
 
 ::: zone-end
 ::: zone pivot="powershell"
@@ -992,7 +1006,8 @@ else {
 
 $output
 ```
-To create the durable timer, call `Start-DurableTimer`. The notification is received by `Start-DurableExternalEventListener`. Then, `Wait-DurableTask` is called to decide whether to escalate (timeout happens first) or process the approval (the approval is received before timeout).
+
+To create the durable timer, call `Start-DurableTimer`. The notification is received by `Start-DurableExternalEventListener`. Then, `Wait-DurableTask` is called to decide whether to escalate (time out happens first) or process the approval (the approval is received before time-out).
 
 ::: zone-end
 ::: zone pivot="java"
@@ -1017,12 +1032,12 @@ public void approvalWorkflow(
 }
 ```
 
-The `ctx.waitForExternalEvent(...).await()` method call pauses the orchestration until it receives an event named `ApprovalEvent`, which has a `boolean` payload. If the event is received, an activity function is called to process the approval result. However, if no such event is received before the `timeout` (72 hours) expires, a `TaskCanceledException` is raised and the `Escalate` activity function is called.
+The `ctx.waitForExternalEvent(...).await()` method call pauses the orchestration until it receives an event named `ApprovalEvent`, which has a `boolean` payload. If the event is received, an activity function is called to process the approval result. However, if no such event is received before the `timeout` (72 hours) expires, a `TaskCanceledException` is raised, and the `Escalate` activity function is called.
 
 ::: zone-end
 
 > [!NOTE]
-> There is no charge for time spent waiting for external events when running in the Consumption plan.
+> There's no charge for time spent waiting for external events when running in the Consumption plan.
 
 An external client can deliver the event notification to a waiting orchestrator function by using the [built-in HTTP APIs](durable-functions-http-api.md#raise-event):
 
@@ -1147,11 +1162,11 @@ public void raiseEventToOrchestration(
 
 ### <a name="aggregator"></a>Pattern #6: Aggregator (stateful entities)
 
-The sixth pattern is about aggregating event data over a period of time into a single, addressable *entity*. In this pattern, the data being aggregated might come from multiple sources, might be delivered in batches, or might be scattered over long-periods of time. The aggregator might need to take action on event data as it arrives, and external clients might need to query the aggregated data.
+The sixth pattern is about aggregating event data over a period of time into a single, addressable *entity*. In this pattern, the data being aggregated might come from multiple sources, might be delivered in batches, or might be scattered over long periods of time. The aggregator might need to take action on event data as it arrives, and external clients might need to query the aggregated data.
 
-![Aggregator diagram](./media/durable-functions-concepts/aggregator.png)
+:::image type="content" source="media/durable-functions-concepts/aggregator.png" alt-text="Diagram that shows an aggregator.":::
 
-The tricky thing about trying to implement this pattern with normal, stateless functions is that concurrency control becomes a huge challenge. Not only do you need to worry about multiple threads modifying the same data at the same time, you also need to worry about ensuring that the aggregator only runs on a single VM at a time.
+The tricky thing about trying to implement this pattern with normal, stateless functions is that concurrency control becomes a huge challenge. Not only do you need to worry about multiple threads modifying the same data at the same time, you also need to worry about ensuring that the aggregator only runs on a single virtual machine at a time.
 
 You can use [Durable entities](durable-functions-entities.md) to easily implement this pattern as a single function.
 
@@ -1255,6 +1270,7 @@ public class Counter
     }
 }
 ```
+
 ::: zone-end
 ::: zone pivot="javascript"
 
@@ -1369,7 +1385,7 @@ def entity_function(context: df.DurableOrchestrationContext):
 
 ::: zone-end
 
-Clients can enqueue *operations* for (also known as "signaling") an entity function using the [entity client binding](durable-functions-bindings.md#entity-client).
+Clients can enqueue *operations* for (also known as *signaling*) an entity function using the [entity client binding](durable-functions-bindings.md#entity-client).
 
 ::: zone pivot="csharp"
 
@@ -1408,6 +1424,7 @@ public static async Task Run(
     await client.Entities.SignalEntityAsync(entityId, "add", delta);
 }
 ```
+
 ::: zone-end
 ::: zone pivot="javascript"
 
@@ -1485,41 +1502,42 @@ Behind the scenes, the Durable Functions extension is built on top of the [Durab
 
 ## Code constraints
 
-In order to provide reliable and long-running execution guarantees, orchestrator functions have a set of coding rules that must be followed. For more information, see the [Orchestrator function code constraints](durable-functions-code-constraints.md) article.
+In order to provide reliable and long-running execution guarantees, orchestrator functions have a set of coding rules that must be followed. For more information, see [Orchestrator function code constraints](durable-functions-code-constraints.md).
 
 ## Billing
 
-Durable Functions are billed the same as Azure Functions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/). When executing orchestrator functions in the Azure Functions [Consumption plan](../consumption-plan.md), there are some billing behaviors to be aware of. For more information on these behaviors, see the [Durable Functions billing](durable-functions-billing.md) article.
+Durable Functions is billed the same as Azure Functions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/). When executing orchestrator functions in Azure Functions [Consumption plan](../consumption-plan.md), there are some billing behaviors to be aware of. For more information on these behaviors, see the [Durable Functions billing](durable-functions-billing.md) article.
 
 ## Jump right in
 
 You can get started with Durable Functions in under 10 minutes by completing one of these language-specific quickstart tutorials:
 
-* [C# using Visual Studio 2019](durable-functions-isolated-create-first-csharp.md)
+* [C# using Visual Studio](durable-functions-isolated-create-first-csharp.md)
 * [JavaScript using Visual Studio Code](quickstart-js-vscode.md)
 * [TypeScript using Visual Studio Code](quickstart-ts-vscode.md)
 * [Python using Visual Studio Code](quickstart-python-vscode.md)
 * [PowerShell using Visual Studio Code](quickstart-powershell-vscode.md)
 * [Java using Maven](quickstart-java.md)
 
-In these quickstarts, you locally create and test a "hello world" durable function. You then publish the function code to Azure. The function you create orchestrates and chains together calls to other functions.
+In these quickstarts, you locally create and test a *Hello world* durable function. You then publish the function code to Azure. The function you create orchestrates and chains together calls to other functions.
 
 ## Publications
 
 Durable Functions is developed in collaboration with Microsoft Research. As a result, the Durable Functions team actively produces research papers and artifacts; these include:
 
 * [Durable Functions: Semantics for Stateful Serverless](https://www.microsoft.com/research/uploads/prod/2021/10/DF-Semantics-Final.pdf) *(OOPSLA'21)*
-* [Serverless Workflows with Durable Functions and Netherite](https://arxiv.org/pdf/2103.00033.pdf) *(pre-print)*
+* [Serverless Workflows with Durable Functions and Netherite](https://arxiv.org/pdf/2103.00033.pdf) *(preprint)*
 
-## Learn more
+## Video demo
 
 The following video highlights the benefits of Durable Functions:
 
-> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Durable-Functions-in-Azure-Functions/player] 
+> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Durable-Functions-in-Azure-Functions/player]
 
-Because Durable Functions is an advanced extension for [Azure Functions](../functions-overview.md), it isn't appropriate for all applications. For a comparison with other Azure orchestration technologies, see [Compare Azure Functions and Azure Logic Apps](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
+## Other orchestration options
 
-## Next steps
+Durable Functions is an advanced extension for [Azure Functions](../functions-overview.md), and might not be appropriate for all applications. For a comparison with other Azure orchestration technologies, see [Compare Azure Functions and Azure Logic Apps](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
 
-> [!div class="nextstepaction"]
-> [Durable Functions function types and features](durable-functions-types-features-overview.md)
+## Related content
+
+- [Durable Functions types and features](durable-functions-types-features-overview.md)

@@ -4,8 +4,9 @@ description: Learn how Azure Backup allows you to take database consistent snaps
 ms.topic: how-to
 ms.custom: linux-related-content
 ms.date: 09/11/2024 
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to implement enhanced pre-post scripts for consistent snapshots on Linux VMs, so that I can achieve application consistency and optimize my backup strategy for performance and cost."
 ---
 
 # Enhanced prepost scripts for database consistent snapshot

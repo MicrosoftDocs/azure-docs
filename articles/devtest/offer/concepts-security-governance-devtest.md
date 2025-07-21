@@ -6,7 +6,7 @@ author: rigel512
 ms.service: visual-studio-family
 ms.subservice: subscriptions
 ms.topic: how-to 
-ms.date: 10/18/2023
+ms.date: 05/24/2025
 ms.custom: devtestoffer
 ---
 
@@ -56,7 +56,7 @@ This security barrier has two components:
 
 [A tenant](../../active-directory/develop/quickstart-create-new-tenant.md) is a dedicated instance of Microsoft Entra ID that an organization or app developer receives when the organization or app developer creates a relationship with Microsoft like signing up for Azure, Microsoft Intune, or Microsoft 365.  
 
-Each Microsoft Entra tenant is separate from other Microsoft Entra tenants. Each Microsoft Entra tenant has its own representation of work and school identities, consumer identities (if it's an Azure AD B2C tenant), and app registrations. An app registration inside your tenant can allow authentications from accounts only within your tenant or all tenants.  
+Each Microsoft Entra tenant is separate from other Microsoft Entra tenants. Each Microsoft Entra tenant has its own representation of work and school identities, consumer identities (if it's an external tenant), and app registrations. An app registration inside your tenant can allow authentications from accounts only within your tenant or all tenants.  
 
 If you need to further separate your organization’s identity infrastructure beyond management groups within a single tenant, you can also create another tenants with its own resource hierarchy.  
 

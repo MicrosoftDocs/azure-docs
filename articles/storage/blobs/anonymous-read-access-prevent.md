@@ -12,6 +12,7 @@ ms.reviewer: nachakra
 ms.devlang: powershell
 # ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23, devx-track-arm-template
+# Customer intent: "As a cloud administrator, I want to disable anonymous access for my storage account, so that I can enhance the security of my blob data and prevent unauthorized access."
 ---
 
 # Remediate anonymous read access to blob data (Azure Resource Manager deployments)

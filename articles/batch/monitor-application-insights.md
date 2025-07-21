@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ms.date: 11/06/2024
+# Customer intent: "As a developer working with Azure Batch applications, I want to integrate Application Insights to monitor and debug my application, so that I can gain insights into performance and quickly identify issues in real-time."
 ---
 
 # Monitor and debug an Azure Batch .NET application with Application Insights

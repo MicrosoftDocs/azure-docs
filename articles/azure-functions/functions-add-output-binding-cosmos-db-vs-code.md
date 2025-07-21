@@ -78,10 +78,10 @@ In the [previous quickstart article](./create-first-function-vs-code-csharp.md),
 
     |Prompt| Selection|
     |--|--|
-    |**Enter new app setting name**| Type `CosmosDbConnectionSetting`.|
-    |**Enter value for "CosmosDbConnectionSetting"**| Paste the connection string of your Azure Cosmos DB account you copied. You can also configure [Microsoft Entra identity](./functions-bindings-cosmosdb-v2-trigger.md#connections) as an alternative.|
+    |**Enter new app setting name**| Type `CosmosDbConnectionString`.|
+    |**Enter value for "CosmosDbConnectionString"**| Paste the connection string of your Azure Cosmos DB account you copied. You can also configure [Microsoft Entra identity](./functions-bindings-cosmosdb-v2-trigger.md#connections) as an alternative.|
 
-    This creates an application setting named connection `CosmosDbConnectionSetting` in your function app in Azure. Now, you can download this setting to your local.settings.json file.
+    This creates an application setting named connection `CosmosDbConnectionString` in your function app in Azure. Now, you can download this setting to your local.settings.json file.
 
 1. Press <kbd>F1</kbd> again to open the command palette, then search for and run the command `Azure Functions: Download Remote Settings...`. 
 
@@ -105,7 +105,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.CosmosDB
 
 ::: zone pivot="programming-language-javascript"  
 
-Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages. 
+Your project has been configured to use [extension bundles](extension-bundles.md), which automatically installs a predefined set of extension packages. 
 
 Extension bundles usage is enabled in the *host.json* file at the root of the project, which appears as follows:
 
@@ -115,7 +115,7 @@ Extension bundles usage is enabled in the *host.json* file at the root of the pr
 
 ::: zone pivot="programming-language-python"  
 
-Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages. 
+Your project has been configured to use [extension bundles](extension-bundles.md), which automatically installs a predefined set of extension packages. 
 
 Extension bundles usage is enabled in the *host.json* file at the root of the project, which appears as follows:
 
@@ -136,7 +136,7 @@ The `MyDocument` class defines an object that gets written to the database. The 
 
 The `MultiResponse` class allows you to both write to the specified collection in the Azure Cosmos DB and return an HTTP success message. Because you need to return a `MultiResponse` object, you need to also update the method signature.
 
-Specific attributes specify the name of the container and the name of its parent database. The connection string for your Azure Cosmos DB account is set by the `CosmosDbConnectionSetting`.  
+Specific attributes specify the name of the container and the name of its parent database. The connection string for your Azure Cosmos DB account is set by the `CosmosDbConnectionString`.  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 Binding attributes are defined directly in your function code. The [Azure Cosmos DB output configuration](./functions-bindings-cosmosdb-v2-output.md#configuration) describes the fields required for an Azure Cosmos DB output binding.  
@@ -155,10 +155,10 @@ Binding attributes are defined directly in the *function_app.py* file. You use t
 
 ```python
 @app.cosmos_db_output(arg_name="outputDocument", database_name="my-database", 
-    container_name="my-container", connection="CosmosDbConnectionSetting")
+    container_name="my-container", connection="CosmosDbConnectionString")
 ```
 
-In this code, `arg_name` identifies the binding parameter referenced in your code, `database_name` and `container_name` are the database and collection names that the binding writes to, and `connection` is the name of an application setting that contains the connection string for the Azure Cosmos DB account, which is in the `CosmosDbConnectionSetting` setting in the *local.settings.json* file.  
+In this code, `arg_name` identifies the binding parameter referenced in your code, `database_name` and `container_name` are the database and collection names that the binding writes to, and `connection` is the name of an application setting that contains the connection string for the Azure Cosmos DB account, which is in the `CosmosDbConnectionString` setting in the *local.settings.json* file.  
 ::: zone-end  
 
 ## Add code that uses the output binding

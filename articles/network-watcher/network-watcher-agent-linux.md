@@ -9,6 +9,7 @@ ms.date: 07/16/2024
 ms.custom: devx-track-arm-template, linux-related-content
 
 #CustomerIntent: As an Azure administrator, I want to install Network Watcher Agent VM extension and manage it so that I can use Network watcher features to diagnose and monitor my Linux virtual machines (VMs).
+# Customer intent: As an Azure administrator, I want to install and manage the Network Watcher Agent extension on my Linux VMs so that I can utilize network monitoring and diagnostic features effectively.
 ---
 
 # Manage Network Watcher Agent virtual machine extension for Linux
@@ -84,7 +85,7 @@ Network Watcher Agent extension for Linux can be installed on the following Linu
 | Azure Linux | 2.0 |
 | CentOS <sup>1</sup> | 6.10 and 7 |
 | Debian | 7 and 8 |
-| OpenSUSE Leap | 42.3+ |
+| openSUSE Leap | 42.3+ |
 | Oracle Linux | 6.10 <sup>2</sup>, 7 and 8+ |
 | Red Hat Enterprise Linux (RHEL) | 6.10 <sup>3</sup>, 7, 8 and 9.2 |
 | Rocky Linux | 9.1 |

@@ -2,18 +2,19 @@
 title: 'Tutorial: Filter inbound Internet or intranet traffic with Azure Firewall DNAT policy using the portal'
 description: In this tutorial, you learn how to deploy and configure Azure Firewall policy DNAT using the Azure portal. 
 services: firewall
-author: duongau
+author: varunkalyana
 ms.service: azure-firewall
 ms.topic: tutorial
-ms.date: 08/26/2021
-ms.author: duau
+ms.date: 05/07/2025
+ms.author: varunkalyana
 ms.custom: mvc
 #Customer intent: As an administrator, I want to deploy and configure Azure Firewall policy DNAT so that I can control inbound Internet access to resources located in a subnet.
+# Customer intent: "As a network administrator, I want to deploy and configure a DNAT policy using Azure Firewall, so that I can manage and filter inbound traffic to my virtual network resources effectively."
 ---
 
 # Tutorial: Filter inbound Internet or intranet traffic with Azure Firewall policy DNAT using the Azure portal
 
-You can configure Azure Firewall policy Destination Network Address Translation (DNAT) to translate and filter inbound Internet or intranet (preview) traffic to your subnets. When you configure DNAT, the *rule collection action* is set to **DNAT**. Each rule in the NAT rule collection can then be used to translate your firewall public or private IP address and port to a private IP address and port. DNAT rules implicitly add a corresponding network rule to allow the translated traffic. For security reasons, the recommended approach is to add a specific source to allow DNAT access to the network and avoid using wildcards. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
+You can configure Azure Firewall policy Destination Network Address Translation (DNAT) to translate and filter inbound internet or intranet traffic to your subnets. When you configure DNAT, the *rule collection action* is set to **DNAT**. Each rule in the NAT rule collection can then be used to translate your firewall public or private IP address and port to a private IP address and port. DNAT rules implicitly add a corresponding network rule to allow the translated traffic. For security reasons, the recommended approach is to add a specific source to allow DNAT access to the network and avoid using wildcards. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
 
 In this tutorial, you learn how to:
 
@@ -205,7 +206,7 @@ This rule allows you to connect a remote desktop to the Srv-Workload virtual mac
 1. For **Rule collection group**, select **DefaultDnatRuleCollectionGroup**.
 1. Under **Rules**, for **Name**, type **rdp-nat**.
 1. For **Source type**, select **IP address**.
-1. For **Source**, type **\***.
+1. For **Source**, specify the IP address or range that you want to allow. For example, 192.168.1.0/24.
 1. For **Protocol**, select **TCP**.
 1. For **Destination Ports**, type **3389**.
 1. For **Destination Type**, select **IP Address**.

@@ -63,7 +63,7 @@ This example uses the [steeltoe sample on GitHub](https://github.com/Azure-Sampl
 
 :::image type="content" source="media/how-to-github-actions/actions1.png" alt-text="Screenshot of the GitHub Actions secrets and variables page with the New repository secret button highlighted." lightbox="media/how-to-github-actions/actions1.png":::
 
-Set the secret name to `AZURE_CREDENTIALS` and its value to the JSON string that you found under the heading *Set up your GitHub repository and authenticate*.
+Set the secret name to `AZURE_CREDENTIALS` and its value to the JSON string that you found under the heading **Set up your GitHub repository and authenticate**.
 
 :::image type="content" source="media/how-to-github-actions/actions2.png" alt-text="Screenshot of the GitHub Actions secrets / New secret page." lightbox="media/how-to-github-actions/actions2.png":::
 
@@ -206,7 +206,7 @@ This example uses the [PiggyMetrics](https://github.com/Azure-Samples/piggymetri
 
 :::image type="content" source="media/how-to-github-actions/actions1.png" alt-text="Screenshot of the GitHub Actions secrets and variables page with the New repository secret button highlighted." lightbox="media/how-to-github-actions/actions1.png":::
 
-Set the secret name to `AZURE_CREDENTIALS` and its value to the JSON string that you found under the heading *Set up your GitHub repository and authenticate*.
+Set the secret name to `AZURE_CREDENTIALS` and its value to the JSON string that you found under the heading **Set up your GitHub repository and authenticate**.
 
 :::image type="content" source="media/how-to-github-actions/actions2.png" alt-text="Screenshot of the GitHub Actions secrets / New secret page." lightbox="media/how-to-github-actions/actions2.png":::
 
@@ -512,7 +512,7 @@ jobs:
       run: |
         mvn clean package -DskipTests
 
-    # Maven plugin can cosume this authentication method automatically
+    # Maven plugin can consume this authentication method automatically
     - name: Azure Login
       uses: azure/login@v1
       with:

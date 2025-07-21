@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.devlang: javascript
 ms.custom: devx-track-js, mode-api, passwordless-js, devx-track-extended-azdevcli
 zone_pivot_groups: azure-blob-storage-quickstart-options
+# Customer intent: "As a JavaScript developer, I want to quickly set up and manage Azure Blob Storage, so that I can efficiently store and retrieve unstructured data within my applications."
 ---
 
 # Quickstart: Azure Blob Storage client library for Node.js

@@ -6,9 +6,10 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: quickstart
-ms.date: 03/20/2024
+ms.date: 03/31/2025
 ms.custom: mvc, mode-other
 ROBOTS: NOINDEX
+# Customer intent: As a web developer, I want to integrate an Azure Storage account with a content delivery network, so that I can efficiently deliver high-bandwidth content by caching blobs and improving access speeds for users worldwide.
 ---
 
 # Quickstart: Integrate an Azure Storage account with Azure Content Delivery Network

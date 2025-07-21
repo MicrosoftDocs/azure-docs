@@ -37,7 +37,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 
-1. Select **Create a resource** on the Azure portal menu, select **Integration**, and then select **Data Factory**.
+1. Select **Create a resource** on the Azure portal menu, then select **Analytics** > **Data Factory** :
 
     :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Screenshot showing Data Factory selection in the New pane.":::
 

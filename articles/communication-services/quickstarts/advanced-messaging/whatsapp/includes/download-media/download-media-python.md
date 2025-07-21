@@ -7,7 +7,7 @@ manager: camilo.ramirez
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 12/20/2024
+ms.date: 05/01/2025
 ms.topic: include
 ms.custom: Include file
 ms.author: shamkh
@@ -55,6 +55,7 @@ Follow these steps to add required code snippets to the `messages-quickstart.py`
 ### Download the media payload to a stream
 
 The Messages SDK enables Contoso to receive or download media from a WhatsApp user, when initiated by the WhatsApp users. To download the media payload to a stream, you need:
+
 - [WhatsApp Channel ID](#set-channel-registration-id).
 - [Recipient Phone Number in E16 format](#set-recipient-list).
 - Download media ID as Guid.
@@ -135,6 +136,6 @@ if __name__ == '__main__':
     messages.download_media()
 ```
 
-### Other samples
+### Sample code
 
-You can review and download other sample codes for Python Messages SDK on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/messages-quickstart).
+Review and download other sample code on GitHub at [Python Messages SDK](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/messages-quickstart).

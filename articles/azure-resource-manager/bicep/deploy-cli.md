@@ -2,8 +2,13 @@
 title: Deploy Bicep files with the Azure CLI  
 description: Learn how to use Azure Resource Manager and the Azure CLI to deploy resources to Azure. The resources are defined in a Bicep file.
 ms.topic: how-to
-ms.date: 01/13/2025
-ms.custom: devx-track-azurecli, seo-azure-cli, devx-track-arm-template, devx-track-bicep
+ms.custom:
+  - devx-track-azurecli
+  - seo-azure-cli
+  - devx-track-arm-template
+  - devx-track-bicep
+  - build-2025
+ms.date: 03/25/2025
 ---
 
 # Deploy Bicep files with the Azure CLI
@@ -19,7 +24,7 @@ You need a Bicep file to deploy, and the file must be local. You also need the A
 
 Samples for the Azure CLI are written for the `bash` shell. To run this sample in Windows PowerShell or Command Prompt (cmd), you might need to change elements of the script.
 
-If you don't have the Azure CLI installed, you can use Azure Cloud Shell. For more information, see [Deploy Bicep files with Azure Cloud Shell](./deploy-cloud-shell.md).
+If you don't have the Azure CLI installed, you can use Azure Cloud Shell. For more information, see [Deploy Bicep files from Azure Cloud Shell](./deploy-cloud-shell.md).
 
 [!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
 
@@ -39,7 +44,7 @@ You can target your deployment to a resource group, subscription, management gro
   az deployment sub create --location <location> --template-file <path-to-bicep>
   ```
 
-  For more information about subscription-level deployments, see [Use Bicep to deploy resources to subscription](deploy-to-subscription.md).
+  For more information about subscription-level deployments, see [Subscription deployments with Bicep files](deploy-to-subscription.md).
 
 * To deploy to a **management group**, use [`az deployment mg create`](/cli/azure/deployment/mg#az-deployment-mg-create):
 
@@ -47,7 +52,7 @@ You can target your deployment to a resource group, subscription, management gro
   az deployment mg create --location <location> --template-file <path-to-bicep>
   ```
 
-  For more information about management-group-level deployments, see [Use Bicep to deploy resources to management group](deploy-to-management-group.md).
+  For more information about management-group-level deployments, see [Management group deployments with Bicep files](deploy-to-management-group.md).
 
 * To deploy to a **tenant**, use [`az deployment tenant create`](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
@@ -55,7 +60,7 @@ You can target your deployment to a resource group, subscription, management gro
   az deployment tenant create --location <location> --template-file <path-to-bicep>
   ```
 
-  For more information about tenant-level deployments, see [Use Bicep to deploy resources to tenant](deploy-to-tenant.md).
+  For more information about tenant-level deployments, see [Tenant deployments with Bicep file](deploy-to-tenant.md).
 
 ## Deploy local Bicep file
 
@@ -170,9 +175,9 @@ The evaluation of parameters follows a sequential order, meaning that if a value
 
 ### Bicep parameters files
 
-Rather than passing parameters as inline values in your script, you might find it easier to use a [Bicep parameters file](#bicep-parameters-files) or a [JSON parameters file](#json-parameters-files) that contains the parameter values. The parameters file must be a local file since the Azure CLI doesn't support external parameters files. For more information about parameters files, see [Create parameters files for Bicep deployment](./parameter-files.md).
+Rather than passing parameters as inline values in your script, you might find it easier to use a [Bicep parameters file](#bicep-parameters-files) or a [JSON parameters file](#json-parameters-files) that contains the parameter values. The parameters file must be a local file since the Azure CLI doesn't support external parameters files. For more information about parameters files, see [Create a parameters file for Bicep deployment](./parameter-files.md).
 
-You can use a Bicep parameters file to deploy a Bicep file with [Azure CLI](./install.md#azure-cli) version 2.53.0 or later and [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.22.X or later. With the `using` statement within the Bicep parameters file, there's no need to provide the `--template-file` switch when specifying a Bicep parameters file for the `--parameters` switch. Including the `--template-file` switch will prompt an, "Only a .bicep template is allowed with a .bicepparam file," error.
+You can use a Bicep parameters file to deploy a Bicep file with [Azure CLI](./install.md#azure-cli) version 2.53.0 or later and [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.22.X or later. With the `using` statement within the Bicep parameters file, there's no need to provide the `--template-file` switch when specifying a Bicep parameters file for the `--parameters` switch. Including the `--template-file` switch will prompt an, "Only a .bicep file is allowed with a .bicepparam file," error.
 
 The following example shows a parameters file named _storage.bicepparam_. The file is in the same directory where the command runs:
 
@@ -233,4 +238,4 @@ To avoid conflicts with concurrent deployments and to ensure unique entries in t
 
 ## Next steps
 
-To understand how to define parameters in your file, see [Understand the structure and syntax of Bicep files](file.md).
+To understand how to define parameters in your file, see [Bicep file structure and syntax](file.md).

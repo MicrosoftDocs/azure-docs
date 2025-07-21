@@ -4,8 +4,9 @@ description: Describes the workloads that can be protected using disaster recove
 ms.topic: concept-article
 ms.service: azure-site-recovery
 ms.date: 01/10/2024
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: jsuri
+author: jyothisuri
+# Customer intent: As a business continuity manager, I want to implement a disaster recovery strategy using a cloud-based replication service, so that I can ensure the availability and protection of critical on-premises applications during downtime events.
 ---
 
 # About disaster recovery for on-premises apps

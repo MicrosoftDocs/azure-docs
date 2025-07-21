@@ -8,28 +8,29 @@ ms.service: azure-databox
 ms.topic: tutorial
 ms.date: 03/25/2024
 ms.author: shaas
+zone_pivot_groups: data-box-sku
 
 # Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
 
-::: zone target="docs"
+<!--::: zone target="docs"-->
 
 # Tutorial: Copy data to Azure Data Box via SMB
 
-::: zone-end
+<!--::: zone-end-->
 
-::: zone target="chromeless"
+<!--::: zone target="chromeless"
 
 ## Copy data to Azure Data Box
 
-::: zone-end
+::: zone-end-->
 
-::: zone target="docs"
+<!--::: zone target="docs"-->
 
 > [!IMPORTANT]
 > Azure Data Box now supports access tier assignment at the blob level. The steps contained within this tutorial reflect the updated data copy process and are specific to block blobs. 
 >
->For help with determining the appropriate access tier for your block blob data, refer to the [Determine appropriate access tiers for block blobs](#determine-appropriate-access-tiers-for-block-blobs) section. Follow the steps contained within the [Copy data to Azure Data Box](#copy-data-to-azure-data-box) section to copy your data to the appropriate access tier.
+>For help with determining the appropriate access tier for your block blob data, refer to the [Determine appropriate access tiers for block blobs](#determine-appropriate-access-tiers-for-block-blobs) section. Follow the steps contained within the [Copy data to Azure Data Box](/azure/databox/data-box-deploy-copy-data#copy-data-to-azure-data-box) section to copy your data to the appropriate access tier.
 >
 > The information contained within this section applies to orders placed after April 1, 2024.
 
@@ -45,7 +46,7 @@ In this tutorial, you learn how to:
 > * Copy data to Data Box
 
 ## Prerequisites
-
+:::zone pivot="dbx"
 Before you begin, make sure that:
 
 1. You've completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
@@ -53,6 +54,19 @@ Before you begin, make sure that:
 3. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must:
    * Run a [Supported operating system](data-box-system-requirements.md).
    * Be connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, use a 1-GbE data link but the copy speeds are impacted.
+
+:::zone-end
+
+:::zone pivot="dbx-ng"
+Before you begin, make sure that:
+
+1. You've completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
+2. You've received your Data Box and the order status in the portal is **Delivered**.
+3. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must:
+   * Run a [Supported operating system](data-box-system-requirements.md).
+   * Be connected to a high-speed network. We strongly recommend that you have at least one 100-GbE connection. If a 100-GbE connection isn't available, use a 10-GbE or 1-GbE data link but the copy speeds are impacted.
+
+:::zone-end
 
 ## Connect to Data Box
 
@@ -148,7 +162,7 @@ Azure Storage allows you to store block blob data in multiple access tiers withi
 
 For more information about blob access tiers, see [Access tiers for blob data](../storage/blobs/access-tiers-overview.md). For more detailed best practices, see [Best practices for using blob access tiers](../storage/blobs/access-tiers-best-practices.md).
 
-You can transfer your block blob data to the appropriate access tier by copying it to the corresponding folder within Data Box. This process is discussed in greater detail within the [Copy data to Azure Data Box](#copy-data-to-azure-data-box) section.
+You can transfer your block blob data to the appropriate access tier by copying it to the corresponding folder within Data Box. This process is discussed in greater detail within the [Copy data to Azure Data Box](/azure/databox/data-box-deploy-copy-data#copy-data-to-azure-data-box) section.
 
 ## Copy data to Data Box
 
@@ -283,9 +297,9 @@ To ensure data integrity, checksum is computed inline as the data is copied. Onc
 
 ![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
-::: zone-end
+<!--::: zone-end-->
 
-::: zone target="chromeless"
+<!--::: zone target="chromeless"
 
 You can copy data from your source server to your Data Box via SMB, NFS, REST, data copy service or to managed disks.
 
@@ -345,9 +359,9 @@ To copy data managed disks:
 
 For step-by-step instructions, go to [Tutorial: Use Data Box to import data as managed disks in Azure](data-box-deploy-copy-data-from-vhds.md).
 
-::: zone-end
+::: zone-end-->
 
-::: zone target="docs"
+<!--::: zone target="docs"-->
 
 ## Next steps
 
@@ -364,4 +378,4 @@ Advance to the next tutorial to learn how to ship your Data Box back to Microsof
 > [!div class="nextstepaction"]
 > [Ship your Azure Data Box to Microsoft](./data-box-deploy-picked-up.md)
 
-::: zone-end
+<!--::: zone-end-->

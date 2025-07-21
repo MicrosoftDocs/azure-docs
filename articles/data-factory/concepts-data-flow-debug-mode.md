@@ -5,9 +5,9 @@ description: Start an interactive debug session when building data flows with Az
 ms.author: makromer
 author: kromerm
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: synapse
-ms.date: 10/20/2023
+ms.date: 03/31/2025
 ---
 
 # Mapping data flow Debug Mode
@@ -39,7 +39,7 @@ In most cases, it's a good practice to build your Data Flows in debug mode so th
 ---
 
 > [!NOTE]
-> Every debug session that a user starts from their browser UI is a new session with its own Spark cluster. You can use the monitoring view for debug sessions shown in the previous images to view and manage debug sessions. You are charged for every hour that each debug session is executing including the TTL time.
+> Every debug session that a user starts from their browser UI is a new session with its own Spark cluster. You can use the monitoring view for debug sessions shown in the previous images to view and manage debug sessions. You're charged for every hour that each debug session is executing including the TTL time.
 
 This video clip talks about tips, tricks, and good practices for data flow debug mode.
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=8e101169-59fb-4371-aa88-039304f61b53]
@@ -73,9 +73,9 @@ With debug on, the Data Preview tab lights up on the bottom panel. Without debug
 You can sort columns in data preview and rearrange columns using drag and drop. Additionally, there's an export button on the top of the data preview panel that you can use to export the preview data to a CSV file for offline data exploration. You can use this feature to export up to 1,000 rows of preview data.
 
 > [!NOTE]
-> File sources only limit the rows that you see, not the rows being read. For very large datasets, it is recommended that you take a small portion of that file and use it for your testing. You can select a temporary file in Debug Settings for each source that is a file dataset type.
+> File sources only limit the rows that you see, not the rows being read. For very large datasets, it's recommended that you take a small portion of that file and use it for your testing. You can select a temporary file in Debug Settings for each source that is a file dataset type.
 
-When running in Debug Mode in Data Flow, your data won't be written to the Sink transform. A Debug session is intended to serve as a test harness for your transformations. Sinks aren't required during debug and are ignored in your data flow. If you wish to test writing the data in your Sink, execute the Data Flow from a pipeline and use the Debug execution from a pipeline.
+When running Data Flow in Debug Mode, your data won't be written to the Sink transform. A Debug session is intended to serve as a test harness for your transformations. Sinks aren't required during debug and are ignored in your data flow. If you wish to test writing the data in your Sink, execute the Data Flow from a pipeline and use the Debug execution from a pipeline.
 
 Data Preview is a snapshot of your transformed data using row limits and data sampling from data frames in Spark memory. Therefore, the sink drivers aren't utilized or tested in this scenario.
 

@@ -1,8 +1,8 @@
 ---
 title: Work with farm activities data in Azure Data Manager for Agriculture
 description: Learn how to integrate with data providers for farm activities and ingest data into Azure Data Manager for Agriculture. 
-author: lbpudi
-ms.author: lbethapudi
+author: BlackRider97
+ms.author: ramithar
 ms.service: azure-data-manager-agriculture
 ms.topic: conceptual
 ms.date: 08/14/2023

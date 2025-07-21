@@ -3,7 +3,7 @@ title: Run Bicep deployment script privately over a private endpoint
 description: Learn how to run Bicep deployment script privately over a private endpoint.
 ms.custom: devx-track-bicep
 ms.topic: how-to
-ms.date: 09/26/2024
+ms.date: 04/28/2025
 ---
 
 # Run Bicep deployment script privately over a private endpoint
@@ -43,12 +43,12 @@ var vnetAddressPrefix = '192.168.4.0/23'
 var subnetEndpointAddressPrefix = '192.168.4.0/24'
 var subnetACIAddressPrefix = '192.168.5.0/24'
 
-resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' = {
+resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2024-11-30' = {
   name: userAssignedIdentityName
   location: location
 }
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2024-01-01' = {
   name: storageAccountName
   kind: 'StorageV2'
   location: location
@@ -64,7 +64,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   }
 }
 
-resource privateEndpoint 'Microsoft.Network/privateEndpoints@2023-11-01' = {
+resource privateEndpoint 'Microsoft.Network/privateEndpoints@2024-05-01' = {
    name: storageAccount.name
    location: location
    properties: {
@@ -101,7 +101,7 @@ resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   }
 }
 
-resource privateDnsZone 'Microsoft.Network/privateDnsZones@2020-06-01' = {
+resource privateDnsZone 'Microsoft.Network/privateDnsZones@2024-06-01' = {
   name: 'privatelink.file.core.windows.net'
   location: 'global'
 
@@ -129,7 +129,7 @@ resource privateDnsZone 'Microsoft.Network/privateDnsZones@2020-06-01' = {
   }
 }
 
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-05-01' = {
   name: vnetName
   location: location
   properties:{

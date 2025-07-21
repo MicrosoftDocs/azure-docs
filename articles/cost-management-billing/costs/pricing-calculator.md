@@ -1,13 +1,13 @@
 ---
 title: Estimate costs with the Azure pricing calculator
 description: This article explains how to use the Azure pricing calculator to turn anticipated usage into an estimated cost, which makes it easier to plan and budget for your Azure usage.
-author: bandersmsft
-ms.author: banders
+author: maxull0a
+ms.author: maxulloa
 ms.date: 03/04/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: micflan
+ms.reviewer: maxulloa
 ---
 
 # Estimate costs with the Azure pricing calculator

@@ -7,6 +7,7 @@ ms.custom: subject-cost-optimization
 ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 01/31/2025
+# Customer intent: As a cost manager, I want to use cost analysis tools for Azure ExpressRoute, so that I can effectively estimate, monitor, and manage our expenses associated with Azure resources and ensure optimal budget adherence.
 ---
 
 # Plan and manage costs for Azure ExpressRoute
@@ -100,7 +101,7 @@ Budgets can include filters for specific resources or services. For more on filt
 
 ## Export cost data
 
-[Export your cost data](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account for analysis. Exporting is useful for finance teams using Excel or Power BI. You can export costs daily, weekly, or monthly and set custom date ranges.
+You can also [export your cost data](../cost-management-billing/costs/tutorial-improved-exports.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. Exporting cost data is helpful when you need or others to do data analysis for costs. For example, a finance team can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
 
 ## Next steps
 

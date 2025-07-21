@@ -7,7 +7,6 @@ ms.topic: quickstart
 ms.subservice: sql
 ms.date: 02/10/2025
 ms.author: stefanazaric
-ms.reviewer: whhender
 ms.custom: mode-other
 ---
 

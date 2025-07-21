@@ -7,7 +7,7 @@ ms.topic: reliability-article
 ms.custom: subject-reliability
 services: logic-apps
 ms.service: azure-logic-apps
-ms.date: 01/06/2025
+ms.date: 04/04/2025
 zone_pivot_groups: logic-app-hosting-types
 #Customer intent: As an engineer responsible for business continuity, I want to understand how Azure Logic Apps works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow in different situations.
 ---
@@ -16,7 +16,7 @@ zone_pivot_groups: logic-app-hosting-types
 
 This article describes reliability support in [Azure Logic Apps](/azure/logic-apps/logic-apps-overview), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
-Resiliency is a shared responsibility between you and Microsoft, and so this article also covers ways for you to create a resilient solution that meets your needs.
+[!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
 Logic app workflows help you more easily integrate and orchestrate data between apps, cloud services, and on-premises systems by reducing how much code that you have to write. When you plan for resiliency, make sure that you consider not just your logic apps, but also these Azure resources that you use with your logic apps:
 
@@ -175,25 +175,29 @@ To prepare for availability zone failure, consider *over-provisioning* the capac
 
 ::: zone-end
 
-### Traffic routing between zones
+### Normal operations
+
+This section describes what to expect when Azure Logic Apps resources are configured for zone redundancy and all availability zones are operational.
 
 ::: zone pivot="consumption"
 
-During normal operations, workflow invocations can use compute resources in any of the availability zones within the region.
+**Traffic routing between zones:**  During normal operations, workflow invocations can use compute resources in any of the availability zones within the region.
 
 ::: zone-end
 
 ::: zone pivot="standard-workflow-service-plan,standard-app-service-environment"
 
-During normal operations, workflow invocations are spread among all your available plan instances across all availability zones.
+**Traffic routing between zones:**  During normal operations, workflow invocations are spread among all your available plan instances across all availability zones.
 
 ::: zone-end
 
 ### Zone-down experience
 
-**Detection and response:** The Azure Logic Apps platform is responsible for detecting a failure in an availability zone. You don't need to do anything to initiate a zone failover.
+This section describes what to expect when Azure Logic Apps resources are configured for zone redundancy and there's an availability zone outage.
 
-**Active requests:** If an availability zone becomes unavailable, any in-progress workflow executions that run on a VM in the faulty availability zone are terminated. The Azure Logic Apps platform automatically resumes the workflow on another VM in a different availability zone. Due to this behavior, active workflows might experience some [transient faults](#transient-faults) or higher latency as new VMs are added to the remaining availability zones.
+- **Detection and response:** The Azure Logic Apps platform is responsible for detecting a failure in an availability zone. You don't need to do anything to initiate a zone failover.
+
+- **Active requests:** If an availability zone becomes unavailable, any in-progress workflow executions that run on a VM in the faulty availability zone are terminated. The Azure Logic Apps platform automatically resumes the workflow on another VM in a different availability zone. Due to this behavior, active workflows might experience some [transient faults](#transient-faults) or higher latency as new VMs are added to the remaining availability zones.
 
 ### Failback
 

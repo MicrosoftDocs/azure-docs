@@ -7,7 +7,6 @@ ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: pipeline
 ms.date: 12/11/2024
-ms.reviewer: whhender
 ---
 
 # Ingest data into a dedicated SQL pool

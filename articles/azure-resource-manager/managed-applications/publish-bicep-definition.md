@@ -32,6 +32,9 @@ To complete the tasks in this article, you need the following items:
 
 ## Create a Bicep file
 
+> [!Note]
+> Azure Managed Applications only supports ARM templates using languageVersion 1.0 and **does not** support languageVersion 2.0. Refer to the [ARM Template documentation](/azure/azure-resource-manager/templates/syntax#languageversion-20) to see what features will automatically enable version 2.0.
+
 Every managed application definition includes a file named _mainTemplate.json_. The template defines the Azure resources to deploy and is no different than a regular ARM template. You can develop the template using Bicep and then convert the Bicep file to JSON.
 
 Open Visual Studio Code, create a file with the case-sensitive name _mainTemplate.bicep_ and save it.

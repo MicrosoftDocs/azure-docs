@@ -2,8 +2,8 @@
 # Mandatory fields.
 title: Supplemental Terms of Use for Microsoft Azure Preview for Azure Data Manager for Agriculture.
 description: Provides Azure Data Manager for Agriculture specific terms of use.
-author: gourdsay
-ms.author: angour # Microsoft employees only
+author: BlackRider97
+ms.author: ramithar # Microsoft employees only
 ms.date: 5/23/2023
 ms.topic: conceptual
 ms.service: azure-data-manager-agriculture

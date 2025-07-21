@@ -13,9 +13,12 @@ ms.date: 03/17/2025
 
 # What is Azure Firewall?
 
-Azure Firewall is a cloud-native, intelligent network firewall security service that offers top-tier threat protection for your Azure cloud workloads. It is a fully stateful firewall as a service, featuring built-in high availability and unlimited cloud scalability. Azure Firewall inspects both east-west and north-south traffic. To understand these traffic types, see [ast-west and north-south traffic](/azure/well-architected/security/networking#scope-of-influence).
+Azure Firewall is a cloud-native, intelligent network firewall security service that offers top-tier threat protection for your Azure cloud workloads. It is a fully stateful firewall as a service, featuring built-in high availability and unlimited cloud scalability. Azure Firewall inspects both east-west and north-south traffic. To understand these traffic types, see [east-west and north-south traffic](/azure/well-architected/security/networking#scope-of-influence).
 
 Azure Firewall is available in three SKUs: Basic, Standard, and Premium.
+
+> [!NOTE]
+> Azure Firewall is one of the services that make up the Network Security category in Azure. Other services in this category include [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md) and [Azure Web Application Firewall](../web-application-firewall/overview.md). Each service has its own unique features and use cases. For more information on this service category, see [Network Security](../networking/security/network-security.md).
 
 ## Azure Firewall Basic
 

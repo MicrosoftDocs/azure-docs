@@ -2,16 +2,18 @@
 title: Manually run a non HTTP-triggered Azure Functions
 description: Use an HTTP request to run a non-HTTP triggered Azure Functions
 ms.topic: article
-ms.date: 01/15/2024
+ms.date: 05/08/2025
+ms.custom:
+  - build-2025
 ---
 
 # Manually run a non HTTP-triggered function
 
 This article demonstrates how to manually run a non HTTP-triggered function via specially formatted HTTP request.
 
-In some contexts, such as during development and troubleshooting, you might need to run "on-demand" an Azure Function that is indirectly triggered.  Examples of indirect triggers include [functions on a schedule](./functions-create-scheduled-function.md) or functions that run as the [result of events](./functions-create-storage-blob-triggered-function.md). 
+In some contexts, such as during development and troubleshooting, you might need to run "on-demand" an Azure Function that is indirectly triggered. Examples of indirect triggers include [functions on a schedule](./functions-create-scheduled-function.md) or functions that run as the [result of events](./functions-create-storage-blob-triggered-function.md).
 
-The procedure described in this article is equivalent to using the **Test/Run** functionality of a function's **Code + Test** tab in the Azure portal. You can also use Visual Studio Code to [manually run functions](functions-develop-vs-code.md#run-functions). 
+The procedure described in this article is equivalent to using the **Test/Run** functionality of a function's **Code + Test** tab in the Azure portal. You can also use Visual Studio Code to [manually run functions](functions-develop-vs-code.md#run-functions).
 
 ## Prerequisites 
 
@@ -35,14 +37,14 @@ The following considerations apply when making requests to administrator endpoin
 
 ## Get the master key
 
-You can get the master key from either the Azure portal or by using the Azure CLI. 
+You can get the master key from either the Azure portal or by using the Azure CLI.
 
 > [!CAUTION]  
-> Due to the elevated permissions in your function app granted by the master key, you should not share this key with third parties or distribute it in an application. The key should only be sent to an HTTPS endpoint.
+> Due to the elevated permissions in your function app granted by the master key, you shouldn't share this key with third parties or distribute it in an application. The key should only be sent to an HTTPS endpoint.
 
 ### [Azure portal](#tab/azure-portal)
 
-1. Navigate to your function app in the [Azure portal](https://portal.azure.com), select **App Keys**, and then the `_master` key. 
+1. Navigate to your function app in the [Azure portal](https://portal.azure.com), select **App Keys**, and then the `_master` key.
 
     :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key.png" alt-text="Locate the master key to copy." border="true":::
 
@@ -64,7 +66,7 @@ In this example, replace `<APP_NAME>` and `<RESOURCE_GROUP>` with the name of yo
 
 ## Call the function
 
-1. In the Azure portal, navigate top your function app and choose your function. 
+1. In the Azure portal, navigate top your function app and choose your function.
 
 1. Select **Code + Test**, and then select **Logs**. You see messages from the function logged here when you manually run the function from your HTTP test tool.
 

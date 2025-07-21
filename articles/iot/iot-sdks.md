@@ -10,7 +10,7 @@ ms.date: 02/14/2025
 
 ---
 
-# Azure IoT SDKs
+# Azure IoT device and service SDKs
 
 The following tables list the various SDKs you can use to build IoT solutions.
 

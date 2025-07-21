@@ -2,11 +2,12 @@
 title: Cert-manager and Let's Encrypt with Application Gateway for Containers - Gateway API
 description: Learn how to configure Application Gateway for Containers with certificates managed by CNCF project cert-manager.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 3/31/2025
-ms.author: greglin
+ms.date: 3/21/2025
+ms.author: mbender
+# Customer intent: "As a cloud infrastructure engineer, I want to configure an Application Gateway for Containers with automated SSL/TLS certificates using cert-manager and Let's Encrypt, so that I can ensure secure communication for my deployed applications in a Kubernetes environment."
 ---
 
 # Cert-manager and Let's Encrypt with Application Gateway for Containers - Gateway API
@@ -15,7 +16,7 @@ This guide demonstrates how to use cert-manager to automatically issue and renew
 
 For the purposes of this example, we have cert-manager configure certificates issued from Let's Encrypt to demonstrate an end-to-end deployment, where Application Gateway for Containers is providing TLS offloading.
 
-[ ![A figure showing cert-manager retrieving a certificate from Let's Encrypt and storing it into Kubernetes' secret store for TLS with Application Gateway for Containers.](./media/how-to-cert-manager-lets-encrypt-gateway-api/how-to-cert-manager-lets-encrypt-gateway-api.svg) ](./media/how-to-cert-manager-lets-encrypt-gateway-api/how-to-cert-manager-lets-encrypt-gateway-api.svg#lightbox)
+[![A diagram showing cert-manager retrieving a certificate from Let's Encrypt and storing it into Kubernetes' secret store for TLS with Application Gateway for Containers.](./media/how-to-cert-manager-lets-encrypt-gateway-api/how-to-cert-manager-lets-encrypt-gateway-api.svg) ](./media/how-to-cert-manager-lets-encrypt-gateway-api/how-to-cert-manager-lets-encrypt-gateway-api.svg#lightbox)
 
 For certificates to be issued by Let's Encrypt, a challenge is required by the authority to validate domain ownership. This validation happens by allowing cert-manager to create a pod and HTTPRoute resource that exposes an endpoint during certificate issuance, proving your ownership of the domain name.
 

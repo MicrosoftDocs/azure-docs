@@ -144,7 +144,7 @@ The function app restarts after the change is made to the application setting.
 To pin your function app to a specific runtime version on Linux, you set a version-specific base image URL in the [`linuxFxVersion` site setting][`linuxFxVersion`] in the format `DOCKER|<PINNED_VERSION_IMAGE_URI>`.
 
 > [!IMPORTANT]
-> Pinned function apps on Linux don't receive regular security and host functionality updates. Unless recommended by a support professional, use the [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) setting and a standard [`linuxFxVersion`] value for your language and version, such as `Python|3.9`. For valid values, see the [`linuxFxVersion` reference article][`linuxFxVersion`].
+> Pinned function apps on Linux don't receive regular security and host functionality updates. Unless recommended by a support professional, use the [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) setting and a standard [`linuxFxVersion`] value for your language and version, such as `Python|3.12`. For valid values, see the [`linuxFxVersion` reference article][`linuxFxVersion`].
 >
 > Pinning to a specific runtime isn't currently supported for Linux function apps running in a Consumption plan.
 

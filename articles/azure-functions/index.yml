@@ -11,6 +11,7 @@ metadata:
   author: ggailey777
   ms.author: glenga
   ms.date: 02/23/2025
+  ms.custom: build-2025
 landingContent:
   - title: About Azure Functions
     linkLists:
@@ -24,6 +25,8 @@ landingContent:
             url: functions-scale.md  
           - text: Scenarios
             url: functions-scenarios.md 
+          - text: Migrate from AWS Lambda
+            url: ./migration/migrate-aws-lambda-to-azure-functions.md
   - title: Create your first function
     linkLists:
       - linkListType: get-started

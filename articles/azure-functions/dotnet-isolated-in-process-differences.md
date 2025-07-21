@@ -6,7 +6,7 @@ ms.custom:
   - devx-track-dotnet
   - ignite-2023
 ms.topic: conceptual
-ms.date: 08/03/2023
+ms.date: 05/06/2025
 recommendations: false
 #Customer intent: As a developer, I need to understand the differences between running in-process and running in an isolated worker process so that I can choose the best process model for my functions.
 ---
@@ -37,23 +37,23 @@ Use the following table to compare feature and functional differences between th
 | Imperative bindings<sup>1</sup>  | Not supported - instead [work with SDK types directly](./dotnet-isolated-process-guide.md#register-azure-clients) | [Supported](functions-dotnet-class-library.md#binding-at-runtime) |
 | Dependency injection | [Supported](dotnet-isolated-process-guide.md#dependency-injection) (improved model consistent with .NET ecosystem) | [Supported](functions-dotnet-dependency-injection.md)  |
 | Middleware | [Supported](dotnet-isolated-process-guide.md#middleware) | Not supported |
-| Logging | [`ILogger<T>`]/[`ILogger`] obtained from [FunctionContext](/dotnet/api/microsoft.azure.functions.worker.functioncontext) or via [dependency injection](dotnet-isolated-process-guide.md#dependency-injection)| [`ILogger`] passed to the function<br/>[`ILogger<T>`] via [dependency injection](functions-dotnet-dependency-injection.md) |
+| Logging | [`ILogger<T>`]/[`ILogger`] obtained from [FunctionContext](/dotnet/api/microsoft.azure.functions.worker.functioncontext) or by using [dependency injection](dotnet-isolated-process-guide.md#dependency-injection)| [`ILogger`] passed to the function<br/>[`ILogger<T>`] by using [dependency injection](functions-dotnet-dependency-injection.md) |
 | Application Insights dependencies | [Supported](./dotnet-isolated-process-guide.md#application-insights) | [Supported](functions-monitoring.md#dependencies) |
 | Cancellation tokens | [Supported](dotnet-isolated-process-guide.md#cancellation-tokens) | [Supported](functions-dotnet-class-library.md#cancellation-tokens) |
 | Cold start times<sup>2</sup> | [Configurable optimizations](./dotnet-isolated-process-guide.md#performance-optimizations) | Optimized |
 | ReadyToRun | [Supported](dotnet-isolated-process-guide.md#readytorun) | [Supported](functions-dotnet-class-library.md#readytorun) |
 | [Flex Consumption] | [Supported](./flex-consumption-plan.md#supported-language-stack-versions) | Not supported |
-| .NET Aspire | [Preview](dotnet-isolated-process-guide.md#net-aspire-preview) | Not supported |
+| .NET Aspire | [Preview](./dotnet-aspire-integration.md) | Not supported |
 
 <sup>1</sup> When you need to interact with a service using parameters determined at runtime, using the corresponding service SDKs directly is recommended over using imperative bindings. The SDKs are less verbose, cover more scenarios, and have advantages for error handling and debugging purposes. This recommendation applies to both models.
 
-<sup>2</sup> Cold start times could be additionally impacted on Windows when using some preview versions of .NET due to just-in-time loading of preview frameworks. This impact applies to both the in-process and out-of-process models but can be noticeable when comparing across different versions. This delay for preview versions isn't present on Linux plans.
+<sup>2</sup> Cold start times could be additionally affected on Windows when using some preview versions of .NET due to just-in-time loading of preview frameworks. This impact applies to both the in-process and out-of-process models but can be noticeable when comparing across different versions. This delay for preview versions isn't present on Linux plans.
 
 <sup>3</sup> C# Script functions also run in-process and use the same libraries as in-process class library functions. For more information, see the [Azure Functions C# script (.csx) developer reference](functions-reference-csharp.md). 
 
 <sup>4</sup> Service SDK types include types from the [Azure SDK for .NET](/dotnet/azure/sdk/azure-sdk-for-dotnet) such as [BlobClient](/dotnet/api/azure.storage.blobs.blobclient).
 
-<sup>5</sup> ASP.NET Core types are not supported for .NET Framework.
+<sup>5</sup> ASP.NET Core types aren't supported for .NET Framework.
 
 [HttpRequest]: /dotnet/api/microsoft.aspnetcore.http.httprequest
 [IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult

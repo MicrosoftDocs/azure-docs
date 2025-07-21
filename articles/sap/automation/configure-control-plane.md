@@ -5,10 +5,11 @@ author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 03/05/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.custom:
+# Customer intent: As a system administrator, I want to configure the control plane for the SAP Deployment Automation Framework, so that I can effectively manage infrastructure deployment and automation processes in Azure.
 ---
 
 # Configure the control plane

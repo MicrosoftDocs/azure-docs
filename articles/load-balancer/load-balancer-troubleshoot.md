@@ -9,6 +9,7 @@ ms.topic: troubleshooting
 ms.date: 01/09/2025
 ms.author: mbender
 ms.custom: engagement-fy23
+# Customer intent: "As a network administrator, I want to troubleshoot connectivity issues with Azure Load Balancer, so that I can ensure reliable traffic distribution and maintain service availability for my virtual machine resources."
 ---
 
 # Troubleshoot Azure Load Balancer

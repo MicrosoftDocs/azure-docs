@@ -6,7 +6,9 @@ ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/09/2025
 ms.reviewer: christianreddington,anthdela,juselph
-ms.custom: UpdateFrequency2
+ms.custom:
+  - UpdateFrequency2
+  - build-2025
 
 #customer intent: As a customer, I want to know about Azure DevTest Labs capabilities, so I can use DevTest Labs for popular scenarios like development, test, and training.
 ---
@@ -38,7 +40,7 @@ The following diagram shows how lab owners can configure policies and provide re
 
 To create a lab in Azure DevTest Labs, you can use any of the following methods:
 
-[Azure portal](devtest-lab-create-lab.md) | [Bicep template](create-lab-windows-vm-bicep.md) | [ARM template](create-lab-windows-vm-template.md) | [Terraform](quickstarts/create-lab-windows-vm-terraform.md) | [PowerShell with Azure REST API](quickstarts/create-lab-rest.md)
+[Azure portal](devtest-lab-create-lab.md) | [Bicep file](create-lab-windows-vm-bicep.md) | [ARM template](create-lab-windows-vm-template.md) | [Terraform](quickstarts/create-lab-windows-vm-terraform.md) | [PowerShell with Azure REST API](quickstarts/create-lab-rest.md)
 
 You can also automate lab creation, including custom settings, with a reusable ARM template. For more information, see [ARM templates in Azure DevTest Labs](devtest-lab-use-arm-and-powershell-for-lab-resources.md).
 

@@ -6,14 +6,15 @@ ms.author: halkazwini
 author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 02/09/2024
+ms.date: 03/25/2025
 
 #CustomerIntent: As an Azure administrator, I want to learn how to use VPN troubleshoot so I can troubleshoot my VPN virtual network gateways and their connections whenever resources in a virtual network can't communicate with on-premises resources over a VPN connection.
+# Customer intent: As an Azure administrator, I want to use the VPN troubleshoot tool in Network Watcher, so that I can diagnose and resolve connectivity issues between my on-premises VPN device and Azure virtual network gateways efficiently.
 ---
 
 # Diagnose on-premises VPN connectivity with Azure
 
-In this article, you learn how to use Azure Network Watcher VPN troubleshoot capability to diagnose and troubleshoot your VPN gateway and its connection to your on-premises VPN device. For a list of validated VPN devices and their configuration guides, see [VPN devices](../vpn-gateway/vpn-gateway-about-vpn-devices.md?toc=/azure/network-watcher/toc.json#devicetable).
+In this article, you learn how to use Azure Network Watcher VPN troubleshoot capability to diagnose and troubleshoot your VPN gateway and its connection to your on-premises VPN device.
 
 VPN troubleshoot allows you to quickly diagnose issues with your gateway and connections. It checks for common issues and returns a list of diagnostic logs that can be used to further troubleshoot the issue. The logs are stored in a storage account that you specify.
 
@@ -50,7 +51,7 @@ Use the VPN troubleshoot capability of Network Watcher to diagnose and troublesh
 
     > [!NOTE]
     > - In some cases, only a subset of the log files is generated.
-    > - For newer gateway versions, the IKEErrors.txt, Scrubbed-wfpdiag.txt and wfpdiag.txt.sum have been replaced by an IkeLogs.txt file that contains the whole IKE activity including any errors.
+    > - Newer gateway versions use IkeLogs.txt file instead of IKEErrors.txt, Scrubbed-wfpdiag.txt, and wfpdiag.txt.sum. IkeLogs.txt contains the entire IKE activity, including any errors.
 
 A common misconfiguration error is due to using incorrect shared keys where you can check the IKEErrors.txt to see the following error message:
 
@@ -69,7 +70,5 @@ For a detailed list of fault types that Network Watcher can diagnose and their l
 
 ## Next step
 
-Learn how to monitor VPN gateways using Azure Automation:
-
 > [!div class="nextstepaction"]
-> [Monitor VPN gateways using VPN troubleshoot and Azure automation](network-watcher-monitor-with-azure-automation.md)
+> [Diagnose a communication problem between virtual networks](diagnose-communication-problem-between-networks.md)

@@ -7,7 +7,8 @@ ms.reviewer: estfan, azla
 ms.topic: tutorial
 ms.collection: ce-skilling-ai-copilot
 ms.custom: mvc
-ms.date: 08/09/2024
+ms.update-cycle: 180-days
+ms.date: 03/27/2025
 ---
 
 # Tutorial: Create approval-based workflows using Azure Logic Apps

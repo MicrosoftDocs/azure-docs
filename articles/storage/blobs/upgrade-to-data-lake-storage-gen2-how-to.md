@@ -4,9 +4,10 @@ description: Shows you how to use Resource Manager templates to upgrade from Azu
 author: normesta
 ms.service: azure-blob-storage
 ms.custom: devx-track-azurepowershell
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/15/2024
 ms.author: normesta
+# Customer intent: As a cloud architect, I want to upgrade my Azure Blob Storage to Data Lake Storage, so that I can leverage enhanced capabilities like hierarchical namespace, improved security, and performance optimizations for big data analytics workloads.
 ---
 
 # Upgrade Azure Blob Storage with Azure Data Lake Storage capabilities

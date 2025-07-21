@@ -7,7 +7,7 @@ ms.subservice: sql-dw
 ms.date: 04/19/2018
 author: KevinConanMSFT
 ms.author: kecona
-ms.reviewer: wiassaf
+
 ms.custom: azure-synapse
 ---
 

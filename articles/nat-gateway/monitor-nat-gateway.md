@@ -7,6 +7,7 @@ ms.topic: concept-article
 author: asudbring
 ms.author: allensu
 ms.service: azure-nat-gateway
+# Customer intent: As a cloud administrator, I want to monitor the performance and health of Azure NAT Gateway using Azure Monitor metrics and alerts, so that I can identify and troubleshoot issues effectively.
 ---
 
 # Monitor Azure NAT Gateway
@@ -20,7 +21,7 @@ This table describes how you can collect data to monitor your service, and what 
 |Data to collect|Description|How to collect and route the data|Where to view the data|Supported data|
 |---------|---------|---------|---------|---------|
 |Metric data|Metrics are numerical values that describe an aspect of a system at a particular point in time. Metrics can be aggregated using algorithms, compared to other metrics, and analyzed for trends over time.|[- Collected automatically at regular intervals.</br> - You can route some platform metrics to a Log Analytics workspace to query with other data. Check the **DS export** setting for each metric to see if you can use a diagnostic setting to route the metric data.]|[Metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started)| [Azure NAT Gateway metrics supported by Azure Monitor](/azure/nat-gateway/monitor-nat-gateway-reference#metrics)|
-|Resource log data|Logs are recorded system events with a timestamp. Logs can contain different types of data, and be structured or free-form text. You can route resource log data to Log Analytics workspaces for querying and analysis.|[Create a diagnostic setting](/azure/azure-monitor/essentials/create-diagnostic-settings) to collect and route resource log data.| [Log Analytics](/azure/azure-monitor/learn/quick-create-workspace)|[Azure NAT Gateway resource log data supported by Azure Monitor](/azure/nat-gateway/monitor-nat-gateway-reference#activity-log)  |
+|Resource log data|Logs are recorded system events with a timestamp. Logs can contain different types of data, and be structured or free-form text. You can route resource log data to Log Analytics workspaces for querying and analysis.|| [Log Analytics](/azure/azure-monitor/learn/quick-create-workspace)|[Azure NAT Gateway resource log data supported by Azure Monitor](/azure/nat-gateway/monitor-nat-gateway-reference#activity-log)  |
 |Activity log data|The Azure Monitor activity log provides insight into subscription-level events. The activity log includes information like when a resource is modified or a virtual machine is started.|- Collected automatically.</br> - [Create a diagnostic setting](/azure/azure-monitor/essentials/create-diagnostic-settings) to a Log Analytics workspace at no charge.|[Activity log](/azure/azure-monitor/essentials/activity-log)|  |
 
 [!INCLUDE [azmon-horz-supported-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-supported-data.md)]

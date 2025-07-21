@@ -5,7 +5,8 @@ author: abell
 ms.author: abell
 ms.service: azure-private-link
 ms.topic: concept-article
-ms.date: 12/04/2024
+ms.date: 03/25/2025
+# Customer intent: As a cloud administrator, I want to understand the RBAC permissions required for deploying private endpoints and private link services, so that I can effectively manage access and ensure secure connectivity to Azure resources.
 ---
 
 # Azure RBAC permissions for Azure Private Link

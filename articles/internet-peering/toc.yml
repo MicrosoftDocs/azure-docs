@@ -37,43 +37,19 @@
   - name: Direct peering type conversion request walkthrough
     href: walkthrough-direct-peering-type-conversions.md
   - name: Associate peer ASN to Azure subscription
-    items:
-    - name: Portal
-      href: howto-subscription-association-portal.md
-    - name: PowerShell
-      href: howto-subscription-association-powershell.md
+    href: howto-subscription-association-portal.md
   - name: Enable Peering Service on a Direct peering
-    items:
-    - name: Portal
-      href: howto-peering-service-portal.md
-    - name: PowerShell
-      href: howto-peering-service-powershell.md
+    href: howto-peering-service-portal.md
   - name: Enable Peering Service Voice on a Direct peering
     href: howto-peering-service-voice-portal.md
   - name: Create or modify a Direct peering
-    items:
-    - name: Portal
-      href: howto-direct-portal.md
-    - name: PowerShell
-      href: howto-direct-powershell.md
+    href: howto-direct-portal.md
   - name: Convert a legacy Direct peering to Azure resource
-    items:
-    - name: Portal
-      href: howto-legacy-direct-portal.md
-    - name: PowerShell
-      href: howto-legacy-direct-powershell.md
+    href: howto-legacy-direct-portal.md
   - name: Create or modify an Exchange peering
-    items:
-    - name: Portal
-      href: howto-exchange-portal.md
-    - name: PowerShell
-      href: howto-exchange-powershell.md
+    href: howto-exchange-portal.md
   - name: Convert a legacy Exchange peering to Azure resource
-    items:
-    - name: Portal
-      href: howto-legacy-exchange-portal.md
-    - name: PowerShell
-      href: howto-legacy-exchange-powershell.md
+    href: howto-legacy-exchange-portal.md
   - name: Create or modify an Exchange peering with route server
     href: how-to-exchange-route-server-portal.md
 - name: Security

@@ -91,17 +91,17 @@ Use the following steps to create a service instance:
    | Setting                        | Suggested value                                | Description                                                                                                                                                                                                                                                                                        |
    |--------------------------------|------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | **Subscription**               | Your subscription name.                        | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.                                                                                                                        |
-   | **Resource group**             | *myresourcegroup*                              | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
-   | **Name**                       | *myasa*                                        | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
+   | **Resource group**             | **myresourcegroup**                              | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
+   | **Name**                       | **myasa**                                        | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
    | **Plan**                       | **Standard consumption & dedicated (preview)** | The pricing plan determines the resources and cost associated with your instance.                                                                                                                                                                                                                  |
    | **Region**                     | The region closest to your users.              | The location that's closest to your users.                                                                                                                                                                                                                                                         |
-   | **Container Apps Environment** | *myenvironment*                                | The option to select which Container Apps environment instance to share the same virtual network with other services and resources.                                                                                                                                                                |
+   | **Container Apps Environment** | **myenvironment**                                | The option to select which Container Apps environment instance to share the same virtual network with other services and resources.                                                                                                                                                                |
 
    Use the following table as a guide for the Container Apps Environment creation:
 
    | Setting              | Suggested value | Description                                                                                 |
    |----------------------|-----------------|---------------------------------------------------------------------------------------------|
-   | **Environment name** | *myenvironment* | A unique name that identifies your Azure Container Apps Environment service.                |
+   | **Environment name** | **myenvironment** | A unique name that identifies your Azure Container Apps Environment service.                |
    | **Plan**             | **Consumption** | The pricing plan determines the resources and cost associated with your instance.           |
    | **Zone Redundant**   | Disabled        | The option to create your Container Apps Environment service in an Azure availability zone. |
 
@@ -128,7 +128,7 @@ Use the following steps to connect your service instances:
 
 1. From the navigation menu, open **Apps**, and then select **Create App**.
 
-1. On the **Create App** page, fill in the app name *simple-todo-api* and select **Java artifacts** as the deployment type.
+1. On the **Create App** page, fill in the app name **simple-todo-api** and select **Java artifacts** as the deployment type.
 
 1. Select **Create** to finish the app creation and select the app to view the details.
 

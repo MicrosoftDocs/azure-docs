@@ -5,8 +5,9 @@ author: AbdullahBell
 ms.author: abell
 ms.service: azure-ddos-protection
 ms.topic: quickstart
-ms.date: 07/17/2024
+ms.date: 03/17/2025
 ms.custom: template-quickstart, devx-track-azurepowershell
+# Customer intent: As a cloud engineer, I want to enable DDoS IP protection for a public IP address using PowerShell, so that I can strengthen my infrastructure against potential DDoS attacks.
 ---
 
 # QuickStart: Create and configure Azure DDoS IP Protection using Azure PowerShell

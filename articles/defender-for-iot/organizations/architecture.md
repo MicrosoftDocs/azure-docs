@@ -23,9 +23,9 @@ Defender for IoT includes the following OT security monitoring components:
 
 - **The Azure portal**, for cloud management and integration to other Microsoft services, such as Microsoft Sentinel.
 
-- **Operational technology (OT) or Enterprise IoT network sensors**, to detect devices across your network. Defender for IoT network sensors are deployed on either a virtual machine or a physical appliance. OT sensors can be configured as cloud-connected sensors, or fully on-premises, locally managed sensors.
+- **Operational technology (OT) network sensors**, to detect devices across your network. Defender for IoT network sensors are deployed on either a virtual machine or a physical appliance. OT sensors can be configured as cloud-connected sensors, or fully on-premises, locally managed sensors.
 
-## OT and Enterprise IoT network sensors
+## OT network sensors
 
 Defender for IoT network sensors discover and continuously monitor network traffic across your network devices.
 

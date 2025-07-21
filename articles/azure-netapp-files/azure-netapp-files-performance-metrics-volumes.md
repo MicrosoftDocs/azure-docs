@@ -4,8 +4,9 @@ description: Learn about benchmark testing recommendations for volume performanc
 author: b-hchen
 ms.author: anfdocs
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/31/2024
+# Customer intent: As a cloud architect, I want to run comprehensive performance benchmark tests on Azure NetApp Files, so that I can optimize storage performance and ensure it meets application workload requirements.
 ---
 # Performance benchmark test recommendations for Azure NetApp Files
 

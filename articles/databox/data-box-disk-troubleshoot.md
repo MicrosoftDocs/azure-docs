@@ -8,6 +8,7 @@ ms.service: azure-data-box-disk
 ms.topic: troubleshooting
 ms.date: 06/14/2019
 ms.author: shaas
+# Customer intent: "As a cloud administrator, I want to analyze validation error logs from Azure Data Box Disk, so that I can troubleshoot and resolve deployment issues efficiently."
 ---
 
 # Use logs to troubleshoot validation issues in Azure Data Box Disk

@@ -4,8 +4,8 @@ description: Learn about DevOps deployment for Standard logic apps in single-ten
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 10/23/2024
+ms.topic: concept-article
+ms.date: 5/23/2025
 # Customer intent: As a developer, I want to learn about DevOps deployment support for Standard logic apps in single-tenant Azure Logic Apps.
 ---
 

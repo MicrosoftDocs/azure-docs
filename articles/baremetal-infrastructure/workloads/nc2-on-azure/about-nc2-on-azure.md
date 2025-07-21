@@ -6,8 +6,9 @@ description: Learn about Nutanix Cloud Clusters on Azure and the benefits it off
 ms.topic: overview
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 11/15/2024
+ms.date: 03/28/2025
 ms.service: azure-baremetal-infrastructure
+# Customer intent: "As a cloud architect, I want to leverage Nutanix Cloud Clusters on Azure, so that I can seamlessly manage hybrid workloads and optimize resource provisioning while utilizing existing skills and licenses."
 ---
 
 # About Nutanix Cloud Clusters on Azure
@@ -30,18 +31,6 @@ NC2 runs Nutanix Acropolis Operating System (AOS) and Nutanix Acropolis Hypervis
 This functionality allows mixing of processor generations within an AHV cluster and ensures the ability to live-migrate between hosts.
 
 AOS abstracts kvm, virsh, qemu, libvirt, and iSCSI from the end-user and handles all backend configuration. Thus users can use Prism to manage everything they would want to manage, while not needing to be concerned with low-level management.
-
-## SKUs
-
-We offer two SKUs: AN36 and AN36P. The following table presents component options for each available SKU.
-
-| Component |Ready Node for Nutanix AN36|Ready Node for Nutanix AN36P|
-| :------------------- | -------------------: |:---------------:|
-|Core|Intel 6140, 36 Core, 2.3 GHz|Intel 6240, 36 Core, 2.6 GHz|
-|vCPUs|72|72|
-|RAM|576 GB|768 GB|
-|Storage|18.56 TB (8 x 1.92 TB SATA SSD, 2x1.6TB NVMe)|20.7 TB (2x750 GB Optane, 6x3.2-TB NVMe)|
-|Network (available bandwidth between nodes)|25 Gbps|25 Gbps|
 
 ## Benefits of NC2 on Azure
 Running Nutanix Cloud Clusters (NC2) on Azure offers several key benefits including
@@ -136,4 +125,4 @@ Nutanix delivers support for Nutanix software of NC2 on Azure. Nutanix offers a 
 Learn more:
 
 > [!div class="nextstepaction"]
-> [Architecture](architecture.md)
+> [Available Regions and SKUs](available-regions-skus.md)

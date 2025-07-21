@@ -6,8 +6,9 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: concept-article
-ms.date: 06/25/2024
+ms.date: 03/31/2025
 ROBOTS: NOINDEX
+# Customer intent: "As a cloud administrator, I want to migrate from Azure CDN from Microsoft (classic) to Azure Front Door Standard or Premium tier, so that I can leverage enhanced security features and improved performance for my application content delivery."
 ---
 
 # Migrate Azure CDN from Microsoft (classic) to Standard/Premium tier

@@ -66,7 +66,7 @@ For a complete working sample of how to create a custom SVG template and use it 
 -------------------------------------------------------------------->
 
 > [!TIP]
-> The Azure Maps web SDK provides several SVG image templates that can be used with HTML markers. For more information, see the [How to use image templates] document.
+> The Azure Maps Web SDK provides several SVG image templates that can be used with HTML markers. For more information, see the [How to use image templates] document.
 
 ## Add a CSS styled HTML marker
 

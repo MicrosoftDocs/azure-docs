@@ -6,9 +6,10 @@ description: This article provides information for using Azure Blob storage with
 author: karauten
 ms.author: karauten
 ms.date: 10/15/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+# Customer intent: As a cloud administrator, I want to implement Veeam solutions with Azure Blob storage so that I can efficiently back up, restore, and protect my on-premises and Azure workloads while managing costs effectively.
 ---
 
 # Azure Data Protection with Veeam

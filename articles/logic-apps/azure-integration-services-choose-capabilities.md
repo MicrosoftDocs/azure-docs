@@ -7,8 +7,8 @@ ms.suite: integration
 author: kewear
 ms.author: kewear
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 12/05/2024
+ms.topic: concept-article
+ms.date: 07/05/2025
 # As an integration solutions developer, I want to better understand which capabilities from Azure Integration Services and other Azure services work best for my integration scenarios.
 ---
 

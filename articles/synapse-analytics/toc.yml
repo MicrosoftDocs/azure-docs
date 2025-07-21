@@ -736,14 +736,12 @@ items:
       items:
         - name: Runtime for Apache Spark overview
           href: ./spark/apache-spark-version-support.md
-        - name: Azure Synapse Apache Spark 3.4 runtime (GA)
+        - name: Azure Synapse Apache Spark 3.5 runtime (Public Preview)
+          href: ./spark/apache-spark-35-runtime.md          
+        - name: Azure Synapse Apache Spark 3.4 runtime (EOSA)
           href: ./spark/apache-spark-34-runtime.md
-        - name: Azure Synapse Apache Spark 3.3 runtime (EOSA)
+        - name: Azure Synapse Apache Spark 3.3 runtime (unsupported)
           href: ./spark/apache-spark-33-runtime.md
-        - name: Azure Synapse Apache Spark 3.2 runtime (deprecated)
-          href: ./spark/apache-spark-32-runtime.md
-        - name: Azure Synapse Apache Spark 3.1 runtime (deprecated)
-          href: ./spark/apache-spark-3-runtime.md
         - name: Lifecycle and Supportability
           href: ./spark/runtime-for-apache-spark-lifecycle-and-supportability.md
     - name: Machine learning
@@ -816,10 +814,12 @@ items:
         href: ./spark/azure-synapse-diagnostic-emitters-azure-storage.md
       - name: Collect Apache Spark applications logs and metrics with Azure Event Hubs
         href: ./spark/azure-synapse-diagnostic-emitters-azure-eventhub.md
+      - name: Collect Apache Spark Application Logs and Metrics to Azure Event Hubs Using Certificate-Based Service Principal Authentication
+        href: ./spark/how-to-use-certificate-with-service-principalp-emit-log-event-hubs.md
       - name: Manage Apache Spark configuration
         href: ./spark/apache-spark-azure-create-spark-configuration.md
       - name: Apache Spark Advisor
-        href: ./monitoring/apache-spark-advisor.md          
+        href: ./monitoring/apache-spark-advisor.md
     - name: Data sources
       items:
         - name: Azure Cosmos DB Spark 3
@@ -1740,7 +1740,7 @@ items:
 - name: Resources
   items:
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=databases
+    href: https://azure.microsoft.com/updates/?category=databases
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-synapse-analytics.html
   - name: Feature requests

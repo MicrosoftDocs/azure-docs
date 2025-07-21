@@ -7,7 +7,6 @@ ms.topic: how-to
 ms.subservice: security 
 ms.date: 04/15/2020 
 ms.author: seshin
-ms.reviewer: whhender
 ---
 
 # Create a Managed private endpoint to your data source

@@ -1,6 +1,6 @@
 ---
 title: Connect industrial assets using the connector for OPC UA
-description: Use the connector for OPC UA to connect to OPC UA servers and exchange telemetry with a Kubernetes cluster.
+description: Use the connector for OPC UA to connect to OPC UA servers and exchange messages and data with the MQTT broker in a Kubernetes cluster.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-opcua-connector
@@ -24,7 +24,7 @@ The connector for OPC UA is a client application that runs as a middleware servi
 As part of Azure IoT Operations, the connector for OPC UA is a native Kubernetes application that:
 
 - Connects existing OPC UA servers and assets to a native Kubernetes cluster at the edge.
-- Publishes JSON-encoded telemetry data from OPC UA servers in OPC UA PubSub format, using a JSON payload. By using this standard format for data exchange, you can reduce the risk of future compatibility issues.
+- Publishes JSON-encoded messages from OPC UA servers in OPC UA PubSub format, using a JSON payload. By using this standard format for data exchange, you can reduce the risk of future compatibility issues.
 - Connects to Azure Arc-enabled services in the cloud.
 
 ### Other features

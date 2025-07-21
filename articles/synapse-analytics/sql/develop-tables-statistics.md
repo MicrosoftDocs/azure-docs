@@ -3,7 +3,7 @@ title: Create and update statistics using Azure Synapse SQL resources
 description: Recommendations and examples for creating and updating query-optimization statistics in Azure Synapse SQL.
 author: filippopovic
 ms.author: fipopovi
-ms.reviewer: whhender, wiassaf
+
 ms.date: 10/11/2022
 ms.service: azure-synapse-analytics
 ms.subservice: sql
@@ -584,7 +584,7 @@ See the following examples for instructions on how to manually create statistics
 
 Changes to data in files, deleting, and adding files result in data distribution changes and makes statistics out of date. In that case, statistics needs to be updated.
 
-Serverless SQL pool automatically recreates statistics if data is changed significantly. Every time statistics are automatically created, the current state of the dataset is also saved: file paths, sizes, last modification dates.
+Serverless SQL pool automatically recreates statistics for OPENROWSET columns if data is changed significantly. Every time statistics are automatically created, the current state of the dataset is also saved: file paths, sizes, last modification dates.
 
 When statistics are stale, new ones will be created. The algorithm goes through the data and compares it to the current state of the dataset. If the size of the changes is greater than the specific threshold, then old stats are deleted and will be re-created over the new dataset.
 

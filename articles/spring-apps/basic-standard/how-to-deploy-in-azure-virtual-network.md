@@ -157,10 +157,10 @@ Use the following steps to grant permission:
 
    :::image type="content" source="media/how-to-deploy-in-azure-virtual-network/access-control.png" alt-text="Screenshot of the Azure portal Access Control (IAM) page showing the Check access tab with the Add role assignment button highlighted." lightbox="media/how-to-deploy-in-azure-virtual-network/access-control.png":::
 
-1. Assign the `Network Contributor` and `User Access Administrator` roles to the Azure Spring Cloud Resource Provider. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+1. Assign the **Network Contributor** and **User Access Administrator** roles to the Azure Spring Cloud Resource Provider. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
    > [!NOTE]
-   > Role `User Access Administrator` is in the **Privileged administrator roles** and `Network Contributor` is in the **Job function roles**.
+   > Role **User Access Administrator** is in the **Privileged administrator roles** and **Network Contributor** is in the **Job function roles**.
 
 ### [Azure CLI](#tab/azure-CLI)
 
@@ -245,11 +245,11 @@ az spring create  \
 
 After the deployment, two more resource groups are created in your subscription to host the network resources for the Azure Spring Apps instance. Go to **Home**, and then select **Resource groups** from the top menu items to find the following new resource groups.
 
-The resource group named as `ap-svc-rt_{service instance name}_{service instance region}` contains network resources for the service runtime of the service instance.
+The resource group named as **ap-svc-rt_{service instance name}_{service instance region}** contains network resources for the service runtime of the service instance.
 
 :::image type="content" source="media/how-to-deploy-in-azure-virtual-network/service-runtime-resource-group.png" alt-text="Screenshot of the Azure portal showing the resources for the service runtime." lightbox="media/how-to-deploy-in-azure-virtual-network/service-runtime-resource-group.png":::
 
-The resource group named as `ap-app_{service instance name}_{service instance region}` contains network resources for your Spring applications of the service instance.
+The resource group named as **ap-app_{service instance name}_{service instance region}** contains network resources for your Spring applications of the service instance.
 
 :::image type="content" source="media/how-to-deploy-in-azure-virtual-network/apps-resource-group.png" alt-text="Screenshot of the Azure portal showing the resources for the Spring applications." lightbox="media/how-to-deploy-in-azure-virtual-network/apps-resource-group.png":::
 

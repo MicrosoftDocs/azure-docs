@@ -31,11 +31,14 @@ Each number in the version indicates general compatibility with the previous ver
 * **Patch version numbers** change when backwards-compatible bug fixes are made. Patch releases are made available frequently and are intended for critical bug fixes within a minor version. The type of issues fixed under patch release includes fixes for security vulnerabilities or major bugs.
 
 ## Version support guidelines
+
+- It is best practice for Pure devices to be running the latest Purity patch version in a supported release train. Microsoft recommends upgrading all Pure devices to the latest Purity patch version verified and supported by Azure Operator Nexus.
 - All changes to version support and any version specific upgrade instructions are communicated in release notes.
 - Nexus will only support Long Term Support (LTS) storage versions. Purity LTS versions contain an odd number minor version, such as 6.1.x, 6.5.x etc.
 - Nexus will support up to two LTS versions at any time.
 - Support shall be provided for all patch releases documented in Nexus public documentation. Which means that Nexus will handle and resolve issue tickets where storage appliance is running a supported release version. These tickets may require a fix to Nexus software or be referred to the storage vendor support team depending on the specific details. If a fix requires inclusion of new Pure patch release, it is appropriately tested and documented.
 - Each Pure LTS release listed as supported is tested equally with each new Nexus release to ensure comprehensive compatibility.
+- Azure Operator Nexus instances can have two Pure storage appliances. It is supported to run these storage appliances on different Purity versions, so long as each Purity version is supported by the Azure Operator Nexus version. Note, however, that Microsoft recommends upgrading all Pure devices to the latest Purity patch version verified and supported by Azure Operator Nexus.
 
 
 ## Release process
@@ -49,16 +52,24 @@ Each number in the version indicates general compatibility with the previous ver
 
 ## Supported Purity Software Versions
 
+### Versions in support
+
+|  PurityOS version | Support added in | End of support | Remarks |
+|-------------------|------------------|----------------|---------|
+| 6.5.1             | Nexus 2403.x     | Mar 2026*     | |
+| 6.5.4             | Nexus 2404.x     | Mar 2026*     | |
+| 6.5.6             | Nexus 2406.x     | Mar 2026*     | Aligned with Nexus runtime release |
+| 6.5.8             | Nexus 2408.x     | Mar 2026*     | |
+| 6.5.10            | Nexus 2504.x     | Mar 2026*     | |
+
+> [!IMPORTANT]
+> \* At max 2 LTS versions will be supported. The dates are tentative assuming that by this timeframe we will have another set of LTS versions released, making this version deprecated per our support guidelines.
+
+### Versions out of support
+
 |  PurityOS version | Support added in | End of support | Remarks |
 |-------------------|------------------|----------------|---------|
 | 6.1.x             | Year 2021        | Jul 2024       | End of support in Nexus 2406.2 |
-| 6.5.1             | Nexus 2403.x     | Dec 2025*     | |
-| 6.5.4             | Nexus 2404.x     | Dec 2025*     | |
-| 6.5.6             | Nexus 2406.2     | Dec 2025*     | Aligned with Nexus runtime release |
-| 6.5.8             | Nexus 2408.2     | Dec 2025*     | |
-
-> [!IMPORTANT]
-> \* At max 2 LTS versions will be supported. The dates are tentative assuming that by this timeframe we will have another set of LTS versions released, making this version deprecate per our support guidelines.
 
 ## Supported Pure HW Controller versions
 
@@ -90,7 +101,8 @@ Azure Operator Nexus supports and tests the latest combination of a Purity versi
 
 | PurityOS Version | DFS Version|
 |------------------|------------|
-| 6.5.8            | 2.2.1      |
+| 6.5.8             | 2.2.1     |
+| 6.5.10            | 2.2.2     |
 
 ## FAQ
 

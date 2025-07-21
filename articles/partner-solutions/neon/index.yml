@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Neon Serverless Postgres (Preview)
+title: Neon Serverless Postgres 
 summary: Neon in Microsoft Azure
 
 metadata:
-  title: Neon Serverless Postgres (Preview)
+  title: Neon Serverless Postgres
   description: Neon offers a serverless Postgres solution that leverages the principles of serverless computing to provide scalable and flexible database services.
   ms.topic: landing-page
   ms.custom:
@@ -13,7 +13,7 @@ metadata:
 
 landingContent:
 
-  - title: About Neon Serverless Postgres (Preview)
+  - title: About Neon Serverless Postgres 
     linkLists:
       - linkListType: overview
         links:
@@ -32,6 +32,8 @@ landingContent:
             url: create.md
       - linkListType: how-to-guide
         links:
+          - text: Connect to compute services
+            url: create-service-connection.md
           - text: Troubleshooting Neon Serverless Postgres
             url: troubleshoot.md
   

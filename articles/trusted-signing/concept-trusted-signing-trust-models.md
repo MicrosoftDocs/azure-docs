@@ -38,7 +38,7 @@ Public Trust resources in Trusted Signing are designed to support the following 
 - [/INTEGRITYCHECK forced integrity signing for portable executable (PE) binaries](/cpp/build/reference/integritycheck-require-signature-check)
 - [Virtualization-based security (VBS) enclaves](/windows/win32/trusted-execution/vbs-enclaves)
 
-We recommend that you use Public Trust to sign any artifact that you want to share publicly. The signer should be a validated legal organization or individual.
+We recommend using Public Trust to sign any artifact you intend to share publicly. The signer should be a validated identity with Trusted Signing. Apps signed with Trusted Signing's Public Trust model result in users enjoy a productive experience on Windows with modern security protection features enabled such as Smart App Control and SmartScreen.  
 
 > [!NOTE]
 > Trusted Signing includes options for "test" certificate profiles under the Public Trust collection, but the certificates are not publicly trusted. The Public Trust Test certificate profiles are intended to be used for inner-loop dev/test signing and should *not* be trusted.

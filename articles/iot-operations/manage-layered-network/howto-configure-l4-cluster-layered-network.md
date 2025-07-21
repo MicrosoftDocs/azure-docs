@@ -16,6 +16,8 @@ ms.service: azure-iot-operations
 
 Azure IoT Layered Network Management (preview) is a component to support Azure IoT Operations. However, it needs to be deployed individually to the top network layer for supporting the Azure IoT Operations in the lower layer. In the top level of your network layers (usually level 4 of the ISA-95 network architecture), the cluster and Layered Network Management service have direct internet access. Once the setup is completed, the Layered Network Management (preview) service is ready for receiving network traffic from the child layer and forwards it to Azure Arc.
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
 ## Prerequisites
 Meet the following minimum requirements for deploying the Layered Network Management individually on the system.
 - **AKS Edge Essentials** - *Arc-connected cluster and GitOps* category in [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements)

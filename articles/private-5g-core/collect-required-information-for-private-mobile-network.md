@@ -42,7 +42,7 @@ Collect all of the following values to provision a network slice in the private 
    |---------|---------|
    | The name for the slice. | **Slice configuration: Slice name** |
    | The slice/service type (SST) value. An integer that indicates the expected services and features for the network slice. </br></br>You can use the standard values specified in section 5.15.2.2 of [3GPP TS 23.501](https://www.etsi.org/deliver/etsi_ts/123500_123599/123501/17.05.00_60/ts_123501v170500p.pdf). For example: </br></br>1 - eMBB. A slice suitable for the handling of 5G enhanced mobile broadband. </br>2 - URLLC. A slice suitable for the handling of ultra-reliable low latency communications. </br>3 - MIoT. A slice suitable for the handling of massive IoT. </br></br>You can also use a non-standard value. | **Slice configuration: Slice Service Type (SST)** |
-   | The slice differentiator (SD) value. This optional setting is a string of six hexadecimal digits, and can be used to differentiate between multiple network slices that have the same SST value. | **Slice configuration: Slice Differentiator (SD)** |
+   | The slice differentiator (SD) value. This optional setting is a string of six hexadecimal digits and can be used to differentiate between multiple network slices that have the same SST value. | **Slice configuration: Slice Differentiator (SD)** |
 
 ## Collect SIM and SIM group values
 

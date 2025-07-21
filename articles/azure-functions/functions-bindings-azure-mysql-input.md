@@ -1,6 +1,6 @@
 ---
-title: Azure Database for MySQL input binding for Functions
-description: Learn to use the Azure Database for MySQL input binding in Azure Functions.
+title: Azure Database for MySQL Input Binding for Functions
+description: Learn how to use the Azure Database for MySQL input binding in Azure Functions.
 author: JetterMcTedder
 ms.topic: reference
 ms.custom: build-2023, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
@@ -10,11 +10,11 @@ ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Azure Database for MySQL input binding for Azure Functions (Preview)
+# Azure Database for MySQL input binding for Azure Functions
 
-When a function runs, the Azure Database for MySQL input binding retrieves data from a database and passes it to the input parameter of the function. 
+When a function runs, the Azure Database for MySQL input binding retrieves data from a database and passes it to the input parameter of the function.
 
-For information on setup and configuration details, see the [overview](./functions-bindings-azure-mysql.md).
+For information on setup and configuration, see the [overview](./functions-bindings-azure-mysql.md).
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 [!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
@@ -27,14 +27,13 @@ For information on setup and configuration details, see the [overview](./functio
 
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
-
 # [Isolated worker model](#tab/isolated-process)
 
 More samples for the Azure Database for MySQL input binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples).
 
 This section contains the following examples:
 
-* [HTTP trigger, get row by ID from query string](#http-trigger-look-up-id-from-query-string-c-oop)
+* [HTTP trigger, get a row by ID from a query string](#http-trigger-look-up-id-from-query-string-c-oop)
 * [HTTP trigger, get multiple rows from route data](#http-trigger-get-multiple-items-from-route-data-c-oop)
 * [HTTP trigger, delete rows](#http-trigger-delete-one-or-multiple-rows-c-oop)
 
@@ -60,21 +59,19 @@ namespace AzureMySqlSamples.Common
 DROP TABLE IF EXISTS Products;
 
 CREATE TABLE Products (
-	ProductId int PRIMARY KEY,
-	Name varchar(100) NULL,
-	Cost int NULL
+  ProductId int PRIMARY KEY,
+  Name varchar(100) NULL,
+  Cost int NULL
 );
 ```
 
-
 <a id="http-trigger-look-up-id-from-query-string-c-oop"></a>
-### HTTP trigger, get row by ID from query string
+### HTTP trigger, get a row by ID from a query string
 
 The following example shows a C# function that retrieves a single record. The function is [triggered by an HTTP request](./functions-bindings-http-webhook-trigger.md) that uses a query string to specify the ID. That ID is used to retrieve a `Product` record with the specified query.
 
 > [!NOTE]
 > The HTTP query string parameter is case-sensitive.
->
 
 ```cs
 using System.Collections.Generic;
@@ -105,9 +102,9 @@ namespace AzureMySqlSamples.InputBindingIsolatedSamples
 ```
 
 <a id="http-trigger-get-multiple-items-from-route-data-c-oop"></a>
-### HTTP trigger, get multiple rows from route parameter
+### HTTP trigger, get multiple rows from a route parameter
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves rows returned by the query. The function is [triggered by an HTTP request](./functions-bindings-http-webhook-trigger.md) that uses route data to specify the value of a query parameter. That parameter is used to filter the `Product` records in the specified query.
+The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves rows that the query returned. The function is [triggered by an HTTP request](./functions-bindings-http-webhook-trigger.md) that uses route data to specify the value of a query parameter. That parameter is used to filter the `Product` records in the specified query.
 
 ```cs
 using System.Collections.Generic;
@@ -139,16 +136,16 @@ namespace AzureMySqlSamples.InputBindingIsolatedSamples
 <a id="http-trigger-delete-one-or-multiple-rows-c-oop"></a>
 ### HTTP trigger, delete rows
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that executes a stored procedure with input from the HTTP request query parameter.
+The following example shows a [C# function](functions-dotnet-class-library.md) that executes a stored procedure with input from the HTTP request's query parameter.
 
-The stored procedure `DeleteProductsCost` must be created on the MySQL database. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+The stored procedure `DeleteProductsCost` must be created on the MySQL database. In this example, the stored procedure deletes a single record or all records, depending on the value of the parameter.
 
 ```sql
 DROP PROCEDURE IF EXISTS DeleteProductsCost;
 
 Create Procedure DeleteProductsCost(cost INT)
 BEGIN
-	DELETE from Products where Products.cost = cost;
+  DELETE from Products where Products.cost = cost;
 END
 ```
 
@@ -179,7 +176,7 @@ More samples for the Azure Database for MySQL input binding are available in the
 
 This section contains the following examples:
 
-* [HTTP trigger, get row by ID from query string](#http-trigger-look-up-id-from-query-string-c)
+* [HTTP trigger, get a row by ID from a query string](#http-trigger-look-up-id-from-query-string-c)
 * [HTTP trigger, get multiple rows from route data](#http-trigger-get-multiple-items-from-route-data-c)
 * [HTTP trigger, delete rows](#http-trigger-delete-one-or-multiple-rows-c)
 
@@ -205,20 +202,19 @@ namespace AzureMySqlSamples.Common
 DROP TABLE IF EXISTS Products;
 
 CREATE TABLE Products (
-	ProductId int PRIMARY KEY,
-	Name varchar(100) NULL,
-	Cost int NULL
+  ProductId int PRIMARY KEY,
+  Name varchar(100) NULL,
+  Cost int NULL
 );
 ```
 
 <a id="http-trigger-look-up-id-from-query-string-c"></a>
-### HTTP trigger, get row by ID from query string
+### HTTP trigger, get a row by ID from a query string
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single record. The function is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request that uses a query string to specify the ID. That ID is used to retrieve a `Product` record with the specified query.
 
 > [!NOTE]
 > The HTTP query string parameter is case-sensitive.
->
 
 ```cs
 using System.Collections.Generic;
@@ -248,9 +244,9 @@ namespace AzureMySqlSamples.InputBindingSamples
 ```
 
 <a id="http-trigger-get-multiple-items-from-route-data-c"></a>
-### HTTP trigger, get multiple rows from route parameter
+### HTTP trigger, get multiple rows from a route parameter
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves documents returned by the query. The function is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request that uses route data to specify the value of a query parameter. That parameter is used to filter the `Product` records in the specified query.
+The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves documents that the query returned. The function is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request that uses route data to specify the value of a query parameter. That parameter is used to filter the `Product` records in the specified query.
 
 ```cs
 using System.Collections.Generic;
@@ -281,16 +277,16 @@ namespace AzureMySqlSamples.InputBindingSamples
 <a id="http-trigger-delete-one-or-multiple-rows-c"></a>
 ### HTTP trigger, delete rows
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that executes a stored procedure with input from the HTTP request query parameter.
+The following example shows a [C# function](functions-dotnet-class-library.md) that executes a stored procedure with input from the HTTP request's query parameter.
 
-The stored procedure `DeleteProductsCost` must be created on the MySQL database. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+The stored procedure `DeleteProductsCost` must be created on the MySQL database. In this example, the stored procedure deletes a single record or all records, depending on the value of the parameter.
 
 ```sql
 DROP PROCEDURE IF EXISTS DeleteProductsCost;
 
 Create Procedure DeleteProductsCost(cost INT)
 BEGIN
-	DELETE from Products where Products.cost = cost;
+  DELETE from Products where Products.cost = cost;
 END
 ```
 
@@ -321,13 +317,12 @@ namespace AzureMySqlSamples.InputBindingSamples
 
 ::: zone pivot="programming-language-java"
 
-
 More samples for the Azure Database for MySQL input binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-mysql-extension/tree/main/samples/samples-java).
 
 This section contains the following examples:
 
 * [HTTP trigger, get multiple rows](#http-trigger-get-multiple-items-java)
-* [HTTP trigger, get row by ID from query string](#http-trigger-look-up-id-from-query-string-java)
+* [HTTP trigger, get a row by ID from a query string](#http-trigger-look-up-id-from-query-string-java)
 * [HTTP trigger, delete rows](#http-trigger-delete-one-or-multiple-rows-java)
 
 The examples refer to a `Product` class and a corresponding database table:
@@ -353,16 +348,16 @@ public class Product {
 DROP TABLE IF EXISTS Products;
 
 CREATE TABLE Products (
-	ProductId int PRIMARY KEY,
-	Name varchar(100) NULL,
-	Cost int NULL
+  ProductId int PRIMARY KEY,
+  Name varchar(100) NULL,
+  Cost int NULL
 );
 ```
 
 <a id="http-trigger-get-multiple-items-java"></a>
 ### HTTP trigger, get multiple rows
 
-The following example shows a MySQL input binding in a Java function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query and returns the results in the HTTP response.
+The following example shows an Azure Database for MySQL input binding in a Java function that [an HTTP request triggers](./functions-bindings-http-webhook-trigger.md). The binding reads from a query and returns the results in the HTTP response.
 
 ```java
 package com.function;
@@ -402,9 +397,9 @@ public class GetProducts {
 ```
 
 <a id="http-trigger-look-up-id-from-query-string-java"></a>
-### HTTP trigger, get row by ID from query string
+### HTTP trigger, get a row by ID from a query string
 
-The following example shows a MySQL input binding in a Java function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
+The following example shows an Azure Database for MySQL input binding in a Java function that [an HTTP request triggers](./functions-bindings-http-webhook-trigger.md). The binding reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
 
 ```java
 public class GetProductById {
@@ -432,16 +427,16 @@ public class GetProductById {
 <a id="http-trigger-delete-one-or-multiple-rows-java"></a>
 ### HTTP trigger, delete rows
 
-The following example shows a MySQL input binding in a Java function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and executes a stored procedure with input from the HTTP request query parameter.
+The following example shows an Azure Database for MySQL input binding in a Java function that [an HTTP request triggers](./functions-bindings-http-webhook-trigger.md). The binding executes a stored procedure with input from the HTTP request's query parameter.
 
-The stored procedure `DeleteProductsCost` must be created on the database. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+The stored procedure `DeleteProductsCost` must be created on the database. In this example, the stored procedure deletes a single record or all records, depending on the value of the parameter.
 
 ```sql
 DROP PROCEDURE IF EXISTS DeleteProductsCost;
 
 Create Procedure DeleteProductsCost(cost INT)
 BEGIN
-	DELETE from Products where Products.cost = cost;
+  DELETE from Products where Products.cost = cost;
 END
 ```
 
@@ -477,7 +472,7 @@ More samples for the Azure Database for MySQL input binding are available in the
 This section contains the following examples:
 
 * [HTTP trigger, get multiple rows](#http-trigger-get-multiple-items-javascript)
-* [HTTP trigger, get row by ID from query string](#http-trigger-look-up-id-from-query-string-javascript)
+* [HTTP trigger, get a row by ID from a query string](#http-trigger-look-up-id-from-query-string-javascript)
 * [HTTP trigger, delete rows](#http-trigger-delete-one-or-multiple-rows-javascript)
 
 The examples refer to a database table:
@@ -486,16 +481,16 @@ The examples refer to a database table:
 DROP TABLE IF EXISTS Products;
 
 CREATE TABLE Products (
-	ProductId int PRIMARY KEY,
-	Name varchar(100) NULL,
-	Cost int NULL
+  ProductId int PRIMARY KEY,
+  Name varchar(100) NULL,
+  Cost int NULL
 );
 ```
 
 <a id="http-trigger-get-multiple-items-javascript"></a>
 ### HTTP trigger, get multiple rows
 
-The following example shows a MYSQL input binding that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query and returns the results in the HTTP response.
+The following example shows an Azure Database for MySQL input binding that [an HTTP request triggers](./functions-bindings-http-webhook-trigger.md). The binding reads from a query and returns the results in the HTTP response.
 
 ::: zone-end
 
@@ -527,7 +522,6 @@ app.http('httpTrigger1', {
     handler: httpTrigger1,
 });
 ```
-
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -568,7 +562,6 @@ app.http('GetProducts', {
 });
 ```
 
-
 # [Model v3](#tab/nodejs-v3)
 
 The following example is binding data in the function.json file:
@@ -604,7 +597,7 @@ The following example is binding data in the function.json file:
 }
 ```
 
-The [configuration](#configuration) section explains these properties.
+The [Configuration](#configuration) section explains these properties.
 
 The following example is sample JavaScript code:
 
@@ -627,9 +620,9 @@ module.exports = async function (context, req, products) {
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 
 <a id="http-trigger-look-up-id-from-query-string-javascript"></a>
-### HTTP trigger, get row by ID from query string
+### HTTP trigger, get a row by ID from a query string
 
-The following example shows a MySQL input binding that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
+The following example shows an Azure Database for MySQL input binding that [an HTTP request triggers](./functions-bindings-http-webhook-trigger.md). The binding reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
 
 ::: zone-end
 ::: zone pivot="programming-language-typescript"  
@@ -737,7 +730,7 @@ The following example is binding data in the function.json file:
 }
 ```
 
-The [configuration](#configuration) section explains these properties.
+The [Configuration](#configuration) section explains these properties.
 
 The following example is sample JavaScript code:
 
@@ -761,16 +754,16 @@ module.exports = async function (context, req, products) {
 <a id="http-trigger-delete-one-or-multiple-rows-javascript"></a>
 ### HTTP trigger, delete rows
 
-The following example shows a MySQL input binding that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and executes a stored procedure with input from the HTTP request query parameter.
+The following example shows an Azure Database for MySQL input binding that [an HTTP request triggers](./functions-bindings-http-webhook-trigger.md). The binding executes a stored procedure with input from the HTTP request's query parameter.
 
-The stored procedure `DeleteProductsCost` must be created on the database. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+The stored procedure `DeleteProductsCost` must be created on the database. In this example, the stored procedure deletes a single record or all records, depending on the value of the parameter.
 
 ```sql
 DROP PROCEDURE IF EXISTS DeleteProductsCost;
 
 Create Procedure DeleteProductsCost(cost INT)
 BEGIN
-	DELETE from Products where Products.cost = cost;
+  DELETE from Products where Products.cost = cost;
 END
 ```
 
@@ -879,10 +872,9 @@ app.http('httpTrigger1', {
 }
 ```
 
-The [configuration](#configuration) section explains these properties.
+The [Configuration](#configuration) section explains these properties.
 
 The following example is sample JavaScript code:
-
 
 ```javascript
 module.exports = async function (context, req, products) {
@@ -906,7 +898,7 @@ More samples for the Azure Database for MySQL input binding are available in the
 This section contains the following examples:
 
 * [HTTP trigger, get multiple rows](#http-trigger-get-multiple-items-powershell)
-* [HTTP trigger, get row by ID from query string](#http-trigger-look-up-id-from-query-string-powershell)
+* [HTTP trigger, get a row by ID from a query string](#http-trigger-look-up-id-from-query-string-powershell)
 * [HTTP trigger, delete rows](#http-trigger-delete-one-or-multiple-rows-powershell)
 
 The examples refer to a database table:
@@ -915,16 +907,16 @@ The examples refer to a database table:
 DROP TABLE IF EXISTS Products;
 
 CREATE TABLE Products (
-	ProductId int PRIMARY KEY,
-	Name varchar(100) NULL,
-	Cost int NULL
+  ProductId int PRIMARY KEY,
+  Name varchar(100) NULL,
+  Cost int NULL
 );
 ```
 
 <a id="http-trigger-get-multiple-items-powershell"></a>
 ### HTTP trigger, get multiple rows
 
-The following example shows a MySQL input binding in a function.json file and a PowerShell function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query and returns the results in the HTTP response.
+The following example shows an Azure Database for MySQL input binding in a function.json file and a PowerShell function that [an HTTP request triggers](./functions-bindings-http-webhook-trigger.md). The binding reads from a query and returns the results in the HTTP response.
 
 The following example is binding data in the function.json file:
 
@@ -959,9 +951,9 @@ The following example is binding data in the function.json file:
 }
 ```
 
-The [configuration](#configuration) section explains these properties.
+The [Configuration](#configuration) section explains these properties.
 
-The following example is sample PowerShell code for the function in the `run.ps1` file:
+The following example is sample PowerShell code for the function in the run.ps1 file:
 
 ```powershell
 using namespace System.Net
@@ -977,9 +969,9 @@ Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 ```
 
 <a id="http-trigger-look-up-id-from-query-string-powershell"></a>
-### HTTP trigger, get row by ID from query string
+### HTTP trigger, get a row by ID from a query string
 
-The following example shows a MySQL input binding in a PowerShell function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
+The following example shows an Azure Database for MySQL input binding in a PowerShell function that [an HTTP request triggers](./functions-bindings-http-webhook-trigger.md). The binding reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
 
 The following example is binding data in the function.json file:
 
@@ -1015,10 +1007,9 @@ The following example is binding data in the function.json file:
 }
 ```
 
-The [configuration](#configuration) section explains these properties.
+The [Configuration](#configuration) section explains these properties.
 
-The following is sample PowerShell code for the function in the `run.ps1` file:
-
+The following example is sample PowerShell code for the function in the run.ps1 file:
 
 ```powershell
 using namespace System.Net
@@ -1036,16 +1027,16 @@ Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 <a id="http-trigger-delete-one-or-multiple-rows-powershell"></a>
 ### HTTP trigger, delete rows
 
-The following example shows a MySQL input binding in a function.json file and a PowerShell function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and executes a stored procedure with input from the HTTP request query parameter.
+The following example shows an Azure Database for MySQL input binding in a function.json file and a PowerShell function that [an HTTP request triggers](./functions-bindings-http-webhook-trigger.md). The binding executes a stored procedure with input from the HTTP request's query parameter.
 
-The stored procedure `DeleteProductsCost` must be created on the database. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+The stored procedure `DeleteProductsCost` must be created on the database. In this example, the stored procedure deletes a single record or all records, depending on the value of the parameter.
 
 ```sql
 DROP PROCEDURE IF EXISTS DeleteProductsCost;
 
 Create Procedure DeleteProductsCost(cost INT)
 BEGIN
-	DELETE from Products where Products.cost = 'cost';
+  DELETE from Products where Products.cost = 'cost';
 END
 ```
 
@@ -1081,10 +1072,9 @@ END
 }
 ```
 
-The [configuration](#configuration) section explains these properties.
+The [Configuration](#configuration) section explains these properties.
 
-The following example is sample PowerShell code for the function in the `run.ps1` file:
-
+The following example is sample PowerShell code for the function in the run.ps1 file:
 
 ```powershell
 using namespace System.Net
@@ -1108,7 +1098,7 @@ More samples for the Azure Database for MySQL input binding are available in the
 This section contains the following examples:
 
 * [HTTP trigger, get multiple rows](#http-trigger-get-multiple-items-python)
-* [HTTP trigger, get row by ID from query string](#http-trigger-look-up-id-from-query-string-python)
+* [HTTP trigger, get a row by ID from a query string](#http-trigger-look-up-id-from-query-string-python)
 * [HTTP trigger, delete rows](#http-trigger-delete-one-or-multiple-rows-python)
 
 The examples refer to a database table:
@@ -1117,24 +1107,23 @@ The examples refer to a database table:
 DROP TABLE IF EXISTS Products;
 
 CREATE TABLE Products (
-	ProductId int PRIMARY KEY,
-	Name varchar(100) NULL,
-	Cost int NULL
+  ProductId int PRIMARY KEY,
+  Name varchar(100) NULL,
+  Cost int NULL
 );
 ```
 
 > [!NOTE]
-> Please note that Azure Functions version 1.22.0b4 must be used for Python .
->
+> You must use Azure Functions version 1.22.0b4 for Python.
 
 <a id="http-trigger-get-multiple-items-python"></a>
 ### HTTP trigger, get multiple rows
 
-The following example shows a MySQL input binding in a function.json file and a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query and returns the results in the HTTP response.
+The following example shows an Azure Database for MySQL input binding in a function.json file and a Python function that [an HTTP request triggers](./functions-bindings-http-webhook-trigger.md). The binding reads from a query and returns the results in the HTTP response.
 
 # [v2](#tab/python-v2)
 
-The following example is sample python code for the function_app.py file:
+The following example is sample Python code for the function_app.py file:
 
 ```python
 import azure.functions as func
@@ -1196,10 +1185,9 @@ The following example is binding data in the function.json file:
   }
 ```
 
-The [configuration](#configuration) section explains these properties.
+The [Configuration](#configuration) section explains these properties.
 
-The following is sample Python code:
-
+The following example is sample Python code:
 
 ```python
 import azure.functions as func
@@ -1218,13 +1206,13 @@ def main(req: func.HttpRequest, products: func.MySqlRowList) -> func.HttpRespons
 ---
 
 <a id="http-trigger-look-up-id-from-query-string-python"></a>
-### HTTP trigger, get row by ID from query string
+### HTTP trigger, get a row by ID from a query string
 
-The following example shows a MySQL input binding in a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
+The following example shows an Azure Database for MySQL input binding in a Python function that [an HTTP request triggers](./functions-bindings-http-webhook-trigger.md). The binding reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
 
 # [v2](#tab/python-v2)
 
-The following example is sample python code for the function_app.py file:
+The following example is sample Python code for the function_app.py file:
 
 ```python
 import azure.functions as func
@@ -1254,7 +1242,7 @@ def mysql_test(req: func.HttpRequest, products: func.MySqlRowList) -> func.HttpR
 
 # [v1](#tab/python-v1)
 
-The following is binding data in the function.json file:
+The following example is binding data in the function.json file:
 
 ```json
 {
@@ -1288,10 +1276,9 @@ The following is binding data in the function.json file:
   }
 ```
 
-The [configuration](#configuration) section explains these properties.
+The [Configuration](#configuration) section explains these properties.
 
 The following example is sample Python code:
-
 
 ```python
 import azure.functions as func
@@ -1312,22 +1299,22 @@ def main(req: func.HttpRequest, products: func.MySqlRowList) -> func.HttpRespons
 <a id="http-trigger-delete-one-or-multiple-rows-python"></a>
 ### HTTP trigger, delete rows
 
-The following example shows a MySQL input binding in a function.json file and a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and executes a stored procedure with input from the HTTP request query parameter.
+The following example shows an Azure Database for MySQL input binding in a function.json file and a Python function that [an HTTP request triggers](./functions-bindings-http-webhook-trigger.md). The binding executes a stored procedure with input from the HTTP request's query parameter.
 
-The stored procedure `DeleteProductsCost` must be created on the database. In this example, the stored procedure deletes a single record or all records depending on the value of the parameter.
+The stored procedure `DeleteProductsCost` must be created on the database. In this example, the stored procedure deletes a single record or all records, depending on the value of the parameter.
 
 ```sql
 DROP PROCEDURE IF EXISTS DeleteProductsCost;
 
 Create Procedure DeleteProductsCost(cost INT)
 BEGIN
-	DELETE from Products where Products.cost = cost;
+  DELETE from Products where Products.cost = cost;
 END
 ```
 
 # [v2](#tab/python-v2)
 
-The following example is sample python code for the function_app.py file:
+The following example is sample Python code for the function_app.py file:
 
 ```python
 import azure.functions as func
@@ -1389,10 +1376,9 @@ def mysql_test(req: func.HttpRequest, products: func.MySqlRowList) -> func.HttpR
   }
 ```
 
-The [configuration](#configuration) section explains these properties.
+The [Configuration](#configuration) section explains these properties.
 
-The following is sample Python code:
-
+The following example is sample Python code:
 
 ```python
 import json
@@ -1401,7 +1387,7 @@ import azure.functions as func
 # The input binding executes the `SELECT * FROM Products WHERE Cost = @Cost` query.
 # The Parameters argument passes the `{cost}` specified in the URL that triggers the function,
 # `getproducts/{cost}`, as the value of the `@Cost` parameter in the query.
-# CommandType is set to `Text`, since the constructor argument of the binding is a raw query.
+# CommandType is set to `Text`, because the constructor argument of the binding is a raw query.
 def main(req: func.HttpRequest, products: func.MySqlRowList) -> func.HttpResponse:
     rows = list(map(lambda r: json.loads(r.to_json()), products))
 
@@ -1416,35 +1402,36 @@ def main(req: func.HttpRequest, products: func.MySqlRowList) -> func.HttpRespons
 
 ::: zone-end
 
-
 ::: zone pivot="programming-language-csharp"
-## Attributes 
 
-The [C# library](functions-dotnet-class-library.md) uses the MySqlAttribute attribute to declare the MySQL bindings on the function, which has the following properties:
+## Attributes
+
+The [C# library](functions-dotnet-class-library.md) uses the `MySqlAttribute` attribute to declare the MySQL bindings on the function. The attribute has the following properties:
 
 | Attribute property |Description|
 |---------|---------|
-| **CommandText** | Required. The MySQL query command or name of the stored procedure executed by the binding.  |
-| **ConnectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. | 
-| **CommandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
-| **Parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
+| `CommandText` | Required. The MySQL query command or name of the stored procedure that the binding executes.  |
+| `ConnectionStringSetting` | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is executed. This value isn't the actual connection string and must instead resolve to an environment variable name. |
+| `CommandType` | Required. A [`CommandType`](/dotnet/api/system.data.commandtype) value, which is [`Text`](/dotnet/api/system.data.commandtype#fields) for a query and [`StoredProcedure`](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
+| `Parameters` | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. The parameter name and parameter value can't contain a comma (`,`) or an equal sign (`=`). |
 
 ::: zone-end  
 
 ::: zone pivot="programming-language-java"  
+
 ## Annotations
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@MySQLInput` annotation on parameters whose value would come from Azure Database for MySQL. This annotation supports the following elements:
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@MySQLInput` annotation on parameters whose values would come from Azure Database for MySQL. This annotation supports the following elements:
 
 | Element |Description|
 |---------|---------|
-| **commandText** | Required. The MySQL query command or name of the stored procedure executed by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. | 
-| **commandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is ["Text"](/dotnet/api/system.data.commandtype#fields) for a query and ["StoredProcedure"](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
-|**name** |  Required. The unique name of the function binding. | 
-| **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
+| `commandText` | Required. The MySQL query command or name of the stored procedure that the binding executes.  |
+| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is executed. This value isn't the actual connection string and must instead resolve to an environment variable name. |
+| `commandType` | Required. A [`CommandType`](/dotnet/api/system.data.commandtype) value, which is [`Text`](/dotnet/api/system.data.commandtype#fields) for a query and [`StoredProcedure`](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
+| `name` |  Required. The unique name of the function binding. |
+| `parameters` | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. The parameter name and parameter value can't contain a comma (`,`) or an equal sign (`=`). |
 
-::: zone-end 
+::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 
@@ -1452,62 +1439,60 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 # [Model v4](#tab/nodejs-v4)
 
-The following table explains the properties that you can set on the `options` object passed to the `input.generic()` method.
+The following table explains the properties that you can set on the `options` object passed to the `input.generic()` method:
 
 | Property | Description |
 |---------|----------------------|
-| **commandText** | Required. The MySQL query command or name of the stored procedure executed by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name.  Optional keywords in the connection string value are [available to refine MySQL bindings connectivity](./functions-bindings-azure-mysql.md#mysql-connection-string). |
-| **commandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
-| **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
+| `commandText` | Required. The MySQL query command or name of the stored procedure that the binding executes.  |
+| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is executed. This value isn't the actual connection string and must instead resolve to an environment variable name. Optional keywords in the connection string value are [available to refine MySQL bindings connectivity](./functions-bindings-azure-mysql.md#mysql-connection-string). |
+| `commandType` | Required. A [`CommandType`](/dotnet/api/system.data.commandtype) value, which is [`Text`](/dotnet/api/system.data.commandtype#fields) for a query and [`StoredProcedure`](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
+| `parameters` | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. The parameter name and parameter value can't contain a comma (`,`) or an equal sign (`=`). |
 
 # [Model v3](#tab/nodejs-v3)
 
-The following table explains the binding configuration properties that you set in the function.json file.
+The following table explains the binding configuration properties that you set in the function.json file:
 
 | Property | Description |
 |---------|----------------------|
-|**type** |  Required. Must be set to `Mysql`. |
-|**direction** | Required. Must be set to `in`. |
-|**name** |  Required. The name of the variable that represents the query results in function code. | 
-| **commandText** | Required. The MySQL query command or name of the stored procedure executed by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. Optional keywords in the connection string value are [available to refine MySQL bindings connectivity](./functions-bindings-azure-mysql.md#mysql-connection-string). |
-| **commandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
-| **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
+|`type` |  Required. Must be set to `Mysql`. |
+|`direction` | Required. Must be set to `in`. |
+|`name` |  Required. The name of the variable that represents the query results in function code. |
+| `commandText` | Required. The MySQL query command or name of the stored procedure that the binding executes.  |
+| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is executed. This value isn't the actual connection string and must instead resolve to an environment variable name. Optional keywords in the connection string value are [available to refine MySQL bindings connectivity](./functions-bindings-azure-mysql.md#mysql-connection-string). |
+| `commandType` | Required. A [`CommandType`](/dotnet/api/system.data.commandtype) value, which is [`Text`](/dotnet/api/system.data.commandtype#fields) for a query and [`StoredProcedure`](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
+| `parameters` | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. The parameter name and parameter value can't contain a comma (`,`) or an equal sign (`=`). |
 
 ---
 
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell,programming-language-python"  
+
 ## Configuration
 
-The following table explains the binding configuration properties that you set in the function.json file.
+The following table explains the binding configuration properties that you set in the function.json file:
 
-|function.json property | Description|
+|Property | Description|
 |---------|----------------------|
-|**type** |  Required. Must be set to `mysql`. |
-|**direction** | Required. Must be set to `in`. |
-|**name** |  Required. The name of the variable that represents the query results in function code. | 
-| **commandText** | Required. The MySQL query command or name of the stored procedure executed by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. Optional keywords in the connection string value are [available to refine MySQL bindings connectivity](./functions-bindings-azure-mysql.md#mysql-connection-string). |
-| **commandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
-| **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
+|`type` |  Required. Must be set to `mysql`. |
+|`direction` | Required. Must be set to `in`. |
+|`name` |  Required. The name of the variable that represents the query results in function code. |
+| `commandText` | Required. The MySQL query command or name of the stored procedure that the binding executes.  |
+| `connectionStringSetting` | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is executed. This value isn't the actual connection string and must instead resolve to an environment variable name. Optional keywords in the connection string value are [available to refine MySQL bindings connectivity](./functions-bindings-azure-mysql.md#mysql-connection-string). |
+| `commandType` | Required. A [`CommandType`](/dotnet/api/system.data.commandtype) value, which is [`Text`](/dotnet/api/system.data.commandtype#fields) for a query and [`StoredProcedure`](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
+| `parameters` | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. The parameter name and parameter value can't contain a comma (`,`) or an equal sign (`=`). |
 
 ::: zone-end  
-
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## Usage
 
-The attribute's constructor takes the MySQL command text, the command type, parameters, and the connection string setting name. The command can be a MYSQL query with the command type `System.Data.CommandType.Text` or stored procedure name with the command type `System.Data.CommandType.StoredProcedure`. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](https://dev.mysql.com/doc/connector-net/en/connector-net-connections-string.html) to the Azure Database for MySQL.
+The attribute's constructor takes the MySQL command text, the command type, parameters, and the name of the connection string setting. The command can be a MySQL query with the command type `System.Data.CommandType.Text` or a stored procedure name with the command type `System.Data.CommandType.StoredProcedure`. The name of the connection string setting corresponds to the application setting (in local.settings.json for local development) that contains the [connection string](https://dev.mysql.com/doc/connector-net/en/connector-net-connections-string.html) to Azure Database for MySQL.
 
+If an exception occurs when an Azure Database for MySQL input binding is executed, the function code stops running. The result might be an error code, such as an HTTP trigger that returns a 500 error code.
 
-If an exception occurs when a MySQL input binding is executed then the function code won't execute. This might result in an error code being returned, such as an HTTP trigger returning a 500 error code.
+## Related content
 
-## Next steps
-
-- [Save data to a database (Output binding)](./functions-bindings-azure-mysql-output.md)
-- [Run a function from a HTTP request (trigger)](./functions-bindings-http-webhook-trigger.md)
- 
+* [Save data to a database (output binding)](./functions-bindings-azure-mysql-output.md)
+* [Run a function from an HTTP request (trigger)](./functions-bindings-http-webhook-trigger.md)

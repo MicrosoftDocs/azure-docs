@@ -7,8 +7,9 @@ ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: concept-article
-ms.date: 03/20/2024
+ms.date: 03/31/2025
 ROBOTS: NOINDEX
+# Customer intent: "As a CDN administrator, I want to configure actions in the Standard rules engine, so that I can optimize request handling and caching behaviors for improved content delivery performance."
 ---
 
 # Actions in the Standard rules engine for Azure Content Delivery Network
@@ -86,7 +87,7 @@ Use this action to redirect clients to a new URL.
 
 Field | Description
 ------|------------
-Type | Select the response type to return to the requestor: Found (302), Moved (301), Temporary redirect (307), and Permanent redirect (308).
+Type | Select the response type to return to the requester: Found (302), Moved (301), Temporary redirect (307), and Permanent redirect (308).
 Protocol | Match Request, HTTP, HTTPS.
 Hostname | Select the host name you want the request to be redirected to. Leave blank to preserve the incoming host.
 Path | Define the path to use in the redirect. Leave blank to preserve the incoming path.

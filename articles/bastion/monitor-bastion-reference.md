@@ -4,9 +4,10 @@ description: This article contains important reference material you need when yo
 ms.date: 12/02/2024
 ms.custom: horz-monitor
 ms.topic: reference
-author: cherylmc
-ms.author: cherylmc
+author: abell
+ms.author: abell
 ms.service: azure-bastion
+# Customer intent: As a cloud administrator, I want to monitor the performance metrics and logs of Azure Bastion, so that I can ensure its availability and optimize resource utilization for my organization's needs.
 ---
 # Azure Bastion monitoring data reference
 

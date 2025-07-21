@@ -3,7 +3,7 @@ title: Data loading best practices for dedicated SQL pools
 description: Recommendations and performance optimizations for loading data into a dedicated SQL pool in Azure Synapse Analytics.
 author: joannapea
 ms.author: joanpo
-ms.reviewer: wiassaf
+
 ms.date: 02/25/2025
 ms.service: azure-synapse-analytics
 ms.subservice: sql

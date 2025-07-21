@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 02/02/2024
+ms.date: 03/14/2025
 ---
 
 # Integrate Azure Cosmos DB for Cassandra with Service Connector
@@ -38,11 +38,14 @@ The table below shows which combinations of client types and authentication meth
 
 This table indicates that all combinations of client types and authentication methods in the table are supported, except for the Java - Spring Boot client type, which only supports the Secret / connection string method. All other client types can use any of the authentication methods to connect to Azure Cosmos DB for Apache Cassandra using Service Connector.
 
-## Default environment variable names or application properties and Sample code
+> [!NOTE]
+> Cosmos DB does not natively support authentication via managed identity. Therefore, Service Connector uses the managed identity to retrieve the connection string, and the connection is subsequently established using that connection string.
+
+## Default environment variable names or application properties and sample code
 
 Reference the connection details and sample code in the following tables, according to your connection's authentication type and client type, to connect your compute services to Azure Cosmos DB for Apache Cassandra. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
-### System-assigned Managed Identity
+### System-assigned managed identity
 
 | Default environment variable name | Description                                        | Example value                                                                                                                                                                                                   |
 | --------------------------------- | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -57,9 +60,12 @@ Reference the connection details and sample code in the following tables, accord
 #### Sample code
 
 Refer to the steps and code below to connect to Azure Cosmos DB for Cassandra using a system-assigned managed identity.
+
+Since Cosmos DB doesn't natively support authentication via managed identity, in the following code sample, we use the managed identity to retrieve the connection string, and the connection is then established using that connection string.
+
 [!INCLUDE [code sample for cassandra](./includes/code-cosmoscassandra-me-id.md)]
 
-### User-assigned Managed Identity
+### User-assigned managed identity
 
 | Default environment variable name | Description                                        | Example value                                                                                                                                                                                                   |
 | --------------------------------- | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -75,14 +81,17 @@ Refer to the steps and code below to connect to Azure Cosmos DB for Cassandra us
 #### Sample code
 
 Refer to the steps and code below to connect to Azure Cosmos DB for Cassandra using a user-assigned managed identity.
+
+Since Cosmos DB doesn't natively support authentication via managed identity, in the following code sample, we use the managed identity to retrieve the connection string, and the connection is then established using that connection string.
+
 [!INCLUDE [code sample for cassandra](./includes/code-cosmoscassandra-me-id.md)]
 
-### Connection String
+### Connection string
 
 > [!WARNING]
 > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
-#### SpringBoot client type
+#### Spring Boot client type
 
 | Default environment variable name      | Description                                        | Example value                                            |
 | -------------------------------------- | -------------------------------------------------- | -------------------------------------------------------- |

@@ -245,7 +245,7 @@ public class CustomersServiceImpl extends CustomersServiceGrpc.CustomersServiceI
 
 ## Configure the server port
 
-Next, configure the server port to `1025` for the Basic/Standard plan or to `8080` for the Enterprise plan so that the ingress rule works correctly. Add the following line to the **application.properties** file in the **spring-petclinic-customers-service/src/main/resources** folder.
+Next, configure the server port to **1025** for the Basic/Standard plan or to **8080** for the Enterprise plan so that the ingress rule works correctly. Add the following line to the **application.properties** file in the **spring-petclinic-customers-service/src/main/resources** folder.
 
 ```properties
 grpc.server.port=1025

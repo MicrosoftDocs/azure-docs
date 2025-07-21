@@ -15,7 +15,7 @@ Azure Operator Nexus is built on basic constructs like compute servers, storage 
 
 Each storage appliance contains multiple storage devices, which are aggregated to provide a single storage pool. This storage pool is then carved out into multiple volumes, which are presented to the compute servers as block storage devices. The compute servers can use these block storage devices as persistent storage for their workloads. Each Azure Operator Nexus cluster is provisioned with a single storage appliance that's shared across all the tenant workloads.
 
-The storage appliance in an Azure Operator Nexus instance is represented as an Azure resource. Operators get access to view its attributes like any other Azure resource.
+Azure Operator Nexus supports a maximum of two storage appliances. Detailed information on multiple storage appliance support is available in [this document](./concepts-storage-multiple-appliances.md). The storage appliances in an Azure Operator Nexus instance are represented as Azure resources. Each storage appliance is represented by a single instance of the Storage Appliance (Operator Nexus) resource. Operators get access to view its attributes like any other Azure resource.
 
 ## Storage appliance status
 

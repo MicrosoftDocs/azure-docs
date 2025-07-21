@@ -12,19 +12,19 @@ ms.author: cshoe
 # Connect to services in Azure Container Apps (preview)
 
 > [!IMPORTANT]
-> The public preview add-ons feature will be retired on September 30, 2025. To prepare for this change, transition to Azure-managed services, such as Azure Cache for Redis or Azure Database for PostgreSQL for a production-level service. For development and testing purposes, review the supported open-source software (OSS) quickstarts. 
+> The public preview add-ons feature will be retired on September 30, 2025. To prepare for this change, transition to Azure-managed services, such as Azure Cache for Redis or Azure Database for PostgreSQL for a production-level service. For development and testing purposes, review the supported open-source software (OSS) quickstart images.
 
 As you develop applications in Azure Container Apps, you often need to connect to different services. Rather than creating services ahead of time and manually connecting them to your container app, you can quickly create instances of development-grade services that are designed for nonproduction environments known as add-ons. 
 
-Add-ons allow you to use OSS services without the burden of manual downloads, creation, and configuration. Since add-ons will be retired on September 30, 2025, we recommend you use our new OSS quickstarts if you want to continue using these OSS services for nonproduction envrionments.
+Add-ons allow you to use OSS services without the burden of manual downloads, creation, and configuration. Since add-ons will be retired on September 30, 2025, we recommend you use our new OSS quickstarts if you want to continue using these OSS services for nonproduction environments.
 
 If you're ready for your app to use a production level service, you can connect your application to an Azure managed service.
 
 ## Migration Guide
 
-As add-ons are being retired, you'll need to plan how to transition your applications away from this preview feature. Whether you're looking for a production level service or simply want to continue exploring open source technologies in a dev/test capacity, the following steps will help you migrate smoothly.
+As add-ons are being retired, you need to plan how to transition your applications away from this preview feature. Use the following steps help you for either a production level service if you're using open source technologies in a development or testing capacity.
 
-Please note, you're responsible for data continuity between your add-on and your new Container App.
+Make sure you prepare for data continuity between your add-on and your new Container App.
 
 ### Option 1: Transition to Azure managed services
 
@@ -169,7 +169,7 @@ You're responsible for data continuity between development and production enviro
 
 To connect a service to an application, you first need to create the service.
 
-Use the `az containerapp add-on <SERVICE_TYPE> create` command with the service type and name to create a new service.
+To create a new service, use the `az containerapp add-on <SERVICE_TYPE> create` command with the service type and name.
 
 ``` CLI
 az containerapp add-on redis create \
@@ -212,7 +212,7 @@ For more information on the service commands and arguments, see the
 - Add-ons are in public preview.
 - Any container app created before May 23, 2023 isn't eligible to use add-ons.
 - Add-ons come with minimal guarantees. For instance, they're automatically restarted if they crash, however there's no formal quality of service or high-availability guarantees associated with them. For production workloads, use Azure-managed services.
-- If you use your own virtual network (VNET), you must use a workload profiles environment. The Add-ons feature isn't supported in consumption only environments that use custom VNETs.
+- If you use your own virtual network (virtual network), you must use a workload profiles environment. The Add-ons feature isn't supported in consumption only environments that use custom virtual networks.
 
 ## Next steps
 

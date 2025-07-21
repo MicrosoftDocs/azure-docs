@@ -5,7 +5,9 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 10/17/2024
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 
 #Customer intent: As a security engineer, I want to configure auditing and health monitoring for my Microsoft Sentinel resources so that I can ensure the integrity and health of our security infrastructure.
 
@@ -40,11 +42,11 @@ To get started, enable auditing and health monitoring from the Microsoft Sentine
 
     Or, select the **Configure diagnostic settings** link to enable health monitoring only for the data collector and/or automation resources, or to configure advanced options, like more places to send the data.
 
-    #### [Azure portal](#tab/azure-portal)
-    :::image type="content" source="media/enable-monitoring/enable-health-monitoring.png" alt-text="Screenshot shows how to get to the health monitoring settings.":::
-
     #### [Defender portal](#tab/defender-portal)
     :::image type="content" source="media/enable-monitoring/enable-health-monitoring-defender.png" alt-text="Screenshot shows how to get to the health monitoring settings in the Defender portal.":::
+
+    #### [Azure portal](#tab/azure-portal)
+    :::image type="content" source="media/enable-monitoring/enable-health-monitoring.png" alt-text="Screenshot shows how to get to the health monitoring settings.":::
 
     ---
 

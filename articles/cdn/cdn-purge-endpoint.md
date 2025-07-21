@@ -7,8 +7,9 @@ ms.author: halkazwini
 manager: kumud
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
+ms.date: 03/31/2025
 ROBOTS: NOINDEX
+# Customer intent: As a web application administrator, I want to purge cached content from the Azure Content Delivery Network endpoint, so that I can ensure my users receive the latest version of the assets and correct any outdated information promptly.
 ---
 
 # Purge an Azure Content Delivery Network endpoint

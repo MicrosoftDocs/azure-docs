@@ -8,7 +8,7 @@ ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: tutorial
 ms.tgt_pltfrm: arduino
-ms.date: 04/14/2023
+ms.date: 05/22/2025
 ---
 
 # Tutorial: Visualize real-time sensor data from Azure IoT Hub using Power BI
@@ -17,7 +17,7 @@ You can use Microsoft Power BI to visualize real-time sensor data that your Azur
 
 :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/end-to-end-diagram.png" alt-text="Diagram that shows the data flow from the device to Power BI." border="false":::
 
-[Microsoft Power BI](https://powerbi.microsoft.com/) is a data visualization tool that you can use to perform self-service and enterprise business intelligence (BI) over large data sets. [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/#overview) is a fully managed, real-time analytics service designed to help you analyze and process fast moving streams of data that can be used to get insights, build reports or trigger alerts and actions.
+[Microsoft Power BI](https://powerbi.microsoft.com/) is a data visualization tool that you can use to perform self-service and enterprise business intelligence (BI) over large data sets. [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/#overview) is a fully managed, real-time analytics service designed to help you analyze and process fast moving streams of data that can be used to get insights, build reports, or trigger alerts and actions.
 
 In this tutorial, you perform the following tasks:
 
@@ -48,7 +48,7 @@ Create a Stream Analytics job. After you create the job, you define the inputs, 
 
 ### Create a Stream Analytics job
 
-Create a Stream Analytics job that you'll use to route data from IoT Hub to Power BI.
+Create a Stream Analytics job that you use to route data from IoT Hub to Power BI.
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource**. Type *Stream Analytics Job* in the search box and select it from the drop-down list. On the **Stream Analytics job** overview page, select **Create**
 
@@ -75,11 +75,11 @@ Configure the Stream Analytics job to collect data from your IoT hub.
 
 1. Open the Stream Analytics job.
 
-2. Select **Inputs** from the **Job simulation** section of the navigation menu.
+2. Select **Inputs** from the **Job topology** section of the navigation menu.
 
 3. Select **Add input**, then select **IoT Hub** from the drop-down list.
 
-   :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/add-input-iot-hub.png" alt-text="Screenshot that shows selecting IoT Hub from the add input menu.":::
+   :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/add-input-iot-hub.png" alt-text="Screenshot that shows selecting IoT Hub from the Add input menu.":::
 
 4. On the new input pane, enter the following information:
 
@@ -103,9 +103,9 @@ Configure the Stream Analytics job to collect data from your IoT hub.
 
 2. Select **Add output**, and then select **Power BI** from the drop-down list.
 
-   :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/add-output-power-bi.png" alt-text="Screenshot that shows selecting Power BI from the add output menu.":::
+   :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/add-output-power-bi.png" alt-text="Screenshot that shows selecting Power BI from the Add output menu.":::
 
-3. After you've signed in to Power BI, enter the following information to create a Power BI output:
+3. After you sign in to Power BI, enter the following information to create a Power BI output:
 
    | Parameter | Value |
    | --------- | ----- |
@@ -121,13 +121,13 @@ Configure the Stream Analytics job to collect data from your IoT hub.
 
 ### Configure the query of the Stream Analytics job
 
-1. Select **Query** from the **Job simulation** section of the navigation menu.
+1. Select **Query** from the **Job topology** section of the navigation menu.
 
 2. In the query editor, replace `[YourOutputAlias]` with the output alias of the job.
 
 3. Replace `[YourInputAlias]` with the input alias of the job.
 
-4. Add the following `WHERE` clause as the last line of the query. This line ensures that only messages with a **temperature** property will be forwarded to Power BI.
+4. Add the following `WHERE` clause as the last line of the query. This line ensures that only messages with a **temperature** property are forwarded to Power BI.
 
    ```sql
    WHERE temperature IS NOT NULL
@@ -140,7 +140,7 @@ Configure the Stream Analytics job to collect data from your IoT hub.
 ### Run the Stream Analytics job
 
 1. In the Stream Analytics job, select **Overview**.
-1. Select **Start** > **Now** > **Start**. Once the job successfully starts, the job status changes from **Stopped** to **Running**.
+1. Select **Start job** > **Now** > **Start**. Once the job successfully starts, the job status changes from **Stopped** to **Running**.
 
 ## Create and publish a Power BI report to visualize the data
 
@@ -173,14 +173,14 @@ The following steps show you how to create and publish a report using the Power 
       :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/power-bi-add-temperature.png" alt-text="Add a line chart for temperature to a Microsoft Power BI report":::
 
      > [!NOTE]
-     > Depending on the device or simulated device that you use to send telemetry data, you may have a slightly different list of fields.
+     > Depending on the device or simulated device that you use to send telemetry data, you might have a slightly different list of fields.
 
 7. Select **File** > **Save** to save the report. When prompted, enter a name for your report.
 
 8. Still on the report pane, select **File** > **Embed report** > **Website or portal**.
 
     > [!NOTE]
-    > If you get a notification to contact your administrator to enable embed code creation, you may need to contact them. Embed code creation must be enabled before you can complete this step.
+    > If you get a notification to contact your administrator to enable embed code creation, you might need to contact them. Embed code creation must be enabled before you can complete this step.
     >
     > :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/contact-admin.png" alt-text="Screenshot that shows the Contact your administrator notification.":::
 
@@ -194,7 +194,7 @@ Microsoft also offers the [Power BI mobile apps](https://powerbi.microsoft.com/d
 
 In this tutorial, you created a Stream Analytics job and a dataset in Power BI.
 
-If you plan to complete other tutorials, you may want to keep the resource group and IoT hub, so you can reuse them later.
+If you plan to complete other tutorials, you might want to keep the resource group and IoT hub, so you can reuse them later.
 
 ### Clean up Azure resources
 

@@ -9,7 +9,8 @@ manager: kumudd
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 04/21/2024
+ms.date: 03/31/2025
+# Customer intent: "As a web developer, I want to enable file compression on my CDN, so that I can enhance file transfer speeds and improve page-load performance for users."
 ---
 
 # Improve performance by compressing files in Azure CDN

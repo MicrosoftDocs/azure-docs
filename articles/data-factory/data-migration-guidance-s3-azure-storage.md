@@ -6,9 +6,9 @@ author: dearandyxu
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 05/15/2024
-ms.custom:
-  - migration
-  - aws-to-azure
+ms.collection: 
+ - migration
+ - aws-to-azure
 ---
 
 # Use Azure Data Factory to migrate data from Amazon S3 to Azure Storage 

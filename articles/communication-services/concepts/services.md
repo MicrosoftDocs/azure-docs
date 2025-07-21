@@ -26,7 +26,7 @@ Azure Communication Services provides the following cloud-based communication an
 - [Artificial Intelligence (AI)](./ai.md) – Add AI features such as voice bots and voice data transformation to your applications.
 - [User Interface (UI) Library](./ui-library/ui-library-overview.md) – Build modern communications user experiences using a library of production-ready UI components.
 
-## Related topics
+## Related articles
 
 - [Common Scenarios including virtual appointments](interop/virtual-visits/overview.md)
 - [Troubleshooting in Azure Communication Services](troubleshooting-info.md)

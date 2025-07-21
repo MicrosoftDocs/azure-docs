@@ -7,7 +7,7 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 02/20/2025
 ms.author: vvasic
-ms.reviewer: whhender 
+ 
 ---
 
 # Store query results to storage using serverless SQL pool in Azure Synapse Analytics

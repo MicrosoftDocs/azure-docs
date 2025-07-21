@@ -438,7 +438,7 @@ To add the JavaScript:
 
 1. Open *index.js*.
 
-2. Add global options to make settings easier to update. Define the variables for the map, pop up window, data source, icon layer, and HTML marker. Set the HTML marker to indicate the center of a search area. And, define an instance of the Azure Maps search service client.
+2. Add global options to make settings easier to update. Define the variables for the map, pop up window, data source, icon layer, and HTML marker. Set the HTML marker to indicate the center of a search area. And, define an instance of the Azure Maps Search service client.
 
     ```JavaScript
     //The maximum zoom level to cluster data point data on the map.

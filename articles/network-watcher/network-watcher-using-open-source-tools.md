@@ -7,6 +7,7 @@ ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 10/23/2024
 ms.author: halkazwini
+# Customer intent: As a network administrator, I want to use open-source tools to visualize packet capture data from my VMs, so that I can identify traffic patterns and anomalies effectively for better network management and forensics.
 ---
 
 # Visualize network traffic patterns to and from your VMs by using open-source tools
@@ -65,13 +66,9 @@ The following list describes a few of the CapAnalysis features:
 
   The **GeoMAP** tab provides a map view of your network traffic. Colors scale to the volume of traffic from each country/region. You can select highlighted countries/regions to view additional flow statistics, such as the proportion of data sent and received from IPs in a country/region.
 
-  ![geomap][8]
-
 - Filters
 
   CapAnalysis provides a set of filters for quick analysis of specific packets. For example, you can choose to filter the data by protocol to gain specific insights on that subset of traffic.
-
-  ![filters][11]
 
 To learn more about all the capabilities of CapAnalysis, go to the [tool's website](https://www.capanalysis.net/ca/#about).
 
@@ -88,5 +85,3 @@ You can use the Network Watcher packet capture feature to capture the necessary 
 
 [1]: ./media/network-watcher-using-open-source-tools/figure1.png
 [6]: ./media/network-watcher-using-open-source-tools/figure6.png
-[8]: ./media/network-watcher-using-open-source-tools/figure8.png
-[11]: ./media/network-watcher-using-open-source-tools/figure11.png

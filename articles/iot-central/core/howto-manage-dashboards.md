@@ -3,7 +3,7 @@ title: Create and manage Azure IoT Central dashboards
 description: Learn how to create and manage application and personal dashboards in Azure IoT Central. Customize dashboards by using tiles.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/04/2024
+ms.date: 04/22/2025
 ms.topic: how-to
 ms.service: azure-iot-central
 services: iot-central
@@ -20,7 +20,7 @@ All users can create *personal dashboards*, visible only to themselves. Users ca
 
 ## Create a dashboard
 
-The following screenshot shows the dashboard in an application created from the **Custom Application** template. If you're in a role with the appropriate permissions, you can customize the default dashboard. To create a new dashboard from scratch, select**Go to dashboard catalog** and then **+New**. To create a new dashboard by copying the current dashboard, select **Copy**:
+The following screenshot shows the dashboard in an application created from the **Custom Application** template. If you're in a role with the appropriate permissions, you can customize the default dashboard. To create a new dashboard from scratch, select **Go to dashboard catalog** and then **+New**. To create a new dashboard by copying the current dashboard, select **Copy**:
 
 :::image type="content" source="media/howto-manage-dashboards/dashboard-custom-app.png" alt-text="Screenshot that shows the options for creating a new dashboard." lightbox="media/howto-manage-dashboards/dashboard-custom-app.png":::
 
@@ -75,8 +75,8 @@ This table describes the types of tiles you can add to a dashboard:
 
 | Tile             | Description |
 | ---------------- | ----------- |
-| KPI              |  Display aggregate telemetry values for one or more devices over a time period. For example, you can use them to show the maximum temperature and pressure reached for one or more devices during the past hour.|
-| Last known value | Display the latest telemetry values for one or more devices. For example, you can use this tile to display the most recent temperature, pressure, and humidity values for one or more devices. |
+| Key performance indicator (KPI) |  Display aggregate telemetry values for one or more devices over a time period. For example, you can use them to show the maximum temperature and pressure reached for one or more devices during the past hour.|
+| Last known value (LKV) | Display the latest telemetry values for one or more devices. For example, you can use this tile to display the most recent temperature, pressure, and humidity values for one or more devices. |
 | Line chart       | Plot one or more aggregate telemetry values for one or more devices over a time period. For example, you can display a line chart to plot the average temperature and pressure of one or more devices during the past hour.|
 | Bar chart        | Plot one or more aggregate telemetry values for one or more devices over a time period. For example, you can display a bar chart to show the average temperature and pressure of one or more devices during the past hour.|
 | Pie chart        | Display one or more aggregate telemetry values for one or more devices over a time period.|
@@ -92,7 +92,7 @@ This table describes the types of tiles you can add to a dashboard:
 | Label            | Display custom text on a dashboard. You can choose the size of the text. Use a label tile to add relevant information to the dashboard, like descriptions, contact details, or Help.|
 | Markdown         | Clickable tiles that display a heading and description text formatted in Markdown. The URL can be a relative link to another page in the application or an absolute link to an external site.|
 | External content |  Let you load content from an external source. |
-| Number of devices | Display the number of devices in a device group.|
+| Number of devices (Count) | Display the number of devices in a device group.|
 | Data explorer query | Display a saved data explorer query |
 
 Currently, you can add up to 10 devices to tiles that support multiple devices.
@@ -101,21 +101,21 @@ Currently, you can add up to 10 devices to tiles that support multiple devices.
 
 By default, line charts show data over a range of time. The selected time range is split into 50 equally sized partitions. The device data is then aggregated per partition to give 50 data points over the selected time range. If you want to view raw data, you can change your selection to view the last 100 values. To change the time range or to select raw data visualization, use the **Display range** dropdown in the **Configure chart** panel.
 
-For tiles that display aggregate values, select the **gear** button next to the telemetry type in the **Configure chart** panel to choose the aggregation. You can choose average, sum, maximum, minimum, or count:
+For tiles that display aggregate values, select the dropdown list under the telemetry type in the **Configure chart** panel to choose the aggregation. You can choose average, sum, maximum, minimum, or count:
 
 :::image type="content" source="media/howto-manage-dashboards/aggregate-choice.png" alt-text="Screenshot that shows how to select the aggregation to use." lightbox="media/howto-manage-dashboards/aggregate-choice.png":::
 
-For line charts, bar charts, and pie charts, you can customize the colors of the various telemetry values. Select the **palette** button next to the telemetry you want to customize:
+For line charts, bar charts, and pie charts, you can customize the colors of the various telemetry values. Select the **Assign custom color** button under the telemetry you want to customize:
 
 :::image type="content" source="media/howto-manage-dashboards/color-customization.png" alt-text="Screenshot that shows the color palette button." lightbox="media/howto-manage-dashboards/color-customization.png":::
 
-For tiles that show string properties or telemetry values, you can choose how to display the text. For example, if the device stores a URL in a string property, you can display it as a clickable link. If the URL references an image, you can render the image in a last known value or property tile. To change how a string displays, select the **gear** button next to the telemetry type or property in the tile configuration.
+For tiles that show string properties or telemetry values, you can choose how to display the text. For example, if the device stores a URL in a string property, you can display it as a clickable link. If the URL references an image, you can render the image in a last known value or property tile. To change how a string displays, select the dropdown list under the telemetry type or property in the tile configuration. You can choose text, link, or image.
 
-For numeric KPI, LKV, and property tiles, you can use conditional formatting to customize the color of the tile based on its value. To add conditional formatting, select **Configure** on the tile and then select the **Conditional formatting** button next to the value you want to customize.
+For numeric KPI, LKV, and property tiles, you can use conditional formatting to customize the color of the tile based on its value. To add conditional formatting, select **Configure** on the tile and then select the **Apply conditional formatting** button next to the value you want to customize.
 
 Next, add your conditional formatting rules:
 
-:::image type="content" source="media/howto-manage-dashboards/conditional-formatting-2.png" alt-text="Screenshot that shows conditional formatting rules for temperature. There are rules for less than, greater than, and greater than or equal to." lightbox="media/howto-manage-dashboards/conditional-formatting-2.png":::
+:::image type="content" source="media/howto-manage-dashboards/conditional-formatting-2.png" alt-text="Screenshot that shows conditional formatting rules for a KPI tile. Each rule includes the operator and value for the rule's condition, and options for applying color, icons, and text for that condition." lightbox="media/howto-manage-dashboards/conditional-formatting-2.png":::
 
 ### Tile formatting
 
@@ -132,4 +132,4 @@ To continuously monitor the data explorer queries, you can pin a query to a dash
 
 ## Next steps
 
-Now that you've learned how to create and manage personal dashboards, you can [learn how to manage your application preferences](howto-manage-preferences.md).
+Now that you know how to create and manage personal dashboards, you can [learn how to manage your personal application preferences](howto-manage-preferences.md).

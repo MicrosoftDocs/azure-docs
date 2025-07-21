@@ -4,22 +4,23 @@ description: Learn about Azure virtual machine network throughput, including how
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 03/30/2023
+ms.date: 04/15/2025
 ms.author: allensu
 ms.reviewer: kumud, mareat
+# Customer intent: "As a cloud architect, I want to understand the network bandwidth allocation for Azure virtual machines, so that I can optimize application performance based on throughput needs."
 ---
 
 # Virtual machine network bandwidth
 
-Azure offers various VM sizes and types, each with a different mix of performance capabilities. One capability is network throughput (or bandwidth), measured in megabits per second (Mbps). Because virtual machines are hosted on shared hardware, the network capacity must be shared fairly among the virtual machines sharing the same hardware. Larger virtual machines are allocated relatively more bandwidth than smaller virtual machines.
+Azure offers various virtual machine sizes and types, each with a different mix of performance capabilities. One capability is network throughput (or bandwidth), measured in megabits per second (Mbps). Because virtual machines are hosted on shared hardware, the network capacity must be shared fairly among the virtual machines sharing the same hardware. Larger virtual machines are allocated relatively more bandwidth than smaller virtual machines.
  
-The network bandwidth allocated to each virtual machine is metered on egress (outbound) traffic from the virtual machine. All network traffic leaving the virtual machine is counted toward the allocated limit, regardless of destination. For example, if a virtual machine has a 1,000-Mbps limit, that limit applies whether the outbound traffic is destined for another virtual machine in the same virtual network, or outside of Azure.
+The network bandwidth allocated to each virtual machine is measured on egress (outbound) traffic from the virtual machine. All network traffic leaving the virtual machine is counted toward the allocated limit, regardless of destination. For example, if a virtual machine has a 1,000-Mbps limit, that limit applies whether the outbound traffic is destined for another virtual machine in the same virtual network, or outside of Azure.
  
-Ingress isn't metered or limited directly. However, there are other factors, such as CPU and storage limits, which can affect a virtual machine’s ability to process incoming data.
+Ingress isn't measured or limited directly. However, there are other factors, such as CPU and storage limits, which can affect a virtual machine’s ability to process incoming data.
 
 Accelerated networking is a feature designed to improve network performance, including latency, throughput, and CPU utilization. While accelerated networking can improve a virtual machine’s throughput, it can do so only up to the virtual machine’s allocated bandwidth. To learn more about Accelerated networking, see Accelerated networking for [Windows](create-vm-accelerated-networking-powershell.md) or [Linux](create-vm-accelerated-networking-cli.md) virtual machines.
  
-Azure virtual machines must have one, but may have several, network interfaces attached to them. Bandwidth allocated to a virtual machine is the sum of all outbound traffic across all network interfaces attached to a virtual machine. In other words, the allocated bandwidth is per virtual machine, regardless of how many network interfaces are attached to the virtual machine. To learn how many network interfaces different Azure VM sizes support, see Azure [Windows](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Linux](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes. 
+Azure virtual machines must have one, but might have several, network interfaces attached to them. Bandwidth allocated to a virtual machine is the sum of all outbound traffic across all network interfaces attached to a virtual machine. In other words, the allocated bandwidth is per virtual machine, regardless of how many network interfaces are attached to the virtual machine. To learn how many network interfaces different Azure VM sizes support, see Azure [Windows](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Linux](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes. 
 
 ## Expected network throughput
 
@@ -38,8 +39,7 @@ The throughput limit applies to the virtual machine. Throughput is unaffected by
 - **Protocol**: All outbound traffic over all protocols counts towards the limit.
 
 ## Network flow limits
-
-In addition to bandwidth, the number of network connections present on a VM at any given time can affect its network performance. The Azure networking stack maintains state for each direction of a TCP/UDP connection in data structures called ‘flows’. A typical TCP/UDP connection has two flows created, one for the inbound and another for the outbound direction. Each flow is distinguished by a 5-tuple (protocol, local IP address, remote IP address, local port, and remote port) information.
+The number of network connections on a virtual machine at any moment can affect its network performance. The Azure networking stack uses data structures called **flows** to track each direction of a TCP/UDP connection. For a typical TCP/UDP connection, it creates two flows: one for inbound traffic and another for outbound traffic. A Five-tuple, consisting of protocol, local IP address, remote IP address, local port, and remote port, identifies each flow.
 
 Data transfer between endpoints requires creation of several flows in addition to flows that perform the data transfer. Some examples are flows created for DNS resolution and flows created for load balancer health probes. Network virtual appliances (NVAs) such as gateways, proxies, firewalls, see flows created for connections terminated at the appliance and originated by the appliance. 
 
@@ -51,11 +51,11 @@ Today, the Azure networking stack supports 1M total flows (500k inbound and 500k
 
 - VMs that belong to a virtual network can handle 500k ***active connections*** for all VM sizes with 500k ***active flows in each direction***.  
 
-- VMs with NVAs such as gateway, proxy, firewall can handle 250k ***active connections*** with 500k ***active flows in each direction*** due to the forwarding and more new flow creation on new connection setup to the next hop as shown in the above diagram. 
+- VMs with NVAs such as gateway, proxy, firewall can handle 250k ***active connections*** with 500k ***active flows in each direction*** due to the forwarding and more new flow creation on new connection setup to the next hop as shown in the previous diagram. 
 
 Once this limit is hit, other connections are dropped. Connection establishment and termination rates can also affect network performance as connection establishment and termination shares CPU with packet processing routines. We recommend that you benchmark workloads against expected traffic patterns and scale out workloads appropriately to match your performance needs.
 
-Metrics are available in [Azure Monitor](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachines) to track the number of network flows and the flow creation rate on your VM or Virtual Machine Scale Sets instances. It is possible that the number of flows tracked by your VM guest OS is different than the number of flows tracked by the Azure network stack for various reasons. To ensure your network connections are not dropped, use the Inbound and Outbound Flows metric.
+Metrics are available in [Azure Monitor](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachines) to track the number of network flows and the flow creation rate on your VM or Virtual Machine Scale Sets instances. It's possible that the number of flows tracked by your VM guest OS is different than the number of flows tracked by the Azure network stack for various reasons. To ensure your network connections aren't dropped, use the Inbound and Outbound Flows metric.
 
 :::image type="content" source="./media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png" alt-text="A screenshot shows the Metrics page of Azure Monitor with a line chart and totals for inbound and outbound flows.":::
 

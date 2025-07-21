@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/26/2025
+ms.date: 04/14/2025
 ms.author: jianleishen
 ---
 
@@ -16,7 +16,7 @@ ms.author: jianleishen
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from MariaDB. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> The MariaDB connector version 2.0 provides improved native MariaDB support. If you are using MariaDB connector version 1.0 in your solution, please [upgrade your MariaDB connector](#upgrade-the-mariadb-driver-version) as version 1.0 is at [End of Support stage](connector-deprecation-plan.md). Refer to this [section](#differences-between-the-recommended-and-the-legacy-driver-version) for details on the difference between version 2.0 and version 1.0.
+> The MariaDB connector version 2.0 provides improved native MariaDB support. If you are using MariaDB connector version 1.0 in your solution, please [upgrade your MariaDB connector](#upgrade-the-mariadb-driver-version) as version 1.0 is at [End of Support stage](connector-deprecation-plan.md). Your pipeline will fail after **September 30, 2025** if not upgraded. Refer to this [section](#differences-between-the-recommended-and-the-legacy-driver-version) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 
@@ -85,6 +85,9 @@ If you use version 2.0, the following properties are supported for MariaDB linke
 | sslMode | This option specifies whether the driver uses TLS encryption and verification when connecting to MariaDB. E.g., `SSLMode=<0/1/2/3/4>`.<br/>Options: DISABLED (0) / PREFERRED (1) / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) **(Default)** | Yes |
 | useSystemTrustStore | This option specifies whether to use a CA certificate from the system trust store, or from a specified PEM file. E.g. `UseSystemTrustStore=<0/1>`;<br/>Options: Enabled (1) / Disabled (0) **(Default)** | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
+
+> [!NOTE]
+> The MariaDB connector version 2.0 defaults to the highest TLS encryption and verification with sslMode=VERIFY_IDENTITY (4). Based on your server’s TLS configuration, please adjust the sslMode as needed.
 
 **Example:**
 

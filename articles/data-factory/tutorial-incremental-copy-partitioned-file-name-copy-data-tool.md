@@ -44,7 +44,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
 ## Create a data factory
 
-1. On the left menu, select **Create a resource** > **Integration** > **Data Factory**:
+1. On the top menu, select **Create a resource** > **Analytics** > **Data Factory** :
 
    :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
 

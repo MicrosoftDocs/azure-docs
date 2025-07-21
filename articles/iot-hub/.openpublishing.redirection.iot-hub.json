@@ -1592,22 +1592,27 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/schedule-jobs-dotnet.md",
-      "redirect_url": "/azure/iot-hub/howto-schedule-broadcast-jobs",
+      "redirect_url": "/azure/iot-hub/how-to-schedule-broadcast-jobs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/schedule-jobs-java.md",
-      "redirect_url": "/azure/iot-hub/howto-schedule-broadcast-jobs",
+      "redirect_url": "/azure/iot-hub/how-to-schedule-broadcast-jobs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/schedule-jobs-python.md",
-      "redirect_url": "/azure/iot-hub/howto-schedule-broadcast-jobs",
+      "redirect_url": "/azure/iot-hub/how-to-schedule-broadcast-jobs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-ha-dr.md",
+      "redirect_url": "/azure/iot-hub/how-to-schedule-broadcast-jobs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/schedule-jobs-node.md",
-      "redirect_url": "/azure/iot-hub/howto-schedule-broadcast-jobs",
+      "redirect_url": "/azure/reliability/reliability-iot-hub?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json",
       "redirect_document_id": false
     }
   ]

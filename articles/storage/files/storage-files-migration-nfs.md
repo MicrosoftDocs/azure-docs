@@ -7,6 +7,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 01/08/2023
 ms.author: kendownie
+# Customer intent: As a system administrator, I want to migrate data from Linux file servers to NFS Azure file shares using efficient file copy tools, so that I can ensure optimal performance and manage large datasets during the migration process.
 ---
 
 # Migrate to NFS Azure file shares
@@ -26,7 +27,7 @@ This article covers the basic aspects of migrating from Linux file servers to NF
 
 ## Prerequisites
 
-You'll need at least one NFS Azure file share mounted to a Linux virtual machine (VM). To create one, see [Create an NFS Azure file share and mount it on a Linux VM](storage-files-quick-create-use-linux.md). We recommend mounting the share with nconnect to use multiple TCP connections. For more information, see [Improve NFS Azure file share performance](nfs-performance.md#nconnect).
+You'll need at least one NFS Azure file share mounted to a Linux virtual machine (VM). To create one, see [Create an NFS Azure file share and mount it on a Linux VM](storage-files-quick-create-use-linux.md). We recommend mounting the share with nconnect to use multiple TCP connections. For more information, see [Improve NFS Azure file share performance](nfs-performance.md#nfs-nconnect).
 
 ## Migration tools
 

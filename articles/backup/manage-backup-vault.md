@@ -2,11 +2,12 @@
 title: Manage Backup vaults
 description: Learn how to manage the Backup vaults.
 ms.topic: how-to
-ms.date: 03/19/2025
+ms.date: 07/16/2025
 ms.custom: references_regions
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As an IT administrator, I want to effectively manage Backup vaults in Azure, so that I can ensure secure storage and efficient recovery of backup data across different regions and subscriptions."
 ---
 # Manage Backup vaults
 
@@ -24,15 +25,25 @@ This section explains how to use the Backup vault **Overview** dashboard to moni
 
 ### Manage Backup instances
 
-In the **Jobs** tile, you get a summarized view of all backup and restore related jobs in your Backup vault. Selecting any of the numbers in this tile allows you to view more information on jobs for a particular datasource type, operation type, and status.
+In the **Backup Instances** tile, you get a summarized view of all backup instances in your Backup vault. Selecting any of the numbers in this tile allows you to view more information on backup instances for a particular datasource type and protection status.
 
 :::image type="content" source="./media/backup-vault-overview/backup-instances.png" alt-text="Screenshot shows the Backup instances.":::
 
 ### Manage Backup jobs
 
-In the **Backup Instances** tile, you get a summarized view of all backup instances in your Backup vault. Selecting any of the numbers in this tile allows you to view more information on backup instances for a particular datasource type and protection status.
+In the **Jobs** tile, you get a summarized view of all backup and restore related jobs in your Backup vault. Selecting any of the numbers in this tile allows you to view more information on jobs for a particular datasource type, operation type, and status.
 
 :::image type="content" source="./media/backup-vault-overview/backup-jobs.png" alt-text="Screenshot shows the Backup jobs.":::
+
+## Optimize backup and recovery with Azure Business Continuity Center Copilot
+
+Azure Business Continuity Center Copilot introduces new capabilities in the Backup vaults pane, enabling you to configure/manage a secure, resilient backup and recovery environment:
+
+- [Increase security level](../business-continuity-center/tutorial-manage-data-using-copilot.md#increase-security-level-of-recovery-service-vault-and-backup-vault) to strengthen protection for backup data and disaster recovery operations.
+- [Analyze job failures](../business-continuity-center/tutorial-manage-data-using-copilot.md#analyze-job-failures-for-recovery-service-vault-and-backup-vault) to gain insights into failures for precise analysis and faster resolution.
+- [Troubleshoot common errors efficiently](../business-continuity-center/tutorial-manage-data-using-copilot.md#troubleshoot-error-codes-for-recovery-service-vaults-and-backup-vaults).
+
+Learn more about [managing the Business Continuity and Disaster Recovery estate using Copilot (preview)](../business-continuity-center/tutorial-manage-data-using-copilot.md).
 
 ## Move a Backup vault across Azure subscriptions/resource groups
 
@@ -154,14 +165,14 @@ The Cross Region Restore option allows you to restore data in a secondary Azur
    :::image type="content" source="./media/backup-vault-overview/monitor-postgresql-restore-to-secondary-region.png" alt-text="Screenshot shows how to monitor the postgresql restore to the secondary region." lightbox="./media/backup-vault-overview/monitor-postgresql-restore-to-secondary-region.png":::
 
 > [!NOTE]
-> Cross Region Restore is currently only available for PostGreSQL servers.
+> Cross Region Restore is currently only available for PostgreSQL servers.
 
 ## Cross Subscription Restore using Azure portal
 
 Some datasources of Backup vault support restore to a subscription different from that of the source machine. Cross Subscription Restore (CSR) is enabled for existing vaults by default, and you can use it if supported for the intended datasource.
 
 >[!Note]
->The feature is currently not supported for Azure Kubernetes Service (AKS) and Azure VMWare Service (AVS) backup.
+>The feature is currently not supported for Azure Kubernetes Service (AKS) and Azure VMware Service (AVS) backup.
 
 To do Cross Subscription Restore, follow these steps:
 
@@ -186,6 +197,8 @@ You can also select the state of CSR  during the creation of Backup vault.
 You can configure and manage azure monitor based alerts from the **Alerts** pane in the **Backup vault**. [Learn more](backup-azure-monitoring-alerts.md).
 
 
-## Next steps
+## Related content
 
-- [Configure backup on Azure PostgreSQL databases](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases)
+- [Create a Backup vault using REST API](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md).
+- [Troubleshoot Azure Backup Vault related operations](backup-azure-backup-vault-troubleshoot.md).
+- [Configure backup on Azure PostgreSQL databases](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases).

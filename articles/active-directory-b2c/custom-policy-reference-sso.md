@@ -19,6 +19,7 @@ ms.subservice: b2c
 ---
 
 # Single sign-on session providers in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In the [Configure session behavior in Azure Active Directory B2C](session-behavior.md) article, we describe the session management for your Azure AD B2C custom policy. This article describes how to further configure the single sign-on (SSO) behavior of any individual technical profile within your custom policy.
 

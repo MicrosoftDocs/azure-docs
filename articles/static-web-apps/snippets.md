@@ -28,9 +28,7 @@ Common use cases of snippets include:
 
 1. Go to your static web app in the Azure portal.
 
-1. From the *Settings* menu, select **Configuration**.
-
-1. Select the **Snippets** tab.
+1. From the *Settings* menu, select **Snippets**.
 
 1. Select the **Add** button.
 

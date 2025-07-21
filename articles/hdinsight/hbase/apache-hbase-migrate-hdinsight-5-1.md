@@ -74,7 +74,7 @@ Use these detailed steps and commands to migrate your Apache HBase cluster.
 
 1. Stop ingestion to the source HBase cluster.
 
-1. Check Hbase hbck to verify cluster health
+1. Check HBase hbck to verify cluster health
    
    1. Verify HBCK Report page on HBase UI.  Healthy cluster doesn't show any inconsistencies
    :::image type="content" source="./media/apache-hbase-migrate-new-version/verify-hbck-report.png" alt-text="Screenshot showing how to verify HBCK report." lightbox="./media/apache-hbase-migrate-new-version/verify-hbck-report.png":::
@@ -83,7 +83,7 @@ Use these detailed steps and commands to migrate your Apache HBase cluster.
 1. Note down number of regions in online at source cluster, so that the number can be referred at destination cluster after the migration. 
    :::image type="content" source="./media/apache-hbase-migrate-new-version/total-number-of-regions.png" alt-text="Screenshot showing total number of regions." lightbox="./media/apache-hbase-migrate-new-version/total-number-of-regions.png":::
 
-1. If replication enabled on the cluster, stop and reenable the replication on destination cluster after migration. For more information, see [Hbase replication guide](/azure/hdinsight/hbase/apache-hbase-replication/)  
+1. If replication enabled on the cluster, stop and reenable the replication on destination cluster after migration. For more information, see [HBase replication guide](/azure/hdinsight/hbase/apache-hbase-replication/)  
 
 1. Flush the source HBase cluster you're upgrading.
    
@@ -269,7 +269,7 @@ Mandatory argument for the above command:
 ## Troubleshooting
 
 ### Use case 1: 
-If Hbase masters and region servers up and regions stuck in transition or only one region, for example, `hbase:meta` region is assigned. Waiting for other regions to assign
+If HBase masters and region servers up and regions stuck in transition or only one region, for example, `hbase:meta` region is assigned. Waiting for other regions to assign
 
 **Solution:**
 

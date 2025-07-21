@@ -1,13 +1,13 @@
 ---
 title: Transfer Azure Enterprise enrollment accounts and subscriptions
 description: Describes how Azure Enterprise enrollment accounts and subscriptions are transferred.
-author: bandersmsft
-ms.reviewer: sapnakeshari
+author: prashantsaini4
+ms.reviewer: prsaini
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 01/06/2025
-ms.author: banders
+ms.date: 04/01/2025
+ms.author: prsaini
 ---
 
 # Transfer Azure Enterprise enrollment accounts and subscriptions
@@ -124,9 +124,9 @@ You might see that an enrollment has the **Transferred** state, even if you didn
 
 If there's no missing usage data in the Azure portal between the prior enrollment and the new enrollment, then you don't have to create a transfer support ticket.
 
-### Prepayment isn't transferrable
+### Prepayment isn't transferable
 
-Prepayment isn't transferrable between enrollments. Prepayment balances are tied contractually to the enrollment where it was ordered. Prepayment isn't transferred as part of the account or enrollment transfer process.
+Prepayment isn't transferable between enrollments. Prepayment balances are tied contractually to the enrollment where it was ordered. Prepayment isn't transferred as part of the account or enrollment transfer process.
 
 ### No services affected for account and enrollment transfers
 

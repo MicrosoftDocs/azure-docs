@@ -1,69 +1,63 @@
 ---
 title: Register Azure Functions binding extensions
-description: Learn to register an Azure Functions binding extension based on your environment.
-ms.topic: reference
-ms.date: 06/26/2024
+description: Learn how to register Azure Functions binding extensions so that the triggers and bindings defined by the extension can be used in your function code.
+ms.topic: concept-article
+ms.date: 05/30/2025
+zone_pivot_groups: programming-languages-set-functions
+
+#Customer intent: I want to understand how to correctly install binding extensions to make trigger and binding functionality available to my functions.
 ---
 
 # Register Azure Functions binding extensions
 
-Starting with Azure Functions version 2.x, the functions runtime only includes HTTP and timer triggers by default. Other [triggers and bindings](./functions-triggers-bindings.md) are available as separate packages.
+The Azure Functions runtime natively runs HTTP and timer triggers. The behaviors of the other supported [triggers and bindings](./functions-triggers-bindings.md) are implemented in separate extension packages.
 
-.NET class library functions apps use bindings that are installed in the project as NuGet packages. Extension bundles allow non-.NET functions apps to use the same bindings without having to deal with the .NET infrastructure.
+::: zone pivot="programming-language-csharp"  
+.NET class library projects use binding extensions that are installed in the project as NuGet packages. 
+::: zone-end  
+::: zone pivot="programming-language-python,programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell"  
+Extension bundles allow non-.NET apps to use binding extensions without having to interact with .NET infrastructure.
 
-The following table indicates when and how you register bindings.
+## Extension bundles
 
-| Development environment |Registration<br/> in Functions 1.x  |Registration<br/> in Functions 2.x or later  |
-|-------------------------|------------------------------------|------------------------------------|
-|Azure portal|Automatic|Automatic<sup>*</sup>|
-|Non-.NET languages|Automatic|Use [extension bundles](#extension-bundles) (recommended) or [explicitly install extensions](#explicitly-install-extensions)|
-|C# class library using Visual Studio|[Use NuGet tools](functions-develop-vs.md#add-bindings)|[Use NuGet tools](functions-develop-vs.md#add-bindings)|
-|C# class library using Visual Studio Code|N/A|[Use .NET Core CLI](functions-develop-vs-code.md?tabs=csharp#install-binding-extensions)<br/>[Use the C# Dev Kit](https://code.visualstudio.com/docs/csharp/package-management#_add-a-package)|
+Extension bundles add a predefined set of compatible binding extensions to your function app. Extension bundles are versioned. Each version contains a specific set of binding extensions that are verified to work together. Select a bundle version based on the extensions that you need in your app.
 
-<sup>*</sup> Portal uses extension bundles, including C# script.
+When you create an Azure Functions project from a non-.NET template, extension bundles are already enabled in the app's *host.json* file. 
 
-## <a name="extension-bundles"></a>Extension bundles
+When possible, use the latest version range to obtain optimal app performance and access to the latest features. To learn more about extension bundles, see [Azure Functions extension bundles](extension-bundles.md). 
 
-By default, extension bundles provide binding support for functions in these languages:
+In the unlikely event you can't use an extension bundle, you must instead [explicitly install extensions](#explicitly-install-extensions).
 
-+ Java
-+ JavaScript
-+ PowerShell
-+ Python
-+ C# script
-+ Other (custom handlers)
-
-In rare cases where extension bundles can't be used, you can explicitly install binding extensions with your function app project. Extension bundles are supported for version 2.x and later version of the Functions runtime.
-
-Extension bundles are a way to add a pre-defined set of compatible binding extensions to your function app. Extension bundles are versioned. Each version contains a specific set of binding extensions that are verified to work together. Select a bundle version based on the extensions that you need in your app.
-
-When you create a non-.NET Functions project from tooling or in the portal, extension bundles are already enabled in the app's *host.json* file. 
-
-An extension bundle reference is defined by the `extensionBundle` section in a *host.json* as follows: 
-
-[!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
-
-The following table lists the currently available version ranges of the default *Microsoft.Azure.Functions.ExtensionBundle* bundles and links to the extensions they include.
-
-| Bundle version | Version in host.json | Included extensions |
-| --- | --- | --- |
-| 1.x | `[1.*, 2.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v1.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. |
-| 2.x | `[2.*, 3.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v2.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. |
-| 3.x | `[3.3.0, 4.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v3.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. |
-| 4.x | `[4.0.0, 5.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v4.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. |
-
-
-> [!NOTE]
-> Even though host.json supports custom ranges for `version`, you should use a version range value from this table, such as  `[4.0.0, 5.0.0)`. For a complete list of extension bundle releases and extension versions in each release, see the [extension bundles release page](https://github.com/Azure/azure-functions-extension-bundles/releases). 
+::: zone-end
 
 ## Explicitly install extensions
+::: zone pivot="programming-language-csharp"  
+For compiled C# class library projects, you install the NuGet packages for the extensions that you need as you normally would in your apps. For more information, see the [Visual Studio Code developer guide](functions-develop-vs-code.md?tabs=csharp#install-binding-extensions) or the [Visual Studio developer guide](functions-develop-vs.md#add-bindings). 
 
-For compiled C# class library projects ([in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md)), you install the NuGet packages for the extensions that you need as you normally would. For examples see either the [Visual Studio Code developer guide](functions-develop-vs-code.md?tabs=csharp#install-binding-extensions) or the [Visual Studio developer guide](functions-develop-vs.md#add-bindings). See the [extension bundles release page](https://github.com/Azure/azure-functions-extension-bundles/releases) to review combinations of extension versions that are verified compatible.
+Make sure to obtain the correct package because the namespace differs depending on the execution model:
 
-For non-.NET languages and C# script, when you can't use extension bundles you need to manually install required binding extensions in your local project. The easiest way is to use Azure Functions Core Tools. For more information, see [func extensions install](functions-core-tools-reference.md#func-extensions-install).  
+| Execution model | Namespace |
+| ----- | ----- |
+| [Isolated worker process](dotnet-isolated-process-guide.md) | `Microsoft.Azure.Functions.Worker.Extensions.*`|
+| [In-process](functions-dotnet-class-library.md) | `Microsoft.Azure.WebJobs.Extensions.*` |
 
-For portal-only development, you need to manually create an extensions.csproj file in the root of your function app. To learn more, see [Manually install extensions](functions-how-to-use-azure-function-app-settings.md#manually-install-extensions).
+Functions provides extension bundles for non-.NET projects, which contain a full set of binding extensions that are verified to be compatible. If you're having compatibility problems between two or more binding extensions, review compatible combinations of extension versions. For supported combinations of binding extensions, see the [extension bundles release page](https://github.com/Azure/azure-functions-extension-bundles/releases).
+::: zone-end  
+::: zone pivot="programming-language-python,programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell"  
+There are cases when you can't use extension bundles, such as when you need to use a specific prerelease version of a specific extension. In these rare cases, you must manually install any required binding extensions in a C# project file that references the specific extensions required by your app. To manually install binding extensions:
 
+1. Remove the extension bundle reference from your *host.json* file.
+
+1. Use the [func extensions install](functions-core-tools-reference.md#func-extensions-install) command in Azure Functions Core Tools to generate the required *extensions.csproj* file in the root of your local project.
+
+    For portal-only development, you need to manually create an extensions.csproj file in the root of your function app in Azure. To learn more, see [Manually install extensions](functions-how-to-use-azure-function-app-settings.md#manually-install-extensions).
+
+1. Edit the *extensions.csproj* file by explicitly adding a `PackageReference` element for every specific binding extension and version required by your app.   
+
+1. Validate your app functionality locally and then redeploy your project, including *extensions.csproj*, to your function app in Azure.  
+
+As soon as possible, you should [switch your app back to using the latest supported extension bundle](./extension-bundles.md#define-an-extension-bundle-reference).
+::: zone-end  
 ## Next steps
 > [!div class="nextstepaction"]
 > [Azure Function trigger and binding example](./functions-bindings-example.md)

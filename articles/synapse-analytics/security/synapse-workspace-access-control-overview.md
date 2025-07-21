@@ -7,7 +7,7 @@ ms.topic: overview
 ms.subservice: security
 ms.date: 02/05/2025
 ms.author: mesrivas
-ms.reviewer: wiassaf
+
 ---
 # Azure Synapse workspace access control overview
 

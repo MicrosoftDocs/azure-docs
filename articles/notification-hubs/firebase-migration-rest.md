@@ -5,18 +5,17 @@ author: sethmanheim
 manager: lizross
 ms.service: azure-notification-hubs
 ms.topic: article
-ms.date: 05/08/2024
+ms.date: 05/01/2025
 ms.author: sethm
-ms.reviewer: heathertian
-ms.lastreviewed: 04/12/2024
+
 ---
 
 # Google Firebase Cloud Messaging migration using REST API and the Azure portal
 
-This article describes the core capabilities for the integration of Azure Notification Hubs with Firebase Cloud Messaging (FCM) v1. As a reminder, Google will stop supporting FCM legacy HTTP on June 20, 2024, so you must migrate your applications and notification payloads to the new format before then. All methods of onboarding will be ready for migration by March 1, 2024.
+This article describes the core capabilities for the integration of Azure Notification Hubs with Firebase Cloud Messaging (FCM) v1. As a reminder, Google stopped supporting FCM legacy HTTP on June 20, 2024, so you must migrate your applications and notification payloads to the new format.
 
 > [!IMPORTANT]
-> As of June 2024, FCM legacy APIs will no longer be supported and will be retired. To avoid any disruption in your push notification service, you must [migrate to the FCM v1 protocol](notification-hubs-gcm-to-fcm.md) as soon as possible.
+> As of June 2024, FCM legacy APIs are longer supported and are retired. To avoid any disruption in your push notification service, you must [migrate to the FCM v1 protocol](notification-hubs-gcm-to-fcm.md).
 
 ## Concepts for FCM v1
 
@@ -28,13 +27,13 @@ This article describes the core capabilities for the integration of Azure Notifi
 
 ## Migration steps
 
-The Firebase Cloud Messaging (FCM) legacy API will be deprecated by July 2024. You can begin migrating from the legacy HTTP protocol to FCM v1 on March 1, 2024. You must complete the migration by June 2024. This section describes the steps to migrate from FCM legacy to FCM v1 using the Notification Hubs REST API.
+The Firebase Cloud Messaging (FCM) legacy API were deprecated by July 2024. You can begin migrating from the legacy HTTP protocol to FCM v1. This section describes the steps to migrate from FCM legacy to FCM v1 using the Notification Hubs REST API.
 
 ## REST API
 
 The following section describes how to perform the migration using the REST API.
 
-### Step 1: Add FCM v1 credentials to hub
+### Step 1: add FCM v1 credentials to hub
 
 The first step is to add credentials via the Azure portal, a management-plane hub operation, or data-plane hub operation.
 
@@ -57,13 +56,13 @@ The first step is to add credentials via the Azure portal, a management-plane hu
 
    :::image type="content" source="media/firebase-migration-rest/service-accounts.png" alt-text="Screenshot showing IAM service account settings." lightbox="media/firebase-migration-rest/service-accounts.png":::
 
-#### Option 1: Update FcmV1 credentials via the Azure portal
+#### Option 1: update FcmV1 credentials via the Azure portal
 
 Go to your notification hub on the Azure portal, and select **Settings > Google (FCM v1)**. Get the **Private Key**, **Project ID**, and **Client Email** values from the service account JSON file acquired from the previous section, and save them for later use.
 
 :::image type="content" source="media/firebase-migration-rest/firebase-credentials.png" alt-text="Screenshot showing Azure portal Firebase credentials options." lightbox="media/firebase-migration-rest/firebase-credentials.png":::
 
-#### Option 2: Update FcmV1 credentials via management plane hub operation
+#### Option 2: update FcmV1 credentials via management plane hub operation
 
 See the [description of a NotificationHub FcmV1Credential](/rest/api/notificationhubs/notification-hubs/create-or-update?view=rest-notificationhubs-2023-10-01-preview&tabs=HTTP#fcmv1credential&preserve-view=true).
 
@@ -76,7 +75,7 @@ See the [description of a NotificationHub FcmV1Credential](/rest/api/notificatio
   |     `privateKey`     |     string    |
   |     `projectId`      |     string    |
 
-#### Option 3: Update FcmV1 credentials via data plane hub operation
+#### Option 3: update FcmV1 credentials via data plane hub operation
 
 See [Create a notification hub](/rest/api/notificationhubs/create-notification-hub) and [Update a notification hub](/rest/api/notificationhubs/update-notification-hub).
 
@@ -151,11 +150,11 @@ For example, the following is the request body:
 </NotificationHubDescription>
 ```
 
-### Step 2: Manage registration and installation
+### Step 2: manage registration and installation
 
 For direct send scenarios, proceed directly to step 3. If you're using one of the Azure SDKs, see the [SDKs article](firebase-migration-sdk.md).
 
-#### Option 1: Create FCM v1 registration or update GCM registration to FCM v1
+#### Option 1: create FCM v1 registration or update GCM registration to FCM v1
 
 If you have an existing GCM registration, update the registration to **FcmV1Registration**. See [Create or update a registration](/rest/api/notificationhubs/create-update-registration). If you don't have an existing **GcmRegistration**, create a new registration as **FcmV1Registration**. See [Create a registration](/rest/api/notificationhubs/create-registration). The registration request body should appear as in the following example:
 
@@ -186,13 +185,13 @@ If you have an existing GCM registration, update the registration to **FcmV1Regi
 </entry>
 ```
 
-#### Option 2: Create FCM V1 installation or update GCM installation to FCM v1
+#### Option 2: create FCM V1 installation or update GCM installation to FCM v1
 
 See [Create or overwrite an installation](/rest/api/notificationhubs/create-overwrite-installation) and set `platform` to `FCMV1`.
 
 ### Step 3: Send a push notification
 
-#### Option 1: Debug send
+#### Option 1: debug send
 
 Use this procedure to test notifications prior to option 2, 3, or 4. See [Notification Hubs - Debug Send](/rest/api/notificationhubs/notification-hubs/debug-send?view=rest-notificationhubs-2023-10-01-preview&tabs=HTTP&preserve-view=true).
 
@@ -205,7 +204,7 @@ In the header:
 |--------------------------------------|---------------------------------------|
 |     `Content-Type`                     |     `application/json;charset=utf-8`    |
 |     `ServiceBusNotification-Format`    |     Set to `fcmV1` or `template`          |
-|     `Servicebusnotification-Tags`      |     {single tag identifier}           |
+|     `Servicebusnotification-Tags`      |     Your single tag identifier           |
 
 Test a payload [with the following structure](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages/send) via debug send. Note that FcmV1 introduces a significant change in the structuring of the JSON message payload:
 
@@ -218,7 +217,7 @@ Alternatively, you can perform a test send (debug send) via the Azure portal:
 
 :::image type="content" source="media/firebase-migration-rest/test-send.png" alt-text="Screenshot showing Azure portal test send page." lightbox="media/firebase-migration-rest/test-send.png":::
 
-#### Option 2: Direct send
+#### Option 2: direct send
 
 Perform a [direct send](/rest/api/notificationhubs/direct-send?view=rest-notificationhubs-2023-10-01-preview&preserve-view=true). In the request header, set `ServiceBusNotification-Format` to `fcmV1`.
 
