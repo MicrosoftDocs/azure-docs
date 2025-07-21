@@ -50,9 +50,9 @@ For technical information based on the connector's Swagger description, such as 
 
   For more information, see the following resources:
 
-  * [Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md)
+  * [Create an example Consumption logic app workflow](../quickstart-create-example-consumption-workflow.md)
 
-  * [Create an example Standard logic app workflow](../logic-apps/create-single-tenant-workflows-azure-portal.md)
+  * [Create an example Standard logic app workflow](../create-single-tenant-workflows-azure-portal.md)
 
 ## Add a Dataverse trigger
 
@@ -118,7 +118,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
 1. On the resource sidebar, under **Development Tools**, select the designer to open the workflow.
 
-1. On the designer, follow these [general steps to add the **Microsoft Dataverse** action for your scenario](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-action) to your workflow.
+1. On the designer, follow these [general steps to add the **Microsoft Dataverse** action for your scenario](../add-trigger-action-workflow.md?tabs=consumption#add-action) to your workflow.
 
    This example continues with the action named [**Add a new row**](/connectors/commondataserviceforapps/#add-a-new-row).
 
@@ -142,7 +142,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
 1. On the workflow sidebar, under **Tools**, select the designer to open the workflow.
 
-1. On the designer, follow these [general steps to add the **Microsoft Dataverse** action for your scenario](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to your workflow.
+1. On the designer, follow these [general steps to add the **Microsoft Dataverse** action for your scenario](../create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to your workflow.
 
    This example continues with the action named [**Add a new row**](/connectors/commondataserviceforapps/#add-a-new-row).
 
@@ -288,6 +288,6 @@ In Standard workflows, under specific conditions such as instance reallocation o
 
 ## Related content
 
-* [Managed connectors for Azure Logic Apps](managed.md)
-* [Built-in connectors for Azure Logic Apps](built-in.md)
-* [What are connectors in Azure Logic Apps](introduction.md)
+* [Managed connectors for Azure Logic Apps](../../connectors/managed.md)
+* [Built-in connectors for Azure Logic Apps](../../connectors/built-in.md)
+* [What are connectors in Azure Logic Apps](../../connectors/introduction.md)
