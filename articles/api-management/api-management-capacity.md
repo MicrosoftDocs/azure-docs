@@ -42,9 +42,6 @@ In the v2 tiers, the following metrics are available:
 
 * **Memory Percentage of Gateway** - The percentage of memory capacity used by the gateway units.
 
-    > [!NOTE]
-    > Currently, the Memory Percentage of Gateway metric isn't supported in the Premium v2 tier.
-
 Available aggregations for these metrics are as follows.
 
 * **Avg** - Average percentage of capacity used across gateway processes in every [unit](upgrade-and-scale.md) of an API Management instance. 

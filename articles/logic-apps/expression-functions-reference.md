@@ -4,7 +4,7 @@ description: Learn about expression functions for workflows in Azure Logic Apps 
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, niding, azla
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 07/08/2025
 ---
 

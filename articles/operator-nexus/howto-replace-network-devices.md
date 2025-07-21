@@ -9,34 +9,129 @@ ms.date: 08/12/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# Azure Operator Nexus Network Fabric device replacement guide
+# Replace a device in Azure Operator Nexus Network Fabric (NNF)
 
-This document provides a guide for replacing devices in the Azure Operator Nexus Network Fabric. The supported devices include CE devices, TOR switches, Network Packet Brokers (NPB), and Management switches. Note that the Nexus Network Fabric currently supports CE devices and TORs in maintenance mode; NPBs and Management switches do not support maintenance mode.
+This article describes how to replace a faulty or underperforming device in Azure Operator Nexus Network Fabric (NNF) using the RMA (Return Material Authorization) process which ensures minimal disruption and safe reintegration of the replacement hardware into the fabric.
 
-## Putting a device in maintenance mode
+## Scenarios for device replacement
 
-For the identified device, you can perform a post-action to keep the device in maintenance mode to drain out the traffic. Follow these steps to put the device in maintenance mode:
+Device replacement may be required in the following situations:
 
-### Steps to put a device in maintenance mode
+- Inconsistent Performance (Flakiness): The device shows intermittent connectivity or performance degradation.
 
-1. **Identify the device**: Determine the device that needs to be put into maintenance mode.
+- Hardware Failure: The device experiences critical hardware malfunctions that can't be fixed through standard troubleshooting.
 
-2. **Execute maintenance mode command**: Follow the instructions on how to put the device in maintenance mode as defined in [How to put a network device in maintenance mode](howto-put-device-in-maintenance-mode.md).
+- Persistent Unreachability: The device is permanently unreachable despite repeated recovery attempts.
 
-3. **Verify maintenance mode**: Confirm that the device is successfully in maintenance mode by checking its status as detailed in the documentation.
+## Prerequisites
 
-> [!NOTE]
-> - **CE Devices and TORs**: These devices support maintenance mode in the Nexus Network Fabric.
-> - **NPBs and Management Switches**: These devices do not support maintenance mode and will require direct intervention for replacement without maintenance mode capabilities.
+- Azure CLI installed and configured.
 
-## Device replacement process
+- Required permissions to manage Microsoft.ManagedNetworkFabric resources.
 
-For the replacement of CE devices, TORs, Network Packet Brokers (NPBs), and Management switches, follow the process below:
+- Replacement device powered on and connected physically.
 
-1. **Raise a support ticket**: Contact Microsoft Support to initiate the device replacement process. Provide all necessary details about the device and the issue.
+- Replacement device must support Zero Touch Provisioning (ZTP).
 
-2. **Coordinate with support**: Work with Microsoft Support to plan and execute the replacement. They will guide you through the necessary steps and ensure minimal disruption to your network operations.
+- To ensure a smooth and timely RMA process, please verify the following before initiating deployment:
+    
+    - Interface Speed Validation
 
-3. **Device replacement**: Follow the instructions provided by Microsoft Support to physically replace the device.
+        - Confirm that the ma1 interface speed is set to 100 Mbps or higher.
 
-4. **Post-replacement verification**: After replacing the device, verify that it is functioning correctly and that network traffic is flowing as expected.
+        - If the speed is below 100 Mbps, update it accordingly to prevent delays or potential timeouts during the RMA process.
+
+    - Device Storage Check
+        - Ensure the device has a minimum of 2 GB of free space available.
+
+        - This is required to successfully download and stage the necessary image files.
+ 
+
+## Steps to replace a device
+
+1. Disable administrative state.
+
+Use the following command to disable the administrative state of the device:
+
+```Azure CLI
+az networkfabric device update-admin-state \
+  --state Disable \
+  --resource-name "nf-device-name" \
+  --resource-group "resource-group-name"
+```
+
+This action:
+
+- Moves the device to a degraded state: EnabledDegraded.
+
+- Excludes the device from all control plane actions such as:
+
+    - Certificate rotations
+    
+    - Password rotations
+    
+    - Fabric upgrades
+
+2. Update the serial number.
+
+Once the replacement device is physically installed, update its serial number in the fabric resource:
+
+```Azure CLI
+az networkfabric device update \
+  --serial-number "replacement-serial-number" \
+  --resource-name "nf-device-name" \
+  --resource-group "resource-group-name"
+```
+
+3. Ensure device is in ZTP Mode.
+
+Verify that the replacement device is in ZTP mode. If not, configure the device for ZTP before continuing.
+
+> [!Note]
+> ZTP enables automatic configuration retrieval during the RMA process.
+
+4. Set RMA State.
+
+Initiate the RMA process using the following command:
+
+```Azure CLI
+az networkfabric device update-admin-state \
+  --state RMA \
+  --resource-name "nf-device-name" \
+  --resource-group "resource-group-name"
+```
+
+This will:
+
+- Trigger the Network Fabric Controller to push all required configuration files to the replacement device.
+
+- Retry the operation if there is transient failures until success is confirmed.
+
+5. Refresh configuration
+
+This step pushes the latest configuration to the device after it enters maintenance mode (applicable only for CE and TOR).
+
+```Azure CLI
+az networkfabric device refresh-configuration --resource-name <resource-name> --resource-group <rg-name>
+```
+
+This will push the latest config to the device.
+
+6. Enable administrative state.
+
+Once configuration is applied successfully, bring the device back into active service:
+
+```Azure CLI
+az networkfabric device update-admin-state \
+  --state Enable \
+  --resource-name "nf-device-name" \
+  --resource-group "resource-group-name"
+```
+
+This will: 
+
+- Sets device state to Enabled once it's fully healthy and synchronized with the fabric.
+
+## Summary
+
+The RMA workflow in Network Fabric ensures seamless device replacement with controlled state transitions and full configuration synchronization. This helps maintain service continuity and operational consistency across the network.

@@ -28,7 +28,7 @@ In this article, you learn to migrate from Azure Cache for Redis instance to an 
 
 | Feature Description               | Basic | Standard      | Premium       | Balanced         | Memory Optimized | Compute Optimized |
 |-----------------------------------|:-----:|:-------------:|:-------------:|:----------------:|:----------------:|:-----------------:|
-| Availability                      | N/A   | 99.9%         | 99.9%         | N/A              | N/A              | N/A               |
+| Availability                      | N/A   | 99.9%         | 99.9%         | Up to 99.999%    | Up to 99.999%   | Up to 99.999%     |
 | Data encryption in transit        | Yes   | Yes           | Yes           | Yes              | Yes              | Yes               |
 | Network isolation                 | Yes   | Yes           | Yes           | Yes              | Yes              | Yes               |
 | Scaling up/out                    | Yes   | Yes           | Yes           | Yes              | Yes              | Yes               |

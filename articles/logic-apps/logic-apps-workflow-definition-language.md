@@ -4,8 +4,8 @@ description: Reference guide to the JSON schema and syntax for the Workflow Defi
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 03/27/2025
+ms.topic: reference
+ms.date: 07/18/2025
 ---
 
 # Schema reference guide for the Workflow Definition Language in Azure Logic Apps

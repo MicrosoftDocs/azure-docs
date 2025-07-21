@@ -4,9 +4,9 @@ description: Learn about connectors that run natively with the runtime in Azure 
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: engagement-fy23
-ms.date: 12/18/2024
+ms.date: 03/18/2025
 ---
 
 # Built-in connectors in Azure Logic Apps
@@ -29,7 +29,7 @@ The following table lists the current and expanding galleries of built-in operat
 
 | Consumption | Standard |
 |-------------|----------|
-| Azure API Management <br>Azure App Service <br>Azure Functions <br>Azure Logic Apps <br>Batch Operations <br>Control <br>Data Operations <br>Date Time <br>Flat File <br>HTTP <br>Inline Code <br>Integration Account <br>Liquid Operations <br>Request <br>Schedule <br>Variables <br>XML Operations | AS2 (v2) <br>Azure AI Search* <br>Azure API Management <br>Azure Automation* <br>Azure Blob Storage* <br>Azure Cosmos DB* <br>Azure Event Grid Publisher* <br>Azure Event Hubs* <br>Azure File Storage* <br>Azure Functions <br>Azure Key Vault* <br>Azure OpenAI* <br>Azure Queue Storage* <br>Azure Service Bus* <br>Azure Table Storage* <br>Batch Operations <br>Control <br>Data Mapper Operations <br>Data Operations <br>Date Time <br>EDIFACT <br>File System* <br>Flat File <br>FTP* <br>HTTP <br>IBM 3270* <br>IBM CICS* <br>IBM DB2* <br>IBM Host File* <br>IBM IMS* <br>IBM MQ* <br>Inline Code <br>Integration Account <br>JDBC* <br>Liquid Operations <br>Request <br>RosettaNet <br>SAP* <br>Schedule <br>SFTP* <br>SMTP* <br>SQL Server* <br>SWIFT <br>Variables <br>Workflow Operations <br>X12 <br>XML Operations |
+| Azure API Management <br>Azure App Service <br>Azure Functions <br>Azure Logic Apps <br>Batch Operations <br>Control <br>Data Operations <br>Date Time <br>Flat File <br>HTTP <br>Inline Code <br>Integration Account <br>Liquid Operations <br>Request <br>Schedule <br>Variables <br>XML Operations | AI Operations <br>AS2 (v2) <br>Azure AI Document Intelligence* <br>Azure AI Search* <br>Azure API Management <br>Azure Automation* <br>Azure Blob Storage* <br>Azure Container App (ACA) session* <br>Azure Cosmos DB* <br>Azure Event Grid Publisher* <br>Azure Event Hubs* <br>Azure File Storage* <br>Azure Functions <br>Azure Key Vault* <br>Azure OpenAI* <br>Azure Queue Storage* <br>Azure Service Bus* <br>Azure Table Storage* <br>Batch Operations <br>Confluent* <br>Control <br>Data Mapper Operations <br>Data Operations <br>Date Time <br>EDIFACT <br>File System* <br>Flat File <br>FTP* <br>HTTP <br>IBM 3270* <br>IBM CICS* <br>IBM DB2* <br>IBM Host File* <br>IBM IMS* <br>IBM MQ* <br>Inline Code <br>Integration Account <br>JDBC* <br>Liquid Operations <br>RabbitMQ <br>Request <br>RosettaNet <br>SAP* <br>Schedule <br>SFTP* <br>SMTP* <br>SQL Server* <br>SWIFT <br>Variables <br>Workflow Operations <br>X12 <br>XML Operations |
 
 <a name="service-provider-interface-implementation"></a>
 

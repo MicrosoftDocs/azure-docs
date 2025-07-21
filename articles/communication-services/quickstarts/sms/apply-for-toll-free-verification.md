@@ -58,7 +58,7 @@ This section requires you to provide information about your company and point of
 
 This section requires you to provide description of the SMS campaign, opt-in method (how you plan to get consent from the customer to receive SMS), and screenshots of the selected opt-in method.  
 
-:::image type="content" source="./media/apply-for-toll-free-verification/regulatory-screen-4.png" alt-text="Screenshot showing Program content section." lightbox="./media/apply-for-toll-free-verification/regulatory-screen-4.png":::
+:::image type="content" source="./media/apply-for-toll-free-verification/tfv-program-content-new.png" alt-text="Screenshot showing Program content section." lightbox="./media/apply-for-toll-free-verification/tfv-program-content-new.png":::
 
 ### Volume details
 

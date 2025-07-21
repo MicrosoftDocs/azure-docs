@@ -25,14 +25,14 @@ items:
         href: quickstart-team-customizations.md
   - name: Concepts
     items:
+      - name: Key concepts
+        href: concept-dev-box-concepts.md
       - name: Architecture overview
         href: concept-dev-box-architecture.md
         displayName: Architecture,concepts,what is,overview,dev box,devbox,dev center,devcenter,project,networking,intune,azure
       - name: Network requirements
         href: concept-dev-box-network-requirements.md
         displayName: Network,firewall,endpoints,ports,connect,network connection,native,hybrid,hosted,tags
-      - name: Key concepts
-        href: concept-dev-box-concepts.md
       - name: Azure role-based access control
         href: concept-dev-box-role-based-access-control.md
         displayName: RBAC,role-based access control,permissions,access,role,role assignment,role definition

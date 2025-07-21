@@ -112,7 +112,7 @@ To configure backup, follow these steps:
  
 1. Review the configuration details, and then select **Configure Backup**.
 
-You can track the progress of the backup configuration under **Backup instances**. After the configuration of backup is complete, Azure Backup triggers the backup operation as per the backup policy schedule to create the recovery points.
+You can track the progress of the backup configuration under **Backup instances**. After the configuration of backup is complete, Azure Backup triggers the backup operation as per the backup policy schedule to create the recovery points. Backup may take a minimum of 30–40 minutes, as backups rely on snapshots, which are taken every 15 minutes and require two snapshots to detect changes before triggering the backup.
 
 ## Next steps
 
