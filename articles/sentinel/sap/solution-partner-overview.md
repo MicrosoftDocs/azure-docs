@@ -18,6 +18,8 @@ ms.collection: usx-security
 
 Microsoft Sentinel provides a flexible platform that enables SAP and Microsoft partners to deliver integrated security solutions through the Microsoft Sentinel Content Hub. 
 
+Add-ons enable further correlational capabilities for the Microsoft Sentinel Solution for SAP applications. SAP signals are correlated with signals from other Microsoft and third-party solutions, enabling comprehensive threat detection and response across the entire IT landscape using the Microsoft unified Security Operations platform.
+
 This article provides an overview of the partner ecosystem that builds upon and specializes in integration with the [Microsoft Sentinel Solution for SAP applications](solution-overview.md).
 
 ## Partner contributions
@@ -37,7 +39,7 @@ Choose from Microsoft Sentinel solutions build by SAP for SAP.
 
 | Name | Description | Azure Marketplace link |
 |------|-------------|-------------------|
-| SecurityBridge | SecurityBridge provides advanced SAP security monitoring and threat detection solutions with native integration into Microsoft Sentinel Solution for SAP and Microsoft Entra ID. Specialized in SAP vulnerability management, ABAP code scanning, and real-time security monitoring across SAP landscapes. Learn more [here](https://securitybridge.com/press/sap-security-integration-securitybridge-microsoft-sentinel/). | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/securitybridge1647511278080.securitybridge-sentinel-app-1?tab=Overview) |
+| SecurityBridge | SecurityBridge provides advanced SAP security monitoring and threat detection solutions with native integration into Microsoft Sentinel Solution for SAP and Microsoft Entra ID. Specialized in SAP vulnerability management, ABAP code scanning, and real-time security monitoring across SAP landscapes. | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/securitybridge1647511278080.securitybridge-sentinel-app-1?tab=Overview) |
 
 ### Solutions contributed by the community
 
