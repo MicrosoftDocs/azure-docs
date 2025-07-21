@@ -5,7 +5,7 @@ services: application gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 5/9/2024
+ms.date: 7/21/2025
 ms.author: mbender
 # Customer intent: As a cloud architect, I want to understand how Azure Application Gateway pricing works, so that I can accurately budget for my application infrastructure costs.
 ---
@@ -26,10 +26,16 @@ This article describes the costs associated with each billable component of Appl
 ## Billing Meters
 
 Application Gateway for Containers consists of four billable items: 
+
 - Application Gateway for Containers resource
 - Frontend resource 
 - Association resource 
 - Capacity units
+
+When Web Application Firewall is enabled two more billable items are added:
+
+- Web Application Firewall resource
+- Requests processed by WAF
 
 #### Application Gateway for Containers hour
 
@@ -170,6 +176,27 @@ Pricing calculation:
 * 1 Association x $0.12 x 730 hours = $87.60
 * 3 Capacity Units x $0.008 x 730 hours = $17.52
 * Total = $124.83
+
+### Example 6 - WAF enabled
+
+This example assumes Application Gateway for Containers has load raising the number of capacity units and has a Web Application Firewall (WAF) policy reference. The WAF policy is configured with both DRS 2.1 and bot manager rulesets.
+
+*	1 Application Gateway for Containers resource
+*	1 frontend resource
+*	1 association resource
+*	8 capacity units
+*	1 WAF policy running a default ruleset and a bot manager ruleset
+*	10 million requests processed by WAF
+
+Pricing calculation:
+
+*	1 Application Gateway for Containers x $0.017 x 730 hours = $12.41
+*	1 Frontend x $0.01 x 730 hours = $7.30
+*	1 Association x $0.12 x 730 hours = $87.60
+*	8 Capacity Units x $0.008 x 730 hours = $46.72
+*	WAF Policy x $0.068 x 730 hours = $49.64
+*	10 million requests x $0.75 x 2 rulesets = $15
+*	Total = $218.67
 
 ## Next steps
 
