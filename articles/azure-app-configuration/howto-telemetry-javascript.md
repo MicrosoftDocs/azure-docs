@@ -94,7 +94,7 @@ In this tutorial, you use telemetry in your Node.js application to track feature
 ## Collect telemetry
 
 Deploy your application to begin collecting telemetry from your users. To test its functionality, you can simulate user activity by creating many test users. Each user will experience a different variant of greeting messages, and they can interact with the application by clicking the heart button to like a quote. As your user base grows, you can monitor the increasing volume of telemetry data collected in Azure App Configuration. Additionally, you can drill down into the data to analyze how each variant of the feature flag influences user behavior.
-- [Review telemetry results in App Configuration](./howto-telemetry.md#review-telemetry-for-the-feature-flag).
+- [Review telemetry results in App Configuration](./howto-telemetry.md#review-telemetry-results-in-azure-app-configuration).
 
 ## Additional resources
 
