@@ -40,7 +40,7 @@ Users can manage all their connectors in one place through the Unified Security 
 
 ### One time authentication
 
-The platform provides a unified credentials service to store credentials for all connectors, enhancing security and usability.
+The platform provides a unified credentials service where the customer's credentials are entered once and stored for all connectors, enhancing security and usability.
 
 ### Unified health service
 
@@ -54,7 +54,7 @@ The platform allows integration with data lake, including enabling data federati
 
 ### Lifecycle management
 
-Unified connectors are pre-installed with the latest version eliminating the need for manual updates.
+Unified connectors are pre-installed with the latest version minimizing the need for manual updates.
 
 ## Supported Products
 
@@ -63,11 +63,11 @@ The Unified Connectors Platform is currently available for the following Microso
 - Microsoft Sentinel
 - Microsoft Defender for Identity
 
-Currently, Defender for Cloud Apps and Microsoft Security Exposure Management aren't supported and these customers should continue using their old connectors.
+Currently, Defender for Cloud Apps and Microsoft Security Exposure Management aren't supported and these customers should continue using their current connectors.
 
 ## Supported Connectors
 
-Currently, the Unified Connectors Platform is available in preview for [Okta Single Sign-On connectors](/defender-xdr/okta-integration.md) shared by Microsoft Sentinel, Microsoft Defender for Identity and Microsoft Security Exposure Management.
+Currently, the Unified Connectors Platform is available in preview for [Okta Single Sign-On connectors](/defender-xdr/okta-integration.md) shared by Microsoft Sentinel, Microsoft Defender for Identity, and Microsoft Security Exposure Management.
 
 ## Data connectors gallery
 
@@ -94,12 +94,10 @@ The Sentinel tab shows the connectors that are available only to Sentinel as the
 
 ## Considerations and limitations
 
-- The unified connectors scope doesn't include unified data flow. Once the data is collected and sent to the event hub of each product, each product is responsible for storing the data and providing its unique security value on top of the data.
 - The unified connectors scope doesn't include billing. Each individual product is responsible for how its users are charged.
 
-a.	currently for Sentinel unified connectors are not part of solutions and cannot be discovered through content hub.
-b.	Currently the unified connectors platform do not allow self-service development for 3rd parties.  
-
+- Currently for Sentinel unified connectors are not part of solutions and cannot be discovered through content hub.
+- Currently the unified connectors platform doesn't allow self-service development for 3rd parties.
 
 ## Related content
 

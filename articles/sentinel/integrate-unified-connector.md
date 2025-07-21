@@ -37,8 +37,10 @@ If you need to assign these roles, allow 15 minutes for the changes to propagate
 
 From your Okta account, you need the following information:
 
-- **Domain name**: The URL of your Okta account, such as `https://yourcompany.okta.com`.
+- **Domain name**: The URL of your Okta account without the `http://` prefix. For example, `yourcompany.okta.com`.
 - **API token**: An Okta API token. To generate an API token, follow the instructions in [Create an API token](https://developer.okta.com/docs/guides/create-an-api-token/main/).
+
+For information about integrating Okta with Defender for Identity, see [Integrate Okta with Microsoft Defender for Identity](/defender-for-identity/okta-integration).
 
 ## Create an Okta instance to a Sentinel workspace
 
@@ -78,7 +80,7 @@ To create an Okta instance in Microsoft Sentinel using the Okta unified connecto
 
 The connection process can take up to two minutes. If an error occurs, follow the provided error message for troubleshooting.
 
-The initial state of the connector is *Pending* until the initial data is received successfully. It can take up to 15 minutes to receive data. If data isn't successfully received, the connector moves to an *Error* state.
+The initial state of the connector is *Pending* until the initial data is received successfully. It can take up to 30 minutes to receive data. If data isn't successfully received, the connector moves to an *Error* state.
 
 Connectors that are successfully connected, appear in the **My Connectors tab**, and Okta system logs are ingested into your **Log Analytics workspace**.
 
@@ -112,10 +114,9 @@ To verify that the Okta connector is successfully ingesting data into your Log A
 
 > [!NOTE]
 >
-> - It can take up to 15-20 minutes from when you create the the connector instance for the *OktaSystemLogs* table to appear, containing your Okta system logs.
+> - It can take up to 30 minutes from when you create the the connector instance for the *OktaSystemLogs* table to appear, containing your Okta system logs.
 > - The connector will only ingest system logs from one hour before the instance was created.
 
 ## Considerations and limitations
 
-- Make sure there are no other connectors to the same product already configured in Microsoft Sentinel, Defender for Cloud, or Defender for Identity. If there are, remove them before using the unified connector.
 - Unified connectors aren't visible in the Content hub. To see the unified connectors, go to the [Data connectors Gallery](https://security.microsoft.com/sentinel/unified-connector).
