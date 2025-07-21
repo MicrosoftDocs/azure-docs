@@ -6,7 +6,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/connectors-create-crmonline.md",
+            "source_path_from_root": "/articles/connectors/connectors-create-crmonline.md",
             "redirect_url": "/azure/logic-apps/connectors/dataverse",
             "redirect_document_id": false
         },
