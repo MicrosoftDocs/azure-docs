@@ -71,7 +71,7 @@ To enable zone redundancy for your App Service Environment you must:
 
 - Configure your App Service Environment *and* your plans to support zone redundancy. You can enable zone redundancy during the creation of the App Service Environment or by updating an existing environment.
 
-    To learn whether or not the App Service Environment is configured for zone redundancy, see [Check for zone redundancy support for an App Service Environment](../app-service/environment/configure-zone-redundancy-ase.md#check-for-zone-redundancy-support-for-an-app-service-environment).
+    To learn whether or not the App Service Environment is configured for zone redundancy, see [Check for zone redundancy support for an App Service Environment](../app-service/environment/configure-zone-redundancy-environment.md#check-for-zone-redundancy-support-for-an-app-service-environment).
 
 ### Instance distribution across zones
 
