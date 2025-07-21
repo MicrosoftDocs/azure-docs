@@ -9,6 +9,7 @@ ms.custom:
   - ignite-2024
 ms.date: 04/21/2025
 ms.reviewer: jushiman
+# Customer intent: As a cloud architect, I want to configure Spot VMs in my Compute Fleet, so that I can optimize resource management and cost control while maintaining my target capacity effectively.
 ---
 
 # Spot VM configuration for Azure Compute Fleet

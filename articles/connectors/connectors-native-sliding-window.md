@@ -4,8 +4,8 @@ description: Create and run recurring tasks that handle contiguous data by using
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, azla
-ms.topic: conceptual
-ms.date: 01/04/2024
+ms.topic: how-to
+ms.date: 06/04/2025
 ---
 
 # Schedule and run tasks for contiguous data by using the Sliding Window trigger in Azure Logic Apps

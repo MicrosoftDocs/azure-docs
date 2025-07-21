@@ -2,7 +2,7 @@
 author: pgrandhi
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 01/28/2024
+ms.date: 06/28/2025
 ms.author: pgrandhi
 ---
 
@@ -23,6 +23,7 @@ First, install the Microsoft Azure Event Grid Management library for .NET with [
 ```csharp
 dotnet add package Azure.ResourceManager.EventGrid;
 ```
+
 Include the Event Grid Management SDK in your C# project:
 
 ```csharp
@@ -33,8 +34,11 @@ using Microsoft.Azure.Management.EventGrid.Models;
 ## Authenticate with Azure Identity library
 
 1. Create a Microsoft Entra application and Service Principal and set up a client secret or trusted certificate issued by certificate authority. Follow the instructions at [Register a Microsoft Entra app and create a service principal](/entra/identity-platform/howto-create-service-principal-portal).
+
 1. Store the secret or the certificate in the Azure Keyvault. 
+
 1. Give contributor or owner access to the subscription to that application following the instructions at [Grant a user access to Azure resources using the Azure portal](/azure/role-based-access-control/quickstart-assign-role-user-portal).
+
 1. Read more about [Authorizing access to Event Grid resources](/azure/event-grid/security-authorization).
 
 The Azure Identity library provides Microsoft Entra ID token authentication support across the Azure SDK. It provides a set of TokenCredential implementations, which you can use to construct Azure SDK clients that support Microsoft Entra token authentication. For more information, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme).
@@ -159,7 +163,7 @@ await eventGridClient.EventSubscriptions.UpdateAsync(
 
 ## Delete event Subscription
 
-This code sample shows how to delete the event subscription for the webhook subscriber endpoint.
+This sample code shows how to delete the event subscription for the webhook subscriber endpoint.
 
 ```csharp
 string webhookUri = $"<webhookUri>";

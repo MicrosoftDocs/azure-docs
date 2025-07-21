@@ -7,6 +7,7 @@ ms.service: azure-update-manager
 ms.topic: how-to
 ms.date: 08/01/2024
 
+# Customer intent: "As a system administrator managing machine schedules, I want to use migration runbooks to transfer workloads from Automation Update Management to Azure Update Manager, so that I can streamline updates and improve management efficiency across my automation accounts."
 ---
 
 # Migration using automated runbook scripts
@@ -70,7 +71,6 @@ Migration automation runbook ignores resources that aren't onboarded to Arc. It'
  - Creates an automation variable with name AutomationAccountAzureEnvironment which will store the Azure Cloud Environment to which Automation Account belongs.
  - Creation of User Identity in the same Subscription and resource group as the Automation Account. The name of User Identity will be like *AutomationAccount_aummig_umsi*. 
  - Attaching the User Identity to the Automation Account.
- - The script assigns the following permissions to the user managed identity: [Update Management Permissions Required](../automation/automation-role-based-access-control.md#update-management-permissions).
 
 
      1. For this, the script fetches all the machines onboarded to Automation Update Management under this automation account and parse their subscription IDs to be given the required RBAC to the User Identity. 

@@ -6,6 +6,7 @@ ms.service: azure-private-link
 ms.topic: troubleshooting
 ms.date: 02/18/2025
 ms.author: abell
+# Customer intent: As a network administrator, I want to troubleshoot Azure Private Endpoint connectivity issues, so that I can ensure secure and reliable access to Azure services from my virtual network.
 ---
 
 # Troubleshoot Azure Private Endpoint connectivity problems

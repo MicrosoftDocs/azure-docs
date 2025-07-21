@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 05/22/2025
 ms.author: b-ahibbard
+# Customer intent: "As a cloud administrator, I want to configure application volume groups for SAP HANA using REST API, so that I can ensure proper volume management and deployment across single-host and multiple-host setups in Azure."
 ---
 # Configure application volume groups for SAP HANA using REST API
 

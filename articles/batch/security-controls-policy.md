@@ -7,6 +7,7 @@ author: padmalathas
 ms.author: padmalathas
 ms.service: azure-batch
 ms.custom: subject-policy-compliancecontrols
+# Customer intent: "As a compliance officer, I want to understand the available regulatory compliance controls for Azure Batch, so that I can ensure our resources meet necessary compliance standards effectively."
 ---
 # Azure Policy Regulatory Compliance controls for Azure Batch
 
@@ -19,7 +20,7 @@ the specific standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-batch](../../includes/policy/standards/byrp/microsoft.batch.md)]
+[!INCLUDE [azure-policy-compliancecontrols-batch](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.batch.md)]
 
 ## Next steps
 

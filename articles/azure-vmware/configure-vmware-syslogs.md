@@ -8,6 +8,7 @@ ms.custom: engagement-fy23
 
 #Customer intent: As an Azure service administrator, I want to collect VMware syslogs and store it in my storage account so that I can view the vCenter Server logs and analyze for any diagnostic purposes.
 
+# Customer intent: "As an Azure service administrator, I want to configure diagnostic settings to collect and store VMware syslogs, so that I can analyze vCenter Server logs for effective monitoring and troubleshooting in my Azure VMware Solution private cloud."
 ---
 
 # Configure VMware syslogs for Azure VMware Solution

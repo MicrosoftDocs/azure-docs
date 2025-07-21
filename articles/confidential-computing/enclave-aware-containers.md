@@ -7,6 +7,7 @@ ms.topic: overview
 ms.date: 9/22/2020
 ms.author: ananyagarg
 ms.subservice: confidential-computing
+# Customer intent: As a developer interested in secure applications, I want to create enclave aware container applications using Intel SGX on Azure Kubernetes Service, so that I can ensure confidentiality for data and code execution in a trusted environment.
 ---
 
 # Enclave Aware Containers with Intel SGX

@@ -5,8 +5,9 @@ ms.topic: how-to
 ms.service: azure-vmware
 author: ju-shim
 ms.author: jushiman
-ms.date: 3/22/2024
+ms.date: 6/18/2024
 ms.custom: references_regions, engagement-fy23
+# Customer intent: "As a cloud administrator, I want to integrate Azure Elastic SAN with Azure VMware Solution, so that I can optimize storage performance and enhance resource management for my virtual machines."
 ---
 
 # Use Azure VMware Solution with Azure Elastic SAN 
@@ -41,6 +42,7 @@ You can use the following host types when Azure Elastic SAN is the backing stora
 
 - AV36
 - AV36P
+- AV48
 - AV52
 - AV64
 
@@ -109,10 +111,23 @@ Once your SDDC express route is connected with the private endpoint for your Ela
 To delete the Elastic SAN-based datastore, use the following steps from the Azure portal.
 
 1. From the left navigation in your Azure VMware Solution private cloud, select **Storage**, then **Datastore list**.
-1. On the far right is an **ellipsis**. Select **Delete** to disconnect the datastore from the clusters.
-   
-   :::image type="content" source="media/configure-azure-elastic-san/elastic-san-datastore-list-ellipsis-removal.png" alt-text="Screenshot showing Elastic SAN volume removal." border="false"lightbox="media/configure-azure-elastic-san/elastic-san-datastore-list-ellipsis-removal.png":::
-   
+1. On the far right is an **ellipsis**. Select **Delete** to disconnect the datastore from the clusters.  
 1. Optionally, you can delete the volume you previously created in your Elastic SAN.
-      > [!NOTE]
+
+   :::image type="content" source="media/configure-azure-elastic-san/disconnect-esan-based-datastore.png" alt-text="Screenshot showing Disconnect ESAN based datastore." border="false"lightbox="media/configure-azure-elastic-san/disconnect-esan-based-datastore.png":::
+   
+   > [!NOTE]
    > This operation can't be completed if virtual machines or virtual disks reside on an Elastic SAN VMFS Datastore.
+   
+## Resize an Elastic SAN-based datastore
+
+To resize the Elastic SAN-based datastore, use the following steps from the Azure portal.
+
+1. From the left navigation in your Azure VMware Solution private cloud, select **Operations**, then **Run Command**.
+1. On the packages, go to the latest Azure VMware Solution VMFS package and select **Resize-VmfsVolume**.
+1. In the run command, enter the ClusterName, DeviceNaaID or DatastoreName details and click **Run**.
+
+   :::image type="content" source="media/configure-azure-elastic-san/resize-vmfsvolume.png" alt-text="Screenshot showing Resize ESAN based datastore." border="false"lightbox="media/configure-azure-elastic-san/resize-vmfsvolume.png":::
+
+   > [!NOTE]
+   > Run Commands are executed one at a time in the order submitted.

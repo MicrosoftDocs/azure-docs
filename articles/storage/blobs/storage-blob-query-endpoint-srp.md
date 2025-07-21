@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024
 ms.custom: devguide-csharp, devguide-java, devguide-javascript, devguide-python
+# Customer intent: As a developer, I want to query a Blob Storage endpoint and create a client object, so that I can access and manage Blob Storage data resources programmatically.
 ---
 
 # Query for a Blob Storage endpoint using the Azure Storage management library

@@ -13,6 +13,7 @@ ms.reviewer: fryu
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
+# Customer intent: "As a cloud administrator, I want to enforce a minimum version of Transport Layer Security (TLS) for my storage accounts, so that I can ensure secure communications and protect sensitive data from potential vulnerabilities."
 ---
 
 # Enforce a minimum required version of Transport Layer Security (TLS) for requests to a storage account
@@ -97,7 +98,7 @@ When you are confident that traffic from clients using older versions of TLS is 
 
 To configure the minimum TLS version for a storage account, set the **MinimumTlsVersion** version for the account. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information about the Azure Resource Manager deployment model, see [Storage account overview](storage-account-overview.md).
 
-The default value of the **MinimumTlsVersion** property is different depending on how you set it. When you create a storage account with the Azure portal, the minimum TLS version is set to 1.2 by default. When you create a storage account with PowerShell, Azure CLI, or an Azure Resource Manager template, the **MinimumTlsVersion** property is not set by default and does not return a value until you explicitly set it.
+The default value of the **MinimumTlsVersion** property is different depending on how you set it. When you create a storage account with the Azure portal, the minimum TLS version is set to 1.2 by default. When creating a storage account using PowerShell, Azure CLI, or an Azure Resource Manager template, the `MinimumTlsVersion` property is not set by default and will not return a value until explicitly configured."
 
 When the **MinimumTlsVersion** property is not set, its value may be displayed as either **null** or an empty string, depending on the context. The storage account will permit requests sent with TLS version 1.0 or greater if the property is not set.
 

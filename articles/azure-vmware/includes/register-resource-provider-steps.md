@@ -7,6 +7,7 @@ ms.custom: devx-track-azurecli, engagement-fy23
 ms.date: 01/04/2024
 author: suzizuber
 ms.author: v-szuber
+# Customer intent: "As a cloud administrator, I want to register the Azure VMware Solution resource provider with my subscription, so that I can enable the deployment and management of VMware resources in the Azure environment."
 ---
 
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->

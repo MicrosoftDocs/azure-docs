@@ -8,6 +8,8 @@ ms.custom: engagement-fy24
 ms.topic: how-to
 #Customer intent: As an administrator, I want disable local authentication so that I can enhance security.
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Disable local authentication in Automation

@@ -29,13 +29,11 @@ dotnet add package Azure.ResourceManager.Communication
 Set the environment variable `AZURE_SUBSCRIPTION_ID` with the subscription ID of the subscription your Domain and Email resources are in. Run the code sample to initialize the management client.
 
 ```csharp
-using System;
-using System.Threading.Tasks;
 using Azure.Core;
 using Azure.Identity;
 using Azure.ResourceManager;
-using Azure.ResourceManager.Compute;
-using Azure.ResourceManager.Resources;
+using Azure.ResourceManager.Communication;
+using Azure;
 
 ArmClient client = new ArmClient(new DefaultAzureCredential());
 ```

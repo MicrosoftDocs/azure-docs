@@ -116,6 +116,41 @@ console.log(`\nCreated an identity with ID: ${identityResponse.communicationUser
 
 Store the received identity with mapping to your application's users (for example, by storing it in your application server database).
 
+## (Preview) Create an identity with an associated custom ID
+
+> [!IMPORTANT]
+> This feature is available starting with the SDK version `1.4.0-beta1`.
+
+> [!NOTE]
+> This feature is currently in preview.
+
+You can create an identity with an associated `customId` to map your application's user identities to Azure Communication Services identities. When you call `createUser` with the same `customId`, the service returns the same `communicationUserId`. This eliminates the need to store the mapping yourself.
+
+```javascript
+const customId = "alice@contoso.com";
+let user = await identityClient.createUser({ customId });
+console.log(`\nCreated an identity with ID: ${user.communicationUserId}`);
+```
+
+## (Preview) Get identity details
+
+> [!IMPORTANT]
+> This feature is available starting with the SDK version `1.4.0-beta1`.
+
+> [!NOTE]
+> This feature is currently in preview.
+
+You can use the `getUserDetail` method to retrieve information about a user, including the `customId` and the `lastTokenIssuedAt`.
+
+```javascript
+const customId = "alice@contoso.com";
+let user = await identityClient.createUser({ customId });
+let userDetails = client.getUserDetail(user);
+console.log(`\nUser ID: ${user.communicationUserId}`);
+console.log(`\nCustom ID: ${userDetails.customId}`);
+console.log(`\nLast token issued at: ${userDetails.lastTokenIssuedAt}`);
+```
+
 ## Issue an access token
 
 Use the `getToken` method to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Identity model](../../../../concepts/identity-model.md#access-tokens). You can also construct a new instance of a `communicationUser` based on a string representation of the Azure Communication Service identity.
@@ -150,6 +185,28 @@ You can use the `createUserAndToken` method to create a Communication Services i
 ```javascript
 // Issue an identity and an access token with a validity of 24 hours and the "voip" scope for the new identity
 let identityTokenResponse = await identityClient.createUserAndToken(["voip"]);
+
+// Get the token, its expiration date, and the user from the response
+const { token, expiresOn, user } = identityTokenResponse;
+console.log(`\nCreated an identity with ID: ${user.communicationUserId}`);
+console.log(`\nIssued an access token with 'voip' scope that expires at ${expiresOn}:`);
+console.log(token);
+```
+
+### (Preview) Create an identity and issue a token in one method call including a customId
+
+> [!IMPORTANT]
+> This feature is available starting with the SDK version `1.4.0-beta1`.
+
+> [!NOTE]
+> This feature is currently in preview.
+
+You can pass your custom ID to the `createUserAndToken` method to create an identity and issue an access token in a single call.
+
+```javascript
+// Issue an identity and an access token with a validity of 24 hours and the "voip" scope for the new identity
+const customId = "bob@contoso.com";
+let identityTokenResponse = await identityClient.createUserAndToken(["voip"], { customId });
 
 // Get the token, its expiration date, and the user from the response
 const { token, expiresOn, user } = identityTokenResponse;

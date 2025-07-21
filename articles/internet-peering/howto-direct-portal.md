@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 03/03/2025
+# Customer intent: As an Internet Service Provider, I want to create or modify Direct peering connections in the cloud, so that I can efficiently manage my network resources and ensure optimal connectivity to Microsoft's infrastructure.
 ---
 
 # Create or modify a Direct peering using the Azure portal

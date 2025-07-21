@@ -13,6 +13,8 @@ author: msangapu-msft
 
 # Buy and manage App Service certificates
 
+[!INCLUDE [app-service-managed-certificate](./includes/managed-certs/managed-certs-note.md)]
+
 This article shows you how to create an Azure App Service certificate and perform management tasks like renewing, synchronizing, and deleting certificates. After you have an App Service certificate, you can then import it into an App Service app. An App Service certificate is a private certificate that Azure manages. It combines the simplicity of automated certificate management and the flexibility of renewal and export options.
 
 If you purchase an App Service certificate from Azure, Azure manages the following tasks:

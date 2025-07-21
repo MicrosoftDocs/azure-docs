@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 06/05/2025
 ms.author: jsuri
 
+# Customer intent: As a cloud architect, I want to implement Azure Site Recovery for trusted launch virtual machines, so that I can ensure robust disaster recovery and migrate existing VMs securely against persistent threats.
 ---
 # Azure Site Recovery support for Azure trusted launch virtual machines 
 

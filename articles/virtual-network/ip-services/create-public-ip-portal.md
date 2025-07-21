@@ -9,6 +9,7 @@ ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 04/16/2024
 ms.custom: template-quickstart, mode-ui
+# Customer intent: As a cloud administrator, I want to create a public IP address of either Standard or Basic SKU using the portal, so that I can establish public connections to my Azure resources for various workloads.
 ---
 
 # Quickstart: Create a public IP address using the Azure portal
