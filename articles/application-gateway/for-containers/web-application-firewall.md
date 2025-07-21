@@ -60,7 +60,7 @@ The following functionality is not supported on a WAF Policy associated with App
 
 * WAF Security Copilot
 * WAF Security Copilot – Embedded
-* Java Script (JS) Challenge Actions
+* JavaScript (JS) Challenge Actions
 * CRS 3.2 and lower ruleset
 
 ## Pricing
