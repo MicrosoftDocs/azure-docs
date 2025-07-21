@@ -53,7 +53,7 @@ This article provides detailed descriptions and requirements for components of A
 ### Application Gateway for Containers security policy
 
 - An Application Gateway for Containers security policy defines additional security configurations for the ALB Controller to consume.
-- Multiple security policies can be refered by a single Application Gateway for Containers resource.
+- Multiple security policies can be referred by a single Application Gateway for Containers resource.
 - At this time, the only security policy type offered is `waf` for web application firewall capabilities.
 - The `waf` security policy is a one-to-one mapping between the security policy resource and a Web Application Firewall policy.
   - Only one web application firewall policy may be referenced in any number of security policies for a defined Application Gateway for Containers resource.

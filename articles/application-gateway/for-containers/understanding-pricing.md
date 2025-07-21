@@ -204,7 +204,7 @@ Pricing calculation:
 
 ### Example 7 - Web Application Firewall - Multiple Policies
 
-This example assumes Application Gateway for Containers has load raising the number of capacity units and has three Web Application Firewall (WAF) policy reference to three cooresponding Application Gateway for Containers' security policies. One policy is configured with both DRS 2.1 and bot manager rulesets, the other two policies only have DRS 2.1 ruleset.
+This example assumes Application Gateway for Containers has load raising the number of capacity units and has three Web Application Firewall (WAF) policy reference to three corresponding Application Gateway for Containers' security policies. One policy is configured with both DRS 2.1 and bot manager rulesets, the other two policies only have DRS 2.1 ruleset.
 
 *	1 Application Gateway for Containers resource
 *	1 frontend resource

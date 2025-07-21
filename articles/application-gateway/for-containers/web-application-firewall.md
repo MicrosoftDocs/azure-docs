@@ -35,7 +35,7 @@ In addition, the following sections may be referenced by name for each of the pa
 * Gateway - Listener
 * HTTPRoute - Path
 
-Here is an example YAML configuration that shows targetting a specific path called `pathA` on an HTTPRoute resource:
+Here is an example YAML configuration that shows targeting a specific path called `pathA` on an HTTPRoute resource:
 
 ```yaml
 apiVersion: alb.networking.azure.io/v1
@@ -60,7 +60,7 @@ The following functionality is not supported on a WAF Policy associated with App
 
 * **Rate Limiting Custom Rules**
 * **Java Script (JS) Challenge Actions**
-* **CRS 3.2 and lower rulset**
+* **CRS 3.2 and lower ruleset**
 
 ## Pricing
 
