@@ -219,10 +219,10 @@ You can see the status of your WhatsApp Business account in the Azure portal. Ac
 
 ## Next steps
 
-This article described the prerequisite steps to configuring WhatsApp as a Channel in Microsoft Copilot Studio. Now you're ready add WhatsApp as a Channel in your AI agent in Microsoft Copilot Studio.
+This article covered the prerequisites for configuring WhatsApp as a channel in Microsoft Copilot Studio. You're now ready to add WhatsApp to your AI agent.
 
 > [!div class="nextstepaction"]
-> [Add bot to WhatsApp](https://go.microsoft.com/fwlink/?linkid=2313226)
+> [Add WhatsApp to your AI agent](https://go.microsoft.com/fwlink/?linkid=2313226)
 
 ## Related articles
 

@@ -19,22 +19,22 @@
       href: /azure/machine-learning/how-to-high-availability-machine-learning?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json   
   - name: Analytics
     items:
-    - name: Azure HDInsight
-      href: reliability-hdinsight.md
-    - name: Azure Machine Learning
-      href: /azure/machine-learning/how-to-high-availability-machine-learning?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Azure Stream Analytics
-      href: ../stream-analytics/geo-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json 
-    - name: Azure Event Hubs
-      href: reliability-event-hubs.md
+    - name: Azure Chaos Studio
+      href: reliability-chaos-studio.md
     - name: Azure Data Explorer
       href: /azure/data-explorer/business-continuity-overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Data Factory
       href: reliability-data-factory.md
     - name: Azure Data Share
       href: ../data-share/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Azure Chaos Studio
-      href: reliability-chaos-studio.md
+    - name: Azure Event Hubs
+      href: reliability-event-hubs.md
+    - name: Azure HDInsight
+      href: reliability-hdinsight.md
+    - name: Azure Machine Learning
+      href: /azure/machine-learning/how-to-high-availability-machine-learning?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Azure Stream Analytics
+      href: ../stream-analytics/geo-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json 
     - name: Microsoft Fabric
       href: reliability-fabric.md
     - name: Microsoft Purview
@@ -161,14 +161,12 @@
       href: reliability-sustainability-data-solutions-fabric.md
   - name: Integration
     items:
-    - name: Azure Service Bus
-      href: ../service-bus-messaging/service-bus-outages-disasters.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones
     - name: Azure API Management
       href: reliability-api-management.md
-    - name: Azure Data Manager for Energy
-      href: reliability-energy-data-services.md
     - name: Azure Data Factory
       href: ../data-factory/concepts-data-redundancy.md?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json
+    - name: Azure Data Manager for Energy
+      href: reliability-energy-data-services.md
     - name: Azure Event Grid
       href: ./reliability-event-grid.md
     - name: Azure Functions 
@@ -181,6 +179,8 @@
         href: reliability-health-data-services-deidentification.md
     - name: Azure Logic Apps
       href: reliability-logic-apps.md
+    - name: Azure Service Bus
+      href: ../service-bus-messaging/service-bus-outages-disasters.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones
   - name: Internet of Things
     items:
     - name: Azure Device Registry
@@ -245,6 +245,8 @@
       href: reliability-load-balancer.md 
     - name: Azure Network Watcher
       href: ../network-watcher/frequently-asked-questions.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#service-availability-and-redundancy
+    - name: Azure Private 5G Core
+      href: ../private-5g-core/reliability-private-5g-core.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Private Link
       href: ../private-link/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json    
     - name: Azure Public IP
@@ -267,8 +269,6 @@
         href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json   
       - name: Disaster recovery
         href: ../vpn-gateway/vpn-gateway-highlyavailable.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json    
-      - name: Azure Private 5G Core
-        href: ../private-5g-core/reliability-private-5g-core.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
   - name: Security
     items:
     - name: Azure Disk Encryption 
