@@ -69,7 +69,10 @@ To successfully create a data connection, you must first ensure that you've comp
 1. Expand the **Log Analytics agent instructions** section to view your workspace ID and primary key. These values are used to set up your data connection.
 
 > [!NOTE] 
-> The Http Data Collector, currently used by the Defender EASM Log Analytics Data Connector, is being deprecated on September 14, 2026. It will be replaced with the Logs Ingestion API and will require additional permission configurations below.
+> The **HTTP Data Collector API**, currently used by the **Defender EASM Log Analytics Data Connector**, will be **deprecated on September 14, 2026**.
+>
+> All new Log Analytics Data Connectors will use the **Logs Ingestion API**, which requires additional permission configurations as outlined below.
+
 
 ### Configure Resource Group Role Assignments
 
