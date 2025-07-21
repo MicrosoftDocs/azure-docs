@@ -199,7 +199,7 @@ Pricing calculation:
 *	1 Association x $0.12 x 730 hours = $87.60
 *	8 Capacity Units x $0.008 x 730 hours = $46.72
 *	WAF enablement x $0.068 x 730 hours = $49.64
-*	10 one million requests (10) x $0.75 x 2 WAF rulesets = $15
+*	10 one million requests (10) x $0.75 x 2 WAF rulesets (DRS 2.1 and Bot Manager) = $15
 *	Total = $218.67
 
 ### Example 7 - Web Application Firewall - Multiple Policies
@@ -221,10 +221,8 @@ Pricing calculation:
 *	1 Association x $0.12 x 730 hours = $87.60
 *	8 Capacity Units x $0.008 x 730 hours = $46.72
 *	WAF enablement x $0.068 x 730 hours = $49.64
-*	10 million requests (10) x $0.75 x 4 WAF rulesets (3 DRS rulesets + 1 Bot Manager ruleset) = $30
+*	10 million requests (10) x $0.75 x 2 WAF rulesets (DRS 2.1 and Bot Manager) = $15
 *	Total = $218.67
-
-
 
 ## Next steps
 
