@@ -20,15 +20,17 @@ Microsoft Sentinel provides a flexible platform that enables SAP and Microsoft p
 
 Add-ons enable further correlational capabilities for the Microsoft Sentinel Solution for SAP applications. SAP signals are correlated with signals from other Microsoft and third-party solutions, enabling comprehensive threat detection and response across the entire IT landscape using the Microsoft unified Security Operations platform.
 
+:::image type="content" source="media/partner/addon-overview.png" alt-text="Diagram that shows the community extension pattern for the agentless Microsoft Sentinel solution for SAP." border="false" lightbox="media/partner/addon-overview.png":::
+
 This article provides an overview of the partner ecosystem that builds upon and specializes in integration with the [Microsoft Sentinel Solution for SAP applications](solution-overview.md).
 
 ## Partner contributions
 
-These solutions include ready-to-use connectors, workbooks, analytics rules, and playbooks.
+These solutions include ready-to-use connectors activating the Microsoft internal log streams such as AS ABAP Security Audit Log. Furthermore, specialized workbooks, dedicated analytics rules, and playbooks are provided.
 
 ### Solutions provided by SAP as vendor
 
-Choose from Microsoft Sentinel solutions build by SAP for SAP.
+Choose from Microsoft Sentinel solution add-ons build by SAP for SAP.
 
 | Name | Description | Azure Marketplace link |
 |------|-------------|-------------------|
@@ -41,36 +43,31 @@ Choose from Microsoft Sentinel solutions build by SAP for SAP.
 |------|-------------|-------------------|
 | SecurityBridge | SecurityBridge provides advanced SAP security monitoring and threat detection solutions with native integration into Microsoft Sentinel Solution for SAP and Microsoft Entra ID. Specialized in SAP vulnerability management, ABAP code scanning, and real-time security monitoring across SAP landscapes. | [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/securitybridge1647511278080.securitybridge-sentinel-app-1?tab=Overview) |
 
-### Solutions contributed by the community
+### Solutions provided by the community
 
 Extension patterns available for the agentless data connector of the Microsoft Sentinel Solution for SAP applications enable individual enhancements and extended scope of the Microsoft provided solution. Customers, partners, and individual community members share their artifacts via [this official repos](https://github.com/Azure-Samples/Sentinel-For-SAP-Community).
+
+:::image type="content" source="media/partner/overview.png" alt-text="Diagram that shows the community extension pattern for the agentless Microsoft Sentinel solution for SAP." border="false" lightbox="media/partner/overview.png":::
 
 Get started from the [contribution guide](https://github.com/Azure-Samples/Sentinel-For-SAP-Community?tab=readme-ov-file#contributing-) or reach out via [GitHub issues](https://github.com/Azure-Samples/Sentinel-For-SAP-Community/issues).
 
 ## Implementation and managed services partners 
 
-Partners also offer hands-on support - from helping set up the Microsoft Sentinel Solution for SAP to delivering managed Security Operations Center (SOC) to compliance monitoring, and continuous improvement services.
+Implementation and managed services partners apply above solutions in addition to you Sentinel solution for SAP applications and offer hands-on support. This involves helping set up the Microsoft Sentinel Solution for SAP and your chosen add-on, delivering managed Security Operations Center (SOC), compliance monitoring, and continuous improvement.
 
-Customers can engage partners listed in the following table or from the [Microsoft Solution Partner finder](https://appsource.microsoft.com/marketplace/partner-dir).
+Discover partner solutions from the Azure marketplace or from the [Microsoft Solution Partner finder](https://appsource.microsoft.com/marketplace/partner-dir).
 
-> [!NOTE]
-> The descriptions and linked pages are provided by the partners themselves.
-
-| Partner* | Azure Marketplace link |
+| Partner | Azure Marketplace link |
 |------|-------------|-------------------|
 | Delaware | [Protecting SAP: 3 day workshop](https://azuremarketplace.microsoft.com/marketplace/consulting-services/delaware.sec_protect_sap?search=Delaware&page=1) |
 | EY | [EY Application Threat Detection and Response Service for SAP (TDR)](https://azuremarketplace.microsoft.com/marketplace/apps/ey_global.ey_application_tdr_for_sap?tab=Overview) |
 | IBM | [IBM Threat Management with Microsoft’s SAP Threat Monitoring Solution for Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/consulting-services/ibm-ny-armonk-hq-6205522-ibmsecurity-xftm.ibm-security-svcs-threatmanagement-sapthreatmon?page=1&search=ibm%20security%20services) |
 | PWC | [Secure SAP on Microsoft Cloud](https://azuremarketplace.microsoft.com/marketplace/apps/pwc.secure_sap_on_microsoft_cloud?tab=Overview) |
 
-*partners listed alphabetically by name
-
 > [!TIP]
 > You're a partner looking to expand your SAP Security offerings and get listed? Reach out to the Microsoft Sentinel for SAP team through [GitHub issues](https://github.com/Azure-Samples/Sentinel-For-SAP-Community/issues).
 
 ## Next steps
-
-- Contact partners directly or visit the generic [Microsoft Partner Finder](https://appsource.microsoft.com/marketplace/partner-dir) to find providers in your region.
 
 - [Learn more about Microsoft Sentinel Solution for SAP applications](solution-overview.md).
 
