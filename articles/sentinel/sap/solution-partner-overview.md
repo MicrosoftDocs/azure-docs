@@ -53,7 +53,7 @@ Get started from the [contribution guide](https://github.com/Azure-Samples/Senti
 
 ## Implementation and managed services partners 
 
-Implementation and managed services partners apply above solutions in addition to you Sentinel solution for SAP applications and offer hands-on support. This involves helping set up the Microsoft Sentinel Solution for SAP and your chosen add-on, delivering managed Security Operations Center (SOC), compliance monitoring, and continuous improvement.
+Implementation and managed services partners apply above solutions in addition to your Sentinel solution for SAP applications and offer hands-on support. This involves helping set up the Microsoft Sentinel Solution for SAP and your chosen add-on, delivering managed Security Operations Center (SOC), compliance monitoring, and continuous improvement.
 
 Discover partner solutions from the Azure marketplace or from the [Microsoft Solution Partner finder](https://appsource.microsoft.com/marketplace/partner-dir).
 
