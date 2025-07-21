@@ -12,26 +12,26 @@ ms.service: azure-operator-service-manager
 
 Azure Operator Service Manager provides three distinct interfaces that cater to three roles:
 
-- Network Function (NF) Publisher
-- Service Designer
-- Service Operator
+- Network function (NF) publisher
+- Service designer
+- Service operator
 
 In practice, the same person can perform more than one of these roles if necessary.
 
-:::image type="content" source="media/roles-interfaces-diagram.png" alt-text="Diagram that shows three interfaces catering to three roles: Publisher, Designer, and Operator." lightbox="media/roles-interfaces-diagram.png":::
+:::image type="content" source="media/roles-interfaces-diagram.png" alt-text="Diagram that shows three interfaces catering to three roles: publisher, designer, and operator." lightbox="media/roles-interfaces-diagram.png":::
 
-## NF Publisher
+## NF publisher
 
-The NF Publisher creates and publishes network functions to Azure Operator Service Manager. NF Publisher responsibilities include:
+The NF publisher creates and publishes network functions to Azure Operator Service Manager. NF publisher responsibilities include:
 
 - Create the network function.
 - Encode the network function in a network function definition (NFD).
-- Determine the deployment parameters to expose to the Service Designer.
+- Determine the deployment parameters to expose to the service designer.
 - Onboard the NFD to Azure Operator Service Manager.
 - Upload the associated artifacts.
 - Validate the NFD.
 
-The NF Publisher is responsible for creating and updating these Azure Operator Service Manager resources:
+The NF publisher is responsible for creating and updating these Azure Operator Service Manager resources:
 
 - Publisher
 - Artifact store
@@ -39,28 +39,28 @@ The NF Publisher is responsible for creating and updating these Azure Operator S
 - Network function definition group (NFDG)
 - Network function definition version (NFDV)
 
-## Service Designer
+## Service designer
 
-The Service Designer is responsible for building a network service design (NSD). The Service Designer collects network function definitions from various NF Publishers. When collection of the network function definitions is complete, the Service Designer combines them with the Azure infrastructure to create a cohesive service.
+The service designer is responsible for building a network service design (NSD). The service designer collects NFDs from various NF publishers. When collection of the NFDs is complete, the service designer combines them with the Azure infrastructure to create a cohesive service.
 
-The Service Designer determines how to parametrize the service by defining one or more configuration group schemas (CGSs). The CGSs define the inputs that the Service Operator must supply in the configuration group values (CGVs).
+The service designer determines how to parametrize the service by defining one or more configuration group schemas (CGSs). The CGSs define the inputs that the service operator must supply in the configuration group values (CGVs).
 
-The Service Designer determines how inputs from the Service Operator map to parameters that the NF Publishers and the Azure infrastructure require.
+The service designer determines how inputs from the service operator map to parameters that the NF publishers and the Azure infrastructure require.
 
-As part of creating the network service design, the Service Designer must consider the upgrade and scaling requirements of the service.
+As part of creating the network service design, the service designer must consider the upgrade and scaling requirements of the service.
 
-The Service Designer is responsible for creating and updating the following Azure Operator Service Manager objects:
+The service designer is responsible for creating and updating the following Azure Operator Service Manager objects:
 
 - Publisher
 - Artifact store
 - Artifact manifest
 - Network service design group (NSDG)
 - Network service design version (NSDV)
-- Configuration group schema
+- CGS
 
-## Service Operator
+## Service operator
 
-The Service Operator is the person who runs the service on a day-to-day basis. The Service Operator's duties include creating, modifying, and monitoring these objects:
+The service operator is the person who runs the service on a day-to-day basis. The service operator's duties include creating, modifying, and monitoring these objects:
 
 - Site
 - Site network service (SNS)
@@ -69,11 +69,11 @@ The Service Operator is the person who runs the service on a day-to-day basis. T
 The process to create an SNS consists of:
 
 - Selecting an NFDV for the new service.
-- Applying parameters by using inputs in the form of a site and one or more configuration group schemas.
+- Applying parameters by using inputs in the form of a site and one or more CGSs.
 
-The Service Designer determines the exact format of these inputs.
+The service designer determines the exact format of these inputs.
 
-A Service Operator is responsible for creating and updating the following Azure Operator Service Manager objects:
+A service operator is responsible for creating and updating the following Azure Operator Service Manager objects:
 
 - Site
 - CGVs
