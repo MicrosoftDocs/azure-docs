@@ -39,7 +39,8 @@ To create and configure a dev center in Deployment Environments by using the Azu
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Azure Deployment Environments**, and then select the service in the results.
-1. In **Dev centers**, select **Create**.
+1. In the left pane, select **Configure**, and then select **Dev centers**.
+1. In the **Dev centers** pane, select **Create**.
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/deployment-environments-add-devcenter.png" alt-text="Screenshot that shows how to create a dev center in Deployment Environments." lightbox="media/quickstart-create-and-configure-devcenter/deployment-environments-add-devcenter.png":::
 
@@ -51,13 +52,15 @@ To create and configure a dev center in Deployment Environments by using the Azu
     |**Resource group**|Either use an existing resource group or select **Create new** and enter a name for the resource group.|
     |**Name**|Enter a name for the dev center.|
     |**Location**|Select the location or region where you want to create the dev center.|
-    |**Attach a quick start catalog**| Select the **Azure deployment environment definitions** checkbox. </br> Clear the **Dev box customization tasks** checkbox. |
+    |**Create a default dev box definition**| Select the checkbox.   |
+    |**Attach the environment definition quick start catalog**|Select the checkbox.|
+
 
 1. Select **Review + Create**.
 
 1. On the **Review** tab, wait for deployment validation, and then select **Create**.
 
-1. You can check the progress of the deployment in your Azure portal notifications. 
+1. You can view the progress of the deployment in your Azure portal notifications. 
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/azure-notifications.png" alt-text="Screenshot that shows portal notifications to confirm the creation of a dev center." lightbox="media/quickstart-create-and-configure-devcenter/azure-notifications.png":::
 
