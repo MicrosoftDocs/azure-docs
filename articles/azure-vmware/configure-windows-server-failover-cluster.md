@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 1/6/2025
 ms.custom: engagement-fy23
+# Customer intent: "As an IT administrator, I want to configure a Windows Server Failover Cluster on Azure VMware Solution with shared disks, so that I can ensure high availability for critical applications and maintain system resilience."
 ---
 
 # Configure Windows Server Failover Cluster on Azure VMware Solution vSAN

@@ -11,7 +11,7 @@ ms.date: 06/27/2025
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
 ---
 
-# Quickstart: Assess a java project using AppCAT 7
+# Quickstart: Assess a Java project using AppCAT 7
 
 This quickstart shows you how to download, install, and run AppCAT 7 against a sample Java project.
 
@@ -69,6 +69,8 @@ Extract the binary from the downloaded file. You should see the following folder
 ├── maven.default.index
 ├── jdtls/
 ├── static-report/
+├── maven-wrapper/
+├── .appcat-ignore
 ├── rulesets/
 ├── readme.md
 └── readme.html

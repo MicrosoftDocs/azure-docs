@@ -5,8 +5,9 @@ ms.reviewer: nikhilsarode
 ms.topic: how-to
 ms.date: 06/19/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As an Azure administrator, I want to restore Azure virtual machines from recovery points using the portal, so that I can recover data and configurations efficiently after a failure or data loss."
 ---
 # How to restore Azure VM data in Azure portal
 

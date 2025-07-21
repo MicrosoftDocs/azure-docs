@@ -96,7 +96,7 @@ ExpressRoute supports [two routing domains](expressroute-circuit-peerings.md) fo
 
 **Supported:**
 
-* Virtual networks, including all virtual machines and cloud services like [Azure Virtual Desktop RDP Shortpath](../virtual-desktop/shortpath.md)
+* Virtual networks, including all virtual machines and cloud services like [Azure Virtual Desktop RDP Shortpath](/azure/virtual-desktop/shortpath)
 
 ### Microsoft peering
 
@@ -352,6 +352,15 @@ An ExpressRoute gateway is fundamentally a multi-homed device with one NIC tappi
 The following diagram shows the connectivity scope of different ExpressRoute circuit SKUs. In this example, your on-premises network is connected to an ExpressRoute peering site in London. With a Local SKU ExpressRoute circuit, you can connect to resources in Azure regions in the same metro as the peering site. In this case, your on-premises network can access UK South Azure resources over ExpressRoute. For more information, see [What is ExpressRoute Local?](#what-is-expressroute-local). When you configure a Standard SKU ExpressRoute circuit, connectivity to Azure resources expand to all Azure regions in a geopolitical area. As explained in the diagram, your on-premises can connect to resources in West Europe and France Central. To allow your on-premises network to access resources globally across all Azure regions, you need to configure an ExpressRoute premium SKU circuit. For more information, see [What is ExpressRoute premium?](#what-is-expressroute-premium).
 
 :::image type="content" source="./media/expressroute-faqs/sku-scope.png" alt-text="Diagram of connectivity scope for different ExpressRoute circuit SKUs.":::
+
+## ExpressRoute FastPath
+
+### What happens when the IP address limits are reached ?
+When the limit is reached, new routes don't get programmed on FastPath, and instead traffic flows through the ExpressRoute gateway.
+All other limits for the ExpressRoute gateway, the ExpressRoute circuit, and the virtual network still apply.
+ 
+### Can I use Azure Firewall with FastPath ?
+Yes. To support traffic traversing from On-Premises to Azure workloads via Azure Firewall, it should be deployed in same VNET as ExpressRoute Gateway and UDR has to be configured on the Gateway Subnet.
 
 ## ExpressRoute premium
 

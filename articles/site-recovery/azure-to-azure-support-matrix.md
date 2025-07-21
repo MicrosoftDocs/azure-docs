@@ -7,6 +7,7 @@ ms.service: azure-site-recovery
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy23, references_regions, linux-related-content
+# Customer intent: As an IT manager, I want to understand the disaster recovery support for Azure VMs using site recovery, so that I can effectively plan my organization's resilience against data loss and ensure compliance with our recovery objectives.
 ---
 
 # Support matrix for Azure VM disaster recovery between Azure regions

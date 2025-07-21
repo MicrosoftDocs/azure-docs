@@ -219,6 +219,8 @@
           href: sap/sap-btp-security-content.md
         - name: Deploy SAP BTP
           href: sap/deploy-sap-btp-solution.md
+      - name: Partner solutions
+        href: sap/solution-partner-overview.md
     - name: Integrate Microsoft business applications
       items:
       - name: Overview
@@ -731,6 +733,8 @@
     href: sentinel-analytic-rules-creation.md
   - name: Creating hunting queries
     href: sentinel-hunting-rules-creation.md
+  - name: Creating summary rules
+    href: sentinel-summary-rules-creation.md
   - name: Creating workbooks
     href: sentinel-workbook-creation.md
   - name: Creating playbooks

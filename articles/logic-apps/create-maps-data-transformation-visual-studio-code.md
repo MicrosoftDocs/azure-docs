@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, shahparth, azla
 ms.topic: how-to
-ms.date: 04/18/2025
+ms.date: 07/15/2025
 # Customer intent: As a developer, I want to convert data between different formats for a Standard workflow in Azure Logic Apps by creating a map with Visual Studio Code.
 ---
 
@@ -24,15 +24,21 @@ This how-to guide shows how to create an empty data map, choose your source and 
 
 ## Limitations and known issues
 
-- Data Mapper currently works only in Visual Studio Code running on Windows operating systems.
-
 - Data Mapper is currently available only in Visual Studio Code, not the Azure portal, and only from within Standard logic app projects, not Consumption logic app projects.
+
+  The front-end experience for Data Mapper is available as open source in the public [GitHub repository for the Azure Logic Apps team](https://github.com/Azure/LogicAppsUX/tree/main/libs/data-mapper-v2). For more information, see the following resources:
+
+  - [Welcome to Azure Logic Apps UX](https://agreeable-beach-04ed7ce1e.5.azurestaticapps.net/)
+
+  - [New and improved Data Mapper UX in Azure Logic Apps](https://techcommunity.microsoft.com/blog/IntegrationsonAzureBlog/%F0%9F%9A%80-new--improved-data-mapper-ux-in-azure-logic-apps-%E2%80%93-now-in-public-preview/4377088)
+
+- Data Mapper currently works only in Visual Studio Code running on Windows operating systems.
 
 - Data Mapper currently doesn't support schemas that use the comma-separated values (.csv) file format.
 
 - The **Code** pane in Data Mapper is currently read only.
 
-- The layout and item positions in Data Mapper are currently automatic and read only.
+- On the data mapper surface, the layout and positions for functions are movable, but schema nodes are static.
 
 - The **Filter** function correctly processes numeric conditions that are enclosed by double quotation marks, for example, **">=10"**. However, this function currently doesn't consistently behave for string comparisons such as a check on whether an item name is **"= 'Pen'"**.
 
@@ -42,7 +48,11 @@ This how-to guide shows how to create an empty data map, choose your source and 
 
 - To use the maps that you create with Data Mapper with workflows in the Azure portal, you must [add them directly to your Standard logic app resource](logic-apps-enterprise-integration-maps.md?tabs=standard#add-map-to-standard-logic-app-resource).
 
+For non-blocking bugs or feature requests, [open an item with the **Data Mapper** label in GitHub repository for the Azure Logic Apps team](https://github.com/Azure/LogicAppsUX/issues/new?template=data_mapper.yml).
+
 ## Prerequisites
+
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - [Visual Studio Code and the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites) to create Standard logic app workflows.
 
@@ -378,6 +388,15 @@ Visual Studio Code saves your data map as the following artifacts:
 - A Data Mapper (**<*your-map-name*>.lml**) file in the **Artifacts** > **MapDefinitions** project folder
 - A data map (**<*your-map-name*>.xslt**) file in the **Artifacts** > **Maps** project folder
 
+> [!TIP]
+>
+> To organize your artifacts at deeper levels, you can use the following folders and subfolders:
+>
+> - **Artifacts**/**MapDefinitions**
+> - **Artifacts**/**Schemas**
+> - **Artifacts**/**DataMapper**/**Extensions**/**Functions**
+> - **Artifacts**/**DataMapper**/**Extensions**/**InlineXslt**
+
 ## Test your map
 
 To confirm that the transformation works as you expect, you'll need sample input data.
@@ -598,6 +617,8 @@ The following **SampleFunctions.xml** file shows the implementation for the foll
    </function>
 </customfunctions>
 ```
+
+
 
 ## Related content
 

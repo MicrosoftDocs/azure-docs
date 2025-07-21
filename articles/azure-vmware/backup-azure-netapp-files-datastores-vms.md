@@ -6,6 +6,7 @@ ms.service: azure-vmware
 ms.date: 12/03/2024
 ms.author: anfdocs
 ms.custom: engagement-fy23
+# Customer intent: "As an IT administrator, I want to back up Azure NetApp Files datastores and Virtual Machines to the cloud, so that I can ensure data protection and quick recovery in case of data loss or system failures."
 ---
 
 # Back up Azure NetApp Files datastores and VMs using Cloud Backup for Virtual Machines (preview)
