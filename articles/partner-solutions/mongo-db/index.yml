@@ -40,17 +40,3 @@ landingContent:
         links:
         - text: MongoDB Atlas developer tools 
           url: tools.md
-        - text: Azure CLI
-          url: /cli/azure/mongodb
-        - text: Azure PowerShell
-          url: /powershell/module/az.mongodb
-        - text: .NET
-          url: /dotnet/api/overview/azure/ResourceManager.MongoDBAtlas
-        - text: Java
-          url: /java/api/overview/azure/resourcemanager-mongodbatlas
-        - text: Javascript
-          url: /javascript/api/overview/azure/arm-mongodbatlas
-        - text: Python
-          url: /python/api/overview/azure/mgmt-mongodbatlas
-        - text: Go
-          url: https://github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/mongodbatlas/armmongodbatlas
