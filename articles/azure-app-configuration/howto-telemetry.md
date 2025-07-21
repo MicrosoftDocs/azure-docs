@@ -74,7 +74,7 @@ These types of questions can be answered through the emission and analysis of fe
     1. Under **Feature flags with events** select your feature flag
     1. The graph will now display only events related to the feature flag's evaluations
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, selecting specific feature flag in application insights blade of App Configuration resource.](./media/howto-telemetry/app-insights-ff-dropdown.png)
+    > ![Screenshot of the Azure portal, selecting specific feature flag in application insights blade of App Configuration resource.](./media/howto-telemetry/app-insights-feature-flag-dropdown.png)
 
 1. To access more detailed telemetry, click **View details** to open the telemetry tab.
     > [!div class="mx-imgBorder"]
