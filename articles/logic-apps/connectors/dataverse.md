@@ -187,41 +187,24 @@ For more information, see the following documentation:
 
 ## Return rows based on a sort order
 
-For actions that return rows, such as the **List rows** action, you can use an ODATA query that returns rows in a specific sequence, which varies based on the rows that the action returns. For example, you can set up the action to return rows organized by the account name. For more information about the example action, see [List rows](/connectors/commondataserviceforapps/#list-rows).
+For actions that return rows, such as the **List rows** action, you can use an ODATA query that returns rows in a specific sequence, which varies based on the rows that the action returns. For example, you can set up the action to return rows organized by the account name.
 
-### [Standard](#tab/standard)
+1. On the designer, in the action, open the **Advanced parameters** list, and select the **Sort By** parameter.
 
-1. On the designer, in the action, open the **Advanced parameters** list, and select the **Sort By** property.
+   :::image type="content" source="media/dataverse/dataverse-action-sort-by.png" alt-text="Screenshot shows workflow, a Dataverse action, and Sort By parameter." lightbox="media/dataverse/dataverse-action-sort-by.png":::
 
-   ![Screenshot shows Standard workflow, a Dataverse action, and Sort By property.](media/dataverse/dataverse-action-sort-by-standard.png)
+1. In the **Sort By** parameter that now appears in the action, enter the column name to use for sorting, for example, **name**:
 
-1. In the **Sort By** property that now appears in the action, enter the column name to use for sorting, for example, **name**:
+   :::image type="content" source="media/dataverse/dataverse-action-sort-by-column.png" alt-text="Screenshot shows workflow, a Dataverse action, and Sort By parameter with column name." lightbox="media/dataverse/dataverse-action-sort-by-column.png":::
 
-   ![Screenshot shows Standard workflow, a Dataverse action, and Sort By property with column name.](media/dataverse/dataverse-action-sort-by-column-standard.png)
+For more information, see the following documentation:
 
-For more information about `$orderby` system query options, see [Query data using the Web API - Sort By](/power-apps/developer/data-platform/webapi/query-data-web-api#sort-by).
-
-### [Consumption](#tab/consumption)
-
-1. On the designer, in the action, open the **Add new parameter** list, and select the **Sort By** property.
-
-   ![Screenshot shows Consumption workflow, a Dataverse action, and property named Sort By.](media/dataverse/dataverse-action-sort-by-consumption.png)
-
-1. In the **Sort By** property that now appears in the action, enter the column name to use for sorting, for example, **name**:
-
-   ![Screenshot shows Consumption workflow, a Dataverse action, and Sort By property with column name.](media/dataverse/dataverse-action-sort-by-column-consumption.png)
-
-For more information about `$orderby` system query options, see [Query data using the Web API - Sort By](/power-apps/developer/data-platform/webapi/query-data-web-api#sort-by).
-
----
+- [List rows](/connectors/commondataserviceforapps/#list-rows)
+- [`$orderby` system query options](/power-apps/developer/data-platform/webapi/query-data-web-api#sort-by)
 
 ## Field data types
 
 In a trigger or action, a field value's data type must match the field's required data type. This requirement applies whether you manually enter the value or select the value from the dynamic content list.
-
-> [!NOTE]
-> The Dataverse connector has operation-specific parameters and database-specific parameters. For example, 
-> when you select a table, the parameters available for that table vary and differ from other tables.
 
 For example, suppose that you have a table named **Tasks**. This table has fields that apply only to that table, while other tables have their own fields. For the example **Tasks** table, the following table describes some sample field types and the data types that those fields require for their values.
 
@@ -238,15 +221,9 @@ For the example **Tasks** table, suppose you use the **Add a new row** action to
 
 * Based on the **Regarding** property, which specifies a row ID, and the **Regarding Type** property, which specifies the `accounts` lookup type, the action associates the new row with a specific account.
 
-### [Standard](#tab/standard)
+The resulting action looks like the following example:
 
-![Screenshot shows Standard workflow code view, Add a new row action, and new tasks row associated with IDs and lookup types.](media/dataverse/add-a-new-row-task-properties-standard.png)
-
-### [Consumption](#tab/consumption)
-
-![Screenshot shows Consumption workflow code view, Add a new row action, and new tasks row associated with IDs and lookup types.](media/dataverse/add-a-new-row-task-properties-consumption.png)
-
----
+:::image type="content" source="media/dataverse/add-new-row-task-properties.png" alt-text="Screenshot shows workflow code view, Add a new row action, and new tasks row associated with IDs and lookup types." lightbox="media/dataverse/add-new-row-task-properties.png":::
 
 ## Troubleshooting problems
 
@@ -311,9 +288,9 @@ To stop unwanted notifications, delete the `callbackregistrations` entity from t
 
 ### Duplicate 'callbackregistrations' entity
 
-In Standard logic app workflows, under specific conditions such as instance reallocation or application restart, the Microsoft Dataverse trigger starts a duplicate run, which creates a duplicate `callbackregistrations` entity in your Dataverse database. If you edit a Standard workflow that starts with a Dataverse trigger, check whether this `callbackregistrations` entity is duplicated. If the duplicate exists, manually delete the duplicate `callbackregistrations` entity.
+In Standard workflows, under specific conditions such as instance reallocation or application restart, the Microsoft Dataverse trigger starts a duplicate run, which creates a duplicate `callbackregistrations` entity in your Dataverse database. If you edit a Standard workflow that starts with a Dataverse trigger, check whether this `callbackregistrations` entity is duplicated. If the duplicate exists, manually delete the duplicate `callbackregistrations` entity.
 
-## Next steps
+## Related content
 
 * [Managed connectors for Azure Logic Apps](managed.md)
 * [Built-in connectors for Azure Logic Apps](built-in.md)
