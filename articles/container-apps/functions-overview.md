@@ -11,19 +11,11 @@ ms.author: cshoe
 
 # Azure Functions on Azure Container Apps overview
 
-Azure Functions provides integrated support for developing, deploying, and managing containerized Functions apps on Azure Container Apps. Use Azure Container Apps for your Functions apps when you need to run in the same environment as other microservices, APIs, websites, workflows, or any container hosted programs.
+Azure Functions on Azure Container Apps is a fully managed hosting option that enables you to run serverless Functions within the Container Apps environment. It combines the event-driven programming model of Azure Functions with the scalability, flexibility, and advanced features of Container Apps -including Kubernetes-based orchestration, built-in autoscaling via KEDA, Dapr integration, Sidecar support, VNet support, and revision management. 
 
-Container Apps hosting lets you run your Functions in a fully supported and managed, container-based environment with built-in support for open-source monitoring, mTLS, Dapr, and Kubernetes Event-driven Autoscaling (KEDA).
+You can use this setup when you want your Functions to run alongside other containerized apps like microservices, APIs, or websites —especially when you need custom dependencies or want to take advantage of scale-to-zero for cost savings. If you're running compute-heavy tasks like AI inference, Container Apps also supports GPU-based hosting through serverless GPU offering and Dedicated workload profiles.
 
-As an integrated feature on Azure Container Apps,  you can  deploy Azure Functions images directly onto Azure Container Apps using the `Microsoft.App` resource provider by setting `kind=functionapp` when calling `az containerapp create`. Apps created this way have access to all Azure Container Apps features.
-
-This article shows you how to create and deploy an Azure Functions app that runs within Azure Container Apps. You learn how to:
-
-- Set up a containerized Functions app with preconfigured auto scaling rules
-- Deploy your application using either the Azure portal or Azure CLI
-- Verify your deployed Functions with an HTTP trigger
-
-By running Functions in Container Apps, you benefit from automatic scaling, easy configuration, and a fully managed container environment—all without having to manage the underlying infrastructure yourself.
+As an integrated feature on Azure Container Apps,  you can  deploy Azure Functions images directly onto Azure Container Apps using the `Microsoft.App` resource provider by setting `kind=functionapp` when calling `az containerapp create`. Apps created this way have access to all Azure Container Apps features. If deploying via Azure Portal, you can simply enable the “Optimize for Functions app” option during setup.
 
 ## Key benefits
 The Container Apps hosting model builds on the flexibility of containerized workloads and the event-driven nature of Azure Functions. It offers the following key advantages:
@@ -155,5 +147,4 @@ To continue learning and building with Azure Functions on Container Apps, explor
 - [Azure Container Apps pricing](https://azure.microsoft.com/en-us/pricing/details/container-apps/) – Details on consumption-based billing and Dedicated plan costs.
 - [Azure Functions hosting options](../azure-functions/functions-scale.md) – Comparison of hosting plans including Container Apps, Flex Consumption, Premium, and Dedicated.
 - [Azure Functions developer guide](../azure-functions/functions-reference.md) – Deep dive into triggers, bindings, runtime behavior, and configuration.
-- [Github repo](https://github.com/Azure/azure-functions-on-container-apps) – Community discussions, known issues, and sample deployments.
   
