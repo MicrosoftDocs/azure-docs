@@ -24,7 +24,10 @@ This guide provides the steps to onboard to Azure Virtual Enclaves (AVE) by enab
 
 You can run the following code to quickly register all required resource providers to begin using AVE.
 1. Sign-in to your Azure tenant and open the subscription resource
-2. In the Azure portal, select the `Cloud Shell` icon at the top of the window here ![Screenshot showing the location of the Cloud Shell icon in the portal.'](./media/portal-cloud-shell-link.png)
+2. In the Azure portal, select the `Cloud Shell` icon at the top of the window here
+
+![Screenshot showing the location of the Cloud Shell icon in the portal.'](./media/portal-cloud-shell-link.png)
+
 3. [Set context](https://learn.microsoft.com/powershell/azure/context-persistence#create-a-new-azure-context-from-subscription-information) to your subscription.
 4. Copy and paste this code into the Cloud Shell and press enter.
 
@@ -110,6 +113,8 @@ New-AzRoleAssignment -ObjectId $objectId -RoleDefinitionName "User Access Admini
 8. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`.
 ![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
 9. Once `Registered`, proceed to [next steps](#next-steps).
+
+For reference, these are the generic instructions for enabling a [preview feature](/azure/azure-resource-manager/management/preview-features).
 
 
 ## Next Steps

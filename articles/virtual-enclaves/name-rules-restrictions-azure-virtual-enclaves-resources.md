@@ -10,7 +10,7 @@ ms.date: 04/08/2025
 
 # Naming rules and restrictions for Azure Virtual Enclaves resources
 
-This article summarizes naming rules and restrictions for Azure Virtual Enclave resources. For recommendations about how to name resources, see [Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+This article summarizes naming rules and restrictions for Azure Virtual Enclave resources. There are also other considerations that should be adhered to when naming Azure Virtual Enclaves resources for sensitive workloads, see [Considerations for naming Azure Government resources](/azure/azure-government/documentation-government-concept-naming-resources). For recommendations about how to name Azure resources, see [Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
 This article lists resources by resource provider namespace. For a list of how resource providers match Azure services, see [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md).
 

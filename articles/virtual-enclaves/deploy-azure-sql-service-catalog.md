@@ -23,38 +23,36 @@ In this article, you:
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [deployed community](./what-community.md), [deployed enclave](./what-enclave.md), and [deployed workload](./what-workload.md) and permissions to create resources inside the workload.
+- You need a [community](./what-community.md), [enclave](./what-enclave.md), [workload](./what-workload.md), and at least one [workload resource group](./what-workload.md#workload-resource-group) and permissions to create resources inside the workload resource group.
+
+- Enable `Advanced` [maintenance mode](./maintenance-mode.md) for your enclave so you can add the Private Link resources to your enclave managed resource group.
 
 ## Prerequisites
-
-### Create CMK and identity
-
-There are guardrails in the enclaves to ensure the Azure SQL is using CMK encryption (customer-managed keys). This requires a key and identity to access the key to be accessible in the enclave.
-> [!NOTE]
-> 
-> These resources are not deployed with the enclave or workload.
+There are guardrail requirements on the enclaves to ensure enclave resources are using Customer-Managed Keys (CMK) encryption. This requires a key and identity to access the key to be accessible in the enclave. Create the CMK (optional Key Vault) and Managed Identity in the [Common Dependencies service catalog template](./deploy-common-dependencies-service-catalog.md)
 
 1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation.
-2. A Key Vault that supports CMK and a key that can be leveraged for CMK encryption. Create a new CMK, if needed, using the [Common Deployment service catalog template](./deploy-common-dependencies-service-catalog.md) article to:
-    - Create an RSA (2048) key in the Key Vault.
-    - [Create a user-assigned managed identity](./create-user-managed-identity.md) with access to the CMK key in the enclave `HostedResources` resource group (for example `your-enclave-name-HostedResources-...`).
-    - Create an Access Policy in the Key Vault above for this identity with the following Key Permissions: `Unwrap Key, Wrap Key, Recover, Get`
-
-### Identify Administrator User 
-The Administrators tab requires login info. Here is an example of some input: 
-   - Entra User Login: `core-enclave-admins`
-   - Entra User SID: `c0a11793-2fa9-4d7f-894f-0f7f72615a97`
-   - Entra User Tenant ID: `af783a57-4134-41d8-bea4-fdaaecef6bcc`
-   - Entra User Principal Type: `Group`
+2. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you create next:
+    - `Key Vault` required when creating a Key Vault from this template or the more customizable [Key Vault template](./deploy-key-vault-service-catalog.md).
+    - `Storage File`, `Storage Queue`, `Storage Blob`, and `Storage Table` are required when making a Storage Account from this template or the more customizable [Storage Account template](./deploy-storage-account-service-catalog.md).
+    - `Azure SQL` which is required to access Azure SQL privately.
+3. A Key Vault, Customer Managed Key (CMK), and Managed Identity are required for this template. Create a Key Vault, CMK, and Managed Identity in the [Common Dependencies service catalog quickstart](./deploy-common-dependencies-service-catalog.md) or create your own.
+    - These resources should be created inside a [workload resource group](./create-workload-portal.md#create-workload-resource-groups)
+    - After creating the User Managed Identity, ensure it has access to the CMK key
+        - Assign the `Key Vault Crypto Service Encryption User` RBAC role to the managed identity scoped to the key vault with [these instructions](./create-user-managed-identity.md#assign-role-to-managed-identity). This allows you to then assign the managed identity to another resource, like a Virtual Machine, and that Virtual Machine can encrypt the operating system disk with the CMK in the key vault without having permissions to do other operations on the key vault following least privilege.
+4. The Administrators tab requires sign in info. Here's an example of some input: 
+   - Microsoft Entra User sign in: `core-enclave-admins`
+   - Microsoft Entra User SID: `c0a11793-2fa9-4d7f-894f-0f7f72615a97`
+   - Microsoft Entra User Tenant ID: `af783a57-4134-41d8-bea4-fdaaecef6bcc`
+   - Microsoft Entra User Principal Type: `Group`
 
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
 2. Select `+Add an Azure Service` button.
-3. Select the `Azure SQL` service template from the [Service Catalog](./what-service-catalog.md) of templates (the dropdown list).
+3. Select the `Azure SQL` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
 
 ![Screenshot showing the Azure SQL template selected from the service catalog list.](./media/service-catalog-list-azure-sql.png)
 
-4. Select through the tabs and enter all the required parameters.
+4. Go through each tab and enter all the required parameters.
 5. Adjust any of the prepopulated parameters as needed.
 5. Select `Review + Add` then `Create`.
 

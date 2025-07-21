@@ -27,7 +27,9 @@ landingContent:
         - text: Why use Azure Virtual Enclaves?
           url: why-azure-virtual-enclaves.md
         - text: Azure Virtual Enclaves FAQs
-          url: azure-virtual-enclaves-faq.md
+          url: virtual-enclaves-faq.md
+        - text: Azure Virtual Enclaves Pricing
+          url: virtual-enclaves-pricing.md
         - text: "What's new?"
           url: whats-new.md
       # - linkListType: learn
@@ -56,8 +58,14 @@ landingContent:
             url: what-service-catalog.md
           - text: List of service catalog templates
             url: list-service-catalog-templates.md
-          - text: Understand approvals
-            url: understand-approvals.md
+      - linkListType: concept
+        links:
+          - text: Understand resource groups
+            url: virtual-enclaves-resource-groups.md
+          - text: Understand Admin Virtual Machines
+            url: understand-admin-vm.md
+          - text: Understand Domain Name Service
+            url: understand-domain-name-service.md
   # Card
   - title: Get started
     linkLists:
@@ -137,6 +145,8 @@ landingContent:
             url: deploy-admin-vm-service-catalog.md
           - text: Deploy Common Dependencies from the service catalog
             url: deploy-common-dependencies-service-catalog.md
+          - text: Deploy Private DNS Zones from the service catalog
+            url: deploy-private-dns-zones-service-catalog.md
           - text: Deploy a Storage Account from the service catalog
             url: deploy-storage-account-service-catalog.md
           - text: Deploy Azure Kubernetes Service from the service catalog
@@ -203,6 +213,6 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure Virtual Enclaves templates
-            url: azure-virtual-enclaves-templates.md
+            url: virtual-enclaves-templates.md
           - text: Migrate Azure resources into Azure Virtual Enclaves
             url: migrate-azure-resources-azure-virtual-enclaves.md

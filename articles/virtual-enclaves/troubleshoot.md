@@ -29,4 +29,9 @@ Scenario: Create a community for the first time in a new subscription, the follo
 
 `"The resource type could not be found in the namespace 'Microsoft.Mission' for api version '2024-01-01-preview'."`
 
-Solution: The `Microsoft.Mission` preview flag must be registered and approved. Ensure you followed the [preview flag registering instructions](./onboard-to-ave.md) and reach out to your AVE proof of concept (POC) to ensure approval.
+Solution: The `Microsoft.Mission` preview flag must be registered and approved. Ensure you followed the [preview flag registering instructions](./onboard.md) and reach out to your AVE proof of concept (POC) to ensure approval.
+
+## Workloads
+
+### User has permissions to write but not permissions to do something else
+If the permission that was denied is one of the permissions included in the actions protected by [maintenance mode](./maintenance-mode.md) like `Microsoft.Network/virtualNetwork/subnets/join/action` this is a good indicator that maintenance mode should be enabled and then you can try again.

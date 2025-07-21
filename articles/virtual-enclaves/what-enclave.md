@@ -31,7 +31,7 @@ For more details regarding the Enclave managed resource group, learn more about 
 Maintenance mode is a feature that allows enclave owners to temporarily place their enclaves into a "maintenance mode" state. This mode permits privileged users to make certain changes to the underlying managed resources in an enclave that are normally protected by Deny Assignments. This helps maintain the enclave isolation and network boundary. [Learn more](./maintenance-mode.md).
 
 ## Template
-See [template documentation](./azure-virtual-enclaves-templates.md#enclave-template)
+See [template documentation](./virtual-enclaves-templates.md#enclave-template)
 
 ## Managed Resources
 The following resources types are deployed into the enclave managed resource group:

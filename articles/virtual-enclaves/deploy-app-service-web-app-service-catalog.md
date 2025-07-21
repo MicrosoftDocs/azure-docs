@@ -24,36 +24,36 @@ In this article, you:
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [deployed community](./what-community.md), [deployed enclave](./what-enclave.md), and [deployed workload](./what-workload.md) and permissions to create resources inside the workload.
+- You need a [community](./what-community.md), [enclave](./what-enclave.md), [workload](./what-workload.md), and at least one [workload resource group](./what-workload.md#workload-resource-group) and permissions to create resources inside the workload resource group.
+
+- Enable `Advanced` [maintenance mode](./maintenance-mode.md) for your enclave so you can add the Private Link resources to your enclave managed resource group.
 
 ## Prerequisites
+There are guardrail requirements on the enclaves to ensure enclave resources are using Customer-Managed Keys (CMK) encryption. This requires a key and identity to access the key to be accessible in the enclave. Create the CMK (optional Key Vault) and Managed Identity in the [Common Dependencies service catalog template](./deploy-common-dependencies-service-catalog.md)
 
-There are guardrails in the enclaves to ensure an App Service is isolated with private endpoints. The App Service also requires a subnet delegation in the enclave virtual network to provide more control to the service. 
-
-> [!IMPORTANT]
-> 
-> A private endpoint can't be created on a [delegated subnet](../virtual-network/subnet-delegation-overview.md) and subnets can't be deleted with resources (like a virtual machine) attached or using that subnet.
-
-1. Subnet setup and creation:  Create the App Service subnets with subnet delegation. You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation. Create these subnets:
-  - Create new subnet `AzureVirtualEnclaveSubnet 10.0.2.0/26 [10.0.2.0 - 10.0.2.63]`
+1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation. The private endpoint subnet should have no [subnet delegation](../virtual-network/subnet-delegation-overview.md) for the private endpoints to work properly.
+  - Create new subnet `AzureVirtualEnclaveSubnet /26 [example: 10.0.2.0 - 10.0.2.63]`
     - Add NSG rule set
+    - Don't delegate this subnet
     - Use this subnet for private endpoint resources
-  - Create new subnet `AppServiceSubnet 10.0.2.64/26 [10.0.2.64 - 10.0.2.127]`
+  - Create new subnet `AppServiceSubnet /26 [example: 10.0.2.64 - 10.0.2.127]`
     - Add NSG rule set
     - Add subnet delegation `Microsoft.Web/serverFarms`
     - Use this subnet for App Service resources
-  - Create new subnet `FunctionAppSubnet 10.0.2.128/26 [10.0.2.128 - 10.0.2.191]`
+  - Create new subnet `FunctionAppSubnet /26 [example: 10.0.2.128 - 10.0.2.191]`
     - Add NSG rule set
     - Add subnet delegation `Microsoft.Web/serverFarms`
     - Use this subnet for Function App resources
-
-2. Create Private DNS Zone for Azure Websites: Create a new Private DNS Zone resource (for example `privatelink.azurewebsites.net`) in the enclave `HostedResources` resource group (for example `your-enclave-name-HostedResources-...`).
-3. Next go into the DNS zone and create a virtual network link to attach the enclave virtual network found in the enclave `HostedResources` resource group.
+> [!NOTE]
+> 
+> You can't resize a subnet once resources are deployed inside the subnet.
+2. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you create next:
+    - Create `privatelink.azurewebsites.net` under `Additional Private DNS Zone names` which is required to access the web app privately.
 
 ## Deploy the template
 1. Navigate to the [workload](./what-workload.md) for the intended deployment.
 2. Select `+Add Azure Service` button.
-3. Select the `App Service` template from the [service catalog](./what-service-catalog.md) of templates (the dropdown list).
+3. Select the `App Service` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
 
 ![Screenshot showing the App Service template selected from the service catalog list.](./media/service-catalog-list-app-service.png)
 
