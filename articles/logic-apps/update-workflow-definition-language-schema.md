@@ -16,7 +16,6 @@ The [latest Workflow Definition Language schema version June-01-2016](https://sc
 
 * [Scopes](#scopes) let you group or nest actions as a collection of actions.
 * [Conditions and loops](#conditions-loops) are first-class actions.
-* More precise ordering for running actions with the `runAfter` property, replacing `dependsOn`
 
 To upgrade older workflow definitions to the current schema, see [Upgrade your schema](#upgrade-your-schema).
 
@@ -24,8 +23,7 @@ To upgrade older workflow definitions to the current schema, see [Upgrade your s
 
 ## Scopes
 
-This schema includes scopes, which let you group actions together, or nest actions inside each other. For example, a condition can contain another condition. Learn more about [scope syntax](./logic-apps-control-flow-loops.md), 
-or review this basic scope example:
+This schema includes scopes, which let you group actions together, or nest actions inside each other. For example, a condition can contain another condition. Learn more about [scope syntax](logic-apps-control-flow-run-steps-group-scopes.md), or review this basic scope example:
 
 ```json
 {
@@ -74,22 +72,6 @@ In previous schema versions, conditions and loops were parameters associated wit
          "Condition - If trigger is another trigger": {}
       }  
    }
-}
-```
-
-<a name="run-after"></a>
-
-## 'runAfter' property
-
-The `runAfter` property replaces `dependsOn`, providing more precision when you specify the run order for actions based on the status of previous actions. The `dependsOn` property indicated whether "the action ran and was successful", based on whether the previous action succeeded, failed, or as skipped - not the number of times you wanted to run the action. The `runAfter` property provides flexibility as an object that specifies all the action names after which the object runs. This property also defines an array of statuses that are acceptable as triggers. For example, if you want an action to run after action A succeeds and also after action B succeeds or fails, set up this `runAfter` property:
-
-```json
-{
-   // Other parts in action definition
-   "runAfter": {
-      "A": ["Succeeded"],
-      "B": ["Succeeded", "Failed"]
-    }
 }
 ```
 
