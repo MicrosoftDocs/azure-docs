@@ -29,7 +29,7 @@ Azure Data Manager for Energy is now available in two new regions: **Central Ind
 
 Central India is available for select customers and partners only. Please reach out to your designated Microsoft account team member to unlock access. Once access is provided, you can select "Central India" as your preferred region when creating Azure Data Manager for Energy resource, using the Azure portal or your preferred provisioning method.
 
-The Indonesia Central region offers zone-redundant storage (ZRS) with three availability zones for enhanced intra-region local disaster recovery. For more information on zonal replication, refer the [documentation](../storage/common/storage-redundancy.md#zone-redundant-storage). Data stored in Indonesia Central remains within the region to meet data residency requirements. Note that the default maximum ingress per general purpose v2 and Blob storage accounts in Indonesia Central is 25 Gbps. For more details, please review [scalability and performance targets] (../storage\blobs\scalability-targets.md).
+The Indonesia Central region offers zone-redundant storage (ZRS) with three availability zones for enhanced intra-region local disaster recovery. For more information on zonal replication, refer the [documentation](../storage/common/storage-redundancy.md#zone-redundant-storage). Data stored in Indonesia Central remains within the region to meet data residency requirements. Note that the default maximum ingress per general purpose v2 and Blob storage accounts in Indonesia Central is 25 Gbps. For more details, please review [scalability and performance targets](../storage/blobs/scalability-targets.md).
 
 ## April 2025
 ### Azure Data Manager for Energy available in four new regions
