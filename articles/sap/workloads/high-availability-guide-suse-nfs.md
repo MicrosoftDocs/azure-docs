@@ -10,6 +10,7 @@ ms.custom: linux-related-content
 ms.topic: article
 ms.date: 06/19/2024
 ms.author: radeltch
+# Customer intent: "As a system administrator managing SAP applications on Azure VMs, I want to set up a highly available NFS server on SUSE Linux, so that I can ensure reliable shared data storage and uninterrupted service for multiple SAP systems."
 ---
 
 # High availability for NFS on Azure VMs on SUSE Linux Enterprise Server
