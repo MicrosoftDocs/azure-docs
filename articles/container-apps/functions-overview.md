@@ -54,6 +54,28 @@ Azure Functions on Container Apps are ideal for a wide range of use cases, espec
 - **Private apps:** Secure internal-only Functions using VNet and internal ingress.
 - **General Functions:** Run any standard [Azure Functions scenarios](../azure-functions/functions-scenarios.md) (e.g., timers, file processing, database triggers).
 
+## Deployment and Setup
+
+To deploy Azure Functions on Azure Container Apps, you package your Functions app as a custom container image and deploy it like any other container app—with one key difference: set the `kind=functionapp` property when using the Azure CLI or ARM/Bicep templates.
+
+<img width="752" height="278" alt="image" src="https://github.com/user-attachments/assets/1b1e70d1-e3bf-4103-b5b0-a7f03015b4db" />
+
+_Create via CLI: Set “kind=functionapp” property_
+
+In the Azure Portal, simply enable the “Optimize for Functions app” option during container app creation to streamline the setup.
+
+<img width="752" height="594" alt="image" src="https://github.com/user-attachments/assets/db3aa864-556e-443a-9606-36d0a02113b5" />
+
+_Create via Portal: Option to optimize for Azure Functions_
+
+All standard deployment methods are supported, including:
+- [Azure CLI](../container-apps/functions-usage.md?pivots=azure-cli)
+- [Azure Portal](../container-apps/functions-usage.md?pivots=azure-portal)
+- ARM templates / [Bicep](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/ACAKindfunctionapp)
+- CI/CD pipelines (e.g., GitHub Actions, Azure Pipelines)
+
+For detailed steps and examples, refer to the official [getting started documentation](../container-apps/functions-usage.md).
+
 ## Pricing and billing
 Azure Functions on Azure Container Apps follow the same pricing model as Azure Container Apps. Billing is based on the [plan type](../container-apps/plans.md) you select for your environment, which can be either Consumption or Dedicated.
 - [Consumption plan](..//container-apps/billing.md#consumption-plan): This serverless compute option bills you only for the resources your apps use while they are running.
