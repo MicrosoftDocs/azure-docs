@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 08/22/2024
 ms.author: sujaj
 #Customer intent: As a developer, I want to create an SAP HANA provider so that I can use the resource with Azure Monitor for SAP solutions.
+# Customer intent: As an IT administrator, I want to configure an SAP HANA provider in Azure Monitor for SAP solutions, so that I can effectively monitor my SAP HANA database performance and ensure secure communication.
 ---
 
 # Configure SAP HANA provider for Azure Monitor for SAP solutions

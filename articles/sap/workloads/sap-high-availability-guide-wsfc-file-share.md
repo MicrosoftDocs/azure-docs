@@ -12,6 +12,7 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 12/16/2022
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
+# Customer intent: "As an SAP administrator, I want to configure a clustered SAP ASCS/SCS instance on a Windows failover cluster using an Azure file share, so that I can ensure high availability and reliability of SAP services in the cloud."
 ---
 
 # Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a file share in Azure
