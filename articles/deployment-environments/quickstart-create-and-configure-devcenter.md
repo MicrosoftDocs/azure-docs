@@ -67,7 +67,7 @@ To create and configure a dev center in Deployment Environments by using the Azu
 
 ## Configure a managed identity for the dev center
 
-To allow the creation of environments, you need to give the dev center permissions on the subscription. You can attach an [identity](concept-environments-key-concepts.md#identities) to the dev center, and then assign the necessary permissions to that identity. You can attach either a system-assigned managed identity or a user-assigned managed identity. For information about the two types of identities, see [Add a managed identity](how-to-configure-managed-identity.md#add-a-managed-identity).
+To allow the creation of environments, the dev center requires permissions on the subscription. You can attach an [identity](concept-environments-key-concepts.md#identities) to the dev center, and then assign the necessary permissions to that identity. You can attach either a system-assigned managed identity or a user-assigned managed identity. For information about the two types of identities, see [Add a managed identity](how-to-configure-managed-identity.md#add-a-managed-identity).
 
 In this quickstart, you configure a system-assigned managed identity for your dev center. You then assign roles to the managed identity to allow the dev center to create environment types in your subscription.
 
@@ -75,10 +75,10 @@ In this quickstart, you configure a system-assigned managed identity for your de
 
 To attach a system-assigned managed identity to your dev center:
 
-1. In your dev center, on the left menu under **Settings**, select **Identity**.
+1. In your dev center, on the left menu, under **Settings**, select **Identity**.
 1. Under **System assigned**, set **Status** to **On**, and then select **Save**.
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity-on.png" alt-text="Screenshot that shows a system-assigned managed identity." lightbox="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity-on.png":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity-on.png" alt-text="Screenshot that shows how to attach a system-assigned managed identity." lightbox="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity-on.png":::
 
 1. In the **Enable system assigned managed identity** dialog, select **Yes**. It might take a few minutes for the rest of the fields to appear.
 
@@ -86,7 +86,7 @@ To attach a system-assigned managed identity to your dev center:
 
 The managed identity that represents your dev center requires access to the subscription where you configure the [project environment types](concept-environments-key-concepts.md#project-environment-types), and to the catalog. 
 
-1. In your dev center, on left menu under **Settings**, select **Identity**.
+1. In your dev center, in left menu, under **Settings**, select **Identity**.
 1. Under **System assigned** > **Permissions**, select **Azure role assignments**.
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity.png" alt-text="Screenshot that shows a system-assigned managed identity with Role assignments highlighted." lightbox="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity.png":::
