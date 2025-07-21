@@ -20,7 +20,7 @@ Microsoft Sentinel provides a flexible platform that enables SAP and Microsoft p
 
 Add-ons enable further correlational capabilities for the Microsoft Sentinel Solution for SAP applications. SAP signals are correlated with signals from other Microsoft and third-party solutions, enabling comprehensive threat detection and response across the entire IT landscape using the Microsoft unified Security Operations platform.
 
-:::image type="content" source="media/partner/addon-overview.png" alt-text="Diagram that shows the community extension pattern for the agentless Microsoft Sentinel solution for SAP." border="false" lightbox="media/partner/addon-overview.png":::
+:::image type="content" source="media/partner/solution-overview.png" alt-text="Diagram that shows correlation of a user compromise involving SAP through Microsoft Sentinel solution for SAP." border="false" lightbox="media/partner/addon-overview.png":::
 
 This article provides an overview of the partner ecosystem that builds upon and specializes in integration with the [Microsoft Sentinel Solution for SAP applications](solution-overview.md).
 
