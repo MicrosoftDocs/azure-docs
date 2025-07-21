@@ -8,7 +8,7 @@ ms.author: kenieva
 ---
 
 
-|Scenario|[Resource Group](/azure/azure-resource-manager/management/overview#resource-groups)|[Subscription](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-subscription-limits)|[Management Group](https://www.learn.microsoft.com/en-us/azure/governance/management-groups/overview)|[Service Group](/azure/governance/service-groups/overview)|[Tags](/azure/azure-resource-manager/management/tag-resources)|
+|Scenario|[Resource Group](/azure/azure-resource-manager/management/overview#resource-groups)|[Subscription](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-subscription-limits)|[Management Group](https://www.learn.microsoft.com/azure/governance/management-groups/overview)|[Service Group](/azure/governance/service-groups/overview)|[Tags](/azure/azure-resource-manager/management/tag-resources)|
 |--------|--------------|------------|----------------|-------------|----|
 |Require Inheritance from assignment on scope to each member/descendant resource|Supported*|Supported|Supported|Not Supported|Not Supported|
 |Consolidation of resources for reduction of Role Assignments/Policy Assignments|Supported|Supported|Supported|Not Supported|Not Supported|
