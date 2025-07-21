@@ -89,14 +89,14 @@ The managed identity that represents your dev center requires access to the subs
 1. In your dev center, in left menu, under **Settings**, select **Identity**.
 1. Under **System assigned** > **Permissions**, select **Azure role assignments**.
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity.png" alt-text="Screenshot that shows a system-assigned managed identity with Role assignments highlighted." lightbox="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity.png":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity.png" alt-text="Screenshot that shows a system-assigned managed identity. Azure role assignments is highlighted." lightbox="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity.png":::
 
 1. To give Contributor access to the subscription, select **Add role assignment (Preview)**, enter or select the following information, and then select **Save**:
 
     |Name     |Value     |
     |---------|----------|
     |**Scope**|Subscription|
-    |**Subscription**|Select the subscription in which to use the managed identity.|
+    |**Subscription**|Select the subscription in which to use the managed identity|
     |**Role**|Contributor|
 
 1. To give User Access Administrator access to the subscription, select **Add role assignment (Preview)**, enter or select the following information, and then select **Save**:
@@ -104,17 +104,17 @@ The managed identity that represents your dev center requires access to the subs
     |Name     |Value     |
     |---------|----------|
     |**Scope**|Subscription|
-    |**Subscription**|Select the subscription in which to use the managed identity.|
+    |**Subscription**|Select the subscription in which to use the managed identity|
     |**Role**|User Access Administrator|
  
 ## Create an environment type
 
-Use an environment type to help you define the different types of environments your development teams can deploy. You can apply different settings for each environment type.
+An environment type can help you define the different types of environments that your development teams can deploy. You can apply different settings for each environment type.
 
 1. In the Azure portal, go to Azure Deployment Environments.
 1. In **Dev centers**, select your dev center.
-1. In the left menu under **Environment configuration**, select **Environment types**, and then select **Create**.
-1. In **Create environment type**, enter the following information, and then select **Add**.
+1. In the left menu, under **Environment configuration**, select **Environment types**, and then select **Create**.
+1. In **Create environment type**, enter the following information, and then select **Add**:
 
     |Name     |Value     |
     |---------|----------|
@@ -127,15 +127,15 @@ An environment type that you add to your dev center is available in each project
 
 ## Create a project
 
-In Azure Deployment Environments, a project represents a team or business function within the organization. For example, you might create a project for the implementation of an e-commerce application, which has a development, staging, and production environment. For another project, you might define a different configuration. 
+In Deployment Environments, a project represents a team or business function within the organization. For example, you might create a project for the implementation of an e-commerce application that has development, staging, and production environments. For another project, you might define a different configuration. 
 
 When you associate a project with a dev center, all the settings for the dev center are automatically applied to the project. Each project can be associated with only one dev center.
 
-To create an Azure Deployment Environments project in your dev center:
+To create an Deployment Environments project in your dev center:
 
 1. In the [Azure portal](https://portal.azure.com), go to Azure Deployment Environments.
 
-1. In the left menu under **Configure**, select **Projects**.
+1. In the left menu, under **Configure**, select **Projects**.
 
 1. In **Projects**, select **Create**.
 
@@ -145,23 +145,23 @@ To create an Azure Deployment Environments project in your dev center:
      |----------|-----------|
      |**Subscription** |Select the subscription in which you want to create the project.       |
      |**Resource group**|Either use an existing resource group or select **Create new** and enter a name for the resource group.   |
-     |**Dev center**|Select a dev center to associate with this project. All settings for the dev center apply to the project.   |
+     |**Dev center**|Select a dev center to associate with the project. All settings for the dev center apply to the project.   |
      |**Name**|Enter a name for the project.  |
      |**Description** (Optional) |Enter any project-related details.  |
 
 1. On the **Review + Create** tab, wait for deployment validation, and then select **Create**.
 
-1. Confirm that the project was successfully created by checking your Azure portal notifications. Then, select **Go to resource**. Confirm that you see the project overview pane.
+1. Confirm that the project was successfully created by checking your Azure portal notifications. Then select **Go to resource**. Confirm that you see the project overview pane.
 
 ## Create a project environment type
 
-In Azure Deployment Environments, project environment types are a subset of the environment types that you configure for the dev center. They help you preconfigure the types of environments that specific development teams can create.
+In Deployment Environments, project environment types are a subset of the environment types that you configure for the dev center. They help you preconfigure the types of environments that specific development teams can create.
 
 To configure a project, add a [project environment type](how-to-configure-project-environment-types.md):
 
 1. In the Azure portal, go to your project.
 
-1. In the left menu under **Environment configuration**, select **Environment types**, and then select **Add**.
+1. In the left menu, under **Environment configuration**, select **Environment types**, and then select **Add**.
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/add-environment-types.png" alt-text="Screenshot that shows the Environment types pane." lightbox="media/quickstart-create-and-configure-devcenter/add-environment-types.png":::
 
@@ -169,7 +169,7 @@ To configure a project, add a [project environment type](how-to-configure-projec
 
     |Name     |Value     |
     |---------|----------|
-    |**Type**| Select a dev center level environment type to enable for the specific project.|
+    |**Type**| Select a dev center-level environment type to enable for the specific project.|
     |**Deployment subscription**| Select the subscription in which the environment is created.|
     |**Deployment identity** | Select either a system-assigned identity or a user-assigned managed identity to perform deployments on behalf of the user.|
     |**Permissions on environment resources** > **Environment creator role(s)**|  Select the roles to give access to the creator of the environment resources.|
@@ -182,7 +182,7 @@ To configure a project, add a [project environment type](how-to-configure-projec
 
 ## Give access to the development team
 
-Before developers can create environments based on the environment types in a project, you must provide access for them through a role assignment at the level of the project. The Deployment Environments User role enables users to create, manage, and delete their own environments. You must have sufficient permissions to a project before you can add users to it.
+Before developers can create environments based on the environment types in a project, you must provide access for them via a role assignment at the level of the project. The Deployment Environments User role enables users to create, manage, and delete their own environments. You must have sufficient permissions to a project before you can add users to it.
 
 1. In the Azure portal, go to your project.
 
@@ -203,9 +203,9 @@ Before developers can create environments based on the environment types in a pr
 [!INCLUDE [note-deployment-environments-user](includes/note-deployment-environments-user.md)]
 
 
-## Next steps
+## Next step
 
-In this quickstart, you created a dev center and configured it with an identity, a catalog, and an environment type. Then you created a project and granted project access to your development team. To learn about how your development team members can create environments, advance to the next quickstart.
+In this quickstart, you created a dev center and configured it with an identity, a catalog, and an environment type. You then created a project and granted project access to your development team. To learn about how your development team members can create environments, go to the next quickstart.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Create and access an environment](quickstart-create-access-environments.md)
