@@ -16,10 +16,6 @@ ms.custom: template-concept
 
 In this article, you learn about the architecture and key concepts for Microsoft Dev Box. Microsoft Dev Box gives developers self-service access to preconfigured, and ready-to-code cloud-based workstations. You can configure the service to meet your development team and project structure, and manage security and network settings to access resources securely.
 
-Microsoft Dev Box builds on the same foundations as [Azure Deployment Environments](/azure/deployment-environments/overview-what-is-azure-deployment-environments). Deployment Environments provides developers with preconfigured cloud-based environments for developing applications. Both services are complementary and share certain architectural components, such as a dev center or project.
-
-For an overview of Microsoft Dev Box, see [Beyond VDI: Get secure cloud dev environments with Microsoft Dev Box](https://devblogs.microsoft.com/develop-from-the-cloud/devboxignite2024/).
-
 ## How does Microsoft Dev Box work?
 
 Before developers can create dev boxes in the developer portal, you set up a dev center and project in Microsoft Dev Box. The following diagram gives an overview of the relationship between the different components in Microsoft Dev Box.
@@ -30,7 +26,7 @@ A dev center is the top-level resource for Microsoft Dev Box. A dev center conta
 
 A dev box project is the point of access for development teams. You assign a developer the Dev Box User role to a project to grant the developer permissions to create dev boxes. You can create one or more projects in a dev center.
 
-A dev box definition specifies the configuration of the dev boxes, such as the virtual machine image and compute resources for the dev box. You can either choose a VM image from the Azure Marketplace, or use an Azure compute gallery to use custom VM images.
+A dev box definition specifies the configuration of the dev boxes, such as the virtual machine image and compute resources for the dev box. You can either choose a VM image from Azure Marketplace, or use an Azure compute gallery to use custom VM images.
 
 A project contains the collection of dev box pools. A dev box pool specifies the configuration for dev boxes, such as the dev box definition, the network connection, and other settings. All dev boxes that are created from a dev box pool share the same configuration.
 
@@ -50,7 +46,7 @@ Microsoft Dev Box manages the capacity and in-region availability in the Microso
 
 To protect your data, Microsoft Dev Box encrypts the disk by default using a platform-managed key. You don't need to enable BitLocker and doing so can prevent you from accessing your dev box.
 
-For more information about data storage and protection in Azure services see: [Azure customer data protection](/azure/security/fundamentals/protection-customer-data). 
+For more information about data storage and protection in Azure services, see: [Azure customer data protection](/azure/security/fundamentals/protection-customer-data). 
 
 For the network connection, you can also choose between a Microsoft-hosted network connection, and an Azure network connection that you create in your own subscription.
 
