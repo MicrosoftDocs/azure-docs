@@ -315,7 +315,7 @@ Once the partner confirms that your numbers are provisioned, they trigger the sy
 
 Messaging Connect builds on the existing SMS capabilities of Azure Communication Services. It uses the same SMS APIs and SDKs, so if you're already familiar with sending messages using ACS—especially if you completed the [Send SMS Quickstart](../../quickstarts/sms/send.md)—you’re nearly there. Just make sure to use the `Send SMS with options` method and include the `MessagingConnect` object in the options field.
 
-If you're new to Azure Communication Services, start by completing the [Send SMS Quickstart](../../quickstarts/sms/send.md) to set up authentication, create your `SmsClient`, and understand the basic structure of a send request. Be sure to include the `MessagingConnect` object as shown below.
+If you're new to Azure Communication Services, start by completing the [Send SMS Quickstart](../../quickstarts/sms/send.md) to set up authentication, create your `SmsClient`, and understand the basic structure of a send request. Be sure to include the `MessagingConnect` object in your request.
 
 This object contains:
 - The partner name (for example, "infobip")
@@ -325,7 +325,7 @@ Your Azure Communication Services token continues to authorize the request to Az
 
 > [!TIP]  
 > **How to Get Your Partner API Key from Infobip**  
-> To send messages with Messaging Connect, you’ll need an Infobip API key:  
+> To send messages with Messaging Connect, you need an Infobip API key:  
 > 1. Sign in to the [Infobip Portal](https://portal.infobip.com/dev/api-keys) using your Infobip credentials.  
 > 2. Select **Create New API Key**.  
 > 3. Under **API Scopes**, enable: `sms:message:send`.  
