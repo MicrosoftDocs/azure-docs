@@ -138,15 +138,22 @@ These capabilities make Container Apps-hosted Functions ideal for enterprise-gra
 Azure Functions on Container Apps integrate seamlessly with Azure’s observability tools for performance tracking and issue diagnosis:
 
 - **Application Insights:** Provides telemetry for requests, dependencies, exceptions, and custom traces. For more information, see [Monitor Azure Functions](../azure-functions/monitor-functions.md).  
-- **Log Analytics:** Captures container lifecycle and scaling events (e.g., FunctionsScalerInfo entries). For more information, see [Application Logging in Azure Container Apps](../container-apps/logging.md).  
-- **Custom Logging:** Supports standard frameworks like ILogger and console logging for structured output.  
-- **Centralized Monitoring:** Container Apps environment offers unified dashboards and alerts across all apps.
+- **Log analytics:** Captures container lifecycle and scaling events (e.g., FunctionsScalerInfo entries). For more information, see [Application Logging in Azure Container Apps](../container-apps/logging.md).  
+- **Custom logging:** Supports standard frameworks like ILogger and console logging for structured output.  
+- **Centralized monitoring:** Container Apps environment offers unified dashboards and alerts across all apps.
 
 ## Submit Feedback
 
 Submit an issue or a feature request to the [Azure Container Apps GitHub repo](https://github.com/microsoft/azure-container-apps/issues).
 
-## Next steps
+## Next Steps / Further Resources
 
-> [!div class="nextstepaction"]
-> [Use Azure Functions in Azure Container Apps](functions-usage.md)
+To continue learning and building with Azure Functions on Container Apps, explore the following resources:
+
+- [Getting started](../container-apps/functions-usage.md) – Step-by-step guide to deploying and configuring Functions in Container Apps.
+- [Azure Container Apps documentation](../container-apps/billing.md) – Full reference for Container Apps features including scaling, networking, Dapr, and workload profiles.
+- [Azure Container Apps pricing](https://azure.microsoft.com/en-us/pricing/details/container-apps/) – Details on consumption-based billing and Dedicated plan costs.
+- [Azure Functions hosting options](../azure-functions/functions-scale.md) – Comparison of hosting plans including Container Apps, Flex Consumption, Premium, and Dedicated.
+- [Azure Functions developer guide](../azure-functions/functions-reference.md) – Deep dive into triggers, bindings, runtime behavior, and configuration.
+- [Github repo](https://github.com/Azure/azure-functions-on-container-apps) – Community discussions, known issues, and sample deployments.
+  
