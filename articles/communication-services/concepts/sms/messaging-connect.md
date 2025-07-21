@@ -209,7 +209,7 @@ Opt-out and opt-in compliance is a critical part of SMS messaging, particularly 
 Infobip can maintain a blocklist of opted-out users, but you're expected to manage your own list—especially if opt-outs happen through other channels (for example, email or web forms).
 - Confirmation messages such as “you're unsubscribed” aren't sent by default. If desired, you must configure them explicitly with the partner or implement them in your own application.
 - You, the customer, are responsible for ensuring your messaging experience complies with local regulations, including opt-out handling, keyword configuration, and end-user consent management.
-- Azure Communication Services doesn't process opt-out keywords or send any automated responses. However, Microsoft does maintain a set of predefined opt-out keywords for observability.
+- Azure Communication Services doesn't process opt-out keywords or sends any automated responses. However, Microsoft does maintain a set of predefined opt-out keywords for observability.
 
 #### What Azure Communication Services Does
 
@@ -224,7 +224,7 @@ Messaging Connect uses a dual-fee model to separate Microsoft’s platform usage
 You pay a platform fee to use Azure Communication Services APIs and infrastructure for Messaging Connect. This covers message processing, diagnostics, delivery tracking, and API-level observability.
 
 - Azure charges a $0.0025 platform fee for each SMS send request submitted—regardless of whether the message is ultimately delivered by the partner. Microsoft doesn't charge for delivery. 
-- This fee is Azure Prepayment (aka Monetary Commit) and MACC-eligible and appears as part of your normal Azure invoice.
+- This fee is Azure Prepayment (aka Monetary Commit) and MACC-eligible (Microsoft Azure Consumption Commitment) and appears as part of your normal Azure invoice.
 
 The Messaging Connect partner, not Microsoft, handles message delivery.
 
@@ -266,9 +266,9 @@ This process lets you access SMS numbers in over 190 countries while the partner
 
 Let's go step-by-step:
 
-#### STEP 1: Connect your Messaging Connect Partner
+#### STEP 1: Choose your Messaging Connect Partner
 
-In Azure Portal, in your communication services resource, go directly to the Messaging Connect blade and choose a partner from the list. Accept the terms. you're redirected to the partner’s website to complete the number acquisition.
+In Azure Portal, in your communication services resource, go directly to the Messaging Connect blade and choose a partner from the list. Accept the terms. You're redirected to the partner’s website to complete the number acquisition.
 
 <table>
   <tr>
