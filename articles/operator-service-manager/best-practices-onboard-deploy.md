@@ -44,11 +44,11 @@ We recommend that you first onboard and deploy your simplest NFs (one or two cha
 
 The network function definition group (NFDG) represents the smallest component that you plan to reuse independently across multiple services. All parts of an NFDG are always deployed together. These parts are called `networkFunctionApplications` items.
 
-For example, it's natural to onboard a single NF composed of multiple Helm charts and images as a single NFDG if you always deploy those components together. In cases where multiple NFs are always deployed together, it's reasonable to have a single NFDG for all of them. Single NFDGs can have multiple NFDVs.
+For example, it's natural to onboard a single NF that consists of multiple Helm charts and images as a single NFDG if you always deploy those components together. In cases where multiple NFs are always deployed together, it's reasonable to have a single NFDG for all of them. Single NFDGs can have multiple NFDVs.
 
 For CNF NFDVs, the `networkFunctionApplications` list can contain only Helm packages. It's reasonable to include multiple Helm packages if they're always deployed and deleted together.
 
-For VNF NFDVs, the `networkFunctionApplications` list must contain at least one `VhdImageFile` value and one ARM template. The ARM template should deploy a single virtual machine (VM). To deploy multiple VMs for a single VNF, make sure to use separate ARM templates for each VM.
+For VNF NFDVs, the `networkFunctionApplications` list must contain at least one `VhdImageFile` value and one ARM template. The ARM template should deploy a single virtual machine (VM). To deploy multiple VMs for a single VNF, make sure to use a separate ARM template for each VM.
 
 The ARM template can deploy only Resource Manager resources from the following resource providers:
 
@@ -65,7 +65,7 @@ For ARM templates that contain anything beyond the preceding list, all `PUT` cal
 ### Common use cases that trigger an NFDV minor or major version update
 
 - Updating CGSs or configuration group values (CGVs) for an existing release that triggers a change to `deployParametersMappingRuleProfile`
-- Updating values that are hardcoded in the NFDV
+- Updating values that are hard-coded in the NFDV
 - Marking components as inactive to prevent them from being deployed via `applicationEnablement: Disabled`
 - A new NF release, such as charts and images
 
@@ -76,7 +76,7 @@ For ARM templates that contain anything beyond the preceding list, all `PUT` cal
 
 A network service design group (NSDG) is a composite of one or more NFDGs and any infrastructure components deployed at the same time. These components might include clusters and VMs in Nexus Kubernetes or Azure Kubernetes Service (AKS). A site network service (SNS) refers to a single NSDV. Such a design provides a consistent and repeatable deployment of the network service to a site from a single SNS `PUT` call.
 
-An example of an NSDG consists of:
+An example NSDG might consist of:
 
 - Authentication Server Function (AUSF) NF
 - Unified data management (UDM) NF
@@ -169,7 +169,7 @@ Azure Operator Service Manager is a regional service deployed across availabilit
 Consider the following requirements for high availability and disaster recovery:
 
 - To provide geo-redundancy, make sure you have a publisher in every region where you're planning to deploy NFs. Consider using pipelines to keep publisher artifacts and resources in sync across the regions.
-- The publisher name must be unique per region per Microsoft Entra tenant.
+- The publisher name must be unique for each Microsoft Entra tenant in each region.
 - If a region becomes unavailable, you can deploy (but not upgrade) an NF by using publisher resources in another region. Assuming that artifacts and resources are identical between the publishers, you need to change only the `networkServiceDesignVersionOfferingLocation` value in the SNS resource payload:
 
   <pre>
@@ -194,7 +194,7 @@ During installation and upgrade, by default:
 - The `atomic` and `wait` options are set to `true`.
 - The operation timeout is set to `27 minutes`.
 
-During initial onboarding, only while you're still debugging and developing artifacts, we recommend that you set the `atomic` flag to `false.` This setting prevents a Helm rollback upon failure and retains any logs or errors that might otherwise be lost. The optimal way to accomplish that is in the ARM template of the NF.
+During initial onboarding, only while you're still debugging and developing artifacts, we recommend that you set the `atomic` flag to `false`. This setting prevents a Helm rollback upon failure and retains any logs or errors that might otherwise be lost. The optimal way to accomplish it is in the ARM template of the NF.
 
 In the ARM template, add the following section:
 
@@ -221,7 +221,7 @@ The component name is defined in the NFDV:
 </pre>
 
 > [!IMPORTANT]
-> Make sure `atomic` and `wait` are set back to `true` after initial onboarding is complete.
+> Be sure to set `atomic` and `wait` back to `true` after initial onboarding is complete.
 
 ## Cleanup considerations
 
@@ -250,7 +250,7 @@ As the first step toward cleaning up an onboarded environment, delete publisher 
 1. Publisher
 
 > [!IMPORTANT]
-> Make sure that the SNS is deleted before you delete the NFDV.
+> Be sure to delete the SNS before you delete the NFDV.
 
 Azure Operator Service Manager does not delete namespaces as part of any deletion operation. As such, after all resources are deleted, some artifacts might remain on the cluster. To remove any remaining artifacts, you should delete any workload namespaces created on the cluster. Including the namespace deletion operation as part of the workflow pipeline is a recommendation to automate the action.
 

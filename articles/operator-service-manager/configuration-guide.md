@@ -18,8 +18,8 @@ JSON Schema is an Internet Engineering Task Force (IETF) standard that provide
 
 ### Where is JSON Schema used?
 
-* Azure Operator Service Manager uses JSON Schema notation as a meta-schema within CGS `ConfigurationGroupSchemaPropertiesFormat` object `schemaDefinition` properties.
-* Azure Operator Service Manager allows the designer and publisher to specify the JSON Schema when the operator must provide data (JSON values) during instantiation of a site network service (SNS) or NF.
+* Azure Operator Service Manager uses JSON Schema notation as a meta-schema within `schemaDefinition` properties for the CGS `ConfigurationGroupSchemaPropertiesFormat` object.
+* Azure Operator Service Manager allows the designer and publisher to specify JSON Schema when the operator must provide data (JSON values) during instantiation of a site network service (SNS) or NF.
 * Azure Operator Service Manager allows the meta-schema properties to be optional or required. Where a property is marked `required`, it must be specified in the JSON values.  
 
 ### What JSON keywords are supported?

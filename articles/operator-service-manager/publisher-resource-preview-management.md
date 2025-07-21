@@ -11,9 +11,9 @@ ms.custom:
 
 # Publisher Resource Preview Management feature
 
-This article introduces the Publisher Resource Preview Management feature in Azure Network Function Manager. The Azure Network Function Manager Publisher API offers partners a seamless Azure Marketplace experience for onboarding network functions and network service designs.
+This article introduces the Publisher Resource Preview Management feature in Azure Network Function Manager.
 
-The Publisher API introduces features that enable Network Function (NF) Publishers and Service Designers to manage network function definitions (NFDs) and network service designs (NSDs) in various modes. These modes empower partners to exercise control over the usage of NFDs and NSDs. This control allows partners to target specific subscriptions, target all subscriptions, or deprecate a network function definition version (NFDV) or a network service design version (NSDV) if there are regressions. This article delves into the specifics of these modes.
+The Azure Network Function Manager Publisher API offers partners a seamless Azure Marketplace experience for onboarding network functions (NFs) and network service designs (NSDs). The Publisher API introduces features that enable NF publishers and service designers to manage network function definitions (NFDs) and NSDs in various modes. These modes empower partners to exercise control over the usage of NFDs and NSDs. This control allows partners to target specific subscriptions, target all subscriptions, or deprecate a network function definition version (NFDV) or a network service design version (NSDV) if there are regressions. This article delves into the specifics of these modes.
 
 The Publisher Resource Preview Management feature in Azure Network Function Manager empowers partners to seamlessly manage network function definitions and their versions. With the ability to control deployment states, access privileges, and version management, partners can provide a smooth experience for their customers while maintaining the quality and stability of their offerings.
 
@@ -53,7 +53,7 @@ The Publisher Resource Preview Management feature in Azure Network Function Mana
 - **Uploading** means the state is mutable and the artifacts within the manifest can be altered.
 - **Uploaded** means the state is immutable and the artifacts within the manifest can't be altered.
 
-Immutable artifacts are tested artifacts that can't be modified or overwritten. Use of immutable artifacts with Azure Operator Service Manager helps ensure the consistency, reliability, and security of its artifacts across environments and platforms. NFDVs and NSDVs with a version state of **Active** are enforced to deploy immutable artifacts.  
+Immutable artifacts are tested artifacts that can't be modified or overwritten. Use of immutable artifacts with Azure Operator Service Manager helps ensure the consistency, reliability, and security of its artifacts across environments and platforms. NFDVs and NSDVs that have a version state of **Active** are enforced to deploy immutable artifacts.  
 
 ### Update the artifact manifest state
 

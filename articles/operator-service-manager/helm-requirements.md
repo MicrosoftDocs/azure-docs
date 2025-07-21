@@ -78,7 +78,7 @@ spec:
         - containerPort: 80 
 ```
 
-The following `values.yaml` template shows an example of how you can provide the `registryPath` and `imagePullSecrets`values:
+The following `values.yaml` template shows an example of how you can provide the `registryPath` and `imagePullSecrets` values:
 
 ```json
 global: 
@@ -86,7 +86,7 @@ global:
    registryPath: "" 
 ```
 
-The following `values.schema.json` file shows an example of how you can define the `registryPath` and `imagePullSecrets`values:
+The following `values.schema.json` file shows an example of how you can define the `registryPath` and `imagePullSecrets` values:
 
 ```json
 { 
@@ -126,7 +126,7 @@ Consider the following recommendations when you're using the legacy method.
 
 #### Avoid references to an external registry
 
-References to an external registry can cause validation problems. For example, if `deployment.yaml` uses a hardcoded registry path or external registry references, it fails validation.
+References to an external registry can cause validation problems. For example, if `deployment.yaml` uses a hard-coded registry path or external registry references, it fails validation.
 
 #### Perform manual validations
 
@@ -145,7 +145,7 @@ Here's another example:
 
 #### Use a static image repository and tags
 
-Each Helm chart should contain static image repository and tags. You set the static values through one of the following methods:
+Each Helm chart should contain a static image repository and tags. You set the static values through one of the following methods:
 
 * In the `image` line
 * In `values.yaml`, without exposing these values in the NFDV
@@ -188,7 +188,7 @@ global:
 
 ### Using the injectArtifactStoreDetails method
 
-To enable `injectArtifactStoreDetails`, set the `installOptions` parameter in the NF resource `roleOverrides` section to `true`, as shown in the following example:
+To enable `injectArtifactStoreDetails`, set the `installOptions` parameter in the NF resource's `roleOverrides` section to `true`, as shown in the following example:
 
 ```bash
 resource networkFunction 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = {
@@ -217,7 +217,7 @@ resource networkFunction 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' =
 
 ## Cluster registry requirements for registryPath and imagePullSecrets
 
-With cluster registry, images are copied from Azure Container Registry to a local Docker repository on the Nexus Kubernetes cluster. You use a webhook method to inject the proper `registryPath` and `imagePullSecrets` values dynamically during the pod operations. This method overrides the values that are configured in the Helm package. You still must use legal dummy values where `registryPath` and `imagePullSecrets` are referenced, usually in the `global` section of `values.yaml`.
+With a cluster registry, images are copied from Azure Container Registry to a local Docker repository on the Nexus Kubernetes cluster. You use a webhook method to inject the proper `registryPath` and `imagePullSecrets` values dynamically during the pod operations. This method overrides the values that are configured in the Helm package. You still must use legal dummy values where `registryPath` and `imagePullSecrets` are referenced, usually in the `global` section of `values.yaml`.
 
 The following `values.yaml` example shows how you can provide the `registryPath` and `imagePullSecrets` values for compatibility with the cluster registry approach:
 
@@ -230,7 +230,7 @@ global:
 > [!NOTE]
 > If `registryPath` is left blank in the underlying Helm package, SNS deployment fails during image download.
 
-For more information on using cluster registry, see the [concept documentation](get-started-with-cluster-registry.md).
+For more information on using a cluster registry, see the [concept documentation](get-started-with-cluster-registry.md).
 
 ## Chart immutability restrictions
 
