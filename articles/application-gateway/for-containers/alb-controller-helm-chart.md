@@ -50,6 +50,33 @@ The following parameters are supported for configuration during installation:
 | albController.namespace | string | `"azure-alb-system"` | Namespace to deploy ALB Controller components in. |
 | albController.securityPolicyFeatureFlag | bool | `false` | Enable Application Load Balancer Security Policy Resource (WAF Preview). |
 
+## nodeSelector
+
+nodeSelector follows Kubernetes' implementation as defined [here](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector)
+
+nodeSelector will only provision ALB Controller pods to nodes with a defined label.
+
+In this example, we will label a set of nodes with a node label called `albController`.
+
+1. Label each node you desire to run the ALB controller pods.
+
+   `kubectl label nodes <node-name> albController=true`
+
+2. Specify the nodeSelector via the helm install command using the following example:
+
+   ```bash
+   HELM_NAMESPACE='<namespace for deployment>'
+   CONTROLLER_NAMESPACE='azure-alb-system'
+   VERSION='<latest_version>'
+   az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
+   helm install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
+        --namespace $HELM_NAMESPACE \
+        --version $VERSION \
+        --set albController.namespace=$CONTROLLER_NAMESPACE \
+        --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
+        --set nodeSelector.albController=true
+   ```
+
 ## Tolerations
 
 Tolerations follow Kubernetes' implementation as defined [here](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).
