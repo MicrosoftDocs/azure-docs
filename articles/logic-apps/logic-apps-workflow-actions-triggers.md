@@ -549,7 +549,7 @@ This trigger makes your logic app callable by creating an endpoint that can acce
 
 > [!NOTE]
 >
-> The orignal name for the **Request** trigger was **manual**, which might still appear in some places. This 
+> The original name for the **Request** trigger was **manual**, which might still appear in some places. This 
 > name changed to create more consistency around the kind of workflow pattern that you use the trigger to build.
 
 To call this trigger, you must use the `listCallbackUrl` API, which is described in the [Workflow Service REST API](/rest/api/logic/workflows). To learn how to use this trigger as an HTTP endpoint, see [Call, trigger, or nest workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md).

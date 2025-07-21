@@ -368,7 +368,7 @@ Each action has a **Tracked Properties** section where you can specify the name 
 
 - Tracked properties can only reference the parameters, inputs, and outputs for its own trigger or action.
 
-Based on whether you have a Consumption or Standard logic app workflow, the following screnshots where you can find the **Tracked Properties** section on an action:
+Based on whether you have a Consumption or Standard logic app workflow, the following screenshots where you can find the **Tracked Properties** section on an action:
 
 ### [Consumption](#tab/consumption)
 

@@ -191,7 +191,7 @@ When you add actions in the workflow designer, you implicitly declare the sequen
 
 By default, an action that you add in the designer runs only if the preceding action completes with **Succeeded** status. This *run after* behavior precisely specifies the run order for actions in a workflow. 
 
-In the designer, you can change the default "run after" behavior for an action by [editing the action's **Run after** setting](#change-run-after-designer). This setting is available only on subsequent actions that follow the first action in a workflow. The first action in a workflow always runs after the trigger sucessfully runs. So, the **Run after** setting isn't available and doesn't apply to the first action.
+In the designer, you can change the default "run after" behavior for an action by [editing the action's **Run after** setting](#change-run-after-designer). This setting is available only on subsequent actions that follow the first action in a workflow. The first action in a workflow always runs after the trigger successfully runs. So, the **Run after** setting isn't available and doesn't apply to the first action.
 
 In an action's underlying JSON definition, the **Run after** setting is the same as the `runAfter` property. This property specifies one or more predecessor actions that must first finish with the specific permitted statuses before the successor action can run. The `runAfter` property is a JSON object that provides flexibility by letting you specify all the predecessor actions that must finish before the successor action runs. This object also defines an array of acceptable statuses.
 
