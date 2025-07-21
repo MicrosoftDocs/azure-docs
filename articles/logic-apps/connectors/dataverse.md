@@ -13,7 +13,7 @@ ms.custom: engagement-fy23
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../../includes/logic-apps-sku-consumption-standard.md)]
 
-To automate workflow tasks that interact with your [Microsoft Dataverse database](/power-apps/maker/data-platform/data-platform-intro), you can use the [Microsoft Dataverse connector](/connectors/commondataserviceforapps/) with workflows in [Azure Logic Apps](../logic-apps-overview.md).
+To automate tasks that work with your [Microsoft Dataverse database](/power-apps/maker/data-platform/data-platform-intro), you can use the [Microsoft Dataverse connector](/connectors/commondataserviceforapps/) with workflows in [Azure Logic Apps](../logic-apps-overview.md).
 
 For example, you can build workflows that create rows, update rows, and perform other operations. You can also get information from your Dataverse database and make the output available for other actions to use in your workflows. For example, when a row is added, updated, or deleted in your Dataverse database, you can send an email by using the Office 365 Outlook connector.
 
