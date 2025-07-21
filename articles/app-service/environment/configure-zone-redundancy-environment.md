@@ -12,7 +12,7 @@ ms.author: anaharris
 
 [App Service Environment](./overview.md) is a single-tenant deployment of Azure App Service that integrates with an Azure virtual network. Each App Service Environment deployment requires a dedicated subnet, which you can't use for other resources.
 
-This article shows you how to create and modify your App Service Environment zone redundancy settings. It also shows you how to set up and modifiy zone redundancy settings for your plan. 
+This article shows you how to create and modify your App Service Environment zone redundancy settings as well as how to check for zone redundancy support. It also shows you how to set up and modifiy zone redundancy settings for your plan. 
 
 To learn more details about how App Service Environment supports zone redundancy, see [Reliability in Azure App Service Environment](../../reliability/reliability-app-service-environment.md).
 
@@ -64,6 +64,51 @@ To learn more details about how App Service Environment supports zone redundancy
     
     > [!NOTE]
     > When you change the zone redundancy status of the App Service Environment, you initiate an upgrade that takes 12-24 hours to complete. During the upgrade process, you don't experience any downtime or performance problems.
+
+### Check for zone redundancy support for an App Service Environment
+
+To see whether an existing App Service Environment supports zone redundancy:
+
+1. Get the maximum number of availability zones that the App Service Environment can use by using the Azure portal, Azure CLI, or Bicep/Resource Manager:
+
+    # [Azure portal](#tab/portal)
+
+    This operation is not yet supported in the Azure portal. Use the Azure CLI or Bicep instead.
+
+    # [Azure CLI](#tab/azurecli)
+
+    Query the environment's `maximumNumberOfZones` property:
+
+    ```azurecli
+    az appservice ase show \
+        -n <app-service-environment-name> \
+        -g <resource-group-name> \
+        --query maximumNumberOfZones
+    ```
+
+    # [Bicep](#tab/bicep)
+
+    Query the environment's `maximumNumberOfZones` property:
+
+    ```bicep
+    resource appServiceEnvironment 'Microsoft.Web/hostingEnvironments@2024-11-01' existing = {
+        name: '<app-service-environment-name>'
+    }
+
+    #disable-next-line BCP053
+    output maximumNumberOfZones bool = appServiceEnvironment.properties.maximumNumberOfZones
+    ```
+
+    ---
+
+1. Compare the number with the following table to determine whether your plan supports zone redundancy:
+    
+    | Maximum Number of Zones  | Zone redundancy support |
+    | ------------------------ | ----------------------- |
+    | Greater than 1           | Supported               |
+    | Equal to 1               | Not supported*          |
+
+    \* If you're on a plan or a stamp that doesn't support availability zones, you must create a new App Service Environment in a new resource group so that you land on the App Service footprint that supports zones.
 
 ## Configure Isolated v2 App Service plans with zone redundancy
 
