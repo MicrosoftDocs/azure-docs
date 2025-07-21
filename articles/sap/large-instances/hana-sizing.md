@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 07/16/2021
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
+# Customer intent: As an IT architect, I want to understand the sizing process for SAP HANA on Large Instances, so that I can effectively migrate existing systems or plan new implementations to ensure optimal memory allocation and performance.
 ---
 # Sizing
 

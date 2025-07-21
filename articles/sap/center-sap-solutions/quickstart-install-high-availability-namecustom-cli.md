@@ -9,6 +9,7 @@ ms.date: 05/05/2023
 ms.author: sagarkeswani
 author: sagarkeswani
 #Customer intent: As a developer, I want to Create a Distributed HA SAP system with custom resource names so that I can use the system with Azure Center for SAP solutions.
+# Customer intent: As a developer, I want to install software for a Distributed High-Availability SAP system using Azure CLI, so that I can deploy and manage SAP solutions with custom resource names on Azure efficiently.
 ---
 # Quickstart:  Install software for a Distributed High-Availability (HA) SAP system and customized resource names with Azure Center for SAP solutions using Azure CLI
 
