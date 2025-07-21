@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 04/17/2025
 ms.custom: engagement-fy24 
 monikerRange: migrate
+# Customer intent: As a cloud architect, I want to generate an Azure Migrate assessment report, so that I can evaluate workload readiness, receive sizing recommendations, and estimate migration costs effectively for a successful cloud transition.
 --- 
 
 # Assessment report of Azure readiness

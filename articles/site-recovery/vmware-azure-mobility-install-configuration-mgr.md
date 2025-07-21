@@ -7,6 +7,7 @@ ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: jsuri
 ms.date: 05/02/2022
+# Customer intent: As a system administrator, I want to automate the installation of the Mobility Service for disaster recovery, so that I can efficiently manage multiple server installations in accordance with company policies and reduce manual intervention during the process.
 ---
 
 # Automate Mobility Service installation

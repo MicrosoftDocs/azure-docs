@@ -7,8 +7,8 @@ ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
   - ignite-2024
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ---
 
 # Create backup and replication policies for your resources

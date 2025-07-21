@@ -7,10 +7,12 @@ ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 06/17/2025
+ms.date: 07/11/2025
 ---
 
 # Connector release stages and timelines
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article provides an overview of the release stages and timelines for each connector available in Azure Data Factory.
 For comprehensive details on support levels and recommended usage at each stage, please see [this article](connector-lifecycle-overview.md#release-rhythm).
@@ -44,6 +46,8 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [Greenplum](connector-greenplum.md)                        | version 2.0    | GA                   | /                   | /                   |
 |                                    | version 1.0    | End of support announced                                | August 31, 2025     | September 30, 2025                    |
 | [HBase](connector-hbase.md)                              | /              | End of support                    | December 31, 2024     | December 31, 2024     |
+| [Hive](connector-hive.md)                          | version 2.0    | GA                                | /                   | /                   |
+|                                    | version 1.0    | End of support announced          | September 30, 2025         | October 31, 2025    |
 | [Impala](connector-impala.md)                          | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | End of support announced          | September 30, 2025         | October 31, 2025    |
 | [Magento (Preview)](connector-magento.md)                  | /              | End of support                    | December 31, 2024     | December 31, 2024     |
@@ -63,6 +67,8 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [PostgreSQL V1](connector-postgresql-legacy.md)            | /              | End of support                    | October 31, 2024      | September 30, 2025    |
 | [Presto](connector-presto.md)                             | version 2.0    | GA                           | /                   | /                   |
 |                                    | version 1.0    | End of support announced                             | August 31, 2025      | September 30, 2025                    |
+| [QuickBooks Online (Preview)](connector-quickbooks.md)                        | version 2.0    | Public Preview                    | /                   |
+|                                    | version 1.0    | End of support announced                                | August 31, 2025     | September 30, 2025                    |
 | [Salesforce V2](connector-salesforce.md)                   | /              | GA                                | /                   | /                   |
 | [Salesforce V1](connector-salesforce-legacy.md)            | /              | End of support announced          | June 30, 2025         | September 30, 2025    |
 | [Salesforce Marketing Cloud](connector-salesforce-marketing-cloud.md) | /              | End of support                    | December 31, 2024     | December 31, 2024     |

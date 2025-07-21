@@ -2,12 +2,13 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 06/02/2025
+ms.date: 07/15/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to stay informed about new features and enhancements in Azure Backup, so that I can effectively manage data protection and ensure compliance within my organization's cloud infrastructure."
 ---
 
 # What's new in Azure Backup
@@ -131,13 +132,13 @@ For more information, see [Migrate Azure VM backups from Standard to Enhanced po
 
 ## Operational backup support for Azure Elastic SAN (preview)
 
-Azure Backup now allows secure backup and restoration for Azure Elastic storage area network (SAN) volumes through Azure Backup vault, ensuring seamless data protection. This fully managed solution seamlessly allows you to schedule backups, set expiration timelines for restore points, and restore data to a new volume.
+Azure Backup now allows secure backup and restoration for Azure Elastic SAN volumes through Azure Backup vault, ensuring seamless data protection. This fully managed solution seamlessly allows you to schedule backups, set expiration timelines for restore points, and restore data to a new volume.
 
 Key features include:
 
 - Protects against accidental deletions, ransomware attacks, and application updates.
 - Captures Elastic SAN volumes at specific points in time as independent Managed Disk incremental snapshots with Locally redundant storage (LRS) resiliency.
-- Stores up to **450 restore points**, with backup frequencies from **4 hours** to **24 hours**.
+- Stores up to **450** recovery points, which allows you customize **daily** or **weekly** schedules to align your backup strategy with business continuity and compliance needs.
 
 >[!Note]
 >This feature is in preview and [available in specific Azure regions](azure-elastic-storage-area-network-backup-support-matrix.md#supported-regions).

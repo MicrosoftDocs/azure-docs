@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 06/21/2023
 ms.author: normesta
 ms.reviewer: yzheng
+# Customer intent: As a cloud administrator, I want to optimize the performance of NFS 3.0 storage requests on Azure Blob storage, so that I can ensure efficient data access and improved throughput for my applications.
 ---
 
 # Network File System (NFS) 3.0 performance considerations in Azure Blob storage

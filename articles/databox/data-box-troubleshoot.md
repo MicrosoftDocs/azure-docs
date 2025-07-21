@@ -8,6 +8,7 @@ ms.service: azure-databox
 ms.topic: troubleshooting
 ms.date: 03/22/2022
 ms.author: shaas
+# Customer intent: "As a data engineer, I want to troubleshoot data copy issues for Azure Data Box, so that I can resolve errors efficiently and ensure successful data uploads to my storage accounts."
 ---
 
 # Troubleshoot data copy issues on Azure Data Box, Data Box Next-gen, and Azure Data Box Heavy

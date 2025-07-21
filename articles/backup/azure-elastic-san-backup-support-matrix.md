@@ -2,11 +2,12 @@
 title: Support matrix for Azure Elastic SAN Backup (preview)
 description: Learn about the  regional availability, supported scenarios, and limitations for Elastic SAN backup (preview).
 ms.topic: reference
-ms.date: 06/20/2025
+ms.date: 07/15/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to understand the support matrix for Azure Elastic SAN backup, so that I can effectively plan and execute backup and restore operations while adhering to the supported scenarios and limitations."
 ---
 
 # Support matrix for Azure Elastic SAN backup (preview)
@@ -23,7 +24,7 @@ Elastic SAN backup has the following supported and unsupported scenarios:
 
 - Operational-tier backup is supported for Elastic SAN; vault-tier isn't currently supported. So, the security-related settings ([immutability](backup-azure-immutable-vault-concept.md?tabs=backup-vault), [soft-delete](backup-azure-security-feature-cloud.md?tabs=azure-portal), [Multi-user authorization](multi-user-authorization-concept.md?tabs=backup-vault), and [customer-managed keys](encryption-at-rest-with-cmk.md?tabs=portal)) that are applicable for vault-tier aren't supported.
 - Same volume can't be protected multiple times as part of multiple backup instances.
-- Hourly backups aren't supported; only daily backups are available.
+- Hourly backups aren't supported; only daily and weekly backups are available.
 - The Original Location Recovery (OLR) is currently not supported; only Alternate Location Recovery (ALR) is supported.
 - Azure [subscription and service](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-machine-disk-limits) limits apply to the total number of disk snapshots per region per subscription.
 - The Backup vault and the volumes to be backed up must be in the same subscription and region.

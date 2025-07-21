@@ -7,6 +7,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 09/11/2024
 ms.author: jsuri 
+# Customer intent: "As a cloud administrator managing Azure disaster recovery, I want to update my scripts to use the new cmdlet for IP configuration, so that I can ensure compliance with the latest changes and avoid disruptions in my failover and test failover operations."
 ---
 # Deprecation of IP Config parameters for the cmdlet New-AzRecoveryServicesAsrVMNicConfig
 

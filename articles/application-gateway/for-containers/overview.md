@@ -95,6 +95,7 @@ There are two deployment strategies for management of Application Gateway for Co
 Application Gateway for Containers is currently offered in the following regions:
 
 - Australia East
+- Brazil South
 - Canada Central
 - Central India
 - Central US

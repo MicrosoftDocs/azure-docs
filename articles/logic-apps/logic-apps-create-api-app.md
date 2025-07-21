@@ -4,8 +4,8 @@ description: Patterns for web APIs and REST APIs so you can call your APIs, serv
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 04/15/2025
+ms.topic: concept-article
+ms.date: 07/15/2025
 ---
 
 # Patterns for custom web APIs and REST APIs you can call from Azure Logic Apps

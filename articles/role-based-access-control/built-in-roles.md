@@ -4,10 +4,10 @@ description: This article describes the Azure built-in roles for Azure role-base
 ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
-author: rolyon
-manager: femila
-ms.author: rolyon
-ms.date: 05/25/2025
+author: jenniferf-skc    
+manager: pmwongera
+ms.author: jfields
+ms.date: 07/07/2025
 ms.custom: generated
 ---
 
@@ -198,6 +198,7 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='azure-container-storage-operator'></a>[Azure Container Storage Operator](./built-in-roles/containers.md#azure-container-storage-operator) | Enable a managed identity to perform Azure Container Storage operations, such as manage virtual machines and manage virtual networks. | 08d4c71a-cc63-4ce4-a9c8-5dd251b4d619 |
 > | <a name='azure-container-storage-owner'></a>[Azure Container Storage Owner](./built-in-roles/containers.md#azure-container-storage-owner) | Install Azure Container Storage, grant access to its storage resources, and configure Azure Elastic storage area network (SAN). Includes an ABAC condition to constrain role assignments. | 95de85bd-744d-4664-9dde-11430bc34793 |
 > | <a name='azure-kubernetes-fleet-manager-contributor-role'></a>[Azure Kubernetes Fleet Manager Contributor Role](./built-in-roles/containers.md#azure-kubernetes-fleet-manager-contributor-role) | Grants read/write access to Azure resources provided by Azure Kubernetes Fleet Manager, including fleets, fleet members, fleet update strategies, fleet update runs, etc. | 63bb64ad-9799-4770-b5c3-24ed299a07bf |
+> | <a name='azure-kubernetes-fleet-manager-hub-agent-role'></a>[Azure Kubernetes Fleet Manager Hub Agent Role](./built-in-roles/containers.md#azure-kubernetes-fleet-manager-hub-agent-role) | Grants access to Azure resources needed by Azure Kubernetes Fleet Manager hub agents. | de2b316d-7a2c-4143-b4cd-c148f6a355a1 |
 > | <a name='azure-kubernetes-fleet-manager-rbac-admin'></a>[Azure Kubernetes Fleet Manager RBAC Admin](./built-in-roles/containers.md#azure-kubernetes-fleet-manager-rbac-admin) | Grants read/write access to Kubernetes resources within a namespace in the fleet-managed hub cluster - provides write permissions on most objects within a namespace, with the exception of ResourceQuota object and the namespace object itself. Applying this role at cluster scope will give access across all namespaces. | 434fb43a-c01c-447e-9f67-c3ad923cfaba |
 > | <a name='azure-kubernetes-fleet-manager-rbac-cluster-admin'></a>[Azure Kubernetes Fleet Manager RBAC Cluster Admin](./built-in-roles/containers.md#azure-kubernetes-fleet-manager-rbac-cluster-admin) | Grants read/write access to all Kubernetes resources in the fleet-managed hub cluster. | 18ab4d3d-a1bf-4477-8ad9-8359bc988f69 |
 > | <a name='azure-kubernetes-fleet-manager-rbac-reader'></a>[Azure Kubernetes Fleet Manager RBAC Reader](./built-in-roles/containers.md#azure-kubernetes-fleet-manager-rbac-reader) | Grants read-only access to most Kubernetes resources within a namespace in the fleet-managed hub cluster. It does not allow viewing roles or role bindings. This role does not allow viewing Secrets, since reading the contents of Secrets enables access to ServiceAccount credentials in the namespace, which would allow API access as any ServiceAccount in the namespace (a form of privilege escalation).  Applying this role at cluster scope will give access across all namespaces. | 30b27cfc-9c84-438e-b0ce-70e35255df80 |
@@ -486,6 +487,7 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='deployment-environments-user'></a>[Deployment Environments User](./built-in-roles/devops.md#deployment-environments-user) | Provides access to manage environment resources. | 18e40d4e-8d2e-438d-97e1-9528336e149c |
 > | <a name='devcenter-dev-box-user'></a>[DevCenter Dev Box User](./built-in-roles/devops.md#devcenter-dev-box-user) | Provides access to create and manage dev boxes. | 45d50f46-0b78-4001-a660-4198cbe8cd05 |
 > | <a name='devcenter-project-admin'></a>[DevCenter Project Admin](./built-in-roles/devops.md#devcenter-project-admin) | Provides access to manage project resources. | 331c37c6-af14-46d9-b9f4-e1909e1b95a0 |
+> | <a name='devops-infrastructure-contributor-role'></a>[DevOps Infrastructure Contributor](./built-in-roles/devops.md#devops-infrastructure-contributor) | Read, write, delete and perform actions on Managed DevOps Pools | 76153a9e-0edb-49bc-8e01-93c47e6b5180 |
 > | <a name='devtest-labs-user'></a>[DevTest Labs User](./built-in-roles/devops.md#devtest-labs-user) | Lets you connect, start, restart, and shutdown your virtual machines in your Azure DevTest Labs. | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | <a name='lab-assistant'></a>[Lab Assistant](./built-in-roles/devops.md#lab-assistant) | Enables you to view an existing lab, perform actions on the lab VMs and send invitations to the lab. | ce40b423-cede-4313-a93f-9b28290b72e1 |
 > | <a name='lab-contributor'></a>[Lab Contributor](./built-in-roles/devops.md#lab-contributor) | Applied at lab level, enables you to manage the lab. Applied at a resource group, enables you to create and manage labs. | 5daaa2af-1fe8-407c-9122-bba179798270 |
