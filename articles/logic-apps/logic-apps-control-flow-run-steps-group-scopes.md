@@ -41,7 +41,7 @@ If all the scoped actions succeed, the logic app sends a "Scope succeeded" messa
 
   This example uses Outlook.com. If you use a different provider, the general flow stays the same, but your UI appears different.
 
-* A Bing Maps key. To get this key, see [Get a Bing Maps key](//bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
+* A Bing Maps key. To get this key, see [Get a Bing Maps key](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
 
 * Basic knowledge about [logic apps](../logic-apps/logic-apps-overview.md)
 
