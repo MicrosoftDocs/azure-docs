@@ -107,18 +107,18 @@ Users may receive a variant for different reasons. You want to ensure that your 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Azure portal, view total events by assignment reason in telemetry tab.](./media/howto-telemetry/unique-user-count-by-assignment-reason.png)
 
-- Disable the feature flag by going to the feature manager and toggling the feature flag "Enable" switch. 
-- In the  telemetry column, click **View events** to go to telemetry tab in read-only mode. 
-- View Unique user count by Variant. You should see that all assignments for Long and Simple go to zero. Only the None variant, which is the default in our case, is assigned to users.
-> [!div class="mx-imgBorder"]
-> ![Screenshot of the Azure portal, view unique user count by variant in telemetry tab.](./media/howto-telemetry/unique-user-count-by-variant-disabled.png)
-
-- Switch to view unique user count by assignment reason.
+1. Disable the feature flag by going to the feature manager and toggling the feature flag "Enable" switch. 
+1. In the  telemetry column, click **View events** to go to telemetry tab in read-only mode. 
+1. View Unique user count by Variant. You should see that all assignments for Long and Simple go to zero. Only the None variant, which is the default in our case, is assigned to users.
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of the Azure portal, view unique user count by variant in telemetry tab.](./media/howto-telemetry/unique-user-count-by-variant-disabled.png)
+    
+1. Switch to view unique user count by assignment reason.
 Confirm from the graph that the Percentile allocations fall to zero and DefaultWhenDisabled is the only reason for which users are being assigned variants.
 
-Other possible reasons include "Group Override" or "User Override" if configured.
-> [!div class="mx-imgBorder"]
-> ![Screenshot of the Azure portal, view unique user count by assignment reason in telemetry tab.](./media/howto-telemetry/unique-user-count-by-assignment-reason-disabled.png)
+    Other possible reasons include "DefaultWhenEnabled", "Group" or "User" if configured.
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of the Azure portal, view unique user count by assignment reason in telemetry tab.](./media/howto-telemetry/unique-user-count-by-assignment-reason-disabled.png)
 
 
 ## Analyze telemetry in Application Insights
