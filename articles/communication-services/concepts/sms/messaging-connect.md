@@ -313,9 +313,9 @@ Once the partner confirms that your numbers are provisioned, they trigger the sy
 > - **JavaScript SDK:** [`1.2.0-beta.4`](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/communication-sms/CHANGELOG.md)
 > - **.NET SDK:** [`1.1.0-beta.3`](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.Sms/CHANGELOG.md)
 
-Messaging Connect uses the same SMS APIs and SDKs as the rest of Azure Communication Services. If you've already followed the [Send SMS Quickstart](../../quickstarts/sms/send.md), you're already 90% of the way there.Make sure to use the "Send SMS with options" method.
+Messaging Connect builds on the existing SMS capabilities of Azure Communication Services. It uses the same SMS APIs and SDKs, so if you're already familiar with sending messages using ACS—especially if you've completed the [Send SMS Quickstart](../../quickstarts/sms/send.md)—you’re nearly there. Just make sure to use the `Send SMS with options` method and include the `MessagingConnect` object in the options field.
 
-There’s no separate SDK or client for Messaging Connect. You authenticate, create your `SmsClient`, and call the send method just as you would for any other Azure Communication Services number. The only difference is that your request must include a `MessagingConnect` object in the options field when you're using a number provisioned through Messaging Connect.
+If you're new to Azure Communication Services, start by completing the [Send SMS Quickstart](../../quickstarts/sms/send.md) to set up authentication, create your `SmsClient`, and understand the basic structure of a send request. Be sure to include the `MessagingConnect` object as shown below.
 
 This object contains:
 - The partner name (for example, "infobip")
