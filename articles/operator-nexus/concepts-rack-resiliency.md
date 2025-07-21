@@ -1,8 +1,8 @@
 ---
 title: Operator Nexus rack resiliency
-description: Document how rack resiliency works in Operator Nexus Near Edge
+description: Document how rack resiliency works in Operator Nexus
 ms.topic: article
-ms.date: 06/03/2025
+ms.date: 07/21/2025
 author: eak13
 ms.author: ekarandjeff
 ms.service: azure-operator-nexus
@@ -19,9 +19,9 @@ Operator Nexus ensures the availability of three active Kubernetes control plane
 > [!TIP]
 > The Kubernetes control plane is a set of components that manage the state of a Kubernetes cluster, schedule workloads, and respond to cluster events. It includes the API server, etcd storage, scheduler, and controller managers.
 >
-> The remaining management nodes contain various operators which run the platform software and other components performing support capabilities for monitoring, storage, and networking.
+> The remaining management nodes contain various operators that run the platform software and other components performing support capabilities for monitoring, storage, and networking.
 
-During runtime upgrades, Operator Nexus implements a sequential upgrade of the control plane nodes which preserves resiliency throughout the upgrade process.
+During runtime upgrades, Operator Nexus implements a sequential upgrade of the control plane nodes. The sequential node approach preserves resiliency throughout the upgrade.
 
 Three compute racks:
 
@@ -64,6 +64,29 @@ Operator Nexus supports control plane resiliency in single rack configurations b
 ## Resiliency implications of lost quorum
 
 In disaster situations when the control plane loses quorum, there are impacts to the Kubernetes API across the instance. This scenario can affect a workload's ability to read and write Custom Resources (CRs) and talk across racks.
+
+## Automated Remediation
+
+To avoid losing Kubernetes control plane (KCP) quorum, Operator Nexus provides automated remediation when certain server issues are detected. Additionally, this automated remediation extends to Management Plane & Compute nodes as well.
+
+Here are the triggers for automated remediation:
+
+*   For all servers: if a server fails to provision successfully after four hours, automated remediation occurs.
+*   For all servers: if a running node is stuck in a read only root filesystem mode for 10 minutes, automated remediation occurs.
+*   For KCP and Management Plane servers, if a Kubernetes node is in an Unknown state for 30 minutes, automated remediation occurs.
+
+Remediation Process:
+
+*   Remediation of a Compute node is one reprovisioning attempt. If the reprovisioning fails, the node is marked Unhealthy.
+*   Remediation of a Management Plane node is to attempt one reboot and then one reprovisioning attempt. If those steps fail, the node is marked Unhealthy.
+*   Remediation of a KCP node is to attempt one reboot. If the reboot fails, the node is marked Unhealthy and Nexus triggers the immediate provisioning of the spare KCP node.
+
+### KCP remediation details
+
+Ongoing control plane resiliency requires a spare KCP node. When KCP node fails remediation and is marked Unhealthy, a deprovisioning of the node occurs. The unhealthy KCP node is exchanged with a suitable healthy Management Plane server. This Management Plane server becomes the new spare KCP node. The failed KCP node is updated and labeled as a Management Plane node. Once the label changes, an attempt to provision the newly labeled management plane node occurs. If it fails to provision, the management plane remediation process takes over. If it fails provisioning or doesn't run successfully, the machine's status remains unhealthy, and the user must fix. The unhealthy condition surfaces to the Bare Metal Machine's (BMM) `detailedStatus` fields in Azure and clears through a BMM Replace action.
+
+> [!NOTE]
+> The provisioning retry process doesn't execute on compute and management node pool nodes for systems running the 4.1 NetworkCloud runtime. This capability is available when the Nexus Cluster is updated to the 4.4 runtime.
 
 ## Related Links
 
