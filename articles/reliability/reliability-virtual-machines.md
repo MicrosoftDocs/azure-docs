@@ -32,7 +32,7 @@ An individual VM is sometimes called a *single instance VM*. It runs on a specif
 
 Azure gives you control over where your virtual machines (VMs) run by letting you make tradeoffs between reliability, latency, and proximity. These options help you influence how Azure places your VM on that underlying infrastructure:
 
-- **Region:** You can select which [Azure region](./regions-overview.md) your VM should run in. A region is a broad geographic area that contains multiple datacenters and hosts.
+- **Region:** You can select which [Azure region](./regions-overview.md) your VM should run in. A region is a geographic area that might contain multiple datacenters, each with a large number of hosts.
 
 - **Availability zone:** [Availability zones](/azure/reliability/availability-zones-overview) are physically separate groups of datacenters within each Azure region. [In regions that support availability zones](./availability-zones-overview.md), you can select which zone the VM runs in. To learn more, see [Availability zone support](#availability-zone-support) later in this article.
 
