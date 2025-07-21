@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/27/2025
+ms.date: 07/21/2025
 ---
 
 # Copy and transform data in Azure Database for PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -324,7 +324,8 @@ Example:
 }
 ```
 
-
+> [!NOTE]
+> Microsoft Entra ID authentication using service principal and user-assigned managed identity is supported on the self-hosted integration runtime version 5.50 or above.
 
 
 ### Version 1.0
