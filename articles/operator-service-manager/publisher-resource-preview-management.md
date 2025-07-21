@@ -68,7 +68,7 @@ To change the state of an artifact manifest resource, use the following Azure CL
     --state Uploaded
 ```
 
-## NFDV and NSDV states
+## NFDV and NSDV state machine
 
 - **Preview** is the default state.
 - **Deprecated** is a terminal state but can be reversed.

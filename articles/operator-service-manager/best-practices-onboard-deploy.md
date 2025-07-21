@@ -121,7 +121,7 @@ Here's the breakdown of resources:
 - **NFDV**: As needed based on use cases that trigger NFDV minor or major version updates.
 - **NSDG**: Single. Combines the NFs and the Kubernetes cluster definitions.
 - **NSDV**: As needed based on the use cases that trigger NSDV minor or major version updates.
-- **CGS**: Single. We recommend that the CGS has subsections for each component and infrastructure being deployed for easier management, and that it includes the versions for NFDs.
+- **CGS**: Single. For easier management, we recommend that the CGS has subsections for each component and infrastructure that you're deploying. We also recommend that the CGS includes the versions for NFDs.
 - **CGV**: Single based on the number of CGSs.
 - **SNS**: Single per NSDV.
 

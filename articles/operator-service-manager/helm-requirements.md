@@ -18,7 +18,7 @@ Upon execution of a Helm operation, the charts are rendered into Kubernetes mani
 
 Every Helm chart generally requires `registryPath` and `imagePullSecrets` parameters. Most commonly, you expose these parameters in the `values.yaml` file.
 
-At first, Azure Operator Service Manager depended on publishers managing these values in a strict manner (legacy approach), to be substituted for the proper Azure values during deployment. But not all publishers could easily comply with the strict management of these values. Some charts hide `registryPath` and/or `imagePullSecrets` behind conditionals, or other value restrictions, which were not always met. Some charts declare `registryPath` and/or `imagePullSecrets` as an array instead of as the expected named string.
+At first, Azure Operator Service Manager depended on publishers managing these values in a strict manner (legacy approach), to be substituted for the proper Azure values during deployment. But not all publishers could easily comply with the strict management of these values. Some charts hide `registryPath` and/or `imagePullSecrets` behind conditionals, or other value restrictions, which weren't always met. Some charts declare `registryPath` and/or `imagePullSecrets` as an array instead of as the expected named string.
 
 To reduce the compliance requirements on publishers, Azure Operator Service Manager introduced two improved methods: `injectArtifactStoreDetail` and cluster registry. These newer methods don't depend on `registryPath` or `imagePullSecrets` appearing in the Helm package. Instead, these methods use a webhook to inject proper Azure values directly into pod operations.
 

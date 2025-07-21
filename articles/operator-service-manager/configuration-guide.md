@@ -110,7 +110,7 @@ Consider the following meta-schema guidelines when you're designing three-CGS ob
   A rule of thumb is to expose those parameters by using a direct operation, such as a compute tier or Helm value. Use this approach as opposed to a parameter that another agent acts on, such as `cloudinit` user data.
 * Sort the parameters into site-specific, instance-specific, and security-specific sets.
 * Define required versus optional parameters. For optional parameters, define a reasonable default value.
-* Ensure that paramters don't overlap between CGS objects.
+* Ensure that parameters don't overlap between CGS objects.
 
 This example shows a sample CGS payload:
 
