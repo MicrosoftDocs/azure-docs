@@ -23,7 +23,7 @@ A job is a one-time or repeatedly scheduled task that runs a KQL (Kusto Query La
 
 + Combine current and historical data in the analytics tier to run advanced analytics and machine learning models on your data.
 
-+ Reduce query costs by running queries in the Analytics tier.
++ Reduce query costs by running queries in the analytics tier.
 + Combine data from multiple workspaces to a single workspace in the analytics tier. 
 + Combine Microsoft Entra ID, Microsoft 365, and Microsoft Resource Graph data in the analytics tier to run advanced analytics across data sources.
 
