@@ -10,6 +10,7 @@ ms.topic: article
 ms.date: 04/01/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, linux-related-content
+# Customer intent: "As an SAP administrator, I want to configure Azure NetApp Files for optimal SAP HANA performance, so that I can ensure low latency and meet the required throughput for data and log volumes."
 ---
 
 # NFS v4.1 volumes on Azure NetApp Files for SAP HANA

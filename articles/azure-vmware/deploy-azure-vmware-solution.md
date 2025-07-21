@@ -5,6 +5,7 @@ ms.topic: tutorial
 ms.custom: "engagement-fy23, devx-track-azurecli"
 ms.service: azure-vmware
 ms.date: 5/15/2024
+# Customer intent: "As a cloud architect, I want to deploy and configure a private cloud using Azure VMware Solution, so that I can leverage VMware technologies within the Azure environment for optimized resource management and increased operational efficiency."
 ---
 
 # Deploy and configure Azure VMware Solution

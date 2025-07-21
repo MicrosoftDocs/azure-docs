@@ -10,6 +10,7 @@ ms.topic: article
 ms.date: 03/18/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, linux-related-content
+# Customer intent: As an SAP HANA administrator, I want to configure optimal Azure storage solutions for my virtual machines, so that I can ensure high performance and reliability for my database workloads.
 ---
 
 # SAP HANA Azure virtual machine storage configurations
