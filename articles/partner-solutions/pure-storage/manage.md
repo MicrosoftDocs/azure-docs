@@ -1,6 +1,6 @@
 ---
-title: Manage Settings for Your Pure Storage Resource via Azure portal 
-description: Manage settings, view resources, reconfigure metrics/logs, and more for your Pure Storage resource via Azure portal.
+title: Manage Settings for Your Pure Storage Cloud Resource via Azure portal 
+description: Manage settings, view resources, reconfigure metrics/logs, and more for your Pure Storage Cloud resource via Azure portal.
 
 ms.topic: how-to
 ms.date: 07/14/2025
@@ -9,7 +9,7 @@ ms.date: 07/14/2025
 
 # Manage Azure Native Pure Storage resources 
 
-This article describes how to manage the settings for Pure Storage for Azure.
+This article describes how to manage your Pure Storage Cloud Resource and connect storage to AVS.
 
 ## Resource overview
 
@@ -77,8 +77,6 @@ Once you create a resource, you must create a storage pool to connect to an Azur
 > - All hosts must be in the same Host Location within the same Azure Subscription. 
 > - In order to connect your storage pool to an Azure VMware Solution resource, you must be an *Owner* or *RBACAdministrator* in your subscription.
 
-Once you create a storage pool, link the storage pool to an Azure VMware Solution resource from the Azure portal.
-
 [!INCLUDE [manage](../includes/manage.md)]
 
 To connect a storage pool to an Azure VMware Solution resource, select the **Connect Azure VMware Solution** button from the working pane's command bar.
@@ -92,5 +90,5 @@ To connect a storage pool to an Azure VMware Solution resource, select the **Con
 
 Contact [Pure Storage](https://support.purestorage.com/bundle/m_contact_us/page/Pure_Storage_Technical_Services/Technical_Services_Information/topics/reference/r_contact_us.html) for customer support.
 
-See the [Pure Storage troubleshooting documentation](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Azure_Native_Pure_Storage_Cloud/troubleshooting/c_troubleshooting.html) for more information.
+See the [Pure Storage troubleshooting documentation](https://pure1.purestorage.com/) for more information.
 

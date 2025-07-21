@@ -24,7 +24,7 @@ Typical use cases include:
 
 ## Key Features
 
-The following features distinguish Azure Native Pure Storage Cloud and support enterprise workloads and cloud-native operations:
+The following key features are available for Azure Native Pure Storage Cloud:
 
 - **Elastic Capacity**: Dynamically scale storage up or down to match workload requirements and pay only for what you use.
 - **Flexible Performance**: Independently scale performance and capacity to optimize for specific application needs.
@@ -41,7 +41,7 @@ The following features distinguish Azure Native Pure Storage Cloud and support e
 
 ## Azure Native Pure Storage Cloud links
 
-For more information, see [Pure Storage Cloud documentation](https://support.purestorage.com/csh?context=azure_native_pure_storage_cloud).
+For more information, see [Pure Storage Cloud documentation](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Azure_Native_Pure_Storage_Cloud/topics/c_azure_native_pure_storage_cloud.html).
 
 ## Next step
 
