@@ -5,36 +5,34 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, estfan, azla
 ms.topic: how-to
-ms.date: 01/14/2025
+ms.date: 07/20/2025
 ms.custom: engagement-fy23
 ---
 
 # Connect to Microsoft Dataverse from workflows in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../../includes/logic-apps-sku-consumption-standard.md)]
+
+To automate workflow tasks that interact with your [Microsoft Dataverse database](/power-apps/maker/data-platform/data-platform-intro), you can use the [Microsoft Dataverse connector](/connectors/commondataserviceforapps/) with workflows in [Azure Logic Apps](../logic-apps-overview.md).
+
+For example, you can build workflows that create rows, update rows, and perform other operations. You can also get information from your Dataverse database and make the output available for other actions to use in your workflows. For example, when a row is added, updated, or deleted in your Dataverse database, you can send an email by using the Office 365 Outlook connector.
+
+This article shows how to add a Dataverse trigger or action to your workflow and how parameter options work.
 
 > [!IMPORTANT]
 >
-> Since October 2023, you *must* use the current Dataverse connector operations for new workflows.
-> The legacy Dataverse connector operations are unavailable for new workflows. No timeline or 
-> shutdown date is available yet for legacy connector operations. For more information, see 
+> Since October 2023, new workflows must use the current Dataverse connector operations. 
+> Legacy Dataverse connector operations are no longer available in new workflows.
+>
+> For existing workflows, no shutdown date or timeline currently exists for legacy connector operations. 
+> To support backward compatibility, existing workflows continue to work with legacy Dataverse connector 
+> operations. However, make sure that you review these workflows, and update them promptly. For more information, see 
 > [Microsoft Dataverse (legacy) connector for Azure Logic Apps will be deprecated and replaced with another connector](/power-platform/important-changes-coming#microsoft-dataverse-legacy-connector-for-azure-logic-apps-will-be-deprecated-and-replaced-with-another-connector).
->
-> On August 30, 2022, the current Dataverse connector included both the latest "preview" operations 
-> and "legacy" operations from the Microsoft Dataverse (Legacy) connector. The legacy connector 
-> was known as the Common Data Service 2.0 connector, and originally the Dynamics 365 connector. 
->
-> You can use the current Dataverse connector in any existing or new logic app workflows. For backward 
-> compatibility, existing workflows continue to work with the legacy Dataverse connector. However, make 
-> sure that you review these workflows, and update them promptly.
->
-> You can use the Dataverse connector to access Microsoft Dataverse for Microsoft Dynamics 365 Sales, 
-> Microsoft Dynamics 365 Customer Service, Microsoft Dynamics 365 Field Service, Microsoft Dynamics 
+> 
+> The legacy connector was known as the Common Data Service 2.0 connector, and originally the Dynamics 
+> 365 connector. You can use the Dataverse connector to access Microsoft Dataverse for Microsoft Dynamics 
+> 365 Sales, Microsoft Dynamics 365 Customer Service, Microsoft Dynamics 365 Field Service, Microsoft Dynamics 
 > 365 Customer Insights - Journeys, and Microsoft Dynamics 365 Project Service Automation.
-
-To automate workflow tasks that interact with your [Microsoft Dataverse database](/power-apps/maker/data-platform/data-platform-intro), you can use the [Microsoft Dataverse connector](/connectors/commondataserviceforapps/) with workflows in [Azure Logic Apps](../logic-apps-overview.md). For example, you can build workflows that create rows, update rows, and perform other operations. You can also get information from your Dataverse database and make the output available for other actions to use in your workflows. For example, when a row is added, updated, or deleted in your Dataverse database, you can send an email by using the Office 365 Outlook connector.
-
-This article shows how to create a workflow that creates a task row whenever a new lead row is created.
 
 ## Connector reference
 
@@ -262,7 +260,7 @@ To stop unwanted notifications, delete the `callbackregistrations` entity from t
 
       `https://fabrikam-preprod.crm1.dynamics.com/api/data/v9.0/callbackregistrations?$filter=entityname eq 'nov_validation' and message eq 1`
 
-      ![Screenshot shows browser window and OData URI in address bar.](media/dataverse/find-callback-registrations.png)
+      :::image type="content" source="media/dataverse/find-callback-registrations.png" alt-text="Screenshot shows browser window and OData URI in address bar." lightbox="media/dataverse/find-callback-registrations.png":::
 
       > [!NOTE]
       >
