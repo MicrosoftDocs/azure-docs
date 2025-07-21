@@ -311,7 +311,7 @@ Update `main.go` with the following content:
 2. After the environment variable is properly set, run the following command to run the *Unmarshal* and *GetBytes* example:
 
     ```bash
-	go mod tidy
+    go mod tidy
     go run .
     ```
 

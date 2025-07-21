@@ -243,7 +243,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
         betaEnabled := c.GetBool("betaEnabled")
 
         c.HTML(http.StatusOK, "index.html", gin.H{
-            "title":       "Feature Management Demo",
+            "title":       "Feature Management Example App",
             "betaEnabled": betaEnabled,
         })
     }

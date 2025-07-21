@@ -100,8 +100,8 @@ In this quickstart, you'll enhance a basic Go console application to dynamically
 1. Run your application:
 
    ```bash
-   go mod tidy
-   go run .
+    go mod tidy
+    go run .
    ```
 
 2. Keep the application running.

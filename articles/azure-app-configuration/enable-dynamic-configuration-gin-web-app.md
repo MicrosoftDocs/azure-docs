@@ -123,8 +123,8 @@ Now that you've set up dynamic configuration refresh, let's test it to see it in
 1. Run the application.
 
    ```bash
-   go mod tidy
-   go run .
+    go mod tidy
+    go run .
    ```
 
 2. Open a web browser and navigate to `http://localhost:8080` to access your application. The web page looks like this:
