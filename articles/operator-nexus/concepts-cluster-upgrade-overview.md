@@ -69,7 +69,6 @@ For Nexus VMs, the process is similar. The VMs are shut down before the baremeta
 
 Each tenant cluster node is allowed up to 20 minutes for the draining process to complete. After this window, the server upgrade proceeds regardless of drain completion to ensure progress. Servers are upgraded one rack at a time, with upgrades performed in parallel within the same rack. The server upgrade does not wait for tenant resources to come online before continuing with the runtime upgrade of other servers in the rack. This approach ensures that the maximum wait time per rack remains 20 minutes, specific to the cordon, drain, and shutdown procedure, and not the overall upgrade.
 
-It's important to note that the Nexus Kubernetes cluster node won't be shut down after the cordon and drain process. The server is rebooted with the new image as soon as all the Nexus Kubernetes cluster nodes are cordoned and drained, after 20 minutes if the drain process isn't completed.
 
 It's important to note that following the runtime upgrade, there could be instance where a Nexus Kubernetes Cluster node remains cordoned. For such scenario, you locate uncordon nodes by executing the following command.
 
