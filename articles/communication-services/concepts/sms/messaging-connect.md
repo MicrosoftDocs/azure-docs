@@ -84,7 +84,7 @@ Azure Communication Services supports the following authentication methods:
 - Access Key Authentication (Connection strings)
 - Microsoft Entra ID Authentication
 
-You authenticate with Azure Communication Services the same way you would for any other SMS request. Messaging Connect does not change the way authentication works at the platform level—it simply adds a partner-based routing step after your message is validated.
+You authenticate with Azure Communication Services the same way you would for any other SMS request. Messaging Connect doesn't change the way authentication works at the platform level—it simply adds a partner-based routing step after your message is validated.
 
 Learn more: [Authenticate to Azure Communication Services](../../concepts/authentication.md)
 
@@ -124,7 +124,7 @@ This first layer of validation happens as soon as Azure Communication Services r
 | Missing `messagingConnect` fields                           | 400 Bad Request with validation details                                  |
 | Unauthorized sender number                                  | 401 Unauthorized                                                         |
 | Missing `messagingConnect` for Messaging Connect phone number | 400 Bad Request – “MessagingConnect option isn't provided”       |
-| Partner mismatch                                            | 400 Bad Request – “MessagingConnect option is not matching with the number information.” |
+| Partner mismatch                                            | 400 Bad Request – “MessagingConnect option isn't matching with the number information.” |
 
 
 
@@ -139,13 +139,13 @@ Learn more: [Delivery Reports on Azure Event Grid Events](../../../event-grid/co
 
 > [!TIP] 
 > To ensure full visibility into your message traffic, we strongly recommend configuring event subscriptions for delivery reports. This setup lets you monitor message status, troubleshoot failures, and integrate with your existing telemetry systems.
-Learn how to configure SMS events : [Handle SMS events](../../quickstarts/sms/handle-sms-events.md) 
+Learn how to configure SMS events: [Handle SMS events](../../quickstarts/sms/handle-sms-events.md) 
 
 > [!NOTE]
 > If your message fails, check the `messagingConnect` object for accuracy, review the delivery report, and consult partner documentation for downstream error codes.
 
 > [!IMPORTANT]
-> Microsoft does not retain any credentials used to access external Messaging Connect partners. Partner API keys are used only to process each message request and are immediately discarded after the request is complete. These credentials are not stored, logged, or persisted in any form.
+> Microsoft doesn't retain any credentials used to access external Messaging Connect partners. Partner API keys are used only to process each message request and are immediately discarded after the request is complete. These credentials aren't stored, logged, or persisted in any form.
 
 ### Country Availability
 
@@ -155,11 +155,11 @@ During Public Preview, you can acquire and use two types of sender identities fr
 - Long Codes – Standard local phone numbers or mobile numbers that support two-way SMS. Often known as Virtual Long codes. 
 - Dynamic Alphanumeric Sender IDs – One-way, branded senders (for example, “CONTOSO”) where permitted. You can enable DASID only in non-Azure Communication Services supported countries.
 
-When you search for a country and number type in the Azure portal, you are offered Messaging Connect as an option if Azure Communication Services doesn’t support that configuration directly. You then complete the provisioning process through the partner’s portal.
+When you search for a country and number type in the Azure portal, you're offered Messaging Connect as an option if Azure Communication Services doesn’t support that configuration directly. You then complete the provisioning process through the partner’s portal.
 
 🌐 The Messaging Connect partner determines country availability. The Messaging Connect partner (for example, Infobip) handles number types, compliance requirements, and onboarding steps, which vary by country.
 
-📌 Short codes are not yet supported in Public Preview but are planned for General Availability.
+📌 Short codes aren't yet supported in Public Preview but are planned for General Availability.
 
 ### Global Access with Secure and Compliant Messaging
 
@@ -178,16 +178,16 @@ Although the partner handles delivery, Azure provides:
 - Standard Azure Communication Services APIs and SDKs
 - Transient message processing only—no message content is stored
 
-Azure Communication Services does not retain SMS message content after delivery or failure. Messages and metadata are processed temporarily in memory only as needed for routing and diagnostics.
+Azure Communication Services doesn't retain SMS message content after delivery or failure. Messages and metadata are processed temporarily in memory only as needed for routing and diagnostics.
 
 > [!IMPORTANT]
-> Microsoft does not retain any credentials used to access external Messaging Connect partners. Partner API keys are used only to process each message request and are immediately discarded after the request is complete. These credentials are not stored, logged, or persisted in any form.
+> Microsoft doesn't retain any credentials used to access external Messaging Connect partners. Partner API keys are used only to process each message request and are immediately discarded after the request is complete. These credentials aren't stored, logged, or persisted in any form.
 
 Learn more: [Data residency and user privacy](../privacy.md#sms)
 
 #### 2. EU Data Boundary (EUDB)
 
-Azure Communication Services guarantees that SMS data within the EUDB is stored in EUDB regions. As of today, we process and store data in the Netherlands, Ireland, or Switzerland regions, ensuring no unauthorized data transfer outside the EEA (European Economic Area). Also, Azure Communication Services employs advanced security measures, including encryption, to protect SMS data both at rest and in transit. Customers can select their preferred data residency within the EUDB, making sure data remains within the designated EU regions.
+Azure Communication Services guarantees that SMS data within the EUDB is stored in EUDB regions. As of today, we process and store data in the Netherlands, Ireland, or Switzerland regions, ensuring no unauthorized data transfer outside the EEA (European Economic Area). Also, Azure Communication Services employs advanced security measures, including encryption, to protect SMS data both at rest and in transit. Customers can select their preferred data residency within the EUDB, making sure data remain within the designated EU regions.
 
 Learn more: [European Union Data Boundary (EUDB)](../european-union-data-boundary.md#sms)
 
@@ -206,10 +206,10 @@ Opt-out and opt-in compliance is a critical part of SMS messaging, particularly 
 - The partner (for example, Infobip) supports detection of opt-out and opt-in keywords like "STOP" or "START," but the behavior isn't automatic.
 > [!NOTE]
 > You must explicitly configure these keywords through the partner's portal.
-Infobip can maintain a blocklist of opted-out users, but you are expected to manage your own list—especially if opt-outs happen through other channels (for example, email or web forms).
-- Confirmation messages such as “You are unsubscribed” aren't sent by default. If desired, you must configure them explicitly with the partner or implement them in your own application.
+Infobip can maintain a blocklist of opted-out users, but you're expected to manage your own list—especially if opt-outs happen through other channels (for example, email or web forms).
+- Confirmation messages such as “you're unsubscribed” aren't sent by default. If desired, you must configure them explicitly with the partner or implement them in your own application.
 - You, the customer, are responsible for ensuring your messaging experience complies with local regulations, including opt-out handling, keyword configuration, and end-user consent management.
-- Azure Communication Services does not process opt-out keywords or send any automated responses. However, Microsoft does maintain a set of predefined opt-out keywords for observability.
+- Azure Communication Services doesn't process opt-out keywords or send any automated responses. However, Microsoft does maintain a set of predefined opt-out keywords for observability.
 
 #### What Azure Communication Services Does
 
@@ -223,7 +223,7 @@ Messaging Connect uses a dual-fee model to separate Microsoft’s platform usage
 
 You pay a platform fee to use Azure Communication Services APIs and infrastructure for Messaging Connect. This covers message processing, diagnostics, delivery tracking, and API-level observability.
 
-- Azure charges a $0.0025 platform fee for each SMS send request submitted—regardless of whether the message is ultimately delivered by the partner. Microsoft does not charge for delivery. 
+- Azure charges a $0.0025 platform fee for each SMS send request submitted—regardless of whether the message is ultimately delivered by the partner. Microsoft doesn't charge for delivery. 
 - This fee is Azure Prepayment (aka Monetary Commit) and MACC-eligible and appears as part of your normal Azure invoice.
 
 The Messaging Connect partner, not Microsoft, handles message delivery.
@@ -235,8 +235,8 @@ You pay the Messaging Connect partner directly for:
 - Phone number leasing (monthly or annually)
 - Per-message delivery fees, which vary by country and route
 
-The partner defines commercial terms and support levels. By default, the Messaging Connect partner (for example, Infobip) bills you directly for delivery and number leasing fees. These charges do not appear on your Azure invoice unless you explicitly set up Marketplace billing.
-There are no subscription restrictions. You can use Messaging Connect with any Azure subscription type, including Pay-as-you-go and Enterprise Agreements. Unlike Microsoft's direct SMS offers, Messaging Connect is not a telecom service—it's a developer platform model.
+The partner defines commercial terms and support levels. By default, the Messaging Connect partner (for example, Infobip) bills you directly for delivery and number leasing fees. These charges don't appear on your Azure invoice unless you explicitly set up Marketplace billing.
+There are no subscription restrictions. You can use Messaging Connect with any Azure subscription type, including Pay-as-you-go and Enterprise Agreements. Unlike Microsoft's direct SMS offers, Messaging Connect isn't a telecom service—it's a developer platform model.
 
 #### Optional: Consolidated Billing via Azure Marketplace
 
@@ -262,13 +262,13 @@ Messaging Connect introduces a new provisioning model: instead of getting number
 This process lets you access SMS numbers in over 190 countries while the partner handles local compliance, documentation, and approval flows. 
 
 > [!TIP]
-> If you’re new to Azure Communication Services, we recommend starting with the [Create a Communication Services resource](../../quickstarts/create-communication-resource.md) guide to get set up and ready to onboard SMS with Messaging Connect.
+> If you’re new to Azure Communication Services, we recommend starting with the [Create a Communication Services resource](../../quickstarts/create-communication-resource.md) guide to get set-up and ready to onboard SMS with Messaging Connect.
 
 Let's go step-by-step:
 
 #### STEP 1: Connect your Messaging Connect Partner
 
-In Azure Portal, in your communication services resource, go directly to the Messaging Connect blade and choose a partner from the list. Accept the terms. You are redirected to the partner’s website to complete the number acquisition.
+In Azure Portal, in your communication services resource, go directly to the Messaging Connect blade and choose a partner from the list. Accept the terms. you're redirected to the partner’s website to complete the number acquisition.
 
 <table>
   <tr>
@@ -295,10 +295,10 @@ Once the partner confirms that your numbers are provisioned, they trigger the sy
 :::image type="content" source="./media/message-connect-provision-number-6.png" alt-text="Provisioned numbers appear in ACS." lightbox="./media/message-connect-provision-number-6.png":::
 
 > [!NOTE]
-> The Messaging Connect partner sets the approval and activation timeline, which varies by country and number type. Messaging Connect does not currently support instant provisioning, and Microsoft is not involved in the vetting or approval process.
+> The Messaging Connect partner sets the approval and activation timeline, which varies by country and number type. Messaging Connect doesn't currently support instant provisioning, and Microsoft isn't involved in the vetting or approval process.
 
 **Important notes:**
-- Microsoft does not manage compliance or vetting for Messaging Connect numbers. The partner handles this process entirely.
+- Microsoft doesn't manage compliance or vetting for Messaging Connect numbers. The partner handles this process entirely.
 - Each partner has different provisioning flows and service-level agreements (SLAs) depending on the region and local telecom regulations.
 - Numbers acquired through Messaging Connect appear in the Azure portal with an "Operator Name" label so you can distinguish them from Azure Communication Services-managed numbers.
 - To send messages with these numbers, don’t forget to include the `MessagingConnect` object in your API request. 
