@@ -6,6 +6,7 @@ author: mbender-ms
 ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 06/17/2024
+# Customer intent: As a network administrator, I want to use a decision tree to select a secure network topology, so that I can ensure optimal security and routing for my organization’s workloads.
 ---
 
 # Choose a secure network topology

@@ -3,8 +3,9 @@ title: Configure Vaulted Backup for Azure Data Lake Storage using Azure Portal (
 description: Learn how to configure vaulted backup for Azure Data Lake Storage (preview) using Azure portal.
 ms.topic: how-to
 ms.date: 04/16/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a cloud administrator, I want to configure vaulted backup for Azure Data Lake Storage, so that I can ensure data protection and recovery capabilities are in place for my storage accounts.
 ---
 
 # Configure vaulted backup for Azure Data Lake Storage using Azure portal (preview)
@@ -111,7 +112,7 @@ To configure backup, follow these steps:
  
 1. Review the configuration details, and then select **Configure Backup**.
 
-You can track the progress of the backup configuration under **Backup instances**. After the configuration of backup is complete, Azure Backup triggers the backup operation as per the backup policy schedule to create the recovery points.
+You can track the progress of the backup configuration under **Backup instances**. After the configuration of backup is complete, Azure Backup triggers the backup operation as per the backup policy schedule to create the recovery points. Backup may take a minimum of 30–40 minutes, as backups rely on snapshots, which are taken every 15 minutes and require two snapshots to detect changes before triggering the backup.
 
 ## Next steps
 

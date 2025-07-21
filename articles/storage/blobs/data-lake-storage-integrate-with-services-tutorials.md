@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.author: normesta
 ms.date: 11/18/2024
 ms.service: azure-data-lake-storage
+# Customer intent: As a data engineer, I want to access tutorials for integrating Azure services with Data Lake Storage, so that I can effectively utilize these tools for data management and analysis.
 ---
 
 # Tutorials that use Azure services with Azure Data Lake Storage

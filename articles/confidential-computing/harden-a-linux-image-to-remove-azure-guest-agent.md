@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 8/03/2023
 ms.author: vvenugopal
 ms.custom: devx-track-azurecli, linux-related-content
+# Customer intent: As a cloud administrator, I want to remove the Azure Linux Agent from a Linux image so that I can harden the image for confidential computing and restrict unnecessary functionalities.
 ---
 
 # Harden a Linux image to remove Azure guest agent
@@ -57,8 +58,8 @@ Steps to create an image that removes the Azure Linux Agent are as follows:
     For Ubuntu 18.04+
     ```
     sudo chroot /mnt/dev/$imagedevice/ rm -rf /var/lib/walinuxagent
-    sudo chroot /mnt/dev/$imagedevice/ rm -rf /etc/ walinuxagent.conf
-    sudo chroot /mnt/dev/$imagedevice/ rm -rf /var/log/ walinuxagent.log
+    sudo chroot /mnt/dev/$imagedevice/ rm -rf /etc/walinuxagent.conf
+    sudo chroot /mnt/dev/$imagedevice/ rm -rf /var/log/walinuxagent.log
     ```
 
 5. Create a systemd service to provision the VM.

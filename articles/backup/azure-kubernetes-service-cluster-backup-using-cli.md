@@ -8,8 +8,9 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
   - ignite-2024
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a Kubernetes administrator, I want to configure and execute backups for Azure Kubernetes Service (AKS) using Azure CLI, so that I can ensure data protection and recoverability for my applications running in AKS."
 ---
 
 # Back up Azure Kubernetes Service using Azure CLI 

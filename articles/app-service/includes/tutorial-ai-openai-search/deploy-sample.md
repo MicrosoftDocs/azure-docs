@@ -34,7 +34,7 @@ ms.custom:
 
 6. Wait for the deployment to complete. This process will:
    - Create all required Azure resources.
-   - Deploy the Blazor application to Azure App Service.
+   - Deploy the application to Azure App Service.
    - Configure secure service-to-service authentication using managed identities.
    - Set up the necessary role assignments for secure access between services.
 

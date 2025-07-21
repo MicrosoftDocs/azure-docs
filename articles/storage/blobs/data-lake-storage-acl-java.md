@@ -11,6 +11,7 @@ ms.devlang: java
 ms.topic: how-to
 ms.reviewer: prishet
 ms.custom: devx-track-java, devx-track-extended-java
+# Customer intent: As a Java developer working with Azure Data Lake Storage, I want to manage access control lists (ACLs) for files and directories, so that I can effectively control permissions and access rights for users within a hierarchical namespace.
 ---
 
 # Use Java to manage ACLs in Azure Data Lake Storage

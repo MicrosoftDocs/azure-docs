@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 05/31/2024
 ms.author: rogarana
 ms.custom: references_regions
+# Customer intent: "As a storage administrator, I want to understand the scalability and performance targets of Elastic SAN, so that I can optimize capacity, IOPS, and throughput for my deployment requirements in different regions."
 ---
 
 # Scale targets for Elastic SAN

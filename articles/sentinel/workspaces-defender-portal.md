@@ -4,7 +4,7 @@ description: Learn about the support of multiple workspaces for Microsoft Sentin
 author: batamig
 ms.author: bagol
 ms.topic: concept-article
-ms.date: 05/26/2025
+ms.date: 06/10/2025
 appliesto: 
     - Microsoft Sentinel with Defender XDR in the Defender portal
 
@@ -77,9 +77,9 @@ If you have the appropriate permissions to view data from primary and secondary 
 |**Search**     |   The results from the global search at the top of the browser page in the Defender portal provide an aggregated view of all relevant workspace data that you have permissions to view.    |
 |Investigation & response > Incidents & alerts > **Incidents**   | View incidents from different workspaces in a unified queue or filter the view by workspace.      |
 |Investigation & response > Incidents & alerts > **Alerts**     |   View alerts from different workspaces in a unified queue or filter the view by workspace.<br><br> The Defender portal segments alert correlation by workspace.      |
-|Entities: From an incident or alert > select a device, user, or other entity asset  |  View all relevant entity data from multiple workspaces in a single entity page. Entity pages aggregates alerts, incidents, and timeline events from all workspaces to provide deeper insights into entity behavior.   <br><br>Filter by workspace in **Incidents and alerts**, **Timeline**, and **Insights** tabs. The **Overview** tab displays entity metadata aggregated from all workspaces.    |
-|Investigation & response > Hunting > **Advanced hunting**     | Select a workspace from the top right-hand side of the browser. Or, query across multiple workspaces by using the workspace operator in the query. See [Query multiple workspaces](extend-sentinel-across-workspaces-tenants.md#query-multiple-workspaces). The query results don't show a workspace name or ID.<br><br>Access all log data of the workspace, including queries and functions, as read only.  For more information, see [Advanced hunting with Microsoft Sentinel data in Microsoft Defender portal](/defender-xdr/advanced-hunting-microsoft-defender). <br><br>Some capabilities are limited to the primary workspace:<br>- Creating custom detections<br>- Queries via API  |
-|**Microsoft Sentinel** experiences|View data from one workspace for each page in the Microsoft Sentinel section of the Defender portal. Switch between workspaces by selecting **Select a workspace** from the top-right hand side of the browser for most pages. The **Workbooks** page only shows data associated with the primary workspace.|
+|**Entities**: From an incident or alert > select a device, user, or other entity asset  |  View all relevant entity data from multiple workspaces in a single entity page. Entity pages aggregates alerts, incidents, and timeline events from all workspaces to provide deeper insights into entity behavior.   <br><br>Filter by workspace in **Incidents and alerts**, **Timeline**, and **Insights** tabs. The **Overview** tab displays entity metadata aggregated from all workspaces.    |
+|Investigation & response > Hunting > **Advanced hunting**     | Select a workspace from the top right-hand side of the browser. Or, query across multiple workspaces by using the workspace operator in the query. See [Query multiple workspaces](extend-sentinel-across-workspaces-tenants.md#query-multiple-workspaces). The query results don't show a workspace name or ID.<br><br>Access all log data of the workspace, including queries and functions, as read only.  For more information, see [Advanced hunting with Microsoft Sentinel data in Microsoft Defender portal](/defender-xdr/advanced-hunting-microsoft-defender). <br><br>Some capabilities are limited to the primary workspace:<br>- Creating custom detections<br>- Queries via API  <br><br>Cross-workspace queries for  Log Analytics data remain subject to [Log Analytics limitations](/azure/azure-monitor/logs/cross-workspace-query#limitations). |
+|**Microsoft Sentinel** experiences|View data from one workspace for each page in the Microsoft Sentinel section of the Defender portal. Switch between workspaces by selecting **Select a workspace** from the top-right hand side of the browser for most pages. <br><br>- The **Workbooks** page only shows data associated with the primary workspace. <br><br>Cross-workspace analytics rules remain subject to [cross-workspace analytics rules limitations and recommendations](extend-sentinel-across-workspaces-tenants.md#include-cross-workspace-queries-in-scheduled-analytics-rules). |
 |**SOC optimization**|Data and recommendations are aggregated from multiple workspaces. |
 
 
@@ -102,3 +102,4 @@ Also, if the direct [Microsoft 365 Insider Risk Management connector for Microso
 
 - [Microsoft Defender multitenant management](/unified-secops-platform/mto-overview)
 - [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard)
+- [Extend Microsoft Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md)

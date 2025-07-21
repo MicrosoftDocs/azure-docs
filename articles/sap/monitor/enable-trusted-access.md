@@ -37,7 +37,7 @@ To use the trusted access using MSI feature, you need to meet the following prer
 1. Log in to the Azure portal and navigate to your Azure Monitor for SAP solutions resource.
 2. Migrate to Dedicated app service plan: [Follow steps here](https://go.microsoft.com/fwlink/?linkid=2306196)
 3. Go to the identity tab and enable the system assigned identity and wait for the operation to complete and monitor should be in succeeded state after the operation.
-![Screenshot of Enabling Trusted Access under Indentity tab.](../monitor/media/enable-trusted-access/enable-mi-existing-customer.png)
+![Screenshot of Enabling Trusted Access under Identity tab.](../monitor/media/enable-trusted-access/enable-mi-existing-customer.png)
 
 ## Disable Identity on existing AMS
 * Go to Identity tab for AMS and disable the identity and save.

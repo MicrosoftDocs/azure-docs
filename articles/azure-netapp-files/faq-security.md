@@ -1,11 +1,12 @@
 ---
-title: Security FAQs for Azure NetApp Files | Microsoft Docs
+title: Security FAQs for Azure NetApp Files
 description: Answers frequently asked questions (FAQs) about Azure NetApp Files security.
 ms.service: azure-netapp-files
 ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
 ms.date: 04/23/2025
+# Customer intent: As a security administrator, I want to understand the encryption options and key management for Azure NetApp Files, so that I can ensure the protection of sensitive data in compliance with security policies.
 ---
 # Security FAQs for Azure NetApp Files
 

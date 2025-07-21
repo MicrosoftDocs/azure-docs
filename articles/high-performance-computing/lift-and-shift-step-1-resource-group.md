@@ -7,6 +7,7 @@ ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+# Customer intent: As a cloud architect, I want to configure resource groups effectively during HPC migrations, so that I can optimize resource management, control access, and improve cost tracking for various workloads.
 ---
 
 # Resource group configuration

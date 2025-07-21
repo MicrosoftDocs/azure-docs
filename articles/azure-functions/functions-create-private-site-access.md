@@ -193,8 +193,8 @@ The next step in this tutorial is to create an HTTP-triggered Azure Function. In
 
     * [Visual Studio Code](./create-first-function-vs-code-csharp.md)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
-    * [Command line](./create-first-function-cli-csharp.md)
-    * [Maven (Java)](./create-first-function-cli-java.md?tabs=bash,browser)
+    * [Command line](./how-to-create-function-azure-cli.md?pivots=programming-language-csharp)
+    * [Maven (Java)](./how-to-create-function-azure-cli.md?pivots=programming-language-java)
 
 1. When publishing your Azure Functions project, choose the function app resource that you created earlier in this tutorial.
 1. Verify the function is deployed.

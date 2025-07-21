@@ -5,6 +5,7 @@ ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 05/12/2025
 ms.custom: engagement-fy23
+# Customer intent: As an IT administrator managing a VMware environment, I want to assess a large number of on-premises servers for migration to the cloud, so that I can plan an efficient migration strategy using available tools and services.
 ---
 
 # Assess large numbers of servers in VMware environment for migration to Azure

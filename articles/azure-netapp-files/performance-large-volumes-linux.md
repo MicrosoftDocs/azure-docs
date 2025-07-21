@@ -10,6 +10,7 @@ ms.custom: linux-related-content
 ms.topic: concept-article
 ms.date: 03/24/2025
 ms.author: anfdocs
+# Customer intent: As a cloud architect, I want to understand the performance benchmarks of Azure NetApp Files for Linux use cases, so that I can optimize volume sizing and workload configurations for our applications.
 ---
 # Azure NetApp Files large volume performance benchmarks for Linux
 

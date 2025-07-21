@@ -212,7 +212,7 @@ Secrets Key Vault references aren't supported in PowerShell.
 ---
 
 > [!NOTE]
-> If you're using [UDR With Azure Firewall](networking.md#user-defined-routes-udr), you need to add the `AzureKeyVault` service tag and the *login.microsoft.com* FQDN to the allow list for your firewall. Refer to [configuring UDR with Azure Firewall](networking.md#configuring-udr-with-azure-firewall) to decide which additional service tags you need.
+> If you're using [UDR With Azure Firewall](user-defined-routes.md), you will need to add the `AzureKeyVault` service tag and the *login.microsoft.com* FQDN to the allow list for your firewall. Refer to [configuring UDR with Azure Firewall](use-azure-firewall.md) to decide which additional service tags you need.
 
 #### Key Vault secret URI and secret rotation
 
@@ -265,7 +265,81 @@ After you've [defined a secret](#defining-secrets) in your container app, you ca
 
 In this example, the application connection string is declared as `queue-connection-string` and becomes available elsewhere in the configuration sections.
 
-:::code language="json" source="code/secure-app-arm-template.json" highlight="11-13,27-32,45-46,62-63":::
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "String"
+        },
+        "environment_id": {
+            "type": "String"
+        },
+        "key_vault_secret_uri": { ⬅️
+            "type": "String"      ⬅️
+        }                         ⬅️
+    },
+    "variables": {},
+    "resources": [
+    {
+        "name": "queuereader",
+        "type": "Microsoft.App/containerApps",
+        "apiVersion": "2022-03-01",
+        "kind": "containerapp",
+        "location": "[parameters('location')]",
+        "properties": {
+            "managedEnvironmentId": "[parameters('environment_id')]",
+            "configuration": {
+                "activeRevisionsMode": "single",
+                "secrets": [                                              ⬅️
+                {                                                         ⬅️
+                    "name": "queue-connection-string",                    ⬅️
+                    "keyVaultUrl": "[parameters('key_vault_secret_uri')", ⬅️
+                    "identity": "system"                                  ⬅️ 
+                }]                                                        ⬅️
+            },
+            "template": {
+                "containers": [
+                    {
+                        "image": "myregistry/myQueueApp:v1",
+                        "name": "myQueueApp",
+                        "env": [
+                            {
+                                "name": "QueueName",
+                                "value": "myqueue"
+                            },
+                            {
+                                "name": "ConnectionString",            ⬅️
+                                "secretRef": "queue-connection-string" ⬅️
+                            }
+                        ]
+                    }
+                ],
+                "scale": {
+                    "minReplicas": 0,
+                    "maxReplicas": 10,
+                    "rules": [
+                        {
+                            "name": "myqueuerule",
+                            "azureQueue": {
+                                "queueName": "demoqueue",
+                                "queueLength": 100,
+                                "auth": [
+                                    {
+                                        "secretRef": "queue-connection-string", ⬅️
+                                        "triggerParameter": "connection"        ⬅️
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }]
+}
+```
 
 Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret. Also, the Azure Queue Storage scale rule's authentication configuration uses the `queue-connection-string` secret as to define its connection.
 

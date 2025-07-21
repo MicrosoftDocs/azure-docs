@@ -7,8 +7,9 @@ author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 5/2/2025
+ms.date: 7/9/2025
 ms.author: mbender
+# Customer intent: As a Kubernetes administrator, I want to install the Application Gateway for Containers ALB Controller on my AKS cluster, so that I can efficiently manage load balancing rules and enhance application traffic handling.
 ---
 
 # Quickstart: Deploy Application Gateway for Containers ALB Controller
@@ -180,7 +181,6 @@ You need to complete the following tasks before deploying Application Gateway fo
    
     | NAME                                     | READY | STATUS  | RESTARTS | AGE  |
     | ---------------------------------------- | ----- | ------- | -------- | ---- |
-    | alb-controller-bootstrap-6648c5d5c-hrmpc | 1/1   | Running | 0        | 4d6h |
     | alb-controller-6648c5d5c-sdd9t           | 1/1   | Running | 0        | 4d6h |
     | alb-controller-6648c5d5c-au234           | 1/1   | Running | 0        | 4d6h |
 

@@ -101,7 +101,7 @@ You create an Azure Functions project for your static web app's API. By default,
         methods: ['GET', 'POST'],
         authLevel: 'anonymous',
         handler: async (request, context) => {
-            return { body: `Hello, from the API!` };
+            return { body: JSON.stringify({ "text": `Hello, from the API!` }) };
         }
     });
     ```

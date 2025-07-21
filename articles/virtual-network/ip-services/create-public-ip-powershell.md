@@ -9,6 +9,7 @@ ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 01/08/2025
 ms.custom: mode-api, devx-track-azurepowershell
+# Customer intent: "As a cloud administrator, I want to create a public IP address using PowerShell, so that I can establish public connectivity for Azure resources efficiently."
 ---
 
 # Quickstart: Create a public IP address using PowerShell

@@ -7,6 +7,7 @@ ms.topic: overview
 ms.date: 08/09/2024
 ms.author: allensu
 #Customer intent: As an administrator, I want to evaluate Azure Public DNS so I can determine if I want to use it instead of my current DNS service.
+# Customer intent: As an IT administrator, I want to evaluate Azure Public DNS as a potential DNS hosting solution, so that I can ensure it meets my organization's requirements for reliability, security, and ease of management.
 ---
 
 # What is Azure Public DNS?

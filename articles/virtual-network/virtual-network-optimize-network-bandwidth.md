@@ -9,6 +9,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 08/02/2024
 ms.author: allensu
+# Customer intent: As a system administrator managing Azure virtual machines, I want to optimize network throughput for both Windows and Linux VMs, so that I can improve performance and ensure efficient resource utilization during data transfers.
 ---
 
 # Optimize network throughput for Azure virtual machines
@@ -47,13 +48,13 @@ For all other Windows VMs, using Receive Side Scaling (RSS) can reach higher max
 
 ## Linux virtual machines
 
-RSS is always enabled by default in an Azure Linux Virtual Machine (VM). Linux kernels released since October 2017 include new network optimizations options that enable a Linux VM to achieve higher network throughput.
+RSS is always enabled by default in a Linux Virtual Machine (VM) in Azure. Linux kernels released since October 2017 include new network optimizations options that enable a Linux VM to achieve higher network throughput.
 
 ### Enable Azure Accelerated Networking for optimal throughput
 
 Azure provides accelerated networking which can really improve network performance, latency, jitter. There are currently two different technologies that are used depending on the virtual machine size, [Mellanox](/azure/virtual-network/accelerated-networking-how-it-works) which is wide available and [MANA](/azure/virtual-network/accelerated-networking-mana-overview) which is developed by Microsoft.
 
-### Azure Linux Tuned Kernels
+### Azure Tuned Kernels
 
 Some distributions such as Ubuntu (Canonical) and SUSE have [Azure tuned kernels](/azure/virtual-machines/linux/endorsed-distros#azure-tuned-kernels).
 
@@ -70,9 +71,9 @@ uname -r
 
 Most modern distributions have significant improvements with newer kernels. Check the current kernel version to make sure that you're running a kernel that is newer than 4.19, which includes some great improvements in networking, for example support for the *BBR Congestion-Based Congestion Control*.
 
-## Achieving consistent transfer speeds in Azure Linux VMs
+## Achieving consistent transfer speeds in Linux VMs in Azure
 
-Azure Linux VMs often experience network performance issues, particularly when transferring large files (1 GB to 50 GB) between regions, such as West Europe and West US. These issues are caused by older kernel versions as well as, default kernel configurations, default network buffer settings and default congestion control algorithms, which result in delayed packets, limited throughput, and inefficient resource usage. 
+Linux VMs often experience network performance issues, particularly when transferring large files (1 GB to 50 GB) between regions, such as West Europe and West US. These issues are caused by older kernel versions as well as, default kernel configurations, default network buffer settings and default congestion control algorithms, which result in delayed packets, limited throughput, and inefficient resource usage. 
 
 To get consistent network performance, consider implementing the following optimizations that are proven effective in many situations on Azure:
 

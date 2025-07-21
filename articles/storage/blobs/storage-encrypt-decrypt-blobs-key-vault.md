@@ -10,6 +10,7 @@ ms.author: pauljewell
 ms.reviewer: ozgun
 ms.devlang: csharp
 ms.custom: devx-track-csharp
+# Customer intent: As a developer, I want to implement client-side encryption for blobs using a key stored in Azure Key Vault, so that I can securely manage and protect sensitive data in Azure Blob Storage.
 ---
 
 # Tutorial: Encrypt and decrypt blobs using Azure Key Vault

@@ -7,7 +7,7 @@ metadata:
   ms.service: azure-firewall
   ms.custom: devx-track-azurepowershell
   ms.topic: faq
-  ms.date: 04/10/2025
+  ms.date: 07/01/2025
   ms.author: duau
 title: Azure Firewall FAQ
 summary: |
@@ -326,6 +326,44 @@ sections:
           Set-AzFirewall -AzureFirewall $fw
           ```
 
+      - question: Why can a TCP ping and similar tools successfully connect to a target FQDN even when no rule on Azure Firewall allows that traffic?
+        answer: |
+          A TCP ping isn't actually connecting  to the target FQDN. Azure Firewall doesn't allow a connection to any target IP address/FQDN unless there's an explicit rule that allows it.
+
+          TCP ping is a unique use case where if there's no allowed rule, the Firewall itself responds to the client's TCP ping request even though the TCP ping doesn't reach the target IP address/FQDN. In this case, the event isn't logged. If there's a network rule that allows access to the target IP address/FQDN, then the ping request reaches the target server and its response is relayed back to the client. This event is logged in the Network rules log.
+
+
+      - question: Are there limits for the number of IP addresses supported by IP Groups?
+        answer: |
+          Yes. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
+
+      - question: Can I move an IP Group to another resource group?
+        answer: No, moving an IP Group to another resource group isn't currently supported.
+
+      - question: What is the TCP Idle Timeout for Azure Firewall?
+        answer: |
+          A standard behavior of a network firewall is to ensure TCP connections are kept alive and to promptly close them if there's no activity. Azure Firewall TCP Idle Timeout is four minutes. This setting isn't user configurable, but you can contact Azure Support to increase the Idle Timeout for inbound and outbound connections up to 15 minutes. Idle Timeout for east-west traffic can't be changed.
+
+          If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained. A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see the [.NET examples](/dotnet/api/system.net.servicepoint.settcpkeepalive).
+
+      - question: Can I deploy Azure Firewall without a public IP address?
+        answer: Yes, but you must configure the firewall in Forced Tunneling Mode. This configuration creates a management interface with a public IP address that is used by Azure Firewall for its operations. This public IP address is for management traffic. It's used exclusively by the Azure platform and can't be used for any other purpose. The tenant data path network can be configured without a public IP address, and Internet traffic can be forced tunneled to another Firewall or completely blocked.
+
+      - question: Where does Azure Firewall store customer data?
+        answer: Azure Firewall doesn't move or store customer data out of the region it's deployed in.
+
+      - question: Is there a way to automatically back up Azure Firewall and policies?
+        answer: Yes. For more information, see [Backup Azure Firewall and Azure Firewall Policy with Logic Apps](https://techcommunity.microsoft.com/t5/azure-network-security-blog/backup-azure-firewall-and-azure-firewall-policy-with-logic-apps/ba-p/3613928).
+
+      - question: Is Azure Firewall in secured virtual hubs (vWAN) supported in Qatar?
+        answer: No, currently Azure Firewall in secured virtual hubs (vWAN) isn't supported in Qatar.
+
+      - question: How many parallel connections can Azure Firewall support?
+        answer: |
+          Azure Firewall uses Azure Virtual Machines underneath that have a [hard limit number of connections](/azure/virtual-network/virtual-machine-network-throughput#flow-limits-and-active-connections-recommendations). The total number of active connections per virtual machine is 250k.
+
+          The total limit per firewall is the virtual machine connection limit (250k) x the number of virtual machines in the firewall backend pool. Azure Firewall starts with two virtual machines and scales out based on CPU usage and throughput.
+
       - question: What is the SNAT TCP/UDP port reuse behavior in Azure Firewall?
         answer: |
           Azure Firewall currently uses TCP/UDP source ports for outbound SNAT traffic, with no idle wait time. When a TCP/UDP connection is closed, the TCP port used is immediately seen as available for upcoming connections.
@@ -357,4 +395,60 @@ sections:
       - question: How does Azure Firewall handle idle timeouts?
         answer: |
           When a connection has an Idle Timeout (four minutes of no activity), Azure Firewall gracefully terminates the connection by sending a TCP RST packet.
- 
+  
+  - name: Customer-controlled maintenance
+    questions:
+      - question: |
+          What type of maintenance does customer-controlled maintenance support?
+        answer: |
+          Azure services undergo regular maintenance updates to enhance functionality, reliability, performance, and security. With a configured maintenance period, guest OS maintenance and service maintenance are performed during that window. However, customer-controlled maintenance doesn't include host updates or critical security updates.
+
+      - question: |
+          Can I get advanced notification of the maintenance event?
+        answer: |
+          Advanced notifications for Azure Firewall maintenance aren't available.
+
+      - question: |
+          Can I configure a maintenance window shorter than five hours?
+        answer: |
+          No, a minimum five-hour maintenance window is required.
+
+      - question: |
+          Can I configure a maintenance window other than a daily schedule?
+        answer: |
+          No, maintenance windows is currently be configured to recur daily.
+
+      - question: |
+          Are there cases where I can't control certain updates?
+        answer: |
+          Customer-controlled maintenance supports guest OS and service updates, which account for most maintenance items of concern to customers. However, some updates, such as host updates, are outside the scope of customer-controlled maintenance. In rare cases, we might override your control of the maintenance window to address high-severity security issues.
+
+      - question: |
+          Do maintenance configuration resources need to be in the same region as the Azure Firewall?
+        answer: |
+          Yes.
+
+      - question: |
+          Can we create more than one maintenance configuration for a single Azure Firewall?
+        answer: |
+          No. Currently, only one maintenance configuration can be associated with an Azure Firewall.
+
+      - question: |
+          Which Azure Firewall SKUs can I configure to use customer-controlled maintenance?
+        answer: |
+          All Azure Firewall SKUs - Basic, Standard, and Premium support customer-controlled maintenance.
+
+      - question: |
+          How long does it take for a maintenance configuration policy to become effective after it's assigned to the Azure Firewall?
+        answer: |
+          It might take up to 24 hours for the Azure Firewall to follow the maintenance schedule after the maintenance policy is associated.
+
+      - question: |
+          I scheduled a maintenance window for a future date for one of my Azure Firewall resources. Are maintenance activities paused on this resource until then?
+        answer: |
+          Maintenance activities on your Azure Firewall aren't paused during the period preceding the scheduled maintenance window. For days that aren't included in your maintenance schedule, regular maintenance operations continue as usual on the resource.
+
+      - question: |
+          How do I find out more about customer-controlled maintenance on the Azure Firewall?
+        answer: |
+          For more information, see [Configure customer-controlled maintenance](customer-controlled-maintenance.md).

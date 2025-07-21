@@ -13,6 +13,7 @@ ms.author: tarcher
 content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
+# Customer intent: "As a cloud engineer, I want to create an Azure CDN profile and endpoint using Terraform, so that I can efficiently manage content delivery and scale my application."
 ---
 
 # Quickstart: Create an Azure CDN profile and endpoint using Terraform
