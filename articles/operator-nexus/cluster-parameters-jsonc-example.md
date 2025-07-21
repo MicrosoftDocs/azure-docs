@@ -1,11 +1,11 @@
 ---
 title: "Azure Operator Nexus - Example of cluster.parameters.jsonc template file"
 description: Example of an eight rack Cluster parameter file to use with ARM template in creating a Cluster.
-author: bartpinto
-ms.author: bpinto
+author: lb4368
+ms.author: lborgmeyer
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 05/22/2025
+ms.date: 07/21/2025
 ms.custom: template-how-to, devx-track-arm-template
 ---
 

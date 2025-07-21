@@ -1,11 +1,11 @@
 ---
 title: "Azure Operator Nexus - Example of cluster.jsonc template file"
 description: Example of cluster.jsonc template file to use with ARM template in creating a cluster.
-author: bartpinto
-ms.author: bpinto
+author: lb4368
+ms.author: lborgmeyer
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 07/21/2025
 ms.custom: template-how-to, devx-track-arm-template
 ---
 
@@ -115,12 +115,6 @@ ms.custom: template-how-to, devx-track-arm-template
       "type": "object",
       "metadata": {
         "description": "commandOutputSettings supports the Storage Account URI along with the managed identity to be used for accessing the Storage Account"
-      }
-    },
-    "clusterServicePrincipal": {
-      "type": "secureobject",
-      "metadata": {
-        "description": "Service principal account details used by the cluster to install the Arc Appliance. This field is needed in the near-term for Arc enrollment."
       }
     },
     "assignedIdentities": {
