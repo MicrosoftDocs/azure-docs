@@ -21,7 +21,7 @@ ms.custom: engagement-fy24
 
 Vaulted backup uses platform capabilities such as snapshots and object replication to copy data to the Backup vault. Object replication asynchronously copies block blobs from a source storage account to a destination backup storage account, including the blob's contents, versions, metadata, and properties.  
 
-When you configure protection, Azure Backup sets up a destination storage account within the Backup vault and applies an object replication policy at the container level for both source and destination accounts. During backup, Azure Backup places a recovery point marker on the source account and tracks its replication. After the marker is replicated to the destination, the recovery point is created.
+When you configure protection, Azure Backup sets up a destination storage account within the Backup vault and applies an object replication policy at the container level for both source and destination accounts. During backup, Azure Backup places a recovery point marker on the source account and tracks its replication. After the marker is replicated to the destination, the recovery point is created. Backup may take a minimum of 30–40 minutes, as backups rely on snapshots, and are taken every 15 minutes and require two snapshots to detect changes before triggering the backup.
 
 *The following diagram shows the recovery point creation process after the snapshot is taken:*
 
