@@ -4,8 +4,8 @@ description: Review examples, common scenarios, tutorials, and walkthroughs for 
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 03/21/2025
+ms.topic: concept-article
+ms.date: 07/18/2025
 ---
 
 # Common scenarios, examples, tutorials, and walkthroughs for Azure Logic Apps

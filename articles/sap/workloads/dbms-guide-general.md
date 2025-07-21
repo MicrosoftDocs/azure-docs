@@ -9,6 +9,7 @@ ms.date: 10/14/2024
 ms.author: juergent
 ms.reviewer: juergent
 
+# Customer intent: "As an IT administrator responsible for deploying SAP workloads, I want to implement a robust and efficient DBMS on Azure virtual machines, so that I can ensure high availability, performance, and compliance with my organization's infrastructure requirements."
 ---
 
 # Considerations for Azure Virtual Machines DBMS deployment for SAP workload

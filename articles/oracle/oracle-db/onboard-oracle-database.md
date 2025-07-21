@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 12/12/2023
 ms.custom: engagement-fy23
 ms.author: jacobjaygbay
+# Customer intent: "As a database administrator, I want to complete the onboarding steps for Oracle Database@Azure, so that I can efficiently provision and manage my database resources in the Azure environment."
 ---
 
 # Onboard Oracle Database@Azure

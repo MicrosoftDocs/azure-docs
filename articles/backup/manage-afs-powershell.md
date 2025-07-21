@@ -4,8 +4,8 @@ description: Learn how to use PowerShell to manage and monitor Azure Files backe
 ms.topic: how-to
 ms.date: 03/05/2025
 ms.custom: devx-track-azurepowershell
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As an IT administrator managing Azure Files, I want to utilize PowerShell to modify backup configurations and monitor job statuses, so that I can ensure efficient data protection and recovery processes for my organization's cloud storage.
 ---
 
