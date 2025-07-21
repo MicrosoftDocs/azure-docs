@@ -88,39 +88,24 @@ Key points to note:
 - Durable Functions and other advanced patterns are supported and billed under the same Container Apps pricing model.
 For detailed billing mechanics and examples, refer to the [Billing in Azure Container Apps](../container-apps/billing.md) documentation.
 
-## Event-driven scaling
+## Event-Driven Auto Scaling & Managed Identity Authorization
 
-All Functions triggers are available in your containerized Functions app. However, only the following triggers can dynamically scale (from zero instances) based on received events when running in a Container Apps environment:
+Azure Functions running in the Azure Container Apps environment support event-driven scaling from zero instances, triggered by incoming events. This capability is available across all supported triggers, and includes Managed Identity authorization. You can configure minimum and maximum replica counts for your Functions app, but you don’t need to manually set up KEDA scaled objects—Azure handles that for you. You can write your Functions code in any [language supported by Azure Functions](../azure-functions/supported-languages.md) and use the same triggers and bindings with event-driven scaling.
 
-- Azure Event Grid
-- Azure Event Hubs
-- Azure Blob Storage (Event Grid based)
-- Azure Queue Storage
-- Azure Service Bus
-- [Durable Functions (MSSQL storage provider)](../azure-functions/durable/durable-functions-mssql-container-apps-hosting.md)
-- Durable Functions (DTS storage provider)
-- HTTP
-- Kafka
-- Timer
-- Azure Cosmos DB
+**Exceptions to note**
+- Blob Storage Trigger auto scaling: Only works when using Event Grid as the source.
+- Durable Functions auto scaling: Only support MsSQL and DTS as storage providers.
+- Auto scaling not supported for:
+  - Azure Cache for Redis  
+  - Azure SQL  
+  - Azure Database for MySQL
 
-Azure Functions on Azure Container Apps are designed to configure the scale parameters and rules as per the event target. You don't need to worry about configuring the KEDA scaled objects. You can still set minimum and maximum replica count when creating or modifying your Functions app.
+**Managed Identity Connections**
+Managed identities are enabled by default for supported triggers and bindings that allow it. They are also available for:
+- [Default storage account](../azure-functions/functions-reference.md#connecting-to-host-storage-with-an-identity)
+- Azure Container Registry: When running in Container Apps, you can use Microsoft Entra ID with managed identities for all binding extensions that support it.
 
-You can write your Functions code in any [language stack supported](/azure/azure-functions/supported-languages?tabs=isolated-process%2Cv4&pivots=programming-language-csharp) by Azure Functions. You can use the same Functions triggers and bindings with event-driven scaling.
-
-## Managed identity authorization
-
-To adhere to security best practices, connect to remote services using Microsoft Entra authentication and managed identity authorization.
-
-Managed identities are available for the following connections:
-
-- [Default storage account](../azure-functions/functions-reference.md#connecting-to-host-storage-with-an-identity) (AzureWebJobsStorage)
-- Azure Container Registry: When running in Container Apps, you can use Microsoft Entra ID with managed identities for all binding extensions that support managed identities. Currently, only these binding extensions support event-driven scaling when using managed identity authentication:
-- Azure Event Hubs
-- Azure Queue Storage
-- Azure Service Bus
-
-For other bindings, use fixed replicas when using managed identity authentication. For more information, see the [Functions developer guide](/azure/azure-functions/functions-reference).
+For bindings that do not support managed identity with event-driven scaling, use fixed replica counts instead. For more details, refer ([Functions developer guide](../azure-functions/functions-reference.md)
 
 ## Scaling and performance
 
