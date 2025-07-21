@@ -181,9 +181,9 @@ For more information, see [Database Collector in Background Processing](https://
 
     These roles are available only after you activate the cloud integration capability.
 
-1. Create an instance of the SAP Process Integration Runtime in your subaccount.
+1. Create an instance of the SAP Process Integration Runtime in your subaccount using service plan **integration-flow** (not api!).
 
-1. Create a service key for the SAP Process Integration Runtime using plan **integration-flow** (not api!) and save the JSON contents to a secure location. You must activate the cloud integration capability before creating a service key for SAP Process Integration Runtime.
+1. Create a service key for the SAP Process Integration Runtime and save the JSON contents to a secure location. You must activate the cloud integration capability before creating a service key for SAP Process Integration Runtime.
 
 For more information, see the [SAP documentation](https://help.sap.com/docs/integration-suite/sap-integration-suite/initial-setup).
 
