@@ -8,6 +8,7 @@ manager: bburns
 ms.topic: article
 ms.date: 04/29/2025
 ms.author: juergent
+# Customer intent: "As an IT administrator, I want to deploy SAP workloads on Azure VMs, so that I can leverage Azure's scalability and automated management features for mission-critical applications."
 ---
 
 # Use Azure to host and run SAP workload scenarios
