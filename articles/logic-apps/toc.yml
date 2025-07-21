@@ -371,8 +371,6 @@ items:
       href: logic-apps-create-api-app.md
     - name: Delay
       href: ../connectors/connectors-native-delay.md
-    - name: Dynamics 365 (Deprecated)
-      href: ../connectors/connectors-create-api-crmonline.md
     - name: EDIFACT
       href: logic-apps-enterprise-integration-edifact.md
     - name: File System
@@ -408,7 +406,7 @@ items:
     - name: Integration Account
       href: logic-apps-enterprise-integration-metadata.md
     - name: Microsoft Dataverse
-      href: ../connectors/connect-common-data-service.md
+      href: connectors/dataverse.md
     - name: Microsoft Graph Security
       href: ../connectors/connectors-integrate-security-operations-create-api-microsoft-graph-security.md
     - name: Office 365 Outlook
