@@ -5,7 +5,7 @@ services: application gateway
 author: jaesoni
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 05/15/2025
+ms.date: 07/18/2025
 ms.author: mbender
 ms.custom:
   - build-2025
@@ -84,7 +84,26 @@ You don't need to configure anything on your Application Gateway for the backend
 * For V2 SKUs: the connections to backend servers will always be with preferred TLS v1.3 and minimum up to TLS v1.2
 * For V1 SKUs: the connections to backend servers will always be with TLS v1.2
 
-You must ensure that your servers in the backend pools are compatible with these updated protocol versions. This compatibility avoids any disruptions when establishing a TLS/HTTPS connection with those backend servers.
+You must ensure that your servers in the backend pools are compatible with these updated protocol versions. This compatibility avoids any disruptions when establishing an TLS/HTTPS connection with those backend servers.
+
+## Identification methods
+
+### Metrics
+To determine whether clients connecting to your Application Gateway resource are utilizing TLS 1.0 or 1.1, use the `Client TLS protocol` metric provided by Application Gateway. For more information, see the [metrics documentation](monitor-application-gateway-reference.md#metrics). You can view it from the Portal by following these steps.
+
+1. Go to the Application Gateway resource in the Azure portal.
+2. In the left menu pane, open the "Metrics" blade in Monitoring section.
+3. Select metric as `Client TLS protocol` from the dropdown.
+4. To view granular protocol version information, select "Apply splitting" and choose "TLS protocol".
+
+[![A diagram showing metrics page with TLS version split for application gateway traffic.](media/application-gateway-tls-version-retirement/metric-tls-version.png)](media/application-gateway-tls-version-retirement/metric-tls-version.png#lightbox)
+
+### Logs
+You can also check the [Application Gateway Access logs](monitor-application-gateway-reference.md#access-log-category) to view this information in log format.
+
+### Error information
+Once support for TLS versions 1.0 and 1.1 is discontinued, clients may encounter errors such as `curl: (35) error:0A000410:SSL routines::sslv3 alert handshake failure`. Depending on the browser being used, various messages indicating TLS handshake failures may be displayed.
+
 
 ## Next steps
 

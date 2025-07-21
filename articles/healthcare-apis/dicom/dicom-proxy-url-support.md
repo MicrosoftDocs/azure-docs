@@ -3,9 +3,9 @@ title: Support for URL customization for the DICOM service in Azure Health Data 
 description: Learn how to customize the URL of the image location that is in response object.
 author: varunbms
 ms.service: azure-health-data-services
-ms.subservice: fhir
+ms.subservice: dicom-service
 ms.topic: overview
-ms.date: 10/17/2024
+ms.date: 07/15/2025
 ms.author: buchvarun
 ---
 
