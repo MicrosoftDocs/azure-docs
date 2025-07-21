@@ -5,6 +5,7 @@ ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 3/22/2024
 ms.custom: engagement-fy23
+# Customer intent: As a DevOps engineer, I want to implement API Management for Azure VMware Solution VMs, so that I can securely publish and protect APIs for both internal and external consumers while ensuring optimal traffic flow and management using Azure services.
 ---
 
 # Publish and protect APIs running on Azure VMware Solution VMs

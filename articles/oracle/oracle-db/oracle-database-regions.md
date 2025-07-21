@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 9/24/2024
 ms.custom: references-regions
 ms.author: jacobjaygbay
+# Customer intent: As a cloud architect, I want to understand the regional availability of Oracle Database services on Azure, so that I can plan the deployment of these databases in the appropriate locations for optimal performance and disaster recovery.
 ---
 
 # Region availability for Oracle Database@Azure
