@@ -58,7 +58,6 @@ spec:
 
 The following functionality is not supported on a WAF Policy associated with Application Gateway for Containers:
 
-* **Rate Limiting Custom Rules**
 * **Java Script (JS) Challenge Actions**
 * **CRS 3.2 and lower ruleset**
 
