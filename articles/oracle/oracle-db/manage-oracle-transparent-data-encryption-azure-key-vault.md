@@ -170,25 +170,25 @@ At this point, the Oracle VM cluster is Azure Arc-enabled. Its Azure identity no
 
 ## Step 4: Enable Azure Key Vault key management on the VM cluster
 
-Activate the Azure Key Vault integration at the Exadata VM cluster level. This installs the required Oracle library/plugin on the cluster VMs that allows databases to use Azure Key Vault as a keystore.
+Activate the Azure Key Vault integration at the Exadata VM cluster level. This step installs the required Oracle library on the cluster VMs that allows databases to use Azure Key Vault as a key store.
 
 In the OCI console:
 
-* Go to the Exadata VM cluster details page where you created the connector.
-* In the Multicloud Information section, find Azure key store or Azure Key Management status. It should currently say "Disabled."
-* Select Enable next to Azure key store.
-* Confirm the action in the dialog that appears (select Enable).
+1. Go to the Exadata VM cluster details page where you created the connector.
+1. In the **Multicloud information** section, find the **Azure key store** or **Azure key management** status. It should currently say **Disabled**.
+1. Select **Enable**.
+1. Confirm the action in the dialog that appears (select **Enable**).
 
-:::image type="content" source="media/oracle-enable-azure-key-management.png" alt-text="Screenshot that shows where to Enable Azure key management in the OCI console.":::
+:::image type="content" source="media/oracle-enable-azure-key-management.png" alt-text="Screenshot that shows where to Enable Azure key management on the OCI console.":::
 
-This action triggers installation of an Oracle software library on the cluster VMs. This is likely an extension to Oracle's TDE wallet software that knows how to interface with Azure Key Vault. It only takes a minute or two. Once done, the OCI console shows Azure key store: Enabled on the VM cluster.
+This action triggers installation of an Oracle software library on the cluster VMs. This library is likely an extension to Oracle's TDE wallet software that knows how to interface with Azure Key Vault. It takes only a minute or two. After the installation finishes, the OCI console shows **Azure key store: Enabled** on the VM cluster.
 
 Now, the cluster is configured to support Azure Key Vault. Importantly:
 
-* This setting is cluster-wide, but it does not automatically switch any database to use Azure Key Vault. It makes the option available. Databases on this cluster can either use the traditional Oracle Wallet or Azure Key Vault, side by side. For example, you might enable Azure Key Vault and then migrate one database at a time.  
-* If for some reason you needed to disable it, you could click "Disable," which uninstalls the library. However, don't disable if you have databases actively using Azure Key Vault, as they would lose access to their keys you'd have to re-enable to get them functioning again.
+* This setting is cluster-wide, but it does not automatically switch any database to use Azure Key Vault. It makes the option available. Databases on this cluster can use either the traditional Oracle Wallet or Azure Key Vault, side by side. For example, you might enable Azure Key Vault and then migrate one database at a time.  
+* If for some reason you need to disable it, you could select **Disable**, which uninstalls the library. However, don't select **Disable** if you have databases actively using Azure Key Vault. If you do, the databases will lose access to their keys, and you'll have to re-enable to get them functioning again.
 
-At this stage, you've completed the core setup: Azure side is ready and Oracle side (cluster) is ready. The remaining steps involve connecting an actual Oracle database to the Key Vault key.
+At this stage, you've completed the core setup. The Azure side is ready, and the Oracle side (cluster) is ready. The remaining steps involve connecting an actual Oracle database to the Azure Key Vault key.
 
 ## Step 5: Register the Azure Key Vault in OCI (optional, as needed)
 
@@ -198,22 +198,22 @@ Oracle allows you to register Azure key vaults in the OCI console:
 
 1. Navigate to *Database Multicloud Integrations* > **Microsoft Azure Integration**.
 
-1. Click on Azure Key Vaults.
+1. Select **Azure Key Vaults**.
 
    :::image type="content" source="media/oracle-register-azure-key-vault.png" alt-text="Screenshot that shows where to Register Azure key vaults in the OCI console.":::
 
-1. Click Register Azure key vaults. In the dialog:
+1. Select **Register Azure key vaults**. In the dialog:
 
    * Choose the Compartment, which is the compartment where your Exadata VM cluster is.
    * Select the identity connector to use for discovery. Choose the connector you created in Step 3.
-   * Click Discover. The system uses the Azure Arc connector to query Azure and should list any key vaults in the subscription/resource group accessible by that connector. Your vault created in Step 1 should appear, identified by its name.
-   * Select the vault from the list, then click Register.
+   * Select **Discover**. The system uses the Azure Arc connector to query Azure and should list any key vaults in the subscription/resource group accessible by that connector. Your vault created in Step 1 should appear, identified by its name.
+   * Select the vault from the list, and then select **Register**.
 
 After registration:
 
 * The vault is listed in OCI with a status, likely "Available," and details like type such as key vault or Managed HSM, or Azure resource group.
-* A default association is automatically created between this vault and the identity connector you used for discovery. You can view this by clicking the vault name and checking the "Identity connector associations" tab.
-* If you had multiple Exadata VM clusters with different connectors that need to use the same key vault, you would have to manually create more associations: click Create association, and link the vault to another identity connector. This scenario is advanced (for example, a primary and standby cluster in different regions both using one centralized vault – ensure network connectivity is appropriate).
+* A default association is automatically created between this vault and the identity connector you used for discovery. You can view this by selecting the vault name and checking the "Identity connector associations" tab.
+* If you had multiple Exadata VM clusters with different connectors that need to use the same key vault, you would have to manually create more associations: select **Create association**, and link the vault to another identity connector. This scenario is advanced (for example, a primary and standby cluster in different regions both using one centralized vault – ensure network connectivity is appropriate).
 
 Now Oracle OCI knows about your key vault and has it associated with the cluster's connector, meaning the path is clear for a database to use it.
 
@@ -243,7 +243,7 @@ Using the OCI Console:
 
 1. Navigate to the specific Database resource page under the VM cluster's list of databases.
 1. On the Database Information tab, find the Encryption / Key Management section. It should show that it's currently using Oracle Wallet if it hasn't been changed yet.
-1. Click the Change link next to the Key Management field.
+1. Select the **Change** link next to the **Key Management** field.
 
    :::image type="content" source="media/oracle-change-key-management.png" alt-text="Screenshot that shows where to change key management in the OCI console."lightbox="media/oracle-change-key-management.png":::
 
@@ -252,7 +252,7 @@ Using the OCI Console:
    * Vault Compartment, then select the Vault.
    * Key Compartment, which is likely the same as vault's, then select the Key from the drop-down list.
 
-1. Click Save changes or OK to confirm.
+1. Select **Save changes** or **OK** to confirm.
 
 Oracle performs the key migration:
 
@@ -283,7 +283,7 @@ With the database configured to use Azure Key Vault, it's critical to verify tha
 * **Azure Key Vault monitoring**: In Azure, navigate to your key vault:
   * Under Keys, you should see the key. For example, OracleTDEMasterKey. There may not be visible changes just from association, but you can check the Azure Key Vault logs. Enable Azure Key Vault's diagnostic logging if not already, and check for a "Get Key" or "Decrypt/Unwrap Key" event corresponding to when the database was opened or the key was set. This confirms the Oracle database accessed the key in Azure. Azure's logging shows the principal that accessed the key – it should be the Azure Arc machine's managed identity and identifiable by a GUID, which should match the Azure Arc principalId.
   * If you perform a rotation in the next step, you see a new key version in this list.
-* **Don't delete keys** – This is worth reiterating: *Never delete the Azure Key Vault key that your database is using*. If you delete the key in Azure, the database immediately loses the ability to decrypt its data, essentially bricking the database. In OCI console, Oracle actually shows a warning if you look at the key info. If you must stop using a key, the proper procedure is to migrate the database to a new key (rotate it) before deleting the old one. Azure Key Vault supports key versioning. Old versions can be left disabled rather than deleted until no longer needed.
+* **Don't delete keys**: This is worth reiterating: *Never delete the Azure Key Vault key that your database is using*. If you delete the key in Azure, the database immediately loses the ability to decrypt its data, essentially bricking the database. In OCI console, Oracle actually shows a warning if you look at the key info. If you must stop using a key, the proper procedure is to migrate the database to a new key (rotate it) before deleting the old one. Azure Key Vault supports key versioning. Old versions can be left disabled rather than deleted until no longer needed.
 
 * **Test failover/restart**: If this is a production setup, simulate a database restart to ensure it can retrieve the key on startup. Shut down and start up the Oracle database (or reboot the VM cluster if needed – though in RAC, bounce one node at a time). The database should start without manual intervention, pulling the key from Azure Key Vault in the process. If it starts fine, the integration is solid. If it fails to open the wallet automatically, recheck Step 2 (permissions) and Step 3 (Azure Arc connectivity).
 
@@ -297,7 +297,7 @@ With the integration in place, consider the following for ongoing operations:
 
   Rotate the TDE master key periodically as per your security policy. For example, annually or after some days or events. Always perform rotations from the Oracle side (OCI console or API), not directly in Azure.
 
-  * To rotate via OCI console: Go to the Database details page, Encryption section, and click Rotate. This appears next to the key info if Azure Key Vault is in use. Confirm the rotation. This generates a new key version in Azure Key Vault. You can verify a new version under the key in Azure and update the database to use the new version.
+  * To rotate via OCI console: Go to the Database details page, Encryption section, and select **Rotate**. This appears next to the key info if Azure Key Vault is in use. Confirm the rotation. This generates a new key version in Azure Key Vault. You can verify a new version under the key in Azure and update the database to use the new version.
 
   :::image type="content" source="media/oracle-rotate-key.png" alt-text="Screenshot that shows where to rotate Azure key vaults in the OCI console.":::
 
