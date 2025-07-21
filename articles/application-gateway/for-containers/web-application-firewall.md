@@ -11,8 +11,6 @@ ms.author: jstrom
 
 # Web Application Firewall on Application Gateway for Containers
 
-## Overview
-
 Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. All WAF functionality exists inside of a WAF policy, which can be referenced at listener or path-based routing rules within Gateway API yaml configuration.
 
 ![Diagram depicting a request being blocked by a web application firewall rule.](./media/how-to-web-application-firewall-gateway-api/web-application-firewall.png)
