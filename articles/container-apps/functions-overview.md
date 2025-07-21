@@ -54,19 +54,12 @@ For a complete comparison of the Functions on Container Apps against Flex Consum
 Azure Functions on Container Apps are ideal for a wide range of use cases, especially when you need event-driven execution, container flexibility, or secure integration with other services:
 
 - **Line-of-business APIs:** Package custom libraries, packages, and APIs with Functions for line-of-business applications.
-
 - **Migration and modernization:** Migration of on-premises legacy and/or monolith applications to cloud native microservices on containers.
-
 - **Event-driven processing:** Handle events from Event Grid, Service Bus, Event Hubs and other event sources with ease of Functions programming model.
-
 - **AI & GPU workloads:** Serverless workload processing of videos, images, transcripts, or any other processing intensive tasks that required  GPU compute resources. Read more [here](../container-apps/gpu-serverless-overview.md).
-
 - **Microservices:** Integrate Functions with other Container Apps hosted services.
-
 - **Custom containers:** Package Functions with custom runtimes or sidecars.
-
 - **Private apps:** Secure internal-only Functions using VNet and internal ingress.
-
 - **General Functions:** Run any standard [Azure Functions scenarios](../azure-functions/functions-scenarios.md) (e.g., timers, file processing, database triggers).
 
 ## Pricing and billing
@@ -140,11 +133,14 @@ Azure Functions on Container Apps benefit from Container Apps’ robust [network
 
 These capabilities make Container Apps-hosted Functions ideal for enterprise-grade, secure serverless applications.
 
-## Application logging
+## Monitoring and Logging
 
-You can monitor your containerized Functions app hosted in Container Apps using Azure Monitor Application Insights in the same way you do with apps hosted by Azure Functions. For more information, see [Monitor Azure Functions](/azure/azure-functions/monitor-functions).
+Azure Functions on Container Apps integrate seamlessly with Azure’s observability tools for performance tracking and issue diagnosis:
 
-For bindings that support event-driven scaling, scale events are logged as `FunctionsScalerInfo` and `FunctionsScalerError` events in your Log Analytics workspace. For more information, see [Application Logging in Azure Container Apps](./logging.md).
+- **Application Insights:** Provides telemetry for requests, dependencies, exceptions, and custom traces. For more information, see [Monitor Azure Functions](../azure-functions/monitor-functions.md).  
+- **Log Analytics:** Captures container lifecycle and scaling events (e.g., FunctionsScalerInfo entries). For more information, see [Application Logging in Azure Container Apps](../container-apps/logging.md).  
+- **Custom Logging:** Supports standard frameworks like ILogger and console logging for structured output.  
+- **Centralized Monitoring:** Container Apps environment offers unified dashboards and alerts across all apps.
 
 ## Submit Feedback
 
