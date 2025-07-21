@@ -262,6 +262,8 @@
           href: sap/sap-btp-security-content.md
         - name: Deploy SAP BTP
           href: sap/deploy-sap-btp-solution.md
+      - name: Partner solutions
+        href: sap/solution-partner-overview.md
     - name: Integrate Microsoft business applications
       items:
       - name: Overview
