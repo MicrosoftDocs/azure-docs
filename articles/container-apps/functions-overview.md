@@ -51,18 +51,23 @@ For a complete comparison of the Functions on Container Apps against Flex Consum
 
 ## Scenarios
 
+Azure Functions on Container Apps are ideal for a wide range of use cases, especially when you need event-driven execution, container flexibility, or secure integration with other services:
 
-Azure Functions on Azure Container Apps provide a versatile combination of services to meet the needs of your applications. The following scenarios are representative of the types of situations where paring Azure Container Apps with Azure Functions gives you the control and scaling features you need.
+- **Line-of-business APIs:** Package custom libraries, packages, and APIs with Functions for line-of-business applications.
 
-- **Line-of-business APIs**: Package custom libraries, packages, and APIs with Functions for line-of-business applications.
+- **Migration and modernization:** Migration of on-premises legacy and/or monolith applications to cloud native microservices on containers.
 
-- **Migration support**: Migration of on-premises legacy and/or monolith applications to cloud native microservices on containers.
+- **Event-driven processing:** Handle events from Event Grid, Service Bus, Event Hubs and other event sources with ease of Functions programming model.
 
-- **Event-driven architecture**: Supports event-driven applications for workloads already running on Azure Container Apps.
+- **AI & GPU workloads:** Serverless workload processing of videos, images, transcripts, or any other processing intensive tasks that required  GPU compute resources. Read more [here](../container-apps/gpu-serverless-overview.md).
 
-- **Serverless workloads**: Serverless workload processing of videos, images, transcripts, or any other processing intensive tasks that required  GPU compute resources.
+- **Microservices:** Integrate Functions with other Container Apps hosted services.
 
-- **Common Azure Functions scenarios**: All common Azure Functions scenarios like processing file uploads, running scheduled tasks, responding to database changes, machine learning/AI and others detailed in [Azure Functions scenarios](/azure/azure-functions/functions-scenarios?pivots=programming-language-csharp).
+- **Custom containers:** Package Functions with custom runtimes or sidecars.
+
+- **Private apps:** Secure internal-only Functions using VNet and internal ingress.
+
+- **General Functions:** Run any standard [Azure Functions scenarios](../azure-functions/functions-scenarios.md) (e.g., timers, file processing, database triggers).
 
 ## Pricing and billing
 Azure Functions on Azure Container Apps follow the same pricing model as Azure Container Apps. Billing is based on the [plan type](../container-apps/plans.md) you select for your environment, which can be either Consumption or Dedicated.
