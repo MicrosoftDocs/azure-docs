@@ -7,7 +7,6 @@ ms.custom:
   - references_regions
   - linux-related-content
   - build-2025
-ms.reviewer: nikhilsarode
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
