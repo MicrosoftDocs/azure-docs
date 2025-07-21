@@ -7,8 +7,8 @@ ms.custom:
 ms.topic: quickstart
 ms.date: 02/28/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to create a backup policy for Azure Database for PostgreSQL - Flexible Server using PowerShell, so that I can ensure reliable data protection and recovery according to our organization's standards."
 ---
 

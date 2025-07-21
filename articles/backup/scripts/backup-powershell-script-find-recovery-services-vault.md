@@ -5,8 +5,8 @@ ms.topic: sample
 ms.date: 10/20/2024
 ms.service: azure-backup
 ms.custom: devx-track-azurepowershell
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to use a PowerShell script to identify the Recovery Services vault associated with my storage account, so that I can manage backup and recovery efficiently."
 ---
 
