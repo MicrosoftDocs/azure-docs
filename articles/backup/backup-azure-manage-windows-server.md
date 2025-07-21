@@ -3,8 +3,8 @@ title: Manage Azure Recovery Services vaults and servers
 description: In this article, learn how to use the Recovery Services vault Overview dashboard to monitor and manage your Recovery Services vaults. 
 ms.topic: how-to
 ms.date: 06/23/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As an IT administrator, I want to use the Overview dashboard of the Recovery Services vault to monitor backup jobs and alerts, so that I can ensure the reliability and effectiveness of our backup and recovery processes."
 ---
 # Monitor and manage Recovery Services vaults

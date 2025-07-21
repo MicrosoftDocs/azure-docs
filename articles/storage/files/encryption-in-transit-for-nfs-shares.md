@@ -47,7 +47,7 @@ EiT is now Generally Available (GA) in all regions that support Azure Premium Fi
 
 ### Register for preview (not needed for GA regions)
  
-To enable encryption in transit for your storage accounts and NFS shares in the preview regions (China North3, New Zealand North, West Europe, US East2, US Central, US South, and Korea Central), you must register for the preview. **No registration is needed in the GA regions.**
+To enable encryption in transit for your storage accounts and NFS shares in the preview regions (China North3, New Zealand North, West Europe, US Central, US South, and Korea Central), you must register for the preview. **No registration is needed in the GA regions.**
 
 ### [Portal](#tab/azure-portal)
 

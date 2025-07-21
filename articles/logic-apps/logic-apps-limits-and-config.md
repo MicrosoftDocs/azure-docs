@@ -4,8 +4,8 @@ description: Reference guide about the limits and configuration settings for log
 services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
-ms.topic: conceptual
-ms.date: 03/27/2025
+ms.topic: reference
+ms.date: 07/18/2025
 ---
 
 # Limits and configuration reference for Azure Logic Apps
