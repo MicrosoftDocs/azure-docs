@@ -71,7 +71,7 @@ To avoid losing Kubernetes control plane (KCP) quorum, Operator Nexus provides a
 
 Here are the triggers for automated remediation:
 
-*   For all servers: if a server fails to provision successfully after four hours, automated remediation occurs.
+*   For all servers: if a server fails to provision successfully after six hours, automated remediation occurs.
 *   For all servers: if a running node is stuck in a read only root filesystem mode for 10 minutes, automated remediation occurs.
 *   For KCP and Management Plane servers, if a Kubernetes node is in an Unknown state for 30 minutes, automated remediation occurs.
 
