@@ -4,7 +4,7 @@ description: Learn how to create and use hybrid connections in Azure App Service
 author: seligj95
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
-ms.date: 06/04/2025
+ms.date: 07/07/2025
 ms.update-cycle: 1095-days
 ms.author: jordanselig
 ms.custom:
@@ -170,6 +170,8 @@ To support the Hybrid Connections it's configured with, the Hybrid Connection Ma
 
 - TCP access to Azure over port 443.
 - TCP access to the Hybrid Connection endpoint.
+- Windows clients must have ports 4999-5001 available.
+- Linux clients must have port 5001 available.
 - The ability to do DNS look-ups on the endpoint host and the Service Bus namespace. In other words, the hostname in the Azure relay connection should be resolvable from the machine that hosts the Hybrid Connection Manager.
 
 ### Getting started with the Hybrid Connection Manager GUI

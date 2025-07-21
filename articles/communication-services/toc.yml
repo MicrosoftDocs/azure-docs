@@ -388,6 +388,8 @@ items:
     href: concepts/advanced-messaging/whatsapp/whatsapp-terms-of-service.md
   - name: Messaging policy
     href: concepts/sms/messaging-policy.md
+  - name: WhatsApp channel prerequisites
+    href: concepts/advanced-messaging/whatsapp/whatsapp-channel-prerequisites.md
   - name: WhatsApp business account FAQ
     href: quickstarts/advanced-messaging/whatsapp/whatsapp-business-account-faq.md
   - name: Logging and analytics
@@ -526,13 +528,13 @@ items:
       href: quickstarts/voice-video-calling/local-preview-mirroring.md
     - name: Optimize video placement on your web app
       href: quickstarts/voice-video-calling/optimizing-video-placement.md
-      displayName: Optimal Video Count, OVC, dual pin
-    - name: Simulcast
+      displayName: Optimal Video Count, OVC, dual pin, 1080P
+    - name: Understanding Simulcast
       href: concepts/voice-video-calling/simulcast.md
-      displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-    - name: Enable audio noise suppression improvements
+      displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues, simulcast
+    - name: Add audio quality improvements
       href: tutorials/audio-quality-enhancements/add-noise-supression.md
-      displayName: noise suppression, audio quality, noise removal, background noise, deep noise, voice isolation
+      displayName: noise suppression, audio quality, noise removal, background noise, deep noise, voice isolation, echo cancellation
     - name: Enable video background effects
       href: quickstarts/voice-video-calling/get-started-video-effects.md
       displayName: background blur, background replace, background replacement, frosted glass
@@ -1194,6 +1196,8 @@ items:
       href: how-tos/calling-sdk/together-mode.md
     - name: Control media access
       href: how-tos/calling-sdk/media-access.md
+    - name: Display name changed
+      href: how-tos/calling-sdk/display-name-changed.md
 - name: Teams Phone extensibility
   items:
   - name: Overview

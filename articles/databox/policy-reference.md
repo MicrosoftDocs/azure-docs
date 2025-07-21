@@ -21,7 +21,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure Data Box
 
-[!INCLUDE [azure-policy-reference-cat-databox](../../includes/policy/reference/bycat/policies-data-box.md)]
+[!INCLUDE [azure-policy-reference-cat-databox](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policies-data-box.md)]
 
 ## Next steps
 

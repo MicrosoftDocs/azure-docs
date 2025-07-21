@@ -2,10 +2,11 @@
 title: Configure and manage backup for Azure Blobs using Azure Backup
 description: Learn how to configure and manage operational and vaulted backups for Azure Blobs.
 ms.topic: how-to
-ms.date: 06/18/2025
+ms.date: 07/11/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to configure and manage backup for Azure Blobs across multiple storage accounts, so that I can ensure data protection and recovery options are available in case of accidental deletion or data loss."
 ---
 
 # Configure and manage backup for Azure Blobs using Azure Backup
@@ -168,7 +169,7 @@ For more information, see [Overview of Azure Business Continuity Center](../busi
 You can stop operational backup for your storage account according to your requirement.
 
 >[!NOTE]
->When you remove backups, the **object replication policy** isn't removed from the source. So, you need to remove the policy separately. Stopping protection only dissociates the storage account from the Backup vault (and the backup tools, such as Backup center), and doesn’t disable blob point-in-time restore, versioning, and change feed that were configured.
+>When you remove backups, Azure Backup automatically deletes the **object replication policy** from the source. If custom locks exist, remove the policy manually. If you stop protection, it disconnects only the storage account from the Backup vault and tools (such as Backup center). This action doesn't disable blob point-in-time restore, versioning, or change feed settings.
 
 To stop backup for a storage account, follow these steps:
 

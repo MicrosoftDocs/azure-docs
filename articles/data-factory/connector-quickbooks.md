@@ -7,7 +7,7 @@ ms.author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/20/2023
+ms.date: 06/11/2025
 ---
 
 # Copy data from QuickBooks Online using Azure Data Factory or Synapse Analytics (Preview)
@@ -16,7 +16,10 @@ ms.date: 10/20/2023
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from QuickBooks Online. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
+> This connector version 1.0 is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
+
+> [!IMPORTANT]
+> The QuickBooks connector version 2.0 (Preview) provides improved native QuickBooks support. If you are using QuickBooks connector version 1.0 in your solution, please [upgrade the QuickBooks connector](#upgrade-the-quickbooks-connector-from-version-10-to-version-20) before **August 31, 2025**. Refer to this [section](#quickbooks-connector-lifecycle-and-upgrade) for details on the difference between version 2.0 (Preview) and version 1.0.
 
 ## Supported capabilities
 
@@ -66,7 +69,53 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The following properties are supported for QuickBooks linked service:
+The QuickBooks connector now supports version 2.0 (Preview). Refer to this [section](#upgrade-the-quickbooks-connector-from-version-10-to-version-20) to upgrade your QuickBooks connector version from version 1.0. For the property details, see the corresponding sections.
+
+- [Version 2.0 (Preview)](#version-20)
+- [Version 1.0](#version-10)
+
+### <a name="version-20"></a>Version 2.0 (Preview)
+
+The QuickBooks linked service supports the following properties when apply version 2.0 (Preview):
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to: **QuickBooks** | Yes |
+| version | The version that you specify. The value is `2.0`. | Yes |
+| endpoint | The endpoint of the QuickBooks Online server. (that is, quickbooks.api.intuit.com)  | Yes |
+| companyId | The company ID of the QuickBooks company to authorize. For info about how to find the company ID, see [How do I find my Company ID](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Yes |
+| consumerKey | The client ID of your QuickBooks Online application for OAuth 2.0 authentication. Learn more from [here](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app). | Yes |
+| consumerSecret | The client secret of your QuickBooks Online application for OAuth 2.0 authentication. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| refreshToken | The OAuth 2.0 refresh token associated with the QuickBooks application. Learn more from [here](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app). Note refresh token will be expired after 180 days. Customers need to regularly update the refresh token. <br/>Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).| Yes |
+
+**Example:**
+
+```json
+{
+    "name": "QuickBooksLinkedService",
+    "properties": {
+        "type": "QuickBooks",
+        "version": "2.0",
+        "typeProperties": {
+            "endpoint": "quickbooks.api.intuit.com",
+            "companyId": "<company id>",
+            "consumerKey": "<consumer key>", 
+            "consumerSecret": {
+                 "type": "SecureString",
+                 "value": "<clientSecret>"
+            },
+            "refreshToken": {
+                "type": "SecureString",
+                "value": "<refresh token>"
+            }
+        }
+    }
+}
+```
+
+### <a name="version-10"></a> Version 1.0
+
+The following properties are supported for QuickBooks linked service when apply version 1.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -77,7 +126,7 @@ The following properties are supported for QuickBooks linked service:
 | companyId | The company ID of the QuickBooks company to authorize. For info about how to find the company ID, see [How do I find my Company ID](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Yes |
 | consumerKey | The client ID of your QuickBooks Online application for OAuth 2.0 authentication. Learn more from [here](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app). | Yes |
 | consumerSecret | The client secret of your QuickBooks Online application for OAuth 2.0 authentication. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| refreshToken | The OAuth 2.0 refresh token associated with the QuickBooks application. Learn more from [here](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app). Note refresh token will be expired after 180 days. Customer need to regularly update the refresh token. <br/>Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).| Yes |
+| refreshToken | The OAuth 2.0 refresh token associated with the QuickBooks application. Learn more from [here](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app). Note refresh token will be expired after 180 days. Customers need to regularly update the refresh token. <br/>Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).| Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 
 **Example:**
@@ -152,7 +201,7 @@ To copy data from QuickBooks Online, set the source type in the copy activity to
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **QuickBooksSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | No (if "tableName" in dataset is specified) |
+| query | Use the custom SQL query to read data. <br><br>For version 2.0 (Preview), you can only use QuickBooks native query with limitations. For more information, see [query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries). Note that the `tableName` specified in the query must match the `tableName` in the dataset. <br><br>For version 1.0, you can use SQL-92 query. For example: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
@@ -189,9 +238,39 @@ To copy data from QuickBooks Online, set the source type in the copy activity to
 
 The Copy Activity in the service cannot copy data directly from Quickbooks Desktop. To copy data from Quickbooks Desktop, export your Quickbooks data to a comma-separated-values (CSV) file and then upload the file to Azure Blob Storage. From there, you can use the service to copy the data to the sink of your choice.
 
+## Data type mapping for Quickbooks
+
+When you copy data from Quickbooks, the following mappings apply from Quickbooks's data types to the internal data types used by the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+
+| Quickbooks data type | Interim service data type (for version 2.0 (Preview)) | Interim service data type (for version 1.0) |
+|:--- |:--- |:--- |
+| String| string| string |
+| Boolean | bool | bool |
+| DateTime | datetime | datetime |
+| Decimal | decimal (15,2)  | decimal (15, 2) |
+| Enum | string | string |
+| Date | date | datetime |
+| BigDecimal | decimal (15,2) | decimal (15, 2) |
+| Integer | int | int |
+
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## Quickbooks connector lifecycle and upgrade
+
+The following table shows the release stage and change logs for different versions of the QuickBooks connector:
+
+| Version  | Release stage | Change log |  
+| :----------- | :------- |:------- |
+| Version 1.0 | End of support announced | / |  
+| Version 2.0 | Public Preview | • Support Quickbooks native query with limitations. GROUP BY clauses, JOIN clauses and Aggregate Function (Avg, Max, Sum) aren't supported. For more information, see [query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries). <br><br>• The `tableName` specified in the `query` must match the `tableName` in the dataset. <br><br>• Date is read as date data type. <br><br>• SQL-92 query is not supported. <br><br>• `useEncryptedEndpoints` is not supported.  |
+
+### <a name="upgrade-the-quickbooks-connector-from-version-10-to-version-20"></a> Upgrade the Quickbooks connector from version 1.0 to version 2.0 (Preview)
+
+1. In **Edit linked service** page, select 2.0 (Preview) for version. For more information, see [linked service version 2.0 (Preview) properties](#version-20).
+1. If you use SQL query in the copy activity source or the lookup activity that refers to the version 1.0 linked service, you need to convert them to the QuickBooks native query. Learn more about native query from [Quickbooks as a source type](#quickbooks-as-source) and [query operations and syntax](https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api/data-queries).
+1. The data type mapping for the Quickbooks linked service version 2.0 (Preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Quickbooks](#data-type-mapping-for-quickbooks).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

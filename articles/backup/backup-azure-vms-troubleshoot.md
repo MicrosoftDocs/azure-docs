@@ -5,8 +5,9 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 06/19/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As an IT admin managing Azure virtual machines, I want to troubleshoot backup errors during the backup and restore process, so that I can ensure data integrity and availability for my applications.
 ---
 
 # Troubleshooting backup failures on Azure virtual machines

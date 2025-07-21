@@ -4,6 +4,7 @@ description: Describes how to create an AVS assessment with Azure Migrate
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 11/07/2024
+# Customer intent: "As a cloud architect, I want to create an Azure VMware Solution assessment for on-premises VMs so that I can evaluate migration options and ensure compatibility with Azure's infrastructure."
 ---
 
 

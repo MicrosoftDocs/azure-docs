@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 06/20/2024
 ms.custom: engagement-fy24
+# Customer intent: As an IT administrator using Azure Migrate, I want to resolve troubleshooting issues related to project creation and assessment, so that I can ensure a smooth migration process for our applications and infrastructure.
 ---
 
 # Troubleshoot Azure Migrate

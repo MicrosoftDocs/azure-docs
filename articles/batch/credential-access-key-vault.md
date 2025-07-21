@@ -4,6 +4,7 @@ description: Learn how to programmatically access your credentials from Key Vaul
 ms.topic: how-to
 ms.date: 07/01/2025
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a developer, I want to use certificates with Azure Batch to securely access Azure Key Vault, so that I can programmatically retrieve credentials for my applications without compromising security.
 ---
 
 # Use certificates to securely access Azure Key Vault with Batch

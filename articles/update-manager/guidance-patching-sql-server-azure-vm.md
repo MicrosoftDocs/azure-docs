@@ -6,6 +6,7 @@ ms.author: v-uhabiba
 ms.service: azure-update-manager
 ms.topic: overview
 ms.date: 07/06/2024
+# Customer intent: "As an IT administrator managing SQL Server on Azure VMs, I want to efficiently handle updates across my virtual machines using a centralized service, so that I can ensure system security and compliance without disrupting operations."
 ---
 
 # Guidance on patching for SQL Server on Azure VMs using Azure Update Manager
