@@ -10,6 +10,7 @@ ms.date: 05/06/2024
 
 #customer intent: As a network administrator, I want to configure multiple prefixes on a subnet in my Azure Virtual Network so that I can expand my address space capacity.
 
+# Customer intent: "As a network administrator, I want to configure multiple address prefixes on a subnet in my virtual network so that I can efficiently manage address space and scale my applications without downtime."
 ---
 
 # Create multiple prefixes for a subnet in an Azure Virtual Network - Preview

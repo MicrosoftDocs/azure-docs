@@ -7,6 +7,7 @@ ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.date: 03/17/2025
 ms.custom: template-quickstart
+# Customer intent: "As a network administrator, I want to configure DDoS IP protection for my public IP address, so that I can safeguard my application from distributed denial-of-service attacks."
 ---
 
 # QuickStart: Create and configure Azure DDoS IP Protection using Azure portal

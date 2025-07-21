@@ -25,6 +25,9 @@ _OPC UA servers_ are software applications that communicate with assets. _OPC UA
 
 In this quickstart, you use a Bicep file to configure your Azure IoT Operations instance.
 
+> [!TIP]
+> If you prefer a longer tutorial that walks you through the same steps in more depth and includes additional detail such as security configuration, see [Tutorial: Add OPC UA assets to your Azure IoT Operations cluster](../end-to-end-tutorials/tutorial-add-assets.md).
+
 ## Prerequisites
 
 Have an instance of Azure IoT Operations deployed in a Kubernetes cluster. The [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the quickstarts.

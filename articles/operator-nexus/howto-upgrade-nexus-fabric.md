@@ -27,7 +27,11 @@ Runtime changes are categorized as follows:
 
 ### **Prerequisites**
 
-Confirm that the Network Fabric Controller is in a 'Provisioned' state.
+- Confirm that the Network Fabric Controller is in a 'Provisioned' state.
+
+- Ensure that all Fabric devices are checked for potential [cabling issues](./how-to-validate-cables.md).
+
+- Ensure all Network Fabric devices are in a healthy state before initiating a major runtime version upgrade. This validation is not required for minor runtime version upgrades. 
 
 ### **Upgrade workflow**
 
@@ -83,7 +87,7 @@ Follow the recommended sequence for device upgrades, addressing any failures man
 
 - Verify all devices are configured and synchronized.
 
-- Ensure that there is at least **3GB of available disk space** within the directory `/mnt` to proceed with NNF device upgrade .
+- Ensure that there is at least **3.5GB of available disk space** within the directory `/mnt` to proceed with NNF device upgrade .
 
 Upgrade individual devices with the following command:
 
@@ -135,5 +139,5 @@ Check the version status of all devices and the fabric with AZCLI commands.
 ### **Known issues**
 
 1. Create the EOS image directory manually at `/mnt/nvram/nexus/eosimages` if it is missing. This is especially important for environments built from older NF versions.
-2. NNF device upgrades fail when the available disk space within the directory `/mnt` is less than 3GB. Perform a manual clean up to free up disk space within the NNF device and then retry the upgrade operation.
+2. NNF device upgrades fail when the available disk space within the directory `/mnt` is less than 3.5GB. Perform a manual clean up to free up disk space within the NNF device and then retry the upgrade operation.
 

@@ -1874,8 +1874,8 @@ ___
 <a name="random" ></a>
 
 ### <code>random</code>
-<code><b>random(<i>&lt;value1&gt;</i> : integral) => long</b></code><br/><br/>
-Returns a random number given an optional seed within a partition. The seed should be a fixed value and is used with the partitionId to produce random values  
+<code><b>random(<i>&lt;value1&gt;</i> : integral) => double</b></code><br/><br/>
+Returns a random number given a seed within a partition. The seed should be a fixed value and is used with the partitionId to produce random values in range (0.0-1.0).
 * ``random(1) == 1 -> false``
 ___
 
@@ -2285,7 +2285,7 @@ ___
 <a name="substringIndex" ></a>
 
 ### <code>substringIndex</code>
-<code><b>substringIndex(<i>&lt;string to subset&gt;</i> : string, <i>&lt;delimiter&gt;</i> : string, &lt;count of delimiter occurences&gt;</i> : integral]) => string</b></code><br/><br/>
+<code><b>substringIndex(<i>&lt;string to subset&gt;</i> : string, <i>&lt;delimiter&gt;</i> : string, &lt;count of delimiter occurrences&gt;</i> : integral]) => string</b></code><br/><br/>
 Extracts the substring before `count` occurrences of the delimiter. If `count` is positive, everything to the left of the final delimiter (counting from the left) is returned. If `count` is negative, everything to the right of the final delimiter (counting from the right) is returned. 
 * ``substringIndex('111-222-333', '-', 1) -> '111'``  
 * ``substringIndex('111-222-333', '-', 2) -> '111-222'``  

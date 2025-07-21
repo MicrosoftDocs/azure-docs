@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 02/27/2024
 ms.author: mbender
 
+# Customer intent: As an IT operations manager, I want to monitor performance metrics for Application Gateway for Containers, so that I can ensure optimal application performance and troubleshoot issues effectively.
 ---
 # Metrics for Application Gateway for Containers
 

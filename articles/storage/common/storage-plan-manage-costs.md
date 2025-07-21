@@ -9,6 +9,7 @@ ms.date: 06/12/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: subject-cost-optimization
+# Customer intent: As a cost manager, I want to analyze and manage Azure Blob Storage costs, so that I can optimize our cloud spending and avoid unexpected charges.
 ---
 
 # Plan and manage costs for Azure Blob Storage
@@ -148,12 +149,17 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 4. Modify the remaining options to see their effect on your estimate.
 
-   > [!TIP]
-   > See these in-depth guides to help you predict and forecast costs:
-   >
-   > - [Estimating Pricing for Azure Block Blob Deployments](https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/)
-   > - [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md)
-   > - [Estimate the cost of using AzCopy to transfer blobs](../blobs/azcopy-cost-estimation.md)
+### Guides and sample estimates
+
+See these in-depth guides to help you predict and forecast costs:
+
+- [Estimating Pricing for Azure Block Blob Deployments](https://azure.github.io/Storage/docs/application-and-user-data/code-samples/estimate-block-blob/)
+- [Estimate the cost of using Azure Blob Storage](../blobs/blob-storage-estimate-costs.md)
+- [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md)
+- [Estimate the cost of using AzCopy to transfer blobs](../blobs/azcopy-cost-estimation.md)
+- [Cost estimate: Move data out of archive storage](../blobs/cost-estimate-archive-retrieval-set-tier.md)
+- [Cost estimate: Retrieve data from archive storage for analysis](../blobs/cost-estimate-archive-retrieval-copy-blob.md)
+- [Cost estimate: Upload and access data from multiple regions](../blobs/cost-estimate-multi-region-access.md)
 
 ### Using Azure Prepayment with Azure Blob Storage
 

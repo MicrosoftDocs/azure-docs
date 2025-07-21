@@ -2,11 +2,11 @@
 title: What Is Application Gateway Integration?
 description: Learn how Azure Application Gateway integrates with Azure App Service.
 services: app-service
-author: madsd
+author: seligj95
 ms.service: azure-app-service
 ms.topic: overview
 ms.date: 01/07/2025
-ms.author: madsd
+ms.author: jordanselig
 ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---

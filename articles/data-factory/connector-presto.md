@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/06/2025
+ms.date: 06/13/2025
 ms.author: jianleishen
 ---
 # Copy data from Presto using Azure Data Factory or Synapse Analytics
@@ -247,7 +247,7 @@ When you copy data from Presto, the following mappings apply from Presto's data 
 | DATE | Date | Datetime |
 | DECIMAL (Precision < 28) | Decimal | Decimal |
 | DECIMAL (Precision >= 28) | Decimal | String |
-| DOUBLE | Double | Decimal |
+| DOUBLE | Double | Double |
 | INTEGER | Int32 | Int32 |
 | INTERVAL_DAY_TO_SECOND | TimeSpan | Not supported. |
 | INTERVAL_YEAR_TO_MONTH | String | Not supported. |
@@ -288,7 +288,7 @@ The Presto connector version 2.0 offers new functionalities and is compatible wi
 | The default value of `port` is 8443. | The default value of `port` is 8080. |
 | The default value of `enableSSL` is true.<br><br> `enableServerCertificateValidation` is supported. <br><br>`trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported.| The default value of `enableSSL` is false.<br><br>`enableServerCertificateValidation` is not supported. <br><br> `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` is supported. |
 | The default value of `timeZoneID` is the Presto system time zone. | The default value of `timeZoneID` is the Azure Data Factory time zone. |
-| The following mappings are used from Presto data types to interim service data type.<br><br>DATE -> Date <br>DECIMAL (Precision >= 28) -> Decimal <br> DOUBLE -> Double <br>INTERVAL_DAY_TO_SECOND -> TimeSpan <br>INTERVAL_YEAR_TO_MONTH -> String<br>IPADDRESS -> String<br>TIME -> Time<br>TIMESTAMPWITHTIMEZONE -> Datetimeoffset<br>TINYINT -> SByte<br>UUID -> Guid| The following mappings are used from Presto data types to interim service data type.<br><br>DATE -> Datetime <br>DECIMAL (Precision >= 28) -> String <br>DOUBLE -> Decimal <br>TIME -> TimeSpan<br>TINYINT -> Int16<br> Other mappings supported by version 2.0 listed left are not supported by version 1.0. |  
+| The following mappings are used from Presto data types to interim service data type.<br><br>DATE -> Date <br>DECIMAL (Precision >= 28) -> Decimal <br>INTERVAL_DAY_TO_SECOND -> TimeSpan <br>INTERVAL_YEAR_TO_MONTH -> String<br>IPADDRESS -> String<br>TIME -> Time<br>TIMESTAMPWITHTIMEZONE -> Datetimeoffset<br>TINYINT -> SByte<br>UUID -> Guid| The following mappings are used from Presto data types to interim service data type.<br><br>DATE -> Datetime <br>DECIMAL (Precision >= 28) -> String <br>TIME -> TimeSpan<br>TINYINT -> Int16<br> Other mappings supported by version 2.0 listed left are not supported by version 1.0. |  
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

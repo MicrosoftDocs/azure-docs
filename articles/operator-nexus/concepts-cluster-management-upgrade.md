@@ -1,28 +1,30 @@
 ---
-title: Azure Operator Nexus cluster management upgrade overview
-description: Get an overview of cluster management upgrade for Azure Operator Nexus.
-author: matternst7258
-ms.author: matthewernst
+title: Azure Operator Nexus Cluster management upgrade overview
+description: Get an overview of Cluster management upgrade for Azure Operator Nexus.
+author: bartpinto
+ms.author: bpinto
 ms.service: azure-operator-nexus
 ms.topic: conceptual
-ms.date: 11/19/2024
+ms.date: 07/16/2025
 ms.custom: template-concept
 ---
 
-# Operator Nexus management upgrades
-
-Operator Nexus releases various functionality and bug fixes throughout the month to update the Azure resources and on-premises extensions, critical in communications back to Azure. 
+# Operator Nexus Cluster management upgrades
+Operator Nexus releases various functionality and bug fixes throughout the product lifecycle to update the Azure resources and on-premises extensions, critical in communications back to Azure. 
 
 ## Scope
-
-The releases update components on the Cluster Manager and Network Fabric Controller to enable new functionality, while maintaining backwards compatibility for the customer. Additionally, new runtime releases make available and accessed via [Cluster Runtime Upgrades](./howto-cluster-runtime-upgrade.md) and [Network Fabric Upgrades](./howto-upgrade-nexus-fabric.md).
+The releases update components on the Cluster Manager to enable new functionality, while maintaining backwards compatibility for the customer. Additionally, new runtime releases are made available and accessed via [Cluster Runtime Upgrades](./howto-cluster-runtime-upgrade.md).
 
 For Compute management, Microsoft delivers new software to the extensions and agents that exist on the platform to provide new functionality and maintain security and communication back to Azure.
 
-## Impact to customer workloads
+## Delivery
+Cluster Manager update is triggered independently when the release is available in the region.
 
-The intent of these releases is no disruption to running workloads, instantiating new workloads, and on-premises resources retain availability throughout the upgrade. Therefore, the customer should see no impact. 
+## Impact to customer workloads
+There's no disruption to running workloads or instantiating new workloads, and on-premises resources retain availability throughout the upgrade. Therefore, the customer sees no impact. 
 
 ## Duration of on-premises updates
+Updates take up to one hour to complete per cluster.
 
-These updates take up to one hour to complete per cluster. 
+## Related Information
+For concepts on Network Fabric management upgrades, see [Azure Operator Nexus Network Fabric management upgrade overview](./concepts-fabric-management-upgrade.md).

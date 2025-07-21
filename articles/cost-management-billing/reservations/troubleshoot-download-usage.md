@@ -7,7 +7,7 @@ ms.subservice: reservations
 ms.author: primittal
 ms.reviewer: primittal
 ms.topic: troubleshooting
-ms.date: 03/26/2025
+ms.date: 07/08/2025
 ---
 
 # Troubleshoot Azure reservation download usage details

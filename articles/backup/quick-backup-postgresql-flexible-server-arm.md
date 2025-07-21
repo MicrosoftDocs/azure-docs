@@ -8,8 +8,9 @@ ms.custom:
 ms.topic: quickstart
 ms.date: 05/15/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a database administrator, I want to configure automated backups for Azure Database for PostgreSQL using an ARM template, so that I can ensure data availability and compliance with recovery policies.
 ---
 
 # Quickstart: Configure backup for Azure Database for PostgreSQL - Flexible Server with an Azure Resource Manager template

@@ -2,11 +2,12 @@
 title: Back up Azure Files in the Azure portal
 description: Learn how to use the Azure portal to back up Azure Files in the Recovery Services vault
 ms.topic: how-to
-ms.date: 05/22/2025
+ms.date: 07/09/2025
 ms.service: azure-backup
 ms.custom: engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As an IT administrator, I want to configure backups for Azure Files, so that I can ensure data protection against accidental or malicious deletions while minimizing on-premises maintenance."
 ---
 
 # Back up Azure Files
@@ -27,7 +28,7 @@ Azure Files backup is a native cloud solution that protects your data and elimin
 * Identify or create a [Recovery Services vault](tutorial-backup-azure-files-vault-tier-portal.md#create-a-recovery-services-vault) in the same region and subscription as the storage account that hosts the file share.
 * [Create a backup policy for protection of Azure Files](quick-backup-azure-files-vault-tier-portal.md).
 * If the storage account access has restrictions, check the firewall settings of the account to ensure the exception **Allow Azure services on the trusted services list to access this storage account** is in grant state. You can refer to [this](../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) link for the steps to grant an exception.
-* Ensure that you allow the **Storage account key access** in the required storage account.
+* Ensure the storage account either permits access via account keys or has public network access disabled.
 * Ensure that the target storage account has the [supported configurations](azure-file-share-support-matrix.md#permitted-scope-for-copy-operationspreview).
 
 >[!IMPORTANT]

@@ -4,8 +4,9 @@ description: Lists Azure Policy built-in policy definitions for Azure Backup. Th
 ms.date: 02/06/2024
 ms.topic: reference
 ms.custom: subject-policy-reference; engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to access built-in Azure Policy definitions for Azure Backup, so that I can effectively manage compliance and governance for my backup resources."
 ---
 # Azure Policy built-in definitions for Azure Backup
 
@@ -19,7 +20,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure Backup
 
-[!INCLUDE [azure-policy-reference-rp-backup](../../includes/policy/reference/byrp/microsoft.recoveryservices.md)]
+[!INCLUDE [azure-policy-reference-rp-backup](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.recoveryservices.md)]
 
 ## Next steps
 

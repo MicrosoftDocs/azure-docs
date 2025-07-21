@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 12/09/2024
 ms.author: abell
 
+# Customer intent: "As an IT administrator, I want to monitor and manage remote sessions in Azure Bastion, so that I can ensure security and control over user access to virtual machines."
 ---
 
 # Session monitoring and management for Azure Bastion

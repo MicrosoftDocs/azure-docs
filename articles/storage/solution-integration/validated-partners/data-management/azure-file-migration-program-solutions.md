@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 03/24/2022
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+# Customer intent: "As a cloud administrator, I want to utilize the Azure Storage Migration Program and its partner solutions, so that I can efficiently migrate various data types to Azure Storage while minimizing costs and ensuring minimal disruption to business operations."
 ---
 
 # Engaging with Azure Storage Migration Partners

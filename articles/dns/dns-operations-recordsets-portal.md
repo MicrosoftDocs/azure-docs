@@ -7,6 +7,7 @@ ms.service: azure-dns
 ms.topic: how-to
 ms.date: 06/27/2024
 ms.author: allensu
+# Customer intent: As a DNS administrator, I want to manage DNS record sets and records in the Azure portal so that I can efficiently configure and update my domain's DNS settings to ensure reliable connectivity and performance.
 ---
 
 # Manage DNS records and record sets by using the Azure portal
