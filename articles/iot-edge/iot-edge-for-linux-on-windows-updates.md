@@ -89,7 +89,7 @@ To migrate from EFLOW 1.5.4.07025 with Azure Linux 2.0 to EFLOW 1.5.5.07025 with
 1. Start the EFLOW migration
 
     > [!NOTE]
-    > You can migrate with one single cmdlet by using the `-autoConfirm` flag with the `Start-EflowMigration` cmdlet. If specified `Confirm-EflowMigration` doesn't needs to be called to proceed with 1.4 migration.
+    > You can migrate with one single cmdlet by using the `-autoConfirm` flag with the `Start-EflowMigration` cmdlet. If specified `Confirm-EflowMigration` doesn't needs to be called to proceed with the Azure Linux 3.0 migration.
 
     1. If you're using the auto-download migration option, run the following cmdlet
         ```powershell
