@@ -10,6 +10,7 @@ ms.topic: article
 ms.date: 10/29/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
+# Customer intent: "As an IT administrator managing SAP HANA on Azure, I want to configure Ultra Disk storage for optimal IOPS and throughput, so that I can ensure low latency and high performance for critical data processing workloads."
 ---
 
 # SAP HANA Azure virtual machine Ultra Disk storage configurations

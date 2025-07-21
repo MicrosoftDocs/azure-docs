@@ -8,6 +8,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.date: 06/19/2023
 ms.author: juergent
+# Customer intent: As an IT architect, I want to design SAP HANA availability across multiple Azure regions, so that I can meet my organization's disaster recovery requirements while managing network latency and ensuring minimal downtime during failovers.
 ---
 
 # SAP HANA availability across Azure regions

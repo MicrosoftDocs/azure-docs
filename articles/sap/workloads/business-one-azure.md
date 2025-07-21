@@ -8,6 +8,7 @@ ms.topic: article
 ms.date: 02/11/2022
 ms.author: juergent
 
+# Customer intent: As an IT professional deploying SAP Business One, I want to follow best practices for configuring Azure Virtual Machines, so that I can ensure optimal performance and reliability for the application and its database.
 ---
 
 # SAP Business One on Azure Virtual Machines
