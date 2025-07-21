@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 06/12/2025
+ms.date: 07/16/2025
 ms.custom:
   - references_regions
   - ai-gen-docs-bap

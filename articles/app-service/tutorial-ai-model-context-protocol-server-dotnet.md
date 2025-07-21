@@ -1,6 +1,6 @@
 ---
-title: Web app as MCP server in GitHub Copilot Chat agent mode
-description: Empower GitHub Copilot Chat with your existing web apps by integrating their capabilities as Model Context Protocol servers, enabling Copilot Chat to perform real-world tasks.
+title: Web app as MCP server in GitHub Copilot Chat agent mode (.NET)
+description: Empower GitHub Copilot Chat with your existing .NET web apps by integrating their capabilities as Model Context Protocol servers, enabling Copilot Chat to perform real-world tasks.
 author: cephalin
 ms.author: cephalin
 ms.date: 06/17/2025
@@ -12,7 +12,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Integrate an App Service app as an MCP Server for GitHub Copilot Chat (.NET)
 
-In this tutorial, you'll learn how to expose your app's functionality through Model Context Protocol (MCP), add it as a tool to GitHub Copilot, and interact with your app using natural language in Copilot Chat agent mode.
+In this tutorial, you'll learn how to expose an ASP.NET Core app's functionality through Model Context Protocol (MCP), add it as a tool to GitHub Copilot, and interact with your app using natural language in Copilot Chat agent mode.
 
 :::image type="content" source="media/tutorial-ai-model-context-protocol-server-dotnet/model-context-protocol-call-intro.png" alt-text="Screenshot showing GitHub Copilot calling Todos MCP server hosted in Azure App Service.":::
 
@@ -215,16 +215,20 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
     :::image type="content" source="media/tutorial-ai-model-context-protocol-server-dotnet/model-context-protocol-server-start.png" alt-text="Screenshot showing how to manually start an MCP server from the local mcp.json file.":::
 
 1. Start a new GitHub Copilot Chat window. You should be able to view, create, update, and delete tasks in the Copilot agent.
-
-    > [!TIP]
-    > You can deactivate the confirmation message by adding a *.vscode/settings.json* with the following JSON:
-    >
-    > ```json
-    > {
-    >     "chat.tools.autoApprove": true
-    > }
-    > ```
     
+## Security best practices
+
+When your MCP server is called by an agent powered by large language models (LLM), be aware of [prompt injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/) attacks. Consider the following security best practices:
+
+- **Authentication and Authorization**: Protect your MCP endpoints in App Service behind [Azure API Management with Microsoft Entra ID](/azure/api-management/api-management-howto-protect-backend-with-aad) and ensure only authorized users or agents can access the tools.
+- **Input Validation and Sanitization**: The example code in this tutorial omits input validation and sanitization for simplicity and clarity. In production scenarios, always implement proper validation and sanitization to protect your application. For ASP.NET Core, see [Model validation in ASP.NET Core](/aspnet/core/mvc/models/validation).
+- **HTTPS:** The sample relies on Azure App Service, which enforces HTTPS by default and provides free TLS/SSL certificates to encrypt data in transit.
+- **Least Privilege Principle**: Expose only the necessary tools and data required for your use case. Avoid exposing sensitive operations unless necessary.
+- **Rate Limiting and Throttling**: Use [API Management](/azure/api-management/api-management-sample-flexible-throttling) or custom middleware to prevent abuse and denial-of-service attacks.
+- **Logging and Monitoring**: Log access and usage of MCP endpoints for auditing and anomaly detection. Monitor for suspicious activity.
+- **CORS Configuration**: Restrict cross-origin requests to trusted domains if your MCP server is accessed from browsers. For more information, see [Enable CORS](app-service-web-tutorial-rest-api.md#enable-cors).
+- **Regular Updates**: Keep your dependencies up to date to mitigate known vulnerabilities.
+
 ## More resources
 
 [Integrate AI into your Azure App Service applications](overview-ai-integration.md)

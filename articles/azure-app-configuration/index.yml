@@ -151,10 +151,12 @@ landingContent:
           url: quickstart-feature-flag-python.md
         - text: Node.js app
           url: quickstart-feature-flag-javascript.md
+        - text: Go console app
+          url: quickstart-feature-flag-go-console.md
+        - text: Go Gin web app
+          url: quickstart-feature-flag-go-gin.md
       - linkListType: tutorial
         links: 
-        - text: Use feature flags in Spring Boot
-          url: use-feature-flags-spring-boot.md
         - text: Enable conditional features with feature filters
           url: howto-feature-filters.md
         - text: Enable features on a schedule
@@ -163,10 +165,8 @@ landingContent:
           url: howto-targetingfilter.md
         - text: Use variant feature flags
           url: howto-variant-feature-flags.md
-        - text: Use variant feature flags in Python
-          url: howto-variant-feature-flags-python.md
-        - text: Use variant feature flags in JavaScript
-          url: howto-variant-feature-flags-javascript.md
+        - text: Enable telemetry for feature flags
+          url: howto-telemetry.md
       - linkListType: reference
         links:
         - text: Overview
@@ -183,6 +183,8 @@ landingContent:
           url: https://microsoft.github.io/FeatureManagement-Python/html/index.html
         - text: JavaScript feature management
           url: feature-management-javascript-reference.md
+        - text: Go feature management
+          url: https://pkg.go.dev/github.com/microsoft/Featuremanagement-Go/featuremanagement
 
   - title: Client libraries and tools
     linkLists:

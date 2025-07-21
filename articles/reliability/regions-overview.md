@@ -14,7 +14,7 @@ ms.custom: subject-reliability, ai-video-concept
 
 >[!VIDEO https://learn-video.azurefd.net/vod/player?id=d36b5b2d-8bd2-43df-a796-b0c77b2f82fc]
 
-Azure provides over 60 regions globally. Regions are located across many different *geographies*. Each geography represents a data residency boundary, for example the United States, or Europe, and may contain one or more regions. Each region is a set of physical facilities that include datacenters and networking infrastructure.
+Azure provides over 70 regions globally. Regions are located across many different *geographies*. Each geography represents a data residency boundary, for example the United States, or Europe, and may contain one or more regions. Each region is a set of physical facilities that include datacenters and networking infrastructure.
 
 Regions provide certain types of resiliency options. Many regions provide [availability zones](./availability-zones-overview.md), and some have a paired region while other regions are nonpaired. When you choose a region for your services, it's important to pay attention to the resiliency options that are available in that region. This article helps you understand Azure regions, and gives you an overview of the resiliency options that some Azure regions support, while offering links to more detailed information on each topic.
 
@@ -28,7 +28,6 @@ Every region is contained within a single *geography* that serves as a fixed dat
 
 > [!NOTE]
 > Most regions are available to all Azure customers. However, some regions belong to *sovereign cloud* geographies, which are available to some customers in specific geographic areas with stringent data residency regulations. Sovereign cloud regions work the same way as other regions, however they're often limited in the services and features of services that they provide. For more examples of limited service availability in sovereign cloud regions, see [Compare Azure Government and global Azure](/azure/azure-government/compare-azure-government-global-azure)) or [Availability of services for Microsoft Azure operated by 21Vianet](/azure/reliability/sovereign-cloud-china).
-
 
 ## List of regions
 
@@ -44,18 +43,13 @@ When you select regions, consider the following factors:
 - **Availability zones**. Select regions that support availability zones to provide redundancy and fault isolation. Make sure that you spread your resources across multiple availability zones in the region. 
 - **Data residency:** Ensure that any regions you select are within a data residency boundary that your organization requires.
 
-
-
 For more detailed information on how to select regions, see [Select Azure regions](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions).
 
-
 ## Regional resiliency options
-
 
 While all Azure regions provide high-quality services such as data residency and latency optimization, they can differ in the types of resiliency options they support. 
 
 This section summarizes the two resiliency options that may or may not be available in the regions you choose.
-
 
 ### Availability zones
 
@@ -82,7 +76,6 @@ If you're using multiple regions together, you need to consider tradeoffs betwee
 - **Latency:** When you select physically isolated regions, the latency of network connections between those regions increases. Latency can affect how you design a multi-region solution, and it can restrict the types of geo-replication and geo-redundancy you can use. To learn more about latency between Azure regions, see [Azure network round-trip latency statistics](/azure/networking/azure-network-latency). For more information about how to select regions, see [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones).
 
 - **Data residency:** Ensure that any regions you select are within a data residency boundary that your organization requires.
-
 
 ## Nonregional services
 

@@ -8,6 +8,7 @@ ms.date: 02/03/2023
 ms.author: kanamudu
 author: kalyaninamuduri
 #Customer intent: As a developer, I want to register my existing SAP system so that I can use the system with Azure Center for SAP solutions.
+# Customer intent: "As an SAP system administrator, I want to register my existing SAP system in an Azure environment, so that I can leverage Azure Center for SAP solutions for visualization, management, and monitoring capabilities."
 ---
 
 # Register existing SAP system

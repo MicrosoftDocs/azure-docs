@@ -61,6 +61,11 @@ To create an App Service Environment in the Azure portal, complete the following
    
 1. From the **Networking** tab, for **Virtual Network**, select or create your virtual network. For **Subnet**, select or create your subnet. If you create an App Service Environment with an internal VIP, you can configure Azure DNS private zones to point your domain suffix to your App Service Environment. For more information, see the DNS section in [Use an App Service Environment](/azure/app-service/environment/using#dns-configuration). If you create an App Service Environment with an internal VIP, you can specify a private IP address by using the **Manual** option for **Inbound IP address**.
 
+   > [!NOTE]
+   > If you use an existing subnet that has either a network security group or route table associated with it, you must either delegate the subnet to `Microsoft.web/hostingEnvironments` yourself or ensure you have have at a minimum the following RBAC permissions for your associated resources:
+   > * `Microsoft.Network/routeTables/join/action`
+   > * `Microsoft.Network/networkSecurityGroups/join/action`
+
    :::image type="content" source="./media/creation/creation-networking-internal.png" alt-text="Screenshot that shows App Service Environment networking (App Service Environment Internal) selections." border="true":::
 
    If you create an App Service Environment with an external VIP, you can select a public IP address by using the **Manual** option for **Inbound IP address**.

@@ -1,5 +1,5 @@
 ---
-title: Configure Virtual WAN for Azure NetApp Files | Microsoft Docs
+title: Configure Virtual WAN for Azure NetApp Files
 description: Describes guidelines to help you configure Azure NetApp files on Azure Virtual WAN.
 services: azure-netapp-files, virtual-wan
 author: rambk
