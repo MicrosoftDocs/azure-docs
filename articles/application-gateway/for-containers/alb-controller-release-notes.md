@@ -27,7 +27,7 @@ Instructions for new or existing deployments of ALB Controller are found in the 
 
 | ALB Controller Version | Gateway API Version | Minimum Kubernetes Version | Release Notes |
 | ---------------------- | ------------------- | ------------------ | ------------- |
-| 1.7.9 | v1.1.1 | v1.27 | [Web Application Firewall (WAF) Public Preview](https://aka.ms/agc/waf), [nodeSelector support](https://github.com/Azure/AKS/issues/4370#issuecomment-2894487836), [Permissions fix for Overlay networks](https://github.com/Azure/AKS/issues/5039), minor fixes and improvements |
+| 1.7.9 | v1.2.1 | v1.27 | [Web Application Firewall (WAF) Public Preview](https://aka.ms/agc/waf), Updated to Gateway API v1.2.1, [nodeSelector support](https://github.com/Azure/AKS/issues/4370#issuecomment-2894487836), [Permissions fix for Overlay networks](https://github.com/Azure/AKS/issues/5039), fix for SAN regex matching, misc. performance improvements |
 
 ## Release history
 
