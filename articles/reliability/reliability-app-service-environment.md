@@ -25,16 +25,17 @@ If you are not using App Service Environment, refer to [Reliability in Azure App
 
 ## Production deployment recommendations
 
-<!-- John: Do we point to WAF here too?-->
-[Enable zone redundancy](#availability-zone-support) on your environment, which requires that your App Service plans use a minimum of two instances. For more information, see [Instance distribution across zones](../reliability/reliability-app-service.md#instance-distribution-across-zones).
+[Enable zone redundancy](#availability-zone-support) on your environment, which requires that your App Service plans use a minimum of two instances.
 
 ## Reliability architecture overview
 
-To use App Service Environment, you must use the [Isolated v2 pricing tier](/azure/app-service/overview-hosting-plans#isolated-v2). The Isolated v2 pricing tier supports zone redundancy and is designed for high-scale, mission-critical applications.
-
 When you implement [Azure App Service Environment](/azure/app-service/environment/overview), you deploy the environment as the container for your App Service plans and web apps. During the set-up procedure for your environment, you configure core networking settings and optional hardware isolation. You also choose whether or not to support zone redundancy on the environment, if the region supports availability zones.
 
-After you have created your environment, then you can create one or more [Isolated v2 App Service plans](../app-service/overview-hosting-plans.md).
+After you have created your environment, then you can create one or more App Service plans.
+
+[!INCLUDE [App Service reliability architecture - plan description](includes/app-service/reliability-architecture-plans.md)]
+
+To use App Service Environment, your plans must use the [Isolated v2 pricing tier](/azure/app-service/overview-hosting-plans#isolated-v2). The Isolated v2 pricing tier supports zone redundancy and is designed for high-scale, mission-critical applications.
 
 [!INCLUDE [App Service reliability architecture overview](includes/app-service/reliability-architecture-overview.md)]
 
@@ -50,10 +51,9 @@ After you have created your environment, then you can create one or more [Isolat
 
 Your App Service Environment can be configured as *zone redundant*. You can then configure your App Service plans to also be zone redundant, which means they're distributed across multiple availability zones.
 
-However, you can enable or disable zone redundancy on each plan, regardless of the setting on the App Service Environment. This means that you can have some plans in your environment that are zone redundant and others that aren't.
+However, you can enable or disable zone redundancy on each plan. This means that you can have some plans in your environment that are zone redundant and others that aren't.
 
 When you create a zone-redundant App Service plan in your environment, the instances of your App Service plan are distributed across the availability zones in the region. For more information, see [Instance distribution across zones](../reliability/reliability-app-service.md#instance-distribution-across-zones).
-
 
 ### Region support
 
@@ -69,9 +69,7 @@ To enable zone redundancy for your App Service Environment you must:
 
 - Be located on a scale unit that supports availability zones. When you create an App Service Environment, the environment is assigned to a scale unit. The scale unit that you're assigned to is based on the resource group that you deploy an App Service Environment to. If your scale unit doesn't support availability zones, you need to create a new environment in a new resource group.
 
-- Configure your App Service Environment to support zone redundancy. You can do this during the creation of the App Service Environment or by updating an existing environment.
-
-    To learn whether or not the App Service Environment is configured for zone redundancy, see [Check for zone redundancy support for an App Service Environment](../app-service/environment/configure-zone-redundancy-ase.md#check-for-zone-redundancy-support-for-an-app-service-environment).
+- Configure your App Service Environment *and* your plans to support zone redundancy. You can enable zone redundancy during the creation of the App Service Environment or by updating an existing environment.
 
 ### Instance distribution across zones
 
@@ -89,12 +87,11 @@ For App Service plans that aren't configured as zone redundant, the underlying V
 
 There's no additional cost to enable zone redundancy on an App Service Environment or its plans. However, zone redundancy for a plan requires that it has two or more instances. You're charged based on your App Service plan SKU, the capacity that you specify, and any instances that you scale to based on your autoscale criteria.
 
-If you enable availability zones but specify a capacity of less than two, the platform enforces a minimum instance count of two. The platform charges you for  those two instances.
+If you enable availability zones but specify a capacity of less than two, the platform enforces a minimum instance count of two. The platform charges you for those two instances.
 
 ### Configure availability zone support
 
-- **Configure a zone-redundant App Service Environment and App Service plans.** To learn how to create, enable, or disable a new zone-redundant App Service Environment and new zone redundant App Service Plans, see  [Configure App Service Environment and Isolated v2 App Service plan for zone redundancy](../app-service/environment/configure-zone-redundancy-ase.md).
-
+To learn how to create, enable, or disable a new zone-redundant App Service Environment and new zone redundant App Service Plans, see  [Configure App Service Environment and Isolated v2 App Service plan for zone redundancy](../app-service/environment/configure-zone-redundancy-ase.md).
 
 > [!NOTE]
 > When you change the zone redundancy status of the App Service Environment, you initiate an upgrade that takes 12-24 hours to complete. During the upgrade process, you don't experience any downtime or performance problems.
@@ -102,7 +99,6 @@ If you enable availability zones but specify a capacity of less than two, the pl
 ### Capacity planning and management
 
 [!INCLUDE [Capacity planning and management description](includes/app-service/reliability-capacity-planning-management-include.md)]
-
 
 ### Normal operations
 
@@ -112,13 +108,11 @@ If you enable availability zones but specify a capacity of less than two, the pl
 
 [!INCLUDE [Zone-down experience description](includes/app-service/reliability-zone-down-experience-include.md)]
 
-
 ### Failback
 
 [!INCLUDE [Failback description](includes/app-service/reliability-failback-include.md)]
 
 ### Testing for zone failures
-
 
 [!INCLUDE [Testing for zone failures description](includes/app-service/reliability-testing-for-zone-failures-include.md)]
 
@@ -138,19 +132,23 @@ For an example approach that illustrates this architecture, see [High availabili
 
 ## Backups
 
+You can back up your App Service apps to a file by using the App Service backup and restore capabilities.
+
 [!INCLUDE [Backups description](includes/app-service/reliability-backups-include.md)]
 
 ## Reliability during service maintenance
 
 [!INCLUDE [Reliability during service maintenance description](includes/app-service/reliability-maintenance-include.md)]
 
+**Customize the upgrade cycle.** You to customize the upgrade cycle for an App Service Environment. If you need to validate the effect of upgrades on your workload, consider enabling manual upgrades so you can perform validation and testing on a nonproduction instance before the change rolls out to your production instance.
+
+To learn more about maintenance preferences, see [Upgrade preference for App Service Environment planned maintenance](/azure/app-service/environment/how-to-upgrade-preference).
+
 ## Service-level agreement (SLA)
 
 [!INCLUDE [SLA description](includes/reliability-sla-include.md)]
 
 [!INCLUDE [SLA description for App Service plans](includes/app-service/reliability-app-service-sla-include.md)]
-
-When you deploy a zone-redundant App Service plan, the uptime percentage defined in the SLA increases.
 
 ## Related content
 

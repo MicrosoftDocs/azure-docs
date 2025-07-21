@@ -9,7 +9,7 @@
  ms.custom: include file
 ---
 
-When you create a zone-redundant App Service plan on **Premium v2-v4 tier**, the instances of your App Service plan are distributed across the availability zones in the region. The distribution is done automatically by Azure to ensure that your apps remain available even if one zone experiences an outage.
+When you create a zone-redundant App Service plan, the instances of your App Service plan are distributed across the availability zones in the region. The distribution is done automatically by Azure to ensure that your apps remain available even if one zone experiences an outage.
 
 Instance distribution in a zone-redundant deployment follows specific rules. These rules remain applicable as the app scales in and scales out:
 
