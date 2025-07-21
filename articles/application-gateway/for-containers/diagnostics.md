@@ -173,7 +173,7 @@ The firewall log is generated only if a security policy of type `WAF` is defined
 | RuleSetType      | Rule set type. The available value is Microsoft_DefaultRuleSet or Microsoft_BotManagerRuleSet.                                                                                                                         |
 | RuleSetVersion   | Rule set version used for Microsoft_DefaultRuleSet or Microsoft_BotManagerRuleSet.                                                                                                                                     |
 | RuleId           | Rule ID of the triggering event.                                                                                                                                                                                       |
-| TrackingId       | Generated guid by Application Gateway
+| TrackingId       | Generated guid by Application Gateway for Containers |
 
 ```json
 {
