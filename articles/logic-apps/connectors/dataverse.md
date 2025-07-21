@@ -17,22 +17,20 @@ To automate workflow tasks that interact with your [Microsoft Dataverse database
 
 For example, you can build workflows that create rows, update rows, and perform other operations. You can also get information from your Dataverse database and make the output available for other actions to use in your workflows. For example, when a row is added, updated, or deleted in your Dataverse database, you can send an email by using the Office 365 Outlook connector.
 
+The Dataverse connector was previously known as the Common Data Service 2.0 connector and originally known as the Dynamics 365 connector. You can use the Dataverse connector to access Microsoft Dataverse for Microsoft Dynamics 365 Sales, Microsoft Dynamics 365 Customer Service, Microsoft Dynamics 365 Field Service, Microsoft Dynamics 365 Customer Insights - Journeys, and Microsoft Dynamics 365 Project Service Automation.
+
 This article shows how to add a Dataverse trigger or action to your workflow and how parameter options work.
 
 > [!IMPORTANT]
 >
 > Since October 2023, new workflows must use the current Dataverse connector operations. 
-> Legacy Dataverse connector operations are no longer available in new workflows.
+> Legacy Dataverse connector operations are no longer available for use in new workflows.
 >
-> For existing workflows, no shutdown date or timeline currently exists for legacy connector operations. 
-> To support backward compatibility, existing workflows continue to work with legacy Dataverse connector 
-> operations. However, make sure that you review these workflows, and update them promptly. For more information, see 
+> To support backward compatibility, legacy Dataverse connector operations had one year 
+> from the deprecation announcement date to continue working in existing workflows. 
+> Although no specific shutdown date exists, make sure that you promptly update existing 
+> workflows to use the current connector operations. For more information, see 
 > [Microsoft Dataverse (legacy) connector for Azure Logic Apps will be deprecated and replaced with another connector](/power-platform/important-changes-coming#microsoft-dataverse-legacy-connector-for-azure-logic-apps-will-be-deprecated-and-replaced-with-another-connector).
-> 
-> The legacy connector was known as the Common Data Service 2.0 connector, and originally the Dynamics 
-> 365 connector. You can use the Dataverse connector to access Microsoft Dataverse for Microsoft Dynamics 
-> 365 Sales, Microsoft Dynamics 365 Customer Service, Microsoft Dynamics 365 Field Service, Microsoft Dynamics 
-> 365 Customer Insights - Journeys, and Microsoft Dynamics 365 Project Service Automation.
 
 ## Connector reference
 
@@ -42,13 +40,13 @@ For technical information based on the connector's Swagger description, such as 
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A [Dataverse Data Service environment and database](/power-platform/admin/environments-overview), which is a space where your organization stores, manages, and shares business data in a Dataverse database. For more information, see the following resources:
+* A [Dataverse Data Service environment and database](/power-platform/admin/environments-overview), which is where your organization stores, manages, and shares business data in a Dataverse database. For more information, see the following resources:
 
   * [Learn: Create and manage Dataverse environments](/training/modules/create-manage-environments/)
 
   * [Power Platform - Environments overview](/power-platform/admin/environments-overview)
 
-* Basic knowledge about Azure Logic Apps and the Consumption or Standard logic app resource and workflow from where you want to access your Dataverse database. To use a Dataverse trigger, you need a blank workflow. To use a Dataverse action, you need a workflow that starts with any trigger appropriate for your scenario.
+* Basic knowledge about Azure Logic Apps along with the Consumption or Standard logic app resource and workflow from where you want to access your Dataverse database. To use a Dataverse trigger, you need a blank workflow. To use a Dataverse action, you need a workflow that starts with any trigger appropriate for your scenario.
 
   For more information, see the following resources:
 
