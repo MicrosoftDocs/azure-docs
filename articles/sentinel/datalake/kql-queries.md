@@ -16,7 +16,7 @@ ms.collection: ms-security
  
 Data lake exploration in the Defender portal, provides a unified interface for analyzing your data lake, enabling you to run KQL (Kusto Query Language) queries, and create and manage jobs.
 
-The **KQL queries** page under **Data lake exploration** allows you to edit and run KQL queries against data lake resources. You can create jobs to promote data from the data lake to the Analytics tier. Jobs can be run on-demand or scheduled. The **Jobs** page provides an interface to manage jobs, enabling, disabling, editing, or deleting jobs. For more information, see [Create jobs in the Microsoft Sentinel data lake (preview)](kql-jobs.md).
+The **KQL queries** page under **Data lake exploration** allows you to edit and run KQL queries against data lake resources. You can create jobs to promote data from the data lake to the analytics tier. Jobs can be run on-demand or scheduled. The **Jobs** page provides an interface to manage jobs, enabling, disabling, editing, or deleting jobs. For more information, see [Create jobs in the Microsoft Sentinel data lake (preview)](kql-jobs.md).
 
 ## Prerequisites
 

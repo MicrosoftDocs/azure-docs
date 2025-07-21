@@ -32,7 +32,7 @@ While cost analysis in Cost Management supports most Azure account types, not al
 
 For information about assigning access to Microsoft Cost Management data, see [Assign access to data](../cost-management/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-## Manage and monitor costs for the Analytics tier
+## Manage and monitor costs for the analytics tier
 As you use Azure resources with Microsoft Sentinel, you incur costs. Azure resource usage unit costs vary by time intervals such as seconds, minutes, hours, and days, or by unit usage, like bytes and megabytes.
 
 ### View costs by using cost analysis

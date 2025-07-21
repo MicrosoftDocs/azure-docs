@@ -72,7 +72,7 @@ For logs containing secondary security data, use the [**Auxiliary logs**](#auxil
 > [!IMPORTANT]
 > We recommend that users consider Microsoft Sentinel data lake as the preferred solution for storing secondary and long-term data. Microsoft Sentinel data lake is designed to offer enhanced scalability, flexibility, and integration capabilities for advanced security and compliance scenarios.
 > For more information, see [Microsoft Sentinel data lake (Preview)](datalake/sentinel-lake-overview.md).
-> Microsoft Sentinel Data Lake is currently in public preview and not yet generally available. We advise users to monitor updates and announcements regarding its availability status.
+> Microsoft Sentinel data lake is currently in public preview and not yet generally available. We advise users to monitor updates and announcements regarding its availability status.
 
 
 
@@ -107,7 +107,7 @@ When the analytics retention period ends, data goes into the **long-term retenti
 > [!IMPORTANT]
 > We recommend that users consider Microsoft Sentinel data lake as the preferred solution for storing secondary and long-term data. Microsoft Sentinel data lake is designed to offer enhanced scalability, flexibility, and integration capabilities for advanced security and compliance scenarios.
 > For more information, see [Microsoft Sentinel data lake (Preview)](datalake/sentinel-lake-overview.md).
-> Microsoft Sentinel Data Lake is currently in public preview and not yet generally available. We advise users to monitor updates and announcements regarding its availability status.
+> Microsoft Sentinel data lake is currently in public preview and not yet generally available. We advise users to monitor updates and announcements regarding its availability status.
 
 The **Auxiliary logs** plan keeps data in the **analytics retention** state for **30 days**. In the Auxiliary plan, this state has low retention costs as compared to the Analytics plan. However, the query capabilities are limited: queries are charged per gigabyte of data scanned and are limited to a single table, and performance is significantly lower. While this data remains in the interactive retention state, you can run [summary rules](/azure/azure-monitor/logs/summary-rules) on this data to create tables of aggregate, summary data in the analytics logs plan, so that you have the full query capabilities on this aggregate data.
 
