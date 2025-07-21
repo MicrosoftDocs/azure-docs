@@ -91,7 +91,7 @@ If you enable availability zones but specify a capacity of less than two, the pl
 
 ### Configure availability zone support
 
-To learn how to create, enable, or disable a new zone-redundant App Service Environment and new zone redundant App Service Plans, see  [Configure App Service Environment and Isolated v2 App Service plan for zone redundancy](../app-service/environment/configure-zone-redundancy-ase.md).
+To learn how to create, enable, or disable a new zone-redundant App Service Environment and new zone redundant App Service Plans, see  [Configure App Service Environment and Isolated v2 App Service plan for zone redundancy](../app-service/environment/configure-zone-redundancy-environment.md).
 
 > [!NOTE]
 > When you change the zone redundancy status of the App Service Environment, you initiate an upgrade that takes 12-24 hours to complete. During the upgrade process, you don't experience any downtime or performance problems.
