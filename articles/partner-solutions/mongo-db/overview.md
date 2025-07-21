@@ -1,18 +1,18 @@
 ---
-title: MongoDB Atlas Preview
+title: MongoDB Atlas 
 description: Learn about using MongoDB Atlas in Azure Marketplace.
 ms.topic: overview
 ms.date: 04/03/2025
 ai-usage: ai-assisted
 ---
 
-# What is MongoDB Atlas Preview?
+# What is MongoDB Atlas?
 
 MongoDB Atlas allows users to provision and manage Atlas organizations from Azure. It is jointly developed and managed by Microsoft and MongoDB as an Azure Native Integration. [!INCLUDE [what-is](../includes/what-is.md)]
 
 ## What is it used for?
 
-MongoDB Atlas Preview is used to store, manage, and process operational data for cloud applications. It supports scenarios such as real-time analytics, full-text and vector search, and stream processing for event-driven applications.
+MongoDB Atlas  is used to store, manage, and process operational data for cloud applications. It supports scenarios such as real-time analytics, full-text and vector search, and stream processing for event-driven applications.
 
 Typical use cases include:
 
@@ -24,7 +24,7 @@ Typical use cases include:
 
 ## Key Features
 
-The following features distinguish MongoDB Atlas Preview from traditional managed database services and support modern application development and operations:
+The following features distinguish MongoDB Atlas  from traditional managed database services and support modern application development and operations:
 
 - **Native Full-Text and Vector Search**: Enable advanced search capabilities, including full-text and vector-based search, for building intelligent applications.
 - **Stream Processing**: Support event-driven architectures with built-in stream processing features.
@@ -32,7 +32,7 @@ The following features distinguish MongoDB Atlas Preview from traditional manage
 - **Global Data Distribution**: Deploy and manage data across multiple regions for low-latency access and high availability.
 - **Comprehensive Security**: Protect data with built-in access controls, encryption, and automated security updates.
 
-## Subscribe to MongoDB Atlas Preview
+## Subscribe to MongoDB Atlas 
 
 [!INCLUDE [subscribe](../includes/subscribe.md)] **MongoDB Atlas**.
 
