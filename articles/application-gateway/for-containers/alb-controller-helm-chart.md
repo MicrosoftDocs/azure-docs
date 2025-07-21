@@ -48,7 +48,7 @@ The following parameters are supported for configuration during installation:
 | albController.installGatewayApiCRDs | bool | `true` | A flag to enable/disable installation of Gateway API CRDs. |
 | albController.logLevel | string | `"info"` | Log level of ALB Controller. |
 | albController.namespace | string | `"azure-alb-system"` | Namespace to deploy ALB Controller components in. |
-| albController.securityPolicyFeatureFlag | bool | `false` | Enable Application Load Balancer Security Policy Resource (WAF Preview). |
+| albController.securityPolicyFeatureFlag | bool | `true` | Enable Application Load Balancer Security Policy Resource (WAF Preview). |
 
 ## nodeSelector
 
