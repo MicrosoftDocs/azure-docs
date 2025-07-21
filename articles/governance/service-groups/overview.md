@@ -49,7 +49,7 @@ Azure Service Groups are a parallel tenant level hierarchy that allows the group
 
 Information about Service Groups 
 * A Service Group is created within the Microsoft.Management Resource Provider.  
-* Service Groups allow self nesting to create up to 10 "levels" of grouping depth. Nesting can managed via the 'parent' property within the Service Group resource. 
+* Service Groups allow self nesting to create up to 10 "levels" of grouping depth. Nesting can be managed via the 'parent' property within the Service Group resource. 
 * Role assignments on the Service Group can be inherited to the **child Service Groups only**. There's **no inheritance** through the memberships to the resources or resource containers.
 * There's a limit of 2000 service group members coming from within the same subscription. This means that within one subscription, resources, or resource groups, there can only be 2,000 memberships to Service Groups. 
 * Within the Preview window, there's a limit of 10,000 Service Groups in a single tenant.   
