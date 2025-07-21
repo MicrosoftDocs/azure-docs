@@ -4,8 +4,8 @@ description: In this article, you'll learn how to restore SAP HANA database inst
 ms.topic: how-to
 ms.date: 06/05/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to restore SAP HANA database instances from snapshots on Azure virtual machines, so that I can recover critical data efficiently and ensure business continuity."
 ---
 

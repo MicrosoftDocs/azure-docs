@@ -13,7 +13,7 @@ ms.reviewer:
 
 # Connect to Microsoft Sentinel using a unified connector
 
-[Unified connectors](./unified-connector.md) are the preferred way to create a connection. Even if you already have a connector to a product, we recommend removing it and installing a unified connector where possible. You can't have both a unified connector and a product specific connector to the same product.
+[Unified connectors](./unified-connector.md) are the preferred way to create a connection. Even if you already have a connector to a product, we recommend removing it and installing a unified connector where possible.
 
 ## Prerequisites
 
@@ -82,7 +82,7 @@ The initial state of the connector is *Pending* until the initial data is receiv
 
 Connectors that are successfully connected, appear in the **My Connectors tab**, and Okta system logs are ingested into your **Log Analytics workspace**.
 
-## Manage your Okta connector
+## Manage your connector
 
 Existing connectors appear in the **My Connectors tab**.
 

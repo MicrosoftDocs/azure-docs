@@ -4,8 +4,8 @@ description: Learn common tasks for managing and monitoring backed-up Azure File
 ms.topic: how-to
 ms.date: 05/22/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 
 # Customer intent: As an IT administrator, I want to manage and monitor Azure Files backups using the portal and reporting tools, so that I can ensure data protection and recovery for my organization's file shares.
 ---

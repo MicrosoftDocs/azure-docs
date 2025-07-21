@@ -17,20 +17,16 @@ The Unified connectors platform enables you to connect to several different Micr
 
 Unified connectors provide the following benefits:
 
-- Reduced Development Overhead and Time-to-Market
-- Enhanced Customer Experience
-- Connect only once
+- Connect and collect the data once for use with multiple products
 - Centralized Management
-- Enhanced Security
-- Cost Reduction
-- Streamlined Development for non-Microsoft Connectors
-- Unified Response and Remediation Actions
+- Enhanced Security: Credentials stored once
+- Cost Reduction: Reduced API calls and data duplication
 
 ## Unified services
 
 The unified connectors platform provides unified services shared by all security products to allow consistent development and user experience. These services include:
 
-### One time collection
+### Unified collector service
 
 Different products collect the same data from the same source for different scenarios. For example, Okta Single Sign On system logs are collected every five minutes both by Microsoft Sentinel and Defender for Identity users. This duplication and inefficient and can cause customers to exceed their API rate limit due to the quotas imposed by Okta.
 
@@ -40,7 +36,7 @@ The unified connector unifies two or more products that have similar collection 
 
 ### Consistent Single Management across all security products
 
-Users can manage all their connectors in one place through the Unified Security Experience (USX) portal and unified (Graph) API.
+Users can manage all their connectors in one place through the Unified Security Experience (USX) portal.
 
 ### One time authentication
 
@@ -48,17 +44,9 @@ The platform provides a unified credentials service to store credentials for all
 
 ### Unified health service
 
-The platform includes a unified health service that provides status, volume graphs, and notifications for all connectors. All health issues are stored to a shared health table that is accessible to all users through [Advanced Hunting](/defender-xdr/advanced-hunting-microsoft-defender).
+All health issues are stored to a shared health table that is accessible to all users through [Advanced Hunting](/defender-xdr/advanced-hunting-microsoft-defender).
 
 :::image type="content" source="./media/unified-connector/unified-health.png" alt-text="Screenshot of Okta connector with health information on the right side.":::
-
-### Unified development and testing processes
-
-The platform allows consistent self-service development experience for all connectors’ developers, including Microsoft Teams, partners, ISVs, and end users.
-
-The API and the UI are designed to allow flexibility and agility for partners. For example, one partner might develop connectors for one product and another partner can extend that connector to send data to a different product etc.
-
-The unified platform also includes a shared testing lab to allow testing scale and functionality once for all products.
 
 ### Integration with Microsoft data lake
 
@@ -66,7 +54,7 @@ The platform allows integration with data lake, including enabling data federati
 
 ### Lifecycle management
 
-Unified connectors are pre-installed with the latest version eliminating the need for manual updates. XDR customers can still discover connections through the content hub.
+Unified connectors are pre-installed with the latest version eliminating the need for manual updates.
 
 ## Supported Products
 
@@ -87,7 +75,7 @@ The available unified connectors are shown in the [Data connectors Gallery](http
 
 :::image type="content" source="./media/unified-connector/connectors-gallery.png" alt-text="Screenshot of catalog tab in connectors gallery.":::
 
-Here you can see all the available unified connectors. There are also links to the product specific connectors. The connectors column of the table indicates how many. The connectors column of the table shows you how many connector instances this connector currently has. The table also shows who supports the connector and who the provider is.
+Here you can see all the available unified connectors. There are also links to other product specific connectors galleries. The connectors column of the table shows you how many connector instances this connector currently has. The table also shows who supports the connector and who the provider is.
 
 The **My Connectors** tab shows the connectors that are currently configured. The **Unified connectors** tab shows the unified connectors that are available to you. You can select a connector to see its health information and manage it.
 
@@ -107,7 +95,11 @@ The Sentinel tab shows the connectors that are available only to Sentinel as the
 ## Considerations and limitations
 
 - The unified connectors scope doesn't include unified data flow. Once the data is collected and sent to the event hub of each product, each product is responsible for storing the data and providing its unique security value on top of the data.
-- The unified connectors scope doesn't include billing. Each individual product is responsible for how its users are charged
+- The unified connectors scope doesn't include billing. Each individual product is responsible for how its users are charged.
+
+a.	currently for Sentinel unified connectors are not part of solutions and cannot be discovered through content hub.
+b.	Currently the unified connectors platform do not allow self-service development for 3rd parties.  
+
 
 ## Related content
 
