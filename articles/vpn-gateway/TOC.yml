@@ -166,6 +166,10 @@
       href: vpn-gateway-modify-local-network-gateway.md
     - name: Azure CLI
       href: vpn-gateway-modify-local-network-gateway-cli.md
+  - name: Advanced Connectivity
+    items:
+    - name: High Bandwidth tunnels
+      href: site-to-site-high-bandwidth-tunnel.md
   - name: VPN devices
     items:
     - name: About VPN devices and parameters

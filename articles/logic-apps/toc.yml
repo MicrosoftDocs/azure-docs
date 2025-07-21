@@ -13,6 +13,8 @@ items:
     items:
     - name: Portal
       href: quickstart-create-example-consumption-workflow.md
+    - name: Portal - Templates gallery
+      href: create-workflows-from-templates.md?tabs=consumption
     - name: Visual Studio
       href: quickstart-create-logic-apps-with-visual-studio.md
     - name: Visual Studio Code
@@ -33,7 +35,7 @@ items:
     - name: Portal
       href: create-single-tenant-workflows-azure-portal.md
     - name: Portal - Templates gallery
-      href: create-single-tenant-workflows-templates.md
+      href: create-workflows-from-templates.md?tabs=standard
     - name: Visual Studio Code
       href: create-standard-workflows-visual-studio-code.md
 - name: Tutorials
@@ -369,8 +371,6 @@ items:
       href: logic-apps-create-api-app.md
     - name: Delay
       href: ../connectors/connectors-native-delay.md
-    - name: Dynamics 365 (Deprecated)
-      href: ../connectors/connectors-create-api-crmonline.md
     - name: EDIFACT
       href: logic-apps-enterprise-integration-edifact.md
     - name: File System
@@ -400,13 +400,13 @@ items:
     - name: IBM IMS
       href: ../connectors/integrate-ims-apps-ibm-mainframe.md
     - name: IBM Informix
-      href: ../connectors/connectors-create-api-informix.md
+      href: connectors/informix.md
     - name: IBM MQ
       href: ../connectors/connectors-create-api-mq.md
     - name: Integration Account
       href: logic-apps-enterprise-integration-metadata.md
     - name: Microsoft Dataverse
-      href: ../connectors/connect-common-data-service.md
+      href: connectors/dataverse.md
     - name: Microsoft Graph Security
       href: ../connectors/connectors-integrate-security-operations-create-api-microsoft-graph-security.md
     - name: Office 365 Outlook
