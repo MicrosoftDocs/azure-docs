@@ -127,17 +127,17 @@ Now that you've set up dynamic configuration refresh, let's test it to see it in
     go run .
    ```
 
-2. Open a web browser and navigate to `http://localhost:8080` to access your application. The web page looks like this:
+1. Open a web browser and navigate to `http://localhost:8080` to access your application. The web page looks like this:
 
     :::image type="content" source="./media/quickstarts/gin-app-refresh-before.png" alt-text="Screenshot of the gin web app refresh before.":::
 
-3. Navigate to your App Configuration store and update the value of the `Config.Message` key.
+1. Navigate to your App Configuration store and update the value of the `Config.Message` key.
 
     | Key                    | Value                                  | Content type       |
     |------------------------|----------------------------------------|--------------------|
     | *Config.Message*       | *Hello from Azure App Configuration - now with live updates!*               | Leave empty        |
 
-4. After refreshing the browser a few times, you'll see the updated content once the ConfigMap is updated in 30 seconds.
+1. After refreshing the browser a few times, you'll see the updated content once the ConfigMap is updated in 30 seconds.
 
     :::image type="content" source="./media/quickstarts/gin-app-refresh-after.png" alt-text="Screenshot of the gin web app refresh after.":::
 
