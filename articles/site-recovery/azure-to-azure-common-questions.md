@@ -3,7 +3,7 @@ title: Common questions about Azure virtual machine disaster recovery with Azure
 description: This article answers common questions about Azure virtual machine disaster recovery when you use Azure Site Recovery.
 ms.author: jsuri
 author: jyothisuri
-ms.date: 05/30/2025
+ms.date: 07/21/2025
 ms.topic: faq
 ms.service: azure-site-recovery
 
@@ -136,6 +136,10 @@ No, this is unsupported. If you accidentally move storage accounts to a differen
 The Azure portal displays *logical Zones*. In the datacenter, actual physical zones are mapped to these logical zones, and the mappings vary by subscription. For example, Subscription A's Zone 1 may map to Physical Zone 1, while Subscription B's Zone 1 may map to Physical Zone 2. Therefore, you see different mapped zones for different subscriptions in the same region. In Site Recovery, the source and target zones must have different physical zones. 
 
 In case the source and target zones are the same, you can't view zone for target configuration while enabling zonal replication.
+
+#### Can I select a different automation name than the existing automation name for my recovery services vault? 
+
+When you replicate a new virtual machine (VM) and assign a new automation account, this account is automatically set at the vault level and will appear under Recovery Services Vault > Site Recovery Infrastructure > Extension Update Settings in the Azure portal. From that point onward, Azure Site Recovery (ASR) will use this new Automation Account to manage the Site Recovery extension for all replicated VMs.
 
 ### Premium SSD v2 disks (preview)
 
