@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: release-notes
-ms.date: 5/2/2025
+ms.date: 7/21/2025
 ms.author: mbender
 # Customer intent: As a Kubernetes operator, I want to install the ALB Controller using a Helm chart, so that I can manage Application Load Balancer resources effectively within my container environment.
 ---
@@ -19,6 +19,7 @@ A Helm chart to install the ALB Controller on Kubernetes.
 
 The following parameters are supported for configuration during installation:
 
+- nodeSelector
 - tolerations
 - name
 - installGatewayApiCRDs
@@ -31,6 +32,7 @@ The following parameters are supported for configuration during installation:
 | Key | Type | Default | Description |
 | ----- | ------ | --------- | ------------- |
 | albController.controller | object | `{"replicaCount":2,"resource":{"limits":{"cpu":"400m","memory":"400Mi"},"requests":{"cpu":"100m","memory":"200Mi"}},"tolerations":[]}` | ALB Controller parameters |
+| albController.controller.nodeSelector | object | {} | nodeselector for alb-cotnroller |
 | albController.controller.replicaCount | int | `2` | ALB Controller's replica count. |
 | albController.controller.resource | object | `{"limits":{"cpu":"400m","memory":"400Mi"},"requests":{"cpu":"100m","memory":"200Mi"}}` | ALB Controller's container resource parameters. |
 | albController.controller.tolerations | list | `[]` | Tolerations for ALB Controller |
@@ -46,7 +48,34 @@ The following parameters are supported for configuration during installation:
 | albController.installGatewayApiCRDs | bool | `true` | A flag to enable/disable installation of Gateway API CRDs. |
 | albController.logLevel | string | `"info"` | Log level of ALB Controller. |
 | albController.namespace | string | `"azure-alb-system"` | Namespace to deploy ALB Controller components in. |
-| albController.securityPolicyFeatureFlag | bool | `false` | Enable Application Load Balancer Security Policy Resource (WAF Preview). |
+| albController.securityPolicyFeatureFlag | bool | `true` | Enable Application Load Balancer Security Policy Resource (WAF Preview). |
+
+## nodeSelector
+
+nodeSelector follows Kubernetes' implementation as defined [here](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector)
+
+nodeSelector will only provision ALB Controller pods to nodes with a defined label.
+
+In this example, we will label a set of nodes with a node label called `albController`.
+
+1. Label each node you desire to run the ALB controller pods.
+
+   `kubectl label nodes <node-name> albController=true`
+
+2. Specify the nodeSelector via the helm install command using the following example:
+
+   ```bash
+   HELM_NAMESPACE='<namespace for deployment>'
+   CONTROLLER_NAMESPACE='azure-alb-system'
+   VERSION='<latest_version>'
+   az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
+   helm install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
+        --namespace $HELM_NAMESPACE \
+        --version $VERSION \
+        --set albController.namespace=$CONTROLLER_NAMESPACE \
+        --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
+        --set nodeSelector.albController=true
+   ```
 
 ## Tolerations
 

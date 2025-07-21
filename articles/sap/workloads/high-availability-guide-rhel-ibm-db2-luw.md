@@ -11,6 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 06/18/2024
 ms.author: juergent
+# Customer intent: As a database administrator, I want to set up IBM Db2 with high availability and disaster recovery on Azure VMs using Pacemaker, so that I can ensure continuous data availability and minimize downtime for my SAP applications.
 ---
 # High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server
 

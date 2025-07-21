@@ -6,6 +6,7 @@ ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
+# Customer intent: As a cloud engineer, I want to manage Oracle Exadata services on Azure, so that I can effectively integrate and oversee Oracle resources within my Azure cloud environment.
 ---
 
 # Exadata services

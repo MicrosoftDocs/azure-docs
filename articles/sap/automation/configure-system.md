@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.custom: devx-track-terraform
+# Customer intent: As a SAP system administrator, I want to define the necessary parameters in a configuration file for the SAP Deployment Automation Framework, so that I can automate the deployment of various SAP system architectures and manage resources efficiently.
 ---
 
 # Configure SAP system parameters

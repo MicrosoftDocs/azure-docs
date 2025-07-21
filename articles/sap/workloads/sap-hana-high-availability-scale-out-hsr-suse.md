@@ -9,6 +9,7 @@ ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.date: 05/26/2025
 ms.author: radeltch
+# Customer intent: "As a system administrator, I want to deploy a highly available SAP HANA scale-out system using HANA system replication and Pacemaker on SUSE Linux, so that I can ensure continual database service in the event of node failures."
 ---
 
 # High availability for SAP HANA scale-out system with HSR on SUSE Linux Enterprise Server

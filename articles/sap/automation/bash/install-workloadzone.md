@@ -10,6 +10,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-automation
 title: install_workloadzone.sh
 description: Deploy a new SAP Workload Zone using a shell script.
+# Customer intent: As a cloud engineer, I want to use the install_workloadzone.sh script to deploy a new SAP workload zone, so that I can efficiently manage shared resources for SAP virtual machines in my environment.
 ---
 
 # install_workloadzone.sh

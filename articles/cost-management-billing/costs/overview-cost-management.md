@@ -66,7 +66,6 @@ For more information about supported offers, what data is included, or how data 
 
 During your cloud journey, there are many tools available to help you understand pricing:
 
-- The [Total Cost of Ownership (TCO) calculator](https://azure.microsoft.com/pricing/tco/calculator/) should be your first stop if you’re curious about how much it would cost to move your existing on-premises infrastructure to the cloud.
 - [Azure Migrate](https://azure.microsoft.com/products/azure-migrate/) is a free tool that helps you analyze your on-premises workloads and plan your cloud migration.
 - The [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) is a free cost management tool that allows users to understand and estimate costs of Azure Services and products. It serves as the only unauthenticated experience that allows you to configure and budget the expected cost of deploying solutions in Azure. For customers that want to view their negotiated estimate prices, there is an authenticated version. The Azure pricing calculator allows organizations to plan and forecast cloud expenses, evaluate different configurations and pricing models, and make informed decisions about service selection and deployment options.
 

@@ -8,6 +8,7 @@ ms.custom: subject-reliability, references_regions
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.date: 05/15/2023
+# Customer intent: As an SAP administrator, I want to configure customer-enabled disaster recovery for my SAP systems in Azure, so that I can ensure cross-region resiliency and minimize downtime during regional outages.
 ---
 #  Customer enabled disaster recovery in *Azure Center for SAP solutions*
 Azure Center for SAP solutions service is a zone redundant service. So, service may experience downtime because no paired region exists. There will be no Microsoft initiated failover in the event of a region outage. This article explains some of the strategies that you can use to achieve cross-region resiliency for Virtual Instance for SAP solutions resources with customer enabled disaster recovery. It has detailed steps for you to follow when a region in which your Virtual Instance for SAP solutions resource exists is down. 

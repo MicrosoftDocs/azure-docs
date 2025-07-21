@@ -117,7 +117,7 @@ App Service Environment v3 is available in the following regions:
 
 ### Azure Public
 
-| Region               | Single-zone support          | Availability zone support   |
+| Region               | Regional deployment support  | Availability zone support   |
 | -------------------- | :--------------------------: | :-------------------------: |
 | Australia Central    | ✅                           |                             |
 | Australia Central 2  | ✅*                          |                             |
@@ -178,7 +178,7 @@ App Service Environment v3 is available in the following regions:
 
 ### Azure Government
 
-| Region               | Single-zone support          | Availability zone support   |
+| Region               | Regional deployment support  | Availability zone support   |
 | -------------------- | :--------------------------: | :-------------------------: |
 | US DoD Central       | ✅                           |                             |
 | US DoD East          | ✅                           |                             |
@@ -188,7 +188,7 @@ App Service Environment v3 is available in the following regions:
 
 ### Microsoft Azure operated by 21Vianet
 
-| Region               | Single-zone support          | Availability zone support   |
+| Region               | Regional deployment support | Availability zone support   |
 | -------------------- | :--------------------------: | :-------------------------: |
 |                      | App Service Environment v3   | App Service Environment v3  |
 | China East 3         | ✅                          |                              |

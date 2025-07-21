@@ -8,6 +8,7 @@ ms.date: 11/17/2021
 ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+# Customer intent: As an SAP system administrator, I want to deploy workload zones using the automation framework, so that I can efficiently manage the different development tiers of my SAP applications in Azure.
 ---
 
 # Workload zone deployment in the SAP automation framework

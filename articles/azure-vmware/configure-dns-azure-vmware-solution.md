@@ -6,6 +6,7 @@ ms.custom: engagement-fy23
 ms.service: azure-vmware
 ms.date: 2/27/2024
 #Customer intent: As an Azure service administrator, I want to <define conditional forwarding rules for a desired domain name to a desired set of private DNS servers via the NSX-T Data Center DNS Service.
+# Customer intent: "As an Azure service administrator, I want to configure DNS forwarding for private DNS resolution in Azure VMware Solution, so that management components can resolve name records from both private and public DNS servers effectively."
 ---
 
 # Configure a DNS forwarder in the Azure portal

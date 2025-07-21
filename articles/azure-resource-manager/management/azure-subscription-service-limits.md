@@ -204,6 +204,8 @@ See [Azure Functions hosting options](../../azure-functions/functions-scale.md) 
 
 [!INCLUDE [container-service-limits](~/reusable-content/ce-skilling/azure/includes/container-service-limits.md)]
 
+[!INCLUDE [container-quota-limits](~/reusable-content/ce-skilling/azure/includes/container-service-limits.md)]
+
 ## Azure Lab Services
 
 [!INCLUDE [azure-lab-services-limits](../../../includes/azure-lab-services-limits.md)]

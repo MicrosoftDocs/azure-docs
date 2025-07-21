@@ -3,7 +3,7 @@ title: Connect workflows to Microsoft Dataverse
 description: Learn to access Dataverse databases from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jdaly, estfan, azla
+ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 07/20/2025
 ms.custom: engagement-fy23

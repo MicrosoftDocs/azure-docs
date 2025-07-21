@@ -43,6 +43,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Application Gateway for Containers| [Reliability in Azure Application Gateway for Containers](reliability-app-gateway-containers.md )    ||
 |Azure API for FHIR®||[Disaster recovery for Azure API for FHIR](../healthcare-apis/azure-api-for-fhir/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure App Service| [Reliability in Azure App Service](reliability-app-service.md)||
+|Azure App Service Environment| [Reliability in Azure App Service Environment](reliability-app-service-environment.md)||
 |Azure Backup| [Reliability in Azure Backup](reliability-backup.md)||
 |Azure Batch| [Reliability in Azure Batch](reliability-batch.md)||
 |Azure Bastion| [Reliability in Azure Bastion](reliability-bastion.md)||
@@ -79,7 +80,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Files||[Choose the right redundancy option](/azure/storage/files/files-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#choose-the-right-redundancy-option)</p>[Disaster recovery and failover for Azure Files](/azure/storage/files/files-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Functions|  [Reliability in Azure Functions ](reliability-functions.md)||
 |Azure Guest Configuration||[Azure Guest Configuration Availability](../governance/machine-configuration/overview.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability) |
-|Azure Health Data Services: De-identification service (preview)|[Reliability in Azure Health Data Services: De-Identification service](reliability-health-data-services-deidentification.md)||
+|Azure Health Data Services: De-identification service (preview)|[Reliability in Azure Health Data Services: De-identification service](reliability-health-data-services-deidentification.md)||
 |Azure Health Data Services: Workspace services (FHIR®, DICOM®, MedTech) | | [Business continuity and disaster recovery considerations](/azure/healthcare-apis/business-continuity-disaster-recovery?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure HDInsight| [Reliability in Azure HDInsight](reliability-hdinsight.md)||
 |Azure IoT Hub|| [Reliability in Azure IoT Hub](reliability-iot-hub.md) |

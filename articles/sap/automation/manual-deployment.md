@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.custom: devx-track-ansible, devx-track-azurecli
+# Customer intent: "As a cloud engineer, I want to manually deploy the SAP on Azure Deployment Automation Framework, so that I can configure and manage my SAP environment according to specific requirements using customizable parameters."
 ---
 
 # Get started with manual deployment

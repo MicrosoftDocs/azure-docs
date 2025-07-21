@@ -9,6 +9,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: concept-article
 ms.custom: devx-track-azurepowershell
 ms.date: 03/20/2024
+# Customer intent: "As an IT administrator managing SAP workloads, I want to deploy flexible virtual machine scale sets with fault domain count set to one, so that I can ensure high availability and optimal resource allocation across availability zones without relying on scaling profiles."
 ---
 
 # Virtual Machine Scale Sets for SAP workload

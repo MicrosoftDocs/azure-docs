@@ -10,6 +10,7 @@ ms.tgt_pltfrm: vm-linux
 ms.custom: linux-related-content
 ms.date: 10/28/2024
 ms.author: radeltch
+# Customer intent: "As a system administrator managing RHEL clusters on Azure, I want to configure a high availability cluster using Pacemaker, so that I can ensure redundancy and fault tolerance for my applications."
 ---
 
 # Set up Pacemaker on Red Hat Enterprise Linux in Azure

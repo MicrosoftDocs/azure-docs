@@ -10,6 +10,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 04/29/2025
 ms.author: radeltch
+# Customer intent: "As a cloud architect, I want to deploy a highly available SAP NetWeaver multi-SID cluster on Azure VMs using Red Hat Enterprise Linux, so that I can ensure continuous service and support scalability for our SAP applications."
 ---
 
 # High availability for SAP NetWeaver on Azure VMs on Red Hat Enterprise Linux for SAP applications multi-SID

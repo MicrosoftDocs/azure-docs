@@ -8,6 +8,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-conten
 ms.topic: article
 ms.date: 06/18/2024
 ms.author: juergent
+# Customer intent: As a database administrator, I want to configure high availability for IBM Db2 LUW on Azure VMs using Pacemaker, so that I can ensure continuous database availability and quick recovery in case of node failures.
 ---
 
 # High availability of IBM Db2 LUW on Azure VMs on SUSE Linux Enterprise Server with Pacemaker

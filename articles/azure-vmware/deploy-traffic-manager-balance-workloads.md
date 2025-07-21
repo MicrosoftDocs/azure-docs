@@ -6,6 +6,7 @@ ms.service: azure-vmware
 ms.date: 3/22/2024
 ms.custom: engagement-fy23
 
+# Customer intent: As a cloud architect, I want to deploy Traffic Manager with Azure VMware Solution to balance application workloads, so that I can ensure optimal performance and availability across multiple regions.
 ---
 
 # Deploy Azure Traffic Manager to balance Azure VMware Solution workloads

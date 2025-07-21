@@ -9,6 +9,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.date: 06/16/2023
 ms.author: depadia
+# Customer intent: As an IT administrator, I want to deploy the SAP BusinessObjects BI platform on Azure for Windows, so that I can leverage cloud scalability and enhance the performance of business intelligence applications for my organization.
 ---
 
 # SAP BusinessObjects BI platform deployment guide for Windows on Azure

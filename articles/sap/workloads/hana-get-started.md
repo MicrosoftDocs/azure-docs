@@ -11,6 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 02/11/2022
 ms.author: juergent
+# Customer intent: "As an IT administrator, I want to deploy SAP HANA on Azure virtual machines following the recommended guidelines, so that I can ensure a successful and supported installation with optimal performance."
 ---
 # Installation of SAP HANA on Azure virtual machines
 ## Introduction

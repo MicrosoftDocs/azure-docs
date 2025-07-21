@@ -3,7 +3,7 @@ title: Template functions - deployment
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve deployment information.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 06/18/2025
+ms.date: 07/21/2025
 ---
 
 # Deployment functions for ARM templates
@@ -107,7 +107,7 @@ When deploying a local template to a resource group: the function returns the fo
 }
 ```
 
-When deploying a remote template to a resource group: the function returns the following format:
+If the template is remote, the `templateLink` property is included in the returned object. The `templateLink` property contains the URI of the template. The format is:
 
 ```json
 {
@@ -131,6 +131,8 @@ When deploying a remote template to a resource group: the function returns the f
   }
 }
 ```
+
+For more information, see [Using variables to link templates](./linked-templates.md#using-variables-to-link-templates).
 
 When deploying a template spec to a resource group: the function returns the following format:
 

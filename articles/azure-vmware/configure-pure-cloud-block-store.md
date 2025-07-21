@@ -6,6 +6,7 @@ author: ju-shim
 ms.author: jushiman
 ms.service: azure-vmware
 ms.date: 3/06/2024
+# Customer intent: "As a cloud architect, I want to configure Pure Cloud Block Store for Azure VMware Solution, so that I can efficiently manage external block storage and support the migration of on-premises workloads to Azure."
 --- 
 
 # Configure Pure Cloud Block Store

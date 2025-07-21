@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 6/3/2021
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
+# Customer intent: As a network administrator, I want to manage the network requirements for SAP HANA on Azure (Large Instances), so that I can ensure proper connectivity and performance for my application's deployment.
 ---
 
 # Other network requirements for Large Instances

@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 05/15/2024
 ms.custom: references_regions, devx-track-azurecli, engagement-fy23
+# Customer intent: As an IT administrator managing VMware environments, I want to deploy Arc-enabled VMware vSphere in Azure VMware Solution, so that I can integrate my resources with Azure for centralized management and enhanced operational capabilities.
 ---
 
 # Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud

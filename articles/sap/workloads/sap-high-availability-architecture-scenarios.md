@@ -9,6 +9,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.date: 06/02/2023
 ms.author: radeltch
+# Customer intent: "As a SAP application administrator, I want to implement a high-availability architecture for SAP NetWeaver on Azure, so that I can ensure continuous service and minimize downtime for critical SAP components."
 ---
 
 # High-availability architecture and scenarios for SAP NetWeaver

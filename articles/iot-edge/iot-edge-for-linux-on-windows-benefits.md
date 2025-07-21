@@ -23,7 +23,7 @@ You don't need deep Linux knowledge to use EFLOW, and you manage your EFLOW devi
 ## Easily connect to Azure
 **IoT Edge Built-In**. [Tier 1 Azure IoT Edge support](support.md#operating-systems) is built in to EFLOW for a simpler deployment experience for your cloud workloads.
 
-**Curated Linux VM for Azure**. EFLOW uses a specially curated Linux VM that runs alongside the Windows IoT host OS. This Linux VM is based on [CBL-Mariner Linux](https://github.com/microsoft/CBL-Mariner), and is optimized for hosting IoT Edge workloads.
+**Curated Linux VM for Azure**. EFLOW uses a specially curated Linux VM that runs alongside the Windows IoT host OS. This Linux VM is based on [Azure Linux](https://github.com/microsoft/CBL-Mariner), and is optimized for hosting IoT Edge workloads.
 
 ## Familiar Windows management
 **Flexible Scripting**. [PowerShell modules](reference-iot-edge-for-linux-on-windows-functions.md) let you fully script deployments.

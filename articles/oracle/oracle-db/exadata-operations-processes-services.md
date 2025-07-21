@@ -6,6 +6,7 @@ ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
+# Customer intent: "As a database administrator, I want to implement the Autonomous Recovery Service for my Oracle databases on Azure, so that I can ensure zero data loss and fast recovery while adhering to compliance and operational efficiency requirements."
 ---
 
 # Operations processes for Exadata services

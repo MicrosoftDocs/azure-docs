@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-windows
 ms.custom: linux-related-content
 ms.date: 05/22/2025
 ms.author: radeltch
+# Customer intent: As an SAP administrator, I want to deploy a highly available SAP HANA scale-out system with standby nodes using Azure NetApp Files on Red Hat Enterprise Linux, so that I can ensure seamless operations and automated failover capabilities for critical applications.
 ---
 
 # Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on Red Hat Enterprise Linux 

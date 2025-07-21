@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
 ms.custom: engagement-fy24
+# Customer intent: "As a database administrator, I want to understand the features and management options of Oracle Database@Azure, so that I can effectively deploy and maintain my Oracle workloads within Azure while ensuring optimal performance and compliance."
 ---
 
 # FAQ for Oracle Database@Azure

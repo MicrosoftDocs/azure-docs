@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 10/19/2022
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
+# Customer intent: As an IT administrator managing SAP HANA on large instances, I want to monitor resource consumption (CPU, memory, network bandwidth, and disk space) in Azure, so that I can ensure optimal performance and prevent resource depletion.
 ---
 
 # Monitor SAP HANA (Large instances) on Azure

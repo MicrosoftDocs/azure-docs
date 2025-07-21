@@ -8,6 +8,7 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: hermannd
 
+# Customer intent: As an IT specialist, I want to deploy SAP IDES EHP7 SP3 for SAP ERP 6.0 on Azure using the SAP Cloud Appliance Library, so that I can set up a fully operational SAP system efficiently and utilize cloud resources.
 ---
 # Deploy SAP IDES EHP7 SP3 for SAP ERP 6.0 on Azure
 This article describes how to deploy an SAP IDES system running with SQL Server and the Windows operating system on Azure via the SAP Cloud Appliance Library (SAP CAL) 3.0. The screenshots show the step-by-step process. To deploy a different solution, follow the same steps.
