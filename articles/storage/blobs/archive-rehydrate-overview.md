@@ -4,7 +4,7 @@ description: While a blob is in the archive access tier, it's considered to be o
 author: normesta
 
 ms.author: normesta
-ms.date: 07/31/2024
+ms.date: 06/21/2025
 ms.service: azure-blob-storage
 ms.topic: concept-article
 # Customer intent: As a cloud storage administrator, I want to rehydrate archived blobs to an online tier, so that I can access and modify the stored data as needed for operational tasks.
@@ -41,7 +41,7 @@ The rehydration priority setting can't be lowered from *High* to *Standard* for 
 
 > [!IMPORTANT]
 > The 10 GiB/hour limit applies at the **storage account level**, not per blob. While timelines such as “up to 15 hours” for standard priority may apply to individual blobs under ideal conditions, they do **not scale linearly** for bulk operations. Customers rehydrating large volumes of data should expect longer durations and plan accordingly.
-> > The throughput is shared across all blobs being rehydrated within the same account, and exceeding the hourly limit may result in throttling or extended delays. For optimal performance, consider batching rehydration requests and monitoring account-level activity.
+> The throughput is shared across all blobs being rehydrated within the same account, and exceeding the hourly limit may result in throttling or extended delays. For optimal performance, consider batching rehydration requests and monitoring account-level activity.
 To learn how to set and update the rehydration priority setting, see [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md).
 
 For more information on pricing differences between standard-priority and high-priority rehydration requests, see [Pricing for Azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
