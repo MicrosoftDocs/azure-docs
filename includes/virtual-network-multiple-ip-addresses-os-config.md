@@ -365,6 +365,9 @@ ip route add default via 10.1.0.1 dev eth2 table custom
 <details>
   <summary>Expand</summary>
 
+>[!NOTE]
+>To configure the additional IP addresses in RHEL10.x it's enough to restart NetworkManger with: `systemctl restart NetworkManger.service`. No additional steps are required. 
+
 1. Open a terminal window.
 
 2. Ensure you're the root user. If you aren't, enter the following command:
