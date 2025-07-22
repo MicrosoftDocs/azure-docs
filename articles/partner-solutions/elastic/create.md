@@ -32,14 +32,24 @@ Select **Elastic Search**.
 
 ### Basics tab
 
-1. In the **Basics** tab, enter values for the required settings:
+1. In the **Basics** tab, enter values for the settings:
 
     | Field               | Action                                                    |
     |---------------------|-----------------------------------------------------------|
-    | Subscription        | Select a subscription from your existing subscriptions.   |
+    | Subscription        | Select a subscription from the options. You must be an *Owner* or *Contributor*.   |
     | Resource group      | Use an existing resource group or create a new one.       |
     | Resource name       | Specify a unique name for the resource.                   |
+    | Hosting Type        | Select **Serverless** or **Cloud Hosted**.                |
+    | Configuration (**Serverless** only) | Select **General purpose** or **Optimized for Vectors**.  |
     | Region              | Select a region to deploy your resource.                  |
+    | Version (**Cloud Hosted** only) | Select a version.                             |
+    | Size (**Cloud Hosted** only) | Review this information.                         |
+    | Plan                | To choose a different plan, select **Change plan**.       |
+    | Billing term        | Select a value.                                           | 
+    | Price + Payment options | Review this information.                              |
+
+    > [!NOTE]
+    > Currently, the **Serverless** hosting type is available only in the East US region.
 
 1. At the bottom of the page, select **Next: Logs & metrics**.
 
@@ -78,14 +88,23 @@ Select **Elastic Observability**.
 
 ### Basics tab
 
-1. In the **Basics** tab, enter values for the required settings:
+1. In the **Basics** tab, enter values for the settings:
 
     | Field               | Action                                                    |
     |---------------------|-----------------------------------------------------------|
-    | Subscription        | Select a subscription from your existing subscriptions.   |
+    | Subscription        | Select a subscription from the options. You must be an *Owner* or *Contributor*.   |
     | Resource group      | Use an existing resource group or create a new one.       |
     | Resource name       | Specify a unique name for the resource.                   |
+    | Hosting Type        | Select **Serverless** or **Cloud Hosted**.                |
     | Region              | Select a region to deploy your resource.                  |
+    | Version (Cloud Hosted only) | Select a version.                                 |
+    | Size (Cloud Hosted only) | Review this information.                             |
+    | Plan                | To choose a different plan, select **Change plan**.       |
+    | Billing term        | Select a value.                                           | 
+    | Price + Payment options | Review this information.                              |
+
+    > [!NOTE]
+    > Currently, the **Serverless** hosting type is available only in the East US region.
 
 1. At the bottom of the page, select **Next: Logs & metrics**.
 
@@ -124,14 +143,23 @@ Select **Elastic Security**.
 
 ### Basics tab
 
-1. In the **Basics** tab, enter values for the required settings:
+1. In the **Basics** tab, enter values for the settings:
 
     | Field               | Action                                                    |
     |---------------------|-----------------------------------------------------------|
-    | Subscription        | Select a subscription from your existing subscriptions.   |
+    | Subscription        | Select a subscription from the options. You must be an *Owner* or *Contributor*.   |
     | Resource group      | Use an existing resource group or create a new one.       |
     | Resource name       | Specify a unique name for the resource.                   |
+    | Hosting Type        | Select **Serverless** or **Cloud Hosted**.                |
     | Region              | Select a region to deploy your resource.                  |
+    | Version (Cloud Hosted only) | Select a version.                                 |
+    | Size (Cloud Hosted only) | Review this information.                             |
+    | Plan                | To choose a different plan, select **Change plan**.       |
+    | Billing term        | Select a value.                                           | 
+    | Price + Payment options | Review this information.                              |
+
+    > [!NOTE]
+    > Currently, the **Serverless** hosting type is available only in the East US region.
 
 1. At the bottom of the page, select **Next: Logs & metrics**.
 
