@@ -11,7 +11,10 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # Replace a network device in Azure Operator Nexus Network Fabric (NNF)
 
-This article describes how to replace a faulty or underperforming network device Top of Rack (TOR), Customer Edge(CE) Network Packet Broker (NPB) and Management Switch in Azure Operator Nexus Network Fabric (NNF) using the RMA (Return Material Authorization) process which ensures minimal disruption and safe reintegration of the replacement hardware into the fabric.
+This article explains how to replace a faulty or underperforming network device in Azure Operator Nexus Network Fabric (NNF).
+It covers devices such as the Top of Rack (TOR) switch, Customer Edge (CE) switch, Network Packet Broker (NPB), and the Management Switch.
+The replacement is performed using the Return Material Authorization (RMA) process.
+This process is designed to minimize service disruption and safely reintegrate the new hardware into the fabric.
 
 ## Scenarios for device replacement
 
@@ -25,15 +28,17 @@ Device replacement may be required in the following situations:
 
 ## Prerequisites
 
-- Azure CLI installed and configured.
+To ensure a smooth and timely RMA process, verify the following before initiating deployment:
 
-- Required permissions to manage Microsoft.ManagedNetworkFabric resources.
+  - Azure CLI is installed and properly configured
 
-- Replacement device powered on and connected physically.
+  - Permissions are granted to manage Microsoft.ManagedNetworkFabric resources
 
-- Replacement device must support Zero Touch Provisioning (ZTP).
+  - Replacement device is powered on and physically connected
 
-- To ensure a smooth and timely RMA process, please verify the following before initiating deployment:
+  - Replacement device supports Zero Touch Provisioning (ZTP)
+
+  - Before initiating the RMA deployment, verify the following:
     
     - Interface Speed Validation
 
@@ -42,9 +47,9 @@ Device replacement may be required in the following situations:
         - If the speed is below 100 Mbps, update it accordingly to prevent delays or potential timeouts during the RMA process.
 
     - Device Storage Check
-        - Ensure the device has a minimum of 2 GB of free space available.
+        - Ensure the device has a minimum of 3 GB of free space available.
 
-        - This is required to successfully download and stage the necessary image files.
+        - This action is required to successfully download and stage the necessary image files.
  
 ## Device Types Supported
 
@@ -92,11 +97,11 @@ az networkfabric device update \
 
 Error Recovery Guidance:
 
-  - If RMA fails due to incorrect serial number, re-patching is allowed without a support ticket
+  - If RMA fails due to an incorrect serial number, re-patching is allowed without a support ticket.
 
-  - Validation occurs after device bootstrap; failure returns status: 'Device Unable to Boot Up - Failed'
+  - If validation fails after device bootstrap, the system returns the status: Device Unable to Boot Up - Failed.
 
-This action perfoms following:
+This action performs the following tasks:
 
   - Update serial number stored in Azure ARM resource
 
@@ -115,7 +120,7 @@ This action sets the following states:
 
   - Fabric Administrative State: EnabledDegraded
 
-The device will boot into its base configuration using the maintenance profile and is applicable only for TOR and CE device types.
+The device boots into its base configuration using the maintenance profile. This applies only to TOR and CE device types.
 
 4. Set RMA State.
 
@@ -132,7 +137,7 @@ This will:
 
 - Trigger the Network Fabric Controller to push all required configuration files to the replacement device.
 
-- Retry the operation if there is transient failures until success is confirmed.
+- Retry the operation if there's transient failures until success is confirmed.
 
 5. Refresh configuration
 
@@ -142,7 +147,7 @@ This step pushes the latest configuration to the device after it enters maintena
 az networkfabric device refresh-configuration --resource-name <resource-name> --resource-group <rg-name>
 ```
 
-This will push the latest config to the device.
+This action pushes the latest configuration to the device.
 
 6. Enable administrative state.
 
