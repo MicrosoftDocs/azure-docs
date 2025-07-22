@@ -109,7 +109,7 @@ ping -S 10.1.0.5 outlook.com
 ```
  
 > [!NOTE]
-> For secondary IP configurations, you can ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
+> For secondary IP configurations, you can ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address isn't required to ping to the Internet.
 
 </details>
 
@@ -224,7 +224,7 @@ ping -I 10.1.0.5 outlook.com
 ```
 
 > [!NOTE]
-> For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
+> For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address isn't required to ping to the Internet.
 
 For Linux VMs, when attempting to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. See appropriate documentation for your Linux distribution. The following method to accomplish this goal:
 
@@ -301,7 +301,7 @@ Starting on 18.04, **`netplan`** is used in Ubuntu for network management. We re
     ```
 
     > [!NOTE]
-    > `netplan try` will apply the changes temporarily and roll back the changes after 120 seconds. If there is a loss of connectivity, wait 2 minutes, and then reconnect. At that time, the changes will have been rolled back.
+    > `netplan try` will apply the changes temporarily and roll back the changes after 120 seconds. If there's a loss of connectivity, wait 2 minutes, and then reconnect. At that time, the changes will have been rolled back.
 
 7. Assuming no issues with **`netplan try`**, apply the configuration changes:
 
@@ -341,7 +341,7 @@ ping -I 10.1.0.5 outlook.com
 >[!NOTE]
 >For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address isn't required to ping to the Internet.
 
-For Linux VMs, when trying to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. Follow the appropriate documentation for your Linux distribution. The following method is one way to accomplish this:
+For Linux VMs, when trying to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. Follow the appropriate documentation for your Linux distribution. The following method is one way to accomplish this goal:
 
 ```bash
 echo 150 custom >> /etc/iproute2/rt_tables 
@@ -366,7 +366,7 @@ ip route add default via 10.1.0.1 dev eth2 table custom
   <summary>Expand</summary>
 
 >[!NOTE]
->To configure the extra IP addresses in RHEL10.x it's enough to restart NetworkManger with: `systemctl restart NetworkManger.service` or reboot the system. No other steps are required.
+>To configure the extra IP addresses in RHEL10.x, it's enough to restart NetworkManger with: `systemctl restart NetworkManger.service` or reboot the system. No other steps are required.
 
 1. Open a terminal window.
 
@@ -477,9 +477,9 @@ To ensure you're able to connect to the internet from your secondary IP configur
 ping -I 10.0.0.5 outlook.com
 ```
 >[!NOTE]
->For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
+>For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address isn't required to ping to the Internet.
 
-For Linux VMs, when attempting to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. Please see appropriate documentation for your Linux distribution. The following method to accomplish this goal:
+For Linux VMs, when attempting to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. See the appropriate documentation for your Linux distribution. The following method to accomplish this goal:
 
 ```bash
 echo 150 custom >> /etc/iproute2/rt_tables 
@@ -559,7 +559,7 @@ We recommend looking at the latest documentation for your Linux distribution.
    :wq
    ```
 
-7. Restart networking services for the changes to take effect. For Debian 8 and above, this can be done using below command :
+7. Restart networking services for the changes to take effect. For Debian 8 and above, use:
 
    ```bash
    systemctl restart networking
@@ -600,7 +600,7 @@ ping -I 10.1.0.5 outlook.com
 ```
 
 > [!NOTE]
-> For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
+> For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address isn't required to ping to the Internet.
 
 For Linux VMs, when attempting to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. See appropriate documentation for your Linux distribution. The following method to accomplish this goal:
 
