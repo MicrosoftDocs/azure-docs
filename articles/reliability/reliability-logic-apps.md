@@ -1,8 +1,8 @@
 ---
 title: Reliability in Azure Logic Apps
 description: Learn about reliability in Azure Logic Apps, including availability zones and multi-region deployments.
-author: anaharris-ms
-ms.author: anaharris
+author: ecfan
+ms.author: estfan
 ms.topic: reliability-article
 ms.custom: subject-reliability
 services: logic-apps
