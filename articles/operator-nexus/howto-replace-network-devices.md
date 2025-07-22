@@ -9,9 +9,9 @@ ms.date: 08/12/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# Replace a device in Azure Operator Nexus Network Fabric (NNF)
+# Replace a network device in Azure Operator Nexus Network Fabric (NNF)
 
-This article describes how to replace a faulty or underperforming device in Azure Operator Nexus Network Fabric (NNF) using the RMA (Return Material Authorization) process which ensures minimal disruption and safe reintegration of the replacement hardware into the fabric.
+This article describes how to replace a faulty or underperforming network device Top of Rack (TOR), Customer Edge(CE) Network Packet Broker (NPB) and Management Switch in Azure Operator Nexus Network Fabric (NNF) using the RMA (Return Material Authorization) process which ensures minimal disruption and safe reintegration of the replacement hardware into the fabric.
 
 ## Scenarios for device replacement
 
@@ -46,6 +46,12 @@ Device replacement may be required in the following situations:
 
         - This is required to successfully download and stage the necessary image files.
  
+## Device Types Supported
+
+- Customer Edge (CE)
+- Top of Rack (TOR)
+- Management Switch (Mgmt Switch)
+- Network Packet Broker (NPB)
 
 ## Steps to replace a device
 
@@ -60,19 +66,20 @@ az networkfabric device update-admin-state \
   --resource-group "resource-group-name"
 ```
 
-This action:
+This action sets the following states:
 
-- Moves the device to a degraded state: EnabledDegraded.
+  -  Device Administrative State: Disabled
 
-- Excludes the device from all control plane actions such as:
+  - Fabric Administrative State: EnabledDegraded
 
-    - Certificate rotations
-    
-    - Password rotations
-    
-    - Fabric upgrades
+> Note: 
+> This action is not permitted by the service, if any of the following operations are in progress at the fabric level:<br> - Device upgrade<br> - Configuration push<br> - Secret or certificate updates<br>Administrative lock<br> - Terminal Server (TS) reprovisioning.
 
 2. Update the serial number.
+
+Execution Conditions:
+  - Device Administrative State must be `Disabled`
+  - Fabric Administrative State must be `EnabledDegraded`
 
 Once the replacement device is physically installed, update its serial number in the fabric resource:
 
@@ -83,12 +90,32 @@ az networkfabric device update \
   --resource-group "resource-group-name"
 ```
 
+Error Recovery Guidance:
+
+  - If RMA fails due to incorrect serial number, re-patching is allowed without a support ticket
+
+  - Validation occurs after device bootstrap; failure returns status: 'Device Unable to Boot Up - Failed'
+
+This action perfoms following:
+
+  - Update serial number stored in Azure ARM resource
+
+  - Keeps the device in Disabled state
+
 3. Ensure device is in ZTP Mode.
 
 Verify that the replacement device is in ZTP mode. If not, configure the device for ZTP before continuing.
 
 > [!Note]
 > ZTP enables automatic configuration retrieval during the RMA process.
+
+This action sets the following states:
+
+  - Device Administrative State: UnderMaintenance
+
+  - Fabric Administrative State: EnabledDegraded
+
+The device will boot into its base configuration using the maintenance profile and is applicable only for TOR and CE device types.
 
 4. Set RMA State.
 
