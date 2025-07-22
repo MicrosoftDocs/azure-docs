@@ -2,7 +2,7 @@
 title: Microsoft Azure Migration Hub 
 
 metadata:
-  title: AMicrosoft Azure Migration Hub 
+  title: Microsoft Azure Migration Hub 
   description: Explore key considerations, address migration challenges, and streamline your move while optimizing workloads for Azure.
   ms.service: azure
   ms.topic: marketing-hub
@@ -27,7 +27,7 @@ sections:
   - componentType: testimonials-section
     title: 'Discover top picks'
     cards:
-      - avatarUrl: images/azure.svg
+      - avatarUrl: images/functions.svg
         componentType: testimonial-card
         name: Migrate AWS Lambda to Azure Functions
         role: Documentation
@@ -45,7 +45,7 @@ sections:
           componentType: link
           url: /azure/architecture/aws-professional/eks-to-aks/
           text: Learn more
-      - avatarUrl: images/azure.svg
+      - avatarUrl: images/aws.svg
         componentType: testimonial-card
         name: Azure for AWS Professionals
         role: Documentation
@@ -54,7 +54,7 @@ sections:
           componentType: link
           url: /azure/architecture/aws-professional/
           text: Get started
-      - avatarUrl: images/azure.svg
+      - avatarUrl: images/cloud.svg
         componentType: testimonial-card 
         name: Azure for Google Cloud Professionals
         role: Documentation
