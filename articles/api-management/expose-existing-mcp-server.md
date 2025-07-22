@@ -4,7 +4,7 @@ description: Learn how to expose and govern an existing Model Context Protocol (
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 07/14/2025
+ms.date: 07/22/2025
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
@@ -14,7 +14,7 @@ ms.custom:
 
 [!INCLUDE [api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2.md)]
 
-This article shows how to use API Management to expose and govern an existing MCP-compatible server - a tool server hosted outside of API Management. Expose the server's tools through API Management so that MCP clients can call them using the MCP protocol. 
+This article shows how to use API Management to expose and govern an existing MCP-compatible server - a tool server hosted outside of API Management. Expose the server's tools through API Management using its built-in [AI gateway](genai-gateway-capabilities.md) capabilities so that MCP clients can call them using the MCP protocol. 
 
 [!INCLUDE [preview-callout-mcp-servers](includes/preview/preview-callout-mcp-servers.md)]
 
@@ -36,20 +36,23 @@ Learn more about:
 ## Prerequisites
 
 + If you don't already have an API Management instance, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md). 
-    + Your API Management instance must be in one of the supported service tiers for preview: classic Basic, Standard, Premium, Basic v2, Standard v2, or Premium v2.
-    + If your instance is in the classic Basic, Standard, or Premium tier, you must join the **AI Gateway Early** [update group](configure-service-update-settings.md) to access MCP server features. It can take up to 2 hours for the update to be applied.
+    + The following service tiers are supported for preview: classic Basic, Standard, Premium, Basic v2, Standard v2, or Premium v2.
+    + In the classic Basic, Standard, or Premium tier, you must join the **AI Gateway Early** [update group](configure-service-update-settings.md) to access MCP server features. Allow up to 2 hours for the update to be applied.
+
 + Access to an external MCP-compatible server (for example, hosted in Azure Logic Apps, Azure Functions, LangServe, or other platforms).
+
 + Appropriate credentials to the MCP server (OAuth 2.0 client credentials or API keys) for secure access.
+
 + To test the MCP server, you can use Visual Studio Code with access to [GitHub Copilot](https://code.visualstudio.com/docs/copilot/setup).
 
-## Expose an existing MCP Server
+## Expose an existing MCP server
 
-Follow these steps to expose an existing MCP server to API Management:
+Follow these steps to expose an existing MCP server is API Management:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
     [!INCLUDE [preview-callout-mcp-feature-flag](includes/preview/preview-callout-mcp-feature-flag.md)]
 
-1. In the left-hand menu, select **MCP servers** > **+ Create MCP server**.
+1. In the left-hand menu, under **APIs**,select **MCP servers** > **+ Create MCP server**.
 1. Select **Connect existing MCP server**.
 1. In **Backend API**:
     1. Enter the existing **MCP server base URL**.

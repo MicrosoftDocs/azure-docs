@@ -28,7 +28,7 @@ To configure policies for the MCP server:
 
 ## Validate and use the MCP server
 
-Use a compliant LLM agent (such as GitHub Copilot, Semantic Kernel, or Copilot Studio) or a test client (such as `curl`) to call the API Management-hosted MCP endpoint, ensure the request includes appropriate headers and tokens, and confirm successful routing and response from the MCP server.
+Use a compliant LLM agent (such as GitHub Copilot, Semantic Kernel, or Copilot Studio) or a test client (such as `curl`) to call the API Management-hosted MCP endpoint. Ensure that the request includes appropriate headers or tokens, and confirm successful routing and response from the MCP server.
 
 > [!TIP]
 > If you use the [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector) to test an MCP server managed by API Management, we recommend using version 0.9.0.

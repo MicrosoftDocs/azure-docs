@@ -100,7 +100,15 @@ One option to secure inbound access is to configure a policy to validate a JSON 
 
 ```
 
-> [!IMPORTANT]
+For more inbound authorization options and samples, see:
+
+* [MCP server authorization with Protected Resource Metadata (PRM) sample](https://github.com/blackchoey/remote-mcp-apim-oauth-prm)
+
+* [Secure Remote MCP Servers using Azure API Management (Experimental)](https://github.com/Azure-Samples/remote-mcp-apim-functions-python)
+
+* [MCP client authorization lab](https://github.com/Azure-Samples/AI-Gateway/tree/main/labs/mcp-client-authorization)
+
+> [!CAUTION]
 > When you use an MCP server in API Management, incoming headers like **Authorization** aren't automatically passed to your backend API. If your backend needs a token, you can add it as an input parameter in your API definition. Alternatively, use policies like `get-authorization-context` and `set-header` to generate and attach the token, as noted in the following section.
 
 
@@ -151,9 +159,7 @@ MCP servers in API Management are available in the following service tiers:
 
 ## Related content
 
-* [Python sample: Secure remote MCP servers using Azure API Management (experimental)](https://github.com/Azure-Samples/remote-mcp-apim-functions-python)
 
-* [MCP client authorization lab](https://github.com/Azure-Samples/AI-Gateway/tree/main/labs/mcp-client-authorization)
 
 * [Use the Azure API Management extension for VS Code to import and manage APIs](visual-studio-code-tutorial.md)
 

@@ -4,7 +4,7 @@ description: Learn how to expose a REST API in Azure API Management as an MCP se
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 07/18/2025
+ms.date: 07/22/2025
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
@@ -15,7 +15,7 @@ ms.custom:
 
 [!INCLUDE [api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2.md)]
 
-In API Management, you can expose a REST API managed in API Management as a remote [Model Context Protocol (MCP)](https://www.anthropic.com/news/model-context-protocol) server through its built-in [AI gateway](genai-gateway-capabilities.md). Expose one or more of the API operations as tools that MCP clients can call using the MCP protocol. 
+In API Management, you can expose a REST API managed in API Management as a remote [Model Context Protocol (MCP)](https://www.anthropic.com/news/model-context-protocol) server using its built-in [AI gateway](genai-gateway-capabilities.md). Expose one or more of the API operations as tools that MCP clients can call using the MCP protocol. 
 
 [!INCLUDE [preview-callout-mcp-servers](includes/preview/preview-callout-mcp-servers.md)]
 
@@ -30,11 +30,13 @@ Learn more about:
 ## Prerequisites
 
 + If you don't already have an API Management instance, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md). 
-    + Your API Management instance must be in one of the supported service tiers for preview: classic Basic, Standard, Premium, Basic v2, Standard v2, or Premium v2.
-    + If your instance is in the classic Basic, Standard, or Premium tier, you must join the **AI Gateway Early** [update group](configure-service-update-settings.md) to access MCP server features. It can take up to 2 hours for the update to be applied.
+    + The following service tiers are supported for preview: classic Basic, Standard, Premium, Basic v2, Standard v2, or Premium v2.
+    + In the classic Basic, Standard, or Premium tier, you must join the **AI Gateway Early** [update group](configure-service-update-settings.md) to access MCP server features. Allow up to 2 hours for the update to be applied.
+
 + Make sure that your instance manages an HTTP-compatible API (any API imported as a REST API, including APIs imported from Azure resources) that you'd like to expose as an MCP server. To import a sample API, see [Import and publish your first API](import-and-publish.md).
     > [!NOTE]
     > Only HTTP APIs managed in API Management can be exposed as MCP servers.
+
 + To test the MCP server, you can use Visual Studio Code with access to [GitHub Copilot](https://code.visualstudio.com/docs/copilot/setup).
 
 
