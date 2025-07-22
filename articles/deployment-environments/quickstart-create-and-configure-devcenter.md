@@ -134,7 +134,7 @@ In Deployment Environments, a project represents a team or business function wit
 
 When you associate a project with a dev center, all the settings for the dev center are automatically applied to the project. Each project can be associated with only one dev center.
 
-To create an Deployment Environments project in your dev center:
+To create a Deployment Environments project in your dev center:
 
 1. In the [Azure portal](https://portal.azure.com), go to Azure Deployment Environments.
 
@@ -179,6 +179,7 @@ To configure a project, add a [project environment type](how-to-configure-projec
     |**Permissions on environment resources** > **Additional access** | Select the users or Microsoft Entra groups to assign to specific roles on the environment resources.|
     |**Tags** | Enter a tag name and a tag value. These tags are applied on all resources that are created as part of the environment.|
 
+1. Select **Add**. 
 
 > [!NOTE]
 > At least one identity (system-assigned or user-assigned) must be enabled for deployment identity. The identity is used to perform the environment deployment on behalf of the developer. Additionally, the identity attached to the dev center should be [assigned the Contributor and the User Access Administrator roles](how-to-configure-managed-identity.md) for access to the deployment subscription for each environment type.
