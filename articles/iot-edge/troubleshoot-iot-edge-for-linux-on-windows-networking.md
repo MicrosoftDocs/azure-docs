@@ -4,7 +4,7 @@ description: Learn about troubleshooting and diagnostics for Azure IoT Edge for 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 06/10/2024
+ms.date: 07/22/2025
 ms.topic: troubleshooting-general
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
@@ -15,7 +15,7 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-If you experience networking issues using Azure IoT Edge for Linux on Windows (EFLOW) in your environment, use this article as a guide for troubleshooting and diagnostics. Also, check [Troubleshoot your IoT Edge for Linux on Windows device](./troubleshoot-iot-edge-for-linux-on-windows.md) for more EFLOW virtual machine troubleshooting help.
+If you experience networking issues with Azure IoT Edge for Linux on Windows (EFLOW), use this article to troubleshoot and diagnose the problem. For more help with EFLOW virtual machines, see [Troubleshoot your IoT Edge for Linux on Windows device](./troubleshoot-iot-edge-for-linux-on-windows.md).
 
 ## Isolate the issue
 
