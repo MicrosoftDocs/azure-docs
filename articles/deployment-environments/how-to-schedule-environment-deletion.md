@@ -1,6 +1,6 @@
 ---
 title: Schedule an Environment for Automatic Deletion
-description: Learn how to schedule a deletion date and time for an environment.  
+description: Learn how to schedule a deletion date and time for an environment. Set an expiration date to specify when the environment and its resources are deleted.  
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: azure-deployment-environments
@@ -94,7 +94,7 @@ Developers might not always know when an environment is no longer needed. As a p
  
 1. In the list of environments, for the environment you want to schedule for deletion, scroll right, and then select **...** > **Change expiration**.
 
-   :::image type="content" source="media/how-to-schedule-environment-deletion/azure-portal-schedule-environment-deletion.png" alt-text="Screenshot showing the initial steps for changing an expriation." lightbox="media/how-to-schedule-environment-deletion/azure-portal-schedule-environment-deletion.png":::
+   :::image type="content" source="media/how-to-schedule-environment-deletion/azure-portal-schedule-environment-deletion.png" alt-text="Screenshot showing the initial steps for changing an expiration." lightbox="media/how-to-schedule-environment-deletion/azure-portal-schedule-environment-deletion.png":::
 
 1. In the **Change \<environment> expiration date** pane, select **Enable scheduled deletion**.
  
