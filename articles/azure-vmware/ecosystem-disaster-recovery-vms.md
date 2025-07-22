@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/12/2023
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud administrator, I want to implement a disaster recovery plan for my Azure VMware Solution virtual machines, so that I can ensure data availability and business continuity in the event of a failure."
 ---
 
 # Disaster recovery solutions for Azure VMware Solution virtual machines (VMs)

@@ -6,8 +6,8 @@ ms.date: 06/18/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to troubleshoot backup and restore operations in Azure Kubernetes Service, so that I can ensure effective data management and resolution of configuration errors."
 ---
 

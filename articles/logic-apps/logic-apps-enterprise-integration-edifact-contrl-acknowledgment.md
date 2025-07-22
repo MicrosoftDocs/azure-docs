@@ -6,8 +6,8 @@ ms.suite: integration
 author: praveensri
 ms.author: psrivas
 ms.reviewer: estfan, divswa, azla
-ms.topic: conceptual
-ms.date: 03/22/2025
+ms.topic: concept-article
+ms.date: 07/18/2025
 ---
 
 # CONTRL acknowledgments and error codes for EDIFACT messages in Azure Logic Apps
