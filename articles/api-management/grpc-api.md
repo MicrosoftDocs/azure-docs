@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 07/21/2025
+ms.date: 05/06/2024
 ms.author: danlep
 ms.custom:
   - devx-track-arm-template
@@ -25,7 +25,6 @@ To add a gRPC API to API Management, you need to:
 
 * Upload the API's Protobuf (protocol buffer) definition file to API Management
 * Specify the location of your gRPC service
-* Enable HTTP/2 support in the self-hosted gateway
 * Configure the API in API Management
 
 API Management supports pass-through with the following types of gRPC service methods: unary, server streaming, client streaming, and bidirectional streaming. For background about gRPC, see [Introduction to gRPC](https://grpc.io/docs/what-is-grpc/introduction/).
@@ -76,14 +75,6 @@ API Management supports pass-through with the following types of gRPC service me
     The API is added to the **APIs** list. You can view update your settings by going to the **Settings** tab of the API. 
 
 ---
-
-## Enable HTTP/2 support in the self-hosted gateway
-
-gRPC requires HTTP/2 transport end to end (that is, both inbound to API Management and outbound from the gateway to the backend).
-
-* The self-hosted gateway supports inbound HTTP/2 by default.
-
-* Enable HTTP/2 protocol outbound support in the self-hosted gateway by setting the `http-version` attribute to `2` or `2or1` in the [forward-request](forward-request-policy.md) policy. 
 
 ## Call gRPC services with .NET
 
