@@ -4,7 +4,7 @@ description: Learn how to control App Service outbound traffic to internet, priv
 author: cephalin
 ms.author: cephalin
 ms.topic: how-to
-ms.date: 07/21/2025
+ms.date: 07/22/2025
 ---
 
 # Control outbound traffic with Azure Firewall
@@ -26,7 +26,7 @@ Have an App Service app that uses regional virtual network integration. For more
 
 ## 1. Create the required firewall subnets
 
-To deploy a firewall into the integrated virtual network, the virtual network must have a subnet called **AzureFirewallSubnet**. Also, forced tunneling is required by default, so the network must also have a subnet called **AzureFirewallManagementSubnet**. For more information, see [Azure Firewall - forced tunneling](/answers/questions/4373500/azure-firewall-force-tunneling).
+To deploy a firewall into the integrated virtual network, the virtual network must have a subnet called **AzureFirewallSubnet**. Also, forced tunneling is required by default, so the network must also have a subnet called **AzureFirewallManagementSubnet**. For more information, see [Azure Firewall forced tunneling](/azure/firewall/forced-tunneling).
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the virtual network integrated with your app.
 1. On the page for your app's integrated virtual network, select **Subnets** from the left navigation menu.
