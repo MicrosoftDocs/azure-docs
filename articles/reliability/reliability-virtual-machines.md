@@ -60,7 +60,7 @@ Applications running on your VMs should implement appropriate fault-handling str
 
 An individual VM can be deployed in a *zonal* configuration, which means it's pinned to a single availability zone that you select. By itself, a zonal VM isn't resilient to zone outages. However, you can create multiple VMs and place them in different availability zones, then spread your applications and data across the VM instances. Alternatively, you can use [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) to create a set of virtual machines and spread them across zones.
 
-If you don't configure a VM to be zonal then it's considered to be *nonzonal* or *regional*. Nonzonal VMs can be placed in any availability zone within the region. If any availability zone in the region experiences an outage, nonzonal VMs might be in the affected zone and could experience downtime.
+If you don't configure a VM to be zonal then it's considered to be *nonzonal* or *regional*. Nonzonal VMs might be placed in any availability zone within the region. If any availability zone in the region experiences an outage, nonzonal VMs might be in the affected zone and could experience downtime.
 
 ### Region support
 
