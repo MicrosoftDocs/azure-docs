@@ -43,7 +43,7 @@ By default, when you select an authentication type from this list, Service Conne
 | Azure OpenAI Service    | Cognitive Services OpenAI Contributor | Full access including the ability to fine-tune, deploy, and generate text.                                            | a001fd3d-188f-4b5d-821b-7da978bf7442 |
 | Azure Cognitive Service | Cognitive Services User               | Lets you read and list keys of Cognitive Services.                                                                    | a97b65f3-24c7-4388-baec-2e87135dc908 |
 
-For more information about these roles, see [Azure built-in roles](../role-based-access-control/built-in-roles.md)
+For more information about these roles, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 
 ## Role customization
 
