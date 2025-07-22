@@ -1,5 +1,6 @@
 ---
 title: Understand Storage Discovery Pricing | Microsoft Docs
+titleSuffix: Azure Storage Discovery
 description: Storage Discovery pricing and features available with each pricing plan.
 author: pthippeswamy
 ms.service: azure-storage-mover
@@ -23,7 +24,7 @@ For each Discovery workspace, you can select from free or paid options. The numb
 | Free | Includes limited Capacity and Resource configuration insights for up to 15 days with daily updates of the data. | 
 | Standard | Includes insights for Capacity, Operations, Resource and security configurations with hourly updates. Upon workspace creation, historic data is aggregated for the prior 30 days and all data is retained for up to 18 months.| 
 
-### Azure Storage Discovery meters
+## Azure Storage Discovery meters
 
 The total cost of a Storage Discovery workspace will depend on its configuration.  
 

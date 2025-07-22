@@ -1,5 +1,6 @@
 ---
 title: Planning for an Azure Storage Discovery deployment
+titleSuffix: Azure Storage Discovery
 description: Considerations and best-practices while deploying Azure Storage Discovery service
 author: pthippeswamy
 ms.service: azure-storage-mover
@@ -8,7 +9,7 @@ ms.date: 08/01/2025
 ms.author: shaas
 ---
 
-# Azure Storage Discovery: Regional Availability and Planning Guide
+# Azure Storage Discovery: Regional availability and planning guide
 
 Azure Storage Discovery empowers organizations to gain deep, actionable insights into their storage estate—across subscriptions, regions, and scopes. This article outlines the regional availability of Azure Storage Discovery, explains how to select regions for your workspace, and clarifies how regional aggregation of insights works.
 
