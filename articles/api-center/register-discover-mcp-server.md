@@ -4,7 +4,7 @@ description: Learn about how Azure API Center can be a centralized registry for 
 author: dlepow
 ms.service: azure-api-center
 ms.topic: concept-article
-ms.date: 04/28/2025
+ms.date: 07/22/2025
 ms.author: danlep 
 # Customer intent: As an API program manager, I want to register and discover  MCP servers as APIs in my API Center inventory.
 ms.custom:
@@ -26,6 +26,9 @@ The following sections describe how to inventory and discover a remote MCP serve
 To register an MCP server in your API center inventory, specify the API type as **MCP**. To register an API using the Azure portal, see [Tutorial: Register APIs in your API inventory](register-apis.md).
 
 As described in the following sections, when you register an MCP server, you can specify an environment, deployment, and definition.
+
+> [!TIP]
+> If you manage MCP servers in Azure API Management, you can set up automatic synchronization of MCP servers along with other APIs from API Management to your API center. For more information, see [Synchronize APIs from Azure API Management instance](synchronize-api-management-apis.md).
 
 
 ### Environment and deployment for MCP server
