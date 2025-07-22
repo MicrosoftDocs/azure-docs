@@ -181,7 +181,7 @@ Expected output:
 ## Show Network Fabric 
 
 ```azurecli
-az networkfarbic fabric show --resource-group "<NFResourceGroup>" --resource-name "<NFName>"
+az networkfabric fabric show --resource-group "<NFResourceGroup>" --resource-name "<NFName>"
 ```
 Expected output:
 
