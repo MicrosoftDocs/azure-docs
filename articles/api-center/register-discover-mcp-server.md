@@ -28,7 +28,7 @@ To register an MCP server in your API center inventory, specify the API type as 
 As described in the following sections, when you register an MCP server, you can specify an environment, deployment, and definition.
 
 > [!TIP]
-> If you manage MCP servers in Azure API Management, you can set up automatic synchronization of MCP servers along with other APIs from API Management to your API center. For more information, see [Synchronize APIs from Azure API Management instance](synchronize-api-management-apis.md).
+> If you manage MCP servers in Azure API Management, you can enable automatic synchronization to keep your API center up to date with MCP servers and other APIs from your API Management instance. To learn more, see [Synchronize APIs from Azure API Management instance](synchronize-api-management-apis.md).
 
 
 ### Environment and deployment for MCP server
