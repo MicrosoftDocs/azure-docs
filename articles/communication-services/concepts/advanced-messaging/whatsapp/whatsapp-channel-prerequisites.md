@@ -211,7 +211,7 @@ You can see the status of your WhatsApp Business account in the Azure portal. Ac
 |**Active**| A WhatsApp account is ready to use. |  |
 |**Revoked**| A WhatsApp account is unshared or deleted from the WhatsApp side. | If you no longer want to use the WhatsApp Business account, you can disconnect the account. If you still want the WhatsApp Business account connected, you need to redo the registration process by disconnecting then reconnecting the account. |
 |**Disconnected**| A WhatsApp account is disconnected from the Azure portal side. | If you no longer want to use the WhatsApp Business account, you need to go to WhatsApp manager portal to unshare the WhatsApp Business Account or delete the phone number or delete the WhatsApp Business Account for a complete disconnection. If you still want the WhatsApp Business account connected, you need to redo the registration process by disconnecting then reconnecting the account. |
-|**Phone number deleted**| A WhatsApp business phone number is deleted from the WhatsApp side. | If you no longer want to use the WhatsApp Business account, you can disconnect the account. If you still want the WhatsApp Business account connected, you need to redo the registration process by disconnecting then reconnecting the account with adding the same phone number. |
+|**Phone number deleted**| A WhatsApp Business phone number is deleted from the WhatsApp side. | If you no longer want to use the WhatsApp Business account, you can disconnect the account. If you still want the WhatsApp Business account connected, you need to redo the registration process by disconnecting then reconnecting the account with adding the same phone number. |
 |**Business account review rejected**| WhatsApp disabled the business account because it doesn't comply with WhatsApp Business's Commerce Policy. | Check details on WhatsApp manager portal and request a review if you believe that this rejection is incorrect. |
 |**Display name review not started**| WhatsApp didn't start a WhatsApp Business display name review for your business phone number. Typically, the review didn't start because your Meta business account has not yet finish Meta Business Verification. [See this link for details about Meta Business Verification.](https://www.facebook.com/business/help/2058515294227817) | WhatsApp Business display name review isn't required to get started. You can immediately start sending messages to customers. You have limited number of messages and recipients per day until WhatsApp Business display name review is approved. |
 |**Display name review pending**| The WhatsApp business phone number display name is under review by WhatsApp. | WhatsApp Business display name review isn't required to get started. You can immediately start sending messages to customers. You have limited number of messages and recipients per day until WhatsApp Business display name review is approved. |
@@ -219,10 +219,10 @@ You can see the status of your WhatsApp Business account in the Azure portal. Ac
 
 ## Next steps
 
-This article covered the prerequisites for configuring WhatsApp as a channel in Microsoft Copilot Studio. You're now ready to add WhatsApp to your AI agent.
+This article covered the prerequisites for configuring WhatsApp as a channel in Microsoft Copilot Studio. You're now ready to deploy your AI agent to your WhatsApp Business phone number. 
 
 > [!div class="nextstepaction"]
-> [Add WhatsApp to your AI agent](https://go.microsoft.com/fwlink/?linkid=2313226)
+> [Deploy AI agent to WhatsApp](https://go.microsoft.com/fwlink/?linkid=2313226)
 
 ## Related articles
 

@@ -10,6 +10,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 12/21/2023
 ms.author: robiro
+# Customer intent: As an IT security professional, I want to integrate Azure identity and security services with SAP RISE, so that I can enhance the security, monitoring, and user management of our SAP workloads in a cloud environment.
 ---
 
 # Azure identity and security services with SAP RISE
