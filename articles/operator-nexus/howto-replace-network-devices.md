@@ -51,7 +51,7 @@ To ensure a smooth and timely RMA process, verify the following prerequisites be
 
         - This action is required to successfully download and stage the necessary image files.
  
-## Device Types Supported
+## Device types supported
 
 - Customer Edge (CE)
 - Top of Rack (TOR)
@@ -60,7 +60,7 @@ To ensure a smooth and timely RMA process, verify the following prerequisites be
 
 ## Steps to replace a device
 
-1. Disable administrative state.
+### Step 1 : Disable administrative state.
 
 Use the following command to disable the administrative state of the device:
 
@@ -73,18 +73,23 @@ az networkfabric device update-admin-state \
 
 This action sets the following states:
 
-  -  Device Administrative State: Disabled
+- Device Administrative State: Disabled
 
-  - Fabric Administrative State: EnabledDegraded
+- Fabric Administrative State: EnabledDegraded
 
 > Note: 
-> This action is not permitted by the service, if any of the following operations are in progress at the fabric level:<br> - Device upgrade<br> - Configuration push<br> - Secret or certificate updates<br>Administrative lock<br> - Terminal Server (TS) reprovisioning.
+> This action is not permitted by the service, if any of the following operations are in progress at the fabric level:
+> - Device upgrade
+> - Configuration push
+> - Secret or certificate updates
+> - Administrative lock
+> - Terminal Server (TS) reprovisioning.
 
-2. Update the serial number.
+### Step 2 : Update the serial number.
 
 Execution Conditions:
-  - Device Administrative State must be `Disabled`
-  - Fabric Administrative State must be `EnabledDegraded`
+- Device Administrative State must be `Disabled`
+- Fabric Administrative State must be `EnabledDegraded`
 
 Once the replacement device is physically installed, update its serial number in the fabric resource:
 
@@ -97,17 +102,17 @@ az networkfabric device update \
 
 Error Recovery Guidance:
 
-  - If RMA fails due to an incorrect serial number, repatching is allowed without a support ticket.
+- If RMA fails due to an incorrect serial number, repatching is allowed without a support ticket.
 
-  - If validation fails after device bootstrap, the system returns the status: Device Unable to Boot Up - Failed.
+- If validation fails after device bootstrap, the system returns the status: Device Unable to Boot Up - Failed.
 
 This action performs the following tasks:
 
-  - Update serial number stored in Azure ARM resource
+- Update serial number stored in Azure ARM resource
 
-  - Keeps the device in Disabled state
+- Keeps the device in Disabled state
 
-3. Ensure device is in ZTP Mode.
+### Step 3 : Ensure device is in ZTP Mode.
 
 Verify that the replacement device is in ZTP mode. If not, configure the device for ZTP before continuing.
 
@@ -116,13 +121,13 @@ Verify that the replacement device is in ZTP mode. If not, configure the device 
 
 This action sets the following states:
 
-  - Device Administrative State: UnderMaintenance
+- Device Administrative State: UnderMaintenance
 
-  - Fabric Administrative State: EnabledDegraded
+- Fabric Administrative State: EnabledDegraded
 
 The device boots into its base configuration using the maintenance profile. This condition applies only to TOR and CE device types.
 
-4. Set RMA State.
+### Step 4 : Set RMA State.
 
 Initiate the RMA process using the following command:
 
@@ -139,7 +144,7 @@ This will:
 
 - Retry the operation if there's transient failures until success is confirmed.
 
-5. Refresh configuration
+### Step 5 : Refresh configuration
 
 This step pushes the latest configuration to the device after it enters maintenance mode (applicable only for CE and TOR).
 
@@ -149,7 +154,7 @@ az networkfabric device refresh-configuration --resource-name <resource-name> --
 
 This action pushes the latest configuration to the device.
 
-6. Enable administrative state.
+### Step 6 : Enable administrative state.
 
 Once configuration is applied successfully, bring the device back into active service:
 
@@ -160,9 +165,7 @@ az networkfabric device update-admin-state \
   --resource-group "resource-group-name"
 ```
 
-This will: 
-
-- Sets device state to Enabled once it's fully healthy and synchronized with the fabric.
+This action sets device state to Enabled once it's fully healthy and synchronized with the fabric.
 
 ## Summary
 
