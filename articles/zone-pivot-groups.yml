@@ -1910,7 +1910,7 @@ groups:
 # Owner: jodowns
 - id: sql-managed-instance-tiers
   title: Tier
-  prompt: Choose a tier
+  prompt: Choose a service tier
   pivots:
   - id: general-purpose
     title: General Purpose
