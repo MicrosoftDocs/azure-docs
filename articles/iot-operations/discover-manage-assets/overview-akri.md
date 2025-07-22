@@ -45,6 +45,8 @@ Akri services also include the Azure Device Registry (ADR) service component, wh
 
 Akri services deployments can include fixed-network discovery handlers. Discovery handlers enable assets from known network endpoints to find leaf devices as they appear on device interfaces or local subnets. Examples of network endpoints include OPC UA servers at a fixed IP address, and network scanning discovery handlers. This is not yet supported in this release.
 
+Akri services deployments can include fixed-network discovery handlers. Discovery handlers enable assets from known network endpoints to find leaf devices as they appear on device interfaces or local subnets. Examples of network endpoints include OPC UA servers at a fixed IP address, and network scanning discovery handlers. This is not yet supported in this release.
+
 
 ### Compatibility with Kubernetes
 
@@ -59,11 +61,7 @@ The following table shows the connectors currently available in Azure IoT Operat
 | Connector for OPC UA   |       Yes        |      Yes        |
 | Connector for ONVIF    |        No        |      Yes        |
 | Media connector        |       Yes        |       No        |
-<<<<<<< Updated upstream
-| Connector for REST/HTTP        |        No        |       No        |
-=======
-| REST/HTTP connector         |        No        |       No        |
->>>>>>> Stashed changes
+| HTTP connector         |        No        |       No        |
 
 The media connector supports discovery of cameras and other media devices that use the ONVIF protocol.
 
