@@ -7,6 +7,7 @@ ms.custom:
   - build-2025
 ms.service: azure-vmware
 ms.date: 5/15/2025
+# Customer intent: As a cloud architect, I want to understand Azure VMware Solution storage concepts and integration with Azure storage services so that I can effectively manage and scale storage capacity for virtual machines in a private cloud environment.
 ---
 
 # Azure VMware Solution storage concepts

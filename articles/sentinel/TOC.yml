@@ -5,12 +5,50 @@
   items:
   - name: What is Microsoft Sentinel?
     href: overview.md
+  - name: Microsoft Sentinel data lake overview
+    href: datalake/sentinel-lake-overview.md
+    displayName: data lake
   - name: What's new
     href: whats-new.md
   - name: Best practices
     href: best-practices.md
   - name: Experience in Defender portal
     href: microsoft-sentinel-defender-portal.md
+- name: Data lake exploration
+  items:  
+  - name: KQL for data lake exploration
+    items:
+    - name: Overview 
+      href: datalake/kql-overview.md
+      displayName: data lake
+    - name: Run KQL queries
+      href: datalake/kql-queries.md
+      displayName: data lake
+    - name: Create KQL jobs
+      href: datalake/kql-jobs.md 
+      displayName: data lake 
+    - name: Manage KQL jobs
+      href: datalake/kql-manage-jobs.md
+      displayName: data lake
+    - name: Troubleshoot KQL for the lake
+      href: datalake/kql-troubleshoot.md
+      displayName: data lake  
+  - name: Notebooks for data lake exploration
+    items:
+    - name: Overview
+      href: datalake/notebooks-overview.md
+      displayName: data lake
+    - name: Run notebooks
+      href: datalake/notebooks.md
+      displayName: data lake
+    - name: Microsoft Sentinel provider class reference
+      href: datalake/sentinel-provider-class-reference.md
+      displayName: data lake
+    - name: Create and manage notebook jobs
+      href: datalake/notebook-jobs.md
+      displayName: data lake
+    - name: Notebook examples for data lake exploration
+      href: datalake/notebook-examples.md
 - name: Plan
   items:
   - name: Deployment planning guide  
@@ -18,9 +56,7 @@
   - name: Prerequisites      
     href: prerequisites.md
   - name: Workspace architecture
-    items:
-    - name: Design workspace architecture
-      href: /azure/azure-monitor/logs/workspace-design?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json        
+    items:       
     - name: Review sample workspace designs
       href: sample-workspace-designs.md
     - name: Prepare for multiple workspaces
@@ -29,6 +65,7 @@
     href: prioritize-data-connectors.md 
   - name: Plan roles and permissions
     href: roles.md
+    displayName: data lake
   - name: Plan interactive and long-term data retention
     href: log-plans.md
   - name: Plan costs
@@ -55,6 +92,12 @@
     href: quickstart-onboard.md
   - name: Connect Microsoft Sentinel to the Defender portal
     href: /unified-secops-platform/microsoft-sentinel-onboard?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+  - name: Onboard to Microsoft Sentinel data lake
+    href: datalake/sentinel-lake-onboarding.md
+    displayName: data lake
+  - name: Set up connectors for the Microsoft Sentinel data lake
+    href: datalake/sentinel-lake-connectors.md
+    displayName: data lake    
   - name: Configure content
     href: configure-content.md
   - name: Set up multiple workspaces
@@ -219,6 +262,8 @@
           href: sap/sap-btp-security-content.md
         - name: Deploy SAP BTP
           href: sap/deploy-sap-btp-solution.md
+      - name: Partner solutions
+        href: sap/solution-partner-overview.md
     - name: Integrate Microsoft business applications
       items:
       - name: Overview
@@ -354,6 +399,14 @@
       href: summary-rules.md
     - name: Aggregate insights from raw data into an Auxiliary table
       href: summary-rules-tutorial.md
+- name: Manage data
+  items:      
+  - name: Data management overview
+    href: manage-data-overview.md
+    displayName: table management, tiers, retention, manage data, tables
+  - name: Manage tables, tiers, and retention
+    href: manage-table-tiers-retention.md
+    displayName: table management, tiers, retention, tables  
 - name: Integrate threat intelligence
   items:
   - name: Overview
@@ -663,6 +716,7 @@
     href: soc-optimization/soc-optimization-reference.md
 - name: Manage Microsoft Sentinel
   items:
+
   - name: Manage costs and billing
     items:      
     - name: Monitor costs
@@ -673,9 +727,7 @@
       href: enroll-simplified-pricing-tier.md
     - name: Optimize costs with pre-purchase plan
       href: billing-pre-purchase-plan.md
-    - name: Manage data retention
-      href: /azure/azure-monitor/logs/data-retention-configure?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-    - name: Auxiliary logs use cases
+    - name: Data lake use cases
       href: basic-logs-use-cases.md
   - name: Manage multiple workspaces 
     items:
@@ -693,7 +745,7 @@
       href: multiple-workspace-view.md
     - name: Manage your intellectual property in Microsoft Sentinel
       href: mssp-protect-intellectual-property.md
-  - name: Manage workspace access
+  - name: Manage workspace access with resource-context RBAC
     href: resource-context-rbac.md
   - name: Set up customer-managed keys
     href: customer-managed-keys.md
@@ -715,6 +767,9 @@
       href: monitor-analytics-rule-integrity.md
   - name: Auditing Microsoft Sentinel with Azure Activity Logs
     href: audit-sentinel-data.md
+  - name: Audit log for Microsoft Sentinel data lake
+    href: datalake/auditing-lake-activities.md
+    displayName: data lake
   - name: Remove Microsoft Sentinel from your workspaces
     href: offboard.md
 - name: Build and publish Microsoft Sentinel solutions
@@ -755,8 +810,11 @@
     href: aws-s3-troubleshoot.md
 - name: Reference
   items:
-  - name: Service limits
+  - name: Microsoft Sentinel service limits
     href: sentinel-service-limits.md
+  - name: Microsoft Sentinel data lake service limits
+    href: datalake/sentinel-lake-service-limits.md  
+    displayName: data lake
   - name: Microsoft Sentinel REST-API
     href: /rest/api/securityinsights/
   - name: OOTB content centralization changes

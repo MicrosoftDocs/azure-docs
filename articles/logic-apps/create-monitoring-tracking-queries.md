@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, estfan, azla
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 07/16/2025
 ---
 
 # View and create queries for monitoring and tracking in Azure Monitor logs for Azure Logic Apps

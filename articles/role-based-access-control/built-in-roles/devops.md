@@ -522,7 +522,7 @@ Provides access to manage project resources.
 }
 ```
 
-## DevOps Infrastructure Contributor Role
+## DevOps Infrastructure Contributor
 
 Read, write, delete and perform actions on Managed DevOps Pools
 

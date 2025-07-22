@@ -4,8 +4,8 @@ description: 'An article describing how to use Azure Policy to audit and enforce
 ms.topic: how-to
 ms.date: 08/26/2024
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a Backup or Compliance Admin, I want to audit and enforce backup operations for Azure Kubernetes Service clusters using Azure Policy, so that I can ensure all critical clusters are adequately backed up and compliant with organizational standards.
 ---
 

@@ -4,8 +4,8 @@ description: Reference guide about the limits and configuration settings for log
 services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
-ms.topic: conceptual
-ms.date: 03/27/2025
+ms.topic: reference
+ms.date: 07/18/2025
 ---
 
 # Limits and configuration reference for Azure Logic Apps
@@ -46,7 +46,7 @@ The following table lists the values that apply to a single workflow definition 
 | `description` - Maximum length | 256 characters ||
 | `parameters` - Maximum number of parameters per workflow | - Consumption: 50 parameters <br><br>- Standard: 500 parameters ||
 | `outputs` - Maximum number of outputs | 10 outputs ||
-| `trackedProperties` - Maximum number of characters | 8,000 characters ||
+| `trackedProperties` - Maximum number of characters | 8,000 characters | Each action supports a JSON object named `trackedProperties` that you can use to specify certain action inputs or outputs to emit from your workflow and include in diagnostic telemetry. For more information, see [Monitor and collect diagnostic data for workflows](monitor-workflows-collect-diagnostic-data.md#tracked-properties). |
 
 <a name="run-duration-retention-limits"></a>
 
