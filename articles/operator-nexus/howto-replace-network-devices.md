@@ -60,7 +60,7 @@ To ensure a smooth and timely RMA process, verify the following prerequisites be
 
 ## Steps to replace a device
 
-### Step 1 : Disable administrative state.
+### Step 1: Disable administrative state.
 
 Use the following command to disable the administrative state of the device:
 
@@ -85,7 +85,7 @@ This action sets the following states:
 > - Administrative lock
 > - Terminal Server (TS) reprovisioning.
 
-### Step 2 : Update the serial number.
+### Step 2: Update the serial number.
 
 Execution Conditions:
 - Device Administrative State must be `Disabled`
@@ -112,7 +112,7 @@ This action performs the following tasks:
 
 - Keeps the device in Disabled state
 
-### Step 3 : Ensure device is in ZTP Mode.
+### Step 3: Ensure device is in ZTP Mode.
 
 Verify that the replacement device is in ZTP mode. If not, configure the device for ZTP before continuing.
 
@@ -127,7 +127,7 @@ This action sets the following states:
 
 The device boots into its base configuration using the maintenance profile. This condition applies only to TOR and CE device types.
 
-### Step 4 : Set RMA State.
+### Step 4: Set RMA State.
 
 Initiate the RMA process using the following command:
 
@@ -144,7 +144,7 @@ This will:
 
 - Retry the operation if there's transient failures until success is confirmed.
 
-### Step 5 : Refresh configuration
+### Step 5: Refresh configuration
 
 This step pushes the latest configuration to the device after it enters maintenance mode (applicable only for CE and TOR).
 
@@ -154,7 +154,7 @@ az networkfabric device refresh-configuration --resource-name <resource-name> --
 
 This action pushes the latest configuration to the device.
 
-### Step 6 : Enable administrative state.
+### Step 6: Enable administrative state.
 
 Once configuration is applied successfully, bring the device back into active service:
 
