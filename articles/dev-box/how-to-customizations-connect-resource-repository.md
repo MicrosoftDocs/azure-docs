@@ -144,20 +144,24 @@ tasks:
 This setup allows automated, secure access to Azure resources during Dev Box provisioning, without exposing credentials in the script.
 
 ### Example: Download an artifact from Azure DevOps
-You can also download build artifacts from Azure DevOps (ADO) by using a service principal for authentication. First, add the service principal as a user in your Azure DevOps organization and then assign it to the *Readers* group. This grants the necessary permissions to access build artifacts.
-
-- Add the service principal's Application ID (appId) as a user in your Azure DevOps organization.
-- Assign the service principal to the **Readers** group to provide read access to artifacts.
+You can also download build artifacts from Azure DevOps (ADO) by using a service principal for authentication. To do this, add the service principal's Application ID (appId) as a user in your Azure DevOps organization and assign it to the **Readers** group. This provides the necessary permissions to access build artifacts.
 
 Once configured, you can use the service principal credentials in your customization tasks to authenticate and download artifacts securely from Azure DevOps.
 
-To add a service principal to your Azure DevOps organization and the Readers group:
+To add a service principal to your Azure DevOps organization: and the Readers group:
 
 1. Go to your Azure DevOps organization settings.
-2. Select **Users** and click **Add users**.
-3. Enter the service principal's Application ID (appId) as the user email.
-4. Assign the user to the **Readers** group.
-5. Complete the process to grant the necessary permissions.
+1. Select **Users** and click **Add users**.
+1. Enter the service principal's Application ID (appId) as the user email.
+   
+   :::image type="content" source="media/how-to-customizations-connect-resource-repository/dev-box-customizations-devops-add-service-principal.png" alt-text="alt text"::: 
+ 
+1. Add to the readers group
+1. Assign the user to the **Readers** group.
+ 
+   :::image type="content" source="media/how-to-customizations-connect-resource-repository/dev-box-customizations-devops-add-readers.png" alt-text="alt text":::
+ 
+1. Complete the process to grant the necessary permissions.
 
 For detailed steps, see [Add users and groups to Azure DevOps](/azure/devops/organizations/security/add-users-team-project).
 
