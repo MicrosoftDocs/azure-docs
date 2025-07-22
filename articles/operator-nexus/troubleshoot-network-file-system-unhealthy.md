@@ -10,8 +10,8 @@ ms.service: azure-operator-nexus
 
 # Troubleshooting unhealthy NFS pods - Azure Resource Health
 
-This article provides troubleshooting advice and escalation methods for Operator Nexus clusters which are
-reporting unhealthy NFS pods in Azure Resource Health.
+This article provides troubleshooting advice and escalation methods for Operator Nexus clusters that are
+reporting unhealthy Network File System (NFS) pods in Azure Resource Health.
 
 ## Symptoms
 

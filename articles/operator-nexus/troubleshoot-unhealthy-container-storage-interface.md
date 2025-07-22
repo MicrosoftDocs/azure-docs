@@ -10,7 +10,7 @@ ms.service: azure-operator-nexus
 
 # Troubleshooting unhealthy CSI pods (storage) - Azure Resource Health
 
-This article provides troubleshooting advice and escalation methods for Operator Nexus clusters which are
+This article provides troubleshooting advice and escalation methods for Operator Nexus clusters that are
 reporting unhealthy Container Storage Interface (CSI) pods in Azure Resource Health.
 
 ## Symptoms

@@ -10,17 +10,16 @@ ms.service: azure-operator-nexus
 
 # Troubleshooting failed volume attachments - Azure Resource Health
 
-This article provides troubleshooting advice and escalation methods for Operator Nexus clusters which are
+This article provides troubleshooting advice and escalation methods for Operator Nexus clusters that are
 reporting failed volume attachments in Azure Resource Health.
 
 ## Symptoms
 
-This alert indicates that volumes are failing to attach in the undercloud. This can lead to delays in
-bringing up workloads in the tenant layer, or migrating existing workloads to a new node. If the cluster
-has been marked as degraded, this implies at least 1 volume is failing to attach - in this case the problem
-may be limited to this specific volume, and the impact radius is small. If the cluster has been marked as
-unhealthy, a high percentage of volumes on at least 1 node are failing to attach, indicating a more serious
-incident.
+This alert indicates that volumes are failing to attach in the undercloud. Failed volume attachments can lead
+to delays in bringing up workloads in the tenant layer, or migrating existing workloads to a new node. A
+cluster in degraded state has at least one failed volume attachment - in this case the problem may be limited
+to this specific volume, and the impact radius is small. A cluster in unhealthy state has at least one node
+where a high percentage of volume attachments are failed, indicating a more serious incident.
 
 ## Troubleshooting
 
