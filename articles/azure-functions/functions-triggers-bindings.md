@@ -37,12 +37,6 @@ These examples aren't meant to be exhaustive, but they illustrate how you can us
 
 ## Trigger and binding definitions
 
-Not all services support both input and output bindings. See your specific binding extension for [specific code examples for bindings](#code-examples-for-bindings).
-
-Triggers and bindings are defined differently depending on the development language. Make sure to select your language at the [top](#top) of this article.
-
-Trigger and binding names are limited to alphanumeric characters and `_`, the underscore.
-
 The following example shows an HTTP-triggered function with an output binding that writes a message to an Azure Storage queue.
 
 ::: zone pivot="programming-language-csharp"
@@ -95,8 +89,6 @@ In Node.js for Azure Functions version 3, you configure triggers and bindings in
 ---
 
 ::: zone-end
-
-This example is an HTTP-triggered function that creates a queue item for each received HTTP request:
 
 ::: zone pivot="programming-language-javascript"
 ### [v4](#tab/node-v4)
@@ -203,6 +195,14 @@ In Python for Azure Functions version 1, this example `function.json` file defin
 
 ::: zone-end
 
+## Binding considerations
+
+- Not all services support both input and output bindings. See your specific binding extension for [specific code examples for bindings](#code-examples-for-bindings).
+
+- Triggers and bindings are defined differently depending on the development language. Make sure to select your language at the [top](#top) of this article.
+
+- Trigger and binding names are limited to alphanumeric characters and `_`, the underscore.
+
 ## Task to add bindings to a function
 
 You can connect your function to other services by using input or output bindings. Add a binding by adding its specific definitions to your function. To learn how, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md).
@@ -231,7 +231,5 @@ You can create custom input and output bindings. Bindings must be authored in .N
 
 - [Binding expressions and patterns](./functions-bindings-expressions-patterns.md)
 - [Register Azure Functions binding extensions](./functions-bindings-register.md)
-- Testing:
-  - [Strategies for testing your code in Azure Functions](functions-test-a-function.md)
-  - [Manually run a non-HTTP-triggered function](functions-manually-run-non-http.md)
+- [Manually run a non-HTTP-triggered function](functions-manually-run-non-http.md)
 - [Handling binding errors](./functions-bindings-errors.md)

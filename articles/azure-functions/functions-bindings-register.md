@@ -63,7 +63,7 @@ To manually install binding extensions:
 As soon as possible, you should [switch your app back to using the latest supported extension bundle](./extension-bundles.md#defining-an-extension-bundle-reference).
 ::: zone-end
 
-## Next step
+## Related content
 
-> [!div class="nextstepaction"]
-> [Azure Functions trigger and binding example](./functions-bindings-example.md)
+- [Azure Functions trigger and binding example](functions-triggers-bindings.md#trigger-and-binding-definitions)
+- [Azure Functions extension bundles](extension-bundles.md)
