@@ -38,7 +38,7 @@ To ensure a smooth and timely RMA process, verify the following prerequisites be
 
   - Replacement device supports Zero Touch Provisioning (ZTP)
 
-  - Before initiating the RMA deployment, verify the following:
+  - Before initiating the RMA deployment, perform the following checks:
     
     - Interface Speed Validation
 
