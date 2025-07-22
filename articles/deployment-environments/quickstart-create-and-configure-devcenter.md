@@ -14,7 +14,7 @@ ms.date: 07/24/2025
 
 # Quickstart: Configure Azure Deployment Environments
 
-In this quickstart, you set up all the resources in Azure Deployment Environments to enable self-service deployment environments for development teams. Learn how to create and configure a dev center, add a catalog to the dev center, and define an environment type. Then associate a project with the dev center, add environment types, and allow developer access to the project.
+In this quickstart, you set up all the resources in Azure Deployment Environments to enable self-service deployment environments for development teams. Learn how to create and configure a dev center, add a catalog to the dev center, and define an environment type. Then associate a project with the dev center, add an environment type and allow developer access to the project.
 
 A dev center is the top-level resource for Deployment Environments that contains the collection of development projects. In the dev center, you specify the common configuration for your projects, such as catalogs with application templates, and the types of environments to which development teams can deploy their code.
 
@@ -78,7 +78,7 @@ In this quickstart, you configure a system-assigned managed identity for your de
 
 To attach a system-assigned managed identity to your dev center:
 
-1. In your dev center, on the left menu, under **Settings**, select **Identity**.
+1. In your dev center, in the left menu, under **Settings**, select **Identity**.
 1. Under **System assigned**, set **Status** to **On**, and then select **Save**.
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity-on.png" alt-text="Screenshot that shows how to attach a system-assigned managed identity." lightbox="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity-on.png":::
