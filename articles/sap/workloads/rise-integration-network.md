@@ -12,6 +12,7 @@ ms.date: 05/14/2025
 ms.author: robiro
 ms.custom:
   - build-2025
+# Customer intent: "As an IT network administrator, I want to connect my Azure environment with SAP RISE managed workloads, so that I can ensure secure and efficient data communication across virtual networks and facilitate the integration of essential applications."
 ---
 
 # Connectivity with SAP RISE

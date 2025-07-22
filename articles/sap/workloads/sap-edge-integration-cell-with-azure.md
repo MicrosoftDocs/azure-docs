@@ -8,6 +8,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: how-to
 ms.date: 06/05/2025
 ms.author: mapankra
+# Customer intent: As a cloud architect, I want to onboard SAP Edge Integration Cell with Azure Kubernetes Service, so that I can efficiently manage API integrations and optimize deployment across cloud and on-premises environments.
 ---
 
 # Onboarding SAP Edge Integration Cell with Azure

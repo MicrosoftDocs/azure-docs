@@ -120,9 +120,6 @@ You can remove this limit and make it unrestricted with the following steps:
   1. systemctl daemon-reload
   1. systemctl restart hwd.service
 
-For more information, see [Linux hybrid jobs get stuck in Running state even if each CPU core usage is less than 25% - Overview](https://supportability.visualstudio.com/AAAP_Code/_wiki/wikis/AAAP/1980067/KI-Linux-hybrid-jobs-get-stuck-in-Running-status-even-if-each-CPU-core-usage-is-less-than-25-).
-
-
 ### Scenario: Runbooks go into a suspended state on a Hybrid Runbook Worker when using a custom account on a server with User Account Control (UAC) enabled
 
 #### Issue

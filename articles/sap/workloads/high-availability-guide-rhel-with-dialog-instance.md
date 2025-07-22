@@ -9,6 +9,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.date: 06/19/2024
 ms.author: depadia
+# Customer intent: As a cloud administrator, I want to deploy SAP dialog instances on high-availability VMs running Red Hat Enterprise Linux so that I can optimize resource usage and ensure continuous service availability for my SAP environment.
 ---
 
 # Deploy SAP dialog instances with SAP ASCS/SCS high-availability VMs on RHEL

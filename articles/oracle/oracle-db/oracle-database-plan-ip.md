@@ -7,6 +7,7 @@ ms.collection: linux
 ms.topic: concept-article
 ms.date: 08/29/2024
 ms.author: jacobjaygbay
+# Customer intent: "As a cloud architect, I want to plan the IP address space for Oracle Database deployment on Azure, so that I can ensure sufficient and non-overlapping IP allocations for virtual machine clusters and networking services."
 ---
 
 # Plan IP address space for Oracle Database@Azure
