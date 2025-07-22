@@ -20,7 +20,9 @@ Before you configure backup for Azure Data Lake Storage, ensure the following pr
 - The target account mustn't have containers with the  names same as the containers in a recovery point; otherwise, the restore operation fails.
 
 >[!Note]
->Vaulted backup restores are only possible to a different storage account.
+>- This feature is currently in limited preview and is available in specific regions only. See the [supported regions](azure-data-lake-storage-backup-support-matrix.md#supported-regions).
+>- To enroll in this preview feature, fill [this form](https://forms.office.com/r/sixidTkYb4)  and write to [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+>- Vaulted backup restores are only possible to a different storage account.
 
 For more information about the supported scenarios, limitations, and availability, see the [support matrix](azure-data-lake-storage-backup-support-matrix.md).
 
