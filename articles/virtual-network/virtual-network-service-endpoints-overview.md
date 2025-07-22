@@ -11,7 +11,7 @@ ms.author: allensu
 # Customer intent: "As a network administrator, I want to configure service endpoints in Azure virtual networks, so that I can ensure secure, direct connectivity to Azure services and optimize routing while minimizing management complexity."
 ---
 
-# Azure virtual Network service endpoints
+# Azure virtual network service endpoints
 
 Azure virtual network service endpoints provide secure and direct connectivity to Azure services over an optimized route through the Azure backbone network. These endpoints allow you to secure critical Azure service resources exclusively to your virtual networks, enabling private IP addresses to reach Azure services without requiring public IP addresses. This guide covers how to configure service endpoints, their benefits, and best practices for implementation.
 
