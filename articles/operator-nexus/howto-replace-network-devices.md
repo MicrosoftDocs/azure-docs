@@ -38,7 +38,10 @@ To ensure a smooth and timely RMA process, verify the following prerequisites be
 
   - Replacement device supports Zero Touch Provisioning (ZTP)
 
+  - To prevent failure during the device disable action if the device is affected by continuous reboots due to hardware issues, it is advised to power off the device prior to initiating the RMA process. 
+
   - Before initiating the RMA deployment, perform the following checks:
+    
     
     - Interface Speed Validation
 
@@ -60,7 +63,7 @@ To ensure a smooth and timely RMA process, verify the following prerequisites be
 
 ## Steps to replace a device
 
-### Step 1: Disable administrative state.
+### Step 1: Disable administrative state
 
 Use the following command to disable the administrative state of the device:
 
@@ -85,9 +88,9 @@ This action sets the following states:
 > - Administrative lock
 > - Terminal Server (TS) reprovisioning.
 
-### Step 2: Update the serial number.
+### Step 2: Update the serial number
 
-Execution Conditions:
+Execution conditions:
 - Device Administrative State must be `Disabled`
 - Fabric Administrative State must be `EnabledDegraded`
 
@@ -100,7 +103,7 @@ az networkfabric device update \
   --resource-group "resource-group-name"
 ```
 
-Error Recovery Guidance:
+Error recovery guidance:
 
 - If RMA fails due to an incorrect serial number, repatching is allowed without a support ticket.
 
@@ -110,24 +113,16 @@ This action performs the following tasks:
 
 - Update serial number stored in Azure ARM resource
 
-- Keeps the device in Disabled state
+- Keeps the device in `Disabled` state and Fabric Administrative State in `EnabledDegraded`
 
-### Step 3: Ensure device is in ZTP Mode.
+### Step 3: Ensure device is in ZTP Mode
 
 Verify that the replacement device is in ZTP mode. If not, configure the device for ZTP before continuing.
 
 > [!Note]
 > ZTP enables automatic configuration retrieval during the RMA process.
 
-This action sets the following states:
-
-- Device Administrative State: UnderMaintenance
-
-- Fabric Administrative State: EnabledDegraded
-
-The device boots into its base configuration using the maintenance profile. This condition applies only to TOR and CE device types.
-
-### Step 4: Set RMA State.
+### Step 4: Initaite RMA process
 
 Initiate the RMA process using the following command:
 
@@ -138,11 +133,15 @@ az networkfabric device update-admin-state \
   --resource-group "resource-group-name"
 ```
 
-This will:
+- Network Fabric Controller pushes all required configuration files to the new replaced device. It is advised to retry the operation if there's transient failures until success is confirmed.
 
-- Trigger the Network Fabric Controller to push all required configuration files to the replacement device.
+- The device boots into its base configuration using the maintenance profile. This condition applies only to TOR and CE device types.
 
-- Retry the operation if there's transient failures until success is confirmed.
+This action sets the following states:
+
+- Device Administrative State: UnderMaintenance
+
+- Fabric Administrative State: EnabledDegraded
 
 ### Step 5: Refresh configuration
 
@@ -152,7 +151,13 @@ This step pushes the latest configuration to the device after it enters maintena
 az networkfabric device refresh-configuration --resource-name <resource-name> --resource-group <rg-name>
 ```
 
-This action pushes the latest configuration to the device.
+This action pushes the latest configuration to the device. 
+
+This action keeps the device in following states:
+
+- Device Administrative State: UnderMaintenance
+
+- Fabric Administrative State: EnabledDegraded
 
 ### Step 6: Enable administrative state.
 
@@ -165,7 +170,14 @@ az networkfabric device update-admin-state \
   --resource-group "resource-group-name"
 ```
 
-This action sets device state to Enabled once it's fully healthy and synchronized with the fabric.
+This action sets the following state once it's fully healthy and synchronized with the fabric:
+
+- Device Administrative State: `Enabled`
+
+- Fabric Administrative State: `Enabled` 
+
+>[!Note]
+> In a given fabric if there are any other device is in Disabled state then the Fabric Administrative State will maintained as : `EnabledDegraded` 
 
 ## Summary
 
