@@ -31,7 +31,7 @@ An environment in Deployment Environments is a collection of Azure resources on 
 
 [!INCLUDE [developer-portal-landing-page](includes/developer-portal-landing-page.md)]
  
-3. In the **Add an environment** pane, select the following information:
+3. In the **Add an environment** pane, enter or select the following information:
 
    |Field  |Value  |
    |---------|---------|
@@ -40,7 +40,7 @@ An environment in Deployment Environments is a collection of Azure resources on 
    |**Type**     | Select the environment type you want to create. If you have access to more than one environment type, you see a list of available types. |
    |**Definition** | Select the environment definition you want to use to create the environment. You see a list of the environment definitions that are available from the catalogs associated with your dev center. |
 
-   :::image type="content" source="media/quickstart-create-access-environments/dev-add-environment.png" alt-text="Screenshot showing the Add an environment pane." lightbox="media/quickstart-create-access-environments/dev-add-environment.png":::
+   :::image type="content" source="media/quickstart-create-access-environments/dev-add-environment.png" alt-text="Screenshot showing the Add an environment pane.":::
 
    If your environment is configured to accept parameters, you can enter them on a separate pane. In this example, you don't need to specify any parameters.
 
@@ -54,7 +54,7 @@ You can access and manage your environments in the Deployment Environments devel
 
 1. You can view all of your existing environments. To access the resources created as part of an environment, select **View resources**.
 
-   :::image type="content" source="media/quickstart-create-access-environments/dev-environment-resources.png" alt-text="Screenshot showing an environment card. The View resources link is highlighted." lightbox="media/quickstart-create-access-environments/dev-environment-resources.png":::
+   :::image type="content" source="media/quickstart-create-access-environments/dev-environment-resources.png" alt-text="Screenshot showing an environment card. The View resources link is highlighted.":::
 
 1. You can view the resources in your environment in the Azure portal:
 
