@@ -201,12 +201,12 @@ To configure protection for resources in a vault, follow these steps:
 1. In the [Azure portal](https://portal.azure.com/), go to the specific vault, and then select **Copilot**.
 1. On the **Copilot** pane, use the prompt **Show me the resources that can be protected in this vault**.
 
-   :::image type="content" source="./media/tutorial-manage-data-using-copilot/find-resources-for-protection.png" alt-text="Screenshot shows how to search for resources to protect in a vault using Copilot" lightbox="./media/tutorial-manage-data-using-copilot/find-resources-for-protection.png":::
+   :::image type="content" source="./media/tutorial-manage-data-using-copilot/find-resources-for-protection.png" alt-text="Screenshot shows how to search for resources to protect in a vault using Copilot." lightbox="./media/tutorial-manage-data-using-copilot/find-resources-for-protection.png":::
 
 1. From the list of unprotected resources, select the resource for configuring protection, and then select **Configure backup**.
 1. On the **Configure Backup** pane, on the **Backup policy** tab, under **Backup policy**, select the policy you want to use for data retention.
 1. On the **Datasources** tab, select **Add**.
-1. On the **Select resources to backup** pane, select the resource that need to be backed up.
+1. On the **Select resources to backup** pane, select the resource that needs to be backed up.
 
    >[!Note]
    >You can select only one resource at a time backup configuration.
