@@ -11,9 +11,12 @@ ai-usage: ai-assisted
 
 ---
 
-# Use WebAssembly (WASM) with dataflow graphs (Preview)
+# Use WebAssembly (WASM) with data flow graphs (Preview)
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+> [!IMPORTANT]
+> WebAssembly (WASM) with data flow graphs is in **preview**. This feature is provided with limitations and shouldn't be used for production workloads. 
+> 
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Azure IoT Operations dataflow graphs support WebAssembly (WASM) modules for custom data processing at the edge. This capability allows you to deploy custom business logic and data transformations as part of your dataflow pipelines.
 
@@ -48,7 +51,7 @@ The following examples demonstrate how to set up and deploy WASM data flow graph
 
 Azure IoT Operations requires access to a container registry to pull WASM modules and graph definitions. You can use either Azure Container Registry (ACR) or another OCI-compatible registry.
 
-To create and configure an Azure Container Registry, see [Deploy Azure Container Registry](<TODO>).
+To create and configure an Azure Container Registry, see [Deploy Azure Container Registry](). <TODO> 
 
 ### Install ORAS CLI
 
@@ -193,7 +196,7 @@ export SYSTEM_ASSIGNED_MAN_ID=$(az ad sp show --id $EXTENSION_OBJ_ID --query "ap
 az role assignment create --role "AcrPull" --assignee $SYSTEM_ASSIGNED_MAN_ID --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.ContainerRegistry/registries/$ACR_NAME"
 ```
 
-For more information about container registry roles, see [Azure Container Registry roles and permissions](https://docs.microsoft.com/azure/container-registry/container-registry-roles).
+For more information about container registry roles, see [Azure Container Registry roles and permissions](/azure/container-registry/container-registry-roles).
 
 If you encounter authentication errors with the Azure CLI, you can assign permissions through the Azure portal:
 
@@ -205,11 +208,11 @@ If you encounter authentication errors with the Azure CLI, you can assign permis
 6. Search for and select your IoT Operations extension name (for example, `azure-iot-operations-4gh3y`)
 7. Select **Save** to complete the role assignment
 
-For detailed instructions, see [Assign Azure roles using the Azure portal](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+For detailed instructions, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## Example 1: Basic deployment with one WASM module
 
-This scenario demonstrates a simple data flow that uses a WASM module to convert temperature data from Fahrenheit to Celsius. The source code for this module is available [here](<PLACEHOLDER>). Instead of building the module yourself, we use the precompiled version that has already been pushed to the ACR as `graph-simple:1.0.0` in the earlier steps.
+This scenario demonstrates a simple data flow that uses a WASM module to convert temperature data from Fahrenheit to Celsius. The source code for this module is available [here](). <PLACEHOLDER> Instead of building the module yourself, we use the precompiled version that has already been pushed to the ACR as `graph-simple:1.0.0` in the earlier steps.
 
 <!-- TODO: Add simple graph YAML definition and explanation -->
 

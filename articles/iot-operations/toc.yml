@@ -187,6 +187,9 @@ items:
         - name: Local storage or ACSA
           href: connect-to-cloud/howto-configure-local-storage-endpoint.md
           displayName: data flow, endpoint, northbound
+        - name: Registry endpoint
+          href: connect-to-cloud/howto-configure-registry-endpoint.md
+          displayName: data flow, endpoint, northbound, registry
       - name: Create a data flow
         href: connect-to-cloud/howto-create-dataflow.md
         displayName: endpoint, transformation, source, destination, profile, data flow profile, enrich , map, serialize, schema
@@ -207,6 +210,9 @@ items:
       - name: Manage data flow profiles
         href: connect-to-cloud/howto-configure-dataflow-profile.md
         displayName: data flow, scale, scaling
+      - name: WASM with data flow graphs
+        href: connect-to-cloud/howto-dataflow-graph-wasm.md
+        displayName: data flow, WASM, WebAssembly, graph, transform, enrich
     - name: Manage network
       items:
       - name: Overview
