@@ -231,7 +231,7 @@ import os
 files_in_share = os.listdir("/path/to/mount")
 ```
 
-## Next step
+## Related article
 
 Learn more about Azure Functions hosting options.
 
