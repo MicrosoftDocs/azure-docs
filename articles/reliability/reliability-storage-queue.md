@@ -18,7 +18,7 @@ Azure Queue Storage provides several reliability features through the underlying
 
 This article describes reliability and availability zones support in Azure Queue Storage. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/reliability/overview).
 
-<!-- Anastasia - I think we should add something like this to each of the Azure Storage guides that use the include files: -->
+
 > [!NOTE]
 > Azure Queue Storage is part of the Azure Storage platform. Some of the capabilities of Queue Storage are common across many Azure Storage services. In this document, we use "Azure Storage" to indicate these common capabilities.
 
@@ -88,7 +88,9 @@ For detailed pricing information, see [Azure Queue Storage pricing](https://azur
 
     1. [Create a queue](/azure/storage/queues/storage-quickstart-queues-portal).
 
-<!-- Anastasia: In the include file above, should we say "enable" instead of "migrate"? -->
+<!-- 
+John: I am using the language of their document which is to "change how a storage account is replicated" rather than "migrate" or "enable".
+ -->
 [!INCLUDE [Storage - Configure availability zone support](includes/storage/reliability-storage-availability-zone-configure-include.md)]
 
 ### Normal operations

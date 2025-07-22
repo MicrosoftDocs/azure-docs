@@ -9,6 +9,6 @@
  ms.custom: include file
 ---
 
-- **Migration**. To convert an existing storage account to ZRS and learn about migration options and requirements, see [Change how a storage account is replicated](/azure/storage/common/redundancy-migration).
+- **Change replication type**. To learn how to change an existing storage account to ZRS, as well as learn about configuration options and requirements, see [Change how a storage account is replicated](/azure/storage/common/redundancy-migration).
 
 - **Disable zone redundancy.** Convert ZRS accounts back to a nonzonal configuration (such as LRS) through the same redundancy configuration change process.
