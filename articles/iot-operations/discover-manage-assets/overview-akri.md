@@ -36,14 +36,14 @@ IoT leaf devices present the following challenges, They:
 To address the challenge of integrating non-Kubernetes IoT leaf devices, the Akri services have several core capabilities:
 
 ### Connector deployment and lifecycle management
+
 Akri services include the Akri operator which allows connector workloads to be deployed dynamically when certain types of devices or assets are discovered/configured, provides automatic access to Azure IoT Operations resources and endpoints (like Devices and Assets), deploys connector workloads to the right nodes based on discovery information like node affinity, and more. 
 
 ### Asset detection 
+
 Akri services also include the Azure Device Registry (ADR) service component, which work with the connectors that have asset detection capabilities. These connectors enable the metadata and preconfigured datasets, events, etc. to be onboarded with ease through known device endpoints. Akri ADR service creates the detected Assets as custom resources which are picked up by the operations experience UI so that as an OT, you can seamlessly view and onboard the detected assets into the Azure Device Registry. 
 
 ### Device discovery
-
-Akri services deployments can include fixed-network discovery handlers. Discovery handlers enable assets from known network endpoints to find leaf devices as they appear on device interfaces or local subnets. Examples of network endpoints include OPC UA servers at a fixed IP address, and network scanning discovery handlers. This is not yet supported in this release.
 
 Akri services deployments can include fixed-network discovery handlers. Discovery handlers enable assets from known network endpoints to find leaf devices as they appear on device interfaces or local subnets. Examples of network endpoints include OPC UA servers at a fixed IP address, and network scanning discovery handlers. This is not yet supported in this release.
 
@@ -61,7 +61,7 @@ The following table shows the connectors currently available in Azure IoT Operat
 | Connector for OPC UA   |       Yes        |      Yes        |
 | Connector for ONVIF    |        No        |      Yes        |
 | Media connector        |       Yes        |       No        |
-| HTTP connector         |        No        |       No        |
+| REST/HTTP connector         |        No        |       No        |
 
 The media connector supports discovery of cameras and other media devices that use the ONVIF protocol.
 
