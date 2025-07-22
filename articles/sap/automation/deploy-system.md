@@ -8,6 +8,7 @@ ms.date: 11/17/2021
 ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+# Customer intent: As a system administrator, I want to deploy an SAP system using the automation framework, so that I can efficiently configure and manage virtual machines and supporting components for my SAP applications.
 ---
 
 # SAP system deployment for the automation framework
