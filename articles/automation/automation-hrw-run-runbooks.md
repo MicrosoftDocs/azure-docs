@@ -103,7 +103,7 @@ If the *Python* executable file is at the default location *C:\Python27\python.e
 
 To run PowerShell 7.4 runbooks on a Linux Hybrid Worker, install *PowerShell* file on the Hybrid Worker. See [Install PowerShell on Linux](/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.5).
 
-After PowerShell 7.4 installation is complete, create an environment variable with Variable name as powershell_7_4_path and Variable value as location of the executable *PowerShell* file. Restart the Hybrid Runbook Worker after an environment variable is created successfully.
+After PowerShell 7.4 installation is complete, create an environment variable with **Variable name** as powershell_7_4_path and **Variable value** as location of the executable *PowerShell* file. Restart the Hybrid Runbook Worker after an environment variable is created successfully.
 
 > [!NOTE]
 > To create environment variable in Linux systems, follow these steps:
