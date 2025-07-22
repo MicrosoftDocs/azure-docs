@@ -29,6 +29,6 @@ Azure Private Link lets you use Azure PaaS services and Azure-hosted customer-ow
 
 ### Azure DNS Private Resolver
 
-Azure DNS Private Resolver lets you query Azure DNS private zones from an on-premises environment and the other way around without deploying VM-based DNS servers. Azure DNS Private Resolver makes it easier to manage both private and public IPs. The DNS forwarding ruleset feature in Azure DNS private resolver helps an IoT admin easily configure rules and manage which address an endpoint should resolve. To learn more about Azure DNS Private Resolver, see [What is Azure DNS Private Resolver?](../dns/dns-private-resolver-overview.md).
+Azure DNS Private Resolver lets you query Azure DNS private zones from an on-premises environment and the other way around without deploying VM-based DNS servers. Azure DNS Private Resolver makes it easier to manage both private and public IPs. The DNS forwarding ruleset feature in Azure DNS Private Resolver helps an IoT admin easily configure rules and manage which address an endpoint should resolve. To learn more about Azure DNS Private Resolver, see [What is Azure DNS Private Resolver?](../dns/dns-private-resolver-overview.md).
 
 For a walkthrough example scenario, see [Using Azure Private Link and Private Endpoints to secure Azure IoT traffic](https://kevinsaye.wordpress.com/2020/09/30/using-azure-private-link-and-private-endpoints-to-secure-azure-iot-traffic/). This example shows a possible configuration for a factory network and isn't intended as a production-ready reference.
