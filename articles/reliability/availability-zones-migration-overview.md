@@ -18,9 +18,10 @@ To improve the reliability of your solution, it's a good practice to enable avai
 ## Azure services migration guides
 
 
-- [Azure API Management](migrate-api-mgt.md)
+- [Azure API Management](./reliability-api-management.md#availability-zone-support)
 - [Azure App Configuration](migrate-app-configuration.md)
 - [Azure App Service](reliability-app-service.md#configure-availability-zone-support)
+- [Azure App Service Environment](reliability-app-service-environment.md#configure-availability-zone-support)
 - [Azure Application Gateway (V2)](migrate-app-gateway-v2.md)
 - [Azure Backup and Azure Site Recovery](migrate-recovery-services-vault.md)
 - [Azure Batch](reliability-batch.md#availability-zone-migration)
