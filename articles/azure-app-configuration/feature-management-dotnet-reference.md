@@ -50,7 +50,7 @@ Feature flags can be either enabled or disabled. The state of a flag can be made
 
 Feature filters define a scenario for when a feature should be enabled. To evaluate the state of a feature, its list of feature filters are traversed until one of the filters determines the feature is enabled. At this point, traversal through the feature filters stops. If no feature filter indicates that the feature should be enabled, it's considered disabled.
 
-For example, suppose you design a Microsoft Edge browser feature filter. For all HTTP requests that come from Microsoft Edge, your feature filter would activate any features it's attached to.
+For example, suppose you design a Microsoft Edge browser feature filter. If an HTTP request comes from Microsoft Edge, your feature filter activates any features it's attached to.
 
 ### Feature flag configuration
 
@@ -113,7 +113,7 @@ A feature is off if `enabled` is `false`. If `enabled` is `true`, the state of t
 * If a feature flag has a `conditions` property and its conditions are met, the feature is on.
 * If a feature flag has a `conditions` property and its conditions aren't met, the feature is off.
 
-Feature filters are defined in the `client_filters` array. In this code, the `FeatureV` feature flag has a feature filter named `Microsoft.TimeWindow`. This filter is an example of a configurable feature filter. In this code, this filter has a `parameters` property. This property is used to configure the filter. In this case, the start and end times for the feature to be active are configured.
+Feature filters are defined in the `client_filters` array. In the preceding code, the `FeatureV` feature flag has a feature filter named `Microsoft.TimeWindow`. This filter is an example of a configurable feature filter. In this code, this filter has a `parameters` property. This property is used to configure the filter. In this case, the start and end times for the feature to be active are configured.
 
 **Advanced:** The colon character (`:`) is forbidden in feature flag names.
 
@@ -195,10 +195,10 @@ public class Startup
 }
 ```
 
-By default, the feature manager retrieves feature flag configuration from the `FeatureManagement` section of the .NET Core configuration data. If the `FeatureManagement` section doesn't exist, the configuration is considered empty.
+By default, the feature manager retrieves the feature flag configuration from the `FeatureManagement` section of the .NET Core configuration data. If the `FeatureManagement` section doesn't exist, the configuration is considered empty.
 
 > [!NOTE]
-> You can also specify that feature flag configuration should be retrieved from a different configuration section by passing the section to `AddFeatureManagement`. The following example specifies that the feature manager should read from a section called `MyFeatureFlags` instead:
+> You can also specify that the feature flag configuration should be retrieved from a different configuration section by passing the section to `AddFeatureManagement`. The following example specifies that the feature manager should read from a section called `MyFeatureFlags` instead:
 >
 > ```csharp
 > services.AddFeatureManagement(configuration.GetSection("MyFeatureFlags"));
@@ -222,7 +222,7 @@ public class HomeController : Controller
 
 ### Scoped feature management services
 
-The `AddFeatureManagement` method adds feature management services as singletons within an application. But some scenarios require feature management services to be added as scoped services instead. For example, users might want to use feature filters that consume scoped services for context information. In this case, the `AddScopedFeatureManagement` method should be used instead. This method ensures that feature management services, including feature filters, are added as scoped services.
+The `AddFeatureManagement` method adds feature management services as singletons within an application. But some scenarios require feature management services to be added as scoped services instead. For example, you might want to use feature filters that consume scoped services for context information. In this case, you should use the `AddScopedFeatureManagement` method. This method ensures that feature management services, including feature filters, are added as scoped services.
 
 ```csharp
 services.AddScopedFeatureManagement();
@@ -416,7 +416,7 @@ public class FeatureFilterEvaluationContext
 }
 ```
 
-The `FeatureFilterEvaluationContext` class has a property named `Parameters`. These parameters represent a raw configuration that the feature filter can use when evaluating whether the feature should be enabled. In the browser feature filter example, the filter can use the `Parameters` property to extract a set of allowed browsers that are specified for the feature. The filter can then check whether the request is from one of those browsers.
+The `FeatureFilterEvaluationContext` class has a property named `Parameters`. The parameters of this property represent a raw configuration that the feature filter can use when evaluating whether the feature should be enabled. In the browser feature filter example, the filter can use the `Parameters` property to extract a set of allowed browsers that are specified for the feature. The filter can then check whether the request is from one of those browsers.
 
 ```csharp
 [FilterAlias("Browser")]
@@ -769,7 +769,7 @@ For each group object that you list in the `Groups` section, you must also speci
   * The user is listed in the `Exclusion` section.
   * The user is in a group that's listed in the `Exclusion` section.
 
-* A features is enabled for a user in the following cases:
+* A feature is enabled for a user in the following cases:
   * The user is listed in the `Users` section.
   * The user is in the included percentage of any of the group rollouts.
   * The user falls into the default rollout percentage.
@@ -862,9 +862,9 @@ To use `TargetingFilter` in a web application, an implementation of `ITargetingC
 
 For an example that extracts targeting context information from an application's HTTP context, see [`DefaultHttpTargetingContextAccessor`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) in the `Microsoft.FeatureManagement.AspNetCore` package. It extracts the following information:
 
-* Targeting information, from the `HttpContext.User` property
-* `UserId` information, from the `Identity.Name` field
-* `Groups` information, from claims of type [`Role`](/dotnet/api/system.security.claims.claimtypes.role)
+* Targeting information from the `HttpContext.User` property
+* `UserId` information from the `Identity.Name` field
+* `Groups` information from claims of type [`Role`](/dotnet/api/system.security.claims.claimtypes.role)
 
 This implementation relies on the use of `IHttpContextAccessor`. For more information about `IHttpContextAccessor`, see [Use HttpContext](#use-httpcontext).
 
@@ -931,9 +931,9 @@ The preceding code enables a feature for users named `Jeff` and `Alicia`. The fe
 
 ## Variants
 
-Sometimes when you add a new feature to an application, the feature has multiple proposed design options. A/B testing provides a common solution for deciding on a design. A/B testing involves providing a different version of the feature to different segments of the user base and then choosing a version based on user interaction. In the .NET feature management library, you can implement A/B testing by using variants to representing various configurations of a feature.
+Sometimes when you add a new feature to an application, the feature has multiple proposed design options. A/B testing provides a common solution for deciding on a design. A/B testing involves providing a different version of the feature to different segments of the user base and then choosing a version based on user interaction. In the .NET feature management library, you can implement A/B testing by using variants to represent various configurations of a feature.
 
-Variants provide a way for a feature flag to become more than a basic on/off flag. A variant represents a value of a feature flag that can be a string, a number, a Boolean, or even a configuration object. A feature flag that declares variants should define under what circumstances each variant should be used. For more information, see [Allocate variants](#allocate-variants), later in this article.
+Variants provide a way for a feature flag to become more than a basic on/off flag. A variant represents a value of a feature flag that can be a string, a number, a Boolean, or even a configuration object. A feature flag that declares variants should define the circumstances under which each variant should be used. For more information, see [Allocate variants](#allocate-variants), later in this article.
 
 ```csharp
 public class Variant
@@ -950,7 +950,7 @@ public class Variant
 }
 ```
 
-### Get variants
+### Retrieve variants
 
 For each feature, you can retrieve a variant by using the `GetVariantAsync` method of the `IVariantFeatureManager` interface.
 
@@ -1249,7 +1249,7 @@ The `telemetry` section of a feature flag has the following properties:
 | Property | Description |
 | ---------------- | ---------------- |
 | `enabled` | A Boolean value that specifies whether telemetry should be published for the feature flag. |
-| `metadata` | A collection of key-value pairs, modeled as a dictionary, which can be used to attach custom metadata about the feature flag to evaluation events. |
+| `metadata` | A collection of key-value pairs, modeled as a dictionary, that can be used to attach custom metadata about the feature flag to evaluation events. |
 
 ### Custom telemetry publishing
 
@@ -1307,7 +1307,7 @@ For an example of its usage, see the [VariantAndTelemetryDemo](https://github.co
 
 #### Prerequisite
 
-The telemetry publisher that the `Microsoft.FeatureManagement.Telemetry.ApplicationInsights` package provides requires Application Insights to be [set up](/azure/azure-monitor/app/asp-net#enable-application-insights-server-side-telemetry-no-visual-studio) and registered as an application service. For sample code, see the [example application](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/examples/VariantAndTelemetryDemo/Program.cs#L22-L32).
+The telemetry publisher that the `Microsoft.FeatureManagement.Telemetry.ApplicationInsights` package provides requires Application Insights to be [set up](/azure/azure-monitor/app/asp-net#enable-application-insights-server-side-telemetry-no-visual-studio) and registered as an application service. For sample code, see the [VariantAndTelemetryDemo](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/examples/VariantAndTelemetryDemo/Program.cs#L22-L32) example application.
 
 ## Caching
 
