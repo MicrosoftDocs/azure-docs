@@ -261,6 +261,8 @@
   items:
   - name: Virtual desktops
     href: virtual-desktop-workloads.md
+  - name: SAP
+    href: /azure/sap/workloads/planning-guide-storage-azure-files?toc=/azure/storage/files/toc.json
   - name: SQL Server
     href: /azure/azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure?toc=/azure/storage/files/toc.json
 - name: Application development

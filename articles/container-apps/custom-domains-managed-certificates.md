@@ -13,7 +13,7 @@ zone_pivot_groups: azure-cli-or-portal
 
 # Custom domain names and free managed certificates in Azure Container Apps
 
-Azure Container Apps allows you to bind one or more custom domains to a container app. You can automatically configure a free managed certificate for your custom domain.
+Azure Container Apps allows you to bind one or more custom domains to a container app. You can automatically configure a free managed certificate for your custom domain when your container app is publicly accessible.
 
 If you want to set up a custom domain using your own certificate, see [Custom domain names and certificates in Azure Container Apps](custom-domains-certificates.md).
 
@@ -177,10 +177,8 @@ Container Apps supports apex domains and subdomains. Each domain type requires a
         --query "properties.customDomainVerificationId"
     ```
 
-1. Using the DNS provider that is hosting your domain, create DNS records based on the record type you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you own it. The setup depends on whether you're using custom domains with the private endpoint (preview) feature:
+1. Using the DNS provider that is hosting your domain, create DNS records based on the record type you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you own it.
 
-    # [General](#tab/general)
-    
     - If you selected *A record*, create the following DNS records:
 
         | Record type | Host | Value |
@@ -194,26 +192,6 @@ Container Apps supports apex domains and subdomains. Each domain type requires a
         |--|--|--|
         | CNAME | The subdomain (for example, `www`) | The generated domain of your container app. |
         | TXT | `asuid.` followed by the subdomain (for example, `asuid.www`) | The domain verification code. |
-
-    # [Private endpoint](#tab/private-endpoint)
-
-    When using a private endpoint for your incoming traffic, you need to [create a private DNS zone](how-to-use-private-endpoint.md#configure-the-private-dns-zone).
-
-    - If you selected *A record*, create the following DNS records:
-
-        | Record type | Host | Value |
-        |--|--|--|
-        | A | `@` | The Private IP of your private endpoint on your container apps environment. |
-        | TXT | `asuid` | The domain verification code. |
-
-    - If you selected *CNAME*, create the following DNS records:
-
-        | Record type | Host | Value |
-        |--|--|--|
-        | CNAME | The subdomain (for example, `www`) | The generated domain of your container app. |
-        | TXT | `asuid.` followed by the subdomain (for example, `asuid.www`) | The domain verification code. |
-
-    ---
 
 1. Add the domain to your container app.
 

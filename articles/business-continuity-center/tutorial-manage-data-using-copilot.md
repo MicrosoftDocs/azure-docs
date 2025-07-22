@@ -2,16 +2,15 @@
 title: Tutorial - Manage your Business Continuity and Disaster Recovery estate efficiently using Azure Business Continuity Center Copilot
 description: In this tutorial, learn how to manage your Business Continuity and Disaster Recovery estate efficiently using Azure Business Continuity Center Copilot
 ms.topic: how-to
-ms.date: 05/06/2025
+ms.date: 07/22/2025
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2024
-ms.reviewer: dapatil
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ---
 
-# Tutorial: Manage the Business Continuity and Disaster Recovery estate using Copilot (preview)
+# Tutorial: Manage the Business Continuity and Disaster Recovery estate using Copilot
 
 This article describes how to use Azure Business Continuity Center Copilot to make your business continuity journey seamless. 
 
@@ -24,7 +23,7 @@ The Azure Business Continuity Center Copilot feature assists you to protect and 
 - Monitoring and reporting 
 - Learn and get help on capabilities
 
-With Azure Business Continuity Center Copilot (preview), you can check for the protection status of your Azure resources in the Azure portal using natural language directly. The Copilot retrieves information about your resources and their protection status and guides you through the relevant processes.
+With Azure Business Continuity Center Copilot, you can check for the protection status of your Azure resources in the Azure portal using natural language directly. The Copilot retrieves information about your resources and their protection status and guides you through the relevant processes.
 
 ## Sample prompts 
 
@@ -38,7 +37,7 @@ The following table lists the supported prompts:
 
 ## View the BCDR real estate across all the subscriptions
 
-Ask Copilot for Azure Business Continuity Center (preview) to get information on your resource protection with prompts such as **Show the BCDR real estate across all the subscriptions.**
+Ask Copilot for Azure Business Continuity Center to get information on your resource protection with prompts such as **Show the BCDR real estate across all the subscriptions.**
 
 Copilot provides a summary of resources based on the protection status and generates an Azure Resource Graph (ARG) query that you can run directly to fetch granular information. Additionally, you can export the data as a CSV file from the ARG Query Explorer page.
 
@@ -125,7 +124,7 @@ To trigger an on-demand backup for resources, follow these steps:
 
      :::image type="content" source="./media/tutorial-manage-data-using-copilot/view-recovery-point.png" alt-text="Screenshot shows the items with no recovery points." lightbox="./media/tutorial-manage-data-using-copilot/view-recovery-point.png":::
 
-2. Azure Business Continuity Center Copilot (preview) also provides a PowerShell script for download from the Azure portal to trigger backups on all such resources.
+2. Azure Business Continuity Center Copilot also provides a PowerShell script for download from the Azure portal to trigger backups on all such resources.
 
    To trigger an on-demand backup, select **Yes** on the further prompt.
 
@@ -192,6 +191,51 @@ To check the failed jobs, follow these steps:
    :::image type="content" source="./media/tutorial-manage-data-using-copilot/view-backup-item.png" alt-text="Screenshot shows the option to view the backup item of the selected resource." lightbox="./media/tutorial-manage-data-using-copilot/view-backup-item.png":::
 
    :::image type="content" source="./media/tutorial-manage-data-using-copilot/view-error-code.png" alt-text="Screenshot shows the error code and recommended action for resolution." lightbox="./media/tutorial-manage-data-using-copilot/view-error-code.png":::
+
+## Configure protection for resources in Recovery Services vault and Backup vault
+
+Azure Business Continuity Center Copilot allows you to seamlessly configure protection for unprotected resources in a supported Backup or Recovery Services vault.
+
+To configure protection for resources in a vault, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com/), go to the specific vault, and then select **Copilot**.
+1. On the **Copilot** pane, use the prompt **Show me the resources that can be protected in this vault**.
+
+   :::image type="content" source="./media/tutorial-manage-data-using-copilot/find-resources-for-protection.png" alt-text="Screenshot shows how to search for resources to protect in a vault using Copilot." lightbox="./media/tutorial-manage-data-using-copilot/find-resources-for-protection.png":::
+
+1. From the list of unprotected resources, select the resource for configuring protection, and then select **Configure backup**.
+1. On the **Configure Backup** pane, on the **Backup policy** tab, under **Backup policy**, select the policy you want to use for data retention.
+1. On the **Datasources** tab, select **Add**.
+1. On the **Select resources to backup** pane, select the resource that needs to be backed up.
+
+   >[!Note]
+   >You can select only one resource at a time backup configuration.
+
+1. On the **Datasources** tab, select the **Snapshot resource group**, and then select **validate**.
+1. On the **Review + configure** tab, review the configuration details, and then select **Configure Backup**.
+
+## Delete Recovery Services vault and Backup vault using Copilot 
+
+Azure Business Continuity Center Copilot allows you to initiate and automate vault deletion operation from the **delete vault** page.
+
+To delete a vault using Copilot, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com/), go to the specific vault, and then select **Copilot**.
+1. On the **Copilot** pane, use the prompt **Help me delete this vault**.
+
+   Copilot then performs the following actions:
+
+   - Identifies all backup and replicated items linked to the vault, removing the need for manual dependency checks.
+   - Reviews the vault properties (such as private endpoint status) to offer tailored recommendations.
+   - Checks for the Soft Delete state. If enabled, Copilot provides the option to disable the security feature.
+
+     >[!Note]
+     >If Soft Delete is set to **Enabled with always on**, vault deletion can't proceed.
+
+   After all the conditions suggested by Copilot are addressed, Copilot provides the PowerShell script for download to delete the vault. 
+1. Select **Yes** to download, and then run the script to delete the vault.
+
+   :::image type="content" source="./media/tutorial-manage-data-using-copilot/download-delete-vault-script.png" alt-text="Screenshot shows the option to download the vault deletion script from Copilot.":::
 
 ## Troubleshoot error codes for Recovery service vaults and Backup vaults 
 

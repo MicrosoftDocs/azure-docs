@@ -36,7 +36,6 @@ To improve the reliability of your solution, it's a good practice to enable avai
 - [Azure Functions](reliability-functions.md#availability-zone-migration)
 - [Azure HDInsight](reliability-hdinsight.md#availability-zone-migration)
 - [Azure Kubernetes Service](/azure/aks/availability-zones?toc=/azure/reliability)
-- [Azure Kubernetes Service (AKS) and MySQL Flexible Server](migrate-workload-aks-mysql.md)
 - [Azure Load Balancer](migrate-load-balancer.md)
 - [Azure Logic Apps](./reliability-logic-apps.md#configure-availability-zone-support)
 - [Azure Monitor: Log Analytics](migrate-monitor-log-analytics.md)

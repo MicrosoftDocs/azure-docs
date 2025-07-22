@@ -23,6 +23,14 @@ This page is updated with the details about the upcoming release approximately a
 
 <hr width = 100%>
 
+## July 2025
+### Azure Data Manager for Energy available in two new regions
+Azure Data Manager for Energy is now available in two new regions: **Central India** and **Indonesia Central**. This expansion allows customers and partners in these regions to deploy and manage energy data solutions closer to their operations, supporting improved performance and compliance with local regulations. Both Standard and Developer tiers are supported.
+
+Central India is available for select customers and partners only. Please reach out to your designated Microsoft account team member to unlock access. Once access is provided, you can select "Central India" as your preferred region when creating Azure Data Manager for Energy resource, using the Azure portal or your preferred provisioning method.
+
+For more information on region reliability, refer to [Azure Data Manager for Energy reliability](../reliability/reliability-energy-data-services.md).
+
 ## April 2025
 ### Azure Data Manager for Energy available in four new regions
 Azure Data Manager for Energy is now available in four new regions: **South Africa North**, **Southeast Asia**, **Sweden Central**, and **UAE North**. This expansion allows customers and partners in these regions to deploy and manage energy data solutions closer to their operations, supporting improved performance and compliance with local regulations. Both Standard and Developer tiers are supported. 

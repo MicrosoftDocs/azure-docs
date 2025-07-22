@@ -105,70 +105,10 @@ In this tutorial, you use telemetry in your Python application to track feature 
     export APPLICATIONINSIGHTS_CONNECTION_STRING='applicationinsights-connection-string'
     ```
 
-1. Run the application, [see step 2 of Use variant feature flags](./howto-variant-feature-flags-python.md#build-and-run-the-app).
+## Collect telemetry
 
-1. Create 10 different users and log into the application. As you log in with each user, you get a different message variant for some of them. ~50% of the time you get no message. 25% of the time you get the message "Hello!" and 25% of the time you get "I hope this makes your day!".
-
-1. With some of the users select the **Like** button to trigger the telemetry event.
-
-1. Open your Application Insights resource in the Azure portal and select **Logs** under **Monitoring**. In the query window, run the following query to see the telemetry events:
-
-    ```kusto
-    // Step 1: Get distinct users and their Variant from FeatureEvaluation
-    let evaluated_users =
-        customEvents
-        | where name == "FeatureEvaluation"
-        | extend TargetingId = tostring(customDimensions.TargetingId),
-                Variant = tostring(customDimensions.Variant)
-        | summarize Variant = any(Variant) by TargetingId;
-
-    // Step 2: Get distinct users who emitted a "Like"
-    let liked_users =
-        customEvents
-        | where name == "Liked"
-        | extend TargetingId = tostring(customDimensions.TargetingId)
-        | summarize by TargetingId;
-
-    // Step 3: Join them to get only the evaluated users who also liked
-    let hearted_users =
-        evaluated_users
-        | join kind=inner (liked_users) on TargetingId
-        | summarize HeartedUsers = dcount(TargetingId) by Variant;
-
-    // Step 4: Total evaluated users per variant
-    let total_users =
-        evaluated_users
-        | summarize TotalUsers = dcount(TargetingId) by Variant;
-
-    // Step 5: Combine results
-    let combined_data =
-        total_users
-        | join kind=leftouter (hearted_users) on Variant
-        | extend HeartedUsers = coalesce(HeartedUsers, 0)
-        | extend PercentageHearted = strcat(round(HeartedUsers * 100.0 / TotalUsers, 1), "%")
-        | project Variant, TotalUsers, HeartedUsers, PercentageHearted;
-
-    // Step 6: Add total row
-    let total_sum =
-        combined_data
-        | summarize
-            TotalUsers = sum(TotalUsers),
-            HeartedUsers = sum(HeartedUsers)
-        | extend
-            Variant = "All",
-            PercentageHearted = strcat(round(HeartedUsers * 100.0 / TotalUsers, 1), "%")
-        | project Variant, TotalUsers, HeartedUsers, PercentageHearted;
-
-    // Step 7: Output
-    combined_data
-    | union (total_sum)
-
-    ```
-
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of Application Insights showing the results table with four rows; All, Simple, Long, and None with their respective user counts and percentages.](./media/howto-telemetry-python/telemetry-results.png)
-
-    You see one "FeatureEvaluation" for each time the quote page was loaded and one "Liked" event for each time the like button was clicked. The "FeatureEvaluation" event have a custom property called `FeatureName` with the name of the feature flag that was evaluated. Both events have a custom property called `TargetingId` with the name of the user that liked the quote.
+Deploy your application to begin collecting telemetry from your users. To test its functionality, you can simulate user activity by creating many test users. Each user will experience a different variant of greeting messages, and they can interact with the application by clicking the heart button to like a quote. As your user base grows, you can monitor the increasing volume of telemetry data collected in Azure App Configuration. Additionally, you can drill down into the data to analyze how each variant of the feature flag influences user behavior.
+- [Review telemetry results in App Configuration](./howto-telemetry.md#review-telemetry-results-in-azure-app-configuration).
 
 ## Additional resources
 - [Flask Quote of the Day sample](https://github.com/Azure-Samples/quote-of-the-day-python)
