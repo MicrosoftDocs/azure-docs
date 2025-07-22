@@ -19,10 +19,10 @@ Work through the following procedures to set up, deploy, and use Azure Firewall 
 
 ## Prerequisites
 
-- Have an App Service app that uses virtual network integration. For more information, see [Enable virtual network integration in Azure App Service](configure-vnet-integration-enable.md).
+Have an App Service app that uses virtual network integration. For more information, see [Enable virtual network integration in Azure App Service](configure-vnet-integration-enable.md).
 
-  - In the virtual network integration setup, verify that [Route All](configure-vnet-integration-routing.md#configure-application-routing) is enabled, which is the default.
-  - In your app, disable any routing through [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview), so all outbound traffic to Azure services routes through the firewall.
+- In the virtual network integration setup, verify that [Route All](configure-vnet-integration-routing.md#configure-application-routing) is enabled, which is the default.
+- In your app, disable any routing through [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview), so all outbound traffic to Azure services routes through the firewall.
 
 ## 1. Create the required firewall subnets
 
@@ -80,8 +80,10 @@ When you create a virtual network, Azure automatically creates a [default route 
    - **Destination IP addresses/CIDR ranges**: Enter *0.0.0.0/0*.
    - **Next hop type**: Select **Virtual appliance**.
    - **Next hop address**: Enter the private IP address for the firewall that you copied previously.
-
 1. Select **Add**.
+
+   :::image type="content" source="./media/network-secure-outbound-traffic-azure-firewall/azfw-application-log-min.png" alt-text="Screenshot of adding a route to the route table.":::
+
 1. On the route table page, select **Subnets** from the left navigation menu.
 1. On the **Subnets** page, select **Associate**.
 1. On the **Associate subnet** screen, make sure your app's integrated virtual network and subnet are selected, or select them, and then select **OK**.
@@ -98,7 +100,7 @@ To control App Service outbound traffic, add an application rule to firewall pol
 1. On the firewall policy page, select **Application rules** from the left navigation menu.
 1. On the **Application rules** page, select **Add a rule collection**.
 1. On the **Add a rule collection** screen, enter a **Name** and a **Priority** between 100 and 65000.
-1. Under **Rules**, add a network rule with the App Service subnet as the source address, and specify a fully-qualified domain name (FQDN) destination. The following example shows a destination FQDN of **api.my-ip.io**.
+1. Under **Rules**, add a network rule with the App Service subnet as the source address, and specify a fully qualified domain name (FQDN) destination. The following example shows a destination FQDN of **api.my-ip.io**.
 
 1. Select **Add**.
 
@@ -112,7 +114,7 @@ To control App Service outbound traffic, add an application rule to firewall pol
 An easy way to verify the outbound connection of your configuration is to use the `curl` command from your app's Source Control Manager (SCM), also called Kudu, debug console.
 
 1. In a browser, navigate to `https://<app-name>.scm.azurewebsites.net/DebugConsole`.
-1. In the console, run `curl -s <protocol>://<fqdn-address>` with a URL that matches an application rule you configured. For example, the following screenshot shows a successful response to `https://contoso.com` from the preceding example rule.
+1. In the console, run `curl -s <protocol>://<fqdn-address>` with a URL that matches the application rule you configured. For example, the following screenshot shows a successful response to `https://api.my-ip.io` from the preceding example rule.
 
    :::image type="content" source="./media/network-secure-outbound-traffic-azure-firewall/verify-outbound-traffic-fw-allow-rule.png" alt-text="Screenshot of verifying the success outbound traffic by using curl command in SCM debug console.":::
 
@@ -128,8 +130,9 @@ If you run the `curl` commands with diagnostic logs enabled, you can find them i
 1. Select **Logs** from the left navigation menu.
 1. On the **Queries hub** screen, select **Run** in the **Application rule log data** tile.
 
-1. You can see the two access logs in the query result.
-   :::image type="content" source="./media/network-secure-outbound-traffic-azure-firewall/azfw-application-log.png" alt-text="Screenshot of SCM debug console to verify the failed outbound traffic by using curl command." lightbox="./media/network-secure-outbound-traffic-azure-firewall/azfw-application-log.png":::
+You can see the two access logs in the query result.
+
+:::image type="content" source="./media/network-secure-outbound-traffic-azure-firewall/azfw-application-log.png" alt-text="Screenshot of SCM debug console to verify the failed outbound traffic by using curl command." lightbox="./media/network-secure-outbound-traffic-azure-firewall/azfw-application-log.png":::
 
 ## Related content
 
