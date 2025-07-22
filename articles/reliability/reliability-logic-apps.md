@@ -1,7 +1,7 @@
 ---
 title: Reliability in Azure Logic Apps
 description: Learn about reliability in Azure Logic Apps, including availability zones and multi-region deployments.
-author: anaharris-ms 
+author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
@@ -82,7 +82,7 @@ For Standard workflows with the Workflow Service Plan hosting option in single-t
 
 ::: zone pivot="standard-app-service-environment"
 
-For Standard workflows with the App Service Environment v3 hosting option, you can optionally enable zone redundancy. For more information on how App Service Environments v3 supports availability zones, see [Reliability in App Service](./reliability-app-service.md?pivots=isolated).
+For Standard workflows with the App Service Environment v3 hosting option, you can optionally enable zone redundancy. For more information on how App Service Environments v3 supports availability zones, see [Reliability in App Service Environment](./reliability-app-service-environment.md).
 
 ::: zone-end
 
@@ -97,7 +97,6 @@ Consumption logic apps that are deployed in [any region that supports availabili
 ::: zone pivot="standard-workflow-service-plan"
 
 You can deploy zone-redundant Standard logic apps with Workflow Service Plans in any region that supports availability zones for Azure App Service. Japan West is the exception, which currently doesn't support zone-redundant logic apps. For more information, see [Reliability in Azure App Service](./reliability-app-service.md).
-
 
 ::: zone-end
 
