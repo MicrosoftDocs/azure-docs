@@ -100,7 +100,7 @@ To create a device configuration:
 
 1. Select **devices** and then **Create device**:
 
-    :::image type="content" source="media/howto-configure-opc-ua/asset-endpoints.png" alt-text="Screenshot that shows the devices page in the operations experience." lightbox="media/howto-configure-opc-ua/asset-endpoints.png":::
+    :::image type="content" source="media/howto-configure-opc-ua/devices.png" alt-text="Screenshot that shows the devices page in the operations experience." lightbox="media/howto-configure-opc-ua/devices.png":::
 
     > [!TIP]
     > You can use the filter box to search for devices.
@@ -176,7 +176,7 @@ authentication: {
 }
 ```
 
-# [Bicep (PowersShell)](#tab/bicep-powershell)
+# [Bicep (PowerShell)](#tab/bicep-powershell)
 
 1. Set the following environment variables:
 
@@ -297,7 +297,7 @@ The following snippet shows the bicep file that you used to create the asset:
 
 :::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/asset-snapshot-to-mqtt.bicep":::
 
-# [Bicep (PowersShell)](#tab/bicep-powershell)
+# [Bicep (PowerShell)](#tab/bicep-powershell)
 
 1. Set the following environment variables:
 
@@ -408,7 +408,7 @@ The following snippet shows the bicep file that you used to create the asset:
 
 :::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/asset-snapshot-to-fs.bicep":::
 
-# [Bicep (PowersShell)](#tab/bicep-powershell)
+# [Bicep (PowerShell)](#tab/bicep-powershell)
 
 1. Set the following environment variables:
 
@@ -500,7 +500,7 @@ The following snippet shows the bicep file that you used to create the asset:
 
 :::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/asset-clip-to-fs.bicep":::
 
-# [Bicep (PowersShell)](#tab/bicep-powershell)
+# [Bicep (PowerShell)](#tab/bicep-powershell)
 
 1. Set the following environment variables:
 
@@ -595,7 +595,7 @@ The following snippet shows the bicep file that you used to create the asset:
 
 :::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/asset-stream-to-rtsp.bicep":::
 
-# [Bicep (PowersShell)](#tab/bicep-powershell)
+# [Bicep (PowerShell)](#tab/bicep-powershell)
 
 1. Set the following environment variables:
 
