@@ -15,7 +15,6 @@ Azure SRE Agent streamlines incident management by automatically collecting, ana
 Azure SRE Agent receives alerts from incident management platforms such as:
 
 * [Azure Monitor](/azure/azure-monitor/fundamentals/overview)
-* [Incident control management (ICM)](/compliance/assurance/assurance-incident-management)
 * [PagerDuty](https://www.pagerduty.com/)
 
 Alerts are triggered by predefined conditions configured in these systems external to SRE Agent.
