@@ -80,7 +80,7 @@ To create a device configuration:
 
 1. Select **devices** and then **Create device**:
 
-    :::image type="content" source="media/howto-configure-opc-ua/asset-endpoints.png" alt-text="Screenshot that shows the devices page in the operations experience." lightbox="media/howto-configure-opc-ua/asset-endpoints.png":::
+    :::image type="content" source="media/howto-configure-opc-ua/devices.png" alt-text="Screenshot that shows the devices page in the operations experience." lightbox="media/howto-configure-opc-ua/devices.png":::
 
     > [!TIP]
     > You can use the filter box to search for devices.
