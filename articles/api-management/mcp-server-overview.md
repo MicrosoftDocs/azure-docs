@@ -68,7 +68,7 @@ API Management supports two ways to expose MCP servers:
 
 ## Govern MCP servers
 
-Configure one or more API Management [policies](../articles/api-management/api-management-howto-policies.md) to help manage the MCP server. The policies are applied to all API operations exposed as tools in the MCP server and can be used to control access, authentication, and other aspects of the tools.
+Configure one or more API Management [policies](api-management-howto-policies.md) to help manage the MCP server. The policies are applied to all API operations exposed as tools in the MCP server and can be used to control access, authentication, and other aspects of the tools.
 
 Configure policies such as the following::
 
@@ -84,7 +84,7 @@ You can secure both inbound access to the MCP server (from an MCP client to API 
 
 ### Secure inbound access
 
-One option to secure inbound access is to configure a policy to validate a JSON web token (JWT) in the incoming requests. This ensures that only authorized clients can access the MCP server. Use the [validate-jwt](../articles/api-management/validate-jwt-policy.md) or [validate-azure-ad-token](../articles/api-management/validate-azure-ad-token-policy.md) policy to validate the JWT token in the incoming requests. For example:
+One option to secure inbound access is to configure a policy to validate a JSON web token (JWT) in the incoming requests. This ensures that only authorized clients can access the MCP server. Use the [validate-jwt](validate-jwt-policy.md) or [validate-azure-ad-token](validate-azure-ad-token-policy.md) policy to validate the JWT token in the incoming requests. For example:
     
 <!-- update to validate-azure-ad-token-policy.md if preferred -->
 ```xml
@@ -106,14 +106,14 @@ One option to secure inbound access is to configure a policy to validate a JSON 
 
 ### Secure outbound access
 
-You can use API Management's [credential manager](../articles/api-management/credentials-overview.md) to securely inject secrets or tokens for calls to a backend API. At a high level, the process is as follows:
+You can use API Management's [credential manager](credentials-overview.md) to securely inject secrets or tokens for calls to a backend API. At a high level, the process is as follows:
 
 1. Register an application in a supported identity provider.
 1. Create a credential provider resource in API Management to manage the credentials from the identity provider.
 1. Configure a connection to the provider in API Management.
 1. Configure `get-authorization-context` and `set-header` policies to fetch the token credentials and present them in an **Authorization** header of the API requests.
 
-For a step-by-step guide to call an example backend API using credentials generated in credential manager, see [Configure credential manager - GitHub](../articles/api-management/credentials-how-to-github.md).
+For a step-by-step guide to call an example backend API using credentials generated in credential manager, see [Configure credential manager - GitHub](credentials-how-to-github.md).
  
 
 ## Monitoring
@@ -155,10 +155,10 @@ MCP servers in API Management are available in the following service tiers:
 
 * [MCP client authorization lab](https://github.com/Azure-Samples/AI-Gateway/tree/main/labs/mcp-client-authorization)
 
-* [Use the Azure API Management extension for VS Code to import and manage APIs](../articles/api-management/visual-studio-code-tutorial.md)
+* [Use the Azure API Management extension for VS Code to import and manage APIs](visual-studio-code-tutorial.md)
 
 * [Register and discover remote MCP servers in Azure API Center](../articles/api-center/register-discover-mcp-server.md)
 
-* [Expose REST API in API Management as an MCP server](../articles/api-management/export-rest-mcp-server.md)
+* [Expose REST API in API Management as an MCP server](export-rest-mcp-server.md)
 
-* [Expose and govern existing MCP server](../articles/api-management/expose-existing-mcp-server.md)
+* [Expose and govern existing MCP server](expose-existing-mcp-server.md)
