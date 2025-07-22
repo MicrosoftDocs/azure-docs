@@ -380,7 +380,7 @@ Based on whether you have a Consumption or Standard logic app workflow, the foll
 
 ---
 
-In your workflow's underlying JSON defintion, the JSON object is named `trackedProperties` and appears as a sibling to the action's `type` and `runAfter` properties, for example:
+In your workflow's underlying JSON definition, the JSON object is named `trackedProperties` and appears as a sibling to the action's `type` and `runAfter` properties, for example:
 
 ``` json
 {
