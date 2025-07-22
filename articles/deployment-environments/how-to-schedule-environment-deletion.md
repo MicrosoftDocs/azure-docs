@@ -54,9 +54,9 @@ You can schedule an expiration date and time when you create an environment via 
 
    :::image type="content" source="media/how-to-schedule-environment-deletion/set-expiration-date-time.png" alt-text="Screenshot showing the Add an environment pane. The select deletion date and time boxes are highlighted.":::
 
-   You can also specify a time zone for the expiration date and time. Select **Time zones** to see a list of time zones.
+   You can also specify a time zone for the expiration date and time. Select the time zones button to see a list of time zones.
  
-   :::image type="content" source="media/how-to-schedule-environment-deletion/select-time-zones.png" alt-text="Screenshot showing the Add an environment pane. The Time zones button is highlighted.":::
+   :::image type="content" source="media/how-to-schedule-environment-deletion/select-time-zones.png" alt-text="Screenshot showing the Add an environment pane. The time zones button is highlighted.":::
  
 1. Make sure that the time zone reflects the time zone you want to use for the expiration date and time. Select the time zone that you want to use.
 
