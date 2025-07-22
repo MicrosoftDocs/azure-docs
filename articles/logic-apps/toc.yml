@@ -467,8 +467,6 @@ items:
       href: create-automation-tasks-azure-resources.md
     - name: Move logic app resources
       href: move-logic-app-resources.md
-    - name: Update schema for Consumption workflows
-      href: update-workflow-definition-language-schema.md
   - name: Test
     items:
     - name: Create unit tests from Standard workflow definitions
@@ -563,7 +561,7 @@ items:
   - name: Resource Manager template reference
     href: /azure/templates/microsoft.logic/allversions
   - name: Workflow Definition Language schema
-    href: logic-apps-workflow-definition-language.md
+    href: workflow-definition-language-schema.md
     items:
       - name: Trigger and action types reference
         href: logic-apps-workflow-actions-triggers.md
