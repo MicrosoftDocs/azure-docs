@@ -93,7 +93,7 @@ terraform plan -out main.tfplan -var="runtime_name=node" -var="runtime_version=2
 
 Make sure that `runtime_version` matches the language stack version you verified locally. Select your preferred language stack at the [top](#top) of the article.
 
-[!INCLUDE [terraform-plan-notes.md](terraform-plan-notes.md)]
+[!INCLUDE [terraform-plan-notes.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan-notes.md)]
 
 ## Apply a Terraform execution plan
 
