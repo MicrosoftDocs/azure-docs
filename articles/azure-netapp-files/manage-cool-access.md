@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 07/21/2025
+ms.date: 07/22/2025
 ms.author: anfdocs
 ms.custom:
   - build-2025
@@ -71,7 +71,7 @@ There are several considerations to be aware of when using cool access.
 
 * In a [cross-region](cross-region-replication-introduction.md) or [cross-zone](cross-zone-replication-introduction.md) replication configuration, you can enable cool access exclusively for destination volumes to enhance data protection and create cost savings without affecting latency in source volumes.
 * When you enable cool access on a source volume with cross-region and cross-zone replication, the cool access settings are automatically propagated to the destination volume. These settings include the enablement of cool access, the retrieval policy, and the coolness period. 
-    * Settings are propagated between the source and destination volume at enablement, during authorization, or when a reverse resync of the replication is performed. 
+    * Settings are only propagated between the source and destination volumes at enablement.
 * After you enable cool access, changes are not propagated between source and destination volumes. If you update the retention policy or coolness period or disable cool access on the source volume, those changes are _not_ propagated to the destination. If you apply any of those changes to the destination volume, those settings aren't applied to the source volume. 
 * If you enable cool access on the destination volume, the cool access settings are not propagated to the source volume. 
 
