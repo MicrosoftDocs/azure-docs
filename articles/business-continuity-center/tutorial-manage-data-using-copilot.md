@@ -6,9 +6,8 @@ ms.date: 07/22/2025
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2024
-ms.reviewer: dapatil
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ---
 
 # Tutorial: Manage the Business Continuity and Disaster Recovery estate using Copilot
