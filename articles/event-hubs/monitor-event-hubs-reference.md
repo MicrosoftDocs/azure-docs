@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Event Hubs
 description: This article contains important reference material you need when you monitor Azure Event Hubs by using Azure Monitor.
-ms.date: 06/20/2024
+ms.date: 07/14/2025
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
 ---
@@ -222,7 +222,7 @@ Application metrics logs capture the aggregated information on certain metrics r
 
 | Name | Description |
 |:-------|:------- |
-| `ConsumerLag` |Indicate the lag between consumers and producers.  The following governs the emission of consumer lag for Kafka consumers. A namespace is idle from Kafka offset commit point of view if there are no offset commits for any Kafka consumer group under the namespace. If namespace is idle for an hour, then we will stop emitting lag metrics. As long as namespace is not idle for offset commit, we will keep emitting metrics for all Kafka consumer groups under that namespace. If a namespace is non idle and the last offset commit for a consumer group predates the hub or topic's retention period, consumer lag will no longer be emitted. For AMQP consumers, consumer lag is emitted only as long as there are active receivers on the consumer group. |
+| `ConsumerLag` |Indicate the lag between consumers and producers.  For more details, see [Consumer lag](#consumer-lag) section.|
 | `NamespaceActiveConnections` | Details of active connections established from a client to the event hub.  |
 | `GetRuntimeInfo` | Obtain run time information from Event Hubs.  |
 | `GetPartitionRuntimeInfo` | Obtain the approximate runtime information for a logical partition of an event hub.  |
@@ -232,6 +232,16 @@ Application metrics logs capture the aggregated information on certain metrics r
 | `OutgoingBytes` | Details of Consumer throughput from Event Hubs. |
 | `OffsetCommit` | Number of offset commit calls made to the event hub  |
 | `OffsetFetch` | Number of offset fetch calls made to the event hub. |
+
+#### Consumer lag
+
+- The following points govern the emission of consumer lag for Kafka consumers.
+    - A namespace is idle from Kafka offset commit point of view if there are no offset commits for any Kafka consumer group under the namespace.
+  - If namespace is idle for an hour, then emission of lag metrics stops. 
+    
+  - As long as the namespace is not idle for offset commit, metrics are emitted for all Kafka consumer groups under that namespace.
+    - If a namespace is non-idle and the last offset commit for a consumer group predates the hub or topic's retention period, consumer lag will no longer be emitted.
+- For AMQP consumers, consumer lag is emitted only as long as there are active receivers on the consumer group. 
 
 ### Diagnostic Error Logs
 

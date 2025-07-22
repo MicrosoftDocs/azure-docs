@@ -3,8 +3,8 @@ title: Back up Windows machines by using the MARS agent
 description: Use the Microsoft Azure Recovery Services (MARS) agent to back up Windows machines.
 ms.topic: how-to
 ms.date: 06/18/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy23
 # Customer intent: "As a system administrator, I want to configure the MARS agent for backing up Windows machines, so that I can ensure data protection and recovery options are in place for my organization's critical resources."
 ---

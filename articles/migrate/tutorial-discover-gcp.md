@@ -87,9 +87,9 @@ Set up an account that the appliance can use to access servers on  GCP.
     * Set up a local user account on non-domain joined servers, and a domain account on domain joined servers that you want to include in the discovery. Add the user account to the following groups: 
         * Remote Management Users
         * Performance Monitor Users
-        * Performance Log users.
+        * Performance Log users. Refer the [instructions](tutorial-discover-physical.md#prepare-windows-server).    
 * For **Linux servers**:
-    * You need a root account on the Linux servers that you want to discover. If you aren't able to provide a root account, refer to the instructions in the [support matrix](migrate-support-matrix-physical.md#permissions-for-linux-server) for an alternative.
+    * You need a root account on the Linux servers that you want to discover. If you aren't able to provide a root account. Refer the [instructions](tutorial-discover-physical.md#prepare-linux-server).
     * Azure Migrate uses password authentication when discovering GCP instances. GCP instances don't support password authentication by default. Before you can discover instance, you need to enable password authentication.
         1. Sign into each Linux  machine.
         2. Open the sshd_config file: vi /etc/ssh/sshd_config

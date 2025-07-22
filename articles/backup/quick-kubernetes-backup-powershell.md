@@ -6,8 +6,8 @@ ms.topic: quickstart
 ms.date: 01/21/2025
 ms.custom: devx-track-terraform, devx-track-extended-azdevcli, ignite-2024
 ms.reviewer: rajats
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-mallicka
+author: AbhishekMallick-MS
 # Customer intent: "As a cloud administrator, I want to configure vaulted backups for an Azure Kubernetes Service cluster using PowerShell, so that I can ensure data protection and disaster recovery for my containerized applications."
 ---
 

@@ -10,6 +10,7 @@ ms.topic: article
 ms.date: 10/29/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
+# Customer intent: As a cloud architect, I want to configure SAP HANA workloads on Azure with optimal premium storage settings, so that I can ensure high performance and compliance with SAP certification requirements for production environments.
 ---
 
 # SAP HANA Azure virtual machine Premium SSD storage configurations

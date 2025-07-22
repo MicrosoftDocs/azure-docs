@@ -6,8 +6,8 @@ ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 12/05/2024
+ms.topic: concept-article
+ms.date: 07/05/2025
 ---
 
 # Process XML messages and flat files in Azure Logic Apps
