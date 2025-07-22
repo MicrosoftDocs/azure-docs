@@ -110,7 +110,7 @@ To see which regions support availability zones for App Service Environment v3, 
 
 ### Requirements
 
-You must deploy at least three instances of your Workflow Service Plan. Each instance roughly corresponds to one VM. To distribute these instances (VMs) across availability zones, you must have a minimum of three instances.
+You must deploy at least two instances of your Workflow Service Plan. Each instance roughly corresponds to one VM. To distribute these instances (VMs) across availability zones, you must have a minimum of two instances.
 
 ::: zone-end
 
@@ -136,7 +136,7 @@ No additional cost applies to use zone redundancy, which is automatically enable
 
 ::: zone pivot="standard-workflow-service-plan"
 
-When you have Standard workflows with the Workflow Service Plan in single-tenant Azure Logic Apps, no additional cost applies to enabling availability zones as long as you have three or more instances of the plan. You are charged based on your plan SKU, the specified capacity, and any instances that you scale up or down, based on your autoscale criteria. If you enable availability zones but specify a capacity of fewer than three instances, the platform enforces the minimum three instances and charges you for these three instances.
+When you have Standard workflows with the Workflow Service Plan in single-tenant Azure Logic Apps, no additional cost applies to enabling availability zones as long as you have two or more instances of the plan. You are charged based on your plan SKU, the specified capacity, and any instances that you scale up or down, based on your autoscale criteria. If you enable availability zones but specify a capacity of fewer than two instances, the platform enforces the minimum two instances and charges you for these two instances.
 
 ::: zone-end
 
