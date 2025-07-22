@@ -45,7 +45,7 @@ You can schedule an expiration date and time when you create an environment via 
    |**Definition** | Select the environment definition you want to use to create the environment. You see a list of the environment definitions available from the catalogs associated with your dev center. |
    |**Expiration** | Select **Enable scheduled deletion**. |
 
-   :::image type="content" source="media/how-to-schedule-environment-deletion/add-environment-pane.png" alt-text="Screenshot showing the Add an environment pane. The Enable scheduled deletion checkbox is highlighted." lightbox="media/how-to-schedule-environment-deletion/add-environment-pane.png":::
+   :::image type="content" source="media/how-to-schedule-environment-deletion/add-environment-pane.png" alt-text="Screenshot showing the Add an environment pane. The Enable scheduled deletion checkbox is highlighted.":::
 
    If your environment is configured to accept parameters, you can enter them on a separate pane. In this example, you don't need to specify any parameters.
 
