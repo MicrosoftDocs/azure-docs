@@ -80,7 +80,7 @@ This action sets the following states:
 
 - Fabric Administrative State: EnabledDegraded
 
-> Note: 
+> [!Note:] 
 > This action is not permitted by the service, if any of the following operations are in progress at the fabric level:
 > - Device upgrade
 > - Configuration push
@@ -122,7 +122,7 @@ Verify that the replacement device is in ZTP mode. If not, configure the device 
 > [!Note]
 > ZTP enables automatic configuration retrieval during the RMA process.
 
-### Step 4: Initaite RMA process
+### Step 4: Initiate RMA process
 
 Initiate the RMA process using the following command:
 
