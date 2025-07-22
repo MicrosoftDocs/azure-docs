@@ -127,7 +127,7 @@ A recovery plan allows sequencing the failover of various tiers in a multi-tier 
 
 You can deploy the most commonly used Azure Site Recovery scripts into your Automation account by selecting 'Deploy to Azure'. When you're using any published script, ensure you follow the guidance in the script.
 
-[![Deploy to Azure](https://aka.ms/asr-automationrunbooks-deploy)
+[Deploy to Azure](https://aka.ms/asr-automationrunbooks-deploy)
 
 1. Add a pre action script to 'Group 1' to failover SQL Availability group. Use the `ASR-SQL-FailoverAG` script published in the sample scripts. Ensure you follow the guidance in the script and make the required changes in the script appropriately.
 
