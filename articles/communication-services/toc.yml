@@ -1220,6 +1220,8 @@ items:
       href: quickstarts/tpe/teams-phone-extensibility-answer-teams-calls.md
     - name: Access Teams Phone without going through the Teams client
       href: quickstarts/tpe/teams-phone-extensibility-access-teams-phone.md
+    - name: Teams Extension User Authentication Sample
+      href: https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/tpe-token-and-access-management
     - name: REST API for Teams Phone extensibility
       href: quickstarts/tpe/teams-phone-extensiblity-rest-api.md
 - name: Job Router
