@@ -1,0 +1,73 @@
+---
+title: GPv1 storage account retirement overview
+description: Learn what the retirement of Azure GPv1 storage accounts means and how to prepare for the transition to GPv2.
+author: gtrossell
+ms.author: gtrossell
+ms.service: storage
+ms.topic: concept-article
+ms.date: 07/22/2025
+
+#CustomerIntent: As a storage admin, I want to understand the GPv1 retirement so that I can prepare for a smooth migration to GPv2.
+---
+
+# General-purpose v1 (GPv1) storage account retirement overview
+
+Azure Storage is retiring the General-purpose v1 (GPv1) storage account type. This article explains why the change is occurring, what it means for your workloads, and how to prepare for the transition to General-purpose v2 (GPv2) accounts.
+
+## Why is GPv1 being retired?
+
+GPv1 was introduced to support early Azure storage scenarios across blobs, tables, queues, and files. However, GPv2 has since become the default standard for storage accounts, offering broader feature support, improved consistency, and better performance.
+
+By retiring GPv1, Azure can simplify the platform, eliminate legacy metering inconsistencies, and ensure all customers benefit from modern capabilities and pricing models.
+
+## What is changing?
+
+Retirement of GPv1 storage accounts means:
+
+- New GPv1 account creation will be disabled after a specified date.
+- Existing GPv1 accounts must be upgraded to GPv2 before the retirement deadline.
+- GPv1 account types will be fully decommissioned, and data access will be blocked after the retirement date.
+
+The retirement will take effect globally across all Azure regions.
+
+## Key differences between GPv1 and GPv2
+
+| Feature | GPv1 | GPv2 |
+|--------|------|------|
+| Blob tiering (Hot/Cool/Archive) | ❌ | ✅ |
+| Lifecycle management | ❌ | ✅ |
+| Immutable blob storage | ❌ | ✅ |
+| Event Grid integration | Limited | ✅ |
+| Regionally consistent pricing meters | ❌ | ✅ |
+| ZRS and advanced redundancy | Limited | ✅ |
+
+GPv2 supports all capabilities of GPv1 and adds several enhancements, including cost optimization and richer management tools.
+
+## How should I prepare?
+
+To minimize risk and ensure a smooth migration:
+
+- **Inventory your accounts**: Use Azure Resource Graph, CLI, or the Portal to identify all GPv1 accounts.
+- **Evaluate workloads**: Review applications using GPv1 and verify compatibility with GPv2.
+- **Upgrade accounts**: Use the Azure Portal, CLI, or automation tools to upgrade from GPv1 to GPv2.
+- **Validate behavior**: Confirm that workloads continue functioning and that billing reflects expected changes post-upgrade.
+
+> [!TIP]
+> Most workloads can migrate from GPv1 to GPv2 without code changes.
+
+## Timeline and milestones
+
+| Date | Milestone |
+|------|-----------|
+| September 2025 | GPv1 retirement announced |
+| September 2025 | Creation of new GPv1 accounts disabled |
+| September 2026 | Full retirement; GPv1 accounts decommissioned |
+
+## Related content
+
+Learn more about related features and how to migrate:
+
+- [Upgrade a storage account to GPv2](https://learn.microsoft.com/azure/storage/common/storage-account-upgrade)  
+- [Storage account overview](https://learn.microsoft.com/azure/storage/common/storage-account-overview)  
+- [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/)  
+- [Classic account migration overview](https://learn.microsoft.com/azure/storage/common/classic-account-migration-overview)
