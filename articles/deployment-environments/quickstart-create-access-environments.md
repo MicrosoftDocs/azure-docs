@@ -25,7 +25,7 @@ As a developer, you can create environments associated with a [project](concept-
 
 ## Create an environment
 
-An environment in Azure Deployment Environments is a collection of Azure resources on which your application is deployed. You can create an environment from the developer portal.
+An environment in Deployment Environments is a collection of Azure resources on which your application is deployed. You can create an environment from the developer portal.
 
 [!INCLUDE [note-deployment-environments-user](includes/note-deployment-environments-user.md)]
 
@@ -35,9 +35,9 @@ An environment in Azure Deployment Environments is a collection of Azure resourc
 
    |Field  |Value  |
    |---------|---------|
-   |Name     | Enter a descriptive name for your environment. |
-   |Project  | Select the project you want to create the environment in. If you have access to more than one project, you see a list of available projects. |
-   |Type     | Select the environment type you want to create. If you have access to more than one environment type, you see a list of available types. |
+   |**Name**     | Enter a descriptive name for your environment. |
+   |**Project**  | Select the project you want to create the environment in. If you have access to more than one project, you see a list of available projects. |
+   |**Type**     | Select the environment type you want to create. If you have access to more than one environment type, you see a list of available types. |
    |Environment definitions | Select the environment definition you want to use to create the environment. You see a list of the environment definitions available from the catalogs associated with your dev center. |
 
    :::image type="content" source="media/quickstart-create-access-environments/dev-add-environment.png" alt-text="Screenshot showing add environment pane." lightbox="media/quickstart-create-access-environments/dev-add-environment-expanded.png":::
