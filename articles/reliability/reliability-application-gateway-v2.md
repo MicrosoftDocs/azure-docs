@@ -27,7 +27,7 @@ To learn about how to deploy Azure API Management to support your solution's rel
 
 ## Understanding instances and capacity units
 
-In Azure, an **instance** is a virtual machine (VM)-level unit of the gateway. Each instance is a dedicated virtual machine that handles traffic. One instance is equal to 1 VM. Each VM can support up to 10 capacity units. Autoscaling adjusts the number of VMs based on capacity unit demand. A *capacity* unit is a measure of connections consumed by the gateway. Each Application Gateway V2 instance can handle at least 10 capacity units.
+In Azure, an **instance** is a virtual machine (VM)-level unit of the gateway. Each instance is a dedicated virtual machine that handles traffic. One instance is equal to 1 VM. Each VM can support at least 10 capacity units. Autoscaling adjusts the number of VMs based on capacity unit demand. A *capacity* unit is a measure of connections consumed by the gateway. Each Application Gateway V2 instance can handle at least 10 capacity units.
 
 ## Reliability architecture overview
 
@@ -65,7 +65,6 @@ Zone-redundant Application Gateway v2 resources can be deployed in any region th
 ### Requirements
 
 - You must use the **Standard_v2** or **WAF_v2** SKU to enable zone redundancy. The **Basic** SKU (preview) does not support zone redundancy
-- The application gateway must have a minimum of 2 instances to enable zone redundancy.
 - Zone redundancy must be configured during gateway creation and can't be changed after deployment
 
 ### Considerations
@@ -76,7 +75,7 @@ Zone-redundant Application Gateway v2 resources can be deployed in any region th
 
 ### Cost
 
-Zone redundancy for Application Gateway v2 doesn't incur extra charges beyond the standard capacity unit pricing. You pay only for the compute capacity (Capacity Units) and fixed costs based on the gateway's operational time. For pricing details, see [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
+Zone redundancy for Application Gateway v2 doesn't incur extra charges beyond the standard capacity unit pricing. For pricing details, see [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 ### Configure availability zone support
 
@@ -151,6 +150,8 @@ To achieve multi-region resilience with Application Gateway v2, you need to depl
 - Deploy a global load balancing solution that can send traffic between your regional gateways. The global load balancing services in Azure are Azure Traffic Manager and Azure Front Door. Each service routes traffic based on health checks, geographic proximity, or performance metrics. Azure Front Door also provides a range of other capabilities including DDoS protection, web application firewall capabilities, and advanced rules and routing features.
 
 - Beyond the gateway, consider replicating backend applications and data across regions. Consult the reliability guides for each Azure service to understand multi-region deployment approaches.
+
+For an example approach, see [Use Azure App Gateway with Azure Traffic Manager](/azure/traffic-manager/traffic-manager-use-with-application-gateway).
 
 ## Backups
 
