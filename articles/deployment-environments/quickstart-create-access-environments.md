@@ -8,19 +8,20 @@ ms.service: azure-deployment-environments
 ms.custom: build-2023
 ms.topic: quickstart
 ms.date: 07/24/2025
+
+#customer intent: As a developer, I want to create and acess an environment so that I can use preconfigured Azure resources to deploy an application.
 ---
 
 # Quickstart: Create and access an environment in Azure Deployment Environments
 
-This quickstart shows you how to create and access an [environment](concept-environments-key-concepts.md#environments) in Azure Deployment Environments by using the developer portal.
+This quickstart describes how to create and access an [environment](concept-environments-key-concepts.md#environments) in Azure Deployment Environments by using the developer portal.
 
-As a developer, you can create environments associated with a [project](concept-environments-key-concepts.md#projects) in Azure Deployment Environments. An environment has all Azure resource preconfigured for deploying your application.
+As a developer, you can create environments associated with a [project](concept-environments-key-concepts.md#projects) in Deployment Environments. An environment provides preconfigured Azure resources for deploying your application.
 
 ## Prerequisites
 
-- Your organization must configure Azure Deployment Environments with a dev center and at least one project before you can create a deployment environment.
-    - Platform engineers can follow these steps to configure [Quickstart: Configure Azure Deployment Environments](quickstart-create-and-configure-devcenter.md).
-- You must have permissions as a Deployment Environments User for a project. If you don't have permissions to a project, contact your administrator.
+- Someone in your organization must configure Deployment Environments with a dev center and at least one project before you can create a deployment environment. To meet this prerequisite, platform engineers can complete the steps in [Quickstart: Configure Azure Deployment Environments](quickstart-create-and-configure-devcenter.md).
+- You must have permissions as a Deployment Environments User for a project. If you don't have permissions for a project, contact your administrator.
 
 ## Create an environment
 
