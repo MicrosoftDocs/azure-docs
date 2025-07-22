@@ -88,9 +88,6 @@ For detailed pricing information, see [Azure Queue Storage pricing](https://azur
 
     1. [Create a queue](/azure/storage/queues/storage-quickstart-queues-portal).
 
-<!-- 
-John: I am using the language of their document which is to "change how a storage account is replicated" rather than "migrate" or "enable".
- -->
 [!INCLUDE [Storage - Configure availability zone support](includes/storage/reliability-storage-availability-zone-configure-include.md)]
 
 ### Normal operations
