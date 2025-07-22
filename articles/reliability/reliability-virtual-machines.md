@@ -24,13 +24,15 @@ To learn about how to deploy VMs to support your solution's reliability requirem
 
 ## Reliability architecture overview
 
-VMs are the fundamental unit of compute in Azure. You can provision a VM yourself to run your own applications, or you can use other Azure compute services, many of which create and manage VMs transparently to you.
+VMs are the fundamental compute unit in Azure, whether you provision the VMs yourself or use other Azure compute services that transparently provision and manage them for you.
 
 An individual VM is sometimes called a *single instance VM*, and it runs in one place. VMs run on a *host*, which is a physical server. Most VMs run on shared hosts.
 
-Azure provides you with the ability to control where a VM runs, and to make tradeoffs between different factors like reliability and latency:
+An individual VM is sometimes called a *single instance VM*. It runs on a specific host - a physical server. Most VMs share their host with other VMs.
 
-- **Region:** You can select which [Azure region](./regions-overview.md) your VM should run in.
+Azure gives you control over where your virtual machines (VMs) run by letting you make tradeoffs between reliability, latency, and isolation. These options help you influence how Azure places your VM on that underlying infrastructure:
+
+- **Region:** You can select which [Azure region](./regions-overview.md) your VM should run in. A region is a geographic area that might contain multiple datacenters, each with a large number of hosts.
 
 - **Availability zone:** [Availability zones](/azure/reliability/availability-zones-overview) are physically separate groups of datacenters within each Azure region. [In regions that support availability zones](./availability-zones-overview.md), you can select which zone the VM runs in. To learn more, see [Availability zone support](#availability-zone-support) later in this article.
 
