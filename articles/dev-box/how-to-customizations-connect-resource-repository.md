@@ -154,12 +154,12 @@ To add a service principal to your Azure DevOps organization: and the Readers gr
 1. Select **Users** and click **Add users**.
 1. Enter the service principal's Application ID (appId) as the user email.
    
-   :::image type="content" source="media/how-to-customizations-connect-resource-repository/dev-box-customizations-devops-add-service-principal.png" alt-text="alt text"::: 
+  :::image type="content" source="media/how-to-customizations-connect-resource-repository/dev-box-customizations-devops-add-service-principal.png" alt-text="Screenshot showing how to add a service principal to Azure DevOps.":::
  
 1. Add to the readers group
 1. Assign the user to the **Readers** group.
  
-   :::image type="content" source="media/how-to-customizations-connect-resource-repository/dev-box-customizations-devops-add-readers.png" alt-text="alt text":::
+  :::image type="content" source="media/how-to-customizations-connect-resource-repository/dev-box-customizations-devops-add-readers.png" alt-text="Screenshot showing how to add a service principal to the Readers group in Azure DevOps.":::
  
 1. Complete the process to grant the necessary permissions.
 
