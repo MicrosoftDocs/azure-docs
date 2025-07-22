@@ -70,11 +70,11 @@ Plans change, projects change, and timelines change. If you need to change the e
 
 1. Sign in to the [developer portal](https://devportal.microsoft.com).
  
-1. On the environment you want to change, select the **Actions** menu, and then select **Change expiration**.
+1. On the environment you want to change, select the **Actions** menu (**...**), and then select **Change expiration**.
  
    :::image type="content" source="media/how-to-schedule-environment-deletion/environment-tile-actions.png" alt-text="Screenshot of the developer portal, showing an environment tile with the actions menu open, and Change expiration highlighted." lightbox="media/how-to-schedule-environment-deletion/environment-tile-actions.png":::
 
-1. In the **Change expiration** pane, you can change any of the following options:
+1. In the **Change \<environment> expiration** pane, you can change any of the following options:
    - Clear **Enable scheduled deletion** to disable scheduled deletion. 
    - Select a new date for expiration.
    - Select a new time for expiration.
