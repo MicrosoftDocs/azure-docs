@@ -1,18 +1,25 @@
 ---
-title: 'Create a service connection in Container Apps - Azure CLI'
-description: Learn how to create a service connection in Azure Container Apps using the Azure CLI. This quickstart guides you through the process step-by-step.
+title: Create a service connection in Azure Container Apps
+description: Learn how to create a service connection in Azure Container Apps using the Azure CLI or the Azure portal. This quickstart guides you through the process step-by-step.
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
-ms.date: 12/18/2024
 ms.devlang: azurecli
-ms.custom: devx-track-azurecli, build-2024
+ms.custom: build-2024
+zone_pivot_groups: interaction-type
+ms.date: 7/22/2025
+#Customer intent: As an app developer, I want to connect an application deployed to Azure Container Apps to a database or another Azure resource.
+
 ---
 
 # Quickstart: Create a service connection in Azure Container Apps with the Azure CLI (preview)
 
-This quickstart shows you how to connect Azure Container Apps to other Cloud resources using the Azure CLI and Service Connector (preview). Service Connector lets you quickly connect compute services to cloud services, while managing your connection's authentication and networking settings.
+In this quickstart, you learn how to create a service connection in an Azure Container Apps resource to connect your AKS resource to other Azure services.
+Service Connector lets you quickly connect compute services to cloud services, while managing your connection's authentication and networking settings.
+
+This article provides instructions for both the Azure portal and Azure CLI. Select the tab above for your preferred method.
+
 
 ## Prerequisites
 

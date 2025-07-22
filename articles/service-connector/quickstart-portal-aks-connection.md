@@ -11,16 +11,12 @@ ms.date: 7/22/2025
 #Customer intent: As an app developer, I want to connect an application deployed to AKS to a database or another Azure resource.
 ---
 
-# Quickstart: Create a service connection in an AKS cluster from the Azure portal
+# Quickstart: Create a service connection in an AKS cluster
 
 In this quickstart, you learn how to create a service connection in an Azure Kubernetes Service (AKS) cluster to connect your AKS resource to other Azure services.
 Service Connector lets you quickly connect compute services to cloud services, while managing your connection's authentication and networking settings.
 
 This article provides instructions for both the Azure portal and Azure CLI. Select the tab above for your preferred method.
-
-# Quickstart: Create a service connection in AKS cluster with the Azure CLI
-
-This quickstart shows you how to connect Azure Kubernetes Service (AKS) to other Cloud resources using Azure CLI and Service Connector. Service Connector lets you quickly connect compute services to cloud services, while managing your connection's authentication and networking settings.
 
 ::: zone pivot="azure-portal"
 ## Prerequisites
@@ -34,9 +30,9 @@ This quickstart shows you how to connect Azure Kubernetes Service (AKS) to other
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- An application deployed to AKS in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet,  [deploy an AKS cluster](/azure/aks/learn/quick-kubernetes-deploy-cli).
+- An AKS cluster in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet,  [deploy an AKS cluster](/azure/aks/learn/quick-kubernetes-deploy-cli).
 - The following [necessary permissions](./concept-permission.md).
-* This quickstart assumes that you already have an Azure Storage account. If you don't have one yet, [create an Azure Storage account](../storage/common/storage-account-create.md).
+- An Azure Storage account. If you don't have one yet, [create an Azure Storage account](../storage/common/storage-account-create.md).
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 - This quickstart requires version 2.30.0 or higher of the Azure CLI. To upgrade to the latest version, run `az upgrade`. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -59,6 +55,7 @@ This quickstart shows you how to connect Azure Kubernetes Service (AKS) to other
    ```azurecli
    az aks connection list-support-types --output table
    ```
+::: zone-end
 
 ## Create a new service connection in an AKS cluster
 
@@ -96,7 +93,7 @@ You use Service Connector to create a new service connection in Azure Kubernetes
     ### [Connection string](#tab/CS)
     
     > [!WARNING]
-    > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. If possible we recommend you use a workload identity instead.
+    > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. If possible, we recommend you use a workload identity instead.
 
     Select **Connection string** to generate or configure one or multiple key-value pairs with pure secrets or tokens.
     ---
@@ -106,7 +103,7 @@ You use Service Connector to create a new service connection in Azure Kubernetes
     > [!NOTE]
     > Service Connector for AKS currently only supports the firewall option. Private link and service endpoint aren't supported.
 
-1. Select **Next: Review + Create**  to review the provided information. Then select **Create** to create the service connection. This operation may take a minute to complete.
+1. Select **Next: Review + Create**  to review the provided information. Then select **Create** to create the service connection. This operation might take a minute to complete.
 
 ## Update your container
 
@@ -150,7 +147,7 @@ Run the [`az aks connection create storage-blob`](/cli/azure/aks/connection/crea
 ### [Using an access key](#tab/Using-access-key)
 
 > [!WARNING]
-> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. If possible, use a workload identity instead.
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. If possible, we recommend you use a workload identity instead.
 
 Run the [`az aks connection create storage-blob`](/cli/azure/aks/connection/create#az-aks-connection-create-storage-blob) command. You can run this command in two different ways:
     
@@ -172,7 +169,7 @@ Run the [`az aks connection create storage-blob`](/cli/azure/aks/connection/crea
 ---
 
 > [!NOTE]
-> If you don't have a Blob Storage account, you can run `az aks connection create storage-blob --new --workload-identity` or `az aks connection create storage-blob --new --secret`to provision a new one and connect it to your AKS cluster.
+> If you don't have a Blob Storage account, you can run `az aks connection create storage-blob --new --workload-identity` or `az aks connection create storage-blob --new --secret` to provision a new one and connect it to your AKS cluster.
 
 ## View service connections in AKS cluster
 
