@@ -156,7 +156,7 @@ authentication: {
 }
 ```
 
-# [Bicep (PowersShell)](#tab/bicep-powershell)
+# [Bicep (PowerShell)](#tab/bicep-powershell)
 
 1. Set the following environment variables:
 
@@ -280,7 +280,7 @@ The following snippet shows the bicep file that you used to create the asset. Th
 
 :::code language="bicep" source="~/azure-iot-operations-samples/samples/onvif-connector-bicep/asset-ptz.bicep":::
 
-# [Bicep (PowersShell)](#tab/bicep-powershell)
+# [Bicep (PowerShell)](#tab/bicep-powershell)
 
 1. Set the following environment variables:
 
@@ -354,7 +354,7 @@ The following snippet shows the bicep file that you used to create the asset. Th
 
 :::code language="bicep" source="~/azure-iot-operations-samples/samples/onvif-connector-bicep/asset-onvif-media.bicep":::
 
-# [Bicep (PowersShell)](#tab/bicep-powershell)
+# [Bicep (PowerShell)](#tab/bicep-powershell)
 
 1. Set the following environment variables:
 
@@ -483,7 +483,7 @@ The connector for ONVIF now receives notifications of motion detected events fro
 }
 ```
 
-# [Bicep (PowersShell)](#tab/bicep-powershell)
+# [Bicep (PowerShell)](#tab/bicep-powershell)
 
 1. Set the following environment variables:
 
@@ -542,7 +542,7 @@ The sample application uses the Azure IoT Operations MQTT broker to send command
 
 ### Access the camera's video streams
 
-To manually create an device and asset that enable access to the video streams of the ONVIF-compliant camera:
+To manually create a device and asset that enable access to the video streams of the ONVIF-compliant camera:
 
 1. During public preview, first use a tool to discover the RTSP stream URLs of the camera.
 
