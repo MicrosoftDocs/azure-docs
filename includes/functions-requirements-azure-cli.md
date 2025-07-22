@@ -20,4 +20,5 @@
 ::: zone-end
 ::: zone pivot="programming-language-python" 
 + [Python 3.11](https://www.python.org/).
-::: zone-end  
+::: zone-end
++ [Azure CLI](/cli/azure/install-azure-cli)
