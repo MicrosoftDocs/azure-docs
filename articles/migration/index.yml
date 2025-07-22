@@ -22,7 +22,7 @@ sections:
     summary: "Explore key considerations, address migration challenges, and streamline your move while optimizing workloads for Azure."
     background:
      componentType: image
-     src: /images/banner-image.png
+     src: images/banner-image.png
 
   - componentType: testimonials-section
     title: 'Discover top picks'
