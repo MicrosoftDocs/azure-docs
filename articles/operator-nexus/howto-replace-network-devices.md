@@ -80,7 +80,7 @@ This action sets the following states:
 
 - Fabric Administrative State: EnabledDegraded
 
-> [!Note:] 
+>[!Note] 
 > This action is not permitted by the service, if any of the following operations are in progress at the fabric level:
 > - Device upgrade
 > - Configuration push
