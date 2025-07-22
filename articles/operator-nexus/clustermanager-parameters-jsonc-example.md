@@ -41,4 +41,5 @@ ms.custom: template-how-to, devx-track-arm-template
       "value": "REGION"
     }
   }
-}```
+}
+```
