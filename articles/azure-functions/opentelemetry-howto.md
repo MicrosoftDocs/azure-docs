@@ -128,8 +128,106 @@ The way that you instrument your application to use OpenTelemetry depends on you
     To export to both OpenTelemetry endpoints, call both `UseAzureMonitor` and `UseOtlpExporter`. 
 ::: zone-end
 ::: zone pivot="programming-language-java"
-Java worker optimizations aren't yet available for OpenTelemetry, so there's nothing to configure in your Java code.
-::: zone-end 
+
+### 1  Add the required libraries
+
+1. **Core bridge (always)**  – enables OpenTelemetry inside the Java worker
+
+   **Maven**
+
+   ```xml
+   <dependency>
+     <groupId>com.microsoft.azure.functions</groupId>
+     <artifactId>azure-functions-java-opentelemetry</artifactId>
+     <version>1.0.0</version>
+   </dependency>
+   ```
+
+   **Gradle (Kotlin DSL)**
+
+   ```kotlin
+   implementation("com.microsoft.azure.functions:azure-functions-java-opentelemetry:1.0.0")
+   ```
+
+2. **Application Insights exporter (optional)**  – only if you want to send data to AI
+
+   **Maven**
+
+   ```xml
+   <dependency>
+     <groupId>com.azure</groupId>
+     <artifactId>azure-monitor-opentelemetry-autoconfigure</artifactId>
+     <version>1.2.0</version>
+   </dependency>
+   ```
+
+   **Gradle (Kotlin DSL)**
+
+   ```kotlin
+   implementation("com.azure:azure-monitor-opentelemetry-autoconfigure:1.2.0")
+   ```
+
+   > The bridge locates `AzureMonitorAutoConfigure` by reflection; if this dependency is absent, it just skips the AI exporter.
+
+---
+
+### 2  Add application settings
+
+```text
+JAVA_APPLICATIONINSIGHTS_ENABLE_TELEMETRY=true
+```
+
+Setting this flag **enables a worker capability that tells the Functions host to stop forwarding its own logs and let the Java worker stream OpenTelemetry records instead, preventing duplicate log entries.**
+
+Other settings:
+
+| Purpose                         | Name                                    | Example                                            |
+| ------------------------------- | --------------------------------------- | -------------------------------------------------- |
+| Application Insights connection | `APPLICATIONINSIGHTS_CONNECTION_STRING` | `InstrumentationKey=…;IngestionEndpoint=https://…` |
+| OTLP export                     | `OTEL_EXPORTER_OTLP_ENDPOINT`           | `https://otlp.example.com:4318`                    |
+|                                 | `OTEL_EXPORTER_OTLP_HEADERS` (optional) | `api-key=abcd1234`                                 |
+
+If both AI *and* OTLP variables are present, telemetry is sent to **both** back-ends.
+
+---
+
+### 3  (Optional) create custom spans
+
+```java
+import com.microsoft.azure.functions.opentelemetry.FunctionsOpenTelemetry;
+import io.opentelemetry.api.trace.Span;
+import io.opentelemetry.api.trace.SpanKind;
+import io.opentelemetry.context.Scope;
+
+Span span = FunctionsOpenTelemetry.startSpan(
+        "com.contoso.PaymentFunction",  // tracer
+        "validateCharge",               // span
+        null,                           // parent = current context
+        SpanKind.INTERNAL);
+
+try (Scope ignored = span.makeCurrent()) {
+    // your business logic here
+} finally {
+    span.end();
+}
+```
+
+Custom spans inherit the same resource attributes and exporters configured by the bridge.
+
+---
+
+### 4  Local development & testing tips
+
+* When not running in Azure, the resource detector defaults `service.name` to `java-function-app`.
+* Silence telemetry during unit tests with JVM flags:
+
+  ```text
+  -Dotel.traces.exporter=none
+  -Dotel.metrics.exporter=none
+  -Dotel.logs.exporter=none
+  ```
+* No manual registration is required—`OpenTelemetryInvocationMiddleware` is auto-discovered by the Java worker.
+::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 1. Install these npm packages in your project:
     
