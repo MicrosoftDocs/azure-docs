@@ -6,8 +6,8 @@ ms.topic: quickstart
 ms.date: 01/30/2025
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As an IT administrator, I want to deploy an ARM template to back up my Azure virtual machines, so that I can ensure data protection and recovery capabilities are in place for my applications.
 ---
 

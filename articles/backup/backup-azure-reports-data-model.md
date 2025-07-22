@@ -4,8 +4,8 @@ description: This data model is in reference to the Resource Specific Mode of se
 ms.topic: reference
 ms.date: 12/30/2024
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
 # Customer intent: As a data analyst, I want to understand the schema differences between Recovery Services vaults and Backup vaults, so that I can effectively query and analyze diagnostic events related to Azure Backup.
 ---

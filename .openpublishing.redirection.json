@@ -6880,6 +6880,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sre-agent/permissions.md",
+      "redirect_url": "/azure/sre-agent/security-context",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/reliability/whats-new.md",
       "redirect_url": "/azure/reliability/overview",
       "redirect_document_id": false
@@ -6888,6 +6893,11 @@
       "source_path": "articles/governance/policy/samples/hipaa-hitrust-9-2.md",
       "redirect_url": "/azure/governance/policy/samples/hipaa-hitrust",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/migrate-workload-aks-mysql.md",
+      "redirect_url": "/azure/reliability/availability-zones-migration-overview",
+      "redirect_document_id": true
     },
     {
        "source_path": "articles/private-5g-core/disconnected-mode.md",
@@ -6899,6 +6909,7 @@
       "redirect_url": "/azure/signups/overview",
       "redirect_document_id": false
     }
+    
   ]
 }
 

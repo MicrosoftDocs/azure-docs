@@ -8,6 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: concept-article
 ms.date: 03/31/2025
+# Customer intent: As an IT professional managing SAP workloads, I want to understand the deployment and migration processes for flexible virtual machine scale sets, so that I can effectively utilize autoscaling and ensure high availability for my applications.
 ---
 
 # FAQs for Virtual Machine Scale Set for SAP workload

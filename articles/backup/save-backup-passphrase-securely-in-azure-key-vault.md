@@ -2,12 +2,12 @@
 title: Save and manage MARS agent passphrase securely in Azure Key Vault
 description: Learn how to save MARS agent passphrase securely in Azure Key Vault and retrieve them during restore.
 ms.topic: how-to
-ms.date: 07/18/2024
+ms.date: 10/20/2024
 ms.reviewer: sooryar
 ms.service: azure-backup
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a backup administrator, I want to securely store and manage MARS agent passphrases in Azure Key Vault, so that I can ensure the retrieval and restoration of backup data without losing access to the encryption credentials."
 ---
 
