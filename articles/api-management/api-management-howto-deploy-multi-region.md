@@ -124,7 +124,7 @@ API Management routes the requests to a regional gateway based on [the lowest la
 
 Under some conditions, you might need to temporarily disable routing to one of the regional gateways. For example:
 
-* After adding a new region, to keep it disabled while you configure and test the regional back-end service 
+* After you add a new region, to keep it disabled while you configure and test the regional back-end service 
 * During regular back-end maintenance in a region
 * To redirect traffic to other regions during a planned disaster recovery drill that simulates an unavailable region, or during a regional failure 
 
