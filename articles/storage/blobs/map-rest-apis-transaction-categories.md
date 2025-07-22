@@ -7,7 +7,10 @@ ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.date: 05/14/2025
 ms.author: normesta
-ms.custom: subject-cost-optimization
+ms.custom:
+  - subject-cost-optimization
+  - build-2025
+# Customer intent: "As a cloud cost manager, I want to identify the pricing for each REST operation in Azure Blob Storage, so that I can optimize our storage expenses effectively."
 ---
 
 # Map each REST operation to a price

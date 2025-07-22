@@ -1,7 +1,7 @@
 ---
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/23/2025
+ms.date: 07/08/2025
 ms.author: jasongroce
 author: jasongroce
 ms.custom: generated
@@ -83,13 +83,13 @@ For more information about this compliance standard, see
 |---|---|---|---|---|
 |Audit And Accountability |AU-12 |Audit Generation |[Resource logs in Azure Data Lake Store should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057ef27e-665e-4328-8ea3-04b3122bd9fb) |[5.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Data%20Lake/Store_AuditDiagnosticLog_Audit.json) |
 
-## HIPAA HITRUST 9.2
+## HIPAA HITRUST
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - HIPAA HITRUST 9.2](/azure/governance/policy/samples/hipaa-hitrust-9-2).
+[Azure Policy Regulatory Compliance - HIPAA HITRUST](/azure/governance/policy/samples/hipaa-hitrust).
 For more information about this compliance standard, see
-[HIPAA HITRUST 9.2](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
+[HIPAA HITRUST](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
 
 |Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|

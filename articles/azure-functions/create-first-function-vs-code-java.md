@@ -20,7 +20,7 @@ In this article, you use Visual Studio Code to create a Java function that respo
 If Visual Studio Code isn't your preferred development tool, check out our similar tutorials for Java developers:
 + [Gradle](./functions-create-first-java-gradle.md)
 + [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions)
-+ [Maven](create-first-function-cli-java.md)
++ [Maven](how-to-create-function-azure-cli.md?pivots=programming-language-java)
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 

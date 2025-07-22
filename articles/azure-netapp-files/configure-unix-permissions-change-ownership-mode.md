@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 04/25/2025
 ms.author: anfdocs
+# Customer intent: As a system administrator, I want to configure Unix permissions and change ownership modes for Azure NetApp Files volumes, so that I can manage file access and ownership effectively within my cloud storage environment.
 ---
 # Configure Unix permissions and change ownership mode for NFS and dual-protocol volumes
 

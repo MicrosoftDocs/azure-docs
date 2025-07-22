@@ -10,6 +10,7 @@ ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.date: 11/19/2024
 ms.author: radeltch
+# Customer intent: "As a system administrator, I want to configure high availability for SAP NetWeaver on Azure VMs using SUSE Linux Enterprise Server, so that I can ensure uninterrupted service and robust failover capabilities for our SAP applications."
 ---
 
 # High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications
@@ -606,7 +607,7 @@ sudo crm_mon -r
 
 Some databases require that the database instance installation is executed on an application server. Prepare the application server virtual machines to be able to use them in these cases.
 
-The steps bellow assume that you install the application server on a server different from the ASCS/SCS and HANA servers. Otherwise some of the steps below (like configuring host name resolution) aren't needed.
+The steps below assume that you install the application server on a server different from the ASCS/SCS and HANA servers. Otherwise some of the steps below (like configuring host name resolution) aren't needed.
 
 1. Configure operating system
 

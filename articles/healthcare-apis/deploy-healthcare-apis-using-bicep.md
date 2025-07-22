@@ -5,9 +5,12 @@ author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 06/06/2022
+ms.date: 06/02/2025
 ms.author: chrupa
-ms.custom: mode-api, devx-track-bicep
+ms.custom:
+  - mode-api
+  - devx-track-bicep
+  - build-2025
 ---
 
 # Deploy Azure Health Data Services using Azure Bicep

@@ -1,8 +1,8 @@
 ---
 title: Use Private Endpoints for Apps
 description: Learn how to connect privately to Azure App Service apps using a private endpoint over Azure Private Link.
-author: madsd
-ms.author: madsd
+author: seligj95
+ms.author: jordanselig
 ms.topic: overview
 ms.date: 04/23/2025
 ms.custom: msangapu
@@ -13,8 +13,6 @@ ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ---
 
 # Use private endpoints for Azure App Service apps
-
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 You can use a private endpoint for your Azure App Service apps. The private endpoint allows clients located in your private network to securely access an app over Azure Private Link. The private endpoint uses an IP address from your Azure virtual network address space. Network traffic between a client on your private network and the app goes over the virtual network and Private Link on the Microsoft backbone network. This configuration eliminates exposure from the public internet.
 
@@ -57,9 +55,7 @@ You can find the client source IP in the web HTTP logs of your app. This feature
 
 ## DNS
 
-When you use private endpoint for App Service apps, the requested URL must match the name of your app, which is by default `<app-name>.azurewebsites.net`. When you use a [unique default hostname](#dnl-note), your app name has the format `<app-name>-<random-hash>.<region>.azurewebsites.net`. In the following examples, `mywebapp` could also represent the full regionalized unique hostname.
-
-By default, without a private endpoint, the public name of your web app is a canonical name to the cluster. For example, the name resolution is:
+When you use private endpoint for App Service apps, the requested URL must match the address of your app. By default, without a private endpoint, the public name of your web app is a canonical name to the cluster. For example, the name resolution is:
 
 | Name | Type | Value |
 |:-----|:-----|:------|

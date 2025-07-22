@@ -2,39 +2,39 @@
 title: Install Jetpack
 description: How to Install Jetpack on a VM.
 author: mvrequa
-ms.date: 03/01/2020
+ms.date: 07/01/2025
 ms.author: mirequa
 ---
 
-# How to Manually Install Jetpack
+# How to manually install Jetpack
 
-[Jetpack](../jetpack.md) is typically downloaded and installed onto CycleCloud-managed VMs automatically when they start up without any user interaction. This is the preferred method for getting Jetpack on a CycleCloud-managed VM. However, in some cases one may want to manually install Jetpack onto a VM.
+[Jetpack](../jetpack.md) is typically downloaded and installed onto CycleCloud-managed VMs automatically when they start up without any user interaction. This method is the preferred way to get Jetpack on a CycleCloud-managed VM. However, in some cases, you might want to manually install Jetpack on a VM.
 
 ::: moniker range=">=cyclecloud-8"
 > [!WARNING]
-> Installing Jetpack directly onto a custom image is no longer recommended in CycleCloud 8. The Jetpack installation process in CycleCloud 8 takes only a few seconds on average and requires only network access to your storage account so there is typically no reason to pre-install Jetpack on custom images. 
+> We no longer recommend installing Jetpack directly onto a custom image in CycleCloud 8. The Jetpack installation process in CycleCloud 8 takes only a few seconds on average and requires only network access to your storage account. Typically, there's no reason to pre-install Jetpack on custom images. 
 
 ::: moniker-end
 
-## Why Install Jetpack
+## Why install Jetpack
 
-[Custom images](create-custom-image.md) allow you to have full control over which version of software is installed on your OS. If you have requirements that are met only with a specific version of Jetpack and that Jetpack version isn't installed by default, you will want to manually install that Jetpack version onto a VM and create a custom image.
+[Custom images](create-custom-image.md) give you full control over which software versions are on your OS. If you need a specific version of Jetpack but that version isn't available by default, install the version on a VM and create a custom image.
 
-Creating a custom image with a pre-installed version of Jetpack will also provide a small performance improvement when starting VMs since Jetpack will no longer need to be downloaded and installed every time a VM boots. This performance improvement is negligible (a few seconds) and should not be the primary reason one creates the custom image.
+When you create a custom image with a preinstalled version of Jetpack, you get a small performance boost when starting VMs. Jetpack doesn't need to be downloaded and installed each time a VM boots. This performance boost is small (just a few seconds) and shouldn't be the main reason you create a custom image.
 
 
 ::: moniker range=">=cyclecloud-7"
 > [!NOTE]
-> At certain phases of installation and configuration management, Jetpack can consume 500MB of memory. 
-> Consider this when choosing a VM size. Burstable `Standard_B1ls` can be unstable.
+> At certain phases of installation and configuration management, Jetpack can use 500 MB of memory.
+> Consider this memory requirement when choosing a VM size. Burstable `Standard_B1ls` VMs can be unstable.
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"  
-## Install via YUM or APT
+## Install Jetpack with YUM or APT
 
-The easiest way to install Jetpack is via the apt/yum repository. First add the repository to your VM and then install Jetpack:
+The easiest way to install Jetpack is through the apt or yum repository. First, add the repository to your VM, and then install Jetpack:
 
-via YUM:
+With YUM:
 
 ```bash
 sudo cat > /etc/yum.repos.d/cyclecloud.repo <<EOF
@@ -47,7 +47,7 @@ EOF
 sudo yum install -y jetpack8
 ```
 
-via APT:
+With APT:
 
 ```bash
 sudo wget -O /etc/apt/trusted.gpg.d/microsoft.asc https://packages.microsoft.com/keys/microsoft.asc
@@ -56,15 +56,15 @@ sudo apt update
 sudo apt-get install -y jetpack8
 ```
 
-Alternatively, a manual installation using the Jetpack archive CycleCloud bundles is still available as follows for cases where APT/YUM are not a good solution.
+For cases where APT or YUM aren't good solutions, you can still manually install Jetpack using the Jetpack archive CycleCloud bundles.
 
 ::: moniker-end
 
-## Install Jetpack Manually
+## Manually install Jetpack
 
-### Locate the Jetpack Installer for Manual Installation
+### Locate the Jetpack installer for manual installation
 
-The Jetpack installer can be found within your CycleCloud installation at _/opt/cycle_server/work/staging/jetpack_. This directory will contain all the versions available to your installation for both Linux and Windows VMs.
+You can find the Jetpack installer in your CycleCloud installation at _/opt/cycle_server/work/staging/jetpack_. This directory contains all the versions available to your installation for both Linux and Windows VMs.
 
 ```txt
 /opt/cycle_server/work/staging/jetpack/
@@ -77,27 +77,27 @@ The Jetpack installer can be found within your CycleCloud installation at _/opt/
 ```
 
 > [!NOTE]
-> The version numbers you see may differ from the ones listed here based on the version of CycleCloud you are currently using.
+> The version numbers you see might differ from the ones shown here, depending on the version of CycleCloud you're using.
 
 
-### Upload Jetpack Archive to a VM
+### Upload Jetpack archive to a VM
 
-Once you have located the Jetpack installer you want to install, you will need to upload it to your VM. For this example we will [move the file to Linux using SCP](/azure/virtual-machines/linux/copy-files-to-linux-vm-using-scp) into the `azureuser`'s home directory:
+After you find the Jetpack installer you want to use, upload it to your VM. In this example, we [move the file to Linux using SCP](/azure/virtual-machines/linux/copy-files-to-linux-vm-using-scp) into the `azureuser` home directory:
 
 ```bash
 scp /opt/cycle/jetpack/work/staging/jetpack/7.9.0/jetpack-7.9.0-linux.tar.gz azureuser@myserver.eastus.cloudapp.com:/home/azureuser
 ```
 
 > [!NOTE]
-> Do not use a VM from a VMSS for installing Jetpack and customizing an image. It is not possible to capture a VM image from VMSS.
+> Don't use a VM from Virtual Machine Scale Sets for installing Jetpack and customizing an image. You can't capture a VM image from Virtual Machine Scale Sets.
 
 ### Install Jetpack
 
-Log into the VM where you uploaded the Jetpack installer, decompress and run the install command. Installation instructions are provided for both Linux and Windows.
+Sign in to the VM where you uploaded the Jetpack installer. Decompress the installer and run the install command. Installation instructions are provided for both Linux and Windows.
 
 #### Linux
 
-You will need to be logged in as `azureuser`.
+You need to be signed in as `azureuser`.
 
 :::moniker range="=cyclecloud-7"
 
@@ -144,17 +144,15 @@ C:\cycle\jetpack\system\install\install.cmd
 
 :::moniker-end
 
-These commands will install jetpack to _/opt/cycle/jetpack_ on Linux or _C:\cycle\jetpack_ on Windows ($JETPACK_HOME). An installation log is available at _$JETPACK_HOME/logs/installation.log_
+These commands install jetpack to _/opt/cycle/jetpack_ on Linux or _C:\cycle\jetpack_ on Windows ($JETPACK_HOME). You can find an installation log at _$JETPACK_HOME/logs/installation.log_.
 
-## Capturing the Custom Image
+## Capture the custom image
 
-After installing Jetpack and performing any other custom image configurations the
-VM is ready for image capture. Note the instructions differ between [Windows](/azure/virtual-machines/windows/capture-image-resource)
-and [Linux](/azure/virtual-machines/linux/capture-image) VMs.
+After you install Jetpack and make other custom image configurations, the VM is ready for image capture. The instructions for capturing an image differ between [Windows](/azure/virtual-machines/windows/capture-image-resource) and [Linux](/azure/virtual-machines/linux/capture-image) VMs.
 
-## Using the Custom Image with CycleCloud
+## Using the custom image with CycleCloud
 
-To use the image with a CycleCloud cluster you can specify the `ImageName` in your cluster template or by specifying it using the custom image option in the UI. If we had named our custom image `MyCustomImage` we would use it as follows in a cluster template:
+To use the image with a CycleCloud cluster, specify the `ImageName` in your cluster template or specify it using the custom image option in the UI. If you name your custom image `MyCustomImage`, use it as follows in a cluster template:
 
 ```ini
 [[node custom]]
@@ -163,9 +161,9 @@ To use the image with a CycleCloud cluster you can specify the `ImageName` in yo
 ```
 
 > [!NOTE]
-> Specifying `DownloadJetpack=false` is not needed, but can save a small amount of time by not downloading Jetpack on boot. If `DownloadJetpack` is not specified, CycleCloud will attempt to download and install Jetpack at runtime and see that Jetpack has already been installed on your image. 
+> You don't need to specify `DownloadJetpack=false`, but it can save a small amount of time by not downloading Jetpack on boot. If you don't specify `DownloadJetpack`, CycleCloud attempts to download and install Jetpack at runtime and sees that Jetpack is already installed on your image. 
 
-## Further Reading
+## Further reading
 
-* For more details on creating and using custom images please review [Custom Images in a CycleCloud Cluster](create-custom-image.md)
-* To learn more about Jetpack you can read about the [Jetpack concepts](../jetpack.md)
+* For more information on creating and using custom images, see [Custom Images in a CycleCloud Cluster](create-custom-image.md).
+* To learn more about Jetpack, see the [Jetpack concepts](../jetpack.md).

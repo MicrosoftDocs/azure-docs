@@ -10,6 +10,7 @@ ms.topic: quickstart
 ms.service: azure-dns
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using Bicep so I can use Azure DNS for my name resolution.
+# Customer intent: "As a developer, I want to create and manage a DNS zone and record using Bicep, so that I can efficiently handle name resolution in Azure."
 ---
 
 # Quickstart: Create an Azure DNS zone and record using Bicep

@@ -3,10 +3,14 @@ title: Configure Premium V4 tier
 description: Learn how to better performance for your web, mobile, and API app in Azure App Service by scaling to the new Premium V4 pricing tier.
 keywords: app service, azure app service, scale, scalable, app service plan, app service cost
 ms.topic: article
-ms.date: 05/12/2025
+ms.date: 07/17/2025
 ms.author: msangapu
 author: msangapu-msft
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - references_regions
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - build-2025
 #customer intent: As a deployment engineer, I want to understand the process and the benefits of scaling up apps to the Premium V4 pricing tier in Azure App Service.
 ---
 
@@ -34,7 +38,7 @@ The Premium V4 tier is available for source code applications on Windows, and bo
 > [!NOTE]
 > The Premium V4 tier lacks stable outbound IP addresses. This behavior is intentional. Although Premium V4 apps can make outbound calls, the platform doesn't provide stable outbound IPs for this tier. This differs from previous App Service tiers. The portal shows "Dynamic" for outbound IP addresses for Premium V4 apps. ARM and CLI calls return empty strings for *outboundIpAddresses* and *possibleOutboundIpAddresses*. If Premium V4 apps need stable outbound IPs, use [Azure NAT Gateway](overview-nat-gateway-integration.md) for predictable outbound IPs.
 
-Premium V4 and its SKUs are available in select Azure regions. Microsoft continually adds availability to other regions. To check regional availability for a specific Premium V4 offering, run the following Azure CLI command in [Azure Cloud Shell](../cloud-shell/overview.md). Substitute *P1V4* with the desired SKU:
+Premium V4 and its SKUs are available in select Azure regions. Microsoft continually adds availability to other regions. To check regional availability for a specific Premium V4 offering, run the following Azure CLI command in [Azure Cloud Shell](../cloud-shell/overview.md). Use Azure CLI version 2.73.0 or above. Substitute *P1V4* with the desired SKU:
 
 **Windows** SKU availability
 
@@ -92,9 +96,25 @@ Premium V4 is available in the following regions:
 
 ### Azure Public
 
+- Australia East
+- Canada Central
+- Central US
 - East US
-- West Central US
+- East US 2
+- France Central
+- Japan East
+- North Central US
 - North Europe
+- Norway East
+- Poland Central
+- Southeast Asia
+- Sweden Central
+- Switzerland North
+- UK South
+- West Central US
+- West Europe
+- West US
+- West US 3
 
 ## Scale up from an unsupported resource group and region combination
 

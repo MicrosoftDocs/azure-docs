@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 05/06/2024
 ms.author: kendownie
+# Customer intent: "As a system administrator, I want to migrate files from on-premises NAS to Azure using Data Box and File Sync, so that I can establish a hybrid cloud deployment while minimizing downtime and ensuring data integrity during the transition."
 ---
 
 # Use Data Box to migrate from Network Attached Storage (NAS) to a hybrid cloud deployment by using Azure File Sync

@@ -8,6 +8,7 @@ author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: azure-large-instances
 ms.date: 06/01/2023
+# Customer intent: As a cloud architect, I want to understand the onboarding requirements for Azure Large Instances, so that I can successfully set up and configure the environment for optimal performance and connectivity.
 ---
 
 # Azure Large Instances onboarding requirements

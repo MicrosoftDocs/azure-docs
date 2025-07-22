@@ -4,10 +4,13 @@ description:  Learn how to configure VMware vSAN.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/07/2023
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - build-2025
 
 #Customer intent: As an Azure service administrator, I want to configure VMware vSAN.
 
+# Customer intent: As an Azure service administrator, I want to configure VMware vSAN settings for TRIM/UNMAP, space efficiency, and data-in-transit encryption, so that I can optimize storage usage and ensure data security in my Azure VMware Solution deployment.
 ---
 
 # Configure VMware vSAN (OSA)

@@ -6,7 +6,7 @@ ms.reviewer: prsaini
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: how-to
-ms.date: 04/10/2025
+ms.date: 06/25/2025
 ms.author: prsaini
 ---
 
@@ -72,151 +72,57 @@ Later in this article, you give permission to the Microsoft Entra app to act by 
 
 | Role | Actions allowed | Role definition ID |
 | --- | --- | --- |
-| EnrollmentReader | Enrollment readers can view data at the enrollment, department, and account scopes. The data contains charges for all of the subscriptions under the scopes, including across tenants. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | 24f8edb6-1668-4659-b5e2-40bb5f3a7d7e |
-| EA purchaser | Purchase reservation orders and view reservation transactions. It has all the permissions of EnrollmentReader, which have all the permissions of DepartmentReader. It can view usage and charges across all accounts and subscriptions. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | da6647fb-7651-49ee-be91-c43c4877f0c4  |
+| EnrollmentReader | View data at the enrollment, department, and account scopes. The data contains charges for all of the subscriptions under the scopes, including across tenants. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | 24f8edb6-1668-4659-b5e2-40bb5f3a7d7e |
+| EA purchaser | Purchase reservation orders and view reservation transactions. It has all the permissions of EnrollmentReader, which have all the permissions of DepartmentReader. It can view usage and charges across all accounts and subscriptions. Can view the Azure Prepayment (previously called monetary commitment) balance associated with the enrollment. | da6647fb-7651-49ee-be91-c43c4877f0c4 |
 | DepartmentReader | Download the usage details for the department they administer. Can view the usage and charges associated with their department. | db609904-a47f-4794-9be8-9bd86fbffd8a |
 | SubscriptionCreator | Create new subscriptions in the given scope of Account. | a0bcee42-bf30-4d1b-926a-48d21664ef71 |
+| Partner Admin Reader | View data for all enrollments under the partner organization. This role is only available for the following APIs:<br>- [Balances](/rest/api/consumption/balances/get-by-billing-account)<br>- [Exports V2 (api-version 2025-03-01 only)](/rest/api/cost-management/exports)<br>- [Generate Cost Details Report](/rest/api/cost-management/generate-cost-details-report)<br>- [Marketplaces](/rest/api/consumption/marketplaces/list)<br>- [Consumption Price sheet](/rest/api/consumption/price-sheet)<br>- [Cost Management Price sheet Download](/rest/api/cost-management/price-sheet/download-by-billing-account)<br>- [Generate Reservation Details Report](/rest/api/cost-management/generate-reservation-details-report/by-billing-account-id)<br>- [Reservation Summaries](/rest/api/consumption/reservations-summaries)<br>- [Reservation Recommendations](/rest/api/consumption/reservation-recommendations/list)<br>- [Reservation Transactions](/rest/api/consumption/reservation-transactions) | 4f6144c0-a809-4c55-b3c8-7f9b7b15a1bf |
 
-- An EnrollmentReader role can be assigned to a service principal only by a user who has an enrollment writer role. The EnrollmentReader role assigned to a service principal isn't shown in the Azure portal. It gets created by programmatic means and is only for programmatic use.
-- A DepartmentReader role can be assigned to a service principal only by a user who has an enrollment writer or department writer role.
-- A SubscriptionCreator role can be assigned to a service principal only by a user who is the owner of the enrollment account (EA administrator). The role isn't shown in the Azure portal. It gets created by programmatic means and is only for programmatic use.
-- The EA purchaser role isn't shown in the Azure portal. It gets created by programmatic means and is only for programmatic use.
+The following user roles are required to assign each service principal role:
+  - **EnrollmentReader:** user assigning must have _enrollment writer_ role.
+  - **DepartmentReader:** user assigning must have _enrollment writer_ or _department writer_ role.
+  - **SubscriptionCreator:** user assigning must be the _enrollment account owner_ (EA administrator).
+  - **EA purchaser:** user assigning must have _enrollment writer_ role.
+  - **Partner Admin Reader:** user assigning must have _partner administrator_ role.
+
+All of these roles are created by programmatic means, aren't shown in the Azure portal, and are only for programmatic use.
 
 When you grant an EA role to a service principal, you must use the `billingRoleAssignmentName` required property. The parameter is a unique GUID that you must provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell command. You can also use the [Online GUID / UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
 
 A service principal can have only one role.
 
-## Assign enrollment account role permission to the service principal
+## Assign a role to the service principal
 
-1. Read the [Role Assignments - Put](/rest/api/billing/2019-10-01-preview/role-assignments/put) REST API article. While you read the article, select **Try it** to get started by using the service principal.
+Follow these steps to assign any of the supported roles to a service principal:
 
-   :::image type="content" source="./media/assign-roles-azure-service-principals/put-try-it.png" alt-text="Screenshot showing the Try It option in the Put article." lightbox="./media/assign-roles-azure-service-principals/put-try-it.png" :::
+1. Use the appropriate **Role Assignments Put REST API** and select **Try it**. Find the correct API to use in the table below.
+ :::image type="content" source="./media/assign-roles-azure-service-principals/put-try-it.png" alt-text="Screenshot showing the Try It option in the Put article." lightbox="./media/assign-roles-azure-service-principals/put-try-it.png" :::
+2. Sign in to the tenant with the required access.
+3. Provide the following parameters in your API request:
+   - `billingAccountName`: The **Billing account ID**. For the Partner Admin Reader role, use the format `pcn.{PCN}` (where `{PCN}` is your Partner Customer Number). For all other roles, use the standard billing account ID from the Azure portal.
+  
+   :::image type="content" source="./media/assign-roles-azure-service-principals/billing-account-id.png" alt-text="Screenshot showing Billing account ID." lightbox="./media/assign-roles-azure-service-principals/billing-account-id.png" :::
 
-1. Use your account credentials to sign in to the tenant with the enrollment access that you want to assign.
+   - `billingRoleAssignmentName`: A unique GUID you generate (see [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid)).
+   - `api-version`: Use `2019-10-01-preview` unless otherwise noted.
+   - Request body parameters:
+     - `properties.principalId`: The Object ID of the service principal.
+     - `properties.principalTenantId`: The tenant ID.
+     - `properties.roleDefinitionId`: Use the value from the table below.
 
-1. Provide the following parameters as part of the API request.
+| Role                  | Required user role to assign | Role definition ID                          | API Reference                                                                 | Notes                                                                 |
+|-----------------------|-----------------------------|---------------------------------------------|------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| EnrollmentReader      | Enrollment writer           | 24f8edb6-1668-4659-b5e2-40bb5f3a7d7e        | [Role Assignments - Put](/rest/api/billing/2019-10-01-preview/role-assignments/put) |                                                                       |
+| EA purchaser          | Enrollment writer           | da6647fb-7651-49ee-be91-c43c4877f0c4        | [Role Assignments - Put](/rest/api/billing/2019-10-01-preview/role-assignments/put) |                                                                       |
+| DepartmentReader      | Enrollment writer or department writer | db609904-a47f-4794-9be8-9bd86fbffd8a | [Enrollment Department Role Assignments - Put](/rest/api/billing/2019-10-01-preview/enrollment-department-role-assignments/put) | Use departmentName parameter. |
+| SubscriptionCreator   | Enrollment account owner (EA admin) | a0bcee42-bf30-4d1b-926a-48d21664ef71 | [Enrollment Account Role Assignments - Put](/rest/api/billing/2019-10-01-preview/enrollment-account-role-assignments/put) | Use enrollmentAccountName parameter. |
+| Partner Admin Reader  | Partner Administrator       | 4f6144c0-a809-4c55-b3c8-7f9b7b15a1bf        | [Role Assignments - Put](/rest/api/billing/2019-10-01-preview/role-assignments/put) | Use `pcn.{PCN}` for billingAccountName.                                |
 
-   - `billingAccountName`: This parameter is the **Billing account ID**. You can find it in the Azure portal on the **Cost Management + Billing** overview page.
+1. Select **Run** to execute the command.
+   
+ :::image type="content" source="./media/assign-roles-azure-service-principals/roleassignments-put-try-it-run.png" alt-text="Screenshot showing an example role assignment with example information that is ready to run." lightbox="./media/assign-roles-azure-service-principals/roleassignments-put-try-it-run.png" :::
 
-      :::image type="content" source="./media/assign-roles-azure-service-principals/billing-account-id.png" alt-text="Screenshot showing Billing account ID." lightbox="./media/assign-roles-azure-service-principals/billing-account-id.png" :::
-
-   - `billingRoleAssignmentName`: This parameter is a unique GUID that you need to provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell command. You can also use the [Online GUID / UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
-
-   - `api-version`: Use the **2019-10-01-preview** version. Use the sample request body at [Role Assignments - Put - Examples](/rest/api/billing/2019-10-01-preview/role-assignments/put#examples).
-
-      The request body has JSON code with three parameters that you need to use.
-
-      | Parameter | Where to find it |
-      | --- | --- |
-      | `properties.principalId` | It's the value of Object ID. See [Find your service principal and tenant IDs](#find-your-service-principal-and-tenant-ids). |
-      | `properties.principalTenantId` | See [Find your service principal and tenant IDs](#find-your-service-principal-and-tenant-ids). |
-      | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountName}/billingRoleDefinitions/24f8edb6-1668-4659-b5e2-40bb5f3a7d7e` |
-
-      The billing account name is the same parameter that you used in the API parameters. It's the enrollment ID that you see in the Azure portal.
-
-      Notice that `24f8edb6-1668-4659-b5e2-40bb5f3a7d7e` is a billing role definition ID for an EnrollmentReader.
-
-1. Select **Run** to start the command.
-
-   :::image type="content" source="./media/assign-roles-azure-service-principals/roleassignments-put-try-it-run.png" alt-text="Screenshot showing an example role assignment with example information that is ready to run." lightbox="./media/assign-roles-azure-service-principals/roleassignments-put-try-it-run.png" :::
-
-   A `200 OK` response shows that the service principal was successfully added.
-
-Now you can use the service principal to automatically access EA APIs. The service principal has the EnrollmentReader role.
-
-## Assign EA Purchaser role permission to the service principal
-
-For the EA purchaser role, use the same steps for the enrollment reader. Specify the `roleDefinitionId`, using the following example:
-
-`"/providers/Microsoft.Billing/billingAccounts/1111111/billingRoleDefinitions/ da6647fb-7651-49ee-be91-c43c4877f0c4"`
-
-## Assign the department reader role to the service principal
-
-1. Read the [Enrollment Department Role Assignments - Put](/rest/api/billing/2019-10-01-preview/enrollment-department-role-assignments/put) REST API article. While you read the article, select **Try it**.
-
-   :::image type="content" source="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" alt-text="Screenshot showing the Try It option in the Enrollment Department Role Assignments Put article." lightbox="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" :::
-
-1. Use your account credentials to sign in to the tenant with the enrollment access that you want to assign.
-
-1. Provide the following parameters as part of the API request.
-
-   - `billingAccountName`: This parameter is the **Billing account ID**. You can find it in the Azure portal on the **Cost Management + Billing** overview page.
-
-      :::image type="content" source="./media/assign-roles-azure-service-principals/billing-account-id.png" alt-text="Screenshot showing Billing account ID." lightbox="./media/assign-roles-azure-service-principals/billing-account-id.png" :::
-
-   - `billingRoleAssignmentName`: This parameter is a unique GUID that you need to provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell command. You can also use the [Online GUID / UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
-
-   - `departmentName`: This parameter is the department ID. You can see department IDs in the Azure portal on the **Cost Management + Billing** > **Departments** page.
-
-      For this example, we used the ACE department. The ID for the example is `84819`.
-
-      :::image type="content" source="./media/assign-roles-azure-service-principals/department-id.png" alt-text="Screenshot showing an example department ID." lightbox="./media/assign-roles-azure-service-principals/department-id.png" :::
-
-   - `api-version`: Use the **2019-10-01-preview** version. Use the sample at [Enrollment Department Role Assignments - Put](/rest/api/billing/2019-10-01-preview/enrollment-department-role-assignments/put).
-
-      The request body has JSON code with three parameters that you need to use.
-
-      | Parameter | Where to find it |
-      | --- | --- |
-      | `properties.principalId` | It's the value of Object ID. See [Find your service principal and tenant IDs](#find-your-service-principal-and-tenant-ids). |
-      | `properties.principalTenantId` | See [Find your service principal and tenant IDs](#find-your-service-principal-and-tenant-ids). |
-      | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountName}/billingRoleDefinitions/db609904-a47f-4794-9be8-9bd86fbffd8a` |
-
-      The billing account name is the same parameter that you used in the API parameters. It's the enrollment ID that you see in the Azure portal.
-
-      The billing role definition ID of `db609904-a47f-4794-9be8-9bd86fbffd8a` is for a department reader.
-
-1. Select **Run** to start the command.
-
-   :::image type="content" source="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it-run.png" alt-text="Screenshot showing an example Enrollment Department Role Assignments – Put REST Try It with example information ready to run." lightbox="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it-run.png" :::
-
-   A `200 OK` response shows that the service principal was successfully added.
-
-Now you can use the service principal to automatically access EA APIs. The service principal has the DepartmentReader role.
-
-## Assign the subscription creator role to the service principal
-
-1. Read the [Enrollment Account Role Assignments - Put](/rest/api/billing/2019-10-01-preview/enrollment-account-role-assignments/put) article. While you read it, select **Try It** to assign the subscription creator role to the service principal.
-
-   :::image type="content" source="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" alt-text="Screenshot showing the Try It option in the Enrollment Account Role Assignments Put article." lightbox="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" :::
-
-1. Use your account credentials to sign in to the tenant with the enrollment access that you want to assign.
-
-1. Provide the following parameters as part of the API request. Read the article at [Enrollment Account Role Assignments - Put - URI Parameters](/rest/api/billing/2019-10-01-preview/enrollment-account-role-assignments/put#uri-parameters).
-
-   - `billingAccountName`: This parameter is the **Billing account ID**. You can find it in the Azure portal on the **Cost Management + Billing overview** page.
-
-      :::image type="content" source="./media/assign-roles-azure-service-principals/billing-account-id.png" alt-text="Screenshot showing the Billing account ID." lightbox="./media/assign-roles-azure-service-principals/billing-account-id.png" :::
-
-   - `billingRoleAssignmentName`: This parameter is a unique GUID that you need to provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell command. You can also use the [Online GUID/UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
-
-   - `enrollmentAccountName`: This parameter is the account **ID**. Find the account ID for the account name in the Azure portal on the **Cost Management + Billing** page.
-
-      For this example, we used the `GTM Test Account`. The ID is `196987`.
-
-      :::image type="content" source="./media/assign-roles-azure-service-principals/account-id.png" alt-text="Screenshot showing the account ID." lightbox="./media/assign-roles-azure-service-principals/account-id.png" :::
-
-   - `api-version`: Use the **2019-10-01-preview** version. Use the sample at [Enrollment Department Role Assignments - Put - Examples](/rest/api/billing/2019-10-01-preview/enrollment-department-role-assignments/put#examples).
-
-      The request body has JSON code with three parameters that you need to use.
-
-      | Parameter | Where to find it |
-      | --- | --- |
-      | `properties.principalId` | It's the value of Object ID. See [Find your service principal and tenant IDs](#find-your-service-principal-and-tenant-ids). |
-      | `properties.principalTenantId` | See [Find your service principal and tenant IDs](#find-your-service-principal-and-tenant-ids). |
-      | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountID}/enrollmentAccounts/{enrollmentAccountID}/billingRoleDefinitions/a0bcee42-bf30-4d1b-926a-48d21664ef71` |
-
-      The billing account name is the same parameter that you used in the API parameters. It's the enrollment ID that you see in the Azure portal.
-
-      The billing role definition ID of `a0bcee42-bf30-4d1b-926a-48d21664ef71` is for the subscription creator role.
-
-1. Select **Run** to start the command.
-
-   :::image type="content" source="./media/assign-roles-azure-service-principals/enrollment-account-role-assignments-put-try-it.png" alt-text="Screenshot showing the Try It option in the Enrollment Account Role Assignments - Put article." lightbox="./media/assign-roles-azure-service-principals/enrollment-account-role-assignments-put-try-it.png" :::
-
-   A `200 OK` response shows that the service principal was successfully added.
-
-Now you can use the service principal to automatically access EA APIs. The service principal has the SubscriptionCreator role.
+5. A `200 OK` response means the service principal was successfully assigned the role.
 
 ## Verify service principal role assignments
 

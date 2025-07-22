@@ -2,8 +2,10 @@
 author: dlepow
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 02/24/2025
+ms.date: 07/09/2025
 ms.author: danlep
+ms.custom:
+  - build-2025
 ---
 
 
@@ -24,7 +26,8 @@ To configure a diagnostic setting for collection of resource logs:
 
 
    > [!TIP]
-   > If you select a Log Analytics workspace, you can choose to store the data in a resource-specific table (for example, an ApiManagementGatewayLogs table) or store in the general AzureDiagnostics table. We recommend using the resource-specific table for log destinations that support it. [Learn more](/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace)
+   > * To view API analytics in the [Azure Monitor-based dashboard](../articles/api-management/monitor-api-management.md#access-the-dashboard) for API Management (**Monitoring** > **Analytics** blade), select an Azure Log Analytics workspace as the destination.
+   > * If you select a Log Analytics workspace, you can choose to store the data in a resource-specific table (for example, an ApiManagementGatewayLogs table) or store in the general AzureDiagnostics table. We recommend using the resource-specific table for log destinations that support it. [Learn more](/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace)
 1. After configuring details for the log destination or destinations, select **Save**. 
 
 > [!NOTE]

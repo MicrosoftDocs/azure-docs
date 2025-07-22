@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 03/17/2025
 ms.author: duau 
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a network administrator, I want to utilize service tags in Azure Firewall for security rule creation, so that I can simplify the management of IP address collections and enhance the security of my network infrastructure efficiently.
 ---
 
 # Azure Firewall service tags

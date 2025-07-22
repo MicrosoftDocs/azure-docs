@@ -35,6 +35,10 @@ You should configure your origin to disallow traffic that doesn't come through P
 - Azure Storage provides a firewall, which you can use to deny traffic from the internet. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
 - Internal load balancers with Azure Private Link service aren't publicly routable. You can also configure network security groups to ensure that you disallow access to your virtual network from the internet.
 
+## Managed Identities
+
+Managed identities provided by Microsoft Entra ID enables your Front Door instance to securely access other Microsoft Entra protected resources, such as Azure Blob Storage, without the need to manage credentials. After you enable managed identity for Front Door and granting the managed identity necessary permissions to your origin, Front Door will use the managed identity to obtain an access token from Microsoft Entra ID for accessing the specified resource. After successfully obtaining the token, Front Door will set the value of the token in the Authorization header using the Bearer scheme and then forward the request to the origin. Front Door caches the token until it expires. For more information, see [use managed identities to authenticate to origins (preview)](origin-authentication-with-managed-identities.md).
+
 ::: zone-end
 
 ## Public IP address-based origins

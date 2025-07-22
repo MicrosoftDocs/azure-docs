@@ -9,6 +9,7 @@ ms.author: normesta
 ms.reviewer: jamesbak
 ms.date: 11/18/2024
 ms.service: azure-data-lake-storage
+# Customer intent: "As a data analyst using distributed analytics frameworks, I want to optimize data retrieval using query acceleration, so that I can reduce network latency and compute costs while improving the performance of my data processing tasks."
 ---
 
 # Azure Data Lake Storage query acceleration

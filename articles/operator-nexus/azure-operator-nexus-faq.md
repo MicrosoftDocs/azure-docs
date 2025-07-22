@@ -6,7 +6,9 @@ ms.author: mukeshdua
 ms.service: azure-operator-nexus
 ms.topic: conceptual
 ms.date: 06/28/2023
-ms.custom: template-reference
+ms.custom:
+  - template-reference
+  - build-2025
 ---
 
 # Azure Operator Nexus frequently asked questions (FAQ)

@@ -2,7 +2,7 @@
 title: Manage settings for your Elastic resource via Azure portal
 description: Manage settings, view resources, reconfigure metrics/logs, and more for your Elastic resource via Azure portal.
 ms.topic: how-to
-ms.date: 03/19/2025
+ms.date: 07/01/2025
 
 
 ---
@@ -47,7 +47,7 @@ Make the needed changes to how logs are sent to Elastic.
 
 ## View monitored resources
 
-To view the list of resources emitting logs to Elastic, select **Elastic deployment configuration > Monitored resources** in the Resource menu.
+To view the list of resources emitting logs to Elastic, select **Elastic deployment configuration > Monitored resources** in the service menu.
 
 > [!TIP]
 > You can filter the list of resources by type, subscription, resource group, region, and whether the resource is sending logs to Elastic. 
@@ -60,9 +60,9 @@ To monitor multiple subscriptions:
 
 1. Select **Add subscriptions** from the Command bar.
 
-    The **Add subscriptions** experience that opens displays subscriptions you have _Owner_ role assigned to and any Elastic resource created in those subscriptions that is already linked to the same Elastic organization as the current resource.
+    The **Add subscriptions** experience that opens shows subscriptions you have _Owner_ role assigned to and any Elastic resource created in those subscriptions that is already linked to the same Elastic organization as the current resource.
 
-1. Select the subscriptions you want to monitor through the Elastic resource and click **Add**.
+1. Select the subscriptions you want to monitor through the Elastic resource and select **Add**.
 
     > [!IMPORTANT]
     > Setting separate tag rules for different subscriptions isn't supported.
@@ -73,11 +73,11 @@ To monitor multiple subscriptions:
 
 Once the subscription is added, the status changes to *Active*.  
 
-### Remove subscriptions from a Elastic resource
+### Remove subscriptions
 
-To unlink subscriptions from a Elastic resource:
+To unlink subscriptions from an Elastic resource:
 
-1. Select **Elastic deployment configuration > Monitored Subscriptions** from the Resource menu. 
+1. Select **Elastic deployment configuration > Monitored Subscriptions** from the service menu. 
 
 1. Select the subscription you want to remove.
 
@@ -91,13 +91,13 @@ You can install Elastic agents on virtual machines.
 
 ### Virtual machines
 
-To monitor resources for virtual machines, select **Elastic deployment configuration > Virtual machine agent** in the Resource menu.
+To monitor resources for virtual machines, select **Elastic deployment configuration > Virtual machine agent** in the service menu.
 
 [!INCLUDE [install-elastic-agent](../includes/agent.md)]
 
 ## Connect Azure OpenAI service with Elastic
 
-To configure Azure Open AI, select **Elastic deployment configuration > Azure OpenAI configuration**. 
+To configure Azure OpenAI, select **Elastic deployment configuration > Azure OpenAI configuration**. 
 
 1. From the working pane's command bar, select **Add**. 
 
@@ -154,8 +154,15 @@ You can easily manage the corresponding Elastic deployments or Azure resources u
 > - A single Azure Marketplace SaaS unifies billing for multiple Elastic deployments. 
 > - If you wish to completely stop billing for the marketplace SaaS, delete all linked Elastic deployments (created from Azure or Elastic portal). 
 
+## Get support
+
+Contact [Elastic](https://cloud.elastic.co/help) for customer support.
+
+You can also request support in the Azure portal from the [resource overview](#resource-overview).  
+
+Select **Support + Troubleshooting** > **New support request** from the service menu. 
+
 ## Related content
 
-- [Troubleshooting Elastic integration with Azure](troubleshoot.md)
 - [What is Azure private link?](../../private-link/private-link-overview.md)
 

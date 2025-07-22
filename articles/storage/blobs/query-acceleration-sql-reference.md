@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 11/26/2024
 ms.author: normesta
 ms.reviewer: ereilebr
+# Customer intent: As a data analyst, I want to utilize query acceleration SQL syntax to execute queries on blob data, so that I can efficiently analyze hierarchical semi-structured data formats like JSON and CSV.
 ---
 
 # Query acceleration SQL language reference

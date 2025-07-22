@@ -7,6 +7,8 @@ ms.topic: overview
 ms.subservice: synapse-link
 ms.date: 05/07/2025
 ms.author: rosouz
+ms.custom:
+  - build-2025
 ---
 
 # What is Azure Synapse Link for SQL?

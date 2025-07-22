@@ -213,7 +213,7 @@ There are several data errors that can only be detected after making a call to t
 
 ### OutputDataConversionError.RequiredColumnMissing
 
-* Cause: The column required for the output doesn't exist. For example, a column defined as Azure Table PartitionKey does't exist.
+* Cause: The column required for the output doesn't exist. For example, a column defined as Azure Table PartitionKey doesn't exist.
 * Portal notification provided: Yes
 * Resource log level: Warning
 * Impact:  All output data conversion errors including missing required column are handled according to the [Output Data Policy](./stream-analytics-output-error-policy.md) setting.

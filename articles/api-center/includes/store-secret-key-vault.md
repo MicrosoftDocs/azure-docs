@@ -14,9 +14,6 @@ ms.custom: Include file
 
 To store the API key as a secret in the key vault, see [Set and retrieve secret in Key Vault](/azure/key-vault/secrets/quick-create-portal).
 
-> [!NOTE]
-> The *secret identifier* of the secret appears on the secret's details page. This is a URI of the form `https://<key-vault-name>.vault.azure.net/secrets/<secret-name>/<version>`. You need this value when you configure the secret in your API center.
-
 #### Enable a managed identity in your API center
 
 For this scenario, your API center uses a [managed identity](/entra/identity/managed-identities-azure-resources/overview) to access the key vault. Depending on your needs, enable either a system-assigned or one or more user-assigned managed identities. 

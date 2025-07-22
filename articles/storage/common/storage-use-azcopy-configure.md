@@ -8,6 +8,7 @@ ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: dineshm
+# Customer intent: As a cloud operations engineer, I want to analyze job logs and manage plan files in AzCopy, so that I can diagnose errors and efficiently resume data transfer tasks.
 ---
 
 # Find errors and resume jobs by using log and plan files in AzCopy

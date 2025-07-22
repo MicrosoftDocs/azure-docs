@@ -4,17 +4,12 @@ description: Learn why modeling and mapping business processes help add business
 ms.service: azure-business-process-tracking
 ms.topic: overview
 ms.reviewer: estfan, azla
-ms.date: 06/07/2024
+ms.date: 06/09/2025
 
 # CustomerIntent: As a developer or business analyst with a solution that has multiple or different Azure resources that integrate various services and systems, I want a way to visualize my organization's business processes and map them to the actual Azure resources that implement those use cases. For our business, I also want to record key business data that moves through these resources to gain better insight about how our solutions perform.
 ---
 
-# What is Azure Business Process Tracking? (Preview)
-
-> [!NOTE]
->
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# What is Azure Business Process Tracking?
 
 As a developer or business analyst working on solutions that integrate services and systems using various Azure resources, you might have difficulties visualizing the relationship between the technical components in your solution and your business scenario. To include business context about the Azure resources in your solution, you can build business processes that visually represent the business logic implemented by these resources. In Azure Business Process Tracking, a business process is a series of stages that represent the tasks flowing through real-world business scenario.
 
@@ -59,7 +54,9 @@ The following screenshot shows a completely mapped stage:
 
 :::image type="content" source="media/map-business-process-workflow/map-properties-workflow-actions-complete.png" alt-text="Screenshot shows process designer, Create ticket stage, and business properties mapped to Standard logic app workflow action and source data." lightbox="media/map-business-process-workflow/map-properties-workflow-actions-complete.png":::
 
-After you finish your mappings and save your business process, you can deploy the business process as a separate Azure resource along with an individual tracking profile that is added to your deployed resources. When the associated workflows run in the deployed logic apps, these workflows populate the business property values that you specified. You can then review each recorded transaction plus the business process status for each stage in that transaction:
+After you finish your mappings and save your business process, you can deploy the business process as a separate Azure resource along with an individual tracking profile that is added to your deployed resources. Azure Business Process Tracking also supports continuous integration (CI) and continuous deployment (CD) pipelines, so that you don't have rebuild and remap business stages to workflows across different environments, such as development, test, and production.
+
+When the associated workflows run in the deployed logic apps, these workflows populate the business property values that you specified. You can then review each recorded transaction plus the business process status for each stage in that transaction:
 
 :::image type="content" source="media/deploy-business-process/process-status.png" alt-text="Screenshot shows Transactions page and status for entire business process." lightbox="media/deploy-business-process/process-status.png":::
 
@@ -77,15 +74,15 @@ To help you organize and manage the deployed Azure resources that you use in you
 
   If you have business scenarios or use cases that require stateless workflows, use the product feedback link to share these scenarios and use cases. 
 
-- This preview release is currently optimized for speed.
+- This release is currently optimized for speed.
 
   If you have feedback about workload reliability or performance, use the product feedback link to share your input and results from representative workloads to help improve this aspect.
 
 ## Pricing information
 
-Azure Business Process Tracking doesn't incur charges during preview. However, when you create a business process, you're required to provide information for an existing or new [Azure Data Explorer cluster, database, and table](/azure/data-explorer/create-cluster-and-database). Your business process uses this database to store transactions and the business property values that you want to record for later evaluation. Azure Data Explorer incurs charges, based on the selected pricing option. For more information, see [Azure Data Explorer pricing](https://azure.microsoft.com/pricing/details/data-explorer/#pricing).
+Azure Business Process Tracking doesn't incur charges at this time. However, when you create a business process, you're required to provide information for an existing or new [Azure Data Explorer cluster, database, and table](/azure/data-explorer/create-cluster-and-database). Your business process uses this database to store transactions and the business property values that you want to record for later evaluation. Azure Data Explorer incurs charges, based on the selected pricing option. For more information, see [Azure Data Explorer pricing](https://azure.microsoft.com/pricing/details/data-explorer/#pricing).
 
-## Related content
+## Next step
 
 > [!div class="nextstepaction"]
 > [Create a business process](create-business-process.md)

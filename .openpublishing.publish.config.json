@@ -70,7 +70,7 @@
         },
         {
             "path_to_root": "azure_cli_scripts",
-            "url": "https://github.com/Azure-Samples/azure-cli-samples",
+            "url": "https://github.com/ggailey777/azure-cli-samples",
             "branch": "master",
             "branch_mapping": {}
         },
@@ -621,6 +621,18 @@
             "branch_mapping": {}
         },
         {
+            "path_to_root": "app-service-agentic-semantic-kernel-ai-foundry-agent",
+            "url": "https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-ai-foundry-agent",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "app-service-agentic-semantic-kernel-java",
+            "url": "https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-java",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
             "path_to_root": "playwright-testing-service",
             "url": "https://github.com/microsoft/playwright-testing-service",
             "branch": "main",
@@ -750,6 +762,12 @@
             "path_to_root": "WebApp-OpenIdConnect-DotNet",
             "url": "https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet",
             "branch": "GuidedSetup",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "azure-policy-autogen-docs",
+            "url": "https://github.com/MicrosoftDocs/azure-policy-autogen-docs",
+            "branch": "main",
             "branch_mapping": {}
         }
     ],

@@ -7,7 +7,11 @@ ms.author: cephalin
 ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 05/19/2025
-ms.custom: devx-track-javascript, devx-track-azurecli, references_regions
+ms.custom:
+  - devx-track-javascript
+  - devx-track-azurecli
+  - references_regions
+  - build-2025
 ---
 
 # Tutorial: Build a retrieval augmented generation app in Azure App Service with Azure OpenAI and Azure AI Search (Express.js)

@@ -4,7 +4,13 @@ description: Learn to send Azure Service Bus triggers and bindings in Azure Func
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 12/12/2022
-ms.custom: fasttrack-edit, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
+ms.custom:
+  - fasttrack-edit
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-ts
+  - build-2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -288,7 +294,7 @@ The `clientRetryOptions` settings only apply to interactions with the Service Bu
 |**webProxy**| n/a | The proxy to use for communicating with Service Bus over web sockets. A proxy cannot be used with the `amqpTcp` transport. |
 |**autoCompleteMessages**|`true`|Determines whether or not to automatically complete messages after successful execution of the function.|
 |**maxAutoLockRenewalDuration**|`00:05:00`|The maximum duration within which the message lock will be renewed automatically. This setting only applies for functions that receive a single message at a time.|
-|**maxConcurrentCalls**|`16`|The maximum number of concurrent calls to the callback that should be initiated per scaled instance. By default, the Functions runtime processes multiple messages concurrently. This setting is used only when the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) is set to `false`. This setting only applies for functions that receive a single message at a time.|
+|**maxConcurrentCalls**|`16`| By default, the Functions runtime processes multiple messages concurrently. This setting limits the maximum number of concurrent calls to the callback that can be initiated per-scaled-instance. When your hosting plan has more than one core per instance, the maximum number of calls is effectively multiplied by the number of cores. For example, in a plan that runs on hardware with two cores, the default setting of `16` means that the maximum number of concurrent calls per instance is really `32` (or `2 * 16`). This setting is used only when the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) is set to `false`. This setting only applies for functions that receive a single message at a time as opposed to in a batch. |
 |**maxConcurrentSessions**|`8`|The maximum number of sessions that can be handled concurrently per scaled instance. This setting is used only when the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) is set to `true`. This setting only applies for functions that receive a single message at a time.|
 |**maxMessageBatchSize**|`1000`|The maximum number of messages that will be passed to each function call. This setting only applies for functions that receive a batch of messages.|
 |**minMessageBatchSize**<sup>1</sup>|`1`|The minimum number of messages desired in a batch. The minimum applies only when the function is receiving multiple messages and must be less than `maxMessageBatchSize`. <br/> The minimum size isn't strictly guaranteed. A partial batch is dispatched when a full batch can't be prepared before the `maxBatchWaitTime` has elapsed.|
@@ -349,7 +355,7 @@ For a reference of host.json in Functions 1.x, see [host.json reference for Azur
 - [Run a function when a Service Bus queue or topic message is created (Trigger)](./functions-bindings-service-bus-trigger.md)
 - [Send Azure Service Bus messages from Azure Functions (Output binding)](./functions-bindings-service-bus-output.md)
 
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[extension bundle]: ./extension-bundles.md
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/
 [Update your extensions]: ./functions-bindings-register.md
 

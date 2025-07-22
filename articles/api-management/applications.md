@@ -7,9 +7,10 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 05/19/2025
+ms.date: 07/11/2025
 ms.author: danlep
-ms.custom: 
+ms.custom:
+  - build-2025
 ---
 # Securely access products and APIs with Microsoft Entra applications
 
@@ -21,9 +22,9 @@ API Management now supports built-in OAuth 2.0 application-based access to produ
 > Applications are currently in limited preview. To sign up, fill [this form](https://aka.ms/apimappspreview).
 
 With this feature:
-
 * API managers set a product property to enable application-based access.
 * API managers register client applications in Microsoft Entra ID to limit access to specific products. 
+* Developers can access client application credentials using the API Management developer portal.
 * Using the OAuth 2.0 client credentials flow, developers or apps obtain tokens that they can include in API requests
 * Tokens presented in API requests are validated by the API Management gateway to authorize access to the product's APIs.
 
@@ -60,7 +61,8 @@ Follow these steps to enable **Application based access** for a product. A produ
 
 The following example uses the **Starter** product, but choose any published product that has at least one API assigned to it.
 
-1. Sign in to the [portal](https://portal.azure.com) and navigate to your API Management instance.
+1. Sign in to the portal at the following custom URL for the applications feature: [https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications](https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications)
+1. Navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **Products**.
 1. Choose the product that you want to configure, such as the **Starter** product.
 1. In the left menu, under **Product**, select **Properties**.
@@ -102,10 +104,13 @@ To review application settings in **App registrations**:
 Now register a client application that limits access to one or more products. 
 
 * A product must have **Application based access** enabled to be associated with a client application. 
-* Each client application has a single user (owner) in the API Management instance. One the owner can access product APIs through the application.
+* Each client application has a single user (owner) in the API Management instance. Only the owner can access product APIs through the application.
 * A product can be associated with more than one client application.
 
-1. Sign in to the [portal](https://portal.azure.com) and navigate to your API Management instance.
+To register a client application:
+
+1. Sign in to the portal at the following custom URL for the applications feature: [https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications](https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications)
+1. Navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **Applications** > **+ Register application**.
 1. In the **Register an application** page, enter the following application settings:
     * **Name**: Enter a name for the application. 
@@ -151,6 +156,16 @@ To review application settings in **App registrations**:
 
     :::image type="content" source="media/applications/client-api-permissions.png" alt-text="Screenshot of API permissions in the portal.":::  
 
+## Get application settings in developer portal
+
+Users can sign in to the developer portal to view the client applications that they own.
+
+1. Sign in to the developer portal (`https://<your-apim-instance-name>.developer.azure-api.net`) using a user account that was set as the owner of a client application.
+1. In the top navigation menu, select **Applications**.
+1. Applications that the user owns appear in the list. 
+1. Select an application to view its details, such as the **Client ID**, **Client secret**, and **Scope**. These values are needed to generate a token to call the product APIs.
+
+    :::image type="content" source="media/applications/applications-developer-portal.png" alt-text="Screenshot of client applications in the developer portal.":::
 
 ## Create token and use with API call
 
@@ -202,6 +217,16 @@ $getresponse = Invoke-RestMethod -Method Post -Uri $uri -ContentType "applicatio
 Write-Host "Response:"
 $getresponse | ConvertTo-Json -Depth 5
 ```
+
+## Troubleshooting
+
+### Internal server error when registering applications in the portal
+
+If you're unable to list applications, or you receive an internal server error when registering applications in the portal, check the following:    
+
+* The **Application Administrator** role is assigned to the API Management instance's managed identity in Microsoft Entra ID. 
+* You're signed in to the portal at the following custom URL for the applications feature: [https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications](https://portal.azure.com/?feature.customPortal=false&Microsoft_Azure_ApiManagement=applications). This URL is required to access the applications feature in API Management.
+
 
 ## Related content
 

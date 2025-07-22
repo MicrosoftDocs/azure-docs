@@ -2,7 +2,8 @@
 title: Authenticate with namespaces using webhook auth
 description: This article shows you how to authenticate with Azure Event Grid namespace using webhook or Azure function. 
 ms.topic: how-to
-ms.custom: build-2025
+ms.custom:
+  - build-2025
 ms.date: 04/30/2025
 author: Connected-Seth
 ms.author: seshanmugam

@@ -8,6 +8,8 @@ ms.topic: how-to
 ms.date: 05/15/2025
 
 #Customer intent: As a website owner, I want to enable HTTPS on the custom domain in my Front Door (classic) so that my users can use my custom domain to access their content securely.
+ms.custom:
+  - build-2025
 ---
 
 # Configure HTTPS on an Azure Front Door (classic) custom domain
@@ -88,7 +90,7 @@ To enable HTTPS on a custom domain:
 
 ### Option 2: Use your own certificate
 
-You can use your own certificate through an integration with Azure Key Vault. Ensure your certificate is from a [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT) and has a complete certificate chain.
+You can use your own certificate through an integration with Azure Key Vault. Ensure your certificate is from a [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT) and has a complete certificate chain.
 
 #### Prepare your key vault and certificate
 
@@ -98,7 +100,7 @@ You can use your own certificate through an integration with Azure Key Vault. En
 - Upload your certificate as a **certificate** object, not a **secret**.
 
 > [!NOTE]
-> Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms. The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA list](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
+> Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms. The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA list](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT).
 
 #### Register Azure Front Door
 

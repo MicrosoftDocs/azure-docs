@@ -127,7 +127,7 @@ This procedure describes how **Admin** users can change local user passwords. **
 
 ## Recover privileged access to a sensor
 
-This procedure descries how to recover privileged access to a sensor, for the *cyberx*, *admin*, or *cyberx_host* users. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+This procedure describes how to recover privileged access to a sensor, for the *cyberx*, *admin*, or *cyberx_host* users. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 **Prerequisites**: This procedure is available only for the *cyberx*, *admin*, or *cyberx_host* users.
 

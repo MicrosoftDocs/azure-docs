@@ -3,10 +3,11 @@ title: Azure Update Manager overview
 description: This article tells what Azure Update Manager in Azure is and the system updates for your Windows and Linux machines in Azure, on-premises, and other cloud environments.
 ms.service: azure-update-manager
 ms.custom: linux-related-content, ignite-2024
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.date: 02/03/2025
 ms.topic: overview
+# Customer intent: As an IT administrator managing diverse server environments, I want to use Azure Update Manager to monitor and automate software updates, so that I can ensure compliance and enhance the security of my Windows and Linux machines across Azure and on-premises environments.
 ---
 
 # About Azure Update Manager

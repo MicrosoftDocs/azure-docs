@@ -153,7 +153,7 @@ For more detailed setup instructions, see the [MSSQL provider's getting started 
 #### Install the Durable Task MSSQL extension (.NET only)
 
 > [!NOTE]
-> If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Extension management.
+> If your app uses [Extension Bundles](../extension-bundles.md), you should ignore this section as Extension Bundles removes the need for manual Extension management.
 
 You'll need to install the latest version of the MSSQL storage provider Extension on NuGet: [`Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer`](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer). This usually means including a reference to it in your `.csproj` file and building the project.
 
@@ -175,7 +175,7 @@ There are many significant tradeoffs between the various supported storage provi
 | Maximum activity scale-out (nodes) | N/A | 32 | N/A | N/A | 
 | Durable Entities support | ✅ Fully supported | ✅ Fully supported | ⚠️ Supported except when using .NET Isolated | ✅ Fully supported |
 | [KEDA 2.0](https://keda.sh/) scaling support<br/>([more information](../functions-kubernetes-keda.md)) | ❌ Not supported | ❌ Not supported | ✅ Supported using the [MSSQL scaler](https://keda.sh/docs/scalers/mssql/) ([more information](https://microsoft.github.io/durabletask-mssql/#/scaling)) | Coming soon! | 
-| Support for [extension bundles](../functions-bindings-register.md#extension-bundles) (recommended for non-.NET apps) | ✅ Fully supported | ✅ Fully supported | ✅ Fully supported |  Coming soon! | 
+| Support for [extension bundles](../extension-bundles.md) (recommended for non-.NET apps) | ✅ Fully supported | ✅ Fully supported | ✅ Fully supported |  Coming soon! | 
 | Price-performance configurable? | ❌ No | ✅ Yes (Event Hubs TUs and CUs) | ✅ Yes (SQL vCPUs) | Coming soon! | 
 | Disconnected environment support | ❌ Azure connectivity required | ❌ Azure connectivity required | ✅ Fully supported | ❌ Azure connectivity required |
 | Identity-based connections | ✅ Fully supported |❌ Not supported | ⚠️ Requires runtime-driven scaling |  ✅ Fully supported |

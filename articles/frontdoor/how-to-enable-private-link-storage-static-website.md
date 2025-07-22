@@ -8,6 +8,8 @@ ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 03/31/2024
 zone_pivot_groups: front-door-dev-exp-portal-cli
+ms.custom:
+  - build-2025
 ---
 
 # Connect Azure Front Door Premium to a storage static website with Private Link

@@ -54,4 +54,4 @@ Azure IoT SDKs are also available for the following services:
 
 ## Next steps
 
-Learn about [IoT asset and device developement](../iot/concepts-manage-device-reconnections.md).
+Learn about [IoT asset and device development](../iot/concepts-manage-device-reconnections.md).
