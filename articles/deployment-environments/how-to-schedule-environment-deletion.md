@@ -90,13 +90,13 @@ Developers might not always know when an environment is no longer needed. As a p
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and select the project that contains the environment that you want to schedule for deletion.
  
-1. In the left pane, select **Environments**.
+1. In the left pane, under **Manage**, select **Environments**.
  
 1. In the list of environments, for the environment you want to schedule for deletion, scroll right, and then select **...** > **Change expiration**.
 
    :::image type="content" source="media/how-to-schedule-environment-deletion/azure-portal-schedule-environment-deletion.png" alt-text="Screenshot showing the initial steps for changing an expriation." lightbox="media/how-to-schedule-environment-deletion/azure-portal-schedule-environment-deletion.png":::
 
-1. In the **Change expiration date** pane, select **Enable scheduled deletion**.
+1. In the **Change \<environment> expiration date** pane, select **Enable scheduled deletion**.
  
 1. Select the date and time you want the environment to expire and be deleted, and then select **Save**.
 
