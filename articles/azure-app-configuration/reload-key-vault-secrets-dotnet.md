@@ -25,7 +25,7 @@ When secrets and certificates are rotated in Key Vault, your application should 
 - The key vault that you create when you complete the steps in [Tutorial: Use Key Vault references in an ASP.NET Core app](./use-key-vault-references-dotnet-core.md).
 - The [Microsoft.Azure.AppConfiguration.AspNetCore](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore) package, version 4.4.0 or later.
 
-## Choose an approach to reloading
+## Overview
 
 As a good security practice, secrets and certificates should be rotated periodically. For more information, see [Automate the rotation of a secret for resources that use one set of authentication credentials](/azure/key-vault/secrets/tutorial-rotation) and [Tutorial: Configure certificate autorotation in Key Vault](/azure/key-vault/certificates/tutorial-rotate-certificates). After secrets and certificates are rotated in Key Vault, there are two ways to load these values without restarting your application:
 
