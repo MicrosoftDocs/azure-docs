@@ -89,7 +89,7 @@ To attach a system-assigned managed identity to your dev center:
 
 The managed identity that represents your dev center requires access to the subscription where you configure the [project environment types](concept-environments-key-concepts.md#project-environment-types), and to the catalog. 
 
-1. In your dev center, in left menu, under **Settings**, select **Identity**.
+1. In your dev center, in the left menu, under **Settings**, select **Identity**.
 1. Under **System assigned** > **Permissions**, select **Azure role assignments**.
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity.png" alt-text="Screenshot that shows a system-assigned managed identity. Azure role assignments is highlighted." lightbox="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity.png":::
@@ -117,7 +117,7 @@ An environment type can help you define the different types of environments that
 1. In the Azure portal, go to Azure Deployment Environments.
 1. In **Dev centers**, select your dev center.
 1. In the left menu, under **Environment configuration**, select **Environment types**, and then select **Create**.
-1. In **Create environment type**, enter the following information, and then select **Add**:
+1. In the **Create environment type** pane, enter the following information, and then select **Add**:
 
     |Name     |Value     |
     |---------|----------|
@@ -140,7 +140,7 @@ To create an Deployment Environments project in your dev center:
 
 1. In the left menu, under **Configure**, select **Projects**.
 
-1. In **Projects**, select **Create**.
+1. In the **Projects** pane, select **Create**.
 
 1. In **Create a project**, on the **Basics** tab, enter or select the following information:
 
@@ -164,7 +164,7 @@ To configure a project, add a [project environment type](how-to-configure-projec
 
 1. In the Azure portal, go to your project.
 
-1. In the left menu, under **Environment configuration**, select **Environment types**, and then select **Add**.
+1. In the left menu, under **Environment configuration**, select **Environment types**. Select **Add** at the top of the pane.
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/add-environment-types.png" alt-text="Screenshot that shows the Environment types pane." lightbox="media/quickstart-create-and-configure-devcenter/add-environment-types.png":::
 
