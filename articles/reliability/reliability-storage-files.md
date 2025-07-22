@@ -17,7 +17,6 @@ Azure Files supports multiple redundancy configurations including locally redund
 
 This article describes reliability and availability zones support in [Azure Files](/azure/well-architected/service-guides/azure-files), covering both regional resiliency through availability zone configurations and cross-region protection through geo-redundant storage options. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/reliability/overview).
 
-<!-- Anastasia - I think we should add something like this to each of the Azure Storage guides that use the include files: -->
 > [!NOTE]
 > Azure Files is part of the Azure Storage platform. Some of the capabilities of Azure FIles are common across many Azure Storage services. In this document, we use "Azure Storage" to indicate these common capabilities.
 
