@@ -15,11 +15,14 @@ ms.date: 07/09/2025
 
 # Reliability in Azure Application Gateway v2
 
+Azure Application Gateway v2 is a web traffic load balancer that enables you to manage traffic to your web applications. It provides advanced features like autoscaling, zone redundancy, static VIP addresses, and Web Application Firewall (WAF) integration to deliver highly available and secure application delivery services.
+
 This article describes Azure Application Gateway v2 reliability support, covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support). Learn how to configure your Application Gateway v2 for maximum reliability and fault tolerance in production environments.
 
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
-Azure Application Gateway v2 is a web traffic load balancer that enables you to manage traffic to your web applications. It provides advanced features like autoscaling, zone redundancy, static VIP addresses, and Web Application Firewall (WAF) integration to deliver highly available and secure application delivery services.
+> [!IMPORTANT]
+> The reliability of your overall solution depends on the configuration of the backend resources that Application Gateway routes traffic to. Depending on your solution these might be Azure VMs, Virtual Machine Scale Sets, App Services, and external endpoints. While they're not in the scope of this guide, their availability configurations directly affect your application's resilience. Review the reliability guides for all of the Azure services in your solution to understand how each service supports your reliability requirements. By ensuring that your backend resources are also configured for high availability and zone redundancy, you can achieve end-to-end reliability for your application.
 
 ## Production deployment recommendations
 
@@ -36,8 +39,6 @@ Azure Application Gateway v2 achieves reliability through several architectural 
 - **Autoscaling and High Availability**: Azure Application Gateways are always deployed in a highly available fashion. The service consists of multiple instances that are created as configured (if autoscaling is disabled) or as required by application load (if autoscaling is enabled). Each instance can handle up to 10 Capacity Units, and the platform automatically manages instance creation, health monitoring, and replacement of unhealthy instances.
 - **Zone Redundancy**: When configured for [zone redundancy](#availability-zone-support), Application Gateway v2 distributes instances across multiple availability zones within a region. This provides protection against zone-level failures while maintaining service availability.
 - **Static VIP**: Application Gateway v2 provides a static Virtual IP (VIP) address that doesn't change throughout the lifecycle of the deployment, ensuring consistent DNS resolution and reducing configuration dependencies.
-
-The reliability of your overall solution depends on the configuration of the backend resources, or backend pools, that Application Gateway routes traffic to. Depending on your solution these might be Azure VMs, Virtual Machine Scale Sets, App Services, and external endpoints. While they're not in the scope of this guide, their availability configurations directly affect your application's resilience. Review the reliability guides for all of the Azure services in your solution to understand how each service supports your reliability requirements. By ensuring that your backend resources are also configured for high availability and zone redundancy, you can achieve end-to-end reliability for your application.
 
 ## Transient faults
 
@@ -56,86 +57,119 @@ For applications hosted behind Application Gateway, implement the Health Endpoin
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Application Gateway v2 supports zone redundancy, which provides enhanced fault tolerance by distributing gateway instances across multiple availability zones within a region. Instances are spread across 2 or more availability zones in the region. For example, in a region with three availability zones, a zone-redundant Application Gateway v2 deployment will have instances in at least two of those zones. Depending on region capacity and platform decisions, it may be only two zones, or it may be all three zones.
+Azure Application Gateway offers two types of availability zone support when you deploy a Standard_v2 or WAF_v2 gateway in a supported region:
+	
+- *Zone-redundant*: Provides autoamtic redundancy for service components. Azure automatically replicates the service components across two or more availability zones.
+
+- *Zonal*: The Application Gateway service components are deployed in a single zone that you select within an Azure region. All of the instances are placed into the same availability zone.
+
+    > [!IMPORTANT]
+    > Pinning to a single availability zone is only recommended when [cross-zone latency](./availability-zones-overview.md#inter-zone-latency) is too high for your needs, and when you have verified that the latency doesn't meet your requirements. By itself, a zonal instance doesn’t provide resiliency to an availability zone outage. To improve the resiliency of a zonal Application Gateway deployment, you need to explicitly deploy separate instances into multiple availability zones and configure traffic routing and failover.
+
+If you don't configure an Application Gateway to be zonal then it's considered to be *nonzonal* or *regional*. Nonzonal gateways can be placed in any availability zone within the region. If any availability zone in the region experiences an outage, nonzonal application gateways might be in the affected zone and could experience downtime.
 
 ### Region support
 
-Zone-redundant Application Gateway v2 resources can be deployed in any region that supports availability zones. For the complete list of supported regions, see [Azure regions with availability zone support](../reliability/availability-zones-region-support.md).
+Azure Application Gateway supports availability zones for the Standard_v2 and WAF_v2 tiers in all of the [Azure regions that support availability zones](./regions-list.md).
 
 ### Requirements
 
-- You must use the **Standard_v2** or **WAF_v2** SKU to enable zone redundancy. The **Basic** SKU (preview) does not support zone redundancy
-- Zone redundancy must be configured during gateway creation and can't be changed after deployment
+You must use the **Standard_v2** or **WAF_v2** SKU to enable availability zone suport. The **Basic** SKU (preview) does not support availability zones.
+
+Availability zones must be configured during gateway creation and can't be changed after deployment.
 
 ### Considerations
 
-- Zone redundancy distributes instances automatically across available zones in the region.
-- Backend pools, which host your backend resources, should also be configured for zone distribution to maintain end-to-end resilience. This means ensuring that the backend resources, like virtual machines or App Services, are also deployed across multiple availability zones. This ensures end-to-end resilience, not just at the gateway layer.
 - New instance provisioning during scaling events may take 3-5 minutes.
+- Zone-redundant gateways are spread across 2 or more availability zones in the region. For example, in a region with three availability zones, a zone-redundant Application Gateway v2 deployment will have instances in at least two of those zones. Depending on region capacity and platform decisions, it may be only two zones, or it may be all three zones.
 
 ### Cost
 
-Zone redundancy for Application Gateway v2 doesn't incur extra charges beyond the standard capacity unit pricing. For pricing details, see [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
+Availability zone support for Application Gateway v2 doesn't incur extra charges beyond the standard capacity unit pricing. For pricing details, see [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 ### Configure availability zone support
 
-- **Create a new zone-redundant Application Gateway v2 resource:** To create a zone-redundant Application Gateway v2:
-  - **Azure portal**: The portal automatically creates zone-redundant Application Gateway v2 resources by default. You can verify this by checking the "Availability zones" section in the resource properties after creation.
-  - **Azure CLI**: Use the `--zones` parameter when creating the Application Gateway
-  - **Azure PowerShell**: Use the `-Zone` parameter in the `New-AzApplicationGateway` command
-  - **Bicep/ARM templates**: Configure the `zones` property in the resource definition
+This section explains how to configure availability zone support for your application gateway instances.
 
-  For detailed deployment guidance, see [Create an autoscaling, zone redundant application gateway](../application-gateway/tutorial-autoscale-ps.md)
+- **Create a new Application Gateway v2 resource with availability zone support:** The approaches you use to configure availability zones depend on the tooling you use.
 
-- **Enable zone redundancy on an existing Application Gateway v2 resource:** Zone redundancy can only be configured when creating a new Application Gateway v2 resource. Existing non-zone-redundant gateways can't be converted to use availability zones and must be replaced with new zone-redundant deployments. For more information, see [Migrate Application Gateway to availability zone support](./migrate-app-gateway-v2.md).
+    - *Azure portal:* The portal automatically creates zone-redundant Application Gateway v2 resources by default. You can verify this by checking the "Availability zones" section in the resource properties after creation.
+    - *Azure CLI:* You should explicitly select zones by using the `--zones` parameter when creating the Application Gateway. If you don't specify zones, the gateway is nonzonal.
+    - *Azure PowerShell:* Use the `-Zone` parameter in the `New-AzApplicationGateway` command. If you don't specify zones, the gateway is nonzonal.
+    - *Bicep/ARM templates:*: Configure the `zones` property in the resource definition. If you don't specify zones, the gateway is nonzonal.
 
-- **Disable zone redundancy:** Zone redundancy can't be disabled.
+    > [!NOTE]
+    > [!INCLUDE [Availability zone numbering](./includes/reliability-availability-zone-numbering-include.md)]
 
-> [!NOTE]
-> While not recommended for reliability, you can create a single-zone Application Gateway v2 deployment by specifying a single availability zone during creation when using the Azure CLI, PowerShell, or ARM/Bicep templates. This configuration is not zone-redundant and doesn't provide the same level of fault tolerance as a multi-zone deployment.
+    For detailed guidance about deploying a zone-redundant gateway, see [Create an autoscaling, zone redundant application gateway](../application-gateway/tutorial-autoscale-ps.md)
+
+- **Change the availability zone configuration of an existing Application Gateway v2 resource:** Availability zones can only be configured when creating a new Application Gateway v2 resource. Existing non-zone-redundant gateways can't be converted to use availability zones and must be replaced with new zone-redundant deployments. For more information, see [Migrate Application Gateway to availability zone support](./migrate-app-gateway-v2.md).
+
+- **Disable availability zone support:** Availability zone support can't be disabled.
 
 ### Capacity planning and management
 
-When planning for zone failures, consider that instances in surviving zones can experience increased load, and connections may experience brief interruptions, usually a few seconds, as traffic is redistributed. Configure autoscaling with appropriate maximum instance counts to handle potential traffic redistribution during zone outages. Monitor capacity metrics and adjust scaling parameters based on your traffic patterns and performance requirements.
+When planning for zone failures for a zone-redundant application gateway or multiple zonal gateways deployed into multiple zones, consider that instances in surviving zones can experience increased load, and connections may experience brief interruptions, usually a few seconds, as traffic is redistributed. Configure autoscaling with appropriate maximum instance counts to handle potential traffic redistribution during zone outages. Monitor capacity metrics and adjust scaling parameters based on your traffic patterns and performance requirements.
 
 ### Normal operations
 
-The following section describes what to expect when Application Gateway v2 is configured for zone redundancy and all availability zones are operational:
+The following section describes what to expect when Application Gateway v2 is configured with availability zone support and all availability zones are operational:
 
-- **Traffic routing between zones**: When zone redundancy is enabled, Application Gateway automatically distributes incoming requests across instances in all available zones. This active-active configuration ensures optimal performance and load distribution under normal operating conditions.
+- **Traffic routing between zones**: Application Gateway automatically distributes incoming requests across instances in all of the zones that your gateway uses. This active-active configuration ensures optimal performance and load distribution under normal operating conditions.
 
-- **Instance management**: The platform automatically manages instance placement across zones, replacing failed instances and maintaining the configured instance count. Health monitoring ensures that only healthy instances receive traffic.
+- **Instance management**: The platform automatically manages instance placement across the zones your gateway u ses, replacing failed instances and maintaining the configured instance count. Health monitoring ensures that only healthy instances receive traffic.
 
 ### Zone-down experience
 
-The following section describes what to expect when Application Gateway v2 is configured for zone redundancy and one or more availability zones are unavailable:
+The following section describes what to expect when Application Gateway v2 is configured with availability zone support and one or more availability zones are unavailable:
 
-- **Detection and response**: Microsoft manages the detection of zone failures and automatically initiates failover. No customer action is required.
+- **Detection and response**: Responsibility for detection and response depends on the availability zone configuration your instance uses.
+
+  - *Zone-redundant:* Microsoft manages the detection of zone failures and automatically initiates failover. No customer action is required.
+
+  - *Zonal:* You need to detect the loss of an availability zone and initiate a failover to a secondary instance that you create in another availability zone.
 
 - **Notification**: Zone failure events can be monitored through Azure Service Health and Resource Health. Set up alerts on these services to receive notifications of zone-level issues.
 
-- **Active requests**: Requests being processed by instances in the failed zone are terminated and should be retried by clients, following the guidance for handling other [transient faults](#transient-faults). New requests are automatically routed to healthy zones.
+- **Active requests**: Requests being processed by instances in the failed zone are terminated and should be retried by clients, following the guidance for handling other [transient faults](#transient-faults).
 
 - **Expected data loss**: Zone failures aren't expected to cause data loss as Application Gateway is a stateless service.
 
-- **Expected downtime**: During zone outages, connections may experience brief interruptions, typically lasting a few seconds, as traffic is redistributed.
+- **Expected downtime**: The downtime you can expect depends on the availability zone configuration your instance uses:
 
-- **Traffic rerouting**: Application Gateway immediately redistributes traffic to instances in healthy zones. The platform can create other instances in surviving zones if needed to maintain capacity.
+  - *Zone-redundant:* During zone outages, connections may experience brief interruptions, typically lasting a few seconds, as traffic is redistributed.
+
+  - *Zonal:* When a zone is unavailable, your instance is unavailable until the availability zone recovers.
+
+- **Traffic rerouting**: The traffic rerouting behavior depends on the availability zone configuration that your instance uses. 
+
+  - *Zone-redundant:* Application Gateway immediately redistributes traffic to instances in healthy zones. The platform can create other instances in surviving zones if needed to maintain capacity.
+
+  - *Zonal:* When a zone is unavailable, your instance is unavailable. If you have a secondary instance in another availability zone, you're responsible for rerouting traffic to that secondary instance.
+
 
 > [!NOTE]
 > During a zone outage, traffic is rerouted to healthy zones. However, new instances may not always be created in other zones due to `zoneBalance=false` setting.
 
 ### Failback
 
-When the affected availability zone recovers, Application Gateway automatically:
+The failback behavior depends on the availability zone configuration that your instance uses:
 
-- Restores instances in the recovered zone
-- Removes any temporary instances that were created in other zones during the outage
-- Returns to normal traffic distribution across all available zones
+- *Zone-redundant:* When the affected availability zone recovers, Application Gateway automatically:
+
+  - Restores instances in the recovered zone
+  - Removes any temporary instances that were created in other zones during the outage
+  - Returns to normal traffic distribution across all available zones
+
+- *Zonal:* You're responsible for rerouting traffic to the instance in the original availability zone after the availability zone recovers.
 
 ### Testing for zone failures
 
-The Azure Application Gateway platform fully manages traffic routing, failover, and failback for zone-redundant resources. Because Microsoft manages this feature, you don't need to initiate or validate availability zone failure processes. The platform handles all zone failure scenarios transparently.
+The options for testing for zone failures depend on the availability zone configuration that your instance uses:
+
+- *Zone-redundant:* The Azure Application Gateway platform fully manages traffic routing, failover, and failback for zone-redundant resources. Because Microsoft manages this feature, you don't need to initiate or validate availability zone failure processes. The platform handles all zone failure scenarios transparently.
+
+- *Zonal:* You can simulate some aspects of the failure of an availability zone by explicitly stopping an Application Gateway resource. The gateway continues to respond to incoming TCP requests but doesn't process those requests. For more information, see [How can I stop and start Application Gateway?](/application-gateway/application-gateway-faq#how-can-i-stop-and-start-application-gateway).
 
 ## Multi-region support
 
@@ -155,11 +189,11 @@ For an example approach, see [Use Azure App Gateway with Azure Traffic Manager](
 
 ## Backups
 
-Azure Application Gateway v2 is a stateless service that doesn't require traditional backup and restore operations. All configuration data is stored in Azure Resource Manager and can be redeployed using Infrastructure as Code (IaC) approaches.
+Azure Application Gateway v2 is a stateless service that doesn't require traditional backup and restore operations. All configuration data is stored in Azure Resource Manager and can be redeployed using Infrastructure as Code (IaC) approaches, such as Bicep files or Azure Resource Manager templates (ARM templates).
 
 For configuration management and disaster recovery:
 
-- Export Bicep files or ARM templates your Application Gateway deployment's configuration
+- Define your Application Gateway deployment's configuration by using Bicep files or ARM templates, or export an existing gateway's configuration
 - Store TLS certificates in Azure Key Vault for secure management and replication
 - Document and version control custom configurations, rules, and policies
 - Implement automated deployment pipelines for consistent gateway provisioning
@@ -169,19 +203,10 @@ For configuration management and disaster recovery:
 
 ## Service-level agreement
 
-The service-level agreement (SLA) for Azure Application Gateway v2 describes the expected availability of the service and the conditions that must be met to achieve that availability expectation:
+The service-level agreement (SLA) for Azure Application Gateway describes the expected availability of the service. It also describes the conditions that must be met to achieve that availability expectation. To understand those conditions, it's important that you review the [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
-- **Standard_v2 SKU**: Provides 99.95% availability SLA
-- **Basic SKU (preview)**: Provides 99.9% availability SLA
-- **Zone redundancy**: When enabled, increases the uptime percentage defined in the SLA
+The Standard_v2 and WAF_v2 SKUs provide a higher SLA than the Basic SKU (in preview).
 
-Key SLA requirements:
-
-- Deploy a minimum of two instances for the Standard_v2 SKU to qualify for the SLA.
-- Enable zone redundancy to receive enhanced SLA benefits.
-- Configure health probes for all backend targets to ensure proper health monitoring.
-- Ensure network connectivity and all dependent resources meet their respective SLA requirements.
-
-For complete SLA details, see [SLA for Application Gateway](https://azure.microsoft.com/support/legal/sla/application-gateway/).
+In order to be eligible for the availabilty SLA, you must deploy a minimum of two instances, and you must configure autoscale, zone redundancy, or both.
 
 ## Related content
