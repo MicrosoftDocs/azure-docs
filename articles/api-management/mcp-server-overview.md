@@ -157,7 +157,7 @@ MCP servers in API Management are available in the following service tiers:
 
 * [Use the Azure API Management extension for VS Code to import and manage APIs](visual-studio-code-tutorial.md)
 
-* [Register and discover remote MCP servers in Azure API Center](../articles/api-center/register-discover-mcp-server.md)
+* [Register and discover remote MCP servers in Azure API Center](../api-center/register-discover-mcp-server.md)
 
 * [Expose REST API in API Management as an MCP server](export-rest-mcp-server.md)
 

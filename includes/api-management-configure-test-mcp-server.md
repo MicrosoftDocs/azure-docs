@@ -13,7 +13,7 @@ For a tutorial on how to configure policies, see [Transform and protect your API
 
 To configure policies for the MCP server:
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-    [!INCLUDE [preview-callout-mcp-feature-flag](preview-callout-mcp-feature-flag.md)]
+    [!INCLUDE [preview-callout-mcp-feature-flag](../articles/api-management/includes/preview/preview-callout-mcp-feature-flag.md)]
 
 1. In the left-hand menu, under **APIs**, select **MCP servers**.
 1. Select the MCP server that you created.
