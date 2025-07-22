@@ -156,23 +156,18 @@ To add a service principal to your Azure DevOps organization:
 1. Sign in to your Azure DevOps organization and open **Organization settings**.
 1. In the left menu, select **Users**.
 1. On the **Users** page, select **Add users**.
-1. Enter the service principal's Application ID (appId) as the user email.
-   
-  :::image type="content" source="media/how-to-customizations-connect-resource-repository/dev-box-customizations-devops-add-service-principal.png" alt-text="Screenshot showing how to add a service principal to Azure DevOps.":::
+1. In the **Add new users** dialog, enter the following information:
 
-For details on how to add users to DevOps organizations, see [Add organization users and manage access](/azure/devops/organizations/accounts/add-organization-users).
+  :::image type="content" source="media/how-to-customizations-connect-resource-repository/dev-box-customizations-devops-add-user.png" alt-text="Screenshot of the Add new users dialog in Azure DevOps, showing fields for user email, access level, project, and group assignment." lightbox="media/how-to-customizations-connect-resource-repository/dev-box-customizations-devops-add-user.png":::
 
-#### Add the service principal to the Readers group
+  - **Users**: Service principal's Application ID (appId) as the user email.
+  - **Access Level**: Select **Basic**.
+  - **Add to project**: Select the project where you want to add the service principal.
+  - **Azure DevOps groups**: Assign the service principal to the **Readers** group.
 
-To add the service principal to the **Readers** group:
- 
-1. Assign the user to the **Readers** group.
- 
-  :::image type="content" source="media/how-to-customizations-connect-resource-repository/dev-box-customizations-devops-add-readers.png" alt-text="Screenshot showing how to add a user to the Readers group in Azure DevOps.":::
- 
 1. Complete the process to grant the necessary permissions.
 
-For detailed steps, see [Add users and groups to Azure DevOps](/azure/devops/organizations/security/add-remove-manage-user-group-security-group).
+For details on how to add users to DevOps organizations, see [Add organization users and manage access](/azure/devops/organizations/accounts/add-organization-users).
 
 ## Related content
 
