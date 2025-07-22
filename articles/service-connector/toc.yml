@@ -12,12 +12,7 @@ items:
   expanded: true
   items:
     - name: Azure App Service
-      expanded: false
-      items: 
-        - name: Azure portal
-          href: quickstart-portal-app-service-connection.md
-        - name: Azure CLI
-          href: quickstart-cli-app-service-connection.md
+      href: quickstart-portal-app-service-connection.md
     - name: Azure Container Apps
       expanded: false
       items: 
@@ -40,12 +35,7 @@ items:
         - name: Azure CLI
           href: quickstart-cli-aks-connection.md
     - name: Azure Spring Apps
-      expanded: false
-      items: 
-        - name: Azure portal
-          href: quickstart-portal-spring-cloud-connection.md
-        - name: Azure CLI
-          href: quickstart-cli-spring-cloud-connection.md
+      href: quickstart-portal-spring-cloud-connection.md
 - name: Tutorials
   expanded: false
   items: 
