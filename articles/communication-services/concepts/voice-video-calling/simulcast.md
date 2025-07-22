@@ -22,15 +22,15 @@ Simulcast is available in the Azure Communication Services SDK for WebJS and nat
 
 ## How simulcast works
 
-The simulcast feature lets the Azure Communication Services calling SDK send multiple video qualities to the selective forwarding unit (SFU), which then forwards the optimal one to each endpoint based on their bandwidth, CPU, and resolution needs. This approach conserves publisher resources and ensures subscribers get the best available quality. The SFU does not alter video quality; it simply selects which stream to forward.
+The simulcast feature lets the Azure Communication Services calling SDK send multiple video qualities to the selective forwarding unit (SFU), which then forwards the optimal one to each endpoint based on their bandwidth, CPU, and resolution needs. This approach conserves publisher resources and ensures subscribers get the best available quality. The SFU doesn't alter video quality; it simply selects which stream to forward.
 
 ## Supported number of video qualities available with Simulcast
 
-Simulcast streaming from a web desktop endpoint supports up to three distinct video quality levels. No additional API configuration is required to activate Simulcast for Azure Communication Services, as this functionality is enabled by default and available for all video calls.
+Simulcast streaming from a web desktop endpoint supports up to three distinct video quality levels. No other API configuration is required to activate Simulcast for Azure Communication Services, as this functionality is enabled by default and available for all video calls.
 
 ## Available video resolutions
 
-When a participant utilizes simulcast streaming, there are no predefined resolutions for high or low quality video streams. Rather, the delivery of either a single or multiple video streams depends on various factors. If all video subscribers request and can support the highest resolution available, the publisher will transmit only the maximum resolution stream.
+When a participant utilizes simulcast streaming, there are no predefined resolutions for high or low quality video streams. Rather, the delivery of either a single or multiple video streams depends on various factors. If all video subscribers request and can support the highest resolution available, the publisher transmits only the maximum resolution stream.
 
 Simulcast supports the following resolutions:
 
