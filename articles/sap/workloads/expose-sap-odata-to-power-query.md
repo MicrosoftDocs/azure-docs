@@ -8,6 +8,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: how-to
 ms.date: 06/10/2022
 ms.author: mapankra
+# Customer intent: As an data analyst using Microsoft tools, I want to configure SAP Principal Propagation for OData feeds, so that I can enable live data access from SAP in my reports without requiring static data exports.
 ---
 # Enable SAP Principal Propagation for live OData feeds with Power Query 
 
