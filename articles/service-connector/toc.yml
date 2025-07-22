@@ -27,13 +27,8 @@ items:
           href: quickstart-portal-functions-connection.md
         - name: Azure CLI
           href: quickstart-cli-functions-connection.md
-    - name: Azure Kubernetes Service (AKS)
-      expanded: false
-      items: 
-        - name: Azure portal
-          href: quickstart-portal-aks-connection.md
-        - name: Azure CLI
-          href: quickstart-cli-aks-connection.md
+    - name: Azure Kubernetes Service
+      href: quickstart-portal-aks-connection.md
     - name: Azure Spring Apps
       href: quickstart-portal-spring-cloud-connection.md
 - name: Tutorials

@@ -82,7 +82,7 @@ You use Service Connector to create a new service connection in Azure Spring App
 
     :::image type="content" source="./media/azure-spring-apps-quickstart/select-app.png" alt-text="Screenshot of the Azure portal, selecting an app.":::
 
-1. Select **Service Connector** from the left table of contents and select **Create**.
+1. Select **Service Connector** from the service menu and select **Create**.
     :::image type="content" source="./media/azure-spring-apps-quickstart/create-connection.png" alt-text="Screenshot of the Azure portal, selecting the button to create a connection.":::
 
 1. Select or enter the following settings.
@@ -112,9 +112,6 @@ You use Service Connector to create a new service connection in Azure Spring App
 ::: zone pivot="azure-cli"
 
 ### [Managed identity](#tab/Using-Managed-Identity)
-
-> [!NOTE]
-> To use a managed identity, you must have permission to modify [role assignments in Microsoft Entra ID](/entra/identity/role-based-access-control/manage-roles-portal). If necessary, ask your subscription owner to grant you this permission.
 
 1. Run the `az spring connection create` command to connect application deployed to Azure Spring Apps to a Blob Storage resource, using a system-assigned managed identity.
 
@@ -195,8 +192,5 @@ The output also displays the provisioning state of your connections: failed or s
 
 Check the guides below for more information about Service Connector and Azure Spring Apps:
 
-> [!div class="nextstepaction"]
-> [Tutorial: Azure Spring Apps + MySQL](./tutorial-java-spring-mysql.md)
-
-> [!div class="nextstepaction"]
-> [Tutorial: Azure Spring Apps + Apache Kafka on Confluent Cloud](./tutorial-java-spring-confluent-kafka.md)
+- [Tutorial: Azure Spring Apps + MySQL](./tutorial-java-spring-mysql.md)
+- [Tutorial: Azure Spring Apps + Apache Kafka on Confluent Cloud](./tutorial-java-spring-confluent-kafka.md)

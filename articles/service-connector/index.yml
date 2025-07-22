@@ -47,10 +47,8 @@ landingContent:
             url: quickstart-portal-functions-connection.md
           - text: Connect Azure Functions - Azure CLI
             url: quickstart-cli-functions-connection.md
-          - text: Connect Azure Kubernetes Service (AKS) - Azure portal
+          - text: Connect Azure Kubernetes Service
             url: quickstart-portal-aks-connection.md
-          - text: Connect Azure Kubernetes Service (AKS) - Azure CLI
-            url: quickstart-cli-aks-connection.md
           - text: Connect Azure Spring Apps 
             url: quickstart-portal-spring-cloud-connection.md
 

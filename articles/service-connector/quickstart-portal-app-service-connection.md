@@ -56,12 +56,12 @@ This article provides instructions for both the Azure portal and Azure CLI. Sele
 You use Service Connector to create a new service connection in Azure App Service.
 
 ::: zone pivot="azure-portal"
-1. Select the **Search resources, services and docs (G +/)** search bar at the top of the Azure portal, type ***App Services***, and select **App Services**.
+1. Select the **Search resources, services and docs (G +/)** search bar at the top of the Azure portal, type *App Services*, and select **App Services**.
 
     :::image type="content" source="./media/app-service-quickstart/select-app-services.png" alt-text="Screenshot of the Azure portal, selecting App Services.":::
 
 1. Select the App Service resource you want to connect to a target resource.
-1. Select **Settings** > **Service Connector** from the left table of contents. Then select **Create**.
+1. Select **Settings** > **Service Connector** from the service menu. Then select **Create**.
 
     :::image type="content" source="./media/app-service-quickstart/select-service-connector.png" alt-text="Screenshot of the Azure portal, selecting Service Connector and creating new connection.":::
 
@@ -105,9 +105,6 @@ You use Service Connector to create a new service connection in Azure App Servic
 
 ::: zone pivot="azure-cli"
 #### [Using a managed identity](#tab/Using-Managed-Identity)
-
-> [!IMPORTANT]
-> Using Managed Identity requires you have the permission to [Microsoft Entra role assignment](/entra/identity/role-based-access-control/manage-roles-portal). Without this permission, creating a connection will fail. You can ask your subscription owner to grant you this permission or use an access key to create the connection.
 
 Use the Azure CLI [az webapp connection](/cli/azure/webapp/connection) command to create a service connection to a Blob Storage with a system-assigned Managed Identity, providing the following information:
 
@@ -176,8 +173,5 @@ az webapp connection list -g "<your-app-service-resource-group>" -n "<your-app-s
 
 Follow the tutorials below to start building your own application with Service Connector.
 
-> [!div class="nextstepaction"]
-> [Tutorial: WebApp + Storage with Azure CLI](./tutorial-csharp-webapp-storage-cli.md)
-
-> [!div class="nextstepaction"]
-> [Tutorial: WebApp + PostgreSQL with Azure CLI](./tutorial-django-webapp-postgres-cli.md)
+- [Tutorial: WebApp + Storage with Azure CLI](./tutorial-csharp-webapp-storage-cli.md)
+- [Tutorial: WebApp + PostgreSQL with Azure CLI](./tutorial-django-webapp-postgres-cli.md)

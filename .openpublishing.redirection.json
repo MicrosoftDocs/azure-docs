@@ -6239,9 +6239,14 @@
       "redirect_url": "/azure/service-connector/quickstart-portal-spring-cloud-connection",
       "redirect_document_id": false
     },
-      {
+    {
       "source_path_from_root": "/articles/service-connector/quickstart-cli-app-service-connection.md",
       "redirect_url": "/azure/service-connector/quickstart-portal-app-service-connection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-connector/quickstart-cli-aks-connection.md",
+      "redirect_url": "/azure/service-connector/quickstart-portal-aks-connection",
       "redirect_document_id": false
     },
     {
