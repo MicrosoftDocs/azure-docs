@@ -28,7 +28,7 @@ Device replacement may be required in the following situations:
 
 ## Prerequisites
 
-To ensure a smooth and timely RMA process, verify the following before initiating deployment:
+To ensure a smooth and timely RMA process, verify the following prerequisites before initiating deployment:
 
   - Azure CLI is installed and properly configured
 
@@ -97,7 +97,7 @@ az networkfabric device update \
 
 Error Recovery Guidance:
 
-  - If RMA fails due to an incorrect serial number, re-patching is allowed without a support ticket.
+  - If RMA fails due to an incorrect serial number, repatching is allowed without a support ticket.
 
   - If validation fails after device bootstrap, the system returns the status: Device Unable to Boot Up - Failed.
 
@@ -120,7 +120,7 @@ This action sets the following states:
 
   - Fabric Administrative State: EnabledDegraded
 
-The device boots into its base configuration using the maintenance profile. This applies only to TOR and CE device types.
+The device boots into its base configuration using the maintenance profile. This condition applies only to TOR and CE device types.
 
 4. Set RMA State.
 
