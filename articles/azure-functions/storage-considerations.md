@@ -1,6 +1,6 @@
 ---
 title: Storage considerations for Azure Functions
-description: Learn about the storage requirements of Azure Functions and about encrypting stored data, including important considerations for your function instances.
+description: Learn about the storage requirements of Azure Functions and about encrypting stored data, including important considerations for your function app instances.
 ms.topic: conceptual
 ms.custom:
   - ignite-2024
@@ -189,7 +189,7 @@ You should also note the following considerations:
 - Portal editing isn't supported.
 - Log streaming experiences in clients such as the Azure portal default to file system logs. You should instead rely on Application Insights logs.
 
-If the preceding requirements suit your scenario, you can proceed to create a function app without Azure Files. Crete an app without the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE` app settings in one of these ways: 
+If the preceding requirements suit your scenario, you can proceed to create a function app without Azure Files. Create an app without the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE` app settings in one of these ways: 
 
 - Bicep/ARM templates: remove the two app settings from the ARM template or Bicep file and then deploy the app using the modified template. 
 - The Azure portal: unselect **Add an Azure Files connection** in the **Storage** tab when you create the app in the Azure portal.
