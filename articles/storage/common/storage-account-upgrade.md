@@ -23,6 +23,9 @@ Upgrading to a general-purpose v2 storage account from your general-purpose v1 o
 > [!IMPORTANT]
 > Upgrading a general-purpose v1 or Blob storage account to general-purpose v2 is permanent and cannot be undone.
 
+> [!IMPORTANT]
+> Support general-purpose v1 accounts will be ending in September 2026. Please see the GPv1 storage account retirement overview for more information.
+
 [!INCLUDE [GPv1 support statement](../../../includes/storage-account-gpv1-support.md)]
 
 ## Upgrade an account
