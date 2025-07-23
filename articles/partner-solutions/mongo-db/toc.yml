@@ -37,7 +37,7 @@ items:
   - name: Python
     href: /python/api/overview/azure/mgmt-mongodbatlas-readme
   - name: Go
-    href: https://github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/mongodbatlas/armmongodbatlas
+    href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/mongodbatlas/armmongodbatlas
     
   
     
