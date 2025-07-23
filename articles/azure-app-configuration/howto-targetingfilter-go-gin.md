@@ -223,7 +223,7 @@ In this section, you create a web application that allows users to sign in and u
 
 ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
-```golanglang
+```golang
 package main
 
 import (
@@ -276,7 +276,7 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
 
 ### [Connection string](#tab/connection-string)
 
-```golanglang
+```golang
 package main
 
 import (
