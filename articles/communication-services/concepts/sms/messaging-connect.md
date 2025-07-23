@@ -242,7 +242,7 @@ There are no subscription restrictions. You can use Messaging Connect with any A
 
 If you prefer to consolidate charges into your Azure invoice, you can request that the partner offer Messaging Connect through the Azure Marketplace.
 Here’s how the Marketplace flow works:
-1.	You ask the partner (for example, Infobip) to submit a private offer via Azure Marketplace.
+1.	You ask the partner (Infobip) to submit a private offer via Azure Marketplace.
 2.	Your Azure administrator accepts the offer in the Azure portal.
 3.	Each month, the partner sends usage data to Microsoft.
 4.	Microsoft bills you on behalf of the partner (a pass-through charge).
