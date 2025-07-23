@@ -78,17 +78,17 @@ If your organization or company has partnered with Microsoft or works with Micro
 
 If you have a support plan and you need technical help, create a support request in the Azure portal:
 
-* Search for Help + support in the Azure portal.
-* Select Create a support request.
-* For Summary, type a description of your issue.
-* For Issue type, select Technical.
-* For Subscription, select your subscription.
-* For Service, select My services.
-* For Service type, select Storage Account Management.
-* For Resource, select the resource you want to migrate.
-* For Problem type, select Data Migration.
-* For Problem subtype, select Migrate account to new resource group/subscription/region/tenant.
-* Select Next, then follow the instructions to submit your support request.
+1. Search for **Help + support** in the [Azure portal](https://portal.azure.com#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
+1. Select **Create a support request**.
+1. For **Summary**, type a description of your issue.
+1. For **Issue type**, select **Technical**.
+1. For **Subscription**, select your subscription.
+1. For **Service**, select **My services**.
+1. For **Service type**, select **Storage Account Management**.
+1. For **Resource**, select the resource you want to migrate.
+1. For **Problem type**, select **Data Migration**.
+1. For **Problem subtype**, select **Migrate account to new resource group/subscription/region/tenant**.
+1. Select **Next**, then follow the instructions to submit your support request.
 
 
 
