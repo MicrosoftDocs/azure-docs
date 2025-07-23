@@ -4,7 +4,7 @@ description: Learn how to protect your data in Azure Files. Understand the conce
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: overview
-ms.date: 08/04/2024
+ms.date: 07/23/2025
 ms.author: kendownie
 # Customer intent: "As a systems administrator, I want to implement data protection for Azure file shares, so that I can ensure recovery from accidental loss, protect against ransomware, and maintain business continuity."
 ---
