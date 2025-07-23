@@ -6,7 +6,6 @@ ms.author: edbaynash
 ms.topic: conceptual
 ms.date: 07/16/2025
 
-
 #Customer intent: As a security operations center (SOC) analyst, I want to implement best practices for deploying and managing a cloud-based SIEM solution so that I can enhance threat detection, incident response, and overall security posture.
 
 ---
@@ -17,8 +16,11 @@ Best practice guidance is provided throughout the technical documentation for Mi
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
-## Setting up Microsoft Sentinel
+To get started with Microsoft Sentinel, see the [deployment guide](deploy-overview.md), which covers the high level steps to plan, deploy, and fine-tune your Microsoft Sentinel deployment. From that guide, select the provided links to find detailed guidance for each stage in your deployment.
 
+<<<<<<< HEAD
+## Recommended Microsoft security service integrations
+=======
 Start with the [deployment guide for Microsoft Sentinel](deploy-overview.md). The deployment guide covers the high level steps to plan, deploy, and fine-tune your Microsoft Sentinel deployment. From that guide, select the provided links to find detailed guidance for each stage in your deployment.
 
 ## Adopt a single-platform architecture
@@ -26,28 +28,36 @@ Start with the [deployment guide for Microsoft Sentinel](deploy-overview.md). Th
 Microsoft Sentinel is integrated with a modern data lake that offers affordable, long-term storage enabling teams to simplify data management, optimize costs, and accelerate the adoption of AI. The Microsoft Sentinel data lake (preview) enables a single-platform architecture for security data and empowers analysts with a unified query experience while leveraging Microsoft Sentinel’s rich connector ecosystem. For more information, see [Microsoft Sentinel data lake (preview)](datalake/sentinel-lake-overview.md).
 
 ## Microsoft security service integrations
+>>>>>>> 0ed5fa14c7c07cacf9e47dfc308cd405d74a052a
 
 Microsoft Sentinel is empowered by the components that send data to your workspace, and is made stronger through integrations with other Microsoft services. Any logs ingested into products, such as Microsoft Defender for Cloud Apps, Microsoft Defender for Endpoint, and Microsoft Defender for Identity, allow these services to create detections, and in turn provide those detections to Microsoft Sentinel. Logs can also be ingested directly into Microsoft Sentinel to provide a fuller picture for events and incidents.
 
-For example, the following image shows how Microsoft Sentinel ingests data from other Microsoft services, multicloud, and partner platforms to provide coverage for your environment:
+The following illustration shows how Microsoft's XDR solution seamlessly integrates with Microsoft Sentinel.
 
 :::image type="content" source="media/best-practices/azure-sentinel-and-other-services.png"  lightbox="media/best-practices/azure-sentinel-and-other-services.png" alt-text="A diagram showing the Microsoft Sentinel integrating with other Microsoft and partner services.":::
 
 More than ingesting alerts and logs from other sources, Microsoft Sentinel also:
 
-- **Uses the information it ingests with [machine learning](bring-your-own-ml.md)** that allows for better event correlation, alert aggregation, anomaly detection, and more.
-- **Builds and presents interactive visuals via [workbooks](get-visibility.md)**, showing trends, related information, and key data used for both admin tasks and investigations.
-- **Runs [playbooks](tutorial-respond-threats-playbook.md) to act on alerts**, gathering information, performing actions on items, and sending notifications to various platforms.
-- **Integrates with partner platforms**, such as ServiceNow and Jira, to provide essential services for SOC teams.
-- **Ingests and fetches enrichment feeds** from [threat intelligence platforms](threat-intelligence-integration.md) to bring valuable data for investigating.
+- Provides **[threat detection capabilities](overview.md#detect-threats) with artificial intelligence**, allowing you to: 
+    - Build and present interactive visuals via workbooks
+    - Run playbooks to automatically act on alerts
+    - Integrate [machine learning models](bring-your-own-ml.md) to enhance your security operations
+    - Ingest and fetch enrichment feeds from threat intelligence platforms.
+- Provides **[threat investigation capabilities](overview.md#investigate-threats)**, allowing you to visualize and explore alerts and entities, detect anomalies in user and entity behavior, and monitor real-time events during an investigation.
+- **[Collect data](overview.md#collect-data-at-scale)** across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.
+- Provides **[threat response capabilities](overview.md#respond-to-threats)**, such as playbooks that integrate with Azure services and your existing tools.
+- **Integrates with partner platforms** using [Microsoft Sentinel data connectors](connect-data-sources.md), providing essential services for SOC teams.
 
-For more information about integrating data from other services or providers, see [Microsoft Sentinel data connectors](connect-data-sources.md).
+<<<<<<< HEAD
+## Microsoft Sentinel in the Microsoft Defender portal
 
+Consider onboarding Microsoft Sentinel to the Microsoft Defender portal to unify capabilities with Microsoft Defender XDR like incident management and advanced hunting. For more information, see the following articles:
+=======
 If you're using Microsoft Sentinel in the Azure portal, consider onboarding Microsoft Sentinel to the Microsoft Defender portal to unify capabilities with Microsoft Defender XDR like incident management and advanced hunting. For more information, see the following articles:
+>>>>>>> 0ed5fa14c7c07cacf9e47dfc308cd405d74a052a
 
 - [Connect Microsoft Sentinel to Microsoft Defender XDR](/defender-xdr/microsoft-sentinel-onboard)
 - [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
-
 
 ## Incident management and response
 
@@ -74,4 +84,3 @@ The following table provides high-level descriptions for how to use Microsoft Se
 - [On-board Microsoft Sentinel data lake](datalake/sentinel-lake-onboarding.md)
 - [Deployment guide for Microsoft Sentinel](deploy-overview.md)
 - [Protecting MSSP intellectual property in Microsoft Sentinel](mssp-protect-intellectual-property.md)
-
