@@ -141,6 +141,9 @@ items:
       - name: Disk-backed message buffer
         href: manage-mqtt-broker/howto-disk-backed-message-buffer.md
         displayName: MQTT, broker, persistence, storage
+      - name: Broker persistence
+        href: manage-mqtt-broker/howto-broker-persistence.md
+        displayName: MQTT, broker, persistence, storage
       - name: Diagnostic settings
         href: manage-mqtt-broker/howto-broker-diagnostics.md
         displayName: MQTT, broker, metrics, logs
