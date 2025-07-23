@@ -50,7 +50,7 @@ To configure the connector for REST/HTTP, first create a device that defines the
 
 1. Add the details of the endpoint for the connector for REST/HTTP including any authentication credentials:
 
-    :::image type="content" source="media/howto-use-http-connector/add-http-connector-endpoint.png" alt-text="Screenshot that shows how to add a connector for REST/HTTP endpoint" lightbox="media/howto-use-http-connector/add-http-connector-endpoint.png":::
+    :::image type="content" source="media/howto-use-http-connector/add-http-connector-endpoint.png" alt-text="Screenshot that shows how to add a connector for REST/HTTP endpoint." lightbox="media/howto-use-http-connector/add-http-connector-endpoint.png":::
 
     Select **Apply** to save the endpoint.
 
