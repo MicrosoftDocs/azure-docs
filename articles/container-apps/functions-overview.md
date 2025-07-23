@@ -143,6 +143,20 @@ Azure Functions on Container Apps integrate seamlessly with Azure’s observabil
 - **Custom logging:** Supports standard frameworks like ILogger and console logging for structured output.  
 - **Centralized monitoring:** Container Apps environment offers unified dashboards and alerts across all apps.
 
+# Limitations and Considerations
+
+While Azure Functions on Azure Container Apps (ACA) offer powerful capabilities by combining serverless compute with container flexibility, there are important limitations and operational considerations to keep in mind: 
+
+- **Mandatory Storage Account**: Every Functions app deployed on ACA must be linked to a storage account. This is required for managing triggers, logs, and state. Review the [storage account guidance](../azure-functions/storage-considerations.md) for best practices.
+- **Cold Start Latency**: When your container app scales down to zero during idle periods, the first request after inactivity will experience a cold start. This can introduce additional latency. Learn more about [reducing cold start times](../container-apps/cold-start.md).
+- **Application Insights Integration**: For robust monitoring and diagnostics, it is recommended to link your Functions app to an Application Insights resource. See how to [enable App Insights integration](../azure-functions/configure-monitoring.md?tabs=v2#enable-application-insights-integration).
+- **Ingress Requirement for Auto-Scaling**: To enable automatic scaling based on events, ingress must be enabled—either publicly or within the ACA environment.
+- **Functions Proxies**: Not supported. For API gateway scenarios, integrate with Azure API Management instead.
+- **Deployment Slots**: Staging and production slots are not available. Use [blue-green deployment strategies](../container-apps/blue-green-deployment.md) for zero-downtime releases.
+- **Functions Access Keys**: Not supported. Use alternative authentication methods such as anonymous access, API Management, or VNet isolation. For secure key management, consider using Azure Key Vault.
+- **Quota and Resource Limits**: ACA environments have default limits on memory, CPU, and instance counts per region. Review the [environment limits](../container-apps/environment.md#limits-and-quotas) and [default quotas](../container-apps/quotas.md). If your workload requires more resources, you can [request a quota increase](../container-apps/quota-requests.md).
+- **Multi-Revision Storage**: When using multi-revision deployments, it is recommended to assign a separate storage account for each revision to avoid conflicts and ensure isolation.
+
 ## Submit Feedback
 
 Submit an issue or a feature request to the [Azure Container Apps GitHub repo](https://github.com/microsoft/azure-container-apps/issues).
