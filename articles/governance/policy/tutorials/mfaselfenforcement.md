@@ -68,7 +68,7 @@ _Sample Text: To resolve this error, set up MFA at aka.ms/setupMFA. If you set u
 ### 9. Verify existence of the policy assignment
 - Under the 'Assignments' tab, confirm that the policy assignment was successfully created. You can use the search bar and scope bar to easily filter.
   
-:::image type="content" source="../media/multifactor-enforcement/assignment-list-view.png" alt-text="Screenshot of Azure Policy Assignment List View." border="false":::
+:::image type="content" source="../media/multifactor-enforcement/assignment-list.png" alt-text="Screenshot of Azure Policy Assignment List View." border="false":::
 
 
 ## Update the policy assignment to enforcement
