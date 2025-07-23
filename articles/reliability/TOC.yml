@@ -242,7 +242,7 @@
       - name: Disaster recovery
         href: ../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Firewall
-      href: ../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-firewall.md
     - name: Azure Load Balancer
       href: reliability-load-balancer.md 
     - name: Azure Network Watcher
