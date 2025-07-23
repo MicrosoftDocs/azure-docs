@@ -96,7 +96,7 @@ For more information on audited data lake activities, see [Audit log for Microso
 
 ## Supported regions
 
-For a list of supported regions, see [Regions supported for Microsoft Sentinel data lake](../geographical-availability-data-residency#regions-supported-for-microsoft-sentinel-data-lake.md) 
+For a list of supported regions, see [Regions supported for Microsoft Sentinel data lake](../geographical-availability-data-residency.md#regions-supported-for-microsoft-sentinel-data-lake) 
 
  
 ## Get started
