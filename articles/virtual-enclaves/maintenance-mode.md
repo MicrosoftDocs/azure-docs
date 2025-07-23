@@ -87,7 +87,7 @@ Community Deny Assignment: `Allow Dataplane Actions`
 |-------------------------------------------------------------------|--|----------|----------|
 | *                                                                 | Action | Deny all actions except specified in this table | Deny all actions except specified in this table |
 | */read                                                            | NotAction | Allow "read" actions on all resources | Allow "read" actions on all resources |
-| Microsoft.Insights/alertRules/*                                   | NotAction | Allow all actions on "alertRuels" | Allow all actions on "alertRuels" |
+| Microsoft.Insights/alertRules/*                                   | NotAction | Allow all actions on "alertRules" | Allow all actions on "alertRules" |
 | Microsoft.Support/*                                               | NotAction | Allow all actions on "Support" | Allow all actions on "Support" |
 | Microsoft.Resources/tags/*                                        | NotAction | Allow "tags" actions on all resources | Allow "tags" actions on all resources |
 | Microsoft.Network/azureFirewalls/networkRuleCollections/write     | NotAction | Allow "write" actions on networkRuleCollections | Allow "write" actions on networkRuleCollections |
@@ -106,7 +106,7 @@ Enclave Deny Assignment: `Allow Dataplane Actions`
 |-------------------------------------------------------|--|----------|----------|
 | *	                                                    | Action | Deny all actions except specified in this table | Deny all actions except specified in this table |
 | */read                                                | NotAction | Allow "read" actions on all resources | Allow "read" actions on all resources |
-| Microsoft.Insights/alertRules/*                       | NotAction | Allow all actions on "alertRuels" | Allow all actions on "alertRuels" |
+| Microsoft.Insights/alertRules/*                       | NotAction | Allow all actions on "alertRules" | Allow all actions on "alertRules" |
 | Microsoft.Resources/deployments/*                     | NotAction | Allow all actions on "deployments" | Allow all actions on "deployments" |
 | Microsoft.Support/*                                   | NotAction | Allow all actions on "Support" | Allow all actions on "Support" |
 | Microsoft.Network/privateDnsZones/*                   | NotAction | Allow all actions on "privateDnsZones" | Allow all actions on "privateDnsZones" |
@@ -135,7 +135,7 @@ Community Deny Assignment: `Allow Dataplane Actions`
 |-------------------------------------------------------------------|--|----------|----------|
 | *                                                                 | Action | Deny all actions except specified in this table | Deny all actions except specified in this table |
 | */read                                                            | NotAction | Allow "read" actions on all resources | Allow "read" actions on all resources |
-| Microsoft.Insights/alertRules/*                                   | NotAction | Allow all actions on "alertRuels" | Allow all actions on "alertRuels" |
+| Microsoft.Insights/alertRules/*                                   | NotAction | Allow all actions on "alertRules" | Allow all actions on "alertRules" |
 | Microsoft.Support/*                                               | NotAction | Allow all actions on "Support" | Allow all actions on "Support" |
 | Microsoft.Resources/tags/*                                        | NotAction | Allow "tags" actions on all resources | Allow "tags" actions on all resources |
 | Microsoft.Network/azureFirewalls/networkRuleCollections/write     | NotAction | Allow "write" actions on networkRuleCollections | Allow "write" actions on networkRuleCollections |
@@ -154,7 +154,7 @@ Enclave Deny Assignment: `Allow Dataplane Actions`
 |-------------------------------------------------------|--|----------|----------|
 | *	                                                    | Action | Deny all actions except specified in this table | Deny all actions except specified in this table |
 | */read                                                | NotAction | Allow "read" actions on all resources | Allow "read" actions on all resources |
-| Microsoft.Insights/alertRules/*                       | NotAction | Allow all actions on "alertRuels" | Allow all actions on "alertRuels" |
+| Microsoft.Insights/alertRules/*                       | NotAction | Allow all actions on "alertRules" | Allow all actions on "alertRules" |
 | Microsoft.Resources/deployments/*                     | NotAction | Allow all actions on "deployments" | Allow all actions on "deployments" |
 | Microsoft.Support/*                                   | NotAction | Allow all actions on "Support" | Allow all actions on "Support" |
 | Microsoft.Network/privateDnsZones/*                   | NotAction | Allow all actions on "privateDnsZones" | Allow all actions on "privateDnsZones" |
@@ -183,7 +183,7 @@ Community Deny Assignment: `Allow Dataplane Actions`
 |-------------------------------------------------------------------|--|----------|----------|
 | *                                                                 | Action    | Allowed | Deny all actions except specified in this table |
 | */read                                                            | NotAction | Allowed | Allow "read" actions on all resources |
-| Microsoft.Insights/alertRules/*                                   | NotAction | Allowed | Allow all actions on "alertRuels" |
+| Microsoft.Insights/alertRules/*                                   | NotAction | Allowed | Allow all actions on "alertRules" |
 | Microsoft.Support/*                                               | NotAction | Allowed | Allow all actions on "Support" |
 | Microsoft.Resources/tags/*                                        | NotAction | Allowed | Allow "tags" actions on all resources |
 | Microsoft.Network/azureFirewalls/networkRuleCollections/write     | NotAction | Allowed | Allow "write" actions on networkRuleCollections |
@@ -202,7 +202,7 @@ Enclave Deny Assignment: `Allow Dataplane Actions`
 |-------------------------------------------------------|--|----------|----------|
 | *	                                                    | Action | Allowed | Deny all actions except specified in this table |
 | */read                                                | NotAction | Allowed | Allow "read" actions on all resources |
-| Microsoft.Insights/alertRules/*                       | NotAction | Allowed | Allow all actions on "alertRuels" |
+| Microsoft.Insights/alertRules/*                       | NotAction | Allowed | Allow all actions on "alertRules" |
 | Microsoft.Resources/deployments/*                     | NotAction | Allowed | Allow all actions on "deployments" |
 | Microsoft.Support/*                                   | NotAction | Allowed | Allow all actions on "Support" |
 | Microsoft.Network/privateDnsZones/*                   | NotAction | Allowed | Allow all actions on "privateDnsZones" |
