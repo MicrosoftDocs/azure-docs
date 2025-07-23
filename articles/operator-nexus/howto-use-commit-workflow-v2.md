@@ -127,6 +127,10 @@ After validating with ViewDeviceConfiguration, users may choose to discard pendi
 >[!Note]
 > CommitBatchId can be retrieved by performing a GET request on the fabric resource using API version `2024-06-15-preview` or above.
 
+[!IMPORTANT]
+> If your Network Fabric resource is associated with a User Assigned Managed Identity (UAMI)—for example, when using a customer-managed storage account—you must ensure that the Microsoft.ManagedNetworkFabric resource provider has the [Managed Identity Operator (MIO) role](./howto-configure-bring-your-own-storage-network-fabric.md#step3-assign-permissions-to-uami-for-nexus-network-fabric-resource-provider) on the UAMI.
+> Without this permission, the commit discard operation will fail. This requirement is applicable only when the Network Fabric is linked to a UAMI. For deployments without UAMI, no additional permission is needed for commit discard.
+
 ```Azure CLI
 az networkfabric fabric discard-commit-batch \
   --resource-group "example-rg" \
