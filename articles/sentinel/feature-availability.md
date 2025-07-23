@@ -77,7 +77,7 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 |[Microsoft Purview Information Protection](connect-microsoft-purview.md) |Public preview |Yes |No |No |
 |[Microsoft Sentinel solution for Microsoft Business Apps](business-applications/solution-overview.md) | GA |Yes |Yes |Yes |
 |[Office 365](connect-services-api-based.md) |GA |Yes |Yes |Yes |
-|[Summary rules](summary-rules.md) | Public preview |Yes |No |No |
+|[Summary rules](summary-rules.md) | GA |Yes |No |No |
 |[Syslog](connect-syslog.md) |GA |Yes |Yes |Yes |
 |[Syslog via AMA](connect-cef-syslog-ama.md) |GA |Yes |Yes |Yes |
 |[Windows DNS Events via AMA](connect-dns-ama.md) |GA |Yes |Yes |Yes |
