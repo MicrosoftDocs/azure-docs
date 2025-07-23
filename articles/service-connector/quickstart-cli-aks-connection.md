@@ -28,9 +28,9 @@ In this quickstart, you connect Azure Kubernetes Service (AKS) to other Cloud re
 1. If you're using Service Connector for the first time, run the [az provider register](/cli/azure/provider#az-provider-register) command to register the Service Connector and Kubernetes Configuration resource providers.
 
    ```azurecli
-   az provider register -n Microsoft.ServiceLinker
+   az provider register --name Microsoft.ServiceLinker
 
-   az provider register -n Microsoft.KubernetesConfiguration
+   az provider register --name Microsoft.KubernetesConfiguration
    ```
 
    > [!TIP]
@@ -55,7 +55,7 @@ Use the Azure CLI command to create a service connection to a Blob Storage with 
 - **AKS cluster name:** the name of your AKS cluster that connects to the target service.
 - **Target service resource group name:** the resource group name of the Blob Storage.
 - **Storage account name:** the account name of your Blob Storage.
-- **User-assigned identity resource ID:** the resource ID of the user assigned identity that is used to create workload identity
+- **User-assigned identity resource ID:** the resource ID of the user assigned identity that is used to create workload identity.
 
 ```azurecli
 az aks connection create storage-blob \
