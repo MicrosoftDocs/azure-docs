@@ -77,18 +77,15 @@ Azure Application Gateway supports availability zones for the Standard_v2 and WA
 
 ### Requirements
 
-You must use the **Standard_v2** or **WAF_v2** SKU to enable availability zone support. The **Basic** SKU (preview) does not support availability zones.
-
-Availability zones must be configured during gateway creation and can't be changed after deployment.
+You must use the Standard_v2 or WAF_v2 SKU to enable availability zone support. The Basic SKU (preview) does not support availability zones.
 
 ### Considerations
 
-- New instance provisioning during scaling events may take 3-5 minutes.
-- Zone-redundant gateways are spread across two or more availability zones in the region. For example, in a region with three availability zones, a zone-redundant Application Gateway v2 deployment will have instances in at least two of those zones. Depending on region capacity and platform decisions, it may be only two zones, or it may be all three zones.
+Zone-redundant gateways are spread across two or more availability zones in the region. For example, in a region with three availability zones, a zone-redundant Application Gateway v2 deployment will have instances in at least two of those zones. Depending on region capacity and platform decisions, it may be only two zones, or it may be all three zones.
 
 ### Cost
 
-Availability zone support for Application Gateway v2 doesn't incur extra charges beyond the standard capacity unit pricing. For pricing details, see [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
+Availability zone support for Application Gateway v2 doesn't incur extra charges beyond the standard capacity unit pricing. For pricing details, see [Understanding Pricing for Azure Application Gateway and Web Application Firewall](/azure/application-gateway/understanding-pricing) and [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 ### Configure availability zone support
 
@@ -99,11 +96,11 @@ This section explains how to configure availability zone support for your gatewa
   - *Zone-redundant:* New Application Gateway v2 resources are created as zone-redundant by default. Instances are spread across multiple availability zones and can use all zones in the region.
 
     > [!NOTE]
-    > When you deploy a new gateway by using some tooling, the gateway might appear not to be zone-redundant in the Azure portal. However, if it's deployed in a region that supports availability zones, it is zone-redundant by default.
+    > When you deploy a new gateway, the gateway might appear not to be zone-redundant when you check in the Azure portal or in other tooling. However, if it's deployed in a region that supports availability zones, it is guaranteed to be zone-redundant by default.
 
-    You can optionally specify the availability zones to deploy your gateway into. You can deploy a zone-redundant gateway by specifying two or more zones.
+    When you use the Azure CLI, Azure PowerShell, Bicep, ARM templates, or Terraform, you can optionally specify the availability zones to deploy your gateway into. You can deploy a zone-redundant gateway by specifying two or more zones. However, we recommend that you omit the zone list so that your gateway can use all of the availability zones, unless you have a specific reason not to use a particular zone.
 
-    For detailed guidance, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](../application-gateway/quick-create-portal.md).
+    To deploy a new gateway, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](../application-gateway/quick-create-portal.md).
 
   - *Zonal:* You can deploy a zonal gateway by using the following tooling:
 
@@ -114,7 +111,7 @@ This section explains how to configure availability zone support for your gatewa
     > [!NOTE]
     > [!INCLUDE [Availability zone numbering](./includes/reliability-availability-zone-numbering-include.md)]
 
-- **Change the availability zone configuration of an existing Application Gateway v2 resource:** Availability zones can only be configured when creating a new Application Gateway v2 resource. Existing non-zone-redundant gateways can't be converted to use availability zones and must be replaced with new zone-redundant deployments. For more information, see [Migrate Application Gateway to availability zone support](./migrate-app-gateway-v2.md).
+- **Change the availability zone configuration of an existing Application Gateway v2 resource:** Microsoft is automatically upgrading all existing nonzonal gateways to be zone redundant, with no action from you. If you have an older gateway and need to verify whether it's configured for zone redundancy, open a support case.
 
 - **Disable availability zone support:** Availability zone support can't be disabled.
 
@@ -219,8 +216,6 @@ For configuration management and disaster recovery:
 ## Service-level agreement
 
 The service-level agreement (SLA) for Azure Application Gateway describes the expected availability of the service. It also describes the conditions that must be met to achieve that availability expectation. To understand those conditions, it's important that you review the [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
-
-The Standard_v2 and WAF_v2 SKUs provide a higher SLA than the Basic SKU (in preview).
 
 In order to be eligible for the availability SLA, you must deploy a minimum of two instances, and you must configure autoscale, zone redundancy, or both.
 
