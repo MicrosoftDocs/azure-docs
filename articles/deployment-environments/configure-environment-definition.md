@@ -65,7 +65,7 @@ To add an environment definition:
            templatePath: azuredeploy.json
        ```  
 
-      This table describes the fields in the *environment.yaml* file:
+      This table describes the fields in the environment.yaml file:
 
       | Field | Description |
       |-------|-------------|
