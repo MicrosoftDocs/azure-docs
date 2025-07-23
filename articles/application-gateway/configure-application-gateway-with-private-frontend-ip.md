@@ -8,6 +8,7 @@ ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 08/09/2024
 ms.author: mbender
+# Customer intent: "As a network administrator, I want to configure an internal load balancer with a private frontend IP for my application gateway, so that I can manage and optimize traffic for internal applications without exposing them to the Internet."
 ---
 
 # Configure an application gateway with an internal load balancer (ILB) endpoint

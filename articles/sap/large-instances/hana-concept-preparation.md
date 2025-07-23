@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 7/01/2021
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
+# Customer intent: As a cloud infrastructure architect, I want to implement disaster recovery for SAP HANA on Azure Large Instances, so that I can ensure data availability and meet recovery objectives in the event of a system failure.
 ---
 # Disaster Recovery principles and preparation
 

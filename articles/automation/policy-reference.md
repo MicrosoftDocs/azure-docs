@@ -4,6 +4,8 @@ description: Lists Azure Policy built-in policy definitions for Azure Automation
 ms.date: 02/06/2024
 ms.topic: reference
 ms.custom: subject-policy-reference
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 # Azure Policy built-in definitions for Azure Automation
 
@@ -17,7 +19,7 @@ the link in the **Version** column to view the source on the
 
 ## Azure Automation
 
-[!INCLUDE [azure-policy-reference-rp-automation](../../includes/policy/reference/byrp/microsoft.automation.md)]
+[!INCLUDE [azure-policy-reference-rp-automation](~/azure-policy-autogen-docs/includes/policy/reference/byrp/microsoft.automation.md)]
 
 ## Next steps
 

@@ -8,6 +8,7 @@ ms.topic: troubleshooting
 ms.date: 05/24/2024
 ms.author: mbender
 ms.custom: references_regions
+# Customer intent: As a cloud administrator, I want to troubleshoot load balancer health event logs so that I can ensure my application remains available and operates efficiently without connectivity issues.
 ---
 
 # Troubleshoot load balancer health event logs

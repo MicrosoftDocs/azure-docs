@@ -8,6 +8,7 @@ ms.subservice: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 03/29/2023
 ms.author: ananyagarg
+# Customer intent: "As a data owner using SaaS solutions, I want to utilize Mithril Security's tooling for AI models within secure enclaves, so that I can maintain compliance and control over my data while leveraging cloud capabilities."
 ---
 
 # Mithril Security

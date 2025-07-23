@@ -40,6 +40,10 @@ inherits that access to all the subscriptions. One assignment on the management 
 users to have access to everything they need, instead of scripting Azure role-based access control (RBAC) over different
 subscriptions.
 
+### Scenario comparison
+
+[!INCLUDE [scenario-comparison](../includes/scenario-comparison.md)]
+
 ### Important facts about management groups
 
 - A single directory can support 10,000 management groups.

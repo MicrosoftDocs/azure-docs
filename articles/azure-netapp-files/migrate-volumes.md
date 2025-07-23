@@ -34,6 +34,26 @@ You must create Express Route or VPN resources to esnure network connectivity fr
 
 The network connectivity must be in place for all intercluster (IC) LIFs on the source cluster to all IC LIFs on the Azure NetApp Files endpoint.
 
+## Register the feature
+
+You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. 
+
+1. Register the feature: 
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMigrationAssistant
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMigrationAssistant
+    ```
+
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
+
 ## Migrate volumes
 
 1. Create a migration API request to create Azure NetApp Files volumes for each on-premises volume you intend to migrate. 

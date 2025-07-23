@@ -8,6 +8,7 @@ ms.author: akashdubey
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
+# Customer intent: "As a cloud administrator, I want to access troubleshooting resources for BlobFuse2, so that I can efficiently resolve any issues that arise during its use."
 ---
 
 # How to troubleshoot issues in BlobFuse2

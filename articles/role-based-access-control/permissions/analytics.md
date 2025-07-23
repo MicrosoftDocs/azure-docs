@@ -3,9 +3,9 @@ title: Azure permissions for Analytics - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Analytics category.
 ms.service: role-based-access-control
 ms.topic: generated-reference
-author: rolyon
-manager: femila
-ms.author: rolyon
+author: jenniferf-skc
+manager: pmwongera
+ms.author: jfields
 ms.date: 05/25/2025
 ms.custom: generated
 ---
@@ -424,8 +424,8 @@ Azure service: [HDInsight](/azure/hdinsight/)
 > | MICROSOFT.HDINSIGHT/CLUSTERS/UPGRADES/READ | Read Upgrades |
 > | MICROSOFT.HDINSIGHT/LOCATIONS/CHECKNAMEAVAILABILITY/ACTION | Check Name Availability |
 > | MICROSOFT.HDINSIGHT/LOCATIONS/VALIDATECREATEREQUEST/ACTION | Validate Create Requests |
-> | MICROSOFT.HDINSIGHT/LOCATIONS/AVAILABLECLUSTERPOOLVERSIONS/READ | Get Avaliable versions for HDInsight on AKS Cluster Pool |
-> | MICROSOFT.HDINSIGHT/LOCATIONS/AVAILABLECLUSTERVERSIONS/READ | Get Avaliable versions for HDInsight on AKS Cluster |
+> | MICROSOFT.HDINSIGHT/LOCATIONS/AVAILABLECLUSTERPOOLVERSIONS/READ | Get Available versions for HDInsight on AKS Cluster Pool |
+> | MICROSOFT.HDINSIGHT/LOCATIONS/AVAILABLECLUSTERVERSIONS/READ | Get Available versions for HDInsight on AKS Cluster |
 > | Microsoft.HDInsight/locations/azureasyncoperations/read | Read Async Operations |
 > | MICROSOFT.HDINSIGHT/LOCATIONS/BILLINGSPECS/READ | Get Billing Specs |
 > | Microsoft.HDInsight/locations/capabilities/read | Get Subscription Capabilities |
@@ -706,8 +706,8 @@ Azure service: [Azure Synapse Analytics](/azure/synapse-analytics/)
 > | Microsoft.Synapse/workspaces/integrationRuntimes/removeLinks/action | Remove any Integration Runtime link |
 > | Microsoft.Synapse/workspaces/integrationRuntimes/enableInteractiveQuery/action | Enable Interactive query on any Integration Runtime |
 > | Microsoft.Synapse/workspaces/integrationRuntimes/disableInteractiveQuery/action | Disable Interactive query on any Integration Runtime |
-> | Microsoft.Synapse/workspaces/integrationRuntimes/refreshObjectMetadata/action | Refresh Object metadata on any Intergration Runtime |
-> | Microsoft.Synapse/workspaces/integrationRuntimes/getObjectMetadata/action | Get Object metadata on any Intergration Runtime |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/refreshObjectMetadata/action | Refresh Object metadata on any Integration Runtime |
+> | Microsoft.Synapse/workspaces/integrationRuntimes/getObjectMetadata/action | Get Object metadata on any Integration Runtime |
 > | Microsoft.Synapse/workspaces/integrationRuntimes/nodes/read | Get any Integration Runtime Node. |
 > | Microsoft.Synapse/workspaces/integrationRuntimes/nodes/delete | Delete any Integration Runtime Node. |
 > | Microsoft.Synapse/workspaces/integrationRuntimes/nodes/write | Patch any Integration Runtime Node. |

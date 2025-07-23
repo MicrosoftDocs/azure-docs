@@ -188,9 +188,9 @@ This section outlines how to configure authentication and data access in the **A
 
     - Add the following **scopes**:
 
-      - <https://storage.azure.com/.default>
+      - `https://storage.azure.com/.default`
 
-      - <https://geocatalog.spatio.azure.com/.default>
+      - `https://geocatalog.spatio.azure.com/.default`
 
     [ ![Screenshot showing how to add a connection.](media/add-connection.png) ](media/add-connection.png#lightbox)
 

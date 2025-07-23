@@ -46,10 +46,6 @@ This guide shows how to create a unit test definition from a workflow. This defi
 - This release doesn't support the following action types:
 
   - Integration account actions
-  - Data Mapper actions
-  - Custom code actions
-  - XML actions
-  - Liquid actions
   - EDI encode and decode actions
 
 ## Review the basic concepts
@@ -86,7 +82,7 @@ The following list includes basic but important concepts about unit tests for St
    |----------------|-------------|
    | **`Tests`** <br>**\|\| <`logic-app-name`>** | In the **`Tests`** folder, a **<`logic-app-name`>** folder appears when you add unit tests to a logic app project. |
    | **`Tests`** <br>**\|\| <`logic-app-name`>** <br>**\|\|\| <`workflow-name`>** | In the **<`logic-app-name`>** folder, a **<`workflow-name`>** folder appears when you add unit tests for a workflow. |
-   | **`Tests`** <br>**\|\| <`logic-app-name`>** <br>**\|\|\| <`workflow-name`>** <br>**\|\|\|\| `MockOutputs`** <br>**\|\|\|\|\| <`operation-name-outputs`>**.**`cs`** | In the **<`workflow-name`>** folder, the **`MockOutputs`** folder contains a C# (**.cs**) file with strongly-typed classes for each connector operation in the workflow. Each **.cs** file name uses the following format: <br><br>**<`operation-name`>[`Trigger\|Action`]`Output.cs`** <br><br>If a connector operation has *dynamic contracts*, a class appears for each *dynamic type*. A dynamic type refers to an operation parameter that has different inputs and outputs based on the value provided for that parameter. You can use these classes to extend your unit tests and create new mocks from scratch. |
+   | **`Tests`** <br>**\|\| <`logic-app-name`>** <br>**\|\|\| <`workflow-name`>** <br>**\|\|\|\| `MockOutputs`** <br>**\|\|\|\|\| <`operation-name-outputs`>**.**`cs`** | In the **<`workflow-name`>** folder, the **`MockOutputs`** folder contains a C# (**.cs**) file with strongly typed classes for each connector operation in the workflow. Each **.cs** file name uses the following format: <br><br>**<`operation-name`>[`Trigger\|Action`]`Output.cs`** <br><br>If a connector operation has *dynamic contracts*, a class appears for each *dynamic type*. A dynamic type refers to an operation parameter that has different inputs and outputs based on the value provided for that parameter. You can use these classes to extend your unit tests and create new mocks from scratch. |
    | **`Tests`** <br>**\|\| <`logic-app-name`>** <br>**\|\|\| <`workflow-name`>** <br>**\|\|\|\| <`unit-test-name`>** <br>**\|\|\|\|\| <`unit-test-name`>`.cs`** | In the **<`workflow-name`>** folder, the **<`unit-test-name`>** folder contains a **<`unit-test-name`>`.cs`** file. You use this file, which contains a sample C# class and methods, to run and assert results. You can edit this file to match your specific test scenarios. |
 
 ## Review the unit test *.cs file

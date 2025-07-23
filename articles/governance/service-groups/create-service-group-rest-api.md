@@ -62,7 +62,7 @@ endpoint and request body:
 
 
 In the preceding examples, the new service group is created under the root service group. To
-specify a different service group as the parent, use the **properties.parent.id** property.
+specify a different service group as the parent, use the **properties.parent.resourceId** property.
 
 - REST API URI
 
@@ -77,7 +77,7 @@ specify a different service group as the parent, use the **properties.parent.id*
     "properties": {
       "displayName": "Contoso Group",
       "parent": {
-        "id": "/providers/Microsoft.Management/serviceGroups/HoldingGroup"
+        "resourceId": "/providers/Microsoft.Management/serviceGroups/HoldingGroup"
       }
     }
   }

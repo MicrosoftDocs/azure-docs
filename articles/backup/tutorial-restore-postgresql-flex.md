@@ -6,8 +6,9 @@ ms.date: 03/04/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to enable Cross Region Restore for Azure Database for PostgreSQL, so that I can ensure data recovery and perform resiliency drills in a secondary region."
 ---
 
 # Tutorial: Restore Azure Database for PostgreSQL - Flexible Server using Azure portal

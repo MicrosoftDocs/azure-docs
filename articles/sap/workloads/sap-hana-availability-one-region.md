@@ -9,6 +9,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.date: 06/19/2023
 ms.author: juergent
+# Customer intent: As a cloud architect, I want to deploy SAP HANA on Azure with high availability configurations, so that I can ensure my applications remain operational during infrastructure failures.
 ---
 
 # SAP HANA availability within one Azure region

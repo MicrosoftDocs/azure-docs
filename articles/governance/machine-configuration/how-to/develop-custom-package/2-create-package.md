@@ -1,7 +1,7 @@
 ---
 title: How to create custom machine configuration package artifacts
 description: Learn how to create a machine configuration package file.
-ms.date: 02/01/2024
+ms.date: 07/22/2025
 ms.topic: how-to
 ms.custom:
   - build-2025
@@ -51,6 +51,10 @@ This example configuration is for Windows machines. It configures the machine to
 variable sets to `'This was set by machine configuration'`.
 
 ```powershell
+Install-Module -Name PSDscResources
+```
+
+```powershell
 Configuration MyConfig {
     Import-DscResource -Name 'Environment' -ModuleName 'PSDscResources'
     Environment MachineConfigurationExample {
@@ -58,6 +62,26 @@ Configuration MyConfig {
         Value  = 'This was set by machine configuration'
         Ensure = 'Present'
         Target = @('Process', 'Machine')
+    }
+}
+
+MyConfig
+```
+
+This example configuration is for Linux machines. It creates a file at the path `/tmp/myfile`, sets its content to `Hello, world!`, and configures the file with mode `0777`.
+
+```powershell
+Install-Module -Name nxtools
+```
+
+```powershell
+Configuration MyConfig {
+    Import-DscResource -ModuleName 'nxtools'
+    nxFile MyFile {
+        Ensure = 'Present'
+        DestinationPath = '/tmp/myfile'
+        Contents = 'Hello, world!'
+        Mode ='0777'
     }
 }
 

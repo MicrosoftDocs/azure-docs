@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.date: 03/12/2025
 ms.author: abell
 
+# Customer intent: "As a cloud administrator, I want to deploy Azure Bastion automatically with default settings, so that I can securely access virtual machines without requiring public IP addresses or additional configuration."
 ---
 
 # Quickstart: Deploy Azure Bastion automatically

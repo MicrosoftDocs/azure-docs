@@ -7,6 +7,7 @@ ms.service: azure-databox
 ms.topic: concept-article
 ms.date: 09/13/2022
 ms.author: shaas
+# Customer intent: "As a customer using Azure Data Box hardware, I want to understand the terms regarding possession, return, and potential fees for the device, so that I can ensure compliance and avoid unexpected charges during data transfer activities."
 ---
 # Azure Data Box Hardware Additional Terms
 

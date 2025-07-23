@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
 ms.date: 11/30/2023
 ms.author: allensu
+# Customer intent: "As a system administrator, I want to manage DNS records using the command line interface, so that I can efficiently create, update, and delete records in Azure DNS without relying on the graphical interface."
 ---
 
 # Manage DNS records and recordsets in Azure DNS using the Azure CLI

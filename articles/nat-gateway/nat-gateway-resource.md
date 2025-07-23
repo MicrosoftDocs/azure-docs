@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.custom: FY23 content-maintenance
 ms.date: 04/29/2024
 ms.author: allensu
+# Customer intent: "As a network administrator, I want to configure and manage an Azure NAT Gateway, so that I can ensure secure and scalable outbound connectivity for my subnets without requiring complex routing configurations."
 ---
 
 # Azure NAT Gateway resource

@@ -51,7 +51,7 @@
   - name: Code samples
     items:
     - name: .NET
-      href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/streamanalytics/Azure.ResourceManager.StreamAnalytics/samples/Generated/Samples
+      href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/streamanalytics/Azure.ResourceManager.StreamAnalytics/tests/Generated/Samples
     - name: Java
       href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/streamanalytics/azure-resourcemanager-streamanalytics/src/samples/java/com/azure/resourcemanager/streamanalytics/generated
     - name: JavaScript and TypeScript
@@ -862,7 +862,7 @@
   - name: Stream Analytics previews
     href: stream-analytics-previews.md
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/updates/
   - name: Blog
     href: https://techcommunity.microsoft.com/t5/analytics-on-azure/bg-p/AnalyticsonAzure/label-name/Azure%20Stream%20Analytics
   - name: Feedback forum
@@ -880,4 +880,4 @@
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest
   - name: Customer case studies
-    href: https://azure.microsoft.com/case-studies/?service=stream-analytics
+    href: https://www.microsoft.com/customers/search?filters=product%3Aazure&q=stream+analytics

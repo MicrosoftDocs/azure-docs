@@ -4,6 +4,7 @@ description: This quickstart shows how to create a Batch account by using an ARM
 ms.date: 06/13/2024
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+# Customer intent: "As a cloud developer, I want to deploy a Batch account using an ARM template, so that I can manage compute resources and workloads efficiently in my Azure environment."
 ---
 
 # Quickstart: Create a Batch account by using ARM template

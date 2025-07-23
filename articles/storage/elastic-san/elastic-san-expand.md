@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 10/24/2024
 ms.author: rogarana
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
+# Customer intent: As a cloud administrator, I want to resize an Azure Elastic SAN and its volumes through the portal or command line, so that I can optimize storage capacity according to my organization's needs.
 ---
 
 # Resize an Azure Elastic SAN

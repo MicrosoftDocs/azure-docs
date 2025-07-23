@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 06/05/2024
 ms.author: kendownie
+# Customer intent: "As an IT administrator managing Azure File Sync, I want to modify the sync topology of my server endpoints, so that I can ensure data integrity and minimize the risk of errors or data loss during the changes."
 ---
 
 # How to modify your Azure File Sync topology
