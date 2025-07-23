@@ -287,7 +287,7 @@ curl -X DELETE "https://<DNS>/api/os-wellbore-ddms/ddms/v3/wells/<well_id>" \
    -H "Authorization: Bearer <access_token>" \
    -H "data-partition-id: <data-partition-id>"
 ```
-**Response code: 204 <No-content>**
+**Response code: 204 No content**
 
 ## Next step
 

@@ -2,7 +2,7 @@
 title: "Tutorial: Work with Petrel data records by using Petrel DDMS APIs"
 titleSuffix: Microsoft Azure Data Manager for Energy
 description: Learn how to work with Petrel data records in your Azure Data Manager for Energy instance by using Petrel Domain Data Management Services (DDMS) APIs.
-author: preetisingh
+author: Preetisingh
 ms.author: preetisingh
 ms.service: azure-data-manager-energy
 ms.topic: tutorial
