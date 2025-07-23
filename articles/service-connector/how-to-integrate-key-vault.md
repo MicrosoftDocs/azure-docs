@@ -65,7 +65,7 @@ Use the following connection details to connect compute services to Azure Key Va
 
 #### Sample code
 
-To connect to Azure Key Vault using a system-assigned managed identity, refer to the steps and following code.
+To connect to Azure Key Vault using a system-assigned managed identity, refer to the following steps and code.
 [!INCLUDE [code sample for key vault](./includes/code-keyvault-me-id.md)]
 
 ### User-assigned managed identity
@@ -91,7 +91,7 @@ To connect to Azure Key Vault using a system-assigned managed identity, refer to
 
 #### Sample code
 
-To connect to Azure Key Vault using a system-assigned managed identity, refer to the steps and following code.
+To connect to Azure Key Vault using a system-assigned managed identity, refer to the following steps and code.
 [!INCLUDE [code sample for key vault](./includes/code-keyvault-me-id.md)]
 
 ### Service principal
@@ -122,7 +122,7 @@ To connect to Azure Key Vault using a system-assigned managed identity, refer to
 
 #### Sample code
 
-To connect to Azure Key Vault using a system-assigned managed identity, refer to the steps and following code.
+To connect to Azure Key Vault using a system-assigned managed identity, refer to the following steps and code.
 [!INCLUDE [code sample for key vault](./includes/code-keyvault-me-id.md)]
 
 ## Next step
