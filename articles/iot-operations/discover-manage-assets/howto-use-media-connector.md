@@ -50,7 +50,7 @@ To configure the media connector, first create a device that defines the connect
 
 1. Add the details of the endpoint for the media connector including any authentication credentials:
 
-    :::image type="content" source="media/howto-use-media-connector/add-media-connector-endpoint.png" alt-text="Screenshot that shows how to add a media connector endpoint" lightbox="media/howto-use-media-connector/add-media-connector-endpoint.png":::
+    :::image type="content" source="media/howto-use-media-connector/add-media-connector-endpoint.png" alt-text="Screenshot that shows how to add a media connector endpoint." lightbox="media/howto-use-media-connector/add-media-connector-endpoint.png":::
 
     Select **Apply** to save the endpoint.
 
