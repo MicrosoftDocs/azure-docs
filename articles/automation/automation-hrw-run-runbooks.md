@@ -46,12 +46,6 @@ Jobs for Hybrid Runbook Workers run under the local **System** account.
 
 #### Extension-based Hybrid Workers
 
-**PowerShell 7.4**
-
-To run PowerShell 7.4 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Install PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.5).
-
-After PowerShell 7.4 installation is complete, create an environment variable with Variable name as powershell_7_4_path and Variable value as location of the executable *PowerShell*. Restart the Hybrid Runbook Worker after environment variable is created successfully.
-
 > [!NOTE]
 > To create environment variable in Windows systems, follow these steps:
 > 1. Go to **Control Panel** > **System** > **Advanced System Settings**.
@@ -59,6 +53,12 @@ After PowerShell 7.4 installation is complete, create an environment variable wi
 > 1. In **System variables**, select **New**.
 > 1. Provide **Variable name** and **Variable value**, and then select **OK**.
 > 1. Restart the VM or logout from the current user and login to implement the environment variable changes.
+
+**PowerShell 7.4**
+
+To run PowerShell 7.4 runbooks on a Windows Hybrid Worker, install *PowerShell* on the Hybrid Worker. See [Install PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.5).
+
+After PowerShell 7.4 installation is complete, create an environment variable with Variable name as powershell_7_4_path and Variable value as location of the executable *PowerShell*. Restart the Hybrid Runbook Worker after environment variable is created successfully.
 
 **PowerShell 7.2**
 
@@ -97,19 +97,19 @@ If the *Python* executable file is at the default location *C:\Python27\python.e
 >- PowerShell 5.1, PowerShell 7.1(preview), Python 2.7, Python 3.8 runbooks are supported on both extension-based and agent-based Linux Hybrid Runbook Workers. For agent-based workers, ensure the Linux Hybrid Runbook worker version is 1.7.5.0 or above.
 >- PowerShell 7.2 and Python 3.10 (preview) runbooks are supported on extension-based Linux Hybrid Workers only. Ensure the Linux Hybrid worker extension version is 1.1.11 or above.
 
-#### [Extension-based Hybrid Workers](#tab/Lin-extn-hrw)
-
-**PowerShell 7.4**
-
-To run PowerShell 7.4 runbooks on a Linux Hybrid Worker, install *PowerShell* file on the Hybrid Worker. See [Install PowerShell on Linux](/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.5).
-
-After PowerShell 7.4 installation is complete, create an environment variable with **Variable name** as powershell_7_4_path and **Variable value** as location of the executable *PowerShell* file. Restart the Hybrid Runbook Worker after an environment variable is created successfully.
+#### Extension-based Hybrid Workers
 
 > [!NOTE]
 > To create environment variable in Linux systems, follow these steps:
 > 1. Open /etc/environment.
 > 1. Create a new Environment variable by adding VARIABLE_NAME="variable_value" in a new line in /etc/environment (VARIABLE_NAME is the name of the new Environment variable and variable_value represents the value it is to be assigned).
 > 1. Restart the VM or logout from current user and login after saving the changes to /etc/environment to implement environment variable changes.
+
+**PowerShell 7.4**
+
+To run PowerShell 7.4 runbooks on a Linux Hybrid Worker, install *PowerShell* file on the Hybrid Worker. See [Install PowerShell on Linux](/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.5).
+
+After PowerShell 7.4 installation is complete, create an environment variable with **Variable name** as powershell_7_4_path and **Variable value** as location of the executable *PowerShell* file. Restart the Hybrid Runbook Worker after an environment variable is created successfully.
 
 **PowerShell 7.2**
 
@@ -132,21 +132,6 @@ Ensure to add the executable *Python* file to the PATH environment variable and 
 
 To run Python 2.7 runbooks on a Linux Hybrid Worker, install *Python* on the Hybrid Worker.
 Ensure to add the executable *Python* file to the PATH environment variable and restart the Hybrid Runbook Worker after the installation.
-
-#### [Agent-based Hybrid Workers](#tab/Lin-agt-hrw)
-
-Create Service accounts **nxautomation** and **omsagent** for agent-based Hybrid Workers. The creation and permission assignment script can be viewed at [linux data](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data). The accounts, with the corresponding sudo permissions, must be present during [installation of a Linux Hybrid Runbook worker](automation-linux-hrw-install.md).
-
-If you try to install the worker, and the account is not present or doesn't have the appropriate permissions, the installation fails. Do not change the permissions of the `sudoers.d` folder or its ownership. Sudo permission is required for the accounts and the permissions shouldn't be removed. Restricting this to certain folders or commands may result in a breaking change. The **nxautomation** user enabled as part of Update Management executes only signed runbooks.
-
-To ensure the service accounts have access to the stored runbook modules:
-
-- When you use `pip install`, `apt install` or other method for installing packages on Linux, ensure the package is installed for all users. For example `sudo -H pip install <package_name>`.
-- If using [PowerShell on Linux](/powershell/scripting/whats-new/what-s-new-in-powershell-70), when you use the [Install-Module](/powershell/module/powershellget/install-module) cmdlet, be sure to specify `AllUsers` for the `Scope` parameter.
-
-The Automation worker log is located at `/var/opt/microsoft/omsagent/run/automationworker/worker.log`.
-
----
 
 ## Configure runbook permissions
 
