@@ -12,7 +12,7 @@ This guide walks you through the process of applying Azure Policy assignments to
 
 ## Apply Azure Policy enforcement through Azure Portal
 
-### 1. Sign In to Azure Portal
+### 1. Sign into Azure portal
 Navigate to the [Azure portal](https://www.portal.azure.com)
 
 ### 2. Access Azure Policy Service
@@ -21,28 +21,30 @@ Select Policy under Azure services. If you don't see it, type 'Policy' in the se
 :::image type="content" source="../media/multifactor-enforcement/policy-assignment-view.png" alt-text="Screenshot of Azure Policy Assignment View." border="false":::
 
 ### 3. Choose the Scope for Assignment
-- In the Policy dashboard, click on Assignments in the left pane.
-- Click Assign policy at the top of the assignments page.
-- In the Scope section, click Select scope.
-- Choose the appropriate resource group, subscription, or management group where you want to apply the policy. Click Select to confirm your choice.
+- Click 'Assignments' in the left pane of the Policy dashboard, .
+- Click 'Assign policy' at the top of the assignments page.
+- Click 'Select scope' in the Scope section,.
+- Select the appropriate resource group, subscription, or management group where you want to apply the policy
+- Click Select to confirm your choice.
 
 ### 4. Configure Selectors for gradual rollout of policy enforcement
   > [!NOTE]
   > To enable safe rollout of policy enforcement, we recommend using Azure Policy’s resource selectors to gradually rollout policy enforcement across your resources.
-- In the 'Basics' tab, you see 'Resource Selectors'. Click expand.
-- Click 'Add a resource selector'
+- Click 'expand' on the 'Resource Selectors' section of the Basics tab.
+- Click 'Add a resource selector' 
 :::image type="content" source="../media/multifactor-enforcement/policy-resource-selectors.png" alt-text="Screenshot of Azure Policy Assignment Creation View." border="false":::
-- In your resource selector, add a name for your selector.
-- Toggle resourceLocation to enable it. Pick a few low-risk regions that you’d like to enforce on. The policy assignment evaluates Azure resources in those regions.
+- Add a name for your selector
+- Toggle resourceLocation to enable it.
+- Pick a few low-risk regions that you’d like to enforce on. The policy assignment evaluates Azure resources in those regions.
 - You can update this assignment later to add more regions by adding more resourceLocation selectors or updating the existing resourceLocation selector to add more regions.
   
 :::image type="content" source="../media/multifactor-enforcement/resource-selector-creation.png" alt-text="Screenshot of Azure Policy Selector Creation View." border="false":::
 
 ### 5. Select a Policy Definition
-- Under 'Basics', click on Policy definition.
+- Click on Policy definition under 'Basics'.
 - Browse or search for the multifactor policy definition – there are 2 of them. Pick one for now:
-- [[Preview]: Users must authenticate with multifactor authentication to delete resources - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdb4a9d17-db75-4f46-9fcb-9f9526604417/version/1.0.0-preview/scopes/%5B%22%2Fsubscriptions%2F12015272-f077-4945-81de-a5f607d067e1%22%2C%22%2Fsubscriptions%2F0ba674a6-9fde-43b4-8370-a7e16fdf0641%22%5D/contextRender/)
-- [[Preview]: Users must authenticate with multifactor authentication to create or update resources - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4e6c27d5-a6ee-49cf-b2b4-d8fe90fa2b8b/version/1.0.0-preview/scopes/%5B%22%2Fsubscriptions%2F12015272-f077-4945-81de-a5f607d067e1%22%2C%22%2Fsubscriptions%2F0ba674a6-9fde-43b4-8370-a7e16fdf0641%22%5D/contextRender/)
+- [[Preview]: Users must authenticate with multifactor authentication to delete resources - Microsoft Azure](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdb4a9d17-db75-4f46-9fcb-9f9526604417/version/1.0.0-preview/scopes/%5B%22%2Fsubscriptions%2F12015272-f077-4945-81de-a5f607d067e1%22%2C%22%2Fsubscriptions%2F0ba674a6-9fde-43b4-8370-a7e16fdf0641%22%5D/contextRender/)
+- [[Preview]: Users must authenticate with multifactor authentication to create or update resources - Microsoft Azure](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4e6c27d5-a6ee-49cf-b2b4-d8fe90fa2b8b/version/1.0.0-preview/scopes/%5B%22%2Fsubscriptions%2F12015272-f077-4945-81de-a5f607d067e1%22%2C%22%2Fsubscriptions%2F0ba674a6-9fde-43b4-8370-a7e16fdf0641%22%5D/contextRender/)
 - Select the policy definition from the list.
   
 :::image type="content" source="../media/multifactor-enforcement/policy-definition-selection.png" alt-text="Screenshot of Azure Policy Definition Search View." border="false":::
@@ -51,7 +53,7 @@ Select Policy under Azure services. If you don't see it, type 'Policy' in the se
 - Under 'Basics', enter a Name for your policy assignment. Optionally, you may add a Description to help others understand the purpose of this assignment.
 - Under 'Basics', enforcement mode should be set to enabled (this mode is set by default, no action needed).
 - Go to the 'Parameters' tab. Uncheck 'only show parameters that require input or review'. The parameter value should be at the preselected value 'AuditAction' or 'Audit' (depending on the definition chosen in step 4).
-- Under the 'Non compliance messages' tab, configure a custom message that any user sees if they're blocked from deleting a resource because of this enforcement:
+- Under the 'Non-compliance messages' tab, configure a custom message that any user sees if they're blocked from deleting a resource because of this enforcement:
   
 _Sample Text: To resolve this error, set up MFA at aka.ms/setupMFA. If you set up MFA and are still receiving this error, reach out to your Entra administrator to restore your Azure security default._
 
@@ -62,7 +64,7 @@ _Sample Text: To resolve this error, set up MFA at aka.ms/setupMFA. If you set u
 - Review your selections and settings on the 'Review + create' tab.
 - If everything looks correct, click 'Create' to apply the policy assignment.
 
-### 8. Rollout the policy assignment to all regions
+### 8. Roll out the policy assignment to all regions
 - Update the policy assignment selector to evaluate resources in other regions. Repeat this step until the policy assignment is evaluating resources in all regions.
 
 ### 9. Verify existence of the policy assignment
@@ -87,7 +89,7 @@ You can set enforcement by updating the 'Effect' of the policy assignment.
 ## Audit Mode
 Discover audit events in your activity log when this policy assignment is applied in audit mode and they attempt to create, update, or delete a resource without authenticating with MFA.
 
-You can view activity Log events in Azure portal and other supported SDKs. Here's a sample query that can be used in CLI:
+You can view activity Log events in Azure portal and other supported clients. Here's a sample query that can be used in CLI:
 
 `az monitor activity-log list \
   --query "[?operationName.value=='Microsoft.Authorization/policies/audit/action'].{ResourceId: resourceId, Policies: properties.policies}" \
@@ -104,7 +106,7 @@ The next section shows the experience from some select clients when the policy a
 ### Azure Portal
 When you attempt to perform a create, update, or delete operation without an MFA-authenticated token, Azure portal may return:
 
-:::image type="content" source="../media/multifactor-enforcement/portal-enforcement-sample.png" alt-text="Screenshot of Azure portal View When User Gets Blocked By Policy." border="false":::
+:::image type="content" source="../media/multifactor-enforcement/portal-enforcement-sample.png" alt-text="Screenshot of Azure portal view." border="false":::
 
 ### Azure CLI
 When you attempt to perform a create, update, or delete operation without an MFA-authenticated token, Azure CLI may return:
@@ -114,8 +116,8 @@ When you attempt to perform a create, update, or delete operation without an MFA
 ### Azure PowerShell
 When you attempt to perform a create, update, or delete operation without an MFA-authenticated token, Azure PowerShell may return:
 
-:::image type="content" source="../media/multifactor-enforcement/powershell-sample.png" alt-text="Screenshot of Azure PS View When User Gets Blocked By Policy." border="false":::
+:::image type="content" source="../media/multifactor-enforcement/powershell-sample.png" alt-text="Screenshot of Azure PowerShell View When User Gets Blocked By Policy." border="false":::
 
 ## Limitations in the Preview Timeframe
-- In some cases, you may not be prompted to complete MFA after receiving an error. In such cases, re-authenticate with MFA before retrying the operation (for example, through Azure portal).
+- In some cases, you may not be prompted to complete MFA after receiving an error. In such cases, reauthenticate with MFA before retrying the operation (for example, through Azure portal).
 - In some cases, the error message may not indicate that the operation is blocked due to the policy assignment in-place. Take note of the error message samples to familiarize your organization on what error messages they may receive.
