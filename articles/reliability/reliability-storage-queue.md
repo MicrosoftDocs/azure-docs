@@ -101,6 +101,7 @@ This section describes what to expect when a queue storage account is configured
 When an availability zone becomes unavailable, Azure Queue Storage automatically handles the failover process with the following behavior:
 
 [!INCLUDE [Storage - Zone down experience](includes/storage/reliability-storage-availability-zone-down-experience-include.md)]
+- **Traffic rerouting.** Azure automatically reroutes traffic to the remaining healthy availability zones. The service maintains full functionality using the surviving zones with no customer intervention required.
 
 ### Failback
 
