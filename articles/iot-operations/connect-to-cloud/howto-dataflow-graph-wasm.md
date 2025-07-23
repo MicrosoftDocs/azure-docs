@@ -14,32 +14,32 @@ ai-usage: ai-assisted
 # Use WebAssembly (WASM) with data flow graphs (Preview)
 
 > [!IMPORTANT]
-> WebAssembly (WASM) with data flow graphs is in **preview**. This feature is provided with limitations and shouldn't be used for production workloads. 
+> WebAssembly (WASM) with data flow graphs is in **preview**. This feature has limitations and isn't for production workloads. 
 > 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure IoT Operations data flow graphs support WebAssembly (WASM) modules for custom data processing at the edge. This capability allows you to deploy custom business logic and data transformations as part of your data flow pipelines.
+Azure IoT Operations data flow graphs support WebAssembly (WASM) modules for custom data processing at the edge. You can deploy custom business logic and data transformations as part of your data flow pipelines.
 
 ## Prerequisites
 
-- An Azure IoT Operations instance deployed on an Arc-enabled Kubernetes cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
-- Access to Azure Container Registry (ACR) for storing WASM modules and graphs.
-- ORAS CLI installed for pushing WASM modules to the registry.
+- Deploy an Azure IoT Operations instance on an Arc-enabled Kubernetes cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+- Use Azure Container Registry (ACR) to store WASM modules and graphs.
+- Install ORAS CLI to push WASM modules to the registry.
 
 ## Overview
 
-WebAssembly (WASM) modules in Azure IoT Operations data flow graphs enable custom data processing at the edge with high performance and security. WASM provides a sandboxed execution environment that supports multiple programming languages including Rust, C++, and AssemblyScript.
+WebAssembly (WASM) modules in Azure IoT Operations data flow graphs let you process data at the edge with high performance and security. WASM runs in a sandboxed environment and supports programming languages like Rust, C++, and AssemblyScript.
 
 ### How WASM data flow graphs work
 
 The WASM data flow implementation follows this workflow:
 
-1. **Develop WASM modules**: Write custom processing logic in supported languages and compile to WebAssembly Component Model format
-1. **Develop graph definition**: Define how data flows through the modules using YAML configuration files
-1. **Store artifacts in registry**: Push compiled WASM modules to a container registry using OCI-compatible tools like ORAS
-1. **Configure registry endpoints**: Set up authentication and connection details for Azure IoT Operations to access the container registry
-1. **Create data flow**: Define data sources, artifact name, and destinations
-1. **Deploy and execute**: Azure IoT Operations pulls WASM modules from the registry and executes them according to the graph definition
+1. **Develop WASM modules**: Write custom processing logic in a supported language and compile it to the WebAssembly Component Model format.
+1. **Develop graph definition**: Define how data moves through the modules by using YAML configuration files.
+1. **Store artifacts in registry**: Push the compiled WASM modules to a container registry by using OCI-compatible tools like ORAS.
+1. **Configure registry endpoints**: Set up authentication and connection details so Azure IoT Operations to access the container registry.
+1. **Create data flow**: Define data sources, the artifact name, and destinations.
+1. **Deploy and execute**: Azure IoT Operations pulls WASM modules from the registry and runs them based on the graph definition.
 
 <!-- TODO: Add general system architecture content -->
 
@@ -49,17 +49,17 @@ The following examples demonstrate how to set up and deploy WASM data flow graph
 
 ### Set up container registry
 
-Azure IoT Operations requires access to a container registry to pull WASM modules and graph definitions. You can use either Azure Container Registry (ACR) or another OCI-compatible registry.
+Azure IoT Operations needs a container registry to pull WASM modules and graph definitions. You can use Azure Container Registry (ACR) or another OCI-compatible registry.
 
 To create and configure an Azure Container Registry, see [Deploy Azure Container Registry](). <!-- TODO -->
 
 ### Install ORAS CLI
 
-Use the ORAS CLI to push WASM modules and graph definitions to your container registry. For installation instructions, see [Install ORAS](https://oras.land/docs/installation).
+Use the ORAS CLI to push WASM modules and graph definitions to your container registry. For install instructions, see [Install ORAS](https://oras.land/docs/installation).
 
 ### Pull sample modules from public registry
 
-For this preview, you can use pre-built sample modules:
+For this preview, you can use prebuilt sample modules:
 
 ```bash
 # Pull sample modules and graphs
@@ -95,13 +95,13 @@ oras push <your-acr-name>.azurecr.io/filter:1.0.0 filter-1.0.0.wasm
 ```
 
 > [!IMPORTANT]
-> Make sure to update the ACR references in your data flow deployments if you use a different registry than the sample modules.
+> Update the ACR references in your data flow deployments if you use a different registry than the sample modules.
 
 ### Create a registry endpoint
 
 A registry endpoint defines the connection to your container registry. Data flow graphs use registry endpoints to pull WASM modules and graph definitions from container registries. For detailed information about configuring registry endpoints with different authentication methods and registry types, see [Configure registry endpoints](howto-configure-registry-endpoint.md).
 
-For quick setup with Azure Container Registry, you can create a registry endpoint with system-assigned managed identity authentication:
+For quick setup with Azure Container Registry, create a registry endpoint with system-assigned managed identity authentication:
 
 # [Bicep](#tab/bicep)
 
@@ -157,7 +157,7 @@ spec:
 ---
 
 > [!NOTE]
-> Registry endpoints can be reused across multiple data flow graphs and other Azure IoT Operations components like Akri connectors.
+> You can reuse registry endpoints across multiple data flow graphs and other Azure IoT Operations components, like Akri connectors.
 
 ### Get extension name and tenant ID
 
@@ -178,12 +178,12 @@ The first command returns the extension name (for example, `azure-iot-operations
 
 ### Configure managed identity permissions
 
-To allow Azure IoT Operations to pull WASM modules from your container registry, configure the managed identity with the appropriate permissions. The IoT Operations extension uses a system-assigned managed identity that needs the `AcrPull` role on your Azure Container Registry. Important prerequisites include:
+To let Azure IoT Operations pull WASM modules from your container registry, give the managed identity the right permissions. The IoT Operations extension uses a system-assigned managed identity that needs the `AcrPull` role on your Azure Container Registry. Important prerequisites include:
 
-- Owner permissions on the Azure Container Registry
-- The container registry can be in a different resource group or subscription, but must be in the same tenant as your IoT Operations deployment
+- Owner permissions on the Azure Container Registry.
+- The container registry can be in a different resource group or subscription, but it must be in the same tenant as your IoT Operations deployment.
 
-Use the following commands to assign the `AcrPull` role to the IoT Operations managed identity:
+Run the following commands to assign the `AcrPull` role to the IoT Operations managed identity:
 
 ```bash
 # Get the IoT Operations extension managed identity
@@ -198,21 +198,21 @@ az role assignment create --role "AcrPull" --assignee $SYSTEM_ASSIGNED_MAN_ID --
 
 For more information about container registry roles, see [Azure Container Registry roles and permissions](/azure/container-registry/container-registry-roles).
 
-If you encounter authentication errors with the Azure CLI, you can assign permissions through the Azure portal:
+If you get authentication errors with the Azure CLI, assign permissions through the Azure portal:
 
-1. Navigate to your Azure Container Registry in the Azure portal
-2. Select **Access control (IAM)** from the left menu
-3. Select **Add** > **Add role assignment**
-4. Choose the **AcrPull** built-in role
-5. Select **User, group, or service principal** as the assign access to option
-6. Search for and select your IoT Operations extension name (for example, `azure-iot-operations-4gh3y`)
-7. Select **Save** to complete the role assignment
+1. Go to your Azure Container Registry in the Azure portal.
+1. Select **Access control (IAM)** from the menu.
+1. Select **Add** > **Add role assignment**.
+1. Choose the **AcrPull** built-in role.
+1. Select **User, group, or service principal** as the assign access to option.
+1. Search for and select your IoT Operations extension name (for example, `azure-iot-operations-4gh3y`).
+1. Select **Save** to finish the role assignment.
 
 For detailed instructions, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## Example 1: Basic deployment with one WASM module
 
-This scenario demonstrates a simple data flow that uses a WASM module to convert temperature data from Fahrenheit to Celsius. The source code for this module is available [here](). <!--PLACEHOLDER--> Instead of building the module yourself, we use the precompiled version that has already been pushed to the ACR as `graph-simple:1.0.0` in the earlier steps.
+This scenario shows a simple data flow that uses a WASM module to convert temperature data from Fahrenheit to Celsius. The source code for this module is available [here](). <!--PLACEHOLDER--> Instead of building the module yourself, use the precompiled version that's already pushed to the ACR as `graph-simple:1.0.0` in earlier steps.
 
 <!-- TODO: Add simple graph YAML definition and explanation -->
 
@@ -354,7 +354,7 @@ spec:
         name: temperature-destination
 ```
 
-Save the configuration as `dataflow-graph.yaml` and apply it to your cluster:
+Save the configuration as `dataflow-graph.yaml`, then apply it to your cluster:
 
 ```bash
 kubectl apply -f dataflow-graph.yaml
@@ -364,9 +364,9 @@ kubectl apply -f dataflow-graph.yaml
 
 ### Test the data flow
 
-To test the data flow, you need to send MQTT messages from within the cluster. First, deploy the MQTT client pod by following the instructions in [Test connectivity to MQTT broker with MQTT clients](../manage-mqtt-broker/howto-test-connection.md). The MQTT client provides the necessary authentication tokens and certificates to connect to the broker.
+To test the data flow, send MQTT messages from within the cluster. First, deploy the MQTT client pod by following the instructions in [Test connectivity to MQTT broker with MQTT clients](../manage-mqtt-broker/howto-test-connection.md). The MQTT client provides the authentication tokens and certificates to connect to the broker.
 
-After deploying the MQTT client pod, open two terminal sessions and connect to the pod:
+After you deploy the MQTT client pod, open two terminal sessions and connect to the pod:
 
 ```bash
 # Connect to the MQTT client pod
@@ -375,7 +375,7 @@ kubectl exec -it mqtt-client -n azure-iot-operations -- bash
 
 #### Send temperature messages
 
-In the first terminal session, create and run a script to send temperature data in Fahrenheit:
+In the first terminal session, create and run a script that sends temperature data in Fahrenheit:
 
 ```bash
 # Create and run temperature.sh from within the MQTT client pod
@@ -401,7 +401,7 @@ done
 
 #### Subscribe to processed messages
 
-In the second terminal session (also connected to the MQTT client pod), subscribe to the output topic to see the converted temperature values:
+In the second terminal session (also connected to the MQTT client pod), subscribe to the output topic to see converted temperature values:
 
 ```bash
 # Run from within the MQTT client pod
@@ -413,11 +413,11 @@ mosquitto_sub -h aio-broker -p 18883 \
   -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat)
 ```
 
-You should see temperature data converted from Fahrenheit to Celsius by the WASM module.
+You see temperature data converted from Fahrenheit to Celsius by the WASM module.
 
 #### Adding timestamps
 
-Messages can include a timestamp property `__ts` for ordering. The format is `<timestamp>:<counter>:<nodeid>`:
+Messages can include a timestamp property `__ts` for ordering. The format is `<timestamp>:<counter>:<nodeid>`.
 
 ```bash
 mosquitto_pub -h aio-broker -p 18883 \
@@ -432,7 +432,7 @@ mosquitto_pub -h aio-broker -p 18883 \
 
 ## Example 2: Deploy a complex graph
 
-This scenario demonstrates a more complex data flow graph that processes multiple data sources and includes advanced processing modules.
+This scenario shows a more complex data flow graph that processes multiple data sources and includes advanced processing modules.
 
 <!-- TODO: Add complex graph YAML definition and explanation -->
 

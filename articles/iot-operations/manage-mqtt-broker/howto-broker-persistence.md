@@ -14,37 +14,37 @@ ms.date: 07/22/2025
 
 The data persistence feature is designed as a complementary mechanism to the replication system. While the broker replicates data across multiple nodes, a cluster-wide shutdown can still result in data loss.
 
-To mitigate this risk, the MQTT broker supports persistent storage, which allows critical data to be written to disk and preserved across restarts. This data persistence feature is different from the [Disk-backed message buffer](./howto-disk-backed-message-buffer.md), which uses disk as an extension of memory but is ephemeral and doesn't provide durability guarantees.
+To mitigate this risk, the MQTT broker supports persistent storage, which lets critical data be written to disk and preserved across restarts. This data persistence feature is different from the [Disk-backed message buffer](./howto-disk-backed-message-buffer.md), which uses disk as an extension of memory but is ephemeral and doesn't provide durability guarantees.
 
 Storing data on disk introduces a performance cost. The impact varies depending on the type and speed of the underlying storage medium.
 
-You can configure data persistence during initial deployment by using the Azure portal or Azure CLI. Some persistence-related options can also be modified after deployment.
+You can configure data persistence during initial deployment by using the Azure portal or Azure CLI. You can also change some persistence options after deployment.
 
 ## Configuration methods
 
-To configure data persistence for the MQTT broker, you can use either:
+Configure data persistence for the MQTT broker by using one of these methods:
 
 - **Azure portal**: Configure persistence settings through the graphical user interface during IoT Operations deployment.
 - **Azure CLI**: Use a JSON configuration file with the `--broker-config-file` flag when you deploy IoT Operations using the `az iot ops create` command.
 
-For the complete list of available settings, see the Azure IoT Operations API documentation.
+For a complete list of available settings, see the Azure IoT Operations API documentation.
 
 ## Deployment-time configuration options
 
-These settings must be configured at deployment time and can't be changed later.
+You must set these options during deployment and can't change them later.
 
 > [!IMPORTANT]
-> Persistence must be configured at deployment time and can't be disabled afterward. However, some persistence-related options can be modified after deployment.
+> You set persistence during deployment and can't turn it off afterward. You can change some persistence-related options after deployment.
 
 ### Volume and volume size
 
-To persist data on disk, the MQTT broker uses a Persistent Volume (PV). Two settings control how this volume is provisioned:
+The MQTT broker uses a persistent volume (PV) to store data on disk. Two settings control how this volume is provisioned:
 
-- **`maxSize`** *(required)*: Specifies the maximum size of the persistent volume used for storing broker data. This field is always required, even if a custom volume claim is provided. The value must be above 100 MB.
+- **`maxSize`** *(required)*: Sets the maximum size of the persistent volume for storing broker data. This field is always required, even if you provide a custom volume claim. The value must be greater than 100 MB.
   
   **Example:** `10GiB`
 
-- **`persistentVolumeClaimSpec`** *(optional)*: Defines a custom PersistentVolumeClaim (PVC) template to control how the persistent volume is provisioned. If you don't specify this setting, a default PVC is automatically created using the specified `maxSize` and the default storage class, which may result in suboptimal performance if the default class isn't backed by a local path provisioner.
+- **`persistentVolumeClaimSpec`** *(optional)*: Lets you define a custom PersistentVolumeClaim (PVC) template to control how the persistent volume is provisioned. If you don't set this option, the broker creates a default PVC using the specified `maxSize` and the default storage class, which can result in suboptimal performance if the default class isn't backed by a local path provisioner.
 
 > [!IMPORTANT]
 > When you specify `persistentVolumeClaimSpec`, the access mode must be set to `ReadWriteOncePod`.
@@ -78,7 +78,7 @@ To configure volume settings using Azure CLI, prepare a Broker configuration fil
 }
 ```
 
-Then deploy IoT Operations using the `az iot ops create` command with the `--broker-config-file` flag:
+Then run the `az iot ops create` command with the `--broker-config-file` flag to deploy IoT Operations:
 
 ```azurecli
 az iot ops create ... --broker-config-file <FILE>.json
@@ -90,7 +90,7 @@ az iot ops create ... --broker-config-file <FILE>.json
 
 To protect data, the MQTT broker encrypts all persistence data on disk by default using strong AES-256-GCM encryption. This ensures that even if an attacker gains access to the underlying volume, sensitive broker state or session data remains protected.
 
-Encryption is optional and is enabled automatically. However, you can disable encryption if needed. Note that encryption protects data at rest only and data in memory isn't encrypted. The performance cost of using encryption should be minimal, but key rotation isn't supported yet.
+Encryption is optional and is on by default. You can turn off encryption if you need to. Encryption protects data at rest only; data in memory isn't encrypted. Using encryption has minimal performance cost, but key rotation isn't supported yet.
 
 # [Azure portal](#tab/portal)
 
@@ -127,7 +127,7 @@ These options can be updated after you deploy Azure IoT Operations MQTT broker.
 
 Retained messages are MQTT messages that the broker stores and delivers to new subscribers when they connect to a topic. These messages help ensure that subscribers receive the most recent data even if they weren't connected when the message was originally published. This is particularly useful for status updates, configuration data, or last-known values that new subscribers need immediately upon connection.
 
-Persisting retained messages to disk ensures that these important messages survive broker restarts and aren't lost during maintenance or unexpected shutdowns. Without persistence, retained messages exist only in memory and are lost when the broker restarts, which could leave new subscribers without critical initial data.
+Persisting retained messages to disk makes sure these important messages survive broker restarts and aren't lost during maintenance or unexpected shutdowns. Without persistence, retained messages exist only in memory and are lost when the broker restarts. This can leave new subscribers without critical initial data.
 
 This setting controls which retained messages are persisted to disk.
 
@@ -177,9 +177,9 @@ To configure retained messages persistence using Azure CLI, add the following to
 
 ### Subscriber queue persistence
 
-Subscriber queues hold messages that are waiting to be delivered to MQTT clients with Quality of Service (QoS) 1 subscriptions. When a client subscribes with QoS 1, the broker guarantees message delivery by queuing messages until the client acknowledges receipt. These queues are especially important for clients that may be temporarily disconnected or processing messages slowly.
+Subscriber queues hold messages that are waiting to be delivered to MQTT clients with Quality of Service (QoS) 1 subscriptions. When a client subscribes with QoS 1, the broker guarantees message delivery by queuing messages until the client acknowledges receipt. These queues are especially important for clients that might be temporarily disconnected or processing messages slowly.
 
-Persisting subscriber queues to disk ensures that messages waiting for delivery aren't lost during broker restarts. This is critical for IoT scenarios where devices may have intermittent connectivity, slow processing capabilities, or persistent sessions that need to maintain message delivery guarantees across broker restarts. Without persistence, queued messages would be lost, potentially causing data loss for important device communications.
+Persisting subscriber queues to disk ensures that messages waiting for delivery aren't lost during broker restarts. This feature is critical for IoT scenarios where devices can have intermittent connectivity, slow processing, or persistent sessions that need to keep message delivery guarantees across broker restarts. Without persistence, queued messages are lost, which can cause data loss for important device communications.
 
 For more information about subscriber queues and message delivery, see [Configure broker MQTT client options](./howto-broker-mqtt-client-options.md#subscriber-queue-limit).
 
@@ -227,11 +227,11 @@ To configure subscriber queue persistence using Azure CLI, add the following to 
 ---
 
 > [!IMPORTANT]
-> A client that wasn't previously persisted can become persisted at any time. However, only the publishes received after persistence is enabled for that specific client are stored on disk. If persistence is later disabled for the client, that change won't take effect until the client reconnects with the MQTT clean start = true flag.
+> A client that wasn't previously persisted can become persisted at any time. However, only the published messages received after persistence is enabled for that specific client are stored on disk. If persistence is later disabled for the client, that change won't take effect until the client reconnects with the MQTT clean start = true flag.
 
 #### Session expiry and subscriber queue persistence
 
-For subscribers to have their subscriber message queues persisted to disk, both the session expiry interval and the broker's persistence configuration must align properly. Specifically:
+To persist subscriber message queues to disk, both the session expiry interval and the broker's persistence configuration need to align. Specifically:
 
 - MQTTv5 clients: Can specify session expiry interval using the Session Expiry Interval property of CONNECT or DISCONNECT packets. They can also request disk persistence behavior with a specified user property.
 
@@ -252,7 +252,7 @@ When mode is set to `Custom`:
   - The client ID matches the configured list in `subscriberQueueSettings.subscriberClientIds`, OR
   - Dynamic mode is enabled and an MQTTv5 client provided the matching user property in their CONNECT packet
 
-To ensure that subscriber queues are persisted to disk, remember the following key points:
+To make sure subscriber queues are persisted to disk, keep these key points in mind:
 
 - Subscriber queues are only persisted when the session expiry interval is greater than 0
 - For `Custom` mode, either the client ID must be explicitly listed or dynamic persistence must be enabled with the correct user property
@@ -326,11 +326,11 @@ To configure state store persistence using Azure CLI, add the following to your 
 
 ### Request persistence from a client using dynamic persistence setting
 
-Clients can request persistence for their data by sending an MQTT v5 user property in their messages. This allows clients to dynamically enable persistence for their messages, subscriber queues, or state store entries without requiring broker configuration changes.
+Clients can request persistence for their data by sending an MQTT v5 user property in their messages. This lets clients dynamically enable persistence for their messages, subscriber queues, or state store entries without changing the broker configuration.
 
-When a client requests persistence, the broker checks its current persistence settings and applies them accordingly. If the requested persistence mode is enabled and set to allow dynamic requests, the broker persists the client's data as specified in the configuration.
+When a client requests persistence, the broker checks its current persistence settings and applies them. If the requested persistence mode is enabled and set to let dynamic requests, the broker persists the client's data as specified in the configuration.
 
-The dynamic persistence setting can be enabled or disabled for each data type (retained messages, subscriber queues, and state store entries) by setting the `dynamic.mode` to `Enabled` in the respective configuration sections. The MQTT user property key and value used for dynamic persistence requests are configured separately at the broker level.
+You can enable or disable the dynamic persistence setting for each data type (retained messages, subscriber queues, and state store entries) by setting `dynamic.mode` to `Enabled` in the respective configuration sections. The MQTT user property key and value used for dynamic persistence requests are configured separately at the broker level.
 
 # [Azure portal](#tab/portal)
 

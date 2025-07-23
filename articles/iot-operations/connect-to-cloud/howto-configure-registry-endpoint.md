@@ -16,12 +16,12 @@ ai-usage: ai-assisted
 
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
-Registry endpoints are used by data flow graphs to pull WebAssembly (WASM) modules and graph definitions from container registries. You can configure the endpoint settings, authentication, and other settings to connect to Azure Container Registry (ACR) or other OCI-compatible registries.
+Data flow graphs use registry endpoints to pull WebAssembly (WASM) modules and graph definitions from container registries. You can configure the endpoint settings, authentication, and other settings to connect to Azure Container Registry (ACR) or other OCI-compatible registries.
 
 ## Prerequisites
 
 - An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md)
-- Access to a container registry such as Azure Container Registry
+- Access to a container registry, such as Azure Container Registry
 
 ## Registry endpoint overview
 
@@ -33,7 +33,7 @@ A registry endpoint defines the connection details and authentication method for
 Registry endpoints support authentication through:
 - System-assigned managed identity
 - User-assigned managed identity  
-- Artifact pull secrets (username/password)
+- Artifact pull secrets (username and password)
 - Anonymous access (for public registries)
 
 ## Create a registry endpoint
@@ -110,7 +110,7 @@ resource registryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2
 }
 ```
 
-Then, deploy via Azure CLI:
+Deploy the Bicep file using Azure CLI:
 
 ```azurecli
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
@@ -134,7 +134,7 @@ spec:
       audience: https://management.azure.com/
 ```
 
-Then apply the manifest file to the Kubernetes cluster:
+Apply the manifest file to the Kubernetes cluster:
 
 ```bash
 kubectl apply -f <FILE>.yaml
@@ -367,7 +367,7 @@ authentication:
 
 ## Azure Container Registry integration
 
-Azure Container Registry (ACR) is the recommended container registry for Azure IoT Operations. ACR provides secure, private Docker container registries with integrated authentication through Azure Active Directory.
+Azure Container Registry (ACR) is the recommended container registry for Azure IoT Operations. ACR provides secure, private Docker container registries with integrated authentication through Microsoft Entra ID.
 
 ### Prerequisites for ACR
 
@@ -442,7 +442,7 @@ Registry endpoints also support other OCI-compatible container registries such a
 - AWS Elastic Container Registry (ECR)
 - Google Container Registry (GCR)
 
-For these registries, you'll typically use artifact pull secrets for authentication unless they support Azure managed identity.
+For these registries, you typically use artifact pull secrets for authentication, unless they support Azure managed identity.
 
 ## Next steps
 
