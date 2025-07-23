@@ -6,7 +6,7 @@ author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: quickstart
-ms.date: 07/17/2025
+ms.date: 07/23/2025
 ms.author: buchvarun
 ---
 
