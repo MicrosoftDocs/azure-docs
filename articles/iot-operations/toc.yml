@@ -99,9 +99,6 @@ items:
         - name: Understand the media connector
           href: discover-manage-assets/overview-media-connector.md
           displayName: image, video, camera, stream, snapshot, RTSP, RTCP, RTP, MJPEG, container, storage, southbound
-        - name: Discover media assets and devices
-          href: discover-manage-assets/howto-autodetect-media-assets-use-akri.md
-          displayName: connector, media source, detect, akri, southbound
         - name: Use the media connector
           href: discover-manage-assets/howto-use-media-connector.md
           displayName: image, video, camera, stream, snapshot, RTSP, RTCP, RTP, MJPEG, container, storage, southbound
