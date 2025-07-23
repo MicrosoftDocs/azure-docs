@@ -1,13 +1,13 @@
 ---
-title: Add and configure an environment definition in a catalog
+title: Add and Configure an Environment Definition in a Catalog
 titleSuffix: Azure Deployment Environments
-description: Learn how to add and configure an environment definition to use in ADE projects. Learn how to reference a container image to deploy your environment.
+description: Learn how to add and configure an environment definition to use in Azure Deployment Environments projects. Learn how to reference a container image to deploy your environment.
 services: Azure Deployment Environments
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.topic: how-to
-ms.date: 05/03/2024
+ms.date: 07/25/2025
 ms.custom:
   - devdivchpfy22
   - build-2023
