@@ -48,10 +48,11 @@ Ensure you have `cURL` installed on your system. You will use it to make API cal
 ## Use Wellbore DDMS APIs to work with well data records
 
 Successfully completing the cURL requests that are described in the following Wellbore DDMS APIs indicates successful ingestion and retrieval of well records in your Azure Data Manager for Energy instance.
+If you are interested in checkoing out all the APIs, you can check our [swagger](https://microsoft.github.io/adme-samples/rest-apis/index.html?page=/adme-samples/rest-apis/M23/wellbore_ddms_openapi.yaml) 
 
 ### Create a legal tag
 
-Create a legal tag that's automatically added to your Wellbore DDMS environment for data compliance.
+Create a legal tag for data compliance.
 
 Run the following `cURL` command to create a legal tag:
 

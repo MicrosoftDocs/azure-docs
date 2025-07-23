@@ -46,26 +46,13 @@ Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entit
 
 Ensure you have `cURL` installed on your system. You will use it to make API calls.
 
-## Generate a token to use in APIs
-
-You can also generate a token by using the cURL command  to generate a bearer token. Use the values from your Azure Data Manager for Energy instance.
-
-```bash
-      curl --location --request POST 'https://login.microsoftonline.com/{{TENANT_ID}}/oauth2/v2.0/token' \
-          --header 'Content-Type: application/x-www-form-urlencoded' \
-          --data-urlencode 'grant_type=client_credentials' \
-          --data-urlencode 'client_id={{CLIENT_ID}}' \
-          --data-urlencode 'client_secret={{CLIENT_SECRET}}' \
-          --data-urlencode 'scope={{SCOPE}}'  
-```
-
 ## Use Petrel DDMS APIs to work with Petrel projects
 
 Successfully completing the API calls  that are Present in [swagger](https://microsoft.github.io/adme-samples/rest-apis/index.html?page=/adme-samples/rest-apis/M23/petrel_ddms_openapi.yaml) indicates successful interaction with your saved Petrel projects. Although the API provides a way to upload data, we recommend that you upload your projects via DELFI Petrel Project Explorer. All of the following API calls assume that you have a project uploaded to Petrel Project Explorer.
 
 ### Create a legal tag
 
-Create a legal tag that's automatically added to your Wellbore DDMS environment for data compliance.
+Create a legal tag that you can use for data compliance.
 
 Run the following `cURL` command to create a legal tag:
 
