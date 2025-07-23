@@ -1,7 +1,7 @@
 ---
 title: Create a function in Azure from the command line
 description: Learn how to use command line tools, such as Azure Functions Core Tools, to create a function code project, create Azure resources, and publish function code to run in Azure Functions.
-ms.date: 07/11/2025
+ms.date: 07/22/2025
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, mode-other, devx-track-dotnet
 zone_pivot_groups: programming-languages-set-functions
@@ -18,6 +18,8 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 [!INCLUDE [functions-requirements-azure-cli](../../includes/functions-requirements-azure-cli.md)]
+
++ [Azure CLI](/cli/azure/install-azure-cli)
 
 + The [`jq` command line JSON processor](https://jqlang.org/download/), used to parse JSON output, and is also available in Azure Cloud Shell.
 

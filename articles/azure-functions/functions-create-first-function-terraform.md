@@ -2,19 +2,18 @@
 title: 'Quickstart: Create and deploy Azure Functions resources from Terraform'
 description: In this quickstart article, you create a function app in a Flex Consumption plan, along with the resource group, storage account, and blob storage container required by the app.
 ms.topic: quickstart
-ms.date: 05/01/2025
+ms.date: 07/22/2025
 ms.custom: devx-track-terraform
 ms.service: azure-functions
-author: ggailey777
-ms.author: glenga
 #customer intent: As a Terraform user, I want to learn how to create a function app in a Flex Consumption plan along with required storage account and blob storage container used for deployments.
 content_well_notification: 
   - AI-contribution
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Quickstart: Create and deploy Azure Functions resources from Terraform
 
-In this quickstart, you use Terraform to create a function app in a Flex Consumption plan in Azure Functions, along with other required Azure resources. The Flex Consumption plan provides serverless hosting that lets you run your code on demand without explicitly provisioning or managing infrastructure. It's used for processing data, integrating systems, internet-of-things computing, and building simple APIs and microservices. The resources created in this configuration include a unique resource group, a storage account, a blob storage container, the Flex Consumption plan, and the function app itself. The function app runs on Linux and is configured to use blob storage for code deployments.
+In this quickstart, you use Terraform to create a function app in a Flex Consumption plan in Azure Functions, along with other required Azure resources. The Flex Consumption plan provides serverless hosting that lets you run your code on demand without explicitly provisioning or managing infrastructure. The function app runs on Linux and is configured to use Azure Blob storage for code deployments.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
@@ -31,6 +30,7 @@ In this quickstart, you use Terraform to create a function app in a Flex Consump
 
 - Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
+- [Install the Azure CLI](/cli/azure/install-azure-cli) to obtain the subscription ID or run in [Azure Cloud Shell](/azure/cloud-shell/overview).
 
 ## Implement the Terraform code
 
@@ -50,12 +50,13 @@ The sample code for this article is located in the [Azure Terraform GitHub repo]
 1. Create a file named `variables.tf`, and insert the following code:
     :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-functions/variables.tf":::
 
-> [!IMPORTANT]
-> If you are using the 4.x azurerm provider, you must [explicitly specify the Azure subscription ID](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/4.0-upgrade-guide#specifying-subscription-id-is-now-mandatory) to authenticate to Azure before running the Terraform commands.
->
-> One way to specify the Azure subscription ID without putting it in the `providers` block is to specify the subscription ID in an environment variable named `ARM_SUBSCRIPTION_ID`.
->
-> For more information, see the [Azure provider reference documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#argument-reference).
+1. Use this Azure CLI command to set the `ARM_SUBSCRIPTION_ID` environment variable to the ID of your current subscription:
+
+    ```azurecli
+    export ARM_SUBSCRIPTION_ID=$(az account show --query "id" --output tsv)
+    ```
+
+    You must have this variable set for Terraform to be able to authenticate to your Azure subscription.
 
 ## Initialize Terraform
 
@@ -63,7 +64,37 @@ The sample code for this article is located in the [Azure Terraform GitHub repo]
 
 ## Create a Terraform execution plan
 
-[!INCLUDE [terraform-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan.md)]
+Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan.
+
+::: zone pivot="programming-language-csharp" 
+```console
+terraform plan -out main.tfplan -var="runtime_name=dotnet-isolated" -var="runtime_version=8"
+```
+::: zone-end  
+::: zone pivot="programming-language-powershell" 
+```console
+terraform plan -out main.tfplan -var="runtime_name=powershell" -var="runtime_version=7.4"
+```
+::: zone-end 
+::: zone pivot="programming-language-python" 
+```console
+terraform plan -out main.tfplan -var="runtime_name=python" -var="runtime_version=3.12"
+```
+::: zone-end 
+::: zone pivot="programming-language-java"  
+```console
+terraform plan -out main.tfplan -var="runtime_name=java" -var="runtime_version=21"
+```
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+```console
+terraform plan -out main.tfplan -var="runtime_name=node" -var="runtime_version=20"
+```
+::: zone-end  
+
+Make sure that `runtime_version` matches the language stack version you verified locally. Select your preferred language stack at the [top](#top) of the article.
+
+[!INCLUDE [terraform-plan-notes.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan-notes.md)]
 
 ## Apply a Terraform execution plan
 
@@ -71,73 +102,17 @@ The sample code for this article is located in the [Azure Terraform GitHub repo]
 
 ## Verify the results
 
-### [Azure CLI](#tab/azure-cli)
+The `outputs.tf` file returns these values for your new function app:
 
-1. Get the Azure resource group name.
+| Value | Description |
+| --- | --- |
+| `resource_group_name` | The name of the resource group you created. |
+| `sa_name` | The name of the Azure storage account required by the Functions host. | 
+| `asp_name` | The name of the Flex Consumption plan that hosts your new app. |
+| `fa_name` | The name of your new function app. |
+| `fa_url` | The URL of your new function app endpoint. | 
 
-    ```console
-    resource_group_name=$(terraform output -raw resource_group_name)
-    ```
-
-1. Get the storage account name.
-
-    ```console
-    sa_name=$(terraform output -raw sa_name)
-    ```
-
-1. Get the service plan name.
-
-    ```console
-    asp_name=$(terraform output -raw asp_name)
-    ```
-
-1. Get the function app plan name.
-
-    ```console
-    fa_name=$(terraform output -raw fa_name)
-    ```
-
-1. Run `az functionapp show` to view the Azure Functions Flex Consumption plan.
-
-    ```azurecli
-    az functionapp show --name $function_app_name --resource-group $resource_group_name  
-    ```
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-1. Get the Azure resource group name.
-
-    ```console
-    $resource_group_name=$(terraform output -raw resource_group_name)
-    ```
-
-1. Get the storage account name.
-
-    ```console
-    $sa_name=$(terraform output -raw sa_name)
-    ```
-
-1. Get the service plan name.
-
-    ```console
-    $asp_name=$(terraform output -raw asp_name)
-    ```
-
-1. Get the function app plan name.
-
-    ```console
-    $fa_name=$(terraform output -raw fa_name)
-    ```
-
-1. Run `Get-AzFunctionApp` to view the Azure Functions Flex Consumption plan.
-
-    ```azurepowershell
-    Get-AzFunctionApp -Name $function_app_name -ResourceGroupName $resource_group_name 
-    ```
-
----
-
-Open a browser and enter the following URL: **https://<fa_name>.azurewebsites.net**. Replace the placeholder `<fa_name>` with the value output by Terraform.
+Open a browser and browse to the URL location in `fa_url`. You can also use the [terraform output](https://developer.hashicorp.com/terraform/cli/commands/output) command to review these values at a later time.
 
 :::image type="content" source="media/functions-create-first-function-terraform/function-app-terraform.png" alt-text="Screenshot of Azure Functions app 'Welcome page'." border="false":::
 

@@ -4,7 +4,7 @@ description: Integrate an API Management instance to Azure API Center for automa
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 06/25/2025
+ms.date: 07/22/2025
 ms.author: danlep 
 ms.custom: devx-track-azurecli
 # Customer intent: As an API program manager, I want to integrate my Azure API Management instance with my API center and synchronize API Management APIs to my inventory.
@@ -23,7 +23,7 @@ Although you can use the Azure CLI to [import](import-api-management-apis.md) AP
 
 When you integrate an API Management instance as an API source, the following happens:
 
-1. All APIs, and optionally API definitions (specs), from the API Management instance are added to the API center inventory.
+1. All APIs, and optionally API definitions (specs), from the API Management instance are added to the API center inventory. MCP servers in API Management are included in the APIs added to the inventory.
 1. You configure an [environment](key-concepts.md#environment) of type *Azure API Management* in the API center. 
 1. An associated [deployment](key-concepts.md#deployment) is created for each synchronized API definition from API Management. 
 
@@ -106,4 +106,5 @@ The API Management instance is integrated as an environment in your API center. 
  
 * [Manage API inventory with Azure CLI commands](manage-apis-azure-cli.md)
 * [Import APIs from API Management to your Azure API center](import-api-management-apis.md)
+* [Register and discover MCP servers in your API center](register-discover-mcp-server.md)
 * [Azure API Management documentation](../api-management/index.yml)
