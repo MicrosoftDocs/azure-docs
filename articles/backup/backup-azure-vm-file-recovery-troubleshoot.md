@@ -4,8 +4,9 @@ description: Troubleshoot issues when recovering files and folders from an Azure
 ms.topic: troubleshooting
 ms.custom: linux-related-content
 ms.date: 06/12/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As an IT administrator, I want to troubleshoot file recovery issues from an Azure VM backup, so that I can effectively restore the necessary files and folders without disruption to services."
 ---
 
 # Troubleshoot issues in file recovery of an Azure VM backup

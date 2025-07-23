@@ -13,6 +13,8 @@ items:
     items:
     - name: Portal
       href: quickstart-create-example-consumption-workflow.md
+    - name: Portal - Templates gallery
+      href: create-workflows-from-templates.md?tabs=consumption
     - name: Visual Studio
       href: quickstart-create-logic-apps-with-visual-studio.md
     - name: Visual Studio Code
@@ -33,7 +35,7 @@ items:
     - name: Portal
       href: create-single-tenant-workflows-azure-portal.md
     - name: Portal - Templates gallery
-      href: create-single-tenant-workflows-templates.md
+      href: create-workflows-from-templates.md?tabs=standard
     - name: Visual Studio Code
       href: create-standard-workflows-visual-studio-code.md
 - name: Tutorials
@@ -171,8 +173,6 @@ items:
       href: deploy-single-tenant-logic-apps-private-storage-account.md
     - name: Export Consumption workflows to Standard logic app
       href: export-from-consumption-to-standard-logic-app.md
-    - name: Export from integration service environment to Standard logic app
-      href: export-from-ise-to-standard-logic-app.md
   - name: Hybrid deployment for Azure Logic Apps
     items:
     - name: Set up requirements for hybrid deployment
@@ -369,8 +369,6 @@ items:
       href: logic-apps-create-api-app.md
     - name: Delay
       href: ../connectors/connectors-native-delay.md
-    - name: Dynamics 365 (Deprecated)
-      href: ../connectors/connectors-create-api-crmonline.md
     - name: EDIFACT
       href: logic-apps-enterprise-integration-edifact.md
     - name: File System
@@ -400,13 +398,13 @@ items:
     - name: IBM IMS
       href: ../connectors/integrate-ims-apps-ibm-mainframe.md
     - name: IBM Informix
-      href: ../connectors/connectors-create-api-informix.md
+      href: connectors/informix.md
     - name: IBM MQ
       href: ../connectors/connectors-create-api-mq.md
     - name: Integration Account
       href: logic-apps-enterprise-integration-metadata.md
     - name: Microsoft Dataverse
-      href: ../connectors/connect-common-data-service.md
+      href: connectors/dataverse.md
     - name: Microsoft Graph Security
       href: ../connectors/connectors-integrate-security-operations-create-api-microsoft-graph-security.md
     - name: Office 365 Outlook
@@ -467,8 +465,6 @@ items:
       href: create-automation-tasks-azure-resources.md
     - name: Move logic app resources
       href: move-logic-app-resources.md
-    - name: Update schema for Consumption workflows
-      href: update-workflow-definition-language-schema.md
   - name: Test
     items:
     - name: Create unit tests from Standard workflow definitions
@@ -528,10 +524,6 @@ items:
     items:
       - name: Data operations - code examples
         href: logic-apps-data-operations-code-samples.md
-      - name: Monitor social media
-        href: logic-apps-scenario-social-serverless.md
-      - name: Create a serverless app - Visual Studio
-        href: create-serverless-apps-visual-studio.md
       - name: B2B processing
         href: logic-apps-enterprise-integration-b2b.md
 - name: Reference
@@ -563,12 +555,12 @@ items:
   - name: Resource Manager template reference
     href: /azure/templates/microsoft.logic/allversions
   - name: Workflow Definition Language schema
-    href: logic-apps-workflow-definition-language.md
+    href: workflow-definition-language-schema.md
     items:
       - name: Trigger and action types reference
         href: logic-apps-workflow-actions-triggers.md
-      - name: Functions reference
-        href: workflow-definition-language-functions-reference.md
+      - name: Reference for expression functions
+        href: expression-functions-reference.md
   - name: Standard Automated Test Framework
     items:
       - name: Standard Automated Test SDK

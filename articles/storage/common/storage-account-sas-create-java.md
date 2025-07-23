@@ -13,6 +13,7 @@ ms.reviewer: dineshm
 ms.subservice: storage-common-concepts
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+# Customer intent: "As a Java developer, I want to create an account shared access signature (SAS) for a storage account, so that I can delegate access to service-level operations and manage resources across multiple services in a secure manner."
 ---
 
 # Create an account SAS with Java

@@ -3,9 +3,9 @@ title: Azure permissions for Storage - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Storage category.
 ms.service: role-based-access-control
 ms.topic: generated-reference
-author: rolyon
-manager: femila
-ms.author: rolyon
+author: jenniferf-skc
+manager: pmwongera
+ms.author: jfields
 ms.date: 05/25/2025
 ms.custom: generated
 ---
@@ -597,7 +597,7 @@ Azure service: [Storage](/azure/storage/)
 > | --- | --- |
 > | Microsoft.StorageSync/register/action | Registers the subscription for the Storage Sync Provider |
 > | Microsoft.StorageSync/unregister/action | Unregisters the subscription for the Storage Sync Provider |
-> | Microsoft.StorageSync/deployments/preflight/action | Validate all resources before we deploy the resoruces successfully. |
+> | Microsoft.StorageSync/deployments/preflight/action | Validate all resources before we deploy the resources successfully. |
 > | Microsoft.StorageSync/locations/checkNameAvailability/action | Checks that storage sync service name is valid and is not in use. |
 > | Microsoft.StorageSync/locations/operationresults/read | Gets the result for an asynchronous operation |
 > | Microsoft.StorageSync/locations/operations/read | Gets the status for an azure asynchronous operation |

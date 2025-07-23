@@ -412,7 +412,7 @@ Content-Type: application/problem+json; charset="utf-8"
 ```json
 {
     "type": "https://azconfig.io/errors/key-locked",
-    "title": "Modifing key '{key}' is not allowed",
+    "title": "Modifying key '{key}' is not allowed",
     "name": "{key}",
     "detail": "The key is read-only. To allow modification unlock it first.",
     "status": 409

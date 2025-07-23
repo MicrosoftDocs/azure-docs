@@ -9,10 +9,12 @@ ms.topic: concept-article
 ms.custom:
   - references_regions
   - build-2025
-ms.date: 06/06/2025
+ms.date: 07/11/2025
 ---
 
 # Connector upgrade guidance
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article provides guidance for upgrading connectors in Azure Data Factory.  
 

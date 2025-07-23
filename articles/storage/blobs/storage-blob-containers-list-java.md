@@ -11,6 +11,7 @@ ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+# Customer intent: As a Java developer, I want to list blob containers in Azure Storage using the client library, so that I can manage and retrieve container information programmatically.
 ---
 
 # List blob containers with Java

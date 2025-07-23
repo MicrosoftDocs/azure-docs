@@ -9,6 +9,7 @@ ms.custom: include file
 # azure-netapp-files-create-volumes-smb
 # create-volumes-dual-protocol
 # azure-netapp-files-create-volumes
+# Customer intent: As a cloud administrator, I want to understand the volume quota options for Azure NetApp Files, so that I can select the appropriate volume size and ensure compliance with regional capacity requirements.
 ---
 
 Regular volumes quotas are between 50 GiB and 100 TiB. Large volume quotas range from 50 TiB to 1 PiB in size. If you intend for the volume quota to fall in the large volume range, select **Yes**. Volume quotas are entered in GiB.

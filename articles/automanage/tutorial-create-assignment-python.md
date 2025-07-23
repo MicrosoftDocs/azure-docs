@@ -7,6 +7,7 @@ ms.custom: devx-track-python
 ms.topic: tutorial
 ms.date: 08/25/2022
 ms.author: andrsmith
+# Customer intent: As a cloud administrator, I want to create a virtual machine and assign a best practices configuration profile using Python, so that I can automate the management and optimization of the VM according to recommended guidelines.
 ---
 
 # Tutorial: Create a virtual machine and assign an Automanage profile to it

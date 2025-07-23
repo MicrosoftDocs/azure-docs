@@ -6,8 +6,9 @@ ms.topic: quickstart
 ms.devlang: azurecli
 ms.custom: mvc, mode-ui, engagement-fy24
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As an IT administrator, I want to back up an Azure virtual machine using the portal so that I can ensure data protection and quickly restore it in case of data loss or system failure.
 ---
 
 # Quickstart: Back up a virtual machine in Azure

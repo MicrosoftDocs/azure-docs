@@ -10,6 +10,7 @@ ms.update-cycle: 180-days
 ms.topic: concept-article
 ms.localizationpriority: high
 ms.collection: Tier1, ce-skilling-ai-copilot
+# Customer intent: As a security professional, I want to integrate Azure Web Application Firewall with AI tools, so that I can quickly investigate flagged traffic and gain actionable insights on potential threats and vulnerabilities in my environment.
 ---
 
 # Azure Web Application Firewall integration in Microsoft Security Copilot
@@ -119,6 +120,8 @@ For each feedback item, you can provide more information in the next dialog box 
 ## Limitation
 
 If you migrate to Azure Log Analytics dedicated tables in the Application Gateway WAF V2 version, the Microsoft Security Copilot WAF Skills aren't functional. As a temporary workaround, enable Azure Diagnostics as the destination table in addition to the resource-specific table.
+
+**Application Gateway for Containers WAF**: During the preview of Application Gateway for Containers WAF CoPilot for Security is not supported.
 
 ## Privacy and data security in Microsoft Security Copilot
 

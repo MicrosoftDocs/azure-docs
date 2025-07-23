@@ -8,8 +8,9 @@ ms.custom:
   - ignite-2023
   - ignite-2024
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a cloud administrator, I want to understand the backup support and limitations for Azure Kubernetes Service (AKS) so that I can implement effective backup strategies for my clusters and ensure data protection compliance.
 ---
 
 # Azure Kubernetes Service backup support matrix

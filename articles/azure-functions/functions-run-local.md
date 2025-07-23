@@ -15,32 +15,32 @@ Azure Functions Core Tools lets you develop and test your functions on your loca
 ::: zone pivot="programming-language-csharp"
 >You're viewing the C# version of this article. Make sure to select your preferred Functions programming language at the top of the article.
  
-If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-csharp.md).
+If you want to get started right away, complete the [Core Tools quickstart article](how-to-create-function-azure-cli.md?pivots=programming-language-csharp).
 ::: zone-end
 ::: zone pivot="programming-language-java"
 >You're viewing the Java version of this article. Make sure to select your preferred Functions programming language at the top of the article.
 
-If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-java.md).
+If you want to get started right away, complete the [Core Tools quickstart article](how-to-create-function-azure-cli.md?pivots=programming-language-java).
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
 >You're viewing the JavaScript version of this article. Make sure to select your preferred Functions programming language at the top of the article.
  
-If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-node.md).
+If you want to get started right away, complete the [Core Tools quickstart article](how-to-create-function-azure-cli.md?pivots=programming-language-javascript).
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 >You're viewing the PowerShell version of this article. Make sure to select your preferred Functions programming language at the top of the article.
  
-If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-powershell.md).
+If you want to get started right away, complete the [Core Tools quickstart article](how-to-create-function-azure-cli.md?pivots=programming-language-powershell).
 ::: zone-end
 ::: zone pivot="programming-language-python"
 >You're viewing the Python version of this article. Make sure to select your preferred Functions programming language at the top of the article.
  
-If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-python.md).
+If you want to get started right away, complete the [Core Tools quickstart article](how-to-create-function-azure-cli.md?pivots=programming-language-python).
 ::: zone-end
 ::: zone pivot="programming-language-typescript"
 >You're viewing the TypeScript version of this article. Make sure to select your preferred Functions programming language at the top of the article.
  
-If you want to get started right away, complete the [Core Tools quickstart article](create-first-function-cli-typescript.md).
+If you want to get started right away, complete the [Core Tools quickstart article](how-to-create-function-azure-cli.md?pivots=programming-language-typescript).
 ::: zone-end
 
 [!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)] 
@@ -50,7 +50,7 @@ For help with version-related issues, see [Core Tools versions](#v2).
 ## Create your local project
 ::: zone pivot="programming-language-python"  
 > [!IMPORTANT]
-> For Python, you must run Core Tools commands in a virtual environment. For more information, see [Quickstart: Create a Python function in Azure from the command line](create-first-function-cli-python.md#create-venv).
+> For Python, you must run Core Tools commands in a virtual environment. For more information, see [Quickstart: Create a Python function in Azure from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-python#create-venv).
 ::: zone-end
 In the terminal window or from a command prompt, run the following command to create a project in the `MyProjFolder` folder:
 
@@ -76,7 +76,7 @@ This command creates a project that runs on the current [Long-Term Support (LTS)
 For a comparison between the two .NET process models, see the [process mode comparison article](./dotnet-isolated-in-process-differences.md).
 ::: zone-end
 ::: zone pivot="programming-language-java"
-Java uses a Maven archetype to create the local project, along with your first HTTP triggered function. Rather than using `func init` and `func new`, you should instead follow the steps in the [Command line quickstart](./create-first-function-cli-java.md).  
+Java uses a Maven archetype to create the local project, along with your first HTTP triggered function. Rather than using `func init` and `func new`, you should instead follow the steps in the [Command line quickstart](./how-to-create-function-azure-cli.md?pivots=programming-language-java).  
 ::: zone-end
 ::: zone pivot="programming-language-javascript"  
 ### [v4](#tab/node-v4)
@@ -232,7 +232,7 @@ npm start
 
 ::: zone-end
 ::: zone pivot="programming-language-python" 
-This command must be [run in a virtual environment](./create-first-function-cli-python.md).
+This command must be [run in a virtual environment](./how-to-create-function-azure-cli.md?pivots=programming-language-python).
 ::: zone-end  
 
 When the Functions host starts, it outputs a list of functions in the project, including the URLs of any HTTP-triggered functions, like in this example:
@@ -388,7 +388,7 @@ Java uses Maven to publish your local project to Azure instead of Core Tools. Us
 mvn azure-functions:deploy
 ```
 
-When you run this command, Azure resources are created during the initial deployment based on the settings in your _pom.xml_ file. For more information, see [Deploy the function project to Azure](create-first-function-cli-java.md#deploy-the-function-project-to-azure).
+When you run this command, Azure resources are created during the initial deployment based on the settings in your _pom.xml_ file. For more information, see [Deploy the function project to Azure](how-to-create-function-azure-cli.md?pivots=programming-language-java#deploy-the-function-project-to-azure).
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"  
 The following considerations apply to this kind of deployment:
@@ -429,7 +429,7 @@ When you deploy to an Azure Container Apps environment, the following considerat
 
 + Storage connection strings and other service credentials are important secrets. Make sure to securely store any script files using `func azurecontainerapps deploy` and don't store them in any publicly accessible source control systems. You can [encrypt the local.settings.json file](#encrypt-the-local-settings-file) for added security.
 
-For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md). 
+For more information, see [Azure Container Apps hosting of Azure Functions](../azure-functions/functions-container-apps-hosting.md). 
 
 ### [Kubernetes cluster](#tab/kubernetes)
 

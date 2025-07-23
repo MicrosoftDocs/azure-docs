@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/06/2023
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud administrator, I want to configure GitHub Enterprise Server on Azure VMware Solution, so that I can support collaboration among developers and enhance our CI/CD capabilities with GitHub Actions."
 ---
 
 # Configure GitHub Enterprise Server on Azure VMware Solution

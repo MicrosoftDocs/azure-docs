@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+# Customer intent: As a Java developer, I want to implement blob copying with asynchronous scheduling in Azure Storage, so that I can efficiently manage data transfers between storage accounts and external sources while controlling the operation's progress and handling potential issues.
 ---
 
 # Copy a blob with asynchronous scheduling using Java

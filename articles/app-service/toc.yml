@@ -59,6 +59,12 @@ items:
           href: tutorial-ai-openai-search-dotnet.md
         - name: RAG Azure OpenAI and Azure SQL
           href: deploy-intelligent-apps-dotnet-to-azure-sql.md
+        - name: Add MCP server to app
+          href: tutorial-ai-model-context-protocol-server-dotnet.md
+        - name: AI Foundry Agent calling web app
+          href: tutorial-ai-integrate-azure-ai-agent-dotnet.md
+        - name: Agentic web app (.NET)
+          href: tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet.md
         - name: Invoke OpenAPI app from Azure AI Agent
           href: invoke-openapi-web-app-from-azure-ai-agent-service.md
         - name: Chatbot with local SLM
@@ -112,6 +118,12 @@ items:
           href: tutorial-ai-openai-search-java.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-spring-boot.md
+        - name: Add MCP server to app
+          href: tutorial-ai-model-context-protocol-server-java.md
+        - name: AI Foundry Agent calling web app
+          href: tutorial-ai-integrate-azure-ai-agent-java.md
+        - name: Agentic web app
+          href: tutorial-ai-agent-web-app-semantic-kernel-java.md
   - name: Node.js
     items:
     - name: Quickstart
@@ -500,6 +512,14 @@ items:
           href: tutorial-custom-container.md
         - name: Deploy with Azure Pipelines
           href: deploy-container-azure-pipelines.md
+- name: Sidecars
+  items:
+    - name: Overview
+      href: overview-sidecar.md
+    - name: Configure sidecars
+      href: configure-sidecar.md
+    - name: Migrate from multi-container
+      href: migrate-sidecar-multi-container-apps.md
 - name: WebJobs
   items:
     - name: Overview
@@ -527,8 +547,8 @@ items:
   items:
   - name: Reliability in Azure App Service
     href: ../reliability/reliability-app-service.md?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
-  - name: Migrate to availability zones
-    href: ../reliability/migrate-app-service.md?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
+  - name: Configure App Service for zone redundancy
+    href: configure-zone-redundancy.md
 - name: Samples
   items:
     - name: Azure CLI
@@ -570,7 +590,7 @@ items:
     - name: Routine maintenance, Restarts, and Downtime
       href: routine-maintenance-downtime.md
     - name: Language support policy
-      href: language-support-policy.md
+      href: operating-system-functionality.md
     - name: OS functionality
       href: operating-system-functionality.md
     - name: Kudu service

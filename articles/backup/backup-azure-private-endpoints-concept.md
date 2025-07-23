@@ -4,8 +4,9 @@ description: This article explains about the concept of private endpoints for Az
 ms.topic: overview
 ms.service: azure-backup
 ms.date: 06/26/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As an IT administrator, I want to implement private endpoints for Azure Backup, so that I can secure backup and restore operations within my virtual network and enhance the protection of sensitive data.
 ---
 
 # Overview and concepts of private endpoints (v2 experience) for Azure Backup

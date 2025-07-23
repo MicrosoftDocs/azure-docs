@@ -10,6 +10,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 12/21/2023
 ms.author: robiro
+# Customer intent: As an SAP administrator, I want to integrate Azure services with my SAP RISE environment, so that I can efficiently manage data and application workflows across platforms.
 ---
 
 # Integrating Azure services with SAP RISE

@@ -10,6 +10,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-automation
 title: remover.sh
 description: Remove a new SAP system using a shell script.
+# Customer intent: As a cloud administrator, I want to use the remover.sh script to delete SAP system deployments, so that I can efficiently manage and remove resources from my cloud environment.
 ---
 
 # Remover.sh

@@ -32,7 +32,7 @@
             href: create-first-function-vs-code-csharp.md
           - name: Command line
             displayName: C#, quickstart, get started
-            href: create-first-function-cli-csharp.md
+            href: how-to-create-function-azure-cli.md?pivots=programming-language-csharp
           - name: Azure Developer CLI
             displayName: C#, quickstart, get started, Flex Consumption plan
             href: create-first-function-azure-developer-cli.md?pivots=programming-language-csharp
@@ -49,7 +49,7 @@
             href: functions-create-maven-intellij.md
           - name: Maven
             displayName: Java, quickstart, get started
-            href: create-first-function-cli-java.md
+            href: how-to-create-function-azure-cli.md?pivots=programming-language-java
           - name: Quarkus
             displayName: Java, quickstart, get started
             href: functions-create-first-quarkus.md
@@ -69,7 +69,7 @@
             href: create-first-function-vs-code-node.md
           - name: Command line
             displayName: JavaScript, quickstart, get started
-            href: create-first-function-cli-node.md
+            href: how-to-create-function-azure-cli.md?pivots=programming-language-javascript
           - name: Azure Developer CLI
             displayName: JavaScript, quickstart, get started, Flex Consumption plan
             href: create-first-function-azure-developer-cli.md?pivots=programming-language-javascript
@@ -80,7 +80,7 @@
             href: create-first-function-vs-code-powershell.md
           - name: Command line
             displayName: PowerShell, quickstart, get started
-            href: create-first-function-cli-powershell.md
+            href: how-to-create-function-azure-cli.md?pivots=programming-language-powershell
           - name: Azure Developer CLI
             displayName: PowerShell, quickstart, get started, Flex Consumption plan
             href: create-first-function-azure-developer-cli.md?pivots=programming-language-powershell
@@ -91,7 +91,7 @@
             href: create-first-function-vs-code-python.md
           - name: Command line
             displayName: Python, quickstart, get started
-            href: create-first-function-cli-python.md
+            href: how-to-create-function-azure-cli.md?pivots=programming-language-python
           - name: Azure Developer CLI
             displayName: Python, quickstart, get started, Flex Consumption plan
             href: create-first-function-azure-developer-cli.md?pivots=programming-language-python
@@ -102,7 +102,7 @@
             href: create-first-function-vs-code-typescript.md
           - name: Command line
             displayName: TypeScript, quickstart, get started
-            href: create-first-function-cli-typescript.md
+            href: how-to-create-function-azure-cli.md?pivots=programming-language-typescript
           - name: Azure Developer CLI
             displayName: TypeScript, quickstart, get started, Flex Consumption plan
             href: create-first-function-azure-developer-cli.md?pivots=programming-language-typescript
@@ -491,7 +491,7 @@
           items:
             - name: Infrastructure as code
               href: functions-infrastructure-as-code.md
-              displayName: bicep, ARM template, create function app 
+              displayName: bicep, ARM template, create function app, IaC 
             - name: Azure portal 
               href: functions-create-function-app-portal.md
               displayName: create function app
@@ -692,20 +692,6 @@
               href: ../azure-web-pubsub/tutorial-serverless-notification.md?toc=/azure/azure-functions/toc.json
             - name: Work with Event Grid
               href: event-grid-how-tos.md
-        - name: Start/Stop VMs
-          items:
-            - name: Overview
-              href: start-stop-vms/overview.md
-            - name: Deploy and configure
-              href: start-stop-vms/deploy.md
-            - name: Manage and monitor
-              href: start-stop-vms/manage.md
-            - name: Remove Start/Stop VMs
-              href: start-stop-vms/remove.md
-            - name: Define pre-actions
-              href: start-stop-vms/pre-actions.md
-            - name: Troubleshoot
-              href: start-stop-vms/troubleshoot.md
         - name: Connect to SQL Database
           href: functions-scenario-database-table-cleanup.md
         - name: Connect to a virtual Network
@@ -760,6 +746,8 @@
           displayName: upgrade, migrate, language stack
         - name: Migrate Node.js to model v4.x
           href: functions-node-upgrade-v4.md
+    - name: Migrate Consumption plan apps to Flex Consumption
+      href: migration/migrate-plan-consumption-to-flex.md    
     - name: Migrate .NET apps to the isolated model
       href: migrate-dotnet-to-isolated-model.md
     - name: Move resources
@@ -1022,11 +1010,11 @@
             - name: Output
               href: functions-bindings-kafka-output.md
               displayName: Kafka
-        - name: MCP tool
+        - name: MCP
           items:
             - name: Overview
               href: functions-bindings-mcp.md
-              displayName: MCP tool
+              displayName: MCP
             - name: Trigger
               href: functions-bindings-mcp-trigger.md
               displayName: MCP tool
