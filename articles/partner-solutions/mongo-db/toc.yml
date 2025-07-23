@@ -25,7 +25,7 @@ items:
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/mongodb?view=azure-cli-latest
+    href: /cli/azure/mongodb
   - name: Azure PowerShell
     href: /powershell/module/az.mongodb
   - name: .NET
