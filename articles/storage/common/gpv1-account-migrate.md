@@ -70,4 +70,4 @@ Learn more about related features and how to migrate:
 - [Upgrade a storage account to GPv2](https://learn.microsoft.com/azure/storage/common/storage-account-upgrade)  
 - [Storage account overview](https://learn.microsoft.com/azure/storage/common/storage-account-overview)  
 - [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/)  
-- [GPv1 account migration overview](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-upgrade?tabs=azure-portal)
+- [Classic account migration overview](https://learn.microsoft.com/azure/storage/common/classic-account-migration-overview)
