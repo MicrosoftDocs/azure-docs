@@ -65,7 +65,7 @@ After the retirement date, **data access will be blocked** for all BlobStorage a
 
 ## What happens if I don’t migrate?
 
-After **August 31, 2025**, you will no longer be able to manage BlobStorage accounts. After **September 2026**, data access will be blocked and applications relying on these accounts will fail.
+After **August 31, 2026**, you will no longer be able to manage BlobStorage accounts. After **September 2026**, data access will be blocked and applications relying on these accounts will fail.
 
 ## Need help?
 
