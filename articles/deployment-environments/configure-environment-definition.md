@@ -1,7 +1,7 @@
 ---
 title: Add and Configure an Environment Definition in a Catalog
 titleSuffix: Azure Deployment Environments
-description: Learn how to add and configure an environment definition to use in Azure Deployment Environments projects. Learn how to reference a container image to deploy your environment.
+description: Learn how to add and configure an environment definition to use in Azure Deployment Environments projects. 
 services: Azure Deployment Environments
 author: RoseHJM
 ms.author: rosemalcolm
@@ -65,7 +65,7 @@ To add an environment definition:
            templatePath: azuredeploy.json
        ```  
 
-      This table to describes the fields in the *environment.yaml* file:
+      This table describes the fields in the *environment.yaml* file:
 
       | Field | Description |
       |-------|-------------|
@@ -78,7 +78,7 @@ To add an environment definition:
 
       To learn more about the options and data types you can use in environment.yaml, see [Parameters and data types in environment.yaml](concept-environment-yaml.md#what-is-environmentyaml).
 
-1. In your dev center, go to **Catalogs**, select the repository, and then select **Sync**.
+1. In your dev center, under **Environment configuration**, select **Catalogs**. Select the repository, and then select **Sync**.
 
     :::image type="content" source="../deployment-environments/media/configure-environment-definition/sync-catalog-list.png" alt-text="Screenshot that shows how to synchronize a catalog." lightbox="../deployment-environments/media/configure-environment-definition/sync-catalog-list.png":::
 
