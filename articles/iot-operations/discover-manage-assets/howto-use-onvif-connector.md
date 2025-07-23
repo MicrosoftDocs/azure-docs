@@ -48,7 +48,7 @@ To add a device that defines an ONVIF endpoint for a compliant camera, follow th
 
     :::image type="content" source="media/howto-use-onvif-connector/list-devices.png" alt-text="Screenshot that shows the list of devices in the operations experience." lightbox="media/howto-use-onvif-connector/list-devices.png":::
 
-1. Select **Create new**. On the **Device details** page, enter a name for the device such as `my-onvif-camera`. Then select **New** on the **Microsoft.Onvif** tile. Enter the details for you your ONVIF camera, such as:
+1. Select **Create new**. On the **Device details** page, enter a name for the device such as `my-onvif-camera`. Then select **New** on the **Microsoft.Onvif** tile. Enter the details for your ONVIF camera, such as:
 
     :::image type="content" source="media/howto-use-onvif-connector/add-onvif-endpoint.png" alt-text="Screenshot that shows how to add an ONVIF endpoint to a device." lightbox="media/howto-use-onvif-connector/add-onvif-endpoint.png":::
 
@@ -72,7 +72,7 @@ If you choose to **Import and create asset** from the discovered ONVIF asset, yo
 
 ## Create a device with media endpoints
 
-To create a media device with media endpoints from the discovered device, follow these steps:
+To create a device with media endpoints from the discovered device, follow these steps:
 
 1. In the operations experience web UI, select **Discovery** from the left navigation pane. Then select **Discovered devices**.
 
