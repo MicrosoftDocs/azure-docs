@@ -93,10 +93,12 @@ items:
       - name: Upgrade an account
         href: upgrade-to-data-lake-storage-gen2-how-to.md
     - name: General Purpose v1 (GPv1) account retirement
-      href: ../common/gpv1-account-migrate.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      href: ../common/gpv1-account-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       items:
       - name: Migrate a GPv1 storage account to GPv2
         href: ../common/storage-account-upgrade.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: GPv1 account migration FAQ
+        href: ../common/gpv1-account-migration-faq.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Data transfer and migration
     items:
     - name: Storage migration overview
