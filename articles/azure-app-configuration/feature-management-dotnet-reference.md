@@ -19,7 +19,7 @@ ms.date: 07/23/2025
 [![Microsoft.FeatureManagement.AspNetCore](https://img.shields.io/nuget/v/Microsoft.FeatureManagement.AspNetCore?label=Microsoft.FeatureManagement.AspNetCore)](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore)<br>
 [![Microsoft.FeatureManagement.Telemetry.ApplicationInsights](https://img.shields.io/nuget/v/Microsoft.FeatureManagement.Telemetry.ApplicationInsights?label=Microsoft.FeatureManagement.Telemetry.ApplicationInsights)](https://www.nuget.org/packages/Microsoft.FeatureManagement.Telemetry.ApplicationInsights)<br>
 
-The .NET feature management library provides a way to develop and expose application functionality based on feature flags. When a new feature is developed, many applications have special requirements, such as when the feature should be enabled and under what conditions. This library provides a way to define these relationships. It also integrates into common .NET code patterns to make exposing these features possible.
+The .NET feature management library provides a way to develop and expose application functionality based on feature flags. When a new feature is developed, many applications have special requirements, such as when the feature should be enabled and under what conditions. This library provides a way to define these relationships. It also integrates with common .NET code patterns to make exposing these features possible.
 
 Feature flags provide a way for .NET and ASP.NET Core applications to turn features on or off dynamically. You can use feature flags in basic use cases like conditional statements. You can also use feature flags in more advanced scenarios like conditionally adding routes or model–view–controller (MVC) filters. Feature flags are built on top of the .NET Core configuration system. Any .NET Core configuration provider is capable of acting as the backbone for feature flags.
 
@@ -195,7 +195,7 @@ public class Startup
 }
 ```
 
-By default, the feature manager retrieves the feature flag configuration from the `FeatureManagement` section of the .NET Core configuration data. If the `FeatureManagement` section doesn't exist, the configuration is considered empty.
+By default, the feature manager retrieves the feature flag configuration from the `feature_management` or `FeatureManagement` section of the .NET Core configuration data. If neither section exists, the configuration is considered empty.
 
 > [!NOTE]
 > You can also specify that the feature flag configuration should be retrieved from a different configuration section by passing the section to `AddFeatureManagement`. The following example specifies that the feature manager should read from a section called `MyFeatureFlags` instead:
@@ -258,7 +258,7 @@ In the preceding example, the `Index` MVC action can run only if the `FeatureX` 
 
 ### Disabled action handling
 
-When an MVC controller or action is blocked because none of the features it specifies are enabled, a registered implementation of `IDisabledFeaturesHandler` is invoked. By default, a minimalistic handler is registered which returns an HTTP 404 error. You can override this handler by using `IFeatureManagementBuilder` when you register feature flags.
+When an MVC controller or action is blocked because none of the features it specifies are enabled, a registered implementation of `IDisabledFeaturesHandler` is invoked. By default, a minimalistic handler is registered that returns an HTTP 404 error. You can override this handler by using `IFeatureManagementBuilder` when you register feature flags.
 
 ```csharp
 public interface IDisabledFeaturesHandler
@@ -333,7 +333,7 @@ The `<feature>` tag requires a tag helper to work. To use the tag, add the featu
 
 ### MVC filters
 
-You can set up MVC action filters that you apply conditionally based on the state of a feature. To set up such MVC filters, you register them in a feature-aware manner. The feature management pipeline supports async MVC action filters that implement the `IAsyncActionFilter` interface.
+You can set up MVC action filters that you apply conditionally based on the state of a feature. To set up these filters, you register them in a feature-aware manner. The feature management pipeline supports async MVC action filters that implement the `IAsyncActionFilter` interface.
 
 ```csharp
 services.AddMvc(o => 
@@ -392,7 +392,7 @@ services.AddFeatureManagement()
         .AddFeatureFilter<MyCriteriaFilter>();
 ```
 
-You can register a feature filter by calling `AddFeatureFilter<T>` on the `IFeatureManagementBuilder` instance that `AddFeatureManagement` returns. The feature filter has access to the services that exist within the service collection that you use to add feature flags. You can use dependency injection to retrieve these services.
+You can register a feature filter by calling `AddFeatureFilter<T>` on the `IFeatureManagementBuilder` instance that `AddFeatureManagement` returns. The feature filter has access to the services in the service collection that you use to add feature flags. You can use dependency injection to retrieve these services.
 
 > [!NOTE]
 > When you reference filters in feature flag settings (for example, *appsettings.json*), you should omit the `Filter` part of the type name. For more information, see [Filter alias attribute](#filter-alias-attribute), later in this article.
@@ -511,7 +511,7 @@ if (await featureManager.IsEnabledAsync(feature, context))
 
 ### Contextual feature filters
 
-Contextual feature filters implement the `IContextualFeatureFilter<TContext>` interface. These special feature filters can take advantage of the context that is passed in when `IVariantFeatureManager.IsEnabledAsync<TContext>` is called. The `TContext` type parameter in `IContextualFeatureFilter<TContext>` describes the context type that the filter can handle. When you develop a contextual feature filter, you can establish the requirements for using the filter by specifying a context type.
+Contextual feature filters implement the `IContextualFeatureFilter<TContext>` interface. These special feature filters can take advantage of the context that's passed in when `IVariantFeatureManager.IsEnabledAsync<TContext>` is called. The `TContext` type parameter in `IContextualFeatureFilter<TContext>` describes the context type that the filter can handle. When you develop a contextual feature filter, you can establish the requirements for using the filter by specifying a context type.
 
 Because every type is a descendant of the `Object` class, a filter that implements `IContextualFeatureFilter<object>` can be called for any provided context. The following code provides an example of a specific contextual feature filter. In this code, a feature is enabled if an account is in a configured list of enabled accounts.
 
@@ -731,7 +731,7 @@ There are three possible recurrence range types: `NoEnd`, `EndDate`, and `Number
   | `Type` | Required | The recurrence range type. Must be set to `Numbered`. |
   | `NumberOfOccurrences` | Required | The number of occurrences. |
 
-  In the following, the time window repeats on Monday and Tuesday for a total of three occurrences, which happen on the following dates:
+  In the following example, the time window repeats on Monday and Tuesday for a total of three occurrences, which happen on the following dates:
 
   * Monday, April 1
   * Tuesday, April 2
@@ -765,14 +765,18 @@ The filter parameters include an `Audience` object that describes who should hav
 
 For each group object that you list in the `Groups` section, you must also specify what percentage of the group's members should have access.
 
-* A feature is disabled for a user in the following cases:
-  * The user is listed in the `Exclusion` section.
-  * The user is in a group that's listed in the `Exclusion` section.
+For each user, the feature is evaluated in the following way:
 
-* A feature is enabled for a user in the following cases:
+* If the user is excluded, the feature is disabled for the user. You can exclude the user by:
+  * Listing their name under `Users` in the `Exclusion` section.
+  * Listing a group they belong to under `Groups` in the `Exclusion` section.
+
+* If the user isn't excluded, the feature is enabled if any of the following conditions are met:
   * The user is listed in the `Users` section.
   * The user is in the included percentage of any of the group rollouts.
   * The user falls into the default rollout percentage.
+
+* If none of the previous cases apply, the feature is disabled for the user. For instance, if the user isn't in an included percentage, the feature is disabled.
 
 ```json
 {
@@ -858,7 +862,7 @@ services.AddFeatureManagement()
 
 #### ITargetingContextAccessor
 
-To use `TargetingFilter` in a web application, an implementation of `ITargetingContextAccessor` is required. The reason is that contextual information, such as information about the user, is needed for targeting evaluations. This information is stored in instances of the [`TargetingContext`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement/Targeting/TargetingContext.cs) class. Different applications extract this information from different places, such as a request's HTTP context or a database.
+To use `TargetingFilter` in a web application, an implementation of `ITargetingContextAccessor` is required. The reasoning behind this requirement is that contextual information, such as information about the user, is needed for targeting evaluations. This information is stored in instances of the [`TargetingContext`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement/Targeting/TargetingContext.cs) class. Different applications extract this information from different places, such as a request's HTTP context or a database.
 
 For an example that extracts targeting context information from an application's HTTP context, see [`DefaultHttpTargetingContextAccessor`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) in the `Microsoft.FeatureManagement.AspNetCore` package. It extracts the following information:
 
@@ -870,7 +874,7 @@ This implementation relies on the use of `IHttpContextAccessor`. For more inform
 
 ### Targeting in a console application
 
-The targeting filter relies on a targeting context to evaluate whether a feature should be turned on. This targeting context contains information such as the user that's being evaluated and the groups the user belongs to. In console applications, there's typically no ambient context available to pass this information to the targeting filter. As a result, you must pass it directly when you call `FeatureManager.IsEnabledAsync`. This type of context is supported by using `ContextualTargetingFilter`. Applications that need to send the targeting context to the feature manager should use `ContextualTargetingFilter` instead of `TargetingFilter.`
+The targeting filter relies on a targeting context to evaluate whether a feature should be turned on. This targeting context contains information such as the user that's being evaluated and the groups the user belongs to. In console applications, there's typically no ambient context available for passing this information to the targeting filter. As a result, you must pass it directly when you call `FeatureManager.IsEnabledAsync`. This type of context is supported by using `ContextualTargetingFilter`. Applications that need to send the targeting context to the feature manager should use `ContextualTargetingFilter` instead of `TargetingFilter.`
 
 Because `ContextualTargetingFilter` implements [`IContextualTargetingFilter<ITargetingContext>`](#contextual-feature-filters), you must pass an implementation of `ITargetingContext` to `IVariantFeatureManager.IsEnabledAsync` for it to be able to evaluate and turn on a feature.
 
@@ -975,7 +979,7 @@ MyFeatureSettings settings = new MyFeatureSettings();
 variantConfiguration.Bind(settings);
 ```
 
-The variant that's returned depends on the user that's being evaluated. You can obtain information on the user from an instance of `TargetingContext`. You can pass in this context when you call `GetVariantAsync`. Or it can be automatically retrieved from an implementation of [`ITargetingContextAccessor`](#itargetingcontextaccessor) if one is registered.
+The variant that's returned depends on the user who's being evaluated. You can obtain information on the user from an instance of `TargetingContext`. You can pass in this context when you call `GetVariantAsync`. Or it can be automatically retrieved from an implementation of [`ITargetingContextAccessor`](#itargetingcontextaccessor) if one is registered.
 
 ### Variant feature flag declaration
 
@@ -1015,9 +1019,9 @@ Compared to standard feature flags, variant feature flags have two extra propert
 
 #### Define variants
 
-Each variant has two properties: a name and a configuration. The name is used to refer to a specific variant, and the configuration is the value of that variant. You can use the `configuration_value` property to specify the configuration. The `configuration_value` property is an inline configuration that can be a string, number, Boolean, or configuration object. If you don't configure the `configuration_value` property, the returned variant's `Configuration` property is null.
+Each variant has two properties: a name and a configuration. The name is used to refer to a specific variant, and the configuration is the value of that variant. You can use the `configuration_value` property to specify the configuration. The `configuration_value` property is an inline configuration that can be a string, number, Boolean, or configuration object. If you don't configure the `configuration_value` property, the returned variant's `Configuration` property is `null`.
 
-You list all possible variants for each feature under the `variants` property.
+To specify all possible variants for a feature, you list them under the `variants` property.
 
 ```json
 {
@@ -1097,8 +1101,8 @@ The `allocation` setting has the following properties:
 | `default_when_disabled` | The variant to use when a variant is requested while the feature is considered disabled. |
 | `default_when_enabled` | The variant to use when a variant is requested while the feature is considered enabled and no other variant is assigned to the user. |
 | `user` | A variant and a list of users to assign the variant to. | 
-| `group` | A variant and a list of groups. The variant is assigned if the user is in at least one of the groups. |
-| `percentile` | A variant and a percentage range the user's calculated percentage has to fit into for the variant to be assigned. |
+| `group` | A variant and a list of groups. The variant is assigned if the current user is in at least one of the groups. |
+| `percentile` | A variant and a percentage range that the user's calculated percentage has to fit into for the variant to be assigned. |
 | `seed` | The value that percentage calculations for `percentile` are based on. The percentage calculation for a specific user is the same across all features if the same `seed` value is used. If no `seed` value is specified, a default seed is created based on the feature name. |
 
 If a feature isn't enabled, the feature manager assigns the variant specified for `default_when_disabled` to the current user. In the preceding example, that feature is called `Small`.
@@ -1175,7 +1179,7 @@ In the preceding code, the `IVariantServiceProvider<IAlgorithm>` implementation 
 * The feature flag that the `IAlgorithm` service is registered with.
 * The allocated variant for that feature.
 
-The `IVariantServiceProvider<T>` is made available to the application by calling `IFeatureManagementBuilder.WithVariantService<T>(string featureName)`, as the following example shows. The call in this code makes `IVariantServiceProvider<IAlgorithm>` available in the service collection.
+The `IVariantServiceProvider<T>` implementation is made available to the application by calling `IFeatureManagementBuilder.WithVariantService<T>(string featureName)`, as the following example shows. The call in this code makes `IVariantServiceProvider<IAlgorithm>` available in the service collection.
 
 ```csharp
 services.AddFeatureManagement() 
@@ -1249,7 +1253,7 @@ The `telemetry` section of a feature flag has the following properties:
 | Property | Description |
 | ---------------- | ---------------- |
 | `enabled` | A Boolean value that specifies whether telemetry should be published for the feature flag. |
-| `metadata` | A collection of key-value pairs, modeled as a dictionary, that can be used to attach custom metadata about the feature flag to evaluation events. |
+| `metadata` | A collection of key-value pairs, modeled as a dictionary, that you can use to attach custom metadata about the feature flag to evaluation events. |
 
 ### Custom telemetry publishing
 
@@ -1317,11 +1321,11 @@ Feature state is provided by the `IConfiguration` system. Any caching and dynami
 
 Some scenarios require the state of a feature to remain consistent during the lifetime of a request. The values returned from a standard `IVariantFeatureManager` implementation can change if the `IConfiguration` source that it pulls from is updated during the request.
 
-You can prevent this behavior by using `IVariantFeatureManagerSnapshot`. You can retrieve `IVariantFeatureManagerSnapshot` in the same manner as `IVariantFeatureManager`. `IVariantFeatureManagerSnapshot` implements the interface of `IVariantFeatureManager`, but it caches the first evaluated state of a feature during a request. It returns that state during the lifetime of the feature.
+You can prevent this behavior by using `IVariantFeatureManagerSnapshot`. You can retrieve `IVariantFeatureManagerSnapshot` in the same manner as `IVariantFeatureManager`. `IVariantFeatureManagerSnapshot` implements the `IVariantFeatureManager` interface, but `IVariantFeatureManagerSnapshot` caches the first evaluated state of a feature during a request. It returns that state during the lifetime of the feature.
 
 ## Custom feature providers
 
-When you implement a custom feature provider, you can pull feature flags from sources such as a database or a feature management service. The default feature provider pulls feature flags from .NET Core's configuration system. This system provides support for defining features in an [appsettings.json](/aspnet/core/fundamentals/configuration/#jcp) file or in configuration providers like [Azure App Configuration](./quickstart-feature-flag-aspnet-core.md). You can customize this behavior to control where feature definitions are read from.
+When you implement a custom feature provider, you can pull feature flags from sources such as a database or a feature management service. The default feature provider pulls feature flags from the .NET Core configuration system. This system provides support for defining features in an [appsettings.json](/aspnet/core/fundamentals/configuration/#jcp) file or in configuration providers like [Azure App Configuration](./quickstart-feature-flag-aspnet-core.md). You can customize this behavior to control where feature definitions are read from.
 
 To customize the loading of feature definitions, you must implement the `IFeatureDefinitionProvider` interface.
 
