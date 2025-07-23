@@ -112,7 +112,7 @@ The `outputs.tf` file returns these values for your new function app:
 | `fa_name` | The name of your new function app. |
 | `fa_url` | The URL of your new function app endpoint. | 
 
-Open a browser and browse to the URL location in `fa_url`.
+Open a browser and browse to the URL location in `fa_url`. You can also use the [terraform output](https://developer.hashicorp.com/terraform/cli/commands/output) command to review these values at a later time.
 
 :::image type="content" source="media/functions-create-first-function-terraform/function-app-terraform.png" alt-text="Screenshot of Azure Functions app 'Welcome page'." border="false":::
 
