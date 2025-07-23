@@ -79,7 +79,7 @@ Remediation Process:
 
 *   Remediation of a Compute node is one reprovisioning attempt. If the reprovisioning fails, the node is marked Unhealthy.
 *   Remediation of a Management Plane node is to attempt one reboot and then one reprovisioning attempt. If those steps fail, the node is marked Unhealthy.
-*   Remediation of a KCP node is to attempt one reboot. If the reboot fails, the node is marked Unhealthy and Nexus triggers the immediate provisioning of the spare KCP node.
+*   Remediation of a KCP node is to attempt one reboot. If the reboot fails, the node is marked Unhealthy and Nexus triggers the immediate provisioning of the spare KCP node. This process is described in the `KCP remediation details` section. 
 
 ### KCP remediation details
 
