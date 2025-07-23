@@ -117,7 +117,7 @@ For more information, see [Apply an Azure Resource Manager lock to a storage acc
 
 ### Storage account recovery
 
-Recovering an accidentally deleted storage account can be achieved. However, when recovering a storage account, the following criteria must be met:
+You can recover an accidentally deleted storage account if the following criteria are met:
 - The storage account was deleted within the past 14 days.
 - The storage account was created with the Azure Resource Manager deployment model.
 - A new storage account with the same name hasn't been created since the original account was deleted.
