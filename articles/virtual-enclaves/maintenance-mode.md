@@ -14,8 +14,8 @@ Maintenance mode is a feature that allows community or enclave owners to tempora
 
 ## Key features
 The following are the key features of Maintenance Mode:
-- *Exclusion from Deny Assignments*: Specified ssers or groups are temporarily excluded from deny assignments, enabling them to perform necessary maintenance tasks or create complex workloads.
-- *Privileged action*: As this is considered as a privileged action, Azure recommends only using maintenance mode when performing certain elevated actions. Privileged users making changes should understand changes they're making, and steps to undo or remediate those changes.
+- *Exclusion from Deny Assignments*: Specified users or groups are temporarily excluded from deny assignments, enabling them to perform necessary maintenance tasks or create complex workloads.
+- *Privileged action*: As this action is considered as a privileged action, Azure recommends only using maintenance mode when performing certain elevated actions. Privileged users making changes should understand changes they're making, and steps to undo or remediate those changes.
 - *User-friendly interface*: The feature is designed with a user-friendly interface, making it easy to activate and deactivate maintenance mode as needed.
 - *Enhanced flexibility*: Maintenance mode provides users with the flexibility to manage their workloads more effectively, ensuring that they can perform tasks without unnecessary interruptions.
 
