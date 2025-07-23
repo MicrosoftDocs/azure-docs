@@ -12,7 +12,7 @@ ms.custom:
   - ai-seo-date:05/10/2025
   - ai-gen-description
 ms.topic: how-to
-ms.date: 07/18/2025
+ms.date: 07/22/2025
 ---
 
 # Connect to Azure resources or clone private repositories by using customizations
@@ -85,11 +85,9 @@ To learn how to let trusted Microsoft services bypass the firewall, see [Configu
 
 ## Authenticate to Azure resources with service principals
 
-You can use service principals to authenticate to Azure resources in your customizations. Service principals are a secure way to access Azure resources without using user credentials.
+Service principals let you securely authenticate to Azure resources exposing user credentials. You can create a Service Principal, assign the necessary role assignments, and use it to authenticate in a customization tasks, hydrating its credentials at customization time using the existing secrets feature. The next section explains the steps.
 
-Create a Service Principal with required role assignments, and use it to log in in a customizations tasks, hydrating its credentials at customization time using the existing secrets feature. The next section provides the necessary steps.
-
-1. Create a service principal in Azure Active Directory (Azure AD) and assign it the necessary roles for the resources you want to access.
+1. Create a service principal in Azure Active Directory (Azure AD), and assign it the necessary roles for the resources you want to use.
 
    The output is a JSON object containing the service principal's *appId*, *displayName*, *password*, and *tenant*, which are used for authentication and authorization in Azure automation scenarios.
 
@@ -111,7 +109,6 @@ Create a Service Principal with required role assignments, and use it to log in 
 Now you can authenticate in customization tasks, hydrating the service principal password from the Key Vault at customization time.
 
 ### Example: Download a file from Azure Storage
-
 The following example shows you how to download a file from storage account. The YAML snippet defines a Dev Box customization that performs two main tasks:
 
 1. Installs the Azure CLI using the winget package manager.
@@ -142,28 +139,28 @@ The following example shows you how to download a file from storage account. The
              --auth-mode login
    ```
 
-This setup allows automated, secure access to Azure resources during Dev Box provisioning, without exposing credentials in the script.
+This setup lets you automate secure use of Azure resources during Dev Box provisioning without exposing credentials in the script.
 
 ### Example: Download an artifact from Azure DevOps
-You can also download build artifacts from Azure DevOps (ADO) by using a service principal for authentication. To do this, add the service principal's Application ID (appId) as a user in your Azure DevOps organization and assign it to the **Readers** group. This provides the necessary permissions to access build artifacts.
+Download build artifacts from Azure DevOps (ADO) by using a service principal for authentication. Add the service principal's Application ID (appId) as a user in your Azure DevOps organization, and assign it to the **Readers** group. This step gives the necessary permissions to use build artifacts.
 
-Once configured, you can use the service principal credentials in your customization tasks to authenticate and download artifacts securely from Azure DevOps.
+After you configure these steps, use the service principal credentials in customization tasks to authenticate and download artifacts securely from Azure DevOps.
 
-#### Add a service principal to Azure DevOps organization
+#### Add a service principal to an Azure DevOps organization
 
 To add a service principal to your Azure DevOps organization:
 
-1. Sign in to your Azure DevOps organization and open **Organization settings**.
-1. In the left menu, select **Users**.
+1. Sign in to your Azure DevOps organization, and open **Organization settings**.
+1. In the menu, select **Users**.
 1. On the **Users** page, select **Add users**.
 1. In the **Add new users** dialog, enter the following information:
 
-  :::image type="content" source="media/how-to-customizations-connect-resource-repository/dev-box-customizations-devops-add-user.png" alt-text="Screenshot of the Add new users dialog in Azure DevOps, showing fields for user email, access level, project, and group assignment." lightbox="media/how-to-customizations-connect-resource-repository/dev-box-customizations-devops-add-user.png":::
+   :::image type="content" source="media/how-to-customizations-connect-resource-repository/dev-box-customizations-devops-add-user.png" alt-text="Screenshot of the Add new users dialog in Azure DevOps, showing fields for user email, access level, project, and group assignment." lightbox="media/how-to-customizations-connect-resource-repository/dev-box-customizations-devops-add-user.png":::
 
-  - **Users**: Service principal's Application ID (appId) as the user email.
-  - **Access Level**: Select **Basic**.
-  - **Add to project**: Select the project where you want to add the service principal.
-  - **Azure DevOps groups**: Assign the service principal to the **Readers** group.
+      - **Users**: Enter the service principal's Application ID (appId) as the user email.
+   - **Access Level**: Select **Basic**.
+   - **Add to project**: Select the project where you want to add the service principal.
+   - **Azure DevOps groups**: Assign the service principal to the **Readers** group.
 
 1. Complete the process to grant the necessary permissions.
 
@@ -171,7 +168,6 @@ For details on how to add users to DevOps organizations, see [Add organization u
 
 ## Related content
 
-- [Microsoft Dev Box customizations](concept-what-are-dev-box-customizations.md)
-- [Configure Dev Box imaging](how-to-configure-dev-box-imaging.md)
-- Learn how to [add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md).
+- Learn how to [Set and retrieve a secret from Azure Key Vault using the Azure portal](/azure/key-vault/secrets/quick-create-portal).
+- Learn how to [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md).
 - Learn how to [Use service principals & managed identities in Azure DevOps](/azure/devops/integrate/get-started/authentication/service-principal-managed-identity).
