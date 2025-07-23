@@ -60,7 +60,7 @@ Content-Type: application/json
 }
 ```
 
-    This request can also be executed in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer/). Make sure to include your full tenant domain in the URL `https://developer.microsoft.com/graph/graph-explorer?tenant={tenant domain}`, sign in, and provide consent for `Application.ReadWrite.All` permission.
+  This request can also be executed in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer/). Make sure to include your full tenant domain in the URL `https://developer.microsoft.com/graph/graph-explorer?tenant={tenant domain}`, sign in, and provide consent for `Application.ReadWrite.All` permission.
 
 - Use the [Azure CLI](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create) to run the following command:
 
