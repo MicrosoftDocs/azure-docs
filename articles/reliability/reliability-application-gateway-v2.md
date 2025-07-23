@@ -28,17 +28,20 @@ This article describes Azure Application Gateway v2 reliability support, coverin
 
 To learn about how to deploy Azure API Management to support your solution's reliability requirements, and how reliability affects other aspects of your architecture, see [Architecture best practices for Azure Application Gateway in the Azure Well-Architected Framework](/azure/well-architected/service-guides/azure-application-gateway).
 
-## Understanding instances and capacity units
-
-In Azure, an **instance** is a virtual machine (VM)-level unit of the gateway. Each instance is a dedicated virtual machine that handles traffic. One instance is equal to 1 VM. Each VM can support at least 10 capacity units. Autoscaling adjusts the number of VMs based on capacity unit demand. A *capacity* unit is a measure of connections consumed by the gateway. Each Application Gateway V2 instance can handle at least 10 capacity units.
-
 ## Reliability architecture overview
 
-Azure Application Gateway v2 achieves reliability through several architectural components:
+An *instance* is a virtual machine (VM)-level unit of the gateway. Each instance represents a dedicated virtual machine that handles traffic. One instance is equal to one VM. You don't see or manage the VMs directly.
 
-- **Autoscaling and High Availability**: Azure Application Gateways are always deployed in a highly available fashion. The service consists of multiple instances that are created as configured (if autoscaling is disabled) or as required by application load (if autoscaling is enabled). Each instance can handle up to 10 Capacity Units, and the platform automatically manages instance creation, health monitoring, and replacement of unhealthy instances.
-- **Zone Redundancy**: When configured for [zone redundancy](#availability-zone-support), Application Gateway v2 distributes instances across multiple availability zones within a region. This provides protection against zone-level failures while maintaining service availability.
-- **Static VIP**: Application Gateway v2 provides a static Virtual IP (VIP) address that doesn't change throughout the lifecycle of the deployment, ensuring consistent DNS resolution and reducing configuration dependencies.
+A *capacity unit* represents an amount of capacity that the gateway can process. A capacity unit is a synthetic measure that incorporates traffic, the number of connections, and compute resources. Each instance can handle at least 10 capacity units.
+
+You configure Azure Application Gateway to use one of the following scaling modes:
+
+- **Autoscaling:** Automaticaly adjusts the number of instances within a range that you specify. Autoscaling scales the number of instances based on how many capacity units are needed to meet the current traffic demand.
+- **Manual scaling:** Requires you to specify an exact number of instances.
+
+The platform automatically manages instance creation, health monitoring, and replacement of unhealthy instances.
+
+For more information, see [Scaling Application Gateway v2 and WAF v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
 
 ## Transient faults
 
