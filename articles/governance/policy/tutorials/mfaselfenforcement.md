@@ -82,7 +82,7 @@ You can set enforcement by updating the 'Effect' of the policy assignment.
 - Click 'Review + save', then 'Create'.
 - Once you have confirmed no unexpected impact for this initial application, you may update the existing override to add other regions, then monitor for any impact. Repeat this step as many times as needed to eventually add all regions.
 
-# User Experience during Preview
+## User Experience during Preview
 
 ## Audit Mode
 Discover audit events in your activity log when this policy assignment is applied in audit mode and they attempt to create, update, or delete a resource without authenticating with MFA.
