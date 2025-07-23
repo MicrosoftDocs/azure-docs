@@ -94,17 +94,25 @@ Availability zone support for Application Gateway v2 doesn't incur extra charges
 
 This section explains how to configure availability zone support for your application gateway instances.
 
-- **Create a new Application Gateway v2 resource with availability zone support:** The approaches you use to configure availability zones depend on the tooling you use.
+- **Create a new Application Gateway v2 resource with availability zone support:** The approach you use to configure availability zones depends on whether you want to create a zone-redundant or zonal gateway.
 
-    - *Azure portal:* The portal automatically creates zone-redundant Application Gateway v2 resources by default. You can verify this by checking the "Availability zones" section in the resource properties after creation.
-    - *Azure CLI:* You should explicitly select zones by using the `--zones` parameter when creating the Application Gateway. If you don't specify zones, the gateway is nonzonal.
-    - *Azure PowerShell:* Use the `-Zone` parameter in the `New-AzApplicationGateway` command. If you don't specify zones, the gateway is nonzonal.
-    - *Bicep/ARM templates:*: Configure the `zones` property in the resource definition. If you don't specify zones, the gateway is nonzonal.
+  - *Zone-redundant:* New Application Gateway v2 resources are created as zone-redundant by default. Instances are spread across multiple availability zones and can use all zones in the region.
+
+    > [!NOTE]
+    > When you deploy a new gateway by using some tooling, the gateway might appear appear not to be zone-redundant in the Azure portal. However, if it's deployed in a region that supports availability zones, it is zone-redundant by default.
+
+    You can optionally specify the availability zones to deploy your gateway into. You can deploy a zone-redundant gateway by specifying two or more zones.
+
+    For detailed guidance, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](../application-gateway/quick-create-portal.md).
+
+  - *Zonal:* You can deploy a zonal gateway by using the following tooling:
+
+    - *Azure CLI:* You should explicitly select zones by using the `--zones` parameter in the `az network application-gateway create` command. To pin the gateway to a single zone, specify the logical zone number.
+    - *Azure PowerShell:* Use the `-Zone` parameter in the `New-AzApplicationGateway` command. To pin the gateway to a single zone, specify the logical zone number.
+    - *Bicep/ARM templates:*: Configure the `zones` property in the resource definition. To pin the gateway to a single zone, specify the logical zone number.
 
     > [!NOTE]
     > [!INCLUDE [Availability zone numbering](./includes/reliability-availability-zone-numbering-include.md)]
-
-    For detailed guidance about deploying a zone-redundant gateway, see [Create an autoscaling, zone redundant application gateway](../application-gateway/tutorial-autoscale-ps.md)
 
 - **Change the availability zone configuration of an existing Application Gateway v2 resource:** Availability zones can only be configured when creating a new Application Gateway v2 resource. Existing non-zone-redundant gateways can't be converted to use availability zones and must be replaced with new zone-redundant deployments. For more information, see [Migrate Application Gateway to availability zone support](./migrate-app-gateway-v2.md).
 
