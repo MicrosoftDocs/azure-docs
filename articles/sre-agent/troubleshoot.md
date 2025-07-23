@@ -77,11 +77,11 @@ To resolve the issue:
 
 * Use the *Check Access* feature in the Azure portal to verify you have the right permissions.
 
-## Blocked requests
+## Portal becomes unresponsive
 
-If requests to SRE Agent are blocked, your firewall might stop requests to Azure and causing client-side failures in the browser.
+If the Azure portal becomes unresponsive as you try to use SRE Agent, then your firewall rules might be blocking access to an Azure domain.
 
-To grant access to the proper domain, allowlist `*.azuresre.ai` your firewall settings.
+To grant access to the proper domain, allowlist `*.azuresre.ai` in your firewall settings.
 
 ## Related content
 
