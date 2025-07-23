@@ -93,6 +93,9 @@ To send SMS, you must have a sender ID—this can be a phone number or an alphan
 | Slovakia         | –         | –          | –     | –              | –              | ✅             |
 | Slovenia         | –         | –          | –     | –              | –              | ✅             |
 
+> [!TIP]
+> For global SMS delivery and partner-managed options, check out [Messaging Connect](../sms/messaging-connect.md).
+
 ## Next steps
 
 > [!div class="nextstepaction"]
