@@ -6,7 +6,7 @@ metadata:
   author: jenniferf-skc 
   ms.author: jfields
   manager: pmwongera
-  ms.date: 07/21/2025
+  ms.date: 07/23/2025
   ms.service: role-based-access-control
   ms.topic: how-to
   ms.custom:
@@ -75,7 +75,7 @@ procedureSection:
         ![Screenshot of Add role assignment page with Role tab.](./media/shared/roles.png)
 
         
-        Note, If you're unsure of which role you need to assign, you can now use Copilot to help you select the appropriate role. (Limited preview)
+        Note, If you're unsure of which role you need to assign, you can now use Copilot to help you select the appropriate role. (Limited preview. This capability is being deployed in stages, so it might not be available yet in your tenant or your interface might look different.)
         
       - |
         (Optional) In the **Role** tab, click the **Copilot can help pick role** button. The Copilot dialog box opens. 
