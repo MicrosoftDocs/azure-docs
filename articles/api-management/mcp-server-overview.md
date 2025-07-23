@@ -43,7 +43,7 @@ The MCP architecture is built on [JSON-RPC 2.0 for messaging](https://modelconte
 
 * **Local MCP servers** MCP clients use standard input/output as a local transport method to connect to MCP servers on the same machine,.
 
-Azure API Management supports the remote MCP server mode, using native features of API Management and [capabilities of the AI gateway](./genai-gateway-capabilities.md).
+Azure API Management supports the remote MCP server mode, using native features of API Management and [capabilities of the AI gateway](./genai-gateway-capabilities.md) to manage MCP server endpoints.
 
 > [!NOTE]
 > MCP server support in API Management is in preview. In preview, API Management supports MCP server tools, but doesn't currently support MCP resources or prompts.
@@ -60,7 +60,8 @@ MCP provides the following transport types and typical endpoints for remote serv
 
 ## Expose MCP servers in API Management
 
-API Management supports two ways to expose MCP servers:
+API Management supports > [!NOTE]
+> Information the user should notice even if skimmingtwo built-in ways to expose MCP servers:
 
 | Source                                   | Description                                                                                   |
 |-------------------------------------------|-----------------------------------------------------------------------------------------------|
@@ -86,20 +87,14 @@ You can secure both inbound access to the MCP server (from an MCP client to API 
 
 ### Secure inbound access
 
-One option to secure inbound access is to configure a policy to validate a JSON web token (JWT) in the incoming requests. This ensures that only authorized clients can access the MCP server. Use the [validate-jwt](validate-jwt-policy.md) or [validate-azure-ad-token](validate-azure-ad-token-policy.md) policy to validate the JWT token in the incoming requests. For example:
-    
-<!-- update to validate-azure-ad-token-policy.md if preferred -->
-```xml
-<validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid."> 
-    <openid-config url="https://login.microsoftonline.com/{tenant-id}/v2.0/.well-known/openid-configuration" /> 
-    <audiences> 
-        <audience>your-client-id</audience> 
-    </audiences> 
-    <issuers> 
-        <issuer>https://sts.windows.net/{tenant-id}/</issuer> 
-    </issuers> 
-</validate-jwt>
+One option to secure inbound access is to configure a policy to validate a JSON web token (JWT) generated using an identity provider in the incoming requests. This ensures that only authorized clients can access the MCP server. Use the generic [validate-jwt](validate-jwt-policy.md) policy, or the [validate-azure-ad-token](validate-azure-ad-token-policy.md) policy when using Microsoft Entra ID, to validate the JWT token in the incoming requests. The following is a basic example of validating a Microsoft Entra ID token:
 
+```xml
+<validate-azure-ad-token header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid."> 
+    <client-application-ids>
+        <application-id>your-client-id</application-id>
+    </client-application-ids> 
+</validate-azure-ad-token>
 ```
 
 For more inbound authorization options and samples, see:
