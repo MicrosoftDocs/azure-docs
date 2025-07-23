@@ -1,7 +1,7 @@
 ---
 title: .NET Feature Flag Management
 titleSuffix: Azure App Configuration
-description: Find information about implementing feature flags in .NET and ASP.NET Core applications by using the .NET feature management library and Azure App Configuration.
+description: Find information about using the .NET feature management library and Azure App Configuration to implement feature flags in .NET and ASP.NET Core applications.
 services: azure-app-configuration
 author: rossgrambo
 ms.author: rossgrambo
@@ -44,7 +44,7 @@ Here are some of the benefits of using the .NET feature management library:
   The .NET feature management library is open source. For more information, see the [FeatureManagement-Dotnet](https://github.com/microsoft/FeatureManagement-Dotnet) GitHub repo.
 
 ## Feature flags
-Feature flags can be either enabled or disabled. The state of a flag can be made conditional through the use of feature filters.
+Feature flags can be either enabled or disabled. The state of a flag can be made conditional by using feature filters.
 
 ### Feature filters
 
@@ -297,7 +297,7 @@ You can also negate the tag helper evaluation if you want to display content whe
 </feature>
 ```
 
-You can use the `<feature>` tag to reference multiple features and variants. To do so, specify a comma-separated list of features in the `name` attribute, or a comma-separated list of variants in the `variant` attribute.
+You can use the `<feature>` tag to reference multiple features. To do so, specify a comma-separated list of features in the `name` attribute.
 
 ```HTML+Razor
 <feature name="FeatureX,FeatureY">
@@ -305,25 +305,25 @@ You can use the `<feature>` tag to reference multiple features and variants. To 
 </feature>
 ```
 
-```HTML+Razor
-<feature name="FeatureX" variant="Alpha,Beta">
-  <p>This content appears only when variant 'Alpha' or 'Beta' of 'FeatureX' is assigned.</p>
-</feature>
-```
-
-> [!NOTE]
-> If you specify a variant, you should specify only *one* feature. 
-
 By default, all listed features must be enabled for the feature tag to be rendered. You can override this behavior by adding the `requirement` attribute, as the following example shows.
-
-> [!NOTE]
-> If you use a `requirement` value of `And` in conjunction with the `variant` attribute, an error is thrown. You can't assign multiple variants.
 
 ```HTML+Razor
 <feature name="FeatureX,FeatureY" requirement="Any">
   <p>This content appears only when 'FeatureX,' 'FeatureY,' or both are enabled.</p>
 </feature>
 ```
+
+You can also use the `<feature>` tag to reference multiple variants. To do so, use a `requirement` value of `Any` and specify a comma-separated list of variants in the `variant` attribute.
+
+```HTML+Razor
+<feature name="FeatureX" variant="Alpha,Beta" requirement="Any">
+  <p>This content appears only when variant 'Alpha' or 'Beta' of 'FeatureX' is assigned.</p>
+</feature>
+```
+
+> [!NOTE]
+> * If you specify a variant, you should specify only *one* feature. 
+> * If you specify multiple variants and use a `requirement` value of `And`, an error is thrown. You can't assign multiple variants.
 
 The `<feature>` tag requires a tag helper to work. To use the tag, add the feature management tag helper to the [\_ViewImports.cshtml](/aspnet/core/mvc/views/layout#importing-shared-directives) file.
 
@@ -399,7 +399,7 @@ You can register a feature filter by calling `AddFeatureFilter<T>` on the `IFeat
 
 ### Parameterized feature filters
 
-Some feature filters require parameters to evaluate whether a feature should be turned on. For example, a browser feature filter might turn on a feature for a certain set of browsers. You might want to turn on a feature in the Edge and Chrome browsers but not in Firefox. To implement this filtering, you can design a feature filter to expect parameters. You specify these parameters in the feature configuration. In code, you access them via the `FeatureFilterEvaluationContext` parameter of `IFeatureFilter.EvaluateAsync`.
+Some feature filters require parameters to evaluate whether a feature should be turned on. For example, a browser feature filter might turn on a feature for a certain set of browsers. You might want to turn on a feature in the Microsoft Edge and Chrome browsers but not in Firefox. To implement this filtering, you can design a feature filter to expect parameters. You specify these parameters in the feature configuration. In code, you access them via the `FeatureFilterEvaluationContext` parameter of `IFeatureFilter.EvaluateAsync`.
 
 ```csharp
 public class FeatureFilterEvaluationContext
@@ -455,7 +455,7 @@ You can override this name by using the `FilterAliasAttribute` class. To declare
 
 ### Missing feature filters
 
-If you configure a feature to be enabled for a specific feature filter and that feature filter isn't registered, an exception is thrown when the feature is evaluated. As the following code shows, you can disable the exception by using feature management options. 
+Suppose you configure a feature to be enabled for a specific feature filter. If that feature filter isn't registered, an exception is thrown when the feature is evaluated. As the following code shows, you can disable the exception by using feature management options. 
 
 ```csharp
 services.Configure<FeatureManagementOptions>(options =>
@@ -532,7 +532,7 @@ class AccountIdFilter : IContextualFeatureFilter<IAccountContext>
 }
 ```
 
-The `AccountIdFilter` class requires an object that implements `IAccountContext` to be provided to be able to evaluate the state of a feature. When using this feature filter, the caller needs to make sure that the passed-in object implements `IAccountContext`.
+The `AccountIdFilter` class requires an object that implements `IAccountContext` to be provided to be able to evaluate the state of a feature. When you use this feature filter, the caller needs to make sure that the passed-in object implements `IAccountContext`.
 
 > [!NOTE]
 > Only a single feature filter interface can be implemented by a single type. Trying to add a feature filter that implements more than a single feature filter interface results in an `ArgumentException` exception.
@@ -561,7 +561,7 @@ If all three filters are registered:
 
 ## Built-in feature filters
 
-There are a few feature filters that come with the `Microsoft.FeatureManagement` package: `PercentageFilter`, `TimeWindowFilter`, `ContextualTargetingFilter` and `TargetingFilter`. All filters except the `TargetingFilter` are added **automatically** when you use the `AddFeatureManagement` method to register feature management. The `TargetingFilter` is added by using the `WithTargeting` method. For more information, see [Targeting](#targeting), later in this article.
+There are a few feature filters that come with the `Microsoft.FeatureManagement` package: `PercentageFilter`, `TimeWindowFilter`, `ContextualTargetingFilter`, and `TargetingFilter`. All filters except the `TargetingFilter` are added **automatically** when you use the `AddFeatureManagement` method to register feature management. The `TargetingFilter` is added by using the `WithTargeting` method. For more information, see [Targeting](#targeting), later in this article.
 
 Each of the built-in feature filters has its own parameters. The following sections describe these feature filters and provide examples.
 
@@ -647,13 +647,13 @@ The `Recurrence` settings are made up of two parts:
 
 #### Recurrence pattern
 
-There are two possible recurrence pattern types: `Daily` and `Weekly`. For example, a time window can repeat every day, every three days, every Monday or every other Friday. 
+There are two possible recurrence pattern types: `Daily` and `Weekly`. For example, a time window can repeat every day, every three days, every Monday, or every other Friday. 
 
 Depending on the type, certain fields of the `Pattern` settings are required, optional, or ignored.
 
 * `Daily`
     
-  The daily recurrence pattern causes the time window to repeat based on a number of days between each occurrence.
+  The daily recurrence pattern causes the time window to repeat based on a specified number of days between each occurrence.
 
   | Property | Relevance | Description |
   |----------|-----------|-------------|
@@ -821,7 +821,7 @@ For each user, the feature is evaluated in the following way:
 
 ### Feature filter alias namespaces
 
-All built-in feature filter aliases are in the `Microsoft` feature filter namespace. Being in this namespace prevents conflicts with other feature filters that share the same alias. The segments of a feature filter namespace are split by the `.` character. You can reference a feature filter by its fully qualified alias, such as `Microsoft.Percentage`. Or you can reference the last segment, such as `Percentage` in the case of `Microsoft.Percentage`.
+All built-in feature filter aliases are in the `Microsoft` feature filter namespace. Being in this namespace prevents conflicts with other feature filters that share the same alias. The segments of a feature filter namespace are split by the `.` character. You can reference a feature filter by its fully qualified alias, such as `Microsoft.Percentage`. Or you can reference the last segment, such as `Percentage`.
 
 ## Targeting
 
@@ -844,7 +844,7 @@ For an example of a web application that uses the targeting feature filter, see 
 
 To begin using the `TargetingFilter` in an application, you must add it to the application's service collection just like any other feature filter. Unlike other built-in filters, the `TargetingFilter` relies on another service to be added to the application's service collection. That service is an `ITargetingContextAccessor` implementation.
 
-The `Microsoft.FeatureManagement.AspNetCore` library provides a [default implementation](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) of `ITargetingContextAccessor` that extracts targeting information from a request's `HttpContext` value. You can use the default targeting context accessor when you set up targeting by using the non-generic `WithTargeting` overload on `IFeatureManagementBuilder`.
+The `Microsoft.FeatureManagement.AspNetCore` library provides a [default implementation](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) of `ITargetingContextAccessor` that extracts targeting information from a request's `HttpContext` value. You can use the default targeting context accessor when you set up targeting by using the nongeneric `WithTargeting` overload on `IFeatureManagementBuilder`.
 
 To register the default targeting context accessor and `TargetingFilter`, you call `WithTargeting` on `IFeatureManagementBuilder`.
 
@@ -1113,7 +1113,7 @@ If the feature is enabled, the feature manager checks the `user`, `group`, and `
 * The user is in the `Ring1` group.
 * The user happens to fall between the zeroth and tenth percentile.
 
-If none of these allocations match, the user is assigned the `default_when_enabled` variant, which is `Small` in the example.
+If none of these allocations match, the `default_when_enabled` variant is assigned to the user. In the example, that variant is `Small`.
 
 Allocation logic is similar to the logic you use for the [Microsoft.Targeting](#microsofttargeting) feature filter. But there are some parameters that are present in targeting that aren't in allocation, and vice versa. The outcomes of targeting and allocation aren't related.
 
@@ -1165,7 +1165,7 @@ In the preceding example, the feature is always enabled. If the current user is 
 
 ### Variants in dependency injection
 
-You can use variant feature flags in conjunction with dependency injection to expose different implementations of a service to different users. The `IVariantServiceProvider<TService>` interface provides a way to accomplish this combination.
+You can use variant feature flags together with dependency injection to expose different implementations of a service to different users. The `IVariantServiceProvider<TService>` interface provides a way to accomplish this combination.
 
 ```csharp
 IVariantServiceProvider<IAlgorithm> algorithmServiceProvider;
@@ -1315,7 +1315,7 @@ The telemetry publisher that the `Microsoft.FeatureManagement.Telemetry.Applicat
 
 ## Caching
 
-Feature state is provided by the `IConfiguration` system. Any caching and dynamic updating is expected to be handled by configuration providers. The feature manager asks `IConfiguration` for the latest value of a feature's state whenever it evaluates whether a feature is enabled.
+Feature state is provided by the `IConfiguration` system. Configuration providers are expected to handle any caching and dynamic updating. The feature manager asks `IConfiguration` for the latest value of a feature's state whenever it evaluates whether a feature is enabled.
 
 ### Snapshot
 
