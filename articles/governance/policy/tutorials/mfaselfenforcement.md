@@ -112,6 +112,7 @@ When a user attempts to perform a create, update, or delete operation without an
 
 ### Azure CLI
 When a user attempts to perform a create, update, or delete operation without an MFA-authenticated token, Azure CLI may return:
+
 :::image type="content" source="../media/multifactor-enforcement/image9.png" alt-text="Screenshot of Azure CLI View When User Gets Blocked By Policy." border="false":::
 
 ### Azure PowerShell
