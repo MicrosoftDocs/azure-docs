@@ -41,7 +41,7 @@ Here are some of the benefits of using the .NET feature management library:
   * Filters
   * Action attributes
 
-  The .NET feature management library is open source. For more information, see the [FeatureManagement-Dotnet](https://github.com/microsoft/FeatureManagement-Dotnet) GitHub repo.
+The .NET feature management library is open source. For more information, see the [FeatureManagement-Dotnet](https://github.com/microsoft/FeatureManagement-Dotnet) GitHub repo.
 
 ## Feature flags
 Feature flags can be either enabled or disabled. The state of a flag can be made conditional by using feature filters.
