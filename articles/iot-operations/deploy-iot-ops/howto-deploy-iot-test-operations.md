@@ -115,7 +115,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
 
 1. Select **Next: Automation**.
 
-### Run Azure CLI commands
+## Run Azure CLI commands
 
 The final step in the Azure portal deployment experience is to run a set of Azure CLI commands to deploy Azure IoT Operations to your cluster. The commands are generated based on the information you provided in the previous steps.
 
@@ -141,7 +141,8 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
     az iot ops ns create -n <my namespace name> -g $RESOURCE_GROUP
     ```
 
-    Alternatively, you can create a new Azure Device Registry namespace in Azure portal. 
+    Alternatively, you can create a new Azure Device Registry namespace in Azure portal: 
+
       1. In the search box, type and select **Azure Device Registry**
       1. In the left menu, select **Namespaces**. 
       1. Then select **+ Create** to create a new namespace. Make sure to use the same resource group as your Arc-enabled Kubernetes cluster.
