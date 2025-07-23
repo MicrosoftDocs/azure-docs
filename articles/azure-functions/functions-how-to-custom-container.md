@@ -186,7 +186,8 @@ The following steps create and deploy an existing containerized function app fro
     | **Subscription** | Your subscription | The subscription in which you create your function app. |
     | **[Resource Group](../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Name for the new resource group in which you create your function app. You should create a resource group because there are [known limitations when creating new function apps in an existing resource group](functions-scale.md#limitations-for-creating-new-function-apps-in-an-existing-resource-group).|
     | **Function App name** | Unique name<sup>*</sup> | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
-    | **Do you want to deploy code or container image?**| Container image | Deploy a containerized function app from a registry. To create a function app in registry, see [Create a function app in a local Linux container](functions-create-container-registry.md). |
+        | **Secure unique default hostname** | Enabled | Enable this feature so you don't have to worry about domain name collisions, regardless of your app name. |
+        | **Do you want to deploy code or container image?**| Container image | Deploy a containerized function app from a registry. To create a function app in registry, see [Create a function app in a local Linux container](functions-create-container-registry.md). |
     | **Region** | Preferred region | Select a [region](https://azure.microsoft.com/regions/) that's near you or near other services that your functions can access. | 
     | **Linux plan** | New plan (default) | Creates a new Premium plan to host your app. You can also choose an existing premium plan. |
     | **Pricing plan** | Elastic Premium EP1 | `EP1` is the most affordable plan. You can choose a larger plan if you need to. |
