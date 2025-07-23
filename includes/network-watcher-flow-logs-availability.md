@@ -71,12 +71,13 @@ ms.custom: include file, references_regions
 > | Jio India West | ✓ | ✓ | ✓ | ✓ |
 > | Korea Central | ✓ | ✓ | ✓ | ✓ |
 > | Korea South | ✓ | ✓ | ✓ | ✓ |
+> | New Zealand North | ✓ | ✓ | ✓ |  |
 > | South India | ✓ | ✓ | ✓ | ✓ |
 > | Southeast Asia | ✓ | ✓ | ✓ | ✓ |
 > | Taiwan North | ✓ | ✓ | ✓ |  |
 > | Taiwan Northwest | ✓ | ✓ |  |  |
 > | West India | ✓ | ✓ |  |  |
-> | New Zealand North | ✓ | ✓ | ✓ |  |
+
 
 # [Middle East / Africa](#tab/MiddleEast)
 
