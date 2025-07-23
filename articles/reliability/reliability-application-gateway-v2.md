@@ -141,15 +141,19 @@ The following section describes what to expect when Application Gateway v2 is co
 
   - *Zonal:* When a zone is unavailable, your instance is unavailable until the availability zone recovers.
 
+- **Instance management:** The instance management behavior depends on the availability zone configuration that your instance uses. 
+
+  - *Zone-redundant:* The platform attempts to maintain the capacity of your gateway by creating temporary instances in other availability zones.
+
+    Internally, Application Gateway uses virtual machine scale sets, which performs [strict zone balancing](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing). Because of this behavior, scaling operations might not occur when the capacity can't be evenly divided between zones (+/- 1 instance).
+
+  - *Zonal:* You're responsible for creating instances in healthy zones if you require them.
+
 - **Traffic rerouting**: The traffic rerouting behavior depends on the availability zone configuration that your instance uses. 
 
-  - *Zone-redundant:* Application Gateway immediately redistributes traffic to instances in healthy zones. The platform can create other instances in surviving zones if needed to maintain capacity.
+  - *Zone-redundant:* Application Gateway immediately redistributes traffic to the instances in healthy zones, including any instances that are temporarily created.
 
   - *Zonal:* When a zone is unavailable, your instance is unavailable. If you have a secondary instance in another availability zone, you're responsible for rerouting traffic to that secondary instance.
-
-
-> [!NOTE]
-> During a zone outage, traffic is rerouted to healthy zones. However, new instances may not always be created in other zones due to `zoneBalance=false` setting.
 
 ### Failback
 
