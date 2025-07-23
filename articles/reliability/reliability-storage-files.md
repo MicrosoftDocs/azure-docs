@@ -84,7 +84,8 @@ This section describes what to expect when a file storage account is configured 
 This section describes what to expect when a file storage account is configured for zone redundancy and there's an availability zone outage.
 
 [!INCLUDE [Storage - Zone down experience](includes/storage/reliability-storage-availability-zone-down-experience-include.md)]
-      No remounting of Azure file shares from the connected clients is required.
+
+- **Traffic rerouting.** Azure automatically reroutes traffic to the remaining healthy availability zones. The service maintains full functionality using the surviving zones with no customer intervention required. No remounting of Azure file shares from the connected clients is required.
 
 ### Failback
 
