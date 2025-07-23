@@ -66,9 +66,9 @@ Some TAPs aggregate both *Receive* and *Transmit*, depending on the switch confi
 
 We recommend TAPs especially when traffic mirroring for forensic purposes. Advantages of mirroring traffic with TAPs include:
 
-- TAPs are hardware-based and can't be compromised
+- TAPs are hardware-based and can't be compromised.
 
-- TAPs pass all traffic, even damaged messages that are often dropped by the switches
+- TAPs pass all traffic, even damaged messages that are often dropped by the switches.
 
 - TAPs aren't processor-sensitive, which means that packet timing is exact. In contrast, switches handle mirroring functionality as a low-priority task, which can affect the timing of the mirrored packets.
 
