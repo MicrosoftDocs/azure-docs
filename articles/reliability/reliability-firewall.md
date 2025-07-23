@@ -23,13 +23,15 @@ Azure Firewall is a managed, cloud-based network security service that protects 
 
 For the highest availability and reliability, deploy Azure Firewall Standard or Premium tier across multiple availability zones in supported regions for your network security infrastructure.
 
-**Follow reliability design principles**: Apply Well-Architected Framework reliability patterns to ensure your solution can handle component failures gracefully. For more information, see [Reliability patterns](/azure/well-architected/reliability/reliability-patterns).
+**Follow reliability design principles**: Apply Well-Architected Framework reliability patterns to ensure your solution can handle component failures gracefully. For more information, see [Reliability patterns](/azure/well-architected/reliability/design-patterns).
 
 **Plan for business continuity**: Use Cloud Adoption Framework guidance to develop comprehensive business continuity and disaster recovery strategies. For more information, see [Business continuity and disaster recovery](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery).
 
 ## Reliability architecture overview
 
 By default, Azure Firewall achieves redundancy through its built-in high availability architecture. The service automatically distributes firewall instances across multiple fault domains within a region, providing protection against server rack and datacenter failures within a single availability zone.
+
+:::image type="content" source="./media/firewall/high-availability-multi-region.png" alt-text="Diagram showing a high-availability Azure Firewall deployment across multiple regions, with separate firewall instances in each region, centralized policy management, and traffic routing for failover and redundancy.":::
 
 Azure Firewall's reliability architecture includes:
 
@@ -106,8 +108,8 @@ There's no extra cost for a firewall deployed in more than one Availability Zone
 ### Configure availability zone support
 
 **Zone-redundant deployment:**
-- [Deploy an Azure Firewall with Availability Zones using Azure PowerShell](deploy-availability-zone-powershell.md)
-- [Deploy Azure Firewall using Azure portal](tutorial-firewall-deploy-portal.md) and select multiple availability zones during deployment
+- [Deploy an Azure Firewall with Availability Zones using Azure PowerShell](../firewall/deploy-availability-zone-powershell.md)
+- [Deploy Azure Firewall using Azure portal](../firewall/tutorial-firewall-deploy-portal.md) and select multiple availability zones during deployment
 
 **Zonal deployment:**
 - Use the same deployment methods but select a single specific availability zone
@@ -201,12 +203,12 @@ For more information, see [Service Level Agreements (SLA) for Online Services](h
 
 ## Related content
 
-- [Azure Firewall overview](overview.md)
-- [Azure Firewall features](choose-firewall-sku.md)
-- [Deploy Azure Firewall using Azure portal](tutorial-firewall-deploy-portal.md)
+- [Azure Firewall overview](../firewall/overview.md)
+- [Azure Firewall features](../firewall/choose-firewall-sku.md)
+- [Deploy Azure Firewall using Azure portal](..firewall/tutorial-firewall-deploy-portal.md)
 - [Azure Firewall Manager](../firewall-manager/overview.md)
 - [Azure regions with availability zones](../reliability/availability-zones-region-support.md)
 - [Azure Well-Architected Framework - Reliability pillar](/azure/well-architected/reliability/)
 - [Cloud Adoption Framework - Business continuity and disaster recovery](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery)
-- [Azure Firewall best practices for performance](firewall-best-practices.md)
-- [Using Azure Firewall Workbooks](firewall-workbook.md)
+- [Azure Firewall best practices for performance](../firewall/firewall-best-practices.md)
+- [Using Azure Firewall Workbooks](../firewall/firewall-workbook.md)
