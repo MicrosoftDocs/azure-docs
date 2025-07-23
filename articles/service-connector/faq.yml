@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
   title: Service Connector FAQ
-  description: Read answers to frequently asked questions (FAQ) about Service Connector.
+  description: Read answers to frequently asked questions (FAQ) about Service Connector, including the role of ServiceLinker.
   author: maud-lv
   ms.author: malev
   ms.service: service-connector
@@ -21,6 +21,6 @@ sections:
          There are no fees associated with using Service Connector.
 
 additionalContent: |
-    ## Next steps
+    ## Next step
 
-    To learn more about Service Connector, see [About Service Connector text](./overview.md).
+    To learn more about Service Connector, see [Service Connector](./overview.md).
