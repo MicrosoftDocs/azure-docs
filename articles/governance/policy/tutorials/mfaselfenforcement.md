@@ -24,12 +24,13 @@ On the left-hand menu or home dashboard, select Policy under Azure services. If 
 - In the Policy dashboard, click on Assignments in the left pane.
 - Click Assign policy at the top of the assignments page.
 - In the Scope section, click Select scope.
-- Choose the appropriate subscription, resource group, or management group where you want to apply the policy. Click Select to confirm your choice.
+- Choose the appropriate resource group, subscription, or management group where you want to apply the policy. Click Select to confirm your choice.
 <img width="670" height="303" alt="image" src="https://github.com/user-attachments/assets/3979890d-a756-4994-ab1f-affd64519c32" />
 
 
 **4. Configure Selectors for gradual rollout of policy enforcement**
-_To enable safe rollout of policy enforcement, we recommend leveraging Azure Policy’s resource selectors to gradually rollout policy enforcement across your resources._
+  > [!NOTE]
+   > To enable safe rollout of policy enforcement, we recommend leveraging Azure Policy’s resource selectors to gradually rollout policy enforcement across your resources.
 - In the 'Basics' tab, you’ll see 'Resource Selectors'. Click expand.
 - Click 'Add a resource selector'
 :::image type="content" source="../media/multifactor-enforcement/image2.png" alt-text="Screenshot of Azure Policy Assignment Creation View." border="false":::
@@ -51,6 +52,7 @@ _To enable safe rollout of policy enforcement, we recommend leveraging Azure Pol
 - Under 'Basics', enforcement mode should be set to enabled (this is set by default, no action needed).
 - Go to the 'Parameters' tab. Uncheck 'only show parameters that require input or review'. The parameter value should be at the pre-selected value 'AuditAction' or 'Audit' (depending on the definition chosen in step 4).
 - Under the 'Non-compliance messages' tab, configure a custom message that any user will see if they are blocked from deleting a resource because of this enforcement:
+  
 _Sample Text: To resolve this error, you must set up MFA, following the process outlined at aka.ms/setupMFA. If you set up MFA and are still receiving this error, please reach out to your Entra administrator to restore the security default for Azure by following the process outlined at aka.ms/loginMFAForAzure._
 
 :::image type="content" source="../media/multifactor-enforcement/image5.png" alt-text="Screenshot of Azure Policy Non Compliance Message Tab." border="false":::
@@ -82,7 +84,7 @@ Once you are ready, you may update the policy assignment to enable enforcement. 
 # User Experience during Preview
 
 ## Audit Mode
-Users can discover audit events in their activity log when this policy assignment is applied in audit mode and they attempt to create, update or delete a resource without being MFA authenticated.
+Users can discover audit events in their activity log when this policy assignment is applied in audit mode and they attempt to create, update or delete a resource without being authenticated with MFA.
 
 Activity Log events can be viewed in Azure Portal and other SDKs. Here is a sample query that can be used in CLI:
 
