@@ -5,7 +5,7 @@ author: sshiba
 ms.author: sidneyshiba
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 10/25/2024
+ms.date: 07/22/2025
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -47,16 +47,18 @@ To help set up the environment for access to Virtual Machines, define these envi
 > The CM_EXTENDED_LOCATION value can be found with the command `az networkcloud virtualmachine show --name <virtual machine name> --resource-group <virtual machine's resource group> --query "consoleExtendedLocation" | jq -r '.consoleExtendedLocation.name'`.
 
 ```bash
-    # CM_HOSTED_RESOURCES_RESOURCE_GROUP: Cluster Manager resource group name
-    export CM_HOSTED_RESOURCES_RESOURCE_GROUP="my-contoso-console-rg"
+    # CLUSTER_MANAGER_RESOURCE_GROUP: Cluster Manager resource group name
+    export CLUSTER_MANAGER_RESOURCE_GROUP="my-contoso-console-rg"
 
     # VIRTUAL_MACHINE_NAME: Virtual Machine name you want to access through VM Console service
     export VIRTUAL_MACHINE_NAME="my-undercloud-vm"
+    # VIRTUAL_MACHINE_RG: Resource group name where the Virtual Machine is located
+    export VIRTUAL_MACHINE_RG="my-contoso-console-rg"
     # CM_EXTENDED_LOCATION: Cluster Manager Extended Location, can be retrieved but you will need access rights to execute certain Azure CLI commands
-    export CM_EXTENDED_LOCATION=$(az networkcloud virtualmachine show --name ${VIRTUAL_MACHINE_NAME} --resource-group ${VIRTUAL_MACHINE_RG}  --query "consoleExtendedLocation" | jq -r '.consoleExtendedLocation.name')
+    export CM_EXTENDED_LOCATION=$(az networkcloud virtualmachine show --name ${VIRTUAL_MACHINE_NAME} --resource-group ${VIRTUAL_MACHINE_RG} --query "consoleExtendedLocation.name" -o tsv)
 
     # CONSOLE_PUBLIC_KEY: Public Key matching Private Key to be used when establish `ssh` session, e.g., `ssh -i $HOME/.ssh/id-rsa`
-    export CONSOLE_PUBLIC_KEY="xxxx-xxxx-xxxxxx-xxxx"
+    export CONSOLE_PUBLIC_KEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD... user@hostname"
     # CONSOLE_EXPIRATION_TIME: Expiration date and time (RFC3339 format) for any `ssh` session with a virtual machine. 
     export CONSOLE_EXPIRATION_TIME="2023-06-01T01:27:03.008Z"
 
@@ -74,6 +76,13 @@ To help set up the environment for access to Virtual Machines, define these envi
     export PRIVATE_ENDPOINT_SUBNET="my-work-env-ple-subnet"
 ```
 
+> [!IMPORTANT]
+> When setting the `CONSOLE_PUBLIC_KEY` environment variable, make sure to properly quote the SSH public key value since it contains spaces. For example:
+> ```bash
+> export CONSOLE_PUBLIC_KEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQ... user@hostname"
+> ```
+> The SSH public key should be the complete key string including the key type (ssh-rsa, ssh-ed25519, etc.), the key data, and optionally the comment.
+
 ## Creating Console Resource
 
 The Console resource provides the information about the Nexus VM. It provides the VM name, public SSH key, expiration date for the SSH session, and so on.
@@ -82,10 +91,10 @@ This section provides step-by-step guide to help you to create a Console resourc
 
 :::image type="content" source="media/vm-console-resource.png" alt-text="Diagram of VM Console Resource." lightbox="media/vm-console-resource.png":::
 
-1. To create a ***Console*** resource in the Cluster Manager, you'll need to collect some information, for example, resource group (CM_HOSTED_RESOURCES_RESOURCE_GROUP) and custom location (CM_EXTENDED_LOCATION). You have to provide the resource group but you can retrieve the custom location if you have access rights to execute the following commands:
+1. To create a ***Console*** resource in the Cluster Manager, you'll need to collect some information, for example, resource group (CLUSTER_MANAGER_RESOURCE_GROUP) and custom location (CM_EXTENDED_LOCATION). You have to provide the resource group but you can retrieve the custom location if you have access rights to execute the following commands:
 
     ```bash
-    export cluster_manager_resource_id=$(az resource list -g ${CM_HOSTED_RESOURCES_RESOURCE_GROUP} --query "[?type=='Microsoft.NetworkCloud/clusterManagers'].id" --output tsv)
+    export cluster_manager_resource_id=$(az resource list -g ${CLUSTER_MANAGER_RESOURCE_GROUP} --query "[?type=='Microsoft.NetworkCloud/clusterManagers'].id" --output tsv)
     export CM_EXTENDED_LOCATION=$(az resource show --ids $cluster_manager_resource_id --query "properties.managerExtendedLocation.name" | tr -d '"')
     ```
 
@@ -94,10 +103,10 @@ This section provides step-by-step guide to help you to create a Console resourc
     ```bash
     az networkcloud virtualmachine console create \
         --virtual-machine-name "${VIRTUAL_MACHINE_NAME}" \
-        --resource-group "${CM_HOSTED_RESOURCES_RESOURCE_GROUP}" \
+        --resource-group "${CLUSTER_MANAGER_RESOURCE_GROUP}" \
         --extended-location name="${CM_EXTENDED_LOCATION}" type="CustomLocation" \
         --enabled True \
-        --key-data "${CONSOLE_PUBLIC_KEY}" \
+        --ssh-public-key key-data="${CONSOLE_PUBLIC_KEY}" \
         [--expiration "${CONSOLE_EXPIRATION_TIME}"]
     ```
 
@@ -111,8 +120,8 @@ This section provides step-by-step guide to help you to create a Console resourc
     ```bash
     export pls_resourceid=$(az networkcloud virtualmachine console show \
         --virtual-machine-name "${VIRTUAL_MACHINE_NAME}" \
-        --resource-group "${CM_HOSTED_RESOURCES_RESOURCE_GROUP}" \
-        --query "privateLinkServiceId")
+        --resource-group "${CLUSTER_MANAGER_RESOURCE_GROUP}" \
+        --query "privateLinkServiceId" -o tsv)
     ```
 
 1. Also, retrieve the **VM Access ID**. You must use this unique identifier as `user` of the `ssh` session.
@@ -120,8 +129,8 @@ This section provides step-by-step guide to help you to create a Console resourc
     ```bash
     virtual_machine_access_id=$(az networkcloud virtualmachine console show \
         --virtual-machine-name "${VIRTUAL_MACHINE_NAME}" \
-        --resource-group "${CM_HOSTED_RESOURCES_RESOURCE_GROUP}" \
-        --query "virtualMachineAccessId")
+        --resource-group "${CLUSTER_MANAGER_RESOURCE_GROUP}" \
+        --query "virtualMachineAccessId" -o tsv)
     ```
 
 > [!NOTE]
@@ -175,7 +184,7 @@ The VM Console service is a `ssh` server that "relays" the session to a Nexus VM
 > The VM Console service listens to port `2222`, therefore you **must** specify this port number in the `ssh` command.
 >
 > ```bash
->    SSH [-i path-to-private-SSH-key] -p 2222 $virtual_machine_access_id@$sshmux_ple_ip
+>    ssh [-i path-to-private-SSH-key] -p 2222 $virtual_machine_access_id@$sshmux_ple_ip
 > ```
 
 :::image type="content" source="media/vm-console-ssh-session.png" alt-text="Diagram of VM Console SSH Session." lightbox="media/vm-console-ssh-session.png":::
@@ -194,7 +203,7 @@ az networkcloud virtualmachine console update \
     --virtual-machine-name "${VIRTUAL_MACHINE_NAME}" \
     --resource-group "${VM_RESOURCE_GROUP}" \
     [--enabled True | False] \
-    [--key-data "${CONSOLE_PUBLIC_KEY}"] \
+    [--ssh-public-key key-data="${CONSOLE_PUBLIC_KEY}"] \
     [--expiration "${CONSOLE_EXPIRATION_TIME}"]
 ```
 
@@ -223,6 +232,6 @@ To clean up your VM Console environment setup, you need to delete the Console re
 
     ```bash
     az network private-endpoint delete \
-    --name ${PRIVATE_ENDPOINT_NAME}-ple \
-    --resource-group ${PRIVATE_ENDPOINT_NAME}-rg
+    --name "${PRIVATE_ENDPOINT_NAME}" \
+    --resource-group "${PRIVATE_ENDPOINT_RG}"
     ```
