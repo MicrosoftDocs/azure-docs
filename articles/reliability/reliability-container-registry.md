@@ -190,7 +190,7 @@ Geo-replication can be configured during registry creation or added to existing 
 
 This section describes what to expect when a registry is configured for geo-replication and all regions are operational.
 
-:::image type="content" source="./media/reliability-acr/acr-multi-region-normal-operations.png" alt-text="Diagram showing Azure Container Registry multi-region operations with global clients connecting through Traffic Manager to registry endpoints across multiple regions including East US home region, West Europe, and East Asia, with bidirectional asynchronous replication between all regions." lightbox="./media/reliability-acr/acr-multi-region-normal-operations.png" border="false":::
+<!-- :::image type="content" source="./media/reliability-acr/acr-multi-region-normal-operations.png" alt-text="Diagram showing Azure Container Registry multi-region operations with global clients connecting through Traffic Manager to registry endpoints across multiple regions including East US home region, West Europe, and East Asia, with bidirectional asynchronous replication between all regions." lightbox="./media/reliability-acr/acr-multi-region-normal-operations.png" border="false"::: -->
 
 - **Traffic routing between regions**. Container Registry operates in an active-active configuration where each regional endpoint can serve all data plane operations independently, including reads and writes. Data plane operations, such as container push and pull operations, are automatically routed using Traffic Manager with performance-based criteria to determine the optimal regional endpoint for performance.
 
