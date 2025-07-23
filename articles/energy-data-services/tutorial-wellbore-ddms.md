@@ -6,7 +6,7 @@ author: Preetisingh
 ms.author: preetisingh
 ms.service: azure-data-manager-energy
 ms.topic: tutorial
-ms.date: 22/07/2025
+ms.date: 7/22/2025
 ms.custom: template-tutorial
 
 #Customer intent: As a developer, I want to learn how to use the Wellbore DDMS APIs so that I can store and retrieve similar kinds of data records.
@@ -49,7 +49,7 @@ Ensure you have `cURL` installed on your system. You will use it to make API cal
 ## Use Wellbore DDMS APIs to work with well data records
 
 Successfully completing the cURL requests that are described in the following Wellbore DDMS APIs indicates successful ingestion and retrieval of well records in your Azure Data Manager for Energy instance.
-If you are interested in checkoing out all the APIs, you can check our [swagger](https://microsoft.github.io/adme-samples/rest-apis/index.html?page=/adme-samples/rest-apis/M23/wellbore_ddms_openapi.yaml) 
+If you are interested in checking out all the APIs, you can check our [Swagger](https://microsoft.github.io/adme-samples/rest-apis/index.html?page=/adme-samples/rest-apis/M23/wellbore_ddms_openapi.yaml) 
 
 ### Create a legal tag
 
@@ -95,7 +95,7 @@ Create a well record in your Azure Data Manager for Energy instance.
 Method: `POST`
 
 ```bash
-curl -X GET "https://<DNS>/api/os-wellbore-ddms/ddms/v3/wells/<well_id>/versions" \
+curl -X POST "https://<DNS>/api/os-wellbore-ddms/ddms/v3/wells/<well_id>" \
    -H "Authorization: Bearer <access_token>" \
    -H "data-partition-id: <data-partition-id>" \
    -H "Content-Type: application/json" \

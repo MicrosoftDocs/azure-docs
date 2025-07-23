@@ -6,7 +6,7 @@ author: preetisingh
 ms.author: preetisingh
 ms.service: azure-data-manager-energy
 ms.topic: tutorial
-ms.date: 22/07/2025
+ms.date: 7/22/2025
 ms.custom: template-tutorial
 
 #Customer intent: As a developer, I want to learn how to use the Petrel DDMS APIs so that I can store and retrieve similar kinds of data records.
@@ -49,7 +49,7 @@ Ensure you have `cURL` installed on your system. You will use it to make API cal
 
 ## Use Petrel DDMS APIs to work with Petrel projects
 
-Successfully completing the API calls  that are Present in [swagger](https://microsoft.github.io/adme-samples/rest-apis/index.html?page=/adme-samples/rest-apis/M23/petrel_ddms_openapi.yaml) indicates successful interaction with your saved Petrel projects. Although the API provides a way to upload data, we recommend that you upload your projects via DELFI Petrel Project Explorer. All of the following API calls assume that you have a project uploaded to Petrel Project Explorer.
+Successfully completing the API calls  that are present in [swagger](https://microsoft.github.io/adme-samples/rest-apis/index.html?page=/adme-samples/rest-apis/M23/petrel_ddms_openapi.yaml) indicates successful interaction with your saved Petrel projects. Although the API provides a way to upload data, we recommend uploading your projects via DELFI Petrel Project Explorer. All of the following API calls assume that you have a project uploaded to Petrel Project Explorer.
 
 ### Create a legal tag
 
