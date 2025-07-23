@@ -69,8 +69,8 @@ items:
       - name: Create a storage account
         displayName: Resource Manager, Resource Manager template, template, ARM
         href: ../common/storage-account-create.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Upgrade a storage account
-        href: ../common/storage-account-upgrade.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      #- name: Upgrade a storage account
+      #  href: ../common/storage-account-upgrade.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Recover a deleted storage account
         href: ../common/storage-account-recover.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Lock a storage account
@@ -92,6 +92,11 @@ items:
         href: upgrade-to-data-lake-storage-gen2.md
       - name: Upgrade an account
         href: upgrade-to-data-lake-storage-gen2-how-to.md
+    - name: General Purpose v1 (GPv1) account retirement
+      href: ../common/gpv1-account-migrate.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      items:
+      - name: Migrate a GPv1 storage account to GPv2
+        href: ../common/storage-account-upgrade.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Data transfer and migration
     items:
     - name: Storage migration overview
