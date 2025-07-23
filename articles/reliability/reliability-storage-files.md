@@ -6,7 +6,7 @@ author: anaharris-ms
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-file-storage
-ms.date: 06/26/2025
+ms.date: 07/23/2025
 ---
 
 # Reliability in Azure Files
@@ -84,8 +84,7 @@ This section describes what to expect when a file storage account is configured 
 This section describes what to expect when a file storage account is configured for zone redundancy and there's an availability zone outage.
 
 [!INCLUDE [Storage - Zone down experience](includes/storage/reliability-storage-availability-zone-down-experience-include.md)]
-
-  No remounting of Azure file shares from the connected clients is required.
+      No remounting of Azure file shares from the connected clients is required.
 
 ### Failback
 
