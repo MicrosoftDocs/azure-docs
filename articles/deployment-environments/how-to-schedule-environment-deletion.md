@@ -19,7 +19,7 @@ Working with many deployment environments across multiple projects can be challe
 
 As a developer, you can view and schedule the expiration dates for your environment in the developer portal. You can schedule an environment for deletion when you create it, or at a later time. You can also change the expiration date and time for an environment that you created. 
 
-Deployment Environments provides platform engineers with a centralized way of viewing and managing deletion schedules for environments in Azure portal. As as user with Project Admin permissions, you can schedule any environment in your project for deletion, regardless of who created it. You can also change the expiration date and time for any environment in your project.
+Deployment Environments provides platform engineers with a centralized way of viewing and managing deletion schedules for environments in Azure portal. As a user with Project Admin permissions, you can schedule any environment in your project for deletion, regardless of who created it. You can also change the expiration date and time for any environment in your project.
 
 ## Prerequisites
 
