@@ -41,8 +41,8 @@ In this tutorial, you learn how to:
 
 ## Create and configure an Azure Repos repository
 
-1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`). Replace `<your-organization>` with your project identifier. Select your project.
-1. Select **Repos** > **Files**.
+1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`). Replace `<your-organization>` with your project identifier. Select your project, and then select **Repos**.
+1. Select the plus sign (**+**) next to the project name in the left pane, and then select **New repository**.
 1. In **Import a repository**, select **Import**. 
 1. In **Import a Git repository**, select or enter the following:
     - **Repository type**: Git
