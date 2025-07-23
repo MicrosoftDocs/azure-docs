@@ -52,8 +52,8 @@ To minimize risk and ensure a smooth migration:
 - **Upgrade accounts**: Use the Azure Portal, CLI, or automation tools to upgrade from GPv1 to GPv2.
 - **Validate behavior**: Confirm that workloads continue functioning and that billing reflects expected changes post-upgrade.
 
-> [!TIP]
-> Most workloads can migrate from GPv1 to GPv2 without code changes.
+>[!TIP]
+>Most workloads can migrate from GPv1 to GPv2 without code changes.
 
 ## Timeline and milestones
 
@@ -68,8 +68,8 @@ To minimize risk and ensure a smooth migration:
 
  If your applications are using GPv1 storage accounts, you must migrate to GPv2 before the retirement date to avoid service disruption.
 
-> [!Warning]
-> If you do not migrate your GPv1 storage account to GPv2 by August 31, 2025, you will no longer be able to use the GPv1 storage account. After this date, you will not be able to access data stored in GPv1 accounts, and any applications relying on these accounts will fail.
+>[!Warning]
+>If you do not migrate your GPv1 storage account to GPv2 by August 31, 2025, you will no longer be able to use the GPv1 storage account. After this date, you will not be able to access data stored in GPv1 accounts, and any applications relying on these accounts will fail.
 
 ## How to get help
 If you have questions, get answers from community experts in Microsoft Q&A.
