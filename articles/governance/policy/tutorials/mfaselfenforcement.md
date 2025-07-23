@@ -13,7 +13,7 @@ This guide walks you through the process of applying Azure Policy assignments to
 ## Apply Azure Policy enforcement through Azure Portal
 
 ### 1. Sign In to Azure Portal
-Navigate to the [Azure Portal](https://www.portal.azure.com)
+Navigate to the [Azure portal](https://www.portal.azure.com)
 
 ### 2. Access Azure Policy Service
 Select Policy under Azure services. If you don't see it, type 'Policy' in the search bar at the top and select it from the results.
@@ -78,7 +78,7 @@ You can set enforcement by updating the 'Effect' of the policy assignment.
 - Click 'Add a policy effect override'
 - In the drop-down menu, update the 'Override Value' to 'DenyAction' or 'Deny' (depending on the policy definition chosen at Step 4).
 - For 'Selected Resources', pick a few low-risk regions that you’d like to enforce on. The policy assignment will only evaluate Azure resources in those regions.
-:::image type="content" source="../media/multifactor-enforcement/image7.png" alt-text="Screenshot of Azure Policy Overrides Creation." border="false":::
+:::image type="content" source="../media/multifactor-enforcement/overrides-example.png" alt-text="Screenshot of Azure Policy Overrides Creation." border="false":::
 - Click 'Review + save', then 'Create'.
 - Once you have confirmed no unexpected impact for this initial application, you may update the existing override to add additional regions, then monitor for any impact. Repeat this step as many times as needed to eventually add all regions.
 
@@ -87,7 +87,7 @@ You can set enforcement by updating the 'Effect' of the policy assignment.
 ## Audit Mode
 Discover audit events in your activity log when this policy assignment is applied in audit mode and they attempt to create, update, or delete a resource without authenticating with MFA.
 
-You can view activity Log events in Azure Portal and other SDKs. Here's a sample query that can be used in CLI:
+You can view activity Log events in Azure portal and other supported SDKs. Here's a sample query that can be used in CLI:
 
 `az monitor activity-log list \
   --query "[?operationName.value=='Microsoft.Authorization/policies/audit/action'].{ResourceId: resourceId, Policies: properties.policies}" \
@@ -102,9 +102,9 @@ The next section shows the experience from some select clients when the policy a
   > [!NOTE]
   > In preview timeframe, the error messages displayed to the user may differ depending on the client and command being run. This error messaging continues to improve to be consistent across clients used as this feature matures to GA availability.
 ### Azure Portal
-When you attempt to perform a create, update, or delete operation without an MFA-authenticated token, Azure Portal may return:
+When you attempt to perform a create, update, or delete operation without an MFA-authenticated token, Azure portal may return:
 
-:::image type="content" source="../media/multifactor-enforcement/portal-enforcement-sample.png" alt-text="Screenshot of Azure Portal View When User Gets Blocked By Policy." border="false":::
+:::image type="content" source="../media/multifactor-enforcement/portal-enforcement-sample.png" alt-text="Screenshot of Azure portal View When User Gets Blocked By Policy." border="false":::
 
 ### Azure CLI
 When you attempt to perform a create, update, or delete operation without an MFA-authenticated token, Azure CLI may return:
@@ -117,5 +117,5 @@ When you attempt to perform a create, update, or delete operation without an MFA
 :::image type="content" source="../media/multifactor-enforcement/azure-ps-policy-enforcement.png" alt-text="Screenshot of Azure PS View When User Gets Blocked By Policy." border="false":::
 
 ## Limitations in the Preview Timeframe
-- In some cases, you may not be prompted to complete MFA after receiving an error. In such cases, re-authenticate with MFA before retrying the operation (for example, through Azure Portal).
+- In some cases, you may not be prompted to complete MFA after receiving an error. In such cases, re-authenticate with MFA before retrying the operation (for example, through Azure portal).
 - In some cases, the error message may not indicate that the operation is blocked due to the policy assignment in-place. Take note of the error message samples to familiarize your organization on what error messages they may receive.
