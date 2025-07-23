@@ -167,7 +167,7 @@ The following configuration is an example [NGINX server block](https://nginx.org
    ![Trusted root certificates](media/self-signed-certificates/trusted-root-cert.png)
 
    > [!NOTE]
-   > It's assumed that DNS has been configured to point the web server name (in this example, `www.fabrikam.com`) to your web server's IP address. If not, you can edit the [hosts file](https://learn.microsoft.com/answers/questions/4310469/host-file) to resolve the name.
+   > It's assumed that DNS has been configured to point the web server name (in this example, `www.fabrikam.com`) to your web server's IP address. If not, you can edit the [hosts file](/answers/questions/4310469/host-file) to resolve the name.
 1. Browse to your website, and click the lock icon on your browser's address box to verify the site and certificate information.
 
 ## Verify the configuration with OpenSSL
