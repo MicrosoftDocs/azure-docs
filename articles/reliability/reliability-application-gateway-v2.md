@@ -169,7 +169,7 @@ The options for testing for zone failures depend on the availability zone config
 
 - *Zone-redundant:* The Azure Application Gateway platform fully manages traffic routing, failover, and failback for zone-redundant resources. Because Microsoft manages this feature, you don't need to initiate or validate availability zone failure processes. The platform handles all zone failure scenarios transparently.
 
-- *Zonal:* You can simulate some aspects of the failure of an availability zone by explicitly stopping an Application Gateway resource. The gateway continues to respond to incoming TCP requests but doesn't process those requests. For more information, see [How can I stop and start Application Gateway?](/azure/application-gateway/application-gateway-faq#how-can-i-stop-and-start-application-gateway).
+- *Zonal:* You can simulate some aspects of the failure of an availability zone by explicitly stopping an Application Gateway resource. By stopping the Application Gateway, you can test how other systems and load balancers handle an outage in the gateway. For more information, see [How can I stop and start Application Gateway?](/azure/application-gateway/application-gateway-faq#how-can-i-stop-and-start-application-gateway).
 
 ## Multi-region support
 
