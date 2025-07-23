@@ -128,8 +128,8 @@ For more information, see [Update a sensor's monitoring interfaces (configure ER
 
 When setting up ERSPAN, it's important to understand how VLAN IDs are handled based on the type of mirrored port:
 
-- Tagged VLANs: These VLANs are present in packets from trunk mirrored ports. They remain intact within the packet payload during encapsulation and are supported by the  Microsoft Defender for IoT sensor.
-- Untagged VLANs: These VLANs originate from access mirrored ports. They're stripped from the payload during decapsulation, resulting in their loss. They aren't supported by the Microsoft Defender for IoT sensor.
+- **Tagged VLANs**: These VLANs are present in packets from trunk mirrored ports. They remain intact within the packet payload during encapsulation and are supported by the  Microsoft Defender for IoT sensor.
+- **Untagged VLANs**: These VLANs originate from access mirrored ports. They're stripped from the payload during decapsulation, resulting in their loss. They aren't supported by the Microsoft Defender for IoT sensor.
 
 To ensure accurate VLAN detection, configure your network and ERSPAN router so that all mirrored ports use tagged VLANs. This means using mirror ports configured as trunk ports. This setup ensures that VLAN information remains preserved in the packet payload throughout the ERSPAN process, providing full visibility for monitoring on the Defender for IoT sensor.
 
