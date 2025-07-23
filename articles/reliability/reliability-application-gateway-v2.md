@@ -59,7 +59,7 @@ For applications hosted behind Application Gateway, implement the Health Endpoin
 
 Azure Application Gateway offers two types of availability zone support when you deploy a Standard_v2 or WAF_v2 gateway in a supported region:
 	
-- *Zone-redundant*: Provides autoamtic redundancy for service components. Azure automatically replicates the service components across two or more availability zones.
+- *Zone-redundant*: Provides automatic redundancy for service components. Azure automatically replicates the service components across two or more availability zones.
 
 - *Zonal*: The Application Gateway service components are deployed in a single zone that you select within an Azure region. All of the instances are placed into the same availability zone.
 
