@@ -31,7 +31,7 @@ For production workloads, we recommend that you:
 
 Azure Container Registry is built on Azure's distributed infrastructure to provide high availability and data durability. The service consists of several key components that work together to ensure reliability. The following diagram illustrates the core service architecture:
 
-:::image type="content" source="./media/reliability-acr/acr-service-architecture.png" alt-text="Diagram showing Azure Container Registry service architecture with client access, control plane, data plane, and storage layer components." lightbox="./media/reliability-acr/acr-service-architecture.png" border="false":::
+<!-- :::image type="content" source="./media/reliability-acr/acr-service-architecture.png" alt-text="Diagram showing Azure Container Registry service architecture with client access, control plane, data plane, and storage layer components." lightbox="./media/reliability-acr/acr-service-architecture.png" border="false":::-->
 
 - **Control plane**: Centralized management in the home region for registry configuration, authentication configuration, and replication policies
 - **Data plane**: Distributed service that handles container image push and pull operations across regions and availability zones
