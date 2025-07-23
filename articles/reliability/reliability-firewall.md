@@ -21,7 +21,7 @@ Azure Firewall is a managed, cloud-based network security service that protects 
 
 ## Production deployment recommendations
 
-For the highest availability and reliability, deploy Azure Firewall Standard or Premium tier across multiple availability zones in supported regions to achieve a 99.99% uptime Service Level Agreement (SLA) for your network security infrastructure.
+For the highest availability and reliability, deploy Azure Firewall Standard or Premium tier across multiple availability zones in supported regions for your network security infrastructure.
 
 **Follow reliability design principles**: Apply Well-Architected Framework reliability patterns to ensure your solution can handle component failures gracefully. For more information, see [Reliability patterns](/azure/well-architected/reliability/reliability-patterns).
 
@@ -54,12 +54,28 @@ During scaling operations, which take 5-7 minutes to complete, existing connecti
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Firewall can be configured during deployment to span multiple Availability Zones for increased availability. With Availability Zones, your availability increases to 99.99% uptime when two or more Availability Zones are selected.
+Azure Firewall can be configured during deployment to span multiple Availability Zones for increased availability. When deployed across multiple availability zones, Azure Firewall provides enhanced reliability and uptime guarantees.
 
 Azure Firewall supports both zone-redundant and zonal deployment models:
 
 - **Zone-redundant**: Firewall instances are automatically distributed across multiple availability zones
 - **Zonal**: Firewall can be associated with a specific zone for proximity reasons
+
+### Zone-redundant vs zonal deployment models
+
+**Zone-redundant deployments** provide the highest level of reliability:
+- Firewall instances are automatically distributed across all available zones in the region
+- Azure manages load balancing and failover between zones automatically
+- Achieves 99.99% uptime SLA when deployed across multiple zones
+- Recommended for production workloads requiring maximum availability
+
+**Zonal deployments** are designed for specific use cases:
+- Firewall is deployed in a single, specific availability zone
+- Used when you need to keep the firewall close to other resources in the same zone for latency optimization
+- Provides 99.95% uptime SLA (single zone reliability)
+
+> [!IMPORTANT]
+> A single zonal deployment doesn't increase resiliency compared to a standard deployment. You need to explicitly deploy multiple Azure Firewall resources into different zones to improve resiliency.
 
 ### Region support
 
@@ -69,23 +85,33 @@ Azure Firewall Availability Zones are available in regions that support Availabi
 
 - Azure Firewall Basic, Standard, or Premium tier
 - Deployment in a region that supports availability zones
-- Standard public IP addresses must be used (zone-redundant by default)
+- Standard public IP addresses must be used (zone-redundant by default for zone-redundant deployments)
+
+For zonal deployments:
+- Standard public IP addresses can be zone-specific or zone-redundant
+- All associated public IPs must have compatible zone configurations
+- Virtual network and subnet must support the target availability zone
 
 ### Considerations
 
-- Availability Zones can only be configured during deployment. You can't configure an existing firewall to include Availability Zones
-- When using multiple public IP addresses, ensure they have compatible zone configurations
-- Some regions have capacity constraints in specific zones (Physical zone 2 in North Europe and Physical zone 3 in South East Asia)
+- **Deployment-time configuration**: Availability zone configuration can only be set during initial deployment. You can't modify zone settings for existing firewalls
+- **Public IP compatibility**: When using multiple public IP addresses, ensure they have compatible zone configurations (all zone-redundant or all in the same zone for zonal deployments)
+- **Regional capacity constraints**: Some regions have capacity constraints in specific zones (Physical zone 2 in North Europe and Physical zone 3 in South East Asia)
+- **Zonal limitations**: A single zonal deployment provides the same reliability as a non-zone deployment. To improve reliability with zonal deployments, you must deploy separate Azure Firewall instances across multiple zones and implement custom traffic routing
 
 ### Cost
 
-There's no extra cost for a firewall deployed in more than one Availability Zone. Microsoft doesn't charge for data transfer across availability zones.
+There's no extra cost for a firewall deployed in more than one Availability Zone. Microsoft doesn't charge for data transfer across availability zones within the same region.
 
 ### Configure availability zone support
 
-To deploy Azure Firewall with availability zones, see:
+**Zone-redundant deployment:**
 - [Deploy an Azure Firewall with Availability Zones using Azure PowerShell](deploy-availability-zone-powershell.md)
-- [Deploy Azure Firewall using Azure portal](tutorial-firewall-deploy-portal.md) and select availability zones during deployment
+- [Deploy Azure Firewall using Azure portal](tutorial-firewall-deploy-portal.md) and select multiple availability zones during deployment
+
+**Zonal deployment:**
+- Use the same deployment methods but select a single specific availability zone
+- Ensure associated public IP addresses are configured for the same zone or are zone-redundant
 
 > [!IMPORTANT]
 > Zone redundancy can only be configured during initial deployment. Existing firewalls can't be converted to use availability zones.
@@ -94,17 +120,22 @@ To deploy Azure Firewall with availability zones, see:
 
 - **Traffic routing between zones**: When zone-redundant, Azure Firewall automatically distributes traffic across instances in all available zones. The platform manages load balancing without user intervention.
 
-- **Instance distribution and data replication**: As the firewall scales, it creates instances in the zones it's configured for. If deployed across all three zones, new instances are distributed across all three zones as scaling occurs. Azure Firewall automatically replicates configuration and state data across these instances to ensure consistent policy enforcement and seamless failover between zones.
+- **Instance distribution and data replication**: As the firewall scales, it creates instances in all configured zones. Azure Firewall automatically replicates configuration and state data across these instances to ensure consistent policy enforcement and seamless failover between zones.
+
+- **Zonal deployments**: For zonal deployments, all traffic gets processed by the firewall instance in the specified zone. If you deploy multiple zonal instances across different zones for improved reliability, you must configure traffic routing using external load balancing solutions like Azure Load Balancer or Traffic Manager.
 
 ### Zone-down experience
 
 Azure Firewall provides automatic failover capabilities when an availability zone becomes unavailable:
 
-- **Detection and response**: The Azure Firewall platform automatically detects zone failures and manages failover without user intervention.
-- **Active connections**: Existing connections might experience brief interruption during zone failover, but the stateful nature of Azure Firewall helps maintain session consistency.
-- **Expected data loss**: No data loss is expected during zone failover as Azure Firewall doesn't store persistent customer data.
-- **Expected downtime**: Minimal downtime is expected during automatic zone failover. The platform redirects traffic to healthy zones.
-- **Traffic rerouting**: Traffic is automatically rerouted to healthy availability zones. New firewall instances can be created in surviving zones if needed.
+- **Detection and response**: The Azure Firewall platform automatically detects zone failures and manages failover without user intervention
+- **Active connections**: Existing connections might experience brief interruption during zone failover, but the stateful nature of Azure Firewall helps maintain session consistency
+- **Expected data loss**: No data loss is expected during zone failover as Azure Firewall doesn't store persistent customer data
+- **Expected downtime**: Minimal downtime is expected during automatic zone failover. The platform redirects traffic to healthy zones
+- **Traffic rerouting**: Traffic is automatically rerouted to healthy availability zones. New firewall instances can be created in surviving zones if needed
+
+For zonal deployments:
+- **Single zonal deployment**: Zone failure results in complete firewall unavailability until the zone recovers or you implement failover to backup firewalls in other regions.
 
 ### Failback
 
@@ -114,21 +145,21 @@ When the availability zone recovers, Azure Firewall automatically redistributes 
 
 The Azure Firewall platform manages traffic routing, failover, and failback for zone-redundant firewall resources. You don't need to initiate anything. Because this feature is fully managed, you don't need to validate availability zone failure processes.
 
+For zonal deployments with multiple instances across zones, you should regularly test your custom failover and traffic routing mechanisms to ensure they work correctly during zone failures. Consider using Azure Chaos Studio to simulate zone failures and validate your disaster recovery procedures.
+
 ## Multi-region support
 
 Azure Firewall is a single-region service. If the region is unavailable, your Azure Firewall resource is also unavailable.
 
 ### Alternative multi-region approaches
 
-If you need to use Azure Firewall in multiple regions, you need to deploy separate resources in each region. If you create an identical deployment in a secondary Azure region using a multi-region geography architecture, your application becomes less susceptible to a single-region disaster. When you follow this approach, you need to configure load balancing and failover policies. You also need to replicate your firewall policies across the regions so that you can maintain consistent security posture.
+Since Azure Firewall doesn't have native multi-region capabilities, you must implement a multi-region architecture using separate firewall instances. This approach involves deploying independent Azure Firewall resources in different regions and implementing custom failover logic.
 
-For multi-region Azure Firewall deployments:
-
-1. **Deploy separate Azure Firewall instances** in each target region where you need network security coverage
-2. **Use Azure Firewall Manager** for centralized policy management across regions to maintain consistent security rules
-3. **Configure network connectivity** between regions using virtual network peering, VPN Gateway, or ExpressRoute
-4. **Implement traffic routing** using Azure Traffic Manager, Azure Load Balancer, or Azure Front Door to direct traffic to healthy regions
-5. **Set up monitoring and alerting** to detect regional failures and trigger failover procedures
+**Architecture pattern:**
+1. Deploy separate Azure Firewall instances in each target region
+2. Use Azure Firewall Manager for centralized policy management
+3. Implement traffic routing using Azure Traffic Manager or Azure Front Door
+4. Configure monitoring and automated or manual failover procedures
 
 #### Requirements for multi-region deployments
 
