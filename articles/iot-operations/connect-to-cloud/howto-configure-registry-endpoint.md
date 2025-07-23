@@ -32,7 +32,7 @@ A registry endpoint defines the connection details and authentication method for
 
 Registry endpoints support authentication through:
 - System-assigned managed identity
-- User-assigned managed identity  
+- User-assigned managed identity
 - Artifact pull secrets (username and password)
 - Anonymous access (for public registries)
 
@@ -81,7 +81,7 @@ Create a Bicep `.bicep` file with the following content:
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param registryEndpointName string = '<REGISTRY_ENDPOINT_NAME>'
-param registryHost string = '<REGISTRY_HOST>'
+param registryHost string = '<REGISTRY_HOST>' // For example, myregistry.azurecr.io
 
 resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
   name: aioInstanceName
@@ -91,7 +91,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource registryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2024-11-01' = {
+resource registryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2025-07-01-preview' = {
   parent: aioInstance
   name: registryEndpointName
   extendedLocation: {
@@ -170,7 +170,8 @@ Before configuring the registry endpoint, ensure the Azure IoT Operations system
 1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
 1. Go to your container registry > **Access control (IAM)** > **Add role assignment**.
 1. On the **Role** tab, select `AcrPull` role.
-1. On the **Members** tab, for **Assign access to**, select **User, group, or service principal**, then select **+ Select members** and search for the Azure IoT Operations Arc extension name.
+1. On the **Members** tab, for **Assign access to**, select **User, group, or service principal**, then select **+ Select members** and search for the Azure IoT Operations Arc extension name. Choose the extension and select **Select**.
+1. Select **Review + assign** to complete the role assignment.
 
 <!-- 
 # [Operations experience](#tab/portal)
@@ -279,7 +280,7 @@ The operator attempts to infer the scope from the endpoint if not provided.
 
 #### Artifact pull secret
 
-Artifact pull secrets allow you to use username and password authentication for registries that don't support managed identity authentication.
+Artifact pull secrets lets you use username and password authentication for registries that don't support managed identity authentication.
 
 First, create a Kubernetes secret containing the registry credentials:
 
@@ -394,7 +395,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource acrRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2024-11-01' = {
+resource acrRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2025-07-01-preview' = {
   parent: aioInstance
   name: 'acr-endpoint'
   extendedLocation: {
