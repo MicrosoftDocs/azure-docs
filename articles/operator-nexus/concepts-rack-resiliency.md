@@ -67,7 +67,7 @@ In disaster situations when the control plane loses quorum, there are impacts to
 
 ## Automated Remediation
 
-To avoid losing Kubernetes control plane (KCP) quorum, Operator Nexus provides automated remediation when certain server issues are detected. Additionally, this automated remediation extends to Management Plane & Compute nodes as well.
+To maintain Kubernetes control plane (KCP) quorum, Operator Nexus provides automated remediation when specific server issues are detected. Additionally, this automated remediation extends to Management Plane & Compute nodes as well.
 
 Here are the triggers for automated remediation:
 
