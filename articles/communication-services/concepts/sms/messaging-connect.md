@@ -55,7 +55,7 @@ The following table summarizes capabilities available when using Messaging Conne
 | Long Codes                         |    ✔️     |
 | Dynamic Alphanumeric Sender ID     |    ✔️     |
 | Short Codes                        |    ❌ (coming soon)     |
-| Pre-Registered Alpha Sender ID     |    ❌ (coming soon)    |
+| Pre-Registered Alpha Sender ID (partner-managed)    |    ✔️    |
 | Two-way messaging                  |    ✔️     |
 | One-way messaging                  |    ✔️     |
 | 1:1 (single recipient)             |    ✔️     |
@@ -64,7 +64,6 @@ The following table summarizes capabilities available when using Messaging Conne
 | Delivery Reports (DLRs)            |    ✔️     |
 | Event Grid for inbound messages    |    ✔️     |
 | Partner-managed Opt Out            |    ✔️     |
-| ACS-level blocking (via partner)   |    ✔️     |
 | Local regulatory enforcement       |    ✔️     |
 | C# SDK                             |    ✔️     |
 | JavaScript SDK                     |    ✔️     |
