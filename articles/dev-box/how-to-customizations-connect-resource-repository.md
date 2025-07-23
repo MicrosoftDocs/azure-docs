@@ -89,7 +89,7 @@ Service principals let you securely authenticate to Azure resources exposing use
 
 1. Create a service principal in Azure Active Directory (Azure AD), and assign it the necessary roles for the resources you want to use.
 
-   The output is a JSON object containing the service principal's *appId*, *displayName*, *password*, and *tenant*, which are used for authentication and authorization in Azure automation scenarios.
+   The output is a JSON object containing the service principal's *appId*, *displayName*, *password*, and *tenant*, which are used for authentication and authorization in Azure Automation scenarios.
 
    ```azurecli
    $ az ad sp create-for-rbac -n DevBoxCustomizationsTest
