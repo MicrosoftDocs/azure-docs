@@ -30,7 +30,7 @@ On the left-hand menu or home dashboard, select Policy under Azure services. If 
 
 **4. Configure Selectors for gradual rollout of policy enforcement**
   > [!NOTE]
-   > To enable safe rollout of policy enforcement, we recommend leveraging Azure Policy’s resource selectors to gradually rollout policy enforcement across your resources.
+  > To enable safe rollout of policy enforcement, we recommend leveraging Azure Policy’s resource selectors to gradually rollout policy enforcement across your resources.
 - In the 'Basics' tab, you’ll see 'Resource Selectors'. Click expand.
 - Click 'Add a resource selector'
 :::image type="content" source="../media/multifactor-enforcement/image2.png" alt-text="Screenshot of Azure Policy Assignment Creation View." border="false":::
@@ -95,13 +95,17 @@ jq -r '"ResourceName\tResourceId\tPolicyDefinitionDisplayName", (.[] as $event |
 column -t -s $'\t'`
 
 ## Enforcement Mode
-Users can expect the following experience when this policy assignment is applied in enforcement mode and they attempt to create, update or delete a resource without being MFA authenticated.
-**NOTE:** In preview timeframe, the error message(s) displayed to the user may differ depending on the client and command being run. This error messaging will continue to improve to be consistent across clients used as this feature matures to GA availability.
+Users can expect the following experience when this policy assignment is applied in enforcement mode and they attempt to create, update or delete a resource without being authenticated with MFA.
+
+The next section shows the experience from some select clients when the policy assignment is applied in enforcement mode and a user account attempts to create, update, or delete a resource without being authenticated with MFA.
+  > [!NOTE]
+  > In preview timeframe, the error message(s) displayed to the user may differ depending on the client and command being run. This error messaging will continue to improve to be consistent across clients used as this feature matures to GA availability.
 ### Azure Portal
+When a user attempts to perform a create, update, or delete operation without an MFA-authenticated token, Azure Portal may return:
 :::image type="content" source="../media/multifactor-enforcement/image8.png" alt-text="Screenshot of Azure Portal View When User Gets Blocked By Policy." border="false":::
 
 ### Azure CLI
-When a user attempts to perform a create, update, or delete operation without an MFA-authenticated token, the Azure CLI may return:
+When a user attempts to perform a create, update, or delete operation without an MFA-authenticated token, Azure CLI may return:
 :::image type="content" source="../media/multifactor-enforcement/image9.png" alt-text="Screenshot of Azure CLI View When User Gets Blocked By Policy." border="false":::
 
 ### Azure PowerShell
