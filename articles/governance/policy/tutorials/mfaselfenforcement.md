@@ -109,12 +109,12 @@ When you attempt to perform a create, update, or delete operation without an MFA
 ### Azure CLI
 When you attempt to perform a create, update, or delete operation without an MFA-authenticated token, Azure CLI may return:
 
-:::image type="content" source="../media/multifactor-enforcement/azure-cli-policy-enforcement.png" alt-text="Screenshot of Azure CLI View When User Gets Blocked By Policy." border="false":::
+:::image type="content" source="../media/multifactor-enforcement/cli-sample.png" alt-text="Screenshot of Azure CLI View When User Gets Blocked By Policy." border="false":::
 
 ### Azure PowerShell
 When you attempt to perform a create, update, or delete operation without an MFA-authenticated token, Azure PowerShell may return:
 
-:::image type="content" source="../media/multifactor-enforcement/azure-ps-policy-enforcement.png" alt-text="Screenshot of Azure PS View When User Gets Blocked By Policy." border="false":::
+:::image type="content" source="../media/multifactor-enforcement/powershell-sample.png" alt-text="Screenshot of Azure PS View When User Gets Blocked By Policy." border="false":::
 
 ## Limitations in the Preview Timeframe
 - In some cases, you may not be prompted to complete MFA after receiving an error. In such cases, re-authenticate with MFA before retrying the operation (for example, through Azure portal).
