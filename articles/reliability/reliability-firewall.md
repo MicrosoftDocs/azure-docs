@@ -205,7 +205,7 @@ For more information, see [Service Level Agreements (SLA) for Online Services](h
 
 - [Azure Firewall overview](../firewall/overview.md)
 - [Azure Firewall features](../firewall/choose-firewall-sku.md)
-- [Deploy Azure Firewall using Azure portal](..firewall/tutorial-firewall-deploy-portal.md)
+- [Deploy Azure Firewall using Azure portal](../firewall/tutorial-firewall-deploy-portal.md)
 - [Azure Firewall Manager](../firewall-manager/overview.md)
 - [Azure regions with availability zones](../reliability/availability-zones-region-support.md)
 - [Azure Well-Architected Framework - Reliability pillar](/azure/well-architected/reliability/)
