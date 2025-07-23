@@ -5,6 +5,7 @@ ms.service: azure-automanage
 ms.collection: linux
 ms.topic: concept-article
 ms.date: 05/12/2022
+# Customer intent: As an IT administrator managing Arc-enabled servers, I want to configure Azure services using Automanage best practices, so that I can streamline monitoring, updates, and compliance for my virtual machines efficiently before the service retirement.
 ---
 
 # Azure Automanage for Machines Best Practices - Azure Arc-enabled servers

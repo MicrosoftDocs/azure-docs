@@ -6,6 +6,7 @@ ms.service: azure-virtual-network
 ms.topic: concept-article
 ms.date: 04/06/2023
 ms.author: allensu
+# Customer intent: "As a network architect, I want to understand Microsoft's global network infrastructure, so that I can leverage its capabilities to optimize connectivity and performance for my organization's cloud services."
 ---
 
 # Microsoft global network

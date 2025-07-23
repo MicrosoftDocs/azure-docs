@@ -6,8 +6,9 @@ zone_pivot_groups: backup-vaults-recovery-services-vault-backup-vault
 ms.date: 06/09/2025
 ms.service: azure-backup
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a security admin, I want to configure Multi-user authorization for Backup vaults using Resource Guard, so that I can ensure additional protection for critical operations and manage access permissions effectively."
 ---
 # Configure Multi-user authorization using Resource Guard in Azure Backup
 

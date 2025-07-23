@@ -27,7 +27,7 @@ In this document, we're going to be looking at specifically Teams interoperabili
 | Enable captions in Teams meeting | ✔︎ | ✔︎ | ✔︎ | 
 | Enable captions in Teams call | ✔︎ | ✔︎ | ✔︎ | 
 
-*✕ = not supprted in current release.*
+*✕ = not supported in current release.*
 
 ### Translated Captions
 

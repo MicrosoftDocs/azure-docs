@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 03/17/2025
 ms.author: duau
 ms.custom: engagement-fy23
+# Customer intent: "As a network administrator, I want to implement FQDN filtering in Azure Firewall network rules, so that I can control outbound traffic based on domain names and ensure security for various protocols without using wildcards."
 ---
 
 # Use FQDN filtering in network rules

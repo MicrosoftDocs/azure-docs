@@ -9,6 +9,7 @@ ms.custom: devx-track-python
 ms.topic: troubleshooting
 ms.date: 09/30/2024
 ms.author: mbender
+# Customer intent: "As a cloud engineer, I want to create a custom HTTP health probe for my Azure Load Balancer using Python and FLASK, so that I can monitor the health of backend instances based on specific criteria like CPU usage."
 ---
 
 # Create a custom HTTP/HTTPS health probe for Azure Load Balancer

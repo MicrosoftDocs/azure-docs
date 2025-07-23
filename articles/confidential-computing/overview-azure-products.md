@@ -7,6 +7,7 @@ ms.subservice: azure-confidential-computing
 ms.topic: overview
 ms.date: 06/09/2023
 ms.author: jushiman
+# Customer intent: As an IT security professional, I want to evaluate Azure's confidential computing offerings, so that I can ensure robust data protection and compliance for sensitive workloads in the cloud.
 ---
 
 # Azure offerings
@@ -33,7 +34,7 @@ Azure offers various platform as a service (PaaS), software as a service (SaaS),
 
 - [Confidential inferencing with the Azure OpenAI Whisper model](https://techcommunity.microsoft.com/blog/azureconfidentialcomputingblog/azure-ai-confidential-inferencing-technical-deep-dive/4253150). Azure confidential computing ensures data security and privacy through TEEs. It includes encrypted prompt protection, user anonymity, and transparency by using OHTTP and confidential GPU VMs.
 - [Azure Databricks](https://www.databricks.com/blog/announcing-general-availability-azure-databricks-support-azure-confidential-computing-acc) helps you bring more security and increased confidentiality to your Databricks lakehouse by using confidential VMs.
-- [Azure Virtual Desktop](../virtual-desktop/deploy-azure-virtual-desktop.md?tabs=portal) ensures that a user's virtual desktop is encrypted in memory, protected in use, and backed by hardware root of trust.
+- [Azure Virtual Desktop](/azure/virtual-desktop/deploy-azure-virtual-desktop?tabs=portal) ensures that a user's virtual desktop is encrypted in memory, protected in use, and backed by hardware root of trust.
 - [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/) is fully managed and highly available. Use this single-tenant, standards-compliant cloud service to safeguard cryptographic keys for your cloud applications by using FIPS 140-2 Level 3 validated hardware security modules (HSMs).
 - [Azure Attestation](/azure/attestation/overview) is a remote attestation service for validating the trustworthiness of multiple TEEs and verifying the integrity of the binaries that run inside the TEEs.
 - [Azure confidential ledger](/azure/confidential-ledger/overview) is a tamper-proof register for storing sensitive data for record keeping and auditing or for data transparency in multiparty scenarios. It offers Write-Once-Read-Many guarantees, which make data nonerasable and nonmodifiable. The service is built on the Microsoft Research [Confidential Consortium Framework](https://www.microsoft.com/research/project/confidential-consortium-framework/).

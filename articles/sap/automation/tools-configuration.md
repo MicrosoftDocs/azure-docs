@@ -8,6 +8,7 @@ ms.date: 10/19/2022
 ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+# Customer intent: As a developer configuring deployment tools for SAP, I want to set up Visual Studio Code with the necessary SSH credentials, so that I can efficiently connect to the deployer virtual machine and automate deployment tasks.
 ---
 
 # Configure external tools to use with SAP Deployment Automation Framework

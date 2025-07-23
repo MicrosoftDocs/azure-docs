@@ -42,7 +42,6 @@ You can add a wildcard domain following steps similar for subdomains. For more i
 For accepting HTTPS traffic on your wildcard domain, you must enable HTTPS on the wildcard domain. The certificate binding for a wildcard domain requires a wildcard certificate. That is, the subject name of the certificate should also have the wildcard domain. 
 
 > [!NOTE]
-> * Currently, only using your own custom SSL certificate option is available for enabling HTTPS for wildcard domains. Azure Front Door managed certificates can't be used for wildcard domains. 
 > * You can choose to use the same wildcard certificate from Azure Key Vault or from Azure Front Door managed certificates for subdomains. 
 > * If you want to add a subdomain of the wildcard domain that’s already validated in the Azure Front Door Standard or Premium profile, the domain validation is automatically approved. 
 > * If a wildcard domain is validated and already added to one profile, a single-level subdomain can still be added to another profile as long as it is also validated. 

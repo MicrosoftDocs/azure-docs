@@ -2,7 +2,7 @@
 title: Selective disk backup and restore for Azure virtual machines
 description: In this article, learn about selective disk backup and restore using the Azure virtual machine backup solution.
 ms.topic: how-to
-ms.date: 05/19/2025
+ms.date: 07/22/2025
 ms.custom:
   - references_regions
   - devx-track-azurecli
@@ -10,8 +10,9 @@ ms.custom:
   - engagement-fy24
   - build-2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to configure selective disk backup for Azure virtual machines, so that I can optimize storage costs by backing up only the necessary disks while ensuring I can restore critical data efficiently."
 ---
  
 # Selective disk backup and restore for Azure virtual machines
@@ -24,6 +25,7 @@ This is supported both for Enhanced Policy as well as Standard Policy.          
 >- This is supported for both backup policies - [Enhanced policy](backup-azure-vms-enhanced-policy.md) and [Standard policy](backup-during-vm-creation.md#create-a-vm-with-backup-configuration).
 >- The *Selective disk backup and restore in Enhanced policy* is available in all Azure regions including Public, Government, and Air-Gapped regions.
 >- If you use selective disk backup with *Enhanced policy* on a Linux VM, ensure that *lsblk* and *lsscsi* are available in your distribution so that the disks are [excluded](selective-disk-backup-restore.md#enhanced-policy). 
+>- If you use selective disk backup with Standard policy, Snapshot cost is always calculated for all the disks in the VM (both the included and excluded disks).
 
 ## Scenarios
 

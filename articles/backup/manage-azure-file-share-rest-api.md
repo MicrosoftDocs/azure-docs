@@ -3,8 +3,9 @@ title: Manage Azure Files backup with REST API
 description: Learn how to use REST API to manage and monitor Azure Files that are backed up by Azure Backup.
 ms.topic: how-to
 ms.date: 05/22/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to manage and monitor Azure Files backups using a REST API, so that I can automate backup operations and efficiently track job statuses."
 ---
 
 # Manage Azure Files backup with REST API

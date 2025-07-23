@@ -6,65 +6,68 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-cosmos-db
-ms.date: 05/06/2024 
+ms.date: 06/11/2025
 ---
 
 <!--#Customer intent:  I want to understand reliability support in Azure Cosmos DB for NoSQL so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->
 
 #  High availability (Reliability) in Azure Cosmos DB for NoSQL
 
-
 This article describes high availability (reliability) support in Azure Cosmos DB for NoSQL and covers both [availability zones](#availability-zone-support), as well as [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). 
 
+## Resiliency of compute nodes
+
+Azure Cosmos DB transparently manages all details of individual compute nodes. You don't have to worry about any kind of patching or planned maintenance. Azure Cosmos DB guarantees [SLAs for availability](#sla-improvements) and P99 latency through all automatic maintenance operations that the system performs.
+
+Azure Cosmos DB automatically mitigates [replica](/azure/cosmos-db/distribute-data-globally) outages by guaranteeing at least three replicas of your data in each Azure region for your account within a four-replica quorum. This guarantee results in an RTO of 0 and an RPO of 0 for individual node outages, without requiring application changes or configurations. For information on RTO and RPO, see [What are business continuity, high availability, and disaster recovery?](./concept-business-continuity-high-availability-disaster-recovery.md#disaster-recovery).
 
 ## Availability zone support
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
+Azure Cosmos DB supports *zone redundancy*. When you enable zone redundancy, Azure distributes the replicas of your data across multiple availability zones, providing resiliency to datacenter problems and outages. You can enable zone redundancy in Azure regions that supports availability zones. To see if your region supports availability zones, see the [list of supported regions](regions-list.md). 
 
-Azure Cosmos DB is a multitenant service that manages all details of individual compute nodes transparently. You don't have to worry about any kind of patching or planned maintenance. Azure Cosmos DB guarantees [SLAs for availability](#sla-improvements) and P99 latency through all automatic maintenance operations that the system performs.
+We recommend using zone redundancy in regions where it's supported, especially for single-region accounts.
 
-Azure Cosmos DB offers:
+### Zone redundancy and single-region accounts
 
-**Individual node outage resiliency.** Azure Cosmos DB automatically mitigates [replica](/azure/cosmos-db/distribute-data-globally) outages by guaranteeing at least three replicas of your data in each Azure region for your account within a four-replica quorum. This guarantee results in an RTO of 0 and an RPO of 0 for individual node outages, without requiring application changes or configurations. When you enable zone redundancy, those replicas are distributed across multiple availability zones, providing resiliency to datacenter problems and outages.
+When you have a single-region Cosmos DB account, it's important to be resilient to problems in an availability zone. Enabling zone redundancy guards against total availability loss due to the failure of an availability zone.
 
-**Zone outage resiliency.** When you deploy an Azure Cosmos DB account by using [availability zones](availability-zones-overview.md), Azure Cosmos DB provides an RTO of 0 and an RPO of 0, even in a zone outage. For information on RTO, see [What are business continuity, high availability, and disaster recovery?](./concept-business-continuity-high-availability-disaster-recovery.md#disaster-recovery).
+Because availability zones are physically separate and provide distinct power source, network, and cooling, the availability SLAs for Azure Cosmos DB are higher for zone-redundant accounts than accounts that don't use availability zones.
 
-With availability zones enabled, Azure Cosmos DB for NoSQL supports a *zone-redundant* configuration.
+### Zone redundancy and multi-region accounts
 
+If you have a multi-region account, you can optionally enable zone redundancy on any or all of the account regions that support availability zones. Multi-region accounts can achieve high availability service-level agreements (SLAs), and enabling zone redundancy can further enhance the overall availability SLAs you achieve in those regions.
 
-### Prerequisites
+For multi-region accounts, the impact of zone redundancy on the availability of your Cosmos DB for NoSQL database depends on the consistency level of the account and which regions have zone redundancy enabled. Consult the table below to estimate the impact of using availability zones in your multi-region account configuration:
 
-- Your replicas must be deployed in an Azure region that supports availability zones. To see if your region supports availability zones, see the [list of supported regions](regions-list.md). 
+| Account consistency level | Regions with availability zones enabled | Impact of using availability zones|
+|---|----|---|
+| [Synchronous (Strong)](/azure/cosmos-db/consistency-levels#strong-consistency) | One secondary read region | **High benefit of zone redundancy.** Provides greater value because the loss of a read region in this scenario can impact write availability.|
+| [Synchronous (Strong)](/azure/cosmos-db/consistency-levels#strong-consistency) | Two or more secondary read regions | **Less value of zone redundancy.** Provides marginal value because the system can leverage dynamic quorum should a read region lose availability which allows for writes to continue.|
+| [Asynchronous (Bounded Staleness or weaker)](/azure/cosmos-db/consistency-levels#bounded-staleness-consistency) | One or more secondary read regions | **Less value of zone redundancy.** Provides minimal value because the SDK already provides seamless redirects for reads when a read region fails.|
+| Any | All write regions and any number of secondary regions | **High benefit of zone redundancy.** Ensures greater availability for write operations for availability zone failures. |
 
-- Determine whether or not availability zones add enough value to your current configuration in [Impact of using availability zones](#impact-of-using-availability-zones).
+### Cost of enabling zone redundancy
 
-### Impact of using availability zones
+Regions where zone redundancy is enabled are charged at a 25% premium. However, the premium pricing for availability zones is waived for accounts configured with multi-region writes and/or for collections configured with autoscale mode.
 
+Adding an additional region to Cosmos DB account typically increases your existing bill by 100% for each region. However, small variations in cost across regions exist.
 
-The impact of availability zones on the high availability of your Cosmos DB for NoSQL database depends on the consistency level of the account and which regions have availability zones enabled. In many cases, availability zones don’t add value or add minimal value if the account is multi-region (unless configured with strong consistency). 
-
-Consult the table below to estimate the impact of using availability zones in your current account configuration:
-
-
-| Account consistency level | Regions with availability zones enabled| Impact of using availability zones|
-|----|---|---|
-| [Asynchronous (Bounded Staleness or weaker)](/azure/cosmos-db/consistency-levels#bounded-staleness-consistency) |Any number of secondary read regions.| Provides minimal value because the SDK already provides seamless redirects for reads when a read region fails.|
-| [Synchronous (Strong)](/azure/cosmos-db/consistency-levels#strong-consistency) |Two or more secondary read regions| Provides marginal value because the system can leverage dynamic quorum should a read region lose availability which allows for writes to continue.|
-| Synchronous (Strong) |One secondary read region| Provides greater value because the loss of a read region in this scenario can impact write availability.|
-| All |Write regions and any number of secondary regions| Ensures greater availability for write operations for zonal failures. |
-| All |Single region | Single region cannot benefit from multi-region failover capability. Using availability zones guards against total availability loss due to zonal failure.|
-
-
+For more details, see [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/autoscale-provisioned/).
 
 ### SLA improvements
 
-Because availability zones are physically separate and provide distinct power source, network, and cooling, Availability SLAs (Service-level agreements) are higher (99.995%) than accounts with a single region (99.99%). Regions where availability zones are enabled are charged at 25% premium, while those without availability zones don't incur the premium. Moreover, the premium pricing for availability zones is waived for accounts configured with multi-region writes and/or for collections configured with autoscale mode.
 
-Adding an additional region to Cosmos DB account typically increases existing bill by 100% (additively not multiplicatively) though small variations in cost across regions exist. For more details, see [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/autoscale-provisioned/).
+To increase resiliency and availability of an Azure Cosmos DB account, you can implement a layering approach, which includes:
 
-Enabling AZs, adding additional region(s), or turning on multi-region writes can be thought as a layering approach that increases resiliency and availability of a given Cosmos DB account at each step of the way - from 4 9's availability for single region no-AZ configuration, through 4 and half 9's for single region with AZs, all the way to 5 9's of availability for multi-region configuration with the multi-region write option enabled. Please refer to the following table for a summary of SLAs for each configuration.
+- Enabling zone redundancy.
+- Adding one or more additional regions.
+- Enabling multi-region writes.
 
+The layering approach protects the account at each step of the way - from 4 9's availability for a single-region configuration without zone redundancy, through 4 and half 9's for single region with zone redundancy, all the way to 5 9's of availability for multi-region configuration with the multi-region write option enabled. 
+
+The following table contains a summary of SLAs for each configuration:
 
 |KPI|Single-region writes without availability zones|Single-region writes with availability zones|Multiple-region, single-region writes without availability zones|Multiple-region, single-region writes with availability zones|Multiple-region, multiple-region writes with or without availability zones|
 |---------|---------|---------|---------|---------|---------|
@@ -80,13 +83,13 @@ Enabling AZs, adding additional region(s), or turning on multi-region writes can
 
 ***2*** The 1.25 rate applies only to regions in which you enable availability zones.
 
+### Configure availability zones
 
-### Create a resource with availability zones enabled
+#### Create a resource with availability zones enabled
 
 You can configure availability zones only when you add a new region to an Azure Cosmos DB NoSQL account. 
 
 To enable availability zone support you can use:
-
 
 * [Azure portal](/azure/cosmos-db/how-to-manage-database-account#add-remove-regions-from-your-database-account)
 
@@ -94,11 +97,11 @@ To enable availability zone support you can use:
 
 * [Azure Resource Manager templates](/azure/cosmos-db/manage-with-templates)
 
+<a name="migrate-to-availability-zone-support"></a>
 
-### Migrate to availability zone support
+#### Enable availability zone support
 
-To learn how to migrate your Cosmos DB account to availability zone support, see [Migrate Azure Cosmos DB for NoSQL to availability zone support](./migrate-cosmos-nosql.md)).
-
+To learn how to enable zone redundancy on your Azure Cosmos DB account, see [Migrate Azure Cosmos DB for NoSQL to availability zone support](./migrate-cosmos-nosql.md)).
 
 ## Cross-region disaster recovery and business continuity
 

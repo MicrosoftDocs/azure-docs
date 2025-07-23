@@ -9,6 +9,7 @@ ms.date: 04/18/2025
 ms.author: normesta
 ms.topic: how-to
 ms.reviewer: jamesbak
+# Customer intent: As a data engineer, I want to migrate data from an on-premises HDFS store to Azure Storage using a Data Box device, so that I can leverage cloud capabilities for data storage and processing.
 ---
 
 # Migrate from on-premises HDFS store to Azure Storage with Azure Data Box

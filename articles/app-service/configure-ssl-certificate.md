@@ -13,6 +13,8 @@ author: msangapu-msft
 
 # Add and manage TLS/SSL certificates in Azure App Service
 
+[!INCLUDE [app-service-managed-certificate](./includes/managed-certs/managed-certs-note.md)]
+
 You can add digital security certificates to [use in your application code](configure-ssl-certificate-in-code.md) or to [help secure custom Domain Name System (DNS) names](configure-ssl-bindings.md) in [Azure App Service](overview.md). App Service provides a highly scalable, self-patching web hosting service. The certificates are currently called Transport Layer Security (TLS) certificates. They were previously known as Secure Sockets Layer (SSL) certificates. These private or public certificates help you to secure internet connections. The certificates encrypt data sent between your browser, websites that you visit, and the website server.
 
 The following table lists the options for you to add certificates in App Service.
@@ -38,8 +40,7 @@ The following table lists the options for you to add certificates in App Service
 
 The [free App Service managed certificate](#create-a-free-managed-certificate) and the [App Service certificate](configure-ssl-app-service-certificate.md) already satisfy the requirements of App Service. If you choose to upload or import a private certificate to App Service, your certificate must meet the following requirements:
 
-* Be exported as a [password-protected .pfx file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions), encrypted by using triple DES.
-* Contain a private key at least 2,048 bits long.
+* Be exported as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions).
 * Contain all intermediate certificates and the root certificate in the certificate chain.
 
 If you want to help secure a custom domain in a TLS binding, the certificate must meet these extra requirements:
@@ -48,7 +49,7 @@ If you want to help secure a custom domain in a TLS binding, the certificate mus
 * Be signed by a trusted certificate authority.
 
 > [!NOTE]
-> *Elliptic curve cryptography (ECC) certificates* work with App Service but aren't covered by this article. For the exact steps to create ECC certificates, work with your certificate authority.
+> **Elliptic Curve Cryptography (ECC) certificates** work with App Service when uploaded as a PFX, but currently cannot be imported from Key Vault. They aren't covered by this article. For the exact steps to create ECC certificates, work with your certificate authority.
 
 After you add a private certificate to an app, the certificate is stored in a deployment unit that's bound to the App Service plan's resource group, region, and operating system (OS) combination. Internally, it's called a *webspace*. That way, the certificate is accessible to other apps in the same resource group, region, and OS combination. Private certificates uploaded or imported to App Service are shared with app services in the same deployment unit.
 
@@ -56,7 +57,7 @@ You can add up to 1,000 private certificates per webspace.
 
 ## Create a free managed certificate
 
-The free App Service managed certificate is a turnkey solution that helps to secure your custom DNS name in App Service. App Service manages this TLS/SSL server certificate without any action from you.
+The free App Service managed certificate is a turn-key solution for helping to secure your custom DNS name in App Service. Without any action from you, this TLS/SSL server certificate is fully managed by App Service and is automatically renewed, as long as the prerequisites that you set up stay the same. All the associated bindings are updated with the renewed certificate. You create and bind the certificate to a custom domain, and let App Service do the rest.
 
 Before you create a free managed certificate, make sure that you [meet the prerequisites](#prerequisites) for your app.
 

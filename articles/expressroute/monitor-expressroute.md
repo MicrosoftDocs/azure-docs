@@ -7,6 +7,7 @@ ms.topic: concept-article
 author: duongau
 ms.author: duau
 ms.service: azure-expressroute
+# Customer intent: "As a network administrator, I want to monitor Azure ExpressRoute metrics and logs, so that I can ensure optimal performance and troubleshoot connectivity issues effectively."
 ---
 
 # Monitor Azure ExpressRoute

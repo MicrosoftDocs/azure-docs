@@ -1,13 +1,13 @@
 ---
 title: "Azure roles, Microsoft Entra roles, and classic subscription administrator roles"
 description: Describes the different roles in Azure - Azure roles, and Microsoft Entra roles, and classic subscription administrator roles
-author: rolyon
-manager: femila
+author: jenniferf-skc
+manager: pmwongera
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: role-based-access-control
 ms.topic: overview
 ms.date: 03/12/2025
-ms.author: rolyon
+ms.author: jfields
 ms.custom: it-pro;
 ---
 

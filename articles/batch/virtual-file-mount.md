@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurepowershell, linux-related-content
 ms.date: 06/10/2024
+# Customer intent: As a cloud engineer, I want to mount a virtual file system on Batch pool nodes, so that I can efficiently manage shared data access for tasks running on those compute nodes.
 ---
 
 # Mount a virtual file system on a Batch pool

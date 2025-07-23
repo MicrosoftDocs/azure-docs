@@ -12,6 +12,7 @@ ms.date: 10/28/2024
 
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a developer, I want to manage blob container properties and metadata using JavaScript or TypeScript, so that I can effectively organize and retrieve additional information about my storage resources.
 ---
 
 # Manage container properties and metadata with JavaScript or TypeScript

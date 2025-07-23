@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 12/13/2024
 ms.author: kendownie
+# Customer intent: As a macOS user, I want to mount an Azure file share using SMB, so that I can easily access and manage my cloud storage directly through Finder or Terminal.
 ---
 
 # Mount an Azure file share on macOS

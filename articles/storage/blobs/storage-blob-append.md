@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.devlang: csharp
 # ms.devlang: csharp, python
 ms.custom: devx-track-csharp, devx-track-dotnet, devguide-csharp
+# Customer intent: "As a .NET developer, I want to append data to append blobs in Azure Storage, so that I can efficiently log data from my applications."
 ---
 
 # Append data to an append blob with .NET

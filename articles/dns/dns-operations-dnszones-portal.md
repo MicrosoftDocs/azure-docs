@@ -7,6 +7,7 @@ ms.service: azure-dns
 ms.topic: how-to
 ms.date: 06/07/2024
 ms.author: allensu
+# Customer intent: As a cloud administrator, I want to manage DNS zones through the portal so that I can efficiently create, update, and delete DNS configurations for my applications.
 ---
 # How to manage DNS Zones in the Azure portal
 

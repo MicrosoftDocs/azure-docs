@@ -13,6 +13,7 @@ metadata:
   author: JnHs
   ms.author: jenhayes
   ms.date: 05/29/2025
+  adobe-target: true
   featureFlags:
   - clicktale
 highlightedContent:
@@ -486,7 +487,7 @@ productDirectory:
         - featured
         - compute
         - azure-virtual-desktop
-      url: virtual-desktop/index.yml
+      url: /azure/virtual-desktop/
     # Card
     - title: Azure Container Apps
       summary: Build and deploy modern apps and microservices using serverless containers
