@@ -77,6 +77,12 @@ To resolve the issue:
 
 * Use the *Check Access* feature in the Azure portal to verify you have the right permissions.
 
+## Blocked requests
+
+If requests to SRE Agent are blocked, your firewall might stop requests to Azure and causing client-side failures in the browser.
+
+To grant access to the proper domain, allowlist `*.azuresre.ai` your firewall settings.
+
 ## Related content
 
 * [Security contexts](./security-context.md)
