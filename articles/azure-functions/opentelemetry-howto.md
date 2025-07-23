@@ -133,9 +133,7 @@ The way that you instrument your application to use OpenTelemetry depends on you
 
 **Core bridge** (always) – enables OpenTelemetry inside the Java worker
 
-<details open>
-<summary>Maven</summary>
-
+**Maven**
 ```xml
 <dependency>
   <groupId>com.microsoft.azure.functions</groupId>
@@ -144,22 +142,14 @@ The way that you instrument your application to use OpenTelemetry depends on you
 </dependency>
 ```
 
-</details>
-
-<details>
-<summary>Gradle (Kotlin DSL)</summary>
-
+**Gradle (Kotlin DSL)**
 ```kotlin
 implementation("com.microsoft.azure.functions:azure-functions-java-opentelemetry:1.0.0")
 ```
 
-</details>
-
 **Application Insights exporter** (optional) – add only if you plan to send data to AI
 
-<details>
-<summary>Maven</summary>
-
+**Maven**
 ```xml
 <dependency>
   <groupId>com.azure</groupId>
@@ -168,16 +158,10 @@ implementation("com.microsoft.azure.functions:azure-functions-java-opentelemetry
 </dependency>
 ```
 
-</details>
-
-<details>
-<summary>Gradle (Kotlin DSL)</summary>
-
+**Gradle (Kotlin DSL)**
 ```kotlin
 implementation("com.azure:azure-monitor-opentelemetry-autoconfigure:1.2.0")
 ```
-
-</details>
 
 > The bridge looks for `AzureMonitorAutoConfigure` by reflection; if this dependency isn’t present, it simply skips the AI exporter.
 
