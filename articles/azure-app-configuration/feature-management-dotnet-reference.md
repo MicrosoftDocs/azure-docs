@@ -154,7 +154,7 @@ A `requirement_type` of `All` changes the way the filters are traversed:
 }
 ```
 
-In this example, the `FeatureW` feature flag has a `requirement_type` value of `All`. As a result, all of its filters must evaluate to `true` for the feature to be enabled. In this case, the feature is enabled for 50 percent of users during the specified time window.
+In this example, the `FeatureW` feature flag has a `requirement_type` value of `All`. As a result, all its filters must evaluate to `true` for the feature to be enabled. In this case, the feature is enabled for 50 percent of users during the specified time window.
 
 ### .NET feature management schema
 
@@ -222,7 +222,7 @@ public class HomeController : Controller
 
 ### Scoped feature management services
 
-The `AddFeatureManagement` method adds feature management services as singletons within an application. But some scenarios require feature management services to be added as scoped services instead. For example, you might want to use feature filters that consume scoped services for context information. In this case, you should use the `AddScopedFeatureManagement` method. This method ensures that feature management services, including feature filters, are added as scoped services.
+The `AddFeatureManagement` method adds feature management services as singletons within an application. Some scenarios require feature management services to be added as scoped services instead. For example, you might want to use feature filters that consume scoped services for context information. In this case, you should use the `AddScopedFeatureManagement` method. This method ensures that feature management services, including feature filters, are added as scoped services.
 
 ```csharp
 services.AddScopedFeatureManagement();
@@ -392,14 +392,16 @@ services.AddFeatureManagement()
         .AddFeatureFilter<MyCriteriaFilter>();
 ```
 
-You can register a feature filter by calling `AddFeatureFilter<T>` on the `IFeatureManagementBuilder` instance that `AddFeatureManagement` returns. The feature filter has access to the services in the service collection that you use to add feature flags. You can use dependency injection to retrieve these services.
+You can register a feature filter by calling `AddFeatureFilter<T>` on the `IFeatureManagementBuilder` implementation that `AddFeatureManagement` returns. The feature filter has access to the services in the service collection that you use to add feature flags. You can use dependency injection to retrieve these services.
 
 > [!NOTE]
 > When you reference filters in feature flag settings (for example, *appsettings.json*), you should omit the `Filter` part of the type name. For more information, see [Filter alias attribute](#filter-alias-attribute), later in this article.
 
 ### Parameterized feature filters
 
-Some feature filters require parameters to evaluate whether a feature should be turned on. For example, a browser feature filter might turn on a feature for a certain set of browsers. You might want to turn on a feature in the Microsoft Edge and Chrome browsers but not in Firefox. To implement this filtering, you can design a feature filter to expect parameters. You specify these parameters in the feature configuration. In code, you access them via the `FeatureFilterEvaluationContext` parameter of `IFeatureFilter.EvaluateAsync`.
+Some feature filters require parameters to evaluate whether a feature should be turned on. For example, a browser feature filter might turn on a feature for a certain set of browsers. You might want to turn on a feature in the Microsoft Edge and Chrome browsers but not in Firefox.
+
+To implement this filtering, you can design a feature filter to expect parameters. You specify these parameters in the feature configuration. In code, you access them via the `FeatureFilterEvaluationContext` parameter of `IFeatureFilter.EvaluateAsync`.
 
 ```csharp
 public class FeatureFilterEvaluationContext
@@ -561,7 +563,7 @@ If all three filters are registered:
 
 ## Built-in feature filters
 
-There are a few feature filters that come with the `Microsoft.FeatureManagement` package: `PercentageFilter`, `TimeWindowFilter`, `ContextualTargetingFilter`, and `TargetingFilter`. All filters except the `TargetingFilter` are added **automatically** when you use the `AddFeatureManagement` method to register feature management. The `TargetingFilter` is added by using the `WithTargeting` method. For more information, see [Targeting](#targeting), later in this article.
+There are a few feature filters that come with the `Microsoft.FeatureManagement` package: `PercentageFilter`, `TimeWindowFilter`, `ContextualTargetingFilter`, and `TargetingFilter`. All filters except `TargetingFilter` are added **automatically** when you use the `AddFeatureManagement` method to register feature management. `TargetingFilter` is added by using the `WithTargeting` method. For more information, see [Targeting](#targeting), later in this article.
 
 Each of the built-in feature filters has its own parameters. The following sections describe these feature filters and provide examples.
 
@@ -588,7 +590,10 @@ The `Microsoft.Percentage` filter provides a way to enable a feature based on a 
 
 ### Microsoft.TimeWindow
 
-The `Microsoft.TimeWindow` filter provides a way to enable a feature based on a time window. If you specify only an `End` value, the feature is considered on until that time. If you specify only a `Start` value, the feature is considered on at all points after that time.
+The `Microsoft.TimeWindow` filter provides a way to enable a feature based on a time window.
+
+- If you specify only an `End` value, the feature is considered on until that time.
+- If you specify only a `Start` value, the feature is considered on at all points after that time.
 
 ```json
 {
@@ -608,10 +613,10 @@ The `Microsoft.TimeWindow` filter provides a way to enable a feature based on a 
 }
 ```
 
-You can configure the filter to apply a time window on a recurring basis. This capability can be useful when you need to turn on a feature during a low-traffic or high-traffic period of a day or certain days of a week. To expand an individual time window to a recurring time window, you should use a `Recurrence` parameter to specify a recurrence rule.
+You can configure the filter to apply a time window on a recurring basis. This capability can be useful when you need to turn on a feature during a low-traffic or high-traffic period of a day or certain days of a week. To expand an individual time window to a recurring time window, you use a `Recurrence` parameter to specify a recurrence rule.
 
 > [!NOTE]
-> To use recurrence, you must specify `Start` and `End` values. With recurrence, the date part of the `End` value doesn't specify an end date for considering the filter active. Instead, the filter uses the end date, relative to the start date, to define the time window that recurs.
+> To use recurrence, you must specify `Start` and `End` values. With recurrence, the date part of the `End` value doesn't specify an end date for considering the filter active. Instead, the filter uses the end date, relative to the start date, to define the duration of the time window that recurs.
 
 ```json
 {
@@ -761,7 +766,7 @@ To create a recurrence rule, you must specify both `Pattern` and `Range` setting
 
 The `Microsoft.Targeting` filter provides a way to enable a feature for a target audience. For an in-depth explanation of targeting, see [Targeting](#targeting), later in this article.
 
-The filter parameters include an `Audience` object that describes who should have access to the feature. Within the `Audience` object, you can specify users, groups, excluded users and groups, and a default percentage of the user base.
+The filter parameters include an `Audience` object that describes who has access to the feature. Within the `Audience` object, you can specify users, groups, excluded users and groups, and a default percentage of the user base.
 
 For each group object that you list in the `Groups` section, you must also specify what percentage of the group's members should have access.
 
@@ -842,7 +847,7 @@ The library supports this strategy for rolling out a feature through the built-i
 
 For an example of a web application that uses the targeting feature filter, see the [FeatureFlagDemo](https://github.com/microsoft/FeatureManagement-Dotnet/tree/main/examples/FeatureFlagDemo) example project.
 
-To begin using the `TargetingFilter` in an application, you must add it to the application's service collection just like any other feature filter. Unlike other built-in filters, the `TargetingFilter` relies on another service to be added to the application's service collection. That service is an `ITargetingContextAccessor` implementation.
+To begin using `TargetingFilter` in an application, you must add it to the application's service collection just like any other feature filter. Unlike other built-in filters, `TargetingFilter` relies on another service to be added to the application's service collection. That service is an `ITargetingContextAccessor` implementation.
 
 The `Microsoft.FeatureManagement.AspNetCore` library provides a [default implementation](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) of `ITargetingContextAccessor` that extracts targeting information from a request's `HttpContext` value. You can use the default targeting context accessor when you set up targeting by using the nongeneric `WithTargeting` overload on `IFeatureManagementBuilder`.
 
@@ -870,7 +875,7 @@ For an example that extracts targeting context information from an application's
 * `UserId` information from the `Identity.Name` field
 * `Groups` information from claims of type [`Role`](/dotnet/api/system.security.claims.claimtypes.role)
 
-This implementation relies on the use of `IHttpContextAccessor`. For more information about `IHttpContextAccessor`, see [Use HttpContext](#use-httpcontext).
+This implementation relies on the use of `IHttpContextAccessor`. For more information about `IHttpContextAccessor`, see [Use HttpContext](#use-httpcontext), earlier in this article.
 
 ### Targeting in a console application
 
@@ -891,7 +896,7 @@ TargetingContext targetingContext = new TargetingContext
 await fm.IsEnabledAsync(featureName, targetingContext);
 ```
 
-The `ContextualTargetingFilter` filter uses the feature filter alias `Microsoft.Targeting`, so the configuration for this filter is consistent with the information in [Microsoft.Targeting](#microsofttargeting), earlier in this article.
+`ContextualTargetingFilter` uses the feature filter alias `Microsoft.Targeting`, so the configuration for this filter is consistent with the information in [Microsoft.Targeting](#microsofttargeting), earlier in this article.
 
 For an example that uses `ContextualTargetingFilter` in a console application, see the [TargetingConsoleApp](https://github.com/microsoft/FeatureManagement-Dotnet/tree/main/examples/TargetingConsoleApp) example project.
 
