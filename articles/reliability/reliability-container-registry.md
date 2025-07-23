@@ -204,7 +204,7 @@ This section describes what to expect when a registry is configured for geo-repl
 
 When a region becomes unavailable, container operations can continue using alternative regional endpoints:
 
-:::image type="content" source="./media/reliability-acr/acr-multi-region-region-failure.png" alt-text="Diagram showing Azure Container Registry behavior during regional failure with automatic Traffic Manager failover routing clients to healthy regions while West Europe is marked as failed, and continued bidirectional replication between operational regions." lightbox="./media/reliability-acr/acr-multi-region-region-failure.png" border="false":::
+<!-- :::image type="content" source="./media/reliability-acr/acr-multi-region-region-failure.png" alt-text="Diagram showing Azure Container Registry behavior during regional failure with automatic Traffic Manager failover routing clients to healthy regions while West Europe is marked as failed, and continued bidirectional replication between operational regions." lightbox="./media/reliability-acr/acr-multi-region-region-failure.png" border="false"::: -->
 
 - **Detection and response**. Azure Container Registry monitors the health of each regional replica and is responsible for redirecting traffic to another region.
 
