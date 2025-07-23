@@ -92,10 +92,7 @@ You can create custom container images for more advanced environment deployments
 
 To get started, you can get sample ARM and Bicep container images via the Microsoft Artifact Registry (also known as the Microsoft Container Registry). 
 
-For more information on building a custom container image, see:
-- [Configure a container image to execute deployments](how-to-configure-extensibility-generic-container-image.md)
-- [Configure container image to execute deployments with ARM and Bicep](how-to-configure-extensibility-bicep-container-image.md)
-- [Configure a container image to execute deployments with Terraform](how-to-configure-extensibility-terraform-container-image.md)
+For more information on building a custom container image, see [Configure a container image to execute deployments](how-to-configure-extensibility-generic-container-image.md).
 
 ### Specify the ARM or Bicep sample container image
 
