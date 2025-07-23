@@ -5,6 +5,7 @@ ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 02/18/2025
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud architect, I want to integrate Azure VMware Solution into a hub and spoke architecture, so that I can ensure seamless connectivity and efficient resource management across both on-premises and Azure environments."
 ---
 
 # Integrate Azure VMware Solution in a hub and spoke architecture

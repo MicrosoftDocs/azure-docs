@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 06/24/2021
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
+# Customer intent: As an SAP HANA administrator, I want to upgrade the operating system on Large Instances, so that I can ensure optimum performance and stability while maintaining compliance with SAP requirements.
 ---
 # Operating System Upgrade
 This article describes the details of operating system (OS) upgrades on HANA Large Instances (HLI), otherwise known as BareMetal Infrastructure.

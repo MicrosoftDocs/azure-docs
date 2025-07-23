@@ -388,6 +388,8 @@ items:
     href: concepts/advanced-messaging/whatsapp/whatsapp-terms-of-service.md
   - name: Messaging policy
     href: concepts/sms/messaging-policy.md
+  - name: WhatsApp channel prerequisites
+    href: concepts/advanced-messaging/whatsapp/whatsapp-channel-prerequisites.md
   - name: WhatsApp business account FAQ
     href: quickstarts/advanced-messaging/whatsapp/whatsapp-business-account-faq.md
   - name: Logging and analytics
