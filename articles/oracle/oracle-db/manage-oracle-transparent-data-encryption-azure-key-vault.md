@@ -48,7 +48,7 @@ This integration enables Oracle Database@Azure customers to meet a wide spectrum
 * **OCI privileges**: In the Oracle Cloud Infrastructure console, ensure that you have permission to manage the multicloud integration. Oracle recommends an identity and access management (IAM) policy in your OCI tenancy, such as:
 
   * *allow any user to manage oracle-db-azure-vaults in tenancy*
-  * *where request.principal.type = 'cloudvmcluster'*  
+  * *where request.principal.type = 'cloudvmcluster'*
 
   This IAM policy allows the Exadata VM cluster resource to manage Azure Key Vault associations.
 
@@ -71,7 +71,7 @@ Set up a key vault to hold your Oracle database encryption keys. If you already 
 
 2. Create at least one key in the vault. Oracle TDE requires an MEK to be present in the vault. Oracle supports RSA keys for this purpose (2048-bit is typical).
 
-    Alternatively, you can import a key if you have specific requirements. This option is called bring your own key (BYOK). But for most cases, generating a new RSA key in Azure is simplest. Make sure that the key is enabled, and note the key name. Oracle later refers to this key by its Azure name when you link the database.
+    Alternatively, you can import a key if you have specific requirements. This option is called *bring your own key* (BYOK). But for most cases, generating a new RSA key in Azure is simplest. Make sure that the key is enabled, and note the key name. Oracle later refers to this key by its Azure name when you link the database.
 
     > [!TIP]
     > Why create the key now? During vault registration, the Oracle control plane checks that at least one key exists in the vault. If none is found, the vault registration fails. Creating a key up front avoids that problem.
@@ -96,7 +96,7 @@ This way, if you have multiple database VMs or clusters, you can manage their ac
 
 To configure Microsoft Entra ID permissions:
 
-1. Create a Microsoft Entra ID security group. This step is optional, but we recommend it.  You can create a group by using the Azure portal (**Microsoft Entra ID** pane > **Groups** > **New Group**) or the Azure CLI.
+1. Create a Microsoft Entra ID security group. This step is optional, but we recommend it. You can create a group by using the Azure portal (**Microsoft Entra ID** pane > **Groups** > **New Group**) or the Azure CLI.
 
     Make note of the `$GROUP_OBJECT_ID` value. This group remains empty for now. You add members in [Step 3: Set up the Oracle identity connector](#step-3-set-up-the-oracle-identity-connector) after the Azure Arc connector is set up. You create the identities that need access during that process.
 
@@ -118,7 +118,7 @@ To configure Microsoft Entra ID permissions:
 
 ## Step 3: Set Up the Oracle identity connector
 
-Setting up the Oracle identity connector automatically configures the Azure Arc agent to allow communication with Azure services (in this case, Azure Key Vault) by using an Azure identity.  
+Setting up the Oracle identity connector automatically configures the Azure Arc agent to allow communication with Azure services (in this case, Azure Key Vault) by using an Azure identity.
 
 When you create an identity connector via the OCI console, each VM in the cluster is registered as an Azure Arc-enabled server in your Azure subscription. This registration grants the VMs a managed identity in Microsoft Entra ID. The managed identity is applied for access to the key vault.
 
@@ -139,7 +139,7 @@ Here's how to create the connector:
 
     1. On the page for VM cluster details, find the **Multicloud information** section. The **Identity connector** value is likely **None** because you haven't set up the connector yet. Select **Create**.
 
-       :::image type="content" source="media/oracle-create-identity-connector.png" alt-text="Screenshot that shows the button for creating an identity connector.":::  
+       :::image type="content" source="media/oracle-create-identity-connector.png" alt-text="Screenshot that shows the button for creating an identity connector.":::
 
     1. In the form that appears, the fields for connector name, Exadata VM cluster, Azure subscription ID, and Azure resource group name are autofilled. These values come from when the Exadata was provisioned. Oracle knows the Azure subscription and resource group that you used.
 
@@ -198,7 +198,7 @@ This action triggers installation of an Oracle software library on the cluster V
 
 Now, the cluster is configured to support Azure Key Vault. Importantly:
 
-* This setting is cluster wide, but it doesn't automatically switch any database to use Azure Key Vault. It makes the option available. Databases on this cluster can use either the traditional Oracle Wallet or Azure Key Vault, side by side. For example, you might enable Azure Key Vault and then migrate one database at a time.  
+* This setting is cluster wide, but it doesn't automatically switch any database to use Azure Key Vault. It makes the option available. Databases on this cluster can use either the traditional Oracle Wallet or Azure Key Vault, side by side. For example, you might enable Azure Key Vault and then migrate one database at a time.
 * If you need to disable the setting, you could select **Disable**, which uninstalls the library. However, don't select **Disable** if you have databases actively using Azure Key Vault. If you do, the databases will lose access to their keys, and you'll have to re-enable the setting to get them functioning again.
 
 At this stage, you've completed the core setup. The Azure side is ready, and the Oracle side (cluster) is ready. The remaining steps involve connecting an actual Oracle database to the Azure Key Vault key.
@@ -230,7 +230,7 @@ After registration:
 
 * If you have multiple Exadata VM clusters with various connectors that need to use the same key vault, you have to manually create more associations. Select **Create association**, and then link the vault to another identity connector.
 
-  This scenario is advanced. For example, a primary and standby cluster in different regions use one centralized vault. Ensure that network connectivity is appropriate.
+  This scenario is advanced. For example, a primary cluster and a standby cluster in different regions use one centralized vault. Ensure that network connectivity is appropriate.
 
 Now Oracle OCI knows about your key vault and has it associated with the cluster's connector. The path is clear for a database to use the vault.
 
@@ -292,9 +292,9 @@ When the operation finishes, refresh the **Database** page. Verify that **Key 
 
 ### Important considerations
 
-* Switching back from Azure Key Vault to Oracle Wallet is not supported via the OCI console or the API. Oracle treats the move to an external key management service (KMS) as one-way, though technically you could manually export the key and re-import it to a wallet if necessary. The console explicitly does not allow changing from Azure Key Vault back to a local wallet.  
+* Switching back from Azure Key Vault to Oracle Wallet is not supported via the OCI console or the API. Oracle treats the move to an external key management service (KMS) as one-way, though technically you could manually export the key and re-import it to a wallet if necessary. The console explicitly does not allow changing from Azure Key Vault back to a local wallet.
 
-* If your CDB contains multiple PDBs with TDE enabled, they use the CDB's master key by default. In Oracle 19c, there's a single TDE master key per CDB. Starting with Oracle 21c, per-PDB keys are supported. However, you typically need to perform key management only at the CDB level, because all PDBs inherit the setting.
+* If your container database (CDB) contains multiple PDBs with TDE enabled, they use the CDB's master key by default. In Oracle 19c, there's a single TDE master key per CDB. Starting with Oracle 21c, per-PDB keys are supported. However, you typically need to perform key management only at the CDB level, because all PDBs inherit the setting.
 
   If you happen to use separate keys for individual PDBs, you would need to repeat the key management process for each PDB resource. Oracle's interface lists per-PDB keys, if applicable.
 
@@ -321,7 +321,7 @@ Your Oracle database is now configured to use Azure Key Vault for all encryption
   
   Azure Key Vault supports key versioning. Old versions can be left disabled rather than deleted until you no longer need them.
 
-* **Test failover/restart**: If this is a production setup, simulate a database restart to ensure that the database can retrieve the key on startup. Shut down and start up the Oracle database. (Or restart the VM cluster if necessary. In RAC, bounce one node at a time.) The database should start without manual intervention, pulling the key from Azure Key Vault in the process.
+* **Test failover/restart**: If this setup is for production, simulate a database restart to ensure that the database can retrieve the key on startup. Shut down and start up the Oracle database. (Or restart the VM cluster if necessary. In RAC, bounce one node at a time.) The database should start without manual intervention, pulling the key from Azure Key Vault in the process.
 
   If the database starts correctly, the integration is solid. If it fails to open the wallet automatically, recheck [Step 2: Configure Microsoft Entra ID permissions for key vault access](#step-2-configure-microsoft-entra-id-permissions-for-key-vault-access) and [Step 3: Set up the Oracle identity connector](#step-3-set-up-the-oracle-identity-connector).
 
@@ -353,7 +353,7 @@ You can also rotate the master key by using the OCI API or the OCI CLI:
 > [!IMPORTANT]
 > Do not rotate the master key by using the Azure Key Vault key rotation policy or by manually creating a new version in Azure without Oracle's involvement. Azure would create a new version, but Oracle's database would be unaware and continue trying to use the old version because that's what it stored as the master key identifier. Always initiate a rotation from Oracle's side, which coordinates with Azure.
 
-Keep a log of key rotations. Azure logs the creation of a new key version, and Oracle logs that a new key is in use. If any problem happens after rotation, you have the option to roll back to the previous key version via Oracle. But you typically don't need that option unless you suspect that a new key is compromised.
+Keep a log of key rotations. Azure logs the creation of a new key version, and Oracle logs that a new key is in use. If any problem happens after rotation, you can roll back to the previous key version via Oracle. But you typically don't need that option unless you suspect that a new key is compromised.
 
 ### Key lifecycle management
 
@@ -361,7 +361,7 @@ Manage the lifecycle of the keys in Azure:
 
 * **Retention**: Don't immediately delete old key versions. Oracle TDE can use only the latest version, but it might need older versions to open old backups or archive logs. It's wise to keep old key versions disabled but recoverable for a certain period.
 
-* **Backup**: For Azure Key Vault (Standard or Premium), Microsoft manages high availability and disaster recovery. For Managed HSM, you're responsible for backing up the HSM if needed. Follow Azure's guidance for HSM backups if applicable.
+* **Backup**: For Azure Key Vault (Standard or Premium), Microsoft manages high availability and disaster recovery (DR). For Managed HSM, you're responsible for backing up the HSM if needed. Follow Azure's guidance for HSM backups if applicable.
 
 * **Separation of duties**: Typically, a database admin handles the Oracle side, and a security admin handles the Azure Key Vault side. Use Azure Key Vault access policies and RBAC to ensure that:
 
@@ -411,7 +411,7 @@ Oracle handles updates to the Exadata infrastructure and the Azure Arc agent as 
 
 * **Private Link requirement**: For Managed HSM, Private Link integration is mandatory for secure access. We recommend Private Link connectivity for all Azure Key Vault and Oracle Database@Azure integrations.
 
-* **AES key support**: Oracle Database@Azure customers should use AES keys wherever possible. To manage TDE MEKs with AES format, you must use Managed HSM.
+* **Advanced Encryption Standard (AES) key support**: Oracle Database@Azure customers should use AES keys wherever possible. To manage TDE MEKs with AES format, you must use Managed HSM.
 
 * **Monitoring and auditing**: Enable Azure diagnostic logs for monitoring key access and usage events across all tiers.
 
