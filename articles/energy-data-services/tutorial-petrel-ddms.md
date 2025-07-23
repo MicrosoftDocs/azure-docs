@@ -25,6 +25,7 @@ In this tutorial, you learn to :
 For more information about DDMS, see [DDMS concepts](concepts-ddms.md).
 
 ## Prerequisites
+
 * An Azure subscription
 * An instance of [Azure Data Manager for Energy](quickstart-create-microsoft-energy-data-services-instance.md) created in your Azure subscription
 * cURL command-line tool installed on your machine

@@ -32,10 +32,9 @@ In this tutorial, you learn how to:
 
 ### Get details for the Azure Data Manager for Energy instance
 
-* You need an Azure Data Manager for Energy instance. If you don't already have one, create one by following the steps in [Quickstart: Create an Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
 * For this tutorial, you need the following parameters:
 
-  | Parameter | Value to use | Example | Where to find this value |
+| Parameter | Value to use | Example | Where to find this value |
 |----|----|----|----|
 | `DNS` | URI | `<instance>.energy.azure.com` | Find this value on the overview page of the Azure Data Manager for Energy instance. |
 | `data-partition-id` | Data partitions | `<data-partition-id>` | Find this value on the Data Partitions section within the Azure Data Manager for Energy instance. |
