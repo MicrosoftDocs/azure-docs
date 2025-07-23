@@ -1,6 +1,6 @@
 ---
 title: App Service Environment Overview
-description: Learn about App Service Environment, which is a fully isolated and single-tenant deployment of Azure App Service. It provides high-scale, network-secured hosting for applications in a dedicated environment.
+description: Learn about App Service Environments, which are fully isolated and single-tenant App Service deployments that provide high-scale, network-secured hosting.
 author: seligj95
 ms.topic: overview
 ms.date: 06/18/2024
@@ -13,29 +13,24 @@ ms.custom:
 
 # App Service Environment overview
 
-An App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale. Unlike the App Service public multitenant offering where supporting infrastructure is shared, with App Service Environment, compute is dedicated to a single customer. For more information, see [App Service Environment v3 and App Service public multitenant comparison](ase-multi-tenant-comparison.md).
+An App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment to run App Service apps securely at high scale. Unlike the App Service public multitenant offering that shares supporting infrastructure, an App Service Environment provides dedicated compute for a single customer. For more information, see [App Service Environment v3 and App Service public multitenant comparison](ase-multi-tenant-comparison.md).
 
 An App Service Environment provides hosting capabilities for various workloads:
 
 - Windows web apps
-
 - Linux web apps
-
 - Docker containers (Windows and Linux)
-
 - Functions
-
 - Logic apps (standard) in [supported regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=logic-apps&regions=all)
 
 App Service Environments are designed to support application workloads that require specific performance and security features:
 
-- High scale.
-
+- Support for high scale.
 - Isolation and secure network access.
+- Support for high memory usage.
+- Ability to handle high requests per second (RPS).
 
-- High memory utilization.
-
-- High requests per second (RPS). You can create multiple App Service Environments in a single Azure region or across multiple Azure regions. This flexibility makes an App Service Environment ideal for horizontally scaling stateless applications that have a high RPS requirement.
+You can create multiple App Service Environments in a single Azure region or across multiple Azure regions. This flexibility makes an App Service Environment ideal for horizontally scaling stateless applications that have a high RPS requirement.
 
 An App Service Environment hosts applications for a single customer on one of their virtual networks. Customers have fine-grained control over inbound and outbound application network traffic. Applications can establish high-speed secure connections over virtual private networks to on-premises corporate resources.
 
@@ -53,23 +48,35 @@ App Service Environments have many use cases:
 
 - Multiple-tier applications
 
-There are many networking features that enable apps in a multitenant App Service to reach network-isolated resources or become network-isolated themselves. These features are enabled at the application level. With an App Service Environment, apps don't require extra configuration to be on a virtual network. The apps are deployed into a network-isolated environment that's already on a virtual network. If you need a complete isolation story, you can also deploy your App Service Environment on dedicated hardware.
+Multitenant App Service apps can use several networking features to reach network-isolated resources or become network-isolated themselves. These features are enabled at the application level. With an App Service Environment, apps don't require extra configuration to join a virtual network. The apps are deployed into a network-isolated environment that already resides in a virtual network. If you need complete isolation, deploy your App Service Environment on dedicated hardware.
 
 ## Dedicated environment
 
-An App Service Environment is a single-tenant deployment of Azure App Service that runs on your virtual network.
+An App Service Environment is a single-tenant deployment of App Service that runs on your virtual network.
 
-Applications are hosted in App Service plans, which are created in an App Service Environment. An App Service plan serves as a provisioning profile for an application host. As you scale out your App Service plan, you add more application hosts, with all the apps in that App Service plan running on each host. A single App Service Environment v3 supports up to 200 total App Service plan instances across all the App Service plans combined. A single App Service Isolated v2 (Iv2) plan supports up to 100 instances on its own.
+Applications are hosted in App Service plans, which you create in an App Service Environment. An App Service plan serves as a provisioning profile for an application host. As you scale out your App Service plan, you add more application hosts, and all apps in that plan run on each host. A single App Service Environment v3 supports up to 200 total instances across all App Service plans. A single App Service Isolated v2 (Iv2) plan supports up to 100 instances.
 
-If you require physical isolation down to the hardware level, you can deploy your App Service Environment v3 on dedicated hosts. When you deploy on dedicated hosts, scaling across all App Service plans is limited to the number of available cores in this environment. An App Service Environment deployed on dedicated hosts has 132 vCores available. I1v2 uses two vCores, I2v2 uses four vCores, and I3v2 uses eight vCores for each instance. Only I1v2, I2v2, and I3v2 SKU sizes are available in an App Service Environment deployed on dedicated hosts. Extra charges apply for dedicated host deployments. Isolation down to the hardware level typically isn't a requirement for most customers, so consider the limitations of dedicated host deployments before you use this feature. To determine whether a dedicated host deployment is right for you, review your security and compliance requirements before deployment.
+If you require physical isolation down to the hardware level, you can deploy your App Service Environment v3 on dedicated hosts.
+
+- Dedicated host deployments limit scaling across all App Service plans to the number of available cores in that environment.
+
+- Each environment has 132 vCores.
+- Instances sizes use the following vCore allocations:
+  - I1v2 uses two vCores.
+  - I2v2 uses four vCores.
+  - I3v2 uses eight vCores.
+  
+Only I1v2, I2v2, and I3v2 SKU sizes are available in an App Service Environment deployed on dedicated hosts. Extra charges apply for dedicated host deployments.
+
+Most customers don't require isolation down to the hardware level, so consider the limitations of dedicated host deployments before you use this feature. To determine whether a dedicated host deployment is right for you, review your security and compliance requirements before deployment.
 
 ## Virtual network support
 
-The App Service Environment feature is a deployment of Azure App Service into a single subnet within a virtual network. When you deploy an app into an App Service Environment, it's exposed on the inbound address that's assigned to the environment. If your App Service Environment is deployed with an internal virtual IP (VIP) address, the inbound address for all apps is an address within the App Service Environment subnet. If your App Service Environment is deployed with an external VIP address, the inbound address is an internet-accessible address, and your apps are listed in a public Domain Name System.
+An App Service Environment is a deployment of App Service that runs in a single subnet within a virtual network. When you deploy an app into an App Service Environment, it uses the inbound address assigned to the environment. If your App Service Environment is deployed with an internal virtual IP (VIP) address, the inbound address for all apps is an address within the App Service Environment subnet. If your App Service Environment is deployed with an external VIP address, the inbound address is a public-facing address, and your apps are listed in a public Domain Name System (DNS).
 
-An App Service Environment v3 in its subnet uses a varying number of addresses, depending on the number of instances and the amount of traffic. Some infrastructure roles are automatically scaled, depending on the number of App Service plans and the load. A `/24` Classless Inter-Domain Routing block that has 256 addresses in it is the recommended size for your App Service Environment v3 subnet. That size can host an App Service Environment v3 that's scaled out to its limit.
+An App Service Environment v3 in its subnet uses a variable number of addresses, depending on the number of instances and the amount of traffic. Some infrastructure roles scale automatically, depending on the number of App Service plans and the load. Use a `/24` Classless Inter-Domain Routing (CIDR) block that has 256 addresses for your App Service Environment v3 subnet. That size can host an App Service Environment v3 at full scale-out capacity.
 
-The apps in an App Service Environment don't need any features enabled to access resources on the same virtual network that the App Service Environment is in. If the App Service Environment virtual network is connected to another network, the apps in the App Service Environment can access resources in those extended networks. User configuration on the network can block traffic.
+The apps in an App Service Environment can access resources on the same virtual network as App Service Environment without extra configuration. If the App Service Environment virtual network connects to another network, the apps in the App Service Environment can access resources in those extended networks. But user configuration on the network can block traffic.
 
 The multitenant version of Azure App Service includes numerous features that let your apps connect to various networks. With these networking features, your apps function as if they're deployed on a virtual network. Apps in an App Service Environment v3 don't require added configuration to run on the virtual network.
 

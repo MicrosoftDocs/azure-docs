@@ -37,48 +37,74 @@ An [App Service Environment][Intro] is a single-tenant deployment of Azure App S
 
 - Select your deployment type. The deployment type determines how your apps are distributed across the App Service Environment. Choose between the following three types:
     
-     - *Regional deployment:* Also called a *nonzonal* deployment, this option is available in all regions that support App Service Environment v3. In regions with availability zones, your apps run in a single zone. If any availability zone in the region experiences an outage, regional deployments could experience downtime.
+   - *Regional deployment:* Also called a *nonzonal* deployment, this option is available in all regions that support App Service Environment v3. In regions with availability zones, your apps run in a single zone. If any availability zone in the region experiences an outage, regional deployments could experience downtime.
      
-      You must pay a minimum charge for one instance of Windows Isolated v2 in your App Service plan. When you use one or more instances, the charge is removed. This fee isn't additive.
+     You must pay a minimum charge for one instance of Windows Isolated v2 in your App Service plan. When you use one or more instances, the charge is removed. This fee isn't additive.
     
-     - *Zone redundant deployment:* Zone redundancy ensures that workloads remain available even if one zone experiences an outage. In regions that support availability zones, you can configure App Service Environments so that apps are distributed across multiple availability zones within the same region. Your must include at least two instances in your App Service plan to ensure redundancy across zones. You can scale out by adding one or more instances at a time. For more information, see [Reliability in App Service Environments](../../reliability/reliability-app-service-environment.md).
+   - *Zone redundant deployment:* Zone redundancy ensures that workloads remain available even if one zone experiences an outage. In regions that support availability zones, you can configure App Service Environments so that apps are distributed across multiple availability zones within the same region. Your must include at least two instances in your App Service plan to ensure redundancy across zones. You can scale out by adding one or more instances at a time. For more information, see [Reliability in App Service Environments](../../reliability/reliability-app-service-environment.md).
    
    - *Host group deployment:* Your apps are deployed onto a dedicated host group. The dedicated host group isn't zone redundant. You can install and use your App Service Environment on dedicated hardware. There's no minimum instance charge for using App Service Environment on a dedicated host group. However, you must pay for the host group when you provision the App Service Environment. You also pay a discounted App Service plan rate as you create your plans and scale out.
    
-      A dedicated host group deployment allocates a finite number of cores, which both the App Service plans and the infrastructure roles use. This type of deployment can't reach the 200 total instance count normally available in App Service Environment. The number of total possible instances is related to the total number of App Service plan instances, plus the load-based number of infrastructure roles.
+     A dedicated host group deployment allocates a finite number of cores, which both the App Service plans and the infrastructure roles use. This type of deployment can't reach the 200 total instance count normally available in App Service Environment. The number of total possible instances is related to the total number of App Service plan instances, plus the load-based number of infrastructure roles.
 
 ## Create an App Service Environment in the portal
 
-To create an App Service Environment in the Azure portal, complete the following steps.
+To create an App Service Environment in the Azure portal, do the following steps.
 
 1. Search Azure Marketplace for *App Service Environment v3*.
 
-1. From the **Basics** tab, for **Subscription**, select the subscription. For **Resource Group**, select or create the resource group, and enter the name of your App Service Environment. For **Virtual IP**, select **Internal** if you want your inbound address to be an address in your subnet. Select **External** if you want your inbound address to face the public internet. For **App Service Environment Name**, enter a name. The name must be no more than 36 characters. The name that you choose is also used for the domain suffix. For example, if the name that you choose is *contoso* and you have an internal VIP, the domain suffix is `contoso.appserviceenvironment.net`. If the name that you choose is *contoso* and you have an external VIP, the domain suffix is `contoso.p.azurewebsites.net`. 
+1. In the **Basics** tab, do the following steps:
+   -  Select the subscription.
+   - Select or create the resource group.
+   - Enter the name of your App Service Environment.
 
-   :::image type="content" source="./media/creation/creation-basics.png" alt-text="Screenshot that shows the App Service Environment basics tab." border="true":::
+   Choose the **Virtual IP** type:
+   - Select **Internal** if you want the inbound address to be within your subnet.
+   - Select **External** if you want the inbound address to face the public internet.
 
-1. From the **Hosting** tab, for **Physical hardware isolation**, select **Enabled** or **Disabled**. If you enable this option, you can deploy on dedicated hardware. When you create an App Service Environment v3 with a dedicated host deployment, you're billed for two dedicated hosts based on our pricing. As you scale, extra resources incur charges at the specialized Isolated v2 rate for each vCore. I1v2 uses two vCores, I2v2 uses four vCores, and I3v2 uses eight vCores for each instance. For **Zone redundancy**, select **Enabled** or **Disabled**.
+   Enter an **App Service Environment Name** that's less than 36 characters. The name also serves as the domain suffix. For example, if the name is *contoso* and you have an internal VIP, the domain suffix is `contoso.appserviceenvironment.net`. If the name is *contoso* and you have an external VIP, the domain suffix is `contoso.p.azurewebsites.net`. 
 
-   :::image type="content" source="./media/creation/creation-hosting.png" alt-text="Screenshot that shows the App Service Environment hosting selections." border="true":::
+   :::image type="content" source="./media/creation/creation-basics.png" alt-text="Screenshot that shows the App Service Environment basics tab." border="true" lightbox="./media/creation/creation-basics.png":::
+
+1. In the **Hosting** tab, configure the following settings:
+
+   - For **Physical hardware isolation**, select **Enabled** or **Disabled**. If you enable this option, you can deploy on dedicated hardware. When you create an App Service Environment v3 with a dedicated host deployment, Azure bills you for two dedicated hosts. As you scale, extra resources incur charges at the specialized Isolated v2 rate for each vCore.
    
-1. From the **Networking** tab, for **Virtual Network**, select or create your virtual network. For **Subnet**, select or create your subnet. If you create an App Service Environment with an internal VIP, you can configure Azure DNS private zones to point your domain suffix to your App Service Environment. For more information, see the DNS section in [Use an App Service Environment](/azure/app-service/environment/using#dns-configuration). If you create an App Service Environment with an internal VIP, you can specify a private IP address by using the **Manual** option for **Inbound IP address**.
+     - I1v2 uses two vCores for each instance.
+     - I2v2 uses four vCores for each instance.
+     - I3v2 uses eight vCores for each instance.
+     
+   - For **Zone redundancy**, select **Enabled** or **Disabled**.
+
+   :::image type="content" source="./media/creation/creation-hosting.png" alt-text="Screenshot that shows the App Service Environment hosting selections." border="true" lightbox="./media/creation/creation-hosting.png":::
+   
+1. In the **Networking** tab, do the following steps:
+
+    - Select or create your **Virtual Network**.
+    - Select or create your **Subnet**.
+    
+     If you create an App Service Environment with an internal VIP, you can:
+     
+     - Configure Azure DNS private zones to point your domain suffix to your App Service Environment. For more information, see the DNS section in [Use an App Service Environment](/azure/app-service/environment/using#dns-configuration).
+
+     - Specify a private IP address by using the **Manual** option for **Inbound IP address**.
 
    > [!NOTE]
-   > If you use an existing subnet that has either a network security group or route table associated with it, you must either delegate the subnet to `Microsoft.web/hostingEnvironments` yourself or ensure you have have at a minimum the following RBAC permissions for your associated resources:
+   > If you use an existing subnet that has either a network security group or route table associated with it, you must either delegate the subnet to `Microsoft.web/hostingEnvironments` or ensure that you have at least the following RBAC permissions for the associated resources:
    > * `Microsoft.Network/routeTables/join/action`
    > * `Microsoft.Network/networkSecurityGroups/join/action`
 
-   :::image type="content" source="./media/creation/creation-networking-internal.png" alt-text="Screenshot that shows App Service Environment networking (App Service Environment Internal) selections." border="true":::
+   :::image type="content" source="./media/creation/creation-networking-internal.png" alt-text="Screenshot that shows App Service Environment networking (App Service Environment Internal) selections." border="true" lightbox="./media/creation/creation-networking-internal.png":::
 
    If you create an App Service Environment with an external VIP, you can select a public IP address by using the **Manual** option for **Inbound IP address**.
 
    :::image type="content" source="./media/creation/creation-networking-external.png" alt-text="Screenshot that shows App Service Environment networking (App Service Environment External) selections." border="true":::
 
-1. From the **Review + create** tab, check that your configuration is correct, and then select **Create**. Your App Service Environment can take more than one hour to create. 
+1. In the **Review + create** tab, check the accuracy of your configuration, and then select **Create**. Your App Service Environment can take more than one hour to create. 
 
-After your App Service Environment is successfully created, you can select it as a location when you create your apps.
+After you successfully create your App Service Environment, you can select it as a location when you create your apps.
 
-To learn how to create an App Service Environment from an Azure Resource Manager template, see [Create an App Service Environment by using a Resource Manager template](how-to-create-from-template.md).
+To learn how to create an App Service Environment from an Azure Resource Manager template (ARM template), see [Create an App Service Environment by using an ARM template](how-to-create-from-template.md).
 
 <!--Links-->
 [Intro]: ./overview.md
