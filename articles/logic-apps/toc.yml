@@ -524,10 +524,6 @@ items:
     items:
       - name: Data operations - code examples
         href: logic-apps-data-operations-code-samples.md
-      - name: Monitor social media
-        href: logic-apps-scenario-social-serverless.md
-      - name: Create a serverless app - Visual Studio
-        href: create-serverless-apps-visual-studio.md
       - name: B2B processing
         href: logic-apps-enterprise-integration-b2b.md
 - name: Reference
