@@ -161,7 +161,7 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
 
     Alternatively, you can create a new Azure Device Registry namespace in Azure portal:
  
-      1. In the search box, type and select **Azure Device Registry**
+      1. In the search box, type and select **Azure Device Registry**.
       1. In the left menu, select **Namespaces**. 
       1. Then select **+ Create** to create a new namespace. Make sure to use the same resource group as your Arc-enabled Kubernetes cluster.
 
