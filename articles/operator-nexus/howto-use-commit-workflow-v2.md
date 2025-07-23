@@ -11,7 +11,7 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # How to use Commit Workflow v2 in Azure Operator Nexus
 
-This article describes how to use Commit Workflow Version 2 (Commit V2) in Azure Operator Nexus to safely stage, review, commit, or discard configuration changes across supported resources. Commit V2 provides a more efficient and robust method of applying changes to Nexus fabric resources compared to the earlier commit model.
+This article explains how to use Commit Workflow Version 2 (Commit V2) in Azure Operator Nexus. It helps you safely stage changes, review them, commit the changes you want, or discard the ones you don’t need—across supported resources.
 
 ## Prerequisites
 
@@ -92,7 +92,7 @@ az networkfabric fabric lock-fabric \
 
 ### Step 3: Validate updates (Optional but recommended)
 
-Another key functionality commit V2 provides is to view the pending commit configuration and last committed configuration for each device (except NPB devices) so that users can compare them to validate the intended configuration. In case of any discrepancy, users can unlock the fabric, make necessary change, lock fabric, review pending commit followed by commit operation.
+Another key functionality commit V2 provides is to view the pending commit configuration and last committed configuration for each device (except Network Packet Broker (NPB) devices) so that users can compare them to validate the intended configuration. If there's any discrepancy, users can unlock the fabric, make necessary change, lock fabric, review pending commit followed by commit operation.
 
 Validate the configuration using the `view-device-configuration` post-action. This step provides insight into the expected configuration outcomes.
 
@@ -117,15 +117,19 @@ Configuration diff files are stored in the customer-provided storage account in 
 https://<storageAccountName>.blob.core.windows.net/<NF_name>/CommitOperations/DeviceConfigDiff/<CommitBatchId>
 ```
 
-Additionally, to retrieve the current CommitBatchId, perform a GET request on the fabric resource using API version `2024-06-15-preview` or above.
+You can retrieve the current CommitBatchId by performing a GET request on the fabric resource with API version `2024-06-15-preview` or higher.
 
 ### Step 3a: Discard commit batch (Optional)
 
 Commit Discard is a POST action on NetworkFabric, allowed before a commit is performed. This operation allows a user to revert the changes made to the resources via PATCH operations for a specific commit session.
-After validating with ViewDeviceConfiguration, users may choose to discard pending configuration updates if issues are found. This operation restores the ARM resource state to its last known good configuration and resets the fabric state from Accepted & Locked to Succeeded.
+Users may choose to discard pending configuration updates if issues are found during validation using ViewDeviceConfiguration. This operation restores the ARM resource state to its last known good configuration and resets the fabric state from Accepted & Locked to Succeeded.
 
 >[!Note]
-> CommitBatchId can be retrieved by performing a GET request on the fabric resource using API version `2024-06-15-preview` or above.
+> You can retrieve the CommitBatchId by performing a GET request on the fabric resource with API version `2024-06-15-preview` or above.
+
+> [!IMPORTANT]
+> If your Network Fabric resource is associated with a User Assigned Managed Identity (UAMI)—for example, when using a customer-managed storage account—you must ensure that the Microsoft.ManagedNetworkFabric resource provider has the [Managed Identity Operator (MIO) role](./howto-configure-bring-your-own-storage-network-fabric.md#step3-assign-permissions-to-uami-for-nexus-network-fabric-resource-provider) on the UAMI.
+> Without this permission, the commit discard operation fails. This requirement is applicable only when the Network Fabric is linked to a UAMI. Network Fabrics that aren't associated with a UAMI don’t need any extra permission for commit discard.
 
 ```Azure CLI
 az networkfabric fabric discard-commit-batch \
@@ -136,7 +140,7 @@ az networkfabric fabric discard-commit-batch \
 
 > [!Note]
 > Internal/External network resources move to Admin State: Disabled and Config State: Rejected.<br>
-> Resources are not deleted, user must delete them manually if required.<br>
+> Resources aren't deleted, user must delete them manually if required.<br>
 > Network Monitor handling includes additional constraints (disabled monitors revert to rejected state).<br>
 
 #### Need to Make More Updates?

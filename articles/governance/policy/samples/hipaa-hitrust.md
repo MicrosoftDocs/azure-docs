@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for HIPAA HITRUST
 description: Details of the HIPAA HITRUST Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 07/08/2025
+ms.date: 07/23/2025
 ms.topic: generated-reference
 ms.custom: generated
 ---
