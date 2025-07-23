@@ -16,8 +16,8 @@ ms.author: aigerimb
 ## Set up prerequisites
 
 - The latest version [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system.
-- [Azure Identify SDK for .Net](https://www.nuget.org/packages/Azure.Identity) to authenticate with Microsoft Entra ID.
-- [Azure Communication Services Common SDK for .Net](https://www.nuget.org/packages/Azure.Communication.Common/) to obtain Azure Communication Services access tokens for Microsoft Entra ID user.
+- [Azure Identify SDK for .NET](https://www.nuget.org/packages/Azure.Identity) to authenticate with Microsoft Entra ID.
+- [Azure Communication Services Common SDK for .NET](https://www.nuget.org/packages/Azure.Communication.Common/) to obtain Azure Communication Services access tokens for Microsoft Entra ID user.
 
 ## Final code
 Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/EntraIdUsersSupportQuickstart).
@@ -48,7 +48,7 @@ dotnet add package Azure.Identity
 dotnet add package Azure.Communication.Common
 ```
 
-### Implement the credential flow
+## Implement the credential flow
 
 From the project directory:
 

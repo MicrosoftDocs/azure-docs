@@ -35,9 +35,9 @@ The following sections walk you through the steps required for administrators, d
 
 The Administrator role has extended permissions in Microsoft Entra ID. Members of this role can set up and manage resources. In the following diagram, you can see all actions that have to be executed by Administrators.
 
-![Administrator actions to enable Azure Communication Services support for Microsoft Entra ID users.](./media/entra-id/entra-id-admin-overview.svg)
+![Diagram that shows administrator actions to enable Azure Communication Services support for Microsoft Entra ID users.](./media/entra-id/entra-id-admin-overview.svg)
 
-1. The Contoso Administrator create a service principal for Communication Services Clients application in Contoso Microsoft Entra ID tenant. This step is required to allow the Contoso application to access Communication Services Clients application API permissions.
+1. The Contoso Administrator creates a service principal for Communication Services Clients application in Contoso Microsoft Entra ID tenant. This step is required to allow the Contoso application to access Communication Services Clients application API permissions.
 1. The Contoso Administrator creates or selects an existing *application* in Microsoft Entra ID. The property *Supported account types* defines whether users from various tenants can authenticate to the application. The property *Redirect URI* redirects a successful authentication request to the Contoso *client application*.
 1. The Contoso Administrator adds required API permissions from Communication Services Clients application. For the all list of the permissions, see [Access tokens with Microsoft Entra ID](../../concepts/identity-model.md#access-tokens-with-microsoft-entra-id).
 1. The Contoso Administrator creates or selects existing communication services. The Contoso Administrator grants Fabrikam Entra ID users access to Contoso Azure Communication Services resource. Azure Communication Services Common SDK will be used for  Microsoft Entra ID user authentication and in the background seamlessly obtain an Azure Communication Services access token for Microsoft Entra ID user.
@@ -60,7 +60,7 @@ Content-Type: application/json
 }
 ```
 
-This request can also be executed in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer/). Make sure to include your full tenant domain in the URL `https://developer.microsoft.com/graph/graph-explorer?tenant={tenant domain}`, sign in,and provide consent for `Application.ReadWrite.All` permission.
+    This request can also be executed in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer/). Make sure to include your full tenant domain in the URL `https://developer.microsoft.com/graph/graph-explorer?tenant={tenant domain}`, sign in, and provide consent for `Application.ReadWrite.All` permission.
 
 - Use the [Azure CLI](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create) to run the following command:
 
@@ -92,9 +92,9 @@ The application must declare Azure Communication Services Clients to have access
 1. Select the permissions **VoIP** and **Chat**, then select **Add permissions**
 1. Grant admin consent for all delegated permissions.
 
-![Add Communication Services Clients permissions to the Microsoft Entra application created in previous step.](./media/entra-id/entra-id-add-permissions.png)
+[![Diagram that shows how to add Communication Services Clients permissions to the Microsoft Entra application created in previous step.](./media/entra-id/entra-id-add-permissions-inline.png)](./media/entra-id/entra-id-add-permissions.png#lightbox)
 
-### Step 4: Create or select a Communication Services resource and grant Entra ID users access it 
+### Step 4: Create or select a Communication Services resource and grant Entra ID users access to it 
 
 The Azure Communication Services resource is used to authenticate all requests from Microsoft Entra ID users and to grant them access to the resource.
 
@@ -102,17 +102,17 @@ If you want to create a new Communication Services resource, see [Create and man
 
 The Contoso administrator can provide Fabrikam Entra ID users with access to the Contoso Azure Communication Services resource through the Azure portal or by using the [Entra ID Assignment REST API](https://github.com/Azure/communication-preview/blob/master/Entra%20ID%20Support/entra-id-support-rest-api.md).
 
-Currently, assigning access to Azure Communication Services resources via the Azure portal is a private preview feature. To access it, launch the Azure Portal using this URL - [Azure Portal with Access Assignment Preview Enabled](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_CommunicationServices=entraIdAccess). In the Azure portal follow these steps:
+Currently, assigning access to Azure Communication Services resources via the Azure portal is a preview feature. To access it, launch the Azure portal using this URL - [Azure portal with Access Assignment Preview Enabled](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_CommunicationServices=entraIdAccess). In the Azure portal follow these steps:
 1. Navigate to your Communication Services resource.
 2. In the left pane, select **User access for Entra ID** under the **Settings** group.
 3. Click the **Add** button to provide access to an Entra user, group, or entire tenant.
 4. In the **Principal type** select the correct value. In this scenario Contoso Admin provides access for a group from Fabrikam tenant and chooses **Group**.
 5. In the **Object ID** field, enter the object ID of the group from Fabrikam Microsoft Entra tenant.
 6. In the **Tenant ID** field, enter the tenant ID of the Fabrikam Microsoft Entra tenant.
-7. In the **Client ID** field, enter the client ID of Contoso application from [step 2](entra-id-authentication-integration.md#step-2-create-a-microsoft-entra-application-registration-or-select-a-microsoft-entra-application).
+7. In the **Client ID** field, enter the client ID of Contoso application from [step 2](microsoft-entra-id-authentication-integration.md#step-2-create-a-microsoft-entra-application-registration-or-select-a-microsoft-entra-application).
 8. Click **Save and exit** to apply the changes.
 
-![Providing Entra ID users with access to the Azure Communication Services resource through the Azure portal](./media/entra-id/acs-resource-access-managing.png)
+[![Screenshot of providing Entra ID users with access to the Azure Communication Services resource through the Azure portal.](./media/entra-id/acs-resource-access-managing-inline.png)](./media/entra-id/acs-resource-access-managing.png#lightbox)
 
 ### Step 5: Provide Administrator consent and group access to Azure Communication Services Clients application
 
@@ -140,16 +140,16 @@ The service principal of the Contoso application in the Fabrikam tenant is creat
 1. Select the service principal by using the required name. 
 1. Go to the **Permissions** pane.
 
-You can see that the status of the Communication Services Clients application API permissions are *Granted for {Directory_name}*.
+You can see that the status of the Communication Services Clients application API permissions is *Granted for {Directory_name}*.
 
 
-If you run into the issue "The app is trying to access a service '2a04943b-b6a7-4f65-8786-2bb6131b59f6'(Azure Communication Services Clients) that your organization '{GUID}' lacks a service principal for. You need to create a service principal for your tenant by following the instructions in the [Step 1: Create a service principal for Azure Communication Services Clients application](entra-id-authentication-integration.md#step-1-create-a-service-principal-for-azure-communication-services-clients-application).
+If you run into the issue "The app is trying to access a service '2a04943b-b6a7-4f65-8786-2bb6131b59f6'(Azure Communication Services Clients) that your organization '{GUID}' lacks a service principal for. You need to create a service principal for your tenant by following the instructions in the [Step 1: Create a service principal for Azure Communication Services Clients application](microsoft-entra-id-authentication-integration.md#step-1-create-a-service-principal-for-azure-communication-services-clients-application).
 
 The group access to Azure Communication Services Clients application should be only provided if the Contoso Administrator provided a group access to the Contoso Azure Communication Services resource in the previous step. For the user or entire tenant access to the Azure Communication Services resource, the Fabrikam Administrator can skip this step.
 
 Group-based assignment requires Microsoft Entra ID P1 or P2 edition. The Fabrikam Administrator can provide access to the group from Fabrikam tenant by using the [Microsoft Entra admin center](https://entra.microsoft.com).
 To provide access to the group, the Fabrikam Administrator does the following steps:
-1. Login to [Microsoft Entra admin center](https://entra.microsoft.com) with **Global Administrator** or **Tenant Administrator** roles.
+1. Log in to [Microsoft Entra admin center](https://entra.microsoft.com) with **Global Administrator** or **Tenant Administrator** roles.
 1. Navigate to **Identity > Applications > Enterprise applications** in the left panel menu.
 1. In the search box, enter **Azure Communication Services Clients**, and then select the application from the search results.
 1. In the left panel menu, select **Users and groups** and then select **Add user/group**.
@@ -157,7 +157,7 @@ To provide access to the group, the Fabrikam Administrator does the following st
 1. Search for and select the group that you want to assign to the application.
 1. Click on **Select** and then select **Assign** to assign the group to the application.
 
-![Assign group access to Azure Communication Services Clients application.](./media/entra-id/entra-admin-center-group-application-assignment.png)
+[![Diagram that shows how to assign group access to Azure Communication Services Clients application.](./media/entra-id/entra-admin-center-group-application-assignment-inline.png)](./media/entra-id/entra-admin-center-group-application-assignment.png#lightbox)
 
 ## Developer actions
 
@@ -167,7 +167,7 @@ The developer's required actions are shown in following diagram:
 
 ![Diagram of developer actions to enable Azure Communication Services support for Microsoft Entra ID users.](./media/entra-id/entra-id-developer-overview.svg)
 
-1. The Contoso developer initialize any implementation of `TokenCredential` from Azure Identity SDK which is capable of obtaining a Microsoft Entra user token for the application that was created earlier by the Contoso Administrator.
+1. The Contoso developer initializes any implementation of `TokenCredential` from Azure Identity SDK which is capable of obtaining a Microsoft Entra user token for the application that was created earlier by the Contoso Administrator.
 1. The Contoso developer initializes `AzureCommunicationTokenCredential` from Communication Services Common SDK with `TokenCredential` created in the step 1. The `AzureCommunicationTokenCredential` obtains an Azure Communication Services access token for Microsoft Entra ID user seamlessly in the background.
 
 > [!NOTE]

@@ -144,14 +144,14 @@ Azure Communication Services now supports Microsoft Entra ID authentication, all
 The following sections will guide you through the essential aspects of Microsoft Entra ID integration:
 
 - How to obtain and manage access tokens: [Access tokens with Microsoft Entra ID](#access-tokens-with-microsoft-entra-id). 
-- How to implement a client architecture with Microsoft Entra ID: [Client architecture for the Microsoft Entra ID](#client-architecture-for-the-microsoft-entra-id).
+- How to implement a client architecture with Microsoft Entra ID: [Client architecture for the Microsoft Entra ID](#client-architecture-for-microsoft-entra-id).
 - Current Limitations and Recommended Guidance: [Limitations](#limitations).
 
 ### Access tokens with Microsoft Entra ID
 
 Only Azure Communication Services access tokens are supported for authentication and authorization in Azure Communication Services, including chat and call functionalities. For more on token structure and management, see [Access tokens](#access-tokens).
 
-With Microsoft Entra ID integration, you authenticate users via Entra ID, obtain an Entra ID user access token with API permissions for the Azure Communication Services Clients application, and exchange it for an Azure Communication Services access token. The Azure Communication Services Common SDKs offer seamless authentication by automatically obtaining an Azure Communication Services access token for Entra ID user. For more information on how to implement the logic with Azure Communication Services Common SDK, see [Obtain access tokens for Microsoft Entra ID users](../quickstarts/identity/entra-id-authentication-integration.md#developer-actions)
+With Microsoft Entra ID integration, you authenticate users via Entra ID, obtain an Entra ID user access token with API permissions for the Azure Communication Services Clients application, and exchange it for an Azure Communication Services access token. The Azure Communication Services Common SDKs offer seamless authentication by automatically obtaining an Azure Communication Services access token for Entra ID user. For more information on how to implement the logic with Azure Communication Services Common SDK, see [Obtain access tokens for Microsoft Entra ID users](../quickstarts/identity/microsoft-entra-id-authentication-integration.md#developer-actions)
 
 The API permissions for the Azure Communication Services Clients application are named consistently with the Azure Communication Services access token scopes described in the sections [Chat token scopes](#chat-token-scopes) and [VoIP token scopes](#voip-token-scopes). The following table shows the mapping between API permissions and the access token scopes:
 
@@ -166,7 +166,7 @@ The API permissions for the Azure Communication Services Clients application are
 
 Azure Communication Services access tokens are issued with the same expiration as the Microsoft Entra ID user access token.
 
-### Client architecture for the Microsoft Entra ID
+### Client architecture for Microsoft Entra ID
 With Microsoft Entra ID integration, you can simplify your architecture by directly using Entra ID for authentication and authorization. The following steps outline the process:
 
 :::image type="content" source="./media/entra-client-server-architecture.png" alt-text="Diagram that shows the Microsoft Entra ID integration architecture." border="false":::
@@ -174,13 +174,13 @@ With Microsoft Entra ID integration, you can simplify your architecture by direc
 1. A user starts the client application.
 2. The client application authenticates the user via Microsoft Entra ID. The client application obtains an Entra ID user access token with API permissions for the Azure Communication Services Clients application.
 3. The client application obtains an Azure Communication Services access token for Entra ID user using one of the following methods:
-   1. Using the Azure Communication Services Common SDKs: The client initializes the [CommunicationTokenCredential](./credentials-best-practices.md#communication-token-credential) with Entra ID token credential options, which automatically handles  obtaining an Azure Communication Services access token for Entra ID user in the background. The application then uses this credential to access Azure Communication Services APIs.
-   1. Custom implementation: The client application calls the [Exchange Entra ID token for Azure Communication Services access token](https://learn.microsoft.com/rest/api/communication/identity/entra-id-token) API to obtain an Azure Communication Services access token. The resulting Azure Communication Services access token is then used to access  Azure Communication Services APIs.
+   - Using the Azure Communication Services Common SDKs: The client initializes the [CommunicationTokenCredential](./credentials-best-practices.md#communication-token-credential) with Entra ID token credential options, which automatically handles  obtaining an Azure Communication Services access token for Entra ID user in the background. The application then uses this credential to access Azure Communication Services APIs.
+   - Custom implementation: The client application calls the [Exchange Entra ID token for Azure Communication Services access token](https://learn.microsoft.com/rest/api/communication/identity/entra-id-token) API to obtain an Azure Communication Services access token. The resulting Azure Communication Services access token is then used to access  Azure Communication Services APIs.
 
 This architecture eliminates the need for a separate identity management service, as Microsoft Entra ID handles user authentication and authorization directly.
 
 ### Limitations
-The Microsoft Entra ID integration is currently in public preview and has the following limitations:
+The Microsoft Entra ID integration is currently in preview and has the following limitations:
 - [Continuous Access Evaluation](/entra/identity/conditional-access/concept-continuous-access-evaluation) is not available. To revoke access tokens immediately, follow the instructions in [Revoke access tokens](../quickstarts/identity/access-tokens.md?pivots=platform-azcli#revoke-access-tokens).
 - Removing an Entra ID user does not automatically remove all associated data from the Communication Services resource. To ensure all data is deleted, follow the instructions in [Delete an identity](../quickstarts/identity/access-tokens.md?pivots=platform-azcli#delete-an-identity).
 
@@ -189,7 +189,7 @@ The Microsoft Entra ID integration is currently in public preview and has the fo
 * To issue tokens, see [Create and manage access tokens for end users](../quickstarts/identity/access-tokens.md).
 * For an introduction to authentication, see [Authenticate to Azure Communication Services](./authentication.md).
 * For details on how authentication works in single-tenant and multitenant Microsoft Entra ID scenarios, refer to [Tenancy in Microsoft Entra ID](https://learn.microsoft.com/entra/identity-platform/single-and-multi-tenant-apps).
-* For a quickstart on how to authenticate Microsoft Entra ID users, see [Authenticate Microsoft Entra ID users](../quickstarts/identity/entra-id-authentication-integration.md).
+* For a quickstart on how to authenticate Microsoft Entra ID users, see [Authenticate Microsoft Entra ID users](../quickstarts/identity/microsoft-entra-id-authentication-integration.md).
 * To read about data residency and privacy, see [Region availability and data residency](./privacy.md).
 * For a full sample of a simple identity management service, see [Trusted service tutorial](../tutorials/trusted-service-tutorial.md).
 * For a more advanced identity management sample which integrates with Entra ID and Microsoft Graph, see [Authentication service hero sample](../samples/trusted-auth-sample.md).

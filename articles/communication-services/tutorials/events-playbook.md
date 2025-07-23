@@ -57,7 +57,7 @@ Throughout the rest of this tutorial, we'll focus on how using Azure Communicati
 Microsoft Graph enables event management platforms to empower organizers to schedule and manage their events directly through the event management platform. For attendees, event management platforms can build custom registration flows right on their platform that registers the attendee for the event and generates unique credentials for them to join the Teams hosted event.
 
 >[!NOTE]
->For each required Microsoft Graph API has different required scopes, ensure that your application has the correct scopes to access the data.
+>For each required Microsoft Graph API that has different required scopes, ensure that your application has the correct scopes to access the data.
 
 ### Scheduling registration-enabled events with Microsoft Graph
 
