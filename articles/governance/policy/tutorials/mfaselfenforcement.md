@@ -33,7 +33,7 @@ Select Policy under Azure services. If you don't see it, type 'Policy' in the se
 - Click 'Add a resource selector'
 :::image type="content" source="../media/multifactor-enforcement/policy-resource-selectors.png" alt-text="Screenshot of Azure Policy Assignment Creation View." border="false":::
 - In your resource selector, add a name for your selector.
-- Toggle resourceLocation to enable it. Pick a few low-risk regions that you’d like to enforce on. The policy assignment will evaluate Azure resources in those regions.
+- Toggle resourceLocation to enable it. Pick a few low-risk regions that you’d like to enforce on. The policy assignment evaluates Azure resources in those regions.
 - You can update this assignment later to add more regions by adding more resourceLocation selectors or updating the existing resourceLocation selector to add more regions.
   
 :::image type="content" source="../media/multifactor-enforcement/resource-selector-creation.png" alt-text="Screenshot of Azure Policy Selector Creation View." border="false":::
@@ -51,9 +51,9 @@ Select Policy under Azure services. If you don't see it, type 'Policy' in the se
 - Under 'Basics', enter a Name for your policy assignment. Optionally, you may add a Description to help others understand the purpose of this assignment.
 - Under 'Basics', enforcement mode should be set to enabled (this mode is set by default, no action needed).
 - Go to the 'Parameters' tab. Uncheck 'only show parameters that require input or review'. The parameter value should be at the preselected value 'AuditAction' or 'Audit' (depending on the definition chosen in step 4).
-- Under the 'Non compliance messages' tab, configure a custom message that any user will see if they're blocked from deleting a resource because of this enforcement:
+- Under the 'Non compliance messages' tab, configure a custom message that any user sees if they're blocked from deleting a resource because of this enforcement:
   
-_Sample Text: To resolve this error, you must set up MFA, following the process outlined at aka.ms/setupMFA. If you set up MFA and are still receiving this error, reach out to your Entra administrator to restore the security default for Azure by following the process outlined at aka.ms/loginMFAForAzure._
+_Sample Text: To resolve this error, set up MFA at aka.ms/setupMFA. If you set up MFA and are still receiving this error, reach out to your Entra administrator to restore your Azure security default._
 
 :::image type="content" source="../media/multifactor-enforcement/azpolicy-non-compliance-message.png" alt-text="Screenshot of Azure Policy Message Tab." border="false":::
 
@@ -63,7 +63,7 @@ _Sample Text: To resolve this error, you must set up MFA, following the process 
 - If everything looks correct, click 'Create' to apply the policy assignment.
 
 ### 8. Rollout the policy assignment to all regions
-- Update the policy assignment selector to evaluate resources in additional regions. Repeat this step until the policy assignment is evaluating resources in all regions.
+- Update the policy assignment selector to evaluate resources in other regions. Repeat this step until the policy assignment is evaluating resources in all regions.
 
 ### 9. Verify existence of the policy assignment
 - Under the 'Assignments' tab, confirm that the policy assignment was successfully created. You can use the search bar and scope bar to easily filter.
@@ -80,7 +80,7 @@ You can set enforcement by updating the 'Effect' of the policy assignment.
 - For 'Selected Resources', pick a few low-risk regions that you’d like to enforce on. The policy assignment will only evaluate Azure resources in those regions.
 :::image type="content" source="../media/multifactor-enforcement/overrides-example.png" alt-text="Screenshot of Azure Policy Overrides Creation." border="false":::
 - Click 'Review + save', then 'Create'.
-- Once you have confirmed no unexpected impact for this initial application, you may update the existing override to add additional regions, then monitor for any impact. Repeat this step as many times as needed to eventually add all regions.
+- Once you have confirmed no unexpected impact for this initial application, you may update the existing override to add other regions, then monitor for any impact. Repeat this step as many times as needed to eventually add all regions.
 
 # User Experience during Preview
 
