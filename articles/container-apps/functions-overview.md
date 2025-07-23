@@ -58,13 +58,13 @@ Azure Functions on Container Apps are ideal for a wide range of use cases, espec
 
 To deploy Azure Functions on Azure Container Apps, you package your Functions app as a custom container image and deploy it like any other container app—with one key difference: set the `kind=functionapp` property when using the Azure CLI or ARM/Bicep templates.
 
-<img width="752" height="278" alt="image" src="https://github.com/user-attachments/assets/1b1e70d1-e3bf-4103-b5b0-a7f03015b4db" />
+<img width="752" height="278" alt="Create via CLI: Set kind functionapp property" src="https://github.com/user-attachments/assets/1b1e70d1-e3bf-4103-b5b0-a7f03015b4db" />
 
 _Create via CLI: Set “kind=functionapp” property_
 
 In the Azure Portal, simply enable the “Optimize for Functions app” option during container app creation to streamline the setup.
 
-<img width="752" height="594" alt="image" src="https://github.com/user-attachments/assets/db3aa864-556e-443a-9606-36d0a02113b5" />
+<img width="752" height="594" alt="Create via Portal: Option to optimize for Azure Functions" src="https://github.com/user-attachments/assets/db3aa864-556e-443a-9606-36d0a02113b5" />
 
 _Create via Portal: Option to optimize for Azure Functions_
 
@@ -88,7 +88,7 @@ Key points to note:
 - Durable Functions and other advanced patterns are supported and billed under the same Container Apps pricing model.
 For detailed billing mechanics and examples, refer to the [Billing in Azure Container Apps](../container-apps/billing.md) documentation.
 
-## Event-Driven Auto Scaling & Managed Identity Authorization
+## Event-Driven Auto Scaling & Managed Identity Authorization{#event-driven-scaling}
 
 Azure Functions on Container Apps support all major [language runtimes available in Azure Functions](../azure-functions/supported-languages.md), including: C#, JavaScript / TypeScript (Node.js), Python, Java, PowerShell, Custom containers (bring your own image).
 
@@ -167,7 +167,7 @@ To continue learning and building with Azure Functions on Container Apps, explor
 
 - [Getting started](../container-apps/functions-usage.md) – Step-by-step guide to deploying and configuring Functions in Container Apps.
 - [Azure Container Apps documentation](../container-apps/billing.md) – Full reference for Container Apps features including scaling, networking, Dapr, and workload profiles.
-- [Azure Container Apps pricing](https://azure.microsoft.com/en-us/pricing/details/container-apps/) – Details on consumption-based billing and Dedicated plan costs.
+- [Azure Container Apps pricing](https://azure.microsoft.com/pricing/details/container-apps/) – Details on consumption-based billing and Dedicated plan costs.
 - [Azure Functions hosting options](../azure-functions/functions-scale.md) – Comparison of hosting plans including Container Apps, Flex Consumption, Premium, and Dedicated.
 - [Azure Functions developer guide](../azure-functions/functions-reference.md) – Deep dive into triggers, bindings, runtime behavior, and configuration.
   
