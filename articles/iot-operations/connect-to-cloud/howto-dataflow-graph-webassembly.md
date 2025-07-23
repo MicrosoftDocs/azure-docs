@@ -1,6 +1,6 @@
 ---
-title: Use WebAssembly (WASM) with dataflow graphs (Preview)
-description: Learn how to deploy and use WebAssembly modules with dataflow graphs in Azure IoT Operations to process data at the edge.
+title: Use WebAssembly (WASM) with data flow graphs (Preview)
+description: Learn how to deploy and use WebAssembly modules with data flow graphs in Azure IoT Operations to process data at the edge.
 author: PatAltimore
 ms.author: patricka
 ms.service: azure-iot-operations
@@ -18,7 +18,7 @@ ai-usage: ai-assisted
 > 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure IoT Operations dataflow graphs support WebAssembly (WASM) modules for custom data processing at the edge. This capability allows you to deploy custom business logic and data transformations as part of your dataflow pipelines.
+Azure IoT Operations data flow graphs support WebAssembly (WASM) modules for custom data processing at the edge. This capability allows you to deploy custom business logic and data transformations as part of your data flow pipelines.
 
 ## Prerequisites
 
@@ -28,11 +28,11 @@ Azure IoT Operations dataflow graphs support WebAssembly (WASM) modules for cust
 
 ## Overview
 
-WebAssembly (WASM) modules in Azure IoT Operations dataflow graphs enable custom data processing at the edge with high performance and security. WASM provides a sandboxed execution environment that supports multiple programming languages including Rust, C++, and AssemblyScript.
+WebAssembly (WASM) modules in Azure IoT Operations data flow graphs enable custom data processing at the edge with high performance and security. WASM provides a sandboxed execution environment that supports multiple programming languages including Rust, C++, and AssemblyScript.
 
-### How WASM dataflow graphs work
+### How WASM data flow graphs work
 
-The WASM dataflow implementation follows this workflow:
+The WASM data flow implementation follows this workflow:
 
 1. **Develop WASM modules**: Write custom processing logic in supported languages and compile to WebAssembly Component Model format
 1. **Develop graph definition**: Define how data flows through the modules using YAML configuration files
@@ -51,7 +51,7 @@ The following examples demonstrate how to set up and deploy WASM data flow graph
 
 Azure IoT Operations requires access to a container registry to pull WASM modules and graph definitions. You can use either Azure Container Registry (ACR) or another OCI-compatible registry.
 
-To create and configure an Azure Container Registry, see [Deploy Azure Container Registry](). <TODO> 
+To create and configure an Azure Container Registry, see [Deploy Azure Container Registry](). <!-- TODO -->
 
 ### Install ORAS CLI
 
@@ -212,7 +212,7 @@ For detailed instructions, see [Assign Azure roles using the Azure portal](/azur
 
 ## Example 1: Basic deployment with one WASM module
 
-This scenario demonstrates a simple data flow that uses a WASM module to convert temperature data from Fahrenheit to Celsius. The source code for this module is available [here](). <PLACEHOLDER> Instead of building the module yourself, we use the precompiled version that has already been pushed to the ACR as `graph-simple:1.0.0` in the earlier steps.
+This scenario demonstrates a simple data flow that uses a WASM module to convert temperature data from Fahrenheit to Celsius. The source code for this module is available [here](). <!--PLACEHOLDER--> Instead of building the module yourself, we use the precompiled version that has already been pushed to the ACR as `graph-simple:1.0.0` in the earlier steps.
 
 <!-- TODO: Add simple graph YAML definition and explanation -->
 
@@ -362,9 +362,9 @@ kubectl apply -f dataflow-graph.yaml
 
 ---
 
-### Test the dataflow
+### Test the data flow
 
-To test the dataflow, you need to send MQTT messages from within the cluster. First, deploy the MQTT client pod by following the instructions in [Test connectivity to MQTT broker with MQTT clients](../manage-mqtt-broker/howto-test-connection.md). The MQTT client provides the necessary authentication tokens and certificates to connect to the broker.
+To test the data flow, you need to send MQTT messages from within the cluster. First, deploy the MQTT client pod by following the instructions in [Test connectivity to MQTT broker with MQTT clients](../manage-mqtt-broker/howto-test-connection.md). The MQTT client provides the necessary authentication tokens and certificates to connect to the broker.
 
 After deploying the MQTT client pod, open two terminal sessions and connect to the pod:
 
@@ -584,7 +584,7 @@ spec:
 
 ---
 
-### Test the complex dataflow
+### Test the complex data flow
 
 Use the same MQTT client pod setup from the previous example. Connect to the pod and run the following commands from within it.
 
@@ -666,21 +666,21 @@ done
 
 ## Configuration reference
 
-This section provides detailed information about configuring dataflow graphs with WASM modules. It covers all configuration options, dataflow endpoints, and advanced settings.
+This section provides detailed information about configuring data flow graphs with WASM modules. It covers all configuration options, data flow endpoints, and advanced settings.
 
-### Dataflow graph overview
+### Data flow graph overview
 
-A dataflow graph defines how data flows through WebAssembly modules for processing. Each graph consists of:
+A data flow graph defines how data flows through WebAssembly modules for processing. Each graph consists of:
 
 - **Mode**: Controls whether the graph is enabled or disabled
-- **Profile reference**: Links to a dataflow profile that defines scaling and resource settings
+- **Profile reference**: Links to a data flow profile that defines scaling and resource settings
 - **Disk persistence**: Optionally enables persistent storage for graph state
 - **Nodes**: Define the source, processing, and destination components
 - **Node connections**: Specify how data flows between nodes
 
 ### Mode configuration
 
-The mode property determines whether the dataflow graph is actively processing data. You can set the mode to `Enabled` or `Disabled` (case-insensitive). When disabled, the graph stops processing data but retains its configuration.
+The mode property determines whether the data flow graph is actively processing data. You can set the mode to `Enabled` or `Disabled` (case-insensitive). When disabled, the graph stops processing data but retains its configuration.
 
 # [Bicep](#tab/bicep)
 
@@ -711,11 +711,11 @@ spec:
 
 ### Profile reference
 
-The profile reference connects your dataflow graph to a dataflow profile, which defines scaling settings, instance counts, and resource limits. If you don't specify a profile reference, you must use a Kubernetes owner reference instead. Most scenarios use the default profile provided by Azure IoT Operations.
+The profile reference connects your data flow graph to a data flow profile, which defines scaling settings, instance counts, and resource limits. If you don't specify a profile reference, you must use a Kubernetes owner reference instead. Most scenarios use the default profile provided by Azure IoT Operations.
 
 # [Bicep](#tab/bicep)
 
-In Bicep, you specify the profile by creating the dataflow graph as a child resource of the profile:
+In Bicep, you specify the profile by creating the data flow graph as a child resource of the profile:
 
 ```bicep
 resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' existing = {
@@ -746,7 +746,7 @@ spec:
 
 ### Disk persistence
 
-Disk persistence allows dataflow graphs to maintain state across restarts. When enabled, the graph can recover processing state if pods are restarted. This is useful for stateful processing scenarios where losing intermediate data would be problematic.
+Disk persistence allows data flow graphs to maintain state across restarts. When enabled, the graph can recover processing state if pods are restarted. This is useful for stateful processing scenarios where losing intermediate data would be problematic.
 
 The setting accepts `Enabled` or `Disabled` (case-insensitive), with `Disabled` as the default.
 
@@ -779,17 +779,17 @@ spec:
 
 ### Node configuration
 
-Nodes are the building blocks of a dataflow graph. Each node has a unique name within the graph and performs a specific function. There are three types of nodes:
+Nodes are the building blocks of a data flow graph. Each node has a unique name within the graph and performs a specific function. There are three types of nodes:
 
 #### Source nodes
 
-Source nodes define where data enters the graph. They connect to dataflow endpoints that receive data from MQTT brokers, Kafka topics, or other messaging systems. Each source node must specify:
+Source nodes define where data enters the graph. They connect to data flow endpoints that receive data from MQTT brokers, Kafka topics, or other messaging systems. Each source node must specify:
 
-- **Endpoint reference**: Points to a configured dataflow endpoint
+- **Endpoint reference**: Points to a configured data flow endpoint
 - **Data sources**: List of MQTT topics or Kafka topics to subscribe to
 - **Asset reference** (optional): Links to an Azure Device Registry asset for schema inference
 
-The data sources array allows you to subscribe to multiple topics without modifying the endpoint configuration. This flexibility enables endpoint reuse across different dataflows.
+The data sources array allows you to subscribe to multiple topics without modifying the endpoint configuration. This flexibility enables endpoint reuse across different data flows.
 
 # [Bicep](#tab/bicep)
 
@@ -894,9 +894,9 @@ The configuration key-value pairs are passed to the WASM module at runtime. The 
 
 #### Destination nodes
 
-Destination nodes define where processed data is sent. They connect to dataflow endpoints that send data to MQTT brokers, cloud storage, or other systems. Each destination node specifies:
+Destination nodes define where processed data is sent. They connect to data flow endpoints that send data to MQTT brokers, cloud storage, or other systems. Each destination node specifies:
 
-- **Endpoint reference**: Points to a configured dataflow endpoint  
+- **Endpoint reference**: Points to a configured data flow endpoint
 - **Data destination**: The specific topic, path, or location for output data
 - **Output schema settings** (optional): Defines serialization format and schema validation
 
@@ -986,9 +986,9 @@ nodeConnections:
 
 ---
 
-### Dataflow endpoints
+### Data flow endpoints
 
-Dataflow graphs connect to external systems through dataflow endpoints. The type of endpoint determines whether it can be used as a source, destination, or both:
+Data flow graphs connect to external systems through data flow endpoints. The type of endpoint determines whether it can be used as a source, destination, or both:
 
 #### MQTT endpoints
 
@@ -998,7 +998,7 @@ MQTT endpoints can serve as both sources and destinations. They connect to MQTT 
 - **Azure Event Grid MQTT**
 - **Custom MQTT brokers**
 
-For detailed configuration information, see [Configure MQTT dataflow endpoints](howto-configure-mqtt-endpoint.md).
+For detailed configuration information, see [Configure MQTT data flow endpoints](howto-configure-mqtt-endpoint.md).
 
 #### Kafka endpoints  
 
@@ -1008,7 +1008,7 @@ Kafka endpoints can serve as both sources and destinations. They connect to Kafk
 - **Apache Kafka clusters**
 - **Confluent Cloud**
 
-For detailed configuration information, see [Configure Azure Event Hubs and Kafka dataflow endpoints](howto-configure-kafka-endpoint.md).
+For detailed configuration information, see [Configure Azure Event Hubs and Kafka data flow endpoints](howto-configure-kafka-endpoint.md).
 
 #### Storage endpoints
 
@@ -1022,7 +1022,7 @@ Storage endpoints typically require output schema settings to define data serial
 
 #### Registry endpoints
 
-Registry endpoints provide access to container registries for pulling WASM modules and graph definitions. They're not used directly in dataflow but are referenced by graph processing nodes.
+Registry endpoints provide access to container registries for pulling WASM modules and graph definitions. They're not used directly in data flow but are referenced by graph processing nodes.
 
 For detailed configuration information, see [Configure registry endpoints](howto-configure-registry-endpoint.md).
 
