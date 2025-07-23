@@ -64,31 +64,31 @@ To minimize risk and ensure a smooth migration:
 | September 2026 | Full retirement; GPv1 accounts decommissioned |
 
 ## What happens if I don't migrate my accounts?
-> Starting on September 1, 2025, customers will no longer be able to manage GPv1  storage accounts. Any data still contained in these accounts will be preserved.
+ Starting on September 1, 2025, customers will no longer be able to manage GPv1  storage accounts. Any data still contained in these accounts will be preserved.
 
-> If your applications are using GPv1 storage accounts, you must migrate to GPv2 before the retirement date to avoid service disruption.
+ If your applications are using GPv1 storage accounts, you must migrate to GPv2 before the retirement date to avoid service disruption.
 
 > [!Warning]
 > If you do not migrate your GPv1 storage account to GPv2 by August 31, 2025, you will no longer be able to use the GPv1 storage account. After this date, you will not be able to access data stored in GPv1 accounts, and any applications relying on these accounts will fail.
 
 ## How to get help
-> If you have questions, get answers from community experts in Microsoft Q&A.
+If you have questions, get answers from community experts in Microsoft Q&A.
 
-> If your organization or company has partnered with Microsoft or works with Microsoft representatives, such as cloud solution architects (CSAs) or customer success account managers (CSAMs), contact them for additional resources for migration.
+If your organization or company has partnered with Microsoft or works with Microsoft representatives, such as cloud solution architects (CSAs) or customer success account managers (CSAMs), contact them for additional resources for migration.
 
-> If you have a support plan and you need technical help, create a support request in the Azure portal:
+If you have a support plan and you need technical help, create a support request in the Azure portal:
 
-> * Search for Help + support in the Azure portal.
-> * Select Create a support request.
-> * For Summary, type a description of your issue.
-> * For Issue type, select Technical.
-> * For Subscription, select your subscription.
-> * For Service, select My services.
-> * For Service type, select Storage Account Management.
-> * For Resource, select the resource you want to migrate.
-> * For Problem type, select Data Migration.
-> * For Problem subtype, select Migrate account to new resource group/subscription/region/tenant.
-> * Select Next, then follow the instructions to submit your support request.
+* Search for Help + support in the Azure portal.
+* Select Create a support request.
+* For Summary, type a description of your issue.
+* For Issue type, select Technical.
+* For Subscription, select your subscription.
+* For Service, select My services.
+* For Service type, select Storage Account Management.
+* For Resource, select the resource you want to migrate.
+* For Problem type, select Data Migration.
+* For Problem subtype, select Migrate account to new resource group/subscription/region/tenant.
+* Select Next, then follow the instructions to submit your support request.
 
 ## GPv1 vs GPv2 FAQs
 | Question | Answer |
