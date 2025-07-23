@@ -52,6 +52,7 @@ The following table summarizes capabilities available when using Messaging Conne
 
 | Capability                          | Supported |
 |------------------------------------|-----------|
+| Supported partners                 | Infobip (more partners coming soon) |
 | Long Codes                         |    ✔️     |
 | Dynamic Alphanumeric Sender ID     |    ✔️     |
 | Short Codes                        |    ❌ (coming soon)     |
@@ -69,7 +70,6 @@ The following table summarizes capabilities available when using Messaging Conne
 | JavaScript SDK                     |    ✔️     |
 | Python SDK                         |    ❌ (coming soon)    |
 | Java SDK                           |    ❌ (coming soon)    |
-| Supported partners                 | Infobip (more partners coming soon) |
 | Automatic Country Sender selection (partner-managed)   | Infobip ✔️  |
 
 > **Note**: Future updates will include support for more SDKs, sender types, and additional partners.
