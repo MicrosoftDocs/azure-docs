@@ -211,7 +211,7 @@ items:
         href: connect-to-cloud/howto-configure-dataflow-profile.md
         displayName: data flow, scale, scaling
       - name: WASM with data flow graphs
-        href: connect-to-cloud/howto-dataflow-graph-webassembly.md
+        href: connect-to-cloud/howto-dataflow-graph-wasm.md
         displayName: data flow, WASM, WebAssembly, graph, transform, enrich
     - name: Manage network
       items:

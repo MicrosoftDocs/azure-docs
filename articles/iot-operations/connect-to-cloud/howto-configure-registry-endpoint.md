@@ -446,6 +446,6 @@ For these registries, you'll typically use artifact pull secrets for authenticat
 
 ## Next steps
 
-- [Use WebAssembly (WASM) with data flow graphs](howto-dataflow-graph-webassembly.md)
+- [Use WebAssembly (WASM) with data flow graphs](howto-dataflow-graph-wasm.md)
 - [Configure data flow endpoints](howto-configure-dataflow-endpoint.md)
 - [Configure data flow profiles](howto-configure-dataflow-profile.md)
