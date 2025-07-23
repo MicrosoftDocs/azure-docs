@@ -88,7 +88,7 @@ Key points to note:
 - Durable Functions and other advanced patterns are supported and billed under the same Container Apps pricing model.
 For detailed billing mechanics and examples, refer to the [Billing in Azure Container Apps](../container-apps/billing.md) documentation.
 
-## Event-Driven Auto Scaling & Managed Identity Authorization{#event-driven-scaling}
+## Event-Driven Scaling
 
 Azure Functions on Container Apps support all major [language runtimes available in Azure Functions](../azure-functions/supported-languages.md), including: C#, JavaScript / TypeScript (Node.js), Python, Java, PowerShell, Custom containers (bring your own image).
 
@@ -143,7 +143,7 @@ Azure Functions on Container Apps integrate seamlessly with Azure’s observabil
 - **Custom logging:** Supports standard frameworks like ILogger and console logging for structured output.  
 - **Centralized monitoring:** Container Apps environment offers unified dashboards and alerts across all apps.
 
-# Limitations and Considerations
+## Limitations and Considerations
 
 While Azure Functions on Azure Container Apps (ACA) offer powerful capabilities by combining serverless compute with container flexibility, there are important limitations and operational considerations to keep in mind: 
 
