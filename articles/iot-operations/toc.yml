@@ -110,9 +110,6 @@ items:
         - name: Understand the connector for ONVIF
           href: discover-manage-assets/overview-onvif-connector.md
           displayName: camera, PTZ, pan, tilt, zoom, southbound
-        - name: Discover ONVIF assets
-          href: discover-manage-assets/howto-autodetect-onvif-assets-use-akri.md
-          displayName: connector, ONVIF, detect, akri, southbound
         - name: Use the connector for ONVIF
           href: discover-manage-assets/howto-use-onvif-connector.md
           displayName: camera, PTZ, pan, tilt, zoom, DiscoveredAsset, DiscoveredAssetEndpointProfile, media, events, stream, southbound
