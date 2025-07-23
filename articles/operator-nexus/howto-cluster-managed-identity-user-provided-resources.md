@@ -77,13 +77,6 @@ The following steps should be followed for using UAMIs with Nexus Clusters and a
 1. Enable the Key Vault for Role Based Access Control (RBAC). See [Enable Azure RBAC permissions on Key Vault](/azure/key-vault/general/rbac-guide?tabs=azure-cli#enable-azure-rbac-permissions-on-key-vault).
 1. Assign the `Operator Nexus Key Vault Writer Service Role (Preview)` role to the UAMI for the Key Vault. See [Assign role](/azure/key-vault/general/rbac-guide?tabs=azure-cli#assign-role).
    1. The role definition ID for the Operator Nexus Key Vault Writer Service Role is `44f0a1a8-6fea-4b35-980a-8ff50c487c97`. This format is required if using the Azure command line to do the role assignment.
-1. When using a UAMI to access a Key Vault, access to that identity must be provisioned for the Nexus platform. Specifically, `Microsoft.ManagedIdentity/userAssignedIdentities/assign/action` permission needs to be added to the User-assigned identity for the `AFOI-NC-MGMT-PME-PROD` Microsoft Entra ID. It's a known limitation of the platform that will be addressed in the future.
-   1. Open the Azure portal and locate the User-assigned identity in question.
-   1. Under **Access control (IAM)**, select **Add role assignment**.
-   1. Select **Role**: Managed Identity Operator. (See the permissions that the role provides [managed-identity-operator](/azure/role-based-access-control/built-in-roles/identity#managed-identity-operator)).
-   1. Assign access to: **User, group, or service principal**.
-   1. Select **Member**: AFOI-NC-MGMT-PME-PROD application.
-   1. Review and assign.
 1. To limit access to the Key Vault to a select set of IP or virtual networks, see [Configure Azure Key Vault firewalls and virtual networks](/azure/key-vault/general/network-security?WT.mc_id=Portal-Microsoft_Azure_KeyVault).
    1. The IPs for all users requiring access to the Key Vault need to be added to the Key Vault's `Virtual Networks` and/or `Firewall` lists.
    1. Ensure the `Allow trusted Microsoft services to bypass this firewall.` under `Exceptions` is selected.
