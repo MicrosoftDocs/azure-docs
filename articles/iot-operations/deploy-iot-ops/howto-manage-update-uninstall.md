@@ -113,7 +113,7 @@ You can run `az iot ops check` on your cluster to assess health and configuratio
 
 In the Azure portal, you can view the Azure Device Registry, which is a collection of all devices and assets that are connected to your Azure IoT Operations instance.
 
-The Azure Device Registry uses _namespaces_ to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. Multiple instances can share a single namespace.
+The Azure Device Registry uses _namespaces (preview)_ to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. Multiple instances can share a single namespace.
 
 <!-- TODO - 2507 Expand this section with more details about the connector template configuration. -->
 

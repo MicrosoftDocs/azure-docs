@@ -69,8 +69,7 @@ The media connector supports discovery of cameras and other media devices that u
 To learn more about the discovery capabilities of the connectors, see:
 
 - [Automatically discover and configure OPC UA devices and assets](howto-autodetect-opc-ua-assets-use-akri.md)
-- [Automatically discover and configure ONVIF assets (preview)](howto-autodetect-onvif-assets-use-akri.md)
-- [Automatically discover and configure media assets (preview)](howto-autodetect-media-assets-use-akri.md)
+- [Configure the connector for ONVIF (preview)](howto-use-onvif-connector.md)
 
 ### Features supported
 

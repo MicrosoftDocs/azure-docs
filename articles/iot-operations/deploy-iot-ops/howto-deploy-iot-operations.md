@@ -58,7 +58,7 @@ A cluster host:
 
 * (Recommended) Configure your own certificate authority issuer before deploying Azure IoT Operations: [Bring your own issuer](../secure-iot-ops/howto-manage-certificates.md#bring-your-own-issuer).
 
-## Deploy
+## Deploy in Azure portal
 
 The Azure portal deployment experience is a helper tool that generates a deployment command based on your resources and configuration. The final step is to run an Azure CLI command, so you still need the Azure CLI prerequisites described in the previous section.
 
@@ -129,7 +129,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
 
 1. Select **Next: Automation**.
 
-### Run Azure CLI commands
+## Run Azure CLI commands
 
 The final step in the Azure portal deployment experience is to run a set of Azure CLI commands to deploy Azure IoT Operations to your cluster. The commands are generated based on the information you provided in the previous steps.
 
@@ -148,10 +148,22 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
    az extension add --upgrade --name azure-iot-ops
    ```
 
-1. Create a schema registry which will be used by Azure IoT Operations components. Copy and run the provided [az iot ops schema registry create](/cli/azure/iot/ops/schema/registry#az-iot-ops-schema-registry-create) command. If you chose to use an existing schema registry, this command isn't displayed on the **Automation** tab.
+1. Copy and run the provided [az iot ops schema registry create](/cli/azure/iot/ops/schema/registry#az-iot-ops-schema-registry-create) command to create a schema registry which is used by Azure IoT Operations components. If you chose to use an existing schema registry, this command isn't displayed on the **Automation** tab.
 
    > [!NOTE]
    > This command requires that you have role assignment write permissions because it assigns a role to give schema registry access to the storage account. By default, the role is the built-in **Storage Blob Data Contributor** role, or you can create a custom role with restricted permissions to assign instead. For more information, see [az iot ops schema registry create](/cli/azure/iot/ops/schema/registry#az-iot-ops-schema-registry-create).
+
+1. Azure IoT Operations uses *namespaces* to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. You can use an existing namespace or run the `az iot ops ns create` command to create an Azure Device Registry namespace. Replace `<my namespace name>` with a unique name for your namespace.
+
+    ```azurecli
+    az iot ops ns create -n <my namespace name> -g $RESOURCE_GROUP
+    ```
+
+    Alternatively, you can create a new Azure Device Registry namespace in Azure portal:
+ 
+      1. In the search box, type and select **Azure Device Registry**.
+      1. In the left menu, select **Namespaces**. 
+      1. Then select **+ Create** to create a new namespace. Make sure to use the same resource group as your Arc-enabled Kubernetes cluster.
 
 1. To prepare the cluster for Azure IoT Operations deployment, copy and run the provided [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command.
 
@@ -161,6 +173,12 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
    This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
 1. Deploy Azure IoT Operations. Copy and run the provided [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command. This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
+
+    * If you want to use an existing namespace, add the following parameter to the `create` command:
+
+    ```azurecli
+    --ns-resource-id $(az iot ops ns show --name <my namespace name> --resource-group $RESOURCE_GROUP -o tsv --query id)
+    ```
 
    * If you want to use the preview connector configuration, add the following parameter to the `create` command:
 
