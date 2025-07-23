@@ -1,35 +1,42 @@
 ---
-title: 'Quickstart: Create a service connection in Container Apps'
-description: This quickstart shows how to create a service connection in Azure Container Apps from the Azure portal
+title: 'Quickstart: Create a service connection in Container Apps (preview)'
+description: This quickstart shows how to create a service connection in Azure Container Apps (preview).
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
-ms.date: 10/22/2024
-#Customer intent: As an app developer, I want to connect Azure Container Apps to a storage account in the Azure portal using Service Connector.
+zone_pivot_groups: interaction-type
+ms.date: 7/22/2025
+#Customer intent: As an app developer, I want to connect Azure Container Apps to a storage account in the Azure portal or another Azure resource using Service Connector (preview).
 ---
 
-# Quickstart: Create a service connection in Azure Container Apps from the Azure portal (preview)
+# Quickstart: Create a service connection in Azure Container Apps (preview)
 
-This quickstart shows you how to connect Azure Container Apps to other Cloud resources using the Azure portal and Service Connector. Service Connector lets you quickly connect compute services to cloud services, while managing your connection's authentication and networking settings.
+This quickstart shows you how to connect Azure Container Apps to other Cloud resources using the Azure portal and Service Connector (preview). Service Connector lets you quickly connect compute services to cloud services, while managing your connection's authentication and networking settings.
 
-> [!NOTE]
-> For information on connecting resources using Azure CLI, see [Create a service connection in Container Apps with the Azure CLI](./quickstart-cli-container-apps.md).
+This article provides instructions for both the Azure portal and Azure CLI. Select the tab above for your preferred method.
 
-> [!IMPORTANT]
-> This feature in Container Apps is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
+::: zone pivot="azure-portal"
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- An [app deployed to Container Apps](../container-apps/quickstart-portal.md) in a [region supported by Service Connector](./concept-region-support.md).
-- A target resource to connect your Container Apps to. For example, a [storage account](../storage/common/storage-account-create.md).
+- An [application deployed Container Apps](../container-apps/quickstart-portal.md) in a [region supported by Service Connector](./concept-region-support.md).
+- A target resource to connect your Container Apps to, such as a [storage account](../storage/common/storage-account-create.md).
+- The following [necessary permissions](./concept-permission.md).
+::: zone-end
 
-## Sign in to Azure
+::: zone pivot="azure-cli"
+## Prerequisites
 
-Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.com/) with your Azure account.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An [application deployed Container Apps](../container-apps/quickstart-portal.md) in a [region supported by Service Connector](./concept-region-support.md).
+- A target resource to connect your Container Apps to, such as a [storage account](../storage/common/storage-account-create.md).
+- The following [necessary permissions](./concept-permission.md).
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+- This quickstart requires version 2.30.0 or higher of the Azure CLI. To upgrade to the latest version, run `az upgrade`. If using Azure Cloud Shell, the latest version is already installed.
+::: zone-end
 
+::: zone pivot="azure-portal"
 ## Create a new service connection (preview)
 
 Use Service Connector to create a new service connection in Container Apps.
@@ -48,7 +55,7 @@ Use Service Connector to create a new service connection in Container Apps.
 
     | Setting             | Example              | Description                                                                                                                                                                                                                                                                     |
     |---------------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **Container**       | *my-container-app*       | The container of your container app.                                                                                                                                                                                                                                            |
+    | **Container**       | *my-container-app*   | The container of your container app.                                                                                                                                                                                                                                            |
     | **Service type**    | *Storage - Blob*     | The type of service you're going to connect to your container.                                                                                                                                                                                                                  |
     | **Subscription**    | *my-subscription*    | The subscription that contains your target service (the service you want to connect to). The default value is the subscription that this container app is in.                                                                                                                   |
     | **Connection name** | *storageblob_700ae*  | The connection name that identifies the connection between your container app and target service. Use the connection name provided by Service Connector or choose your own connection name.                                                                                     |
@@ -108,6 +115,8 @@ Use Service Connector to create a new service connection in Container Apps.
 1. Select  **Learn more** to review the connection validation details.
 
     :::image type="content" source="./media/container-apps-quickstart/validation-result.png" alt-text="Screenshot of the Azure portal, get connection validation result.":::
+
+::: zone-end
 
 ## Next steps
 

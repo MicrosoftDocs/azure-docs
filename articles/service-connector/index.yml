@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page
   author: maud-lv
   ms.author: malev
-  ms.date: 04/16/2025
+  ms.date: 07/22/2025
 landingContent:
   - title: About Service Connector
     linkLists:
@@ -39,10 +39,8 @@ landingContent:
         links:
           - text: Connect Azure App Service
             url: quickstart-portal-app-service-connection.md
-          - text: Connect Azure Container Apps - Azure portal
+          - text: Connect Azure Container Apps (preview)
             url: quickstart-portal-container-apps.md
-          - text: Connect Azure Container Apps - Azure CLI
-            url: quickstart-cli-container-apps.md
           - text: Connect Azure Functions - Azure portal
             url: quickstart-portal-functions-connection.md
           - text: Connect Azure Functions - Azure CLI

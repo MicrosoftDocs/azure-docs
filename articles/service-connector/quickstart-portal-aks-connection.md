@@ -120,7 +120,6 @@ Now that you created a connection between your AKS cluster and target service, y
    * Alternatively, under **Resource Type**, select **Kubernetes Workload**, and then select an existing Kubernetes workload. This action sets the secret object of your new connection as the environment variables for the selected workload. After selecting the workload, select **Apply**.
 
         :::image type="content" source="media/aks-quickstart/kubernetes-snippet.png" alt-text="Screenshot of the Azure portal showing the Kubernetes snippet to create a new connection in AKS.":::
-
 ::: zone-end
 
 ::: zone pivot="azure-cli"
@@ -132,7 +131,7 @@ Run the [`az aks connection create storage-blob`](/cli/azure/aks/connection/crea
      
        ```azurecli-interactive
        az aks connection create storage-blob \
-          --workload-identity <user-identity-resource-id>
+          --workload-identity \<user-identity-resource-id>
        ```
  
    * generate the new connection at once. Make sure you replace the following placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<account>`, and <user-identity-resource-id>`.
@@ -141,7 +140,7 @@ Run the [`az aks connection create storage-blob`](/cli/azure/aks/connection/crea
        az aks connection create storage-blob \
           --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.ContainerService/managedClusters/<cluster> \
           --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default \
-          --workload-identity <user-identity-resource-id>
+          --workload-identity \<user-identity-resource-id>
        ```
 
 ### [Using an access key](#tab/Using-access-key)
@@ -158,7 +157,7 @@ Run the [`az aks connection create storage-blob`](/cli/azure/aks/connection/crea
           --secret name=<secret-name> secret=<secret>
        ```
  
-   * generate the new connection at once. Make sure you replace the following placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<account>`, and <user-identity-resource-id>`.
+   * generate the new connection at once. Make sure you replace the following placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<account>`, and `<user-identity-resource-id>`.
     
        ```azurecli-interactive
        az aks connection create storage-blob \
@@ -170,7 +169,9 @@ Run the [`az aks connection create storage-blob`](/cli/azure/aks/connection/crea
 
 > [!NOTE]
 > If you don't have a Blob Storage account, you can run `az aks connection create storage-blob --new --workload-identity` or `az aks connection create storage-blob --new --secret` to provision a new one and connect it to your AKS cluster.
+::: zone-end
 
+::: zone pivot="azure-portal"
 ## View service connections in AKS cluster
 
 1. **Service Connector** displays existing connections in this cluster.
