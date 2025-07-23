@@ -52,7 +52,7 @@ Follow these steps to expose an existing MCP server is API Management:
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
     [!INCLUDE [preview-callout-mcp-feature-flag](includes/preview/preview-callout-mcp-feature-flag.md)]
 
-1. In the left-hand menu, under **APIs**,select **MCP servers** > **+ Create MCP server**.
+1. In the left-hand menu, under **APIs**, select **MCP servers** > **+ Create MCP server**.
 1. Select **Connect existing MCP server**.
 1. In **Backend API**:
     1. Enter the existing **MCP server base URL**.

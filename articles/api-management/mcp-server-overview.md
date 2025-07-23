@@ -1,10 +1,10 @@
 ---
 title: Overview of MCP servers in Azure API Management
-description: Learn about Model Context Protocol (MCP) servers in Azure API Management, their architecture, and how they enable AI agents to access external data sources.
+description: Learn how Azure API Management enables secure, scalable access to remote MCP servers for AI agents, including architecture and management features.
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 07/18/2025
+ms.date: 07/23/2025
 ms.author: danlep
 ms.custom:
 ---
@@ -39,31 +39,33 @@ The architecture consists of the following components:
 
 The MCP architecture is built on [JSON-RPC 2.0 for messaging](https://modelcontextprotocol.io/docs/concepts/architecture). Communication between clients and servers occurs over defined transport layers, and supports primarily two modes of operation:
 
-* **Remote MCP servers** - MCP clients connect to MCP servers over the internet, establishing a connection using HTTP and server-sent events (SSE), and authorizing the MCP client access to resources on the user's account using OAuth.
+* **Remote MCP servers** - Run as independent processes accessible over the internet using HTTP-based transports (like Streamable HTTP), enabling MCP clients to connect to external services and APIs hosted anywhere.
 
-* **Local MCP servers** MCP clients connect to MCP servers on the same machine, using standard input/output as a local transport method.
+* **Local MCP servers** MCP clients use standard input/output as a local transport method to connect to MCP servers on the same machine,.
 
 Azure API Management supports the remote MCP server mode, using native features of API Management and [capabilities of the AI gateway](./genai-gateway-capabilities.md).
 
 > [!NOTE]
 > MCP server support in API Management is in preview. In preview, API Management supports MCP server tools, but doesn't currently support MCP resources or prompts.
 
-
 ## MCP server endpoints
 
 
-[TBD]
-<!-- Add a section about MCP server endpoints, including SSE and Streamable HTTP endpoints -->
+MCP provides the following transport types and typical endpoints for remote servers:
+
+| Transport Type  | Endpoints | Notes |
+|----------------|----------|-------|
+| Streamable HTTP |  `/mcp`  | Replaces HTTP + SSE transport |
+| SSE (server-sent events) |  `/sse` - Used to establish SSE connection<br/><br/>`/messages` - Used for bidirectional messaging between MCP client and server | Deprecated as of protocol version `2024-11-05` |
 
 ## Expose MCP servers in API Management
 
 API Management supports two ways to expose MCP servers:
 
-* **Expose a REST API as an MCP server** - Use this option to expose any REST API managed in API Management as an MCP server, including APIs imported from Azure resources. The API operations are exposed as tools that can be called by MCP clients. For more information, see [Expose REST API in API Management as MCP server](export-rest-mcp-server.md).
-
-
-
-* **Expose an existing MCP server** - Use this option to expose an existing MCP-compatible server, such as a LangChain or LangServe tool server, or an MCP server created in Azure Logic Apps, or Azure Functions. For more information, see [Expose an existing MCP server](expose-existing-mcp-server.md).
+| Source                                   | Description                                                                                   |
+|-------------------------------------------|-----------------------------------------------------------------------------------------------|
+| REST API as MCP server                    | Expose any REST API managed in API Management as an MCP server, including REST APIs imported from Azure resources. API operations become MCP tools. [Learn more](export-rest-mcp-server.md). |
+| Existing MCP server                       | Expose an MCP-compatible server (for example, LangChain, LangServe, Logic Apps, Azure Functions) via API Management. [Learn more](expose-existing-mcp-server.md). |
 
 
 ## Govern MCP servers
