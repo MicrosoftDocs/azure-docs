@@ -60,7 +60,7 @@ To minimize risk and ensure a smooth migration:
 | Date | Milestone |
 |------|-----------|
 | September 2025 | GPv1 retirement announced |
-| September 2025 | Creation of new GPv1 accounts disabled |
+| August 2025 | Creation of new GPv1 accounts disabled |
 | September 2026 | Full retirement; GPv1 accounts decommissioned |
 
 ## What happens if I don't migrate my accounts?
