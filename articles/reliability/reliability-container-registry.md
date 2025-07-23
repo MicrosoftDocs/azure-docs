@@ -124,7 +124,7 @@ When a zone becomes unavailable, Azure Container Registry automatically handles 
 
 - **Detection and response**. The Azure Container Registry platform automatically detects failures in an availability zone and initiates a response. The service automatically routes traffic to remaining healthy zones. No manual intervention is required to initiate a zone failover.
 
-- **Notification**. Zone failure events can be monitored through Azure Service Health and through registry availablity metrics in Azure Monitor. Set up alerts on these services to receive notifications of zone-level issues.
+- **Notification**. Zone failure events can be monitored through Azure Service Health and through registry availability metrics in Azure Monitor. Set up alerts on these services to receive notifications of zone-level issues.
 
 - **Active requests**. When an availability zone is unavailable, any requests in progress that are connected to resources in the faulty availability zone are terminated. They need to be retried.
 
