@@ -59,7 +59,7 @@ Select Policy under Azure services. If you don't see it, type 'Policy' in the se
   
 _Sample Text: To resolve this error, you must set up MFA, following the process outlined at aka.ms/setupMFA. If you set up MFA and are still receiving this error, reach out to your Entra administrator to restore the security default for Azure by following the process outlined at aka.ms/loginMFAForAzure._
 
-:::image type="content" source="../media/multifactor-enforcement/image5.png" alt-text="Screenshot of Azure Policy Non-Compliance Message Tab." border="false":::
+:::image type="content" source="../media/multifactor-enforcement/image11.png" alt-text="Screenshot of Azure Policy Message Tab." border="false":::
 
 
 ### 7. Review and Create Assignment
