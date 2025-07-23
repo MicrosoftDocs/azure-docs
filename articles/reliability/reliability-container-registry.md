@@ -120,7 +120,7 @@ This section describes what to expect when Azure Container Registry resources ar
 
 When a zone becomes unavailable, Azure Container Registry automatically handles the failover process with minimal impact to registry operations:
 
-:::image type="content" source="./media/reliability-acr/acr-zone-redundancy-zone-failure.png" alt-text="Diagram showing Azure Container Registry behavior during zone failure with automatic failover routing to healthy zones while one zone is marked as failed and unavailable." lightbox="./media/reliability-acr/acr-zone-redundancy-zone-failure.png" border="false":::
+<!-- :::image type="content" source="./media/reliability-acr/acr-zone-redundancy-zone-failure.png" alt-text="Diagram showing Azure Container Registry behavior during zone failure with automatic failover routing to healthy zones while one zone is marked as failed and unavailable." lightbox="./media/reliability-acr/acr-zone-redundancy-zone-failure.png" border="false"::: -->
 
 - **Detection and response**. The Azure Container Registry platform automatically detects failures in an availability zone and initiates a response. The service automatically routes traffic to remaining healthy zones. No manual intervention is required to initiate a zone failover.
 
