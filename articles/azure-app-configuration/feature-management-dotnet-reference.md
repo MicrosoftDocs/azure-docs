@@ -674,7 +674,7 @@ Depending on the type, certain fields of the `Pattern` settings are required, op
   The following example repeats the time window every other Monday and Tuesday:
 
   ```json
-      "Pattern": {
+  "Pattern": {
       "Type": "Weekly",
       "Interval": 2,
       "DaysOfWeek": ["Monday", "Tuesday"]
