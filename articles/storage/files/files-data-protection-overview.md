@@ -115,6 +115,16 @@ Storage account locks enable admins to lock the storage account to prevent users
 
 For more information, see [Apply an Azure Resource Manager lock to a storage account](../common/lock-account-resource.md).
 
+### Storage account recovery
+
+Recovering an accidentally deleted storage account can be achieved. However, when recovering a storage account, the following criteria must be met:
+- The storage account was deleted within the past 14 days.
+- The storage account was created with the Azure Resource Manager deployment model.
+- A new storage account with the same name has not been created since the original account was deleted.
+- The user who is recovering the storage account must be assigned an Azure RBAC role that provides the Microsoft.Storage/storageAccounts/write permission. 
+
+Storage account recovery is a feature cannot be disabled. For more information and step-by-step instructions, see [Recover a deleted storage account]().
+
 ### Soft delete
 
 Soft delete works on a file share level to protect Azure file shares against accidental deletion. If a share with soft delete enabled is deleted, it moves to a soft deleted state internally and can be retrieved until the retention period expires. Azure file shares are still billed on the used capacity when they're soft deleted.
