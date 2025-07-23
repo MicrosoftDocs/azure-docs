@@ -25,17 +25,17 @@ items:
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/mongodb
+    href: /cli/azure/cosmosdb/mongodb
   - name: Azure PowerShell
     href: /powershell/module/az.mongodb
   - name: .NET
-    href: /dotnet/api/overview/azure/ResourceManager.MongoDBAtlas
+    href: /dotnet/api/overview/azure/resourcemanager.mongodbatlas-readme
   - name: Java
-    href: /java/api/overview/azure/resourcemanager-mongodbatlas
+    href: /java/api/overview/azure/resourcemanager-mongodbatlas-readme
   - name: Javascript
-    href: /javascript/api/overview/azure/arm-mongodbatlas
+    href: /javascript/api/overview/azure/arm-mongodbatlas-readme
   - name: Python
-    href: /python/api/overview/azure/mgmt-mongodbatlas
+    href: /python/api/overview/azure/mgmt-mongodbatlas-readme
   - name: Go
     href: https://github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/mongodbatlas/armmongodbatlas
     
