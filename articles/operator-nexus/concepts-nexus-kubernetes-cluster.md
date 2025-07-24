@@ -37,18 +37,18 @@ VM is created as part of NKS cluster deployment on Nexus instance. There are two
 However, application pods can be scheduled on system node pools in case user wants only one node pool in their cluster. Every Nexus Kubernetes Cluster must
 contain at least one system node pool with at least one node.
 
-## Nexus Kubernetes Cluster Add-ons
+## Nexus Kubernetes Cluster Features
 
-Nexus Kubernetes Cluster Add-ons is a feature of the Nexus platform that allows customers to enhance their Nexus Kubernetes clusters with extra packages or features. The Add-ons are categorized into two types: required and optional.
+Nexus Kubernetes Cluster Features, previously known as "Add-ons" in releases before [Azure Operator Nexus](/articles/operator-nexus/overview.md) release 3.11.0, is a component of the Nexus platform that allows customers to enhance their Nexus Kubernetes clusters with extra packages or components. The Features are categorized into two types: required and optional.
 
-* Required Add-ons: Add-ons are automatically deployed into provisioned Nexus Kubernetes clusters. Core add-ons such as Calico, MetalLB, Nexus Storage CSI, IPAM plugins, metrics-server, node-local-dns, Arc for Kubernetes,
-and Arc for Servers are included by default when clusters are created. The successful completion of the cluster provisioning process depends on these add-ons being installed successfully. If a required add-on installation fails and can't be fixed, the cluster status is marked as failed.
+* Required Features: Required Features are automatically deployed into provisioned Nexus Kubernetes clusters. Core Features such as Calico, MetalLB, Nexus Storage CSI, IPAM plugins, metrics-server, node-local-dns, Arc for Kubernetes,
+and Arc for Servers are included by default when clusters are created. The successful completion of the cluster provisioning process depends on these Features being installed successfully. If a required Feature installation fails and can't be fixed, the cluster status is marked as failed.
 
-* Optional Add-ons: Add-ons are supplementary services associated with a Kubernetes Cluster resource. Customers can choose to activate or deactivate these add-ons on demand.
+* Optional Features: Optional Features are supplementary services associated with a Kubernetes Cluster resource. Customers can choose to activate or deactivate these Features on demand.
 Example for supplementary services could include deployment of cluster-level local image caching registry within the NKS cluster to support for disconnected scenarios. NKS enables the customer to observe the status, health,
-and version of each required and optional add-on, which can be monitored on Azure portal, or the state can be fetched using Azure Resource Manager APIs.
+and version of each required and optional Feature, which can be monitored on Azure portal, or the state can be fetched using Azure Resource Manager APIs.
 
-Add-ons are installed once and can only be updated or upgraded when the customer upgrades the Nexus Kubernetes cluster. It enables customers to apply critical production hotfixes without interference from the underlying infrastructure operations, which could otherwise overwrite their cluster modifications.
+Features are installed once and can only be updated or upgraded when the customer upgrades the Nexus Kubernetes cluster. It enables customers to apply critical production hotfixes without interference from the underlying infrastructure operations, which could otherwise overwrite their cluster modifications.
 
 ## Nexus Available Zones
 

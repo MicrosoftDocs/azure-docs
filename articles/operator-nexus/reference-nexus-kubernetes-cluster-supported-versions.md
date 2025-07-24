@@ -10,7 +10,7 @@ ms.service: azure-operator-nexus
 
 # Supported Kubernetes versions in Azure Operator Nexus Kubernetes service
 
-This document provides an overview of the versioning schema used for the Operator Nexus Kubernetes service, including the supported Kubernetes versions. It explains the differences between major, minor, and patch versions, and provides guidance on upgrading Kubernetes versions, and what the upgrade experience is like. The document also covers the version support lifecycle and end of life (EOL) for each minor version of Kubernetes. Additionally it will describe features, a group of components which were previously known as "add-ons".
+This document provides an overview of the versioning schema used for the Operator Nexus Kubernetes service, including the supported Kubernetes versions. It explains the differences between major, minor, and patch versions, and provides guidance on upgrading Kubernetes versions, and what the upgrade experience is like. The document also covers the version support lifecycle and end of life (EOL) for each minor version of Kubernetes. Additionally it will describe Features, a group of components which were previously known as "Add-ons".
 
 The Kubernetes community releases minor versions roughly every three months. Starting with version 1.19, the Kubernetes community has [increased the support window for each version from nine months to one year](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/).
 
@@ -50,14 +50,14 @@ For the past release history, see [Kubernetes history](https://github.com/kubern
 An Operator Nexus Kubernetes service version is made of two discrete components that are combined into a single representation:
 
 * The Kubernetes version. For example, 1.25.4, is the version of Kubernetes that you deploy in Operator Nexus. These packages are supplied by Azure AKS, including all patch versions that Operator Nexus supports. For more information on Azure AKS versions, see [AKS Supported Kubernetes Versions](/azure/aks/supported-kubernetes-versions)
-* A [Version Bundle](#version-bundles) number which encapsulates the Kubernetes version, features, and operating system (OS) image used by nodes in the Operator Nexus Kubernetes cluster, as a single number. For example, 2.†
+* A [Version Bundle](#version-bundles) number which encapsulates the Kubernetes version, Features, and operating system (OS) image used by nodes in the Operator Nexus Kubernetes cluster, as a single number. For example, 2.†
 
 The combination of these values is represented in the API as the single kubernetesVersion. For example, `1.25.4-2` or the alternatively supported “v” notation: `v1.25.4-2`.
 
-† As of April 2025 version bundle increments have now changed to feature release versioning rather than sequential numbering to provide release-to-release distinctiveness at a glance. Continue reading for more information on this change.
+† As of April 2025 version bundle increments have now changed to include release versioning rather than sequential numbering to provide release-to-release distinctiveness at a glance. Continue reading for more information on this change.
 
 ### Version bundles
-By extending the version of Kubernetes to include a secondary value, cumulatively called the "version bundle", the Operator Nexus service can clearly account for cases where the Kubernetes version is unchanged but the OS and features are modified to include updates from a new Nexus release. Such updates might include but aren't limited to: updated operating system images, patch releases for features, and the introduction of some platform features.
+By extending the version of Kubernetes to include a secondary value, cumulatively called the "version bundle", the Operator Nexus service can clearly account for cases where the Kubernetes version is unchanged but the OS and Features are modified to include updates from a new Nexus release. Such updates might include but aren't limited to: updated operating system images, patch releases for Features, and the introduction of some platform Features.
 
 Prior to April 2025, version bundle numbers were incremented starting from "1" and varied depending on how long a particular Kubernetes patch version had been available on Nexus.  After April 2025, all version bundles in the same release are numbered with the same release identifier, e.g. "-4.4.0" or "-4.5.0".  The chart below details which version bundles are in the same series.
  
@@ -73,7 +73,7 @@ Changes to the configuration of a deployed Operator Nexus Kubernetes cluster sho
 ### Choosing a version bundle for an upgrade scenario
 We allow upgrade from any patch version in one Kubernetes minor version to any patch version in the next Kubernetes minor version, giving you flexibility. For example, an upgrade from 1.31.1-x.x.x to 1.32.x-x.x.x would be allowed, regardless of the presence of an intermediate 1.31.2-x.x.x version.
 
-When new version bundles are released, all the Kubernetes patch versions in that version bundle release use the same versions of both OS and features; only the Kubernetes code differs between them. Let's look at a few examples of upgrade routes which may be desirable:
+When new version bundles are released, all the Kubernetes patch versions in that version bundle release use the same versions of both OS and Features; only the Kubernetes code differs between them. Let's look at a few examples of upgrade routes which may be desirable:
 
 #### Kubernetes version update
 If the goal of the Nexus cluster upgrade is to ONLY patch or update the Kubernetes minor version, select an available Kubernetes version from the same version bundle series. E.G., if 1.32.1-4.4.0 is your current version bundle, and 1.33.1-4.4.0 is the latest 1.33.x version bundle, then you should choose 1.33.1-4.4.0. This will ensure the current OS and component versions remain the same.
@@ -90,7 +90,7 @@ In the first two cases, you may need to accept an updated Kubernetes version or 
 ### Components version and breaking changes
 Note the following important changes to make before you upgrade to any of the available minor versions:
 
-Note that the azure-arc-k8sagents version refers to the version of this feature shipped with the version bundle. The Arc-enabled Kubernetes agent is set to auto upgrade to the latest version of the agent whenever it's available.
+Note that the azure-arc-k8sagents version refers to the version of this Feature shipped with the version bundle. The Arc-enabled Kubernetes agent is set to auto upgrade to the latest version of the agent whenever it's available.
 
 |Kubernetes Version|Version Bundle|OS Image|azure-arc-k8sagents|cloud-provider-kubevirt|calico|metallb|multus|sriov-dp|csi-nfs|csi-volume|metrics-server|ipam-cni-plugin|node-local-dns|azure-arc-servers|pause image|etcd image|coredns image|kube-vip image|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -182,7 +182,7 @@ Note that the azure-arc-k8sagents version refers to the version of this feature 
 | v1.26.3|2|[Azure Linux 2.0.20230904-2.0](https://github.com/microsoft/azurelinux/releases/tag/2.0.20230904-2.0)|1.21.10|v1.0.1|[v3.26.1](https://github.com/projectcalico/calico/releases/tag/v3.26.1)|v0.13.9|[v3.8](https://github.com/k8snetworkplumbingwg/multus-cni/releases/tag/v3.8)|[v3.5.1](https://github.com/k8snetworkplumbingwg/sriov-network-device-plugin/releases/tag/v3.5.1)|[v4.4.0](https://github.com/kubernetes-csi/csi-driver-nfs/releases/tag/v4.4.0)|v1.0.4|[v0.6.3](https://github.com/kubernetes-sigs/metrics-server/releases/tag/v0.6.3)|v1.0.1|v0.1.0|Not Installed|3.8|v3.5.6-5|v1.9.3|v0.5.11|
 | v1.26.3|1|[Azure Linux 2.0.20230904-2.0](https://github.com/microsoft/azurelinux/releases/tag/2.0.20230904-2.0)|1.21.10|v1.0.1|[v3.24.0](https://github.com/projectcalico/calico/releases/tag/v3.24.0)|v0.13.9|[v3.8](https://github.com/k8snetworkplumbingwg/multus-cni/releases/tag/v3.8)|[v3.5.1](https://github.com/k8snetworkplumbingwg/sriov-network-device-plugin/releases/tag/v3.5.1)|[v4.1.0](https://github.com/kubernetes-csi/csi-driver-nfs/releases/tag/v4.1.0)|v1.0.3|[v0.6.3](https://github.com/kubernetes-sigs/metrics-server/releases/tag/v0.6.3)|v1.0.0|v0.1.0|Not Installed|3.8|v3.5.6-5|v1.9.3|v0.5.11|
 
-### Version bundle features
+### Version bundle Features
 
 | Feature            | Version Bundle | Notes           |
 |--------------------|----------------|-----------------|
