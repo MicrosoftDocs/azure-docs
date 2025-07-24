@@ -12,7 +12,7 @@ ms.author: abell
 
 # DDoS Protection cost optimization principles
 
-When designing your architecture, balance security requirements with financial constraints while maintaining protection against distributed denial-of-service (DDoS) attacks. For an overview of DDoS protection capabilities, see the [Azure DDoS Protection documentation](/azure/ddos-protection/). Key considerations include:
+When designing your architecture, balance security requirements with financial constraints while maintaining protection against distributed denial-of-service (DDoS) attacks. For an overview of DDoS protection capabilities, see [DDoS Protection features](ddos-protection-features.md). Key considerations include:
 
 - Do your allocated budgets enable you to meet security and availability goals?
 - What's the spending pattern for DDoS protection across your workloads?
@@ -39,8 +39,8 @@ Azure DDoS Protection offers two pricing models with different cost structures a
 
 | Recommendation | Benefit |
 |---|---|
-| **Choose IP Protection** when you need to protect specific critical resources rather than entire virtual networks. | You pay only for protected public IP addresses, avoiding costs for noncritical resources. This targeted approach provides granular cost control and enables protection across multiple virtual networks without per-network charges. |
-| **Choose Network Protection** when you have many public IP addresses (typically 10 or more) in a single virtual network that all require protection. | Network Protection offers better value for comprehensive protection scenarios. You get simplified management with automatic protection for new resources and predictable monthly costs per virtual network. |
+| **Choose IP Protection** when you need to protect specific critical resources rather than entire virtual networks. | You pay only for protected public IP addresses, avoiding costs for noncritical resources. This targeted approach provides granular cost control and enables protection across multiple virtual networks without per-network charges. To configure IP Protection, see [DDoS IP Protection configuration](manage-ddos-ip-protection-portal.md). |
+| **Choose Network Protection** when you have many public IP addresses (typically 10 or more) in a single virtual network that all require protection. | Network Protection offers better value for comprehensive protection scenarios. You get simplified management with automatic protection for new resources and predictable monthly costs per virtual network. To configure Network Protection, see [DDoS IP Protection configuration](manage-ddos-protection.md). |
 | **Develop phased protection rollout** plans that prioritize business-critical assets while considering budget constraints and virtual network resource distribution. | This systematic approach ensures immediate protection for essential endpoints while managing costs. You can expand protection based on risk assessment, available budget, and optimize protection models per virtual network to prevent over-spending on low-density networks. |
 
 ## Design for architecture efficiency
@@ -49,9 +49,8 @@ Optimize your architecture to reduce the number of public IP addresses requiring
 
 | Recommendation | Benefit |
 |---|---|
-| **Consolidate public-facing services** behind [Azure Load Balancer](/azure/load-balancer/) or [Application Gateway](/azure/application-gateway/) to reduce the total number of public IP addresses. | Fewer public IP addresses require protection, directly reducing expenses. Consolidation also improves security by reducing attack surface and simplifies protection management. |
 | **Use network segmentation such as [Azure Private Link](/azure/private-link/) and [virtual network peering](/azure/virtual-network/virtual-network-peering-overview)** to separate public-facing and internal resources. | You can focus protection spending on genuinely public-facing resources while using private connectivity for internal communications. This eliminates DDoS protection needs on internal paths, reducing costs while improving security. |
-| **Design application architecture** to minimize direct public IP exposure through proper use of [load balancing](/azure/architecture/guide/technology-choices/load-balancing-overview) and [content delivery networks](/azure/cdn/). | Architectural efficiency reduces the protection scope and associated costs. You can often protect an entire application through a single or few public endpoints rather than exposing multiple services directly. |
+| **Design application architecture** to minimize direct public IP exposure through proper use of [load balancing](/azure/architecture/guide/technology-choices/load-balancing-overview) and [content delivery networks](/azure/cdn/). | Architectural efficiency reduces the protection scope and associated costs. You can often protect an entire application through a single or few public endpoints rather than exposing multiple services directly. Fewer public IP addresses require protection, directly reducing expenses. Consolidation also improves security by reducing attack surface and simplifies protection management.|
 
 ## Optimize resource utilization
 
@@ -68,10 +67,10 @@ Protection needs change as your infrastructure evolves. Set up continuous monito
 
 | Recommendation | Benefit |
 |---|---|
-| **Set up cost alerts** when DDoS protection spending approaches predefined budget thresholds. | Proactive notifications prevent budget overruns and enable timely adjustments to protection strategy. You can respond to cost increases before they impact other initiatives. To create cost alerts, see [Monitor usage and spending with cost alerts in Cost Management](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending). |
+| **Configure cost alerts** when DDoS protection spending approaches predefined budget thresholds. | Proactive notifications prevent budget overruns and enable timely adjustments to protection strategy. You can respond to cost increases before they impact other initiatives. To create cost alerts, see [Monitor usage and spending with cost alerts in Cost Management](/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending). |
 | **Conduct quarterly reviews** of protected resources and their business criticality to identify optimization opportunities. | Regular reviews ensure protection investments remain aligned with business priorities. You can identify resources that no longer need protection or require upgraded protection based on changing importance. |
 | **Monitor attack patterns** and protection effectiveness to optimize coverage decisions. [View alerts in Microsoft Defender for Cloud](ddos-view-alerts-defender-for-cloud.md) and utilize [DDoS Protection logs in Log Analytics workspace](ddos-view-diagnostic-logs.md). | Understanding actual threat patterns enables data-driven protection decisions. You can adjust protection levels based on real attack data rather than theoretical risks. |
-| **Track protection ROI and implement lifecycle management** using [cost management best practices](/azure/cost-management-billing/costs/cost-analysis-common-uses) to measure value and decommission unnecessary protection. | ROI measurement demonstrates protection value and guides future investment decisions. Regular cleanup of inactive or noncritical resources prevents spending growth that doesn't align with business value while freeing budget for higher-priority resources. |
+| **Track protection return on investment (ROI) and implement lifecycle management** using [cost management best practices](/azure/cost-management-billing/costs/cost-analysis-common-uses) to measure value and decommission unnecessary protection. | ROI measurement demonstrates protection value and guides future investment decisions. Regular cleanup of inactive or noncritical resources prevents spending growth that doesn't align with business value while freeing budget for higher-priority resources. |
 
 ## Next steps
 
