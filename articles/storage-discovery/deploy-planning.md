@@ -11,7 +11,7 @@ ms.author: shaas
 
 # Azure Storage Discovery: Regional availability and planning guide
 
-Azure Storage Discovery empowers organizations to gain deep, actionable insights into their storage estate—across subscriptions, regions, and scopes. This article outlines the regional availability of Azure Storage Discovery, explains how to select regions for your workspace, and clarifies how regional aggregation of insights works.
+Azure Storage Discovery empowers organizations to gain deep, actionable insights into their storage estate—across subscriptions, regions, and scopes. This article outlines the regional availability of Azure Storage Discovery, explains how to select regions for your workspace, and clarifies how regional aggregation of insights work.
 
 ## Workspace Region Availability
 
@@ -22,7 +22,6 @@ Azure Storage Discovery Workspaces (ASDW) are the foundational resource for conf
 
 The region where your discovery workspace is deployed determines where the control plane for your discovery experience resides. This includes:
 
-- **Data residency**: Metadata and insights are stored in the region where the workspace is created.
 - **Latency**: Choosing a region close to your operational base can improve dashboard responsiveness.
 - **Compliance**: Some organizations may have regulatory requirements that dictate where data must reside.
 
@@ -32,11 +31,11 @@ When selecting a region for your workspace:
 
 - **Proximity**: Choose a region geographically close to your primary operations or data sources.
 - **Compliance**: Ensure the region aligns with your data residency and compliance policies.
-- **Preview Availability**: Confirm that the region is supported in the current release phase (e.g., private preview).
+- **Preview Availability**: Confirm that the region is supported in the current release phase (e.g., public preview).
 
 ## Regions for Storage Insights Aggregation
 
-While the workspace defines where your insights are processed and stored, the actual data being analyzed comes from storage accounts across multiple regions.
+While the workspace defines where your the Discovery resource resides, the actual data being analyzed comes from storage accounts across multiple regions.
 [!INCLUDE [data-plane-regions](includes/data-plane-regions.md)]
 
 ### What This Means for You
@@ -48,7 +47,7 @@ This means that even if your workspace is deployed in a limited set of regions, 
 - **Configuration and security settings**
 - **Cost and consumption breakdowns**
 
-These insights are then visualized in your ASDW reports, enabling centralized monitoring of a globally distributed storage estate.
+These insights are then visualized in your Discovery reports, enabling centralized visualization of a globally distributed storage estate.
 
 ## Best Practices for Regional Planning
 

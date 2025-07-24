@@ -34,7 +34,7 @@ Example:
 This configuration means the workspace will monitor storage accounts under the specified subscription and resource group.
 
 > [!NOTE]
-> - Users need Reader access on subscriptions or resource groups to add them to workspaceRoots during ASDW deployment.
+> - Users need Reader access on subscriptions or resource groups to add them to workspace roots during Discovery workspace deployment.
 
 
 ### Scope 
@@ -43,7 +43,7 @@ A Scope in Azure Storage Discovery represents a logical grouping of storage acco
 - A scope without any ARM tags will include all storage accounts within the defined scope
 - A scope with tags enables users to selectively choose specific storage accounts based on Azure tags assigned to the storage accounts.
 
-Deploying Azure Storage Discovery workspace in one of your Azure subscriptions is the first step in starting aggregation of storage account metrics. This article discusses the important decisions and best practices for a Storage Discovery deployment.
+Deploying Azure Storage Discovery workspace in one of your Azure subscriptions is the first step in starting aggregation of storage account metrics.
 
 ## Select a subscription and region for Azure Storage Discovery workspace deployment
 

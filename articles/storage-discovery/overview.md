@@ -22,7 +22,7 @@ With just a few clicks, users can answer critical questions such as:
 Azure Storage Discovery delivers value across multiple dimensions:
 
 ### Unified Visibility Across the Storage Estate
-Gain organization-wide visibility into up to 1 million storage accounts. Discovery aggregates insights across subscriptions, resource groups, and regions, enabling users to monitor their entire storage footprint in one place.
+Gain organization-wide visibility with flexible scoping to gather insights for multiple business groups or workloads. Analyze up to 1 million storage accounts spread across different subscriptions, resource groups and regions within a single workspace. The ability to drill down and filter data allows you to quickly obtain actionable insights for optimizing your Azure storage estate.
 
 ### Actionable Insights Without Engineering Overhead
 Out-of-the-box dashboards surface trends in capacity, transactions, errors, and configuration changes. Users can drill down into specific accounts or filter by tags, regions, or redundancy settings - without writing a single line of code or deploying infrastructure.
@@ -34,12 +34,12 @@ Integrated with Azure Copilot, Discovery allows users to ask natural language qu
 Visualize and audit storage configurations to ensure alignment with best practices. Identify accounts with settings that do not align with your business needs and take corrective action.
 
 ### Long-Term Trend Analysis
-With up to 30 days<sup>1</sup> of historical data and automatic backfill of the previous month, Discovery supports long-term planning and workload optimization.
+Discovery supports long-term planning and workload optimization with up to 30 days<sup>1</sup> of historical data automatically available within hours of deploying Azure Storage Discovery. All insights are retained for up to 18 months
 
 ### Seamless Integration and Scalability
 Discovery integrates with Azure Storage Center and other data management tools, offering a scalable solution that grows with your data estate.
 
-<sup>1</sup> Storage Discovery will soon support 3 months of historical data through upcoming backfill enhancements for Standard pricing plan.
+<sup>1</sup> Storage Discovery will soon support 3 months of historical data through upcoming enhancements for the Standard pricing plan. Free plan will include 14 days of historical data retained for 30 days.
 
 ## Why It Matters
 
