@@ -140,7 +140,7 @@ Edit the *azure-pipelines.yml* file in your Azure Repos repository to customize 
 
 In the pipeline, you define the steps to create the environment. In this pipeline, you define the steps to create the environment as a job, which is a series of steps that run sequentially as a unit. 
 
-To customize the pipeline you:
+To customize the pipeline, you:
 - Specify the service connection to use.
 - Use an inline script to run an Azure CLI command that creates the environment. 
 
