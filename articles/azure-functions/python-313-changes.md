@@ -11,7 +11,7 @@ ms.custom: devx-track-python, py-fresh-zinc
 Starting with Python 3.13, Azure Functions introduces runtime version control, 
 a new opt-in feature that allows you to specify which version of the **Python** runtime your app uses.
 
-By default, apps will continue to run on a stable platform-managed runtime version—**no changes are 
+By default, apps continue to run on a stable platform-managed runtime version—**no changes are 
 required** unless you choose to opt in.
 
 ### How to Enable
@@ -31,15 +31,15 @@ There are three ways to manage your runtime version:
 1. **Pin to a specific version** (for example, `azure-functions-runtime==1.2.0`):
    - Pinning to a specific version ensures that your app’s runtime behavior remains consistent, with no automatic updates.
    - This approach is recommended for critical production workloads where stability and predictability are essential.
-   - New features, fixes, and improvements will not be applied automatically—you must manually update the version to receive them.
+   - New features, fixes, and improvements aren't applied automatically—you must manually update the version to receive them.
 2. **Include the package without pinning** (for example, `azure-functions-runtime`):
    - Including the package without specifying a version allows your app to automatically receive the latest stable runtime updates.
    - This option is ideal for staying current with platform improvements and features.
-   - New changes are adopted the next time your app is rebuilt and redeployed.
+   - New changes are adopted when the app is rebuilt and redeployed.
 3. **Omit the package entirely**:
-   - If you choose not to include the `azure-functions-runtime` package, your app will run using a platform-managed runtime version.
-   - By default, the platform uses a stable version prior to the latest release (for example, latest - 1) and updates it periodically.
-   - This ensures stability and broad compatibility, but **access to the newest features and fixes** may be delayed until the 
+   - If you choose not to include the `azure-functions-runtime` package, your app runs using a platform-managed runtime version.
+   - By default, the platform uses a stable version (for example, latest - 1) and updates it periodically.
+   - Omitting the package ensures stability and broad compatibility, but **access to the newest features and fixes** may be delayed until the 
    default version is updated.
 
 ### Best Practices
