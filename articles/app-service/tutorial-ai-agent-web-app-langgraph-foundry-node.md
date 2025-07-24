@@ -25,7 +25,7 @@ If your web application already has useful features, like shopping, hotel bookin
 
 ### [Azure AI Foundry Agent Service](#tab/aifoundry)
 
-:::image type="content" source="media/tutorial-ai-agent-web-app-langgraph-foundry-node/ai-foundry-agent.png" alt-text="Screenshot of a chat completion session with an Azure AI Foundry agent.":::
+:::image type="content" source="media/tutorial-ai-agent-web-app-langgraph-foundry-node/foundry-agent.png" alt-text="Screenshot of a chat completion session with an Azure AI Foundry agent.":::
 
 -----
 
