@@ -158,7 +158,7 @@ In workspace billing mode, each portion of the ingested data is billed to the in
   
 The table shows two scenarios where the three-workspace dedicated cluster is ingesting less data than the 5,000 GB per day commitment tier. In both scenarios, the first two workspaces, labeled A and B, aren't Microsoft Sentinel enabled. Workspace A and B ingested 1 TB of data separately, while the Microsoft Sentinel enabled workspace C ingested 2 TB of data (a total of 4 TB). 
 
-Since the commitment tier is 5TB, there's 1 TB of unused ingestion.
+Since the commitment tier is 5 TB, there's 1 TB of unused ingestion.
 
 The first scenario uses cluster billing mode,  the second uses workspace billing mode. 
 
