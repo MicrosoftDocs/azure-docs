@@ -1,10 +1,10 @@
 ---
-title: Connect and govern existing MCP server in API Management | Microsoft Docs
+title: Connect and govern existing MCP server in Azure API Management 
 description: Learn how to expose and govern an existing Model Context Protocol (MCP) server in Azure API Management.
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 07/22/2025
+ms.date: 07/23/2025
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
@@ -14,7 +14,7 @@ ms.custom:
 
 [!INCLUDE [api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2.md)]
 
-This article shows how to use API Management to expose and govern an existing MCP-compatible server - a tool server hosted outside of API Management. Expose the server's tools through API Management using its built-in [AI gateway](genai-gateway-capabilities.md) capabilities so that MCP clients can call them using the MCP protocol. 
+This article shows how to use API Management to expose and govern an existing MCP-compatible server - a tool server hosted outside of API Management. Expose and govern the server's tools through API Management so that MCP clients can call them using the MCP protocol. 
 
 [!INCLUDE [preview-callout-mcp-servers](includes/preview/preview-callout-mcp-servers.md)]
 
@@ -41,7 +41,7 @@ Learn more about:
 
 + Access to an external MCP-compatible server (for example, hosted in Azure Logic Apps, Azure Functions, LangServe, or other platforms).
 
-+ Appropriate credentials to the MCP server (OAuth 2.0 client credentials or API keys) for secure access.
++ Appropriate credentials to the MCP server (such as OAuth 2.0 client credentials or API keys, depending on the server) for secure access.
 
 + To test the MCP server, you can use Visual Studio Code with access to [GitHub Copilot](https://code.visualstudio.com/docs/copilot/setup).
 
@@ -53,25 +53,24 @@ Follow these steps to expose an existing MCP server is API Management:
     [!INCLUDE [preview-callout-mcp-feature-flag](includes/preview/preview-callout-mcp-feature-flag.md)]
 
 1. In the left-hand menu, under **APIs**, select **MCP servers** > **+ Create MCP server**.
-1. Select **Connect existing MCP server**.
-1. In **Backend API**:
+1. Select **Expose an existing MCP server**.
+1. In **Backend MCP server**:
     1. Enter the existing **MCP server base URL**.
-    1. Select a **Transport type**:
-         - **Streamable HTTP** (default) - Server delivers data continuously over HTTP as it becomes available
-         - **Server-sent events (SSE)** - Server pushes real-time updates to clients. When selected, optionally enter the following paths:
-             - `/sse` - path for streaming responses
-             - `/messages` - path for receiving tool requests from agents
+    1. In**Transport type**, **Streamable HTTP** is selected by default.
 1. In **New MCP server**:
-    1. Enter a **Name** and optional **Description** for the MCP server in API Management.
-    1. In **Base path**, enter a route prefix for tools. 
-    1. In **Base URL**, configure the final URL where the MCP server will be accessible in API Management.
+    1. Enter a **Name** the MCP server in API Management.
+    1. In **Base path**, enter a route prefix for tools. Example: `mytools`
+    1. Optionally, enter a **Description** for the MCP server. 
 1. Select **Create**.
 
 :::image type="content" source="media/expose-existing-mcp-server/create-mcp-server.png" alt-text="Screenshot of creating an MCP server in the portal." :::
 
-The MCP server is connected and is listed in the **MCP servers** pane. The **URL** column shows the MCP server URL that you can call for testing or within a client application.
+* The MCP server is created and the remote server's operations are exposed as tools. 
+* The MCP server is listed in the **MCP Servers** pane. The **Server URL** column shows the MCP server URL that you can call for testing or within a client application.
 
-> [!NOTE]
+:::image type="content" source="media/expose-existing-mcp-server/mcp-server-list.png" alt-text="Screenshot of the MCP server list in the portal.":::
+
+> [!IMPORTANT]
 > API Management doesn't display tools from the existing MCP server. All tool registration and configuration must be done on the existing remote MCP server.
 
 [!INCLUDE [api-management-configure-test-mcp-server](../../includes/api-management-configure-test-mcp-server.md)]

@@ -9,15 +9,20 @@ ms.author: danlep
 
 Configure one or more API Management [policies](../articles/api-management/api-management-howto-policies.md) to help manage the MCP server. The policies are applied to all API operations exposed as tools in the MCP server and can be used to control access, authentication, and other aspects of the tools.
 
-For a tutorial on how to configure policies, see [Transform and protect your API](../articles/api-management/transform-api.md).
+Learn more about configuring policies:
+
+* [Policies in API Management](../articles/api-management/api-management-howto-policies.md)
+* [Transform and protect your API](../articles/api-management/transform-api.md)
+* [Set and edit policies](../articles/api-management/set-edit-policies.md)
 
 To configure policies for the MCP server:
+
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
     [!INCLUDE [preview-callout-mcp-feature-flag](../articles/api-management/includes/preview/preview-callout-mcp-feature-flag.md)]
 
-1. In the left-hand menu, under **APIs**, select **MCP servers**.
-1. Select the MCP server that you created.
-1. In the left menu, under **Details**, select **Policies**.
+1. In the left-hand menu, under **APIs**, select **MCP Servers**.
+1. Select an MCP server from the list.
+1. In the left menu, under **MCP**, select **Policies**.
 1. In the policy editor, add or edit the policies you want to apply to the MCP server's tools. The policies are defined in XML format. For example, you can add a policy to limit calls to the MCP server's tools (in this example, 5 calls per 30 seconds per client IP address).
 
     ```xml
@@ -41,8 +46,8 @@ To add the MCP server in Visual Studio Code:
 
 1. Use the **MCP: Add Server** command from the Command Palette. 
 1. When prompted, select the server type: **HTTP (HTTP or Server Sent Events)**.
-1. Enter the **URL of the MCP server** in API Management. Example: `https://<apim-service-name>.azure-api.net/<api-name>-mcp/sse` (for SSE endpoint) or `https://<apim-service-name>.azure-api.net/<api-name>-mcp/mcp` (for MCP endpoint)
-1. Enter a **server ID** of your choice.
+1. Enter the **Server URL** of the MCP server in API Management. Example: `https://<apim-service-name>.azure-api.net/<api-name>-mcp/mcp` (for MCP endpoint)
+1. Enter a **Server ID** of your choice.
 1. Select whether to save the configuration to your **workspace settings** or **user settings**. 
     * **Workspace settings** - The server configuration is saved to a `.vscode/mcp.json` file only available in the current workspace.
 
@@ -56,7 +61,7 @@ Add fields to the JSON configuration for settings such as authentication header.
 
 ### Use tools in agent mode
 
-After adding an MCP server, you can use tools in agent mode.
+After adding an MCP server in Visual Studio Code, you can use tools in agent mode.
 
 1. In GitHub Copilot chat, select **Agent** mode and select the **Tools** button to see available tools.
 
@@ -89,7 +94,9 @@ After adding an MCP server, you can use tools in agent mode.
 
 ## Related content
 
-* [Python sample: Secure remote MCP servers using Azure API Management (experimental)](https://github.com/Azure-Samples/remote-mcp-apim-functions-python)
+* [Sample: MCP Servers authorization with Protected Resource Metadata (PRM)](https://github.com/blackchoey/remote-mcp-apim-oauth-prm/)
+
+* [Sample: Secure remote MCP servers using Azure API Management (experimental)](https://github.com/Azure-Samples/remote-mcp-apim-functions-python)
 
 * [MCP client authorization lab](https://github.com/Azure-Samples/AI-Gateway/tree/main/labs/mcp-client-authorization)
 

@@ -6,10 +6,13 @@ ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 07/23/2025
 ms.author: danlep
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
 ---
 
 # About MCP servers in Azure API Management
+
+[!INCLUDE [api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 This article introduces features in Azure API Management that you can use to manage Model Context Protocol (MCP) servers. MCP servers allow AI agents to access external data sources, such as databases or APIs, through a standardized protocol. 
 
@@ -43,11 +46,6 @@ The MCP architecture is built on [JSON-RPC 2.0 for messaging](https://modelconte
 
 * **Local MCP servers** MCP clients use standard input/output as a local transport method to connect to MCP servers on the same machine,.
 
-Azure API Management supports the remote MCP server mode, using native features of API Management and [capabilities of the AI gateway](./genai-gateway-capabilities.md) to manage MCP server endpoints.
-
-> [!NOTE]
-> MCP server support in API Management is in preview. In preview, API Management supports MCP server tools, but doesn't currently support MCP resources or prompts.
-
 ## MCP server endpoints
 
 
@@ -60,13 +58,17 @@ MCP provides the following transport types and typical endpoints for remote serv
 
 ## Expose MCP servers in API Management
 
-API Management supports > [!NOTE]
-> Information the user should notice even if skimmingtwo built-in ways to expose MCP servers:
+Azure API Management supports the remote MCP server mode, using native features of API Management and [capabilities of the AI gateway](./genai-gateway-capabilities.md) to manage MCP server endpoints.
+
+> [!NOTE]
+> MCP server support in API Management is in preview. In preview, API Management supports MCP server tools, but doesn't currently support MCP resources or prompts.
+
+API Management provides two built-in ways to expose MCP servers:
 
 | Source                                   | Description                                                                                   |
 |-------------------------------------------|-----------------------------------------------------------------------------------------------|
-| REST API as MCP server                    | Expose any REST API managed in API Management as an MCP server, including REST APIs imported from Azure resources. API operations become MCP tools. [Learn more](export-rest-mcp-server.md). |
-| Existing MCP server                       | Expose an MCP-compatible server (for example, LangChain, LangServe, Logic Apps, Azure Functions) via API Management. [Learn more](expose-existing-mcp-server.md). |
+| REST API as MCP server                    | Expose any REST API managed in API Management as an MCP server, including REST APIs imported from Azure resources. API operations become MCP tools. [Learn more](export-rest-mcp-server.md) |
+| Existing MCP server                       | Expose an MCP-compatible server (for example, LangChain, LangServe, Azure logic app, Azure function app) via API Management. [Learn more](expose-existing-mcp-server.md) |
 
 
 ## Govern MCP servers
@@ -83,21 +85,23 @@ Configure policies such as the following::
 
 ## Secure access to the MCP server
 
-You can secure both inbound access to the MCP server (from an MCP client to API Management) and outbound access (from API Management to the MCP server backend).
+You can secure either or both inbound access to the MCP server (from an MCP client to API Management) and outbound access (from API Management to the MCP server backend).
 
 ### Secure inbound access
 
-One option to secure inbound access is to configure a policy to validate a JSON web token (JWT) generated using an identity provider in the incoming requests. This ensures that only authorized clients can access the MCP server. Use the generic [validate-jwt](validate-jwt-policy.md) policy, or the [validate-azure-ad-token](validate-azure-ad-token-policy.md) policy when using Microsoft Entra ID, to validate the JWT token in the incoming requests. The following is a basic example of validating a Microsoft Entra ID token:
+One option to secure inbound access is to configure a policy to validate a JSON web token (JWT) generated using an identity provider in the incoming requests. This ensures that only authorized clients can access the MCP server. Use the generic [validate-jwt](validate-jwt-policy.md) policy, or the [validate-azure-ad-token](validate-azure-ad-token-policy.md) policy when using Microsoft Entra ID, to validate the JWT token in the incoming requests. 
+
+The following is a basic example of validating a Microsoft Entra ID token presented in an `Authorization` header in the incoming request:
 
 ```xml
-<validate-azure-ad-token header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid."> 
+<validate-azure-ad-token header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">     
     <client-application-ids>
         <application-id>your-client-id</application-id>
     </client-application-ids> 
 </validate-azure-ad-token>
 ```
 
-For more inbound authorization options and samples, see:
+For more inbound authorization options and samples, including using OAuth authorization, see:
 
 * [MCP server authorization with Protected Resource Metadata (PRM) sample](https://github.com/blackchoey/remote-mcp-apim-oauth-prm)
 
