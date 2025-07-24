@@ -11,18 +11,18 @@ ms.author: cshoe
 
 # Azure Functions on Azure Container Apps overview
 
-Azure Functions on Azure Container Apps is a fully managed hosting option that enables you to run serverless Functions within the Container Apps environment. It combines the event-driven programming model of Azure Functions with the scalability, flexibility, and advanced features of Container Apps -including Kubernetes-based orchestration, built-in autoscaling via KEDA, Dapr integration, Sidecar support, VNet support, and revision management. 
+Azure Functions on Azure Container Apps offer a fully managed serverless hosting environment that brings together the event-driven capabilities of Azure Functions with the robust features of Container Apps. This integration provides enhanced scalability and flexibility. It also includes advanced capabilities such as Kubernetes-based orchestration, built-in autoscaling powered by KEDA (Kubernetes-based Event Driven Autoscaling), Dapr (Distributed Application Runtime) integration, Sidecar support, Virtual Network (VNet) connectivity, and revision management. 
 
-You can use this setup when you want your Functions to run alongside other containerized apps like microservices, APIs, or websites —especially when you need custom dependencies or want to take advantage of scale-to-zero for cost savings. If you're running compute-heavy tasks like AI inference, Container Apps also supports GPU-based hosting through serverless GPU offering and Dedicated workload profiles.
+You can use this setup when you want your Functions to run alongside other containerized apps like microservices, APIs, or websites—especially when you need custom dependencies or want to take advantage of scale-to-zero for cost savings. If you're running compute-heavy tasks like AI inference, Container Apps also supports GPU-based hosting through serverless GPU offering and Dedicated workload profiles.
 
-As an integrated feature on Azure Container Apps,  you can  deploy Azure Functions images directly onto Azure Container Apps using the `Microsoft.App` resource provider by setting `kind=functionapp` when calling `az containerapp create`. Apps created this way have access to all Azure Container Apps features. If deploying via Azure Portal, you can simply enable the “Optimize for Functions app” option during setup.
+As an integrated feature on Azure Container Apps,  you can  deploy Azure Functions images directly onto Azure Container Apps using the `Microsoft.App` resource provider by setting `kind=functionapp` when calling `az containerapp create`. Apps created this way have access to all Azure Container Apps features. If deploying via Azure portal, you can enable the "Optimize for Functions app" option during setup.
 
 ## Key benefits
 The Container Apps hosting model builds on the flexibility of containerized workloads and the event-driven nature of Azure Functions. It offers the following key advantages:
 - **Run Functions as containers** with custom dependencies and language stacks.
 - **Scale in to zero and scale out to 1000 instances** using KEDA.
 - **[Secure networking](../container-apps/networking.md)** with full [VNet integration](../container-apps/custom-virtual-networks.md).
-- **Advanced [Container App features](../container-apps/overview.md#features)** like multi-revisions, traffic splitting, [Dapr integration](../container-apps/dapr-overview.md) and [observability components](../container-apps/observability.md).
+- **Advanced [Container App features](../container-apps/overview.md#features)** like multi-revisions, traffic splitting, [Dapr integration](../container-apps/dapr-overview.md), and [observability components](../container-apps/observability.md).
 - **[Serverless and Dedicated GPU](../container-apps/gpu-serverless-overview.md)** support for compute-intensive workloads.
 - **Unified Container Apps environment** to run Functions alongside microservices, APIs, and background jobs.
 
@@ -43,16 +43,16 @@ For a complete comparison of the Functions on Container Apps against Flex Consum
 
 ## Scenarios
 
-Azure Functions on Container Apps are ideal for a wide range of use cases, especially when you need event-driven execution, container flexibility, or secure integration with other services:
+Azure Functions on Container Apps is ideal for a wide range of use cases, especially when you need event-driven execution, container flexibility, or secure integration with other services:
 
 - **Line-of-business APIs:** Package custom libraries, packages, and APIs with Functions for line-of-business applications.
 - **Migration and modernization:** Migration of on-premises legacy and/or monolith applications to cloud native microservices on containers.
-- **Event-driven processing:** Handle events from Event Grid, Service Bus, Event Hubs and other event sources with ease of Functions programming model.
+- **Event-driven processing:** Handle events from Event Grid, Service Bus, Event Hubs, and other event sources with ease of Functions programming model.
 - **AI & GPU workloads:** Serverless workload processing of videos, images, transcripts, or any other processing intensive tasks that required  GPU compute resources. Read more [here](../container-apps/gpu-serverless-overview.md).
 - **Microservices:** Integrate Functions with other Container Apps hosted services.
 - **Custom containers:** Package Functions with custom runtimes or sidecars.
 - **Private apps:** Secure internal-only Functions using VNet and internal ingress.
-- **General Functions:** Run any standard [Azure Functions scenarios](../azure-functions/functions-scenarios.md) (e.g., timers, file processing, database triggers).
+- **General Functions:** Run any standard [Azure Functions scenarios](../azure-functions/functions-scenarios.md) (for example, timers, file processing, database triggers).
 
 ## Deployment and Setup
 
@@ -62,7 +62,7 @@ To deploy Azure Functions on Azure Container Apps, you package your Functions ap
 
 _Create via CLI: Set “kind=functionapp” property_
 
-In the Azure Portal, simply enable the “Optimize for Functions app” option during container app creation to streamline the setup.
+In the Azure portal, enable the "Optimize for Functions app" option during container app creation to streamline the setup.
 
 <img width="752" height="594" alt="Create via Portal: Option to optimize for Azure Functions" src="https://github.com/user-attachments/assets/db3aa864-556e-443a-9606-36d0a02113b5" />
 
@@ -70,33 +70,33 @@ _Create via Portal: Option to optimize for Azure Functions_
 
 All standard deployment methods are supported, including:
 - [Azure CLI](../container-apps/functions-usage.md?pivots=azure-cli)
-- [Azure Portal](../container-apps/functions-usage.md?pivots=azure-portal)
+- [Azure portal](../container-apps/functions-usage.md?pivots=azure-portal)
 - ARM templates / [Bicep](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/ACAKindfunctionapp)
-- CI/CD pipelines (e.g., GitHub Actions, Azure Pipelines)
+- CI/CD pipelines (for example, GitHub Actions, Azure Pipelines)
 
 For detailed steps and examples, refer to the official [getting started documentation](../container-apps/functions-usage.md).
 
 ## Pricing and billing
-Azure Functions on Azure Container Apps follow the same pricing model as Azure Container Apps. Billing is based on the [plan type](../container-apps/plans.md) you select for your environment, which can be either Consumption or Dedicated.
+Azure Functions on Azure Container Apps follows the same pricing model as Azure Container Apps. Billing is based on the [plan type](../container-apps/plans.md) you select for your environment, which can be either Consumption or Dedicated.
 - [Consumption plan](..//container-apps/billing.md#consumption-plan): This serverless compute option bills you only for the resources your apps use while they are running.
 - [Dedicated plan](../container-apps/billing.md#consumption-dedicated): This option provides customized compute resources, billing you for the instances allocated to each workload profile.
 
 Your choice of plan determines how billing calculations are made. Different applications within an environment can use different plans.
 
 Key points to note:
-- There are no additional charges for using the Azure Functions programming model within Container Apps.
+- No extra charges for using the Azure Functions programming model within Container Apps.
 - Durable Functions and other advanced patterns are supported and billed under the same Container Apps pricing model.
 For detailed billing mechanics and examples, refer to the [Billing in Azure Container Apps](../container-apps/billing.md) documentation.
 
 ## Event-Driven Scaling
 
-Azure Functions on Container Apps support all major [language runtimes available in Azure Functions](../azure-functions/supported-languages.md), including: C#, JavaScript / TypeScript (Node.js), Python, Java, PowerShell, Custom containers (bring your own image).
+Azure Functions on Container Apps supports all major [language runtimes available in Azure Functions](../azure-functions/supported-languages.md), including: C#, JavaScript / TypeScript (Node.js), Python, Java, PowerShell, Custom containers (bring your own image).
 
-Azure Functions on Container Apps are designed to **automatically configure scaling rules** based on the event source. You don’t need to manually define KEDA scaled objects—Container Apps handles this for you. However, you can still configure minimum and maximum replica counts to control scaling boundaries.
+Azure Functions on Container Apps is designed to **automatically configure scaling rules** based on the event source. You don’t need to manually define KEDA scaled objects—Container Apps handles auto scaling for you. However, you can still configure minimum and maximum replica counts to control scaling boundaries.
 
-All standard Azure Functions triggers and bindings are supported in Container Apps with **exception** below:
+All standard Azure Functions triggers and bindings are supported in Container Apps with following **exceptions**:
 - Blob Storage Trigger auto scaling: Only works when using Event Grid as the source.
-- Durable Functions auto scaling: Only support MsSQL and DTS storage providers.
+- Durable Functions auto scaling: Only supports MSSQL (Microsoft SQL Server) and DTS (Durable Task Scheduler) storage providers.
 - Auto scaling not supported for:
   - Azure Cache for Redis  
   - Azure SQL  
@@ -107,7 +107,7 @@ All standard Azure Functions triggers and bindings are supported in Container Ap
 - [Azure Container Registry](../container-apps/managed-identity-image-pull.md) (ACR)
 - [Connecting to trigger event sources](../azure-functions/functions-reference.md#configure-an-identity-based-connection)
 
-For other triggers, use fixed replica counts (i.e., set minReplicas > 0) when using managed identity. For more details, refer to the [Functions developer guide](../azure-functions/functions-reference.md).
+For other triggers, use fixed replica counts (that is, set minReplicas > 0) when using managed identity. For more details, refer to the [Functions developer guide](../azure-functions/functions-reference.md).
 
 ## Scaling and performance
 
@@ -136,19 +136,19 @@ These capabilities make Container Apps-hosted Functions ideal for enterprise-gra
 
 ## Monitoring and Logging
 
-Azure Functions on Container Apps integrate seamlessly with Azure’s observability tools for performance tracking and issue diagnosis:
+Azure Functions on Container Apps integrates seamlessly with Azure’s observability tools for performance tracking and issue diagnosis:
 
 - **Application Insights:** Provides telemetry for requests, dependencies, exceptions, and custom traces. For more information, see [Monitor Azure Functions](../azure-functions/monitor-functions.md).  
-- **Log analytics:** Captures container lifecycle and scaling events (e.g., FunctionsScalerInfo entries). For more information, see [Application Logging in Azure Container Apps](../container-apps/logging.md).  
+- **Log analytics:** Captures container lifecycle and scaling events (for example, FunctionsScalerInfo entries). For more information, see [Application Logging in Azure Container Apps](../container-apps/logging.md).  
 - **Custom logging:** Supports standard frameworks like ILogger and console logging for structured output.  
 - **Centralized monitoring:** Container Apps environment offers unified dashboards and alerts across all apps.
 
 ## Limitations and Considerations
 
-While Azure Functions on Azure Container Apps (ACA) offer powerful capabilities by combining serverless compute with container flexibility, there are important limitations and operational considerations to keep in mind: 
+While Azure Functions on Azure Container Apps (ACA) offers powerful capabilities by combining serverless compute with container flexibility, there are important limitations and operational considerations to keep in mind: 
 
 - **Mandatory Storage Account**: Every Functions app deployed on ACA must be linked to a storage account. This is required for managing triggers, logs, and state. Review the [storage account guidance](../azure-functions/storage-considerations.md) for best practices.
-- **Cold Start Latency**: When your container app scales down to zero during idle periods, the first request after inactivity will experience a cold start. This can introduce additional latency. Learn more about [reducing cold start times](../container-apps/cold-start.md).
+- **Cold Start Latency**: When your container app scales down to zero during idle periods, the first request after inactivity experiences a cold start. This can introduce more latency. Learn more about [reducing cold start times](../container-apps/cold-start.md).
 - **Application Insights Integration**: For robust monitoring and diagnostics, it is recommended to link your Functions app to an Application Insights resource. See how to [enable App Insights integration](../azure-functions/configure-monitoring.md?tabs=v2#enable-application-insights-integration).
 - **Ingress Requirement for Auto-Scaling**: To enable automatic scaling based on events, ingress must be enabled—either publicly or within the ACA environment.
 - **Functions Proxies**: Not supported. For API gateway scenarios, integrate with Azure API Management instead.
