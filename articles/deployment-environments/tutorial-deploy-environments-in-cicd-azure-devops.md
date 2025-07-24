@@ -36,12 +36,13 @@ In this tutorial, you learn how to:
   - [Create an account for free](https://azure.microsoft.com/services/devops/?WT.mc_id=A261C142F).
   - An Azure DevOps organization and project.
 - In Azure Deployment Environments:
-    - [Dev center and project](./quickstart-create-and-configure-devcenter.md).
+    - [A dev center and a project](./quickstart-create-and-configure-devcenter.md).
     - [Sample catalog](https://github.com/Azure/deployment-environments) attached to the dev center.
 
 ## Create and configure an Azure Repos repository
 
-1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`). Replace `<your-organization>` with your project identifier. Select your project.
+1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`). Replace `<your-organization>` with your project identifier. 
+1. Select your project.
 1. Select **Repos** > **Files**.
 1. In **Import a repository**, select **Import**. 
 1. In **Import a Git repository**, select or enter the following:
@@ -50,7 +51,7 @@ In this tutorial, you learn how to:
 
 ## Configure environment types
 
-Environment types define the types of environments that your development teams can deploy. You can apply different settings for each environment type. You create environment types at the dev center level and at the project level.
+Environment types define the types of environments that your development teams can deploy. You can apply different settings for each environment type. You can create environment types at the dev center level and at the project level.
 
 To create dev center environment types:
 
@@ -88,35 +89,37 @@ To create project environment types:
 
 ## Configure a service connection
 
-In Azure Pipelines, you create a *service connection* in your Azure DevOps project to access resources in your Azure subscription. When you create the service connection, Azure DevOps creates a Microsoft Entra service principal object.
+In Azure Pipelines, you create a *service connection* in your Azure DevOps project to access resources in your Azure subscription.  
 
-1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`). Replace `<your-organization>` with your project identifier. Select your project. 
+1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`). Replace `<your-organization>` with your project identifier.
+1. Select your project. 
 1. Select **Project settings** > **Service connections** > **Create service connection**.
-1. In the **New service connection** pane, select the **Azure Resource Manager**, and then select **Next**.
+1. In the **New service connection** pane, select **Azure Resource Manager**, and then select **Next**.
 1. Enter the following service connection details, and then select **Save** to create the service connection.
 
     | Field | Value |
     | ----- | ----- |
     |**Identity type**|**Managed identity (agent-assigned)**|
-    | **Scope Level** | *Subscription*. |
+    | **Scope Level** | **Subscription** |
     | **Subscription ID** | Enter the ID of the Azure subscription that hosts your dev center resource. |
     | **Subscription name** | Enter the name of the subscription. |
     |**Tenant Id**|Enter the ID of the tenant.|
     | **Service Connection Name** | Enter a unique name for the service connection. |
-    | **Grant access permission to all pipelines** | Select the checkbox. |
+    | **Grant access permission to all pipelines** | Select this checkbox. |
 
 ### Grant the service connection access to the Deployment Environments project
 
-Deployment Environments uses role-based access control to grant permissions for performing specific activities on your Deployment Environments resource. To make changes from a CI/CD pipeline, you grant the Deployment Environments User role to the service principal.
+Deployment Environments uses role-based access control to grant permissions for performing specific activities on your Deployment Environments resource. To make changes from a CI/CD pipeline, you grant the Deployment Environments User role to the managed identity.
 
 1. In the [Azure portal](https://portal.azure.com/), go to your Deployment Environments project.
-1. In the left menu, under **Settings**, select **Identity**.  
-1. On the **System assigned** tab, set the **Status** to **On**.
-1. Select **Save**, and then confirm that you want to enable the identity. 
+1. If you don't have a managed identity for the project, complete these steps:
+   1. In the left menu, under **Settings**, select **Identity**.  
+   1. On the **System assigned** tab, set the **Status** to **On**.
+   1. Select **Save**, and then confirm that you want to enable the identity. 
 1. Select **Access control (IAM)** > **Add** > **Add role assignment**.
 1. On the **Role** tab, select **Deployment Environments User** in the list of job function roles.
 1. On the **Members** tab, select **Managed identity** and **Select members**.
-1. In the Select managed identities tab, under Managed identity, select the **Project** identity, select the project name, and then select **Select**.
+1. In the **Select managed identities** tab, under **Managed identity**, select the **Project** identity, select the project name, and then select **Select**.
 1. On the **Review + assign** tab, select **Review + assign** to add the role assignment.
 
 You can now use the service connection in your Azure Pipelines workflow definition to access your Deployment Environments environments.
