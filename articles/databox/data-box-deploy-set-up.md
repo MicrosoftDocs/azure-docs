@@ -53,7 +53,12 @@ Before you begin, make sure that:
 6. You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7U slot in your datacenter rack. You can place the device flat or upright in the rack.
 7. You have the following cables to connect your Data Box to the host computer. These cables are recommended, however, the next generation devices will work with 10G cables too.
     - 2 x 10G-BaseT RJ-45 cables (CAT-5e or CAT6)
-    - 2 x 100-GbE QSFP28 passive direct attached cable (use with DATA 1, DATA 2 network interfaces)
+    - 2 x 100-GbE QSFP28 passive direct attached cable (use with DATA 1, DATA 2 network interfaces). For in house testing, the Q28-PC01 100G DAC QSFP28 Passive Direct Attach Copper Twinax cable was used.
+  	  - In case you need to connect the devices using a SFP/SFP+ cable, you will need to use an appropriate adaptor. Recommended QSFP to SFP+ adaptors are Mellanox MAM1Q00A-QSA or Cisco 100G QSFP28.
+   	  - To connect a QSFP28 device to an LC fiber backend using the Mellanox MAM1Q00A-QSA adapter or another compatible adapter, you need:
+   		 - Mellanox MAM1Q00A-QSA Adapter – Converts the QSFP28 port to an SFP+ or SFP28 slot.
+   		 - Compatible SFP+ or SFP28 Transceiver – Choose an optical transceiver that matches your LC fiber backbone (e.g., SFP+ SR for multimode fiber or SFP+ LR for single-mode fiber).
+   	 	 - LC Fiber Cable – Connects the transceiver to your fiber backbone.  
     [!INCLUDE [data-box-cable-adapter](../../includes/data-box-cable-adapter.md)]
 
 ## Cable your device
