@@ -115,8 +115,8 @@ Deployment Environments uses role-based access control to grant permissions for 
 1. Select **Save**, and then confirm that you want to enable the identity. 
 1. Select **Access control (IAM)** > **Add** > **Add role assignment**.
 1. On the **Role** tab, select **Deployment Environments User** in the list of job function roles.
-1. On the **Members** tab, select **Select members**, and then use the display name you copied previously to search for the service principal.
-1. Select the service principal, and then select **Select**.
+1. On the **Members** tab, select **Managed identity** and **Select members**.
+1. In the Select managed identities tab, under Managed identity, select the **Project** identity, select the project name, and then select **Select**.
 1. On the **Review + assign** tab, select **Review + assign** to add the role assignment.
 
 You can now use the service connection in your Azure Pipelines workflow definition to access your Deployment Environments environments.
@@ -150,7 +150,7 @@ Azure CLI is a command-line tool that provides a set of commands for working wit
 1. In the **Files** pane, in the **.ado** folder, select the **azure-pipelines.yml** file.
 1. In the azure-pipelines.yml file, edit the existing content:
    - Replace `<AzureServiceConnectionName>` with the name of the service connection you created earlier.
-   - In the `Inline script`, replace each of the following placeholders with values that are appropriate to your Azure environment:
+   - In the `Inline script` input, replace each of the following placeholders with values that are appropriate to your Azure environment:
    
       | Placeholder                     | Value |
       | ------------------------------- | ----- |
