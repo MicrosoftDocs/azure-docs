@@ -106,19 +106,6 @@ To enable zone redundancy, your SQL managed instance **Backup storage redundancy
 
 Zone redundancy for Azure SQL Managed Instance is supported in select regions. To learn more, see [Supported regions](/azure/azure-sql/managed-instance/region-availability#zone-redundancy).
 
-### Considerations
-
-::: zone pivot="business-critical"
-
-**Latency:** Because zone-redundant instances have replicas in different datacenters with some distance between them, the increased network latency might increase the transaction commit time, and thus impact the performance of some OLTP workloads. Most applications aren't sensitive to this extra latency.
-
-::: zone-end
-
-::: zone pivot="general-purpose"
-
-**Downtime:** A heavy workload might experience some performance degradation during the transition from one compute node to the other since the new database engine process starts with a cold cache.
-
-::: zone-end
 
 ### Cost
 
@@ -160,7 +147,7 @@ The following section describes what to expect when your SQL managed instance is
 
 - **Data replication between zones:** The primary replica continually and sequentially pushes changes to the secondary replicas in different availability zones, which ensures that data is persisted on a sufficient number of secondary replicas before committing each transaction. Those replicas are located in different availability zones. This process guarantees that, if the primary replica or a readable secondary replica become unavailable for any reason, a fully synchronized replica is always available for failover.
 
-  <!-- Can we say anything about how enabling zone redundancy affects write latency? -->
+  Because zone-redundant instances have replicas in different datacenters with some distance between them, the increased network latency might increase the transaction commit time, and thus impact the performance of some OLTP workloads. Most applications aren't sensitive to this extra latency.
 
 ::: zone-end
 
@@ -189,6 +176,8 @@ The following section describes what to expect when your SQL managed instance is
 ::: zone pivot="general-purpose"
 
 - **Expected downtime:** There might be a small amount of downtime during an availability zone failover. The downtime is typically less than 2 minutes.
+
+  A heavy workload might experience some performance degradation during the transition from one compute node to the other since the new database engine process starts with a cold cache.
 
 ::: zone-end
 
