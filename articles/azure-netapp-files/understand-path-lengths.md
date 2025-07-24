@@ -27,9 +27,9 @@ The following table shows the supported component and path lengths in Azure NetA
 >[!NOTE]
 >Dual-protocol volumes use the lowest maximum value.
 
-## NFS path length considerations in Azure NetApp FIles
+## NFS path length considerations in Azure NetApp Files
 
-In Azure NetApp Files NFS volumes, charcter byte size is a factor in the individual path lengths. For instance, NFS allows path components of a maximum size of 255 bytes. The file encoding format of American Standard Code for Information Interchange (ASCII) uses 8-bit encoding, meaning file path components (such as a file or folder name) in ASCII can be up to 255 characters since ASCII characters are 1 byte in size. For more details, see [Character byte impact on path lengths](understand-path-lengths.md#character-byte-impact-on-path-lengths).
+In Azure NetApp Files NFS volumes, character byte size is a factor in the individual path lengths. For instance, NFS allows path components of a maximum size of 255 bytes. The file encoding format of American Standard Code for Information Interchange (ASCII) uses 8-bit encoding, meaning file path components (such as a file or folder name) in ASCII can be up to 255 characters since ASCII characters are 1 byte in size. For more information, see [Character byte impact on path lengths](understand-path-lengths.md#character-byte-impact-on-path-lengths).
 
 ## SMB path length considerations in Azure NetApp Files 
 
@@ -43,7 +43,7 @@ Unlike NFS, larger byte sizes for characters get stored in a separate area by th
 That means a file or folder’s maximum name length can be different in each of the above scenarios.
 * `\\SMB-SHARE\` (12 characters) would allow a folder or file name that is 243 characters in length
 * `\\SMB-SHARE\apps\archive\` (25 characters) would allow a folder or file name that is 230 characters in length
-* `Z:\` (3 characters; mapped to `\\SMB-SHARE\apps\archive\`) would allow a folder or file name that is 252 characters in length
+* `Z:\` (three characters; mapped to `\\SMB-SHARE\apps\archive\`) would allow a folder or file name that is 252 characters in length
   
 While 255 characters is the maximum default path length for SMB shares (Windows limit), Azure NetApp Files also supports the same greater allowed path lengths for SMB shares that modern Windows servers support: [up to 32,767 bytes](/windows/win32/fileio/maximum-file-path-limitation). However, depending on the version of the Windows client, some applications can't [support paths longer than 260 bytes](/windows/win32/fileio/naming-a-file). Individual path components (the values between slashes, such as file or folder names) support up to 255 characters.
 
