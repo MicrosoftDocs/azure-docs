@@ -16,7 +16,7 @@ ms.custom: references_regions, subject-reliability
 
 This how-to guide describes how to enable and configure availability zones on an Azure API Management instance.
 
-For more detailed information about reliability features of API Management, such as availability zones and multiple-region deployments, see [Reliability in API Management](../reliability/reliability-api-management.md).
+For more detailed information about reliability features of API Management, such as availability zones and multi-region deployments, see [Reliability in API Management](../reliability/reliability-api-management.md).
 
 [!INCLUDE [api-management-service-update-behavior](../../includes/api-management-service-update-behavior.md)]
 
@@ -30,7 +30,7 @@ For more detailed information about reliability features of API Management, such
 
 ## Default availability zone support
 
-When you create a new API Management instance in the **Premium** tier in a region that supports availability zones, or you [deploy API Management to an additional region](api-management-howto-deploy-multi-region.md), API Management provides two types of availability zone support:
+When you create a new API Management instance in the **Premium** tier in a region that supports availability zones, or you [deploy API Management to multiple regions](api-management-howto-deploy-multi-region.md), API Management provides two types of availability zone support:
 
 - **Automatic:** API Management provides automatic availability zone support when you don't specify which availability zones to use.
 
@@ -51,19 +51,19 @@ We recommend automatic availability zone configuration, but you can manually con
 
 ### Instance not injected in a virtual network
 
-To manually configure availability zone support on an existing location of an API Management instance:
+To manually configure availability zone support on an existing location of an API Management instance, follow these steps:
 
-1. Thoroughly understand all requirements and considerations for availability zones in API Management by reading [Reliability in API Management](../reliability/reliability-api-management.md).
+1. Thoroughly understand all [requirements and considerations for availability zones in API Management](../reliability/reliability-api-management.md).
 
 1. In the Azure portal, go to your API Management instance.
 
 1. On the **Deployment + infrastructure** menu, select **Locations**.
 
-1. In the **Location** box, select the location that you want to enable. The location must support availability zones, as mentioned earlier in the [prerequisites](#prerequisites).
+1. Select the location that you want to enable. The location must support availability zones, as mentioned earlier in the [prerequisites](#prerequisites).
 
-1. In the **Units** box, select the number of scale [units](../api-management/upgrade-and-scale.md) that you want in the location.
+1. Under **Units**, select the number of scale [units](../api-management/upgrade-and-scale.md) that you want in the location.
 
-1. In the **Availability zones** box, leave the **Automatic** setting (recommended), or optionally select one or more zones. If you select specific zones, the number of units that you select must distribute evenly across the availability zones. For example, if you select three units, you must select three zones so that each zone hosts one unit. 
+1. Under **Availability zones**, leave the **Automatic** setting (recommended), or optionally select one or more zones. If you select specific zones, the number of units that you select must distribute evenly across the availability zones. For example, if you select three units, you must select three zones so that each zone hosts one unit. 
 
 1. Select **Apply**, and then select **Save**.
 
@@ -71,9 +71,9 @@ To manually configure availability zone support on an existing location of an AP
 
 ### Instance injected in a virtual network
 
-To manually configure availability zone support on an existing location of an API Management instance that's injected in a virtual network:
+To manually configure availability zone support on an existing location of an API Management instance that's injected in a virtual network, follow these steps:
 
-1. Thoroughly understand all requirements and considerations for enabling zone redundancy in API Management by reading [Reliability in API Management](../reliability/reliability-api-management.md).
+1. Thoroughly understand all [requirements and considerations for enabling zone redundancy in API Management](../reliability/reliability-api-management.md).
 
 1. Create a public IP address in the location to enable availability zones. For detailed requirements, see the [virtual networking guidance](../api-management/api-management-using-with-vnet.md?tabs=stv2#prerequisites).
 
@@ -81,23 +81,23 @@ To manually configure availability zone support on an existing location of an AP
 
 1. On the **Deployment + infrastructure** menu, select **Locations**.
 
-1. In the **Location** box, select the location that you want to enable. The location must support availability zones, as mentioned earlier in the [prerequisites](#prerequisites).
+1. Select the location that you want to enable. The location must support availability zones, as mentioned earlier in the [prerequisites](#prerequisites).
 
-1. In the **Units** box, select the number of scale [units](../api-management/upgrade-and-scale.md) that you want in the location.
+1. Under **Units**, select the number of scale [units](../api-management/upgrade-and-scale.md) that you want in the location.
 
-1. In the **Availability zones** box, leave the **Automatic** setting (recommended), or optionally select one or more zones. If you select specific zones, the number of units that you select must distribute evenly across the availability zones. For example, if you select three units, you must select three zones so that each zone hosts one unit.
+1. Under **Availability zones**, leave the **Automatic** setting (recommended), or optionally select one or more zones. If you select specific zones, the number of units that you select must distribute evenly across the availability zones. For example, if you select three units, you must select three zones so that each zone hosts one unit.
 
-1. In the **Public IP Address** box, select a public IP address in the location.
+1. Under **Public IP Address**, select a public IP address in the location.
 
 1. Select **Apply**, and then select **Save**.
 
-:::image type="content" alt-text="Screenshot that shows availability zone configuration for an existing location of an API Management instance that's injected in a virtual network." source ="media/enable-availability-zone-support/option-three-stv2-injected-in-vnet.png":::
+:::image type="content" alt-text="Screenshot that shows availability zone configuration for an existing location of an API Management instance that's injected in a virtual network." source ="media/enable-availability-zone-support/option-three-stv2-injected-in-vnet.png" lightbox="media/enable-availability-zone-support/option-three-stv2-injected-in-vnet.png":::
 
 ## New gateway location
 
-To add a new location to your API Management instance and to configure availability zones in that location:
+To add a new location to your API Management instance and to configure availability zones in that location, follow these steps:
 
-1. Thoroughly understand all requirements and considerations for enabling availability zones in API Management by reading [Reliability in API Management](../reliability/reliability-api-management.md).
+1. Thoroughly understand all [requirements and considerations for enabling availability zones in API Management](../reliability/reliability-api-management.md).
 
 1. If your API Management instance is deployed in a virtual network in the primary location, set up a [virtual network](../api-management/api-management-using-with-vnet.md), subnet, and optional public IP address in the new location where you plan to enable availability zones.
 
@@ -107,15 +107,15 @@ To add a new location to your API Management instance and to configure availabil
 
 1. Select **+ Add** to add a new location. The location must support availability zones, as mentioned earlier in the [prerequisites](#prerequisites).
 
-1. In the **Units** box, select the number of scale [units](../api-management/upgrade-and-scale.md) that you want in the location.
+1. Under **Units**, select the number of scale [units](../api-management/upgrade-and-scale.md) that you want in the location.
 
-1. In the **Availability zones** box, leave the **Automatic** setting (recommended), or optionally select one or more zones. If you select specific zones, the number of units that you select must distribute evenly across the availability zones. For example, if you select three units, you must select three zones so that each zone hosts one unit.
+1. Under **Availability zones**, leave the **Automatic** setting (recommended), or optionally select one or more zones. If you select specific zones, the number of units that you select must distribute evenly across the availability zones. For example, if you select three units, you must select three zones so that each zone hosts one unit.
 
-1. If your API Management instance is deployed in a virtual network, use the boxes under **Network** to select the virtual network, subnet, and public IP address that are available in the location.
+1. If your API Management instance is deployed in a virtual network, under **Network**, select the virtual network, subnet, and public IP address that are available in the location.
 
 1. Select **Add**, and then select **Save**.
 
-:::image type="content" alt-text="Screenshot that shows selections for adding a new location for an API Management instance with or without a virtual network." source ="media/enable-availability-zone-support/option-four-add-new-location.png":::
+:::image type="content" alt-text="Screenshot that shows selections for adding a new location for an API Management instance with or without a virtual network." source ="media/enable-availability-zone-support/option-four-add-new-location.png" lightbox="media/enable-availability-zone-support/option-four-add-new-location.png":::
 
 ## Related content
 

@@ -34,7 +34,7 @@ When adding a region, you configure:
 
 ## Prerequisites
 
-* Thoroughly understand all requirements and considerations for enabling multi-region deployment in API Management by reading [Reliability in API Management](../reliability/reliability-api-management.md).
+* Thoroughly understand all [requirements and considerations for enabling multi-region deployment in API Management](../reliability/reliability-api-management.md).
 
 * If you haven't created an API Management service instance, see [Create an API Management service instance](get-started-create-service-instance.md). Select the Premium service tier.
 
@@ -64,7 +64,7 @@ By default, each API routes requests to a single back-end service URL. Even if y
 
 To take advantage of geographical distribution of your system, you should deploy back-end services in the same regions as API Management instances. Then, by using policies and the `@(context.Deployment.Region)` property, you can route the traffic to local instances of your back end.
 
-1. Navigate to your API Management instance and select **APIs** from the left menu.
+1. Go to your API Management instance and select **APIs** from the left menu.
 2. Select your desired API.
 3. On the **Design** tab, in the **Inbound processing** section, select **Code editor**.
 
@@ -115,7 +115,7 @@ You can also front your back-end services with [Azure Traffic Manager](https://a
 API Management routes the requests to a regional gateway based on [the lowest latency](../traffic-manager/traffic-manager-routing-methods.md#performance). Although it isn't possible to override this setting in API Management, you can use your own Traffic Manager with custom routing rules.
 
 1. Create your own [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/).
-1. If you use a custom domain, [use it with the Traffic Manager](../traffic-manager/traffic-manager-point-internet-domain.md) instead of the API Management service.
+1. If you use a custom domain, [use it with Traffic Manager](../traffic-manager/traffic-manager-point-internet-domain.md) instead of the API Management service.
 1. [Configure the API Management regional endpoints in Traffic Manager](../traffic-manager/traffic-manager-manage-endpoints.md). The regional endpoints follow the URL pattern of `https://<service-name>-<region>-01.regional.azure-api.net`, for example `https://contoso-westus2-01.regional.azure-api.net`.
 1. [Configure the API Management regional status endpoints in Traffic Manager](../traffic-manager/traffic-manager-monitoring.md). The regional status endpoints follow the URL pattern of `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`, for example `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`.
 1. Specify [the routing method](../traffic-manager/traffic-manager-routing-methods.md) of the Traffic Manager.
@@ -168,7 +168,7 @@ This section provides considerations for multi-region deployments when the API M
 * Configure each regional network independently. The [connectivity requirements](virtual-network-reference.md), such as required network security group rules for a virtual network in an added region, are generally the same as the requirements for a network in the primary region.
 * Virtual networks in the different regions don't need to be peered.
 > [!IMPORTANT]
-> When you configure regional gateways in internal virtual network mode, each gateway must also have outbound connectivity on port 1433 to the Azure SQL database configured for your API Management instance, which is only in the *primary* region. Ensure that you allow connectivity to the fully qualified domain name (FQDN) or IP address of this Azure SQL database in any routes or firewall rules you configure for networks in your secondary regions; the Azure SQL service endpoint can't be used in this scenario. To find the Azure SQL database name in the primary region, go to the **Network** > **Network status** page of your API Management instance in the portal. 
+> When you configure your API Management instance to use internal virtual network mode, each regional gateway must also have outbound connectivity on port 1433 to the Azure SQL database configured for your API Management instance, which is only in the *primary* region. Ensure that you allow connectivity to the fully qualified domain name (FQDN) or IP address of this Azure SQL database in any routes or firewall rules you configure for networks in your secondary regions; the Azure SQL service endpoint can't be used in this scenario. To find the Azure SQL database name in the primary region, go to the **Network** > **Network status** page of your API Management instance in the portal. 
 
 ### IP addresses
 
