@@ -78,7 +78,7 @@ An App Service Environment v3 in its subnet uses a variable number of addresses,
 
 The apps in an App Service Environment can access resources on the same virtual network as App Service Environment without extra configuration. If the App Service Environment virtual network connects to another network, the apps in the App Service Environment can access resources in those extended networks. But user configuration on the network can block traffic.
 
-The multitenant version of Azure App Service includes numerous features that let your apps connect to various networks. With these networking features, your apps function as if they're deployed on a virtual network. Apps in an App Service Environment v3 don't require added configuration to run on the virtual network.
+The multitenant version of Azure App Service includes numerous features that let your apps connect to various networks. These networking features enable your apps to  function as if they're deployed on a virtual network. Apps in an App Service Environment v3 don't require added configuration to run on the virtual network.
 
 A key benefit of using an App Service Environment instead of a multitenant service is that network access controls for the App Service Environment-hosted apps exist outside the application configuration. In a multitenant service, you must enable the features on each app individually and use role-based access control or a policy to prevent configuration changes.
 
@@ -86,43 +86,43 @@ A key benefit of using an App Service Environment instead of a multitenant servi
 
 App Service Environment v3 differs from earlier versions in the following ways:
 
-- There are no networking dependencies on the customer's virtual network. You can secure all inbound and outbound traffic and route outbound traffic as you want.
+- It has no networking dependencies on the customer's virtual network. You can secure all inbound and outbound traffic and route outbound traffic as needed.
 
-- You can deploy an App Service Environment v3 with zone redundancy enabled. You set zone redundancy only in regions where all App Service Environment v3 dependencies support zone redundancy. You can enable zone redundancy at creation or anytime after deployment. With a zone-redundant App Service Environment, each App Service plan must have at least two instances so that they can be spread across zones. Each App Service plan's zone redundancy status is independent, so you can have a mix of zone-redundant and non-zone-redundant plans. To make plans zone redundant, the App Service Environment must have zone redundancy enabled. Non-zone-redundant plans can be scaled down to a single instance. For more information, see [Reliability in Azure App Service](../../reliability/reliability-app-service.md?pivots=isolated).
+- You can deploy an App Service Environment v3 with zone redundancy enabled. You set zone redundancy only in regions where all App Service Environment v3 dependencies support zone redundancy. You can enable zone redundancy at creation or anytime after deployment. With a zone-redundant App Service Environment, each App Service plan must have at least two instances to distribute them across zones. Each App Service plan's zone redundancy status is independent, so you can use a mix of zone-redundant and non-zone-redundant plans. To make plans zone redundant, the App Service Environment must have zone redundancy enabled. You can scale non-zone-redundant plans down to a single instance. For more information, see [Reliability in Azure App Service](../../reliability/reliability-app-service.md?pivots=isolated).
 
 - You can deploy an App Service Environment v3 on a dedicated host group. Host group deployments aren't zone redundant.
 
-- Scaling is faster than with an App Service Environment v2. Scaling is much faster than in the multitenant service, but it isn't immediate.
+- It scales faster than an App Service Environment v2. Scaling is much faster than in the multitenant service, but it isn't immediate.
 
-- Front-end scaling adjustments are no longer required. App Service Environment v3 front ends automatically scale to meet your needs and are deployed on better hosts.
+- It no longer requires front-end scaling adjustments. App Service Environment v3 front ends automatically scale to meet your needs and are deployed on improved hosts.
 
-- Scaling no longer prevents other scale operations within App Service Environment v3. Only one scale operation runs at a time for a combination of OS and size. For example, while your Windows small App Service plan is scaling, you can start a scale operation for a Windows medium plan or any other plan except Windows small.
+- It allows other scale operations to proceed while an operation is in progress, as long as they involve different OS and size combinations. For example, while your Windows small App Service plan scales, you can start a scale operation for a Windows medium plan or any other plan except Windows small.
 
-- You can reach apps in an internal-VIP App Service Environment v3 across global peering. This access wasn't possible in earlier versions.
+- It supports access to apps in an internal-VIP App Service Environment v3 across global peering. Earlier versions don't support this access.
 
-A few features that were available in earlier versions of App Service Environment aren't available in App Service Environment v3. For example, you can no longer do the following actions:
+Some features available in earlier versions of App Service Environment aren't available in App Service Environment v3. For example, you can no longer do the following actions:
 
 - Perform a backup and restore operation on a storage account behind a firewall.
 
-- Access the FTPS endpoint by using a custom domain suffix.
+- Access the File Transfer Protocol Secure (FTPS) endpoint by using a custom domain suffix.
 
 ## Pricing
 
-With App Service Environment v3, the pricing model varies depending on the type of App Service Environment deployment that you have. There are three pricing models:
+The App Service Environment v3 pricing model varies depending on the deployment type:
 
-- **App Service Environment v3:** If the App Service Environment is empty, there's a charge as though you have one instance of Windows I1v2. The one instance charge isn't an additive charge but is applied only if the App Service Environment is empty.
+- **App Service Environment v3:** If the environment is empty, you're charged as if you have one instance of Windows I1v2. This charge applies only when no instances are deployed.
 
 - **Zone redundant App Service Environment v3:** There's no added charge for availability zone support. The pricing model is the same as an App Service Environment that isn't zone redundant.
 
-- **Dedicated host App Service Environment v3:** With a dedicated host deployment, you pay for two dedicated hosts at the time of App Service Environment v3 creation, based on our pricing. As you scale, you're charged a specialized Isolated v2 rate for each vCore. I1v2 uses two vCores, I2v2 uses four vCores, and I3v2 uses eight vCores for each instance.
+- **Dedicated host App Service Environment v3:** You pay for two dedicated hosts at the time of App Service Environment v3 creation, based on current pricing. As you scale, you're charged a specialized Isolated v2 rate for each vCore. For each instance, I1v2 uses two vCores, I2v2 uses four vCores, and I3v2 uses eight vCores.
 
-Reserved Instance pricing for Isolated v2 is available and is described in [How reservation discounts apply to Azure App Service](../../cost-management-billing/reservations/reservation-discount-app-service.md). App Service and Reserved Instance pricing is available at [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/) under the Isolated v2 plan.
+You can also use [reserved instance pricing for Isolated v2](../../cost-management-billing/reservations/reservation-discount-app-service.md). For more information, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/).
 
 ## Regions
 
-App Service Environment v3 is available in the following regions:
+App Service Environment v3 is available in the following regions.
 
-### Azure Public
+### Azure public regions
 
 | Region               | Regional deployment support  | Availability zone support   |
 | -------------------- | :--------------------------: | :-------------------------: |
@@ -183,7 +183,7 @@ App Service Environment v3 is available in the following regions:
 \* Limited availability and no support for dedicated host deployments.  
 \** To learn more about availability zones and available services support in these regions, contact your Microsoft sales or customer representative.
 
-### Azure Government
+### Azure Government regions
 
 | Region               | Regional deployment support  | Availability zone support   |
 | -------------------- | :--------------------------: | :-------------------------: |
@@ -193,7 +193,7 @@ App Service Environment v3 is available in the following regions:
 | US Gov Texas         | ✅                           |                             |
 | US Gov Virginia      | ✅                           |✅                          |
 
-### Microsoft Azure operated by 21Vianet
+### Azure operated by 21Vianet
 
 | Region               | Regional deployment support | Availability zone support   |
 | -------------------- | :--------------------------: | :-------------------------: |
@@ -210,9 +210,9 @@ An App Service Environment stores customer data, including app content, settings
 The following sections list the regional pricing tiers, or SKUs, availability for App Service Environment v3.
 
 > [!NOTE]
-> Windows Container plans don't support memory-intensive SKUs.
+> Windows container plans don't support memory-intensive SKUs.
  
-### Azure Public
+### Azure public regions
 
 | Region               | Standard     | Large       | Memory intensive  |
 | -------------------- | :----------: | :---------: | :---------------: |
@@ -271,9 +271,9 @@ The following sections list the regional pricing tiers, or SKUs, availability fo
 | West US 2            | ✅          | ✅          | ✅               | 
 | West US 3            | ✅          | ✅          | ✅               | 
 
-\* Windows Container doesn't support Large SKUs in this region.
+\* Windows containers don't support large SKUs in this region.
 
-### Azure Government
+### Azure Government regions
 
 | Region               | Standard     | Large       | Memory intensive  |
 | -------------------- | :----------: | :---------: | :---------------: |
@@ -284,7 +284,9 @@ The following sections list the regional pricing tiers, or SKUs, availability fo
 | US Gov Texas         | ✅          |✅ *         |                   |
 | US Gov Virginia      | ✅          |✅ *         |                   |
 
-### Microsoft Azure operated by 21Vianet
+\* Windows containers don't support large SKUs in this region.
+
+### Azure in China
 
 | Region               | Standard     | Large       | Memory intensive  |
 | -------------------- | :----------: | :---------: | :---------------: |
@@ -292,3 +294,4 @@ The following sections list the regional pricing tiers, or SKUs, availability fo
 | China East 3         | ✅          | ✅ *        |                   |
 | China North 3        | ✅          | ✅ *        |                   |
 
+\* Windows containers don't support large SKUs in this region.
