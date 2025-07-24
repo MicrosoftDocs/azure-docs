@@ -86,7 +86,6 @@ To create project environment types:
 
    1. Confirm that the environment type appears in the list.
 
-
 ## Configure a service connection
 
 In Azure Pipelines, you create a *service connection* in your Azure DevOps project to access resources in your Azure subscription. When you create the service connection, Azure DevOps creates a Microsoft Entra service principal object.
@@ -106,16 +105,14 @@ In Azure Pipelines, you create a *service connection* in your Azure DevOps proje
     | **Service Connection Name** | Enter a unique name for the service connection. |
     | **Grant access permission to all pipelines** | Select the checkbox. |
 
-1. In the list of service connections, select the one you just created, and then select **Manage Service Principal**.
-   The Azure portal opens in a separate browser tab and shows the service principal details.
-1. In the Azure portal, copy the **Display name** value.
-    You use this value in the next step to grant permissions for running load tests to the service principal.
-
 ### Grant the service connection access to the Deployment Environments project
 
 Deployment Environments uses role-based access control to grant permissions for performing specific activities on your Deployment Environments resource. To make changes from a CI/CD pipeline, you grant the Deployment Environments User role to the service principal.
 
 1. In the [Azure portal](https://portal.azure.com/), go to your Deployment Environments project.
+1. 1. In the left menu, under **Settings**, select **Identity**.  
+1. On the **System assigned** tab, set the **Status** to **On**.
+1. Select **Save**, and then confirm that you want to enable the identity. 
 1. Select **Access control (IAM)** > **Add** > **Add role assignment**.
 1. On the **Role** tab, select **Deployment Environments User** in the list of job function roles.
 1. On the **Members** tab, select **Select members**, and then use the display name you copied previously to search for the service principal.
@@ -128,7 +125,7 @@ You can now use the service connection in your Azure Pipelines workflow definiti
 
 To view environments created by other users, including the service connection, you need to grant your account read access to the Deployment Environments project.
 
-1. In the [Azure portal](https://portal.azure.com/), go to your Deployment Environments project.
+1. In the [Azure portal](https://portal.azure.com/), go to your Deployment Environments project. 
 1. Select **Access control (IAM)** > **Add** > **Add role assignment**.
 1. On the **Role** tab, select **Deployment Environments Reader** in the list of job function roles.
 1. On the **Members** tab, select **Select members**, and then search for your own account.
