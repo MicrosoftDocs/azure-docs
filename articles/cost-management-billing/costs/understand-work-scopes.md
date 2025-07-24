@@ -178,7 +178,7 @@ Users with billing scopes roles don't have access to management groups because t
 | **Exports** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
 | **Cost Allocation Rules** | N/A – only applicable to Billing Account scope | N/A – only applicable to Billing Account scope | N/A – only applicable to Billing Account scope | N/A – only applicable to Billing Account scope | N/A – only applicable to Billing Account scope |
 
-### Microsoft Customer Agreement (MCA) scopes
+### Microsoft Customer Agreement scopes
 
 Microsoft Customer Agreement (MCA) billing accounts have the following scopes:
 
