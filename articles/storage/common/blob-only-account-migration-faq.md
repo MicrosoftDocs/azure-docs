@@ -31,7 +31,7 @@ This FAQ addresses common questions about migrating from BlobStorage (blob-only)
 | Which blob features won’t I get in BlobStorage? | Features like lifecycle management, per-blob tiering, point-in-time restore, and Data Lake (Hierarchical Namespace) are only available in GPv2. |
 | What would my bill look like after the migration? How do I calculate the new billing amount? | Your bill will reflect GPv2 pricing, which includes charges for read/write operations, tier-based storage pricing, and redundancy options. Use the Azure Pricing Calculator and your current invoice data to estimate new costs. |
 | Is the migration permanent? | Yes. Once you migrate to GPv2, you can't revert to BlobStorage. GPv2 enables newer features and pricing structures. |
-| I cannot migrate by the retirement date. Can I get an exception? | No. Microsoft won't grant exceptions. All BlobStorage accounts must be migrated by the announced deadline to avoid disruption. |
+| I can't migrate by the retirement date. Can I get an exception? | No. Microsoft won't grant exceptions. All BlobStorage accounts must be migrated by the announced deadline to avoid disruption. |
 | What happens if I haven’t migrated by the retirement date? Will I lose access to my data? | Microsoft may automatically migrate your account, but you risk access disruption and billing misalignment. Data will be preserved, but access could be temporarily impacted. |
 | Will the migration require downtime? | No. The migration process can be planned to avoid downtime. You can access data and services continuously during the transition. |
 | Will there be any data loss? | No. The migration process is safe and doesn't delete or move your data unexpectedly. All blobs, containers, and metadata remain intact. |
