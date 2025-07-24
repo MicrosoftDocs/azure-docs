@@ -51,7 +51,7 @@ This article provides instructions for both the Azure portal and Azure CLI. Sele
    ```
 ::: zone-end
 
-## Create a new service connection in App Service
+## Create a service connection in App Service
 
 You use Service Connector to create a new service connection in Azure App Service.
 
@@ -65,7 +65,7 @@ You use Service Connector to create a new service connection in Azure App Servic
 
     :::image type="content" source="./media/app-service-quickstart/select-service-connector.png" alt-text="Screenshot of the Azure portal, selecting Service Connector and creating new connection.":::
 
-1. Select or enter the following settings.
+1. On the **Basics** tab, select or enter the following settings.
 
     | Setting             | Example                                | Description                                                                                                                                                             |
     |---------------------|----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -104,41 +104,52 @@ You use Service Connector to create a new service connection in Azure App Servic
 ::: zone-end
 
 ::: zone pivot="azure-cli"
-#### [Using a managed identity](#tab/Using-Managed-Identity)
+### [Managed identity (recommended)](#tab/using-managed-identity)
 
-Use the Azure CLI [az webapp connection](/cli/azure/webapp/connection) command to create a service connection to a Blob Storage with a system-assigned Managed Identity, providing the following information:
-
-- The name of the resource group that contains the App Service
-- The name of the App Service
-- The name of the resource group that contains the storage account
-- The name of the storage account
-
-```azurecli
-az webapp connection create storage-blob
-```
+Run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-storage-blob) command to create a service connection from App Service to Blob Storage with a system-assigned managed identity. You can run this command in two ways:
+    
+   * Generate the new connection step by step:
+        
+        ```azurecli-interactive
+        az webapp connection create storage-blob --system-identity
+        ```
+ 
+   * Generate the new connection at once. Replace the placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<webapp>`, `<target-subscription>`, `<target_resource_group>`, and `<account>`.
+    
+        ```azurecli-interactive
+        az webapp connection create storage-blob \
+           --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.Web/sites/<webapp> \
+           --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default \
+           --system-identity
+        ```
 
 > [!NOTE]
-> If you don't have a Blob Storage, run `az webapp connection create storage-blob --new --system-identity` to provision a new Blob Storage resource and directly connect it to your App Service instance.
+> If you don't have a Blob Storage account, run `az webapp connection create storage-blob --new --system-identity` to create one and connect it to your App Service using a managed identity.
 
-#### [Using an access key](#tab/Using-access-key)
+### [Access key](#tab/using-access-key)
 
 > [!WARNING]
 > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
-Use the Azure CLI [az webapp connection create](/cli/azure/webapp/connection/create) command to create a service connection to an Azure Blob Storage with an access key, providing the following information:
+Run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-storage-blob) command to create a service connection from App Service to Blob Storage with a connection string. You can run this command in two ways:
+    
+   * Generate the new connection step by step:
+        
+        ```azurecli-interactive
+        az webapp connection create storage-blob --secret
+        ```
+    
+    * Generate the new connection at once. Replace the placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<webapp>`, `<target-subscription>`, `<target_resource_group>`, `<account>`, `<secret-name>`, and `<secret>`.
+     
+        ```azurecli-interactive
+        az webapp connection create storage-blob \
+           --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.Web/sites/<webapp> \
+           --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default \
+           --secret name=<secret-name> secret=<secret>
+        ```
 
-- **Source compute service resource group name:** the resource group name of the App Service.
-- **App Service name:** the name of your App Service that connects to the target service.
-- **Target service resource group name:** the resource group name of the Blob Storage.
-- **Storage account name:** the account name of your Blob Storage.
-
-```azurecli
-az webapp connection create storage-blob --secret
-```
-
-> [!TIP]
-> If you don't have a Blob Storage, run `az webapp connection create storage-blob --new --secret` to provision a new one and directly get connected to your App Service resource.
-
+> [!NOTE]
+> If you don't have a Blob Storage account, run `az webapp connection create storage-blob --new --secret` to create one and connect it to your App Service using a connection string.
 ---
 ::: zone-end
 
@@ -165,7 +176,7 @@ Run the Azure CLI [az webapp connection](/cli/azure/webapp/connection) command t
 - The name of the App Service
 
 ```azurecli
-az webapp connection list -g "<your-app-service-resource-group>" -n "<your-app-service-name>" --output table
+az webapp connection list --resource-group "<your-app-service-resource-group>" -n "<your-app-service-name>" --output table
 ```
 ::: zone-end
 

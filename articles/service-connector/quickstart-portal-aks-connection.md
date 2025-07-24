@@ -23,19 +23,19 @@ This article provides instructions for both the Azure portal and Azure CLI. Sele
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - An AKS cluster in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [deploy an AKS cluster](/azure/aks/learn/quick-kubernetes-deploy-portal).
-- The following [necessary permissions](./concept-permission.md).
+- The [necessary permissions](./concept-permission.md) to create and manage service connections..
 ::: zone-end
 
 ::: zone pivot="azure-cli"
-## Prerequisites
-
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - An AKS cluster in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet,  [deploy an AKS cluster](/azure/aks/learn/quick-kubernetes-deploy-cli).
-- The following [necessary permissions](./concept-permission.md).
+- The [necessary permissions](./concept-permission.md) to create and manage service connections.
 - An Azure Storage account. If you don't have one yet, [create an Azure Storage account](../storage/common/storage-account-create.md).
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 - This quickstart requires version 2.30.0 or higher of the Azure CLI. To upgrade to the latest version, run `az upgrade`. If using Azure Cloud Shell, the latest version is already installed.
+::: zone-end
 
+::: zone pivot="azure-cli"
 ## Initial set-up
 
 1. If you're using Service Connector for the first time, start by running the command [az provider register](/cli/azure/provider#az-provider-register) to register the Service Connector and Kubernetes Configuration resource providers.
@@ -57,7 +57,7 @@ This article provides instructions for both the Azure portal and Azure CLI. Sele
    ```
 ::: zone-end
 
-## Create a new service connection in an AKS cluster
+## Create a service connection in an AKS cluster
 
 You use Service Connector to create a new service connection in Azure Kubernetes Service.
 
@@ -69,7 +69,7 @@ You use Service Connector to create a new service connection in Azure Kubernetes
 1. Select **Settings** > **Service Connector** from the service menu. Then select **Create**.
    :::image type="content" source="./media/aks-quickstart/create.png" alt-text="Screenshot of the Azure portal, creating new connection.":::
 
-1. Select or enter the following settings.
+1. On the **Basics** tab, select or enter the following settings.
 
     | Setting             | Example              | Description                                                                                                                                                                               |
     |---------------------|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -123,24 +123,24 @@ Now that you created a connection between your AKS cluster and target service, y
 ::: zone-end
 
 ::: zone pivot="azure-cli"
-### [Using a workload identity](#tab/Using-Managed-Identity)
+### [Using a workload identity (recommended)](#tab/Using-Managed-Identity)
 
 Run the [`az aks connection create storage-blob`](/cli/azure/aks/connection/create#az-aks-connection-create-storage-blob) command. You can run this command in two different ways:
     
-   * generate the new connection step by step.
+   * Generate the new connection step by step.
      
        ```azurecli-interactive
        az aks connection create storage-blob \
-          --workload-identity \<user-identity-resource-id>
+          --workload-identity <user-identity-resource-id>
        ```
  
-   * generate the new connection at once. Make sure you replace the following placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<account>`, and <user-identity-resource-id>`.
+   * Generate the new connection at once. Replace the placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<account>`, and <user-identity-resource-id>`.
     
        ```azurecli-interactive
        az aks connection create storage-blob \
           --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.ContainerService/managedClusters/<cluster> \
           --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default \
-          --workload-identity \<user-identity-resource-id>
+          --workload-identity <user-identity-resource-id>
        ```
 
 ### [Using an access key](#tab/Using-access-key)
@@ -150,14 +150,13 @@ Run the [`az aks connection create storage-blob`](/cli/azure/aks/connection/crea
 
 Run the [`az aks connection create storage-blob`](/cli/azure/aks/connection/create#az-aks-connection-create-storage-blob) command. You can run this command in two different ways:
     
-   * generate the new connection step by step.
+   * Generate the new connection step by step.
      
        ```azurecli-interactive
-       az aks connection create storage-blob \
-          --secret name=<secret-name> secret=<secret>
+       az aks connection create storage-blob --secret
        ```
  
-   * generate the new connection at once. Make sure you replace the following placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<account>`, and `<user-identity-resource-id>`.
+   * Generate the new connection at once. Replace the placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<account>`, and `<user-identity-resource-id>`.
     
        ```azurecli-interactive
        az aks connection create storage-blob \
@@ -171,13 +170,25 @@ Run the [`az aks connection create storage-blob`](/cli/azure/aks/connection/crea
 > If you don't have a Blob Storage account, you can run `az aks connection create storage-blob --new --workload-identity` or `az aks connection create storage-blob --new --secret` to provision a new one and connect it to your AKS cluster.
 ::: zone-end
 
-::: zone pivot="azure-portal"
 ## View service connections in AKS cluster
 
+::: zone pivot="azure-portal"
 1. **Service Connector** displays existing connections in this cluster.
 1. Select **Network View** to see all the service connections in a network topology view.
 
    :::image type="content" source="./media/aks-quickstart/list-and-view.png" alt-text="Screenshot of the Azure portal, listing and viewing the connections.":::
+::: zone-end
+
+::: zone pivot="azure-cli"
+Run `az aks connection list` command to list all of your Azure Spring Apps' provisioned connections.
+
+Replace the placeholders `<cluster-resource-group>`, and `<cluster-name>`, from the command below with your own information. You can also remove the `--output table` option to view more information about your connections.
+
+```azurecli-interactive
+az aks connection list --resource-group <cluster-resource-group> --name <cluster-name> --output table
+```
+
+The output also displays the provisioning state of your connections.
 ::: zone-end
 
 ## Related links

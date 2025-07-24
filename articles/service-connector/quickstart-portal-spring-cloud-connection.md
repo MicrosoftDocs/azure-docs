@@ -21,29 +21,27 @@ This article provides instructions for both the Azure portal and Azure CLI. Sele
 
 [!INCLUDE [deprecation-note](../spring-apps/includes/deprecation-note.md)]
 
-::: zone pivot="azure-portal"
-
 ## Prerequisites
 
+::: zone pivot="azure-portal"
 - An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free).
 - An app deployed to [Azure Spring Apps](../spring-apps/basic-standard/quickstart.md) in a [region supported by Service Connector](./concept-region-support.md).
 - A target resource to connect Azure Spring Apps to. For example, a [Azure Key Vault](/azure/key-vault/general/quick-create-portal).
-- The following [necessary permissions](./concept-permission.md).
-
+- The [necessary permissions](./concept-permission.md) to create and manage service connections..
 ::: zone-end
 
 ::: zone pivot="azure-cli"
 
-## Prerequisites
-
 - An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free).
 - An app deployed to [Azure Spring Apps](../spring-apps/basic-standard/quickstart.md) in a [region supported by Service Connector](./concept-region-support.md).
 - A target resource to connect Azure Spring Apps to. For example, a [Azure Key Vault](/azure/key-vault/general/quick-create-portal).
-- The following [necessary permissions](./concept-permission.md).
+- The [necessary permissions](./concept-permission.md) to create and manage service connections.
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 - Version 2.37.0 or higher of the Azure CLI. To upgrade to the latest version, run `az upgrade`. If using Azure Cloud Shell, the latest version is already installed.
 - The Azure Spring Apps extension must be installed in the Azure CLI or the Cloud Shell. To install it, run `az extension add --name spring`.
+::: zone-end
 
+::: zone pivot="azure-cli"
 ## Initial setup
 
 1. If you're using Service Connector for the first time, start by running the command [az provider register](/cli/azure/provider#az-provider-register) to register the Service Connector resource provider.
@@ -63,15 +61,13 @@ This article provides instructions for both the Azure portal and Azure CLI. Sele
 
     > [!TIP]
     > If the `az spring` command isn't recognized by the system, check that you have installed the required extension by running `az extension add --name spring`.
-
 ::: zone-end
 
-## Create a new service connection
+## Create a service connection
 
 You use Service Connector to create a new service connection in Azure Spring Apps.
 
 ::: zone pivot="azure-portal"
-
 1. Select the **Search resources, services and docs (G +/)** search bar at the top of the Azure portal, type *Azure Spring Apps* in the filter and select **Azure Spring Apps**.
 
     :::image type="content" source="./media/azure-spring-apps-quickstart/select-azure-spring-apps.png" alt-text="Screenshot of the Azure portal, selecting Azure Spring Apps.":::
@@ -85,7 +81,7 @@ You use Service Connector to create a new service connection in Azure Spring App
 1. Select **Service Connector** from the service menu and select **Create**.
     :::image type="content" source="./media/azure-spring-apps-quickstart/create-connection.png" alt-text="Screenshot of the Azure portal, selecting the button to create a connection.":::
 
-1. Select or enter the following settings.
+1. On the **Basics** tab, select or enter the following settings.
     :::image type="content" source="./media/azure-spring-apps-quickstart/create-conn-basic.png" alt-text="Screenshot of the Azure portal, fill basic info to create a connection.":::
 
 
@@ -95,7 +91,7 @@ You use Service Connector to create a new service connection in Azure Spring App
     | **Connection name** | *keyvault_17d38*     | The connection name that identifies the connection between your app and target service. Use the connection name provided by Service Connector or enter your own connection name.    |
     | **Subscription**    | *my-subscription*    | The subscription that contains your target service (the service you want to connect to). The default value is the subscription that contains the app deployed to Azure Spring Apps. |
     | **Key vault**       | *my-keyvault-name*   | The target Key Vault you want to connect to. If you choose a different service type, select the corresponding target service instance.                                              |
-    | **Client type**     | *SpringBoot*         | The application stack that works with the target service you selected. Besides SpringBoot and Java, other stacks are also supported.                                                |
+    | **Client type**     | *SpringBoot*         | The application stack that works with the selected target service. Besides SpringBoot and Java, other stacks are also supported.                                                |
 
 1. Select **Next: Authentication** to select the authentication type. We recommend you use a system-assigned managed identity to connect to your Key Vault.
 
@@ -106,64 +102,63 @@ You use Service Connector to create a new service connection in Azure Spring App
     :::image type="content" source="./media/azure-spring-apps-quickstart/networking.png" alt-text="Screenshot of the Azure portal, filling out the Networking tab.":::
 
 1. Select **Next: Review + Create** to review the provided information. Wait a few seconds for Service Connector to validate the information and select **Create** to create the service connection.
-
 ::: zone-end
 
 ::: zone pivot="azure-cli"
 
-### [Managed identity](#tab/Using-Managed-Identity)
+### [Managed identity (recommended)](#tab/Using-Managed-Identity)
 
-1. Run the `az spring connection create` command to connect application deployed to Azure Spring Apps to a Blob Storage resource, using a system-assigned managed identity.
+Run the [az spring connection create](/cli/azure/spring/connection#az-spring-connection-create-storage-blob) command to connect application deployed to Azure Spring Apps to a Blob Storage resource, with a system-assigned managed identity. You can run this command in two different ways:
 
-1. Provide the following information at the CLI or Cloud Shell's request:
-
-    ```azurecli-interactive
-    az spring connection create storage-blob --system-identity
-    ```
-
-    | Setting                                                 | Description                                                                                        |
-    |---------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-    | `The resource group which contains the spring-cloud`    | The name of the resource group that contains an app hosted by Azure Spring Apps.                   |
-    | `Name of the spring-cloud service`                      | The name of the Azure Spring Apps resource.                                                        |
-    | `Name of the spring-cloud app`                          | The name of the application hosted by Azure Spring Apps that connects to the target service.       |
-    | `The resource group which contains the storage account` | The name of the resource group with the storage account.                                           |
-    | `Name of the storage account`                           | The name of the storage account you want to connect to. In this guide, we're using a Blob Storage. |
+   * Generate the new connection step by step.
+        
+          ```azurecli-interactive
+          az spring connection create storage-blob --system-identity
+          ```
+ 
+   * Generate the new connection at once. Replace the placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<azure-spring-apps-resource>`, `<app>`, `<target-subscription>`, `<target_resource_group>`, and `<account>`.
+    
+       ```azurecli-interactive
+       az containerapp connection create storage-blob \                         
+          --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.AppPlatform/Spring/<azure-spring-apps-resource>/apps/<app> \
+          --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default \
+          --system-identity
+       ```
 
 > [!TIP]
-> If you don't have a Blob Storage, you can run `az spring connection create storage-blob --new --system-identity` to provision a new Blob Storage and directly connect it to your application hosted by Azure Spring Apps using a managed identity.
+> If you don't have a Blob Storage account, run `az spring connection create storage-blob --new --system-identity` to create one and connect it to your application hosted on Azure Spring Apps using a managed identity.
 
 ### [Access key](#tab/Using-access-key)
 
 > [!WARNING]
 > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
-1. Run the `az spring connection create` command to create a service connection between Azure Spring Apps and an Azure Blob Storage using an access key.
+Run the [az spring connection create](/cli/azure/spring/connection#az-spring-connection-create-storage-blob) command to connect application deployed to Azure Spring Apps to a Blob Storage resource, with connection string. You can run this command in two different ways:
 
-    ```azurecli
-    az spring connection create storage-blob --secret
-    ```
+   * Generate the new connection step by step.
 
-1. Provide the following information at the CLI or Cloud Shell's request:
+        ```azurecli-interactive
+        az spring connection create storage-blob --secret
+        ```
 
-    | Setting                                                 | Description                                                                                        |
-    |---------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-    | `The resource group which contains the spring-cloud`    | The name of the resource group that contains app hosted by Azure Spring Apps.                      |
-    | `Name of the spring-cloud service`                      | The name of the Azure Spring Apps resource.                                                        |
-    | `Name of the spring-cloud app`                          | The name of the application hosted by Azure Spring Apps that connects to the target service.       |
-    | `The resource group which contains the storage account` | The name of the resource group with the storage account.                                           |
-    | `Name of the storage account`                           | The name of the storage account you want to connect to. In this guide, we're using a Blob Storage. |
+   * Generate the new connection at once. Replace the placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<azure-spring-apps-resource>`, `<app>`, `<target-subscription>`, `<target_resource_group>`, `<account>`, `<secret-name>`, and `<secret>`.
+
+       ```azurecli-interactive
+       az containerapp connection create storage-blob \                         
+          --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.AppPlatform/Spring/<azure-spring-apps-resource>/apps/<app> \
+          --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default \
+          --secret name=<secret-name> secret=<secret>
+       ```
 
 > [!TIP]
-> If you don't have a Blob Storage, you can run `az spring connection create storage-blob --new --secret` to provision a new Blob Storage and directly connect it to your application hosted by Azure Spring Apps using a connection string.
+> If you don't have a Blob Storage account, run `az spring connection create storage-blob --new --secret` to create one and connect it to your application hosted on Azure Spring Apps using a connection string.
 
 ---
-
 ::: zone-end
 
 ## View service connections
 
 :::zone pivot="azure-portal"
-
 Azure Spring Apps connections are displayed under **Settings > Service Connector**.
 
 1. Select **>**  to expand the list and access the properties required by your application.
@@ -175,17 +170,15 @@ Azure Spring Apps connections are displayed under **Settings > Service Connector
 ::: zone-end
 
 ::: zone pivot="azure-cli"
-
 Run `az spring connection list` command to list all of your Azure Spring Apps' provisioned connections.
 
-Replace the placeholders `<azure-spring-apps-resource-group>`, `<azure-spring-apps-name>`, and `<app-name>` from the command below with the name of your Azure Spring Apps resource group, the name of your Azure Spring Apps resource, and the name of your application. You can also remove the `--output table` option to view more information about your connections.
+Replace the placeholders `<azure-spring-apps-resource-group>`, `<azure-spring-apps-resource-name>`, and `<app-name>` from the command below with your own information. You can also remove the `--output table` option to view more information about your connections.
 
 ```azurecli-interactive
-az spring connection list --resource-group <azure-spring-apps-resource-group> --service <azure-spring-apps-name> --app <app-name>--output table
+az spring connection list --resource-group <azure-spring-apps-resource-group> --service <azure-spring-resource-name> --app <app-name> --output table
 ```
 
-The output also displays the provisioning state of your connections: failed or succeeded.
-
+The output also displays the provisioning state of your connections.
 ::: zone-end
 
 ## Related content
