@@ -30,7 +30,7 @@ Azure Cache for Redis provide two distinct cross-region replication options that
 
 ## Azure Container Registry
 
-Geo-replication enables an Azure container registry to function as a single registry, serving multiple regions with multi-primary regional registries. There's no restrictions dictated by region pairs for this feature. For more information, see [Geo-replication in Azure Container Registry](/azure/container-registry/container-registry-geo-replication).
+To learn about how to create multi-region solutions using Azure Container Registry, see [Reliability in Azure Container Registry](./reliability-container-registry.md).
 
 ## Azure Cosmos DB
 
