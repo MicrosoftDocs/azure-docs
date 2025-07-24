@@ -35,11 +35,11 @@ To learn more, see [OPC UA applications - user authentication](https://reference
 
 To configure the secrets for the *username* and *password* values in the [operations experience](https://iotoperations.azure.com) web UI:
 
-1. Navigate to your list of asset endpoints:
+1. Navigate to your list of devices:
 
-    :::image type="content" source="media/howto-configure-opc-ua-authentication-options/asset-endpoint-list.png" alt-text="Screenshot that shows the list of asset endpoints.":::
+    :::image type="content" source="media/howto-configure-opc-ua-authentication-options/asset-endpoint-list.png" alt-text="Screenshot that shows the list of devices.":::
 
-1. Select **Create asset endpoint**.
+1. Select **Create device**.
 
 1. Select **Username password** as the authentication mode:
 

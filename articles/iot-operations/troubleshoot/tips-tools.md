@@ -214,7 +214,7 @@ The following table describes some of the custom resource types you might work w
 
 | Custom resource type | Description |
 |----------------------|-------------|
-| `assetendpointprofiles` | Represents the configuration for an asset endpoint. |
+| `devices` | Represents the configuration for a device. |
 | `assets` | Represents the configuration for an asset. |
 | `brokers`, `brokerlisters`, `brokerauthentications`, `brokerauthorizations` | Represent the configuration for an MQTT broker. |
 | `dataflows`, `dataflowendpoints`, `dataflowprofiles` | Represent the configuration for a data flow. |

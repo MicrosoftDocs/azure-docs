@@ -183,7 +183,7 @@ Now you can define the tags associated with the asset. To add OPC UA tags:
 
 # [Azure CLI](#tab/cli)
 
-Use the following commands to add a "thermostat" namespaced asset to your device by using the Azure CLI. The commands add a dataset and two tags to the asset by using the `point add` command:
+Use the following commands to add a "thermostat" namespace asset to your device by using the Azure CLI. The commands add a dataset and two tags to the asset by using the `point add` command:
 
 ```azurecli
 # Create the asset
