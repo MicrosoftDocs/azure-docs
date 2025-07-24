@@ -44,6 +44,9 @@ Integrate AI capabilities into your Java applications:
 - [Build a chatbot with Azure OpenAI (Spring Boot)](tutorial-ai-openai-chatbot-java.md) - Create a Spring Boot application that connects to Azure OpenAI using managed identity.
 - [Build a RAG application with Azure OpenAI and Azure AI Search (Java)](tutorial-ai-openai-search-java.md) - Implement RAG to search through your own documents with Java.
 - [Run a chatbot with a local SLM (Spring Boot)](tutorial-ai-slm-spring-boot.md) - Deploy a Spring Boot application with a local SLM sidecar.
+- [Integrate an App Service app as an MCP Server for GitHub Copilot Chat (Java)](tutorial-ai-model-context-protocol-server-java.md) - Host an MCP server with Java to extend GitHub Copilot Chat capabilities.
+- [Add an App Service app as a tool in Azure AI Foundry Agent Service (Java)](tutorial-ai-integrate-azure-ai-agent-java.md) - Make your Java application available as a tool for AI agents.
+- [Build an agentic web app with Semantic Kernel (Java)](tutorial-ai-agent-web-app-semantic-kernel-java.md) - Create an intelligent agent-based application using Java and Semantic Kernel.
 
 Samples:
 
@@ -56,6 +59,9 @@ Add AI features to your Node.js web applications:
 - [Build a chatbot with Azure OpenAI (Express.js)](tutorial-ai-openai-chatbot-node.md) - Create an Express.js application that connects to Azure OpenAI using managed identity.
 - [Build a RAG application with Azure OpenAI and Azure AI Search (Node.js)](tutorial-ai-openai-search-nodejs.md) - Build a RAG application with Node.js.
 - [Run a chatbot with a local SLM (Express.js)](tutorial-ai-slm-expressjs.md) - Deploy an Express.js application with a local SLM sidecar.
+- [Integrate an App Service app as an MCP Server for GitHub Copilot Chat (Node.js)](tutorial-ai-model-context-protocol-server-node.md) - Host an MCP server with Node.js to extend GitHub Copilot Chat capabilities.
+- [Add an App Service app as a tool in Azure AI Foundry Agent Service (Node.js)](tutorial-ai-integrate-azure-ai-agent-node.md) - Make your Node.js application available as a tool for AI agents.
+- [Build an agentic web app with LangGraph and Azure AI Foundry (Node.js)](tutorial-ai-agent-web-app-langgraph-foundry-node.md) - Create an intelligent agent-based application using Node.js and LangGraph.
 
 ## Python applications
 
