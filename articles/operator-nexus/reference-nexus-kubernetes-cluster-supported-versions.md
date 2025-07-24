@@ -50,14 +50,14 @@ For the past release history, see [Kubernetes history](https://github.com/kubern
 An Operator Nexus Kubernetes service version is made of two discrete components that are combined into a single representation:
 
 * The Kubernetes version. For example, 1.25.4, is the version of Kubernetes that you deploy in Operator Nexus. These packages are supplied by Azure AKS, including all patch versions that Operator Nexus supports. For more information on Azure AKS versions, see [AKS Supported Kubernetes Versions](/azure/aks/supported-kubernetes-versions)
-* A [Version Bundle](#version-bundles) number which encapsulates the kubernetes version, features, and operating system (OS) image used by nodes in the Operator Nexus Kubernetes cluster, as a single number. For example, 2.†
+* A [Version Bundle](#version-bundles) number which encapsulates the Kubernetes version, features, and operating system (OS) image used by nodes in the Operator Nexus Kubernetes cluster, as a single number. For example, 2.†
 
 The combination of these values is represented in the API as the single kubernetesVersion. For example, `1.25.4-2` or the alternatively supported “v” notation: `v1.25.4-2`.
 
 † As of April 2025 version bundle increments have now changed to feature release versioning rather than sequential numbering to provide release-to-release distinctiveness at a glance. Continue reading for more information on this change.
 
 ### Version bundles
-By extending the version of Kubernetes to include a secondary value, cumulatively called the "version bundle", the Operator Nexus service can clearly account for cases where the kubernetes version is unchanged but the OS and features are modified to include updates from a new Nexus release. Such updates might include but aren't limited to: updated operating system images, patch releases for features, and the introduction of some platform features.
+By extending the version of Kubernetes to include a secondary value, cumulatively called the "version bundle", the Operator Nexus service can clearly account for cases where the Kubernetes version is unchanged but the OS and features are modified to include updates from a new Nexus release. Such updates might include but aren't limited to: updated operating system images, patch releases for features, and the introduction of some platform features.
 
 Prior to April 2025, version bundle numbers were incremented starting from "1" and varied depending on how long a particular Kubernetes patch version had been available on Nexus.  After April 2025, all version bundles in the same release are numbered with the same release identifier, e.g. "-4.4.0" or "-4.5.0".  The chart below details which version bundles are in the same series.
  
@@ -79,12 +79,12 @@ When new version bundles are released, all the Kubernetes patch versions in that
 If the goal of the Nexus cluster upgrade is to ONLY patch or update the Kubernetes minor version, select an available Kubernetes version from the same version bundle series. E.G., if 1.32.1-4.4.0 is your current version bundle, and 1.33.1-4.4.0 is the latest 1.33.x version bundle, then you should choose 1.33.1-4.4.0. This will ensure the current OS and component versions remain the same.
 
 #### OS and component version update
-If the goal of the Nexus cluster upgrade is to ONLY patch or update OS or platform components, select a version bundle within the same Kubernetes minor version as your cluster, but with a later release number. E.G., if 1.32.1-4.4.0 is your current version bundle, and 1.32.1-4.5.0 is the latest 1.32.1 version bundle, then you should choose 1.32.1-4.5.0. This will ensure the kubernetes version remains the same.
+If the goal of the Nexus cluster upgrade is to ONLY patch or update OS or platform components, select a version bundle within the same Kubernetes minor version as your cluster, but with a later release number. E.G., if 1.32.1-4.4.0 is your current version bundle, and 1.32.1-4.5.0 is the latest 1.32.1 version bundle, then you should choose 1.32.1-4.5.0. This will ensure the Kubernetes version remains the same.
 
 #### Kubernetes, OS, and Component version update
-If the goal of the Nexus cluster upgrade is to patch or update both Kubernetes version, OS version, and platform components together, select the latest release version for the subsequent kubernetes minor version. E.G., if 1.32.1-4.4.0 is your current version bundle and the latest version bundle for the subsequent kubernetes minor version is 1.33.2-4.5.0, then you should use 1.33.2-4.5.0. This will upgrade all components.
+If the goal of the Nexus cluster upgrade is to patch or update both Kubernetes version, OS version, and platform components together, select the latest release version for the subsequent Kubernetes minor version. E.G., if 1.32.1-4.4.0 is your current version bundle and the latest version bundle for the subsequent Kubernetes minor version is 1.33.2-4.5.0, then you should use 1.33.2-4.5.0. This will upgrade all components.
 
-In the first two cases, you may need to accept an updated Kubernetes version or component version if a version bundle containing the desires upgrades was not released. In this case, any subsequent kubernetes minor version will work, but the version bundle with the latest release version will be the most up-to-date and secure version of that kubernetes minor version. It is highly recommended to choose the latest release version for a given version bundle.
+In the first two cases, you may need to accept an updated Kubernetes version or component version if a version bundle containing the desires upgrades was not released. In this case, any subsequent Kubernetes minor version will work, but the version bundle with the latest release version will be the most up-to-date and secure version of that Kubernetes minor version. It is highly recommended to choose the latest release version for a given version bundle.
 
 
 ### Components version and breaking changes
@@ -262,7 +262,7 @@ During the extended availability period for unsupported Kubernetes versions (tha
 | Node image security patches                | Supported               | Not supported                    |
 
 > [!NOTE]
-> Operator Nexus relies on the releases and patches from [kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of three minor versions. Operator Nexus can only guarantee [full support](#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, Operator Nexus can either leave those versions unpatched or fork. Due to this limitation, extended availability doesn't support anything from relying on kubernetes upstream.
+> Operator Nexus relies on the releases and patches from [Kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of three minor versions. Operator Nexus can only guarantee [full support](#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, Operator Nexus can either leave those versions unpatched or fork. Due to this limitation, extended availability doesn't support anything from relying on Kubernetes upstream.
 
 ### Abandoned Nexus Kubernetes clusters
 
