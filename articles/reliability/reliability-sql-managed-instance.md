@@ -216,6 +216,13 @@ An individual Azure SQL Managed Instance is deployed within a single region. How
 
 This section summarizes key information about failover groups, but it's important to review [Failover groups overview & best practices - Azure SQL Managed Instance](/azure/azure-sql/managed-instance/failover-group-sql-mi) to learn more about how they work and how to configure them.
 
+### Failover policies
+
+When you create a failover group, you select the [failover policy](/azure/azure-sql/managed-instance/failover-group-sql-mi#failover-policy), which specifies who is responsible for detecting an outage and performing a failover. You can configure customer-managed failover (recommended) or Microsoft-managed failover.
+
+> [!IMPORTANT]
+> Use customer-managed failover options to develop, test, and implement your disaster recovery plans. **Do not rely on Microsoft-managed failover**, which might only be used in extreme circumstances. A Microsoft-managed failover would likely be initiated for an entire region. It can't be initiated for individual failover groups, SQL managed instances, subscriptions, or customers. Failover might occur at different times for different Azure services. We recommend you use customer-managed failover.
+
 ### Region support
 
 You can select any Azure region for the SQL managed instances within the failover group. Due to the high latency of wide area networks, geo-replication uses an asynchronous replication mechanism. To reduce network delays, select regions with low latency connections. To learn more about latency between Azure regions, see [Azure network round-trip latency statistics](/azure/networking/azure-network-latency).
