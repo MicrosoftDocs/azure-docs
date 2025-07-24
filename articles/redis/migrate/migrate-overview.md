@@ -54,8 +54,8 @@ Here are some other differences that aren't covered by the previous mapping. Con
 | DNS suffix (only for PROD cloud) | `.redis.cache.windows.net` | `<region>.redis.azure.net`                    |
 | TLS port                         | 6380                       | 10000                                         |
 | Non-TLS port                     | 6379                       | Not supported                                 |
-| Individual node TLS ports        | 130XX                      | 85xx                                          |
-| Individual node non-TLS port     | 150XX                      | Not supported                                 |
+| Individual node TLS ports        | 13XXX                      | 85xx                                          |
+| Individual node non-TLS port     | 15XXX                      | Not supported                                 |
 | Clustering support               | OSS clustering mode        | OSS and Enterprise cluster modes              |
 | Unsupported commands             | Unsupported commands       | Multi-key commands                            |
 | Regional availability            | All Azure regions          | * See the list of regions after this section. |
