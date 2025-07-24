@@ -11,9 +11,9 @@ ms.date: 07/22/2025
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
-
 #CustomerIntent: As a storage admin, I want to understand the Blob-Only retirement so that I can prepare for a smooth migration to GPv2.
 ---
+
 # BlobStorage (blob-only) storage account retirement overview
 
 Azure Storage is retiring the **BlobStorage (blob-only)** storage account type. This article explains what this change means for your blob-only workloads and how to prepare for the transition to **General-purpose v2 (GPv2)** storage accounts.
@@ -79,5 +79,5 @@ For assistance with migration or to learn more about GPv2 features, refer to the
 
 - [Upgrade a storage account to GPv2](storage-account-upgrade.md)
 - [Storage account overview](storage-account-overview.md)
-- [Azure Storage pricing](azure-storage-pricing.md)
+- [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)
 - [Azure Support Portal](https://portal.azure.com#view/Microsoft_AportBlade/~/overview)
