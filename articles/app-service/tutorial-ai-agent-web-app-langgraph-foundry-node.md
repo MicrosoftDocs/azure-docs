@@ -49,7 +49,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/free/javascript).
+- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/free/nodejs).
 - GitHub account to use GitHub Codespaces - [Learn more about GitHub Codespaces](https://docs.github.com/codespaces/overview).
 
 ## Open the sample with Codespaces
