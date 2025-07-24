@@ -2,134 +2,136 @@
   href: index.yml
 - name: Get started
   items:
-  - name: What is Azure DDoS Protection?
-    href: ddos-protection-overview.md
-  - name: Azure DDoS Protection features
-    href: ddos-protection-features.md
-  - name: Tier comparison
-    href: ddos-protection-sku-comparison.md
-  - name: Price comparison
-    href: ddos-pricing-guide.md
-  - name: What is Azure network security?
-    href: /azure/networking/security/network-security?toc=/azure/ddos-protection/toc.json
-  - name: FAQ
-    href: ddos-faq.yml
+    - name: What is Azure DDoS Protection?
+      href: ddos-protection-overview.md
+    - name: Azure DDoS Protection features
+      href: ddos-protection-features.md
+    - name: Tier comparison
+      href: ddos-protection-sku-comparison.md
+    - name: Price comparison
+      href: ddos-pricing-guide.md
+    - name: Cost optimization principles
+      href: ddos-optimization-guide.md
+    - name: What is Azure network security?
+      href: /azure/networking/security/network-security?toc=/azure/ddos-protection/toc.json
+    - name: FAQ
+      href: ddos-faq.yml
 - name: Configure
   items:
-  - name: DDoS Network Protection
-    items:
-    - name: Portal
-      href: manage-ddos-protection.md
-    - name: PowerShell
-      href: manage-ddos-protection-powershell.md
-    - name: CLI
-      href: manage-ddos-protection-cli.md
-    - name: Bicep
-      displayName: ARM, Resource Manager, Template
-      href: manage-ddos-protection-bicep.md
-    - name: ARM template
-      displayName: Resource Manager
-      href: manage-ddos-protection-template.md
-    - name: Terraform
-      href: manage-ddos-protection-terraform.md
-  - name: DDoS IP Protection
-    items:
-    - name: Portal
-      href: manage-ddos-ip-protection-portal.md
-    - name: PowerShell
-      href: manage-ddos-protection-powershell-ip.md
-    - name: CLI
-      href: manage-ddos-ip-protection-cli.md
-    - name: ARM template
-      displayName: Resource Manager
-      href: manage-ddos-ip-protection-template.md
-  - name: Switch tiers
-    href: ddos-switch-ddos-protection-tier.md
+    - name: DDoS Network Protection
+      items:
+        - name: Portal
+          href: manage-ddos-protection.md
+        - name: PowerShell
+          href: manage-ddos-protection-powershell.md
+        - name: CLI
+          href: manage-ddos-protection-cli.md
+        - name: Bicep
+          href: manage-ddos-protection-bicep.md
+          displayName: ARM, Resource Manager, Template
+        - name: ARM template
+          href: manage-ddos-protection-template.md
+          displayName: Resource Manager
+        - name: Terraform
+          href: manage-ddos-protection-terraform.md
+    - name: DDoS IP Protection
+      items:
+        - name: Portal
+          href: manage-ddos-ip-protection-portal.md
+        - name: PowerShell
+          href: manage-ddos-protection-powershell-ip.md
+        - name: CLI
+          href: manage-ddos-ip-protection-cli.md
+        - name: ARM template
+          href: manage-ddos-ip-protection-template.md
+          displayName: Resource Manager
+    - name: Switch tiers
+      href: ddos-switch-ddos-protection-tier.md
 - name: Deploy
   items:
-  - name: Deploy Route Server with DDoS Protection
-    href: ../route-server/tutorial-protect-route-server-ddos.md?toc=/azure/ddos-protection/TOC.json
-  - name: Deploy Firewall with DDoS Protection
-    href: ../firewall/tutorial-protect-firewall-ddos.md?toc=/azure/ddos-protection/TOC.json
-  - name: Deploy Application Gateway with DDoS Protection
-    href: ../application-gateway/tutorial-protect-application-gateway-ddos.md?toc=/azure/ddos-protection/TOC.json
-  - name: Deploy Load Balancer with DDoS Protection
-    href: ../load-balancer/tutorial-protect-load-balancer-ddos.md?toc=/azure/ddos-protection/TOC.json
+    - name: Deploy Route Server with DDoS Protection
+      href: ../route-server/tutorial-protect-route-server-ddos.md?toc=/azure/ddos-protection/TOC.json
+    - name: Deploy Firewall with DDoS Protection
+      href: ../firewall/tutorial-protect-firewall-ddos.md?toc=/azure/ddos-protection/TOC.json
+    - name: Deploy Application Gateway with DDoS Protection
+      href: ../application-gateway/tutorial-protect-application-gateway-ddos.md?toc=/azure/ddos-protection/TOC.json
+    - name: Deploy Load Balancer with DDoS Protection
+      href: ../load-balancer/tutorial-protect-load-balancer-ddos.md?toc=/azure/ddos-protection/TOC.json
 - name: Secure
   items:
-  - name: DDoS Protection on Front Door
-    href: ../frontdoor/front-door-ddos.md?toc=/azure/ddos-protection/TOC.json
-  - name: Defend against API Management DDoS attacks
-    href: ../api-management/protect-with-ddos-protection.md?toc=/azure/ddos-protection/TOC.json
-  - name: Inline L7 DDoS protection with Gateway Load Balancer and partner NVAs
-    href: inline-protection-glb.md
-  - name: Manage permissions and restrictions
-    href: manage-permissions.md
-  - name: Onboard partners
-    href: ddos-protection-partner-onboarding.md
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/azure-ddos-protection-security-baseline?toc=%2fazure%2fddos-protection%2ftoc.json
-  - name: Azure Security blog
-    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
+    - name: DDoS Protection on Front Door
+      href: ../frontdoor/front-door-ddos.md?toc=/azure/ddos-protection/TOC.json
+    - name: Defend against API Management DDoS attacks
+      href: ../api-management/protect-with-ddos-protection.md?toc=/azure/ddos-protection/TOC.json
+    - name: Inline L7 DDoS protection with Gateway Load Balancer and partner NVAs
+      href: inline-protection-glb.md
+    - name: Manage permissions and restrictions
+      href: manage-permissions.md
+    - name: Onboard partners
+      href: ddos-protection-partner-onboarding.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-ddos-protection-security-baseline?toc=%2fazure%2fddos-protection%2ftoc.json
+    - name: Azure Security blog
+      href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Resiliency
   items:
-  - name: Components of a DDoS response strategy
-    href: ddos-response-strategy.md
-  - name: Fundamental best practices
-    href: fundamental-best-practices.md
-  - name: Reliability
-    href: ../reliability/reliability-ddos.md?toc=/azure/ddos-protection/TOC.json
-  - name: Reference architectures
-    href: ddos-protection-reference-architectures.md
-  - name: Types of attacks
-    href: types-of-attacks.md
+    - name: Components of a DDoS response strategy
+      href: ddos-response-strategy.md
+    - name: Fundamental best practices
+      href: fundamental-best-practices.md
+    - name: Reliability
+      href: ../reliability/reliability-ddos.md?toc=/azure/ddos-protection/TOC.json
+    - name: Reference architectures
+      href: ddos-protection-reference-architectures.md
+    - name: Types of attacks
+      href: types-of-attacks.md
 - name: Operational excellence
   items:
-  - name: Configure Monitoring and Logging
-    items:
-    - name: Configure metric alerts through portal
-      href: alerts.md
-    - name: Configure diagnostic logging alerts
-      href: ddos-diagnostic-alert-templates.md
-  - name: View Monitoring and Logging
-    items:
-    - name: View alerts in Microsoft Defender for Cloud
-      href: ddos-view-alerts-defender-for-cloud.md
-    - name: View diagnostic logs in Log Analytics workspace
-      href: ddos-view-diagnostic-logs.md
-  - name: Monitor Azure DDoS Protection
-    href: monitor-ddos-protection.md
-  - name: Test with simulation partners
-    href: test-through-simulations.md
-  - name: Engage DDoS Rapid Response (DRR)
-    href: ddos-rapid-response.md
+    - name: Configure Monitoring and Logging
+      items:
+        - name: Configure metric alerts through portal
+          href: alerts.md
+        - name: Configure diagnostic logging alerts
+          href: ddos-diagnostic-alert-templates.md
+    - name: View Monitoring and Logging
+      items:
+        - name: View alerts in Microsoft Defender for Cloud
+          href: ddos-view-alerts-defender-for-cloud.md
+        - name: View diagnostic logs in Log Analytics workspace
+          href: ddos-view-diagnostic-logs.md
+    - name: Monitor Azure DDoS Protection
+      href: monitor-ddos-protection.md
+    - name: Test with simulation partners
+      href: test-through-simulations.md
+    - name: Engage DDoS Rapid Response (DRR)
+      href: ddos-rapid-response.md
 - name: Reference
   items:
-  - name: Azure Policy built-ins
-    href: policy-reference.md
-  - name: Azure CLI
-    href: /cli/azure/network/ddos-protection
-  - name: Azure PowerShell
-    href: /powershell/module/Az.Network/New-AzDdosProtectionPlan
-  - name: .NET
-    href: /dotnet/api/
-  - name: Java
-    href: /java/api/
-  - name: Node.js
-    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
-  - name: Python
-    href: https://azure.microsoft.com/develop/python/
-  - name: REST
-    href: /rest/api/virtualnetwork/ddosprotectionplans
-  - name: Azure Resource Manager
-    href: ../azure-resource-manager/management/overview.md
-  - name: Monitoring data reference
-    href: monitor-ddos-protection-reference.md
-  - name: Azure Networking blog
-    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
+    - name: Azure Policy built-ins
+      href: policy-reference.md
+    - name: Azure CLI
+      href: /cli/azure/network/ddos-protection
+    - name: Azure PowerShell
+      href: /powershell/module/Az.Network/New-AzDdosProtectionPlan
+    - name: .NET
+      href: /dotnet/api/
+    - name: Java
+      href: /java/api/
+    - name: Node.js
+      href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
+    - name: Python
+      href: https://azure.microsoft.com/develop/python/
+    - name: REST
+      href: /rest/api/virtualnetwork/ddosprotectionplans
+    - name: Azure Resource Manager
+      href: ../azure-resource-manager/management/overview.md
+    - name: Monitoring data reference
+      href: monitor-ddos-protection-reference.md
+    - name: Azure Networking blog
+      href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
 - name: Resources
   items:
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/ddos-protection/
-  - name: Regional availability
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=ddos-protection
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/ddos-protection/
+    - name: Regional availability
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=ddos-protection
