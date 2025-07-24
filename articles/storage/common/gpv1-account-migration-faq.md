@@ -1,7 +1,7 @@
 ---
 title: GPv1 storage account retirement FAQ
 titleSuffix: Azure Storage
-description: Learn what the retirement of Azure GPv1 storage accounts means and how to prepare for a smooth migration to GPv2.
+description: FAQ page for the retirement of Azure GPv1 storage accounts.
 Services: storage
 author: gtrossell
 
@@ -14,6 +14,7 @@ ms.custom: devx-track-arm-template
 
 #CustomerIntent: As a storage admin, I want to understand the GPv1 retirement so that I can prepare for a smooth migration to GPv2.
 ---
+
 ## Upgrade to general-purpose v2 storage accounts FAQ
 General-purpose v2 (GPv2) storage accounts are the recommended account type for most Azure Storage scenarios. GPv2 accounts provide access to the latest Azure Storage features, including blob tiering, lifecycle management, and advanced redundancy options. They also offer the most cost-effective pricing model for a wide range of workloads.
 

@@ -103,5 +103,4 @@ Learn more about related features and how to migrate:
 
 - [Upgrade a storage account to GPv2](storage-account-upgrade.md)
 - [Storage account overview](storage-account-overview.md)
-- [Azure Storage pricing](azure-storage-pricing.md)
-- [General Storage v1 (GPv1) account migration overview](gpv1-account-migration-overview.md)
+- [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)

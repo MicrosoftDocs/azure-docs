@@ -76,6 +76,8 @@ After **August 31, 2026**, you will no longer be able to manage BlobStorage acco
 ## Need help?
 For assistance with migration or to learn more about GPv2 features, refer to the following resources:
 
-- [Upgrade a storage account to GPv2](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-upgrade)
-- [Blob storage tiers overview](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers)
+
+- [Upgrade a storage account to GPv2](storage-account-upgrade.md)
+- [Storage account overview](storage-account-overview.md)
+- [Azure Storage pricing](azure-storage-pricing.md)
 - [Azure Support Portal](https://portal.azure.com#view/Microsoft_AportBlade/~/overview)
