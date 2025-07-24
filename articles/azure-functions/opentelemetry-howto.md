@@ -215,7 +215,19 @@ These instructions only apply for an OTLP exporter:
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-1. Add an application setting named `PYTHON_APPLICATIONINSIGHTS_ENABLE_TELEMETRY` with value of True.
+1. Add the following application settings with value of True.
+
+    ### [Application Insights](#tab/app-insights)
+
+    ```text
+    PYTHON_APPLICATIONINSIGHTS_ENABLE_TELEMETRY
+    ```
+    ### [OTLP Exporter](#tab/otlp-export) 
+
+    ```text
+    PYTHON_ENABLE_OPENTELEMETRY
+    ```
+    ---
 
 1. Make sure the below library is in your `requirements.txt` file, whether from uncommenting or adding yourself:
 
