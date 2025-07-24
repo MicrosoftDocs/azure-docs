@@ -244,20 +244,6 @@ Data flow custom resources created in your cluster using Kubernetes aren't visib
 
 There's currently no workaround for this issue.
 
-### Unable to configure X.509 authentication for custom Kafka endpoints
-
----
-
-Issue ID: 8750
-
----
-
-Log signature: N/A
-
----
-
-X.509 authentication for custom Kafka endpoints isn't currently supported.
-
 ### Connection failures with Azure Event Grid
 
 ---
