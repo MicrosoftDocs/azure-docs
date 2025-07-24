@@ -1,6 +1,6 @@
 ---
 title: Integrate Azure Key Vault with Service Connector
-description: Use these code samples to integrate Azure Key Vault into your application with Service Connector. It includes several programming languages.
+description: Use these code samples to integrate Azure Key Vault into your application with Service Connector.
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
