@@ -4,10 +4,7 @@ description: Understand key changes, new features, and compatibility considerati
 ms.topic: article
 ms.date: 07/24/2025
 ms.devlang: python
-ms.custom:
-  - devx-track-python
-  - py-fresh-zinc
-zone_pivot_groups: python-mode-functions
+ms.custom: devx-track-python, py-fresh-zinc
 ---
 # Changes and Guidance for Python 3.13+ in Azure Functions
 ## Python Runtime Version Control (Python 3.13+)
