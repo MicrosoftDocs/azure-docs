@@ -143,23 +143,23 @@ Azure Functions on Container Apps integrate seamlessly with Azure’s observabil
 - **Custom logging:** Supports standard frameworks like ILogger and console logging for structured output.  
 - **Centralized monitoring:** Container Apps environment offers unified dashboards and alerts across all apps.
 
-## Limitations and Considerations
+## Considerations
 
-While Azure Functions on Azure Container Apps (ACA) offers powerful capabilities by combining serverless compute with container flexibility, there are important limitations and operational considerations to keep in mind: 
+Keep these other considerations in mind when using Functions on Container Apps:
 
-- **Mandatory Storage Account**: Every Functions app deployed on ACA must be linked to a storage account. This is required for managing triggers, logs, and state. Review the [storage account guidance](../azure-functions/storage-considerations.md) for best practices.
-- **Cold Start Latency**: When your container app scales down to zero during idle periods, the first request after inactivity experiences a cold start. This can introduce more latencies. Learn more about [reducing cold start times](../container-apps/cold-start.md).
-- **Application Insights Integration**: For robust monitoring and diagnostics, it is recommended to link your Functions app to an Application Insights resource. See how to [enable App Insights integration](../azure-functions/configure-monitoring.md?tabs=v2#enable-application-insights-integration).
 - **Ingress Requirement for Auto-Scaling**: To enable automatic scaling based on events, ingress must be enabled—either publicly or within the ACA environment.
+- **Mandatory Storage Account**: Every Functions app deployed on ACA must be linked to a storage account. This is required for managing triggers, logs, and state. Review the [storage account guidance](../azure-functions/storage-considerations.md) for best practices.
+- **Multi-Revision Storage**: When using multi-revision deployments, it is recommended to assign a separate storage account for each revision to avoid conflicts and ensure isolation.
+- **Cold Start Latency**: When your container app scales in to zero during idle periods, the first request after inactivity experiences a cold start. This can introduce more latencies. Learn more about [reducing cold start times](../container-apps/cold-start.md).
+- **Application Insights Integration**: For robust monitoring and diagnostics, it is recommended to link your Functions app to an Application Insights resource. See how to enable [App Insights integration with Functions](../azure-functions/configure-monitoring.md?tabs=v2#enable-application-insights-integration).
 - **Functions Proxies**: Not supported. For API gateway scenarios, integrate with Azure API Management instead.
 - **Deployment Slots**: Staging and production slots are not available. Use [blue-green deployment strategies](../container-apps/blue-green-deployment.md) for zero-downtime releases.
 - **Functions Access Keys**: Portal method to get Functions access keys is not supported. Consider using [Azure Key Vault to store keys](https://techcommunity.microsoft.com/blog/appsonazureblog/how-to-store-function-apps-function-keys-in-a-key-vault/2639181). You should consider other options to secure HTTP endpoints in production. For example, it's not a good practice to distribute shared secrets in a public app. If your function is being called from a public client, you should consider implementing these or other security mechanisms:
-    - [Enable App Service Authentication/Authorization](../azure-functions/security-concepts.md#enable-app-service-authenticationauthorization)
+    - [Enable App Service Authentication/Authorization](../container-apps/authentication.md)
+    - [Enable ingress](../container-apps/ingress-overview.md)
     - [Use Azure API Management (APIM) to authenticate requests](../azure-functions/security-concepts.md#use-azure-api-management-apim-to-authenticate-requests)
-    - [Deploy your function app to a virtual network](../azure-functions/security-concepts.md#deploy-your-function-app-to-a-virtual-network)
-    - [Deploy your function app in isolation](../azure-functions/security-concepts.md#deploy-your-function-app-in-isolation)
+    - [Deploy your function app to a virtual network](../container-apps/custom-virtual-networks.md?tabs=workload-profiles-env)
 - **Quota and Resource Limits**: ACA environments have default limits on memory, CPU, and instance counts per region. Review the [environment limits](../container-apps/environment.md#limits-and-quotas) and [default quotas](../container-apps/quotas.md). If your workload requires more resources, you can [request a quota increase](../container-apps/quota-requests.md).
-- **Multi-Revision Storage**: When using multi-revision deployments, it is recommended to assign a separate storage account for each revision to avoid conflicts and ensure isolation.
 
 ## Submit Feedback
 
