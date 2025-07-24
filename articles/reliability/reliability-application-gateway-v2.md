@@ -39,22 +39,21 @@ You configure Azure Application Gateway to use one of the following scaling mode
 - **Autoscaling:** Automatically adjusts the number of instances within a range that you specify. Autoscaling scales the number of instances based on how many capacity units are needed to meet the current traffic demand.
 - **Manual scaling:** Requires you to specify an exact number of instances.
 
-The platform automatically manages instance creation, health monitoring, and replacement of unhealthy instances.
+The platform automatically manages instance creation, health monitoring, and replacement of unhealthy instances. It also manages gracefully removing instances during scale-in events (connection draining).
 
 For more information, see [Scaling Application Gateway v2 and WAF v2](/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
+
+Azure Application Gateway uses *health probes* to continuously monitor your backend targets like application servers. Traffic can be automatically redirected to healthy backend servers when unhealthy servers are detected.
 
 ## Transient faults
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
-Azure Application Gateway v2 handles transient faults through built-in resilience mechanisms:
+When you use Azure Application Gateway:
 
-- **Health probes**: Continuous monitoring of backend targets with configurable health probe settings
-- **Automatic failover**: Traffic redirection to healthy backend instances when unhealthy targets are detected
-- **Connection draining**: Graceful removal of instances during scale-in events with a 5-minute connection drain period
-- **Retry logic**: Clients should implement appropriate retry mechanisms for transient connection failures
+- Clients should implement appropriate retry mechanisms for transient connection failures.
 
-For applications hosted behind Application Gateway, implement the Health Endpoint Monitoring pattern to expose application health status and enable Application Gateway to make informed routing decisions.
+- Configure your health probes to allow a grace period for transient faults. Health probes can be configured with an *unhealthy threshold*, which specifies the number of consecutive failed connection attempts that should trigger the backend server to be marked as unhealthy. The default value of 3 ensures that transient faults in your backend servers don't trigger Application Gateway to exclude the server.
 
 ## Availability zone support
 
