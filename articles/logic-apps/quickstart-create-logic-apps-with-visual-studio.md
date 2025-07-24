@@ -13,7 +13,7 @@ ms.date: 12/10/2024
 
 # Quickstart: Create automated workflows in multitenant Azure Logic Apps with Visual Studio (Deprecated)
 
-[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](includes/logic-apps-sku-consumption.md)]
 
 [!INCLUDE [visual-studio-extension-deprecation](includes/visual-studio-extension-deprecation.md)]
 

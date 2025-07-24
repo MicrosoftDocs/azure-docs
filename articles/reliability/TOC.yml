@@ -43,6 +43,8 @@
     items:
     - name: Azure App Service
       href: reliability-app-service.md
+    - name: Azure App Service Environment
+      href: reliability-app-service-environment.md
     - name: Azure Batch
       href: reliability-batch.md
     - name: Azure Container Apps
@@ -393,8 +395,6 @@
         href: migrate-storage.md
       - name: Azure Virtual Machines and Virtual Machine Scale Sets
         href: migrate-vm.md
-      - name: Workload - Azure Kubernetes and MySQL
-        href: migrate-workload-aks-mysql.md
 - name: Reliability concepts
   items:
   - name: Business continuity, high availability, and disaster recovery
@@ -441,8 +441,6 @@
         href: /azure/azure-cache-for-redis/cache-faq?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#caches-with-a-dependency-on-cloud-services--classic
       - name: Classic Resource Providers
         href: /azure/azure-resource-manager/management/deployment-models?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Integration Services Environment 
-        href: /azure/logic-apps/export-from-ise-to-standard-logic-app?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Microsoft HPC Pack  
         href: /powershell/high-performance-computing/burst-to-cloud-services-retirement-guide?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Virtual WAN  
