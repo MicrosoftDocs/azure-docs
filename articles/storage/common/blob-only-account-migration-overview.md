@@ -48,8 +48,8 @@ After the retirement date, **data access will be blocked** for all BlobStorage a
 | Redundancy options (ZRS, GRS, RA-GRS) | ✅         | ✅              |
 | Consistent pricing meters        | ❌               | ✅              |
 
->**Note**  
->GPv2 supports all blob features available in BlobStorage accounts—and more—while enabling finer control and broader service integration.
+**Note**  
+GPv2 supports all blob features available in BlobStorage accounts—and more—while enabling finer control and broader service integration.
 
 ## Migration guidance
 
@@ -60,8 +60,8 @@ After the retirement date, **data access will be blocked** for all BlobStorage a
    - Use tools like AzCopy, Azure Data Factory, or Storage Explorer to move your data.
 4. **Validate workloads** post-migration to ensure functionality and billing accuracy.
 
->**Tip**  
->GPv2 enables per-blob tiering and lifecycle rules, offering better cost optimization and automation.
+**Tip**  
+GPv2 enables per-blob tiering and lifecycle rules, offering better cost optimization and automation.
 
 ## What happens if I don’t migrate?
 
