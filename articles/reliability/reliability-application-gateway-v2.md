@@ -111,7 +111,7 @@ This section explains how to configure availability zone support for your gatewa
     > [!NOTE]
     > [!INCLUDE [Availability zone numbering](./includes/reliability-availability-zone-numbering-include.md)]
 
-- **Change the availability zone configuration of an existing Application Gateway v2 resource:** Microsoft is automatically upgrading all existing nonzonal gateways to be zone redundant, with no action from you. If you have an older gateway and need to verify whether it's configured for zone redundancy, open a support case.
+- **Change the availability zone configuration of an existing Application Gateway v2 resource:** Microsoft is automatically upgrading all existing nonzonal gateways to be zone redundant, with no action from you.
 
 - **Disable availability zone support:** Availability zone support can't be disabled.
 
