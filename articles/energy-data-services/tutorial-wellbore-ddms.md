@@ -32,7 +32,7 @@ For more information about DDMS, see [DDMS concepts](concepts-ddms.md).
 
 ### Get details for the Azure Data Manager for Energy instance
 
-* For this tutorial, you need the following parameters:
+For this tutorial, you need the following parameters:
 
 | Parameter | Value to use | Example | Where to find this value |
 |----|----|----|----|

@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 ### Get details for the Azure Data Manager for Energy instance
 
-* For this tutorial, you need the following parameters:
+For this tutorial, you need the following parameters:
 
 | Parameter | Value to use | Example | Where to find this value |
 |----|----|----|----|
@@ -50,7 +50,7 @@ Ensure you have `cURL` installed on your system. You will use it to make API cal
 
 To ingest sample manifests into the Azure Data Manager for Energy instance, complete the following steps:
 
-1. **Create a Legal Tag**: Use the following `cURL` command to create a legal tag that will be added to the manifest data for data compliance purposes:
+1. **Create a Legal Tag**: Use the following `cURL` command to create a legal tag for data compliance purposes:
 
     ```bash
     curl -X POST "https://<DNS>/api/legal/v1/legaltags" \
@@ -139,7 +139,7 @@ To ingest sample manifests into the Azure Data Manager for Energy instance, comp
         "message": "Workflow started successfully."
     }
     ```
-Save the `runId` from the response for use as run_id in the next steps.
+    Save the `runId` from the response for use as run_id in the next steps.
 
 3. **Get Manifest Ingestion Workflow status**: Use the following `cURL` command to check the workflow status (replace `<run_id>` with the workflow run ID):
 
