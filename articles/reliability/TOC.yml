@@ -86,11 +86,7 @@
     - name: Azure Container Instances
       href: reliability-containers.md
     - name: Azure Container Registry
-      items:
-      - name: Availability zones
-        href: /azure/container-registry/zone-redundancy?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-      - name: Disaster recovery
-        href: /azure/container-registry/container-registry-geo-replication?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: reliability-container-registry.md
     - name: Azure Kubernetes Service (AKS)
       href: reliability-aks.md
     - name: Azure Service Fabric

@@ -1,12 +1,11 @@
 ---
-title: Learn about the MQTT broker state store protocol
-description: Learn how to implement an MQTT broker state store protocol client
+title: State store protocol
+description: State store protocol guidance for developers who need to implement their own state store clients.
 author: PatAltimore
 ms.author: patricka
-ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
-ms.topic: concept-article
-ms.date: 11/15/2024
+ms.topic: reference
+ms.date: 05/07/2025
 
 # CustomerIntent: As a developer, I want understand what the MQTT broker state store protocol is, so
 # that I can implement a client app to interact with the state store.
@@ -14,7 +13,7 @@ ms.date: 11/15/2024
 
 # State store protocol
 
-The state store is a distributed storage system within the Azure IoT Operations cluster. The state store offers the same high availability guarantees as MQTT messages in MQTT broker. According to the MQTT5/RPC protocol guidelines, clients should use MQTT5 to interact with the state store. This article provides protocol guidance for developers who need to implement their own state store clients. 
+The state store is a distributed storage system within the Azure IoT Operations cluster. The state store offers the same high availability guarantees as MQTT messages in MQTT broker. According to the MQTT5/RPC protocol guidelines, clients should use MQTT v5 to interact with the state store. This article provides protocol guidance for developers who need to implement their own state store clients. 
 
 ## Overview
 
@@ -39,14 +38,14 @@ sequenceDiagram
       State Store->>+Client: Response<BR>PUBLISH Response Topic<BR>Payload
 -->
 
-:::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-basic.svg" alt-text="Diagram of state store basic request and response process." border="false":::
+:::image type="content" source="media/reference-state-store-protocol/state-store-request-response-basic.svg" alt-text="Diagram of state store basic request and response process." border="false":::
 
-## State store system topic, QoS, and required MQTT5 properties
+## State store system topic, QoS, and required MQTT v5 properties
 
 To communicate with the state store, clients must meet the following requirements:
 
-- Use MQTT5. For more information, see the [MQTT 5 specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html).
-- Use QoS 1 (Quality of Service level 1). QoS 1 is described in the [MQTT 5 specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901236).
+- Use MQTT v5. For more information, see the [MQTT v5 specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html).
+- Use QoS 1 (Quality of Service level 1). QoS 1 is described in the [MQTT v5 specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901236).
 - Have a clock that is within one minute of the MQTT broker's clock.
 
 To communicate with the state store, clients must `PUBLISH` requests to the system topic `statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke`. Because the state store is part of Azure IoT Operations, it does an implicit `SUBSCRIBE` to this topic on startup.
@@ -66,7 +65,7 @@ sequenceDiagram
       State Store->>+Client: Response<BR>PUBLISH client-defined-response-topic<br>Correlation Data:1234<BR>Payload(RESP3)
 -->
 
-:::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-expanded.svg" alt-text="Diagram of state store expanded request and response process." border="false":::
+:::image type="content" source="media/reference-state-store-protocol/state-store-request-response-expanded.svg" alt-text="Diagram of state store expanded request and response process." border="false":::
 
 ## Supported commands
 
@@ -244,7 +243,7 @@ sequenceDiagram
       State Store->>+Client: Response<BR>__ts=1696374425000:1:StateStore<BR>Payload: OK
 -->
 
-:::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-set-version.svg" alt-text="Diagram of state store command to set the version for a value." border="false":::
+:::image type="content" source="media/reference-state-store-protocol/state-store-request-response-set-version.svg" alt-text="Diagram of state store command to set the version for a value." border="false":::
 
 The `__ts` (timestamp) property on the initial set contains `1696374425000` as the client wall clock, the counter as `0`, and its node-Id as `CLIENT`. On the response, the `__ts` property that the state store returns contains the `wallClock`, the counter incremented by one, and the node-Id as `StateStore`. The state store could return a higher `wallClock` value if its clock were ahead, based on the way HLC updates work.
 
@@ -260,7 +259,7 @@ sequenceDiagram
       State Store->>+Client: Response<BR>__ts=1696374425000:1:StateStore<BR>Payload: keyName's value
 -->
 
-:::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-get-version.svg" alt-text="Diagram of state store getting the version of a value." border="false":::
+:::image type="content" source="media/reference-state-store-protocol/state-store-request-response-get-version.svg" alt-text="Diagram of state store getting the version of a value." border="false":::
 
 > [!NOTE]
 > The timestamp `__ts` that state store returns is the same as what it returned on the initial `SET` request.
@@ -319,7 +318,7 @@ sequenceDiagram
       State Store->>+Client: Response<BR>__ts=1696374425000:1:StateStore<BR>Payload:  OK
 -->
 
-:::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-set-lockname.svg" alt-text="Diagram of a client doing a set request on the lock name property." border="false":::
+:::image type="content" source="media/reference-state-store-protocol/state-store-request-response-set-lockname.svg" alt-text="Diagram of a client doing a set request on the lock name property." border="false":::
 
 Next, `Client1` uses the `__ts` property (`Property=1696374425000:1:StateStore`) unmodified as the basis of the `__ft` property in the request to modify `ProtectedKey`. Like all `SET` requests, the client must set the `__ts` property of `ProtectedKey`.
 
@@ -333,7 +332,7 @@ sequenceDiagram
       State Store->>+Client: Response<BR>__ts=1696374425001:1:StateStore<BR>Payload: OK
 -->
 
-:::image type="content" source="media/concept-about-state-store-protocol/state-store-request-response-set-protectedkey.svg" alt-text="Diagram of client doing a set request on the protected key property." border="false":::
+:::image type="content" source="media/reference-state-store-protocol/state-store-request-response-set-protectedkey.svg" alt-text="Diagram of client doing a set request on the protected key property." border="false":::
 
 If the request succeeds, from this point on `ProtectedKey` requires a fencing token equal to or greater than the one specified in the `SET` request.
 
@@ -363,7 +362,7 @@ Clients can register with the state store to receive notifications of keys being
 
 ### KEYNOTIFY request messages
 
-State store clients request the state store monitor a given `keyName` for changes by sending a `KEYNOTIFY` message. Just like all state store requests, clients PUBLISH a QoS1 message with this message via MQTT5 to the state store system topic `statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke`.
+State store clients request the state store monitor a given `keyName` for changes by sending a `KEYNOTIFY` message. Just like all state store requests, clients PUBLISH a QoS1 message with this message via MQTT v5 to the state store system topic `statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke`.
 
 The request payload has the following form:
 
@@ -470,4 +469,4 @@ The `KEYNOTIFY` notification message contains the timestamp of the value when no
 ## Related content
 
 - [MQTT broker overview](../manage-mqtt-broker/overview-broker.md)
-- [Develop with MQTT broker](edge-apps-overview.md)
+- [Develop highly available edge applications for Azure IoT Operations](overview-edge-apps.md)

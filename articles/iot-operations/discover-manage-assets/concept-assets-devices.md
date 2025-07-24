@@ -105,8 +105,6 @@ An *event* is a notification of a state changes to your asset. For example, a ph
 
 ### Streams
 
-<!-- TODO: Add more information about streams. -->
-
 A *stream* is streaming data from a physical device. For example, a camera connected to the media connector can stream video data. Streams include the following properties:
 
 | Property | Description |
