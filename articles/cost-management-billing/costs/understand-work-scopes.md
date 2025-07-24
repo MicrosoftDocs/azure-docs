@@ -190,7 +190,7 @@ Microsoft Customer Agreement (MCA) billing accounts have the following scopes:
 
     Resource type: `Microsoft.Billing/billingAccounts/billingProfiles`
 
-- **Invoice section** - Enables grouping subscriptions within a billing profile into individual sections in one invoice. Invoice sections are like departments—multiple people can have access to an invoice section.
+- **Invoice section** - Enables grouping of subscriptions within a billing profile into individual sections in one invoice. Invoice sections are like departments—multiple people can have access to an invoice section.
 
     Resource type: `Microsoft.Billing/billingAccounts/invoiceSections`
 
@@ -204,8 +204,8 @@ MCA billing scopes don't apply to partners. Partner roles and permissions are do
 
 MCA billing scopes support the following roles:
 
-- **Owner** – Can manage billing settings and access, view all costs, and manage cost configuration. For example, budgets and exports. In function, this role is the same as the [Cost Management Contributor Azure role](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Contributor** – Can manage billing settings except access, view all costs, and manage cost configuration. For example, budgets and exports. In function, this role is the same as the  [Cost Management Contributor Azure role](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Owner** – Can manage billing settings and access, view all costs, and manage cost configuration. For example, budgets and exports. In function, in the context of Cost Management, this role is the same as the [Cost Management Contributor Azure role](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Contributor** – Can manage billing settings except access, view all costs, and manage cost configuration. For example, budgets and exports. In function, in the context of Cost Management, this role is the same as the [Cost Management Contributor Azure role](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
 - **Reader** – Can view billing settings, cost data, and cost configuration. Can manage budgets and exports.
 - **Invoice manager** – Can view and pay invoices and can view cost data and configuration. Can manage budgets and exports.
 - **Azure subscription creator** – Can create Azure subscriptions, view costs, and manage cost configuration. For example, budgets and exports. In function, this MCA role is the same as the EA enrollment account owner role.
