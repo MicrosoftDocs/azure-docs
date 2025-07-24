@@ -20,8 +20,8 @@ Understanding scopes is essential to effectively manage and analyze costs in Azu
 
 Cost Management allows users to view and manage costs at any scope level they have access to. Each scope provides visibility into cost data and supports budgeting, exporting, and cost optimization features. There are two types of scopes used in Cost Management:
 
-- **Azure RBAC Scopes:** These are part of the Azure resource hierarchy where Microsoft Entra’s users’ access and manage services. These include Subscription, resource group, resource and management group scopes.
-- **Billing scopes:** These are hierarchically above Azure subscriptions and are used to manage billing data, including payments and invoices as well as cloud services, such as cost and policy governance. These include the Enrollment Agreement (EA), EA Department and Account scopes, Microsoft Customer Agreement (MCA), Billing Profile and Invoice Section scopes.
+- **Azure RBAC Scopes:** These scopes are part of the Azure resource hierarchy where Microsoft Entra’s users’ access and manage services and include the Subscription, resource group, resource and management group scopes.
+- **Billing scopes:** These scopes are higher-level containers than Azure subscriptions. They help organize and manage billing—like payments and invoices—as well as cloud services such as cost tracking and policy management. These scopes include the Enrollment Agreement (EA), EA Department and EA Account, Microsoft Customer Agreement (MCA), Billing Profile and Invoice Section.
 
 To learn more about scopes, watch the [Cost Management setting up hierarchies](https://www.youtube.com/watch?v=n3TLRaYJ1NY) video. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
 
@@ -48,8 +48,8 @@ Azure RBAC scopes are used to manage access and governance of Azure resources in
 
 ### Roles used in Cost Management on RBAC scopes
 
-Within scopes, roles can be given to grant Microsoft Entra users and groups access to do a predefined set of actions. Different roles enable different sets of actions. In the context of Cost Management, roles will enable access to view cost data and configure actions, such as managing budgets and exports.
-Roles are defined and controlled through Azure Role-Based Access Control (RBAC). Role defined on a specific scope are inherited by child scopes. For instance, a role assigned to a management group scope also grants the same permissions to nested subscriptions and resource groups.
+Within scopes, roles can be given to grant Microsoft Entra users and groups access to do a predefined set of actions. Different roles enable different sets of actions. In the context of Cost Management, roles enable access to view cost data and configure actions, such as managing budgets and exports.
+Roles are defined and controlled through Azure Role-Based Access Control (RBAC). Roles defined at a specific scope automatically apply to its child scopes. For instance, a role assigned to a management group scope also grants the same permissions to nested subscriptions and resource groups.
 
 Cost Management supports the following built-in roles:
 
@@ -68,18 +68,18 @@ Cost Management supports the following built-in roles:
 | View cost-saving recommendations | ✅ Yes | ✅ Yes |
 | Act on cost-saving recommendations | ❌ No (needs resource access) | ❌ No (needs resource access) |
 | Create shared views | ❌ No | ✅ Yes |
-| Manage alerts (e.g., budget threshold alerts) | ❌ No | ✅ Yes |
+| Manage alerts (for example, budget threshold alerts) | ❌ No | ✅ Yes |
 
 Cost Management Contributor is the recommended least privilege role. This role allows people to create and manage budgets and exports to more effectively monitor and report on costs. However, Cost Management Contributors might also require more roles to support complex cost management scenarios. Consider the following scenarios and the suggested added roles:
 
 - **Report on resource usage** – Cost Management provides detailed charges that help uncover patterns in how resources are consumed. This level of granularity supports deep analysis at the resource level. If even more detailed metrics are needed—such as performance counters or logs—consider assigning the [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) role at the same billing or RBAC scope. This grants access to Azure Monitor for enhanced visibility.
 - **React to exceeded budgets** – To automatically respond when a budget threshold is exceeded, the user needs more than just the **Cost Management Contributor** role. They must also have permission to create and manage **action groups**, which are used to trigger alerts or automation. Assign the [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) role at the resource group level that contains the action group. Additionally, if automated actions are required—such as running scripts or workflows—grant roles for the specific service actions are needed for, such as Automation or Azure Functions.
-- **Schedule cost data export** – To enable Cost Management to export data to a storage account, the user needs more than the **Cost Management Contributor** role. They must also have permission to manage the target storage account. Assign the [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role at the resource group level that contains the storage account where the cost data will be exported.
-- **Act on cost-saving recommendations** – By default both Cost Management Readers and Cost Management Contributors can _view_ cost recommendations. However, to act on those recommendations, such as resizing or shutting down resources – the user must also have  access to the specific resources involved. To enable this, assign the appropriate [service-specific role](../../role-based-access-control/built-in-roles.md) (e.g., Virtual Machine Contributor, SQL DB Contributor) at the relevant scope.
+- **Schedule cost data export** – To enable Cost Management to export data to a storage account, the user needs more than the **Cost Management Contributor** role. They must also have permission to manage the target storage account. Assign the [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role at the resource group level that contains the storage account where the cost data is exported.
+- **Act on cost-saving recommendations** – By default both Cost Management Readers and Cost Management Contributors can _view_ cost recommendations. However, to act on those recommendations, such as resizing or shutting down resources – the user must also have access to the specific resources involved. To enable this access, assign the appropriate [service-specific role](../../role-based-access-control/built-in-roles.md) (for example, Virtual Machine Contributor, SQL DB Contributor) at the relevant scope.
 
 ### Feature behavior for each role in RBAC scopes
 
-The table below outlines the permissions assigned to each role within the Azure RBAC scopes (Subscription/Resource Group/Management Group), for various Cost Management features. For example, as a subscription owner you can only view reports (“views”) in Cost Analysis, but you can create shared views and budgets.
+This table outlines the permissions assigned to each role within the Azure RBAC scopes (Subscription/Resource Group/Management Group), for various Cost Management features. For example, as a subscription owner you can only view reports (“views”) in Cost Analysis, but you can create shared views and budgets.
 
 | **Feature/Role** | **Owner** | **Contributor** | **Reader** | **Cost Management Reader** | **Cost Management Contributor** |
 | --- | --- | --- | --- | --- | --- |
@@ -106,9 +106,9 @@ Billing scopes differ based on your Microsoft agreement type:
 Enterprise Agreement (EA), also called enrollments, has the following billing scopes:
 [**Billing account**](../manage/view-all-accounts.md) - Represents an EA enrollment and is the scope at which invoices are generated. All purchase and usage charges are visible in this scope in both the Actual and Amortized Cost datasets, with some important distinctions.
 
-The Actual Cost dataset includes all meter-emitted usage charges from Azure, Marketplace and M365 offers. It also includes purchases from Marketplace and M365, as well as commitment-based benefits (reservations and savings plans). Usage records covered by a commitment appears with zero costs, since the charges are offset by the benefit.  
+The Actual Cost dataset includes all meter-emitted usage charges from Azure, Marketplace and M365 offers. It also includes purchases from Marketplace and M365, as well as commitment-based benefits (reservations and savings plans). The benefit offsets the charges, so usage records covered by a commitment appear with zero costs.  
 
-The Amortized Cost data set, also includes all usage records, Marketplace and M365 purchases. However, the commitment-based purchases themselves will not be listed as those costs are being amortized and applied to the usage where the benefit is consumed. As a result, the same usage that appears with zero costs in Actual Cost, will show charges in the Amortized Cost dataset. The Amortized Cost data set won’t match your invoice, since it reflects amortized allocations rather than billed amounts.
+The Amortized Cost data set, also includes all usage records, Marketplace and M365 purchases. However, the commitment-based purchases do not appear directly because their costs are amortized and applied to the usage where the benefit is consumed. As a result, the same usage that appears with zero costs in Actual Cost, shows charges in the Amortized Cost dataset. The Amortized Cost data set doesn't match your invoice, since it reflects amortized allocations rather than billed amounts.
 Learn more about amortized costs here [View amortized benefit costs](/azure/cost-management-billing/reservations/view-amortized-costs).
 
 Resource type: `Microsoft.Billing/billingAccounts (accountType = Enrollment)`
@@ -117,7 +117,7 @@ Resource type: `Microsoft.Billing/billingAccounts (accountType = Enrollment)`
 
     Resource type: `Billing/billingAccounts/departments`
 
-- **Enrollment account** - Represents a single account and will have one account owner. Doesn't support granting access to multiple users to serve as account owners. Usage charges are available on this scope. Purchases, such as Marketplace and reservations, are not available on this scope.
+- **Enrollment account** - Represents a single account and has one account owner. Doesn't support granting access to multiple users to serve as account owners. Usage charges are available on this scope. Purchases, such as Marketplace and reservations, are not available on this scope.
 
     Resource type: `Microsoft.Billing/billingAccounts/enrollmentAccounts`
 
@@ -127,8 +127,8 @@ Although RBAC scopes are bound to a single directory, EA billing scopes aren't. 
 
 ##### Billing Account Roles
 
-- **Enterprise admin** – Can view all cost data. Can manage the billing account settings and access, including cost configuration such as “DA view charges” and “AO view charges” toggles, that enable account and department admins to view costs. Can also manage budgets and exports. Can view and manage the same also at Department and Account scopes.
-- **Enterprise read-only user** – Can view billing account settings, cost data, and cost configuration, but cannot modify them. Can manage budgets and exports. Can view the same also at Department and Account scopes.
+- **Enterprise admin** – Can view all cost data. Can manage billing account settings and control who can see cost details, like enabling account owner (AO) or department admins (DA) to view charges. Users with this role automatically have the same permissions at the Department and Account scopes within the same enrollment.
+- **Enterprise read-only user** – Can view billing account settings, cost data, and cost configuration, but cannot modify them. Can manage budgets and exports. Users with this role automatically have the same permissions at the Department and Account scopes within the same enrollment.
 
 ##### Feature behavior per role in Enrollment Agreement scope
 
@@ -196,7 +196,7 @@ Microsoft Customer Agreement (MCA) billing accounts have the following scopes:
 
 - **Customer** - Represents a group of subscriptions that are associated with a specific customer that is onboarded to a MCA by a partner. This scope is specific to Cloud Solution Providers (CSP).
 
-Unlike EA billing scopes, MCA billing accounts _are_ managed by a single Microsoft Entra directory. MCA billing accounts can have _**linked**_ subscriptions that could be in different directories.
+A single Microsoft Entra directory manages MCA billing accounts, unlike EA billing scopes. However, MCA billing accounts can have _**linked**_ subscriptions that could be in different directories.
 
 MCA billing scopes don't apply to partners. Partner roles and permissions are documented at [Assign users roles and permissions](/partner-center/permissions-overview).
 
@@ -376,5 +376,5 @@ Cost Management is currently supported in Azure Global with `https://management.
 
 ## Related content
 
-- If you haven't already completed the first quickstart for Cost Management, read it at [Start analyzing costs](quick-acm-cost-analysis.md).
+- If you didn’t complete the first quickstart for Cost Management, read it at [Start analyzing costs](quick-acm-cost-analysis.md).
   
