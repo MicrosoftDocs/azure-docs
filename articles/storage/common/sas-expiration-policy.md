@@ -90,10 +90,13 @@ To configure a SAS expiration policy in the Azure portal, follow these steps:
 
 To configure a SAS expiration policy, use the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command, and then set the `-SasExpirationPeriod` parameter to the number of days, hours, minutes, and seconds that a SAS token can be active from the time that a SAS is signed. The string that you provide the `-SasExpirationPeriod` parameter uses the following format: `<days>.<hours>:<minutes>:<seconds>`. For example, if you wanted the SAS to expire 1 day, 12 hours, 5 minutes, and 6 seconds after it's signed, then you would use the string `1.12:05:06`.
 
+[Optional] Set the `-SasExpirationAction` parameter to the desired action for out-of-policy SAS. Acceptable values include **Log** or **Block**.
+
 ```powershell
 $account = Set-AzStorageAccount -ResourceGroupName <resource-group> `
     -Name <storage-account-name> `
     -SasExpirationPeriod <days>.<hours>:<minutes>:<seconds>
+	-SasExpirationAction <action>
 ```
 
 > [!TIP]
