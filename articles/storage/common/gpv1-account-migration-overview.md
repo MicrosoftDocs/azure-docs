@@ -1,14 +1,12 @@
 ---
 title: GPv1 storage account retirement overview
-description: Learn what the retirement of Azure GPv1 storage accounts means and how to prepare for the transition to GPv2.
+titleSuffix: Azure Storage
+description: Learn what the retirement of Azure GPv1 storage accounts means and how to prepare for a smooth migration to GPv2.
+Services: storage
 author: gtrossell
-ms.author: gtrossell
-ms.service: storage
-ms.topic: concept-article
-ms.date: 07/22/2025
 
 ms.service: azure-storage
-ms.topic: Overview
+ms.topic: how-to
 ms.date: 07/22/2025
 ms.author: akashdubey
 ms.subservice: storage-common-concepts

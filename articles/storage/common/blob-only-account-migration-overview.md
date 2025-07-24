@@ -1,11 +1,16 @@
 ---
-title: Blob Only storage account retirement Overview
+title: Blob Only storage account retirement overview
+titleSuffix: Azure Storage
 description: Learn what the retirement of Azure Blob Only storage accounts means and how to prepare for a smooth migration to GPv2.
+Services: storage
 author: gtrossell
-ms.author: gtrossell
-ms.service: storage
-ms.topic: concept-article
+
+ms.service: azure-storage
+ms.topic: how-to
 ms.date: 07/22/2025
+ms.author: akashdubey
+ms.subservice: storage-common-concepts
+ms.custom: devx-track-arm-template
 
 #CustomerIntent: As a storage admin, I want to understand the Blob-Only retirement so that I can prepare for a smooth migration to GPv2.
 ---
