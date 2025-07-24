@@ -9,6 +9,7 @@ ms.date: 05/04/2023
 ms.author: sagarkeswani
 author: sagarkeswani
 #Customer intent: As a developer, I want to create a distributed highly available SAP system so that I can use the system with Azure Center for SAP solutions.
+# Customer intent: As a developer, I want to deploy a highly available distributed SAP system using Azure CLI, so that I can efficiently manage and utilize the SAP infrastructure within Azure Center for SAP solutions.
 ---
 # Tutorial: Use Azure CLI to create infrastructure for a distributed highly available (HA) SAP system with *Azure Center for SAP solutions* with customized resource names
 

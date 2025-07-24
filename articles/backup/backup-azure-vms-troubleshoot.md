@@ -3,10 +3,10 @@ title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 06/19/2025
+ms.date: 07/24/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As an IT admin managing Azure virtual machines, I want to troubleshoot backup errors during the backup and restore process, so that I can ensure data integrity and availability for my applications.
 ---
 
@@ -560,8 +560,7 @@ VM backup relies on issuing snapshot commands to underlying storage. Not having 
 * **VMs with SQL Server backup configured can cause snapshot task delay**. To avoid that, currently VM backup creates a VSS full backup (Copy-Only) on Windows VMs. If you need a VSS Full backup (Non-copy Only) then add the following registry key on the Windows VM:
 
    ```console
-   REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v UseVssFullBackup /t REG_SZ /d True /f
-   
+   REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v UseVSSCopyBackup /t REG_SZ /d True /f   
    ```
 
   >[!Note]

@@ -299,7 +299,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Norseman, Inc](https://www.norseman.com)|
 |[Nortec](https://www.nortec.com)|
 |[Northrop Grumman](https://www.northropgrumman.com)|
-|[NTS Cloud](http://ntscloud.com/)|
+|[NTS Cloud](https://ntscloud.com/)|
 |[NTT America, Inc.](https://www.us.ntt.net)|
 |[Nubelity LLC](http://www.nubelity.com)|
 |[NuSoft Solutions (Atrio Systems, Inc.)](https://nusoftsolutions.com)|
@@ -583,4 +583,4 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Vexcel](https://www.vexcel.com/)|
 |[VLCM](https://www.vlcm.com)|
 
-To learn more about the Cloud Solution Provider program, see [Frequently asked questions for Partner Center](/partner-center/faq-for-us-govt-cloud). If you would like to apply for the program, visit [Azure Government CSP application process](./documentation-government-csp-application.md). For any other questions, contact [Azure Government CSP](mailto:azgovcsp@microsoft.com).
+To learn more about the Cloud Solution Provider program, see [Frequently asked questions for Partner Center](/partner-center/faq-for-us-govt-cloud). If you would like to apply for the program, visit [Azure Government CSP application process](./documentation-government-csp-application.md). For any other questions, contact [Americas CSP Gov](mailto:AmericasCSPgov@microsoft.com).
