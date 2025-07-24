@@ -159,7 +159,7 @@ The following table helps describe some of the features supported by tier:
 
 ### Availability by region
 
-Azure Managed Redis is continually expanding into new regions. To check the availability by region, see [Products available by region](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/table).
+Azure Managed Redis is continually expanding into new regions. To check the availability by region, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
 
 ## Moving from Azure Cache for Redis
 
