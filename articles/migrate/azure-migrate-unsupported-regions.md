@@ -110,11 +110,13 @@ The supported locations:
 - East US, East US2
 - France Central, France South
 - Germany West Central
+- Indoenesia Central
 - Israel Central 
 - Italy North
 - Japan East, Japan West
 - Jio India West
 - Korea Central, Korea South
+- Malaysia West
 - Mexico Central
 - North Central US
 - North Europe
