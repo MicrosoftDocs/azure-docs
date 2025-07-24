@@ -110,7 +110,7 @@ In Azure Pipelines, you create a *service connection* in your Azure DevOps proje
 Deployment Environments uses role-based access control to grant permissions for performing specific activities on your Deployment Environments resource. To make changes from a CI/CD pipeline, you grant the Deployment Environments User role to the service principal.
 
 1. In the [Azure portal](https://portal.azure.com/), go to your Deployment Environments project.
-1. 1. In the left menu, under **Settings**, select **Identity**.  
+1. In the left menu, under **Settings**, select **Identity**.  
 1. On the **System assigned** tab, set the **Status** to **On**.
 1. Select **Save**, and then confirm that you want to enable the identity. 
 1. Select **Access control (IAM)** > **Add** > **Add role assignment**.
