@@ -29,7 +29,7 @@ Select Policy under Azure services. If you don't see it, type 'Policy' in the se
 
 ### 4. Configure Selectors for gradual rollout of policy enforcement
   > [!NOTE]
-  > To enable safe rollout of policy enforcement, we recommend using [Azure Policy’s resource selectors](https://learn.microsoft.com/azure/governance/policy/concepts/assignment-structure#resource-selectors) to gradually rollout policy enforcement across your resources.
+  > To enable safe rollout of policy enforcement, we recommend using [Azure Policy’s resource selectors](/articles/governance/policy/concepts/assignment-structure.md) to gradually rollout policy enforcement across your resources.
 - Click 'Expand' on the 'Resource Selectors' section of the Basics tab.
 - Click 'Add a resource selector'
   
