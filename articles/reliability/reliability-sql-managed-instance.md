@@ -16,9 +16,6 @@ This article describes reliability support in Azure SQL Managed Instance, coveri
 
 Reliability is a shared responsibility between you and Microsoft. You can use this guide to find out which reliability options fulfill your specific business objectives and uptime goals.
 
-> [!NOTE]
-> Zone redundancy is not currently available for the Next-gen General Purpose service tier.
-
 ## Production deployment recommendations
 
 For most production deployments of Azure SQL Managed Instance, consider the following recommendations:
@@ -135,17 +132,21 @@ You can save money by committing to use compute resources at a discounted rate f
 
 ### Configure availability zone support
 
-**New and existing instances:** To learn how to configure zone redundancy on new and existing instances, see [Configure zone redundancy - Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-zone-redundancy-configure).
+This section explains how to configure availability zone support for your SQL managed instances.
 
-All scaling operations for Azure SQL Managed Instance, including enabling zone redundancy, are online operations and require minimal to no downtime. For more details, see [Duration of management operations](/azure/azure-sql/managed-instance/management-operations-duration).
+- **New and existing instances:** To learn how to configure zone redundancy on new and existing instances, see [Configure zone redundancy - Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-zone-redundancy-configure).
 
-**Disable zone redundancy:** You can disable zone redundancy following the same steps to enable zone redundancy. This process is an online operation similar to a regular service tier objective upgrade. At the end of the process, the instance is migrated from a zone-redundant ring to a single-zone ring. 
+  All scaling operations for Azure SQL Managed Instance, including enabling zone redundancy, are online operations and require minimal to no downtime. For more details, see [Duration of management operations](/azure/azure-sql/managed-instance/management-operations-duration).
+
+- **Disable zone redundancy:** You can disable zone redundancy following the same steps to enable zone redundancy. This process is an online operation similar to a regular service tier objective upgrade. At the end of the process, the instance is migrated from a zone-redundant ring to a single-zone ring. 
 
 ### Normal operations
 
+The following section describes what to expect when your SQL managed instance is configured to be zone redundant and all availability zones are operational:
+
 ::: zone pivot="general-purpose"
 
-During normal operations, requests are routed to the node that runs your SQL Managed Instance compute layer.
+- **Traffic routing between zones:** During normal operations, requests are routed to the node that runs your SQL Managed Instance compute layer.
 
 <!-- Can we say anything about how enabling zone redundancy affects write latency? -->
 
@@ -153,42 +154,49 @@ During normal operations, requests are routed to the node that runs your SQL Man
 
 ::: zone pivot="business-critical"
 
-During normal operations, requests are routed to the primary replica of your SQL managed instance. The primary replica continually and sequentially pushes changes to the secondary replicas in different availability zones, which ensures that data is persisted on a sufficient number of secondary replicas before committing each transaction. Those replicas are located in different availability zones. This process guarantees that, if the primary replica or a readable secondary replica become unavailable for any reason, a fully synchronized replica is always available for failover.
+- **Traffic routing between zones:** During normal operations, requests are routed to the primary replica of your SQL managed instance.
 
-<!-- Can we say anything about how enabling zone redundancy affects write latency? -->
+- **Data replication between zones:** The primary replica continually and sequentially pushes changes to the secondary replicas in different availability zones, which ensures that data is persisted on a sufficient number of secondary replicas before committing each transaction. Those replicas are located in different availability zones. This process guarantees that, if the primary replica or a readable secondary replica become unavailable for any reason, a fully synchronized replica is always available for failover.
+
+  <!-- Can we say anything about how enabling zone redundancy affects write latency? -->
 
 ::: zone-end
 
 ### Zone-down experience
 
-**Detection and response:** Azure SQL Managed Instance is responsible for detecting and responding to a failure in an availability zone. You don't need to do anything to initiate a zone failover.
+The following section describes what to expect when your SQL managed instance is configured to be zone redundant and one or more availability zones are unavailable:
 
-**Active requests:** When an availability zone is unavailable, any requests that are being processed in the faulty availability zone are terminated and must be retried. To make your applications resilient to these types of problems, see the [transient fault handling guidance](#transient-faults).
+- **Detection and response:** Azure SQL Managed Instance is responsible for detecting and responding to a failure in an availability zone. You don't need to do anything to initiate a zone failover.
+
+- **Notification:** Zone failure events can be monitored through Azure Service Health and Resource Health. Set up alerts on these services to receive notifications of zone-level issues.
+
+- **Active requests:** When an availability zone is unavailable, any requests that are being processed in the faulty availability zone are terminated and must be retried. To make your applications resilient to these types of problems, see the [transient fault handling guidance](#transient-faults).
 
 ::: zone pivot="general-purpose"
 
-**Traffic rerouting:** Azure SQL Managed Instance works with Azure Service Fabric to move the database engine to a suitable stateless compute node that's in a different availability zone and has sufficient free capacity. After failover completes, new connections are automatically redirected to the new primary compute node.
+- **Traffic rerouting:** Azure SQL Managed Instance works with Azure Service Fabric to move the database engine to a suitable stateless compute node that's in a different availability zone and has sufficient free capacity. After failover completes, new connections are automatically redirected to the new primary compute node.
 
 ::: zone-end
 
 ::: zone pivot="business-critical"
 
-**Traffic rerouting:** Azure SQL Managed Instance works with Azure Service Fabric to select a suitable replica in another availability zone to become the primary replica. Once a secondary replica becomes the new primary replica, another secondary replica is created to ensure the cluster has a sufficient number of replicas to maintain quorum. After failover completes, new connections are automatically redirected to the new primary replica (or readable secondary replica based on the connection string).
+- **Traffic rerouting:** Azure SQL Managed Instance works with Azure Service Fabric to select a suitable replica in another availability zone to become the primary replica. Once a secondary replica becomes the new primary replica, another secondary replica is created to ensure the cluster has a sufficient number of replicas to maintain quorum. After failover completes, new connections are automatically redirected to the new primary replica (or readable secondary replica based on the connection string).
 
 ::: zone-end
 
 ::: zone pivot="general-purpose"
 
-**Expected downtime:** There might be a small amount of downtime during an availability zone failover. The downtime is typically less than 2 minutes, which your application should tolerate if it's following the [transient fault handling guidance](#transient-faults).
+- **Expected downtime:** There might be a small amount of downtime during an availability zone failover. The downtime is typically less than 2 minutes.
 
 ::: zone-end
 
 ::: zone pivot="business-critical"
-**Expected downtime:** There might be a small amount of downtime during an availability zone failover. The downtime is typically less than 20 seconds, which your application should tolerate if it's following the [transient fault handling guidance](#transient-faults).
+
+- **Expected downtime:** There might be a small amount of downtime during an availability zone failover. The downtime is typically less than 20 seconds, which your application should tolerate if it's following the [transient fault handling guidance](#transient-faults).
 
 ::: zone-end
 
-**Expected data loss:** There's no data loss expected for committed transactions during an availability zone failover. Inflight transactions need to be retried.
+- **Expected data loss:** There's no data loss expected for committed transactions during an availability zone failover. Inflight transactions need to be retried.
 
 ### Failback
 
@@ -204,13 +212,13 @@ Azure SQL Managed Instance platform manages traffic routing, failover, and failb
 
 ## Multi-region support
 
-By default, Azure SQL Managed Instance is deployed within a single region. However, you can deploy multiple SQL managed instances in separate Azure regions and configure *failover groups*. Failover groups automatically geo-replicate your data and can automatically or manually fail over in the event of a regional failure, based on the failover policy.
+An individual Azure SQL Managed Instance is deployed within a single region. However, you can deploy multiple SQL managed instances in separate Azure regions and configure *failover groups*. Failover groups automatically geo-replicate your data and can automatically or manually fail over in the event of a regional failure, based on the failover policy.
 
 This section summarizes key information about failover groups, but it's important to review [Failover groups overview & best practices - Azure SQL Managed Instance](/azure/azure-sql/managed-instance/failover-group-sql-mi) to learn more about how they work and how to configure them.
 
 ### Region support
 
-You can select any Azure region for the SQL managed instances within the failover group. Due to the high latency of wide area networks, geo-replication uses an asynchronous replication mechanism. To reduce network delays, select paired regions with low latency connections. To learn more about latency between Azure regions, see [Azure network round-trip latency statistics](/azure/networking/azure-network-latency).
+You can select any Azure region for the SQL managed instances within the failover group. Due to the high latency of wide area networks, geo-replication uses an asynchronous replication mechanism. To reduce network delays, select regions with low latency connections. To learn more about latency between Azure regions, see [Azure network round-trip latency statistics](/azure/networking/azure-network-latency).
 
 ### Cost
 
@@ -228,25 +236,31 @@ When scaling SQL managed instances in a failover group, follow the guidance in [
 
 ### Normal operations
 
-This section discusses how traffic is routed between regions and how data is replicated between regions during normal operations.
+This section describes what to expect when SQL managed instances are configured to use multi-region failover groups and all regions are operational.
 
-#### Traffic routing between regions
+- **Traffic routing between regions:** During normal operations, read-write requests go to the single primary instance in the primary region.
 
-During normal operations, read-write requests go to the single primary instance in the primary region.
+  Failover groups also provide a separate read-only listener endpoint. During normal operations, this endpoint connects to a secondary instance to route read-only traffic specified in the connection string.
 
-Failover groups also provide a separate read-only listener endpoint. During normal operations, this endpoint connects to a secondary instance to route read-only traffic specified in the connection string.
+  To learn more about how failover groups send traffic to each instance, and configuration you can apply to override the default behavior, see [Failover groups overview & best practices - Azure SQL Managed Instance](/azure/azure-sql/managed-instance/failover-group-sql-mi).
 
-To learn more about how failover groups send traffic to each instance, and configuration you can apply to override the default behavior, see [Failover groups overview & best practices - Azure SQL Managed Instance](/azure/azure-sql/managed-instance/failover-group-sql-mi).
+- **Data replication between regions:** By default, data is replicated asynchronously from the primary instance to the secondary SQL managed instance. Because geo-replication is asynchronous, it's possible to have data loss when a failover occurs.
 
-#### Data replication between regions
+  You can monitor the replication lag to understand the potential data loss during a failover. For more information, see [Disaster recovery checklist](/azure/azure-sql/managed-instance/high-availability-disaster-recovery-checklist).
 
-By default, data is replicated asynchronously from the primary instance to the secondary SQL managed instance. Because geo-replication is asynchronous, it's possible to have data loss when a failover occurs.
-
-You can monitor the replication lag to understand the potential data loss during a failover. For more information, see [Disaster recovery checklist](/azure/azure-sql/managed-instance/high-availability-disaster-recovery-checklist).
-
-If you need to eliminate data loss from asynchronous replication during failovers, you can configure your application to block the calling thread until the last committed transaction has been transmitted and hardened in the transaction log of the secondary database. This approach requires custom development, and it reduces the performance of your application. To learn more, see [Prevent loss of critical data](/azure/azure-sql/managed-instance/failover-group-sql-mi#prevent-loss-of-critical-data).
+  If you need to eliminate data loss from asynchronous replication during failovers, you can configure your application to block the calling thread until the last committed transaction has been transmitted and hardened in the transaction log of the secondary database. This approach requires custom development, and it reduces the performance of your application. To learn more, see [Prevent loss of critical data](/azure/azure-sql/managed-instance/failover-group-sql-mi#prevent-loss-of-critical-data).
 
 ### Region-down experience
+
+This section describes what to expect when SQL managed instances are configured to use multi-region failover groups and there's an outage in the primary region.
+
+- **Detection and response.** Responsibility for detection and response depends on the failover policy your failover group uses.
+  
+  - *Customer-managed failover policy:* You're responsible for detecting the failure in a region and triggering a failover to the secondary instance in the failover group.
+  
+  - *Microsoft-managed failover policy:* The failover group detects a failure in a region and can automatically failover to the secondary instance in the failover group. However, using a customer managed failover policy is recommended for production workloads so you have control over when the failover occurs.
+
+- **Notification.** Region failure events can be monitored through Azure Service Health and Resource Health. Set up alerts on these services to receive notifications of region-level issues.
 
 - **Active requests.** When a failover group failover occurs, any requests that are being processed are terminated and must be retried. To make your applications resilient to these types of problems, see [transient fault handling guidance](#transient-faults).
 
@@ -255,12 +269,6 @@ If you need to eliminate data loss from asynchronous replication during failover
 - **Expected downtime.** There might be a small amount of downtime during a failover group failover. The downtime is typically less than 60 seconds.
 
 - **Traffic rerouting.** After the failover group completes the failover process, read-write traffic is routed to the new primary instance automatically. If your applications use the failover group's endpoints in their connection strings, they don't need to modify their connection strings after failover.
-
-- **Detection and response.** When you create a failover group, you select the [failover policy](/azure/azure-sql/database/failover-group-sql-db#failover-policy), which specifies who is responsible for detecting an outage and performing a failover. You can configure customer-managed failover (recommended) or Microsoft-managed failover.
-
-    > [!IMPORTANT]
-    > Microsoft-initiated failover is triggered by Microsoft. It's likely to happen after a significant delay and is done on a best-effort basis. Failover of databases might happen at a different time to any failover of other Azure services.
-    To learn how to configure a failover group, see [Configure a failover group for Azure Managed Instance](/azure/azure-sql/managed-instance/failover-group-configure-sql-mi).
 
 ### Failback
 
