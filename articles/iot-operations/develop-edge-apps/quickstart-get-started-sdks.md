@@ -82,7 +82,7 @@ GitHub Codespaces provides the most streamlined experience and can get the devel
     1. Set up port forwarding for ports `1883`, `8883`, and `8884` to enable TLS
     1. Create a local container registry
     
-1. For the nexts step you need nonroot access to the cluster, run the following command:
+1. For the next step you need nonroot access to the cluster, run the following command:
 
     ```bash
     mkdir ~/.kube; sudo install -o $USER -g $USER -m 600 /root/.kube/config ~/.kube/config

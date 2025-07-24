@@ -35,7 +35,7 @@ The state store extends MQTT broker's authorization mechanism, allowing individu
 
 ## Interacting with the state store
 
-A [state store CLI](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/statestore-cli) tool is available which enables interaction with the state store from a shell running on a off-cluster computer. The documentation will guide you through:
+A [state store CLI](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/statestore-cli) tool is available which enables interaction with the state store from a shell running on an off-cluster computer. The documentation will guide you through:
 
 1. Generating an X.509 certificate chain for authenticating with MQTT broker
 1. Creating a `BrokerAuthentication` using x.509 certificates
