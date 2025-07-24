@@ -7,6 +7,13 @@ ms.service: storage
 ms.topic: concept-article
 ms.date: 07/22/2025
 
+ms.service: azure-storage
+ms.topic: Overview
+ms.date: 07/22/2025
+ms.author: akashdubey
+ms.subservice: storage-common-concepts
+ms.custom: devx-track-arm-template
+
 #CustomerIntent: As a storage admin, I want to understand the GPv1 retirement so that I can prepare for a smooth migration to GPv2.
 ---
 
@@ -96,7 +103,7 @@ If you have a support plan and you need technical help, create a support request
 
 Learn more about related features and how to migrate:
 
-- [Upgrade a storage account to GPv2](https://learn.microsoft.com/azure/storage/common/storage-account-upgrade)  
-- [Storage account overview](https://learn.microsoft.com/azure/storage/common/storage-account-overview)  
-- [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/)  
-- [General Storage v1 (GPv1) account migration overview](https://learn.microsoft.com/azure/storage/common/gpv1-account-migrate)
+- [Upgrade a storage account to GPv2](storage-account-upgrade.md)
+- [Storage account overview](storage-account-overview.md)
+- [Azure Storage pricing](azure-storage-pricing.md)
+- [General Storage v1 (GPv1) account migration overview](gpv1-account-migration-overview.md)

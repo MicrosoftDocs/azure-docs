@@ -1,6 +1,6 @@
 ---
-title: GPv1 storage account retirement overview
-description: Learn what the retirement of Azure GPv1 storage accounts means and how to prepare for the transition to GPv2.
+title: Blob Only storage account retirement Overview
+description: Learn what the retirement of Azure Blob Only storage accounts means and how to prepare for a smooth migration to GPv2.
 author: gtrossell
 ms.author: gtrossell
 ms.service: storage
@@ -69,7 +69,8 @@ GPv2 enables per-blob tiering and lifecycle rules, offering better cost optimiza
 After **August 31, 2026**, you will no longer be able to manage BlobStorage accounts. After **September 2026**, data access will be blocked and applications relying on these accounts will fail.
 
 ## Need help?
+For assistance with migration or to learn more about GPv2 features, refer to the following resources:
 
-- [Upgrade a storage account to GPv2](https://learn.microsoft.comt-upgrade  
-- [Blob storage tiers overview](https://learn.microsoft.com/azure/storage/blobs/storage-blob-storage-tiersom/pricing/details/storage/  
-- [Azure Support Portal](https://portal.azure.com#view/Microsoft_AportBlade/~/overview
+- [Upgrade a storage account to GPv2](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-upgrade)
+- [Blob storage tiers overview](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers)
+- [Azure Support Portal](https://portal.azure.com#view/Microsoft_AportBlade/~/overview)

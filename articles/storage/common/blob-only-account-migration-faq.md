@@ -1,11 +1,18 @@
 ---
-title: GPv1 storage account retirement overview
-description: Learn what the retirement of Azure GPv1 storage accounts means and how to prepare for the transition to GPv2.
+title: Blob Only storage account retirement FAQ
+description: Learn what the retirement of Azure Blob Only storage accounts means and how to prepare for a smooth migration to GPv2.
 author: gtrossell
 ms.author: gtrossell
 ms.service: storage
 ms.topic: concept-article
 ms.date: 07/22/2025
+
+ms.service: azure-storage
+ms.topic: FAQ
+ms.date: 07/22/2025
+ms.author: akashdubey
+ms.subservice: storage-common-concepts
+ms.custom: devx-track-arm-template
 
 #CustomerIntent: As a storage admin, I want to understand the Blob-Only retirement so that I can prepare for a smooth migration to GPv2.
 ---
