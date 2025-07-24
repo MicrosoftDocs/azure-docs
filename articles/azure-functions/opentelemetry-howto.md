@@ -234,7 +234,7 @@ These instructions only apply for an OTLP exporter:
     ### [Application Insights](#tab/app-insights)
 
     ```text
-    azure.monitor.opentelemetry
+    azure-monitor-opentelemetry
     ```
     ### [OTLP Exporter](#tab/otlp-export) 
 
