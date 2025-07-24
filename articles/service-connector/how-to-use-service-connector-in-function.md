@@ -1,5 +1,5 @@
 ---
-title: How Service Connector helps Azure Functions connect to services
+title: How Service Connector Helps Azure Functions Connect to Services
 description: Learn about the relationship between Service Connector and Functions bindings and how to connect functions to other Azure services.
 author: houk-ms
 ms.service: service-connector
