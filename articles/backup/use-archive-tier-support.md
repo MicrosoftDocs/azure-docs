@@ -6,8 +6,8 @@ ms.date: 09/11/2024
 ms.custom: devx-track-azurepowershell-azurecli, devx-track-azurecli
 zone_pivot_groups: backup-client-portaltier-powershelltier-clitier
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As an IT administrator managing backup policies, I want to configure Smart Tiering to automatically move eligible recovery points to the Archive tier, so that I can optimize storage costs and ensure efficient long-term data retention."
 ---
 

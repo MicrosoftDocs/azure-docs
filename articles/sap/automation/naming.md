@@ -8,6 +8,7 @@ ms.date: 11/17/2021
 ms.topic: reference
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+# Customer intent: "As a cloud engineer implementing the SAP Deployment Automation Framework, I want to understand the standard naming conventions, so that I can ensure my deployment runs smoothly and adheres to best practices for infrastructure management."
 ---
 
 # Naming conventions for SAP Deployment Automation Framework

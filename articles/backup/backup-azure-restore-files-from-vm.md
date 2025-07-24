@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 06/18/2025
 ms.custom: references_regions
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to recover specific files and folders from an Azure virtual machine backup, so that I can restore important data without needing to restore the entire virtual machine.
 ---
 # Recover files from Azure virtual machine backup

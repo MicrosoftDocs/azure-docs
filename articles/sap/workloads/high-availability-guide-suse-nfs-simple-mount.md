@@ -10,6 +10,7 @@ ms.topic: tutorial
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.date: 11/19/2024
 ms.author: radeltch
+# Customer intent: "As an IT administrator, I want to deploy a high-availability SAP NetWeaver system on Azure using NFS for shared storage, so that I can ensure continuous service and reliability for my applications running on SUSE Linux Enterprise Server."
 ---
 
 # High-availability SAP NetWeaver with simple mount and NFS on SLES for SAP Applications VMs
