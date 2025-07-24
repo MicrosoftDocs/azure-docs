@@ -23,7 +23,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
 ## Create template
 
-You create a template spec from an ARM template. Copy the following template and save as **C:\Templates\createStorage.json**.
+You create a template spec from an ARM template. Copy the following template and save as **C:\Templates\createStorageV1.json**.
 
 ```json
 {
@@ -79,7 +79,7 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
       -Version "1.0" `
       -ResourceGroupName templateSpecRG `
       -Location westus2 `
-      -TemplateFile "C:\Templates\createStorage.json"
+      -TemplateFile "C:\Templates\createStorageV1.json"
     ```
 
 # [CLI](#tab/azure-cli)
@@ -100,7 +100,7 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
       --version "1.0" \
       --resource-group templateSpecRG \
       --location "westus2" \
-      --template-file "C:\Templates\createStorage.json"
+      --template-file "C:\Templates\createStorageV1.json"
     ```
 
 # [Portal](#tab/azure-portal)
@@ -110,7 +110,7 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
 
     :::image type="content" source="./media/quickstart-create-template-specs/search-template-spec.png" alt-text="Screenshot of search bar with 'template specs' query.":::
 
-1. Select **Import template**, and then follow the instructions to import **C:\Templates\createStorage.json** that you saved earlier.
+1. Select **Import template**, and then follow the instructions to import **C:\Templates\createStorageV1.json** that you saved earlier.
 
 1. Provide the following values:
 
@@ -374,7 +374,7 @@ To let other users in your organization deploy your template spec, grant them re
 
 ## Update template
 
-To make a change to the template in your template spec, revise the template. The following template is similar to your earlier template except it adds a prefix for the storage account name. Copy the following template and update your `createStorage.json` file.
+To make a change to the template in your template spec, revise the template. The following template is similar to your earlier template except it adds a prefix for the storage account name. Copy the following template and save it as **createStorageV2.json** file.
 
 ```json
 {
@@ -422,7 +422,7 @@ Instead of creating a new template spec for the revised template, add a new vers
      -Version "2.0" `
      -ResourceGroupName templateSpecRG `
      -Location westus2 `
-     -TemplateFile "C:\Templates\createStorage.json"
+     -TemplateFile "C:\Templates\createStorageV2.json"
    ```
 
 1. To deploy the new version, get the resource ID for the `2.0` version.
@@ -450,7 +450,7 @@ Instead of creating a new template spec for the revised template, add a new vers
      --version "2.0" \
      --resource-group templateSpecRG \
      --location "westus2" \
-     --template-file "C:\Templates\createStorage.json"
+     --template-file "C:\Templates\createStorageV2.json"
    ```
 
 1. To deploy the new version, get the resource ID for the `2.0` version.
