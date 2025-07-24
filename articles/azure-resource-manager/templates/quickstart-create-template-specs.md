@@ -383,7 +383,7 @@ To make a change to the template in your template spec, revise the template. The
   "parameters": {
     "storageAccountName": {
       "type": "string",
-      "defaultValue": "[format('store{0}', uniqueString(resourceGroup().id))]",
+      "defaultValue": "[format('store{0}', uniqueString(resourceGroup().id))]"
     },
     "location": {
       "type": "string",
