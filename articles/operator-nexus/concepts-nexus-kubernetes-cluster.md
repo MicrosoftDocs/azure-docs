@@ -39,7 +39,7 @@ contain at least one system node pool with at least one node.
 
 ## Nexus Kubernetes Cluster Features
 
-Nexus Kubernetes Cluster Features, previously known as "Add-ons" in releases before [Azure Operator Nexus](/articles/operator-nexus/overview.md) release 3.11.0, is a component of the Nexus platform that allows customers to enhance their Nexus Kubernetes clusters with extra packages or components. The Features are categorized into two types: required and optional.
+Nexus Kubernetes Cluster Features, previously known as "Add-ons" in releases before [Azure Operator Nexus](./overview.md) release 3.11.0, is a component of the Nexus platform that allows customers to enhance their Nexus Kubernetes clusters with extra packages or components. The Features are categorized into two types: required and optional.
 
 * Required Features: Required Features are automatically deployed into provisioned Nexus Kubernetes clusters. Core Features such as Calico, MetalLB, Nexus Storage CSI, IPAM plugins, metrics-server, node-local-dns, Arc for Kubernetes,
 and Arc for Servers are included by default when clusters are created. The successful completion of the cluster provisioning process depends on these Features being installed successfully. If a required Feature installation fails and can't be fixed, the cluster status is marked as failed.
