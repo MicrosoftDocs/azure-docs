@@ -110,6 +110,7 @@ The Data Box device has the following features in this release.
 | RAID Configuration                                      | RAID 5  |
 | Storage capacity                                        | SKU 1 - 120 TB usable (150 TB raw) <br> SKU 2 - 525 TB usable (600 TB raw)   |
 | Power rating                                            | The power supply unit is rated for 1300 W. <br> Typically, the unit draws 384 W.|
+| Power Cable                                             | IEC C13 standard compliant power cable <br> The device is certified to operate within a 110V to 220V range.|
 | Network interfaces                                      | 2 X 10-GbE interface - MGMT, DATA 3. <br> MGMT - for management, not user configurable, used for initial setup <br> DATA3 - for data, user configurable, and is dynamic by default <br> MGMT and DATA 3 can also work as 1 GbE <br> 2 X 100-GbE interface(QSFP28) - DATA 1, DATA 2 <br> Both are for data, can be configured as dynamic (default) or static |
 | Data transfer                                      | Both import and export are supported.  |
 | Data transfer media                                     | RJ45, QSFP28 copper |

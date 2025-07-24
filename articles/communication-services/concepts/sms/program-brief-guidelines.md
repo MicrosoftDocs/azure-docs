@@ -240,3 +240,5 @@ In this field, you must provide a sample message for each content type you inten
 ## Related articles
 
 - See the [SMS SDK overview](../sms/sdk-features.md).
+> [!TIP]
+> For global SMS delivery and partner-managed options, check out [Messaging Connect](../sms/messaging-connect.md).

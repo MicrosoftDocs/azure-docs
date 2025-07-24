@@ -31,7 +31,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 This template creates a private endpoint for an instance of Azure SQL Database.
 
-The template that this quickstart uses is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/network-security-perimeter-create/).
+The template that this quickstart uses is from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/network-security-perimeter-create).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/network-security-perimeter-create/azuredeploy.json":::
 

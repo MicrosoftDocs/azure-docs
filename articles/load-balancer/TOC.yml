@@ -25,7 +25,7 @@
   - name: What's new?
     href: whats-new.md
   - name: What is load balancing and content delivery?
-    href: /azure/networking/load-balancer-content-delivery/load-balancing-content-delivery-overview.md
+    href: /azure/networking/load-balancer-content-delivery/load-balancing-content-delivery-overview
   - name: Choose a load balancing solution
     href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/load-balancer/toc.json
   - name: FAQ
