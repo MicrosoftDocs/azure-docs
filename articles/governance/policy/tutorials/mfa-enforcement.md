@@ -107,7 +107,7 @@ The next section shows the experience from some select clients when the policy a
 ### Azure Portal
 When you attempt to perform a create, update, or delete operation without an MFA-authenticated token, Azure portal may return:
 
-:::image type="content" source="../media/multifactor-enforcement/portal-enforcement-sample.png" alt-text="Screenshot of Azure portal view." border="false":::
+:::image type="content" source="../media/multifactor-enforcement/portal-enforcement.png" alt-text="Screenshot of Azure portal view." border="false":::
 
 ### Azure CLI
 When you attempt to perform a create, update, or delete operation without an MFA-authenticated token, Azure CLI may return:
