@@ -14,13 +14,13 @@ ms.custom: devx-track-arm-template
 #CustomerIntent: As a storage admin, I want to understand the Blob-Only retirement so that I can prepare for a smooth migration to GPv2.
 ---
 
-# BlobStorage (blob-only) storage account retirement overview
+# Blob-Only storage account retirement overview
 
-Azure Storage is retiring the **BlobStorage (blob-only)** storage account type. This article explains what this change means for your blob-only workloads and how to prepare for the transition to **General-purpose v2 (GPv2)** storage accounts.
+Azure Storage is retiring the **Blob-Only** storage account type. This article explains what this change means for your blob-only workloads and how to prepare for the transition to **General-purpose v2 (GPv2)** storage accounts.
 
-## Why is BlobStorage being retired?
+## Why is Blob-Only being retired?
 
-BlobStorage accounts were introduced to support blob-only scenarios with account-level access tiering. However, **GPv2** has since become the standard for all new storage accounts, offering:
+Blob-Only accounts were introduced to support blob-only scenarios with account-level access tiering. However, **GPv2** has since become the standard for all new storage accounts, offering:
 
 - **Per-blob tiering** (Hot, Cool, Archive)
 - **Lifecycle management**

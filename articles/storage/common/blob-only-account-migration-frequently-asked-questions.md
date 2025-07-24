@@ -14,11 +14,11 @@ ms.custom: devx-track-arm-template
 
 #CustomerIntent: As a storage admin, I want to understand the Blob-Only retirement so that I can prepare for a smooth migration to GPv2.
 ---
-# Upgrade to general-purpose v2 storage accounts FAQ for BlobStorage accounts
+# Upgrade to general-purpose v2 storage accounts FAQ for Blob-Only accounts
 
 General-purpose v2 (GPv2) storage accounts are the recommended account type for all Azure Storage scenarios, including blob-only workloads. GPv2 accounts provide access to the latest Azure Storage features, including per-blob tiering, lifecycle management, and advanced redundancy options. They also offer the most cost-effective pricing model for a wide range of blob workloads.
 
-This FAQ addresses common questions about migrating from BlobStorage (blob-only) accounts to GPv2. It covers upgrade procedures, billing considerations, feature differences, and guidance for selecting the right access tier. Use this resource to plan your upgrade and ensure a smooth transition before BlobStorage retirement.
+This FAQ addresses common questions about migrating from Blob-Only accounts to GPv2. It covers upgrade procedures, billing considerations, feature differences, and guidance for selecting the right access tier. Use this resource to plan your upgrade and ensure a smooth transition before Blob-Only retirement.
 
 >[!IMPORTANT]  
 >Microsoft will retire BlobStorage accounts on September 1, 2026. All BlobStorage accounts must be migrated to GPv2 before this date to avoid service disruption.
