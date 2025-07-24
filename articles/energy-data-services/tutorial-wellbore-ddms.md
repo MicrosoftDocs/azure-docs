@@ -28,7 +28,7 @@ For more information about DDMS, see [DDMS concepts](concepts-ddms.md).
 * An Azure subscription
 * An instance of [Azure Data Manager for Energy](quickstart-create-microsoft-energy-data-services-instance.md) created in your Azure subscription
 * cURL command-line tool installed on your machine
-* Generate the service principal access token to call the Seismic APIs. See [How to generate auth token](how-to-generate-auth-token.md).
+* Generate the service principal access token to call the Wellbore APIs. See [How to generate auth token](how-to-generate-auth-token.md).
 
 ### Get details for the Azure Data Manager for Energy instance
 
@@ -37,7 +37,7 @@ For more information about DDMS, see [DDMS concepts](concepts-ddms.md).
 | Parameter | Value to use | Example | Where to find this value |
 |----|----|----|----|
 | `DNS` | URI | `<instance>.energy.azure.com` | Find this value on the overview page of the Azure Data Manager for Energy instance. |
-| `data-partition-id` | Data partitions | `<data-partition-id>` | Find this value on the Data Partitions section within the Azure Data Manager for Energy instance. |
+| `data-partition-id` | Data partition | `<data-partition-id>` | Find this value on the Data Partition section within the Azure Data Manager for Energy instance. |
 | `access_token`       | Access token value       | `0.ATcA01-XWHdJ0ES-qDevC6r...........`| Follow [How to generate auth token](how-to-generate-auth-token.md) to create an access token and save it.|
 
 Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user who's running this tutorial.
