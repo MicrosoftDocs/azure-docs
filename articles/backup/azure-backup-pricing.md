@@ -3,8 +3,8 @@ title: Azure Backup pricing
 description: Learn how to estimate your costs for budgeting Azure Backup pricing.
 ms.topic: how-to
 ms.date: 09/09/2024
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a finance manager, I want to utilize a cost estimator for Azure Backup, so that I can accurately budget and compare costs for backing up various workloads within our organization."
 ---
 

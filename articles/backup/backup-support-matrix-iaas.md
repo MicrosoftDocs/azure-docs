@@ -7,10 +7,9 @@ ms.custom:
   - references_regions
   - linux-related-content
   - build-2025
-ms.reviewer: nikhilsarode
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As an IT administrator, I want to understand the support settings and limitations for backing up Azure VMs using a backup service, so that I can ensure comprehensive data protection for our virtual machines.
 ---
 

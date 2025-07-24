@@ -4,8 +4,8 @@ description: Learn to troubleshoot Archive Tier errors for Azure Backup.
 ms.topic: troubleshooting
 ms.date: 03/19/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a backup administrator, I want to troubleshoot Archive Tier errors, so that I can ensure recovery points are properly managed and eligible for archiving."
 ---
 

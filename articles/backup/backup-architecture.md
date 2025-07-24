@@ -2,10 +2,10 @@
 title: Architecture Overview 
 description: Provides an overview of the architecture, components, and processes used by the Azure Backup service.
 ms.topic: overview
-ms.date: 04/14/2025
+ms.date: 07/17/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
 # Customer intent: "As a system administrator, I want to understand the architecture and features of the cloud backup solution, so that I can effectively manage data protection and recovery for both on-premises and Azure virtual machines."
 ---
@@ -241,6 +241,9 @@ This robust approach ensures that even in a compromised environment, existing ba
   - [Back up Windows machines directly](tutorial-backup-windows-server-to-azure.md), without a backup server.
   - [Set up MABS](backup-azure-microsoft-azure-backup.md) for backup to Azure, and then back up workloads to MABS.
   - [Set up DPM](backup-azure-dpm-introduction.md) for backup to Azure, and then back up workloads to DPM.
+  - [Back up a SharePoint farm on Azure Stack](backup-mabs-sharepoint-azure-stack.md).
+  - [Back up SQL Server on Azure Stack](backup-mabs-sql-azure-stack.md).
+
 
 [green]: ./media/backup-architecture/green.png
 [yellow]: ./media/backup-architecture/yellow.png

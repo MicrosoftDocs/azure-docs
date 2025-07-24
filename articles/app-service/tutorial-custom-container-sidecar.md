@@ -101,7 +101,7 @@ In the resource group in the Azure portal, create a Linux custom container app w
     :::image type="content" source="media/tutorial-custom-container-sidecar/create-wizard-container-panel.png" alt-text="Screenshot showing the Container settings for the Linux custom container web app.":::
 
     > [!NOTE]
-    > These settings are configured differently in sidecar-enabled apps than in apps not enabled for sidecars. For more information, see [What are the differences for sidecar-enabled custom containers](#what-are-the-differences-for-sidecar-enabled-custom-containers).
+    > These settings are configured differently in sidecar-enabled apps than in apps not enabled for sidecars. For more information, see [What are the differences for sidecar-enabled custom containers](configure-sidecar.md#what-are-the-differences-for-sidecar-enabled-custom-containers).
 
 1. Select **Review + create**, and when validation passes, select **Create**.
 
@@ -149,7 +149,7 @@ Configure the environment variable for the container by configuring [app setting
    :::image type="content" source="media/tutorial-custom-container-sidecar/configure-app-settings.png" alt-text="Screenshot showing a web app's Configuration page with two app settings added.":::
 
 > [!NOTE]
-> Some app settings don't apply to sidecar-enabled apps. For more information, see [What are the differences for sidecar-enabled custom containers](#what-are-the-differences-for-sidecar-enabled-custom-containers).
+> Some app settings don't apply to sidecar-enabled apps. For more information, see [What are the differences for sidecar-enabled custom containers](configure-sidecar.md#what-are-the-differences-for-sidecar-enabled-custom-containers).
 
 ## 5. Verify in Application Insights
 
@@ -171,36 +171,7 @@ When you no longer need the environment you created for this tutorial, you can d
 azd down
 ```
 
-## Frequently asked questions
-
-- [What are the differences for sidecar-enabled custom containers?](#what-are-the-differences-for-sidecar-enabled-custom-containers)
-- [How do sidecar containers handle internal communication?](#how-do-sidecar-containers-handle-internal-communication)
-- [Can a sidecar container receive internet requests?](#can-a-sidecar-container-receive-internet-requests)
-- [How do I use volume mounts?](#how-do-i-use-volume-mounts)
-
-### What are the differences for sidecar-enabled custom containers?
-
-Sidecar-enabled apps are configured differently than apps that aren't sidecar-enabled.
-
-- Sidecar-enabled apps are designated by `LinuxFxVersion=sitecontainers` and configured with [`sitecontainers`](/azure/templates/microsoft.web/sites/sitecontainers) resources.
-- Apps that aren't sidecar enabled configure the container name and type directly with `LinuxFxVersion=DOCKER|<image-details>`.
-
-For more information, see [az webapp config set --linux-fx-version](/cli/azure/webapp/config).
-
-Apps that aren't sidecar-enabled configure the main container with app settings such as:
-
-- `DOCKER_REGISTRY_SERVER_URL`
-- `DOCKER_REGISTRY_SERVER_USERNAME`
-- `DOCKER_REGISTRY_SERVER_PASSWORD`
-- `WEBSITES_PORT`
-
-These settings don't apply for sidecar-enabled apps.
-
-[!INCLUDE [common-faqs](includes/tutorial-sidecar/common-faqs.md)]
-
 ## Related resources
 
-- [Configure custom container](configure-custom-container.md)
-- [REST API: Web Apps - Create Or Update Site Container](/rest/api/appservice/web-apps/create-or-update-site-container)
-- [Infrastructure as Code: Microsoft.Web sites/`sitecontainers`](/azure/templates/microsoft.web/sites/sitecontainers)
-- [Deploy custom containers with GitHub Actions](deploy-container-github-action.md)
+- [Sidecars overview](overview-sidecar.md)
+- [Configure sidecar](configure-sidecar.md)
