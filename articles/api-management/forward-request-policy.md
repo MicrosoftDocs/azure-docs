@@ -50,7 +50,7 @@ The `forward-request` policy forwards the incoming request to the backend servic
 
 ### Usage notes
 
-*  Use the `http-version` attribute to enable the HTTP/2 protocol outbound from the gateway to the backend. Set the attribute to `2or1` or `2`. Currently, HTTP/2 support is supported in the self-hosted gateway and in preview in the v2 gateway.
+*  Use the `http-version` attribute to enable the HTTP/2 protocol outbound from the gateway to the backend. Set the attribute to `2or1` or `2`. Currently, HTTP/2 is supported in the self-hosted gateway and in preview in the v2 gateway.
 
     > [!IMPORTANT]
     > In the v2 gateway, HTTP/2 is supported inbound to the API Management gateway and outbound from the gateway to the backend but not end-to-end. Currently, the v2 gateway downgrades an incoming HTTP/2 connection to HTTP/1 before forwarding the request to the backend.
