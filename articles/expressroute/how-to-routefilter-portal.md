@@ -88,6 +88,8 @@ Select the subscription for which you want to create an ExpressRoute circuit.
 az account set --subscription "<subscription ID>"
 ```
 
+---
+
 ## Get a list of prefixes and BGP community values
 
 # [**Portal**](#tab/portal)
@@ -111,6 +113,8 @@ Find the BGP community values associated with services accessible through Micros
     ```azurecli-interactive
     az network route-filter rule list-service-communities
     ```
+
+---
 
 ## Make a list of the values you want to use
 
@@ -176,6 +180,8 @@ A route filter can have only one rule, and the rule must be of type 'Allow'. Thi
     az network route-filter rule create --filter-name MyRouteFilter -n CRM --communities 12076:5040 --access Allow -g MyResourceGroup
     ```
 
+---
+
 ## Attach the route filter to an ExpressRoute circuit
 
 # [**Portal**](#tab/portal)
@@ -206,6 +212,8 @@ Run the following command to attach the route filter to the ExpressRoute circuit
 ```azurecli-interactive
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --route-filter MyRouteFilter
 ```
+
+---
 
 ## Common tasks
 
@@ -241,6 +249,8 @@ To get the properties of a route filter, use the following command:
 az network route-filter show -g ExpressRouteResourceGroupName --name MyRouteFilter 
 ```
 
+---
+
 ### To update the properties of a route filter
 
 # [**Portal**](#tab/portal)
@@ -269,6 +279,8 @@ If the route filter is already attached to a circuit, updates to the BGP communi
 az network route-filter rule update --filter-name MyRouteFilter -n CRM -g ExpressRouteResourceGroupName --add communities '12076:5040' --add communities '12076:5010'
 ```
 
+---
+
 ### To detach a route filter from an ExpressRoute circuit
 
 # [**Portal**](#tab/portal)
@@ -294,6 +306,8 @@ Once a route filter is detached from the ExpressRoute circuit, no prefixes are a
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --remove routeFilter
 ```
 
+---
+
 ## Clean up resources
 
 # [**Portal**](#tab/portal)
@@ -317,6 +331,8 @@ You can only delete a route filter if it isn't attached to any circuit. Ensure t
 ```azurecli-interactive
 az network route-filter delete -n MyRouteFilter -g MyResourceGroup
 ```
+
+---
 
 ## Next Steps
 
