@@ -14,8 +14,8 @@ General-purpose v2 (GPv2) storage accounts are the recommended account type for 
 
 This FAQ addresses common questions about upgrading from general-purpose v1 (GPv1) storage accounts to GPv2. It covers upgrade procedures, billing considerations, feature differences, and guidance for selecting the right access tier. Use this resource to plan your upgrade and ensure a smooth transition before GPv1 retirement.
 
-[!IMPORTANT]
-Microsoft will retire GPv1 storage accounts on September 1, 2026. All GPv1 accounts must be upgraded to GPv2 before this date to avoid service disruption.
+>[!IMPORTANT]
+>Microsoft will retire GPv1 storage accounts on September 1, 2026. All GPv1 accounts must be upgraded to GPv2 before this date to avoid service disruption.
 
 ## GPv1 vs GPv2 FAQs
 | Question | Answer |
