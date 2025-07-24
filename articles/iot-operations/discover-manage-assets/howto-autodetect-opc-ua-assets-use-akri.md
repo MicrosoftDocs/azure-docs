@@ -16,7 +16,7 @@ The Akri services and connector for OPC UA are a turnkey solution that lets you 
 
 To discover OPC UA assets, the assets must be compliant with the [OPC 10000-100: Devices](https://reference.opcfoundation.org/DI/v103/docs/) companion specification. The connector for OPC UA and Akri services follow the process described in [OPC 10000-110: Asset Management Basics](https://reference.opcfoundation.org/AMB/v101/docs/) to discover OPC UA assets and onboard them into Azure Device Registry.
 
-In this article, you learn how to automatically discover and configure OPC UA devices and assets connected to your Azure IoT Operations deployment. The automatic discovery process starts when you add an asset endpoint with the **Enable discovery** option selected.
+In this article, you learn how to automatically discover and configure OPC UA devices and assets connected to your Azure IoT Operations deployment. The automatic discovery process starts when you add a device with the **Enable discovery** option selected.
 
 To learn more, see [What is asset discovery (preview)?](overview-akri.md).
 
@@ -72,27 +72,27 @@ Currently, discovery is only enabled in the preview version of the connector for
 
 [!INCLUDE [deploy-preview-media-connectors](../includes/deploy-preview-media-connectors.md)]
 
-## Create an asset endpoint
+## Create a device
 
-To create an asset endpoint with discovery enabled:
+To create a device with discovery enabled:
 
 1. Go to your Azure IoT Operations instance in the operations experience web UI.
 
-1. Add a new asset endpoint and select the **Enable discovery** option:
+1. Add a new device and select the **Enable discovery** option:
 
-    :::image type="content" source="media/howto-autodetect-opc-ua-assets-use-akri/enable-auto-discover.png" alt-text="Screenshot that shows how to create an asset endpoint with discovery enabled.":::
+    :::image type="content" source="media/howto-autodetect-opc-ua-assets-use-akri/enable-auto-discover.png" alt-text="Screenshot that shows how to create a device with discovery enabled.":::
 
-1. Select **Create** to create the asset endpoint.
+1. Select **Create** to create the device.
 
 ## Review the discovered assets
 
-Azure IoT Operations uses the asset endpoint to connect to the OPC UA server and scan for assets. To view the discovered assets:
+Azure IoT Operations uses the device to connect to the OPC UA server and scan for assets. To view the discovered assets:
 
 1. Go to the **Discovery** page for your instance in the operations experience:
 
     :::image type="content" source="media/howto-autodetect-opc-ua-assets-use-akri/discovered-assets-list.png" alt-text="Screenshot that shows how to view discovered assets.":::
 
-1. You can filter the list by the asset endpoint name, or by keyword. The list shows the discovered assets and their status.
+1. You can filter the list by the device name, or by keyword. The list shows the discovered assets and their status.
 
 ## Import an asset from a discovered asset
 
