@@ -389,9 +389,13 @@ The following items are examples of category 3 devices:
 - Security video cameras.
 - Programmable logic controllers.
 
+In the context of Azure IoT Operations v2.x.x and later, a device is a configuration in Azure Device Registry that encapsulates the information, such as address and authentication credentials, required to connect to a physical device or asset. Previous versions of Azure IoT Operations used *asset endpoints* to perform a similar role.
+
+First and subsequent mentions: On first mention, always use *namespace asset*. If the context is clear on subsequent mentions, use *asset*.
+
 Casing rules: Always lowercase.
 
-Applies to: IoT Hub, IoT Central, IoT Edge, Device Provisioning Service, Azure IoT Operations
+Applies to: IoT Hub, IoT Central, IoT Edge, Device Provisioning Service, Azure IoT Operations, Azure Device Registry
 
 ### Device Provisioning Service
 
@@ -973,6 +977,18 @@ Applies to: IoT Hub
 ### Namespace
 
 In the context of Azure IoT Operations, Azure Device Registry  uses *namespaces* to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. Multiple instances can share a single namespace.
+
+Casing rules: Always lowercase.
+
+Applies to: Azure IoT Operations, Azure Device Registry
+
+### Namespace asset
+
+In the context of Azure IoT Operations v2.x.x and later, Azure IoT Operations uses *namespaces* to organize assets and devices. An asset that exists in a namespace is referred to as a *namespace asset*. This contrasts with assets created in previous versions of Azure IoT Operations, which are not associated with a namespace.
+
+First and subsequent mentions: On first mention, always use *namespace asset*. If the context is clear on subsequent mentions, use *asset*.
+
+Casing rules: Always lowercase.
 
 Applies to: Azure IoT Operations, Azure Device Registry
 
