@@ -29,14 +29,14 @@ If your web application already has useful features, like shopping, hotel bookin
 
 -----
 
-Both LangGraph and Azure AI Foundry Agent Service enable you to build agentic web applications with AI-driven capabilities. LangGraph is similar to Microsoft Semantic Kernal and is an SDK, but Semantic Kernel doesn't support JavaScript currently. The following table shows some of the considerations and trade-offs:
+Both LangGraph and Azure AI Foundry Agent Service enable you to build agentic web applications with AI-driven capabilities. LangGraph is similar to Microsoft Semantic Kernel and is an SDK, but Semantic Kernel doesn't support JavaScript currently. The following table shows some of the considerations and trade-offs:
 
 | Consideration      | LangGraph                | Azure AI Foundry Agent Service         |
 |--------------------|-------------------------------|----------------------------------------|
 | Performance        | Fast (runs locally)            | Slower (managed, remote service)       |
 | Development        | Full code, maximum control     | Low code, rapid integration            |
 | Testing            | Manual/unit tests in code      | Built-in playground for quick testing  |
-| Scalability        | App-managed                    | Azure-managed, auto-scaled             |
+| Scalability        | App-managed                    | Azure-managed, autoscaled             |
 
 In this tutorial, you learn how to:
 
@@ -78,10 +78,10 @@ Both approaches use the same implementation pattern, where the agent is initiali
 
 ### [LangGraph](#tab/langgraph)
 
-The `LangGraphTaskAgent` is initialized in the contructor in *src/agents/LangGraphTaskAgent.ts*. The initialization code does the following: 
+The `LangGraphTaskAgent` is initialized in the constructor in *src/agents/LangGraphTaskAgent.ts*. The initialization code does the following: 
 
 - Configures the [AzureChatOpenAI](https://js.langchain.com/docs/integrations/llms/azure/) client using environment variables.
-- Creates the pre-built ReAct agent a set of CRUD tools for task management (see [LangGraph: How to use the prebuilt ReAct agent](https://langchain-ai.github.io/langgraphjs/how-tos/create-react-agent)).
+- Creates the prebuilt ReAct agent a set of CRUD tools for task management (see [LangGraph: How to use the prebuilt ReAct agent](https://langchain-ai.github.io/langgraphjs/how-tos/create-react-agent)).
 - Sets up memory management (see [LangGraph: How to add memory to the prebuilt ReAct agent](https://langchain-ai.github.io/langgraphjs/how-tos/react-memory/)).
 
 :::code language="typescript" source="~/app-service-agentic-langgraph-foundry-node/src/agents/LangGraphTaskAgent.ts" range="23-143" highlight="13-21,24-37,106-117" :::
@@ -106,7 +106,7 @@ The OpenAPI code is defined in *src/routes/api.ts*. For example, the "GET /api/t
 
 ## Deploy the sample application
 
-The sample respository contains an Azure Developer CLI (AZD) template, which creates an App Service app with managed identity and deploys your sample application.
+The sample repository contains an Azure Developer CLI (AZD) template, which creates an App Service app with managed identity and deploys your sample application.
 
 1. In the terminal, log into Azure using Azure Developer CLI:
 
