@@ -21,9 +21,9 @@ When threat intelligence-based filtering is enabled, Azure Firewall evaluates tr
 
 Administrators can configure the firewall to operate in alert-only mode or in alert and deny mode when a threat intelligence rule is triggered. By default, the firewall operates in alert-only mode. This mode can be disabled or changed to alert and deny.
 
-Allow lists can be defined to exempt specific FQDNs, IP addresses, ranges, or subnets from threat intelligence filtering.
+Allowlists can be defined to exempt specific FQDNs, IP addresses, ranges, or subnets from threat intelligence filtering.
 
-For batch operations, administrators can upload a CSV file containing IP addresses, ranges, and subnets to populate the allow list.
+For batch operations, administrators can upload a CSV file containing IP addresses, ranges, and subnets to populate the allowlist.
 
 ## Logs
 
