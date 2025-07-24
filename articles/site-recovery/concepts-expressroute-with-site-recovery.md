@@ -1,12 +1,13 @@
 ---
 title: About using ExpressRoute with Azure Site Recovery
 description: Describes how to use Azure ExpressRoute with the Azure Site Recovery service for disaster recovery and migration.
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.date: 09/18/2024
-ms.author: ankitadutta
+ms.author: jsuri
 
+# Customer intent: As a cloud architect, I want to implement Azure ExpressRoute with Azure Site Recovery, so that I can ensure secure and efficient disaster recovery and migration of on-premises and Azure virtual machines to the cloud.
 ---
 # Azure ExpressRoute with Azure Site Recovery
 
@@ -16,7 +17,7 @@ This article describes how you can use Azure ExpressRoute with Azure Site Recove
 
 ## ExpressRoute circuits
 
-An ExpressRoute circuit represents a logical connection between your on-premises infrastructure and Microsoft cloud services through a connectivity provider. You can order multiple ExpressRoute circuits. Each circuit can be in the same or different regions, and can be connected to your premises through different connectivity providers. Learn more about ExpressRoute circuits [here](../expressroute/expressroute-circuit-peerings.md).
+An ExpressRoute circuit represents a logical connection between your on-premises infrastructure and Microsoft cloud services through a connectivity provider. You can order multiple ExpressRoute circuits. Each circuit can be in the same or different regions and can be connected to your premises through different connectivity providers. Learn more about ExpressRoute circuits [here](../expressroute/expressroute-circuit-peerings.md).
 
 An ExpressRoute circuit has multiple routing domains associated with it. Learn more about and compare ExpressRoute routing domains [here](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 

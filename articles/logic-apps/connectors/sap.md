@@ -1,22 +1,29 @@
 ---
-title: Connect to SAP
-description: Connect to an SAP server from a workflow in Azure Logic Apps.
+title: Access SAP from workflows
+description: Set up access to an SAP server from a Consumption or Standard workflow in Azure Logic Apps by completing the prerequisites and reviewing known issues and limitations.
 services: logic-apps
 ms.suite: integration
 author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/24/2025
+ms.date: 04/28/2025
+
+#customer intent: As a developer, I want to know the prerequisites and details about using SAP with Azure Logic Apps, so I can connect to an SAP server from my Consumption or Standard workflow.
 ---
 
 # Connect to SAP from workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../../includes/logic-apps-sku-consumption-standard.md)]
 
-This multipart how-to guide shows how to access your SAP server from a workflow in Azure Logic Apps using the SAP connector. You can use the SAP connector's operations to create automated workflows that run when triggered by events in your SAP server or in other systems and run actions to manage resources on your SAP server.
+This multipart how-to guide shows how to access your SAP server from a workflow in Azure Logic Apps by using the SAP connector. You can use the SAP connector's operations to create automated workflows that run when triggered by events in your SAP server or in other systems and run actions to manage resources on your SAP server.
 
-Both Standard and Consumption logic app workflows offer the SAP *managed* connector that's hosted and run in multitenant Azure. Standard workflows also offer the SAP *built-in* connector that's hosted and run in single-tenant Azure Logic Apps. For more information, see [Connector technical reference](#connector-technical-reference).
+Both Standard and Consumption logic app workflows offer the SAP *managed* connector hosted and run in multitenant Azure. Standard workflows also offer the SAP *built-in* connector hosted and run in single-tenant Azure Logic Apps. For more information, see [Connector technical reference](#connector-technical-reference).
+
+> [!NOTE]
+>
+> This guide shares links to the SAP website for SAP Support Notes and Knowledge 
+> Base articles. In most cases, you need to sign in to access the full content.
 
 ## SAP compatibility
 
@@ -26,7 +33,7 @@ The SAP connector is compatible with the following types of SAP systems:
 
 * Classic on-premises SAP systems, such as R/3 and ECC.
 
-SAP must support the SAP system version that you want to connect. Otherwise, any issues that you might encounter might not be resolvable. For more information about SAP system versions and maintenance information, review the [SAP Product Availability Matrix (PAM)](http://support.sap.com/pam).
+SAP must support the SAP system version that you want to connect. Otherwise, any issues that you might encounter might not be resolvable. For more information about SAP system versions and maintenance information, see the [SAP Product Availability Matrix (PAM)](http://support.sap.com/release-upgrade-maintenance.html).
 
 The SAP connector supports the following message and data integration types from SAP NetWeaver-based systems:
 
@@ -42,9 +49,9 @@ To use the SAP connector operations, you have to first authenticate your connect
 
 * You can provide a username and password.
 
-* The SAP connector supports authentication with [SAP Secure Network Communications (SNC)](https://help.sap.com/docs/r/e73bba71770e4c0ca5fb2a3c17e8e229/7.31.25/en-US/e656f466e99a11d1a5b00000e835363f.html).
+* The SAP connector supports authentication with [SAP Secure Network Communications (SNC)](https://help.sap.com/docs/SAP_NETWEAVER_731_BW_ABAP/e73bba71770e4c0ca5fb2a3c17e8e229/e656f466e99a11d1a5b00000e835363f.html).
 
-You can use SNC for SAP NetWeaver single sign-on (SSO) or for security capabilities from external products. If you choose to use SNC, review the [SNC prerequisites](#snc-prerequisites).
+You can use SNC for SAP NetWeaver single sign-on (SSO) or for security capabilities from external products. If you choose to use SNC, see the [SNC prerequisites](#snc-prerequisites).
 
 ## Connector technical reference
 
@@ -52,8 +59,8 @@ The SAP connector has different versions, based on [logic app type and host envi
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**, and the built-in connector, which appears in the connector gallery under **Runtime** > **In-App** and is [service provider-based](../custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string without an on-premises data gateway. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [SAP built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sap/) <br><br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) <br>- [Built-in connectors in Azure Logic Apps](../../connectors/built-in.md) |
+| **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the connector gallery under the **Shared** filter. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**, and the built-in connector, which appears in the connector gallery under the **Built-in** filter and is [service provider-based](../custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string without an on-premises data gateway. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [SAP built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sap/) <br><br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) <br>- [Built-in connectors in Azure Logic Apps](../../connectors/built-in.md) |
 
 ## Connector differences
 
@@ -63,31 +70,161 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
   Instead, the SAP built-in connector communicates directly with your SAP server in the integrated virtual network, which avoids hops, latency, and failure points for a network gateway. Make sure that you upload or deploy the non-redistributable SAP client libraries with your logic app workflow application. For more information, see the [Prerequisites](#prerequisites) in this guide.
 
-* Payload sizes up to 100 MB are supported, so you don't have to use a blob URI for large requests.
-
-* Specific actions are available for **Call BAPI**, **Call RFC**, and **Send IDoc**. These dedicated actions provide a better experience for stateful BAPIs, RFC transactions, and IDoc deduplication, and don't use the older SOAP Windows Communication Foundation (WCF) messaging model.
-
-  The **Call BAPI** action includes up to two responses with the returned JSON, the XML response from the called BAPI, and the BAPI commit or BAPI rollback response as well and if you use auto-commit. This capability addresses the problem with the SAP managed connector where the outcome from the auto-commit is silent and observable only through logs.
-
-* Longer time-out at 5 minutes compared to managed connector.
-
-  The SAP built-in connector doesn't use the shared or global connector infrastructure, which means time-outs are longer at 5 minutes compared to the SAP managed connector (two minutes). Long-running requests work without you having to implement the long-running webhook-based request action pattern.
+* Standard logic app workflows require and use the SAP NCo 3.1 client library, not the SAP NCo 3.0 version. For more information, see [Prerequisites](#prerequisites).
 
 * By default, the SAP built-in connector operations are *stateless*. However, you can [enable stateful mode (affinity) for these operations](../../connectors/enable-stateful-affinity-built-in-connectors.md).
 
   In stateful mode, the SAP built-in connector supports high availability and horizontal scale-out configurations. By comparison, the SAP managed connector has restrictions regarding the on-premises data gateway limited to a single instance for triggers and to clusters only in failover mode for actions. For more information, see [SAP managed connector - Known issues and limitations](#known-issues-limitations).
 
-* Standard logic app workflows require and use the SAP NCo 3.1 client library, not the SAP NCo 3.0 version. For more information, see [Prerequisites](#prerequisites).
+* Payload sizes up to 100 MB are supported, so you don't have to use a blob URI for large requests.
+
+* Specific actions are available for **Call BAPI**, **Call RFC**, and **Send IDoc**. These dedicated actions provide a better experience for stateful BAPIs, RFC transactions, and IDoc deduplication, and don't use the older SOAP Windows Communication Foundation (WCF) messaging model.
+
+  The **Call BAPI** action includes up to two responses with the returned JSON:
+  
+  - The XML response from the called BAPI.
+
+  - The BAPI commit or BAPI rollback response, if you enable the **Auto Commit** option.
+  
+    This capability addresses a problem with the SAP managed connector where the outcome from the autocommit behavior is silent and observable only through logs.
 
 * Standard logic app workflows provide application settings where you can specify a Personal Security Environment (PSE) and PSE password.
 
   This change prevents you from uploading multiple PSE files, which isn't supported and results in SAP connection failures. In Consumption logic app workflows, the SAP managed connector lets you specify these values through connection parameters, which allowed you to upload multiple PSE files and isn't supported, causing SAP connection failures.
 
-* **Generate Schema** action
+* A longer time-out compared to the SAP managed connector.
+
+  The SAP built-in connector natively runs on the Azure Logic Apps runtime, unlike the SAP managed connector that runs on the shared, global, multitenant Azure infrastructure. This design difference means that you can change the default time-out value on the Standard logic app resource by using the **host.json** settings named [**Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout**](/azure/logic-apps/edit-app-settings-host-settings?tabs=azure-portal#run-actions) and [**functionTimeout**](/azure/logic-apps/edit-app-settings-host-settings?tabs=azure-portal#run-actions).
+
+  The capability to adjust the time-out value means that you can use the SAP built-in connector as-is for long-running synchronous requests. Otherwise, these requests have to use the action pattern for long-running webhook-based requests in the SAP managed connector, which has a much shorter two-minute time-out for synchronous requests.
+
+* Where to find the **`guid`** and **`tId`** parameters
+
+  The XML parameters for **`guid`** and **`tId`** are no longer available in input and output XML payloads. Instead, you can find the parameters as explicit parameters in the workflow designer on the **Parameters** tab and as dynamic output expressions.
+
+* Handling empty XML elements
+
+  - SAP built-in connector: An empty XML element is treated as an SAP parameter with an explicit empty value or default value. To omit sending the parameter to SAP, you can just remove the empty element from the input payload.
+
+  - SAP managed connector: An empty XML element is interpreted as a missing parameter and isn't sent to the SAP function.
+
+  **Example**
+
+  Suppose you have the following SAP RFC input payload:
+  
+  ```xml
+  <RfcName>
+     <Parameter></Parameter>
+  </RfcName>
+  ```
+
+  - In SAP built-in connector, the SAP RFC call includes the parameter as an explicit empty value ('').
+
+  - In the SAP managed connector, the SAP RFC call omits the parameter entirely.
+
+* Trimming whitespace characters
+
+  The SAP built-in connector automatically trims whitespace characters in XML elements.
+
+  For example, suppose you have the following input:
+
+  ```xml
+  <RfcName>
+     <Parameter>   </Parameter>
+  </RfcName>
+  ```
+
+  In the SAP RFC function call, the whitespace in the **Parameter** value is treated as an empty string ('') and is trimmed. To make sure that the call keeps whitespace exactly as provided in the payload, include the **`xml:space="preserve"`** attribute with the element to comply with the W3C specification [2.10 White Space Handling](https://www.w3.org/TR/xml/#sec-white-space), for example:
+
+  ```xml
+  <RfcName>
+     <Parameter xml:space="preserve">   </Parameter>
+  </RfcName>
+  ```
+
+* Validating IDoc format
+
+  - SAP built-in connector: Strictly validates the input payload against the **`IDoc Format`** specified in the action inputs. If a mismatch exists between the provided **`IDoc Format`** and the input XML IDoc structure, the built-in connector throws an error.
+
+  - SAP managed connector: Directly infers the IDoc format from the input payload, allowing for more flexibility by not requiring an exactly matching format.
+
+* Handling BizTalk XML group segments
+
+  - SAP built-in connector: Strictly follows the schema defined by the schema generator.
+
+    - A segment that ends with **`GRP`** (group segment) must define any child segments only one time per instance.
+
+    - To represent multiple sets of child segments, create multiple instances of the group segment so that each instance contains its own individual set of child segments.
+
+  - SAP managed connector: Allows multiple repetitions of child elements within a single group segment. These repetitions are interpreted as multiple instances of the group segment.
+
+  **Example behavior**
+
+  In the following structure, a single group segment defines multiple sequences of child elements, which is rejected by the SAP built-in connector:
+  
+  ```xml
+  <ns2:E2EDKT1002GRP>
+     <ns2:E2EDKT1002>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDID>FD</ns2:TDID>
+     </ns2:E2EDKT1002>
+     <ns2:E2EDKT2001>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDLINE>CRSD</ns2:TDLINE>
+     </ns2:E2EDKT2001>
+     <ns2:E2EDKT1002>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDID>DTP</ns2:TDID>
+     </ns2:E2EDKT1002>
+     <ns2:E2EDKT2001>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDLINE>OriginalRelease:0|</ns2:TDLINE>
+        <ns2:TDFORMAT>/</ns2:TDFORMAT>
+     </ns2:E2EDKT2001>
+  </ns2:E2EDKT1002GRP>
+  ```
+
+  Instead, use following structure for the SAP built-in connector where each **`E2EDKT1002GRP`** group instance contains only a single sequence of child segments:
+
+  ```xml
+  <ns2:E2EDKT1002GRP>
+     <ns2:E2EDKT1002>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDID>FD</ns2:TDID>
+     </ns2:E2EDKT1002>
+     <ns2:E2EDKT2001>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDLINE>CRSD</ns2:TDLINE>
+     </ns2:E2EDKT2001>
+  </ns2:E2EDKT1002GRP>
+  <ns2:E2EDKT1002GRP>
+     <ns2:E2EDKT1002>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT1002</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDID>DTP</ns2:TDID>
+     </ns2:E2EDKT1002>
+     <ns2:E2EDKT2001>
+        <ns2:DATAHEADERCOLUMN_SEGNAM>E2EDKT2001</ns2:DATAHEADERCOLUMN_SEGNAM>
+        <ns2:TDLINE>OriginalRelease:0|</ns2:TDLINE>
+        <ns2:TDFORMAT>/</ns2:TDFORMAT>
+     </ns2:E2EDKT2001>
+  </ns2:E2EDKT1002GRP>
+  ```
+
+* Built-in trigger behavior
+
+  - Namespace construction
+
+    The trigger constructs the namespace in the SAP trigger payload by using the release version number from IDoc metadata, which is retrieved before parsing an IDoc (BizTalk XML or plain XML). To override this source and use the release version number from the control record instead, go to the workflow designer, and in the trigger input parameters, set the **EnforceControlRecordNamespace** property to **true**.
+
+  - Handling empty elements
+
+    By default, the SAP trigger doesn't include empty elements in the output payload. To include empty elements in the trigger output, go to the workflow designer, and in the trigger input parameters, set the **EnableEmptyXmlNode** property to **true**.
+
+* Built-in **Generate Schema** action
 
   * You can select from multiple operation types, such as BAPI, IDoc, RFC, and tRFC, versus the same action in the SAP managed connector, which uses the **SapActionUris** parameter and a file system picker experience.
 
-  * You can directly provide a parameter name as a custom value. For example, you can specify the **RFC Name** parameter from the **Call RFC** action. By comparison, in the SAP managed connector, you had to provide a complex **Action URI** parameter name.
+  * You can directly provide a parameter name as a custom value. For example, you can specify the **RFC Name** parameter from the **Call RFC** action. By comparison, in the SAP managed connector, you have to provide a complex **Action URI** parameter name.
 
   * By design, this action doesn't support generating multiple schemas for RFCs, BAPIs, or IDocs in single action execution, which the SAP managed connector supports. This capability change now prevents attempts to send large amounts of content in a single call.
 
@@ -113,7 +250,7 @@ Along with simple string and number inputs, the SAP connector accepts the follow
 
   * For send message scenarios, data gateway clusters in failover mode are supported.
 
-  * Stateful [SAP actions](/connectors/sap/#actions) don't support data gateway clusters in load-balancing mode. Stateful communications must remain on the same data gateway cluster node. Either use the data gateway in non-cluster mode or in a cluster that's set up for failover only. For example, these actions include the following:
+  * Stateful [SAP actions](/connectors/sap/#actions) don't support data gateway clusters in load-balancing mode. Stateful communications must remain on the same data gateway cluster node. Either use the data gateway in noncluster mode or in a cluster set up for failover only. For example, this scenario applies to the following actions:
 
     * All actions that specify a **Session ID** value
     * **\[BAPI] Commit transaction**
@@ -121,10 +258,10 @@ Along with simple string and number inputs, the SAP connector accepts the follow
     * **\[BAPI - RFC] Close stateful session**
     * **\[BAPI - RFC] Create stateful session**
 
-* In the action named **\[BAPI] Call method in SAP**, the auto-commit feature won't commit the BAPI changes if at least one warning exists in the **CallBapiResponse** object returned by the action. To commit BAPI changes despite any warnings, follow these steps:
+* In the action named **\[BAPI] Call method in SAP**, the autocommit feature doesn't commit the BAPI changes if at least one warning exists in the **CallBapiResponse** object returned by the action. To commit BAPI changes despite any warnings, follow these steps:
 
-  1. Create a session explicitly using the action named **\[BAPI - RFC] Create stateful session**.
-  1. In the action named **\[BAPI] Call method in SAP**, disable the auto-commit feature.
+  1. Create a session explicitly by using the action named **\[BAPI - RFC] Create stateful session**.
+  1. In the action named **\[BAPI] Call method in SAP**, disable the **Auto Commit** option.
   1. Call the action named **\[BAPI] Commit transaction** instead.
 
 ### IP-based connections to SAP Message Server (load-balanced configuration)
@@ -139,19 +276,19 @@ For this problem, the following workarounds or solutions exist:
 
 #### Problem context or background
 
-SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way that the connector requests connections to backend servers from message servers. The connector now uses a new API for application server resolution by the message server unless you force the connector to use the previous API through the setting named **ms/lg_with_hostname=0`**. For more information, see [SAP KB Article 3305039 - SMLG IP Address setting not considered during Logon Group login](https://me.sap.com/notes/3305039/E).
+SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way that the connector requests connections to backend servers from message servers. The connector now uses a new API for application server resolution by the message server unless you force the connector to use the previous API through the setting named **`ms/lg_with_hostname=0`**. For more information, see [SAP KB Article 3305039 - SMLG IP Address setting not considered during Logon Group login](https://userapps.support.sap.com/sap/support/knowledge/3305039).
 
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The [SAP Application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP Message server](https://help.sap.com/docs/SAP_NETWEAVER_700?version=7.0.37&locale=en-US&state=PRODUCTION) that you want to access from Azure Logic Apps.
+* The [SAP Application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP Message server](https://help.sap.com/docs/SAP_NETWEAVER_700/108e05856c5310149156b7d475ca5796/47c2e77bb8fd3020e10000000a42189d.html?version=7.0.37) that you want to access from Azure Logic Apps.
 
-  * Set up your SAP server and user account to allow using RFC.
+  * Set up your SAP server and user account to allow the use of RFC.
 
-    For more information, which includes the supported user account types and the minimum required authorization for each action type (RFC, BAPI, IDoc), review the following SAP note: [460089 - Minimum authorization profiles for external RFC programs](https://launchpad.support.sap.com/#/notes/460089).
+    For more information, which includes the supported user account types and the minimum required authorization for each action type (RFC, BAPI, IDoc), see [SAP Note: 460089 - Minimum authorization profiles for external RFC programs](https://me.sap.com/notes/460089).
 
-  * Your SAP user account needs access to the `RFC_METADATA` function group and the respective function modules for the following operations:
+  * Your SAP user account needs access to the **`RFC_METADATA`** function group and the respective function modules for the following operations:
 
     | Operations | Access to function modules |
     |------------|----------------------------|
@@ -193,17 +330,17 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
     **Registration of tp Microsoft.PowerBI.EnterpriseGateway from host <*host-name*> not allowed**
 
-    For more information, review [SAP Note 1850230 - GW: "Registration of tp \<program ID\> not allowed"](https://userapps.support.sap.com/sap/support/knowledge/1850230).
+    For more information, see [SAP KB Article 1850230 - GW: "Registration of tp \<program ID\> not allowed"](https://userapps.support.sap.com/sap/support/knowledge/1850230).
 
-  * Set up your SAP gateway security logging to help find Access Control List (ACL) issues. For more information, review the [SAP help topic for setting up gateway logging](https://help.sap.com/docs/r/62b4de4187cb43668d15dac48fc00732/7.31.25/en-US/48b2a710ca1c3079e10000000a42189b.html).
+  * Set up your SAP gateway security logging to help find Access Control List (ACL) issues. For more information, see the [SAP help article about setting up gateway logging](https://help.sap.com/docs/SAP_NETWEAVER_731_BW_ABAP/62b4de4187cb43668d15dac48fc00732/48b2a710ca1c3079e10000000a42189b.html?version=7.31.25).
 
   * In the **Configuration of RFC Connections** (T-Code SM59) dialog box, create an RFC connection with the **TCP/IP** type. Make sure that the **Activation Type** is set to **Registered Server Program**. Set the RFC connection's **Communication Type with Target System** value to **Unicode**.
 
-  * If you use this SAP trigger with the **IDOC Format** parameter set to **FlatFile** along with the [Flat File Decode action](../logic-apps-enterprise-integration-flatfile.md), you have to use the `early_terminate_optional_fields` property in your flat file schema by setting the value to `true`.
+  * If you use this SAP trigger with the **IDOC Format** parameter set to **FlatFile** along with the [Flat File Decode action](../logic-apps-enterprise-integration-flatfile.md), you have to use the **`early_terminate_optional_fields`** property in your flat file schema by setting the value to **`true`**.
 
-    This requirement is necessary because the flat file IDoc data record that's sent by SAP on the tRFC call `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the **Flat File Decode** action, the schema that's provided to the action must match.
+    This requirement is necessary because the flat file IDoc data record sent by SAP on the tRFC call **`IDOC_INBOUND_ASYNCHRONOUS`** isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the **Flat File Decode** action, the schema provided to the action must match.
 
-  * In Consumption and Standard workflows, the SAP managed trigger named **When a message is received** uses the same URI location to both renew and unsubscribe from a webhook subscription. The renewal operation uses the HTTP `PATCH` method, while the unsubscribe operation uses the HTTP `DELETE` method. This behavior might make a renewal operation appear as an unsubscribe operation in your trigger's history, but the operation is still a renewal because the trigger uses `PATCH` as the HTTP method, not `DELETE`.
+  * In Consumption and Standard workflows, the SAP managed trigger named **When a message is received** uses the same URI location to both renew and unsubscribe from a webhook subscription. The renewal operation uses the HTTP **`PATCH`** method, while the unsubscribe operation uses the HTTP **`DELETE`** method. This behavior might make a renewal operation appear as an unsubscribe operation in your trigger's history, but the operation is still a renewal because the trigger uses **`PATCH`** as the HTTP method, not **`DELETE`**.
 
     In Standard workflows, the SAP built-in trigger named **When a message is received** uses the Azure Functions trigger instead, and shows only the actual callbacks from SAP.
 
@@ -218,7 +355,7 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
 * For scenarios where you want to send IDocs from your logic app workflow to SAP, change your SAP processing mode from the default **Trigger immediately** setting to **Trigger by background program** so that your workflow doesn't time out.
 
-  If your SAP system is under load, for example, when your workflow sends a batch of IDocs all at one time to SAP, the queued IDoc calls time out. The default processing mode causes your SAP system to block the inbound call for IDoc transmission until an IDoc finishes processing. In Azure Logic Apps, workflow actions have a 2-minute time-out, by default.
+  If your SAP system is under load, the queued IDoc calls for a time out. An example scenario is when your workflow sends a batch of IDocs all at one time to SAP. The default processing mode causes your SAP system to block the inbound call for IDoc transmission until an IDoc finishes processing. In Azure Logic Apps, workflow actions have a 2-minute time out, by default.
 
   To change your SAP system's processing mode, follow these steps:
 
@@ -226,12 +363,12 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
 
   1. On the **Inbound options** tab, under **Processing by Function Module**, change the setting to **Trigger by background program** from **Trigger immediately**.
 
-     The **Trigger by background program** setting lets the underlying IDoc transport tRFC call **`IDOC_INBOUND_ASYNCHRONOUS`** to complete immediately, rather than block the connection until the IDoc finishes processing. However, this setting works only if the IDoc doesn't include the [Express behavior overwriting segment, per SAP Support Note 1777090 - IDocs are processed immediately despite having the "Trigger by background program" option selected in WE20 - SAP for Me](https://me.sap.com/notes/0001777090).
+     The **Trigger by background program** setting lets the underlying IDoc transport tRFC call **`IDOC_INBOUND_ASYNCHRONOUS`** to complete immediately, rather than block the connection until the IDoc finishes processing. However, this setting works only if the IDoc doesn't include the [Express behavior overwriting segment, per SAP KB Article 1777090 - IDocs are processed immediately despite having the "Trigger by background program" option selected in WE20](https://userapps.support.sap.com/sap/support/knowledge/1777090).
 
   For more information, see the following resources:
 
-  - [SAP Support Note 1845390 - Poor performance when posting IDocs with report RBDAPP01 - SAP for Me](https://me.sap.com/notes/1845390/E)
-  - [SAP Support Note 1333417 - Performance problems when processing IDocs immediately - SAP for Me](https://me.sap.com/notes/1333417/E)
+  * [SAP KB Article 1845390 - Poor performance when posting IDocs with report RBDAPP01](https://userapps.support.sap.com/sap/support/knowledge/1845390)
+  * [Improving ALE Performance (Optimise processing of inbound and outbound idocs) - SAP Support Content](https://help.sap.com/docs/SUPPORT_CONTENT/abapconn/3354079741.html)
 
 <a name="network-prerequisites"></a>
 
@@ -261,8 +398,9 @@ The SAP system-required network connectivity includes the following servers and 
 
 Redirection of requests from Application Server, Dispatcher service to Gateway Server, Gateway service automatically happens within the SAP .NET Connector (NCo) library. This redirection occurs even if only the Application Server, Dispatcher service information is provided in the connection parameters.
 
-If you're using a load balancer in front of your SAP system, you must redirect all the services to their respective servers. 
-For more information about SAP services and ports, review the [TCP/IP Ports of All SAP Products](https://help.sap.com/docs/Security/575a9f0e56f34c6e8138439eefc32b16).
+If you use a load balancer in front of your SAP system, you must redirect all the services to their respective servers.
+
+For more information about SAP services and ports, see [TCP/IP Ports of All SAP Products](https://help.sap.com/docs/Security/575a9f0e56f34c6e8138439eefc32b16).
 
 > [!NOTE]
 >
@@ -274,11 +412,11 @@ For more information about SAP services and ports, review the [TCP/IP Ports of A
 
 ### SAP NCo client library prerequisites
 
-To use the SAP connector, you have to install the SAP Connector NCo client library for Microsoft .NET 3.1. The following list describes the prerequisites for the SAP NCo client library, based on the workflow where you're using the SAP connector:
+To use the SAP connector, you have to install the SAP Connector NCo client library for Microsoft .NET 3.1. The following list describes the prerequisites for the SAP NCo client library, based on the workflow where you use the SAP connector:
 
 * Version:
 
-  * For Consumption logic app workflows that use the on-premises data gateway, make sure that you install the latest 64-bit version, [SAP Connector for Microsoft .NET 3.1.3.0 for Windows 64bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). The data gateway runs only on 64-bit systems. Installing the unsupported 32-bit version results in a **"bad image"** error.
+  * For Consumption logic app workflows that use the on-premises data gateway, make sure that you install the latest 64-bit version, [SAP Connector for Microsoft .NET 3.1.3.0 for Windows 64 bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). The data gateway runs only on 64-bit systems. Installing the unsupported 32-bit version results in a **"bad image"** error.
     
   * For Standard logic app workflows, you can install the latest 64-bit or 32-bit version for [SAP Connector (NCo 3.1) for Microsoft .NET 3.1.3.0 compiled with .NET Framework 4.6.2](https://support.sap.com/en/product/connectors/msnet.html). However, make sure that you install the version that matches the configuration in your Standard logic app resource. To check the version used by your logic app, follow these steps:
 
@@ -290,7 +428,7 @@ To use the SAP connector, you have to install the SAP Connector NCo client libra
 
     1. Make sure to install the version of the [SAP Connector (NCo 3.1) for Microsoft .NET 3.1.3.0 compiled with .NET Framework 4.6.2](https://support.sap.com/en/product/connectors/msnet.html) that matches your platform configuration.
 
-* From the client library's default installation folder, copy the assembly (.dll) files to another location, based on your scenario as follows. Or, optionally, if you're using only the SAP managed connector, when you install the SAP NCo client library, select **Global Assembly Cache registration**. The SAP built-in connector currently doesn't support GAC registration.
+* From the client library's default installation folder, copy the assembly (.dll) files to another location, based on your scenario as follows. Or, optionally, if you use only the SAP managed connector, when you install the SAP NCo client library, select **Global Assembly Cache registration**. The SAP built-in connector currently doesn't support GAC registration.
 
   * For a Consumption workflow that runs in multitenant Azure Logic Apps and uses your on-premises data gateway, copy the following assembly (.dll) files to the on-premises data gateway installation folder, for example, **C:\Program Files\On-Premises Data Gateway**. The SAP NCo 3.0 client library contains the following assemblies:
 
@@ -299,9 +437,9 @@ To use the SAP connector, you have to install the SAP Connector NCo client libra
     - **sapnco.dll**
     - **sapnco_utils.dll**
 
-    Make sure that you copy the assembly files to the data gateway's *installation folder*. Otherwise, your SAP connection might fail with the error message, **Please check your account info and/or permissions and try again**. You can troubleshoot further issues using the [.NET assembly binding log viewer](/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer). This tool lets you check that your assembly files are in the correct location.
+    Make sure that you copy the assembly files to the data gateway's *installation folder*. Otherwise, your SAP connection might fail with the error message, **Please check your account info and/or permissions and try again**. You can troubleshoot further issues by using the [.NET assembly binding log viewer](/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer). This tool lets you check that your assembly files are in the correct location.
 
-  * For Standard workflows, copy the following assembly (.dll) files to a location from where you can upload them to your logic app resource or project where you're building your workflow, either in the Azure portal or locally in Visual Studio Code, respectively. The SAP NCo 3.1 client library includes the following assemblies:
+  * For Standard workflows, copy the following assembly (.dll) files to a location from where you can upload them to your logic app resource in the Azure portal or to your local logic app project in Visual Studio Code. The SAP NCo 3.1 client library includes the following assemblies:
 
     - **rscp4n.dll**
     - **sapnco.dll**
@@ -348,23 +486,23 @@ For Consumption workflows in multitenant Azure Logic Apps that use the on-premis
 
 * To use SNC with single sign-on (SSO), make sure the data gateway service is running as a user who is mapped to an SAP user. To change the default account for the gateway service account, select **Change account**, and enter the user credentials.
 
-  ![Screenshot that shows the on-premises data gateway installer and Service Settings page with button to change gateway service account selected.](./media/sap/gateway-account.png)
+   :::image type="content" source="./media/sap/gateway-account.png" alt-text="Screenshot that shows the on-premises data gateway installer and Service Settings page with button to change gateway service account selected." lightbox="./media/sap/gateway-account.png":::
 
-For more information about enabling SNC, review [Enable Secure Network Communications (SNC)](#enable-secure-network-communications).
+For more information about enabling SNC, see [Enable Secure Network Communications (SNC)](#enable-secure-network-communications).
 
 ### [Standard](#tab/standard)
 
 <a name="snc-prerequisites-standard"></a>
 
-The SAP built-in connector supports only SNC X.509 authentication, not single sign-on (SSO) authentication. Make sure that you install the SNC and common crypto library assemblies as part of your [single-tenant prerequisites](#single-tenant-prerequisites) and [network connectivity prerequisites](#network-prerequisites). For more information about enabling SNC, review [Enable Secure Network Communications (SNC)](#enable-secure-network-communications).
+The SAP built-in connector supports only SNC X.509 authentication, not single sign-on (SSO) authentication. Make sure that you install the SNC and common crypto library assemblies as part of your [single-tenant prerequisites](#single-tenant-prerequisites) and [network connectivity prerequisites](#network-prerequisites). For more information about enabling SNC, see [Enable Secure Network Communications (SNC)](#enable-secure-network-communications).
 
-For SNC from SAP, you'll need to download the following files and have them ready to upload to your logic app resource. 
+For SNC from SAP, you need to download the following files and have them ready to upload to your logic app resource. 
 
 - **rscp4n.dll**
 - **sapnco.dll**
 - **sapnco_utils.dll**
 
-You'll also need the following files from the **CommonCryptoLib.sar** package available from the [**SAP for Me, Software Download Center**](https://me.sap.com/softwarecenter)(SAP sign-in required). For more information, see [Download **CommonCryptoLib.sar**](#download-common-crypto).
+You also need the following files from the **CommonCryptoLib.sar** package available from the [**SAP for Me, Software Download Center**](https://me.sap.com/softwarecenter). For more information, see [Download **CommonCryptoLib.sar**](#download-common-crypto).
 
 - **sapcrypto.dll**
 - **sapgenpse.exe**
@@ -379,7 +517,7 @@ You'll also need the following files from the **CommonCryptoLib.sar** package av
 
 #### Download CommonCryptoLib.sar
 
-To get the required assemblies and other files for SNC from SAP, you can find these files in the **CommonCryptoLib.sar** package available from the [**SAP for Me, Software Download Center**](https://me.sap.com/softwarecenter)(SAP sign-in required). You can use any currently supported **CommonCryptoLib** library implementation, based on compatible versions specific to your SAP environment. However, Microsoft recommends that you use the latest version for the **CommonCryptoLib** library available from SAP, assuming that version is compatible with your SAP environment.
+To get the required assemblies and other files for SNC from SAP, you can find these files in the **CommonCryptoLib.sar** package available from the [**SAP for Me, Software Download Center**](https://me.sap.com/softwarecenter). You can use any currently supported **CommonCryptoLib** library implementation, based on compatible versions specific to your SAP environment. However, Microsoft recommends that you use the latest version for the **CommonCryptoLib** library available from SAP, assuming that version is compatible with your SAP environment.
 
 To download the current **CommonCryptoLib** package, follow these steps:
 
@@ -403,8 +541,8 @@ To download the current **CommonCryptoLib** package, follow these steps:
 
    > [!TIP]
    >
-   > If you're unfamiliar with the **SAPCAR** utility, review the following SAP blog post, 
-   > [Easily extract SAR files](https://blogs.sap.com/2004/11/18/easily-extract-sar-files/).
+   > If you're unfamiliar with the **SAPCAR** utility, see the following SAP blog post, 
+   > [Easily extract SAR files](https://community.sap.com/t5/additional-blogs-by-members/easily-extract-sar-files/ba-p/12847103).
 
    The following batch file is an improved version that extracts archives to a subdirectory with the same name:
 
@@ -557,11 +695,11 @@ For more information about SNC, see [Getting started with SAP SNC for RFC integr
    | **SNC SSO** | Select either **Logon using the SNC identity** or **Logon with the username/password provided on RFC level**. <br><br>Typically, the SNC identity is used to authenticate the caller. You can choose to authenticate with a username and password instead, but this parameter value is still encrypted. |
    | **SNC My Name** | In most cases, you can omit this value. The installed SNC solution usually knows its own SNC name. In the case where your solution supports multiple identities, you might have to specify the identity to use for this particular destination or server. |
    | **SNC Partner Name** | Enter the name for the backend SNC, for example, **p:CN=DV3, OU=LA, O=MS, C=US**. |
-   | **SNC Quality of Protection** | Select the quality of service to use for SNC communication with this particular destination or server. The default value is defined by the backend system. The maximum value is defined by the security product used for SNC. |
-   | **SNC Certificate** | Enter the base64-encoded *public* key for the certificate to use for identifying your client to SAP. <br><br>**Note**: - Don't include the PEM header or footer. <br><br>- Don't enter the private key for the client certificate here. Your Personal Security Environment (PSE) must contain the matching private key for this certificate and might contain other private certificates. For more information, review the next parameter. |
+   | **SNC Quality of Protection** | Select the quality of service to use for SNC communication with this particular destination or server. The back-end system defines the default value. The security product used for SNC defines the maximum value. |
+   | **SNC Certificate** | Enter the base64-encoded *public* key for the certificate to use for identifying your client to SAP. <br><br>**Note**: Make sure to follow this guidance: <br><br>- Don't include the PEM header or footer. <br><br>- Don't enter the private key for the client certificate here. Your Personal Security Environment (PSE) must contain the matching private key for this certificate and might contain other private certificates. For more information, see the next parameter. |
    | **PSE** | Enter your SNC Personal Security Environment (PSE) as a base64-encoded binary. <br><br>- Your PSE must contain the private key for the client certificate where the thumbprint matches the public key for the client certificate in the **SNC Certificate** parameter. <br><br>- Although your PSE might contain multiple client certificates, to use different client certificates, create separate workflows instead. |
 
-   ![Screenshot shows SAP connection parameters with SNC enabled for Consumption workflow.](./media/sap/sap-connection-snc-consumption.png)
+   :::image type="content" source="./media/sap/sap-connection-snc-consumption.png" alt-text="Screenshot shows SAP connection parameters with SNC enabled for Consumption workflow." lightbox="./media/sap/sap-connection-snc-consumption.png":::
 
 1. To finish creating your connection, select **Create new**.
 
@@ -569,7 +707,7 @@ For more information about SNC, see [Getting started with SAP SNC for RFC integr
 
 ### [Standard](#tab/standard)
 
-For a Standard workflow that runs in single-tenant Azure Logic Apps, you can enable SNC for authentication. Before you start, make sure that you met all the necessary [prerequisites](sap.md?tabs=single-tenant#prerequisites) and [SNC prerequisites for single-tenant](sap.md?tabs=single-tenant#snc-prerequisites). For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
+For a Standard workflow that runs in single-tenant Azure Logic Apps, you can enable SNC for authentication. Before you start, make sure that you meet all the necessary [prerequisites](sap.md?tabs=standard#prerequisites) and [SNC prerequisites for single-tenant](sap.md?tabs=standard#snc-prerequisites). For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
 
 #### Set up your SNC personal security environment and password
 
@@ -583,12 +721,16 @@ For a Standard workflow that runs in single-tenant Azure Logic Apps, you can ena
 
       | Name | Value | Description |
       |------|-------|-------------|
-      | **SAP_PSE** | <*PSE-value*> | Enter your SNC Personal Security Environment (PSE) as a base64-encoded binary. <br><br>- Your PSE must contain the private key for the client certificate where the thumbprint matches the public key for the client certificate in the SAP connection's **SNC Certificate** parameter that is available when you create the connection. <br><br>- Although your PSE might contain multiple client certificates, to use different client certificates, create separate workflows instead. <br><br>- The PSE must have no PIN. If necessary, set the PIN to empty using the SAPGENPSE utility. |
+      | **SAP_PSE** | <*PSE-value*> | Enter your SNC Personal Security Environment (PSE) as a base64-encoded binary. <br><br>- Your PSE must contain the private key for the client certificate where the thumbprint matches the public key for the client certificate in the SAP connection's **SNC Certificate** parameter that is available when you create the connection. <br><br>- Although your PSE might contain multiple client certificates, to use different client certificates, create separate workflows instead. <br><br>- The PSE must have no PIN. If necessary, set the PIN to empty by using the SAPGENPSE utility. |
       | **SAP_PSE_PASSWORD** | <*PSE-password*> | The password, also known as PIN, for your PSE |
 
 #### Create a connection with the SAP built-in connector
 
-Follow these steps for the SAP *built-in* connector. To create a connection with the SAP managed connector, see the [steps to enable SNC for an SAP connection in a Consumption workflow](sap.md?tabs=consumption#enable-secure-network-communications).
+For the SAP *built-in* connector, follow these steps that apply only to this connector version.
+
+> [!NOTE]
+>
+> For the SAP *managed* connector, follow the [same steps to enable SNC for an SAP connection in a Consumption workflow](sap.md?tabs=consumption#enable-secure-network-communications).
 
 1. On your logic app resource menu, under **Workflows**, select **Workflows**.
 
@@ -611,10 +753,10 @@ Follow these steps for the SAP *built-in* connector. To create a connection with
    |-----------| ------------|
    | **SNC My Name** | In most cases, you can omit this value. The installed SNC solution usually knows its own SNC name. In the case where your solution supports multiple identities, you might have to specify the identity to use for this particular destination or server. |
    | **SNC Partner Name** | Enter the name for the backend SNC, for example, **p:CN=DV3, OU=LA, O=MS, C=US**. |
-   | **SNC Quality of Protection** | Select the quality of service to use for SNC communication with this particular destination or server. The default value is defined by the backend system. The maximum value is defined by the security product used for SNC. |
+   | **SNC Quality of Protection** | Select the quality of service to use for SNC communication with this particular destination or server. The back-end system defines the default value. The security product used for SNC defines the maximum value. |
    | **SNC Type** | Select the SNC authentication to use. |
-   | **Certificate User** | Enter the user to connect when you have a certificate that's assigned to multiple users. |
-   | **SNC Certificate** | Enter your SNC client's public certificate in base64-encoded format. This parameter specifies the certificates that this connection must use. <br><br>**Note**: - Don't include the PEM header or footer. <br><br>- Don't enter the private certificate here because the Personal Security Environment (PSE) might contain multiple private certificates. You specify this PSE using the **SAP_PSE** app setting for your Standard logic app resource. <br><br>- If you're using more than one SNC client certificate for your logic app resource, you must provide the same PSE for all connections. |
+   | **Certificate User** | Enter the user to connect when you have a certificate assigned to multiple users. |
+   | **SNC Certificate** | Enter your SNC client's public certificate in base64-encoded format. This parameter specifies the certificates that this connection must use. <br><br>**Note**: Make sure to follow this guidance: <br><br>- Don't include the PEM header or footer. <br><br>- Don't enter the private certificate here because the Personal Security Environment (PSE) might contain multiple private certificates. You specify this PSE by using the **SAP_PSE** app setting for your Standard logic app resource. <br><br>- If you use more than one SNC client certificate for your logic app resource, you must provide the same PSE for all connections. |
 
    :::image type="content" source="media/sap/sap-connection-snc-standard.png" alt-text="Screenshot shows SAP built-in connection parameters with SNC enabled for Standard workflows.":::
 
@@ -655,17 +797,17 @@ Follow these steps for the SAP *built-in* connector. To create a connection with
 
 ### Set up and test sending IDocs from SAP to your workflow
 
-To send IDocs from SAP to your logic app workflow, follow these steps to set up and test your SAP configuration with your logic app workflow. These steps apply only to testing as production environments require additional configuration.
+To send IDocs from SAP to your logic app workflow, follow these steps to set up and test your SAP configuration with your logic app workflow. These steps apply only to testing because production environments require other configuration.
 
-To send IDocs from SAP to your workflow, you need the following minimum configuration:
+To send IDocs from SAP to your workflow, you need to set up the minimum configuration by following these steps:
 
-1. [Create an RFC destination.](#create-rfc-destination)
-1. [Create an ABAP connection.](#create-abap-connection)
-1. [Create a receiver port.](#create-receiver-port)
-1. [Create a sender port.](#create-sender-port)
-1. [Create a logical system partner.](#create-logical-system-partner)
-1. [Create a partner profile.](#create-partner-profiles)
-1. [Test sending messages.](#test-sending-messages)
+1. [Create an RFC destination](#create-rfc-destination).
+1. [Create an Advanced Business Application Programming (ABAP) connection](#create-abap-connection).
+1. [Create a receiver port](#create-receiver-port).
+1. [Create a sender port](#create-sender-port).
+1. [Create a logical system partner](#create-logical-system-partner).
+1. [Create a partner profile](#create-partner-profiles).
+1. [Test sending messages](#test-sending-messages).
 
 #### Create RFC destination
 
@@ -681,7 +823,7 @@ This destination identifies your logic app workflow as the receiver port.
 
    1. On the **Technical Settings** tab, for **Activation Type**, select **Registered Server Program**.
 
-   1. For **Program ID**, enter a value. In your SAP server, your workflow's trigger is registered using this identifier.
+   1. For **Program ID**, enter a value. In your SAP server, your workflow's trigger is registered by using this identifier.
 
       > [!IMPORTANT]
       >
@@ -692,10 +834,10 @@ This destination identifies your logic app workflow as the receiver port.
       > * **Function IDOC_INBOUND_ASYNCHRONOUS not found**
       > * **Non-ABAP RFC client (partner type) not supported**
       >
-      > For more information from SAP, review the following notes (login required):
+      > For more information from SAP, see the following notes:
       >
-      > * [https://launchpad.support.sap.com/#/notes/2399329](https://launchpad.support.sap.com/#/notes/2399329)
-      > * [https://launchpad.support.sap.com/#/notes/353597](https://launchpad.support.sap.com/#/notes/353597)
+      > * [2399329 - Function IDOC_INBOUND_ASYNCHRONOUS not found in SM58](https://me.sap.com/notes/2399329)
+      > * [https://me.sap.com/notes/353597](https://me.sap.com/notes/353597)
 
    1. On the **Unicode** tab, for **Communication Type with Target System**, select **Unicode**.
 
@@ -844,7 +986,7 @@ For the how-to guide to creating workflows for common SAP integration workloads,
 
 ## Find extended error logs (Managed connector only)
 
-If you're using the SAP managed connector, you can find full error messages by checking your SAP Adapter's extended logs. You can also [enable an extended log file for the SAP connector](#set-up-extended-sap-logging).
+If you use the SAP managed connector, you can find full error messages by checking your SAP Adapter's extended logs. You can also [enable an extended log file for the SAP connector](#set-up-extended-sap-logging).
 
 * For on-premises data gateway releases from April 2020 and earlier, logs are disabled by default.
 
@@ -881,21 +1023,21 @@ As an optional advanced logging task, you can directly capture ETW events, and t
 
 To work with the resulting ETL files, you can use [PerfView](https://github.com/Microsoft/perfview/blob/main/README.md), or you can write your own program. The following walkthrough uses PerfView:
 
-1. In the PerfView menu, select **Collect** &gt; **Collect** to capture the events.
+1. In the PerfView menu, select **Collect** > **Collect** to capture the events.
 
-1. In the **Additional Provider** parameter, enter `*Microsoft-LobAdapter` to specify the SAP provider to capture SAP Adapter events. If you don't specify this information, your trace only includes general ETW events.
+1. In the **Additional Provider** parameter, enter **`*Microsoft-LobAdapter`** to specify the SAP provider to capture SAP Adapter events. If you don't specify this information, your trace only includes general ETW events.
 
 1. Keep the other default settings. If you want, you can change the file name or location in the **Data File** parameter.
 
 1. Select **Start Collection** to begin your trace.
 
-1. After you've reproduced your issue or collected enough analysis data, select **Stop Collection**.
+1. After you reproduce your issue or collect enough analysis data, select **Stop Collection**.
 
 1. To share your data with another party, such as Azure support engineers, compress the ETL file.
 
 1. To view the content of your trace:
 
-   1. In PerfView, select **File** &gt; **Open** and select the ETL file you just generated.
+   1. In PerfView, select **File** > **Open** and select the ETL file you generated.
 
    1. In the PerfView sidebar, the **Events** section under your ETL file.
 
@@ -911,11 +1053,11 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
 
 1. If your Consumption logic app resource isn't already enabled, on your logic app menu, select **Overview**. On the toolbar, select **Enable**.
 
-1. On the designer toolbar, select **Run Trigger** > **Run** to manually start your workflow.
+1. On the designer toolbar, select **Run** > **Run** to manually start your workflow.
 
 1. To trigger your workflow, send a message from your SAP system.
 
-1. Return to your logic app's **Overview** pane. Under **Runs history**, find any new runs for your workflow.
+1. Return to your logic app's **Overview** page. Under **Runs history**, find any new runs for your workflow.
 
 1. Open the most recent run, which shows a manual run. Find and review the trigger outputs section.
 
@@ -927,7 +1069,7 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
 
 1. To trigger your workflow, send a message from your SAP system.
 
-1. Return to your workflow's **Overview** pane. Under **Run History**, find any new runs for your workflow.
+1. Return to your workflow's **Overview** page. Under **Run History**, find any new runs for your workflow.
 
 1. Open the most recent run, which shows a manual run. Find and review the trigger outputs section.
 
@@ -1018,12 +1160,12 @@ You can control this tracing capability at the application level by adding the f
 
    > [!NOTE]
    >
-   > If you download a log or trace file that your logic app workflow opened 
-   > and is currently in use, your download might result in an empty file.
+   > If you download a log or trace file currently opened or used by your logic app workflow, 
+   > your download might result in an empty file.
 
 ## Enable SAP Common Crypto Library (CCL) tracing (built-in connector only)
 
-If you have to investigate any problems with the crypto library while using SNC authentication, you can set up custom text file-based CCL tracing. You can use these CCL logs to troubleshoot SNC authentication issues, or share them with Microsoft or SAP support, if requested. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's storage space.
+If you have to investigate any problems with the crypto library while using SNC authentication, you can set up custom text file-based CCL tracing. You can use the CCL logs to troubleshoot SNC authentication issues, or share them with Microsoft or SAP support, if requested. By default, this capability is disabled because enabling this trace might negatively affect performance and quickly consume the application host's storage space.
 
 You can control this tracing capability at the application level by adding the following settings:
 
@@ -1035,7 +1177,7 @@ You can control this tracing capability at the application level by adding the f
 
 1. Browse to a location under **C:\home\site\wwwroot**, and create a text file, for example: **CCLPROFILE.txt**.
 
-   For more information about logging parameters, see [**Tracing** > SAP NOTE 2338952](https://me.sap.com/notes/2338952/E). The following sample provides an example tracing configuration:
+   For more information about logging parameters, see [SAP KB Article 3192871 - How to check CommonCryptoLib version information in ABAP system](https://userapps.support.sap.com/sap/support/knowledge/3192871). The following sample provides an example tracing configuration:
    
    ```
    ccl/trace/directory=C:\home\LogFiles\CCLLOGS
@@ -1074,19 +1216,18 @@ You can control this tracing capability at the application level by adding the f
 
 ## Send SAP telemetry for on-premises data gateway to Azure Application Insights
 
-With the August 2021 update for the on-premises data gateway, SAP connector operations can send telemetry data from the SAP NCo client library and traces from the Microsoft SAP Adapter to [Application Insights](/azure/azure-monitor/app/app-insights-overview), which is a capability in Azure Monitor. This telemetry primarily includes the following data:
+Starting with the August 2021 update for the on-premises data gateway, SAP connector operations can send telemetry data from the SAP NCo client library and traces from the Microsoft SAP Adapter to [Application Insights](/azure/azure-monitor/app/app-insights-overview). This feature is a capability in Azure Monitor. The telemetry primarily includes the following data:
 
-* Metrics and traces based on SAP NCo metrics and monitors.
-
-* Traces from Microsoft SAP Adapter.
+* Metrics and traces based on SAP NCo metrics and monitors
+* Traces from Microsoft SAP Adapter
 
 ### Metrics and traces from SAP NCo client library
 
 SAP NCo-based metrics are numeric values that might or might not vary over a time period, based on the usage and availability of resources on the on-premises data gateway. You can use these metrics to better understand system health and to create alerts about the following activities:
 
-* System health decline.
-* Unusual events.
-* Heavy system load.
+* System health decline
+* Unusual events
+* Heavy system load
 
 This information is sent to the Application Insights table named **customMetrics**. By default, metrics are sent at 30-second intervals.
 
@@ -1094,16 +1235,16 @@ SAP NCo-based traces include text information that's used with metrics. This inf
 
 SAP NCo metrics and traces are based on SAP NCo metrics, specifically the following NCo classes:
 
-* RfcDestinationMonitor.
-* RfcConnectionMonitor.
-* RfcServerMonitor.
-* RfcRepositoryMonitor.
+* RfcDestinationMonitor
+* RfcConnectionMonitor
+* RfcServerMonitor
+* RfcRepositoryMonitor
 
-For more information about the metrics that each class provides, see the [SAP NCo documentation (sign-in required)](https://support.sap.com/en/product/connectors/msnet.html#section_512604546).
+For more information about the metrics that each class provides, see the [SAP NCo documentation](https://support.sap.com/en/product/connectors/msnet.html#section_512604546).
 
 ### Set up SAP telemetry for Application Insights
 
-Before you can send SAP telemetry for your gateway installation to Application Insights, you need to have created and set up your Application Insights resource. For more information, review the following documentation:
+Before you can send SAP telemetry for your gateway installation to Application Insights, you need to create and set up your Application Insights resource. For more information, review the following documentation:
 
 * [Create an Application Insights resource (classic)](/previous-versions/azure/azure-monitor/app/create-new-resource)
 
@@ -1117,7 +1258,7 @@ To enable sending SAP telemetry to Application insights, follow these steps:
 
 1. In your on-premises data gateway installation directory, check that the **Microsoft.ApplicationInsights.dll** file has the same version number as the **Microsoft.ApplicationInsights.EventSourceListener.dll** file that you added. The gateway currently uses version 2.14.0.
 
-1. In the **ApplicationInsights.config** file, add your [Application Insights instrumentation key](/azure/azure-monitor/app/sdk-connection-string) by uncommenting the line with the `<InstrumentationKey></InstrumentationKey>` element. Replace the placeholder, *your-Application-Insights-instrumentation-key*, with your key, for example:
+1. In the **ApplicationInsights.config** file, add your [Application Insights instrumentation key](/azure/azure-monitor/app/connection-strings) by uncommenting the line with the **`<InstrumentationKey></InstrumentationKey>`** element. Replace the placeholder, *your-Application-Insights-instrumentation-key*, with your key, for example:
 
       ```xml
       <?xml version="1.0" encoding="utf-8"?>
@@ -1164,11 +1305,11 @@ After your SAP operations run in your logic app workflow, you can review the tel
 
 1. On the resource menu, under **Monitoring**, select **Logs**.
 
-   The following screenshot shows the Azure portal with Application Insights, which is open to the **Logs** pane:
+   The following screenshot shows the Azure portal where the Application Insights resource has the **Logs** page open:
 
-   [![Screenshot shows Azure portal with Application Insights open to the "Logs" pane for creating queries.](./media/sap/application-insights-query-panel.png)](./media/sap/application-insights-query-panel.png#lightbox)
+   :::image type="content" source="./media/sap/application-insights-query-panel.png" alt-text="Screenshot shows Azure portal with Application Insights open to the Logs page for creating queries." lightbox="./media/sap/application-insights-query-panel.png":::
 
-1. On the **Logs** pane, you can create a [query](/azure/data-explorer/kusto/query/) using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/concepts/) that's based on your specific requirements.
+1. On the **Logs** page, you can create a [query that uses Kusto Query Language (KQL)](/kusto/query/?view=azure-monitor&preserve-view=true), based on your specific requirements.
 
    You can use a query pattern similar to the following example query:
 
@@ -1184,35 +1325,35 @@ After your SAP operations run in your logic app workflow, you can review the tel
 
    The following screenshot shows the example query's metrics results table:
 
-   [![Screenshot shows Application Insights with the metrics results table.](./media/sap/application-insights-metrics.png)](./media/sap/application-insights-metrics.png#lightbox)
+   :::image type="content" source="./media/sap/application-insights-metrics.png" alt-text="Screenshot shows Application Insights with the metrics results table." lightbox="./media/sap/application-insights-metrics.png":::
 
-   * **MaxUsedCount** is "The maximal number of client connections that were simultaneously used by the monitored destination." as described in the [SAP NCo documentation (sign-in required)](https://support.sap.com/en/product/connectors/msnet.html#section_512604546). You can use this value to understand the number of simultaneously open connections.
+   | Column | Description |
+   |--------|-------------|
+   | **MaxUsedCount** | "The maximal number of client connections that were simultaneously used by the monitored destination." as described in the [SAP NCo documentation](https://support.sap.com/en/product/connectors/msnet.html#section_512604546). You can use this value to understand the number of simultaneously open connections. |
+   | **valueCount** | Shows **2** for each reading because metrics are generated at 30-second intervals. Application Insights aggregates these metrics by the minute. |
+   | **DestinationName** | Contains a character string that is a Microsoft SAP Adapter internal name. |
 
-   * The **valueCount** column shows **2** for each reading because metrics are generated at 30-second intervals. Application Insights aggregates these metrics by the minute.
+   To better understand this Remote Function Call (RFC) destination, use this value with `traces`, for example:
 
-   * The **DestinationName** column contains a character string that is a Microsoft SAP Adapter internal name.
+   ```Kusto
+   customMetrics
+   | extend DestinationName = tostring(customDimensions["DestinationName"])
+   | join kind=inner (traces
+      | extend DestinationName = tostring(customDimensions["DestinationName"]),
+      AppServerHost = tostring(customDimensions["AppServerHost"]),
+      SncMode = tostring(customDimensions["SncMode"]),
+      SapClient = tostring(customDimensions["Client"])
+      | where customDimensions contains "RfcDestinationMonitor"
+      )
+      on DestinationName , $left.DestinationName == $right.DestinationName
+   | where customDimensions contains "RfcDestinationMonitor"
+   | where name contains "MaxUsedCount"
+   | project AppServerHost, SncMode, SapClient, name, valueCount, valueSum, valueMin, valueMax
+   ```
 
-     To better understand this Remote Function Call (RFC) destination, use this value with `traces`, for example:
+You can also create metric charts or alerts by using those capabilities in Application Insights, for example:
 
-     ```Kusto
-     customMetrics
-     | extend DestinationName = tostring(customDimensions["DestinationName"])
-     | join kind=inner (traces
-        | extend DestinationName = tostring(customDimensions["DestinationName"]),
-        AppServerHost = tostring(customDimensions["AppServerHost"]),
-        SncMode = tostring(customDimensions["SncMode"]),
-        SapClient = tostring(customDimensions["Client"])
-        | where customDimensions contains "RfcDestinationMonitor"
-        )
-        on DestinationName , $left.DestinationName == $right.DestinationName
-     | where customDimensions contains "RfcDestinationMonitor"
-     | where name contains "MaxUsedCount"
-     | project AppServerHost, SncMode, SapClient, name, valueCount, valueSum, valueMin, valueMax
-     ```
-
-You can also create metric charts or alerts using those capabilities in Application Insights, for example:
-
-[![Screenshot shows Application Insights with the results in chart format.](./media/sap/application-insights-metrics-chart.png)](./media/sap/application-insights-metrics-chart.png#lightbox)
+:::image type="content" source="./media/sap/application-insights-metrics-chart.png" alt-text="Screenshot shows Application Insights with the results in chart format." lightbox="./media/sap/application-insights-metrics-chart.png":::
 
 ### Traces from Microsoft SAP Adapter
 
@@ -1230,8 +1371,8 @@ traces
 
 The following screenshot shows the example query's traces results table:
 
-[![Screenshot shows Application Insights with the traces results table.](./media/sap/application-insights-traces.png)](./media/sap/application-insights-traces.png#lightbox)
+:::image type="content" source="./media/sap/application-insights-traces.png" alt-text="Screenshot shows Application Insights with the traces results table." lightbox="./media/sap/application-insights-traces.png":::
 
-## Next steps
+## Related content
 
 * [Create example workflows for common SAP scenarios](sap-create-example-scenario-workflows.md)

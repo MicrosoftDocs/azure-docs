@@ -6,8 +6,8 @@ ms.topic: how-to
 ms.date: 10/16/2024
 ms.author: yelevin
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -25,9 +25,9 @@ Microsoft Sentinel’s [customizable anomalies feature](soc-ml-anomalies.md) pro
 
 You can now find anomaly rules displayed in a grid in the **Anomalies** tab in the **Analytics** page.
 
-1. For users of Microsoft Sentinel in the Azure portal, select **Analytics** from the Microsoft Sentinel navigation menu.
+1. For users of the Microsoft Defender portal, select **Microsoft Sentinel > Configuration > Analytics** from the Microsoft Defender navigation menu.
 
-    For users of the Microsoft Defender portal, select **Microsoft Sentinel > Configuration > Analytics** from the Microsoft Defender navigation menu.
+    For users of Microsoft Sentinel in the Azure portal, select **Analytics** from the Microsoft Sentinel navigation menu.
 
 1. On the **Analytics** page, select the **Anomalies** tab.
 

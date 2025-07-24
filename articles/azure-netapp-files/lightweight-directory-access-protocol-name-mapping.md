@@ -4,9 +4,10 @@ description: This article helps you understand how Azure NetApp Files uses name 
 services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/18/2025
 ms.author: anfdocs
+# Customer intent: "As an IT administrator managing a hybrid environment, I want to configure name mapping using LDAP in Azure NetApp Files, so that I can ensure seamless access and ownership of files between Windows SMB and UNIX users."
 ---
 
 # Understand name mapping using LDAP in Azure NetApp Files

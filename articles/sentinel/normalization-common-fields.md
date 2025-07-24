@@ -131,7 +131,7 @@ The currently supported list of vendors and products used in the [EventVendor](#
 | `Zscaler` |  - `ZIA DNS`<br> - `ZIA Firewall`<br> - `ZIA Proxy` |
 
 
-If you are developing a parser for a vendor or a product,s which are not listed here, contact the [Microsoft Sentinel](mailto:azuresentinel@microsoft.com) team to allocate a new allowed vendor and product designators. 
+If you're developing a parser for a vendor or product not listed here, contact the [Microsoft Sentinel](mailto:azuresentinel@microsoft.com) team to allocate new allowed vendor and product designators. 
 
 
 ## Next steps

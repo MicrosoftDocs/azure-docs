@@ -1,14 +1,14 @@
 ---
 title: Fail back Azure VMware Solution VMsfrom Azure with Azure Site Recovery 
 description: Learn how to failback to the Azure VMware Solution private cloud after failover to Azure, during disaster recovery.
-author: ankitaduttaMSFT
-manager: rochakm
+author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.author: ankitadutta
+ms.author: jsuri
 ms.custom: MVC
 
+# Customer intent: As a cloud administrator, I want to fail back Azure VMs to the Azure VMware Solution private cloud, so that I can ensure business continuity and recover from disaster scenarios effectively.
 ---
 # Fail back VMs to Azure VMware Solution private cloud
 

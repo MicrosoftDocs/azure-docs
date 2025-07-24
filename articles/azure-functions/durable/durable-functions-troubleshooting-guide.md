@@ -129,7 +129,7 @@ traces
 | extend status = customDimensions["prop__status"]
 | extend details = customDimensions["prop__Details"] 
 | extend reason = customDimensions["prop__reason"]
-| where severityLevel > 1 // to see all logs of  severity level "Information" or greater.
+| where severityLevel >= 1 // to see all logs of severity level "Information" or greater.
 | where instanceId == orchestrationInstanceID
 | sort by timestamp asc 
 ```

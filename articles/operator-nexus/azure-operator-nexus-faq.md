@@ -6,7 +6,9 @@ ms.author: mukeshdua
 ms.service: azure-operator-nexus
 ms.topic: conceptual
 ms.date: 06/28/2023
-ms.custom: template-reference
+ms.custom:
+  - template-reference
+  - build-2025
 ---
 
 # Azure Operator Nexus frequently asked questions (FAQ)
@@ -18,7 +20,7 @@ The following sections cover some of the frequently asked questions for Azure Op
 Azure Operator Nexus is a managed hybrid cloud platform that supports carrier-grade network workloads. Here, the management plane lives in Azure and the control plane and user plane gets deployed on operators' premises or in Azure. It simplifies provisioning of new network services and optimizes deployment of network functions and applications on premises. The end customer can deploy containerized applications (on an on premises Nexus AKS cluster) or a virtualized workload to run these network functions. Customer gets out of the box integration with many Azure services such as Azure Monitor, Azure Container Registry, and Azure Kubernetes Services.
 
 ### How do I interact with Operator Nexus instance?
-You can interact with Operator Nexus like any other Azure services using AZ CLI, API, ARM template, or portal. You can alternatively use BICEP templates.
+You can interact with Operator Nexus like any other Azure services using AZ CLI, API, ARM template, or portal. You can alternatively use Bicep files.
 
 ### Does customer need to deploy any resources in their subscription to deploy Azure Operator Nexus instances?
 Yes, there are some resources that customer needs to create in the respective region under their Azure subscriptions. Some of these include creation of a pair of Network Fabric Controller and Cluster Manager resource, Log Analytics Workspace, a storage account. For more details, please refer to [Azure Operator Nexus documentation](howto-azure-operator-nexus-prerequisites.md).

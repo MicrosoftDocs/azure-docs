@@ -14,7 +14,7 @@ ms.author: cshoe
 
 # Billing in Azure Container Apps
 
-Billing in Azure Container Apps is based on your [plan type](plans.md).
+Billing in Azure Container Apps is based on your [plan type](plans.md) (Consumption or Dedicated), which is determined by your environment type you select.
 
 | Plan type | Description |
 |--|--|
@@ -42,7 +42,7 @@ The following resources are free during each calendar month, per subscription:
 Free usage doesn't appear on your bill. You're only charged as your resource usage exceeds the monthly free grants amounts.
 
 > [!NOTE]
-> If you use Container Apps with [your own virtual network](networking.md#managed-resources) or your apps utilize other Azure resources, additional charges may apply.
+> If you use Container Apps with [your own virtual network](custom-virtual-networks.md#managed-resources) or your apps utilize other Azure resources, additional charges may apply.
 
 ### Resource consumption charges
 

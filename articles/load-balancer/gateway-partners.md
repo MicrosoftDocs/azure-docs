@@ -6,6 +6,7 @@ ms.service: azure-load-balancer
 ms.topic: concept-article
 ms.date: 06/26/2024
 ms.author: mbender
+# Customer intent: "As a cloud architect, I want to explore partner integrations with Azure Gateway Load Balancer so that I can enhance network security and optimize performance across my cloud infrastructure."
 ---
 
 # Azure Gateway Load Balancer partners
@@ -80,7 +81,7 @@ Azure has a growing ecosystem of partners offering their network appliances for 
 
 **Ali Bidabadi - Senior Director, Global Cloud Consulting & Architecture**
 
-[Learn more](https://fusecommunity.fortinet.com/blogs/daniel1/2021/10/19/deploy-fortigate-with-azure-gateway)
+[Learn more](https://www.fortinet.com/content/dam/fortinet/assets/solutions/azure/QSG-FortiWeb-for-Microsoft-Azure-Quick-Start-Guide.pdf)
 
 ### Glasnostic
 

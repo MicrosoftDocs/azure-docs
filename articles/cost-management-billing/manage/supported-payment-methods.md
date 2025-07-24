@@ -1,14 +1,16 @@
 ---
 title: Supported payment methods
 description: Learn about the payment methods that are supported for Azure subscriptions, based on your country or region.
-author: bandersmsft
-ms.reviewer: lishepar
+author: KennyDay
+ms.reviewer: lishepar, jobailey
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: reference
-ms.date: 03/12/2025
-ms.author: banders
-ms.custom: references_regions
+ms.date: 06/18/2025
+ms.author: lishepar
+ms.custom:
+- references_regions
+- build-2025
 ---
 
 # Supported payment methods for Azure subscriptions
@@ -16,6 +18,9 @@ ms.custom: references_regions
 This article helps determine you which credit and debit cards are supported for Azure subscriptions, based on your country or region. To pay for your Azure subscription, you can use a credit or debit card if you have a Microsoft Customer Agreement (MCA) or Microsoft Online Services Program (MOSP) account. The following cards are supported for Azure subscriptions, based on your country or region.
 
 For more information about payment methods, see [Add, update, or remove a payment method](change-credit-card.md).
+
+> [!NOTE]
+> Prepaid cards (aka stored value cards, Visa gift cards, MasterCard gift cards, etc.) are not accepted as valid payment instruments.
 
 ## Supported credit and debit cards
 

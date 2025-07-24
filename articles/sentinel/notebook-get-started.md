@@ -1,13 +1,13 @@
 ---
 title: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel
 description: Walk through the Getting Started Guide For Microsoft Sentinel ML Notebooks to learn the basics of Microsoft Sentinel notebooks with MSTICPy and queries.
-author: austinmccollum
-ms.author: austinmc
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: how-to
 ms.date: 02/20/2025
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -40,7 +40,7 @@ Before you begin, make sure you have the required permissions and resources.
 
 This procedure describes how to launch your notebook with Microsoft Sentinel.
 
-1.  For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Notebooks**. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Notebooks**.
+1. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Notebooks**. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Notebooks**. 
 
 1. From the **Templates** tab, select **A Getting Started Guide For Microsoft Sentinel ML Notebooks** .
 1. Select **Create from template**.

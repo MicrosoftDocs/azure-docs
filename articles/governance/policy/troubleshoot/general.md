@@ -366,6 +366,14 @@ The `regex.match` function in rego uses RE2, which is not the default flavor ser
 
 You will need to select the RE2 or golang flavor of regex in your matcher. See [the rego docs](https://docs.styra.com/opa/rego-by-example/builtins/regex/match) for more details on the RE2 flavor and what online tooling is recommended to test your regex.
 
+### Scenario: I'm seeing a large number of updates on constraint.gatekeeper.sh CRDs and other Gatekeeper resources
+
+#### Cause
+This is caused by a standalone instance of Gatekeeper being installed alongside the addon's Gatekeeper instance.
+
+#### Resolution
+Check for the existence of multiple Gatekeeper installations. Remove all Gatekeeper components not managed by AKS.
+
 ## Next steps
 
 If your problem isn't listed in this article or you can't resolve it, get support by visiting one of the following channels:

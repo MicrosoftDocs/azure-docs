@@ -1,24 +1,29 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Managed Redis (preview) development FAQs
+  title: Azure Managed Redis development FAQs
   description: Learn the answers to common questions that help you develop for Azure Managed Redis.
-  ms.date: 11/15/2024
+  ms.date: 05/18/2025
   ms.topic: faq
-  ms.custom: devx-track-csharp, ignite-2024
+  ms.custom:
+    - devx-track-csharp
+    - ignite-2024
+    - build-2025
   ms.devlang: csharp
   appliesto:
-  - ✅ Azure Managed Redis
-title: Azure Managed Redis (preview) development FAQs
-summary: This article provides answers to common questions about how to develop for Azure Managed Redis (preview).
+    - ✅ Azure Managed Redis
+
+title: Azure Managed Redis development FAQs
+summary: This article provides answers to common questions about how to develop for Azure Managed Redis.
+
 
 
 sections:
   - name: Ignored
     questions:
       - question: |
-          How can I get started with Azure Managed Redis (preview)?
+          How can I get started with Azure Managed Redis?
         answer: |
-          There are several ways you can get started with Azure Managed Redis (preview).
+          There are several ways you can get started with Azure Managed Redis.
           
           * You can check out one of our tutorials available for [.NET](dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](web-app-cache-howto.md), [Java](java-get-started.md), [Node.js](nodejs-get-started.md), and [Python](python-get-started.md).
           * You can explore [Azure Redis learning paths](https://learn.microsoft.com/training/browse/?expanded=azure&products=azure-cache-redis)

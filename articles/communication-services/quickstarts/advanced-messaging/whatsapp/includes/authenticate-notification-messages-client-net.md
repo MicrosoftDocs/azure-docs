@@ -5,7 +5,7 @@ services: azure-communication-services
 author: memontic
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 07/15/2024
+ms.date: 05/01/2025
 ms.topic: include
 ms.custom: include file
 ms.author: memontic
@@ -13,7 +13,7 @@ ms.author: memontic
 
 #### [Connection String](#tab/connection-string)
 
-For simplicity, this quickstart uses a connection string to authenticate. In production environments, we recommend using [service principals](../../../identity/service-principal.md).
+For simplicity, this article uses a connection string to authenticate. In production environments, we recommend using [service principals](../../../identity/service-principal.md).
 
 Get the connection string from your Azure Communication Services resource in the Azure portal. On the left, navigate to the `Keys` tab. Copy the `Connection string` field for the primary key. The connection string is in the format `endpoint=https://{your Azure Communication Services resource name}.communication.azure.com/;accesskey={secret key}`.
 
@@ -105,5 +105,3 @@ var credential = new AzureKeyCredential(key);
 var notificationMessagesClient = 
     new NotificationMessagesClient(endpoint, credential);
 ```
-
----

@@ -6,8 +6,8 @@ ms.author: bagol
 ms.topic: how-to
 ms.date: 06/09/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #Customer intent: As a security analyst, I want to collect and analyze SAP HANA audit logs to Microsoft Sentinel so that I can monitor and respond to security events effectively.
 

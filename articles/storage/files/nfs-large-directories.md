@@ -4,9 +4,10 @@ description: Learn recommendations for working with large directories in Azure f
 author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/24/2025
 ms.author: kendownie
+# Customer intent: "As a Linux administrator, I want to optimize performance when accessing large directories in Azure file shares, so that I can reduce latency and improve efficiency in file enumeration and management tasks."
 ---
 
 # Optimize file share performance when accessing large directories from Linux clients

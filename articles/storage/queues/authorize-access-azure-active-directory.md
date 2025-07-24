@@ -5,10 +5,11 @@ description: Authorize access to Azure queues using Microsoft Entra ID. Assign A
 author: akashdubey-ms
 
 ms.service: azure-queue-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/17/2023
 ms.author: akashdubey
 
+# Customer intent: As a cloud architect, I want to implement Microsoft Entra ID for authorizing access to Azure queues, so that I can enhance security and manage permissions effectively using role-based access control.
 ---
 
 # Authorize access to queues using Microsoft Entra ID

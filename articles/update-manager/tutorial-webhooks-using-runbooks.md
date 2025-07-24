@@ -4,9 +4,9 @@ description: In this tutorial, you learn how to create the pre and post events u
 ms.service: azure-update-manager
 ms.date: 09/24/2024
 ms.topic: tutorial 
-author: SnehaSudhirG
-ms.author: sudhirsneha
-#Customer intent: As an IT admin, I want create pre and post events using a webhook with Automation runbooks.
+author: habibaum
+ms.author: v-uhabiba
+# Customer intent: As an IT administrator, I want to implement pre and post event webhooks with Automation runbooks, so that I can manage VM operations effectively during scheduled patching processes.
 ---
 
 # Tutorial: Create pre and post events using a webhook with Automation

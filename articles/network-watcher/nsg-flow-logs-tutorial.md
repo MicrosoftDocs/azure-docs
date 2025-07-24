@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.date: 09/30/2024
 
 # CustomerIntent: As an Azure administrator, I need to log the network traffic to and from a virtual machine (VM) so I can analyze the data for anomalies.
+# Customer intent: As an Azure administrator, I want to log network traffic flow to and from a virtual machine, so that I can analyze the data for anomalies and improve security monitoring.
 ---
 
 # Tutorial: Log network traffic to and from a virtual machine using the Azure portal
@@ -289,6 +290,6 @@ When no longer needed, delete **myResourceGroup** resource group and all of the 
 ## Related content
 
 - To learn more about NSG flow logs, see [Flow logging for network security groups](nsg-flow-logs-overview.md).
-- To learn how to create, change, enable, disable, or delete NSG flow logs, see [Manage NSG flow logs](nsg-flow-logs-portal.md).
+- To learn how to create, change, enable, disable, or delete NSG flow logs, see [Manage NSG flow logs](nsg-flow-logs-manage.md).
 - To learn about Traffic analytics, see [Traffic analytics overview](traffic-analytics.md).
 

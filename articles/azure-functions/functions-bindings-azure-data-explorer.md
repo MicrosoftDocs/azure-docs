@@ -168,4 +168,4 @@ Azure Data Explorer bindings for Azure Functions have a required property for th
 - [Read data from a database (input binding)](functions-bindings-azure-data-explorer-input.md)
 - [Save data to a database (output binding)](functions-bindings-azure-data-explorer-output.md)
 
-[extension bundle]: functions-bindings-register.md#extension-bundles
+[extension bundle]: extension-bundles.md

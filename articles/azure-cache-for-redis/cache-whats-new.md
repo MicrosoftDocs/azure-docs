@@ -2,9 +2,9 @@
 title: What's New in Azure Cache for Redis
 description: Recent updates for Azure Cache for Redis
 
-
-ms.custom: references_regions
-
+ms.custom:
+  - references_regions
+  - build-2025
 
 ms.topic: conceptual
 ms.date: 11/15/2024
@@ -14,6 +14,26 @@ appliesto:
 ---
 
 # What's New in Azure Cache for Redis
+
+Find out what's new in Azure Redis.
+
+## May 2025
+
+### Azure Managed Redis General Availability (GA)
+
+[Azure Managed Redis](/azure/redis/overview) is Generally Available (GA) as a product. However, certain features remain in Public Preview.
+
+- Scaling a cache
+- Data persistence
+- Non-clustered caches
+
+All in-memory tiers that use over 120 GB of storage are in Public Preview, including:
+
+- Memory Optimized M150 and higher
+- Balanced B150 and higher
+- Compute Optimized X150 and higher
+
+All Flash Optimized tiers are in Public Preview.
 
 ## November 2024
 

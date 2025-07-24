@@ -17,6 +17,8 @@ ms.custom: fasttrack-edit
 
 # OAuth 2.0 authorization code flow in Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 You can use the OAuth 2.0 authorization code grant in apps installed on a device to gain access to protected resources, such as web APIs. By using the Azure Active Directory B2C (Azure AD B2C) implementation of OAuth 2.0, you can add sign-up, sign-in, and other identity management tasks to your single-page, mobile, and desktop apps. In this article, we describe how to send and receive HTTP messages without using any open-source libraries. This article is language-independent. When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL). Take a look at the [sample apps that use MSAL](integrate-with-app-code-samples.md). 
 
 The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). You can use it for authentication and authorization in most [application types](application-types.md), including web applications, single-page applications, and natively installed applications. You can use the OAuth 2.0 authorization code flow to securely acquire access tokens and refresh tokens for your applications, which can be used to access resources that are secured by an [authorization server](protocols-overview.md).  The refresh token allows the client to acquire new access (and refresh) tokens once the access token expires, typically after one hour.
@@ -231,7 +233,7 @@ A successful token response looks like this:
 | access_token |The signed JWT that you requested. |
 | scope |The scopes that the token is valid for. You also can use the scopes to cache tokens for later use. |
 | expires_in |The length of time that the token is valid (in seconds). |
-| refresh_token |An OAuth 2.0 refresh token. The app can use this token to acquire additional tokens after the current token expires. Refresh tokens are long-lived, and can be used to retain access to resources for extended periods of time. For more information, see the [Azure AD B2C token reference](tokens-overview.md). |
+| refresh_token |An OAuth 2.0 refresh token. The app can use this token to acquire additional tokens after the current token expires. Refresh tokens are long-lived and can be used to retain access to resources for extended periods of time. For more information, see the [Azure AD B2C token reference](tokens-overview.md). |
 
 Error responses look like this:
 

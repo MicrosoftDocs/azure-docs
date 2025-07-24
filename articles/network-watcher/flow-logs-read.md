@@ -10,6 +10,7 @@ ms.date: 09/26/2024
 ms.custom: devx-track-azurepowershell
 
 #CustomerIntent: As an Azure administrator, I want to read my flow logs using a PowerShell script so I can see the latest data.
+# Customer intent: As an Azure administrator, I want to efficiently read and analyze my Network Watcher flow logs using PowerShell scripts, so that I can quickly access and interpret network data without downloading entire log files.
 ---
 
 # Read flow logs
@@ -26,7 +27,7 @@ The concepts discussed in this article aren't limited to the PowerShell and are 
 
 - PowerShell installed on your machine. For more information, see [Install PowerShell on Windows, Linux, and macOS](/powershell/scripting/install/installing-powershell). This article requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). To find the installed version, run `Get-Module -ListAvailable Az`. 
 
-- Flow logs in a region or more. For more information, see [Create network security group flow logs](nsg-flow-logs-portal.md#create-a-flow-log) or [Create virtual network flow logs](vnet-flow-logs-portal.md#create-a-flow-log).
+- Flow logs in a region or more. For more information, see [Create network security group flow logs](nsg-flow-logs-manage.md#create-a-flow-log) or [Create virtual network flow logs](vnet-flow-logs-manage.md#create-a-flow-log).
 
 - Necessary RBAC permissions for the subscriptions of flow logs and storage account. For more information, see [Network Watcher RBAC permissions](required-rbac-permissions.md).
 

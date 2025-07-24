@@ -4,6 +4,7 @@ description: This article describes how to access HCX over a public IP address u
 ms.topic: how-to
 ms.date: 02/26/2025
 ms.custom: engagement-fy23
+# Customer intent: "As an IT administrator, I want to configure HCX access over a public IP address, so that I can facilitate workload migration from on-premises to Azure VMware Solution without relying on ExpressRoute or VPN connectivity."
 ---
 # Enable HCX access over the internet
 

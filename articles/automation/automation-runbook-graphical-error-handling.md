@@ -7,6 +7,8 @@ ms.date: 09/09/2024
 ms.topic: overview 
 ms.custom:
 ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Handle errors in graphical runbooks

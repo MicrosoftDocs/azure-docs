@@ -1,9 +1,9 @@
 ---
-author: bandersmsft
+author: KennyDay
 ms.service: cost-management-billing
 ms.topic: include
 ms.date: 08/21/2014
-ms.author: banders
+ms.author: kenday
 ---
  
 To check the agreement type to determine whether you have access to a billing account for a Microsoft Customer Agreement, follow these steps:

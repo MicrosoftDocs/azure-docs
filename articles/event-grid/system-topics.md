@@ -2,12 +2,11 @@
 title: System topics in Azure Event Grid
 description: Describes system topics in Azure Event Grid. 
 ms.topic: conceptual
-ms.custom: build-2023
-ms.date: 06/14/2024
+ms.date: 05/20/2025
 ---
 
 # System topics in Azure Event Grid
-A system topic in Event Grid represents one or more **events published by Azure services** such as Azure Storage and Azure Event Hubs. For example, a system topic may represent **all blob events** or only **blob created** and **blob deleted** events published for a **specific storage account**. In this example, when a blob is uploaded to the storage account, the Azure Storage service publishes a **blob created** event to the system topic in Event Grid, which then forwards the event to topic's [subscribers](event-handlers.md) that receive and process the event. 
+A system topic in Event Grid represents one or more **events published by Azure services** such as Azure Storage and Azure Event Hubs. For example, a system topic can represent **all blob events** or only **blob created** and **blob deleted** events published for a **specific storage account**. In this example, when a blob is uploaded to the storage account, the Azure Storage service publishes a **blob created** event to the system topic in Event Grid, which then forwards the event to topic's [subscribers](event-handlers.md) that receive and process the event. 
 
 > [!NOTE] 
 > Only Azure services can publish events to system topics. Therefore, you don't get an endpoint or access keys that you can use to publish events like you do for [custom topics](custom-topics.md) or [event domains](event-domains.md).
@@ -45,7 +44,7 @@ When you use [CLI](create-view-manage-system-topics-cli.md), [REST](/rest/api/ev
 > We recommend that you create a system topic first and then create a subscription on the topic, as it's the latest way of creating system topics.
 
 ### Failure to create system topics
-The system topic creation fails if you have set up Azure policies in such a way that the Event Grid service can't create it. For example, you may have a policy that allows creation of only certain types of resources (for example: Azure Storage, Azure Event Hubs, and so on.) in the subscription. 
+The system topic creation fails if you set up Azure policies in such a way that the Event Grid service can't create it. For example, you can have a policy that allows creation of only certain types of resources (for example: Azure Storage, Azure Event Hubs, and so on) in the subscription. 
 
 In such cases, event flow functionality is preserved. However, metrics and diagnostic functionalities of system topics are unavailable.
 

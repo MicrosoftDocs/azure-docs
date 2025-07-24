@@ -60,8 +60,8 @@ If you receive errors while importing your OpenAPI document, make sure you've va
 
 API Management only supports:
 
-* OpenAPI version 2.
-* OpenAPI version 3.0.x (up to version 3.0.3).
+* OpenAPI version 2
+* OpenAPI version 3.0.x (up to version 3.0.3)
 * OpenAPI version 3.1 (import only)
 
 **Size limitations**

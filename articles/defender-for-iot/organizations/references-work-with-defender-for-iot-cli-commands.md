@@ -24,7 +24,7 @@ If you're using a legacy software version, you may have one or more of the follo
 
 |Legacy scenario  |Description  |
 |---------|---------|
-|**Sensor versions earlier than 23.2.0**     |   In sensor versions earlier than [23.2.0](whats-new.md#default-privileged-user-is-now-admin-instead-of-support), the default *admin* user is named *support*. The *support* user is available and supported only on versions earlier than 23.2.0.<br><br>Documentation refers to the *admin* user to match the latest version of the software.    |
+|**Sensor versions earlier than 23.2.0**     |   In sensor versions earlier than [23.2.0](whats-new-archive.md#default-privileged-user-is-now-admin-instead-of-support), the default *admin* user is named *support*. The *support* user is available and supported only on versions earlier than 23.2.0.<br><br>Documentation refers to the *admin* user to match the latest version of the software.    |
 
 Other CLI users cannot be added.
 

@@ -165,7 +165,7 @@ $staticIp = New-AzMobileNetworkSimStaticIPPropertiesObject -StaticIPIpv4Address 
 New-AzMobileNetworkSim -GroupName <SIMGROUP> -Name <SIM> -ResourceGroupName <RESOURCEGROUP>  -InternationalMobileSubscriberIdentity 000000000000001 -AuthenticationKey 00112233445566778899AABBCCDDEEFF -DeviceType Mobile -IntegratedCircuitCardIdentifier 8900000000000000001 -OperatorKeyCode 00000000000000000000000000000001 -SimPolicyId "/subscriptions/<SUB_ID>/resourceGroups/<RESOURCEGROUP>/providers/Microsoft.MobileNetwork/mobileNetworks/<MOBILENETWORK>/simPolicies/<SIMPOLICY>" -StaticIPConfiguration $staticIp
 ```
 
-### Create a Site and dependant resources
+### Create a Site and dependent resources
 
 Use `New-AzMobileNetworkSite` to create the new **Site** resource and all remaining required resources (PCCP, PCDP, and ADN). Once complete the application will be fully deployed. The example command uses the following placeholder values, replace them with the information gathered in [Prerequisite: Prepare to deploy a private mobile network and site](#prerequisite-prepare-to-deploy-a-private-mobile-network-and-site).
 

@@ -66,7 +66,8 @@ The recognize action can be used for many reasons, here are a few examples of ho
 
 ## Known limitation
 - In-band DTMF is not supported, use RFC 2833 DTMF instead.
-- Text-to-Speech text prompts support a maximum of 400 characters, if your prompt is longer than this we suggest using SSML for Text-to-Speech based play actions.
+- Text-to-Speech text prompts support a maximum of 4,000 characters, if your prompt is longer than this we suggest using SSML for Text-to-Speech based play actions.
+- When recording is enabled speech input is recorded for 1:1 calls, but isn't recorded in group calls.
 - For scenarios where you exceed your Speech service quota limit, you can request to increase this limit by following the steps outlined [here](/azure/ai-services/speech-service/speech-services-quotas-and-limits).
 
 ## Next steps

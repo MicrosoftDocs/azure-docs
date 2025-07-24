@@ -1,5 +1,5 @@
 ---
-title: Display health status of Azure NetApp Files replication relationship | Microsoft Docs
+title: Display health status of Azure NetApp Files replication relationship
 description: Describes how to view replication status on the source volume or the destination volume of Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
@@ -7,8 +7,9 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 03/03/2025
 ms.author: anfdocs
+# Customer intent: As a cloud administrator, I want to monitor the health status of replication relationships in Azure NetApp Files, so that I can ensure data integrity and continuity during cross-region replication processes.
 ---
-# Display health and monitor status of replication relationship 
+# Display health and monitor status of replication relationship in Azure NetApp Files
 
 You can view replication status on the source volume or the destination volume. You can also set alert rules in Azure Monitor to help you monitor the replication status.
 

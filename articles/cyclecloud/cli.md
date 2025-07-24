@@ -2,8 +2,8 @@
 title: Azure CycleCloud CLI Reference
 description: CycleCloud CLI reference 
 author: rokeptne
-ms.date: 07/15/2024
-ms.author: rokeptne
+ms.date: 06/10/2025
+ms.author: padmalathas
 ---
 
 # CycleCloud CLI

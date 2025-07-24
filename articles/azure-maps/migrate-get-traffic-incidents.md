@@ -69,22 +69,22 @@ The following table lists the fields that can appear in the HTTP response when r
 
 | Bing Maps response field | Azure Maps response field | Description |
 |--------------------------|---------------------------|-------------|
-| Description (Json)<br>Description (XML)  | `d`  | This output is in the [tm] response element of Azure Maps.  |
-| End (Json)<br>EndTimeUTC (XML)  | `ed`  | This output is in the [tm] response element of Azure Maps. The date is described in the ISO8601 format and includes time in UTC.  |
-| eventList (Json)<br>EventList (XML)  | Not supported | |
-| icon (Json)<br>Icon (XML)  | `ic`  | This output is in the [tm] response element of Azure Maps. See [IconCategory] (`ic`) for more info.  |
-| incidentId (Json)<br>IncidentId (XML)  | `id` | This output is in the [tm] response element of Azure Maps.  |
-| isEndTimeBackfilled (Json)<br>IsEndTimeBackfilled (XML)  | Not supported | |
-| isJamcident (Json)<br>IsJamcident (XML)  | Not supported |
-| lastModified (Json)<br>LastModifiedUTC (XML)  | Not supported | |
-| point (Json)<br>Point (XML)  | `p`  | This output is in the [tm] response element of Azure Maps. See [point] (`p`) for more info.  |
-| roadClosed (Json)<br>RoadClosed (XML)  | See description | The [IconCategory] output of the [tm] response element of Azure Maps can be used to indicate a road closure.   |
-| severity (Json)<br>Severity (XML)  | `ty`  | This output is in the [tm] response element. See [DelayMagnitude]:  (`ty`) for more info.  |
-| severityScore (Json)<br>SeverityScore (XML)              | Not supported | |
-| Start (Json)<br>StartTimeUTC (XML)  | `sd`  | This output is in the [tm] response element of Azure Maps. The date is described in the ISO8601 format and includes time in UTC.  |
-| title (Json)<br>Title (XML)  | See description | The `f` output in the [tm] response element of Azure Maps provides the name of the intersection or location where the traffic caused by the the incident starts and can serve as an alternative to the Bing Maps `title` output.  |
-| toPoint (Json)<br>ToPoint (XML)  | See description | The `t` output in the [tm] response element of Azure Maps provides the name of the intersection or location where the traffic due to the incident ends and can serve as an alternative to the Bing Maps `toPoint` output.  |
-| type (Json)<br>Type (XML)  | `c`  | The `c` output in the [tm] response element of Azure Maps provides the cause of the incident, if available.  |
+| Description (JSON)<br>Description (XML)  | `d`  | This output is in the [tm] response element of Azure Maps.  |
+| End (JSON)<br>EndTimeUTC (XML)  | `ed`  | This output is in the [tm] response element of Azure Maps. The date is described in the ISO8601 format and includes time in UTC.  |
+| eventList (JSON)<br>EventList (XML)  | Not supported | |
+| icon (JSON)<br>Icon (XML)  | `ic`  | This output is in the [tm] response element of Azure Maps. See [IconCategory] (`ic`) for more info.  |
+| incidentId (JSON)<br>IncidentId (XML)  | `id` | This output is in the [tm] response element of Azure Maps.  |
+| isEndTimeBackfilled (JSON)<br>IsEndTimeBackfilled (XML)  | Not supported | |
+| isJamcident (JSON)<br>IsJamcident (XML)  | Not supported |
+| lastModified (JSON)<br>LastModifiedUTC (XML)  | Not supported | |
+| point (JSON)<br>Point (XML)  | `p`  | This output is in the [tm] response element of Azure Maps. See [point] (`p`) for more info.  |
+| roadClosed (JSON)<br>RoadClosed (XML)  | See description | The [IconCategory] output of the [tm] response element of Azure Maps can be used to indicate a road closure.   |
+| severity (JSON)<br>Severity (XML)  | `ty`  | This output is in the [tm] response element. See [DelayMagnitude]:  (`ty`) for more info.  |
+| severityScore (JSON)<br>SeverityScore (XML)              | Not supported | |
+| Start (JSON)<br>StartTimeUTC (XML)  | `sd`  | This output is in the [tm] response element of Azure Maps. The date is described in the ISO8601 format and includes time in UTC.  |
+| title (JSON)<br>Title (XML)  | See description | The `f` output in the [tm] response element of Azure Maps provides the name of the intersection or location where the traffic caused by the the incident starts and can serve as an alternative to the Bing Maps `title` output.  |
+| toPoint (JSON)<br>ToPoint (XML)  | See description | The `t` output in the [tm] response element of Azure Maps provides the name of the intersection or location where the traffic due to the incident ends and can serve as an alternative to the Bing Maps `toPoint` output.  |
+| type (JSON)<br>Type (XML)  | `c`  | The `c` output in the [tm] response element of Azure Maps provides the cause of the incident, if available.  |
 
 For more information about the Azure Maps Get Traffic Incident Detail API response fields, see [Responses].
 

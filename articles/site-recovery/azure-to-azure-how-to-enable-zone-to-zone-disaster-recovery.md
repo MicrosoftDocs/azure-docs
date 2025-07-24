@@ -1,12 +1,13 @@
 ---
 title: Enable zone-to-zone disaster recovery for Azure virtual machines
 description: This article describes when and how to use zone-to-zone disaster recovery for Azure virtual machines.
-author: ankitaduttaMSFT
+author: jyothisuri
 ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 02/12/2025
-ms.author: ankitadutta
+ms.author: jsuri
 ms.custom: references_regions
+# Customer intent: "As a cloud architect, I want to implement zone-to-zone disaster recovery for Azure virtual machines, so that I can enhance business continuity by minimizing downtime during regional outages."
 ---
 
 # Enable Azure VM disaster recovery between availability zones

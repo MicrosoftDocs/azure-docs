@@ -3,7 +3,7 @@ title: Declare resources in Bicep
 description: Describes how to declare resources to deploy in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 08/20/2024
+ms.date: 04/28/2025
 ---
 
 # Resource declaration in Bicep
@@ -24,7 +24,7 @@ resource <symbolic-name> '<full-type-name>@<api-version>' = {
 So, a declaration for a storage account can start with:
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2024-01-01' = {
   ...
 }
 ```
@@ -79,7 +79,7 @@ By default, resources are deployed in parallel. When you add the `batchSize(int)
 
 ```bicep
 @batchSize(3)
-resource storageAccountResources 'Microsoft.Storage/storageAccounts@2023-04-01' = [for storageName in storageAccounts: {
+resource storageAccountResources 'Microsoft.Storage/storageAccounts@2024-01-01' = [for storageName in storageAccounts: {
   ...
 }]
 ```
@@ -92,7 +92,7 @@ To add explanation, add a description to resource declarations. For example:
 
 ```bicep
 @description('Create a number of storage accounts')
-resource storageAccountResources 'Microsoft.Storage/storageAccounts@2023-04-01' = [for storageName in storageAccounts: {
+resource storageAccountResources 'Microsoft.Storage/storageAccounts@2024-01-01' = [for storageName in storageAccounts: {
   ...
 }]
 ```
@@ -104,7 +104,7 @@ Markdown-formatted text can be used for the description text.
 Each resource has a name. When setting the resource name, pay attention to the [rules and restrictions for resource names](../management/resource-name-rules.md).
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2024-01-01' = {
   name: 'examplestorage'
   ...
 }
@@ -117,7 +117,7 @@ Typically, you'd set the name to a parameter so you can pass in different values
 @maxLength(24)
 param storageAccountName string
 
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2024-01-01' = {
   name: storageAccountName
   ...
 }
@@ -128,7 +128,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
 Many resources require a location. You can determine if the resource needs a location either through intellisense or [template reference](/azure/templates/). The following example adds a location parameter that is used for the storage account.
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2024-01-01' = {
   name: 'examplestorage'
   location: 'eastus'
   ...
@@ -140,7 +140,7 @@ Typically, you'd set location to a parameter so you can deploy to different loca
 ```bicep
 param location string = resourceGroup().location
 
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2024-01-01' = {
   name: 'examplestorage'
   location: location
   ...
@@ -212,7 +212,7 @@ The preceding properties are generic to most resource types. After setting those
 Use intellisense or [Bicep resource reference](/azure/templates/) to determine which properties are available and which ones are required. The following example sets the remaining properties for a storage account.
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2024-01-01' = {
   name: 'examplestorage'
   location: 'eastus'
   sku: {

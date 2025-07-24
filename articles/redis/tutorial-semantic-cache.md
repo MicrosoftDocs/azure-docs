@@ -1,29 +1,29 @@
 ---
-title: 'Tutorial: Use Azure Cache for Redis as a semantic cache'
-description: In this tutorial, you learn how to use Azure Cache for Redis as a semantic cache.
-
-
-ms.collection: ce-skilling-ai-copilot
-ms.topic: tutorial
+title: "Tutorial: Use Azure Managed Redis as a semantic cache"
+description: In this tutorial, you learn how to use Azure Managed Redis as a semantic cache.
 ms.date: 01/08/2024
+ms.update-cycle: 180-days
+ms.topic: tutorial
+ms.collection:
+  - ce-skilling-ai-copilot
+ms.custom:
+  - build-2025
 appliesto:
-  - ✅ Azure Cache for Redis
-
-
-#CustomerIntent: As a developer, I want to develop some code using a sample so that I see an example of a semantic cache with an AI-based large language model.
+  - ✅ Azure Managed Redis
+# CustomerIntent: As a developer, I want to develop some code using a sample so that I see an example of a semantic cache with an AI-based large language model.
 ---
 
-# Tutorial: Use Azure Cache for Redis as a semantic cache
+# Tutorial: Use Azure Managed Redis as a semantic cache
 
-In this tutorial, you use Azure Cache for Redis as a semantic cache with an AI-based large language model (LLM). You use Azure OpenAI Service to generate LLM responses to queries and cache those responses using Azure Cache for Redis, delivering faster responses and lowering costs.
+In this tutorial, you use Azure Managed Redis cache as a semantic cache with an AI-based large language model (LLM). You use Azure OpenAI Service to generate LLM responses to queries and cache those responses using Azure Managed Redis, delivering faster responses and lowering costs.
 
-Because Azure Cache for Redis offers built-in vector search capability, you can also perform  _semantic caching_. You can return cached responses for identical queries and also for queries that are similar in meaning, even if the text isn't the same.
+Because Azure Managed Redis offers built-in vector search capability, you can also perform  _semantic caching_. You can return cached responses for identical queries and also for queries that are similar in meaning, even if the text isn't the same.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> - Create an Azure Cache for Redis instance configured for semantic caching
+> - Create an Azure Managed Redis instance configured for semantic caching
 > - Use LangChain other popular Python libraries.
 > - Use Azure OpenAI service to generate text from AI models and cache results.
 > - See the performance gains from using caching with LLMs.
@@ -47,9 +47,9 @@ In this tutorial, you learn how to:
 
 - An Azure OpenAI resource with the **text-embedding-ada-002 (Version 2)** and **gpt-35-turbo-instruct** models deployed. These models are currently only available in [certain regions](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability). See the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource) for instructions on how to deploy the models.
 
-## Create an Azure Cache for Redis instance
+## Create an Azure Managed Redis instance
 
-Follow the [Quickstart: Create a Redis Enterprise cache](../azure-cache-for-redis/quickstart-create-redis-enterprise.md) guide. On the **Advanced** page, make sure that you added the **RediSearch** module and  chose the **Enterprise** Cluster Policy. All other settings can match the default described in the quickstart.
+Follow the [Quickstart: Create an Azure Managed Redis Instance](quickstart-create-managed-redis.md) guide. On the **Advanced** page, make sure that you added the **RediSearch** module and  chose the **Enterprise** Cluster Policy. All other settings can match the default described in the quickstart.
 
    It takes a few minutes for the cache to create. You can move on to the next step in the meantime.
 
@@ -80,13 +80,13 @@ See [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web
 
 ## Import libraries and set up connection information
 
-To successfully make a call against Azure OpenAI, you need an **endpoint** and a **key**. You also need an **endpoint** and a **key** to connect to Azure Cache for Redis.
+To successfully make a call against Azure OpenAI, you need an **endpoint** and a **key**. You also need an **endpoint** and a **key** to connect to Azure Managed Redis.
 
 1. Go to your Azure OpenAI resource in the Azure portal.
 
 1. Locate **Endpoint and Keys** in the **Resource Management** section of your Azure OpenAI resource. Copy your endpoint and access key because you need both for authenticating your API calls. An example endpoint is: `https://docs-test-001.openai.azure.com`. You can use either `KEY1` or `KEY2`.
 
-1. Go to the **Overview** page of your Azure Cache for Redis resource in the Azure portal. Copy your endpoint.
+1. Go to the **Overview** page of your Azure Managed Redis resource in the Azure portal. Copy your endpoint.
 
 1. Locate **Access keys** in the **Settings** section. Copy your access key. You can use either `Primary` or `Secondary`.
 
@@ -123,7 +123,7 @@ To successfully make a call against Azure OpenAI, you need an **endpoint** and a
 
 1. Set `LLM_DEPLOYMENT_NAME` and `EMBEDDINGS_DEPLOYMENT_NAME` to the name of your two models deployed in Azure OpenAI Service.
 
-1. Update `REDIS_ENDPOINT` and `REDIS_PASSWORD` with the endpoint and key value from your Azure Cache for Redis instance.
+1. Update `REDIS_ENDPOINT` and `REDIS_PASSWORD` with the endpoint and key value from your Azure Managed Redis instance.
 
     > [!IMPORTANT]
     > We strongly recommend using environmental variables or a secret manager like [Azure Key Vault](/azure/key-vault/general/overview) to pass in the API key, endpoint, and deployment name information. These variables are set in plaintext here for the sake of simplicity.
@@ -313,8 +313,8 @@ Finally, query the LLM to get an AI generated response. If you're using a Jupyte
 
 ## Related content
 
-- [Learn more about Azure Cache for Redis](overview.md)
-- Learn more about Azure Cache for Redis [vector search capabilities](./overview-vector-similarity.md)
-- [Tutorial: use vector similarity search on Azure Cache for Redis](tutorial-vector-similarity.md)
+- [Learn more about Azure Managed Redis](overview.md)
+- Learn more about Azure Managed Redis [vector search capabilities](./overview-vector-similarity.md)
+- [Tutorial: use vector similarity search on Azure Managed Redis](tutorial-vector-similarity.md)
 - [Read how to build an AI-powered app with OpenAI and Redis](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/vector-similarity-search-with-azure-cache-for-redis-enterprise/ba-p/3822059)
 - [Build a Q&A app with semantic answers](https://github.com/ruoccofabrizio/azure-open-ai-embeddings-qna)

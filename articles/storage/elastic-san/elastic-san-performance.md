@@ -5,9 +5,10 @@ author: roygara
 ms.service: azure-elastic-san-storage
 ms.custom:
   - ignite-2023-elastic-SAN
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/31/2024
 ms.author: rogarana
+# Customer intent: As a cloud architect, I want to understand how Azure Elastic SAN performance metrics interact with virtual machine limits, so that I can optimize workload performance and prevent throttling during peak usage.
 ---
 
 # How performance works when virtual machines are connected to Elastic SAN volumes

@@ -7,7 +7,8 @@ ms.author: robece
 ms.custom:
   - references_regions
   - build-2024
-ms.date: 02/04/2025
+  - build-2025
+ms.date: 04/30/2025
 # Customer intent: As an architect or a developer, I want to know what Azure Event Grid is and how it can help me with creating event-driven applications. 
 ---
 
@@ -36,7 +37,7 @@ Event Grid enables your clients to communicate on [custom MQTT topic names](http
 
 Event Grid integrates with [Azure IoT Operations](../iot-operations/manage-mqtt-broker/overview-broker.md) to bridge its MQTT broker capability on the edge with Event Grid’s MQTT broker capability in the cloud. Azure IoT MQTT broker is a new distributed MQTT broker for edge computing, running on Arc enabled Kubernetes clusters. It's now available in [public preview](../iot-operations/manage-mqtt-broker/overview-broker.md) as part of Azure IoT Operations.
 
-The MQTT broker feature in Azure Event Grid is ideal for the implementation of automotive and mobility scenarios, among others. See [the reference architecture](mqtt-automotive-connectivity-and-data-solution.md) to learn how to build secure and scalable solutions for connecting millions of vehicles to the cloud, using Azure’s messaging and data analytics services.
+The MQTT broker feature in Azure Event Grid is ideal for the automotive, mobility and manufacturing scenarios, among others. See the reference architectures - [automotive](/industry/mobility/architecture/automotive-messaging-data-analytics-content) and [manufacturing](/industry/manufacturing/manufacturing-data-solutions/architecture/ra-manufacturing-data-solutions) to learn how to build secure and scalable solutions to connect millions of MQTT clients to the cloud, using Azure’s messaging and data analytics services. 
 
 :::image type="content" source="media/overview/mqtt-messaging.png" alt-text="High-level diagram of Event Grid that shows bidirectional MQTT communication with publisher and subscriber clients." lightbox="media/overview/mqtt-messaging-high-res.png" border="false":::
 
@@ -47,7 +48,7 @@ Here are some highlights of MQTT messaging support in Azure Event Grid:
 - Publish-subscribe messaging model - Communicate efficiently using one-to-many, many-to-one, and one-to-one messaging patterns.
 - [Built-in cloud integration](mqtt-routing.md) - Route your MQTT messages to Azure services or custom webhooks for further processing.
 - Flexible and fine-grained [access control model](mqtt-access-control.md) - Group clients and topic to simplify access control management, and use the variable support in topic templates for a fine-grained access control.
-- MQTT broker authentication methods - [X.509 certificate authentication](mqtt-client-authentication.md) is the industry authentication standard in IoT devices, [Microsoft Entra IDauthentication](mqtt-client-microsoft-entra-token-and-rbac.md) is Azure's authentication standard for applications and [OAuth 2.0 (JSON Web Token) authentication](oauth-json-web-token-authentication.md) provides a lightweight, secure, and flexible option for MQTT clients that aren't provisioned in Azure.
+- MQTT broker authentication methods - [X.509 certificate authentication](mqtt-client-authentication.md), an industry authentication standard for IoT devices, [Microsoft Entra ID authentication](mqtt-client-microsoft-entra-token-and-rbac.md), an Azure's authentication standard for applications, flexible authentication patterns like [OAuth 2.0 JSON Web Token (JWT) authentication](oauth-json-web-token-authentication.md), which is lightweight and secure for MQTT clients that aren't provisioned in Azure and Custom Webhook Authentication allows external HTTP endpoints (webhooks) to authenticate MQTT connections dynamically. This method uses Entra ID JWT validation to ensure secure access. 
 - Transport Layer Security (TLS) 1.2 and TLS 1.3 support - Secure your client communication using robust encryption protocols.
 - Multi-session support - Connect your applications with multiple active sessions to ensure reliability and scalability.
 - MQTT over WebSockets - Enable connectivity for clients in firewall-restricted environments.

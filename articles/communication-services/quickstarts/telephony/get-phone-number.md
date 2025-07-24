@@ -19,12 +19,8 @@ zone_pivot_groups: acs-azp-azpnew-azcli-java-csharp-js-python
 
 [!INCLUDE [Bulk Acquisition Instructions](../../includes/phone-number-special-order.md)]
 
-::: zone pivot="platform-azp"
-[!INCLUDE [Azure portal](./includes/phone-numbers-portal.md)]
-::: zone-end
-
 ::: zone pivot="platform-azp-new"
-[!INCLUDE [Azure portal (new)](./includes/phone-numbers-portal-new.md)]
+[!INCLUDE [Azure portal](./includes/phone-numbers-portal-new.md)]
 ::: zone-end
 
 ::: zone pivot="platform-azcli"
@@ -76,3 +72,8 @@ In this quickstart you learned how to:
 >
 > [!div class="nextstepaction"]
 > [Get started with calling in applications](../voice-video-calling/getting-started-with-calling.md)
+>
+> [!div class="nextstepaction"]
+> [Send SMS globally with Messaging Connect](../../concepts/sms/messaging-connect.md)
+
+

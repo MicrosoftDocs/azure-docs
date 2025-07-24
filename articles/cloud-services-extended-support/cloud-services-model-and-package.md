@@ -1,7 +1,7 @@
 ---
 title: What is the Azure Cloud Service (extended support) model and package
 description: Describes the cloud service (extended support) model (.csdef, .cscfg) and package (.cspkg) in Azure
-ms.topic: article
+ms.topic: concept-article
 ms.service: azure-cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
@@ -13,7 +13,7 @@ ms.date: 07/24/2024
 # What is the Azure Cloud Service model and how do I package it?
 
 > [!IMPORTANT]
-> As of March 31, 2025, cloud Services (classic) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 A cloud service is created from three components, the service definition *(.csdef)*, the service config *(.cscfg)*, and a service package *(.cspkg)*. Both the **ServiceDefinition.csdef** and **ServiceConfig.cscfg** files are XML-based and describe the structure of the cloud service and its configuration. We collectively call these files the model. The **ServicePackage.cspkg** is a zip file that is generated from the **ServiceDefinition.csdef** and among other things, contains all the required binary-based dependencies. Azure creates a cloud service from both the **ServicePackage.cspkg** and the **ServiceConfig.cscfg**.
 

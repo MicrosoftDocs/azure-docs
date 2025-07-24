@@ -2,24 +2,26 @@
 title: Conditional deployments in Bicep with the if expression
 description: Understand how to use the 'if' expression to conditionally deploy a resource in Bicep.
 ms.topic: conceptual
-ms.custom: devx-track-bicep
+ms.custom:
+  - devx-track-bicep
+  - build-2025
 ms.date: 03/25/2025
 ---
 
 # Conditional deployments in Bicep with the if expression
 
-To optionally deploy a resource or module in Bicep, use the `if` expression. An `if` expression includes a condition that resolves to true or false. When the `if` condition is true, the resource is deployed. When the value is false, the resource isn't created. The value can only be applied to the whole resource or module.
+To optionally deploy a resource or module in Bicep, use the `if` expression. An `if` expression includes a condition that resolves to true or false. When the `if` condition is true, the resource is deployed. When the value is false, the resource isn't created. You can only apply the value to the whole resource or module.
 
 > [!NOTE]
 > Conditional deployment doesn't cascade to [child resources](child-resource-name-type.md). If you want to conditionally deploy a resource and its child resources, you must apply the same condition to each resource type.
 
 ### Training resources
 
-If you would rather learn about conditions through step-by-step guidance, see [Build flexible Bicep templates by using conditions and loops](/training/modules/build-flexible-bicep-templates-conditions-loops/).
+If you would rather learn about conditions through step-by-step guidance, see [Build flexible Bicep files by using conditions and loops](/training/modules/build-flexible-bicep-templates-conditions-loops/).
 
 ## Define condition for deployment
 
-In Bicep, you can conditionally deploy a resource by passing in a parameter that specifies if the resource is deployed. You test the condition with an `if` expression in the resource declaration. The following example shows the syntax for an `if` expression in a Bicep file. It conditionally deploys a Domain Name System (DNS) zone. When `deployZone` is `true`, it deploys the DNS zone. When `deployZone` is `false`, it skips deploying the DNS zone.
+In Bicep, you can conditionally deploy a resource by passing in a parameter that specifies if the resource is deployed. Test the condition with an `if` expression in the resource declaration. The following example shows the syntax for an `if` expression in a Bicep file. It conditionally deploys a Domain Name System (DNS) zone. When `deployZone` is `true`, it deploys the DNS zone. When `deployZone` is `false`, it skips deploying the DNS zone.
 
 ```bicep
 param deployZone bool
@@ -40,7 +42,7 @@ module dnsZone 'dnszones.bicep' = if (deployZone) {
 }
 ```
 
-Conditions can be used with dependency declarations. For [explicit dependencies](resource-dependencies.md), Azure Resource Manager automatically removes them from the required dependencies when the resource isn't deployed. For implicit dependencies, referencing a property of a conditional resource is allowed but might produce a deployment error.
+You can use conditions with dependency declarations. For [explicit dependencies](resource-dependencies.md), Azure Resource Manager automatically removes them from the required dependencies when the resource isn't deployed. For implicit dependencies, referencing a property of a conditional resource is allowed but might produce a deployment error.
 
 ## New or existing resource
 
@@ -75,11 +77,11 @@ output storageAccountId string = ((newOrExisting == 'new') ? saNew.id : saExisti
 When the parameter `newOrExisting` is set to **new**, the condition evaluates to true. The storage account is deployed. Otherwise, the existing storage account is used.
 
 > [!WARNING]
-> If you reference a conditionally deployed resource that isn't deployed, you'll get an error saying that the resource isn't defined in the template.
+> If you reference a conditionally deployed resource but the resource isn't deployed, you get an error. The error message states that the resource isn't defined in the template.
 
 ## Runtime functions
 
-If you use a [reference](./bicep-functions-resource.md#reference) or [list](./bicep-functions-resource.md#list) function with a resource that's conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the function refers to a resource that doesn't exist.
+If you use a [reference](./bicep-functions-resource.md#reference) or [list](./bicep-functions-resource.md#list) function with a resource that you specify for conditional deployment, the function gets evaluated. If the resource isn't deployed, you get an error.
 
 Use the [conditional expression ?:](./operators-logical.md#conditional-expression--) operator to ensure that the function is only evaluated for conditions when the resource is deployed. The following example template shows how to use this function with expressions that are only conditionally valid.
 

@@ -2,7 +2,7 @@
 title: Azure Service Bus - messaging exceptions (deprecated) | Microsoft Docs
 description: This article provides a list of Azure Service Bus messaging exceptions from the deprecated packages and suggested actions to taken when the exception occurs.
 ms.topic: article
-ms.date: 02/23/2024
+ms.date: 04/29/2025
 ---
 
 # Service Bus messaging exceptions (deprecated)
@@ -21,7 +21,7 @@ The messaging APIs generate exceptions that can fall into the following categori
 4. Other exceptions ([System.Transactions.TransactionException](/dotnet/api/system.transactions.transactionexception), [System.TimeoutException](/dotnet/api/system.timeoutexception), [Microsoft.ServiceBus.Messaging.MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception), [Microsoft.ServiceBus.Messaging.SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception)). General action: specific to the exception type; refer to the table in the following section:
 
 > [!IMPORTANT]
-> - Azure Service Bus doesn't retry an operation in case of an exception when the operation is in a transaction scope.
+> - Azure Service Bus doesn't retry an operation when an exception occurs on the operation is in a transaction scope.
 > - For retry guidance specific to Azure Service Bus, see [Retry guidance for Service Bus](/azure/architecture/best-practices/retry-service-specific#service-bus).
 
 
@@ -31,7 +31,7 @@ The following table lists messaging exception types, and their causes, and notes
 
 | **Exception Type** | **Description/Cause/Examples** | **Suggested Action** | **Note on automatic/immediate retry** |
 | --- | --- | --- | --- |
-| [TimeoutException](/dotnet/api/system.timeoutexception) |The server didn't respond to the requested operation within the specified time, which is controlled by [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). The server might have completed the requested operation. It can happen because of network or other infrastructure delays. |Check the system state for consistency and retry if necessary. See [Timeout exceptions](#timeoutexception). |Retry might help in some cases; add retry logic to code. |
+| [TimeoutException](/dotnet/api/system.timeoutexception) |The server didn't respond to the requested operation within the specified time, which is controlled by [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). The server might have completed the requested operation. It can happen because of network or other infrastructure delays. |Check the system state for consistency and retry if necessary. See [time-out exceptions](#timeoutexception). |Retry might help in some cases; add retry logic to code. |
 | [InvalidOperationException](/dotnet/api/system.invalidoperationexception) |The requested user operation isn't allowed within the server or service. See the exception message for details. For example, [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) generates this exception if the message was received in [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) mode. |Check the code and the documentation. Make sure the requested operation is valid. |Retry doesn't help. |
 | [OperationCanceledException](/dotnet/api/system.operationcanceledexception) |An attempt is made to invoke an operation on an object that has already been closed, aborted, or disposed. In rare cases, the ambient transaction is already disposed. |Check the code and make sure it doesn't invoke operations on a disposed object. |Retry doesn't help. |
 | [UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception) |The [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) object couldn't acquire a token, the token is invalid, or the token doesn't contain the claims required to do the operation. |Make sure the token provider is created with the correct values. Check the configuration of the Access Control Service. |Retry might help in some cases; add retry logic to code. |
@@ -92,19 +92,19 @@ There are two common causes for this error: the dead-letter queue, and nonfuncti
     A reader is failing to complete messages and the messages are returned to the queue/topic when the lock expires. It can happen if the reader encounters an exception that prevents it from calling [BrokeredMessage.Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.complete). After a message has been read 10 times, it moves to the dead-letter queue by default. This behavior is controlled by the [QueueDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) property and has a default value of 10. As messages pile up in the dead letter queue, they take up space.
 
     To resolve the issue, read and complete the messages from the dead-letter queue, as you would from any other queue. You can use the [FormatDeadLetterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formatdeadletterpath) method to help format the dead-letter queue path.
-2. **Receiver stopped**. A receiver has stopped receiving messages from a queue or subscription. The way to identify this is to look at the [QueueDescription.MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) property, which shows the full breakdown of the messages. If the [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount) property is high or growing, then the messages aren't being read as fast as they're being written.
+2. **Receiver stopped**. A receiver has stopped receiving messages from a queue or subscription. The way to identify it is to look at the [QueueDescription.MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) property, which shows the full breakdown of the messages. If the [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount) property is high or growing, then the messages aren't being read as fast as they're being written.
 
 ## TimeoutException
 
-A [TimeoutException](/dotnet/api/system.timeoutexception) indicates that a user-initiated operation is taking longer than the operation timeout.
+A [TimeoutException](/dotnet/api/system.timeoutexception) indicates that a user-initiated operation is taking longer than the operation time-out.
 
 You should check the value of the [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) property, as hitting this limit can also cause a [TimeoutException](/dotnet/api/system.timeoutexception).
 
-Timeouts are expected to happen during or in-between maintenance operations such as Service Bus service updates (or) OS updates on resources that run the service. During OS updates, entities are moved around and nodes are updated or rebooted, which can cause timeouts. For service level agreement (SLA) details for the Azure Service Bus service, see [SLA for Service Bus](https://azure.microsoft.com/support/legal/sla/service-bus/).
+Time-outs are expected to happen during or in-between maintenance operations such as Service Bus service updates (or) OS updates on resources that run the service. During OS updates, entities are moved around and nodes are updated or rebooted, which can cause time-outs. For service level agreement (SLA) details for the Azure Service Bus service, see [SLA for Service Bus](https://azure.microsoft.com/support/legal/sla/service-bus/).
 
 ### Queues and topics
 
-For queues and topics, the timeout is specified either in the [MessagingFactorySettings.OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings) property, as part of the connection string, or through [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder). The error message itself might vary, but it always contains the timeout value specified for the current operation.
+For queues and topics, the time-out is specified either in the [MessagingFactorySettings.OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings) property, as part of the connection string, or through [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder). The error message itself might vary, but it always contains the time-out value specified for the current operation.
 
 ## MessageLockLostException
 
@@ -162,7 +162,7 @@ A **SocketException** is thrown in the following cases:
 
    * When a connection attempt fails because the host didn't properly respond after a specified time (TCP error code 10060).
    * An established connection failed because connected host has failed to respond.
-   * There was an error processing the message or the timeout is exceeded by the remote host.
+   * There was an error processing the message or the time-out is exceeded by the remote host.
    * Underlying network resource issue.
 
 ### Resolution
@@ -183,7 +183,7 @@ Address:  XX.XX.XXX.240
 Aliases:  <mynamespace>.servicebus.windows.net
 ```
 
-If the above name **does not resolve** to an IP and the namespace alias, check with the network administrator to investigate further. Name resolution is done through a DNS server typically a resource in the customer network. If the DNS resolution is done by Azure DNS, contact Azure support.
+If the name **does not resolve** to an IP and the namespace alias, check with the network administrator to investigate further. Name resolution is done through a DNS server typically a resource in the customer network. If the DNS resolution is done by Azure DNS, contact Azure support.
 
 If name resolution **works as expected**, check if connections to Azure Service Bus is allowed [here](service-bus-troubleshooting-guide.md#connectivity-certificate-or-timeout-issues).
 
@@ -199,13 +199,13 @@ If name resolution **works as expected**, check if connections to Azure Service 
    * Transient issues caused due to service upgrades and restarts.
 
 > [!NOTE]
-> The above list of exceptions is not exhaustive.
+> The list of exceptions isn't exhaustive.
 
 ### Resolution
 
 The resolution steps depend on what caused the **MessagingException** to be thrown.
 
-   * For **transient issues** (where ***isTransient*** is set to ***true***) or for **throttling issues**, retrying the operation might resolve it. The default retry policy on the SDK can be used for this.
+   * For **transient issues** (where ***isTransient*** is set to ***true***) or for **throttling issues**, retrying the operation might resolve it. The default retry policy on the SDK can be used.
    * For other issues, the details in the exception indicate the issue and resolution steps can be deduced from the same.
 
 ## StorageQuotaExceededException

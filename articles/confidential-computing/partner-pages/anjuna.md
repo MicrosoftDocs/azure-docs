@@ -5,9 +5,10 @@ services: virtual-machines
 author: ananyagarg
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/29/2023
 ms.author: ananyagarg
+# Customer intent: As a cloud security professional, I want to implement Anjuna's Confidential Computing solutions, so that I can ensure data protection and privacy while running applications in a secure environment on Azure.
 ---
 
 # Anjuna Security

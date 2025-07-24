@@ -2,9 +2,9 @@
 title: Understand usage details fields
 titleSuffix: Microsoft Cost Management
 description: This article describes the fields in the usage data files.
-author: jojopm
+author: jojohpm
 ms.author: jojoh
-ms.date: 01/31/2025
+ms.date: 06/26/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -38,6 +38,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | AccountName | EA, pay-as-you-go | Display name of the EA enrollment account or pay-as-you-go billing account. |
 | AccountOwnerId¹ | EA, pay-as-you-go | The email ID of the EA enrollment account owner. |
 | AdditionalInfo¹  | All | Service-specific metadata. For example, an image type for a virtual machine. |
+| AvailabilityZone | EA |This field is included only for AWS-connected accounts via the cross-cloud cost management connector and is not applicable to native Azure resources. It represents the specific AWS Availability Zone where the resource usage occurred. Note: This field is no longer supported, as the cross-cloud connector has been deprecated. |
 | BenefitId¹ | EA, MCA | Unique identifier for the purchased savings plan instance. |
 | BenefitName | EA, MCA | Unique identifier for the purchased savings plan instance. |
 | BillingAccountId¹ | All | Unique identifier for the root billing account. |
@@ -99,7 +100,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | PublisherId | MCA | The ID of the publisher. It's only available after the invoice is generated. |
 | PublisherName | All | The name of the publisher. For first-party services, the value should be listed as `Microsoft` or `Microsoft Corporation`.  |
 | PublisherType | All |Supported values: **Microsoft**, **Azure**, **Marketplace**. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`. |
-| Quantity³ | All | The number of units used by the given product or service for a given day. |
+| Quantity³ | All |The number of units consumed by a product or service on a given day. For refund transactions in MCA accounts, the quantity reflects the number of units refunded. |
 | ResellerName | MPA | The name of the reseller associated with the subscription. |
 | ResellerMpnId | MPA | ID for the reseller associated with the subscription. |
 | ReservationId¹ | EA, MCA | Unique identifier for the purchased reservation instance. |

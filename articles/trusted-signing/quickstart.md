@@ -22,6 +22,9 @@ You can use either the Azure portal or an Azure CLI extension to create and mana
 
 ## Prerequisites
 
+> [!NOTE]
+> At this time Trusted Signing is only available to organizations based in the USA and Canada that have a verifiable history of three years or more.
+
 To complete this quickstart, you need:
 
 - A Microsoft Entra tenant ID.
@@ -203,16 +206,13 @@ The following table lists *helpful commands* to use when you create a Trusted Si
 
 ---
 
-## Create an identity validation request
+## Create an identity validation request - Organization
 
 You can complete your own identity validation by filling in the request form with the information that must be included in the certificate. Identity validation can be completed only in the Azure portal. You can't complete identity validation by using the Azure CLI.
 
 > [!NOTE]
 > You can't create an identity validation request if you aren't assigned the appropriate role. If the **New identity** button on the menu bar appears dimmed in the Azure portal, ensure that you are assigned the Trusted Signing Identity Verifier role to proceed with identity validation.
-> [!NOTE]
-> At this time Trusted Signing can only onboard organizations that were incorporated more than 3 years ago and were incorporated in USA and Canada.
 
-### Identity Validation - Organization
 
 To create an identity validation request for an Organization:
 
@@ -261,7 +261,7 @@ To create an identity validation request for an Organization:
 | Failed email verification            | If email verification fails, you must initiate a new identity validation request. |
 | Identity validation status            | You're notified through email when there's an update to the identity validation status. You can also check the status in the Azure portal at any time. |
 | Processing time            | Processing your identity validation request takes from 1 to 7 business days (possibly longer if we need to request more documentation from you). |
-| More documentation            | If we need more documentation to process the identity validation request, you're notified through email. You can upload the documents in the Azure portal. For documentation upload, there are 3 attempts. The documentation request email contains information about file size requirements. Ensure that any documents you provide are the most current. <br>- All documents submitted must be issued within the previous 12 months or where the expiration date is a future date that is at least two months away. <br>  - If it isn't possible to provide additional documentation, update your account information to match any legal documents already provided or your official Company registration details. <br>  - When providing official business document, such as business registration form, business charter, or articles of incorporation that list the company name and address as it is provided at the time of Identity Validation request creation. <br>  - Ensure the domain registration or domain invoice from registration or renewal that lists the entity/contact name and domain as it is state on the request.|                                                            
+| More documentation            | If we need more documentation to process the identity validation request, you're notified through email. You can upload the documents in the Azure portal. For documentation upload, there are 3 attempts. The documentation request email contains information about file size requirements. Ensure that any documents you provide are the most current. <br>- All documents submitted must be issued within the previous 12 months and where the expiration date is a future date that is at least two months away. <br>  - If it isn't possible to provide additional documentation, update your account information to match any legal documents already provided or your official Company registration details. <br>  - When providing official business document, such as business registration form, business charter, or articles of incorporation that list the company name and address as it is provided at the time of Identity Validation request creation. <br>  - Ensure the domain registration or domain invoice from registration or renewal that lists the entity and contact name and all the domains that are included/mentioned in the request.|                                                            
 
 ## Create a certificate profile  
 

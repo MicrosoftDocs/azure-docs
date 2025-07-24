@@ -6,9 +6,10 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/28/2022
 ms.author: shaas
+# Customer intent: As a data engineer, I want to choose the appropriate Azure data transfer solution for large datasets over moderate to high network bandwidth, so that I can efficiently and effectively manage data movement to and from the cloud while optimizing time and resource usage.
 ---
 
 # Data transfer for large datasets with moderate to high network bandwidth

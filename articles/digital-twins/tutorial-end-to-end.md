@@ -186,7 +186,6 @@ The first setting gives the function app the **Azure Digital Twins Data Owner** 
     ```azurecli-interactive	
     az dt role-assignment create --resource-group <your-resource-group> --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
     ```
-[!INCLUDE [digital-twins-cli-issue](includes/digital-twins-cli-issue.md)]
 
 The result of this command is outputted information about the role assignment that you created. The function app now has permissions to access data in your Azure Digital Twins instance.
 

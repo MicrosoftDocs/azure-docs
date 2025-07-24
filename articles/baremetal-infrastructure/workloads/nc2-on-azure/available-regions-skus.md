@@ -8,9 +8,10 @@ ms.subservice: baremetal-nutanix
 ms.custom: references_regions
 ms.date: 03/28/2025
 ms.service: azure-baremetal-infrastructure
+# Customer intent: As a cloud architect, I want to understand the available SKUs and regions for Nutanix Cloud Clusters on Azure, so that I can properly plan the deployment of my infrastructure to meet organizational needs.
 ---
 
-# Nutanix Cloud Clusters (NC2) on Azure region and SKU availablity
+# Nutanix Cloud Clusters (NC2) on Azure region and SKU availability
 Nutanix Cloud Clusters on Azure are offered in three different Ready Node or SKU types and many Azure regions. 
 
 ## Supported SKUs and instances
@@ -25,7 +26,7 @@ The following table presents component options for each available SKU.
 |Storage|18.56 TB (8 x 1.92 TB SATA SSD, 2x1.6TB NVMe)|20.7 TB (2x750 GB Optane, 6x3.2-TB NVMe)| 38.4TB (5x7.68TB NVMe)|
 |Network (available bandwidth between nodes)|25 Gbps|25 Gbps|25 Gbps|
 
-Nutanix Clusters on Azure supports:
+Nutanix Clusters on Azure support:
 
 * Minimum of three bare metal nodes per cluster.
 * Maximum of 28 bare metal nodes per cluster.

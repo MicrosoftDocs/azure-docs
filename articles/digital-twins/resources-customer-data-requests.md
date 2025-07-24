@@ -4,8 +4,8 @@ titleSuffix: Azure Digital Twins
 description: Learn about identifying, exporting, and deleting personal data from Azure Digital Twins.
 author: baanders
 ms.author: baanders
-ms.date: 6/20/2023
-ms.topic: conceptual
+ms.date: 6/17/2025
+ms.topic: concept-article
 ms.service: azure-digital-twins
 services: digital-twins
 ms.custom: engagement-fy23

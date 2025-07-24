@@ -2,11 +2,12 @@
 title: Manage Azure Managed Disks
 description: Learn about managing Azure Managed Disk from the Azure portal.
 ms.topic: how-to
-ms.date: 01/16/2025
-author: jyothisuri
-ms.author: jsuri
+ms.date: 04/16/2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.service: azure-backup
 ms.custom: engagement-fy24
+# Customer intent: "As an IT administrator, I want to manage Azure Managed Disks through the portal so that I can efficiently change backup policies, monitor operations, and control data protection settings."
 ---
 
 # Manage Azure Managed Disks
@@ -168,4 +169,10 @@ To delete a disk backup instance, follow these steps:
 
 ## Next steps
 
-[Backup vaults overview](backup-vault-overview.md)
+[Troubleshoot Azure Managed Disk backup failures](disk-backup-troubleshoot.md).
+
+## Related content
+
+- [Create a Backup policy for Azure Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md).
+- [Configure backup for Azure Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-backup-disks.md).
+- [Restore Azure Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-restore-disks.md).

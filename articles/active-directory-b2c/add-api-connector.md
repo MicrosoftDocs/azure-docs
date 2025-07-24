@@ -18,6 +18,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Add an API connector to a sign-up user flow
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 As a developer or IT administrator, you can use API connectors to integrate your sign-up user flows with REST APIs to customize the sign-up experience and integrate with external systems. At the end of this walkthrough, you'll be able to create an Azure AD B2C user flow that interacts with [REST API services](api-connectors-overview.md) to modify your sign-up experiences. 
@@ -629,7 +631,7 @@ Ensure that:
 * Your API explicitly checks for null values of received claims that it depends on.
 * Your API implements an authentication method outlined in [secure your API Connector](secure-rest-api.md).
 * Your API responds as quickly as possible to ensure a fluid user experience.
-    * Azure AD B2C will wait for a maximum of *20 seconds* to receive a response. If none is received, it will make *one more attempt (retry)* at calling your API.
+    * Azure AD B2C will wait for a maximum of *10 seconds* to receive a response. If none is received, it will make *one more attempt (retry)* at calling your API.
     * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at minimum the [Premium plan](../azure-functions/functions-scale.md) in production.
 * Ensure high availability of your API.
 * Monitor and optimize performance of downstream APIs, databases, or other dependencies of your API.

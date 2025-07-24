@@ -1,101 +1,115 @@
 ---
-title: 'Quickstart: Create a lab in Azure DevTest Labs using Terraform'
-description: 'In this article, you create a Windows virtual machine in a lab within Azure DevTest Labs using Terraform'
+title: 'Quickstart: Create a lab and VM using Terraform'
+description: Learn to use Terraform to create a lab and a Windows virtual machine (VM) in Azure DevTest Labs.
 ms.topic: quickstart
-ms.date: 4/14/2023
+ms.date: 04/02/2025
 ms.custom: devx-track-terraform, UpdateFrequency2
 author: TomArcherMsft
 ms.author: tarcher
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+
+#customer intent: As a lab administrator, I want to create labs and VMs by using Terraform so I can quickly define and manage labs in a consistent, declarative way.
 ---
 
-# Quickstart: Create a lab in Azure DevTest Labs using Terraform
+# Quickstart: Create a lab and VM using Terraform
 
-This article shows how to use Terraform to create a Windows Server 2019 Datacenter virtual machine in a lab within [Azure DevTest Labs](../devtest-lab-overview.md) using [Terraform](/azure/developer/terraform).
-
-In this article, you learn how to:
-
-> [!div class="checklist"]
-> * Create a random pet name for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet)
-> * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
-> * Create a random password using [random_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password)
-> * Create a lab within Azure DevTest Labs using [azurerm_dev_test_lab](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dev_test_lab)
-> * Create a virtual network within Azure DevTest Labs using [azurerm_dev_test_virtual_network](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dev_test_virtual_network)
-> * Create a Windows virtual machine within Azure DevTest Labs using [azurerm_dev_test_windows_virtual_machine](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dev_test_windows_virtual_machine)
+[Terraform](/azure/developer/terraform) is an infrastructure as code tool that helps you build and manage cloud resources. This article shows how to use Terraform to create a lab containing a Windows Server 2019 Datacenter virtual machine (VM) in Azure DevTest Labs.
 
 ## Prerequisites
 
-- [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
+- **Owner** or **Contributor**-level permissions in the Azure subscription where you want to create the lab.
+- Terraform installed and configured, [locally](/azure/developer/terraform/quickstart-configure) or in [Azure Cloud Shell](/azure/developer/terraform/get-started-cloud-shell-bash).
 
-## Implement the Terraform code
+## Create the lab and VM
 
-> [!NOTE]
-> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-devtest-labs). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-devtest-labs/TestRecord.md).
-> 
-> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
+The sample code this article references is located in the [Azure Terraform GitHub repository](https://github.com/Azure/terraform/tree/master/quickstart/101-devtest-labs). The Terraform code takes the following actions:
 
-1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
+- Creates a random pet name for the Azure resource group using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet)
+- Creates an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
+- Creates a random password using [random_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password)
+- Creates a lab using [azurerm_dev_test_lab](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dev_test_lab)
+- Creates a virtual network for the lab using [azurerm_dev_test_virtual_network](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dev_test_virtual_network)
+- Creates a Windows VM in the lab using [azurerm_dev_test_windows_virtual_machine](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dev_test_windows_virtual_machine)
 
-1. Create a file named `main.tf` and insert the following code:
+### Create the code files
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-devtest-labs/main.tf)]
+Create the following files in your Terraform directory. Make sure the directory is added to your PATH.
 
-1. Create a file named `outputs.tf` and insert the following code:
+- A file named *main.tf* that contains the following code. You can change the `gallery_image_reference` to create different types of VMs.
+  [!code-terraform[master](~/terraform_samples/quickstart/101-devtest-labs/main.tf)]
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-devtest-labs/outputs.tf)]
+- A file named *outputs.tf* that contains the following code:
+  [!code-terraform[master](~/terraform_samples/quickstart/101-devtest-labs/outputs.tf)]
 
-1. Create a file named `providers.tf` and insert the following code:
+- A file named *providers.tf* that contains the following code:
+  [!code-terraform[master](~/terraform_samples/quickstart/101-devtest-labs/providers.tf)]
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-devtest-labs/providers.tf)]
-
-1. Create a file named `variables.tf` and insert the following code:
-
-    [!code-terraform[master](~/terraform_samples/quickstart/101-devtest-labs/variables.tf)]
+- A file named *variables.tf* that contains the following code. You can change the `default` values for some variables like `resource_group_location` or `vm_size` if you need to use different values.
+  [!code-terraform[master](~/terraform_samples/quickstart/101-devtest-labs/variables.tf)]
 
 ## Initialize Terraform
 
-[!INCLUDE [terraform-init.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-init.md)]
+Run [terraform init](https://www.terraform.io/docs/commands/init.html) to initialize the Terraform deployment. This command downloads the Azure provider required to manage your Azure resources. The `-upgrade` parameter upgrades the provider plugins to the newest supported version.
 
-## Create a Terraform execution plan
+```console
+terraform init -upgrade
+```
 
-[!INCLUDE [terraform-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan.md)]
+## Create the Terraform execution plan
 
-## Apply a Terraform execution plan
+Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) to create an execution plan. The `terraform plan` command creates an execution plan, but doesn't execute it. Instead, it determines what actions are necessary to create the configuration specified in your configuration files.
 
-[!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
+This pattern allows you to verify whether the execution plan matches your expectations before making any changes to actual resources. Use the optional `-out` parameter to specify an output file named `main.tfplan` for the plan. You can review the output file to ensure that the plan is exactly what you want to apply.
+
+```console
+terraform plan -out main.tfplan
+```
+
+## Apply the Terraform execution plan
+
+Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan to your cloud infrastructure. The following `terraform apply` command assumes you previously ran `terraform plan -out main.tfplan`.
+
+```console
+terraform apply main.tfplan
+```
+
+If you specify a different filename for the `-out` parameter in `terraform_plan`, use that filename in the call to `terraform apply`. If you don't use the `-out` parameter in `terraform_plan`, call `terraform apply` without any parameters.
 
 ## Verify the results
 
-1. Get the Azure resource name in which the lab was created.
+There are several ways to verify the results of the Terraform deployment. If you have Azure CLI available, you can use [az lab vm list](/cli/azure/lab/vm#az-lab-vm-list) to get the names of the resource group and lab that Terraform created.
 
-    ```console
-    resource_group_name=$(terraform output -raw resource_group_name)
-    ```
-
-1. Get the lab name.
-
-    ```console
-    lab_name=$(terraform output -raw lab_name)
-    ```
-
-1. Run [az lab vm list](/cli/azure/lab/vm#az-lab-vm-list) to list the virtual machines for the lab you created in this article.
-
-    ```azurecli
-    az lab vm list --resource-group $resource_group_name \
-                   --lab-name $lab_name
-    ```
+```azurecli
+resource_group_name=$(terraform output -raw resource_group_name)
+lab_name=$(terraform output -raw lab_name)
+az lab vm list --resource-group $resource_group_name --lab-name $lab_name
+```
 
 ## Clean up resources
 
-[!INCLUDE [terraform-plan-destroy.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan-destroy.md)]
+When you no longer need the resources Terraform created, take the following steps to remove them:
 
-## Troubleshoot Terraform on Azure
+1. Run [terraform plan](https://www.terraform.io/docs/commands/plan.html) with the `destroy` flag. The `terraform plan` command creates the execution plan but doesn't execute it. The `-out` parameter specifies an output file for the plan named `main.destroy.tfplan`. 
 
-[Troubleshoot common problems when using Terraform on Azure](/azure/developer/terraform/troubleshoot)
+   ```console
+   terraform plan -destroy -out main.destroy.tfplan
+   ```
 
-## Next steps
+1. Run [terraform apply](https://www.terraform.io/docs/commands/apply.html) to apply the execution plan specified in the `main.destroy.tfplan` file.
+
+    ```console
+    terraform apply main.destroy.tfplan
+    ```
+
+## Next step
 
 > [!div class="nextstepaction"] 
-> [Tutorial: Work with lab VMs](../tutorial-use-custom-lab.md)
+> [Access and connect to lab VMs](../tutorial-use-custom-lab.md)
+
+## Related content
+
+- [Terraform on Azure documentation](/azure/terraform)
+- [Terraform on Azure troubleshooting](/azure/developer/terraform/troubleshoot)
+

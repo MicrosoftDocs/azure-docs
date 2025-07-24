@@ -15,7 +15,9 @@ items:
     - name: Create a load test with a JMeter script
       href: how-to-create-and-run-load-test-with-JMeter-script.md
     - name: Create a load test with a Locust script
-      href: quickstart-create-run-load-test-with-locust.md      
+      href: quickstart-create-run-load-test-with-locust.md
+    - name: Create and run a load test from Visual Studio Code
+      href: quickstart-create-run-load-tests-from-visual-studio-code.md      
     - name: Automate load tests with Azure Pipelines
       displayName: Azure Pipelines, CI/CD, continuous integration, Azure DevOps, GitHub Actions, automation, automated testing, regression testing
       href: quickstart-add-load-test-cicd.md
@@ -81,6 +83,8 @@ items:
           href: how-to-compare-multiple-test-runs.md
         - name: Configure server-side monitoring
           href: how-to-monitor-server-side-metrics.md
+        - name: Analyze test results using AI 
+          href: how-to-analyze-test-results-using-actionable-insights.md
         - name: Diagnose failing load tests
           href: how-to-diagnose-failing-load-test.md
         - name: Export test results

@@ -1,7 +1,7 @@
 ---
 title: Best practices for Bare Metal Machine operations
 description: Steps that should be taken before executing any Bare Metal Machine replace, or reimage actions. Highlight essential prerequisites and common pitfalls to avoid.
-ms.date: 03/25/2025
+ms.date: 05/22/2025
 ms.topic: how-to
 ms.service: azure-operator-nexus
 ms.custom: template-how-to, best-practices
@@ -12,7 +12,7 @@ ms.reviewer: bartpinto
 
 # Best practices for Bare Metal Machine operations
 
-This article provides best practices for BareMetal Machine (BMM) lifecycle management operations.
+This article provides best practices for Bare Metal Machine (BMM) lifecycle management operations.
 The aim is to highlight common pitfalls and essential prerequisites.
 
 ## Read important disclaimers
@@ -63,8 +63,9 @@ Connected
 
 Take a deeper look at the NetworkFabric resources by checking the NetworkFabric resources statuses, alerts, and metrics.
 See related articles:
-  - [How to monitor interface In and Out packet rate for network fabric devices]
-  - [How to configure diagnostic settings and monitor configuration differences in Nexus Network Fabric].
+
+- [How to monitor interface In and Out packet rate for network fabric devices]
+- [How to configure diagnostic settings and monitor configuration differences in Nexus Network Fabric].
 
 Evaluate for any Bare Metal Machine warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems.
 For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
@@ -73,7 +74,9 @@ For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Mac
 
 Validate that there are no running firmware upgrade jobs through the BMC before initiating a `replace` or `reimage` operation.
 Interrupting an ongoing firmware upgrade can leave the Bare Metal Machine in an inconsistent state.
-You can view in the iDRAC GUI the `jobqueue` or use a `racadm jobqueque view` to determine if there are firmware upgrade jobs running.
+
+- You can view in the iDRAC GUI the `jobqueue` or use `run-read-command` `racadm jobqueque view` to determine if there are firmware upgrade jobs running.
+- For more information about the `run-read-command` feature, see [Bare Metal Run-Read Execution](./howto-baremetal-run-read.md).
 
 ```azurecli
 az networkcloud baremetalmachine run-read-command \
@@ -86,6 +89,7 @@ az networkcloud baremetalmachine run-read-command \
 ```
 
 Here's an example output from the `racadm jobqueue view` command which shows `Firmware Update`.
+
 ```
 [Job ID=JID_833540920066]
 Job Name=Firmware Update: iDRAC
@@ -97,6 +101,7 @@ Percent Complete= [50%]
 ```
 
 Here's an example output from the `racadm jobqueue view` command showing common happy-path statements.
+
 ```
 -------------------------JOB QUEUE------------------------
 [Job ID=JID_429400224349]
@@ -118,6 +123,60 @@ Actual Start Time=[Tue, 25 Mar 2025 17:00:33]
 Actual Completion Time=[Tue, 25 Mar 2025 17:00:58]
 Message=[SYS043: Successfully exported Server Configuration Profile]
 Percent Complete=[100]
+```
+
+#### Monitor progress using `run-read-command`
+
+In version 2506.2 and above, you can monitor the progress of long running Bare Metal Machine actions using a `run-read-command`.
+
+- Some long running actions such as `Replace` or `Reimage` are composed of multiple steps, for example, `Hardware Validation`, `Deprovisioning`, or `Provisioning`.
+- The following `run-read-command` shows how to view the different steps in each action, and the progress or status of each step including any potential errors.
+- This information is available on the BareMetalMachine kubernetes resource during or after the action is completed.
+- For more information about the `run-read-command` feature, see [BareMetal Run-Read Execution](./howto-baremetal-run-read.md).
+
+Example `run-read-command` to view action progress on Bare Metal Machine `rack2compute08`:
+
+```azurecli
+az networkcloud baremetalmachine run-read-command \
+  -g <ResourceGroup_Name> \
+  -n <Control Node BMM Name> \
+  --limit-time-seconds 60 \
+  --commands "[{command:'kubectl get',arguments:[-n,nc-system,bmm,rack2compute08,-o,json]}]" \
+  --output-directory .
+```
+
+Example output for a Replace action:
+
+```json
+[
+  {
+    "correlationId": "961a6154-4342-4831-9693-27314671e6a7",
+    "endTime": "2025-05-15T21:20:44Z",
+    "startTime": "2025-05-15T20:16:19Z",
+    "status": "Completed",
+    "stepStates": [
+      {
+        "endTime": "2025-05-15T20:25:51Z",
+        "name": "Hardware Validation",
+        "startTime": "2025-05-15T20:16:19Z",
+        "status": "Completed"
+      },
+      {
+        "endTime": "2025-05-15T20:26:21Z",
+        "name": "Deprovisioning",
+        "startTime": "2025-05-15T20:25:51Z",
+        "status": "Completed"
+      },
+      {
+        "endTime": "2025-05-15T21:20:44Z",
+        "name": "Provisioning",
+        "startTime": "2025-05-15T20:26:21Z",
+        "status": "Completed"
+      }
+    ],
+    "type": "Microsoft.NetworkCloud/bareMetalMachines/replace"
+  }
+]
 ```
 
 ## Best practices for a Bare Metal Machine reimage
@@ -171,6 +230,7 @@ Before initiating any `replace` operation, ensure the following preconditions ar
 - Perform high level checks covered in the article [Troubleshoot Bare Metal Machine Provisioning].
 - Evaluate any Bare Metal Machine warnings or degraded conditions which could indicate the need to resolve hardware, network, or server configuration problems before a `replace` operation.
   For more information, see [Troubleshoot Degraded Status Errors on Bare Metal Machines] and [Troubleshoot Bare Metal Machine Warning Status].
+- Validate Bare Metal Machine is powered on.
 - Validate that there are no running firmware upgrade jobs.
   Follow steps in section [Determine if Firmware Update Jobs are Running](#determine-if-firmware-update-jobs-are-running).
 
@@ -191,9 +251,10 @@ Some repairs don't require a Bare Metal Machine `replace` to be executed.
 For example, a `replace` operation isn't required when you're performing a physical hot swappable power supply repair because the Bare Metal Machine host will continue to function normally after the repair.
 However, if the Bare Metal Machine failed hardware validation, the Bare Metal Machine `replace` is required even if the hot swappable repairs are done.
 Examine the Bare Metal Machine status messages to determine if hardware validation failures or other degraded conditions are present.
-  - [Troubleshoot Degraded Status Errors on Bare Metal Machines]
-  - [Troubleshoot Bare Metal Machine Warning Status]
-  - [Troubleshoot Hardware Validation Failure](./troubleshoot-hardware-validation-failure.md).
+
+- [Troubleshoot Degraded Status Errors on Bare Metal Machines]
+- [Troubleshoot Bare Metal Machine Warning Status]
+- [Troubleshoot Hardware Validation Failure](./troubleshoot-hardware-validation-failure.md).
 
 Other repairs of this type might be:
 

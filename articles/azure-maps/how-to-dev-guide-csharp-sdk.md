@@ -13,7 +13,7 @@ ms.custom: devx-track-dotnet
 
 # C# REST SDK Developers Guide
 
-The Azure Maps C# SDK supports functionality available in the Azure Maps [Rest API], like searching for an address, routing between different coordinates, and getting the geo-location of a specific IP address. This article introduces the C# REST SDK with examples to help you get started building location-aware applications in C# that incorporates the power of Azure Maps.
+The Azure Maps C# SDK supports functionality available in the Azure Maps [REST API], like searching for an address, routing between different coordinates, and getting the geo-location of a specific IP address. This article introduces the C# REST SDK with examples to help you get started building location-aware applications in C# that incorporates the power of Azure Maps.
 
 > [!NOTE]
 > Azure Maps C# SDK supports any .NET version that is compatible with [.NET standard] version 2.0 or higher. For an interactive table, see [.NET Standard versions].
@@ -299,7 +299,7 @@ for (var i = 0; i < count; i++)
 }
 ```
 
-## Using V1 SDKs for Search and Render
+## Using v1 SDKs for Search and Render
 
 For more information on using Search v1, see [Azure Maps Search client library for .NET](https://www.nuget.org/packages/Azure.Maps.Search/1.0.0-beta.5). For more information on using Render v1, see [Azure Maps Render client library for .NET](https://www.nuget.org/packages/Azure.Maps.Rendering/1.0.0-beta.3).
 
@@ -321,7 +321,7 @@ The [Azure.Maps Namespace] in the .NET documentation.
 [rendering package]: https://www.nuget.org/packages/Azure.Maps.Rendering
 [rendering readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Rendering/README.md
 [rendering sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Rendering/samples
-[Rest API]: /rest/api/maps/
+[REST API]: /rest/api/maps/
 [routing package]: https://www.nuget.org/packages/Azure.Maps.Routing
 [routing readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Routing/README.md
 [routing sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Routing/samples

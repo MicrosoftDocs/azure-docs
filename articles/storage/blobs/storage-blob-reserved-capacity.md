@@ -6,9 +6,10 @@ services: storage
 author: akashdubey-ms
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/17/2021
 ms.author: akashdubey
+# Customer intent: As a financial manager, I want to purchase reserved capacity for Azure Blob Storage, so that I can optimize storage costs and achieve significant savings over time by committing to long-term usage.
 ---
 
 # Optimize costs for Blob storage with reserved capacity

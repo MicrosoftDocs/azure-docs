@@ -1321,6 +1321,11 @@
             "source_path": "enterprise/plan-comparison.md",
             "redirect_url": "/azure/spring-apps/basic-standard/plan-comparison",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "migration/migrate-to-azure-container-apps-build-overview.md",
+            "redirect_url": "/azure/spring-apps/migration/containerization-overview",
+            "redirect_document_id": true
         }
     ]
 }

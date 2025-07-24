@@ -2,10 +2,11 @@
 title: Unsupported Workloads for Azure Update Manager
 description: Learn about the workloads that are not supported by Azure Update Manager.
 ms.service: azure-update-manager
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.date: 02/26/2025
 ms.topic: overview
+# Customer intent: As a cloud administrator, I want to understand the unsupported workloads for Azure Update Manager so that I can ensure proper update management for my systems and use recommended alternatives for those workloads.
 ---
 
 # Unsupported workloads for Azure Update Manager
@@ -29,7 +30,7 @@ The following table lists the workloads that aren't supported.
 ## Next steps
 
 - Learn about the [supported regions for Azure VMs and Arc-enabled servers](supported-regions.md).
-- Learn on the [Update sources, types](support-matrix.md) managed by Azure Update Manger.
+- Learn on the [Update sources, types](support-matrix.md) managed by Azure Update Manager.
 - Know more on [supported OS and system requirements for machines managed by Azure Update Manager](support-matrix-updates.md).
 - Learn on [Automatic VM guest patching](support-matrix-automatic-guest-patching.md).
 - Learn more on how to [configure Windows Update settings](configure-wu-agent.md) to work with Azure Update Manager. 

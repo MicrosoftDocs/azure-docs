@@ -6,6 +6,7 @@ ms.service: azure-avere-vfxt
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
+# Customer intent: As a cloud administrator, I want to deploy an Avere vFXT cluster using the Azure deployment wizard, so that I can efficiently manage and scale my storage resources in a cloud environment.
 ---
 
 # Deploy the vFXT cluster

@@ -1102,32 +1102,32 @@
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-linux-readme.md",
-      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
+      "redirect_url": "/azure/app-service/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/containers/app-service-linux-intro.md",
-      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
+      "redirect_url": "/azure/app-service/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/containers/choose-deployment-type.md",
-      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
+      "redirect_url": "/azure/app-service/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-linux-choose-deployment-type.md",
-      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
+      "redirect_url": "/azure/app-service/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-linux-how-to-create-web-app.md",
-      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
+      "redirect_url": "/azure/app-service/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service-web/app-service-linux-intro.md",
-      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
+      "redirect_url": "/azure/app-service/overview",
       "redirect_document_id": false
     },
     {
@@ -1977,11 +1977,6 @@
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-web-tutorial-java-mysql.md",
-      "redirect_url": "/azure/app-service/tutorial-java-spring-cosmosdb",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/app-service/tutorial-java-quarkus-postgresql-app.md",
       "redirect_url": "/azure/app-service/tutorial-java-spring-cosmosdb",
       "redirect_document_id": false
     },
@@ -2853,6 +2848,16 @@
     {
       "source_path_from_root": "/articles/app-service/environment/how-to-migrate.md",
       "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/tutorial-sidecar-local-small-language-model.md",
+      "redirect_url": "/azure/app-service/tutorial-ai-slm-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/deploy-intelligent-apps.md",
+      "redirect_url": "/azure/app-service/overview-ai-integration",
       "redirect_document_id": false
     }
   ]

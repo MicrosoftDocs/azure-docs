@@ -1,7 +1,7 @@
 ---
-title: How to enable user engagement tracking for an email domain with Azure Communication Services resource.
+title: Enable user engagement tracking
 titleSuffix: An Azure Communication Services quick start guide
-description: Learn about how to enable user engagement tracking for an email domain with Azure Communication Services resource.
+description: This article describes how to enable user engagement tracking for an email domain with Azure Communication Services resource.
 author: bashan-git
 manager: sundraman
 services: azure-communication-services
@@ -10,32 +10,33 @@ ms.date: 03/31/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
-# Quickstart: How to enable user engagement tracking for an email domain
+
+# Enable user engagement tracking
 
 To gain insights into your customer email engagements, enable user engagement tracking. Only emails sent from Azure Communication Services verified email domains that are enabled for user engagement analysis can receive engagement tracking metrics.
 
 > [!IMPORTANT]
-> By enabling this feature, you acknowledge that you are enabling open/click tracking and giving consent to collect your customers' email activity. 
+> By enabling this feature, you acknowledge that you're enabling open/click tracking and giving consent to collect your customers' email activity.
 
-In this quick start, you learn how to enable user engagement tracking for a verified email domain in Azure Communication Services.
+This article describes how to enable user engagement tracking for a verified email domain in Azure Communication Services.
 
 ## Enable email engagement
 
-1.	Go the overview page of the Email Communications Service resource that you created in [Quickstart: Create and manage an Email Communication Service resource](./create-email-communication-resource.md).
+1. Open the overview page of the Email Communications Service resource that you created in [Quickstart: Create and manage an Email Communication Service resource](./create-email-communication-resource.md).
 
-2.	In the left navigation panel, click **Provision Domains** to open a list of provisioned domains.
+2. In the left navigation panel, click **Provision Domains** to open a list of provisioned domains.
 
-3.	Click on the name of the custom domain that you would like to update.
+3. Click on the name of the custom domain that you want to update.
 
    :::image type="content" source="./media/email-domains-custom-provision-domains.png" alt-text="Screenshot that shows how to get to overview page for Domain from provisioned domains list.":::
 
    When you click the custom domain name, it opens the Domain Overview page. The first time you open this page, User interaction tracking is **Off** by default.
 
-4.	Click **Turn On** to enable engagement tracking.
+4. Click **Turn On** to enable engagement tracking.
 
    :::image type="content" source="./media/email-domains-custom-overview.png" alt-text="Screenshot that shows the overview page of the domain." lightbox="media/email-domains-custom-overview-expanded.png":::
 
-5.	A confirmation dialog box opens. Click **Turn On** to confirm that you want to enable engagement tracking.
+5. A confirmation dialog box opens. Click **Turn On** to confirm that you want to enable engagement tracking.
 
    :::image type="content" source="./media/email-domains-user-engagement.png" alt-text="Screenshot that shows the user engagement turn-on page of the domain." lightbox="media/email-domains-user-engagement-expanded.png":::
 
@@ -44,10 +45,10 @@ In this quick start, you learn how to enable user engagement tracking for a veri
 You can now subscribe to Email User Engagement operational logs, which provide information about **open** and **click** user engagement metrics for messages sent from the email service.
 
 > [!NOTE]
-> User Engagement Tracking cannot be enabled for Azure Managed Domains or custom domains with default sending limits. For more information, see [Service limits for Azure Communication Services](../../concepts/service-limits.md#rate-limits-for-email).
+> User Engagement Tracking can't be enabled for Azure Managed Domains or custom domains with default sending limits. For more information, see [Service limits for Azure Communication Services](../../concepts/service-limits.md#rate-limits-for-email).
 
 > [!IMPORTANT]
-> If you plan to enable open/click tracking for your email links, ensure that you are correctly formatting the email content in HTML. Specifically, make sure that your tracking content is properly encapsulated within the payload, as follows:
+> If you plan to enable open/click tracking for your email links, ensure that you're correctly formatting the email content in HTML. Specifically, make sure that your tracking content is properly encapsulated within the payload, as follows:
 
 ```html
  <a href="https://www.contoso.com">Contoso Inc.</a>

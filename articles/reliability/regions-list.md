@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-reliability
 ms.topic: conceptual
-ms.date: 04/07/2025
+ms.date: 04/15/2025
 ms.author: anaharris
 ms.custom: references_regions, subject-reliability
 ---
@@ -32,13 +32,14 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 | :::image type="content" source="media/icon-region-restricted.svg" alt-text="Icon that shows that this region is access restricted to support specific customer scenarios, such as in-country/region disaster recovery" border="false"::: Australia Central 2 | | Australia Central | Canberra | Australia |
 | Australia East | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | Australia Southeast | New South Wales | Australia |
 | Australia Southeast | | Australia East | Victoria | Australia |
-|:::image type="content" source="media/icon-region-coming-soon.svg"  alt-text="Icon that shows that this region is coming soon."  border="false"::: Austria East | | n/a | n/a | Austria |
+|:::image type="content" source="media/icon-region-coming-soon.svg"  alt-text="Icon that shows that this region is coming soon."  border="false"::: Austria East | :::image alt-text="Yes" type="content" source="media/icon-checkmark.svg" border="false"::: | n/a | Vienna| Austria |
 | Brazil South | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | South Central US | Sao Paulo State | Brazil |
 | :::image type="content" source="media/icon-region-restricted.svg" alt-text="Icon that shows that this region is access restricted to support specific customer scenarios, such as in-country/region disaster recovery" border="false"::: Brazil Southeast | | Brazil South | Rio | Brazil |
 | Canada Central | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | Canada East | Toronto | Canada |
 | Canada East | | Canada Central | Quebec | Canada |
 | Central India | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | South India | Pune | India |
 | Central US | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | East US 2 | Iowa | United States |
+| Chile Central | :::image alt-text="Yes" type="content" source="media/icon-checkmark.svg" border="false"::: | n/a | Santiago | Chile |
 | East Asia | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | Southeast Asia | Hong Kong SAR | Asia Pacific |
 | East US | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | West US | Virginia | United States |
 | East US 2 | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | Central US | Virginia | United States |
@@ -46,13 +47,14 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 | :::image type="content" source="media/icon-region-restricted.svg" alt-text="Icon that shows that this region is access restricted to support specific customer scenarios, such as in-country/region disaster recovery" border="false"::: France South | | France Central | Marseille | France |
 | :::image type="content" source="media/icon-region-restricted.svg" alt-text="Icon that shows that this region is access restricted to support specific customer scenarios, such as in-country/region disaster recovery" border="false"::: Germany North |  | Germany West Central | Berlin | Germany |
 | Germany West Central |:::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | :::image type="content" source="media/icon-region-restricted.svg" alt-text="Icon that shows that this region is access restricted to support specific customer scenarios, such as in-country/region disaster recovery" border="false"::: Germany North | Frankfurt | Germany |
-| :::image type="content" source="media/icon-region-coming-soon.svg" alt-text="Icon that shows that this region is coming soon." border="false"::: Indonesia Central | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | n/a | n/a | Indonesia |
+| Indonesia Central | :::image alt-text="Yes" type="content" source="media/icon-checkmark.svg" border="false"::: | n/a | Jakarta | Indonesia |
 | Israel Central | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | n/a | Israel | Israel |
 | Italy North | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | n/a | Milan | Italy |
 | Japan East | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | Japan West | Tokyo, Saitama | Japan |
 | Japan West | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | Japan East | Osaka | Japan |
-| Korea Central | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | :::image type="content" source="media/icon-region-restricted.svg" alt-text="Icon that shows that this region is access restricted to support specific customer scenarios, such as in-country/region disaster recovery" border="false"::: Korea South | Seoul | Korea |
-| :::image type="content" source="media/icon-region-restricted.svg" alt-text="Icon that shows that this region is access restricted to support specific customer scenarios, such as in-country/region disaster recovery" border="false"::: Korea South | | Korea Central | Busan | Korea |
+| Korea Central | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | :::image type="content" source="media/icon-region-restricted.svg" alt-text="Icon that shows that this region is access restricted to support specific customer scenarios, such as in-country disaster recovery" border="false"::: Korea South | Seoul | Korea |
+| :::image type="content" source="media/icon-region-restricted.svg" alt-text="Icon that shows that this region is access restricted to support specific customer scenarios, such as in-country disaster recovery" border="false"::: Korea South | | Korea Central | Busan | Korea |
+| Malaysia West | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes" border="false"::: | n/a | n/a | Malaysia |
 | Mexico Central | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | n/a | Querétaro State | Mexico |
 | New Zealand North | :::image  alt-text="Yes"  type="content" source="media/icon-checkmark.svg"  border="false"::: | n/a | Auckland | New Zealand |
 | North Central US | | South Central US | Illinois | United States |
@@ -80,6 +82,14 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 | West US | | East US | California | United States |
 | West US 2 | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes"   border="false"::: | West Central US | Washington | United States |
 | West US 3 | :::image type="content" source="media/icon-checkmark.svg" alt-text="Yes"   border="false"::: | East US | Phoenix | United States |
+
+### Azure programmatic region names
+
+To retrieve a list of regions names directly, including the names that can be used for programming and scripting, you can use the following methods:
+
+- [Azure CLI - az account list-locations](/cli/azure/account#az-account-list-locations)
+- [Azure PowerShell - Get-AzLocation](/powershell/module/az.resources/get-azlocation)
+- [Azure Resource Manager REST API](/rest/api/resources/subscriptions/list-locations)
 
 ## Related content
 

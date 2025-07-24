@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell, devx-track-arm-template
 # Apply the Microsoft Azure diagnostics extension in Cloud Services (extended support) 
 
 > [!IMPORTANT]
-> As of March 31, 2025, cloud Services (classic) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 You can monitor key performance metrics for any cloud service. Every cloud service role collects minimal data: CPU usage, network usage, and disk utilization. If the cloud service has the Microsoft.Azure.Diagnostics extension applied to a role, that role can collect more points of data. For more information, see [Extensions Overview](extensions.md)
 

@@ -6,11 +6,12 @@ services: storage
 author: pauljewellmsft
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/25/2025
 ms.author: pauljewell
 ms.devlang: csharp
 ms.custom: devx-track-csharp
+# Customer intent: As a developer managing data updates in my application, I want to implement concurrency control strategies for blob storage, so that I can ensure data integrity and provide a predictable experience for users when multiple writers access the same data.
 ---
 
 # Manage concurrency in Blob Storage

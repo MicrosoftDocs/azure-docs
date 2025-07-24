@@ -5,9 +5,10 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/30/2024
 ms.author: anfdocs
+# Customer intent: "As a Linux system administrator, I want to configure filesystem cache parameters for Azure NetApp Files, so that I can optimize performance and reduce latency for write-heavy workloads."
 ---
 # Linux filesystem cache best practices for Azure NetApp Files
 

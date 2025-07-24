@@ -4,6 +4,7 @@ description: Learn how to connect privately to an Azure Batch account by using p
 ms.topic: how-to
 ms.date: 8/14/2023
 ms.custom: references_regions
+# Customer intent: "As a cloud administrator, I want to configure private endpoints for my Azure Batch account, so that I can ensure secure and private network access to essential Batch services within my virtual network."
 ---
 
 # Use private endpoints with Azure Batch accounts

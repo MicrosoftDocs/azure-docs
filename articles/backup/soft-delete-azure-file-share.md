@@ -4,8 +4,9 @@ description: Learn how to soft delete can protect your Azure File Shares from ac
 ms.topic: how-to
 ms.date: 09/11/2024
 ms.custom: references_regions 
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a storage administrator, I want to enable soft delete for file shares using Azure Backup, so that I can protect my data from accidental deletion or cyberattacks and ensure I can recover it within the retention period.
 ---
 
 # Accidental delete protection for Azure file shares using Azure Backup

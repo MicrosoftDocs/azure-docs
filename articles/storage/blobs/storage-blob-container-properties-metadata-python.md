@@ -11,6 +11,7 @@ ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: "As a Python developer, I want to manage properties and metadata for blob containers, so that I can customize and retrieve information relevant to my storage resources in an efficient manner."
 ---
 
 # Manage container properties and metadata with Python

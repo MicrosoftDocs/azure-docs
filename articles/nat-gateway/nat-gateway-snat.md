@@ -7,6 +7,7 @@ ms.service: azure-nat-gateway
 ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.date: 04/29/2024
 
+# Customer intent: As a network architect, I want to understand how Source Network Address Translation (SNAT) works with NAT gateway, so that I can efficiently manage public IP usage and prevent SNAT port exhaustion for the virtual machines in my cloud infrastructure.
 ---
 # Source Network Address Translation (SNAT) with Azure NAT Gateway
 

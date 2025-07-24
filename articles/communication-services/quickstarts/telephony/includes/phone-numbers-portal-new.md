@@ -1,7 +1,3 @@
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]
-
-Azure Communication Services is introducing a new user experience for purchasing phone numbers. This experience is currently being flighted, and you might be introduced to this experience when purchasing a phone number in Azure portal. If you have feedback on this experience, don't hesitate to give it through the **Give feedback** button on Azure portal extension.
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -22,6 +18,15 @@ Azure Communication Services is introducing a new user experience for purchasing
    :::image type="content" source="../media/phone-numbers-portal/get-phone-number-search.png" alt-text="Screenshot showing phone number shopping cart search wizard." lightbox="../media/phone-numbers-portal/get-phone-number-search.png":::
 
 4. Choose the **Country/region** where you would like to provision the phone number. Country/region availability is based on the billing location for your Azure subscription. More information on what numbers are available for each country/region can be found [here](../../../concepts/numbers/sub-eligibility-number-capability.md). Next you'll choose the [number type](../../../concepts/telephony/plan-solution.md#phone-number-types-in-azure-communication-services). You can select from two phone number types: **Local**, and **Toll-free**.
+
+> [!NOTE]
+> - Bulk number orders or some countries/regions, such as the Netherlands, require a special order for phone numbers. If special ordering is needed, you will be prompted to follow the below mentioned special order process.
+> - Click "Request a Special Order" button in the Phone Numbers section.
+> - Open a [new case](https://aka.ms/ContactTNS).
+> - Select "Azure Communication Service" as your Customer Profile.
+> - Choose the Country/Region where you need the phone numbers.
+> - Select "New TN Acquisition" as the case type.
+> - Fill in the necessary details and submit your request.
 
 5. Select **Search** to pull up numbers that meet your selected criteria. You have various filters to search for the number that fits your needs, including:
 

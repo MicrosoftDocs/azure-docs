@@ -8,8 +8,8 @@ ms.topic: how-to
 ms.date: 10/08/2024
 ai-usage: ai-assisted
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #customerIntent: As an SAP admin, I want to stop Microsoft Sentinel from collecting data from our SAP applications.
 ---
@@ -20,7 +20,7 @@ There might be instances where you need to halt the data collection from your SA
 
 This article provides step-by-step instructions on how to stop the ingestion of SAP logs into Microsoft Sentinel and disable the data connector agent.
 
-If you're using the agentless data connector (Preview), remove the data connector and solution from Microsoft Sentinel, and then clean up any resources and [changes you'd made to your SAP system](preparing-sap.md) for the integration. 
+If you're using the agentless data connector (Limited preview), remove the data connector and solution from Microsoft Sentinel, and then clean up any resources and [changes you'd made to your SAP system](preparing-sap.md) for the integration.
 
 ## Prerequisites
 

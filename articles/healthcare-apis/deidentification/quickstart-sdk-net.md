@@ -1,12 +1,12 @@
 ---
 title: "Quickstart: Azure Health de-identification client library for .NET"
 description: A quickstart guide to de-identify health data with the .NET client library
-author: GrahamMThomas
-ms.author: gthomas
+author: kimiamavon
+ms.author: kimiamavon
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: quickstart-sdk
-ms.date: 08/05/2024
+ms.date: 06/19/2025
 ---
 
 

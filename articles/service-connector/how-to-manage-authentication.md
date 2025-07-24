@@ -5,8 +5,9 @@ author: maud-lv
 ms.service: service-connector
 ms.custom:
   - build-2024
+  - build-2025
 ms.topic: how-to
-ms.date: 10/25/2023
+ms.date: 05/12/2025
 ms.author: malev
 ---
 # Manage authentication within Service Connector
@@ -60,6 +61,7 @@ Service Connector offers the following authentication options:
 | Azure SQL Database                            | Yes                              | No                             | Yes               | No                |
 | Azure Table Storage                           | No                               | No                             | Yes               | No                |
 | Azure Web PubSub                              | Yes                              | Yes                            | Yes               | Yes               |
+| MongoDB Atlas (Preview)                       | No                               | No                             | Yes               | No                |
 
 ## Review or update authentication configuration
 

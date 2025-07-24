@@ -5,8 +5,8 @@ author: yelevin
 ms.topic: how-to
 ms.date: 11/26/2024
 ms.author: yelevin
-appliesto: 
-  - Microsoft Sentinel in the Azure portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
 #Customer intent: As a security analyst, I want to investigate and manage security incidents using advanced analytics and visualization tools so that I can effectively identify, understand, and respond to potential threats.
 ---
 

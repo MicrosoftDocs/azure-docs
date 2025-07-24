@@ -8,7 +8,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/06/2024
+ms.date: 04/09/2025
 
 #CustomerIntent: As an operator, I want to understand options to secure MQTT communications for my Azure IoT Operations solution.
 ---
@@ -61,6 +61,14 @@ To view or edit the default listener, follow these steps.
     :::image type="content" source="media/howto-configure-brokerlistener/default-broker-listener.png" alt-text="Screenshot that shows using the Azure portal to view or edit the default broker listener.":::
 
 1. Review the listener settings, but avoid modifying any of the existing settings. Instead, create a new port and configure it as needed.
+
+# [Azure CLI](#tab/cli)
+
+Use the [az iot ops broker listener show](/cli/azure/iot/ops/broker/listener#az-iot-ops-broker-listener-show) command to view the local MQTT broker default listener.
+
+```azurecli
+az iot ops broker listener show --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --name default 
+```
 
 # [Bicep](#tab/bicep)
 
@@ -198,7 +206,7 @@ To create a new listener, specify the following settings:
 This example shows how to create a new listener with the `LoadBalancer` service type. The BrokerListener resource defines two ports that accept MQTT connections from clients.
 
 - The first port listens on port 1883 without TLS and authentication. This setup is suitable for testing only. [Don't use this configuration in production](./howto-test-connection.md#only-turn-off-tls-and-authentication-for-testing).
-- The second port listens on port 8883 with TLS and authentication enabled. Only [authenticated clients with a Kubernetes service account token](./howto-configure-authentication.md#default-brokerauthentication-resource) can connect. TLS is set to [automatic mode](#enable-tls-automatic-certificate-management-for-a-port), using cert-manager to manage the server certificate from the [default issuer](../secure-iot-ops/concept-default-root-ca.md#default-self-signed-issuer-and-root-ca-certificate-for-tls-server-certificates). This setup is closer to a production configuration.
+- The second port listens on port 8883 with TLS and authentication enabled. Only [authenticated clients with a Kubernetes service account token](./howto-configure-authentication.md#default-brokerauthentication-resource) can connect. TLS is set to [automatic mode](#enable-tls-automatic-certificate-management-for-a-port), using cert-manager to manage the server certificate from the [default issuer](../secure-iot-ops/howto-manage-certificates.md#default-self-signed-issuer-and-root-ca-certificate-for-tls-server-certificates). This setup is closer to a production configuration.
 
 # [Portal](#tab/portal)
 
@@ -247,6 +255,51 @@ This example shows how to create a new listener with the `LoadBalancer` service 
 1. Select **Create listener**.
 
     :::image type="content" source="media/howto-configure-brokerlistener/create-loadbalancer.png" alt-text="Screenshot that shows using the Azure portal to create an MQTT broker for load balancer listener.":::
+
+# [Azure CLI](#tab/cli)
+
+Use the [az iot ops broker listener apply](/cli/azure/iot/ops/broker/listener#az-iot-ops-broker-listener-apply) command to create a new MQTT broker listener.
+
+```azurecli
+az iot ops broker listener apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --name <ListenerName> --config-file <ConfigFilePathAndFileName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `loadbalancer-listener.json` with the following content stored in the user's home directory:
+
+```json
+{
+    "serviceType": "LoadBalancer",
+    "ports": [
+        {
+            "port": 1883,
+            "protocol": "Mqtt"
+        },
+        {
+            "authenticationRef": "default",
+            "port": 8883,
+            "protocol": "Mqtt",
+            "tls": {
+                "mode": "Automatic",
+                "certManagerCertificateSpec": {
+                    "issuerRef": {
+                        "name": "azure-iot-operations-aio-certificate-issuer",
+                        "kind": "ClusterIssuer",
+                        "group": "cert-manager.io"
+                    }
+                }
+            }
+        }
+    ]
+}
+```
+
+An example command to create a new listener named `aio-broker-loadbalancer` is as follows:
+
+```azurecli
+az iot ops broker listener apply --resource-group myResourceGroupName --instance myAioInstanceName --broker default --name aio-broker-loadbalancer --config-file ~/loadbalancer-listener.json
+```
 
 # [Bicep](#tab/bicep)
 
@@ -565,6 +618,20 @@ The following example is a BrokerListener resource that enables TLS on port 8884
 
 1. Select **Apply** to save the TLS settings.
 
+# [Azure CLI](#tab/cli)
+
+Use the [az iot ops broker listener port add](/cli/azure/iot/ops/broker/listener#az-iot-ops-broker-listener-port-add) command to add or change a TCP port configuration to an MQTT broker listener service. If the listener exists, the command updates the existing listener. If the listener doesn't exist, the command creates a new listener.
+
+```azurecli
+az iot ops broker listener port add --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --listener <ListenerName> --port <ListenerServicePort> --authn-ref default --tls-issuer-ref name=<IssuerName> kind=<IssuerKind> group=<IssuerGroup>
+```
+
+The following example adds a new TLS port 8884 to the listener named `aio-broker-loadbalancer`:
+
+```azurecli
+az iot ops broker listener port add --resource-group myResourceGroupName --instance myAioInstanceName --broker default --listener aio-broker-loadbalancer --port 8884 --authn-ref default --tls-issuer-ref name=my-issuer kind=Issuer group=cert-manager.io
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -683,7 +750,7 @@ Remember to specify authentication methods if needed.
 
 ### Default root CA and issuer
 
-To help you get started, IoT Operations is deployed with a default "quickstart" CA certificate and issuer for TLS server certificates. You can use this issuer for development and testing. For more information, see [Default root CA and issuer for TLS server certificates](../deploy-iot-ops/concept-default-root-ca.md).
+To help you get started, IoT Operations is deployed with a default "quickstart" CA certificate and issuer for TLS server certificates. You can use this issuer for development and testing. For more information, see [Default root CA and issuer for TLS server certificates](../secure-iot-ops/howto-manage-certificates.md#default-self-signed-issuer-and-root-ca-certificate-for-tls-server-certificates).
 
 For production, you must configure a CA issuer with a certificate from a trusted CA, as described in the previous sections.
 
@@ -768,6 +835,20 @@ The following example shows a BrokerListener resource that enables TLS on port 8
     | Secret name    | Kubernetes secret containing an X.509 client certificate.                                     |
 
 1. Select **Apply** to save the TLS settings.
+
+# [Azure CLI](#tab/cli)
+
+Use the [az iot ops broker listener port add](/cli/azure/iot/ops/broker/listener#az-iot-ops-broker-listener-port-add) command to add or change a TCP port configuration to an MQTT broker listener service. If the listener exists, the command updates the existing listener. If the listener doesn't exist, the command creates a new listener.
+
+```azurecli
+az iot ops broker listener port add --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --listener <ListenerName> --port <ListenerServicePort> --authn-ref default --tls-man-secret-ref <SecretReferenceName>
+```
+
+The following example changes port 8885 to manual TLS for the listener named `aio-broker-loadbalancer`. It uses the secret name `server-cert-secret` that contains an X.509 client certificate.
+
+```azurecli
+az iot ops broker listener port add --resource-group myResourceGroupName --instance myAioInstanceName --broker default --listener aio-broker-loadbalancer --port 8885 --authn-ref default --tls-man-secret-ref server-cert-secret
+```
 
 # [Bicep](#tab/bicep)
 

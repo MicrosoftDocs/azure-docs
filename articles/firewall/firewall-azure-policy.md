@@ -6,6 +6,7 @@ ms.author: duau
 ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 09/05/2024
+# Customer intent: "As a network administrator, I want to apply Azure Policies to govern Azure Firewall configurations, so that I can ensure compliance with security best practices and organizational standards."
 ---
 
 # Use Azure Policy to help secure your Azure Firewall deployments

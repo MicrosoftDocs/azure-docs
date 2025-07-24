@@ -50,7 +50,7 @@ When you use the integrated Dynatrace experience in Azure portal, the following 
 
 ## Dynatrace links
 
-For more help using Azure Native Dynatrace Service, visit the [Dynatrace](https://dt-url.net/azurenativedynatraceservice) documentation.
+For more help using Azure Native Dynatrace Service, go to the [Dynatrace](https://dt-url.net/azurenativedynatraceservice) documentation.
 
 ## Next step
 

@@ -10,6 +10,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
+# Customer intent: "As a developer using Go, I want to implement asynchronous blob copying in Azure Storage, so that I can efficiently manage and transfer data between storage accounts or external sources without blocking my application."
 ---
 
 # Copy a blob with asynchronous scheduling using Go
@@ -18,7 +19,7 @@ ms.custom: devx-track-go, devguide-go
 
 This article shows how to copy a blob with asynchronous scheduling using the [Azure Storage client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section-readme). You can copy a blob from a source within the same storage account, from a source in a different storage account, or from any accessible object retrieved via HTTP GET request on a given URL. You can also abort a pending copy operation.
 
-The methods covered in this article use the [Copy Blob](/rest/api/storageservices/copy-blob) REST API operation, and can be used when you want to perform a copy with asynchronous scheduling. For most copy scenarios where you want to move data into a storage account and have a URL for the source object, see [Copy a blob from a source object URL with Go](storage-blob-copy-url-go.md).
+The methods covered in this article use the [Copy Blob](/rest/api/storageservices/copy-blob) REST API operation and can be used when you want to perform a copy with asynchronous scheduling. For most copy scenarios where you want to move data into a storage account and have a URL for the source object, see [Copy a blob from a source object URL with Go](storage-blob-copy-url-go.md).
 
 [!INCLUDE [storage-dev-guide-prereqs-go](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-go.md)]
 
@@ -58,7 +59,7 @@ The following methods wrap the [Copy Blob](/rest/api/storageservices/copy-blob) 
 
 ## Copy a blob from a source within Azure
 
-If you're copying a blob within the same storage account, the operation can complete synchronously. Access to the source blob can be authorized via Microsoft Entra ID (recommended), a shared access signature (SAS), or an account key. For an alterative synchronous copy operation, see [Copy a blob from a source object URL with Go](storage-blob-copy-url-go.md).
+If you're copying a blob within the same storage account, the operation can complete synchronously. Access to the source blob can be authorized via Microsoft Entra ID (recommended), a shared access signature (SAS), or an account key. For an alternative synchronous copy operation, see [Copy a blob from a source object URL with Go](storage-blob-copy-url-go.md).
 
 If the copy source is a blob in a different storage account, the operation can complete asynchronously. The source blob must either be public or authorized via SAS token. The SAS token needs to include the **Read ('r')** permission. To learn more about SAS tokens, see [Delegate access with shared access signatures](../common/storage-sas-overview.md).
 
