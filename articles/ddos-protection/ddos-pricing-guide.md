@@ -40,7 +40,7 @@ Let's assume you have only one subscription in your tenant. If you create a Netw
 
 In this same scenario with 10 Public IP addresses, if you enable IP Protection for each Public IP address, you're billed per protected IP resource.
 
-Under this scenario, it's more cost effective to enable IP Protection for each Public IP address. For environments with more than 15 Public IP addresses, it's more cost effective to create a Network Protection plan. 
+Under this scenario, its more cost effective to enable IP Protection for each Public IP address. For environments with more than 15 Public IP addresses, it's more cost effective to create a Network Protection plan. 
 
 **Cost comparison analysis:**
 - Network Protection: Fixed monthly cost for up to 100 IP addresses
@@ -53,11 +53,11 @@ This scenario illustrates cost benefits for large organizations with multiple su
 
 #### Multiple subscriptions with Network Protection
 
-An enterprise has 3 subscriptions with the following public IP distribution:
+An enterprise has three subscriptions with the following public IP distribution:
 - Subscription A: 25 public IPs (production workloads)
 - Subscription B: 15 public IPs (staging environment)  
 - Subscription C: 8 public IPs (development environment)
-- **Total: 48 public IPs across 3 subscriptions**
+- **Total: 48 public IPs across three subscriptions**
 
 With Network Protection, you create one plan that covers all subscriptions under the tenant:
 - Cost: Single monthly Network Protection plan fee (covers up to 100 IPs across all subscriptions)
@@ -94,15 +94,15 @@ This scenario shows cost implications for applications with fluctuating public I
 
 Consider an e-commerce platform that scales during peak seasons:
 
-#### Regular operations (9 months)
+#### Regular operations (nine months)
 - 8 public IPs needed
-- IP Protection cost: Per-IP rate × 8 resources × 9 months
+- IP Protection cost: Per-IP rate × eight resources × nine months
 
-#### Peak season (3 months) 
+#### Peak season (three months) 
 - 25 public IPs needed during holiday season
 - Two options:
-  1. **IP Protection**: Per-IP rate × 25 resources × 3 months
-  2. **Temporary Network Protection**: Monthly plan rate × 3 months
+  1. **IP Protection**: Per-IP rate × 25 resources × three months
+  2. **Temporary Network Protection**: Monthly plan rate × three months
 
 **Annual cost comparison analysis:**
 - IP Protection only: Higher total cost due to linear scaling during peak periods
@@ -121,7 +121,7 @@ Network Protection provides additional value beyond basic DDoS mitigation that s
 ### Cost Protection Guarantee
 Network Protection includes a cost protection guarantee that provides service credits for additional Azure costs incurred during a documented DDoS attack. This includes:
 - Data transfer costs from scale-out operations
-- Additional compute costs for auto-scaling responses
+- Additional compute costs for autoscaling responses
 - Other documented Azure service costs directly attributable to DDoS attacks
 
 ### DDoS Rapid Response (DRR)
