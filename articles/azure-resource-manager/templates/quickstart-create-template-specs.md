@@ -1,7 +1,7 @@
 ---
 title: Create and deploy template spec
 description: Learn how to create a template spec from ARM template. Then, deploy the template spec to a resource group in your subscription.
-ms.date: 01/29/2025
+ms.date: 07/24/2025
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
@@ -118,82 +118,76 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
     {
       "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
-      "parameters": {},
-      "functions": [],
-      "variables": {},
       "resources": [
         {
           "type": "Microsoft.Resources/templateSpecs",
-          "apiVersion": "2021-05-01",
+          "apiVersion": "2022-02-01",
           "name": "storageSpec",
           "location": "westus2",
           "properties": {
             "displayName": "Storage template spec"
-          },
-          "tags": {},
-          "resources": [
-            {
-              "type": "versions",
-              "apiVersion": "2021-05-01",
-              "name": "1.0",
-              "location": "westus2",
-              "dependsOn": [ "storageSpec" ],
-              "properties": {
-                "mainTemplate": {
-                  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                  "contentVersion": "1.0.0.0",
-                  "parameters": {
-                    "storageAccountType": {
-                      "type": "string",
-                      "defaultValue": "Standard_LRS",
-                      "allowedValues": [
-                        "Standard_LRS",
-                        "Standard_GRS",
-                        "Standard_ZRS",
-                        "Premium_LRS"
-                      ],
-                      "metadata": {
-                        "description": "Storage Account type"
-                      }
-                    },
-                    "location": {
-                      "type": "string",
-                      "defaultValue": "[[resourceGroup().location]",
-                      "metadata": {
-                        "description": "Location for all resources."
-                      }
-                    }
-                  },
-                  "variables": {
-                    "storageAccountName": "[[concat('store', uniquestring(resourceGroup().id))]"
-                  },
-                  "resources": [
-                    {
-                      "type": "Microsoft.Storage/storageAccounts",
-                      "apiVersion": "2022-09-01",
-                      "name": "[[variables('storageAccountName')]",
-                      "location": "[[parameters('location')]",
-                      "sku": {
-                        "name": "[[parameters('storageAccountType')]"
-                      },
-                      "kind": "StorageV2",
-                      "properties": {}
-                    }
+          }
+        },
+       {
+          "type": "Microsoft.Resources/templateSpecs/versions",
+          "apiVersion": "2022-02-01",
+          "name": "[format('{0}/{1}', 'storageSpec', '1.0')]",
+          "location": "westus2",
+          "properties": {
+            "mainTemplate": {
+              "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+              "contentVersion": "1.0.0.0",
+              "parameters": {
+                "storageAccountType": {
+                  "type": "string",
+                  "defaultValue": "Standard_LRS",
+                  "allowedValues": [
+                    "Standard_LRS",
+                    "Standard_GRS",
+                    "Standard_ZRS",
+                    "Premium_LRS"
                   ],
-                  "outputs": {
-                    "storageAccountName": {
-                      "type": "string",
-                      "value": "[[variables('storageAccountName')]"
-                    }
+                  "metadata": {
+                    "description": "Storage Account type"
+                  }
+                },
+                "location": {
+                  "type": "string",
+                  "defaultValue": "[[resourceGroup().location]",
+                  "metadata": {
+                    "description": "Location for all resources."
                   }
                 }
               },
-              "tags": {}
+              "variables": {
+                "storageAccountName": "[[concat('store', uniquestring(resourceGroup().id))]"
+              },
+              "resources": [
+                {
+                  "type": "Microsoft.Storage/storageAccounts",
+                  "apiVersion": "2022-09-01",
+                  "name": "[[variables('storageAccountName')]",
+                  "location": "[[parameters('location')]",
+                  "sku": {
+                    "name": "[[parameters('storageAccountType')]"
+                  },
+                  "kind": "StorageV2",
+                  "properties": {}
+                }
+              ],
+              "outputs": {
+                "storageAccountName": {
+                  "type": "string",
+                  "value": "[[variables('storageAccountName')]"
+                }
+              }
             }
+          },
+          "dependsOn": [
+            "storageSpec"
           ]
         }
-      ],
-      "outputs": {}
+      ]
     }
     ```
 
@@ -333,7 +327,7 @@ To deploy a template spec, use the same deployment commands as you would use to 
       "resources": [
         {
           "type": "Microsoft.Resources/deployments",
-          "apiVersion": "2021-04-01",
+          "apiVersion": "2025-04-01",
           "name": "demo",
           "properties": {
             "templateLink": {
