@@ -28,15 +28,15 @@ azure-functions-runtime-v1
 ### Runtime Versioning Options
 There are three ways to manage your runtime version:
 
-1. **Pin to a specific version** (e.g., `azure-functions-runtime==1.2.0`):
+1. **Pin to a specific version** (for example, `azure-functions-runtime==1.2.0`):
 - Guarantees no automatic changes to the runtime behavior.
 - Recommended for critical production workloads.
-- New features or fixes will not apply automatically — you must update the version manually.
-2. **Include the package without pinning** (e.g., `azure-functions-runtime`):
+- New features or fixes don't apply automatically—you must update the version manually.
+2. **Include the package without pinning** (for example, `azure-functions-runtime`):
 - Automatically receives the latest stable runtime updates.
-- Good for staying current, but new changes will be adopted when the app is rebuilt and redeployed.
+- Good for staying current, but new changes are adopted when the app is rebuilt and redeployed.
 3. **Omit the package entirely**:
-- The app will default to a stable version **prior to the latest release** (i.e., latest - 1) and
+- The app defaults to a stable version **prior to the latest release** (for example, latest - 1) and
 be periodically updated by the platform.
 - Useful for maintaining stability, but delays access to new features.
 
@@ -50,16 +50,16 @@ Python 3.13 introduces several enhancements to Azure Functions, improving perfor
 
 1. **Dependency Isolation (Enabled by Default)**
 Function apps now benefit from full **dependency isolation**.
-- If your app includes a dependency also used by the Python worker (e.g., `azure-functions`, `grpcio`), your app will use **its own version**, 
-while the worker will use **its own internal version**.
-- This prevents version conflicts and improves compatibility with custom packages.
+- If your app includes a dependency also used by the Python worker (for example, `azure-functions`, `grpcio`), your app uses **its own version**, 
+while the worker uses **its own internal version**.
+- This isolation prevents version conflicts and improves compatibility with custom packages.
 
 2. **Cold Start Performance**
 Python 3.13 shows a **~4% reduction in cold start time** compared to Python 3.11, resulting in faster app startup.
 
 3. **Improved Throughput and Execution Speed**
 Azure Functions with Python 3.13+ now use `uvloop` in production to handle HTTP requests.
-This results in:
+This change results in:
 - **~8% faster execution times**
 - **~6% more requests processed per second**
 
@@ -68,8 +68,8 @@ This results in:
 The following features are **no longer supported** in Azure Functions when using Python 3.13 and above:
 
 - **Worker Extensions**
-Custom worker extensions are not compatible with the Python 3.13+ runtime. Functionality that previously relied on these extensions 
-must be re-evaluated or migrated to supported alternatives.
+Custom worker extensions aren't compatible with the Python 3.13+ runtime. Functionality that previously relied on these extensions 
+must be reevaluated or migrated to supported alternatives.
 - **Shared Memory**
 The shared memory feature used for large payload optimization is no longer available in Python 3.13+. All communication now uses 
 gRPC-based messaging by default.
