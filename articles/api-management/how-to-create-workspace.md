@@ -12,7 +12,7 @@ ms.custom:
 
 # Create and manage a workspace in Azure API Management
 
-[!INCLUDE [api-management-availability-premium-premiumv2](../../includes/api-management-availability-premium-premiumv2.md)]
+[!INCLUDE [api-management-availability-premium-premium-v2](../../includes/api-management-availability-premium-premium-v2.md)]
 
 Set up a [workspace](workspaces-overview.md) to enable an API team to manage and productize their own APIs, while providing the API platform team with the tools to observe, govern, and maintain the API Management platform. After you create a workspace and assign permissions, workspace collaborators can create and manage their own APIs, products, subscriptions, and related resources.
 
