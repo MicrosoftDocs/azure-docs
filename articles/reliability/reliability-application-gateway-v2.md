@@ -76,7 +76,7 @@ Azure Application Gateway supports availability zones for the Standard_v2 and WA
 
 ### Requirements
 
-You must use the Standard_v2 or WAF_v2 SKU to enable availability zone support. The Basic SKU (preview) does not support availability zones.
+You must use the Standard_v2 or WAF_v2 SKU to enable availability zone support.
 
 ### Considerations
 
@@ -152,7 +152,7 @@ The following section describes what to expect when Application Gateway v2 is co
 
   - *Zone-redundant:* The platform attempts to maintain the capacity of your gateway by creating temporary instances in other availability zones.
 
-    Internally, Application Gateway uses virtual machine scale sets, which performs [strict zone balancing](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing). Because of this behavior, scaling operations might not occur when the capacity can't be evenly divided between zones (+/- 1 instance).
+    Internally, Application Gateway uses virtual machine scale sets, which performs [best-effort zone balancing](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing). Because of this behavior, scaling operations might not occur when the capacity can't be evenly divided between zones (+/- 1 instance).
 
   - *Zonal:* You're responsible for creating instances in healthy zones if you require them.
 
