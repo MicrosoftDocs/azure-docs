@@ -132,7 +132,7 @@ The following new capabilities are available with your Azure billing account.
 
 #### New billing scopes
 
-As part of your updated account, you have new scopes in Cost Management + Billing. Besides aiding with hierarchical organization and invoicing, they are also a way to view combined charges from multiple underlying subscriptions. For more information about billing scopes, see [Microsoft Customer Agreement scopes](../costs/understand-work-scopes.md#microsoft-customer-agreement-scopes).
+As part of your updated account, you have new scopes in Cost Management + Billing. Besides aiding with hierarchical organization and invoicing, they are also a way to view combined charges from multiple underlying subscriptions. For more information about billing scopes, see [Microsoft Customer Agreement scopes](../costs/understand-work-scopes.md#microsoft-customer-agreement-(mca)-scopes).
 
 You can also access Cost Management APIs to get combined cost views at higher scopes. All Cost Management APIs that use the subscription scope are still available with some minor changes in the schema. For more information about the APIs, see [Cost Management APIs](/rest/api/cost-management/) and [Azure Consumption APIs](/rest/api/consumption/).
 

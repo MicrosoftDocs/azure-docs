@@ -278,7 +278,7 @@ Learn more about Cost Management for CSP [here] (/cost-management-billing/unders
 
 This diagram illustrates the hierarchical relationship between different Azure scope types and their associated roles for cost management and billing.
 
-:::image type="content" source="./media/understand-work-scopes/cost-mgt-understand-scopes.svg" alt-text="Diagram showing scopes and the roles associated to them." border="false" lightbox="./media/understand-work-scopes/cost-mgt-understand-scopes.svg":::
+:::image type="content" source="./media/understand-work-scopes/cost-management-understand-scopes.svg" alt-text="Diagram showing scopes and the roles associated to them." border="false" lightbox="./media/understand-work-scopes/cost-management-understand-scopes.svg":::
 
 ### Individual agreement scopes
 
