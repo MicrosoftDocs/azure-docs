@@ -43,9 +43,7 @@ SAS expiration policy supports two actions: 
 
 Out-of-policy SAS are those which do not have a signed start or have a validity interval larger than the upper limit. 
 
-Start by reviewing your current SAS token usage and setting an appropriate expiration policy for your storage accounts. We recommend starting with ‘Log’ action to monitor your diagnostic logs for policy violations. SAS expiration policy supports two actions: 
-
-If you've configured a diagnostic setting for logging with Azure Monitor, then Azure Storage writes a message to the **SasExpiryStatus** property in the logs whenever a user *uses* a SAS that expires after the recommended interval. The message indicates that the validity interval of the SAS exceeds the recommended interval.
+Start by reviewing your current SAS token usage and setting an appropriate expiration policy for your storage accounts. We recommend starting with ‘Log’ action to monitor your diagnostic logs for policy violations.
 
 > [!IMPORTANT]
 > SAS Expiration Action is not supported for user delegation shared access signatures through HDFS endpoint or service-level shared access signatures with a stored access policy.
