@@ -3,8 +3,8 @@ title: Back up an Azure virtual machine with Azure extended zones portal
 description: In this article, learn how to back up an Azure virtual machine (VM) with the Azure Backup extended zones service.
 ms.topic: how-to
 ms.date: 09/27/2024
-author: ankitaduttaMSFT
-ms.author: ankitadutta
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As an IT administrator, I want to back up Azure virtual machines using the Azure portal, so that I can protect data and ensure high availability through enhanced resiliency in Azure Extended Zones."
 ---
 
@@ -26,9 +26,9 @@ Before you start backing up a VM in Extended Zones, review the [supported scenar
 
 To apply a backup policy to your Azure VMs, follow these steps:
 
-1. Go to **Backup center** and select **+Backup** from the **Overview** tab.
+1. Go to **Business Continuity Center** and select **+ Configure protection**.
 
-   :::image type="content" source="./media/backup-azure-arm-vms-prepare/backup-button.png" alt-text="Screenshot showing the Backup button." lightbox="./media/backup-azure-arm-vms-prepare/backup-button.png":::
+   :::image type="content" source="./media/backup-azure-arm-vms-prepare/configure-protection.png" alt-text="Screenshot shows how to start configuring VM backup." lightbox="./media/backup-azure-arm-vms-prepare/configure-protection.png":::
 
 1. On the **Start: Configure Backup** blade, select **Azure Virtual machines** as the **Datasource type** and select the vault you have created. Then select **Continue**.
 
