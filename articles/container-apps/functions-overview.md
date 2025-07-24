@@ -153,7 +153,11 @@ While Azure Functions on Azure Container Apps (ACA) offers powerful capabilities
 - **Ingress Requirement for Auto-Scaling**: To enable automatic scaling based on events, ingress must be enabled—either publicly or within the ACA environment.
 - **Functions Proxies**: Not supported. For API gateway scenarios, integrate with Azure API Management instead.
 - **Deployment Slots**: Staging and production slots are not available. Use [blue-green deployment strategies](../container-apps/blue-green-deployment.md) for zero-downtime releases.
-- **Functions Access Keys**: Not supported. Use alternative authentication methods such as anonymous access, API Management, or VNet isolation. For secure key management, consider using Azure Key Vault.
+- **Functions Access Keys**: Portal method to get Functions access keys is not supported. Consider using [Azure Key Vault to store keys](https://techcommunity.microsoft.com/blog/appsonazureblog/how-to-store-function-apps-function-keys-in-a-key-vault/2639181). You should consider other options to secure HTTP endpoints in production. For example, it's not a good practice to distribute shared secrets in a public app. If your function is being called from a public client, you should consider implementing these or other security mechanisms:
+    - [Enable App Service Authentication/Authorization](../azure-functions/security-concepts.md#enable-app-service-authenticationauthorization)
+    - [Use Azure API Management (APIM) to authenticate requests](../azure-functions/security-concepts.md#use-azure-api-management-apim-to-authenticate-requests)
+    - [Deploy your function app to a virtual network](../azure-functions/security-concepts.md#deploy-your-function-app-to-a-virtual-network)
+    - [Deploy your function app in isolation](../azure-functions/security-concepts.md#deploy-your-function-app-in-isolation)
 - **Quota and Resource Limits**: ACA environments have default limits on memory, CPU, and instance counts per region. Review the [environment limits](../container-apps/environment.md#limits-and-quotas) and [default quotas](../container-apps/quotas.md). If your workload requires more resources, you can [request a quota increase](../container-apps/quota-requests.md).
 - **Multi-Revision Storage**: When using multi-revision deployments, it is recommended to assign a separate storage account for each revision to avoid conflicts and ensure isolation.
 
