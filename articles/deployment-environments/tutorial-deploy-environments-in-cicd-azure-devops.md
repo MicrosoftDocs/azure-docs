@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
 
 ## Create and configure an Azure Repos repository
 
-1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`), and select your project. Replace the `<your-organization>` text placeholder with your project identifier.
+1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`). Replace `<your-organization>` with your project identifier. Select your project.
 1. Select **Repos** > **Files**.
 1. In **Import a repository**, select **Import**. 
 1. In **Import a Git repository**, select or enter the following:
@@ -66,7 +66,7 @@ To create dev center environment types:
        |**Name**|Enter a name for the environment type.|
        |**Tags**|Enter a tag name and a tag value.|
 
-   1. Confirm that the environment type was added by checking your Azure portal notifications.
+   1. Confirm that the environment type appears in the list.
  
 To create project environment types:
 
@@ -84,7 +84,7 @@ To create project environment types:
        |**Permissions on environment resources** > **Additional access** | Select the users or Microsoft Entra groups to assign to specific roles on the environment resources.|
        |**Tags** | Enter a tag name and a tag value. These tags are applied on all resources that are created as part of the environment.|
 
-   1. Confirm that the environment type was added by checking your Azure portal notifications.
+   1. Confirm that the environment type appears in the list.
 
 
 ## Configure a service connection
@@ -92,7 +92,7 @@ To create project environment types:
 In Azure Pipelines, you create a *service connection* in your Azure DevOps project to access resources in your Azure subscription. When you create the service connection, Azure DevOps creates a Microsoft Entra service principal object.
 
 1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`). Replace `<your-organization>` with your project identifier. Select your project. 
-1. Select **Project settings** > **Service connections** > **+ New service connection**.
+1. Select **Project settings** > **Service connections** > **Create service connection**.
 1. In the **New service connection** pane, select the **Azure Resource Manager**, and then select **Next**.
 1. Select the **Service Principal (automatic)** authentication method, and then select **Next**.
 1. Enter the following service connection details, and then select **Save** to create the service connection.
