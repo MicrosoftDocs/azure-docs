@@ -2,10 +2,8 @@
 title: Migrate applications to use passwordless authentication with Azure Service Bus
 titleSuffix: Azure Service Bus
 description: Learn to migrate existing Service Bus applications away from connection strings to use Microsoft Entra ID and Azure RBAC for enhanced security.
-author: alexwolfmsft
-ms.author: alexwolf
 ms.reviewer: randolphwest
-ms.date: 06/12/2023
+ms.date: 07/25/2025
 ms.topic: how-to
 ms.custom:
 - devx-track-csharp
