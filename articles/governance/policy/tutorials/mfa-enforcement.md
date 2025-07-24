@@ -18,7 +18,7 @@ Navigate to the [Azure portal](https://www.portal.azure.com)
 ### 2. Access Azure Policy Service
 Select Policy under Azure services. If you don't see it, type 'Policy' in the search bar at the top and select it from the results.
 
-:::image type="content" source="../media/multifactor-enforcement/policy-assignment-view.png" alt-text="Screenshot of Azure Policy Assignment View." border="false":::
+:::image type="content" source="../media/multifactor-enforcement/policy-overview.png" alt-text="Screenshot of Azure Policy Assignment View." border="false":::
 
 ### 3. Choose the Scope for Assignment
 - Click 'Assignments' in the left pane of the Policy dashboard.
