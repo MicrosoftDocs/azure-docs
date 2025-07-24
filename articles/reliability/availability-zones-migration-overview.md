@@ -21,7 +21,7 @@ To improve the reliability of your solution, it's a good practice to enable avai
 - [Azure API Management](migrate-api-mgt.md)
 - [Azure App Configuration](migrate-app-configuration.md)
 - [Azure App Service](reliability-app-service.md#configure-availability-zone-support)
-- [Azure Application Gateway (V2)](migrate-app-gateway-v2.md)
+- [Azure Application Gateway (V2)](./reliability-application-gateway-v2.md#configure-availability-zone-support)
 - [Azure Backup and Azure Site Recovery](migrate-recovery-services-vault.md)
 - [Azure Batch](reliability-batch.md#availability-zone-migration)
 - [Azure Cache for Redis](migrate-cache-redis.md)
