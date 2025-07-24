@@ -23,16 +23,16 @@ This FAQ addresses common questions about migrating from BlobStorage (blob-only)
 | Question | Answer |
 |----------|--------|
 | What is a BlobStorage account? | A BlobStorage account is a legacy Azure Storage account type designed for blob-only workloads. It supports block blobs and append blobs with account-level access tiering (Hot, Cool, Archive). |
-| Can I still create a new BlobStorage account? | No. Starting August 2025, creation of new BlobStorage accounts will be disabled. |
-| Which redundancy options are available on GPv2 accounts? | GPv2 supports LRS, GRS, ZRS, RA-GZRS, and RA-GRS. |
+| Can I still create a new BlobStorage account? | No. Starting August 2026, creation of new BlobStorage accounts will be disabled. |
+| Which redundancy options are available on GPv2 accounts? | GPv2 supports Local redundant storage (LRS), Geo-redundant storage (GRS), Zone-redundant storage (ZRS), Read-access geo-redundant storage (RA-GZRS), and Read-access geo-redundant storage (RA-GRS). |
 | Does BlobStorage support lifecycle management policies? | No. Lifecycle management is only available in GPv2 accounts. |
-| How does pricing differ from GPv2? | BlobStorage uses account-level tiering and has limited pricing flexibility. GPv2 offers per-blob tiering and optimized pricing for different access patterns. |
+| How does pricing differ from GPv2? | BlobStorage uses account-level tiering limiting pricing flexibility. GPv2 offers per-blob tiering and optimized pricing for different access patterns. |
 | Can I migrate from BlobStorage to GPv2 later? Will anything break? | You must migrate to a new GPv2 account and move your data. The migration is non-disruptive if planned properly. Most applications will continue to work without changes. |
-| Which blob features won’t I get in BlobStorage? | Features like lifecycle management, per-blob tiering, point-in-time restore, and Data Lake (HNS) are only available in GPv2. |
+| Which blob features won’t I get in BlobStorage? | Features like lifecycle management, per-blob tiering, point-in-time restore, and Data Lake (Hierarchical Namespace) are only available in GPv2. |
 | What would my bill look like after the migration? How do I calculate the new billing amount? | Your bill will reflect GPv2 pricing, which includes charges for read/write operations, tier-based storage pricing, and redundancy options. Use the Azure Pricing Calculator and your current invoice data to estimate new costs. |
-| Is the migration permanent? | Yes. Once you migrate to GPv2, you cannot revert to BlobStorage. GPv2 enables newer features and pricing structures. |
-| I cannot migrate by the retirement date. Can I get an exception? | No. Microsoft will not grant exceptions. All BlobStorage accounts must be migrated by the announced deadline to avoid disruption. |
+| Is the migration permanent? | Yes. Once you migrate to GPv2, you can't revert to BlobStorage. GPv2 enables newer features and pricing structures. |
+| I cannot migrate by the retirement date. Can I get an exception? | No. Microsoft won't grant exceptions. All BlobStorage accounts must be migrated by the announced deadline to avoid disruption. |
 | What happens if I haven’t migrated by the retirement date? Will I lose access to my data? | Microsoft may automatically migrate your account, but you risk access disruption and billing misalignment. Data will be preserved, but access could be temporarily impacted. |
 | Will the migration require downtime? | No. The migration process can be planned to avoid downtime. You can access data and services continuously during the transition. |
-| Will there be any data loss? | No. The migration process is safe and does not delete or move your data unexpectedly. All blobs, containers, and metadata remain intact. |
+| Will there be any data loss? | No. The migration process is safe and doesn't delete or move your data unexpectedly. All blobs, containers, and metadata remain intact. |
 | Will my existing application continue to work seamlessly after the migration? | In most cases, yes. API endpoints remain unchanged. However, review any hardcoded pricing assumptions or tier-unaware logic to ensure compatibility with GPv2 features. |
