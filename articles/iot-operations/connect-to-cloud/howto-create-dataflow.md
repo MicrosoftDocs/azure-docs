@@ -62,7 +62,7 @@ To learn how to configure a new data flow profile, see [Configure data flow prof
 
 ### Data flow endpoints
 
-Data flow endpoints are required to configure the source and destination for the data flow. To get started quickly, you can use the [default data flow endpoint for the local MQTT broker](./howto-configure-mqtt-endpoint.md#default-endpoint). You can also create other types of data flow endpoints like Kafka, Event Hubs, or Azure Data Lake Storage. To learn how to configure each type of data flow endpoint, see [Configure data flow endpoints](howto-configure-dataflow-endpoint.md).
+Data flow endpoints are required to configure the source and destination for the data flow. To get started quickly, you can use the [default data flow endpoint for the local MQTT broker](./howto-configure-mqtt-endpoint.md#default-endpoint). You can also create other types of data flow endpoints like Kafka, Event Hubs, OpenTelemetry, or Azure Data Lake Storage. To learn how to configure each type of data flow endpoint, see [Configure data flow endpoints](howto-configure-dataflow-endpoint.md).
 
 ## Get started
 
