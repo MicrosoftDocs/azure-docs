@@ -1,7 +1,7 @@
 ---
 title: Blob Only storage account retirement FAQ
 titleSuffix: Azure Storage
-description: Learn what the retirement of Azure Blob Only storage accounts means and how to prepare for a smooth migration to GPv2.
+description: FAQ for the retirement of Azure Blob Only storage accounts.
 Services: storage
 author: gtrossell
 
