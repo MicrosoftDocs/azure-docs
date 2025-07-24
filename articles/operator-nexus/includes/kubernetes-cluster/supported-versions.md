@@ -15,4 +15,4 @@ ms.service: azure-operator-nexus
 | 1.31         | Mar 2025  | Nov 2025                       | Until end of Nov 2026 |
 | 1.32         | Apr 2025  | Mar 2026                       | Until end of Mar 2027 |
 
-\* These versions are designated for Long Term Support by the Nexus AKS team to meet customer demand. It isn't recommended to use these versions if it has been more than a year since their Nexus GA release date as the associated kubernetes releases no longer receive critical updates from upstream kubernetes.
+\* These versions are designated for Long Term Support by the [Nexus AKS](https://learn.microsoft.com/en-us/azure/operator-nexus/concepts-nexus-kubernetes-cluster) team to meet customer demand. It isn't recommended to use these versions if it has been more than a year since their Nexus GA release date as the associated kubernetes releases no longer receive critical updates from upstream kubernetes.
