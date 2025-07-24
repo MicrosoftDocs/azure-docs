@@ -137,14 +137,14 @@ $AzFWRoute = New-AzVHubRoute -Name "all_traffic" -Destination @("0.0.0.0/0", "10
 $DefaultRT = Update-AzVHubRouteTable -Name "defaultRouteTable" -ResourceGroupName $RG -VirtualHubName  $HubName -Route @($AzFWRoute)
 ```
 > [!NOTE]
-> String "***all_traffic***" as value for parameter "-Name" in the New-AzVHubRoute command above has a special meaning: if you use this exact string, the configuration applied in this article will be properly reflected in the Azure Portal (Firewall Manager --> Virtual hubs --> [Your Hub] --> Security Configuration). If a different name will be used, the desired configuration will be applied, but will not be reflected in the Azure Portal.
+> String "***all_traffic***" as value for parameter "-Name" in the New-AzVHubRoute command above has a special meaning: if you use this exact string, the configuration applied in this article will be properly reflected in the Azure portal (Firewall Manager --> Virtual hubs --> [Your Hub] --> Security Configuration). If a different name will be used, the desired configuration will be applied, but will not be reflected in the Azure portal.
 
 ##  <a name="routingintent"></a> Enabling routing intent
 
 If you want to send inter-hub and inter-region traffic via Azure Firewall deployed in the Virtual WAN hub, you can instead enable the routing intent feature. For more information on routing intent, see [Routing Intent documentation](../virtual-wan/how-to-routing-policies.md).
 
 > [!NOTE]
-> This is the configuration deployed when securing connectivity from the Azure Portal with Azure Firewall Manager when the "Interhub" setting is set to **enabled**.
+> This is the configuration deployed when securing connectivity from the Azure portal with Azure Firewall Manager when the "Interhub" setting is set to **enabled**.
 
 ```azurepowershell
 # Get the Azure Firewall resource ID
@@ -154,7 +154,7 @@ $AzFWId = $(Get-AzVirtualHub -ResourceGroupName <thname> -name  $HubName).AzureF
 $policy1 = New-AzRoutingPolicy -Name "PrivateTraffic" -Destination @("PrivateTraffic") -NextHop $firewall.Id
 $policy2 = New-AzRoutingPolicy -Name "PublicTraffic" -Destination @("Internet") -NextHop $firewall.Id
 New-AzRoutingIntent -ResourceGroupName "<rgname>" -VirtualHubName "<hubname>" -Name "hubRoutingIntent" -RoutingPolicy @($policy1, $policy2)
-If your Virtual WAN uses non-RFC1918 address prefixes (for example, `40.0.0.0/24` in a virtual network or on-premises), you should add an extra route to the `defaultRouteTable` after completing the routing intent configuration. Name this route **private_traffic**. If you use a different name, the route will work as expected, but the configuration will not be reflected in the Azure Portal.
+If your Virtual WAN uses non-RFC1918 address prefixes (for example, `40.0.0.0/24` in a virtual network or on-premises), you should add an extra route to the `defaultRouteTable` after completing the routing intent configuration. Name this route **private_traffic**. If you use a different name, the route will work as expected, but the configuration will not be reflected in the Azure portal.
 
 ```azurepowershell-interactive
 # Get the defaultRouteTable
