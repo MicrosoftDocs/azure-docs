@@ -1,6 +1,6 @@
 ---
-title: Configure an App Service Environment and Isolated v2 App Service Plans for Zone Redundancy
-description: Learn how to configure zone redundancy for App Service Environments and Isolated v2 App Service plan to boost reliabilty and minimize service disruption.
+title: Configure App Service Environments and Isolated v2 App Service Plans for Zone Redundancy
+description: Learn how to configure zone redundancy for App Service Environments and Isolated v2 App Service plans to boost reliabilty and minimize service disruption.
 ms.topic: conceptual
 ms.service: azure-app-service
 ms.date: 07/16/2025
@@ -8,17 +8,17 @@ author: anaharris
 ms.author: anaharris
 
 ---
-# Configure an App Service Environment and Isolated v2 App Service plans for zone redundancy
+# Configure App Service Environments and Isolated v2 App Service plans for zone redundancy
 
 An [App Service Environment](./overview.md) is a single-tenant deployment of Azure App Service that integrates with an Azure virtual network. Each App Service Environment deployment requires a dedicated subnet that other resources can't use.
 
 This article describes how to create and modify App Service Environment zone redundancy settings. It also describes how to set up and modify zone redundancy settings for your plan.
 
-For more information about how an App Service Environment supports zone redundancy, see [Reliability in an App Service Environment](../../reliability/reliability-app-service-environment.md).
+For more information about zone redundancy, see [Reliability in an App Service Environment](../../reliability/reliability-app-service-environment.md).
 
 ## Configure zone redundancy for an App Service Environment
 
-- **To create a new App Service Environment with zone redundancy**, follow the steps to [create an App Service Environment](creation.md). Make sure to select *Enabled* for **Zone redundancy**.
+- **To create a new App Service Environment that includes zone redundancy**, follow the steps to [create an App Service Environment](creation.md). Make sure to select **Enabled** for **Zone redundancy**.
 
 - **To enable or disable zone redundancy** for an existing App Service Environment, use the Azure CLI or Bicep.
     
@@ -63,27 +63,28 @@ For more information about how an App Service Environment supports zone redundan
     ---
     
     > [!NOTE]
-    > A zone redundancy status change of an App Service Environment takes 12 to 24 hours to complete. During the upgrade process, no downtime or performance problems occur.
+    > A zone redundancy status change in an App Service Environment takes 12 to 24 hours to complete. During the upgrade process, no downtime or performance problems occur.
 
 ## Configure Isolated v2 App Service plans with zone redundancy
 
 All App Service plans created in an App Service Environment must use the Isolated v2 pricing tier.
 
-If you enable your App Service Environment to be zone redundant, you also set the Isolated v2 App Service plans as zone redundant. Each plan has its own independent zone redundancy setting, so you can manually enable or disable zone redundancy on specific plans in an App Service Environment, as long as the environment is configured to be zone redundant.
+If you enable your App Service Environment to be zone redundant, you must also set the Isolated v2 App Service plans as zone redundant. Each plan has its own independent zone redundancy setting, so you can manually enable or disable zone redundancy on specific plans in an App Service Environment, as long as the environment is configured to be zone redundant.
 
-- **To create a new Isolated v2 App Service plan with zone redundancy**, use the Azure portal, Azure CLI, or Bicep.
+- **To create a new Isolated v2 App Service plan with zone redundancy**, use the Azure portal, the Azure CLI, or Bicep.
     
     # [Azure portal](#tab/portal)
     
-    Follow the guidance to [create an App Service plan](../app-service-plan-manage.md#create-an-app-service-plan). Use the following settings:
+    Follow the guidance to [create an App Service plan](../app-service-plan-manage.md#create-an-app-service-plan). Configure the following settings:
     
     - For **Region**, select your App Service Environment.
-    - For **Pricing plan**, select *Isolated v2*.
+    - For **Pricing plan**, select **Isolated v2**.
     - For **Zone redundancy**, select **Enabled**.
     
     # [Azure CLI](#tab/azurecli)
     
-    Set the `--zone-redundant` argument. You must also set the `--number-of-workers` argument, which is the number of instances, to a value of 2 or more.
+    - Set the `--zone-redundant` argument.
+    - Set the `--number-of-workers` argument, which is the number of instances, to a value of 2 or more.
     
     ```azurecli
     az appservice plan create \
@@ -97,7 +98,8 @@ If you enable your App Service Environment to be zone redundant, you also set th
     
     # [Bicep](#tab/bicep)
     
-    Set the `zoneRedundant` property to `true`. You must also define the `sku.capacity` property to a value of 2 or more. If you don't define the `sku.capacity` property, the value defaults to 1.
+    - Set the `zoneRedundant` property to `true`.
+    - Set the `sku.capacity` property to a value of 2 or more. If you don't define the `sku.capacity` property, the value defaults to 1.
     
     ```bicep
     resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' = {
@@ -135,7 +137,8 @@ If you enable your App Service Environment to be zone redundant, you also set th
     
     # [Azure CLI](#tab/azurecli)
     
-    - To *enable zone redundancy*, set the `zoneRedundant` property to `true`. You must also set the `sku.capacity` argument, which is the number of instances, to a value of 2 or more.
+    - To *enable zone redundancy*, set the `zoneRedundant` property to `true`.
+    - Set the `sku.capacity` argument, which is the number of instances, to a value of 2 or more.
     
         ```azurecli
         az appservice plan update \
@@ -155,7 +158,8 @@ If you enable your App Service Environment to be zone redundant, you also set th
     
     # [Bicep](#tab/bicep)
     
-    - To *enable zone redundancy*, set the `zoneRedundant` property to `true`. You must also define the `sku.capacity` property to a value of 2 or more. If you don't define the `sku.capacity` property, the value defaults to 1.
+    - To *enable zone redundancy*, set the `zoneRedundant` property to `true`.
+    - Set the `sku.capacity` property to a value of 2 or more. If you don't define the `sku.capacity` property, the value defaults to 1.
     
         ```bicep
         resource appServicePlan 'Microsoft.Web/serverfarms@2024-11-01' = {
@@ -183,5 +187,5 @@ If you enable your App Service Environment to be zone redundant, you also set th
     
 ## Related content
 
-- [Configure App Service plans for reliability](../configure-zone-redundancy.md)
+- [Configure App Service plans for zone redundancy](../configure-zone-redundancy.md)
 - [Reliability in App Service Environments](../../reliability/reliability-app-service-environment.md)
