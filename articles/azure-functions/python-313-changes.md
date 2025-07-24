@@ -8,8 +8,11 @@ ms.custom: devx-track-python, py-fresh-zinc
 ---
 # Changes and Guidance for Python 3.13+ in Azure Functions
 ## Python Runtime Version Control (Python 3.13+)
-Starting with Python 3.13, Azure Functions introduces runtime version control, allowing you to pin your app to a specific version of 
-the **Python** runtime used in the platform.
+Starting with Python 3.13, Azure Functions introduces runtime version control, 
+a new opt-in feature that allows you to specify which version of the **Python** runtime your app uses.
+
+By default, apps will continue to run on a stable platform-managed runtime version—**no changes are 
+required** unless you choose to opt in.
 
 ### How to Enable
 To enable runtime version control, add the appropriate package to your `requirements.txt`
@@ -26,16 +29,18 @@ azure-functions-runtime-v1
 There are three ways to manage your runtime version:
 
 1. **Pin to a specific version** (for example, `azure-functions-runtime==1.2.0`):
-- Guarantees no automatic changes to the runtime behavior.
-- Recommended for critical production workloads.
-- New features or fixes don't apply automatically—you must update the version manually.
+   - Pinning to a specific version ensures that your app’s runtime behavior remains consistent, with no automatic updates.
+   - This approach is recommended for critical production workloads where stability and predictability are essential.
+   - New features, fixes, and improvements will not be applied automatically—you must manually update the version to receive them.
 2. **Include the package without pinning** (for example, `azure-functions-runtime`):
-- Automatically receives the latest stable runtime updates.
-- Good for staying current, but new changes are adopted when the app is rebuilt and redeployed.
+   - Including the package without specifying a version allows your app to automatically receive the latest stable runtime updates.
+   - This option is ideal for staying current with platform improvements and features.
+   - New changes are adopted the next time your app is rebuilt and redeployed.
 3. **Omit the package entirely**:
-- The app defaults to a stable version **prior to the latest release** (for example, latest - 1) and
-be periodically updated by the platform.
-- Useful for maintaining stability, but delays access to new features.
+   - If you choose not to include the `azure-functions-runtime` package, your app will run using a platform-managed runtime version.
+   - By default, the platform uses a stable version prior to the latest release (for example, latest - 1) and updates it periodically.
+   - This ensures stability and broad compatibility, but **access to the newest features and fixes** may be delayed until the 
+   default version is updated.
 
 ### Best Practices
 - Avoid pinning to **alpha, beta, or dev versions** in production environments.
@@ -47,9 +52,9 @@ Python 3.13 introduces several enhancements to Azure Functions, improving perfor
 
 1. **Dependency Isolation (Enabled by Default)**
 Function apps now benefit from full **dependency isolation**.
-- If your app includes a dependency also used by the Python worker (for example, `azure-functions`, `grpcio`), your app uses **its own version**, 
-while the worker uses **its own internal version**.
-- This isolation prevents version conflicts and improves compatibility with custom packages.
+   - If your app includes a dependency also used by the Python worker (for example, `azure-functions`, `grpcio`), your app uses **its own version**, 
+   while the worker uses **its own internal version**.
+   - This isolation prevents version conflicts and improves compatibility with custom packages.
 
 2. **Cold Start Performance**
 Python 3.13 shows a **~4% reduction in cold start time** compared to Python 3.11, resulting in faster app startup.
@@ -57,8 +62,8 @@ Python 3.13 shows a **~4% reduction in cold start time** compared to Python 3.11
 3. **Improved Throughput and Execution Speed**
 Azure Functions with Python 3.13+ now use `uvloop` in production to handle HTTP requests.
 This change results in:
-- **~8% faster execution times**
-- **~6% more requests processed per second**
+   - **~8% faster execution times**
+   - **~6% more requests processed per second**
 
 
 ## Unsupported Features in Python 3.13+
