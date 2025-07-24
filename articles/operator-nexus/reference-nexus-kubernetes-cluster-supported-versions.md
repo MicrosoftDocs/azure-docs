@@ -59,11 +59,11 @@ The combination of these values is represented in the API as the single kubernet
 ### Version bundles
 By extending the version of Kubernetes to include a secondary value, cumulatively called the "version bundle", the Operator Nexus service can clearly account for cases where the kubernetes version is unchanged but the OS and features are modified to include updates from a new Nexus release. Such updates might include but aren't limited to: updated operating system images, patch releases for features, and the introduction of some platform features.
 
-Prior to April 2025, version bundle numbers were incremented starting from "1" and varied depending on how long a particular Kubernetes patch version had been available on Nexus.  After April 2025, all version bundles in the same series are numbered with the same release identifier, e.g. "-4.4.0" or "-4.5.0".  The chart below details which version bundles are in the same series.
+Prior to April 2025, version bundle numbers were incremented starting from "1" and varied depending on how long a particular Kubernetes patch version had been available on Nexus.  After April 2025, all version bundles in the same release are numbered with the same release identifier, e.g. "-4.4.0" or "-4.5.0".  The chart below details which version bundles are in the same series.
  
 Using this information, it becomes easier to predict and manage the process of moving between different versions of Kubernetes clusters offered by the Operator Nexus Kubernetes service.
  
-All Nexus cluster upgrades will take into account the standard Kubernetes versions skew policy, so in some cases you may need to perform more than one upgrade to bring a cluster to the desired Kubernetes level.  Skipping over any version bundle series is accepted, however you cannot downgrade to a previous version bundle series.
+All Nexus cluster upgrades will take into account the standard Kubernetes versions skew policy, so in some cases you may need to perform more than one upgrade to bring a cluster to the desired Kubernetes level.  Skipping over any version bundle release is accepted, however you cannot downgrade to a previous version bundle series.
 
 Changes to the configuration of a deployed Operator Nexus Kubernetes cluster should only be applied within a Kubernetes minor version upgrade, not during a patch version upgrade. Examples of configuration changes that could be applied during the minor version upgrade include:
 
