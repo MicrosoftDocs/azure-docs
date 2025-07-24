@@ -43,7 +43,7 @@ SAS expiration policy supports two actions: 
 
 Out-of-policy SAS are those which do not have a signed start or have a validity interval larger than the upper limit. 
 
-Start by reviewing your current SAS token usage and setting an appropriate expiration policy for your storage accounts. We recommend starting with ‘Log’ action to monitor your diagnostic logs for policy violations.
+Start by reviewing your current SAS token usage and setting an appropriate expiration policy for your storage accounts. We recommend starting with ‘Log’ action to monitor your diagnostic logs for policy violations. We strongly recommend using Block action to ensure that if a SAS token has passed the validity of the expiration period set on the storage account, then access to storage must be blocked.
 
 > [!IMPORTANT]
 > SAS Expiration Action is not supported for user delegation shared access signatures through HDFS endpoint or service-level shared access signatures with a stored access policy.
@@ -71,14 +71,14 @@ To configure a SAS expiration policy in the Azure portal, follow these steps:
 
 1. Navigate to your storage account in the Azure portal.
 1. Under **Settings**, select **Configuration**.
-1. Locate the setting for **Allow recommended upper limit for shared access signature (SAS) expiry interval**, and set it to **Enabled**.
+1. Locate the setting for **Shared access signature (SAS) expiration policy**, and set it to **Enabled**.
 
-    > [!NOTE]
-    > If the setting is grayed out and you see the message shown in the image below, then [you will need to rotate both account access keys](#do-i-need-to-rotate-the-account-access-keys-first) before you can set the **Recommended upper limit for SAS expiry interval** values:
-    >
-    > :::image type="content" source="media/sas-expiration-policy/configure-sas-expiration-policy-portal-grayed-out.png" alt-text="Screenshot showing the option to configure a SAS expiration policy is grayed out in the Azure portal." lightbox="media/sas-expiration-policy/configure-sas-expiration-policy-portal-grayed-out.png":::
-
-1. Specify the time values under **Recommended upper limit for SAS expiry interval** for the recommended interval for any new shared access signatures that are created on resources in this storage account.
+   > [!NOTE]
+   > If the setting is grayed out and you see the message shown in the image below, then [you will need to rotate both account access keys](#do-i-need-to-rotate-the-account-access-keys-first) before you can set an expiration policy.
+   > 
+   > :::image type="content" source="media/sas-expiration-policy/configure-sas-expiration-policy-portal-grayed-out.png" alt-text="Screenshot showing the option to configure a SAS expiration policy is grayed out in the Azure portal." lightbox="media/sas-expiration-policy/configure-sas-expiration-policy-portal-grayed-out.png":::
+   
+1. Specify the time values under **Maximum SAS validity period** for the maximum interval for new shared access signatures that are created on resources in this storage account.
 
     :::image type="content" source="media/sas-expiration-policy/configure-sas-expiration-policy-portal.png" alt-text="Screenshot showing how to configure a SAS expiration policy in the Azure portal." lightbox="media/sas-expiration-policy/configure-sas-expiration-policy-portal.png":::
 
@@ -199,3 +199,4 @@ To bring a storage account into compliance, configure a SAS expiration policy fo
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md)
 - [Create a service SAS](/rest/api/storageservices/create-service-sas)
 - [Create an account SAS](/rest/api/storageservices/create-account-sas)
+
