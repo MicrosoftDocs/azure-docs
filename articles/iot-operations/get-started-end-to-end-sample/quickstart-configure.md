@@ -87,8 +87,8 @@ $CLUSTER_NAME = "<kubernetes-cluster-name>"
 
 Run the following commands to download and run the Bicep file that configures your Azure IoT Operations instance. The Bicep file:
 
-- Adds an asset endpoint that connects to the OPC PLC simulator.
-- Adds an asset that represents the oven and defines the data points that the oven exposes.
+- Adds a device that connects to the OPC PLC simulator.
+- Adds a namespace asset that represents the oven and defines the data points that the oven exposes.
 - Adds a data flow that manipulates the messages from the simulated oven.
 - Creates an Azure Event Hubs instance to receive the data.
 

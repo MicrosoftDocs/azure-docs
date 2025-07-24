@@ -24,7 +24,7 @@ This article discusses Azure IoT Operations *deployments* and *instances*, which
   * An Azure IoT Operations instance
   * Arc extensions
   * Custom locations
-  * Resources that you can configure in your Azure IoT Operations solution, like assets and asset endpoints.
+  * Resources that you can configure in your Azure IoT Operations solution, like namespace assets and devices.
 
 * An Azure IoT Operations *instance* is the parent resource that bundles the suite of services that are defined in [What is Azure IoT Operations?](../overview-iot-operations.md) like MQTT broker, data flows, and connector for OPC UA.
 

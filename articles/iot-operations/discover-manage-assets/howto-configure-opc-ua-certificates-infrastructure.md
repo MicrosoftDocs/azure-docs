@@ -51,7 +51,7 @@ To use the operations experience web UI to manage the trusted certificates list,
     > [!NOTE]
     > The connector for OPC UA uses a Kubernetes native secret named *aio-opc-ua-broker-trust-list* to store the trusted certificates list. This secret is created when you deploy Azure IoT Operations.
 
-1. Go to the **Asset endpoints page** in the [operations experience](https://iotoperations.azure.com) web UI.
+1. Go to the **Devices page** in the [operations experience](https://iotoperations.azure.com) web UI.
 
 1. To view the trusted certificates list, select **Manage certificates and secrets** and then **Certificates**:
 
@@ -163,7 +163,7 @@ To use the operations experience web UI to manage the issuer certificates list, 
     > [!NOTE]
     > The connector for OPC UA uses a Kubernetes native secret named *aio-opc-ua-broker-issuer-list* to store the issuer certificates list. This secret is created when you deploy Azure IoT Operations.
 
-1. Go to the **Asset endpoints page** in the [operations experience](https://iotoperations.azure.com) web UI.
+1. Go to the **Devices page** in the [operations experience](https://iotoperations.azure.com) web UI.
 
 1. To view the issuer certificates list, select **Manage certificates and secrets** and then **Certificates**:
 
