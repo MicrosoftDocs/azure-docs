@@ -143,7 +143,7 @@ We recommend looking at the latest documentation for your Linux distribution.
 
    * Keep the existing line item for dhcp. The primary IP address remains configured as it was previously.
    
-   * Add a configuration for an other static IP address with the following commands:
+   * Add a configuration for another static IP address with the following commands:
 
      ```bash
      cd /etc/network/interfaces.d/

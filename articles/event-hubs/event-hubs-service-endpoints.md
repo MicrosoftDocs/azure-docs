@@ -83,6 +83,9 @@ This section shows you how to use Azure portal to add a virtual network service 
     > [!NOTE]
     > To restrict access to specific IP addresses or ranges, see [Allow access from specific IP addresses or ranges](event-hubs-ip-filtering.md).
 
+    > [!NOTE]
+    > To delete a Virtual Network rule, first remove any Azure Resource Manager delete lock on the Virtual Network.
+
 [!INCLUDE [event-hubs-trusted-services](./includes/event-hubs-trusted-services.md)]
 
 ## Use Resource Manager template
