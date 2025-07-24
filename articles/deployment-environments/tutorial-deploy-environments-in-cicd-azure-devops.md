@@ -43,10 +43,8 @@ In this tutorial, you learn how to:
 
 1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`). Replace `<your-organization>` with your project identifier. Select your project, and then select **Repos**.
 1. Select the plus sign (**+**) next to the project name in the left pane, and then select **New repository**.
-1. In **Import a repository**, select **Import**. 
-1. In **Import a Git repository**, select or enter the following:
-    - **Repository type**: Git
-    - **Clone URL**: https://github.com/Azure/deployment-environments
+1. In the **Set up your repository** pane, select the **Import** tab.
+1. In **Clone URL**, enter **https://github.com/Azure/deployment-environments**.
 
 ## Configure environment types
 
