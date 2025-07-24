@@ -9,9 +9,11 @@ ms.author: wchi
 ### [.NET](#tab/dotnet)
 
 1. Install dependencies.
+
     ```bash
     dotnet add package Azure.Messaging.ServiceBus
     ```
+
 1. Get the Service Bus connection string from the environment variables added by Service Connector.
     
     ```csharp
@@ -24,6 +26,7 @@ ms.author: wchi
 ### [Java](#tab/java)
 
 1. Add the following dependency in your *pom.xml* file:
+
     ```xml
     <dependency>
         <groupId>com.azure</groupId>
@@ -31,6 +34,7 @@ ms.author: wchi
         <version>7.13.3</version>
     </dependency>
     ```
+
 1. Get the Service Bus connection string from the environment variables added by Service Connector.
 
     ```java
@@ -49,6 +53,7 @@ ms.author: wchi
 ### [SpringBoot](#tab/springBoot)
 
 1. Add the following dependencies to your pom.xml file:
+
     ```xml
     <dependencyManagement>
       <dependencies>
@@ -62,15 +67,19 @@ ms.author: wchi
       </dependencies>
     </dependencyManagement>
     ```
-1. Set up a Spring application. The Service Bus connection string `spring.cloud.azure.servicebus.connection-string` is set to Spring Apps by Service Connector. For more information, check [Use Azure Service Bus in Spring applications](/azure/developer/java/spring-framework/using-service-bus-in-spring-applications).
+
+1. Set up a Spring application. The Service Bus connection string `spring.cloud.azure.servicebus.connection-string` is set to Spring Apps by Service Connector. For more information, see [Use Azure Service Bus in Spring applications](/azure/developer/java/spring-framework/using-service-bus-in-spring-applications).
 
 ### [Python](#tab/python)
 
 1. Install dependencies.
+
     ```bash
     pip install azure-servicebus
     ```
+
 1. Get the Service Bus connection string from the environment variables added by Service Connector.
+
     ```python
     import os
     from azure.servicebus.aio import ServiceBusClient
@@ -83,9 +92,11 @@ ms.author: wchi
 ### [Go](#tab/go)
 
 1. Install dependencies.
+
     ```bash
     go get github.com/Azure/azure-sdk-for-go/sdk/messaging/azservicebus
     ```
+
 1. Get the Service Bus connection string from the environment variables added by Service Connector.
     
     ```go
@@ -113,9 +124,11 @@ ms.author: wchi
 ### [NodeJS](#tab/nodejs)
 
 1. Install dependencies.
+
     ```bash
     npm install @azure/service-bus
     ```
+
 1. Get the Service Bus connection string from the environment variables added by Service Connector.
     
     ```javascript
