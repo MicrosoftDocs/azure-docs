@@ -60,7 +60,7 @@ List of available regions for the resource type:
 - France Central
 - UK south, UK west
 - Central India, South India, Jio India West
-- Indoenesia Central
+- Indonesia Central
 - Italy North
 - Japan East, Japan West
 - Korea Central, Korea South
@@ -110,7 +110,7 @@ The supported locations:
 - East US, East US2
 - France Central, France South
 - Germany West Central
-- Indoenesia Central
+- Indonesia Central
 - Israel Central 
 - Italy North
 - Japan East, Japan West
