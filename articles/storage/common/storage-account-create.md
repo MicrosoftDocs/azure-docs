@@ -635,12 +635,6 @@ azd down
 
 Alternately, you can delete the resource group, which deletes the storage account and any other resources in that resource group. For more information about deleting a resource group, see [Delete resource group and resources](../../azure-resource-manager/management/delete-resource-group.md).
 
-## Create a general purpose v1 storage account
-
-[!INCLUDE [GPv1 support statement](../../../includes/storage-account-gpv1-support.md)]
-
-General purpose v1 (GPv1) storage accounts can no longer be created from the Azure portal. If you need to create a GPv1 storage account, follow the steps in section [Create a storage account](#create-a-storage-account) for PowerShell, the Azure CLI, Bicep, or Azure Templates. For the `kind` parameter, specify `Storage`, and choose a `sku` or `SkuName` from the [table of supported values](#storage-account-type-parameters).
-
 ## Next steps
 
 - [Storage account overview](storage-account-overview.md)
