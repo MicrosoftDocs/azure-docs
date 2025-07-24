@@ -94,18 +94,19 @@ In Azure Pipelines, you create a *service connection* in your Azure DevOps proje
 1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`). Replace `<your-organization>` with your project identifier. Select your project. 
 1. Select **Project settings** > **Service connections** > **Create service connection**.
 1. In the **New service connection** pane, select the **Azure Resource Manager**, and then select **Next**.
-1. Select the **Service Principal (automatic)** authentication method, and then select **Next**.
 1. Enter the following service connection details, and then select **Save** to create the service connection.
 
     | Field | Value |
     | ----- | ----- |
-    | **Scope level** | *Subscription*. |
-    | **Subscription** | Select the Azure subscription that hosts your dev center resource. |
-    | **Resource group** | Select the resource group that contains your dev center resource. |
-    | **Service connection name** | Enter a unique name for the service connection. |
+    |**Identity type**|**Managed identity (agent-assigned)**|
+    | **Scope Level** | *Subscription*. |
+    | **Subscription ID** | Enter the ID of the Azure subscription that hosts your dev center resource. |
+    | **Subscription name** | Enter the name of the subscription. |
+    |**Tenant Id**|Enter the ID of the tenant.|
+    | **Service Connection Name** | Enter a unique name for the service connection. |
     | **Grant access permission to all pipelines** | Select the checkbox. |
 
-1. From the list of service connections, select the one you created earlier, and then select **Manage Service Principal**.
+1. In the list of service connections, select the one you just created, and then select **Manage Service Principal**.
    The Azure portal opens in a separate browser tab and shows the service principal details.
 1. In the Azure portal, copy the **Display name** value.
     You use this value in the next step to grant permissions for running load tests to the service principal.
