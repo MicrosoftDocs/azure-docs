@@ -161,15 +161,15 @@ This section provides a brief guide for how to add Azure Storage to an on-premis
 
     1. Configure additional [security best practices](../../../../../storage/blobs/security-recommendations.md).
 
-1. In the Commvault Command Center, navigate to **Manage** -> **Security** -> **Credential Manager**. Choose a **Cloud Account**, **Vendor type** of **Microsoft Azure Storage**, select the **MediaAgent**, which will transfer data to and from Azure, add the storage account name and access key.
+8. In the Commvault Command Center, navigate to **Manage** -> **Security** -> **Credential vault** and use option **Add**. Choose a **Cloud Account**, **Vendor type** of **Microsoft Azure**, select the **Authentication Type**, next provide all details as the storage account name, storage account access key or IAM *Entra ID* Application details depends on selected authentication type.
 
     ![Shows adding credentials in Commvault Command Center.](../media/commvault-credential.png)
 
-9. Next, navigate to **Storage** -> **Cloud** in Commvault Command Center. Choose to **Add**. Enter a friendly name for the storage account and then select **Microsoft Azure Storage** from the **Type** list. Select a Media Agent server to be used to transfer backups to Azure Storage. Add the container you created, choose the storage tier to use within the Azure storage account, and select the credentials created in Step #8. Finally, choose whether or not to transfer deduplicated backups or not and a location for the deduplication database.
+9. Next, navigate to **Storage** -> **Cloud** in Commvault Command Center. Choose to **Add**. Enter a friendly name for the storage account and then select **Microsoft Azure Storage** from the **Type** list. Select a Media Agent server to be used to transfer backups to Azure Storage. Add the container you created, choose the storage tier to use within the Azure storage account, select region and the credentials created in Step #8. Finally, choose whether or not to transfer deduplicated backups or not and a location for the deduplication database.
 
      ![Screenshot of Commvault's Add cloud user interface. In the Archive drop-down menu, **Archive** is selected.](../media/commvault-add-storage.png)
 
-10. Finally, add your new Azure Storage resource to an existing or new plan in Commvault Command Center via **Manage** -> **Plans** as a backup destination.
+10. Finally, add your new Azure Storage resource to an existing or new plan in Commvault Command Center via **Manage** -> **Plans** under Storage policies Copies.
 
     ![Screenshot of the Commvault Command Center user interface. In the left navigation, under **Manage**, **Plans** is selected.](../media/commvault-plan.png)
 
