@@ -214,7 +214,7 @@ Azure SQL Managed Instance platform manages traffic routing, failover, and failb
 
 ## Multi-region support
 
-An individual Azure SQL Managed Instance is deployed within a single region. However, you can deploy multiple SQL managed instances in separate Azure regions and configure *failover groups*. Failover groups automatically geo-replicate your data and can automatically or manually fail over in the event of a regional failure, based on the failover policy.
+An individual Azure SQL Managed Instance is deployed within a single region. However, you can deploy a secondary SQL managed instance in a separate Azure region and configure a *failover group*. Failover groups automatically geo-replicate your data and can automatically or manually fail over in the event of a regional failure, based on the failover policy.
 
 This section summarizes key information about failover groups, but it's important to review [Failover groups overview & best practices - Azure SQL Managed Instance](/azure/azure-sql/managed-instance/failover-group-sql-mi) to learn more about how they work and how to configure them.
 
@@ -239,7 +239,7 @@ To learn how to configure a failover group, see [Configure a failover group for 
 
 ### Capacity planning and management
 
-During a failover, traffic is redirected to a secondary SQL managed instance. It's important that your secondary SQL managed instance is ready to receive traffic. Create secondary SQL managed instances with the same service tier, hardware generation, and compute size as the primary instance.
+During a failover, traffic is redirected to a secondary SQL managed instance. It's important that your secondary SQL managed instance is ready to receive traffic. Create a secondary SQL managed instance with the same service tier, hardware generation, and compute size as the primary instance.
 
 When scaling SQL managed instances in a failover group, follow the guidance in [Scale instances](/azure/azure-sql/managed-instance/failover-group-sql-mi#scale-instances).
 
@@ -249,7 +249,7 @@ This section describes what to expect when SQL managed instances are configured 
 
 - **Traffic routing between regions:** During normal operations, read-write requests go to the single primary instance in the primary region.
 
-  Failover groups also provide a separate read-only listener endpoint. During normal operations, this endpoint connects to a secondary instance to route read-only traffic specified in the connection string.
+  Failover groups also provide a separate read-only listener endpoint. During normal operations, this endpoint connects to the secondary instance to route read-only traffic specified in the connection string.
 
   To learn more about how failover groups send traffic to each instance, and configuration you can apply to override the default behavior, see [Failover groups overview & best practices - Azure SQL Managed Instance](/azure/azure-sql/managed-instance/failover-group-sql-mi).
 
@@ -267,7 +267,7 @@ This section describes what to expect when SQL managed instances are configured 
   
   - *Customer-managed failover policy:* You're responsible for detecting the failure in a region and triggering a failover to the secondary instance in the failover group.
   
-  - *Microsoft-managed failover policy:* The failover group detects a failure in a region and can automatically failover to the secondary instance in the failover group. However, using a customer managed failover policy is recommended for production workloads so you have control over when the failover occurs.
+  - *Microsoft-managed failover policy:* The failover group detects a failure in a region and can automatically fail over to the secondary instance in the failover group. However, using a customer managed failover policy is recommended for production workloads so you have control over when the failover occurs.
 
 - **Notification.** Region failure events can be monitored through Azure Service Health and Resource Health. Set up alerts on these services to receive notifications of region-level issues.
 
@@ -290,6 +290,7 @@ You can test the failover of a failover group by following the steps described i
 ## Backups
 
 Take backups of your databases to protect against a variety of risks, including loss of data. Backups can be restored to recover from accidental data loss, corruption, or other issues. Azure SQL Managed Instance supports automated backups of your databases as well as user-initiated copy-only backups.
+
 Backups aren't same thing as geo-replication for the purpose of redundancy, and they have different purposes. Geo-replication for the purpose of redundancy is different to [Transactional replication](/azure/azure-sql/managed-instance/replication-transactional-overview). 
 
 When you configure automated backups for your SQL managed instance, you can specify how backups should be replicated:
