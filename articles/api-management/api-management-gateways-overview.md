@@ -85,13 +85,14 @@ The following tables compare features available in the following API Management 
 | [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  Developer, Basic, Standard, Premium | ❌ | ✔️ | ❌ | ❌ |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ | ✔️ | ❌ |
 | **HTTP/2** (Client-to-gateway) | ✔️<sup>4</sup> | ✔️<sup>4</sup> |❌ | ✔️ | ❌ |
-| **HTTP/2** (Gateway-to-backend) |  ❌ | ✔️ | ❌ | ✔️ | ❌ |
+| **HTTP/2** (Gateway-to-backend) |  ❌ | ✔️<sup>5</sup> | ❌ | ✔️<sup>5</sup> | ❌ |
 | API threat detection with [Defender for APIs](protect-with-defender-for-apis.md) | ✔️ | ✔️ |  ❌ | ❌ | ❌ |
 
 <sup>1</sup> Depends on how the gateway is deployed, but is the responsibility of the customer.<br/>
 <sup>2</sup> Connectivity to the self-hosted gateway v2 [configuration endpoint](self-hosted-gateway-overview.md#fqdn-dependencies) requires DNS resolution of the endpoint hostname.<br/>
 <sup>3</sup> CA root certificates for self-hosted gateway are managed separately per gateway<br/>
 <sup>4</sup> Client protocol needs to be enabled.
+<sup>5</sup> Configure using the [forward-request](forward-request-policy.md) policy.
 
 ### Backend APIs
 
