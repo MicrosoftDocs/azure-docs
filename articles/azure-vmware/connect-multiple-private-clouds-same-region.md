@@ -12,7 +12,7 @@ ms.custom: engagement-fy23
 
 The **AVS Interconnect** feature lets you create a network connection between two or more Azure VMware Solution private clouds located in the same region. It creates a routing link between the management and workload networks of the private clouds to enable network communication between the clouds.
 
-You can connect a private cloud to multiple private clouds, and the connections are nontransitive. For example, if _private cloud A_ is connected to _private cloud B_, and _private cloud B_ is connected to _private cloud C_, private clouds A and B wouldn't communicate until they were directly connected.
+You can connect a private cloud to multiple private clouds, and the connections are nontransitive. For example, if _private cloud A_ is connected to _private cloud B_, and _private cloud B_ is connected to _private cloud C_, private clouds A and C wouldn't communicate until they were directly connected.
 
 You can only connect private clouds in the same region. To connect private clouds in different regions, [use ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) to connect them in the same way you connect your private cloud to your on-premises circuit.
 

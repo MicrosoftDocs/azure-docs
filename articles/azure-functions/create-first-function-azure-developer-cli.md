@@ -1,7 +1,7 @@
 ---
 title: Create functions in Azure using the Azure Developer CLI
 description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy the local project to a Flex Consumption plan on Azure."
-ms.date: 10/19/2024
+ms.date: 7/23/2025
 ms.topic: quickstart
 ms.custom:
   - ignite-2024
@@ -21,9 +21,9 @@ By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing m
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd).
++ [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
 
-+ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools).
++ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
 
 [!INCLUDE [functions-requirements-azure-cli](../../includes/functions-requirements-azure-cli.md)]
 
