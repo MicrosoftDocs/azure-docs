@@ -110,18 +110,7 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
 
     :::image type="content" source="./media/quickstart-create-template-specs/search-template-spec.png" alt-text="Screenshot of search bar with 'template specs' query.":::
 
-1. Select **Import template**.
-
-    :::image type="content" source="./media/quickstart-create-template-specs/import-template.png" alt-text="Screenshot of 'Import template' button in Template specs page.":::
-
-1. Select the folder icon.
-
-    :::image type="content" source="./media/quickstart-create-template-specs/open-folder.png" alt-text="Screenshot of folder icon to open file explorer.":::
-
-1. Navigate to the local template you saved and select it. Select **Open**.
-1. Select **Import**.
-
-    :::image type="content" source="./media/quickstart-create-template-specs/select-import.png" alt-text="Screenshot of 'Import' button after selecting a template file.":::
+1. Select **Import template**, and then follow the instructions to import **C:\Templates\createStorage.json** that you saved earlier.
 
 1. Provide the following values:
 
@@ -131,8 +120,7 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
     - **Location**: select a location for the resource group. For example, **West US 2**.
     - **Version**: enter a version for the template spec. Use **1.0**.
 
-1. Select **Review + Create**.
-1. Select **Create**.
+1. Select **Review + Create**, and then select **Create**.
 
 # [ARM Template](#tab/azure-resource-manager)
 
@@ -307,7 +295,7 @@ To deploy a template spec, use the same deployment commands as you would use to 
 
 # [Portal](#tab/azure-portal)
 
-1. Select the template spec you created.
+1. Select the template spec you created. Use the search box to find the template spec if there are many.
 
     :::image type="content" source="./media/quickstart-create-template-specs/select-template-spec.png" alt-text="Screenshot of Template specs list with one item selected.":::
 
@@ -319,10 +307,8 @@ To deploy a template spec, use the same deployment commands as you would use to 
 
     - **Subscription**: select an Azure subscription for creating the resource.
     - **Resource group**: select **Create new** and then enter **storageRG**.
-    - **Storage Account Type**: select **Standard_GRS**.
 
-1. Select **Review + create**.
-1. Select **Create**.
+1. Select **Review + create**, and then select **Create**.
 
 # [ARM Template](#tab/azure-resource-manager)
 
@@ -484,7 +470,7 @@ Instead of creating a new template spec for the revised template, add a new vers
 
 # [Portal](#tab/azure-portal)
 
-1. In your template spec, select **Create new version**.
+1. Open the template spec, select **Create new version**.
 
    :::image type="content" source="./media/quickstart-create-template-specs/select-versions.png" alt-text="Screenshot of 'Create new version' button in Template spec details.":::
 
@@ -499,13 +485,9 @@ Instead of creating a new template spec for the revised template, add a new vers
 
    :::image type="content" source="./media/quickstart-create-template-specs/see-versions.png" alt-text="Screenshot of 'Versions' tab in Template spec details.":::
 
-1. For the version you want to deploy, select the three dots and **Deploy**.
-
-   :::image type="content" source="./media/quickstart-create-template-specs/deploy-version.png" alt-text="Screenshot of 'Deploy' option in the context menu of a specific version.":::
-
+1. Open the new version, and then select **Deploy**.
 1. Fill in the fields as you did when deploying the earlier version.
-1. Select **Review + create**.
-1. Select **Create**.
+1. Select **Review + create**, and then select **Create**.
 
 # [ARM Template](#tab/azure-resource-manager)
 
