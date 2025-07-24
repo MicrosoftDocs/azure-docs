@@ -14,17 +14,25 @@ ms.date: 11/12/2024
 
 This article introduces the connector for REST/HTTP (preview) in Azure IoT Operations. The connector for REST/HTTP calls REST endpoints to retrieve data to share with other Azure IoT Operations components. The connector for REST/HTTP is secure and performant.
 
-## HTTP source types
+The connector for REST/HTTP enables integration with RESTful endpoints by periodically performing GET requests to devices, sensors, or systems that expose REST APIs. The connector can register the data's schema with the Azure Device Registry service, and forward the data to destinations such as MQTT broker or the state store for further processing and observability.
 
-The connector for REST/HTTP can connect to various sources.
+The connector for REST/HTTP supports the following features:
 
-<!-- TODO: Add details here when we have more information -->
+- Automatic retries when sampling failures occur. Reports a failed status for errors that can't be retried.
+- Integration with OpenTelemetry.
+- Use of _device endpoints_ and _namespace assets_.
+- Device endpoint and asset definition validation for REST compatibility.
+- Multiple authentication methods:
+  - Username/password basic HTTP authentication
+  - x509 client certificates
+  - Anonymous access for testing purposes
+  - Certificate trust bundle to specify additional certificate authorities
 
-## Example uses
+For each configured dataset, the connector for REST/HTTP:
 
-Example uses of the connector for REST/HTTP include calling REST APIs to retrieve data from industrial devices such as cameras, sensors, and other devices that expose data over HTTP.
-
-<!-- TODO: Add details here when we have more information -->
+- Performs a GET request to the address specified in the device endpoint and appends the dataset's data source from the namespace asset.
+- Generates a message schema for each dataset based on the data it receives, and registers it with Schema Registry and Azure Device Registry.
+- Forwards the data to the specified destination.
 
 ## How does it relate to Azure IoT Operations?
 
