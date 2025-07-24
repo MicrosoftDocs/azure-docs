@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: troubleshooting
-ms.date: 3/31/2025
+ms.date: 7/21/2025
 ms.author: mbender
 # Customer intent: As a cloud platform administrator, I want to troubleshoot issues with Application Gateway for Containers, so that I can ensure the service operates smoothly and effectively resolves any deployment or configuration problems.
 ---
@@ -27,7 +27,6 @@ Example output:
 | NAME                     | READY | UP-TO-DATE | AVAILABLE | AGE  | CONTAINERS              | IMAGES                                                                          | SELECTOR |
 | ------------------------ | ----- | ---------- | --------- | ---- | ----------------------- | ------------------------------------------------------------------------------- | -------- |
 | alb-controller           | 2/2   | 2          | 2         | 18d | alb-controller           | mcr.microsoft.com/application-lb/images/alb-controller:**1.5.2**           | app=alb-controller |
-| alb-controller-bootstrap | 1/1   | 1          | 1         | 18d | alb-controller-bootstrap | mcr.microsoft.com/application-lb/images/alb-controller-bootstrap:**1.5.2** | app=alb-controller-bootstrap |
 
 In this example, the ALB controller version is **1.5.2**.
 
@@ -54,11 +53,10 @@ Logs can be collected from the ALB Controller by using the _kubectl logs_ comman
     | ---------------------------------------- | ----- | ------- | -------- | ---- |
     | alb-controller-6648c5d5c-sdd9t           | 1/1   | Running | 0        | 4d6h |
     | alb-controller-6648c5d5c-au234           | 1/1   | Running | 0        | 4d6h |
-    | alb-controller-bootstrap-6648c5d5c-hrmpc | 1/1   | Running | 0        | 4d6h |
 
     ALB controller uses an election provided by controller-runtime manager to determine an active and standby pod for high availability.
 
-    Copy the name of each alb-controller pod (not the bootstrap pod, in this case: `alb-controller-6648c5d5c-sdd9t` and `alb-controller-6648c5d5c-au234`) and run the following command to determine the active pod.
+    Copy the name of each alb-controller pod (in this case: `alb-controller-6648c5d5c-sdd9t` and `alb-controller-6648c5d5c-au234`) and run the following command to determine the active pod.
 
     # [Linux](#tab/active-pod-linux)
 

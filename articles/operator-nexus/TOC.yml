@@ -38,6 +38,8 @@
           href: concepts-network-fabric.md
         - name: Network Fabric Controller
           href: concepts-network-fabric-controller.md
+        - name: Network Fabric management upgrade
+          href: concepts-fabric-management-upgrade.md
         - name: Network Fabric Services
           href: concepts-network-fabric-services.md
         - name: Network Fabric resource update and commit
@@ -217,8 +219,6 @@
           href: howto-delete-layer-3-isolation-domains.md
         - name: Cross-subscription deployments and required RBAC for Network Fabric
           href: concepts-cross-subscription-deployments-required-rbac-for-network-fabric.md
-        - name: How to replace network devices in Azure Operator Nexus Network Fabric
-          href: howto-replace-network-devices.md
         - name: How to put a device into maintenance mode
           href: howto-put-device-in-maintenance-mode.md
         - name: How to set up break glass access
@@ -239,8 +239,8 @@
           href: howto-append-custom-suffix-to-interface-descriptions.md
         - name: How to reboot Network Device in Azure Operator Nexus Network Fabric
           href: howto-reboot-network-device.md
-        - name: How to replace a device in Azure Operator Nexus Network Fabric
-          href: howto-replace-a-device-in-azure-operator-nexus-network-fabric.md
+        - name: How to replace network devices in Azure Operator Nexus Network Fabric
+          href: howto-replace-network-devices.md
         - name: How to Configure NNF with Bring Your Own (BYO) Storage
           href: howto-configure-bring-your-own-storage-network-fabric.md
         - name: How to upgrade OS of terminal server

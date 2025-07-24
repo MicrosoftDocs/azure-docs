@@ -14,7 +14,7 @@ metadata:
   ms.reviewer: maminn
   ms.author: maminn
   ms.custom: engagement-fy24
-  ms.date: 01/22/2025
+  ms.date: 07/14/2025
 
 highlightedContent:
   items:
@@ -32,7 +32,7 @@ highlightedContent:
       url: savings-plan/savings-plan-compute-overview.md
     - title: What's new
       itemType: whats-new
-      url: https://azure.microsoft.com/blog/tag/cost-management/
+      url: https://azure.microsoft.com/blog/product/cost-management/
     - title: Costs included in Cost Management
       itemType: concept
       url: costs/understand-cost-mgt-data.md

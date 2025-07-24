@@ -21,6 +21,10 @@ items:
     href: oracle-db/oracle-database-known-issues.md
   - name: Support
     href: oracle-db/oracle-database-support.md
+  - name: Security
+    items:
+    - name: Manage Oracle TDE with Azure Key Vault
+      href: oracle-db/manage-oracle-transparent-data-encryption-azure-key-vault.md
   - name: Onboarding
     items:
     - name: Onboard Oracle Database@Azure

@@ -8,8 +8,8 @@ ms.custom:
   - devx-track-azurepowershell
   - ignite-2023
   - engagement-fy24
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a DevOps engineer, I want to restore an Azure Kubernetes Service cluster using PowerShell, so that I can recover lost resources or data efficiently with minimal downtime.
 ---
 

@@ -5,7 +5,7 @@ description: This article describes how to place video on a web page based on re
 author: sloanster
 ms.author: micahvivion
 services: azure-communication-services
-ms.date: 06/26/2025
+ms.date: 07/08/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -67,7 +67,7 @@ The optimal video count returns an integer defining the ideal number of videos t
 
 Developers should ensure that their application subscribes to changes in the `Optimal Video Count` in group calls and adjust the number of videos being rendered on a web page dynamically based on the OVC count. The value from optimal video count (OVC) updates every 10 seconds.
 
-You need to reference the feature `OptimalVideoCount` via the feature method of the Call object. You can then set a listener via the *on* method of the `OptimalVideoCountCallFeature` to be notified when the `optimalVideoCount` changes.
+You need to reference the feature `OptimalVideoCount` via the feature method of the Call object. You can then set a listener via the `on` method of the `OptimalVideoCountCallFeature` to be notified when the `optimalVideoCount` changes.
 
 To unsubscribe from the changes, you can call the off method. The current maximum number of incoming videos that can be rendered on a web page is **16**. To properly support 16 incoming videos, the computer should have a minimum of 16-GB RAM and a 4-core or greater CPU that is no older than three years old.
 
@@ -168,6 +168,30 @@ getSupportedResolutions();
 | 360p | 30 | 30 | 1 M |
 | 240p | 15 | 15 | 650 K |
 | 180p | 7.5 | 15 | 250 K(350 K if 15 FPS)|
+
+### How many videos to place in a grid at a time
+As the Azure Communication Services WebJS Calling SDK continues to evolve, one of its key capabilities is supporting many incoming video streams in a grid layout on desktop and mobile browsers. This feature is valuable for scenarios like virtual classrooms, large team meetings, or customer support centers where multiple participants need to be visible simultaneously.
+
+However, this scalability introduces a trade-off between the number of video streams rendered and the visual quality of each stream. Since the total screen real estate is fixed, increasing the number of video tiles means each individual video renderer must occupy a smaller portion of the screen. To maintain performance and avoid overloading the browser’s rendering pipeline, the SDK dynamically adjusts the resolution of each incoming video stream based on its rendered size. This ensures that bandwidth and CPU usage remain within acceptable limits, but it also means that as more participants join, the resolution of each video may decrease to accommodate the grid.
+
+This adaptive behavior helps ensure stable user performance. For instance, in a 2x2 grid with 4 participants, each video can be rendered at a higher resolution. In contrast, with a 5x5 grid displaying 25 participants, each tile is smaller and the SDK may downscale video streams to fit the display size. This approach reduces bandwidth usage and lowers the chances of dropped frames or lag. To support up to 25 incoming video streams, it is recommended to use a computer with at least an 8-core processor and 16GB of RAM
+
+The following table illustrates how video resolution changes based on the number of participants displayed in the incoming video grid at any one time.
+
+| **Number of incoming streams** | **Incoming video resolution** |
+|------------------|----------------------|
+| 1                | 1080p                 |
+| 2                | 720p                  |
+| 3                | 540p                  |
+| 4 to 9              | 360p                  |
+| 10 to 16            | 240p                  |
+| 17 to 25         | 180p                  |
+
+> [!NOTE]  
+> The GA version of the calling WebJS SDK allows for up to **16** incoming video streams for desktop browsers (4x4 grid).
+
+> [!NOTE]  
+> The public preview 1.37.1-beta.1 and greater of the calling WebJS SDK currently supports up to **25** incoming video streams for desktop browsers (5x5 grid).
 
 ## Conclusion
 

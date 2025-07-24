@@ -4,7 +4,7 @@ description: This article describes how to use the Microsoft Sentinel hunting bo
 ms.author: monaberdugo
 author: mberdugo 
 ms.topic: how-to
-ms.date: 04/23/2024
+ms.date: 07/09/2025
 ms.collection: usx-security
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -72,6 +72,9 @@ Find and update a bookmark from the bookmark tab.
 4. Select individual bookmarks to view the bookmark details in the right-hand pane.
 
 5. Make your changes as needed. Your changes are automatically saved.
+
+> [!NOTE]
+> You can only view up to 1,000 bookmarks in the bookmark tab. You can view the rest of your bookmarked data in your logs. [Learn more](#view-bookmarked-data-in-logs)
 
 ## Exploring bookmarks in the investigation graph
 
