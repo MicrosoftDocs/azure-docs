@@ -61,6 +61,21 @@ Defender for IoT in the Azure portal provides a downloadable MIB file for you to
 
 **To download the SNMP MIB file** from [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Sites and sensors** > **More actions** > **Download SNMP MIB file**.
 
+## Query SNMP conf on the sensor
+
+**Validate and query the SNMP MIB Monitoring configuration in the OT sensor:**
+
+1. In the OT sensor, go to **System settings > Sensor management**
+
+    :::image type="content" source="media/how-to-set-up-snmp-mib-monitoring/snmp-mib-monitoring-configuration.png" alt-text="Screenshot of the SNMP MIB monitoring configuration page.":::
+
+1. [Sign in to your OT or Enterprise IoT sensor using a terminal emulator and SSH](/defender-for-iot/organizations/references-work-with-defender-for-iot-cli-commands#defender-for-iot-cli-access).
+1. Run the following query by version commands:
+   
+    - For version 2 type: `snmpwalk -v 2c -c<community-string> <sensor-ip> isa`
+
+    - For version 3 type: `snmpwalk -v 3 -aMD5|SHA -xDES|AES -A<password> -X<secret-key> -u<username> -|autoPriv <sensor-ip> isa`
+
 ## OT sensor OIDs for manual SNMP configurations
 
 If you're configuring Defender for IoT sensors on your SNMP monitoring system manually, use the following table for reference regarding sensor object identifier values (OIDs):
@@ -97,23 +112,6 @@ Note that:
 - Nonexisting keys respond with null, HTTP 200.
 - Hardware-related MIBs (CPU usage, CPU temperature, memory usage, disk usage) should be tested on all architectures and physical sensors. CPU temperature on virtual machines is expected to be non applicable.
 
-## Query SNMP conf on the sensor
-
-**Validate and query the SNMP MIB Monitoring configuration in the OT sensor:**
-
-1. In the OT sensor, go to **System settings > Sensor management**
-
-    :::image type="content" source="media/how-to-set-up-snmp-mib-monitoring/snmp-mib-monitoring-configuration.png" alt-text="Screenshot of the SNMP MIB monitoring configuration page.":::
-
-1. SSH to your remote host, configured on the SNMP MIB Monitoring.
-
-1. Install SNMP package by running `sudo apt install snmp`.
-
-**Query by version:**
-
-For version 2 type: `snmpwalk -v 2c -c<community-string> <sensor-ip> isa`
-
-For version 3 type: `snmpwalk -v 3 -aMD5|SHA -xDES|AES -A<password> -X<secret-key> -u<username> -|autoPriv <sensor-ip> isa`
 
 ## Next steps
 
