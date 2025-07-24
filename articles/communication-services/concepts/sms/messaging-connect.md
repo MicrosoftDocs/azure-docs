@@ -72,7 +72,7 @@ The following table summarizes capabilities available when using Messaging Conne
 | Java SDK                           |    ❌ (coming soon)    |
 | Automatic Country Sender selection (partner-managed)   | Infobip ✔️  |
 
-> **Note**: Future updates will include support for more SDKs, sender types, and additional partners.
+
 
 ### Authentication: Secure Access with Azure Identity
 
@@ -269,22 +269,22 @@ Let's go step-by-step:
 
    In the Azure portal, in your Communication Services resource, go to the **Messaging Connect** blade and choose a partner from the list. Accept the terms. You're redirected to the partner’s website to complete the number acquisition.
 
- <img src="./media/message-connect-provision-number-2.png" alt="screenshot showing messaging connect blade." width="400"/>
+ :::image type="content" source="./media/message-connect-provision-number-2.png" alt-text="Screenshot showing messaging connect blade." lightbox="./media/message-connect-provision-number-2.png"::: 
 
-<img src="./media/message-connect-provision-number-3.png" alt="screenshot showing messaging connect partners." width="400"/>
+ :::image type="content" source="./media/message-connect-provision-number-3.png" alt-text="screenshot showing messaging connect partners." lightbox="./media/message-connect-provision-number-3.png"::: 
 
 
 2. **Acquire the number on the partner’s portal**
 
    To purchase the number, follow the prompts provided by the Messaging Connect partner. Depending on the country, you may need to upload supporting documents or complete identity verification. Once approved, the number is assigned to your partner account.
 
-   :::image type="content" source="./media/message-connect-provision-number-4.png" alt-text="Screen showing partner portal with numbers purchased" lightbox="./media/message-connect-provision-number-4.png":::
+   :::image type="content" source="./media/message-connect-provision-number-4.png" alt-text="Screen showing partner portal with numbers purchased." lightbox="./media/message-connect-provision-number-4.png":::
 
 3. **Return to the Azure portal**
 
    Once the partner confirms that your numbers are provisioned, they trigger the sync with Azure Communication Services. After the sync is complete, the numbers automatically appear in your ACS resource—ready to use with the ACS SMS API, just like any number provisioned directly through Azure Communication Services. No extra setup is needed on your side.
 
-   :::image type="content" source="./media/message-connect-provision-number-6.png" alt-text="Screenshot showing provisioned numbers Azure portal" lightbox="./media/message-connect-provision-number-6.png":::
+   :::image type="content" source="./media/message-connect-provision-number-6.png" alt-text="Screenshot showing provisioned numbers in Azure portal." lightbox="./media/message-connect-provision-number-6.png":::
 
    > [!NOTE]
    > The Messaging Connect partner sets the approval and activation timeline, which varies by country and number type. Messaging Connect doesn't currently support instant provisioning, and Microsoft isn't involved in the vetting or approval process.
