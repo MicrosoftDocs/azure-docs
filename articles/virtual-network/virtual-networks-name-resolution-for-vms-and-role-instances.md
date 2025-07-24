@@ -1,19 +1,19 @@
 ---
-title: Name resolution for resources in Azure virtual networks
+title: Azure Virtual Network Name Resolution Guide
 titlesuffix: Azure Virtual Network
-description: Name resolution scenarios for Azure IaaS, hybrid solutions, between different cloud services, Microsoft Entra, and using your own DNS server.
+description: Learn how to configure DNS name resolution for Azure virtual networks. Explore Azure-provided DNS, private DNS zones, and custom DNS servers for VMs and hybrid solutions.
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 08/02/2024
+ms.date: 07/24/2025
 ms.author: allensu
 ms.custom: fasttrack-edit, linux-related-content
 # Customer intent: As a cloud network administrator, I want to implement effective name resolution for resources within Azure virtual networks so that I can facilitate seamless communication between virtual machines and services across both Azure and hybrid environments.
 ---
 
-# Name resolution for resources in Azure virtual networks
+# Configure DNS name resolution for Azure virtual networks
 
-You can host infrastructure as a service (IaaS), platform as a service (PaaS), and hybrid solutions on Azure. To enable communication between VMs and other resources in a virtual network, you should allow them to communicate with each other. Using easily remembered and consistent names simplifies the communication process, rather than relying on IP addresses.
+Azure virtual networks support multiple name resolution methods for infrastructure as a service (IaaS), platform as a service (PaaS), and hybrid solutions. To enable communication between VMs and other resources in a virtual network, you need proper DNS configuration. Using easily remembered and consistent names simplifies the communication process, rather than relying on IP addresses.
 
 When resources deployed in virtual networks need to resolve domain names to internal IP addresses, they can use one of four methods:
 
