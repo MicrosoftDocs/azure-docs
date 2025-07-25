@@ -201,7 +201,7 @@ Issue ID: 5712
 
 ---
 
-N/A
+Log signature: N/A
 
 ---
 
@@ -217,11 +217,25 @@ Issue ID: 6797
 
 ---
 
-N/A
+Log signature: N/A
 
 ---
 
 Media assets with a task type of "snapshot-to-fs" or "clip-to-fs" won't honor the "Path" in the "Destination configuration". Instead they use the path configured in the "Path" field for the "Additional configuration".
+
+### Media connector ignore MQTT topic setting in asset
+
+---
+
+Issue ID: 6780
+
+---
+
+Log signature: N/A
+
+---
+
+The media connector ignores the MQTT destination topic setting in the asset. Instead, it uses the default topic: `/azure-iot-operations/data/<asset-name>/snapshot-to-mqtt`.
 
 ## Data flows issues
 
