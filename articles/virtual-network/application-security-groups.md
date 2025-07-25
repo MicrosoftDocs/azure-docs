@@ -1,20 +1,20 @@
 ---
-title: Azure application security groups overview
+title: Azure Application Security Groups Overview
 titlesuffix: Azure Virtual Network
-description: Learn about the use of application security groups. 
+description: Learn how application security groups in Azure Virtual Network enable you to configure network security policies, group virtual machines, and simplify network management at scale.
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 07/09/2025
+ms.date: 07/25/2025
 ms.author: allensu
 # Customer intent: As a network administrator, I want to configure application security groups for my virtual machines, so that I can easily manage network security policies and reduce the complexity of maintaining explicit IP addresses.
 ---
 
 # Application security groups
 
-Application security groups enable you to configure network security as a natural extension of an application's structure, allowing you to group virtual machines and define network security policies based on those groups. You can reuse your security policy at scale without manual maintenance of explicit IP addresses. The platform handles the complexity of explicit IP addresses and multiple rule sets, allowing you to focus on your business logic. To better understand application security groups, consider the following example:
+Application security groups in Azure Virtual Network enable you to configure network security as a natural extension of an application's structure, allowing you to group virtual machines and define network security policies based on those groups. You can reuse your security policy at scale without manual maintenance of explicit IP addresses. The platform handles the complexity of explicit IP addresses and multiple rule sets, allowing you to focus on your business logic. To better understand application security groups, consider the following example:
 
-:::image type="content" source="./media/security-groups/application-security-groups.png" alt-text="Diagram of Application security groups.":::
+:::image type="content" source="./media/security-groups/application-security-groups.png" alt-text="Screenshot of Application security groups diagram showing network interfaces grouped into AsgWeb, AsgLogic, and AsgDb security groups.":::
 
 In the previous picture, *NIC1* and *NIC2* are members of the *AsgWeb* application security group. *NIC3* is a member of the *AsgLogic* application security group. *NIC4* is a member of the *AsgDb* application security group. Although each network interface (NIC) in this example is a member of only one application security group, a network interface can be a member of multiple application security groups, up to the [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). None of the network interfaces have an associated network security group. *NSG1* is associated to both subnets and contains the following rules:
 
