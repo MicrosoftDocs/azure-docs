@@ -3,7 +3,7 @@ title: Quickstart - Provision an X.509 certificate simulated device to Microsoft
 description: Learn how to provision a simulated device that authenticates with an X.509 certificate in the Azure IoT Hub Device Provisioning Service
 author: SoniaLopezBravo
 ms.author: sonialopez
-ms.date: 04/06/2023
+ms.date: 07/25/2025
 ms.topic: quickstart
 ms.service: azure-iot-hub
 services: iot-dps
@@ -18,7 +18,7 @@ ms.subservice: azure-iot-hub-dps
 
 In this quickstart, you create a simulated device on your Windows machine. The simulated device is configured to use X.509 certificate attestation for authentication. After you configure your device, you then provision it to your IoT hub using the Azure IoT Hub Device Provisioning Service.
 
-If you're unfamiliar with the process of provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. Also make sure that you complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing.
+If you're unfamiliar with the process of provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. Also make sure that you complete the steps in [Quickstart: Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing.
 
 This quickstart demonstrates a solution for a Windows-based workstation. However, you can also perform the procedures on Linux. For a Linux example, see [Tutorial: Provision for geo latency](how-to-provision-multitenant.md).
 
@@ -26,7 +26,7 @@ This quickstart demonstrates a solution for a Windows-based workstation. However
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-* Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
+* Complete the steps in [Quickstart: Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 
 ::: zone pivot="programming-language-ansi-c"
 
@@ -37,7 +37,7 @@ The following prerequisites are for a Windows development environment. For Linux
 * Install the latest [CMake build system](https://cmake.org/download/). Make sure you check the option that adds the CMake executable to your path.
 
     >[!IMPORTANT]
-    >Confirm that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system. Also, be aware that older versions of the CMake build system fail to generate the solution file used in this article. Make sure to use the latest version of CMake.
+    >Confirm that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system. Also, older versions of the CMake build system fail to generate the solution file used in this article. Make sure to use the latest version of CMake.
 
 ::: zone-end
 
@@ -84,7 +84,7 @@ The following prerequisites are for a Windows development environment. For Linux
 * Make sure [OpenSSL](https://www.openssl.org/) is installed on your machine. On Windows, your installation of Git includes an installation of OpenSSL. You can access OpenSSL from the Git Bash prompt. To verify that OpenSSL is installed, open a Git Bash prompt and enter `openssl version`.
 
   >[!NOTE]
-  > Unless you're familiar with OpenSSL and already have it installed on your Windows machine, we recommend using OpenSSL from the Git Bash prompt. Alternatively, you can choose to download the source code and build OpenSSL. To learn more, see the [OpenSSL Downloads](https://www.openssl.org/source/) page. Or, you can download OpenSSL pre-built from a third-party. To learn more, see the [OpenSSL wiki](https://wiki.openssl.org/index.php/Binaries). Microsoft makes no guarantees about the validity of packages downloaded from third-parties. If you do choose to build or download OpenSSL make sure that the OpenSSL binary is accessible in your path and that the `OPENSSL_CNF` environment variable is set to the path of your *openssl.cnf* file.
+  > Unless you're familiar with OpenSSL and it's already installed on your Windows machine, we recommend using OpenSSL from the Git Bash prompt. Alternatively, you can choose to download the source code and build OpenSSL. To learn more, see the [OpenSSL Downloads](https://www.openssl.org/source/) page. Or, you can download OpenSSL prebuilt from a non-Microsoft provider. To learn more, see the [OpenSSL wiki](https://wiki.openssl.org/index.php/Binaries). Microsoft makes no guarantees about the validity of packages downloaded from non-Microsoft providers. If you do choose to build or download OpenSSL make sure that the OpenSSL binary is accessible in your path and that the `OPENSSL_CNF` environment variable is set to the path of your *openssl.cnf* file.
 
 * Open both a Windows command prompt and a Git Bash prompt.
 
@@ -138,7 +138,7 @@ In this section, you prepare a development environment that's used to build the 
    ---
 
    >[!TIP]
-   >If `cmake` doesn't find your C++ compiler, you may get build errors while running the above command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
+   >If `cmake` doesn't find your C++ compiler, you might encounter build errors while running the previous command. If that happens, try running the command in the [Visual Studio Developer Command Prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
 
 7. When the build succeeds, the last few output lines look similar to the following output:
 
@@ -159,7 +159,7 @@ In this section, you prepare a development environment that's used to build the 
 
 ::: zone pivot="programming-language-csharp"
 
-In your Windows command prompt, clone the [Azure IoT SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository using the following command:
+In your Windows command prompt, clone the [Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository using the following command:
 
 ```cmd
 git clone https://github.com/Azure/azure-iot-sdk-csharp.git
@@ -169,7 +169,7 @@ git clone https://github.com/Azure/azure-iot-sdk-csharp.git
 
 ::: zone pivot="programming-language-nodejs"
 
-In your Windows command prompt, clone the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository using the following command:
+In your Windows command prompt, clone the [Azure IoT Node.js SDK](https://github.com/Azure/azure-iot-sdk-node) GitHub repository using the following command:
 
 ```cmd
 git clone https://github.com/Azure/azure-iot-sdk-node.git
@@ -179,7 +179,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node.git
 
 ::: zone pivot="programming-language-python"
 
-In your Windows command prompt, clone the [Azure IoT Device SDK for Python](https://github.com/Azure/azure-iot-sdk-python/tree/v2) GitHub repository using the following command:
+In your Windows command prompt, clone the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python/tree/v2) GitHub repository using the following command:
 
 ```cmd
 git clone -b v2 https://github.com/Azure/azure-iot-sdk-python.git --recursive
@@ -192,7 +192,7 @@ git clone -b v2 https://github.com/Azure/azure-iot-sdk-python.git --recursive
 
 ::: zone pivot="programming-language-java"
 
-1. In your Windows command prompt, clone the [Azure IoT Samples for Java](https://github.com/Azure/azure-iot-sdk-java) GitHub repository using the following command:
+1. In your Windows command prompt, clone the [Azure IoT SDKs for Java](https://github.com/Azure/azure-iot-sdk-java) GitHub repository using the following command:
 
     ```cmd
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -213,8 +213,8 @@ In this section, you use OpenSSL to create a self-signed X.509 certificate and a
 
 > [!CAUTION]
 > Use certificates created with OpenSSL in this quickstart for development testing only.
-> Do not use these certificates in production.
-> These certificates expire after 30 days and may contain hard-coded passwords, such as *1234*.
+> Don't use these certificates in production.
+> These certificates expire after 30 days and might contain hard-coded passwords, such as *1234*.
 > To learn about obtaining certificates suitable for use in production, see [How to get an X.509 CA certificate](../iot-hub/iot-hub-x509ca-overview.md#get-an-x509-ca-certificate) in the Azure IoT Hub documentation.
 >
 
@@ -461,7 +461,7 @@ In this section, you use your Git Bash prompt and the Visual Studio IDE.
 
 In this section, you update the sample code with your Device Provisioning Service instance information.
 
-1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
+1. In the Azure portal, select the **Overview** tab from the resource menu for your Device Provisioning Service instance.
 
 1. Copy the **ID Scope** value.
 
@@ -575,7 +575,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
 In this section, you use your Windows command prompt.
 
-1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
+1. In the Azure portal, select the **Overview** tab from the resource menu for your Device Provisioning Service instance.
 
 2. Copy the **ID Scope** value.
 
@@ -592,7 +592,7 @@ In this section, you use your Windows command prompt.
     If you want to pass the certificate and password as a parameter, you can use the following format.
     
    >[!NOTE]
-   >Additional parameters can be passed along while running the application to change the TransportType (-t) and the GlobalDeviceEndpoint (-g).
+   >Extra parameters can be passed along while running the application to change the TransportType (-t) and the GlobalDeviceEndpoint (-g).
 
     ```cmd
     dotnet run -- -s 0ne00000A0A -c certificate.pfx -p 1234
@@ -623,7 +623,7 @@ In this section, you use your Windows command prompt.
 
 In this section, you use your Windows command prompt.
 
-1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
+1. In the Azure portal, select the **Overview** tab from the resource menu for your Device Provisioning Service instance.
 
 1. Copy the **ID Scope** value.
 
@@ -688,7 +688,7 @@ In this section, you use your Windows command prompt.
 
 In this section, you use your Windows command prompt.
 
-1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
+1. In the Azure portal, select the **Overview** tab from the resource menu for your Device Provisioning Service instance.
 
 1. Copy the **ID Scope** and **Global device endpoint** values.
 
@@ -711,7 +711,7 @@ In this section, you use your Windows command prompt.
     | `X509_KEY_FILE`            |  The path to your device certificate private key file. |
     | `PASS_PHRASE`              |  The pass phrase you used to encrypt the certificate and private key file (`1234`). |
 
-1. Add the environment variables for the global device endpoint and ID Scope.
+1. Add the environment variables for the global device endpoint and ID scope.
 
     ```cmd
     set PROVISIONING_HOST=global.azure-devices-provisioning.net
@@ -773,7 +773,7 @@ In this section, you use your Windows command prompt.
 
 In this section, you use both your Windows command prompt and your Git Bash prompt.
 
-1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
+1. In the Azure portal, select the **Overview** tab from the resource menu for your Device Provisioning Service instance.
 
 1. Copy the **ID Scope** and **Global device endpoint** values.
 
@@ -785,7 +785,7 @@ In this section, you use both your Windows command prompt and your Git Bash prom
     cd .\azure-iot-sdk-java\provisioning\provisioning-device-client-samples\provisioning-X509-sample
     ```
 
-1. Enter the provisioning service and X.509 identity information in the sample code. This information is used during provisioning, for attestation of the simulated device, prior to device registration.
+1. Enter the provisioning service and X.509 identity information in the sample code. This information is used during provisioning, for attestation of the simulated device, before device registration.
 
     1. Open the file `.\src\main\java\samples\com\microsoft\azure\sdk\iot\ProvisioningX509Sample.java` in your favorite editor.
 
@@ -899,9 +899,9 @@ In this section, you use both your Windows command prompt and your Git Bash prom
 
 To see which IoT hub your device was provisioned to, examine the registration details of the individual enrollment you created previously:
 
-1. In Azure portal, go to your Device Provisioning Service.
+1. In Azure portal, navigate to your Device Provisioning Service instance.
 
-1. In the **Settings** menu, select **Manage enrollments**.
+1. In the resource menu, under **Settings**, select **Manage enrollments**.
 
 1. Select **Individual Enrollments**. The X.509 enrollment entry that you created previously, *my-x509-device*, should appear in the list.
 
@@ -911,7 +911,7 @@ To verify the device in your IoT hub:
 
 1. In Azure portal, go to the IoT hub that your device was assigned to.
 
-1. In the **Device management** menu, select **Devices**.
+1. In the resource menu, under **Device management**, select **Devices**.
 
 1. If your device was provisioned successfully, its device ID, *my-x509-device*, should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh**.
 
@@ -934,9 +934,9 @@ If you plan to continue working on and exploring the device client sample, don't
 
 2. From the left-hand menu in the Azure portal, select **All resources**.
 
-3. Select your Device Provisioning Service.
+3. Select your Device Provisioning Service instance.
 
-4. In the **Settings** menu, select **Manage enrollments**.
+4. In the resource menu, under **Settings**, select **Manage enrollments**.
 
 5. Select the **Individual enrollments** tab.
 
@@ -950,7 +950,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 2. Select your IoT hub.
 
-3. In the **Device management** menu, select **Devices**.
+3. In the resource menu, under **Device management**, select **Devices**.
 
 4. Select the check box next to the device ID of the device you registered in this quickstart.
 
@@ -961,4 +961,4 @@ If you plan to continue working on and exploring the device client sample, don't
 In this quickstart, you provisioned a single device to your IoT hub using an individual enrollment. Next, learn how to provision multiple devices across multiple hubs.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Manage IoT hub assignment with custom allocation policies](tutorial-custom-allocation-policies.md)
+> [Tutorial: Use custom allocation policies with Device Provisioning Service (DPS)](tutorial-custom-allocation-policies.md)
