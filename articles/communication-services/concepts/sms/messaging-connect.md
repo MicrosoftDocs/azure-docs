@@ -20,7 +20,7 @@ ms.custom: references_regions
 
 ## Introduction
 
-Welcome to Messaging connect, a new way to deliver Short Message Service (SMS) globally with Azure Communication Services. It integrates trusted telecom partners so you can lease numbers and meet local regulatory requirements while continuing to use the familiar Azure Communication Services: unified APIs, strong observability, and deep integration across Microsoft services.
+Welcome to Messaging Connect, a new way to deliver Short Message Service (SMS) globally with Azure Communication Services. It integrates trusted partners so you can lease numbers and meet local regulatory requirements while continuing to use the familiar Azure Communication Services: single API endpoint, strong observability, and deep integration across Microsoft services.
 
 Instead of building and maintaining separate integrations with multiple providers, you connect once through Azure Communication Services and route traffic to global partners. The partner handles number leasing and compliance. Messaging, observability, and AI workflows remain inside your Azure environment where you already build, monitor, and scale.
 
