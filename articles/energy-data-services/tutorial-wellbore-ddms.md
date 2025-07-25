@@ -28,7 +28,7 @@ For more information about DDMS, see [DDMS concepts](concepts-ddms.md).
 * An Azure subscription
 * An instance of [Azure Data Manager for Energy](quickstart-create-microsoft-energy-data-services-instance.md) created in your Azure subscription
 * cURL command-line tool installed on your machine
-* Generate the service principal access token to call the Wellbore APIs. See [How to generate auth token](how-to-generate-auth-token.md).
+* Service principal access token to call the Wellbore APIs. See [How to generate auth token](how-to-generate-auth-token.md).
 
 ### Get details for the Azure Data Manager for Energy instance
 
@@ -44,7 +44,7 @@ Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entit
 
 ### Set up your environment
 
-Ensure you have `cURL` installed on your system. You will use it to make API calls.
+Ensure you have `cURL` installed on your system to make API calls.
 
 ## Use Wellbore DDMS APIs to work with well data records
 
