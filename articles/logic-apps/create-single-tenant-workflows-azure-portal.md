@@ -195,6 +195,10 @@ For optimal designer responsiveness and performance, review and follow these gui
    1. On the **Monitoring** tab, under **Application Insights**, set **Enable Application Insights** to **Yes**.
 
    1. For the **Application Insights** setting, either select an existing Application Insights instance, or if you want to create a new instance, select **Create new** and provide the name that you want to use.
+  
+1. On the **Authentication** tab, select the **Authentication Type** to be used when connecting to the **Host storage (AzureWebJobsStorage)** resource.
+
+   1. If you select the "Managed Identity" **Authentication Type**, you will have the specify the managed identity to be used. You can opt to create a new managed identity, which will automatically be provisioned with the required RBAC permissions to access the storage account. If you select an existing managed identity, note that you will have to manually assign the roles in the Minimum roles required column for the host storage account. It is recommended to do this before deploying your Logic App, otherwise you will see errors when you open your new logic app resource.
 
 1. After Azure validates your logic app settings, on the **Review + create** tab, select **Create**, for example:
 
