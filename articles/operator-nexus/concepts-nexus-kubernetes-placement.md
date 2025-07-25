@@ -321,4 +321,4 @@ across the NUMA-cells.
 
 ## Storage-optimized VM SKUs
 
-`NC_L46_224_v1` and `NC_L54_224_v1` are SKUs designed to enhance local storage utilization and scalability. Previously, each NAKS VM node was limited to 300 GB of local storage, leaving over 3 TB of disk space per node unused. With these SKUs, NAKS nodes can access up to 1.6 TB of local disk space on the compute node.
+`NC_L46_224_v1` and `NC_L54_224_v1` are SKUs designed to enhance local storage utilization and scalability by giving a NAKS node access up to 1.6 TB of disk space for local use.  This is to support workload that requires large amount of local disk space, more than the typical 300 GB allocated by other SKUs.
