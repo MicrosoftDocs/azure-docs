@@ -1,7 +1,7 @@
 ---
 title: Create template - Visual Studio Code
 description: Use Visual Studio Code and the Azure Resource Manager tools extension to work on Azure Resource Manager templates (ARM templates).
-ms.date: 01/29/2025
+ms.date: 07/23/2025
 ms.topic: quickstart
 ms.custom: mode-ui, devx-track-arm-template
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
@@ -9,9 +9,11 @@ ms.custom: mode-ui, devx-track-arm-template
 
 # Quickstart: Create ARM templates with Visual Studio Code
 
-The Azure Resource Manager Tools for Visual Studio Code provide language support, resource snippets, and resource autocompletion. These tools help you create and validate Azure Resource Manager templates (ARM templates). Because of these features, we recommend using these tools to create and configure ARM templates. In this quickstart, you use the extension to create an ARM template from scratch. While doing so, you experience the extension's capabilities, such as ARM template snippets, validation, completions, and parameter file support.
+In this Quickstart, you use the Azure Resource Manager Tools extension for Visual Studio Code to create and validate Azure Resource Manager templates (ARM templates). These tools provide language support, resource snippets, and resource autocompletion to help you build and configure ARM templates efficiently. While following this guide, you will experience the extension's capabilities, such as ARM template snippets, validation, completions, and parameter file support.
 
 This quickstart focuses on using the Visual Studio Code extension to build the ARM template. For a tutorial that is more focused on syntax, see [Tutorial: Create and deploy your first ARM template](./template-tutorial-create-first-template.md).
+
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 To complete this quickstart, you need [Visual Studio Code](https://code.visualstudio.com/), with the [Azure Resource Manager tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) installed. You also need either the [Azure CLI](/cli/azure/) or the [Azure PowerShell module](/powershell/azure/new-azureps-module-az) installed and authenticated.
 
@@ -32,7 +34,17 @@ Select `arm!` to create a template scoped for an Azure resource group deployment
 
 This snippet creates the basic building blocks for an ARM template.
 
-:::image type="content" source="./media/quickstart-create-templates-use-visual-studio-code/2.png" alt-text="Screenshot showing a fully scaffolded ARM template.":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "functions": [],
+  "variables": {},
+  "resources": [],
+  "outputs": {}
+}
+```
 
 Notice that the Visual Studio Code language mode changed from *JSON* to *Azure Resource Manager Template*. The extension includes a language server specific to ARM templates that provides template-specific validation, completion, and other language services.
 
@@ -48,7 +60,22 @@ Place the cursor in the template **resources** block, type `storage`, and select
 
 This action adds a storage resource to the template.
 
-:::image type="content" source="./media/quickstart-create-templates-use-visual-studio-code/5.png" alt-text="Screenshot showing an Azure Storage resource in an ARM template.":::
+```json
+"resources": [{
+  "name": "storageaccount1",
+  "type": "Microsoft.Storage/storageAccounts",
+  "apiVersion": "2023-05-01",
+  "tags": {
+    "displayName": "storageaccount1"
+  },
+  "location": "[resourceGroup().location]",
+  "kind": "StorageV2",
+  "sku": {
+    "name": "Premium_LRS",
+    "tier": "Premium"
+  }
+}],
+```
 
 Use the **tab** key to tab through configurable properties on the storage account.
 
@@ -76,11 +103,31 @@ Place your cursor in the parameters block, add a carriage return, type `"`, and 
 
 Update the name of the parameter to `storageAccountName` and the description to `Storage account name`.
 
-:::image type="content" source="./media/quickstart-create-templates-use-visual-studio-code/10.png" alt-text="Screenshot showing the completed parameter in an ARM template.":::
+```json
+"parameters": {
+  "storageAccountName": {
+    "type": "string",
+    "metadata": {
+      "description": "Storage account name"
+    }
+  }
+},
+```
 
 Azure storage account names have a minimum length of three characters and a maximum of 24. Add both `minLength` and `maxLength` to the parameter and provide appropriate values.
 
-:::image type="content" source="./media/quickstart-create-templates-use-visual-studio-code/11.png" alt-text="Screenshot showing minLength and maxLength being added to an ARM template parameter.":::
+```json
+"parameters": {
+  "storageAccountName": {
+    "type": "string",
+    "metadata": {
+      "description": "Storage account name"
+    },
+    "minLength": 3,
+    "maxLength": 24
+  }
+},
+```
 
 Now, on the storage resource, update the name property to use the parameter. To do so, remove the current name. Enter a double quote and an opening square bracket `[`, which produces a list of ARM template functions. Select *parameters* from the list.
 

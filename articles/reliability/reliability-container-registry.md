@@ -26,7 +26,6 @@ For production workloads, we recommend that you:
 - Enable zone redundancy to protect against zone-level failures within a region.
 - For multi-region scenarios, configure geo-replication to distribute your registry across multiple regions based on your specific geographic and compliance requirements.
 
-
 ## Reliability architecture overview
 
 Azure Container Registry is built on Azure's distributed infrastructure to provide high availability and data durability. The service consists of several key components that work together to ensure reliability. The following diagram illustrates the core service architecture:
@@ -52,8 +51,6 @@ Azure Container Registry also supports *tasks*, which can help you to automate y
 > [!NOTE]
 > Azure Container Registry supports [connected registries](/azure/container-registry/intro-connected-registry), which are on-premises or remote replicas that synchronize with your cloud-based Azure container registry. When you use connected registries, you're responsible for configuring them to meet your reliability requirements. Connected registries are beyond the scope of this article.
 
-
-
 ## Transient faults
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
@@ -68,7 +65,7 @@ For client applications using Azure Container Registry, implement appropriate re
 
 Zone redundancy in the Premium tier of Azure Container Registry provides protection against single zone failures. Zone redundancy allows for the distributing of registry data and operations across multiple availability zones within the region. Container image pull and push operations continue to function during zone outages, with automatic failover to healthy zones.
 
-Zone redundancy provides higher availability compared to single-zone deployments without requiring configuration changes to your container workloads.
+Once enabled, zone redundancy provides higher availability compared to single-zone deployments without requiring configuration changes to your container workloads.
 
 ### Region support
  
@@ -78,7 +75,7 @@ If availability zones are added to an existing region, any previously created re
 
 ### Requirements
 
-You must use the Premium tier to enable zone redundancy. Zone redundancy is automatically enabled when you create a Premium registry in a region that supports availability zones - no configuration is required.
+You must use the Premium tier to enable zone redundancy.
 
 ### Considerations
 
@@ -90,9 +87,7 @@ Zone redundancy is included with Premium tier registries at no additional cost. 
 
 ### Configure availability zone support
 
-- **Create zone-redundant registry**. To create a new zone-redundant registry, see the following resources:
-    - Azure portal: [Create a container registry using the Azure portal](/azure/container-registry/container-registry-get-started-portal)
-    - Azure CLI: [Create zone-enabled registry](/azure/container-registry/zone-redundancy#create-zone-enabled-registry)
+- **Create zone-redundant registry**. To create a new zone-redundant registry, see [Create a zone-redundant registry in Azure Container Registry](/azure/container-registry/zone-redundancy).
 
 - **Enable zone redundancy on an existing registry**. You can only configure zone redundancy when a registry is created. To get zone redundancy, you must create a new Premium registry in a supported region and migrate your container images.
 
@@ -100,9 +95,9 @@ Zone redundancy is included with Premium tier registries at no additional cost. 
 
     To migrate your artifacts between registries, you can [create a transfer pipeline](/azure/container-registry/container-registry-transfer-prerequisites). Alternatively, you can [import container images to a container registry](/azure/container-registry/container-registry-import-images).
 
-- **Disable zone redundancy**. Zone redundancy can't be disabled after it's enabled for a registry. If you need a non-zone-redundant registry, you must create a new registry and migrate your container images.
+    If your registry uses [geo-replication](#multi-region-support) and zone redundancy together, you configure zone redundancy on each regional replica. To learn how, see [Create a zone-redundant replica in Azure Container Registry](/azure/container-registry/zone-redundancy-replica). You can't change the zone redundancy setting after a geo-replication is created, except by deleting and re-creating the replication.
 
-If your registry uses [geo-replication](#multi-region-support) and zone redundancy together, you configure zone redundancy on each regional replica. You can't change the zone redundancy setting after a geo-replication is created, except by deleting and re-creating the replication.
+- **Disable zone redundancy**. Zone redundancy can't be disabled after it's enabled for a registry. If you need a non-zone-redundant registry, you must create a new registry and migrate your container images.
 
 ### Normal operations
 
@@ -166,7 +161,7 @@ You must use the Premium tier to enable geo-replication.
 
 ### Considerations
 
-- **Zone redundant registries:** When using geo-replication with zone-redundant registries, each replicated registry inherits the zone redundancy configuration of its home region, providing both zone-level and region-level protection.
+- **Zone redundant replicas:** When using geo-replication in regions that support availabilty zones, you can configure zone redundancy on each replica independently.
 
 - **Control plane:** The control plane runs in the home region. If the home region is unavailable, control plane operations are unavailable, and you might not be able to modify the registry's configuration.
 
@@ -183,6 +178,8 @@ Geo-replication can be configured during registry creation or added to existing 
 - **Create geo-replicated registry**. Configure geo-replication after registry creation by specifying additional regions.
 
 - **Enable geo-replication on an existing registry**. Upgrade existing Basic or Standard tier registries to Premium tier to enable geo-replication capabilities. You can change the replication regions at any time. For detailed instructions, see [Configure geo-replication](/azure/container-registry/container-registry-geo-replication#configure-geo-replication).
+
+    You can configure zone redundancy on each regional replica. To learn how, see [Create a zone-redundant replica in Azure Container Registry](/azure/container-registry/zone-redundancy-replica). You can't change the zone redundancy setting after a geo-replication is created, except by deleting and re-creating the replication.
 
 - **Disable geo-replication**. Remove individual regional replicas through the Azure portal or command-line tools. The home region registry can't be removed.
 

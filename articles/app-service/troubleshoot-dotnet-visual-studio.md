@@ -628,7 +628,7 @@ For help with a specific troubleshooting question, start a thread in one of the 
 * [StackOverflow.com](https://www.stackoverflow.com).
 
 ### Debugging in Visual Studio
-For more information about how to use debug mode in Visual Studio, see [Debugging in Visual Studio](/visualstudio/debugger/debugging-in-visual-studio) and [Debugging Tips with Visual Studio 2010](https://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
+For more information about how to use debug mode in Visual Studio, see [Debugging in Visual Studio](/visualstudio/debugger/debugging-in-visual-studio) and [Debugging Tips with Visual Studio 2010](https://asp-blogs.azurewebsites.net/scottgu/debugging-tips-with-visual-studio-2010).
 
 ### Remote debugging in Azure
 For more information about remote debugging for App Service apps and WebJobs, see the following resources:

@@ -39,7 +39,7 @@ Each API Management [pricing tier](api-management-key-concepts.md#api-management
 | Autoscaling                                                    | No         | No       | Yes   | No      | Yes      | No      |Yes     | No |
 | API analytics                                     | No          | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     | Yes |
 | [Self-hosted gateway](self-hosted-gateway-overview.md)<sup>3</sup>                           | No          | Yes       | No    | No       | No       | No       | Yes     | No |
-| [Workspaces](workspaces-overview.md)                                                         | No          | No       | No    | No     | No     | No       | Yes     |  No |
+| [Workspaces](workspaces-overview.md)                                                         | No          | No       | No    | No     | No     | No       | Yes     |  Yes |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md)                             | Yes         | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     | Yes |
 | [Client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) | Yes         | Yes       | Yes   | Yes      | Yes     | Yes      |Yes     | Yes |
 | [Policies](api-management-howto-policies.md)<sup>4</sup> | Yes         | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     | Yes |

@@ -148,6 +148,12 @@ items:
           href: tutorial-ai-openai-search-nodejs.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-expressjs.md
+        - name: Add MCP server to app
+          href: tutorial-ai-model-context-protocol-server-node.md
+        - name: AI Foundry Agent calling web app
+          href: tutorial-ai-integrate-azure-ai-agent-node.md
+        - name: Agentic web app
+          href: tutorial-ai-agent-web-app-langgraph-foundry-node.md
   - name: Python
     items:
     - name: Quickstart

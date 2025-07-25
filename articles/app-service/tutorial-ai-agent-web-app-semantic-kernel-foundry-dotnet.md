@@ -36,7 +36,7 @@ Both Semantic Kernel and Azure AI Foundry Agent Service enable you to build agen
 | Performance        | Fast (runs locally)            | Slower (managed, remote service)       |
 | Development        | Full code, maximum control     | Low code, rapid integration            |
 | Testing            | Manual/unit tests in code      | Built-in playground for quick testing  |
-| Scalability        | App-managed                    | Azure-managed, auto-scaled             |
+| Scalability        | App-managed                    | Azure-managed, autoscaled             |
 
 In this tutorial, you learn how to:
 
@@ -104,7 +104,7 @@ The OpenAPI code is defined in *Program.cs*. For example, the "get tasks" API de
 
 ## Deploy the sample application
 
-The sample respository contains an Azure Developer CLI (AZD) template, which creates an App Service app with managed identity and deploys your sample application.
+The sample repository contains an Azure Developer CLI (AZD) template, which creates an App Service app with managed identity and deploys your sample application.
 
 1. In the terminal, log into Azure using Azure Developer CLI:
 
