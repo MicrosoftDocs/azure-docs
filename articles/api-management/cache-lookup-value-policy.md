@@ -49,7 +49,20 @@ Use the `cache-lookup-value` policy to perform cache lookup by key and return a 
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
+
+### Usage notes
+
+- API Management only caches responses to HTTP GET requests.
+- This policy can only be used once in a policy section.
+- This policy is not supported with policy fragments.
+- [!INCLUDE [api-management-cache-rate-limit](../../includes/api-management-cache-rate-limit.md)]
+
 ## Example
+
+This example shows how to use the `cache-lookup-value` policy to retrieve a user profile from the cache. The key for the cache lookup is constructed using a policy expression that combines a string with the value of the `enduserid` context variable. [!INCLUDE [api-management-cache-availability](../../includes/api-management-cache-availability.md)]
+
+See a [cache-store-value](cache-store-value-policy.md#example) example to store the user profile in the cache.
+
 
 ```xml
 <cache-lookup-value
