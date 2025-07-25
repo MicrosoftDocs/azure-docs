@@ -1,7 +1,7 @@
 ---
 title: Azure Application Security Groups Overview
 titlesuffix: Azure Virtual Network
-description: Learn how application security groups in Azure Virtual Network enable you to configure network security policies, group virtual machines, and simplify network management at scale.
+description: Learn how application security groups enable you to configure network security policies and group virtual machines.
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
@@ -22,25 +22,25 @@ In the previous picture, *NIC1* and *NIC2* are members of the *AsgWeb* applicati
 
 This rule is needed to allow traffic from the internet to the web servers. Because inbound traffic from the internet is denied by the **DenyAllInbound** default security rule, no extra rule is needed for the *AsgLogic* or *AsgDb* application security groups.
 
-|Priority|Source|Source ports| Destination | Destination ports | Protocol | Access |
-|---|---|---|---|---|---|---|
-| 100 | Internet | * | AsgWeb | 80 | TCP | Allow |
+| Priority | Source   | Source ports | Destination | Destination ports | Protocol | Access |
+|----------|----------|--------------|-------------|-------------------|----------|--------|
+| 100      | Internet | *            | AsgWeb      | 80                | TCP      | Allow  |
 
 ## Deny-Database-All
 
 Because the **AllowVNetInBound** default security rule allows all communication between resources in the same virtual network, you need this rule to deny traffic from all resources.
 
-|Priority|Source|Source ports| Destination | Destination ports | Protocol | Access |
-|---|---|---|---|---|---|---|
-| 120 | * | * | AsgDb | 1433 | Any | Deny |
+| Priority | Source | Source ports | Destination | Destination ports | Protocol | Access |
+|----------|--------|--------------|-------------|-------------------|----------|--------|
+| 120      | *      | *            | AsgDb       | 1433              | Any      | Deny   |
 
 ## Allow-Database-BusinessLogic
 
 This rule allows traffic from the *AsgLogic* application security group to the *AsgDb* application security group. The priority for this rule is higher than the priority for the *Deny-Database-All* rule. As a result, this rule is processed before the *Deny-Database-All* rule, so traffic from the *AsgLogic* application security group is allowed, whereas all other traffic is blocked.
 
-|Priority|Source|Source ports| Destination | Destination ports | Protocol | Access |
-|---|---|---|---|---|---|---|
-| 110 | AsgLogic | * | AsgDb | 1433 | TCP | Allow |
+| Priority | Source   | Source ports | Destination | Destination ports | Protocol | Access |
+|----------|----------|--------------|-------------|-------------------|----------|--------|
+| 110      | AsgLogic | *            | AsgDb       | 1433              | TCP      | Allow  |
 
 Network interfaces that are members of the application security group apply the network security group rules that specify it as the source or destination. The network security group rules don't affect other network interfaces. If the network interface isn't a member of an application security group, the rule doesn't apply to the network interface, even though the network security group is associated to the subnet.
 
