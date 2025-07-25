@@ -90,7 +90,7 @@ This article provides step-by-step guidance for using connectors with Bring Your
 ### Related connectors
 
 - [Amazon Redshift (version 2.0 (Preview))](connector-amazon-redshift.md)
-- [Netezza (version 2.0 (Preview))](connector-netezza.md)
+- [Netezza (version 2.0)](connector-netezza.md)
 - [Vertica (version 2.0)](connector-vertica.md)
 
 ## Related content

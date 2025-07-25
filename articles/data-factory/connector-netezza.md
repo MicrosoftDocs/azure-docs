@@ -18,7 +18,7 @@ This article outlines how to use Copy Activity in Azure Data Factory or Synapse 
 >For data migration scenario from Netezza to Azure, learn more from [Migrate data from on-premises Netezza server to Azure](data-migration-guidance-netezza-azure-sqldw.md).
 
 > [!IMPORTANT]
-> The Netezza connector version 2.0 (Preview) provides improved native Netezza support. If you are using the Netezza connector version 1.0 in your solution, please [upgrade your Netezza connector](#upgrade-the-netezza-connector) before **September 30, 2025**. Refer to this [section](#differences-between-netezza-version-20-and-version-10) for details on the difference between version 2.0 (Preview) and version 1.0.
+> The Netezza connector version 2.0 provides improved native Netezza support. If you are using the Netezza connector version 1.0 in your solution, please [upgrade your Netezza connector](#upgrade-the-netezza-connector) before **September 30, 2025**. Refer to this [section](#differences-between-netezza-version-20-and-version-10) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 
@@ -41,7 +41,7 @@ This Netezza connector supports:
 
 The service provides a built-in driver to enable connectivity. You don't need to manually install any driver to use this connector.
 
-For version 2.0 (Preview), you need to [install a IBM Netezza ODBC driver](#install-netezza-odbc-driver-for-the-version-20) manually. For version 1.0, the service provides a built-in driver to enable connectivity. You don't need to manually install any driver to use this connector.
+For version 2.0, you need to [install a IBM Netezza ODBC driver](#install-netezza-odbc-driver-for-the-version-20) manually. For version 1.0, the service provides a built-in driver to enable connectivity. You don't need to manually install any driver to use this connector.
 
 ## Prerequisites
 
@@ -55,9 +55,9 @@ If your data store is a managed cloud data service, you can use the Azure Integr
 
 You can also use the [managed virtual network integration runtime](tutorial-managed-virtual-network-on-premise-sql-server.md) feature in Azure Data Factory to access the on-premises network without installing and configuring a self-hosted integration runtime.
 
-### <a name="install-netezza-odbc-driver-for-the-version-20"></a> Install Netezza ODBC driver for the version 2.0 (Preview)
+### <a name="install-netezza-odbc-driver-for-the-version-20"></a> Install Netezza ODBC driver for the version 2.0
 
-To use Netezza connector with version 2.0 (Preview), [install the IBM Netezza ODBC driver](https://knowledge.informatica.com/s/article/HOW-TO-Download-the-Netezza-ODBC-driver?language=en_US) version 11.02.02 or higher on the machine running the self-hosted Integration runtime.
+To use Netezza connector with version 2.0, [install the IBM Netezza ODBC driver](https://knowledge.informatica.com/s/article/HOW-TO-Download-the-Netezza-ODBC-driver?language=en_US) version 11.02.02 or higher on the machine running the self-hosted Integration runtime.
 
 ## Get started
 
@@ -92,14 +92,14 @@ The following sections provide details about properties you can use to define en
 
 ## Linked service properties
 
-The Netezza connector now supports version 2.0 (Preview). Refer to this [section](#upgrade-the-netezza-connector) to upgrade your Netezza connector version from version 1.0. For the property details, see the corresponding sections.
+The Netezza connector now supports version 2.0. Refer to this [section](#upgrade-the-netezza-connector) to upgrade your Netezza connector version from version 1.0. For the property details, see the corresponding sections.
 
-- [Version 2.0 (Preview)](#version-20)
+- [Version 2.0](#version-20)
 - [Version 1.0](#version-10)
 
-### <a name="version-20"></a> Version 2.0 (Preview)
+### <a name="version-20"></a> Version 2.0
 
-The Netezza linked service supports the following properties when apply version 2.0 (Preview):
+The Netezza linked service supports the following properties when apply version 2.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -334,7 +334,7 @@ You are suggested to enable parallel copy with data partitioning especially when
 
 When you copy data from Netezza, the following mappings apply from Netezza's data types to the internal data types used by the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| Netezza data type | Interim service data type (for version 2.0 (Preview)) | Interim service data type (for version 1.0) |
+| Netezza data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
 |:--- |:--- |:--- |
 | BOOLEAN | Boolean | Boolean |
 | CHAR | String | String |
@@ -365,13 +365,13 @@ The following table shows the release stage and change logs for different versio
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
 | Version 1.0 | End of support announced | / |  
-| Version 2.0 (Preview) | Preview version available | • Only support the self-hosted integration runtime. <br><br>• BYTEINT is read as Int16 data type. <br><br> • DATE is read as Date data type. <br><br>• TIME is read as Time data type. <br><br>• INTERVAL is not supported.|
+| Version 2.0 | GA version available | • Only support the self-hosted integration runtime. <br><br>• BYTEINT is read as Int16 data type. <br><br> • DATE is read as Date data type. <br><br>• TIME is read as Time data type. <br><br>• INTERVAL is not supported.|
 
-### <a name="upgrade-the-netezza-connector"></a> Upgrade the Netezza connector from version 1.0 to version 2.0 (Preview)
+### <a name="upgrade-the-netezza-connector"></a> Upgrade the Netezza connector from version 1.0 to version 2.0
 
-1. In **Edit linked service** page, select 2.0 (Preview) for version. For more information, see [linked service version 2.0 (Preview) properties](#version-20).
-1. The data type mapping for the Netezza linked service version 2.0 (Preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Netezza](#data-type-mapping-for-netezza).
-1. Only support the self-hosted integration runtime. Azure integration runtime is not supported by version 2.0 (Preview).
+1. In **Edit linked service** page, select 2.0 for version. For more information, see [linked service version 2.0 properties](#version-20).
+1. The data type mapping for the Netezza linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Netezza](#data-type-mapping-for-netezza).
+1. Only support the self-hosted integration runtime. Azure integration runtime is not supported by version 2.0.
 
 ## Related content
 
