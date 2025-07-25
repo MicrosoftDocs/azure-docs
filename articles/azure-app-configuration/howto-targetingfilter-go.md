@@ -760,6 +760,14 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
 
 ## Next steps
 
+To learn more about the feature filters, continue to the following documents.
+
+> [!div class="nextstepaction"]
+> [Enable conditional features with feature filters](./howto-feature-filters.md)
+
+> [!div class="nextstepaction"]
+> [Enable features on a schedule](./howto-timewindow-filter-aspnet-core.md)
+
 For more information about the Go Feature Management library, continue to the following document:
 
 > [!div class="nextstepaction"]
