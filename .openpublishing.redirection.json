@@ -1,6 +1,41 @@
 {
   "redirections": [
     {
+      "source_path": "articles/expressroute/expressroute-troubleshooting-arp-classic.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-troubleshooting-arp-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-howto-circuit-classic.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-circuit-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-howto-routing-classic.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-routing-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-howto-linkvnet-classic.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-linkvnet-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-howto-move-arm.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-move-arm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-move.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-move",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-migration-classic-resource-manager.md",
+      "redirect_url": "/previous-versions/azure/expressroute/expressroute-migration-classic-resource-manager",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/api-center/discover-shadow-apis-dev-proxy.md",
       "redirect_url": "/previous-versions/azure/api-center/discover-shadow-apis-dev-proxy",
       "redirect_document_id": false

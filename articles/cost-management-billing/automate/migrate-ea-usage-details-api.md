@@ -59,7 +59,7 @@ Our new solutions provide many benefits over the EA Reporting Usage Details APIs
 
 ## Enterprise Usage APIs to migrate off
 
-The following table summarizes the different APIs that you might be using today to ingest cost details data. If you're using one of the following APIs, you need to migrate to one of the new solutions outlined previously. All APIs are behind the *https://consumption.azure.com* endpoint.
+The following table summarizes the different APIs that you might be using today to ingest cost details data. If you're using one of the following APIs, you need to migrate to one of the new solutions outlined previously. All APIs are behind the `https://consumption.azure.com` endpoint.
 
 | Endpoint | API Comments | 
 | --- | ---|
