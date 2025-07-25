@@ -198,8 +198,6 @@ For optimal designer responsiveness and performance, review and follow these gui
   
 1. On the **Authentication** tab, for **Authentication Type**, select the authentication to use for connecting to the host storage account resource (**Host storage (AzureWebJobsStorage)**).
 
-   1. If you select the "Managed Identity" **Authentication Type**, you will have the specify the managed identity to be used. You can opt to create a new managed identity, which will automatically be provisioned with the required RBAC permissions to access the storage account. Note that after you create your Logic App, you may have to wait a couple minutes for the required RBAC permissions to propogate to your new managed identity. Then, you can restart your Logic App. 
-
    > [!IMPORTANT]
 	   >
 	   > If you select **Managed Identity** for authentication, you must specify the managed identity to use. 
@@ -207,7 +205,8 @@ For optimal designer responsiveness and performance, review and follow these gui
 	   >
 	   > - You can choose to create a new managed identity, which is created automatically with 
 	   > the role-based access permissions to access the host storage account for your logic app.
-     > You may have to wait a couple minutes and restart your logic app once the permissions propogate to your new managed identity.
+     	   > You may have to wait a couple minutes and restart your logic app once the permissions
+   	   > propogate to your new managed identity.
 	   >
 	   > - Or, if you select an existing managed identity, you must manually assign the roles in the 
 	   > **Minimum roles required column** to the managed identity on the host storage account. 
