@@ -1035,6 +1035,7 @@ The following example shows how to use `min` with an array and a list of integer
     }
   }
 }
+```
 
 The output of default values from the preceding example is:
 

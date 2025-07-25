@@ -288,6 +288,7 @@ The following example shows how to combine two arrays:
     }
   }
 }
+```
 
 The output of default values from the preceding example is:
 
