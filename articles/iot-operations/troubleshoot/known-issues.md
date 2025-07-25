@@ -122,12 +122,34 @@ This section lists current known issues for the connector for OPC UA.
 Issue ID: 7518
 
 ---
+    
+    Log signature: N/A
+    
+    ---
 
-Log signature: N/A
+When you add a new asset with a new asset endpoint profile to the OPC UA broker and trigger a reconfiguration, the deployment of the `opc.tcp` pods changes to accommodate the new secret mounts for username and password. If the new mount fails for some reason, the pod doesn't restart and therefore the old flow for the correctly configured assets stops as well.
+
+### An OPC UA server modelled as a device can only have one inbound endpoint of type "Microsoft.OpcUa"
 
 ---
 
-When you add a new asset with a new asset endpoint profile to the OPC UA broker and trigger a reconfiguration, the deployment of the `opc.tcp` pods changes to accommodate the new secret mounts for username and password. If the new mount fails for some reason, the pod doesn't restart and therefore the old flow for the correctly configured assets stops as well.
+Issue ID: 6513
+
+---
+
+`2025-07-24T13:29:30.280Z aio-opc-supervisor-85b8c78df5-26tn5 - Maintaining the new asset test-opcua-asset | - | 1 is skipped because the endpoint profile test-opcua.opcplc-e2e-anon-000000 is not present`
+
+---
+
+When you create an OPC UA device, you can only have one inbound endpoint of type `Microsoft.OpcUa`. Currently, any additional endpoints aren't used used.
+
+Workaround: Create multiple devices with a single endpoint each if you want to use namespace assets.
+
+A OPC UA namespaced asset can only have a single dataset, additional datasets aren't used.
+
+Workaround: Create multiple namespace assets each with a single dataset.
+
+
 
 ### Data spike every 2.5 hours with some OPC UA simulators
 
