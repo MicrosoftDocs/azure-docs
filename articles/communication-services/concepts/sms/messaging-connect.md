@@ -40,7 +40,7 @@ Global SMS is inherently complex: regulations differ by country, sender types va
 
 Provisioning flow (high level):
 
-1. In the Azure portal, search for an SMS number type/country.
+1. In the Azure portal, go to the Messaging Connect blade
 
 2. If Azure Communication Services can’t provision directly, you’re prompted to choose a Messaging Connect partner.
 
