@@ -13,7 +13,7 @@ ms.custom:
 
 # Security best practices for deploying the Azure Migrate appliance
 
-[Azure Migrate](./migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, along with offerings from other software development companies.
+[Azure Migrate](./migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure.
 
 This article summarizes the best practices to follow when you're deploying the Azure Migrate appliance. These best practices help ensure the security of your migration.
 
