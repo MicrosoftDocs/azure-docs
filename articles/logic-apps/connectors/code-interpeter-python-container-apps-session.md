@@ -94,7 +94,7 @@ This article shows how to set up and use various **Code Interpreter (Python Cont
 
     1. On the **Manage Files** pane, select **Upload File**, and provide the file to upload.
 
-- A Standard logic app resource and an agent workflow.
+- A Standard logic app resource and an agent workflow. Make sure that you set up a connection between the **Default Agent** action and an AI model to use for code generation.
 
   To create this workflow, see [Create workflows that use AI agents and models to complete tasks in Azure Logic Apps](../create-agent-workflows.md).
 
