@@ -99,11 +99,11 @@ You have up to 15 days to commit after migration preparation. Use this time to v
 
 Azure Advisor notifications will alert you if your gateway requires migration. Attempting to migrate an ineligible gateway will result in an error. For more details, see [Troubleshooting Gateway Migration](gateway-migration-error-messaging.md).
 
-### Can I roll-back this change?
-Yes, until it is committed. The migration is comprised of four major steps:​
+### Can I roll back this change?
+Yes, until it is committed. The migration is composed of four major steps:​
 
 1. Validate – Confirms if your gateway is eligible for migration. ​
-No changes at this stage; nothing to roll-back​
+No changes at this stage; nothing to roll back​
 
 2. Prepare – Creates a new Virtual Network Gateway with the desired configuration. ​
 The process can be aborted after step 2 and the new gateway will be deleted.​
