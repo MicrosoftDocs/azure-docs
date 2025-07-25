@@ -196,7 +196,7 @@ For optimal designer responsiveness and performance, review and follow these gui
 
    1. For the **Application Insights** setting, either select an existing Application Insights instance, or if you want to create a new instance, select **Create new** and provide the name that you want to use.
   
-1. On the **Authentication** tab, select the **Authentication Type** to be used when connecting to the **Host storage (AzureWebJobsStorage)** resource.
+1. On the **Authentication** tab, for **Authentication Type**, select the authentication to use for connecting to the host storage account resource (**Host storage (AzureWebJobsStorage)**).
 
    1. If you select the "Managed Identity" **Authentication Type**, you will have the specify the managed identity to be used. You can opt to create a new managed identity, which will automatically be provisioned with the required RBAC permissions to access the storage account. Note that after you create your Logic App, you may have to wait a couple minutes for the required RBAC permissions to propogate to your new managed identity. Then, you can restart your Logic App. 
 
