@@ -6943,7 +6943,14 @@
       "source_path": "articles/signups/startup-programs.md",
       "redirect_url": "/azure/signups/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/migrate-app-gateway-v2.md",
+      "redirect_url": "/azure/reliability/reliability-application-gateway-v2",
+      "redirect_document_id": false
     }
+
+    
     
   ]
 }
