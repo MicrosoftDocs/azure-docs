@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 07/28/2025
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
-#customer intent: As a cloud developer, I want to connect my cloud services toAzure OpenAI in Foundry Models using Service Collector.
+#customer intent: As a cloud developer, I want to connect my compute services toAzure OpenAI in Foundry Models using Service Connector.
 ---
 
 # Connect to Azure OpenAI in Foundry Models using Service Connector
