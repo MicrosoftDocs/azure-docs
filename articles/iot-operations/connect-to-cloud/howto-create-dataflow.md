@@ -62,7 +62,7 @@ To learn how to configure a new data flow profile, see [Configure data flow prof
 
 ### Data flow endpoints
 
-Data flow endpoints are required to configure the source and destination for the data flow. To get started quickly, you can use the [default data flow endpoint for the local MQTT broker](./howto-configure-mqtt-endpoint.md#default-endpoint). You can also create other types of data flow endpoints like Kafka, Event Hubs, or Azure Data Lake Storage. To learn how to configure each type of data flow endpoint, see [Configure data flow endpoints](howto-configure-dataflow-endpoint.md).
+Data flow endpoints are required to configure the source and destination for the data flow. To get started quickly, you can use the [default data flow endpoint for the local MQTT broker](./howto-configure-mqtt-endpoint.md#default-endpoint). You can also create other types of data flow endpoints like Kafka, Event Hubs, OpenTelemetry, or Azure Data Lake Storage. To learn how to configure each type of data flow endpoint, see [Configure data flow endpoints](howto-configure-dataflow-endpoint.md).
 
 ## Get started
 
@@ -1291,7 +1291,7 @@ Similar to data sources, data destination is a concept that is used to keep the 
 
 | Endpoint type | Data destination meaning | Description |
 | - | - | - |
-| MQTT (or Event Grid) | Topic | The MQTT topic where the data is sent. Only static topics are supported, no wildcards. |
+| MQTT (or Event Grid) | Topic | The MQTT topic where the data is sent. Supports both static topics and dynamic topic translation using variables like `${inputTopic}` and `${inputTopic.index}`. For more information, see [Dynamic destination topics](#dynamic-destination-topics). |
 | Kafka (or Event Hubs) | Topic | The Kafka topic where the data is sent. Only static topics are supported, no wildcards. If the endpoint is an Event Hubs namespace, the data destination is the individual event hub within the namespace. |
 | Azure Data Lake Storage | Container | The container in the storage account. Not the table. |
 | Microsoft Fabric OneLake | Table or Folder | Corresponds to the configured [path type for the endpoint](howto-configure-fabric-endpoint.md#onelake-path-type). |
@@ -1337,6 +1337,18 @@ Or, if you have custom event hub endpoint, the configuration would look like:
   }
 }
 ```
+
+For MQTT endpoints, you can also use dynamic topic variables. For example, to route messages from `factory/1/data` to `processed/factory/1`:
+
+```json
+{
+  "destinationSettings": {
+    "endpointRef": "default",
+    "dataDestination": "processed/factory/${inputTopic.2}"
+  }
+}
+```
+
 # [Bicep](#tab/bicep)
 
 The syntax is the same for all data flow endpoints:
@@ -1375,6 +1387,15 @@ destinationSettings: {
 }
 ```
 
+For MQTT endpoints, you can also use dynamic topic variables:
+
+```bicep
+destinationSettings: {
+  endpointRef: 'default'
+  dataDestination: 'processed/factory/${inputTopic.2}'
+}
+```
+
 # [Kubernetes (preview)](#tab/kubernetes)
 
 The syntax is the same for all data flow endpoints:
@@ -1409,7 +1430,29 @@ destinationSettings:
   dataDestination: my-container
 ```
 
+For MQTT endpoints, you can also use dynamic topic variables:
+
+```yaml
+destinationSettings:
+  endpointRef: default
+  dataDestination: processed/factory/${inputTopic.2}
+```
+
 ---
+
+### Dynamic destination topics
+
+For MQTT endpoints, you can use dynamic topic variables in the `dataDestination` field to route messages based on the source topic structure. The following variables are available:
+
+- `${inputTopic}` - The full original input topic
+- `${inputTopic.index}` - A segment of the input topic (index starts at 1)
+
+For example, `processed/factory/${inputTopic.2}` routes messages from `factory/1/data` to `processed/factory/1`. Topic segments are 1-indexed, and leading/trailing slashes are ignored.
+
+If a topic variable cannot be resolved (for example, `${inputTopic.5}` when the input topic only has 3 segments), the message is dropped and a warning is logged. Wildcard characters (`#` and `+`) are not allowed in destination topics.
+
+> [!NOTE]
+> The characters `$`, `{`, and `}` are valid in MQTT topic names, so a topic like `factory/$inputTopic.2` is acceptable but incorrect if you intended to use the dynamic topic variable.
 
 ## Example
 
@@ -1503,6 +1546,35 @@ Here's an example command to create or update a data flow using the default data
 ```azurecli
 az iot ops dataflow apply --resource-group myResourceGroup --instance myAioInstance --profile default --name data-flow --config-file ~/data-flow.json
 ```
+
+Here's another example using dynamic topic translation to route messages from different thermostats to device-specific topics:
+
+```json
+{
+    "mode": "Enabled",
+    "operations": [
+      {
+        "operationType": "Source",
+        "sourceSettings": {
+          "dataSources": [
+            "thermostats/+/sensor/temperature"
+          ],
+          "endpointRef": "default",
+          "serializationFormat": "Json"
+        }
+      },
+      {
+        "destinationSettings": {
+          "dataDestination": "processed/device/${inputTopic.2}/temperature",
+          "endpointRef": "default"
+        },
+        "operationType": "Destination"
+      }
+    ]
+}
+```
+
+This configuration processes messages from `thermostats/device1/sensor/temperature` and sends them to `processed/device/device1/temperature`.
 
 # [Bicep](#tab/bicep)
 
@@ -1714,6 +1786,7 @@ To ensure the data flow is working as expected, verify the following:
 - When using Event Hubs as the source, each event hub in the namespace is a separate Kafka topic and must be specified as the data source.
 - Transformation, if used, is configured with proper syntax, including proper [escaping of special characters](./concept-dataflow-mapping.md#escaping).
 - When using storage type endpoints as destination, a [schema is specified](#serialize-data-according-to-a-schema).
+- When using dynamic destination topics for MQTT endpoints, ensure that topic variables reference valid segments.
 
 ## Next steps
 

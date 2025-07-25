@@ -11,8 +11,6 @@ Verify data is flowing to the MQTT broker by using the **mosquitto_sub** tool. I
 
 1. Run the following command to deploy a pod that includes the **mosquitto_pub** and **mosquitto_sub** tools that are useful for interacting with the MQTT broker in the cluster:
 
-    <!-- TODO: Change branch to main before merging the release branch -->
-
     ```console
     kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/mqtt-client.yaml
     ```
