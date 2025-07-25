@@ -17,7 +17,7 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Secure webhook endpoints and WebSocket connections
 
-Securing the delivery of messages from end to end is crucial for ensuring the confidentiality, integrity, and trustworthiness of sensitive information transmitted between systems. Your ability and willingness to trust information received from a remote system relies on the sender providing their identity. Call Automation has two ways of communicating events that can be secured: the shared `IncomingCall` event sent by Azure Event Grid and all other mid-call events sent by the Call Automation platform via webhook.
+Securing the delivery of messages from end to end is crucial for ensuring the confidentiality, integrity, and trustworthiness of sensitive information transmitted between systems. Your ability and willingness to trust information received from a remote system rely on the sender providing their identity. Call Automation has two ways of communicating events that can be secured: the shared `IncomingCall` event sent by Azure Event Grid and all other mid-call events sent by the Call Automation platform via webhook.
 
 ## Incoming call event
 
