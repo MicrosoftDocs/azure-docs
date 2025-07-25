@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom:
   - devx-track-bicep
   - build-2025
-ms.date: 05/09/2025
+ms.date: 07/25/2025
 ---
 
 # Bicep modules
@@ -353,7 +353,7 @@ param location string
 
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-01-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -377,7 +377,7 @@ targetScope = 'subscription'
 @maxLength(11)
 param namePrefix string
 
-resource demoRG 'Microsoft.Resources/resourceGroups@2024-03-01' existing = {
+resource demoRG 'Microsoft.Resources/resourceGroups@2025-04-01' existing = {
   name: 'demogroup1'
 }
 
@@ -411,7 +411,7 @@ param location string = deployment().location
 
 var resourceGroupName = '${namePrefix}rg'
 
-resource newRG 'Microsoft.Resources/resourceGroups@2024-03-01' = {
+resource newRG 'Microsoft.Resources/resourceGroups@2025-04-01' = {
   name: resourceGroupName
   location: location
 }
@@ -433,11 +433,11 @@ The next example deploys storage accounts to two different resource groups. Both
 ```bicep
 targetScope = 'subscription'
 
-resource firstRG 'Microsoft.Resources/resourceGroups@2024-03-01' existing = {
+resource firstRG 'Microsoft.Resources/resourceGroups@2025-04-01' existing = {
   name: 'demogroup1'
 }
 
-resource secondRG 'Microsoft.Resources/resourceGroups@2024-03-01' existing = {
+resource secondRG 'Microsoft.Resources/resourceGroups@2025-04-01' existing = {
   name: 'demogroup2'
 }
 
@@ -507,7 +507,7 @@ param location string
 
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-01-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -531,7 +531,7 @@ targetScope = 'subscription'
 @maxLength(11)
 param namePrefix string
 
-resource demoRG 'Microsoft.Resources/resourceGroups@2024-03-01' existing = {
+resource demoRG 'Microsoft.Resources/resourceGroups@2025-04-01' existing = {
   name: 'demogroup1'
 }
 
