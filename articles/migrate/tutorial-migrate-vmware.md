@@ -140,7 +140,7 @@ Enable replication as follows:
 ## Track and monitor
 
 1. Track job status in the portal notifications.
-1. Monitor replication status by selecting on the numerical value next to **Azure VM** in **Migration and modernization**. 
+2. Monitor replication status by selecting on the numerical value next to **Azure VM** in **Migration and modernization**. 
 
 ![Monitor replication](./media/tutorial-migrate-vmware/replicating-servers.png)
 
@@ -149,49 +149,50 @@ Replication occurs as follows: <br /><br />
     - During initial replication, a VM snapshot is created. Disk data from the snapshot is replicated to replica managed disks in Azure. <br /><br />
     - After initial replication finishes, delta replication begins. Incremental changes to on-premises disks are periodically replicated to the replica disks in Azure. <br /><br />
 
-1. Use PowerShell to view **Time Remaining** across **all stages of server migration** in Azure Migrate. This helps you monitor replication progress and plan cutover accurately.
-1. Open the **Azure portal**, then select the **Cloud Shell** at the top. Select **PowerShell** when prompted.
-1. Run this command in Azure Cloud Shell to monitor the migration status of the server you need.
+3. Use PowerShell to view **Time Remaining** across **all stages of server migration** in Azure Migrate. This helps you monitor replication progress and plan cutover accurately.
+4. Open the **Azure portal**, then select the **Cloud Shell** at the top. Select **PowerShell** when prompted.
+5. Run this command in Azure Cloud Shell to monitor the migration status of the server you need.
 
     ```powershell
     Run this command in Azure Cloud Shell to monitor the migration status of the server you need.
     ```
-1. Replace `your-project-name`, `your-resource-group`, and `your-server-nam` with the actual Azure Migrate project, resource group, and server name.
-1. You run this command and get the following output: 
+6. Replace `your-project-name`, `your-resource-group`, and `your-server-nam` with the actual Azure Migrate project, resource group, and server name.
+7. You run this command and get the following output: 
 
     :::image type="content" source="./media/tutorial-migrate-vmware/run-command.png" alt-text="Screenshot shows the output when you run the command." lightbox="./media/tutorial-migrate-vmware/run-command.png":::
 
-1. The output shows the server replication status, disk progress, time left, upload speed, and datastore details.
-1. You can run the command without `-MachineName` to view migration status and time remaining for all servers in the project. For example: 
+8. The output shows the server replication status, disk progress, time left, upload speed, and datastore details.
+9. You can run the command without `-MachineName` to view migration status and time remaining for all servers in the project. For example: 
 
     ```powershell
 
     Get-AzMigrateServerMigrationStatus -ProjectName "<your-project-name>" -ResourceGroupName "<your-resource-group>"
     ```
 
-1. Replace `your-project-name` and `your-resource-group` with the actual Azure Migrate project and resource group names.
-1. You run this command and get the following output:
+10. Replace `your-project-name` and `your-resource-group` with the actual Azure Migrate project and resource group names.
+11. You run this command and get the following output:
 
 :::image type="content" source="./media/tutorial-migrate-vmware/replication-status.png" alt-text="Screenshot shows the overall replication status." lightbox="./media/tutorial-migrate-vmware/replication-status.png":::
 
-1. If there is a problem with replication or cutover, the `-Health` flag shows **errors,   possible causes, and recommended actions** to troubleshoot the migration.
+12. If there is a problem with replication or cutover, the `-Health` flag shows **errors,   possible causes, and recommended actions** to troubleshoot the migration.
 
 ```powershell
     
 Get-AzMigrateServerMigrationStatus   -ProjectName "<your-project-name>"   -ResourceGroupName "<your-resource-group>"   -MachineName "<your-server-name>" -Health
 ```
-1. You run this command and get the following output:
+13. You run this command and get the following output:
+
 
     ::image type="content" source="./media/tutorial-migrate-vmware/replication-complete.png" alt-text="Screenshot shows the replicaiton complete status." lightbox="./media/tutorial-migrate-vmware/replication-complete.png":::
 
-1. You can also run the command with only `-ApplianceName` to view the migration status, time remaining, and health details for **all servers connected to that appliance**.
+14. You can also run the command with only `-ApplianceName` to view the migration status, time remaining, and health details for **all servers connected to that appliance**.
 
 ```powershell
  Get-AzMigrateServerMigrationStatus -ProjectName "<your-project-name>"   -ResourceGroupName "<your-resource-group>" -ApplianceName "<your-appliance-
  ```
-1. Replace `your-project-name`, `your-resource-group`, and `your-appliance-name` with the actual values from your Azure Migrate setup.
+15. Replace `your-project-name`, `your-resource-group`, and `your-appliance-name` with the actual values from your Azure Migrate setup.
 
-1. You run this command to get the follwoing output:
+16. You run this command to get the follwoing output: 
 
     ::image type="content" source="./media/tutorial-migrate-vmware/appliance-machine.png" alt-text="Screenshot shows azure migrate server migratoin status." lightbox="./media/tutorial-migrate-vmware/appliance-machine.png":::
 
