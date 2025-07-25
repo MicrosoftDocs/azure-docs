@@ -3,7 +3,7 @@ title: App Service Environment Overview
 description: Learn about App Service Environment, which is a fully isolated and single-tenant deployment of Azure App Service. It provides high-scale, network-secured hosting for applications in a dedicated environment.
 author: seligj95
 ms.topic: overview
-ms.date: 06/18/2024
+ms.date: 07/25/2025
 ms.update-cycle: 1095-days
 ms.author: jordanselig
 ms.custom:
@@ -162,6 +162,8 @@ App Service Environment v3 is available in the following regions:
 | Sweden South         | ✅                           |                             |
 | Switzerland North    | ✅                           | ✅                          |
 | Switzerland West     | ✅                           |                             |
+| Taiwan North         | ✅                           |                             |
+| Taiwan Northwest     | ✅                           |                             |
 | UAE Central          | ✅                           |                             |
 | UAE North            | ✅                           | ✅                         |
 | UK South             | ✅                           | ✅                          |
@@ -253,6 +255,8 @@ The following sections list the regional pricing tiers, or SKUs, availability fo
 | Sweden South         | ✅          | ✅          | ✅               |
 | Switzerland North    | ✅          | ✅          | ✅               |
 | Switzerland West     | ✅          | ✅          | ✅               | 
+| Taiwan North         | ✅          |             |                   |
+| Taiwan Northwest     | ✅          |             |                   |
 | UAE Central          | ✅          | ✅          |                   | 
 | UAE North            | ✅          | ✅          | ✅               | 
 | UK South             | ✅          | ✅          | ✅               | 
