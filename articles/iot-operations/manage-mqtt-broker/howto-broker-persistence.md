@@ -51,7 +51,7 @@ The MQTT broker uses a persistent volume (PV) to store data on disk. Two setting
 
 # [Azure portal](#tab/portal)
 
-[Screenshot placeholder: Volume and volume size configuration in Azure portal]
+:::image type="content" source="media/howto-broker-persistence/data-persistence-deploy.png" alt-text="[Screenshot showing data persistence options during deployment in the Azure portal]":::
 
 To configure volume settings in the Azure portal:
 
@@ -78,10 +78,10 @@ To configure volume settings using Azure CLI, prepare a Broker configuration fil
 }
 ```
 
-Then run the `az iot ops create` command with the `--broker-config-file` flag to deploy IoT Operations:
+Then run the [az iot ops create](/cli/azure/iot/ops?view=azure-cli-latest#az-iot-ops-create) command with the `--broker-config-file` flag to deploy IoT Operations:
 
 ```azurecli
-az iot ops create ... --broker-config-file <FILE>.json
+az iot ops create --broker-config-file <BROKER_CONFIG_FILE>.json --cluster <CLUSTER_NAME> --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP_NAME> --sr-resource-id <SCHEMA_REGISTRY_RESOURCE_ID>
 ```
 
 ---
@@ -171,6 +171,18 @@ To configure retained messages persistence using Azure CLI, add the following to
     }
   }
 }
+```
+
+Use the [az iot ops broker persist update](/cli/azure/iot/ops/broker/persist) command to update MQTT broker data persistence settings.
+
+```azurecli
+az iot ops broker persist update --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <BrokerName> --persist-mode <PersistMode>
+```
+
+Here's an example command to update custom persistence policy for retain messages:
+
+```azurecli
+az iot ops broker persist update --resource-group myResourceGroup --instance myAioInstance --name myBroker --persist-mode retain=Custom --retain-topics "sensor1" "factory/#" "groundfloor/+/temperature"
 ```
 
 ---
