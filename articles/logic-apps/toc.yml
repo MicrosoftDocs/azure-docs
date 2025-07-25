@@ -130,7 +130,7 @@ items:
     - name: Create AI agent workflows
       href: create-agent-workflows.md
     - name: Process files in AI agent workflows
-      href: ../connectors/code-interpreter-python-container-apps-session.md
+      href: connectors/code-interpreter-python-container-apps-session.md
     - name: Edit app and host settings
       href: edit-app-settings-host-settings.md
     - name: Enable stateful mode for stateless built-in connectors
