@@ -148,7 +148,7 @@ Azure Site Recovery uses this new Automation Account to manage the site recovery
 
 #### If the source disk IOPS is changed after enable replication, will it reflect during failover?
 
-The IOPS of the source Premium SSD v2 disk at the time of enable replication are copied and reflected in the failover disk. Any changes made to the IOPS of the Premium SSD v2 disk after protection, are not reflected in the failover disk. You can change the IOPS of the failed over disk in the target region after completion of failover process.
+The IOPS of the source Premium SSD v2 disk at the time of enable replication are copied and reflected in the failover disk. Any changes made to the IOPS of the Premium SSD v2 disk after protection aren't reflected in the failover disk. You can change the IOPS of the failed over disk in the target region after completion of failover process.
 
 #### What disk sector size is supported when I protect VMs with Premium SSD v2 disks?
 
