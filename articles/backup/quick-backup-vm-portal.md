@@ -56,7 +56,7 @@ To apply a backup policy to your Azure VMs, follow these steps:
 
 ## Select a VM to back up
 
-Create a simple scheduled daily backup to a Recovery Services vault.
+Create a scheduled daily backup to a Recovery Services vault.
 
 1. Under **Virtual Machines**, select **Add**.
 
@@ -162,25 +162,7 @@ Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent
 
 When no longer needed, you can disable protection on the VM, remove the restore points and Recovery Services vault, then delete the resource group and associated VM resources
 
-If you're going to continue on to a Backup tutorial that explains how to restore data for your VM, skip the steps in this section and go to [Next steps](#next-steps).
-
-1. Select the **Backup** option for your VM.
-
-2. Choose **Stop backup**.
-
-    ![Screenshot showing to stop VM backup from the Azure portal.](./media/quick-backup-vm-portal/stop-backup.png)
-
-3. Select **Delete Backup Data** from the drop-down menu.
-
-4. In the **Type the name of the Backup item** dialog, enter your VM name, such as *myVM*. Select **Stop Backup**.
-
-    Once the VM backup has been stopped and recovery points removed, you can delete the resource group. If you used an existing VM, you may want to leave the resource group and VM in place.
-
-5. In the menu on the left, select **Resource groups**.
-6. From the list, choose your resource group. If you used the sample VM quickstart commands, the resource group is named *myResourceGroup*.
-7. Select **Delete resource group**. To confirm, enter the resource group name, then select **Delete**.
-
-    ![Screenshot showing to delete the resource group from the Azure portal.](./media/quick-backup-vm-portal/delete-resource-group-from-portal.png)
+Learn how to [stop protection and delete VM backups](backup-azure-manage-vms.md#stop-protection-and-delete-backup-data).
 
 ## Next steps
 
