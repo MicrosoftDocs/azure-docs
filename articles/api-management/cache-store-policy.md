@@ -55,7 +55,10 @@ The `cache-store` policy caches responses according to the specified cache setti
 
 ### Example with corresponding cache-lookup policy
 
-This example shows how to use the `cache-store` policy along with a `cache-lookup` policy to cache responses in the built-in API Management cache. [!INCLUDE [api-management-cache-availability](../../includes/api-management-cache-availability.md)]
+This example shows how to use the `cache-store` policy along with a `cache-lookup` policy to cache responses in the built-in API Management cache. 
+
+> [!NOTE]
+> [!INCLUDE [api-management-cache-availability](../../includes/api-management-cache-availability.md)]
 
 ```xml
 <policies>

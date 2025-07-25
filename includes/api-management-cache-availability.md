@@ -7,4 +7,4 @@ ms.author: danlep
 ---
 
 
-The rate-limit policy added after the cache lookup helps limit the number of calls to prevent overload on the backend service in case the cache isn't available.
+The [rate-limit](../articles/api-management/rate-limit-policy.md) policy added after the cache lookup helps limit the number of calls to prevent overload on the backend service in case the cache isn't available.

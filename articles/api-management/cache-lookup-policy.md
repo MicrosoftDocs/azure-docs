@@ -83,7 +83,10 @@ Use the `cache-lookup` policy to perform cache lookup and return a valid cached 
 
 ### Example with corresponding cache-store policy
 
-This example shows how to use the `cache-store` policy along with a `cache-lookup` policy to cache responses in the built-in API Management cache. [!INCLUDE [api-management-cache-availability](../../includes/api-management-cache-availability.md)]
+This example shows how to use the `cache-store` policy along with a `cache-lookup` policy to cache responses in the built-in API Management cache. 
+
+> [!NOTE]
+> [!INCLUDE [api-management-cache-availability](../../includes/api-management-cache-availability.md)]
 
 ```xml
 <policies>
