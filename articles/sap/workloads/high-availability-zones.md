@@ -9,6 +9,7 @@ ms.topic: article
 ms.date: 10/05/2024
 ms.author: juergent
 ms.custom: references_regions
+# Customer intent: As an SAP administrator, I want to understand how to configure SAP workloads across Azure Availability Zones so that I can improve high availability and disaster recovery for my deployments.
 ---
 
 # SAP workload configurations with Azure Availability Zones

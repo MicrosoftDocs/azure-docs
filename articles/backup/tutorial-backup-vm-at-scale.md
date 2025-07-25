@@ -5,8 +5,8 @@ ms.date: 04/30/2025
 ms.topic: tutorial
 ms.custom: mvc, engagement-fy24
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As an IT admin, I want to back up multiple Azure virtual machines using a Recovery Services vault and a backup policy, so that I can ensure data protection and streamline management for my organization."
 ---
 

@@ -1,6 +1,6 @@
 ---
 author: wchigit
-description: managed identity, code sample
+description: Managed identity, code sample
 ms.service: service-connector
 ms.topic: include
 ms.date: 11/02/2023
@@ -10,11 +10,14 @@ ms.author: wchi
 ### [.NET](#tab/dotnet)
 
 1. Install dependencies.
+
     ```bash
     dotnet add package Azure.Identity
     dotnet add package Azure.Security.KeyVault.Secrets
     ```
-1. Authenticate using `Azure.Identity` and get the Azure Key Vault endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+
+1. Authenticate using `Azure.Identity` and get the Azure Key Vault endpoint from the environment variables added by Service Connector. When using this code, uncomment the part of the code snippet for the authentication type you want to use.
+
     ```csharp
     using Azure.Identity;
     using Azure.Security.KeyVault.Secrets;
@@ -56,6 +59,7 @@ ms.author: wchi
 ### [Java](#tab/java)
 
 1. Add the following dependencies in your *pom.xml* file:
+
     ```xml
     <dependency>
         <groupId>com.azure</groupId>
@@ -67,7 +71,9 @@ ms.author: wchi
         <version>1.1.5</version>
     </dependency>
     ```
-1. Authenticate using `azure-identity` and get the Azure Key Vault endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+
+1. Authenticate using `azure-identity` and get the Azure Key Vault endpoint from the environment variables added by Service Connector. When using this code, uncomment the part of the code snippet for the authentication type you want to use.
+
     ```java
     // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system-managed identity
@@ -94,15 +100,18 @@ ms.author: wchi
 
 ### [SpringBoot](#tab/springBoot)
 
-Refer to [Tutorial: Connect Azure Spring Apps to Key Vault using managed identities](../../spring-apps/basic-standard/tutorial-managed-identities-key-vault.md?tabs=system-assigned-managed-identity) to set up your Spring application. Two sets of configuration properties are added to Spring Apps by Service Connector, according to Spring Cloud Azure version below 4.0 and above 4.0. For more information, check [Migration Guide for 4.0](https://microsoft.github.io/spring-cloud-azure/current/reference/html/appendix.html#configuration-spring-cloud-azure-starter-keyvault-secrets)
+To set up your Spring application, see [Connect Azure Spring Apps to Key Vault using managed identities](../../spring-apps/basic-standard/tutorial-managed-identities-key-vault.md?tabs=system-assigned-managed-identity). Two sets of configuration properties are added to Spring Apps by Service Connector, according to Spring Cloud Azure version below 4.0 and above 4.0. For more information, see [Migration Guide for 4.0](https://microsoft.github.io/spring-cloud-azure/current/reference/html/appendix.html#configuration-spring-cloud-azure-starter-keyvault-secrets).
 
 ### [Python](#tab/python)
 
 1. Install dependencies.
+
     ```bash
     pip install azure-keyvault-keys azure-identity
     ```
-1. Authenticate using `azure-identity` and get the Azure Key Vault endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+
+1. Authenticate using `azure-identity` and get the Azure Key Vault endpoint from the environment variables added by Service Connector. When using this code, uncomment the part of the code snippet for the authentication type you want to use.
+
     ```python
     import os
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
@@ -126,14 +135,17 @@ Refer to [Tutorial: Connect Azure Spring Apps to Key Vault using managed identit
     client = KeyClient(vault_url=VAULT_URL, credential=cred)
     ```
 
-
 ### [NodeJS](#tab/nodejs)
+
 1. Install dependencies.
+
     ```bash
     npm install @azure/identity
     npm install @azure/keyvault-secrets
     ```
-1. Authenticate using `@azure/identity` and get the Azure Key Vault endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+
+1. Authenticate using `@azure/identity` and get the Azure Key Vault endpoint from the environment variables added by Service Connector. When using this code, uncomment the part of the code snippet for the authentication type you want to use.
+
     ```javascript
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
     const { SecretClient } = require("@azure/keyvault-secrets");

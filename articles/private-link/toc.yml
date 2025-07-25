@@ -8,6 +8,8 @@
       href: private-endpoint-overview.md
     - name: Private Link service
       href: private-link-service-overview.md
+    - name: Service endpoints
+      href: /azure/virtual-network/virtual-network-service-endpoints-overview?toc=/azure/private-link/toc.json
     - name: What is a network security perimeter?
       href: network-security-perimeter-concepts.md
     - name: Availability

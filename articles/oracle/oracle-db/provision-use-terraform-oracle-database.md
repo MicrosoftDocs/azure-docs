@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 6/07/2024
 ms.custom: engagement-fy23, devx-track-terraform
 ms.author: jacobjaygbay
+# Customer intent: As a cloud engineer, I want to use HashiCorp Terraform to provision and manage Oracle Database resources on Azure, so that I can automate infrastructure deployment and streamline configuration management efficiently.
 ---
 
 # Use HashiCorp Terraform to provision Oracle Database@Azure

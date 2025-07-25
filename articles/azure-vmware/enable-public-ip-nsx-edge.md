@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 2/4/2025
 ms.custom: engagement-fy23
+# Customer intent: "As a network administrator, I want to enable public IP addresses for an NSX Edge node in Azure VMware Solution, so that my workloads can have inbound and outbound internet access while maintaining security and scalability."
 ---
 
 # Turn on public IP addresses to an NSX Edge node for VMware NSX

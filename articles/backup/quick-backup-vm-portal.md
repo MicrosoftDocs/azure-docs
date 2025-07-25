@@ -1,13 +1,13 @@
 ---
 title: Quickstart - Back up a VM with the Azure portal by using Azure Backup
 description: In this Quickstart, learn how to create a Recovery Services vault, enable protection on an Azure VM, and back up the VM,  with the Azure portal.
-ms.date: 01/30/2025
+ms.date: 07/25/2025
 ms.topic: quickstart
 ms.devlang: azurecli
 ms.custom: mvc, mode-ui, engagement-fy24
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As an IT administrator, I want to back up an Azure virtual machine using the portal so that I can ensure data protection and quickly restore it in case of data loss or system failure.
 ---
 
@@ -32,28 +32,31 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 To apply a backup policy to your Azure VMs, follow these steps:
 
-1. Go to **Backup center** and select **+Backup** from the **Overview** tab.
+1. Go to **Business Continuity Center** and select **+ Configure protection**.
 
-   ![Screenshot showing the Backup button.](./media/backup-azure-arm-vms-prepare/backup-button.png)
+   :::image type="content" source="./media/backup-azure-arm-vms-prepare/configure-protection.png" alt-text="Screenshot shows how to start configuring system backup." lightbox="./media/backup-azure-arm-vms-prepare/configure-protection.png":::
 
-1. On the **Start: Configure Backup** blade, select **Azure Virtual machines** as the **Datasource type** and select the vault you have created. Then select **Continue**.
+1. On the **Configure protection** pane, select **Resource managed by** as **Azure**, **Datasource type** as **Azure Virtual machines**, **Solution** as **Azure Backup**, and then select **Continue**.
 
-   ![Screenshot showing Backup and Backup Goal blades.](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
+   :::image type="content" source="./media/backup-azure-arm-vms-prepare/configure-system-protection.png" alt-text="Screenshot shows how to set the system backup." lightbox="./media/backup-azure-arm-vms-prepare/configure-system-protection.png":::  
 
-1. Assign a Backup policy.
 
-   - The default policy backs up the VM once a day. The daily backups are retained for _30 days_. Instant recovery snapshots are retained for two days.
+1. On the **Start: Configure Backup** pane, select **Azure Virtual machines** as the **Datasource type** and select the vault you have created. Then select **Continue**.
 
-      ![Screenshot showing the default backup policy.](./media/backup-azure-arm-vms-prepare/default-policy.png)
+   :::image type="content" source="./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png" alt-text="Screenshot showing Backup and Backup Goal panes." lightbox="./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png":::
 
-   - If you don't want to use the default policy, select **Create New**, and create a custom policy as described in the next procedure.
+1. On the **Configure backup** pane, select the **Policy sub type** as **Enhanced**, **Standard**.
 
-> [!Note]
-> With Enhanced policy, you can now back up Azure VMs multiple times a day that helps to perform hourly backups. [Learn more](backup-azure-vms-enhanced-policy.md).
+   - **Enhanced Backup policy**: [This policy](backup-azure-vms-enhanced-policy.md) allows multiple daily backups, enabling hourly backups. To enable Azure Backup on Azure VMs in Azure Extended Zones, you can only use the Enhanced policy.
+   - **Standard Backup policy**: [This policy](backup-instant-restore-capability.md) allows VM backup once a day. The daily backups are retained for 30 days. Instant recovery snapshots are retained for two days.
+
+   :::image type="content" source="./media/backup-azure-arm-vms-prepare/default-policy.png" alt-text="Screenshot showing the default backup policy." lightbox="./media/backup-azure-arm-vms-prepare/default-policy.png":::
+
+   If you don't want to use the default policy, select **Create New**, and create a custom policy as described in the next procedure.
 
 ## Select a VM to back up
 
-Create a simple scheduled daily backup to a Recovery Services vault.
+Create a scheduled daily backup to a Recovery Services vault.
 
 1. Under **Virtual Machines**, select **Add**.
 
@@ -159,25 +162,7 @@ Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent
 
 When no longer needed, you can disable protection on the VM, remove the restore points and Recovery Services vault, then delete the resource group and associated VM resources
 
-If you're going to continue on to a Backup tutorial that explains how to restore data for your VM, skip the steps in this section and go to [Next steps](#next-steps).
-
-1. Select the **Backup** option for your VM.
-
-2. Choose **Stop backup**.
-
-    ![Screenshot showing to stop VM backup from the Azure portal.](./media/quick-backup-vm-portal/stop-backup.png)
-
-3. Select **Delete Backup Data** from the drop-down menu.
-
-4. In the **Type the name of the Backup item** dialog, enter your VM name, such as *myVM*. Select **Stop Backup**.
-
-    Once the VM backup has been stopped and recovery points removed, you can delete the resource group. If you used an existing VM, you may want to leave the resource group and VM in place.
-
-5. In the menu on the left, select **Resource groups**.
-6. From the list, choose your resource group. If you used the sample VM quickstart commands, the resource group is named *myResourceGroup*.
-7. Select **Delete resource group**. To confirm, enter the resource group name, then select **Delete**.
-
-    ![Screenshot showing to delete the resource group from the Azure portal.](./media/quick-backup-vm-portal/delete-resource-group-from-portal.png)
+Learn how to [stop protection and delete VM backups](backup-azure-manage-vms.md#stop-protection-and-delete-backup-data).
 
 ## Next steps
 

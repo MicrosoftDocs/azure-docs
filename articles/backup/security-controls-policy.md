@@ -5,8 +5,8 @@ ms.date: 02/24/2025
 ms.topic: sample
 ms.service: azure-backup
 ms.custom: subject-policy-compliancecontrols
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a compliance officer, I want to utilize built-in policy definitions for Azure Backup, so that I can ensure my organization meets regulatory compliance standards efficiently.
 ---
 # Azure Policy Regulatory Compliance controls for Azure Backup
