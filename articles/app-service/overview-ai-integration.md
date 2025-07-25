@@ -79,8 +79,8 @@ Host [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction
 - [Host a .NET MCP server on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-dotnet) - Deploy an MCP server with .NET.
 - [Host a Node.js MCP server on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-node) - Deploy an MCP server with Node.js.
 - [Host a Python MCP server on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-python) - Deploy an MCP server with Python.
-- [Host a Pyton MCP server with key-based authorization on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-python-auth) - Deploy an MCP server with Python and key-based authorization.
-- [Host a Pyton MCP server with OAuth 2.0 authorization on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-python-auth-oauth) - Deploy an MCP server with Python and [Open Authorization (OAuth) 2.0 authorization with Micrososft Entra ID](/entra/architecture/auth-oauth2).
+- [Host a Python MCP server with key-based authorization on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-python-auth) - Deploy an MCP server with Python and key-based authorization.
+- [Host a Python MCP server with OAuth 2.0 authorization on Azure App Service](https://github.com/Azure-Samples/remote-mcp-webapp-python-auth-oauth) - Deploy an MCP server with Python and [Open Authorization (OAuth) 2.0 authorization with Microsoft Entra ID](/entra/architecture/auth-oauth2).
 
 ## More resources
 
