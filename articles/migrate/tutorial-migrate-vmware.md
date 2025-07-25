@@ -180,7 +180,7 @@ Replication occurs as follows:
     ```
 1. You run this command and get the following output:
 
-::image type="content" source="./media/tutorial-migrate-vmware/replication-complete.png" alt-text="Screenshot shows the replicaiton complete status." lightbox="./media/tutorial-migrate-vmware/replication-complete.png":::
+    ::image type="content" source="./media/tutorial-migrate-vmware/replication-complete.png" alt-text="Screenshot shows the replicaiton complete status." lightbox="./media/tutorial-migrate-vmware/replication-complete.png":::
 
 1. You can also run the command with only `-ApplianceName` to view the migration status, time remaining, and health details for **all servers connected to that appliance**.
 
@@ -190,7 +190,7 @@ Replication occurs as follows:
 1. Replace `your-project-name`, `your-resource-group`, and `your-appliance-name` with the actual values from your Azure Migrate setup.
 1. You run this command to get the follwoing output:
 
-::image type="content" source="./media/tutorial-migrate-vmware/appliance-machine.png" alt-text="Screenshot shows azure migrate server migratoin status." lightbox="./media/tutorial-migrate-vmware/appliance-machine.png":::
+    ::image type="content" source="./media/tutorial-migrate-vmware/appliance-machine.png" alt-text="Screenshot shows azure migrate server migratoin status." lightbox="./media/tutorial-migrate-vmware/appliance-machine.png":::
 
 ## Run a test migration
 
