@@ -145,9 +145,9 @@ Enable replication as follows:
      ![Monitor replication](./media/tutorial-migrate-vmware/replicating-servers.png)
 
 Replication occurs as follows:
-- When the Start Replication job finishes successfully, the machines begin their initial replication to Azure.
-- During initial replication, a VM snapshot is created. Disk data from the snapshot is replicated to replica managed disks in Azure.
-- After initial replication finishes, delta replication begins. Incremental changes to on-premises disks are periodically replicated to the replica disks in Azure.
+    - When the Start Replication job finishes successfully, the machines begin their initial replication to Azure.
+    - During initial replication, a VM snapshot is created. Disk data from the snapshot is replicated to replica managed disks in Azure.
+    - After initial replication finishes, delta replication begins. Incremental changes to on-premises disks are periodically replicated to the replica disks in Azure.
 
 1. Use PowerShell to view **Time Remaining** across **all stages of server migration** in Azure Migrate. This helps you monitor replication progress and plan cutover accurately.
 1. Open the **Azure portal**, then select the **Cloud Shell** at the top. Select **PowerShell** when prompted.
@@ -160,7 +160,9 @@ Replication occurs as follows:
 1. You run this command and get the following output: 
 
     :::image type="content" source="./media/tutorial-migrate-vmware/run-command.png" alt-text="Screenshot shows the output when you run the command." lightbox="./media/tutorial-migrate-vmware/run-command.png":::
+
 1. The output shows the server replication status, disk progress, time left, upload speed, and datastore details.
+1. 
 1. You can run the command without `-MachineName` to view migration status and time remaining for all servers in the project. For example: 
 
     ```powershell
@@ -168,6 +170,7 @@ Replication occurs as follows:
     Get-AzMigrateServerMigrationStatus -ProjectName "<your-project-name>" -ResourceGroupName "<your-resource-group>"
     ```
 1. Replace `your-project-name` and `your-resource-group` with the actual Azure Migrate project and resource group names.	
+
 1. You run this command and get the following output:
 
     :::image type="content" source="./media/tutorial-migrate-vmware/replication-status.png" alt-text="Screenshot shows the overall replication status." lightbox="./media/tutorial-migrate-vmware/replication-status.png":::
@@ -188,6 +191,7 @@ Replication occurs as follows:
     Get-AzMigrateServerMigrationStatus -ProjectName "<your-project-name>"   -ResourceGroupName "<your-resource-group>" -ApplianceName "<your-appliance-
     ```
 1. Replace `your-project-name`, `your-resource-group`, and `your-appliance-name` with the actual values from your Azure Migrate setup.
+
 1. You run this command to get the follwoing output:
 
     ::image type="content" source="./media/tutorial-migrate-vmware/appliance-machine.png" alt-text="Screenshot shows azure migrate server migratoin status." lightbox="./media/tutorial-migrate-vmware/appliance-machine.png":::
