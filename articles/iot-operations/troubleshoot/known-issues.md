@@ -227,49 +227,6 @@ When you connect multiple IoT Operations instances to the same Event Grid MQTT n
 
 To work around this issue, add randomness to the data flow names in your deployment templates.
 
-### Data flow deployment doesn't complete
-
----
-
-Issue ID: 9411
-
----
-
-Log signature:
-
-`"Dataflow pod had error: Bad pod condition: Pod 'aio-dataflow-operator-0' container 'aio-dataflow-operator' stuck in a bad state due to 'CrashLoopBackOff'"`
-
-`"Failed to create webhook cert resources: Failed to update ApiError: Internal error occurred: failed calling webhook "webhook.cert-manager.io" [...]"`
-
----
-
-When you create a new data flow, it might not finish deployment. The cause is that the `cert-manager` wasn't ready or running.
-
-To work around this issue, use the following steps to manually delete the data flow operator pod to clear the crash status:
-
-1. Run `kubectl get pods -n azure-iot-operations`.
-   In the output, Verify _aio-dataflow-operator-0_ is only data flow operator pod running.
-
-1. Run `kubectl logs --namespace azure-iot-operations aio-dataflow-operator-0` to check the logs for the data flow operator pod.
-
-   In the output, check for the final log entry:
-
-   `Dataflow pod had error: Bad pod condition: Pod 'aio-dataflow-operator-0' container 'aio-dataflow-operator' stuck in a bad state due to 'CrashLoopBackOff'`
-
-1. Run the _kubectl logs_ command again with the `--previous` option.
-
-   `kubectl logs --namespace azure-iot-operations --previous aio-dataflow-operator-0`
-
-   In the output, check for the final log entry:
-
-   `Failed to create webhook cert resources: Failed to update ApiError: Internal error occurred: failed calling webhook "webhook.cert-manager.io" [...]`.
-Issue ID:2382
-   If you see both log entries from the two _kubectl log_ commands, the cert-manager wasn't ready or running.
-
-1. Run `kubectl delete pod aio-dataflow-operator-0 -n azure-iot-operations` to delete the data flow operator pod. Deleting the pod clears the crash status and restarts the pod.
-
-1. Wait for the operator pod to restart and deploy the data flow.
-
 ### Data flows error metrics
 
 ---
