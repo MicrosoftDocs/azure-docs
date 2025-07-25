@@ -196,7 +196,7 @@ For optimal designer responsiveness and performance, review and follow these gui
 
    1. For the **Application Insights** setting, either select an existing Application Insights instance, or if you want to create a new instance, select **Create new** and provide the name that you want to use.
   
-1. On the **Authentication** tab, for **Authentication Type**, select the authentication to use for connecting to the host storage account resource (**Host storage (AzureWebJobsStorage)**).
+1. On the **Authentication** tab, for **Authentication type**, select the authentication to use for connecting to the host storage account resource (**Host storage (AzureWebJobsStorage)**).
 
    > [!IMPORTANT]
    >
