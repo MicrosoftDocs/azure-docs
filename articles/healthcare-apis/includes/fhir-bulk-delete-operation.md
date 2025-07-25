@@ -144,5 +144,54 @@ Note: This feature is available in Azure Health Data Services FHIR Server only, 
 
 As mentioned in the "Query parameters" section above, the `$bulk-delete` operation uses FHIR service supported search parameters. This includes the new `_not-referenced` parameter, which allows you to search for and delete resources that are not referenced by any other resources. 
 
-The following example will bulk delete all Patient resources that are not referenced by any other resources:
+The following example will bulk delete all Patient resources that are not referenced by any other resources:  
 `DELETE [base]/Patient/$bulk-delete?_not-referenced=*:*`
+
+
+
+
+### `$bulk-delete` with excluded resource types
+<!--- check with Paola: confirm gen 2 only or both Note: This feature is available in Azure Health Data Services FHIR Server only, and is not available in Azure API for FHIR. --->
+
+
+
+
+<!--- Check with Paola: Can it be multiple, or just one resource type? --->
+
+
+The `$bulk-delete` operation supports configuring excluded resource types. When you perform a bulk delete operation, these resource types are excluded from deletion. This means that if you include this parameter and specify a resource type in your bulk delete request, those resource types will not be deleted, and the operation will complete successfully deleting everything else in the request, without deleting the specified excluded resource type.
+
+The following example will delete all resources in your FHIR server, except for the `Patient` resource type:  
+`DELETE [base]/$bulk-delete?excludedResourceTypes=patient`
+
+
+### `$bulk-delete` and removing references
+
+
+The `$bulk-delete` operation supports removing references to resources that are being deleted. This means that if you delete a resource that is referenced by another resource, the reference will be removed from the referencing resource. The reference that has been removed with be replaced with the following value:
+
+`"display": "Referenced resource deleted"`
+
+Note: This feature only works with hard delete, so you must also set the `_hardDelete` query parameter to `true`.
+
+This is useful for maintaining data integrity and ensuring that resources that are no longer needed are properly cleaned up.
+
+The following example will bulk hard delete all Patient resources, and remove references to those patients from other resources. 
+
+`DELETE [base]/Patient/$bulk-delete?_remove-references=true&_hardDelete=true`
+
+In the example above, if a Patient resource is referenced by a DiagnosticReport resource and an Observation resource, the reference to that Patient will be removed from the DiagnosticReport and Observation resources. 
+
+ For an Observation's subject reference:
+
+Before delete:
+
+`"subject": {
+    "reference": "Patient/example-patient-id",
+}`
+ 
+After delete:
+
+`"subject": {
+    "display": "Referenced resource deleted"
+}`
