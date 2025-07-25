@@ -7,7 +7,7 @@ author: nehakulkarni
 ms.author: nehakulkarni
 ---
 # Tutorial: Apply MFA self-enforcement through Azure Policy
-[Azure Policy](../overview.md) is a powerful governance tool that allows you to enforce organizational standards and assess compliance at-scale. You can also use Azure Policy to prepare your organization for [upcoming enforcement of multifactor authentication (MFA) across Azure clients](https://aka.ms/mfaforazure).
+[Azure Policy](../overview.md) is a powerful governance tool that allows you to prepare your organization for [upcoming enforcement of multifactor authentication (MFA) across Azure clients](https://aka.ms/mfaforazure).
 This guide walks you through the process of applying Azure Policy assignments to self-enforce multifactor authentication across your organization.
 
 ## Apply Azure Policy enforcement through Azure portal
