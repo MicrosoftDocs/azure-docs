@@ -3,6 +3,8 @@ title: How to develop a custom machine configuration package
 description: Learn how to author and validate custom machine configuration packages to audit and enforce state.
 ms.date: 02/01/2024
 ms.topic: how-to
+ms.custom:
+  - build-2025
 ---
 # How to develop a custom machine configuration package
 

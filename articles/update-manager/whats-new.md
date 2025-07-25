@@ -3,9 +3,10 @@ title: What's new in Azure Update Manager
 description: Learn about what's new and recent updates in the Azure Update Manager service.
 ms.service: azure-update-manager
 ms.topic: overview
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.date: 11/01/2024
+# Customer intent: "As a system administrator, I want to understand the latest features of Azure Update Manager, so that I can effectively manage and govern updates across my environments and ensure compliance with security policies."
 ---
 
 # What's new in Azure Update Manager

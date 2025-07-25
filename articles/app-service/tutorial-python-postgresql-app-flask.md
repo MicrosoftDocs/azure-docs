@@ -4,6 +4,7 @@ description: Create a Python Flask web app with a PostgreSQL database and deploy
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 04/17/2025
+ms.update-cycle: 180-days
 ms.author: msangapu
 author: msangapu-msft
 ms.custom: mvc, cli-validate, devx-track-python, devdivchpfy22, vscode-azure-extension-update-completed, AppServiceConnectivity, devx-track-extended-azdevcli, linux-related-content
@@ -45,6 +46,7 @@ In this tutorial, you learn how to:
 ::: zone pivot="azure-developer-cli"
 
 * An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
+* A GitHub account. you can also [get one for free](https://github.com/join).
 * [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed. You can follow the steps with the [Azure Cloud Shell](https://shell.azure.com) because it already has Azure Developer CLI installed.
 * Knowledge of Python with Flask development.
 * **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
@@ -322,7 +324,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
     :::column span="2":::
         **Step 4 (Option 1: with GitHub Copilot):**  
         1. Start a new chat session by selecting the **Chat** view, then selecting **+**.
-        1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about `SQLAlchemy` how it's connection URI is configured in *azureproject/development.py* and *azureproject/production.py*. 
+        1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about `SQLAlchemy` how its connection URI is configured in *azureproject/development.py* and *azureproject/production.py*. 
         1. Ask, "*@workspace In production mode, my app is running in an App Service web app, which uses Azure Service Connector to connect to a PostgreSQL flexible server using the Django client type. What are the environment variable names I need to use?*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *azureproject/production.py* file. 
         1. Open *azureproject/production.py* in the explorer and add the code suggestion.
         GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
@@ -481,6 +483,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
         **Step 3:** 
         1. Enter the resource group name to confirm your deletion.
         1. Select **Delete**.
+        1. Confirm with **Delete** again.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app-flask/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-flask/azure-portal-clean-up-resources-3.png":::
@@ -569,7 +572,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 1. In the GitHub codespace, start a new chat session by selecting the **Chat** view, then selecting **+**. 
 
-1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about `SQLAlchemy` how it's connection URI is configured in *azureproject/development.py* and *azureproject/production.py*. 
+1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about `SQLAlchemy` how its connection URI is configured in *azureproject/development.py* and *azureproject/production.py*. 
 
 1. Ask, "*@workspace In production mode, my app is running in an App Service web app, which uses Azure Service Connector to connect to a PostgreSQL flexible server using the Django client type. What are the environment variable names I need to use?*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *azureproject/production.py* file. 
 

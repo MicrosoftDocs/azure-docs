@@ -14,7 +14,7 @@ ms.service: azure-iot-operations
 
 Security and scalability are a priority for deploying Azure IoT Operations. This article outlines guidelines that you should take into consideration when setting up Azure IoT Operations for production.
 
-Decide whether you're deploying Azure IoT Operations to a single-node or multi-node cluster before considering the appropriate configuration. Many of the guidelines in this article apply regardless of the cluster type, but when there is a difference it's called out specifically.
+Decide whether you're deploying Azure IoT Operations to a single-node or multi-node cluster before considering the appropriate configuration. Many of the guidelines in this article apply regardless of the cluster type, but when there's a difference it's called out specifically.
 
 ## Platform
 
@@ -30,9 +30,9 @@ Create an Arc-enabled K3s cluster that meets the system requirements.
 
 * Use a [supported environment for Azure IoT Operations](../overview-iot-operations.md#supported-environments).
 * [Configure the cluster](./howto-prepare-cluster.md) according to documentation.
-* If you expect intermittent connectivity for your cluster, ensure that you've allocated enough disk space to the cluster cache data and messages while the [cluster is offline](../overview-iot-operations.md#offline-support).
+* If you expect intermittent connectivity for your cluster, ensure that you allocate enough disk space to the cluster cache data and messages while the [cluster is offline](../overview-iot-operations.md#offline-support).
 * If possible, have a second cluster as a staging area for testing new changes before deploying to the primary production cluster.
-* [Turn off auto-upgrade for Azure Arc](/azure/azure-arc/kubernetes/agent-upgrade#toggle-automatic-upgrade-on-or-off-when-connecting-a-cluster-to-azure-arc) to have complete control over when new updates are applied to your cluster. Instead, [manually upgrade agents](/azure/azure-arc/kubernetes/agent-upgrade#manually-upgrade-agents) as needed.
+* [Turn off autoupgrade for Azure Arc](/azure/azure-arc/kubernetes/agent-upgrade#toggle-automatic-upgrade-on-or-off-when-connecting-a-cluster-to-azure-arc) to have complete control over when new updates are applied to your cluster. Instead, [manually upgrade agents](/azure/azure-arc/kubernetes/agent-upgrade#manually-upgrade-agents) as needed.
 * *For multi-node clusters*: [Configure clusters with Edge Volumes](./howto-prepare-cluster.md#configure-multi-node-clusters-for-azure-container-storage) to prepare for enabling fault tolerance during deployment.
 
 ### Security
@@ -40,7 +40,7 @@ Create an Arc-enabled K3s cluster that meets the system requirements.
 Consider the following measures to ensure your cluster setup is secure before deployment.
 
 * [Validate images](../secure-iot-ops/howto-validate-images.md) to ensure they're signed by Microsoft.
-* When doing TLS encryption, [bring your own issuer](../secure-iot-ops/concept-default-root-ca.md#bring-your-own-issuer) and integrate with an enterprise PKI.
+* When doing TLS encryption, [bring your own issuer](../secure-iot-ops/howto-manage-certificates.md#bring-your-own-issuer) and integrate with an enterprise PKI.
 * [Use secrets](../secure-iot-ops/howto-manage-secrets.md) for on-premises authentication.
 * Use [user-assigned managed identities](./howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections) for cloud connections.
 * Keep your cluster and Azure IoT Operations deployment up to date with the latest patches and minor releases to get all available security and bug fixes.
@@ -127,7 +127,7 @@ When you create a new resource, manage its authorization:
 For connecting to assets at production, [configure OPC UA authentication](../discover-manage-assets/overview-opcua-broker-certificates-management.md):
 
 * Don't use no-auth. Connectivity to OPC UA servers isn't supported without authentication.
-* Set up a secure connection to OPC UA server. Use a production PKI and [configure application certificates](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md#configure-a-self-signed-application-instance-certificate) and [trust list](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md#configure-the-trusted-certificates-list).
+* Set up a secure connection to OPC UA server. Use a production PKI and [configure application certificates](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md#configure-a-self-signed-application-instance-certificate-for-the-connector-for-opc-ua) and [trust list](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md#configure-the-trusted-certificates-list).
 
 ### Data flows
 

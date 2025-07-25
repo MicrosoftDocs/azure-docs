@@ -33,17 +33,18 @@ This article describes how to grant consent to a server to receive calls directe
 The Azure Communication Services Resource Owner needs to run the following API operations. The resource owner need to provide consent for authorizing calls to the Azure Communication Services Resource from the Teams Resource Account. You can call the API using any REST tool or programmatically. The API supports GET, PUT, PATCH, and DELETE operations.  
 
 
-1. {YOUR-ACS-RESOURCE-ENDPOINT} in the request URI (RURI) path is the Azure Communication Services Resource fully qualified domain name (FQDN) from Azure.
-1. {YOUR-RESOURCE-ACCOUNT-GUID} parameter in the RURI, is the oid value returned by the Graph API from the previous step. Alternatively for one off manual provisioning, the [Get-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/powershell/module/teams/get-csonlineapplicationinstance) cmdlet returns the ObjectId and that ID is the YOUR-RESOURCE-ACCOUNT-GUID. 
-1. The {TENANT-GUID} in the RURI path is the Teams Tenant GUID.
-1. The {principalType} in the body is `teamsResourceAccount` because we're consenting to a Teams Resource Account for Teams Phone Extensibility.
+1. The `{YOUR-ACS-RESOURCE-ENDPOINT}` in the request URI (RURI) path is the Azure Communication Services Resource fully qualified domain name (FQDN) from Azure.
+1. The `{YOUR-RESOURCE-ACCOUNT-GUID}` parameter in the RURI is the oid value returned by the Graph API from the previous step. Alternatively for one off manual provisioning, the [Get-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/powershell/module/teams/get-csonlineapplicationinstance) cmdlet returns the `ObjectId` and that ID is the `YOUR-RESOURCE-ACCOUNT-GUID`. 
+1. The `{TENANT-GUID}` in the RURI path is the Teams Tenant GUID.
+1. The `{principalType}` in the body is `teamsResourceAccount` because we're consenting to a Teams Resource Account for Teams Phone Extensibility.
 
 This API supports Azure Communication Services hash-based message authentication code (HMAC) with a Connection String or Microsoft Entra ID Managed Identity. 
 
 Query definition: 
 
-> https://{YOUR-ACS-RESOURCE-ENDPOINT}/access/teamsExtension/tenants/{TENANT-GUID}/assignments/{YOUR-RESOURCE-ACCOUNT-GUID}?api-version=2025-03-02-preview 
-
+```http
+https://{YOUR-ACS-RESOURCE-ENDPOINT}/access/teamsExtension/tenants/{TENANT-GUID}/assignments/{YOUR-RESOURCE-ACCOUNT-GUID}?api-version=2025-03-02-preview 
+```
 
 Example to set consent: 
 
@@ -104,7 +105,7 @@ You must register your application for `TeamsExtension.ManageCalls` permission f
 3. From the **Add Permissions** menu, select **Azure Communication Services**.
 4. Select the permission `TeamsExtension.ManageCalls`, then select **Add permissions**.
 
-:::image type="content" source="./media/active-directory-permissions.png" alt-text="Screen capture showing how to add TeamsExtension.ManageCalls permission to the Microsoft Entra application you just created."  lightbox="./media/active-directory-permissions.png":::
+   :::image type="content" source="media/active-directory-permissions.png" alt-text="Screen capture showing how to add TeamsExtension.ManageCalls permission to the Microsoft Entra ID application you just created."  lightbox="media/active-directory-permissions.png":::
 
 5. Grant admin consent for `TeamsExtension.ManageCalls` permission.
 

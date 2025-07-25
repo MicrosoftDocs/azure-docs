@@ -23,11 +23,6 @@ Within Azure Synapse Analytics, users can quickly get started with Horovod using
 > [!NOTE]
 > The Preview for Azure Synapse GPU-enabled pools has now been deprecated.
 
-> [!CAUTION]
-> Deprecation and disablement notification for GPUs on the Azure Synapse Runtime for Apache Spark 3.1 and 3.2
-> - The GPU accelerated preview is now deprecated on the [Apache Spark 3.2 (deprecated) runtime](../spark/apache-spark-32-runtime.md). Deprecated runtimes will not have bug and feature fixes. This runtime and the corresponding GPU accelerated preview on Spark 3.2 has been retired and disabled as of July 8, 2024.
-> - The GPU accelerated preview is now deprecated on the [Azure Synapse 3.1 (deprecated) runtime](../spark/apache-spark-3-runtime.md). Azure Synapse Runtime for Apache Spark 3.1 has reached its end of support as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
-
 ## Configure the Apache Spark session
 
 At the start of the session, we need to configure a few Apache Spark settings. In most cases, we only need to set the ```numExecutors``` and ```spark.rapids.memory.gpu.reserve```. For very large models, users may also need to configure the  ```spark.kryoserializer.buffer.max``` setting. For TensorFlow models, users need to set the ```spark.executorEnv.TF_FORCE_GPU_ALLOW_GROWTH``` to be true.

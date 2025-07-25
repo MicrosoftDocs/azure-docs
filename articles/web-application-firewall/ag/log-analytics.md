@@ -6,6 +6,7 @@ ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 08/14/2024
+# Customer intent: As a security analyst, I want to analyze Application Gateway WAF logs using Log Analytics, so that I can gain insights into traffic evaluation, matching, and blocking events to enhance my organization's security posture.
 ---
 
 # Use Log Analytics to examine Application Gateway Web Application Firewall (WAF) logs

@@ -5,21 +5,24 @@ description: Learn how to enable push notification in Android App by using Azure
 author: jiminwen
 services: azure-communication-services
 ms.author: jiminwen
-ms.date: 08/16/2022
+ms.date: 06/28/2025
 ms.topic: tutorial
 ms.service: azure-communication-services
 ---
 
 
-# Enable push notifications
-Push notifications let clients be notified for incoming messages and other operations occurring in a chat thread in situations where the mobile app isn't running in the foreground. Azure Communication Services supports a [list of events that you can subscribe to](../concepts/chat/concepts.md#push-notifications).
+# Enable push notifications in Android
+
+Push notifications enable clients to be notified of incoming messages and other operations occurring in a chat thread when the mobile app isn't running in the foreground. Azure Communication Services supports a [list of events that you can subscribe to](../concepts/chat/concepts.md#push-notifications).
+
 > [!NOTE]
-> Chat push notifications are supported for Android SDK in versions starting from 1.1.0-beta.4 and 1.1.0. It is recommended that you use version 2.0.0 or newer, as older versions have a known issue with the registration renewal. Steps from 8 to 12 are only needed for versions equal to or greater than 2.0.0.
+> Chat push notifications are supported for Android SDK in versions starting from 1.1.0-beta.4 and 1.1.0. We recommended that you use version 2.0.0 or newer, as older versions have a known issue with the registration renewal. Steps from 8 to 12 are only needed for versions equal to or greater than 2.0.0.
 
 1. Set up Firebase Cloud Messaging for the ChatQuickstart project. Complete steps `Create a Firebase project`, `Register your app with Firebase`, `Add a Firebase configuration file`, `Add Firebase SDKs to your app`, and `Edit your app manifest` in [Firebase Documentation](https://firebase.google.com/docs/cloud-messaging/android/client).
 
 2. Create a Notification Hub within the same subscription as your Communication Services resource, configure your Firebase Cloud Messaging settings for the hub, and link the Notification Hub to your Communication Services resource. See [Notification Hub provisioning](../concepts/notifications.md#notification-hub-provisioning).
-3. Create a new file called `MyFirebaseMessagingService.java` in the same directory where `MainActivity.java` resides. Copy the following code into `MyFirebaseMessagingService.java`. You will need to replace `<your_package_name>` with the package name used in `MainActivity.java`. You can use your own value for `<your_intent_name>`. This value will be used in step 6 below.
+
+3. Create a new file called `MyFirebaseMessagingService.java` in the same directory where `MainActivity.java` resides. Copy the following code into `MyFirebaseMessagingService.java`. You need to replace `<your_package_name>` with the package name used in `MainActivity.java`. You can use your own value for `<your_intent_name>`. Use this value in step **6**.
 
    ```java
       package <your_package_name>;
@@ -147,7 +150,7 @@ Push notifications let clients be notified for incoming messages and other opera
       }
    ```
 
-7. Put the following code below the comment `<RECEIVE CHAT MESSAGES>` in `MainActivity`:
+7. Put the following code after the comment `<RECEIVE CHAT MESSAGES>` in `MainActivity`:
 
 ```java
    startFcmPushNotification();
@@ -218,11 +221,12 @@ Push notifications let clients be notified for incoming messages and other opera
         }
     }
 ```
-**Explanation to code above:** The default initializer of `WorkManager` has been disabled in step 9. This step implements `Configuration.Provider` to provide a customized 'WorkFactory', which is responsible to create `WorkerManager` during runtime. 
 
-If the app is integrated with Azure Function, initialization of application parameters should be added in method 'onCreate()'. Method 'getWorkManagerConfiguration()' is called when the application is starting, before any activity, service, or receiver objects (excluding content providers) have been created, so that application parameters could be initialized before being used. More details can be found in the sample chat app.
+**Explanation of the preceding code:** The default initializer of `WorkManager` is disabled in step **9**. This step implements `Configuration.Provider` to provide a customized `WorkFactory`, which is responsible to create `WorkerManager` during runtime. 
 
-12. Add the `android:name=.MyAppConfiguration` field, which uses the class name from step 11, into `AndroidManifest.xml`:
+If the app is integrated with Azure Function, initialize the application parameters in method `onCreate()`. Method `getWorkManagerConfiguration()` is called when the application is starting, before any activity, service, or receiver objects (excluding content providers) are created, so application parameters can be initialized before use. For more details, see the sample chat app.
+
+12. Add the `android:name=.MyAppConfiguration` field, which uses the class name from step **11**, into `AndroidManifest.xml`:
 
 ```
 <application
@@ -236,7 +240,7 @@ If the app is integrated with Azure Function, initialization of application para
 >
 ```
 
-## Related topics
+## Related articles
 
 - [Migrate Android SDK push notifications to FCM v1](./call-chat-migrate-android-push-fcm-v1.md)
 - [Register for Android SDK push notifications using FCM v1](./call-chat-register-android-push-fcm-v1.md)

@@ -32,12 +32,12 @@ All device communication with IoT Hub must be secured using TLS. Therefore, IoT 
 
 IoT Hub isn't a full-featured MQTT broker and doesn't support all the behaviors specified in the MQTT v3.1.1 standard. If your solution needs a cloud-hosted MQTT broker, use [Azure Event Grid](../event-grid/mqtt-overview.md) instead. Event Grid enables bi-directional communication between MQTT clients on flexible hierarchical topics using a publish-subscribe messaging model. It also lets you route MQTT messages to other Azure services or custom endpoints for further processing.
 
-The following table summarizes the differences in MQTT support between the two services:
+The following table summarizes the current differences in MQTT support between the two services:
 
 | IoT Hub | Event Grid |
 | ------- | ---------- |
 | Client-server model with tight coupling between devices and cloud apps. | Publish-subscribe model that decouples publishers and subscribers. |
-| Limited feature support for MQTT v3.1.1. More feature support isn't planned. | MQTT v3.1.1 and v5 protocol support, with more feature support and industry compliance planned. |
+| Limited feature support for MQTT v3.1.1. | MQTT v3.1.1 and v5 protocol support. |
 | Static, predefined topics. | Custom hierarchical topics with wildcard support. |
 | No support for cloud-to-device broadcasts or device-to-device communication. | Supports device-to-cloud, high fan-out cloud-to-device broadcasts, and device-to-device communication patterns. |
 | 256-KB max message size. | 512-KB max message size. |

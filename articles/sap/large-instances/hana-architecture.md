@@ -11,6 +11,7 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 07/21/2021
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
+# Customer intent: "As a cloud architect, I want to understand the architecture of deploying SAP HANA on Azure Large Instances, so that I can make informed decisions about resource allocation and ensure optimal performance for SAP applications."
 ---
 # SAP HANA (Large Instances) architecture on Azure
 

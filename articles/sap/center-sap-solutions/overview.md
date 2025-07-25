@@ -8,6 +8,7 @@ ms.date: 10/19/2022
 ms.author: sagarkeswani
 author: sagarkeswani
 #Customer intent: As a developer, I want to learn about Azure Center for SAP solutions so that I can decide to use the service with a new or existing SAP system.
+# Customer intent: As an SAP administrator, I want to utilize Azure Center for SAP solutions to deploy and manage SAP systems on Azure, so that I can ensure seamless integration, automation of best practices, and robust monitoring for efficient operations.
 ---
 
 # What is Azure Center for SAP solutions?

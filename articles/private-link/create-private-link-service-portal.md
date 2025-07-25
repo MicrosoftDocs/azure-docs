@@ -10,6 +10,7 @@ ms.date: 04/10/2025
 ms.author: abell
 ms.custom: mode-ui, template-quickstart
 #Customer intent: As someone with a basic network background who's new to Azure, I want to create an Azure Private Link service by using the Azure portal
+# Customer intent: "As a network engineer new to Azure, I want to create a Private Link service using the Azure portal, so that I can provide secure private access to services deployed behind an Azure Load Balancer."
 ---
 
 # Quickstart: Create a Private Link service by using the Azure portal

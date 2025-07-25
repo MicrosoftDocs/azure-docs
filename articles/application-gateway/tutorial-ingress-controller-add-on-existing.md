@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 07/01/2024
 ms.author: mbender
 ms.custom: devx-track-azurecli
+# Customer intent: "As a cloud architect, I want to enable the application gateway ingress controller add-on for my existing AKS cluster, so that I can manage traffic to my Kubernetes applications effectively through a centralized application gateway."
 ---
 
 # Tutorial: Enable application gateway ingress controller add-on for an existing AKS cluster with an existing application gateway

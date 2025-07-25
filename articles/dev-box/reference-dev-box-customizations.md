@@ -5,8 +5,9 @@ author: RoseHJM
 ms.service: dev-box  
 ms.topic: reference  
 ms.date: 05/09/2025  
-ms.author: rosemalcolm  
-
+ms.author: rosemalcolm
+ms.custom:
+  - build-2025
 ---  
 
 # Customizations schema reference
@@ -78,16 +79,16 @@ tasks:
     package: GitHub.GitHubDesktop
 ```
 
-All tasks support the `timeout` parameter, which is optional.
+All tasks support the `timeout` property, which is optional.
 
 Example:
 
 ```
 tasks:
 - name: powershell
+  timeout: 1800 # in seconds
   parameters:
     command: <command>
-    timeout: 1800 # in seconds
 ```
 
 ### Built-in tasks

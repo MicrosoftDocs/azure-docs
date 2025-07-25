@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/21/2025
 
 #CustomerIntent: As an operator, I want to understand how I can use data flows to connect data sources.

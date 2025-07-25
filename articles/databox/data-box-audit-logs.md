@@ -8,6 +8,7 @@ ms.service: azure-databox
 ms.topic: concept-article
 ms.date: 03/06/2025
 ms.author: shaas
+# Customer intent: As a data management professional, I want to access and understand the audit logs for my Data Box orders, so that I can ensure compliance, troubleshoot issues, and verify the security and integrity of the data transfer process.
 ---
 
 # Audit logs for your Azure Data Box

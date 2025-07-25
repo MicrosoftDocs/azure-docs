@@ -98,7 +98,7 @@ You can also set the browser credentials for browser push by using the REST API,
 Enter the credentials in this format, providing the subscription ID, resource group, namespace, and notification hub:
 
 ```http
-https://management.azure.com/subscriptions/{subcription}/resourceGroups/{resource-group}/providers/Microsoft.NotificationHubs/namespaces/{namespace}/notificationHubs/{hub}api-version=2016-03-01
+https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resource-group}/providers/Microsoft.NotificationHubs/namespaces/{namespace}/notificationHubs/{hub}api-version=2016-03-01
 ```
 
 ### Set credentials using Azure SDKs

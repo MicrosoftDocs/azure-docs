@@ -310,6 +310,8 @@ items:
     items:
     - name: Create data factory - Azure CLI
       href: quickstart-create-data-factory-azure-cli.md
+    - name: Create data factory - ARM
+      href: quickstart-create-data-factory-resource-manager-template.md
     - name: Create data factory - Azure PowerShell
       href: quickstart-create-data-factory-powershell.md
     - name: Create data factory - .NET
@@ -1359,6 +1361,10 @@ items:
     - name: Advanced topics
       href: sap-change-data-capture-advanced-topics.md
       displayName: SAP, change data capture, CDC
+- name: Security
+  items:
+  - name: Secure your Azure Data Factory
+    href: secure-your-azure-data-factory.md
 - name: Workflow Orchestration Manager
   items:
   - name: Tutorials

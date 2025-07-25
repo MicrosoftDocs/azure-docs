@@ -6,9 +6,10 @@ services: storage
 author: stevenmatthew
 ms.service: azure-blob-storage
 ms.topic: quickstart
-ms.date: 06/26/2023
+ms.date: 05/22/2025
 ms.author: shaas
-ms.custom: mode-ui
+ms.custom: mode-ui, akash-accuracy-may-2025
+# Customer intent: "As a cloud user, I want to upload, download, and manage blobs in object storage, so that I can efficiently handle my data storage needs using a web portal."
 ---
 
 # Quickstart: Upload, download, and list blobs with the Azure portal
@@ -23,7 +24,7 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 
 To create a container in the Azure portal, follow these steps:
 
-1. Navigate to your new storage account in the Azure portal.
+1. Navigate to your new storage account in the [Azure portal](https://portal.azure.com).
 1. In the left menu for the storage account, scroll to the **Data storage** section, then select **Containers**.
 1. Select the **+ Container** button.
 1. Type a name for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character. For more information about container and blob names, see [Naming and referencing containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).

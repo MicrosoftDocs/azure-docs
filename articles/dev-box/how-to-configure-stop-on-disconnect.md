@@ -6,7 +6,9 @@ description: Learn how to automatically stop a dev box when a user disconnects b
 
 services: dev-box
 ms.service: dev-box
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 author: dhruvchand
 ms.author: dhruvmu
 ms.date: 01/10/2024

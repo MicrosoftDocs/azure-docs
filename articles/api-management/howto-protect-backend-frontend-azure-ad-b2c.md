@@ -9,7 +9,11 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/20/2025
 ms.author: wieastbu
-ms.custom: fasttrack-new, fasttrack-update, devx-track-js
+ms.custom:
+  - fasttrack-new
+  - fasttrack-update
+  - devx-track-js
+  - build-2025
 ---
 
 # Protect serverless APIs with Azure API Management and Azure AD B2C for consumption from a SPA

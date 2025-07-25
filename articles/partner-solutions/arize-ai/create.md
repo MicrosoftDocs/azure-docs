@@ -5,7 +5,8 @@ author: ProfessorKendrick
 ms.author: kkendrick
 ms.topic: quickstart
 ms.date: 04/21/2025
-
+ms.custom:
+  - build-2025
 ---
 # Quickstart: Create an Azure Native Arize AI Cloud Service resource
 

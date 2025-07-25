@@ -6,7 +6,9 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 08/15/2018
 ms.author: glenga
-ms.custom: include file
+ms.custom:
+  - include file
+  - build-2025
 ---
 
 There are several ways that you can add, update, and delete function app settings:

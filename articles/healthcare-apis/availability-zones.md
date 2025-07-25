@@ -21,9 +21,8 @@ For information on regions, see [Products availability by region](https://azure.
 > [!NOTE]
 > Currently the availability zone feature is being provided to customers at no additional charge. In the future, charges will be incurred with the availability zone feature.
 
-## Region availability
-
-Here's a list of the availability zones for Azure Health Data Services.
+<!-- hiding this text , as have quota issues with region## Region availability
+ Here's a list of the availability zones for Azure Health Data Services.
 
 - Australia East
 - Cental India
@@ -43,7 +42,7 @@ Here's a list of the availability zones for Azure Health Data Services.
 - West US 3*
 - Canada Central
 
-Regions marked with a star ("*") have quota issues due to high demand. Enabling AZ features in these regions may take longer.
+Regions marked with a star ("*") have quota issues due to high demand. Enabling AZ features in these regions may take longer.-->
 
 ### Limitations
 
@@ -70,6 +69,9 @@ To enable the availability zone on a specific instance, customers need to submit
 - Name of the subscription
 - Name of the FHIR service instance
 - Name of the resource group
+  
+> [!NOTE]
+> The regions where the Availability Zone feature is available are limited. Once you create a support ticket, you will receive confirmation on whether we can support AZ feature in your region of interest.
 
 More information can be found at [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 

@@ -45,13 +45,13 @@ The following example demonstrates how to update the `TargetFramework` element f
 
 ### Node.js
 
-The following example configuration demonstrates how to use the `apiRuntime` property to select Node.js 16 as the API language runtime version in the _staticwebapp.config.json_ file.
+The following example configuration demonstrates how to use the `apiRuntime` property to select Node.js 20 as the API language runtime version in the _staticwebapp.config.json_ file.
 
 ```json
 {
   ...
   "platform": {
-    "apiRuntime": "node:16"
+    "apiRuntime": "node:20"
   }
   ...
 }
@@ -59,13 +59,13 @@ The following example configuration demonstrates how to use the `apiRuntime` pro
 
 ### Python
 
-The following example configuration demonstrates how to use the `apiRuntime` property to select Python 3.8 as the API language runtime version in the _staticwebapp.config.json_ file.
+The following example configuration demonstrates how to use the `apiRuntime` property to select Python 3.11 as the API language runtime version in the _staticwebapp.config.json_ file.
 
 ```json
 {
   ...
   "platform": {
-    "apiRuntime": "python:3.8"
+    "apiRuntime": "python:3.11"
   }
   ...
 }

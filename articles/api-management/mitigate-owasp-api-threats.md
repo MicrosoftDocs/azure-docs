@@ -38,7 +38,7 @@ More information about this threat: [API1:2023 Broken Object Level Authorization
 
 ### Recommendations 
 
-* The best place to implement object level authorization is within the backend API itself. At the backend, the correct authorization decisions can be made at the request (or object) level, where applicable, using logic applicable to the domain and API. Consider scenarios where a given request may yield differing levels of detail in the response, depending on the requestor's permissions and authorization. 
+* The best place to implement object level authorization is within the backend API itself. At the backend, the correct authorization decisions can be made at the request (or object) level, where applicable, using logic applicable to the domain and API. Consider scenarios where a given request may yield differing levels of detail in the response, depending on the requester's permissions and authorization. 
 
 * If a current vulnerable API can't be changed at the backend, then API Management could be used as a fallback. For example:
    

@@ -8,6 +8,7 @@ ms.topic: reference
 ms.date: 03/25/2025
 ms.author: kendownie
 ms.custom: references_regions
+# Customer intent: "As a cloud storage administrator, I want to identify Azure regions that support locally redundant storage (LRS) and zone redundant storage (ZRS) for SSD file shares, so that I can ensure optimal data redundancy and availability for my organization's storage needs."
 ---
 
 # Azure Files redundancy support for SSD file shares
@@ -115,6 +116,7 @@ ZRS for SSD file shares is supported in the following subset of Azure regions:
 - (Asia Pacific) China North 3
 - (Asia Pacific) Southeast Asia
 - (Asia Pacific) Korea Central
+- (Asia Pacific) Malaysia West
 - (Asia Pacific) East Asia
 - (Asia Pacific) Indonesia Central
 - (Asia Pacific) Japan East

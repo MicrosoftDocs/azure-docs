@@ -8,13 +8,14 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 05/11/2024
+ms.date: 07/15/2025
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 
 #Customer intent: As an Azure AD B2C user, I want to understand the service limits and restrictions, so that I can ensure that my application stays within the allowed usage constraints and request limits.
-
+ms.custom:
+  - build-2025
 ---
 
 # Azure Active Directory B2C service limits and restrictions
@@ -196,6 +197,7 @@ As a protection for our customers, Microsoft places some restrictions on telepho
 | 228 |  Togo  | 10  |  30  |
 | 233 |	Ghana|	10	| 30 |
 | 234 | Nigeria | 20 | 100 |
+| 235 | Chad | 10 | 30 |
 | 236 |	Central African Republic  |	10	| 30 |
 | 238 | Cape Verde | 10 | 30 |
 | 249 |  Sudan | 10  |  30  |
@@ -211,6 +213,7 @@ As a protection for our customers, Microsoft places some restrictions on telepho
 | 265 |	Malawi  |	10	| 30 |
 | 373 |	Moldova |	20	| 100 |
 | 375 |	Belarus   |	10	| 30 |
+| 381 | Serbia | 50 | 200 |
 | 386 | Slovenia | 10 | 50 |
 | 501 |  Belize| 10  |  30  |
 | 502 | Guatemala | 10 | 50 
@@ -235,10 +238,13 @@ As a protection for our customers, Microsoft places some restrictions on telepho
 | 95 |	Myanmar (Burma) | 10	| 30 |
 | 961 |	Lebanon  |	10	| 30 |
 | 963 |	Syria  |	10	| 30 |
+| 964 | Iraq | 50 | 200 |
 | 967 |	Yemen	|10	| 30 |
 | 970 |  State of Palestine| 10  |  30  |
 | 972 |	Israel  |	50	| 200 |
+| 975 | Bhutan | 20 | 100 |
 | 976 |	Mongolia  |	10	| 30 |
+| 977 | Nepal | 20 | 100 |
 | 992 | Tajikistan | 10 | 30 |
 | 993 | Turkmenistan | 10 | 30 |
 | 994 | Azerbaijan | 50 | 200 | 

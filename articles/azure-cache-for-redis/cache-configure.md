@@ -89,7 +89,7 @@ The Event Grid helps you build automation into your cloud infrastructure, create
 You can securely issue commands to your Azure Cache for Redis instances using the **Redis Console**, which is available in the Azure portal for Basic, Standard and Premium cache tiers.
 
 > [!IMPORTANT]
-> The Redis Console does't work when a cache has any of the following:
+> The Redis Console doesn't work when a cache has any of the following:
 >
 > - [Virtual Network](cache-how-to-premium-vnet.md). When your cache is part of a VNet, only clients in the VNet can access the cache. Because Redis Console runs in your local browser, which is outside the VNet, it can't connect to your cache.
 > - [Private Link](cache-private-link.md)

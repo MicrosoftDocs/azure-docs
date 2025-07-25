@@ -6,6 +6,7 @@ ms.service: azure-bastion
 ms.topic: tutorial
 ms.date: 01/22/2025
 ms.author: abell
+# Customer intent: As a cloud administrator, I want to deploy Azure Bastion with customized settings in my virtual network, so that I can establish secure connections to my virtual machines without exposing public IP addresses.
 ---
 
 # Tutorial: Deploy Azure Bastion by using specified settings
