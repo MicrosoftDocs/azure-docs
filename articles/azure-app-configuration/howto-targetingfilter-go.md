@@ -217,9 +217,9 @@ In this section, you create a web application that allows users to sign in and u
     </html>
     ```
 
-## Use targeting with feature flags
+## Connect to App Configuration
 
-1. Create a file named `appconfig.go` with the following content. You can connect to your App Configuration store using Microsoft Entra ID (recommended) or a connection string.
+Create a file named `appconfig.go` with the following content. You can connect to your App Configuration store using Microsoft Entra ID (recommended) or a connection string.
 
 ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
@@ -272,7 +272,7 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
 
     return appConfig, nil
 }
-```	
+```
 
 ### [Connection string](#tab/connection-string)
 
@@ -318,6 +318,10 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
     return appConfig, nil
 }
 ```
+
+---
+
+## Use targeting with feature flags 
 
 1. Create a file named `main.go` with the following content.
 
