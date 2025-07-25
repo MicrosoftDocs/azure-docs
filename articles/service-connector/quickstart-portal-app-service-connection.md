@@ -16,9 +16,10 @@ Get started with Service Connector to create a new service connection in Azure A
 
 This article provides instructions for both the Azure portal and Azure CLI. Select the tab above for your preferred method.
 
-::: zone pivot="azure-portal"
+
 ## Prerequisites
 
+::: zone pivot="azure-portal"
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - An application deployed to App Service in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [create and deploy an app to App Service](../app-service/quickstart-dotnetcore.md).
 - The following [necessary permissions](./concept-permission.md).

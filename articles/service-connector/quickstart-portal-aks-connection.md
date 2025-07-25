@@ -18,9 +18,9 @@ Service Connector lets you quickly connect compute services to cloud services, w
 
 This article provides instructions for both the Azure portal and Azure CLI. Select the tab above for your preferred method.
 
-::: zone pivot="azure-portal"
 ## Prerequisites
 
+::: zone pivot="azure-portal"
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - An AKS cluster in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [deploy an AKS cluster](/azure/aks/learn/quick-kubernetes-deploy-portal).
 - The [necessary permissions](./concept-permission.md) to create and manage service connections..

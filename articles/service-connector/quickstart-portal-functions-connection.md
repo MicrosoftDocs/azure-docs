@@ -1,79 +1,187 @@
 ---
-title: Quickstart - Create a service connection in a function app from the Azure portal
-description: Quickstart showing how to create a service connection in a function app from the Azure portal
+title: 'Quickstart: Create a service connection in Azure Functions'
+description: This quickstart shows how to create a service connection in Azure Functions from the Azure portal or the Azure CLI.
 author: houk-ms
 ms.author: honc
 ms.service: service-connector
 ms.topic: quickstart
-ms.date: 10/22/2024
+zone_pivot_groups: interaction-type
+ms.date: 7/25/2025
+#Customer intent: As an app developer, I want to connect an Azure Functions app to a database or another Azure resource.
 ---
-# Quickstart: Create a service connection in a function app from the Azure portal
 
-Get started with Service Connector by using the Azure portal to create a new service connection for Azure Functions in a function app.
+# Quickstart: Create a service connection in Azure Functions
+
+Get started with Service Connector to create a service connection in Azure Functions.
+
+This article provides instructions for both the Azure portal and Azure CLI. Select the tab below for your preferred method.
 
 ## Prerequisites
 
+::: zone pivot="azure-portal"
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- A Function App in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [create one](../azure-functions/how-to-create-function-azure-cli.md?pivots=programming-language-python).
+- A function app in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [create one](../azure-functions/how-to-create-function-azure-cli.md?pivots=programming-language-python).
+- A target resource to connect your function app to, such as a [Blob Storage account](../storage/common/storage-account-create.md).
+- The [permissions required](./concept-permission.md) to create and manage service connections.
+::: zone-end
 
-## Sign in to Azure
+::: zone pivot="azure-cli"
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- A function app in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [create one](../azure-functions/how-to-create-function-azure-cli.md?pivots=programming-language-python).
+- A target resource to connect your function app to, such as a [Blob Storage account](../storage/common/storage-account-create.md).
+- The [permissions required](./concept-permission.md) to create and manage service connections.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+- This quickstart requires version 2.30.0 or higher of the Azure CLI. To upgrade to the latest version, run `az upgrade`. If using Azure Cloud Shell, the latest version is already installed.
+::: zone-end
 
-Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.com/) with your Azure account.
+::: zone pivot="azure-cli"
+## Set up your environment
 
-## Create a new service connection in Function App
+1. If you're using Service Connector for the first time, register the Service Connector resource provider by running the [az provider register](/cli/azure/provider#az-provider-register) command.
 
-1. To create a new service connection in Function App, select the **Search resources, services and docs (G +/)** search bar at the top of the Azure portal, type ***Function App***, and select **Function App**.
+   ```azurecli
+   az provider register -n Microsoft.ServiceLinker
+   ```
+
+   > [!TIP]
+   > You can check if the resource provider has already been registered by running the command `az provider show -n "Microsoft.ServiceLinker" --query registrationState`. If the output is `Registered`, then Service Connector has already been registered.
+
+1. Optionally, run the [az functionapp connection list-support-types](/cli/azure/functionapp/connection#az-functionapp-connection-list-support-types) command to get a list of supported target services for Azure Functions.
+
+    ```azurecli
+    az functionapp connection list-support-types --output table
+    ```
+::: zone-end
+
+## Create a service connection
+
+Use Service Connector to create a service connection in Azure Functions.
+
+::: zone pivot="azure-portal"
+1. In the Azure portal, select the **Search resources, services and docs (G +/)** search bar at the top, type *Function App*, and select **Function App**.
 
    :::image type="content" source="./media/function-app-quickstart/select-function-app.png" alt-text="Screenshot of the Azure portal, selecting Function App.":::
-2. Select the Function App resource you want to connect to a target resource.
-3. Select **Service Connector** from the left table of contents. Then select **Create**.
+
+1. Select the function app resource you want to connect to a target resource.
+
+1. In the left navigation, select **Service Connector**, and then select **Create**.
 
    :::image type="content" source="./media/function-app-quickstart/select-service-connector.png" alt-text="Screenshot of the Azure portal, selecting Service Connector and creating new connection.":::
-4. Select or enter the following settings.
 
-   | Setting                   | Example                                 | Description                                                                                                                                                                                |
-   | ------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-   | **Service type**    | Storage -  Blob                         | The target service type. If you don't have a Microsoft Blob Storage, you can [create one](../storage/blobs/storage-quickstart-blobs-portal.md) or use another service type.                    |
-   | **Subscription**    | My subscription                         | The subscription for your target service (the service you want to connect to). The default value is the subscription for this Function App resource.                                       |
-   | **Connection name** | *my_connection*                       | The connection name that identifies the connection between your Function App and target service. Use the connection name provided by Service Connector or choose your own connection name. |
-   | **Storage account** | *my_storage_account*                  | The target storage account you want to connect to. Target service instances to choose from vary according to the selected service type.                                                    |
-   | **Client type**     | The same app stack on this Function App | The default value comes from the Function App runtime stack. Select the app stack that's on this Function App instance.                                                                    |
-5. Select **Next: Authentication** to choose an authentication method.
+1. On the **Basics** tab, select or enter the following settings:
 
-   ### [System-assigned managed identity](#tab/SMI)
+   | Setting             | Example                                  | Description                                                                                                                                                                                |
+   |---------------------|------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | **Service type**    | *Storage - Blob*                         | The target service type. If you don't have a Blob Storage account, you can [create one](../storage/blobs/storage-quickstart-blobs-portal.md) or use another service type.                    |
+   | **Subscription**    | *My subscription*                        | The subscription for your target service (the service you want to connect to). The default value is the subscription for this function app resource.                                       |
+   | **Connection name** | *my_connection*                          | The connection name that identifies the connection between your function app and target service. Use the connection name provided by Service Connector or choose your own connection name. |
+   | **Storage account** | *my_storage_account*                     | The target storage account you want to connect to. Target service instances to choose from vary according to the selected service type.                                                    |
+   | **Client type**     | *The same app stack on this function app* | The default value comes from the function app runtime stack. Select the app stack that's on this function app instance.                                                                    |
 
-   System-assigned managed identity is the recommended authentication option. Select **System-assigned managed identity** to connect through an identity that's generated in Azure Active Directory and tied to the lifecycle of the service instance.
+1. Select **Next: Authentication** to choose an authentication method.
 
-   ### [User-assigned managed identity](#tab/UMI)
+    ### [System-assigned managed identity (recommended)](#tab/SMI)
 
-   Select **User-assigned managed identity** to authenticate through a standalone identity assigned to one or more instances of an Azure service.
+    Select **System-assigned managed identity** to connect through an identity that's automatically generated in Microsoft Entra ID and tied to the lifecycle of the service instance. This is the recommended authentication option.
 
-   ### [Connection string](#tab/CS)
+    ### [User-assigned managed identity](#tab/UMI)
 
-   Select **Connection string** to generate or configure one or multiple key-value pairs with pure secrets or tokens.
+    Select **User-assigned managed identity** to authenticate through a standalone identity assigned to one or more instances of an Azure service. Select a subscription that contains a user-assigned managed identity, and then select the identity.
 
-   ### [Service principal](#tab/SP)
+    If you don't have a user-assigned managed identity yet, select **Create new** to create one.
+    
+    ### [Service principal](#tab/SP)
 
-   Select **Service principal** to use a service principal that defines the access policy and permissions for the user/application in Azure Active Directory.
-6. Select **Next: Networking** to configure the network access to your target service and select **Configure firewall rules to enable access to your target service**.
-7. Select **Next: Review + Create**  to review the provided information. Then select **Create** to create the service connection. This operation may take a minute to complete.
+    1. Select **Service principal** to use a service principal that defines the access policy and permissions for the user/application in Microsoft Entra ID.
+    1. Select a service principal from the list and enter a **secret**.
 
-## View service connections in Function App
+    ### [Connection string](#tab/CS)
 
-1. The **Service Connector** tab displays existing function app connections.
-2. Select **Validate** to check your connection. You can see the connection validation details in the panel on the right.
+    > [!WARNING]
+    > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
+    Select **Connection string** to generate or configure one or multiple key-value pairs with pure secrets or tokens.
+    ---
+
+1. Select **Next: Networking** to configure network settings. Select **Configure firewall rules to enable access to target service** so that your function app can access the target service.
+
+1. Select **Next: Review + Create** to review the provided information. Running the final validation takes a few seconds. Then select **Create** to create the service connection. This operation might take a minute to complete.
+::: zone-end
+
+::: zone pivot="azure-cli"
+### [Managed identity (recommended)](#tab/using-managed-identity)
+
+Run the [az functionapp connection create](/cli/azure/functionapp/connection/create) command to create a service connection to Blob Storage with a system-assigned managed identity. You can run this command in two ways:
+
+- Generate the new connection step by step:
+  
+  ```azurecli-interactive
+  az functionapp connection create storage-blob --system-identity
+  ```
+
+- Generate the new connection at once. Replace the placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<function-app>`, `<target-subscription>`, `<target_resource_group>`, and `<account>`.
+
+  ```azurecli-interactive
+  az functionapp connection create storage-blob \
+     --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.Web/sites/<function-app> \
+     --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default \
+     --system-identity
+  ```
+
+> [!NOTE]
+> If you don't have a Blob Storage account, run `az functionapp connection create storage-blob --new --system-identity` to create one and connect it to your function app using a managed identity.
+
+### [Access key](#tab/using-access-key)
+
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
+Run the [az functionapp connection create](/cli/azure/functionapp/connection/create) command to create a service connection to Blob Storage with a connection string. You can run this command in two ways:
+
+- Generate the new connection step by step:
+
+  ```azurecli-interactive
+  az functionapp connection create storage-blob --secret
+  ```
+
+- Generate the new connection at once. Replace the placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<function-app>`, `<target-subscription>`, `<target_resource_group>`, `<account>`, `<secret-name>`, and `<secret>`.
+
+  ```azurecli-interactive
+  az functionapp connection create storage-blob \
+     --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.Web/sites/<function-app> \
+     --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default \
+     --secret name=<secret-name> secret=<secret>
+  ```
+
+> [!NOTE]
+> If you don't have a Blob Storage account, run `az functionapp connection create storage-blob --new --secret` to create one and connect it to your function app using a connection string.
+---
+::: zone-end
+
+## View service connections
+
+::: zone pivot="azure-portal"
+1. Function app connections are displayed in the **Service Connector** service menu. Select **>** to expand the list and see the properties required by your application.
+
+1. Select **Validate** to check your connection. You can see the connection validation details in the panel on the right.
 
    :::image type="content" source="./media/function-app-quickstart/list-and-validate.png" alt-text="Screenshot of the Azure portal, listing and validating the connection.":::
+::: zone-end
 
-## Next steps
+::: zone pivot="azure-cli"
+Run the [az functionapp connection list](/cli/azure/functionapp/connection#az-functionapp-connection-list) command to list all your function app's provisioned connections. Replace the placeholders `<function-app-resource-group>` and `<function-app-name>` with your own information. You can also remove the `--output table` option to view more information about your connections.
+
+```azurecli
+az functionapp connection list --resource-group "<function-app-resource-group>" --name "<function-app-name>" --output table
+```
+
+The output also displays the provisioning state of your connections.
+::: zone-end
+
+## Related content
 
 Follow the tutorials to start building your own function application with Service Connector.
 
-> [!div class="nextstepaction"]
-> [Tutorial: Python function with Azure Queue Storage as trigger](./tutorial-python-functions-storage-queue-as-trigger.md)
-
-> [!div class="nextstepaction"]
-> [Tutorial: Python function with Azure Blob Storage as input](./tutorial-python-functions-storage-blob-as-input.md)
-
-> [!div class="nextstepaction"]
-> [Tutorial: Python function with Azure Table Storage as output](./tutorial-python-functions-storage-table-as-output.md)
+- [Tutorial: Python function with Azure Queue Storage as trigger](./tutorial-python-functions-storage-queue-as-trigger.md)
+- [Tutorial: Python function with Azure Blob Storage as input](./tutorial-python-functions-storage-blob-as-input.md)
+- [Tutorial: Python function with Azure Table Storage as output](./tutorial-python-functions-storage-table-as-output.md)
