@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 07/28/2025
-#customer intent: As a cloud developer, I want to connect my cloud services to Azure Table Storage using Service Collector.
+#customer intent: As a cloud developer, I want to connect my compute services to Azure Table Storage using Service Connector.
 ---
 
 # Integrate Azure Table Storage with Service Connector
