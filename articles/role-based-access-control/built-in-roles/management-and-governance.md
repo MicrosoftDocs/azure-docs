@@ -57,7 +57,7 @@ View assessment recommendations, accepted review recommendations, and manage the
   ],
   "roleName": "Advisor Recommendations Contributor (Assessments and Reviews)",
   "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
+  "type": "Microsoft.Authorization/roleDefinitions"S
 }
 ```
 
