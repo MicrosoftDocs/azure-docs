@@ -8,7 +8,7 @@ ms.service: azure-operator-nexus
 
 |  K8s version | Nexus GA  | End of life                    | Extended Availability |
 |--------------|-----------|--------------------------------|-----------------------|
-| 1.27†        | Sep 2023  | Jul 2024                       | Until end of Jul 2025 |
+| 1.27†        | Sep 2023  | Jul 2024                       | Until end of Dec 2025 |
 | 1.28         | Nov 2023  | Oct 2024                       | Until end of Oct 2025 |
 | 1.29         | Aug 2024  | Feb 2025                       | Until end of Feb 2026 |
 | 1.30†        | Oct 2024  | Jul 2025                       | Until end of Jul 2026 |
