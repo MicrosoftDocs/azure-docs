@@ -85,13 +85,7 @@
                 - name: Azure PowerShell
                   href: how-to-configure-custom-bgp-communities.md
             - name: Add IPv6 support for private peering
-              items:
-                - name: Azure portal
-                  href: expressroute-howto-add-ipv6-portal.md
-                - name: Azure PowerShell
-                  href: expressroute-howto-add-ipv6-powershell.md
-                - name: Azure CLI
-                  href: expressroute-howto-add-ipv6-cli.md
+              href: expressroute-howto-add-ipv6.md
             - name: Connectivity between virtual networks
               href: virtual-network-connectivity-guidance.md
         - name: Microsoft peering
@@ -310,8 +304,6 @@
       href: reset-circuit.md
     - name: Getting ARP tables
       href: expressroute-troubleshooting-arp-resource-manager.md
-    - name: Getting ARP tables (Classic)
-      href: expressroute-troubleshooting-arp-classic.md
     - name: Questions & answers
       href: /answers/tags/225/azure-expressroute
 - name: Reference
@@ -373,19 +365,6 @@
           href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/
     - name: Classic and legacy articles
       items:
-        - name: Modify a circuit
-          href: expressroute-howto-circuit-classic.md
-        - name: Create and modify peering configuration
-          href: expressroute-howto-routing-classic.md
-        - name: Link a virtual network to an ExpressRoute circuit
-          href: expressroute-howto-linkvnet-classic.md
         - name: Configure ExpressRoute and S2S coexisting connections
           href: expressroute-howto-coexist-classic.md
         - name: Change circuit from classic to Resource Manager
-          items:
-            - name: Overview
-              href: expressroute-move.md
-            - name: Move a circuit from classic to Resource Manager
-              href: expressroute-howto-move-arm.md
-            - name: Migrate associated virtual networks from classic to Resource Manager
-              href: expressroute-migration-classic-resource-manager.md
