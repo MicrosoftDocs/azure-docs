@@ -146,9 +146,9 @@ To learn more about maintenance preferences, see [Upgrade preference for App Ser
 
 ## Service-level agreement (SLA)
 
-[!INCLUDE [SLA description](includes/reliability-sla-include.md)]
+[!INCLUDE [SLA description](includes/reliability-service-level-agreement-include.md)]
 
-[!INCLUDE [SLA description for App Service plans](includes/app-service/reliability-app-service-sla-include.md)]
+[!INCLUDE [SLA description for App Service plans](includes/app-service/reliability-app-service-service-level-agreement-include.md)]
 
 ## Related content
 
