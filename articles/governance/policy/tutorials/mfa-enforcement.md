@@ -18,7 +18,7 @@ Navigate to the [Azure portal](https://www.portal.azure.com)
 ### 2. Access Azure Policy Service
 Select Policy under Azure services. If you don't see it, type 'Policy' in the search bar at the top and select it from the results.
 
-:::image type="content" source="../media/multifactor-enforcement/policy-overview.png" alt-text="Screenshot of Azure Policy Assignment View." border="false"lightbox="../media/multifactor-enforcement/portal-enforcement.png":::
+:::image type="content" source="../media/multifactor-enforcement/policy-overview.png" alt-text="Screenshot of Azure Policy Assignment View." border="false" lightbox="../media/multifactor-enforcement/portal-enforcement.png":::
 
 ### 3. Choose the Scope for Assignment
 1. Click 'Assignments' in the left pane of the Policy dashboard.
@@ -33,7 +33,7 @@ Select Policy under Azure services. If you don't see it, type 'Policy' in the se
 1. Click 'Expand' on the 'Resource Selectors' section of the Basics tab.
 2. Click 'Add a resource selector'
   
-:::image type="content" source="../media/multifactor-enforcement/policy-resource-selectors.png" alt-text="Screenshot of Azure Policy Assignment Creation View." border="false":::
+:::image type="content" source="../media/multifactor-enforcement/policy-resource-selectors.png" alt-text="Screenshot of Azure Policy Assignment Creation View." border="false" lightbox="../media/multifactor-enforcement/portal-enforcement.png":::
 1. Add a name for your selector
 2. Toggle resourceLocation to enable it.
 3. Pick a few low-risk regions that you’d like to enforce on. The policy assignment will evaluate Azure resources in those regions.
