@@ -215,14 +215,26 @@ These instructions only apply for an OTLP exporter:
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-1. Add an application setting named PYTHON_ENABLE_OPENTELEMETRY with value of True.
-
-1. Add this entry in your `requirements.txt` file:
+1. Add the following application settings with value of True.
 
     ### [Application Insights](#tab/app-insights)
 
     ```text
-    azure.monitor.opentelemetry
+    PYTHON_APPLICATIONINSIGHTS_ENABLE_TELEMETRY
+    ```
+    ### [OTLP Exporter](#tab/otlp-export) 
+
+    ```text
+    PYTHON_ENABLE_OPENTELEMETRY
+    ```
+    ---
+
+1. Make sure the below library is in your `requirements.txt` file, whether from uncommenting or adding yourself:
+
+    ### [Application Insights](#tab/app-insights)
+
+    ```text
+    azure-monitor-opentelemetry
     ```
     ### [OTLP Exporter](#tab/otlp-export) 
 
@@ -238,6 +250,10 @@ These instructions only apply for an OTLP exporter:
 
     ### [Application Insights](#tab/app-insights)
 
+    If you followed the above steps by setting the `PYTHON_APPLICATIONINSIGHTS_ENABLE_TELEMETRY`, you don't need to add any additional code and skip the below.
+
+    If you would like to enable Application Insights collection manually without automatic instrumentation, add the following code:
+   
     ```python
     from azure.monitor.opentelemetry import configure_azure_monitor 
     configure_azure_monitor() 
@@ -275,6 +291,8 @@ These instructions only apply for an OTLP exporter:
 
     ---
 
+1. Refer to [Azure monitor Distro usage]https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry#usage) documentation for how to configure the SDK.
+  
 ::: zone-end  
 ## Considerations for OpenTelemetry
 
