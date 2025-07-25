@@ -811,7 +811,7 @@ The output of default values from the preceding example is:
 
 `tryGet(itemToTest, keyOrIndex)`
 
-`tryGet` helps you avoid deployment failures when trying to access a non-existent property or index in an object or array. If the specified key or index doesn't exist, `tryGet` returns null instead of throwing an error.
+`tryGet` helps you avoid deployment failures when trying to access a nonexistent property or index in an object or array. If the specified key or index doesn't exist, `tryGet` returns null instead of throwing an error.
 
 In Bicep, use the [safe-dereference](../bicep/operator-safe-dereference.md#safe-dereference) operator.
 
@@ -898,7 +898,7 @@ An array or object.
 
 The `union` function uses the sequence of the parameters to determine the order and values of the result.
 
-For arrays, the function iterates through each element in the first parameter and adds it to the result if it isn't already present. Then, it repeats the process for the second parameter and any additional parameters. If a value is already present, its earlier placement in the array is preserved.
+For arrays, the function iterates through each element in the first parameter and adds it to the result if it isn't already present. Then, it repeats the process for the second parameter and any other parameters. If a value is already present, its earlier placement in the array is preserved.
 
 For objects, property names and values from the first parameter are added to the result. For later parameters, any new names are added to the result. If a later parameter has a property with the same name, that value overwrites the existing value. The order of the properties isn't guaranteed.
 
