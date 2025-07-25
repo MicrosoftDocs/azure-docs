@@ -126,22 +126,22 @@ Now that you created a connection between your AKS cluster and target service, y
 ### [Using a workload identity (recommended)](#tab/Using-Managed-Identity)
 
 Run the [`az aks connection create storage-blob`](/cli/azure/aks/connection/create#az-aks-connection-create-storage-blob) command. You can run this command in two different ways:
-    
-   * Generate the new connection step by step.
-     
-       ```azurecli-interactive
-       az aks connection create storage-blob \
-          --workload-identity <user-identity-resource-id>
-       ```
+
+- Generate the new connection step by step.
+   
+  ```azurecli-interactive
+  az aks connection create storage-blob \
+     --workload-identity <user-identity-resource-id>
+  ```
+
+- Generate the new connection at once. Replace the placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<account>`, and `<user-identity-resource-id>`.
  
-   * Generate the new connection at once. Replace the placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<account>`, and <user-identity-resource-id>`.
-    
-       ```azurecli-interactive
-       az aks connection create storage-blob \
-          --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.ContainerService/managedClusters/<cluster> \
-          --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default \
-          --workload-identity <user-identity-resource-id>
-       ```
+  ```azurecli-interactive
+  az aks connection create storage-blob \
+     --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.ContainerService/managedClusters/<cluster> \
+     --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default \
+     --workload-identity <user-identity-resource-id>
+  ```
 
 ### [Using an access key](#tab/Using-access-key)
 
@@ -150,20 +150,20 @@ Run the [`az aks connection create storage-blob`](/cli/azure/aks/connection/crea
 
 Run the [`az aks connection create storage-blob`](/cli/azure/aks/connection/create#az-aks-connection-create-storage-blob) command. You can run this command in two different ways:
     
-   * Generate the new connection step by step.
-     
-       ```azurecli-interactive
-       az aks connection create storage-blob --secret
-       ```
- 
-   * Generate the new connection at once. Replace the placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<account>`, and `<user-identity-resource-id>`.
-    
-       ```azurecli-interactive
-       az aks connection create storage-blob \
-          --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.ContainerService/managedClusters/<cluster> \
-          --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default \
-          --secret name=<secret-name> secret=<secret>
-       ```
+- Generate the new connection step by step.
+   
+  ```azurecli-interactive
+  az aks connection create storage-blob --secret
+  ```
+
+- Generate the new connection at once. Replace the placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<cluster>`, `<target-subscription>`, `<target_resource_group>`, `<account>`, and `<user-identity-resource-id>`.
+  
+  ```azurecli-interactive
+  az aks connection create storage-blob \
+     --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.ContainerService/managedClusters/<cluster> \
+     --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default \
+     --secret name=<secret-name> secret=<secret>
+  ```
 ---
 
 > [!NOTE]

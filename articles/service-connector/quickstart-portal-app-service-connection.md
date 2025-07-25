@@ -108,20 +108,20 @@ You use Service Connector to create a new service connection in Azure App Servic
 
 Run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-storage-blob) command to create a service connection from App Service to Blob Storage with a system-assigned managed identity. You can run this command in two ways:
     
-   * Generate the new connection step by step:
-        
-        ```azurecli-interactive
-        az webapp connection create storage-blob --system-identity
-        ```
+- Generate the new connection step by step:
+     
+  ```azurecli-interactive
+  az webapp connection create storage-blob --system-identity
+  ```
  
-   * Generate the new connection at once. Replace the placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<webapp>`, `<target-subscription>`, `<target_resource_group>`, and `<account>`.
+- Generate the new connection at once. Replace the placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<webapp>`, `<target-subscription>`, `<target_resource_group>`, and `<account>`.
     
-        ```azurecli-interactive
-        az webapp connection create storage-blob \
-           --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.Web/sites/<webapp> \
-           --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default \
-           --system-identity
-        ```
+  ```azurecli-interactive
+  az webapp connection create storage-blob \
+     --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.Web/sites/<webapp> \
+     --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default \
+     --system-identity
+  ```
 
 > [!NOTE]
 > If you don't have a Blob Storage account, run `az webapp connection create storage-blob --new --system-identity` to create one and connect it to your App Service using a managed identity.
@@ -133,20 +133,20 @@ Run the [az webapp connection create](/cli/azure/webapp/connection/create#az-web
 
 Run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-storage-blob) command to create a service connection from App Service to Blob Storage with a connection string. You can run this command in two ways:
     
-   * Generate the new connection step by step:
-        
-        ```azurecli-interactive
-        az webapp connection create storage-blob --secret
-        ```
+- Generate the new connection step by step:
     
-    * Generate the new connection at once. Replace the placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<webapp>`, `<target-subscription>`, `<target_resource_group>`, `<account>`, `<secret-name>`, and `<secret>`.
+  ```azurecli-interactive
+  az webapp connection create storage-blob --secret
+  ```
+    
+- Generate the new connection at once. Replace the placeholders with your own information: `<source-subscription>`, `<source_resource_group>`, `<webapp>`, `<target-subscription>`, `<target_resource_group>`, `<account>`, `<secret-name>`, and `<secret>`.
      
-        ```azurecli-interactive
-        az webapp connection create storage-blob \
-           --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.Web/sites/<webapp> \
-           --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default \
-           --secret name=<secret-name> secret=<secret>
-        ```
+  ```azurecli-interactive
+  az webapp connection create storage-blob \
+     --source-id /subscriptions/<source-subscription>/resourceGroups/<source_resource_group>/providers/Microsoft.Web/sites/<webapp> \
+     --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default \
+     --secret name=<secret-name> secret=<secret>
+  ```
 
 > [!NOTE]
 > If you don't have a Blob Storage account, run `az webapp connection create storage-blob --new --secret` to create one and connect it to your App Service using a connection string.
