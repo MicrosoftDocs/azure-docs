@@ -12,7 +12,7 @@ ms.custom: pipelines, sfi-image-nochange
 
 The Microsoft Fabric Lakehouse connector in Azure Data Factory (ADF) and Azure Synapse Analytics enables both read and write operations to Microsoft Fabric Lakehouse (both for tables and files). This connector gives you the ability to use your existing ADF and Synapse Pipelines and Mapping Data Flows to interact with Fabric Lakehouses. This article helps you configure Microsoft Fabric to allow service principal authentication and then demonstrates the Lakehouse Connector for both reading and writing to the Fabric Lakehouse.  
 
-For more information on Microsoft Fabric Lakehouse, see [What is a lakehouse?](../data-engineering/lakehouse-overview.md)
+For more information on Microsoft Fabric Lakehouse, see [What is a lakehouse?](/fabricdata-engineering/lakehouse-overview)
 
 ## Azure Data Factory Lakehouse Connector
 
@@ -44,7 +44,7 @@ For a complete guide, refer to [Embed Power BI content in an embedded analytics 
 
 ### Workspace access
 
-Once the Security Group is added, the Security Group or the service principal must also be added to each Workspace as [Member, Contributor, or Admin](../fundamentals/roles-workspaces.md#-workspace-roles). Refer to [Give users access to workspaces](../fundamentals/give-access-workspaces.md) for more details.
+Once the Security Group is added, the Security Group or the service principal must also be added to each Workspace as [Member, Contributor, or Admin](/fabricfundamentals/roles-workspaces#-workspace-roles). Refer to [Give users access to workspaces](/fabricfundamentals/give-access-workspaces) for more details.
 
 ## Demo: Set up authentication
 
@@ -70,7 +70,7 @@ From the [Power BI admin portal](https://msit.powerbi.com/admin-portal), navigat
 :::image type="content" source="media/how-to-ingest-data-into-fabric-from-azure-data-factory/power-bi-admin-portal.png" alt-text="Screenshot showing the Power BI admin portal with the Allow service principals to user Power BI APIs option expanded and enabled.":::
 
 > [!NOTE]
-> Please ensure the setting **Users can access data stored in OneLake with apps external to Fabric** is enabled. Refer to [Allow apps running outside of Fabric to access data via OneLake](../onelake/security/fabric-onelake-security.md#allow-apps-running-outside-of-fabric-to-access-data-via-onelake).
+> Please ensure the setting **Users can access data stored in OneLake with apps external to Fabric** is enabled. Refer to [Allow apps running outside of Fabric to access data via OneLake](/fabriconelake/security/fabric-onelake-security#allow-apps-running-outside-of-fabric-to-access-data-via-onelake).
 
 ### Workspace
 
@@ -82,7 +82,7 @@ From [Azure Data Factory](https://adf.azure.com), create a new **Microsoft Fabri
 
 > [!NOTE]
 > To find the workspace and Lakehouse IDs, navigate to your Fabric Lakehouse and identify it from the URL. For example:
-> https://.../groups/**&lt;Workspace ID&gt;>**/lakehouses/**&lt;Lakehouse ID&gt;**
+> https://./fabricgroups/**&lt;Workspace ID&gt;>**/lakehouses/**&lt;Lakehouse ID&gt;**
 
 ### Azure Data Factory: Dataset
 
@@ -149,4 +149,4 @@ In this section, we explored the requirements for the Lakehouse Connector using 
 
 ## Related content
 
-[What is a lakehouse?](../data-engineering/lakehouse-overview.md)
+[What is a lakehouse?](/fabric/data-engineering/lakehouse-overview)
