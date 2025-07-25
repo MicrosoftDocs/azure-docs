@@ -44,7 +44,7 @@ For a complete guide, refer to [Embed Power BI content in an embedded analytics 
 
 ### Workspace access
 
-Once the Security Group is added, the Security Group or the service principal must also be added to each Workspace as [Member, Contributor, or Admin](/fabricfundamentals/roles-workspaces#-workspace-roles). Refer to [Give users access to workspaces](/fabric/fundamentals/give-access-workspaces) for more details.
+Once the Security Group is added, the Security Group or the service principal must also be added to each Workspace as [Member, Contributor, or Admin](/fabric/fundamentals/roles-workspaces#-workspace-roles). Refer to [Give users access to workspaces](/fabric/fundamentals/give-access-workspaces) for more details.
 
 ## Demo: Set up authentication
 
