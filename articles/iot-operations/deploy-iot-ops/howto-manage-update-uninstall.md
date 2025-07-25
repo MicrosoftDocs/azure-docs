@@ -141,7 +141,7 @@ The previous screenshot also shows the other resources in Azure Device Registry 
 
 In the Azure portal, you can configure *connector templates* for your Azure IoT Operations instance. Connector templates define the configuration of connectors, such as the connector for OPC UA, that are deployed to your cluster. When you create a connector template, it enables an OT user to create a device that uses the connector type in the operations experience web UI.
 
-<!-- TODO - 2507 Expand this section with more details about the connector template configuration. -->
+To learn more about connector templates, see [Deploy the connector for ONVIF](../discover-manage-assets/howto-use-onvif-connector.md#deploy-the-connector-for-onvif).
 
 ### Clone instance (preview)
 
