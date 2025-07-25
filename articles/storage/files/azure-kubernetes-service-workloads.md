@@ -4,7 +4,7 @@ description: Learn how to use Azure file shares for Azure Kubernetes Service (AK
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 07/02/2025
+ms.date: 07/25/2025
 ms.author: kendownie
 # Customer intent: "As a Kubernetes administrator, I want to implement Azure Files for my Azure Kubernetes Service (AKS) workloads requiring persistent, shared storage, so that I can better support my organization's containerized applications."
 ---
@@ -52,7 +52,7 @@ The Azure Files Container Storage Interface (CSI) driver is a critical component
 
 ### How the CSI driver works
 
-The Azure Files CSI driver operates through several key components:
+In AKS clusters, the Azure Files CSI driver is installed and managed automatically. The driver operates through several key components:
 
 - **CSI driver pod**: Runs as a DaemonSet on each node in the AKS cluster, responsible for mounting and unmounting Azure file shares
 - **CSI controller**: Manages the lifecycle of Azure file shares, including creation, deletion, and volume expansion
@@ -60,7 +60,7 @@ The Azure Files CSI driver operates through several key components:
 - **Persistent volumes**: Represent the actual Azure file shares in Kubernetes
 - **Persistent volume claims**: User requests for storage that are bound to persistent volumes
 
-When a pod requests storage through a persistent volume claim, the CSI driver coordinates with Azure APIs to either create a new Azure file share (dynamic provisioning) or connect to an existing share (static provisioning). The driver then mounts the share into the pod's filesystem namespace, making it accessible to applications.
+When a pod requests storage through a persistent volume claim, the CSI driver coordinates with Azure APIs to either create a new Azure file share ([dynamic provisioning](#dynamic-provisioning)) or connect to an existing share ([static provisioning](#static-provisioning)). The driver then mounts the share into the pod's filesystem namespace, making it accessible to applications.
 
 ### CSI driver capabilities
 
@@ -70,34 +70,6 @@ The Azure Files CSI driver provides several advanced capabilities:
 - **Volume expansion**: Supports online expansion of existing Azure file shares
 - **Snapshot support**: Enables point-in-time snapshots for backup and recovery scenarios
 - **Cross-platform compatibility**: Works with both Linux and Windows node pools in AKS
-
-### Driver installation and management
-
-In AKS clusters, the Azure Files CSI driver is installed and managed automatically.
-
-This YAML demonstrates the DaemonSet configuration for the Azure Files CSI driver node components, which run on every node in the AKS cluster to handle volume mounting operations:
-
-```yaml
-# Example of CSI driver components (managed automatically in AKS)
-apiVersion: apps/v1
-kind: DaemonSet
-metadata:
-  name: csi-azurefile-node
-  namespace: kube-system
-spec:
-  selector:
-    matchLabels:
-      app: csi-azurefile-node
-  template:
-    spec:
-      containers:
-      - name: node-driver-registrar
-        image: mcr.microsoft.com/oss/kubernetes-csi/node-driver-registrar:v2.5.0
-      - name: azurefile
-        image: mcr.microsoft.com/oss/kubernetes-csi/azurefile-csi:v1.18.0
-        securityContext:
-          privileged: true
-```
 
 ## Common use cases for Azure Files with AKS
 
@@ -127,7 +99,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: azurefile
+  storageClassName: azurefile-csi-premium
   resources:
     requests:
       storage: 10Gi
@@ -172,7 +144,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: azurefile
+  storageClassName: azurefile-csi-premium
   resources:
     requests:
       storage: 100Gi
@@ -207,7 +179,6 @@ spec:
         hostPath:
           path: /var/log
 ```
-
 
 ## Storage classes and provisioning options
 
@@ -289,25 +260,25 @@ mountOptions:
 This YAML example demonstrates how to create Azure file storage with private endpoint configuration for enhanced security:
 
 ```yaml
-# Example of using private endpoints with Azure Files
-apiVersion: v1
-kind: Secret
-metadata:
-  name: azure-secret
-type: Opaque
-data:
-  azurestorageaccountname: <base64-encoded-account-name>
-  azurestorageaccountkey: <base64-encoded-account-key>
----
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: azurefile-csi-private
+  name: azurefile-csi
 provisioner: file.csi.azure.com
+allowVolumeExpansion: true
 parameters:
-  skuName: Premium_LRS
-  protocol: smb
+  skuName: Premium_LRS  # available values: Premium_LRS, Premium_ZRS, Standard_LRS, Standard_GRS, Standard_ZRS, Standard_RAGRS, Standard_RAGZRS
   networkEndpointType: privateEndpoint
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+mountOptions:
+  - dir_mode=0777  # modify this permission if you want to enhance the security
+  - file_mode=0777
+  - mfsymlinks
+  - cache=strict  # https://linux.die.net/man/8/mount.cifs
+  - nosharesock  # reduce probability of reconnect race
+  - actimeo=30  # reduce latency for metadata-heavy workload
+  - nobrl  # disable sending byte range lock requests to the server and for applications which have challenges with posix locks
 ```
 
 ## See also
