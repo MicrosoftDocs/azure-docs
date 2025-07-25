@@ -10,6 +10,7 @@ ms.custom:
   - build-2025
 appliesto:
   - ✅ Azure Cache for Redis
+  - ✅ Azure Managed Redis
 ms.devlang: golang
 ai-usage: ai-assisted
 ---
