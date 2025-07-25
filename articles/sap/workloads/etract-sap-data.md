@@ -89,7 +89,7 @@ You can use pipelines and dataflows in Microsoft Fabric to extract and transform
 
 **Figure 1**: SAP data connectivity options within Microsoft Fabric.
 
-:::image type="content" source="media/1-sap-data-connectivity-options.png" alt-text="Diagram shows SAP data connectivity options within Microsoft Fabric":::
+:::image type="content" source="media/sap-extract-data-fabric/1-sap-data-connectivity-options.png" alt-text="Diagram shows SAP data connectivity options within Microsoft Fabric":::
 
 
 #### SAP Table connector
@@ -133,7 +133,7 @@ Azure Data Factory is a cloud-based data integration service that enables you to
 
 **Figure 2**: SAP to Microsoft Fabric data connectivity options within Azure Data Factory.
 
-:::image type="content" source="media/2-sap-data-connectivity-azure-data-factory.png" alt-text="Diagram shows SAP to Microsoft Fabric data connectivity options within Azure Data Factory":::
+:::image type="content" source="media/sap-extract-data-fabric/2-sap-data-connectivity-azure-data-factory.png" alt-text="Diagram shows SAP to Microsoft Fabric data connectivity options within Azure Data Factory":::
 
 
 #### SAP CDC Connector
@@ -166,7 +166,7 @@ SAP Datasphere is SAP’s enterprise-grade solution for extracting and transform
 
 **Figure 3**: SAP to Microsoft Fabric data connectivity options within SAP Datasphere.
 
-:::image type="content" source="media/3-sap-connectivity-options-datasphere.png" alt-text="Diagram shows SAP to Microsoft Fabric data connectivity options within SAP Datasphere":::
+:::image type="content" source="media/sap-extract-data-fabric/3-sap-connectivity-options-datasphere.png" alt-text="Diagram shows SAP to Microsoft Fabric data connectivity options within SAP Datasphere":::
 
 
 #### Premium Outbound Integration
@@ -195,7 +195,7 @@ Find out more about [partner solutions supporting Open Mirroring](https://learn.
 
 **Figure 4**: SAP to Microsoft Fabric data connectivity options using partner solutions.
 
-:::image type="content" source="media/4-sap-connectivity-options-partner-solutions.png" alt-text="Diagram shows SAP to Microsoft Fabric data connectivity options using partner solutions":::
+:::image type="content" source="media/sap-extract-data-fabric/4-sap-connectivity-options-partner-solutions.png" alt-text="Diagram shows SAP to Microsoft Fabric data connectivity options using partner solutions":::
 
 Typically, partner solutions support two integration patterns:
 
