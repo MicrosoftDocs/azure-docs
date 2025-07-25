@@ -20,7 +20,7 @@ To enable the preview connectors when you deploy your Azure IoT Operations insta
 
 Select **ONVIF Connector and Media Connector (Preview)** in the **Connectors** section of the **Install Azure IoT Operations > Basics** page:
 
-:::image type="content" source="media/deploy-preview-media-connectors/portal-deploy-preview-connectors.png" alt-text="Screenshot of Azure portal that shows how to select the preview connectors.":::
+:::image type="content" source="media/deploy-preview-media-connectors/portal-deploy-preview-connectors.png" alt-text="Screenshot of Azure portal that shows how to select the preview connectors." lightbox="media/deploy-preview-media-connectors/portal-deploy-preview-connectors.png":::
 
 # [Azure CLI](#tab/cli)
 
@@ -36,7 +36,7 @@ To enable the preview connectors after you deploy your Azure IoT Operations inst
 
 1. Enable the preview connectors:
 
-  :::image type="content" source="media/deploy-preview-media-connectors/portal-enable-preview-connectors.png" alt-text="Screenshot of Azure portal that shows how to enable the preview connectors.":::
+  :::image type="content" source="media/deploy-preview-media-connectors/portal-enable-preview-connectors.png" alt-text="Screenshot of Azure portal that shows how to enable the preview connectors." lightbox="media/deploy-preview-media-connectors/portal-enable-preview-connectors.png":::
 
 # [Azure CLI](#tab/cli)
 
@@ -56,11 +56,11 @@ To add a connector template instance to your Azure IoT Operations instance:
 
 1. In the Azure portal, go to your Azure IoT Operations instance, select **Connector templates**, and then select **Add connector template instances**:
 
-    :::image type="content" source="media/deploy-preview-media-connectors/portal-add-connector-template.png" alt-text="Screenshot of Azure portal that shows how to add a connector template instance.":::
+    :::image type="content" source="media/deploy-preview-media-connectors/portal-add-connector-template.png" alt-text="Screenshot of Azure portal that shows how to add a connector template instance." lightbox="media/deploy-preview-media-connectors/portal-add-connector-template.png":::
 
 1. On the first page of the **Add an Akri connector template** wizard, select the type of connector template you want to add, such as **ONVIF**, **Media**, or **HTTP REST**. Then select **Metadata**.
 
-    :::image type="content" source="media/deploy-preview-media-connectors/select-connector-template-type.png" alt-text="Screenshot of Azure portal that shows how to select the connector template instance type.":::
+    :::image type="content" source="media/deploy-preview-media-connectors/select-connector-template-type.png" alt-text="Screenshot of Azure portal that shows how to select the connector template instance type." lightbox="media/deploy-preview-media-connectors/select-connector-template-type.png":::
 
 1. On the **Metadata** page, accept the defaults, and then select **Device inbound endpoint type**.
 
@@ -70,7 +70,7 @@ To add a connector template instance to your Azure IoT Operations instance:
 
 1. On the **Runtime configuration** page, select **Add a volume claim** and enter the details of the persistent volume claim you created previously. Then select **Review**:
 
-    :::image type="content" source="media/deploy-preview-media-connectors/add-volume-claim.png" alt-text="Screenshot of Azure portal that shows how to configure the runtime settings for the connector template instance.":::
+    :::image type="content" source="media/deploy-preview-media-connectors/add-volume-claim.png" alt-text="Screenshot of Azure portal that shows how to configure the runtime settings for the connector template instance." lightbox="media/deploy-preview-media-connectors/add-volume-claim.png":::
 
 1. On the **Review** page, review the details of the connector template instance, and then select **Create** to create the connector template instance.
 
