@@ -45,7 +45,7 @@ sections:
           1. Save the changes and close the file.
           1. On the **SQL Server instance**, open **Task Manager**, stop `AzureWLBackupPluginSvs` and `AzureWLBackupInquirySvc` services, and then restart the `AzureWLBackupCoordinatorSvc` service.
           
-             `AzureWLBackupPluginSvs` and `AzureWLBackupInquirySvc` services auto-start when new tasks arrive. Avoid restarting `AzureWLBackupCoordinatorSvc` during active backups; otherwise,it aborts them and might trigger full remedial backups.
+             `AzureWLBackupPluginSvs` and `AzureWLBackupInquirySvc` services auto-start when new tasks arrive. Avoid restarting `AzureWLBackupCoordinatorSvc` during active backups; otherwise, it aborts them and might trigger full remedial backups.
 
       - question: |
           Can I control how many concurrent backups run on the SQL server?
@@ -61,7 +61,7 @@ sections:
           1. Save your changes and close the file.
           1. On the **SQL Server instance**, open **Task Manager**, stop `AzureWLBackupPluginSvs` and `AzureWLBackupInquirySvc` services, and then restart the `AzureWLBackupCoordinatorSvc` service.
           
-             `AzureWLBackupPluginSvs` and `AzureWLBackupInquirySvc` services auto-start when new tasks arrive. Avoid restarting `AzureWLBackupCoordinatorSvc` during active backups; otherwise,it aborts them and might trigger full remedial backups. For more generic control over CPU, I/O, and memory usage by backup applications, use **SQL Server Resource Governor**.
+             `AzureWLBackupPluginSvs` and `AzureWLBackupInquirySvc` services auto-start when new tasks arrive. Avoid restarting `AzureWLBackupCoordinatorSvc` during active backups; otherwise, it aborts them and might trigger full remedial backups. For more generic control over CPU, I/O, and memory usage by backup applications, use **SQL Server Resource Governor**.
 
           
           > [!NOTE]
