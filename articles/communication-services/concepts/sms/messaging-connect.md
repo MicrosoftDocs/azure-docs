@@ -44,7 +44,7 @@ Provisioning flow (high level):
 
 2. If Azure Communication Services can’t provision directly, you’re prompted to choose a Messaging Connect partner.
 
-3. You’re redirected to the partner portal to purchase/configure the number, complete any required registrations, and await approval.
+3. You’re redirected to the partner's portal to purchase/configure SMS capable phone numbers, complete any required registrations, and await approval.
 
 4. The partner syncs approved numbers back to your Azure Communication Services resource.
 
