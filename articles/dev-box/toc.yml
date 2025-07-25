@@ -25,14 +25,14 @@ items:
         href: quickstart-team-customizations.md
   - name: Concepts
     items:
+      - name: Key concepts
+        href: concept-dev-box-concepts.md
       - name: Architecture overview
         href: concept-dev-box-architecture.md
         displayName: Architecture,concepts,what is,overview,dev box,devbox,dev center,devcenter,project,networking,intune,azure
       - name: Network requirements
         href: concept-dev-box-network-requirements.md
         displayName: Network,firewall,endpoints,ports,connect,network connection,native,hybrid,hosted,tags
-      - name: Key concepts
-        href: concept-dev-box-concepts.md
       - name: Azure role-based access control
         href: concept-dev-box-role-based-access-control.md
         displayName: RBAC,role-based access control,permissions,access,role,role assignment,role definition
@@ -75,23 +75,26 @@ items:
         href: how-to-customize-devbox-azure-image-builder.md
   - name: Customize dev boxes
     items:
-      - name: What are Team Customizations
-        href: concept-what-are-team-customizations.md
+      - name: What are Dev Box customizations
+        href: concept-what-are-dev-box-customizations.md
         displayName: customizations, image definition, team customization
-      - name: Write an image definition file
-        href: how-to-write-image-definition-file.md
+      - name: Configure team customizations
+        href: how-to-configure-team-customizations.md
         displayName: customizations, image definition, team customization
+      - name: Configure Dev Box imaging
+        href: how-to-configure-dev-box-imaging.md
       - name: Create an image definition file with Copilot
         href: how-to-use-copilot-generate-image-definition-file.md
-      - name: Write an individual customization file
-        href: how-to-write-individual-customization-file.md
+      - name: Configure user customizations
+        href: how-to-configure-user-customizations.md
         displayName: customizations, image definition, personal customization, individual
-      - name: Configure imaging for Customizations
-        href: how-to-configure-customization-imaging.md
-      - name: Create customization tasks
-        href: how-to-create-customization-tasks-catalog.md
-      - name: Use customization files to clone private repositories
-        href: how-to-use-secrets-customization-files.md
+      - name: Configure tasks for customizations
+        href: how-to-configure-customization-tasks.md
+      - name: Connect to Azure resources and repositories
+        displayName: customizations, secrets, Azure Key Vault
+        href: how-to-customizations-connect-resource-repository.md
+      - name: Add and Manage Catalogs
+        href: how-to-configure-catalog.md
   - name: Create & connect to dev boxes
     items:
       - name: Manage a dev box through developer portal
@@ -105,7 +108,7 @@ items:
       - name: Connect to a dev box with a dev tunnel
         href: how-to-set-up-dev-tunnels.md
   - name: AI on Dev Box
-    items: 
+    items:
       - name: Configure Serverless GPU
         href: how-to-configure-dev-box-serverless-gpu.md
   - name: Security
@@ -136,6 +139,8 @@ items:
         href: how-to-configure-stop-on-disconnect.md
       - name: Skip or delay an automatic shutdown
         href: how-to-skip-delay-stop.md
+      - name: Delete unused dev boxes
+        href: how-to-auto-delete-dev-box.md
   - name: Connect devices to dev boxes
     items:
       - name: Connect physical devices to a dev box
@@ -172,7 +177,7 @@ items:
         href: how-to-get-help.md
   - name: Reference
     items:
-      - name: 'Reference: imagedefinition.yaml and task.yaml files'
+      - name: "Reference: imagedefinition.yaml and task.yaml files"
         href: reference-dev-box-customizations.md
         displayName: Customize, schema, yaml, imagedefinition, task
       - name: Install Azure CLI devcenter extension

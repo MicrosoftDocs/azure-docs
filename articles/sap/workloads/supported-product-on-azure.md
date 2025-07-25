@@ -10,6 +10,7 @@ ms.topic: article
 ms.date: 02/02/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, linux-related-content
+# Customer intent: As an SAP administrator, I want to verify the supported SAP software and OS/DBMS requirements for deployment on Azure, so that I can ensure my SAP applications run efficiently and comply with the necessary specifications.
 ---
 
 # What SAP software is supported for Azure deployments

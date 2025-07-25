@@ -9,6 +9,7 @@ ms.custom: devx-track-java, build-2025
 ms.topic: overview
 ms.date: 06/27/2025
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
+# Customer intent: As a Java developer, I want to use the application and code assessment tool to evaluate my Java applications, so that I can determine their readiness for migration and modernization in the Azure environment.
 ---
 
 # Overview of Azure Migrate application and code assessment for Java

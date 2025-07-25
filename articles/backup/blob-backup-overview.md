@@ -4,9 +4,10 @@ description: Learn about Azure Blobs backup.
 ms.topic: overview
 ms.date: 06/17/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: "As an IT professional managing Azure storage, I want to implement backups for Azure Blobs, so that I can protect against data loss from accidental deletion or corruption and ensure compliance with retention policies."
 ---
 
 # Overview of Azure Blob backup

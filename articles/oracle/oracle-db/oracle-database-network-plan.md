@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.custom: engagement-fy23
 ms.date: 12/12/2023
+# Customer intent: "As a cloud architect, I want to configure network topologies for Oracle Database@Azure, so that I can ensure optimal connectivity, security, and performance for the deployment in my virtual network environment."
 ---
 # Network planning for Oracle Database@Azure
 In this article, learn about network topologies and constraints in Oracle Database@Azure.
@@ -26,7 +27,8 @@ Advanced network features enhance the virtual networking experience, offering im
 * Canada Central
 * Central US 
 * East US 
-* East US2 
+* East US2
+* South Central US
 * US West  
 * UK South 
 * UK West
@@ -36,7 +38,7 @@ Advanced network features enhance the virtual networking experience, offering im
 > Advanced network features are currently supported only for new Oracle Database@Azure deployments. 
 > Existing virtual networks with previously created Oracle Database@Azure delegated subnets will not support these features at this time. Support for existing deployments is planned for later this year. 
 > ### Registration required for delegated subnets
->To use advanced network features, use the following commands (via AZCLI) to register before creating your virtual network for the Oracle Database@Azure deployment.
+>To use advanced network features, use the following commands (via AZCLI) to register before creating a new delegated subnet  for the Oracle Database@Azure deployment.
 >
 > ```Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Baremetal" ```
 >

@@ -2,9 +2,10 @@
 title: About Azure VM backup
 description: In this article, learn how the Azure Backup service backs up Azure Virtual machines, and how to follow best practices.
 ms.topic: overview
-ms.date: 06/17/2025
-author: jyothisuri
-ms.author: jsuri
+ms.date: 07/30/2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As an IT admin managing Azure VMs, I want to implement effective backup strategies using Azure Backup, so that I can ensure data protection and quick recovery for my virtual machines while minimizing downtime and costs."
 ---
 
 # An overview of Azure VM backup
@@ -123,7 +124,7 @@ Billing for a specified VM stops only if the protection is stopped and all backu
 If you have opted for agent-based application consistent or file-system consistent backups, the protected-instance size calculation is based on the *actual* size of the VM. The VM's size is the sum of all the data in the VM, excluding the temporary storage. Pricing is based on the actual data that's stored on the data disks, not on the maximum supported size for each data disk that's attached to the VM.
 
 >[!Note]
->For [agentless crash-consistent backups](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md), you're currently charged for 0.5 protected instance (PI) per VM during preview.
+>The agentless multi-disk crash consistent VM backup feature is generally available. This release includes changes to billing; see the [pricing details](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md#pricing-for-agentless-multi-disk-crash-consistent-backup).
 
 Similarly, the backup storage bill is based on the amount of data that's stored in Azure Backup, which is the sum of the actual data in each recovery point.
 

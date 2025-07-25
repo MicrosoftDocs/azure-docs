@@ -172,6 +172,54 @@ Make these replacements in the code:
 The `enableDeliveryReport` parameter is an optional parameter that you can use to configure delivery reporting. This functionality is useful when you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure delivery reporting for your SMS messages.
 The `tag` parameter is optional. You can use it to apply a tag to the delivery report.
 
+## Send SMS globally with Messaging Connect
+
+[!INCLUDE [Public Preview Disclaimer](../../../includes/public-preview-include.md)]
+
+If you're using a phone number provisioned via Messaging Connect, you can send SMS messages using the standard Azure Communication Services JavaScript SDK. The only difference is that you must include the `messagingConnect` object to specify the partner name and API key.
+
+```javascript
+async function main() {
+  const sendResults = await smsClient.send({
+    from: "<from-messaging-connect-number>",
+    to: ["<to-phone-number-1>", "<to-phone-number-2>"],
+    message: "Weekly Promotion!"
+  }, {
+    // Optional parameters
+    enableDeliveryReport: true,
+    tag: "marketing", // custom tag
+    messagingConnect: {
+      apiKey: "<partner-api-key>",
+      partner: "infobip"
+    }
+  });
+
+  for (const sendResult of sendResults) {
+    if (sendResult.successful) {
+      console.log("Success:", sendResult);
+    } else {
+      console.error("Failed to send message:", sendResult);
+    }
+  }
+}
+
+main();
+``` 
+Replace these values:
+
+- `<from-messaging-connect-number>`: The phone number acquired through Messaging Connect and linked to your ACS resource.
+- `<to-phone-number-1>` and `<to-phone-number-2>`: The recipient phone numbers.
+- `<partner-api-key>`: The API key from your Messaging Connect partner (for example, Infobip).
+
+> [!TIP]
+> Want to learn more about global messaging? Check out the [Messaging Connect page](../../../concepts/sms/messaging-connect.md)
+
+> [!WARNING]
+> Phone numbers must follow the E.164 international standard format (for example, +14255550123). The `<from-messaging-connect-number>` must be a Messaging Connect number or a Dynamic Alpha Sender ID (for example, CONTOSO) already provisioned and synced to your ACS resource.
+
+The `enableDeliveryReport` parameter allows you to configure delivery reporting. The `tag` parameter is optional and lets you apply a custom tag to the delivery report. To configure SMS delivery reporting, see the [Handle SMS Events](../handle-sms-events.md) quickstart.
+
+
 ## Run the code
 
 Use the `node` command to run the code that you added to the **send-sms.js** file.

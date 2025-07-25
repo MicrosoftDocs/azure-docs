@@ -5,8 +5,9 @@ description: Learn how to configure VPN clients for P2S configurations that use 
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 03/20/2025
+ms.date: 07/03/2025
 ms.author: cherylmc
+# Customer intent: "As a network engineer, I want to configure the Azure VPN Client for point-to-site connections using certificate authentication, so that I can securely connect to the virtual network and manage remote access effectively."
 ---
 
 # Configure Azure VPN Client for P2S certificate authentication connections - Windows
@@ -26,6 +27,8 @@ This article assumes that you already completed the following prerequisites:
 * You created and configured your VPN gateway for point-to-site certificate authentication and the OpenVPN tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](point-to-site-certificate-gateway.md) for steps.
 * You generated and downloaded the VPN client configuration files. See [Generate VPN client profile configuration files](point-to-site-certificate-gateway.md#profile-files) for steps.
 * You can either generate client certificates, or acquire the appropriate client certificates necessary for authentication.
+
+[!INCLUDE [Supported Windows versions](../../includes/vpn-gateway-vwan-azure-vpn-client-windows-supported.md)]
 
 ### Connection requirements
 

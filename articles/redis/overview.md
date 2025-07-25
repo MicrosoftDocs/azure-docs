@@ -117,8 +117,34 @@ The following table helps describe some of the features supported by tier:
 
 ### Other considerations when picking a tier
 
-- **Network performance**: If you have a workload that requires high throughput, network bandwidth might cause a bottleneck. You can increase bandwidth by moving up to a higher performance tier or by moving to a large instance size. Larger size instances have more bandwidth because of the underlying VM that hosts the cache. Higher bandwidth limits help you avoid network saturation that cause time-outs in your application. For more information on bandwidth performance, see [Performance testing](best-practices-performance.md)
-- **Maximum number of client connections**: Each SKU has a maximum number of client connections. This limit increases with higher performance tiers and larger instances sizes. For more information on the limit for each SKU, see [Azure Managed Redis Pricing](https://aka.ms/amrpricing).
+- **Network performance**: If you have a workload that requires high throughput, network bandwidth might cause a bottleneck. You can increase bandwidth by moving up to a higher performance tier or by moving to a large instance size. Larger size instances have more bandwidth because of the underlying VM that hosts the cache. Higher bandwidth limits help you avoid network saturation that causes timeouts in your application. For more information on bandwidth performance, see [Performance testing](best-practices-performance.md)
+- **Maximum number of client connections**: Each SKU has a maximum number of client connections. This limit increases with higher performance tiers and larger instances sizes. The following table shows the maximum client connections allowed per Azure Managed Redis SKU.
+
+
+[!INCLUDE [tier-preview](includes/tier-preview.md)]
+
+|  Size (GB)  |    Memory Optimized   |    Balanced   |   Compute Optimized  |  Flash Optimized (preview)|
+|:-----------:|:---------------------:|:-------------:|:--------------------:|:--------------------:|
+|    0.5      |       -               |    15,000      |         -            |       -              |
+|     1       |       -               |    15,000      |         -            |       -              |
+|     3       |       -               |    15,000      |         30,000        |       -              |
+|     6       |       -               |    15,000      |         30,000        |       -              |
+|     12      |   15,000               |    30,000      |         75,000        |       -              |
+|     24      |   30,000               |    75,000      |         150,000       |       -              |
+|     60      |   75,000               |    150,000     |         200,000       |       -              |
+|     120     |   150,000              |    200,000     |         200,000       |       -              |
+|     180 *   |   200,000              |    200,000     |         200,000       |       -              |
+|     240 *   |   200,000              |    200,000     |         200,000       |       75,000          |
+|     360 *   |   200,000              |    200,000     |         200,000       |       -              |
+|     480 *   |   200,000              |    200,000     |         200,000       |       150,000         |
+|     720 *   |   200,000              |    200,000     |         200,000       |       200,000         |
+|     960 *   |   200,000              |    200,000     |         -             |       200,000         |
+|     1440 *  |   200,000              |        -       |         -             |       200,000         |
+|     1920 *  |   200,000              |        -       |         -             |       200,000         |
+|     4500 *  |       -                |        -       |         -             |       200,000         |
+
+  \* These tiers are in Public Preview.
+
 - **High availability**: Azure Managed Redis provides multiple [high availability](high-availability.md) options. The SLA only covers connectivity to the cache endpoints. The SLA doesn't cover protection from data loss. For more information on the SLA, see the [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). It's possible to disable high availability in an Azure Managed Redis instance. This lowers the price but results in data loss and downtime. We only recommend disabling high availability for dev/test scenarios.
 
 ### Other pricing considerations
@@ -133,69 +159,7 @@ The following table helps describe some of the features supported by tier:
 
 ### Availability by region
 
-Azure Managed Redis is continually expanding into new regions.
-
-- Americas
-  - Brazil South
-  - Brazil Southeast
-  - Canada Central
-  - Canada East
-  - Central US
-  - East US
-  - East US 2
-  - Mexico Central
-  - North Central US
-  - South Central US
-  - West Central US
-  - West US
-  - West US 2
-  - West US 3
-  
-- Europe
-  - France South
-  - Germany North
-  - Germany West Central
-  - Italy North
-  - Norway East
-  - Norway West
-  - Spain Central
-  - Sweden Central
-  - Sweden South
-  - Switzerland North
-  - Switzerland West
-  - UK South
-  - UK West
-  - West Europe
-  
-- Middle East
-  - Israel Central
-  - UAE Central
-  - UAE North
-  
-- Africa
-  - South Africa North
-  - South Africa West
-  
-- Asia Pacific
-  - East Asia
-  - Australia Central
-  - Australia Central 2
-  - Australia East
-  - Australia Southeast
-  - Central India
-  - Indonesia Central
-  - Japan East
-  - Japan West
-  - Jio India Central
-  - Jio India West
-  - Korea Central
-  - Korea South
-  - South East Asia
-  - South India
-  - Taiwan North
-  - Taiwan Northwest
-  
-To check the availability by region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=redis-cache&regions=all).
+Azure Managed Redis is continually expanding into new regions. To check the availability by region, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
 
 ## Moving from Azure Cache for Redis
 

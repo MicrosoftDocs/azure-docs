@@ -3,10 +3,10 @@ title: GCP data connector reference for the Codeless Connector Framework
 titleSuffix: Microsoft Sentinel
 description: This article provides reference JSON fields and properties for creating the GCP data connector type and its data connection rules as part of the Codeless Connector Framework.
 services: sentinel
-author: austinmccollum
+author: EdB-MSFT
 ms.topic: reference
 ms.date: 9/30/2024
-ms.author: austinmc
+ms.author: edbaynash
 
 ---
 

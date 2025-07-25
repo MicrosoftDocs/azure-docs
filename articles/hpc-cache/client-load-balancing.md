@@ -6,6 +6,7 @@ ms.service: azure-hpc-cache
 ms.topic: how-to
 ms.date: 09/20/2021
 ms.author: rohogue
+# Customer intent: As an IT administrator, I want to configure load balancing for client connections to Azure HPC Cache using DNS, so that I can efficiently distribute traffic among multiple mount points for optimal performance.
 ---
 
 # Load balance HPC Cache client traffic

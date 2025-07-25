@@ -2,16 +2,20 @@
 title: Back up Azure VM with agentless multi-disk crash-consistent backup by using Azure Backup
 description: Learn how to configure backup for Azure VMs with agentless multi-disk crash-consistent backup via Azure portal.
 ms.topic: how-to
-ms.date: 06/11/2025
-author: jyothisuri
-ms.author: jsuri
+ms.date: 07/30/2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As an IT administrator managing Azure VMs, I want to configure agentless multi-disk crash-consistent backups, so that I can ensure robust data protection with minimal impact on performance.
 ---
 
-# Back up Azure VM with agentless multi-disk crash-consistent backup (preview)
+# Back up Azure VM with agentless multi-disk crash-consistent backup
 
-This article describes how to configure backup for Azure VMs with agentless multi-disk crash-consistent backup (preview) and back up VM by using the Azure portal.
+This article describes how to configure backup for Azure VMs with agentless multi-disk crash-consistent backup and back up VM by using the Azure portal.
 
-Azure Backup supports agentless VM backups by using multi-disk crash-consistent restore points (preview). The Enhanced VM backup policy now enables you to configure the consistency type of the backups (application-consistent restore points or crash-consistent restore points preview) for Azure VMs. This feature also enables Azure VM backup to retry the backup operation with *crash-consistent snapshots* (for *supported VMs*) if the application-consistent snapshot fails. 
+Azure Backup supports agentless VM backups by using multi-disk crash-consistent restore points. The Enhanced VM backup policy now enables you to configure the consistency type of the backups (application-consistent restore points or crash-consistent restore points) for Azure VMs. This feature also enables Azure VM backup to retry the backup operation with *crash-consistent snapshots* (for *supported VMs*) if the application-consistent snapshot fails. 
+
+>[!Note]
+>The agentless multi-disk crash consistent VM backup feature is generally available. This release includes changes to billing; see the [pricing details](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md#pricing-for-agentless-multi-disk-crash-consistent-backup).
 
 ## Before you start
 
@@ -28,7 +32,7 @@ To configure backup for a new Azure VM with agentless multi-disk crash-consisten
 
 1. On the **Configure backup** blade, under **Policy sub type**, select **Enhanced** > **Create a new policy**. 
 
-2. On the **Create policy** blade, set the **Consistency type** to **Only crash consistent snapshot (Preview)** to enable *agentless crash consistent backup*.
+2. On the **Create policy** blade, set the **Consistency type** to **Only crash consistent snapshot** to enable *agentless crash consistent backup*.
 
    :::image type="content" source="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/configure-agentless-vm-backup-for-new-vm-with-new-policy.png" alt-text="Screenshot shows how to configure agentless crash-consistent backup for a new VM with a new backup policy." lightbox="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/configure-agentless-vm-backup-for-new-vm-with-new-policy.png":::
 
@@ -54,7 +58,7 @@ Follow these steps:
    :::image type="content" source="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/policy-settings.png" alt-text="Screenshot shows how to check associated items in a backup policy." lightbox="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/policy-settings.png":::
  
    >[!Note]
-   >Ensure that the VMs are supported for crash-consistent backups. Learn about the [supported scenarios](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md#supported-scenarios-for-agentless-multi-disk-crash-consistent-vm-backup-preview).
+   >Ensure that the VMs are supported for crash-consistent backups. Learn about the [supported scenarios](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md#supported-scenarios-for-agentless-multi-disk-crash-consistent-vm-backup).
 
 3. Go to the **Modify policy**, and then make a note of the settings in the policy to use the same in the new backup policy.
 
@@ -68,7 +72,7 @@ Follow these steps:
 
    :::image type="content" source="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/create-new-enhanced-backup-policy.png" alt-text="Screenshot shows creation of a new backup policy with the same backup frequency and retention rules." lightbox="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/create-new-enhanced-backup-policy.png":::
 
-7. Set the **Consistency type** to **Only crash consistent snapshot (Preview)**, and then select **Create**.
+7. Set the **Consistency type** to **Only crash consistent snapshot**, and then select **Create**.
 
    :::image type="content" source="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/set-crash-consistent-policy.png" alt-text="Screenshot shows how to set crash-consistent policy." lightbox="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/set-crash-consistent-policy.png":::
 
@@ -101,11 +105,11 @@ Follow these steps:
    :::image type="content" source="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/policy-settings.png" alt-text="Screenshot shows how to check the associated items in a backup policy." lightbox="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/policy-settings.png":::
 
    >[!Note]
-   >Ensure that all the VMs in the policy are supported for crash-consistent backups. Learn about the [supported scenarios](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md#supported-scenarios-for-agentless-multi-disk-crash-consistent-vm-backup-preview).
+   >Ensure that all the VMs in the policy are supported for crash-consistent backups. Learn about the [supported scenarios](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md#supported-scenarios-for-agentless-multi-disk-crash-consistent-vm-backup).
    >
    > :::image type="content" source="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/backup-policy-associated-items-edit.png" alt-text="Screenshot shows the list of VM associated with a backup policy." lightbox="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/backup-policy-associated-items-edit.png":::
 
-3. Go to the **Modify policy** blade, and set the **Consistency type** to **Only crash consistent snapshot (Preview)**, and then select **Update**.
+3. Go to the **Modify policy** blade, and set the **Consistency type** to **Only crash consistent snapshot**, and then select **Update**.
 
    :::image type="content" source="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/modify-policy-crash-consistent.png" alt-text="Screenshot shows how to check for the change in policy settings." lightbox="./media/backup-azure-vms-agentless-multi-disk-crash-consistent/modify-policy-crash-consistent.png":::
 

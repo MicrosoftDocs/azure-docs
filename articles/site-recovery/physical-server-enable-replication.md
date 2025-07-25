@@ -6,6 +6,7 @@ ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: jsuri
 ms.date: 05/24/2024
+# Customer intent: "As an IT administrator managing on-premises physical servers, I want to enable replication to Azure for disaster recovery, so that I can ensure business continuity in case of system failures or disasters."
 ---
 
 # Enable replication for a physical server – Modernized

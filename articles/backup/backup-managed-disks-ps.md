@@ -4,8 +4,9 @@ description: Learn how to back up Azure Managed Disks using Azure PowerShell.
 ms.topic: how-to
 ms.date: 06/11/2025
 ms.custom: devx-track-azurepowershell
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As an IT administrator, I want to back up Azure Managed Disks using PowerShell, so that I can ensure data reliability and recoverability for critical workloads."
 ---
 
 # Back up Azure Managed Disks using Azure PowerShell

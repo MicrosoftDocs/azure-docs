@@ -26,12 +26,12 @@ As a Python developer, you might also be interested in these topics:
 
 ::: zone pivot="python-mode-configuration"
 + [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-configuration): Create your first Python app using Visual Studio Code.
-+ [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-configuration): Create your first Python app from the command prompt using Azure Functions Core Tools.
+ + [Terminal or command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-python,python-mode-configuration): Create your first Python app from the command prompt using Azure Functions Core Tools.
 + [Samples](/samples/browse/?products=azure-functions&languages=python): Review some existing Python apps in the Learn samples browser.  
 ::: zone-end  
 ::: zone pivot="python-mode-decorators"
 + [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-decorators): Create your first Python app using Visual Studio Code.
-+ [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-decorators): Create your first Python app from the command prompt using Azure Functions Core Tools.
+ + [Terminal or command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-python,python-mode-decorators): Create your first Python app from the command prompt using Azure Functions Core Tools.
 + [Samples](/samples/browse/?products=azure-functions&languages=python): Review some existing Python apps in the Learn samples browser.  
 ::: zone-end  
 ## [Scenarios](#tab/scenarios)
@@ -51,7 +51,7 @@ As a Python developer, you might also be interested in these topics:
 ## [Hosting options](#tab/hosting)
 
 + [Flex Consumption plan](./flex-consumption-plan.md): Linux-based serverless hosting option that features full support for managed identities, virtual networks, and flexible deployments. 
-+ [Container hosting options](container-concepts.md): Run and deploy your Python functions on Linux in a Docker container, including integrated [Azure Container Apps hosting](functions-container-apps-hosting.md).
++ [Container hosting options](container-concepts.md): Run and deploy your Python functions on Linux in a Docker container, including integrated [Azure Container Apps hosting](../container-apps/functions-overview.md).
 + [Compare hosting options...](functions-scale.md) 
 
 ---
@@ -63,12 +63,12 @@ Both Python Functions programming models support local development in one of the
 Python v2 programming model:
 
 + [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-decorators)
-+ [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-decorators)
+ + [Terminal or command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-python,python-mode-decorators)
 
 Python v1 programming model:
 
 + [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-configuration)
-+ [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-configuration)
+ + [Terminal or command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-python,python-mode-configuration)
 
 You can also create Python functions in the Azure portal.
 
@@ -1079,7 +1079,9 @@ Azure Functions supports the following Python versions:
 
 | Functions version | Python\* versions |
 | ----- | :-----: |
-| 4.x | 3.12<br/>3.11<br/>3.10<br/>|
+| 4.x | 3.13 (Preview)<br/>3.12<br/>3.11<br/>3.10<br/>|
+> [!IMPORTANT]  
+> Python 3.13 is currently supported on the Flex Consumption, Premium, and Dedicated plans. Python 3.13 support on the Consumption plan is pending.
 
 \* Official Python distributions
 
@@ -1406,6 +1408,7 @@ To view the library for your Python version, go to:
 * [Python 3.10 standard library](https://docs.python.org/3.10/library/)
 * [Python 3.11 standard library](https://docs.python.org/3.11/library/)
 * [Python 3.12 standard library](https://docs.python.org/3.12/library/)
+* [Python 3.13 standard library](https://docs.python.org/3.13/library/)
 
 ### Azure Functions Python worker dependencies
 
@@ -1435,7 +1438,7 @@ For a list of preinstalled system libraries in Python worker Docker images, see 
 
 |  Functions runtime  | Debian version | Python versions |
 |------------|------------|------------|
-| Version 3.x | Buster | [Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile)<br/> [Python 3.9](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python39/python39.Dockerfile)|
+| Version 3.x | Buster | Python 3.7<br/>Python 3.8<br/>Python 3.9 |
 
 ## Python worker extensions  
 
