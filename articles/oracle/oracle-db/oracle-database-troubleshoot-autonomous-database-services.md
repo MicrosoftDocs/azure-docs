@@ -6,6 +6,7 @@ ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
+# Customer intent: "As a database administrator, I want to troubleshoot Oracle Autonomous Database on Azure, so that I can resolve common issues and ensure smooth operation of my database environment."
 ---
 
 # Troubleshoot Oracle Autonomous Database@Azure

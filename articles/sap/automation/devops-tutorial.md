@@ -8,6 +8,7 @@ ms.date: 10/19/2022
 ms.topic: tutorial
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+# Customer intent: "As a DevOps engineer, I want to automate the deployment of SAP infrastructure using a deployment framework, so that I can streamline and manage SAP resources efficiently within Azure DevOps."
 ---
 
 # Tutorial: Use SAP Deployment Automation Framework with DevOps

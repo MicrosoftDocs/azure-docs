@@ -177,6 +177,8 @@ az functionapp deployment slot create --name "<APP_NAME>" --resource-group "<RES
 
 ---
 
+You can also create a slot by using ARM templates or Bicep files. For an example of how to create a function app in a Consumption plan with a deployment slot, see this [Azure Resource Manager quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-create-dynamic-slot).  
+
 ## Access slot resources
 
 You access resources (HTTP triggers and administrator endpoints) in a staging slot in the same way as the production slot. However, instead of the function app host name you use the slot-specific host name in the request URL, along with any slot-specific keys. Because staging slots are live apps, you must [secure your functions](./security-concepts.md) in a staging slot as you would in the production slot.  

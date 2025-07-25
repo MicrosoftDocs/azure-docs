@@ -10,6 +10,8 @@ items:
     items:
     - name: Web Application Firewall on Application Gateway
       href: ./ag/ag-overview.md
+    - name: Web Application Firewall on Application Gateway for Containers
+      href: ./ag/waf-application-gateway-for-containers-overview.md
     - name: FAQ
       href: ./ag/application-gateway-waf-faq.yml
   - name: Front Door
@@ -216,6 +218,8 @@ items:
       href: /powershell/module/az.frontdoor/
     - name: Application Gateway
       href: /powershell/module/az.network/#application_gateway
+    - name: Application Gateway for Containers
+      href: /powershell/module/az.alb/get-azalbsecuritypolicy
     - name: CDN
       href: https://www.powershellgallery.com/packages/Az.Cdn/1.5.0-preview
   - name: Azure CLI
@@ -224,6 +228,8 @@ items:
       href: /cli/azure/network/front-door/waf-policy
     - name: Application Gateway
       href: /cli/azure/network/application-gateway
+    - name: Application Gateway for Containers
+      href: /cli/azure/network/alb/security-policy
     - name: CDN
       href: /azure/web-application-firewall/afds/waf-front-door-create-portal
   - name: REST API

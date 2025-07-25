@@ -8,6 +8,7 @@ ms.date: 12/21/2023
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.topic: concept-article
+# Customer intent: As a cloud architect, I want to utilize the SAP Deployment Automation Framework, so that I can efficiently deploy, manage, and maintain SAP environments on Azure while ensuring optimal resource allocation and adherence to best practices.
 ---
 # SAP Deployment Automation Framework
 
