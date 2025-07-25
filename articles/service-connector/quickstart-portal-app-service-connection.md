@@ -1,20 +1,21 @@
 ---
-title: 'Quickstart: Create a service connection in App Service'
-description: This quickstart shows you how to create a service connection in App Service from the Azure portal or the Azure CLI.
+title: 'Quickstart: Connect Azure App Service to databases and services with Service Connector'
+description: Learn how to connect Azure App Service to databases, storage accounts, and other Azure services using Service Connector. Step-by-step guide for Azure portal and Azure CLI.
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
 zone_pivot_groups: interaction-type
 ms.date: 7/22/2025
-#Customer intent: As an app developer, I want to connect an application deployed to Azure App Service to a database or another Azure resource.
+keywords: azure app service, service connector, database connection, managed identity, azure storage, authentication
+#Customer intent: As an app developer, I want to connect my Azure App Service application to databases, storage accounts, and other Azure services using managed identities and other authentication types.
 ---
 
-# Quickstart: Create a service connection in App Service
+# Quickstart: Connect Azure App Service to databases and services with Service Connector
 
-Get started with Service Connector to create a new service connection in Azure App Service.
+Get started with Service Connector to connect your Azure App Service to databases, storage accounts, and other Azure services. Service Connector simplifies authentication and configuration, enabling you to connect to resources using managed identities other authentication methods.
 
-This article provides instructions for both the Azure portal and Azure CLI. Select the tab above for your preferred method.
+This article provides step-by-step instructions for both the Azure portal and Azure CLI. Choose your preferred method using the tabs above.
 
 
 ## Prerequisites
@@ -54,7 +55,7 @@ This article provides instructions for both the Azure portal and Azure CLI. Sele
 
 ## Create a service connection in App Service
 
-You use Service Connector to create a new service connection in Azure App Service.
+Use Service Connector to create a service connection between your Azure App Service and Azure Blob Storage. This example demonstrates connecting to Blob Storage, but you can use the same process for other supported Azure services.
 
 ::: zone pivot="azure-portal"
 1. Select the **Search resources, services and docs (G +/)** search bar at the top of the Azure portal, type *App Services*, and select **App Services**.

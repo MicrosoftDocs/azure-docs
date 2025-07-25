@@ -1,6 +1,6 @@
 ---
-title: Create a service connection in Azure Spring Apps
-description: This quickstart shows you how to create a service connection in Azure Spring Apps from the Azure  or the Azure CLI.
+title: 'Quickstart: Connect Azure Spring Apps to databases and services with Service Connector'
+description: Learn how to connect Azure Spring Apps to databases, storage accounts, and other Azure services using Service Connector. Step-by-step guide for Azure portal and Azure CLI.
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
@@ -10,14 +10,15 @@ ms.date: 7/22/2025
 ms.custom:
   - kr2b-contr-experiment
   - build-2024
-#Customer intent: As an app developer, I want to connect an application deployed to Azure Spring Apps to a database or another Azure resource.
+keywords: azure spring apps, service connector, database connection, managed identity, azure storage, authentication
+#Customer intent: As an app developer, I want to connect my Azure Spring Apps application to databases, storage accounts, and other Azure services using managed identities and connection strings.
 ---
 
-# Quickstart: Create a service connection in Azure Spring Apps
+# Quickstart: Connect Azure Spring Apps to databases and services with Service Connector
 
-This quickstart shows you how to connect Azure Spring Apps to other Cloud resources using Service Connector. Service Connector streamlines the process of linking compute services to cloud services, while managing authentication and networking settings.
+Get started with Service Connector to connect your Azure Spring Apps to databases, storage accounts, and other Azure services. Service Connector simplifies authentication and configuration, enabling you to connect to resources using managed identities other authentication methods.
 
-This article provides instructions for both the Azure portal and Azure CLI. Select the tab above for your preferred method.
+This article provides step-by-step instructions for both the Azure portal and Azure CLI. Choose your preferred method using the tabs above.
 
 [!INCLUDE [deprecation-note](../spring-apps/includes/deprecation-note.md)]
 
@@ -64,7 +65,7 @@ This article provides instructions for both the Azure portal and Azure CLI. Sele
 
 ## Create a service connection
 
-You use Service Connector to create a new service connection in Azure Spring Apps.
+Use Service Connector to create a secure service connection between your Azure Spring Apps and Azure Blob Storage. This example demonstrates connecting to Blob Storage, but you can use the same process for other supported Azure services.
 
 ::: zone pivot="azure-portal"
 1. Select the **Search resources, services and docs (G +/)** search bar at the top of the Azure portal, type *Azure Spring Apps* in the filter and select **Azure Spring Apps**.

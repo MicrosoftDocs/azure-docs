@@ -1,20 +1,21 @@
 ---
-title: 'Quickstart: Create a service connection in Container Apps (preview)'
-description: This quickstart shows how to create a service connection in Azure Container Apps (preview).
+title: 'Quickstart: Connect Azure Container Apps to databases and services with Service Connector (preview)'
+description: Learn how to connect Azure Container Apps to databases, storage accounts, and other Azure services using Service Connector. Step-by-step guide for Azure portal and Azure CLI.
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
 zone_pivot_groups: interaction-type
 ms.date: 7/22/2025
-#Customer intent: As an app developer, I want to connect Azure Container Apps to a storage account in the Azure portal or another Azure resource using Service Connector (preview).
+keywords: azure container apps, service connector, database connection, managed identity, azure storage, authentication, preview
+#Customer intent: As an app developer, I want to connect my Azure Container Apps to databases, storage accounts, and other Azure services using managed identities and connection strings.
 ---
 
-# Quickstart: Create a service connection in Azure Container Apps (preview)
+# Quickstart: Connect Azure Container Apps to databases and services with Service Connector (preview)
 
-This quickstart shows you how to connect Azure Container Apps to other cloud resources using the Azure portal and Service Connector (preview). Service Connector lets you quickly connect compute services to cloud services, while managing your connection's authentication and networking settings.
+Get started with Service Connector to connect your Azure Container Apps to databases, storage accounts, and other Azure services. Service Connector simplifies authentication and configuration, enabling you to connect to resources using managed identities or other authentication methods.
 
-This article provides instructions for both the Azure portal and Azure CLI. Select the tab above for your preferred method.
+This article provides step-by-step instructions for both the Azure portal and Azure CLI. Choose your preferred method using the tabs above.
 
 ## Prerequisites
 
@@ -53,7 +54,7 @@ This article provides instructions for both the Azure portal and Azure CLI. Sele
 
 ## Create a service connection (preview)
 
-Use Service Connector to create a new service connection in Container Apps.
+Use Service Connector to create a service connection between your Azure Container Apps and Azure Blob Storage. This example demonstrates connecting to Blob Storage, but you can use the same process for other supported Azure services.
 
 ::: zone pivot="azure-portal"
 1. Select the **Search resources, services and docs (G +/)** search bar at the top of the Azure portal, type *Container Apps* in the filter and select **Container Apps**.

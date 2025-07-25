@@ -1,20 +1,21 @@
 ---
-title: 'Quickstart: Create a service connection in Azure Functions'
-description: This quickstart shows how to create a service connection in Azure Functions from the Azure portal or the Azure CLI.
+title: 'Quickstart: Connect Azure Functions to databases and services with Service Connector'
+description: Learn how to connect Azure Functions to databases, storage accounts, and other Azure services using Service Connector. Step-by-step guide for Azure portal and Azure CLI.
 author: houk-ms
 ms.author: honc
 ms.service: service-connector
 ms.topic: quickstart
 zone_pivot_groups: interaction-type
 ms.date: 7/25/2025
-#Customer intent: As an app developer, I want to connect an Azure Functions app to a database or another Azure resource.
+keywords: azure functions, service connector, database connection, managed identity, azure storage, authentication
+#Customer intent: As an app developer, I want to securely connect my Azure Functions app to databases, storage accounts, and other Azure services using managed identities and other authentication types.
 ---
 
-# Quickstart: Create a service connection in Azure Functions
+# Quickstart: Connect Azure Functions to databases and services with Service Connector
 
-Get started with Service Connector to create a service connection in Azure Functions.
+Get started with Service Connector to connect your Azure Functions to databases, storage accounts, and other Azure services. Service Connector simplifies authentication and configuration, enabling you to connect to resources using managed identities orother authentication methods.
 
-This article provides instructions for both the Azure portal and Azure CLI. Select the tab below for your preferred method.
+This article provides step-by-step instructions for both the Azure portal and Azure CLI. Choose your preferred method using the tabs above.
 
 ## Prerequisites
 
@@ -55,7 +56,7 @@ This article provides instructions for both the Azure portal and Azure CLI. Sele
 
 ## Create a service connection
 
-Use Service Connector to create a service connection in Azure Functions.
+Use Service Connector to create a service connection between your Azure Functions app and Azure Blob Storage. This example demonstrates connecting to Blob Storage, but you can use the same process for other supported Azure services.
 
 ::: zone pivot="azure-portal"
 1. In the Azure portal, select the **Search resources, services and docs (G +/)** search bar at the top, type *Function App*, and select **Function App**.
@@ -158,7 +159,9 @@ Run the [az functionapp connection create](/cli/azure/functionapp/connection/cre
 ---
 ::: zone-end
 
-## View service connections
+## View and validate your service connections
+
+After creating your service connection, you can view, validate, and manage all connections from your Azure Functions app.
 
 ::: zone pivot="azure-portal"
 1. Function app connections are displayed in the **Service Connector** service menu. Select **>** to expand the list and see the properties required by your application.
@@ -180,7 +183,7 @@ The output also displays the provisioning state of your connections.
 
 ## Related content
 
-Follow the tutorials to start building your own function application with Service Connector.
+Now that you've successfully connected your Azure Functions app to Azure Storage, explore these tutorials to build more advanced function applications with Service Connector:
 
 - [Tutorial: Python function with Azure Queue Storage as trigger](./tutorial-python-functions-storage-queue-as-trigger.md)
 - [Tutorial: Python function with Azure Blob Storage as input](./tutorial-python-functions-storage-blob-as-input.md)
