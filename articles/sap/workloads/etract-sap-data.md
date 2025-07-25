@@ -6,20 +6,21 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: how-to
 ms.date: 07/25/2025
-ms.author: sathyanarayanl
+ms.author: ritikeshvali
 ---
 
 # Extract SAP data to Microsoft Fabric
 
 ## Overview
 
+In this article, you gain a comprehensive understanding of the different data sources and tools available for SAP data extraction, and how to select the most appropriate option based on your analytical goals. The content covers the structure and purpose of each data layer within SAP systems, the integration capabilities towards Microsoft Fabric, and the considerations for reliability, performance, and business alignment.
+
 [Microsoft Fabric](https://learn.microsoft.com/fabric/fundamentals/microsoft-fabric-overview) is a fully integrated, SaaS-based data platform that unifies data engineering, real-time analytics, data science, business intelligence, and governance into a single experience. Built on OneLake, Fabric centralizes data storage and enables seamless collaboration across roles—from data engineers to business users. At its core is OneLake, a unified data lake that centralizes storage and enables seamless data access across services. Fabric also integrates AI capabilities through Copilot and Azure AI Studio, empowering users to derive insights faster and more intuitively. Designed for simplicity, scalability, and collaboration, Microsoft Fabric helps organizations streamline their analytics workflows, reduce complexity, and accelerate their AI transformation journey
 
 Enterprises are increasingly adopting Microsoft Fabric as the foundation of their data landscape to unify business applications, IoT telemetry, and AI workloads. By consolidating all analytics workloads into a single environment, Microsoft Fabric accelerates insight delivery and eliminates data silos. SAP systems are one of the most critical data sources as they contain data supporting core business operations and can also be integrated into the unified platform. This integration enriches enterprise data and enables a more holistic view of business performance. Users can build powerful dashboards that explore trends and highlight issues, reflecting end-to-end business processes by using data from across systems and departments, regardless of its source. This is made possible by having all relevant data unified in a single platform.
 
-By reading this article, you will gain a comprehensive understanding of the different data sources and tools available for SAP data extraction, and how to select the most appropriate option based on your analytical goals. The content covers the structure and purpose of each data layer within SAP systems, the integration capabilities towards Microsoft Fabric, and the considerations for reliability, performance, and business alignment.
-
-***Important**: Before beginning any data extraction from SAP systems, always verify your organisation’s SAP licensing entitlements. Certain extraction methods may require additional licenses or specific usage rights.*
+> [!IMPORTANT]
+> Before you begin any data extractions from SAP systems, always verify your organisation’s SAP licensing entitlements. Certain extraction methods can require additional licenses or specific usage rights.
 
 ## Data sources in SAP system
 
@@ -45,7 +46,7 @@ Queries are the main interface for consuming data stored in SAP BW. They define 
 
 Selecting the right data source depends on the ultimate objective and how much of existing transformation you want to reuse. As explained in the previous section SAP systems offer several layers of data access, each suited to different stages in the data journey, from raw transactions to fully modelled business metrics. Transactional data is stored in a highly normalized form, meaning information is divided across many smaller, related tables to reduce redundancy and improve efficiency. These tables reflect the raw output of business processes, exactly as it is generated in the system. Such design promotes data integrity but makes reporting and analytics more complex.
 
-As we move from base tables toward higher layers, each step adds more structure, consistency, and alignment with business meaning. CDS Views and BW Extractors shape the transactional data into multidimensional format by applying basic joins, filters, and business logic to simplify analytics and reporting. These objects can present different perspectives on the same underlying data, depending on the reporting need. For example, one view may focus on open sales orders while another highlights delivered items. This flexibility allows the same dataset to support multiple analytical scenarios without duplicating the raw data.
+As we move from base tables toward higher layers, each step adds more structure, consistency, and alignment with business meaning. CDS Views and BW Extractors shape the transactional data into multidimensional format by applying basic joins, filters, and business logic to simplify analytics and reporting. These objects can present different perspectives on the same underlying data, depending on the reporting need. For example, one view can focus on open sales orders while another highlights delivered items. This flexibility allows the same dataset to support multiple analytical scenarios without duplicating the raw data.
 
 Further along the data journey, BW objects take over the responsibility for storing, structuring, and preparing data for enterprise reporting. InfoObjects and InfoProviders together form a standardized foundation for analytics across departments and tools. At the top, queries expose curated datasets, complete with predefined filters, calculations, and key figures, ready to be consumed by dashboards and external analytics platforms.
 
@@ -86,8 +87,10 @@ In this section we provide an overview of available tools and solutions you can 
 
 You can use pipelines and dataflows in Microsoft Fabric to extract and transform data from various SAP data sources.
 
-:::image type="content" source="media/image1.png" alt-text="SAP data connectivity options within Microsoft Fabric":::
-*Figure 1: SAP data connectivity options within Microsoft Fabric*
+**Figure 1**: SAP data connectivity options within Microsoft Fabric.
+
+:::image type="content" source="media/1-sap-data-connectivity-options.png" alt-text="Diagram shows SAP data connectivity options within Microsoft Fabric":::
+
 
 #### SAP Table connector
 
@@ -127,8 +130,11 @@ Data extraction can also be handled by OData services, which expose business dat
 
 Azure Data Factory is a cloud-based data integration service that enables you to build and schedule pipelines for moving and transforming data across diverse systems. Many data connectors, including SAP-specific ones like SAP Table and SAP BW, are already available in Microsoft Fabric. If SAP integration is a new workload you plan to onboard and you're considering Microsoft Fabric for analytics, we strongly recommend using it for data integration as well. This way, you benefit from a more unified experience across data ingestion, transformation, and analytics — all within a single platform. However, if you already have SAP pipelines built in Azure Data Factory or need to use the SAP CDC connector, there’s no immediate need to replatform. Existing pipelines and dataflows can be integrated with OneLake.
 
-:::image type="content" source="media/image2.png" alt-text="SAP to Microsoft Fabric data connectivity options within Azure Data Factory":::
-*Figure 2: SAP to Microsoft Fabric data connectivity options within Azure Data Factory*
+
+**Figure 2**: SAP to Microsoft Fabric data connectivity options within Azure Data Factory.
+
+:::image type="content" source="media/2-sap-data-connectivity-azure-data-factory.png" alt-text="Diagram shows SAP to Microsoft Fabric data connectivity options within Azure Data Factory":::
+
 
 #### SAP CDC Connector
 
@@ -158,9 +164,10 @@ When the target is a relational data store, the SAP CDC connector automatically
 
 SAP Datasphere is SAP’s enterprise-grade solution for extracting and transforming data across heterogeneous systems. It supports connections to third-party services and enables flexible data movement strategies tailored to enterprise needs.
 
+**Figure 3**: SAP to Microsoft Fabric data connectivity options within SAP Datasphere.
 
-:::image type="content" source="media/image3.png" alt-text="SAP to Microsoft Fabric data connectivity options within SAP Datasphere":::
-*Figure 3: SAP to Microsoft Fabric data connectivity options within SAP Datasphere*
+:::image type="content" source="media/3-sap-connectivity-options-datasphere.png" alt-text="Diagram shows SAP to Microsoft Fabric data connectivity options within SAP Datasphere":::
+
 
 #### Premium Outbound Integration
 
@@ -186,8 +193,9 @@ A growing ecosystem of trusted partners brings specialised expertise in extracti
 
 Find out more about [partner solutions supporting Open Mirroring](https://learn.microsoft.com/fabric/database/mirrored-database/open-mirroring-partners-ecosystem).
 
-:::image type="content" source="media/image4.png" alt-text="SAP to Microsoft Fabric data connectivity options using partner solutions":::
-*Figure 3: SAP to Microsoft Fabric data connectivity options using partner solutions*
+**Figure 4**: SAP to Microsoft Fabric data connectivity options using partner solutions.
+
+:::image type="content" source="media/4-sap-connectivity-options-partner-solutions.png" alt-text="Diagram shows SAP to Microsoft Fabric data connectivity options using partner solutions":::
 
 Typically, partner solutions support two integration patterns:
 
