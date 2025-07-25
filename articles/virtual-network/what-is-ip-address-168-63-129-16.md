@@ -1,17 +1,17 @@
 ---
-title: What is IP address 168.63.129.16?
-description: Learn about IP address 168.63.129.16, specifically that it's used to facilitate a communication channel to Azure platform resources.
+title: Azure IP Address 168.63.129.16 Overview
+description: Discover how Azure IP address 168.63.129.16 facilitates communication between VMs and Azure platform resources. Learn configuration, troubleshooting, and security considerations for optimal performance.
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 03/31/2025
+ms.date: 07/25/2025
 ms.author: allensu
 # Customer intent: As a network engineer, I want to understand the function and significance of IP address 168.63.129.16, so that I can ensure proper configuration and communication for my Azure resources.
 ---
 
-# What is IP address 168.63.129.16?
+# Azure IP address 168.63.129.16 overview
 
-IP address 168.63.129.16 is a virtual public IP address that is used to facilitate a communication channel to Azure platform resources. Customers can define any address space for their private virtual network in Azure. Therefore, the Azure platform resources must be presented as a unique public IP address. This virtual public IP address facilitates the following operations:
+Azure IP address 168.63.129.16 is a virtual public IP address that facilitates communication channels to Azure platform resources. Customers can define any address space for their private virtual network in Azure. Therefore, the Azure platform resources must be presented as a unique public IP address. This virtual public IP address facilitates the following operations:
 
 - Enables the VM Agent to communicate with the Azure platform to signal that it is in a "Ready" state.
 
@@ -23,7 +23,7 @@ IP address 168.63.129.16 is a virtual public IP address that is used to facilita
 
 - Enables Guest Agent heartbeat messages for the PaaS role.
 
-## Scope of IP address 168.63.129.16
+## Scope of Azure IP address 168.63.129.16
 
 The public IP address 168.63.129.16 is used in all regions and all national clouds. Microsoft owns this special public IP address and it doesn't change. We recommend that you allow this IP address in any local (in the VM) firewall policies (outbound direction). The communication between this special IP address and the resources is safe because only the internal Azure platform can source a message from this IP address. If this address is blocked, unexpected behavior can occur in various scenarios. 168.63.129.16 is a [virtual IP of the host node](./network-security-groups-overview.md#azure-platform-considerations) and as such it isn't subject to user defined routes.
 
@@ -37,7 +37,7 @@ The public IP address 168.63.129.16 is used in all regions and all national clou
 
 - When the VM is part of a load balancer backend pool, [health probe](../load-balancer/load-balancer-custom-probe-overview.md) communication should be allowed to originate from 168.63.129.16. The default network security group configuration has a rule that allows this communication. This rule uses the [AzureLoadBalancer](../virtual-network/service-tags-overview.md#available-service-tags) service tag. If desired, this traffic can be blocked by configuring the network security group. The configuration of the block result in probes that fail.
 
-## Troubleshoot connectivity
+## Troubleshoot Azure IP connectivity
 
 > [!NOTE]
 > Execution of the following tests must be run as Administrator (Windows) and Root (Linux) to ensure accurate results.
