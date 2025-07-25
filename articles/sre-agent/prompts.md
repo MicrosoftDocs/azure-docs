@@ -45,7 +45,7 @@ Azure SRE Agent helps you manage and troubleshoot your Azure resources through n
 - What changed in my web app last week?
 - What are some best practices I can apply to my web app?
 
-## Diagnostics \& troubleshooting
+### Diagnostics \& troubleshooting
 
 - Can you analyze my app's availability over the last 24 hours?
 - Give me slow endpoints for my APIs
@@ -105,15 +105,13 @@ Azure SRE Agent helps you manage and troubleshoot your Azure resources through n
 - Show me visualization of requests and 500 errors (area chart) for my app in AKS cluster for the past week. Include all data points.
 - What are some best practices I can apply to my AKS cluster?
 
-## Diagnostics \& troubleshooting
+### Diagnostics \& troubleshooting
 
 - Is there an OOM in my deployment?
 - Analyze requests and limits in my namespace?
 - Why is my deployment down?
 
 ## Azure API Management
-
-### Resource discovery
 
 ### Resource discovery
 
