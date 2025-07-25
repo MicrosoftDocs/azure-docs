@@ -469,7 +469,7 @@ You can also add filters to filter the views. For example, add the following fil
 
 ## Data type mapping for Dynamics
 
-When you copy data from Dynamics, the following table shows mappings from Dynamics data types to interim data types within the service. To learn how a copy activity maps to a source schema and a data type maps to a sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+When you copy data from Dynamics, the following table shows mappings from Dynamics data types to interim data types within the service. To learn how a copy activity maps to a source schema and a data type map to a sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
 Configure the corresponding interim data type in a dataset structure that is based on your source Dynamics data type by using the following mapping table:
 
