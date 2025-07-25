@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 07/25/2025
-#customer intent: As a cloud developer, I want to connect my cloud services to Azure Service Bus using Service Collector.
+#customer intent: As a cloud developer, I want to connect my compute services to Azure Service Bus using Service Connector.
 ---
 
 # Integrate Service Bus with Service Connector
