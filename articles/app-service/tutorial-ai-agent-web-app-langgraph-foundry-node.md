@@ -1,6 +1,6 @@
 ---
-title: Agentic app with Semantic Kernel or Azure AI Foundry (.NET)
-description: Learn how to quickly deploy a production-ready, agentic web application using .NET with Azure App Service, Microsoft Semantic Kernel, and Azure AI Foundry Agent Service.
+title: Agentic app with LangGraph or Azure AI Foundry (Node.js)
+description: Learn how to quickly deploy a production-ready, agentic web application using Node.js with Azure App Service, LangGraph, and Azure AI Foundry Agent Service.
 ms.service: azure-app-service
 author: cephalin
 ms.author: cephalin
@@ -8,30 +8,30 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2025
 ms.custom:
-  - devx-track-dotnet
+  - devx-track-javascript
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Tutorial: Build an agentic web app in Azure App Service with Microsoft Semantic Kernel or Azure AI Foundry Agent Service (.NET)
+# Tutorial: Build an agentic web app in Azure App Service with LangGraph or Azure AI Foundry Agent Service (Node.js)
 
-This tutorial demonstrates how to add agentic capability to an existing data-driven ASP.NET Core CRUD application. It does this using two different approaches: Microsoft Semantic Kernel and Azure AI Foundry Agent Service.
+This tutorial demonstrates how to add agentic capability to an existing data-driven Express.js CRUD application. It does this using two different approaches: LangGraph and Azure AI Foundry Agent Service.
 
-If your web application already has useful features, like shopping, hotel booking, or data management, it's relatively straightforward to add agent functionality to your web application by wrapping those functionalities in a plugin (for Semantic Kernel) or as an OpenAPI endpoint (for AI Foundry Agent Service). In this tutorial, you start with a simple to-do list app. By the end, you'll be able to create, update, and manage tasks with an agent in an App Service app.
+If your web application already has useful features, like shopping, hotel booking, or data management, it's relatively straightforward to add agent functionality to your web application by wrapping those functionalities in a plugin (for LangGraph) or as an OpenAPI endpoint (for AI Foundry Agent Service). In this tutorial, you start with a simple to-do list app. By the end, you'll be able to create, update, and manage tasks with an agent in an App Service app.
 
-### [Semantic Kernel](#tab/semantickernel)
+### [LangGraph](#tab/langgraph)
 
 
-:::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/semantic-kernel-agent.png" alt-text="Screenshot of a chat completion session with a semantic kernel agent.":::
+:::image type="content" source="media/tutorial-ai-agent-web-app-langgraph-foundry-node/langgraph-agent.png" alt-text="Screenshot of a chat completion session with a LangGraph agent.":::
 
 ### [Azure AI Foundry Agent Service](#tab/aifoundry)
 
-:::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/ai-foundry-agent.png" alt-text="Screenshot of a chat completion session with an Azure AI Foundry agent.":::
+:::image type="content" source="media/tutorial-ai-agent-web-app-langgraph-foundry-node/foundry-agent.png" alt-text="Screenshot of a chat completion session with an Azure AI Foundry agent.":::
 
 -----
 
-Both Semantic Kernel and Azure AI Foundry Agent Service enable you to build agentic web applications with AI-driven capabilities. The following table shows some of the considerations and trade-offs:
+Both LangGraph and Azure AI Foundry Agent Service enable you to build agentic web applications with AI-driven capabilities. LangGraph is similar to Microsoft Semantic Kernel and is an SDK, but Semantic Kernel doesn't support JavaScript currently. The following table shows some of the considerations and trade-offs:
 
-| Consideration      | Semantic Kernel                | Azure AI Foundry Agent Service         |
+| Consideration      | LangGraph                | Azure AI Foundry Agent Service         |
 |--------------------|-------------------------------|----------------------------------------|
 | Performance        | Fast (runs locally)            | Slower (managed, remote service)       |
 | Development        | Full code, maximum control     | Low code, rapid integration            |
@@ -41,22 +41,22 @@ Both Semantic Kernel and Azure AI Foundry Agent Service enable you to build agen
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Convert existing app functionality into a plugin for Semantic Kernel.
-> * Add the plugin to a Semantic Kernel agent and use it in a web app.
+> * Convert existing app functionality into a plugin for LangGraph.
+> * Add the plugin to a LangGraph agent and use it in a web app.
 > * Convert existing app functionaltiy into an OpenAPI endpoint for Azure AI Foundry Agent Service.
 > * Call an Azure AI Foundry agent in a web app.
 - Assign the required permissions for managed identity connectivity.
 
 ## Prerequisites
 
-- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/free/nodejs).
 - GitHub account to use GitHub Codespaces - [Learn more about GitHub Codespaces](https://docs.github.com/codespaces/overview).
 
 ## Open the sample with Codespaces
 
 The easiest way to get started is by using GitHub Codespaces, which provides a complete development environment with all required tools preinstalled.
 
-1. Navigate to the GitHub repository at [https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-ai-foundry-agent](https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-ai-foundry-agent).
+1. Navigate to the GitHub repository at [https://github.com/Azure-Samples/app-service-agentic-langgraph-foundry-node](https://github.com/Azure-Samples/app-service-agentic-langgraph-foundry-node).
 
 2. Select the **Code** button, select the **Codespaces** tab, and select **Create codespace on main**.
 
@@ -64,41 +64,43 @@ The easiest way to get started is by using GitHub Codespaces, which provides a c
 
 4. Run the application locally:
 
-   ```bash
-   dotnet run
-   ```
+    ```bash
+    npm install
+    npm run build
+    npm start
+    ```
 
-5. When you see **Your application running on port 5280 is available**, select **Open in Browser** and add a few tasks.
+5. When you see **Your application running on port 3000 is available**, select **Open in Browser** and add a few tasks.
 
 ## Review the agent code
 
-Both approaches use the same implementation pattern, where the agent is initialized as a service (in Program.cs) in a provider and injected into the respective Blazor component.
+Both approaches use the same implementation pattern, where the agent is initialized on application start, and responds to user messages by POST requests.
 
-### [Semantic Kernel](#tab/semantickernel)
+### [LangGraph](#tab/langgraph)
 
-The `SemanticKernelAgentProvider` is initialized in *Services/SemanticKernelAgentProvider.cs*. The initialization code does the following: 
+The `LangGraphTaskAgent` is initialized in the constructor in *src/agents/LangGraphTaskAgent.ts*. The initialization code does the following: 
 
-- Creates a kernel with chat completion.
-- Adds a kernel plugin that encapsulates the functionality of the CRUD application (in *Plugins/TaskCrudPlugin.cs*). The only interesting parts of the plugin are the `KernelFunction` attributes on the method definitions and the `Description` attributes that help the kernel call the plugin intelligently.
-- Creates a [chat completion agent](/semantic-kernel/frameworks/agent/agent-types/chat-completion-agent?pivots=programming-language-csharp), and configures it to let the AI model automatically invoke functions (`FunctionChoiceBehavior = FunctionChoiceBehavior.Auto()`).
+- Configures the [AzureChatOpenAI](https://js.langchain.com/docs/integrations/llms/azure/) client using environment variables.
+- Creates the prebuilt ReAct agent a set of CRUD tools for task management (see [LangGraph: How to use the prebuilt ReAct agent](https://langchain-ai.github.io/langgraphjs/how-tos/create-react-agent)).
+- Sets up memory management (see [LangGraph: How to add memory to the prebuilt ReAct agent](https://langchain-ai.github.io/langgraphjs/how-tos/react-memory/)).
 
-:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Services/SemanticKernelAgentProvider.cs" range="20-67" highlight="18-44" :::
+:::code language="typescript" source="~/app-service-agentic-langgraph-foundry-node/src/agents/LangGraphTaskAgent.ts" range="23-143" highlight="13-21,24-37,106-117" :::
 
 ### [Azure AI Foundry Agent Service](#tab/aifoundry)
 
-The `FoundryAgentProvider` provider is initialized in *Services/FoundryAgentProvider.cs*. The initialization code does the following:
+The `FoundryTaskAgent` is initialized in the constructor of *src/agents/FoundryTaskAgent.ts*. The initialization code does the following:
 
-- Creates a new agents client.
-- Creates a new thread.
-- Gets the named agent, specified by the agent ID. 
+- Creates an `AgentsClient` using Azure credentials.
+- Fetches the agent from Azure AI Foundry by name.
+- Creates a new thread for the session.
 
-:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Services/FoundryAgentProvider.cs" range="22-55" highlight="18,21,30" :::
+:::code language="typescript" source="~/app-service-agentic-langgraph-foundry-node/src/agents/FoundryTaskAgent.ts" range="34-66" highlight="15,18,22" :::
 
-This initialization code doesn't define any functionality for the agent, because you would typically build the agent in the Azure AI Foundry portal. As part of the example scenario, it also follows the OpenAPI pattern shown in [Add an App Service app as a tool in Azure AI Foundry Agent Service (.NET)](tutorial-ai-integrate-azure-ai-agent-dotnet.md), and makes its CRUD functionality available as an OpenAPI endpoint. This lets you add it to the agent later as a callable tool.
+This initialization code doesn't define any functionality for the agent, because you would typically build the agent in the Azure AI Foundry portal. As part of the example scenario, it also follows the OpenAPI pattern shown in [Add an App Service app as a tool in Azure AI Foundry Agent Service (Node.js)](tutorial-ai-integrate-azure-ai-agent-node.md), and makes its CRUD functionality available as an OpenAPI endpoint. This lets you add it to the agent later as a callable tool.
 
-The OpenAPI code is defined in *Program.cs*. For example, the "get tasks" API defines the operation ID with *WithName()*, as required by the [OpenAPI spec tool in Azure AI Foundry](/azure/ai-foundry/agents/how-to/tools/openapi-spec#prerequisites), and `WithDescription()` helps the agent determine how to call the API:
+The OpenAPI code is defined in *src/routes/api.ts*. For example, the "GET /api/tasks" route defines `operationId` in the JSDoc Swagger comments, as required by the [OpenAPI spec tool in Azure AI Foundry](/azure/ai-foundry/agents/how-to/tools/openapi-spec#prerequisites), and `description` helps the agent determine how to call the API:
 
-:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Program.cs" range="46-51" highlight="5-6" :::
+:::code language="csharp" source="~/app-service-agentic-langgraph-foundry-node/src/routes/api.ts" range="60-70" highlight="2-9" :::
 
 -----
 
@@ -139,7 +141,7 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
       - Endpoint: &lt;URL>
     </pre>
 
-1. Select the **OpenAPI schema** item to open the autogenerated OpenAPI schema at the default `/openapi/v1.json` path. You need this schema later.
+1. Select the **OpenAPI schema** item to open the autogenerated OpenAPI schema at the default `/api/schema` path. You need this schema later.
 
 1. After successful deployment, you'll see a URL for your deployed application.
 
@@ -167,7 +169,7 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
     Your application code is already configured to include the server's `url` and `operationId`, which are needed by the agent. For more information, see [How to use Azure AI Foundry Agent Service with OpenAPI Specified Tools: Prerequisites](/azure/ai-foundry/agents/how-to/tools/openapi-spec#prerequisites).
 
-1. Select **Try in playground** and test your AI Foundry agent with prompts like "*Show me all the tasks*" and "*Please add a task.*"
+1. Select **Try in playground** and test your AI Foundry agent with prompts like "*Show me all the tasks*."
 
     If you get a valid response, the agent is making tool calls to the OpenAPI endpoint on your deployed web app.
 
@@ -181,24 +183,24 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
     | Target resource                | Required role                       | Needed for              |
     |--------------------------------|-------------------------------------|-------------------------|
-    | Azure AI Foundry               | Cognitive Services OpenAI User      | The chat completion service in the semantic kernel. |
+    | Azure AI Foundry               | Cognitive Services OpenAI User      | The chat completion service in the LangGraph. |
     | Azure AI Foundry Project       | Azure AI User                       | Reading and calling the AI Foundry agent. |
 
     For instructions, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## Configure connection variables in your sample application
 
-1. Open *appsettings.json*. Using the values you copied earlier from the AI Foundry portal, configure the following variables: 
+1. Open *.env*. Using the values you copied earlier from the AI Foundry portal, configure the following variables: 
 
     | Variable                      | Description                                              |
     |-------------------------------|----------------------------------------------------------|
-    | `AzureOpenAIEndpoint`         | Azure OpenAI endpoint (copied from the Overview page). This is needed by the Semantic Kernel agent. |
-    | `ModelDeployment`             | Model name in the deployment (copied from the Agents setup pane). This is needed by the Semantic Kernel agent. |
-    | `AzureAIFoundryProjectEndpoint` | Azure AI Foundry project endpoint (copied from Overview page). This is needed for the Azure AI Foundry Agent Service. |
-    | `AzureAIFoundryAgentId`       | Agent ID (copied from the Agents setup pane). This is needed to invoke an existing Azure AI Foundry agent. |
+    | `AZURE_OPENAI_ENDPOINT`         | Azure OpenAI endpoint (copied from the Overview page). This is needed by the LangGraph agent. |
+    | `AZURE_OPENAI_DEPLOYMENT_NAME`             | Model name in the deployment (copied from the Agents setup pane). This is needed by the LangGraph agent. |
+    | `AZURE_AI_FOUNDRY_PROJECT_ENDPOINT` | Azure AI Foundry project endpoint (copied from Overview page). This is needed for the Azure AI Foundry Agent Service. |
+    | `AZURE_AI_FOUNDRY_AGENT_ID`       | Agent ID (copied from the Agents setup pane). This is needed to invoke an existing Azure AI Foundry agent. |
     
     > [!NOTE]
-    > To keep the tutorial simple, you'll use these variables in appsettings.json instead of overwriting them with app settings in App Service.
+    > To keep the tutorial simple, you'll use these variables in *.env* instead of overwriting them with app settings in App Service.
 
 1. Sign in to Azure with the Azure CLI:
 
@@ -210,13 +212,14 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
 1. Run the application locally:
 
-   ```bash
-   dotnet run
-   ```
+    ```bash
+    npm run build
+    npm start
+    ```
 
-1. When you see **Your application running on port 5280 is available**, select **Open in Browser**.
+1. When you see **Your application running on port 3000 is available**, select **Open in Browser**.
 
-1. Select the **Semantic Kernel Agent** link and the **Azure AI Foundry Agent** link to try out the chat interface. If you get a response, your application is connecting successfully to the Azure AI Foundry resource.
+1. Select the **LangGraph Agent** link and the **Foundry Agent** link to try out the chat interface. If you get a response, your application is connecting successfully to the Azure AI Foundry resource.
 
 1. Back in the GitHub codespace, deploy your app changes.
 
@@ -226,14 +229,14 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
 1. Navigate to the deployed application again and test the chat agents.
 
-### [Semantic Kernel](#tab/semantickernel)
+### [LangGraph](#tab/langgraph)
 
 
-:::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/semantic-kernel-agent.png" alt-text="Screenshot of a chat completion session with a semantic kernel agent.":::
+:::image type="content" source="media/tutorial-ai-agent-web-app-langgraph-foundry-node/langgraph-agent.png" alt-text="Screenshot of a chat completion session with a LangGraph agent.":::
 
 ### [Azure AI Foundry Agent Service](#tab/aifoundry)
 
-:::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/ai-foundry-agent.png" alt-text="Screenshot of a chat completion session with an Azure AI Foundry agent.":::
+:::image type="content" source="media/tutorial-ai-agent-web-app-langgraph-foundry-node/foundry-agent.png" alt-text="Screenshot of a chat completion session with an Azure AI Foundry agent.":::
 
 -----
 
@@ -251,4 +254,4 @@ Since the AZD template doesn't include the Azure AI Foundry resources, you need 
 
 - [Integrate AI into your Azure App Service applications](overview-ai-integration.md)
 - [What is Azure AI Foundry Agent Service?](/azure/ai-foundry/agents/overview)
-- [Introduction to Semantic Kernel](/semantic-kernel/overview/)
+- [LangGraph.js - Quickstart](https://langchain-ai.github.io/langgraphjs/tutorials/quickstart/)
