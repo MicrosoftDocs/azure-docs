@@ -200,7 +200,7 @@ For optimal designer responsiveness and performance, review and follow these gui
 
    > [!IMPORTANT]
    >
-   > If you select **Managed Identity** for authentication, you must specify the managed identity to use. 
+   > If you select **Managed identity** for authentication, you must specify the managed identity to use. 
    > Choose one of the following options:
    >
    > - You can choose to create a new managed identity, which is created automatically with 
