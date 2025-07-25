@@ -42,7 +42,7 @@ Provisioning flow (high level):
 
 1. In the Azure portal, go to the Messaging Connect blade
 
-2. If Azure Communication Services can’t provision directly, you’re prompted to choose a Messaging Connect partner.
+2. Select your Messaging Connect partner.
 
 3. You’re redirected to the partner's portal to purchase/configure SMS capable phone numbers, complete any required registrations, and await approval.
 
