@@ -4,7 +4,7 @@ description: Learn how to recover your data in Azure Files. Understand the conce
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 08/05/2024
+ms.date: 07/25/2024
 ms.author: kendownie
 # Customer intent: "As a cloud architect, I want to understand the disaster recovery and failover processes for Azure Files, so that I can implement a robust data protection strategy that ensures data availability during unplanned outages."
 ---
@@ -19,6 +19,8 @@ Microsoft strives to ensure that Azure services are always available. However, u
 ## Applies to
 | Management model | Billing model | Media tier | Redundancy | SMB | NFS |
 |-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | SSD (premium) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v2 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
