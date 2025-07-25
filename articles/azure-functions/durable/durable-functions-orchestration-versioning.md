@@ -104,7 +104,7 @@ public static async Task<string> RunOrchestrator(
 ```
 
 > [!NOTE]
-> The `context.Version` property is **read-only** and reflects the version that was permanently associated with the orchestration instance when it was created. You cannot modify this value during orchestration execution. If you want to specify a version through means other than `host.json`, you can do so when starting an orchestration instance with the orchestration client APIs (see [Starting New Orchestrations with Specific Versions](#starting-new-orchestrations-with-specific-versions)).
+> The `context.Version` property is **read-only** and reflects the version that was permanently associated with the orchestration instance when it was created. You cannot modify this value during orchestration execution. If you want to specify a version through means other than `host.json`, you can do so when starting an orchestration instance with the orchestration client APIs (see [Starting new orchestrations and sub-orchestrations with specific versions](#starting-new-orchestrations-and-sub-orchestrations-with-specific-versions)).
 
 > [!TIP]
 > If you're just starting to use orchestration versioning and you already have in-flight orchestrations that were created before you specified a `defaultVersion`, you can still add the `defaultVersion` setting to your `host.json` now. For all previously created orchestrations, `context.Version` returns `null` (or an equivalent language-dependent value), so you can structure your orchestrator logic to handle both the legacy (null version) and new versioned orchestrations accordingly. In C#, you can check for `context.Version == null` or `context.Version is null` to handle the legacy case. Please also note that specifying `"defaultVersion": null` in `host.json` is equivalent to not specifying it at all.
@@ -259,7 +259,7 @@ The `versionFailureStrategy` setting determines what happens when an orchestrati
 
 - **`Fail`**: Fail the orchestration. This strategy immediately terminates the orchestration instance with a failure state, which may be appropriate in scenarios where version mismatches indicate serious deployment issues.
 
-### Starting new orchestrations with specific versions
+### Starting new orchestrations and sub-orchestrations with specific versions
 
 By default, all new orchestration instances are created with the current `defaultVersion` specified in your `host.json` configuration. However, you may have scenarios where you need to create orchestrations with a specific version, even if it differs from the current default.
 
@@ -285,6 +285,24 @@ public static async Task<HttpResponseData> HttpStart(
     
     string instanceId = await client.ScheduleNewOrchestrationInstanceAsync("ProcessOrderOrchestrator", orderId, options);
 
+    // ...
+}
+```
+
+You can also start sub-orchestrations with specific versions from within an orchestrator function:
+
+```csharp
+[Function("MainOrchestrator")]
+public static async Task<string> RunMainOrchestrator(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    var subOptions = new SubOrchestratorOptions
+    {
+        Version = "1.0"
+    };
+    
+    var result = await context.CallSubOrchestratorAsync<string>("ProcessPaymentOrchestrator", orderId, subOptions);
+    
     // ...
 }
 ```

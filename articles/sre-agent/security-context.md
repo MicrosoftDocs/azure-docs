@@ -4,7 +4,7 @@ description: Learn how SRE Agent uses different security contexts to handle agen
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
-ms.date: 07/17/2025
+ms.date: 07/18/2025
 ms.service: azure
 ---
 
@@ -12,7 +12,7 @@ ms.service: azure
 
 This article explains the different security contexts involved in Azure SRE Agent operations. The security contexts include the user account that creates the agent, user accounts that interact with the agent, and the agent's own managed identity. Each context has specific permission requirements and serves different purposes in maintaining a secure environment.
 
-Microsoft Entra enforces security policies that govern identity assignments as you associate resource groups with the agent's managed identity.
+You can ensure that only intended users have access to the agent through Microsoft Entra policies. Microsoft Entra governs identity assignments for the resource groups associated with the agent's managed identity.
 
 ## Prerequisites
 
@@ -72,7 +72,7 @@ The following table details how the agent behaves when attempting to conduct a r
 | Agent has permission? | Execution mode | Agent behavior |
 |---|---|---|
 | Yes | Review | Uses its permissions to perform the action. |
-| No | Review | Prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow). |
+| No | Review | Prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
 | Yes | Auto | Uses its permissions to perform the action |
 | No | Auto | Prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
 

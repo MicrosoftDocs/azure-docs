@@ -12,6 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 06/22/2021
 ms.author: mareusch
+# Customer intent: "As a system administrator managing SAP workloads on virtual machines, I want to troubleshoot the Azure VM Extension for SAP, so that I can ensure accurate performance metrics collection and maintain optimal performance of my applications."
 ---
 
 # Troubleshoot the Azure VM Extension for SAP

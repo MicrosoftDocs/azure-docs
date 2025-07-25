@@ -11,12 +11,12 @@ ms.author: ekarandjeff
 
 # Troubleshoot Azure Operator Nexus Bare Metal Machine server problems
 
-This article describes how to troubleshoot server problems by using Restart, Reimage, and Replace actions on Azure Operator Nexus Bare Metal Machines (BMMs). You might need to take these actions on your server for maintenance reasons, which may cause a brief disruption to specific BMMs.
+This article describes how to troubleshoot server problems by using Restart, Reimage, and Replace actions on Azure Operator Nexus Bare Metal Machines (BMMs). You might need to take these actions on your server for maintenance reasons, which might cause a brief disruption to specific BMMs.
 
 The time required to complete each of these actions is similar. Restarting is the fastest, whereas replacing takes slightly longer. All three actions are simple and efficient methods for troubleshooting.
 
 > [!CAUTION]
-> Do not perform any action against management servers without first consulting with Microsoft support personnel. Doing so could affect the integrity of the Operator Nexus Cluster.
+> Don't perform any action against management servers without first consulting with Microsoft support personnel. Doing so could affect the integrity of the Operator Nexus Cluster.
 
 ## Prerequisites
 
@@ -27,17 +27,17 @@ The time required to complete each of these actions is similar. Restarting is th
   - Subscription ID
 
 > [!IMPORTANT]
-> Disruptive command requests against a Kubernetes Control Plane (KCP) node are rejected if there is another disruptive action command already running against another KCP node or if the full KCP is not available.
+> Disruptive command requests against a Kubernetes Control Plane (KCP) node are rejected if there's another disruptive action command already running against another KCP node or if the full KCP isn't available.
 >
 > Restart, reimage and replace are all considered disruptive actions.
 >
-> This check is done to maintain the integrity of the Nexus instance and ensure multiple KCP nodes do not go down at once due to simultaneous disruptive actions. If multiple nodes go down, it will break the healthy quorum threshold of the Kubernetes Control Plane.
+> This check is done to maintain the integrity of the Nexus instance and ensure multiple KCP nodes don't go down at once due to simultaneous disruptive actions. If multiple nodes go down, it breaks the healthy quorum threshold of the Kubernetes Control Plane.
 
 ## Identify the corrective action
 
-When troubleshooting a BMM for failures and determining the most appropriate corrective action, it is essential to understand the available options. This article provides a systematic approach to troubleshoot Azure Operator Nexus server problems using these three methods:
+When troubleshooting a BMM for failures and determining the most appropriate corrective action, it's essential to understand the available options. This article provides a systematic approach to troubleshoot Azure Operator Nexus server problems using these three methods:
 
-- **Restart** - Least invasive method, best for temporary glitches or unresponsive VMs
+- **Restart** - Least invasive method, best for temporary glitches, or unresponsive Virtual Machines (VM)s
 - **Reimage** - Intermediate solution, restores OS to known-good state without affecting data
 - **Replace** - Most significant action, required for hardware component failures
 
@@ -52,23 +52,23 @@ Follow this escalation path when troubleshooting BMM issues:
 | Known hardware failure | Replace | N/A | Contact support |
 | Security compromise | Reimage | Replace | Contact support |
 
-It's recommended to start with the least invasive solution (restart) and escalate to more complex measures only if necessary. Always validate that the issue is resolved after each corrective action.
+The recommended approach is to start with the least invasive solution (restart) and escalate to more complex measures only if necessary. Always validate that the issue is resolved after each corrective action.
 
 ## Troubleshoot with a restart action
 
-Restarting a BMM is a process of restarting the server through a simple API call. This action can be useful for troubleshooting problems when Tenant Virtual Machines on the host aren't responsive or are otherwise stuck.
+Restarting a BMM is a process of restarting the server through a simple API call. This action can be useful for troubleshooting problems when Tenant VMs on the host aren't responsive or are otherwise stuck.
 
 The restart typically is the starting point for mitigating a problem.
 
 ### Restart workflow
 
-1. **Assess impact** - Determine if restarting the BMM will impact critical workloads.
+1. **Assess impact** - Determine if restarting the BMM impacts critical workloads.
 2. **Power off** - If needed, power off the BMM (optional).
 3. **Start or restart** - Either start a powered-off BMM or restart a running BMM.
 4. **Verify status** - Check if the BMM is back online and functioning properly.
 
 > [!NOTE]
-> The restart operation is the fastest recovery method but may not resolve issues related to OS corruption or hardware failures.
+> The restart operation is the fastest recovery method but might not resolve issues related to OS corruption or hardware failures.
 
 **The following Azure CLI command will `power-off` the specified bareMetalMachineName:**
 
@@ -124,7 +124,7 @@ A reimage action is the best practice for lowest operational risk to ensure the 
 
 > [!WARNING]
 > Running more than one `baremetalmachine replace` or `reimage` command at the same time, or running a `replace`
-> at the same time as a `reimage` will leave servers in a nonworking state. Make sure one operation has fully completed before starting another.
+> at the same time as a `reimage` leaves servers in a nonworking state. Make sure one operation fully completes before starting another.
 
 **To identify if any workloads are currently running on a BMM, run the following command:**
 
@@ -172,12 +172,12 @@ az networkcloud baremetalmachine uncordon \
 
 ## Troubleshoot with a replace action
 
-Servers contain many physical components that can fail over time. It is important to understand which physical repairs require BMM replacement and when BMM replacement is recommended.
+Servers contain many physical components that can fail over time. It's important to understand which physical repairs require BMM replacement and when BMM replacement is recommended.
 
 A hardware validation process is invoked to ensure the integrity of the physical host in advance of deploying the OS image. Like the reimage action, the Tenant data isn't modified during replacement.
 
 > [!IMPORTANT]
-> Starting with the 2024-07-01 GA API version, the RAID controller is reset during BMM replace, wiping all data from the server's virtual disks. Baseboard Management Controller (BMC) virtual disk alerts triggered during BMM replace can be ignored unless there are additional physical disk and/or RAID controllers alerts.
+> When run with default options, the RAID controller is reset during BMM replace, wiping all data from the server's virtual disks. Baseboard Management Controller (BMC) virtual disk alerts triggered during BMM replace can be ignored unless there are other physical disk and/or RAID controllers alerts. Starting with the 2025-07-01 preview version of the NetworkCloud API, and generally available with the 2025-09-01 GA version, use `replace` with `storage-policy="Preserve"` to retain virtual disk data.
 
 ### Replace workflow
 
@@ -199,9 +199,9 @@ az networkcloud baremetalmachine cordon \
 
 ### Hardware component replacement guide
 
-When you're performing a physical hot swappable power supply repair, a replace action is not required because the BMM host will continue to function normally after the repair.
+When you're performing a physical hot swappable power supply repair, a replace action isn't required because the BMM host will continue to function normally after the repair.
 
-When you're performing the following physical repairs, we recommend a replace action, though it is not necessary to bring the BMM back into service:
+When you're performing the following physical repairs, we recommend a replace action, though it isn't necessary to bring the BMM back into service:
 
 - CPU
 - Dual In-Line Memory Module (DIMM)
@@ -232,7 +232,8 @@ az networkcloud baremetalmachine replace \
   --boot-mac-address <PXE_MAC> \
   --machine-name <OS_HOSTNAME> \
   --serial-number <SERIAL_NUM> \
-  --subscription <subscriptionID>
+  --subscription <subscriptionID> \
+  --storage-policy <STORAGE_POLICY>
 ```
 
 **The following Azure CLI command will uncordon the specified bareMetalMachineName.**
