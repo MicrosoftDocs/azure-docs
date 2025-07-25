@@ -54,7 +54,7 @@ Use the `cache-lookup-value` policy to perform cache lookup by key and return a 
 
 - API Management only caches responses to HTTP GET requests.
 - This policy can only be used once in a policy section.
-- This policy is not supported with policy fragments.
+- This policy is not supported inside a policy fragment.
 - [!INCLUDE [api-management-cache-rate-limit](../../includes/api-management-cache-rate-limit.md)]
 
 ## Example
