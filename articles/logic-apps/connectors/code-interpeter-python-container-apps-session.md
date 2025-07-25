@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ms.date: 08/01/2025
+#Customer intent: As a developer, I want to create a workflow that accepts files and can process those files by using an agent that can upload a file and generate the necesssary Python code to use for file processing.
 ---
 
 # Process files by running Python code from AI agent workflows in Azure Logic Apps (Preview)
