@@ -39,7 +39,7 @@ Azure RBAC scopes are used to manage access and governance of Azure resources in
 
     Resource type: [Microsoft.Resources/subscriptions/resourceGroups](/rest/api/resources/resourcegroups)
 
-- [**Management groups**](../../governance/management-groups/overview.md) - Organize subscriptions into a hierarchy. A management group tree can support up to six levels of depth. The limit doesn't include the root level or the subscription level. For example, you might create a logical organization hierarchy using management groups and then, give teams subscriptions for production and dev/test workloads. After that you can create resource groups in the subscriptions to manage each subsystem or component.
+- [**Management groups**](../../governance/management-groups/overview.md) - Organize subscriptions into a hierarchy. A management group tree can support up to six levels of depth. The limit doesn't include the root level or the subscription level. For example, you might create a logical organization hierarchy using management groups, and then give teams subscriptions for production and dev/test workloads. After that you can create resource groups in the subscriptions to manage each subsystem or component.
 
     Resource type: [Microsoft.Management/managementGroups](/rest/api/managementgroups/)
 
@@ -104,6 +104,7 @@ Billing scopes differ based on your Microsoft agreement type:
 ### Enterprise Agreement billing scopes
 
 Enterprise Agreement (EA), also called enrollments, has the following billing scopes:
+
 [**Billing account**](../manage/view-all-accounts.md) - Represents an EA enrollment and is the scope at which invoices are generated. All purchase and usage charges are visible in this scope in both the Actual and Amortized Cost datasets, with some important distinctions.
 
 The Actual Cost dataset includes all meter-emitted usage charges from Azure, Marketplace and Microsoft 365 offers. It also includes purchases from Marketplace and Microsoft 365, as well as commitment-based benefits (reservations and savings plans). The benefit offsets the charges, so usage records covered by a commitment appear with zero costs.  
