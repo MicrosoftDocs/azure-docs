@@ -171,7 +171,7 @@ To work around this issue, complete the following steps to manually delete the C
 
 1. Uninstall Helm release without running the hook: `helm uninstall aio-<id>-connectors -n azure-iot-operations --no-hooks`
 
-### Media devices with an "_" character in the endpoint name are ignored
+### Media and ONVIF devices with an underscore character in the endpoint name are ignored
 
 ---
 
@@ -183,7 +183,7 @@ N/A
 
 ---
 
-If you create a media device with an endpoint name that contains an underscore ("_") character, the connector for media ignores the device.
+If you create a media or ONVIF device with an endpoint name that contains an underscore ("_") character, the connector for media ignores the device.
 
 To work around this issue, use a hyphen ("-") instead of an underscore in the endpoint name.
 
