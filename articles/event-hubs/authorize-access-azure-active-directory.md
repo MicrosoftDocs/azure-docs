@@ -1,13 +1,18 @@
 ---
-title: Authorize access with Microsoft Entra ID
-description: This article provides information on authorizing access to Event Hubs resources using Microsoft Entra ID. 
+title: Authorize Azure Event Hubs Access With Microsoft Entra ID
+description: Learn how to authorize access to Azure Event Hubs resources using Microsoft Entra ID with Azure role-based access control (RBAC) for secure authentication and permissions.
+#customer intent: As a cloud security administrator, I want to configure Microsoft Entra ID authentication for Event Hubs resources so that I can implement secure role-based access control instead of using shared access keys.
 ms.topic: concept-article
-ms.date: 06/26/2024
-#customer intent: As an Azure Event Hubs user, I want to know how to authorize requests to event hubs using Microsoft Entra ID. 
+ms.date: 07/25/2025
+ms.custom:
+  - ai-gen-docs-bap
+  - ai-gen-title
+  - ai-seo-date:07/25/2025
+  - ai-gen-description
 ---
 
-# Authorize access to Event Hubs resources using Microsoft Entra ID
-Azure Event Hubs supports using Microsoft Entra ID to authorize requests to Event Hubs resources. With Microsoft Entra ID, you can use Azure role-based access control (RBAC) to grant permissions to a security principal, which can be a user, or an application service principal. To learn more about roles and role assignments, see [Understanding the different roles](../role-based-access-control/overview.md).
+# Authorize access to Azure Event Hubs resources using Microsoft Entra ID
+Azure Event Hubs supports using Microsoft Entra ID to authorize requests to Event Hubs resources, providing secure authentication and granular access control. With Microsoft Entra ID, you can use Azure role-based access control (RBAC) to grant permissions to security principals, including users and application service principals. This approach eliminates the need for shared access keys and provides better security for your Event Hubs implementations. To learn more about roles and role assignments, see [Understanding the different roles](../role-based-access-control/overview.md).
 
 ## Overview
 When a security principal (a user, or an application) attempts to access an Event Hubs resource, the request must be authorized. With Microsoft Entra ID, access to a resource is a two-step process. 
@@ -26,7 +31,7 @@ Microsoft Entra authorizes access rights to secured resources through [Azure rol
 
 When an Azure role is assigned to a Microsoft Entra security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of subscription, the resource group, the Event Hubs namespace, or any resource under it. A Microsoft Entra security principal can be a user, or an application service principal, or a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
-## Azure built-in roles for Azure Event Hubs
+## Azure built-in roles for Event Hubs
 Azure provides the following Azure built-in roles for authorizing access to Event Hubs data using Microsoft Entra ID and OAuth:
 
 | Role | Description | 
