@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 07/25/2025
 ms.author: kendownie
+ai-usage: ai-generated
 # Customer intent: "As a Kubernetes administrator, I want to implement Azure Files for my Azure Kubernetes Service (AKS) workloads requiring persistent, shared storage, so that I can better support my organization's containerized applications."
 ---
 
