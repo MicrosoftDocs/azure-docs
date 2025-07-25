@@ -143,39 +143,6 @@ Log signature: Increased message volume every 2.5 hours
 
 Data values spike every 2.5 hours when using particular OPC UA simulators causing CPU and memory spikes. This issue isn't seen with OPC PLC simulator used in the quickstarts. No data is lost, but you can see an increase in the volume of data published from the server to the MQTT broker.
 
-### No message schema generated if selected nodes in a dataset reference the same complex data type definition
-
----
-
-Issue ID: 7369
-
----
-
-Log signature: `An item with the same key has already been added. Key: <element name of the data type>`
-
----
-
-No message schema is generated if selected nodes in a dataset reference the same complex data type definition (a UDT of type struct or enum).
-
-If you select data points (node IDs) for a dataset that share non-OPC UA namespace complex type definitions (struct or enum), then the JSON schema isn't generated. The default open schema is shown when you create a data flow instead. For example, if the data set contains three values of a data type, then whether it works or not is shown in the following table. You can substitute `int` for any OPC UA built in type or primitive type such as `string`, `double`, `float`, or `long`:
-
-| Type of Value 1 | Type of Value 2 | Type of Value 3 | Successfully generates schema |
-|-----------------|-----------------|-----------------|-----------------|
-| `int` | `int` | `int` | Yes |
-| `int` | `int` | `int` | Yes |
-| `int` | `int` | `struct A` | Yes |
-| `int` | `enum A` | `struct A` | Yes |
-| `enum A` | `enum B` | `enum C` | Yes |
-| `struct A` | `struct B` | `struct C` | Yes |
-| `int` | `struct A` | `struct A` | No |
-| `int` | `enum A` | `enum A` | No |
-
-To work around this issue, you can either:
-
-- Split the dataset across two or more assets.
-- Manually upload a schema.
-- Use the default nonschema experience in the data flow designer.
-
 ## Connector for media and connector for ONVIF issues
 
 This section lists current known issues for the connector for media and the connector for ONVIF.
