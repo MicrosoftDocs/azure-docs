@@ -22,6 +22,7 @@ The following example shows how to use the `azure-openai-semantic-cache-lookup` 
             embeddings-backend-auth ="system-assigned" >
             <vary-by>@(context.Subscription.Id)</vary-by>
         </azure-openai-semantic-cache-lookup>
+        <rate-limit calls="10" renewal-period="60" />
     </inbound>
     <outbound>
         <azure-openai-semantic-cache-store duration="60" />
