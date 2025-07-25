@@ -171,26 +171,6 @@ To work around this issue, complete the following steps to manually delete the C
 
 1. Uninstall Helm release without running the hook: `helm uninstall aio-<id>-connectors -n azure-iot-operations --no-hooks`
 
-## Asset discovery with Akri services issues
-
-This section lists current known issues for asset discovery with Akri services.
-
-### Asset discovery doesn't work for one hour after upgrade
-
----
-
-Issue ID: 0407
-
----
-
-Log signature: N/A
-
----
-
-When you upgrade the Akri services, you might experience some loss of messages and assets for an hour after the upgrade.
-
-To workaround this issue, wait for an hour after the upgrade and run the asset detection scenario again.
-
 ## Data flows issues
 
 This section lists current known issues for data flows.
