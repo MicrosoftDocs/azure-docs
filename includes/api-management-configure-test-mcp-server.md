@@ -18,8 +18,6 @@ Learn more about configuring policies:
 To configure policies for the MCP server:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-    [!INCLUDE [preview-callout-mcp-feature-flag](../articles/api-management/includes/preview/preview-callout-mcp-feature-flag.md)]
-
 1. In the left-hand menu, under **APIs**, select **MCP Servers**.
 1. Select an MCP server from the list.
 1. In the left menu, under **MCP**, select **Policies**.
@@ -87,10 +85,7 @@ After adding an MCP server in Visual Studio Code, you can use tools in agent mod
 |-------------------------------------------|-------------------------------------------|--------------------------------------------------------|
 | `401 Unauthorized` error from backend           | Authorization header not forwarded        | Use `set-header` policy to manually attach token         |
 | API call works in API Management but fails in agent | Incorrect base URL or missing token       | Double-check security policies and endpoint            |
-| Not able to create MCP server           | MCP server capability is not available in Consumption or Developer tier, and must be enabled using [update group](../articles/api-management/configure-service-update-settings.md) in classic Basic, Standard, and Premium tiers  | Use a supported classic or v2 tier - see Prerequisites |
-
-
-
+| Not able to create MCP server           | MCP server capability is not available in Consumption or Developer tier, and must be enabled using [update group](../articles/api-management/configure-service-update-settings.md) in classic Basic, Standard, and Premium tiers  | Use a supported classic or v2 tier - see [Prerequisites](#prerequisites) |
 
 ## Related content
 
