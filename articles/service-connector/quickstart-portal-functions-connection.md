@@ -23,7 +23,7 @@ This article provides step-by-step instructions for both the Azure portal and Az
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - A function app in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [create one](../azure-functions/how-to-create-function-azure-cli.md?pivots=programming-language-python).
 - A target resource to connect your function app to, such as a [Blob Storage account](../storage/common/storage-account-create.md).
-- The [permissions required](./concept-permission.md) to create and manage service connections.
+- The [necessary permissions](./concept-permission.md) to create and manage service connections.
 ::: zone-end
 
 ::: zone pivot="azure-cli"
@@ -129,10 +129,10 @@ Run the [az functionapp connection create](/cli/azure/functionapp/connection/cre
      --system-identity
   ```
 
-> [!NOTE]
+> [!TIP]
 > If you don't have a Blob Storage account, run `az functionapp connection create storage-blob --new --system-identity` to create one and connect it to your function app using a managed identity.
 
-### [Access key](#tab/using-access-key)
+### [Connection string](#tab/using-connection-string)
 
 > [!WARNING]
 > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
@@ -154,8 +154,9 @@ Run the [az functionapp connection create](/cli/azure/functionapp/connection/cre
      --secret name=<secret-name> secret=<secret>
   ```
 
-> [!NOTE]
+> [!TIP]
 > If you don't have a Blob Storage account, run `az functionapp connection create storage-blob --new --secret` to create one and connect it to your function app using a connection string.
+
 ---
 ::: zone-end
 

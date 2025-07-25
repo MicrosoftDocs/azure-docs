@@ -8,13 +8,13 @@ ms.service: service-connector
 ms.topic: quickstart
 zone_pivot_groups: interaction-type
 ms.date: 7/22/2025
-keywords: azure kubernetes service, aks, service connector, database connection, managed identity, azure storage, authentication
-#Customer intent: As an app developer, I want to connect my Azure Kubernetes Service cluster to databases, storage accounts, and other Azure services using managed identities and other authentication types.
+keywords: azure kubernetes service, aks, service connector, database connection, managed identity, workload identity, azure storage, authentication
+#Customer intent: As an app developer, I want to connect my Azure Kubernetes Service cluster to databases, storage accounts, and other Azure services using a workload identity or other authentication types.
 ---
 
 # Quickstart: Connect Azure Kubernetes Service to databases and services with Service Connector
 
-Get started with Service Connector to connect your Azure Kubernetes Service (AKS) cluster to databases, storage accounts, and other Azure services. Service Connector simplifies authentication and configuration, enabling you to connect to resources using managed identities or other authentication methods.
+Get started with Service Connector to connect your Azure Kubernetes Service (AKS) cluster to databases, storage accounts, and other Azure services. Service Connector simplifies authentication and configuration, enabling you to connect to resources using a workload identity or other authentication methods.
 
 This article provides step-by-step instructions for both the Azure portal and Azure CLI. Choose your preferred method using the tabs above.
 
@@ -23,7 +23,7 @@ This article provides step-by-step instructions for both the Azure portal and Az
 ::: zone pivot="azure-portal"
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - An AKS cluster in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [deploy an AKS cluster](/azure/aks/learn/quick-kubernetes-deploy-portal).
-- The [necessary permissions](./concept-permission.md) to create and manage service connections..
+- The [necessary permissions](./concept-permission.md) to create and manage service connections.
 ::: zone-end
 
 ::: zone pivot="azure-cli"
@@ -123,7 +123,7 @@ Now that you created a connection between your AKS cluster and target service, y
 ::: zone-end
 
 ::: zone pivot="azure-cli"
-### [Using a workload identity (recommended)](#tab/Using-Managed-Identity)
+### [Using a workload identity (recommended)](#tab/using-Managed-Identity)
 
 Run the [`az aks connection create storage-blob`](/cli/azure/aks/connection/create#az-aks-connection-create-storage-blob) command. You can run this command in two different ways:
 
@@ -143,7 +143,10 @@ Run the [`az aks connection create storage-blob`](/cli/azure/aks/connection/crea
      --workload-identity <user-identity-resource-id>
   ```
 
-### [Using an access key](#tab/Using-access-key)
+> [!TIP]
+> If you don't have a Blob Storage account, run `az aks connection create storage-blob --new --workload-identity` to create one and connect it to your App Service using a workload identity.
+
+### [Using a connection string](#tab/using-connection-string)
 
 > [!WARNING]
 > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. If possible, we recommend you use a workload identity instead.
@@ -164,10 +167,12 @@ Run the [`az aks connection create storage-blob`](/cli/azure/aks/connection/crea
      --target-id /subscriptions/<target-subscription>/resourceGroups/<target_resource_group>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default \
      --secret name=<secret-name> secret=<secret>
   ```
+
+> [!TIP]
+> If you don't have a Blob Storage account, run `az aks connection create storage-blob --new --secret` to create one and connect it to your App Service using a connection string.
+
 ---
 
-> [!NOTE]
-> If you don't have a Blob Storage account, you can run `az aks connection create storage-blob --new --workload-identity` or `az aks connection create storage-blob --new --secret` to provision a new one and connect it to your AKS cluster.
 ::: zone-end
 
 ## View service connections in AKS cluster

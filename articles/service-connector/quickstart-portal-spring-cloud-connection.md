@@ -28,7 +28,7 @@ This article provides step-by-step instructions for both the Azure portal and Az
 - An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free).
 - An app deployed to [Azure Spring Apps](../spring-apps/basic-standard/quickstart.md) in a [region supported by Service Connector](./concept-region-support.md).
 - A target resource to connect Azure Spring Apps to. For example, a [Azure Key Vault](/azure/key-vault/general/quick-create-portal).
-- The [necessary permissions](./concept-permission.md) to create and manage service connections..
+- The [necessary permissions](./concept-permission.md) to create and manage service connections.
 ::: zone-end
 
 ::: zone pivot="azure-cli"
@@ -106,7 +106,7 @@ Use Service Connector to create a secure service connection between your Azure S
 
 ::: zone pivot="azure-cli"
 
-### [Managed identity (recommended)](#tab/Using-Managed-Identity)
+### [Managed identity (recommended)](#tab/using-Managed-Identity)
 
 Run the [az spring connection create](/cli/azure/spring/connection#az-spring-connection-create-storage-blob) command to connect application deployed to Azure Spring Apps to a Blob Storage resource, with a system-assigned managed identity. You can run this command in two different ways:
 
@@ -128,7 +128,7 @@ Run the [az spring connection create](/cli/azure/spring/connection#az-spring-con
 > [!TIP]
 > If you don't have a Blob Storage account, run `az spring connection create storage-blob --new --system-identity` to create one and connect it to your application hosted on Azure Spring Apps using a managed identity.
 
-### [Access key](#tab/Using-access-key)
+### [Connection string](#tab/using-connection-string)
 
 > [!WARNING]
 > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.

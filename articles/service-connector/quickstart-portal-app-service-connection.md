@@ -23,12 +23,10 @@ This article provides step-by-step instructions for both the Azure portal and Az
 ::: zone pivot="azure-portal"
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - An application deployed to App Service in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [create and deploy an app to App Service](../app-service/quickstart-dotnetcore.md).
-- The following [necessary permissions](./concept-permission.md).
+- The [necessary permissions](./concept-permission.md) to create and manage service connections.
 ::: zone-end
 
 ::: zone pivot="azure-cli"
-## Prerequisites
-
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - An application deployed to App Service in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [create and deploy an app to App Service](../app-service/quickstart-dotnetcore.md).
 - The following [necessary permissions](./concept-permission.md).
@@ -125,10 +123,10 @@ Run the [az webapp connection create](/cli/azure/webapp/connection/create#az-web
      --system-identity
   ```
 
-> [!NOTE]
+> [!TIP]
 > If you don't have a Blob Storage account, run `az webapp connection create storage-blob --new --system-identity` to create one and connect it to your App Service using a managed identity.
 
-### [Access key](#tab/using-access-key)
+### [Connection string](#tab/using-connection-string)
 
 > [!WARNING]
 > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
@@ -150,8 +148,9 @@ Run the [az webapp connection create](/cli/azure/webapp/connection/create#az-web
      --secret name=<secret-name> secret=<secret>
   ```
 
-> [!NOTE]
+> [!TIP]
 > If you don't have a Blob Storage account, run `az webapp connection create storage-blob --new --secret` to create one and connect it to your App Service using a connection string.
+
 ---
 ::: zone-end
 

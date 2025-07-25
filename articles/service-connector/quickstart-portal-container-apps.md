@@ -142,10 +142,10 @@ Run the [`az containerapp connection create`](/cli/azure/containerapp/connection
      --system-identity
   ```
 
-> [!NOTE]
+> [!TIP]
 > If you don't have a Blob Storage account, run `az containerapp connection create storage-blob --new --system-identity` to create one and connect it to your container app using a managed identity.
 
-### [Access key](#tab/using-access-key)
+### [Connection string](#tab/using-connection-string)
 
 > [!WARNING]
 > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
@@ -169,6 +169,7 @@ Run the [`az containerapp connection create`](/cli/azure/containerapp/connection
 
 > [!TIP]
 > If you don't have a Blob Storage account, run `az containerapp connection create storage-blob --new --secret` to create one and connect it to your container app using a managed identity.
+
 ---
 ::: zone-end
 
