@@ -28,7 +28,7 @@ Like any Kubernetes cluster, Nexus Kubernetes cluster has two components:
 * Control plane: provides core Kubernetes services and manages the life cycle of application workloads.
 
 * Nodes: To run your applications and supporting services, you need a Kubernetes node. It provides the container runtime environment.
-Each Nexus AKS cluster has at least one node. Node is hosted in virtual machine (VM) that runs the [Kubernetes node components](/azure/aks/concepts-clusters-workloads#nodes). 
+Each Nexus AKS cluster has at least one node. Node is hosted in virtual machine (VM) that runs the [Kubernetes node components](/azure/aks/core-aks-concepts#nodes). 
 VM is created as part of Nexus AKS cluster deployment on Nexus instance. There are two types of node pools in Nexus Kubernetes Clusters
 
   * When you create a Nexus AKS cluster, you define the initial number of nodes and their size (SKU), which creates a system node pool. System node pools host critical system pods.
