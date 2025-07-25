@@ -6,16 +6,16 @@ ms.author: jianleishen
 author: jianleishen
 manager: shwang
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: synapse
-ms.date: 09/25/2024
+ms.date: 07/25/2025
 ---
 # Copy activity performance and scalability guide
 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Sometimes you want to perform a large-scale data migration from data lake or enterprise data warehouse (EDW), to Azure. Other times you want to ingest large amounts of data, from different sources into Azure, for big data analytics. In each case, it is critical to achieve optimal performance and scalability.
+Sometimes you want to perform a large-scale data migration from data lake or enterprise data warehouse (EDW), to Azure. Other times you want to ingest large amounts of data, from different sources into Azure, for big data analytics. In each case, it's critical to achieve optimal performance and scalability.
 
 Azure Data Factory and Azure Synapse Analytics pipelines provide a mechanism to ingest data, with the following advantages:
 
@@ -25,7 +25,7 @@ Azure Data Factory and Azure Synapse Analytics pipelines provide a mechanism to 
 
 These advantages are an excellent fit for data engineers who want to build scalable data ingestion pipelines that are highly performant.
 
-After reading this article, you will be able to answer the following questions:
+After reading this article, you'll be able to answer the following questions:
 
 * What level of performance and scalability can I achieve using copy activity for data migration and data ingestion scenarios?
 * What steps should I take to tune the performance of the copy activity?
@@ -95,7 +95,7 @@ Take the following steps to tune the performance of your service with the copy a
     * File pattern
     * Data schema
 
-    And your dataset should be big enough to evaluate copy performance. A good size takes at least 10 minutes for copy activity to complete. Collect execution details and performance characteristics following [copy activity monitoring](copy-activity-monitoring.md).
+    And your dataset should be large enough to evaluate copy performance. A good size takes at least 10 minutes for copy activity to complete. Collect execution details and performance characteristics following [copy activity monitoring](copy-activity-monitoring.md).
 
 2. **How to maximize performance of a single copy activity**:
 
@@ -111,11 +111,11 @@ Take the following steps to tune the performance of your service with the copy a
 
     Conduct a performance test run. Take a note of the performance achieved. Include the actual values used, such as DIUs and parallel copies. Refer to [copy activity monitoring](copy-activity-monitoring.md) on how to collect run results and performance settings used. Learn how to [troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md) to identify and resolve the bottleneck.
 
-    Iterate to conduct additional performance test runs following the troubleshooting and tuning guidance. Once single copy activity runs cannot achieve better throughput, consider whether to maximize aggregate throughput by running multiple copies concurrently. This option is discussed in the next numbered bullet.
+    Iterate to conduct more performance test runs following the troubleshooting and tuning guidance. Once single copy activity runs can't achieve better throughput, consider whether to maximize aggregate throughput by running multiple copies concurrently. This option is discussed in the next numbered bullet.
 
 3. **How to maximize aggregate throughput by running multiple copies concurrently:**
 
-    By now you have maximized the performance of a single copy activity. If you have not yet achieved the throughput upper limits of your environment, you can run multiple copy activities in parallel. You can run in parallel by using control flow constructs. One such construct is the [For Each loop](control-flow-for-each-activity.md). For more information, see the following articles about solution templates:
+    By now you have maximized the performance of a single copy activity. If you haven't yet achieved the throughput upper limits of your environment, you can run multiple copy activities in parallel. You can run in parallel by using control flow constructs. One such construct is the [For Each loop](control-flow-for-each-activity.md). For more information, see the following articles about solution templates:
 
     * [Copy files from multiple containers](solution-template-copy-files-multiple-containers.md)
     * [Migrate data from Amazon S3 to ADLS Gen2](solution-template-migration-s3-azure.md)
@@ -140,7 +140,7 @@ The service provides the following performance optimization features:
 
 ### <a id="data-integration-units"></a>Data Integration Units
 
-A Data Integration Unit (DIU) is a measure that represents the power of a single unit in Azure Data Factory and Synapse pipelines. Power is a combination of CPU, memory, and network resource allocation. DIU only applies to [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime). DIU does not apply to [self-hosted integration runtime](concepts-integration-runtime.md#self-hosted-integration-runtime). [Learn more here](copy-activity-performance-features.md#data-integration-units).
+A Data Integration Unit (DIU) is a measure that represents the power of a single unit in Azure Data Factory and Synapse pipelines. Power is a combination of CPU, memory, and network resource allocation. DIU only applies to [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime). DIU doesn't apply to [self-hosted integration runtime](concepts-integration-runtime.md#self-hosted-integration-runtime). [Learn more here](copy-activity-performance-features.md#data-integration-units).
 
 ### Self-hosted integration runtime scalability
 
