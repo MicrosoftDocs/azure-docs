@@ -226,17 +226,3 @@ Log signature: N/A
 When you connect multiple IoT Operations instances to the same Event Grid MQTT namespace, connection failures might occur due to client ID conflicts. Client IDs are currently derived from data flow resource names, and when using infrastructure as code patterns for deployment, the generated client IDs might be identical.
 
 To work around this issue, add randomness to the data flow names in your deployment templates.
-
-### Data flows error metrics
-
----
-
-Issue ID: 2382
-
----
-
-Log signature: N/A
-
----
-
-Data flows marks message retries and reconnects as errors, and as a result data flows might look unhealthy. This behavior is only seen in previous versions of data flows. Review the logs to determine if the data flow is healthy.
