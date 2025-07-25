@@ -205,7 +205,7 @@ For optimal designer responsiveness and performance, review and follow these gui
    >
    > - You can choose to create a new managed identity, which is created automatically with 
    > the role-based access permissions to access the host storage account for your logic app.
-   > You may have to wait a couple minutes and restart your logic app once the permissions
+   > After you create your logic app, you might have to wait a few minutes for the permissions 
    > propogate to your new managed identity.
    >
    > - Or, if you select an existing managed identity, you must manually assign the roles in the 
