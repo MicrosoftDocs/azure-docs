@@ -210,7 +210,7 @@ For optimal designer responsiveness and performance, review and follow these gui
    >
    > - Or, if you select an existing managed identity, you must manually assign the roles in the 
    > **Minimum roles required column** to the managed identity on the host storage account. 
-   > Consider completing this assignment before you deploy your logic app, Otherwise, you get 
+   > Consider completing this assignment before you deploy your logic app. Otherwise, you get 
    > errors when you open your new logic app resource.
 
 1. After Azure validates your logic app settings, on the **Review + create** tab, select **Create**, for example:
