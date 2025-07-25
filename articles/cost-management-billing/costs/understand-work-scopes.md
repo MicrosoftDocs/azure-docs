@@ -14,7 +14,7 @@ ms.custom:
 
 # Understand and work with scopes
 
-Understanding scopes is essential to effectively manage and analyze costs in Azure. A _scope_ is a type of boundary—like a subscription, resource group, or billing account—within which users can view, manage, and analyze cost data based on their assigned roles and permissions. This guide explains the types of scopes available in Azure Cost Management, how they relate to roles and permissions, and how they apply to Cost Management experiences in the Azure portal and to its APIs.
+Understanding scopes is essential to effectively manage and analyze costs in Azure. A _scope_ is a type of boundary—like a subscription, resource group, or billing account—within which users can view, manage, and analyze cost data based on their assigned roles and permissions. This guide explains the types of scopes available in Microsoft Cost Management, how they relate to roles and permissions, and how they apply to Cost Management experiences in the Azure portal and to its APIs.
 
 ## Scope types
 
@@ -106,9 +106,9 @@ Billing scopes differ based on your Microsoft agreement type:
 Enterprise Agreement (EA), also called enrollments, has the following billing scopes:
 [**Billing account**](../manage/view-all-accounts.md) - Represents an EA enrollment and is the scope at which invoices are generated. All purchase and usage charges are visible in this scope in both the Actual and Amortized Cost datasets, with some important distinctions.
 
-The Actual Cost dataset includes all meter-emitted usage charges from Azure, Marketplace and M365 offers. It also includes purchases from Marketplace and M365, as well as commitment-based benefits (reservations and savings plans). The benefit offsets the charges, so usage records covered by a commitment appear with zero costs.  
+The Actual Cost dataset includes all meter-emitted usage charges from Azure, Marketplace and Microsoft 365 offers. It also includes purchases from Marketplace and Microsoft 365, as well as commitment-based benefits (reservations and savings plans). The benefit offsets the charges, so usage records covered by a commitment appear with zero costs.  
 
-The Amortized Cost data set, also includes all usage records, Marketplace and M365 purchases. However, the commitment-based purchases do not appear directly because their costs are amortized and applied to the usage where the benefit is consumed. As a result, the same usage that appears with zero costs in Actual Cost, shows charges in the Amortized Cost dataset. The Amortized Cost data set doesn't match your invoice, since it reflects amortized allocations rather than billed amounts.
+The Amortized Cost data set, also includes all usage records, Marketplace and Microsoft 365 purchases. However, the commitment-based purchases do not appear directly because their costs are amortized and applied to the usage where the benefit is consumed. As a result, the same usage that appears with zero costs in Actual Cost, shows charges in the Amortized Cost dataset. The Amortized Cost data set doesn't match your invoice, since it reflects amortized allocations rather than billed amounts.
 Learn more about amortized costs here [View amortized benefit costs](/azure/cost-management-billing/reservations/view-amortized-costs).
 
 Resource type: `Microsoft.Billing/billingAccounts (accountType = Enrollment)`
@@ -194,7 +194,7 @@ Microsoft Customer Agreement (MCA) billing accounts have the following scopes:
 
     Resource type: `Microsoft.Billing/billingAccounts/invoiceSections`
 
-- **Customer** - Represents a group of subscriptions that are associated with a specific customer that is onboarded to a MCA by a partner. This scope is specific to Cloud Solution Providers (CSP).
+- **Customer** - Represents a group of subscriptions that are associated with a specific customer that is onboarded to an MCA by a partner. This scope is specific to Cloud Solution Providers (CSP).
 
 A single Microsoft Entra directory manages MCA billing accounts, unlike EA billing scopes. However, MCA billing accounts can have _**linked**_ subscriptions that could be in different directories.
 
@@ -262,13 +262,13 @@ The following scopes are supported for CSPs with customers on a Microsoft Custom
 
     Resource type: `Microsoft.Billing/billingAccounts/billingProfiles`
 
-- **Customer** - Represents a group of subscriptions that are associated to a specific customer that is onboarded to a MCA by a partner.
+- **Customer** - Represents a group of subscriptions that are associated to a specific customer that is onboarded to an MCA by a partner.
 
 #### Roles used in CSP scopes
 
 Only the users with _*Admin agent*_ and [billing admin](/partner-center/account-settings/permissions-overview#billing-admin-role) roles can manage and view costs for billing accounts, billing profiles, and customers directly in the partner's Azure tenant. For more information about partner center roles, see [Assign users roles and permissions](/partner-center/permissions-overview).
 
-Cost Management only supports customers of CSP partners if the customers have a MCA. For CSP supported customers who aren't yet on a MCA, see [Partner Center](/azure/cloud-solution-provider/overview/partner-center-overview).
+Cost Management only supports customers of CSP partners if the customers have an MCA. For CSP supported customers who aren't yet on an MCA, see [Partner Center](/azure/cloud-solution-provider/overview/partner-center-overview).
 
 Cost Management doesn't support Management groups in CSP scopes. If you have a CSP subscription and you try to set the scope to a management group in Cost Analysis, an error like the following one is shown:
 
@@ -297,7 +297,7 @@ All Cost Management views in the Azure portal include a **Scope** selection pill
 
 ## View historical charges after migration or contract change by using scope picker
 
-If you migrated from an EA agreement to a MCA, you still have access to your old billing scope.
+If you migrated from an EA agreement to an MCA, you still have access to your old billing scope.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for and then select **Cost Management + Billing**.
