@@ -200,8 +200,6 @@ For optimal designer responsiveness and performance, review and follow these gui
 
    1. If you select the "Managed Identity" **Authentication Type**, you will have the specify the managed identity to be used. You can opt to create a new managed identity, which will automatically be provisioned with the required RBAC permissions to access the storage account. Note that after you create your Logic App, you may have to wait a couple minutes for the required RBAC permissions to propogate to your new managed identity. Then, you can restart your Logic App. 
 
-   1. If you select an existing managed identity, note that you will have to manually assign the roles in the Minimum roles required column for the host storage account. It is recommended to do this before deploying your Logic App, otherwise you will see errors when you open your new logic app resource.
-  
    > [!IMPORTANT]
 	   >
 	   > If you select **Managed Identity** for authentication, you must specify the managed identity to use. 
