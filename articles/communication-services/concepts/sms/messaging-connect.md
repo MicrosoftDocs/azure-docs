@@ -36,7 +36,7 @@ Value at a glance:
 
 ## Conceptual Overview
 
-Global SMS is inherently complex: regulations differ by country, sender types vary, and delivery routes are fragmented. Messaging Connect integrates pre-approved partners so you can acquire compliant sender identities and route traffic without leaving the ACS developer experience.
+Global SMS is inherently complex: regulations differ by country, sender types vary, and delivery routes are fragmented. Messaging Connect integrates pre-approved partners so you can acquire compliant sender identities and route traffic without leaving the Azure Communication Services developer experience.
 
 Provisioning flow (high level):
 
