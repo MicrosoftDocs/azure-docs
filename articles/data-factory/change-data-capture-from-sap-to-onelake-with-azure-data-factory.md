@@ -101,13 +101,9 @@ Next, we add the service principal as a **contributor** or **admin** to your Mic
 
 1. Navigate to your workspace and select **Manage access**.
 
-   :::image type="content" source="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/manage-access-to-fabric.png" lightbox="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/manage-access-to-fabric.png" alt-text="Screenshot showing where to manage access to a Fabric workspace.":::
-
 1. Enter the **name** of the service principal, select the **Contributor** or **Admin** role and select **Add**. The service principal can now be used to connect ADF to your workspace.
 
-   :::image type="content" source="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/add-service-principal-to-workspace.png"  alt-text="Screenshot showing where to add your service principal to your Fabric workspace and grant it Contributor or Admin access.":::
-
-## Creating the Lakehouse linked service in ADF or Synapse
+## Create the Lakehouse linked service in ADF or Synapse
 
 Now we’re ready to configure the Lakehouse linked service in ADF or Synapse.
 
