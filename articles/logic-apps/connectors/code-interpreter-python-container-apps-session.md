@@ -20,9 +20,18 @@ ms.date: 08/01/2025
 > This capability is in preview and is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In Standard logic apps, not only can agent workflows handle natural language requests through chat interfaces, they can also process files when you create tools with **Code Interpreter (Python Container Apps session)** built-in connector operations. The agent workflow can then generate and run Python code, upload, download, and delete files. From an end-to-end perspective, the agent workflow receives instructions, accepts files, generates and runs code in an isolated environment, and returns usable results, such as summaries, forecasts, or other requested data transformations - all within the same workflow.
+In Standard logic apps, not only can agent workflows handle natural language requests through chat interfaces by using agents, they can also process files when you create agent tools with **Code Interpreter (Python Container Apps session)** built-in connector operations. These operations make it possible for the agent workflow to generate and run Python code, upload, download, and delete files. From a scenario perspective, the agent can receive instructions, accept files, generate and run code in an isolated environment, and return usable results, such as summaries, forecasts, or other requested data transformations - all within the same workflow.
 
-   :::image type="content" source="media/code-interpreter-python-container-apps-session/overview.png" alt-text="Screenshot shows workflow with agent and tool, which uses Code Interpreter actions that upload files to Container Apps session pool and runs Python code for file processing." lightbox="media/code-interpreter-python-container-apps-session/overview.png":::
+> [!NOTE]
+>
+> This article assumes that you're working with an agent workflow and use the **Code Interpreter** 
+> operations inside agent tools so that you can have the agent generate the necessary Python code.
+
+The following example shows a workflow with an agent action named **Sales Report Agent**. The agent can use a tool named **Upload sales data** to run the **Code Interpreter** operations named **Upload file** and **Execute Python code**.
+
+:::image type="content" source="media/code-interpreter-python-container-apps-session/overview.png" alt-text="Screenshot shows workflow with agent and tool, which uses Code Interpreter actions that upload files to Container Apps session pool and runs Python code for file processing." lightbox="media/code-interpreter-python-container-apps-session/overview.png":::
+
+ When the workflow receives an HTTPS request for a specified file through the **Request** trigger, the **HTTP** action gets the requested file. The agent has instructions to upload the file to a Container Apps session pool, generate Python code to process the file, and return results based on the received instructions:
 
 > [!NOTE]
 >
@@ -31,9 +40,6 @@ In Standard logic apps, not only can agent workflows handle natural language req
 > code for the **Execute Python code** action. In these cases, the **Code Interpreter** operations 
 > don't have access to agent capabilities provided by the agent-linked AI model, which include 
 > natural language interactions and model-generated code.
->
-> This article assumes that you're working with an agent workflow and use the **Code Interpreter** 
-> operations inside agent tools so that you can have the agent generate the necessary Python code.
 
 Your agent workflow can process files that contain diverse or fragmented data and have formats such as CSV, Excel, or JSON, which can include thousands to millions of rows. However, raw data often needs extra work before you can extract useful information and insights, for example:
 
@@ -126,7 +132,7 @@ For technical information about this connector's operations, see the [connector'
    | **Input file name** | <*file-name*> | The name to assign for the file. |
    | **Input file content** | <*file-content*> | The path for the file content to upload. |
 
-   In the following example, the workflow uses an **HTTP** action to get the file from its source location. The agent action has a tool that uses the **Upload file** action with the file name and content as parameters. The file name is manual input, while the file content references output from the preceding **HTTP** action:
+   In the following example, the workflow uses an **HTTP** action, which makes a REST call to get the file from its source location. The agent action has a tool that uses the **Upload file** action with the file name and content as parameters. The file name is manual input, while the file content references output from the preceding **HTTP** action:
 
    :::image type="content" source="media/code-interpreter-python-container-apps-session/upload-file-parameters.png" alt-text="Screenshot shows agent workflow with HTTP action that gets a file and Upload file action that adds file to session pool." lightbox="media/code-interpreter-python-container-apps-session/upload-file-parameters.png":::
 
@@ -142,7 +148,7 @@ For technical information about this connector's operations, see the [connector'
 
 1. On the workflow sidebar, under **Tools**, select the designer to open the workflow.
 
-1. In the **Default Agent** action, follow these steps:
+1. For the **Default Agent** action, rename the agent for your scenario, and follow these steps:
 
    1. Based on whether you created a tool with the **Upload file** action from the preceding section, choose either option:
 
@@ -172,7 +178,7 @@ For technical information about this connector's operations, see the [connector'
 
       :::image type="content" source="media/code-interpreter-python-container-apps-session/session-id.png" alt-text="Screenshot shows advanced parameters and session ID parameter for Execute Python Code action." lightbox="media/code-interpreter-python-container-apps-session/session-id.png":::
 
-   1. Rename the tool to briefly describe its purpose or task.
+   1. Rename the tool to describe its purpose or task.
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
