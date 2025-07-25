@@ -30,15 +30,15 @@ SAP offers multiple layers of data access, each serving different analytical and
 
 SAP Tables are the foundational layer of data storage in the SAP system. Every transaction processed in SAP, from a goods receipt to an invoice or sales order, gets stored in a set of structured tables in the underlying relational database (such as HANA, Oracle, or SQL Server). These tables contain the raw, transactional data of your business. In modern versions of SAP systems there is usually one-to-one representation of the ABAP tables to the database tables. In older releases that’s not always the case and accessing pool / cluster tables at the database level is not possible. Using tables requires in-depth knowledge of SAP’s data model, otherwise you risk misinterpreting the business context.
 
-### CDS Views / Extractors
+### Core Data Services views / extractors
 
-CDS Views and Extractors provide a business-oriented, multidimensional view of transactional data directly within the operational SAP system. These sources offer predefined logic that reflect how data is used in day-to-day processes, such as sales, purchasing, or finance. Instead of accessing raw tables, CDS Views and Extractors expose data in a way that aligns with business meaning — for example, showing only active orders or including relevant descriptions and calculated fields.
+Core Data Services (CDS) Views and Extractors provide a business-oriented, multidimensional view of transactional data directly within the operational SAP system. These sources offer predefined logic that reflect how data is used in day-to-day processes, such as sales, purchasing, or finance. Instead of accessing raw tables, CDS Views and Extractors expose data in a way that aligns with business meaning — for example, showing only active orders or including relevant descriptions and calculated fields.
 
 ### BW InfoObjects / InfoProviders
 
 InfoObjects and InfoProviders are part of the SAP BW semantic layer. They form the multidimensional model based on facts and dimensions to use in modelling and reporting across all layers of BW architecture. As data moves through the layers it is continuously transformed, cleansed and enriched. As a result, the data in the final data mart is consistent and prepared for use in enterprise dashboards and reports.
 
-### BW Queries
+### BW queries
 
 Queries are the main interface for consuming data stored in SAP BW. They define business-ready metrics such as key revenue, cost, or quantity measures by applying calculations, filters, and aggregations on top of InfoProviders. Queries are also tightly integrated with SAP's authorization model and optimized for performance.
 
@@ -96,7 +96,7 @@ You can use pipelines and dataflows in Microsoft Fabric to extract and transform
 
 The SAP Table connector connects to ABAP-based SAP systems and enables snapshot extraction of table data. It supports data filtering using a simple ABAP-like syntax. For larger data volumes, you can apply built-in partitioning based on selected columns such as posting timestamp to divide the table into smaller chunks. The connector is available through pipelines in Microsoft Fabric.
 
-#### SAP HANA Connector
+#### SAP HANA connector
 
 The SAP HANA connector allows you to connect to SAP HANA database. It supports two access layers: the multidimensional analytic layer, based on HANA calculation views, and the transactional layer, which provides access to data stored in tables and views.
 
@@ -108,7 +108,7 @@ In contrast, when the connector is used within a Microsoft Fabric pipeline, whic
 
 Generic ODBC connectivity enables connectivity to a wide range of databases, including but not limited to SAP HANA. It provides flexible access to underlying tables and views, making it suitable for scenarios where direct access to raw, transactional data is needed. When used with an SAP HANA database, the Generic ODBC connector connects to the transactional layer, allowing users to query data from base tables and SQL views.
 
-#### SAP BW Connector
+#### SAP BW connector
 
 The SAP BW connector is designed to access the multidimensional analytic layer in SAP systems. It is used to deliver business-ready datasets and contains predefined measures, hierarchies, filters, and authorizations, making the data easy to interpret and consume in reporting and analytics tools. The connector provides a reliable way to extract curated and semantically rich data, which aligns closely with enterprise reporting standards.
 
@@ -120,7 +120,7 @@ The SAP BW OpenHub connector enables data extraction from OpenHub destinations i
 
 The connector supports delta extraction, which captures only records that have changed since the last successful load. Delta handling is managed by the SAP BW system based on the logic defined in the DTP, typically using timestamps, request IDs, or change log positions. Once configured, the system applies the delta logic automatically, reducing the need for manual tracking or custom implementation.
 
-#### OData Connector
+#### OData connector
 
 Data extraction can also be handled by OData services, which expose business data from SAP systems through a standardized, REST-based protocol. This approach is particularly suited for accessing data made available via SAP Gateway services, such as those in SAP S/4HANA and SAP Business Suite. SAP provides a rich set of preconfigured OData services covering many core business objects and processes. In addition, custom or standard CDS Views can be exposed as OData endpoints, offering a flexible way to retrieve semantically rich and well-structured data.
 
@@ -136,7 +136,7 @@ Azure Data Factory is a cloud-based data integration service that enables you to
 :::image type="content" source="media/sap-extract-data-fabric/2-sap-data-connectivity-azure-data-factory.png" alt-text="Diagram shows SAP to Microsoft Fabric data connectivity options within Azure Data Factory":::
 
 
-#### SAP CDC Connector
+#### SAP CDC connector
 
 The SAP CDC connector enables incremental data extraction from SAP systems using the **SAP** **Operational Data Provisioning** framework, available in ABAP environments. The ODP framework automatically track deltas in the source system and storing them in a delta queue. Each time the connector runs, it retrieves only the new or changed records since the last extraction, based on a subscription maintained by the framework.
 
@@ -175,7 +175,7 @@ Using Premium Outbound Integration, customers can configure replication flows to
 
 Once the data lands in Azure Data Lake Gen2, it can be virtually exposed in Microsoft Fabric lakehouses using shortcuts. These shortcuts provide seamless, read-only access to the ingested data without duplicating storage, enabling powerful analytics and transformation workflows directly within Fabric.
 
-#### ODBC Connection
+#### ODBC connection
 
 ODBC connectivity allows customers to consume views in SAP Datasphere directly from Spark notebooks in Microsoft Fabric, enabling real-time data exploration, transformation, and advanced analytics without the need for replication. Additionally, the SAP HANA connector can be used to ingest data into Microsoft Fabric lakehouses using pipelines and dataflows.
 
