@@ -52,7 +52,8 @@ Features are installed once and can only be updated or upgraded when the custome
 
 ## Nexus Available Zones
 
-Nexus introduces the concept of an Availability Zone. An Availability Zone is delineated at a Rack level and allows customers to spread their workloads across the instance to achieve better availability. For a Nexus instance with eight racks, customers get eight Availability Zones.
+Nexus supports the concept of an Availability Zone. An Availability Zone is delineated at the Rack level and allows customers to spread their workloads across various zones to achieve high availability. For a Nexus instance with eight racks, customers get eight Availability Zones to spread their workload over. This is configured within control plane and agentpool configuration for a given Nexus AKS cluster.
+
 Each Zone comprises a pair of management servers with redundancy and a collection of compute servers that function as a resource pool.
 During multi-rack deployments in Nexus and when performing runtime bundle upgrades, Availability Zones provide the added benefit of acting as an upgrade domain. This ensures that, at most, only the servers within a single rack are taken offline for these upgrades.
 

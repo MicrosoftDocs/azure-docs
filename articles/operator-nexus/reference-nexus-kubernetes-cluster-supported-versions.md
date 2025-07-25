@@ -14,7 +14,7 @@ This document provides an overview of the versioning schema used for the Operato
 
 The Kubernetes community releases minor versions roughly every three months. Starting with version 1.19, the Kubernetes community has [increased the support window for each version from nine months to one year](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/).
 
-Minor version releases include new capabilities and improvements. Patch releases are more frequent (sometimes weekly) and are intended for critical bug fixes within a minor version. Patch releases include fixes for security vulnerabilities or major bugs.
+Minor version releases may include new capabilities and/or improvements. Patch releases are more frequent (sometimes weekly) and are intended for critical bug fixes within a minor version. Patch releases include fixes for security vulnerabilities or major bugs.
 
 ## Kubernetes versions
 
@@ -63,7 +63,7 @@ Prior to April 2025, version bundle numbers were incremented starting from "1" a
  
 Using this information, it becomes easier to predict and manage the process of moving between different versions of Kubernetes clusters offered by the Operator Nexus Kubernetes service.
  
-All Nexus cluster upgrades will take into account the standard Kubernetes versions skew policy, so in some cases you may need to perform more than one upgrade to bring a cluster to the desired Kubernetes level.  Skipping over any version bundle release is accepted, however you cannot downgrade to a previous version bundle series.
+All Nexus cluster upgrades follow the standard Kubernetes versions skew policy, so in some cases you may need to perform more than one upgrade to bring a cluster to the desired Kubernetes version. Skipping over any version bundle release is accepted, however you cannot downgrade to a previous version bundle series.
 
 Changes to the configuration of a deployed Operator Nexus Kubernetes cluster should only be applied within a Kubernetes minor version upgrade, not during a patch version upgrade. Examples of configuration changes that could be applied during the minor version upgrade include:
 
@@ -76,13 +76,13 @@ We allow upgrade from any patch version in one Kubernetes minor version to any p
 When new version bundles are released, all the Kubernetes patch versions in that version bundle release use the same versions of both OS and Features; only the Kubernetes code differs between them. Let's look at a few examples of upgrade routes which may be desirable:
 
 #### Kubernetes version update
-If the goal of the Nexus cluster upgrade is to ONLY patch or update the Kubernetes minor version, select an available Kubernetes version from the same version bundle series. E.G., if 1.32.1-4.4.0 is your current version bundle, and 1.33.1-4.4.0 is the latest 1.33.x version bundle, then you should choose 1.33.1-4.4.0.
+To patch or update the Kubernetes minor version, select an available Kubernetes version from the same version bundle series. E.G., if 1.32.1-4.4.0 is your current version bundle, and 1.33.1-4.4.0 is the latest 1.33.x version bundle, then you should choose 1.33.1-4.4.0.
 
 #### OS and component version update
-If the goal of the Nexus cluster upgrade is to ONLY patch or update OS or platform components, select a version bundle within the same Kubernetes minor version as your cluster, but with a later release number. E.G., if 1.32.1-4.4.0 is your current version bundle, and 1.32.1-4.5.0 is the latest 1.32.1 version bundle, then you should choose 1.32.1-4.5.0. This will ensure the Kubernetes version remains the same.
+To patch or update OS or platform components, select a version bundle within the same Kubernetes minor version as your cluster, but with a later release number. E.G., if 1.32.1-4.4.0 is your current version bundle, and 1.32.1-4.5.0 is the latest 1.32.1 version bundle, then you should choose 1.32.1-4.5.0. This will ensure the Kubernetes version remains the same.
 
 #### Kubernetes, OS, and Component version update
-If the goal of the Nexus cluster upgrade is to patch or update both Kubernetes version, OS version, and platform components together, select the latest release version for the subsequent Kubernetes minor version. E.G., if 1.32.1-4.4.0 is your current version bundle and the latest version bundle for the subsequent Kubernetes minor version is 1.33.2-4.5.0, then you should use 1.33.2-4.5.0. This will upgrade all components.
+To patch or update both Kubernetes version, OS version, and platform components together, select the latest release version for the subsequent Kubernetes minor version. E.G., if 1.32.1-4.4.0 is your current version bundle and the latest version bundle for the subsequent Kubernetes minor version is 1.33.2-4.5.0, then you should use 1.33.2-4.5.0. This will upgrade all components.
 
 In the first two cases, you may need to accept an updated Kubernetes version or component version if a version bundle containing the desires upgrades was not released. In this case, any subsequent Kubernetes minor version will work, but the version bundle with the latest release version will be the most up-to-date and secure version of that Kubernetes minor version. It is highly recommended to choose the latest release version for a given version bundle.
 
