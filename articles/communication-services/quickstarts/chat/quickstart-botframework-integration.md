@@ -42,9 +42,9 @@ To use Azure Communication Services chat as a channel in Azure Bot Service, firs
 
 ### Create an Azure Bot Service resource
 
-First, [create an Azure Bot Service resource in the Azure portal](/azure/bot-service/abs-quickstart?tabs=userassigned). Communication Services Chat channel supports single-tenant bots, managed identity bots, and multitenant bots. This example uses a *multitenant* bot. 
+First, [create an Azure Bot Service resource in the Azure portal](/azure/bot-service/abs-quickstart?tabs=userassigned). Communication Services Chat channel supports managed identity bots and single-tenant bots. This example uses a *managed identity* bot, [add the managed identity to your app service](/azure/bot-service/abs-quickstart?view=azure-bot-service-4.0&tabs=userassigned#to-update-your-app-service)
 
-To set up a single-tenant or managed identity bot, review [Bot identity information](/azure/bot-service/bot-builder-authentication?tabs=userassigned%2Caadv2%2Ccsharp#bot-identity-information).
+To set up a single-tenant bot, review [Bot identity information](/azure/bot-service/bot-builder-authentication?tabs=userassigned%2Caadv2%2Ccsharp#bot-identity-information).
 
 For a managed identity bot, you might have to [update the bot service identity](/azure/bot-service/bot-builder-authentication?tabs=userassigned%2Caadv2%2Ccsharp#to-update-your-app-service).
 
@@ -105,8 +105,10 @@ The final step to create a bot is to deploy the web app. For this quickstart, us
 
    ```json
       {
-        "MicrosoftAppId": "<App-registration-ID>",
-        "MicrosoftAppPassword": "<App-password>"
+        "MicrosoftAppType": "UserAssignedMSI"
+        "MicrosoftAppId": "<Client ID of the user-assigned managed identity>",
+        "MicrosoftAppPassword": "", // Not applicable. Leave this blank for a user-assigned managed identity bot.
+        "MicrosoftAppTenantId": "The tenant ID of the user-assigned managed identity"
       }
     ```
 
