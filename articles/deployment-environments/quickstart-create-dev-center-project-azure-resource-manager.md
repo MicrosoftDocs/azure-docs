@@ -11,9 +11,9 @@ ms.date: 07/28/2025
 # Customer intent: As an enterprise admin, I want to use an ARM template to create and configure a dev center and project so that I can evaluate Deployment Environments.
 ---
 
-# Quickstart: Create a dev center and project for Azure Deployment Environments by using an ARM template
+# Quickstart: Create a dev center and project for Deployment Environments by using an ARM template
 
-This quickstart describes how to use an Azure Resource Manager template (ARM template) to create and configure a dev center and project for creating an environment.
+This quickstart describes how to use an Azure Resource Manager template (ARM template) to create and configure an Azure Deployment Environments dev center and project for creating an environment.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
@@ -27,7 +27,6 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 - An Azure subscription. Create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't have one.
 - Owner or Contributor role on an Azure subscription or resource group.
 - Microsoft Entra ID. Your organization must use Microsoft Entra ID for identity and access management.
-- A Microsoft Intune subscription. Your organization must use Intune for device management.
 
 ## Review the template
 
@@ -48,6 +47,7 @@ Azure resources defined in the template:
 
 1. Select **Open Cloud Shell** above either of the following code blocks and follow the instructions to sign in to Azure.
 1. When you see the prompt from the console, ensure that you're ready to deploy to your chosen subscription.
+1. Select the **PowerShell** shell and follow the prompts.
 1. If you want to continue deploying the template, select **Copy** on the code block, and then right-click the shell console and select **Paste**.
 
    - If you want to use the default parameter values, use this code:
