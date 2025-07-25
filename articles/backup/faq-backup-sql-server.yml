@@ -149,6 +149,12 @@ sections:
         answer: |
           During the backup operation, the *backup job* connects to three Service Endpoints - `AzureBackup`, `AzureStorage`, and `Microsoft Entra ID`. In this scenario, we recommend you to configure the Service Endpoint to `AzureStorage`, which helps to send the traffic from the Virtual Network to the Storage directly. For Azure Backup and Microsoft Entra ID, you can configure UDR over service tags so that the traffic travels to backbone network instead of on-premises.
 
+      - question: |
+          Why do I need write permission on the source SQL Server to restore to another SQL Server?
+        answer: |
+          You need write access to the source VM during a PowerShell-based SQL ALR restore to confirm that the data owner is initiating the restore. This check prevents unauthorized access through the Recovery Services Vault. If the source VM no longer exists, the vault skips validation and lets you restore to any VM without needing write access to the original source.
+
+
 additionalContent: |
 
   ## Next steps
