@@ -31,7 +31,7 @@ Microsoft Entra authorizes access rights to secured resources through [Azure rol
 
 When an Azure role is assigned to a Microsoft Entra security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of subscription, the resource group, the Event Hubs namespace, or any resource under it. A Microsoft Entra security principal can be a user, or an application service principal, or a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
-## Azure built-in roles for Event Hubs
+## Azure built-in roles for Azure Event Hubs
 Azure provides the following Azure built-in roles for authorizing access to Event Hubs data using Microsoft Entra ID and OAuth:
 
 | Role | Description | 
