@@ -11,7 +11,7 @@ ms.date: 07/25/2025
 
 # Integrate Service Bus with Service Connector
 
-This page shows supported authentication methods and clients. It provides sample code you can use to connect Azure Service Bus to other cloud services using Service Connector. You might still be able to connect to Service Bus in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create service connections. 
+This page shows supported authentication methods and clients. It provides sample code you can use to connect compute services to Azure Service Bus using Service Connector. You might still be able to connect to Service Bus in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create service connections. 
 
 ## Supported compute services
 
