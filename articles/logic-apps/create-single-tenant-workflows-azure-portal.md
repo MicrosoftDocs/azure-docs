@@ -199,19 +199,19 @@ For optimal designer responsiveness and performance, review and follow these gui
 1. On the **Authentication** tab, for **Authentication Type**, select the authentication to use for connecting to the host storage account resource (**Host storage (AzureWebJobsStorage)**).
 
    > [!IMPORTANT]
-	   >
-	   > If you select **Managed Identity** for authentication, you must specify the managed identity to use. 
-	   > Choose one of the following options:
-	   >
-	   > - You can choose to create a new managed identity, which is created automatically with 
-	   > the role-based access permissions to access the host storage account for your logic app.
-     	   > You may have to wait a couple minutes and restart your logic app once the permissions
-   	   > propogate to your new managed identity.
-	   >
-	   > - Or, if you select an existing managed identity, you must manually assign the roles in the 
-	   > **Minimum roles required column** to the managed identity on the host storage account. 
-	   > Consider completing this assignment before you deploy your logic app, Otherwise, you get 
-	   > errors when you open your new logic app resource.
+   >
+   > If you select **Managed Identity** for authentication, you must specify the managed identity to use. 
+   > Choose one of the following options:
+   >
+   > - You can choose to create a new managed identity, which is created automatically with 
+   > the role-based access permissions to access the host storage account for your logic app.
+   > You may have to wait a couple minutes and restart your logic app once the permissions
+   > propogate to your new managed identity.
+   >
+   > - Or, if you select an existing managed identity, you must manually assign the roles in the 
+   > **Minimum roles required column** to the managed identity on the host storage account. 
+   > Consider completing this assignment before you deploy your logic app, Otherwise, you get 
+   > errors when you open your new logic app resource.
 
 1. After Azure validates your logic app settings, on the **Review + create** tab, select **Create**, for example:
 
