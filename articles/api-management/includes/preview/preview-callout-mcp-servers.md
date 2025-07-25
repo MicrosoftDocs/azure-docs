@@ -7,5 +7,5 @@ ms.date: 07/16/2025
 ---
 
 > [!IMPORTANT]
-> * This feature is in preview. Review the [prerequisites](#prerequisites) to access MCP server features. 
-> * In preview, API Management supports MCP server tools, but doesn't currently support MCP resources or prompts.
+> * This feature is in preview and has some [limitations](#limitations)
+> * Review the [prerequisites](#prerequisites) to access MCP server features. 

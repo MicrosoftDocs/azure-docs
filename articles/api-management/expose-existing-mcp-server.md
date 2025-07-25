@@ -4,7 +4,7 @@ description: Learn how to expose and govern an existing Model Context Protocol (
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 07/23/2025
+ms.date: 07/25/2025
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
@@ -14,7 +14,7 @@ ms.custom:
 
 [!INCLUDE [api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-standard-basic-premiumv2-standardv2-basicv2.md)]
 
-This article shows how to use API Management to expose and govern an existing MCP-compatible server - a tool server hosted outside of API Management. Expose and govern the server's tools through API Management so that MCP clients can call them using the MCP protocol. 
+This article shows how to use API Management to expose and govern an existing remote [Model Context Protocol (MCP)](https://www.anthropic.com/news/model-context-protocol) server - a tool server hosted outside of API Management. Expose and govern the server's tools through API Management so that MCP clients can call them using the MCP protocol. 
 
 [!INCLUDE [preview-callout-mcp-servers](includes/preview/preview-callout-mcp-servers.md)]
 
@@ -32,6 +32,19 @@ Learn more about:
 * [MCP server support in API Management](mcp-server-overview.md)
 * [AI gateway capabilities](genai-gateway-capabilities.md)
 
+## Limitations
+
+The following limitations currently apply to this preview:
+
+* The external MCP server must conform to MCP version `2025-06-18` or later. The server must support:
+    * Either no authorization or authorization protocols that comply with the following standards: [https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#standards-compliance](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization#standards-compliance) 
+    * Streamable HTTP transport
+
+    > [!IMPORTANT]
+    > Servers conforming to older MCP versions or using SSE transport only are not supported.
+
+* API Management supports MCP server tool capabilities, but not MCP resources or prompts.
+* MCP server capabilities aren't supported in API Management [workspaces](workspaces-overview.md).
 
 ## Prerequisites
 
@@ -50,8 +63,6 @@ Learn more about:
 Follow these steps to expose an existing MCP server is API Management:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-    [!INCLUDE [preview-callout-mcp-feature-flag](includes/preview/preview-callout-mcp-feature-flag.md)]
-
 1. In the left-hand menu, under **APIs**, select **MCP servers** > **+ Create MCP server**.
 1. Select **Expose an existing MCP server**.
 1. In **Backend MCP server**:

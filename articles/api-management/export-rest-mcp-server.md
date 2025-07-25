@@ -4,7 +4,7 @@ description: Learn how to expose a REST API in Azure API Management as an MCP se
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 07/23/2025
+ms.date: 07/25/2025
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
@@ -27,6 +27,13 @@ Learn more about:
 * [AI gateway capabilities](genai-gateway-capabilities.md)
 
 
+## Limitations
+
+The following limitations currently apply to this preview:
+
+* API Management supports MCP server tools, but doesn't support MCP resources or prompts.
+* MCP server capabilities aren't supported in API Management [workspaces](workspaces-overview.md).
+
 ## Prerequisites
 
 + If you don't already have an API Management instance, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md). 
@@ -45,8 +52,6 @@ Learn more about:
 Follow these steps to expose a managed REST API in API Management as an MCP server:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-    [!INCLUDE [preview-callout-mcp-feature-flag](includes/preview/preview-callout-mcp-feature-flag.md)]
-
 1. In the left menu, under **APIs**, select **MCP Servers** > **+ Create MCP server**.
 1. Select **Expose an API as an MCP server**.
 1. In **Backend MCP server**:
