@@ -16,12 +16,7 @@ items:
     - name: Azure Container Apps
       href: quickstart-portal-container-apps.md  
     - name: Azure Functions
-      expanded: false
-      items:
-        - name: Azure portal
-          href: quickstart-portal-functions-connection.md
-        - name: Azure CLI
-          href: quickstart-cli-functions-connection.md
+      href: quickstart-portal-functions-connection.md
     - name: Azure Kubernetes Service
       href: quickstart-portal-aks-connection.md
     - name: Azure Spring Apps

@@ -41,10 +41,8 @@ landingContent:
             url: quickstart-portal-app-service-connection.md
           - text: Connect Azure Container Apps (preview)
             url: quickstart-portal-container-apps.md
-          - text: Connect Azure Functions - Azure portal
+          - text: Connect Azure Functions
             url: quickstart-portal-functions-connection.md
-          - text: Connect Azure Functions - Azure CLI
-            url: quickstart-cli-functions-connection.md
           - text: Connect Azure Kubernetes Service
             url: quickstart-portal-aks-connection.md
           - text: Connect Azure Spring Apps 
