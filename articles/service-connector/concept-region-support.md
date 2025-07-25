@@ -1,6 +1,6 @@
 ---
 title: Service Connector Region Support
-Find which Azure regions support Service Connector for App Service, Azure Functions, Container Apps, AKS, and Azure Spring Apps. Check regional availability before creating service connections.
+description: Find which Azure regions support Service Connector for App Service, Azure Functions, Container Apps, AKS, and Azure Spring Apps before creating service connections.
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
