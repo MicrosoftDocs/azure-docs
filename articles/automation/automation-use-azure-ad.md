@@ -140,7 +140,7 @@ Workflow Workflowname
 
 ## Using Microsoft Graph with Powershell
 
-See [Get started with the Microsoft Graph PowerShell SDK](https://learn.microsoft.com/powershell/microsoftgraph/get-started?view=graph-powershell-1.0)
+See [Get started with the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started)
 
 ## Next steps
 

@@ -25,6 +25,9 @@ You need to apply for brand and campaign registrations before you acquire 10DLC 
 > [!NOTE]
 > 10DLC for SMS is available only in the United States.
 
+> [!TIP]
+> For global SMS delivery and partner-managed options, check out [Messaging Connect](../../concepts/sms/messaging-connect.md).
+
 ## Prerequisites
 
 - [An active Communication Services resource](../create-communication-resource.md).
