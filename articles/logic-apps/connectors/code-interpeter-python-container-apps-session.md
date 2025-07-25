@@ -90,7 +90,7 @@ This article shows how to set up and use various **Code Interpreter (Python Cont
 
        The following example shows the **Manage files** command on the **Playground** toolbar:
 
-       :::image type="content" source="media/code-interpreter-python-container-apps-session/manage-files-session-pool.png" alt-text="{alt-text}":::
+       :::image type="content" source="media/code-interpreter-python-container-apps-session/manage-files-session-pool.png" alt-text="Screenshot shows a Container Apps session pool resource, sidebar menu with Playground selected, and Playground toolbar with the Manage files command selected." lightbox="media/code-interpreter-python-container-apps-session/manage-files-session-pool.png":::
 
     1. On the **Manage Files** pane, select **Upload File**, and provide the file to upload.
 
