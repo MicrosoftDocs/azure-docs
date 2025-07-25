@@ -30,7 +30,7 @@ Value at a glance:
 
 - Local compliance and faster provisioning through partners
 
-- Unified Azure Communication Services APIs/SDKs, diagnostics, and Event Grid observability
+- Simple to use Azure Communication Services APIs/SDKs, diagnostics, and Event Grid observability
 
 - Separation of duties: Microsoft provides the developer platform; partners deliver and provision numbers
 
