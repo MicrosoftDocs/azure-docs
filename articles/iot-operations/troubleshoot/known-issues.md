@@ -187,6 +187,20 @@ If you create a media or ONVIF device with an endpoint name that contains an und
 
 To work around this issue, use a hyphen ("-") instead of an underscore in the endpoint name.
 
+### Media connector doesn't use the path in destination configuration
+
+---
+
+Issue ID: 6797
+
+---
+
+N/A
+
+---
+
+Media assets with a task type of "snapshot-to-fs" or "clip-to-fs" won't honor the "Path" in the "Destination configuration". Instead they use the path configured in the "Path" field for the "Additional configuration".
+
 ## Data flows issues
 
 This section lists current known issues for data flows.
