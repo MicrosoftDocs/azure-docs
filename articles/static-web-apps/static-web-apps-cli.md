@@ -41,9 +41,9 @@ Authenticate with Azure to get a deployment token for Azure Static Web Apps, usi
 
 ```azstatic-cli
 swa login
+          [--subscription-id]
           [--resource-group]
           [--tenant-id]
-          [--subscription-id]
           [--client-id]
           [--client-secret]
           [--app-name]
@@ -138,19 +138,19 @@ swa init
 
 ### Examples
 
-#### Example 1: Create a new configuration interactively
+#### Example 1: Create a new configuration interactively.
 
 ```azstatic-cli
 swa init
 ```
 
-#### Example 2: Create a new configuration using default values for all options
+#### Example 2: Create a new configuration using default values for all options.
 
 ```azstatic-cli
 swa init --yes
 ```
 
-#### Example 3: Initialize the project using the configuration named "myApp" from the swa-cli.config.json file
+#### Example 3: Initialize the project using the configuration named "myApp" from the swa-cli.config.json file.
 
 ```azstatic-cli
 swa init --config-name myApp
@@ -184,25 +184,25 @@ swa build
 
 ### Examples
 
-#### Example 1: Build the app, and optionally install dependencies
+#### Example 1: Build the app, and optionally install dependencies.
 
 ```azstatic-cli
 swa build
 ```
 
-#### Example 2: Detect how to build your app and run build commands after installing dependencies
+#### Example 2: Detect how to build your app and run build commands after installing dependencies.
 
 ```azstatic-cli
 swa build --auto
 ```
 
-#### Example 3: Install dependencies for the front-end application
+#### Example 3: Install dependencies for the front-end application.
 
 ```azstatic-cli
 swa build --app-location ./client
 ```
 
-#### Example 4: Use the configuration named `myApp` in *swa-cli.config.json* to build your front-end application
+#### Example 4: Use the configuration named `myApp` in *swa-cli.config.json* to build your front-end application.
 
 ```azstatic-cli
 swa build myApp
@@ -345,19 +345,19 @@ swa start
 
 ### Examples
 
-#### Example 1: Start the application with defaults
+#### Example 1: Start the application with defaults.
 
 ```azstatic-cli
 swa start
 ```
 
-#### Example 2: Start the application with a front end dev server
+#### Example 2: Start the application with a front end dev server.
 
 ```azstatic-cli
 swa start http://<APP_DEV_SERVER_HOST>:<APP_DEV_SERVER_PORT>
 ```
 
-#### Example 3: Start the application with a front end and back end dev server
+#### Example 3: Start the application with a front end and back end dev server.
 
 ```azstatic-cli
 swa start http://<APP_DEV_SERVER_HOST>:<APP_DEV_SERVER_PORT> --api-location http://localhost:7071
@@ -578,19 +578,12 @@ swa deploy my-otherapp
 
 ```azstatic-cli
 swa deploy
-           [--api-location]
-           [--app-location]
-           [--output-location]
-           [--deployment-token]
-           [--env]
-           [--print-token]
-           [--data-api-location]
-           [--swa-config-location]
+           [--yes]
 ```
 
 ### Examples
 
-#### Example 1: Deploy using a deployment token
+#### Example 1: Deploy using a deployment token.
 
 ```azstatic-cli
 swa deploy ./dist/ --api-location ./api/ --deployment-token <TOKEN>
@@ -606,6 +599,7 @@ SWA_CLI_DEPLOYMENT_TOKEN=123 swa deploy ./dist/ --api-location ./api/
 
 ```azstatic-cli
 swa deploy
+swa deploy myconfig
 ```
 
 #### Example 4: Print the deployment token
@@ -619,40 +613,6 @@ swa deploy --print-token
 ```azstatic-cli
 swa deploy --env production
 ```
-
-### Parameters
-
-___`--app-location, -a <PATH>`___
-
-The folder containing the source code of the front-end application. Default is `.`.
-
-___`--api-location, -i <PATH>`___
-
-The folder containing the source code of the API application.
-
-___`--output-location, -O <PATH>`___
-
-The folder containing the built source of the front-end application. The path is relative to `--app-location`. Default is `.`.
-
-___`--deployment-token, -t <TOKEN>`___
-
-Secret token used to authenticate with the Azure Static Web Apps service.
-
-___`--env, -e <ENVIRONMENT_NAME>`___
-
-Named environment that you want to deploy to.
-
-___`--print-token`___
-
-Print the deployment token for the Static Web Apps resource.
-
-___`--data-api-location, -d <PATH>`___
-
-The folder containing the database configuration file.
-
-___`--swa-config-location, -w <PATH>`___
-
-The path to the directory containing the staticwebapp.config.json file used for the deployment.
 
 ___[Global Parameters](#global-parameters)___
 
@@ -670,7 +630,7 @@ swa db init --database-type <DATABASE_TYPE>
 
 ### Examples
 
-#### Example 1: Generate a sample database connection configuration folder for an Azure SQL database
+#### Example 1: Generate a sample database connection configuration folder for an Azure SQL database.
 
 ```azstatic-cli
 swa db init --database-type mssql
