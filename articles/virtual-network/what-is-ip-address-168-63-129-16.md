@@ -1,43 +1,37 @@
 ---
-title: What is IP address 168.63.129.16?
-description: Learn about IP address 168.63.129.16, specifically that it's used to facilitate a communication channel to Azure platform resources.
+title: Azure IP Address 168.63.129.16 Overview
+description: Discover how Azure IP address 168.63.129.16 facilitates communication between virtual machines and Azure platform resources. Learn configuration, troubleshooting, and security considerations for optimal performance.
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 03/31/2025
+ms.date: 07/25/2025
 ms.author: allensu
 # Customer intent: As a network engineer, I want to understand the function and significance of IP address 168.63.129.16, so that I can ensure proper configuration and communication for my Azure resources.
 ---
 
-# What is IP address 168.63.129.16?
+# Azure IP address 168.63.129.16 overview
 
-IP address 168.63.129.16 is a virtual public IP address that is used to facilitate a communication channel to Azure platform resources. Customers can define any address space for their private virtual network in Azure. Therefore, the Azure platform resources must be presented as a unique public IP address. This virtual public IP address facilitates the following operations:
+Azure IP address 168.63.129.16 is a virtual public IP address that facilitates communication channels to Azure platform resources. Customers can define any address space for their private virtual network in Azure. Therefore, the Azure platform resources must be presented as a unique public IP address. This virtual public IP address facilitates the following operations:
 
-- Enables the VM Agent to communicate with the Azure platform to signal that it is in a "Ready" state.
-
-- Enables communication with the DNS virtual server to provide filtered name resolution to the resources (such as VM) that don't have a custom DNS server. This filtering makes sure that customers can resolve only the hostnames of their resources.
-
-- Enables [health probes from Azure Load Balancer](../load-balancer/load-balancer-custom-probe-overview.md) to determine the health state of VMs.
-
-- Enables the VM to obtain a dynamic IP address from the DHCP service in Azure.
-
+- Enables the virtual machine Agent to communicate with the Azure platform to signal that it is in a "Ready" state.
+- Enables communication with the DNS virtual server to provide filtered name resolution to the resources (such as virtual machine) that don't have a custom DNS server. This filtering makes sure that customers can resolve only the hostnames of their resources.
+- Enables [health probes from Azure Load Balancer](../load-balancer/load-balancer-custom-probe-overview.md) to determine the health state of virtual machines.
+- Enables the virtual machine to obtain a dynamic IP address from the DHCP service in Azure.
 - Enables Guest Agent heartbeat messages for the PaaS role.
 
-## Scope of IP address 168.63.129.16
+## Scope of Azure IP address 168.63.129.16
 
-The public IP address 168.63.129.16 is used in all regions and all national clouds. Microsoft owns this special public IP address and it doesn't change. We recommend that you allow this IP address in any local (in the VM) firewall policies (outbound direction). The communication between this special IP address and the resources is safe because only the internal Azure platform can source a message from this IP address. If this address is blocked, unexpected behavior can occur in various scenarios. 168.63.129.16 is a [virtual IP of the host node](./network-security-groups-overview.md#azure-platform-considerations) and as such it isn't subject to user defined routes.
+The public IP address 168.63.129.16 is used in all regions and all national clouds. Microsoft owns this special public IP address and it doesn't change. We recommend that you allow this IP address in any local (in the virtual machine) firewall policies (outbound direction). The communication between this special IP address and the resources is safe because only the internal Azure platform can source a message from this IP address. If this address is blocked, unexpected behavior can occur in various scenarios. 168.63.129.16 is a [virtual IP of the host node](./network-security-groups-overview.md#azure-platform-considerations) and as such it isn't subject to user defined routes.
 
-- The VM Agent requires outbound communication over ports 80/tcp and 32526/tcp with WireServer (168.63.129.16). These ports should be open in the local firewall on the VM. The communication on these ports with 168.63.129.16 isn't subject to the configured network security groups. The traffic must always come from the primary network interface of the VM.
-
-- 168.63.129.16 can provide DNS services to the VM. If DNS services provided by 168.63.129.16 isn't desired, outbound traffic to 168.63.129.16 ports 53/udp and 53/tcp can be blocked in the local firewall on the VM.
+- The virtual machine Agent requires outbound communication over ports 80/tcp and 32526/tcp with WireServer (168.63.129.16). These ports should be open in the local firewall on the virtual machine. The communication on these ports with 168.63.129.16 isn't subject to the configured network security groups. The traffic must always come from the primary network interface of the virtual machine.
+- 168.63.129.16 can provide DNS services to the virtual machine. If DNS services provided by 168.63.129.16 isn't desired, outbound traffic to 168.63.129.16 ports 53/udp and 53/tcp can be blocked in the local firewall on the virtual machine.
 
   By default DNS communication isn't subject to the configured network security groups unless targeted using the [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags) service tag. To block DNS traffic to Azure DNS through NSG, create an outbound rule to deny traffic to [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags). Specify **"Any"** as **"Source"**, **"*"** as **"Destination port ranges"**, **"Any"** as protocol and **"Deny"** as action.
 
   Additionally, the IP address 168.63.129.16 doesn't support reverse DNS lookup. This means if you try to retrieve the Fully Qualified Domain Name (FQDN) using reverse lookup commands like `host`, `nslookup`, or `dig -x` on 168.63.129.16, an FQDN isn't received.
+- When the virtual machine is part of a load balancer backend pool, [health probe](../load-balancer/load-balancer-custom-probe-overview.md) communication should be allowed to originate from 168.63.129.16. The default network security group configuration has a rule that allows this communication. This rule uses the [AzureLoadBalancer](../virtual-network/service-tags-overview.md#available-service-tags) service tag. If desired, this traffic can be blocked by configuring the network security group. The configuration of the block result in probes that fail.
 
-- When the VM is part of a load balancer backend pool, [health probe](../load-balancer/load-balancer-custom-probe-overview.md) communication should be allowed to originate from 168.63.129.16. The default network security group configuration has a rule that allows this communication. This rule uses the [AzureLoadBalancer](../virtual-network/service-tags-overview.md#available-service-tags) service tag. If desired, this traffic can be blocked by configuring the network security group. The configuration of the block result in probes that fail.
-
-## Troubleshoot connectivity
+## Troubleshoot Azure IP connectivity
 
 > [!NOTE]
 > Execution of the following tests must be run as Administrator (Windows) and Root (Linux) to ensure accurate results.
@@ -154,5 +148,4 @@ curl http://168.63.129.16/?comp=versions
 ## Next steps
 
 - [Security groups](./network-security-groups-overview.md)
-
 - [Create, change, or delete a network security group](manage-network-security-group.md)

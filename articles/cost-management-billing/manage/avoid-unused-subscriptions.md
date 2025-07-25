@@ -6,7 +6,7 @@ ms.reviewer: presharm
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 01/22/2025
+ms.date: 07/25/2025
 ms.author: presharm
 # customer intent: As a billing administrator, I want to prevent my subscriptions from getting blocked or deleted.
 ---

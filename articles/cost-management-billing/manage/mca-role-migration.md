@@ -7,7 +7,7 @@ ms.reviewer: presharm
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/22/2025
+ms.date: 07/25/2025
 ms.author: presharm
 ---
 

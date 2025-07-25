@@ -60,7 +60,7 @@ Anomaly detection is available to every subscription monitored using Cost Analys
 
 ## Create an anomaly alert
 
-You can create an alert to automatically get notified when an anomaly is detected. Creating an anomaly alert requires the Cost Management Contributor or greater role or the `Microsoft.CostManagement/scheduledActions/write` permission for custom roles. For more information, see [Feature behavior for each role](../costs/understand-work-scopes.md#feature-behavior-for-each-role).
+You can create an alert to automatically get notified when an anomaly is detected. Creating an anomaly alert requires the Cost Management Contributor or greater role or the `Microsoft.CostManagement/scheduledActions/write` permission for custom roles. For more information, see [Feature behavior for each role](../costs/understand-work-scopes.md#feature-behavior-for-each-role-in-rbac-scopes).
 
 >[!NOTE]
 > Anomaly alerts are sent based on the current access of the rule creator at the time that the email is sent. If your organization has a policy that prohibits permanently assigning higher privileges to users, you can use a service principal and create the alert directly using the [Scheduled Actions API](/rest/api/cost-management/scheduled-actions/create-or-update-by-scope#createorupdateinsightalertscheduledactionbyscope).

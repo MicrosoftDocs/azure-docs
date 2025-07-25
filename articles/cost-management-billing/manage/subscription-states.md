@@ -7,7 +7,7 @@ ms.reviewer: presharm
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 01/08/2025
+ms.date: 07/25/2025
 ms.author: presharm
 #customer intent: As a billing administrator, I want to understand the different states and status of an Azure subscription so that I can manage my subscriptions effectively.
 ---
