@@ -143,7 +143,7 @@ This setting controls which retained messages are persisted to disk.
 
 # [Azure portal](#tab/portal)
 
-[Screenshot placeholder: Retained messages persistence configuration in Azure portal]
+:::image type="content" source="media/howto-broker-persistence/data-persistence-retained-messages.png" alt-text="[Screenshot changing data persistence retained messages options the Azure portal]":::
 
 To configure retained messages persistence in the Azure portal:
 
@@ -154,24 +154,6 @@ To configure retained messages persistence in the Azure portal:
    - If Custom is selected, specify topic patterns and dynamic mode settings.
 
 # [Azure CLI](#tab/azurecli)
-
-To configure retained messages persistence using Azure CLI, add the following to your Broker configuration file:
-
-```json
-{
-  "persistence": {
-    "retain": {
-      "mode": "Custom",
-      "retainSettings": {
-        "topics": ["my/+/topics"],
-        "dynamic": {
-          "mode": "Enabled"
-        }
-      }
-    }
-  }
-}
-```
 
 Use the [az iot ops broker persist update](/cli/azure/iot/ops/broker/persist) command to update MQTT broker data persistence settings.
 
@@ -206,7 +188,7 @@ This setting controls which subscriber message queues are persisted to disk. Ses
 
 # [Azure portal](#tab/portal)
 
-[Screenshot placeholder: Subscriber queue persistence configuration in Azure portal]
+:::image type="content" source="media/howto-broker-persistence/data-persistence-subscriber.png" alt-text="[Screenshot changing data persistence subscriber options the Azure portal]":::
 
 To configure subscriber queue persistence in the Azure portal:
 
