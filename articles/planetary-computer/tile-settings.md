@@ -68,7 +68,6 @@ It's recommended to pair a higher minimum zoom level with high resolution imager
 
 > [!NOTE]
 > The effective minimum zoom level for a given map view is the greater of the minimum zoom level for the [render configuration](./render-configuration.md) and the tile settings. For example, if the tile setting `minZoom` level is set to `6` but the render configuration `minZoom` level is set to `12`, the explorer does not start rendering tiles until zoom level 12.
-  
 
 The `defaultLocation` field lets you specify the zoom level and center coordinates used when your collection first opens in the Data Explorer. For example:
 
