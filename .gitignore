@@ -46,6 +46,10 @@ articles/planetary-computer/image_syntax_checker.py
 articles/planetary-computer/image-file-fixer.py
 articles/planetary-computer/orphaned-media.py
 articles/planetary-computer/orphaned_media_files.txt
+articles/planetary-computer/naip-airports.md
+articles/planetary-computer/sentinel-2-l2a-grindavik.md
+articles/planetary-computer/temp_editor.md
+articles/planetary-computer/umbra-sar.md
 articles/planetary-computer/geocatalog_configs/buildingfootprint/mosaics.json
 articles/planetary-computer/geocatalog_configs/buildingfootprint/render-options.json
 articles/planetary-computer/geocatalog_configs/buildingfootprint/stac.json
@@ -154,14 +158,3 @@ articles/planetary-computer/geocatalog_configs/umbra-sar-ships/stac.json
 articles/planetary-computer/geocatalog_configs/umbra-sar-ships/tile-settings.json
 articles/planetary-computer/helper-content/collection-config-scraper.py
 articles/planetary-computer/helper-content/generate_collection_docs.py
-articles/planetary-computer/sentinel-2-l2a-grindavik.md
-articles/planetary-computer/umbra-sar.md
-articles/planetary-computer/naip-airports.md
-articles/planetary-computer/temp_editor.md.json
-articles/planetary-computer/temp_editor.md
-articles/planetary-computer/geocatalog_configs/io-lulc-9-class/stac.json
-articles/planetary-computer/geocatalog_configs/io-lulc-9-class/mosaics.json
-.gitignore
-articles/planetary-computer/geocatalog_configs/io-lulc-9-class/render-options.json
-articles/planetary-computer/geocatalog_configs/io-lulc-9-class/tile-settings.json
-articles/planetary-computer/helper-content/io-lulc-9-class.md
