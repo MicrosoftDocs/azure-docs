@@ -33,9 +33,9 @@ Before using these examples, you should have:
 
 Each example in this gallery includes:
 
-1. **Description and context** - Information about the data source and visualization approach
-2. **Visual example** - Screenshot of the rendered data in the Explorer
-3. **Complete configuration settings** organized in tabs:
+- **Description and context** - Information about the data source and visualization approach
+- **Visual example** - Screenshot of the rendered data in the Explorer
+- **Complete configuration settings** organized in tabs:
    - **Mosaic** - How to filter and select items for display
    - **Render Options** - How to style and visualize the data
    - **Tile Settings** - How to optimize display parameters
@@ -52,7 +52,7 @@ To apply these examples to your own data:
 
 ## Sentinel-2-l2a collection configuration
 
-[ ![Screenshot of Sentinel-2-l2a data visualization](media/sentinel-2-imagery.png) ](media/sentinel-2-imagery.png#lightbox)
+[ ![Screenshot of Sentinel-2-l2a data visualization.](media/sentinel-2-imagery.png) ](media/sentinel-2-imagery.png#lightbox)
 
 [Sentinel-2](https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2) is a high-resolution, multi-spectral imaging mission from the European Space Agency (ESA) as part of the Copernicus Program.
 
@@ -768,7 +768,7 @@ The render configuration directly references these asset keys to create differen
 
 ## The National Agriculture Imagery Program collection configuration
 
-[ ![Screenshot of The National Agriculture Imagery Program data visualization](media/aerial-imagery.png) ](media/aerial-imagery.png#lightbox)
+[ ![Screenshot of The National Agriculture Imagery Program data visualization.](media/aerial-imagery.png) ](media/aerial-imagery.png#lightbox)
 [The National Agriculture Imagery Program](https://planetarycomputer.microsoft.com/dataset/naip) (NAIP) provides high-resolution aerial imagery across the United States. The USDA Farm Service Agency captures this NAIP imagery at least every three years.
 
 NAIP data offers excellent detail with spatial resolutions ranging from 0.3 meter to 1 meter per pixel. The imagery is stored in cloud-optimized GeoTIFF format for efficient access and processing.
@@ -811,10 +811,10 @@ The mosaic configuration defines how images are combined when displayed in the E
 This render configuration defines three different ways to visualize NAIP aerial imagery in the Explorer. Each entry describes a different visualization technique, such as **Natural color** (what you'd see with your eyes), **Color infrared** (to highlight vegetation), or **Normalized Difference Vegetation Index (NDVI)** (to measure vegetation health).
 
 NAIP imagery contains four spectral bands stored in a single multi-band asset called "image":
-1. **Band 1**: Red
-2. **Band 2**: Green  
-3. **Band 3**: Blue
-4. **Band 4**: Near Infrared (NIR)
+- **Band 1**: Red
+- **Band 2**: Green  
+- **Band 3**: Blue
+- **Band 4**: Near Infrared (NIR)
 
 The `options` string specifies how to visualize the data:
 
@@ -1129,7 +1129,7 @@ The STAC Collection configuration defines the core metadata for this NAIP collec
 
 ## Umbra SAR imagery collection configuration
 
-[ ![Screenshot of Umbra SAR Imagery data visualization](media/radar-imagery.png) ](media/radar-imagery.png#lightbox)
+[ ![Screenshot of Umbra SAR Imagery data visualization.](media/radar-imagery.png) ](media/radar-imagery.png#lightbox)
 
 [Umbra's Synthetic Aperture Radar (SAR) imagery](https://umbra.space/open-data/) uses radar signals transmitted from satellites to create high-resolution images of the Earth's surface, capable of seeing through clouds, darkness, and weather conditions that would block traditional optical satellites. This SAR technology is valuable for monitoring infrastructure, detecting changes in urban areas, tracking ships and vehicles, and assessing damage after natural disasters, as it can capture detailed images at any time of day or night regardless of weather conditions.
 
@@ -1353,7 +1353,7 @@ This GEC asset definition is directly referenced in the render configuration via
 
 ## Impact Observatory Land Use/Land Cover 9-class collection configuration
 
-[ ![Screenshot of ESP-io-lulc-9-class data visualization](media/land-cover-map.png) ](media/land-cover-map.png#lightbox)
+[ ![Screenshot of ESP-io-lulc-9-class data visualization.](media/land-cover-map.png) ](media/land-cover-map.png#lightbox)
 
 The [Impact Observatory Land Use/Land Cover 9-Class dataset](https://www.impactobservatory.com/) provides annual global maps of land use and land cover (LULC). [This dataset](https://planetarycomputer.microsoft.com/dataset/group/io-land-cover) was generated using billions of human-labeled pixels to train a deep learning model for land classification, applied to Sentinel-2 imagery at 10-meter resolution.
 
