@@ -8,7 +8,7 @@ ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: concept-article
-ms.date: 07/11/2024
+ms.date: 07/22/2025
 ms.author: danlep
 ---
 
@@ -79,20 +79,20 @@ The following tables compare features available in the following API Management 
 | [Virtual network injection](virtual-network-concepts.md)  |  Developer, Premium | Premium v2 | ❌ | ✔️<sup>1,2</sup> | ✔️ |
 | [Inbound private endpoints](private-endpoint.md)  |  Developer, Basic, Standard, Premium | Standard v2 | ❌ | ❌ | ❌ |
 | [Outbound virtual network integration](integrate-vnet-outbound.md)  | ❌ | Standard  v2, Premium v2  |  ❌ | ❌ | ✔️ |
-| [Availability zones](zone-redundancy.md)  |  Premium | ✔️<sup>3</sup>  | ❌ | ✔️<sup>1</sup> | ✔️<sup>3</sup> |
+| [Availability zones](zone-redundancy.md)  |  Premium | ❌  | ❌ | ✔️<sup>1</sup> | ❌ |
 | [Multi-region deployment](api-management-howto-deploy-multi-region.md) |  Premium | ❌ |  ❌ | ✔️<sup>1</sup> | ❌ |
-| [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ | ❌ | ❌ | ✔️<sup>4</sup> |  ❌ |
+| [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ | ❌ | ❌ | ✔️<sup>3</sup> |  ❌ |
 | [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  Developer, Basic, Standard, Premium | ❌ | ✔️ | ❌ | ❌ |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ | ✔️ | ❌ |
-| **HTTP/2** (Client-to-gateway) | ✔️<sup>5</sup> | ✔️<sup>5</sup> |❌ | ✔️ | ❌ |
-| **HTTP/2** (Gateway-to-backend) |  ❌ | ❌ | ❌ | ✔️ | ❌ |
+| **HTTP/2** (Client-to-gateway) | ✔️<sup>4</sup> | ✔️<sup>4</sup> |❌ | ✔️ | ❌ |
+| **HTTP/2** (Gateway-to-backend) |  ❌ | ✔️<sup>5</sup> | ❌ | ✔️<sup>5</sup> | ❌ |
 | API threat detection with [Defender for APIs](protect-with-defender-for-apis.md) | ✔️ | ✔️ |  ❌ | ❌ | ❌ |
 
 <sup>1</sup> Depends on how the gateway is deployed, but is the responsibility of the customer.<br/>
 <sup>2</sup> Connectivity to the self-hosted gateway v2 [configuration endpoint](self-hosted-gateway-overview.md#fqdn-dependencies) requires DNS resolution of the endpoint hostname.<br/>
-<sup>3</sup> Two zones are enabled by default; not configurable.<br/>
-<sup>4</sup> CA root certificates for self-hosted gateway are managed separately per gateway<br/>
-<sup>5</sup> Client protocol needs to be enabled.
+<sup>3</sup> CA root certificates for self-hosted gateway are managed separately per gateway<br/>
+<sup>4</sup> Client protocol needs to be enabled.<br/>
+<sup>5</sup> Configure using the [forward-request](forward-request-policy.md) policy.
 
 ### Backend APIs
 

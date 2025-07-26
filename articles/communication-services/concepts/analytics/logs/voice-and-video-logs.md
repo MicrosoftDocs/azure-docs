@@ -2,11 +2,11 @@
 title: Azure Communication Services voice and video call logs 
 titleSuffix: An Azure Communication Services concept article
 description: Learn about logging for Azure Communication Services voice and video calling.
-author:  amagginetti
+author:  sloanster
 services: azure-communication-services
 
-ms.author: amagginetti
-ms.date: 03/21/2023
+ms.author: micahvivion
+ms.date: 07/25/2025
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -35,15 +35,23 @@ any quality investigations, and using **[call diagnostics](../../voice-video-cal
 
 ## Available logs 
 
-Azure Communication Services creates eight call logs: 
+Azure Communication Services calling generates **eight distinct log types**, each serving a specific purpose: 
 
 ### **Call summary updates logs**: 
-These log data arrive in Azure Monitor faster than the call summary logs and we recommend using these logs instead of the call summary log schema. This log contains basic information about the call, including all the relevant IDs, time stamps, endpoints, and SDK information. 
+Fast-arriving logs with basic call metadata (IDs, timestamps, endpoints, SDK info). These log data arrive in Azure Monitor faster than the call summary logs. This log contains basic information about the call, including all the relevant IDs, time stamps, endpoints, and SDK information.
+- Data available within 60 minutes of the call ending.
+- May contain multiple rows per call participant.
+- Contains the most recent updates for each participant.
+- Useful for near-real-time monitoring and analysis of call activities.
 
 To learn more, see: [Call summary updates log schema](call-summary-updates-log-schema.md)
 
 ### **Call summary logs**:
 This log is a subset of the Call summary updates log schema. It contains basic information about the call, including all the relevant IDs, time stamps, endpoints, and SDK information. For faster log latency, use the call summary updates logs instead. 
+- Data available within 3-5 hours of the call ending.
+- Contains a single row per call participant.
+- Represents a snapshot of the call state at the time of finalization.
+- Useful for post-call analysis and reporting.
 
 To learn more, see: [Call summary log schema](call-summary-log-schema.md)
 
@@ -51,7 +59,8 @@ To learn more, see: [Call summary log schema](call-summary-log-schema.md)
 These log data arrive in Azure Monitor faster than the call diagnostics logs and we recommend using these logs instead of the call diagnostics log schema. This log contains information about a participant's call media stream, along with a set of metrics that indicate quality of experience measurements. 
 
 To learn more, see: [Call diagnostics updates log schema](call-diagnostics-updates-log-schema.md)
-
+> [!NOTE]  
+> **Call summary logs** and **Call diagnostics updates logs** tables of contain the same columns, but differ in the time they are updated and the number of rows they contain per call.
 
 ### **Call diagnostics logs**:
 This log is a subset of the call diagnostics updates log schema. It contains information about the stream, along with a set of metrics that indicate quality of experience measurements. For faster log latency, use the call summary updates logs instead. 
