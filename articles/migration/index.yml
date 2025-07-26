@@ -55,16 +55,6 @@ sections:
           componentType: link
           url: /azure/architecture/aws-professional/
           text: Get started
-      - avatarUrl: images/cloud.svg
-        componentType: testimonial-card 
-        name: Azure for Google Cloud Professionals
-        role: Documentation
-        feedback: Understand Azure's account organization and resource management practices for Google Cloud experts.
-        link:
-          componentType: link
-          url: /azure/architecture/gcp-professional/
-          text: Get started
-
   - componentType: cards
     isShadowless: false
     backgroundColor: alternating-grey
