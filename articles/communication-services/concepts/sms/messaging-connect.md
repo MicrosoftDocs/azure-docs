@@ -280,6 +280,11 @@ Let's go step-by-step:
 
    :::image type="content" source="./media/message-connect-provision-number-4.png" alt-text="Screen showing partner portal with numbers purchased." lightbox="./media/message-connect-provision-number-4.png":::
 
+> [!TIP]
+> Need help configuring the Infobip side?
+> Follow the official guide to connect your Azure Communication Services resource to Infobip and provision SMS numbers:  
+> [SMS for Microsoft Azure Communication Services – Messaging Connect](https://www.infobip.com/docs/integrations/microsoft-azure-acs-messaging-connect)
+
 3. **Return to the Azure portal**
 
    Once the partner confirms that your numbers are provisioned, they trigger the sync with Azure Communication Services. After the sync is complete, the numbers automatically appear in your ACS resource—ready to use with the ACS SMS API, just like any number provisioned directly through Azure Communication Services. No extra setup is needed on your side.
