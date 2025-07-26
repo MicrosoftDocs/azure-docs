@@ -145,27 +145,27 @@ sections:
          :::column:::
          **[Compute](/azure/migration/migrate-compute-from-aws)**
 
-         Discover scenarios that you can use to migrate Amazon Web Services (AWS) compute services to Azure.
+         Discover scenarios that you can use to migrate AWS compute services to Azure.
          :::column-end:::
          :::column:::
          **[Databases](/azure/migration/migrate-databases-from-aws)**
 
-         Compare Amazon Web Services (AWS) databases and services that your workload uses to their closest Azure counterparts.
+         Compare AWS databases and services that your workload uses to their closest Azure counterparts.
          :::column-end:::
          :::column:::
          **[Storage](/azure/migration/migrate-storage-from-aws)**
 
-         Scenarios for how to migrate storage services from Amazon Web Services (AWS) to Azure storage services
+         Scenarios for how to migrate storage services from AWS to Azure storage services
          :::column-end::: 
          :::column:::
          **[Networking](/azure/migration/migrate-networking-from-aws)**
 
-         Scenarios for how to migrate networking services from Amazon Web Services (AWS) to Azure networking services.
+         Scenarios for how to migrate networking services from AWS to Azure networking services.
          :::column-end::: 
          :::column:::
          **[Security](/azure/migration/migrate-security-from-aws)**
 
-         Scenarios that you can use to migrate Amazon Web Services (AWS) security services to Microsoft Azure
+         Scenarios that you can use to migrate AWS security services to Microsoft Azure
          :::column-end:::          
       :::row-end:::
 
