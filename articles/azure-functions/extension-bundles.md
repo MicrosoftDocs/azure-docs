@@ -19,7 +19,7 @@ Extension bundles add a predefined set of compatible binding extensions to your 
 
 When you create an Azure Functions project from a non-.NET template, extension bundles are already enabled in the app's `host.json` file.
 
-## Defining an extension bundle reference
+## Define an extension bundle reference
 
 You define an extension bundle reference in the `host.json` project file by adding an `extensionBundle` section, as in this example:
 
@@ -59,7 +59,7 @@ Keep these considerations in mind when upgrading the extension bundle version us
   + Local project: extensions are updated locally when Core Tools starts, either from the `func start` command or when debugging in your development tools.
   + Function app: extensions are updated when you deploy the updated host.json file to your function app in Azure.
 
-## Previewing extension bundles
+## Preview extension bundles
 
 Prerelease versions of specific binding extensions are maintained in a preview extension bundle: `Microsoft.Azure.Functions.ExtensionBundle.Preview`. You can use this preview extension bundle to take advantage of preview extensions and new behaviors in existing extensions before they reach general availability (GA).
 
