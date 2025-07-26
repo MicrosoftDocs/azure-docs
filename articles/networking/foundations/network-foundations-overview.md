@@ -44,7 +44,7 @@ Private endpoints securely connect services within virtual networks.
 :::image type="content" source="media/azure-private-link.svg" alt-text="Screenshot of a conceptual diagram that includes Azure Private Link with private endpoint connectivity in a virtual network architecture.":::
 
 > [!NOTE]
-> When you create a private endpoint, you're given the choice of integrating with a private DNS zone. This configuration can be added, deleted, or modified later. In the example shown here, the option to integrate with a private DNS zone is selected. This basic DNS configuration is suitable for virtual network workloads that don't use an Azure DNS Private Resolver. For more information, see [Azure Private Endpoint DNS integration](/azure/private-link/private-endpoint-dns-integration).
+> Private endpoints offer DNS integration options during creation. You can choose to integrate with a private DNS zone, and this configuration remains flexible - you can add, remove, or modify it after deployment. The example demonstrates selecting private DNS zone integration, which provides a straightforward DNS setup ideal for virtual network workloads without an Azure DNS Private Resolver. For more information, see [Azure Private Endpoint DNS integration](/azure/private-link/private-endpoint-dns-integration).
 
 For an overview of private link and private endpoint, see [What is Azure Private Link service](/azure/private-link/private-link-service-overview) and [What is a private endpoint](/azure/private-link/private-endpoint-overview). To create a private endpoint, see [Create a private endpoint](/azure/private-link/create-private-endpoint-portal).
 
