@@ -620,6 +620,7 @@
           displayName: monitoring
         - name: Work with OpenTelemetry
           href: opentelemetry-howto.md
+          displayName: OTel
     - name: Authenticate
       items:
         - name: Configure auth providers
