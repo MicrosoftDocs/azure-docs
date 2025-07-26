@@ -169,53 +169,29 @@ sections:
          :::column-end:::          
       :::row-end:::
 
-      #### [Google Cloud Platform](#tab/google-cloud-platform)
+      #### [Google Cloud](#tab/google-cloud)
 
-      ### Google Cloud Platform
-
-      :::row:::
-         :::column:::
-         **[Link 1](placeholder)**
-
-         Placeholder description for Link 1.
-         :::column-end:::
-         :::column:::
-         **[Link 2](placeholder)**
-
-         Placeholder description for Link 2.
-         :::column-end:::
-         :::column:::
-         **[Link 3](placeholder)**
-
-         Placeholder description for Link 3.
-         :::column-end:::
-      :::row-end:::
-
-      #### [On-premises](#tab/on-premises)
-
-      ### On-premises
+      ### Scenarios
 
       :::row:::
          :::column:::
-         **[Link 1](placeholder)**
+         **[Getting started](/azure/migration/migrate-from-google-cloud)**
 
-         Placeholder description for Link 1.
+         Comparison between both platforms and example scenarios to help integrate components for transition to Azure.
          :::column-end:::
          :::column:::
-         **[Link 2](placeholder)**
+         **[Databases](/azure/migration/migrate-databases-from-google-cloud)**
 
-         Placeholder description for Link 2.
+         Compare Google Cloud databases and services that your workload uses to their closest Azure counterparts.
          :::column-end:::
          :::column:::
-         **[Link 3](placeholder)**
+         **[Security](/azure/architecture/gcp-professional/services#security-and-identity)**
 
-         Placeholder description for Link 3.
-         :::column-end:::
+         Understand how Microsoft Azure services compare to Google Cloud.
+         :::column-end:::         
       :::row-end:::
-
       ---
-      
-      <br />
+   
       <br />
 
   - componentType: grid
