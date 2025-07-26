@@ -2,7 +2,7 @@
 title: Azure Functions Extension Bundles
 description: Learn how to use extension bundles to make the correct set of Azure Functions trigger and binding extensions available in your non-.NET function code.
 ms.topic: concept-article
-ms.date: 05/30/2025
+ms.date: 07/25/2025
 
 #Customer intent: I want to understand how to correctly install extension bundles so that the functionality implemented in the extensions is available to my functions in my preferred development language.
 ---
@@ -45,6 +45,19 @@ Keep these considerations in mind when you work with extension bundles:
 - When possible, you should set a `version` range value in `host.json` from the preceding table, such as `[4.0.0, 5.0.0)`, instead of defining a custom range.
 - Use the latest version range to obtain optimal app performance and access to the latest features.
 - In the unlikely event that you can't use an extension bundle, you must instead [explicitly install extensions](./functions-bindings-register.md#explicitly-install-extensions).
+
+## Upgrade extension bundles
+
+It's important to keep your bundle version up-to-date so that your apps can continue to be eligible for new features, security patches, and performance optimizations. 
+
+To upgrade your app to the most recent bundle, edit the host.json file in the root of your app project. Replace the value of `extensionBundle.version` with the most recent [supported extension bundles version](#supported-extension-bundles).
+
+Keep these considerations in mind when upgrading the extension bundle version used by your app:
+
++ Always verify your app locally after upgrading the bundle version to ensure compatibility with the updated extensions. You can use the [func start](functions-core-tools-reference.md#func-start) command in Azure Functions Core Tools or F5 in Visual Studio or Visual Studio Code to run your function app locally.
++ The way that you trigger extensions to be updated based on changes to the bundle version in the host.json file depends on your app environment:
+  + Local project: extensions are updated locally when Core Tools starts, either from the `func start` command or when debugging in your development tools.
+  + Function app: extensions are updated when you deploy the updated host.json file to your function app in Azure.
 
 ## Previewing extension bundles
 
