@@ -130,28 +130,43 @@ sections:
     content: |
       ## Migrate workloads from other clouds or on-premises
 
-      Get ready to use Copilot and build AI apps. Discover the transformational experiences you can implement by using Microsoft's AI apps and services. Select a role to explore focused skilling resources.
+      Easily migrate your workloads from Amazon Web Services (AWS), Google Cloud, or on-premises environments to Azure using our guided tools and proven best practices. Select a tab to get tailored migration guidance for your current platform.
       
-      #### [Azure Web Services](#tab/azure-web-services)
+      #### [Amazon Web Services](#tab/azure-web-services)
       
-      ### Azure Web Services
+      ### Scenarios
 
       :::row:::
          :::column:::
-         **[Link 1](placeholder)**
+         **[Getting started](/azure/migration/migrate-from-aws)**
 
-         Placeholder description for Link 1.
+         Comparison between both platforms and example scenarios to help integrate components for transition to Azure.
          :::column-end:::
          :::column:::
-         **[Link 2](placeholder)**
+         **[Compute](/azure/migration/migrate-compute-from-aws)**
 
-         Placeholder description for Link 2.
+         Discover scenarios that you can use to migrate Amazon Web Services (AWS) compute services to Azure.
          :::column-end:::
          :::column:::
-         **[Link 3](placeholder)**
+         **[Databases](/azure/migration/migrate-databases-from-aws)**
 
-         Placeholder description for Link 3.
+         Compare Amazon Web Services (AWS) databases and services that your workload uses to their closest Azure counterparts.
          :::column-end:::
+         :::column:::
+         **[Storage](/azure/migration/migrate-storage-from-aws)**
+
+         Scenarios for how to migrate storage services from Amazon Web Services (AWS) to Azure storage services
+         :::column-end::: 
+         :::column:::
+         **[Networking](/azure/migration/migrate-networking-from-aws)**
+
+         Scenarios for how to migrate networking services from Amazon Web Services (AWS) to Azure networking services.
+         :::column-end::: 
+         :::column:::
+         **[Security](/azure/migration/migrate-security-from-aws)**
+
+         Scenarios that you can use to migrate Amazon Web Services (AWS) security services to Microsoft Azure
+         :::column-end:::          
       :::row-end:::
 
       #### [Google Cloud Platform](#tab/google-cloud-platform)
