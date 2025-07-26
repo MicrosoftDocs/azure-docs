@@ -36,13 +36,11 @@ Below the essentials, you can navigate to other details about your resource by s
 
 ## Create a Storage Pool
 
-Once you create a resource, you must create a storage pool to connect to an Azure VMware Solution resource. 
+Once you create a resource, you can create a storage pool to connect to an Azure VMware Solution resource. 
 
-[!INCLUDE [manage](../includes/manage.md)]
+1. Select **Settings > Storage Pool** from the service menu.
 
-3. Select **Settings > Storage Pool** from the service menu.
-
-4. Select **Create a new storage pool** from the working pane's command bar. 
+1. Select **Create a new storage pool** from the working pane's command bar. 
 
     The *Create a Storage Pool* window appears.
 
@@ -53,7 +51,7 @@ Once you create a resource, you must create a storage pool to connect to an Azur
     > [!NOTE]
     > The storage pool defaults to the same region as your Pure Storage resource.
 
-5. Enter the values for each required setting.
+1. Enter the values for each required setting.
   
     | Setting                            | Action                                |
     |------------------------------------|---------------------------------------|
@@ -64,7 +62,7 @@ Once you create a resource, you must create a storage pool to connect to an Azur
     | Virtual network                    | Choose a virtual network.             |
     | Delegated subnet                   | Choose a delegated subnet.            |
 
-6. Select the **Create** button.
+1. Select the **Create** button.
 
     > [!NOTE]
     > It can take up to 1 hour for deployment to complete.
@@ -83,12 +81,11 @@ To connect a storage pool to an Azure VMware Solution resource, select the **Con
 
 :::image type="content" source="media/manage/connect-vm.png" alt-text="A screenshot of a Storage Pool resource inside Azure portal with the Connect Azure VMware Solution button emphasized":::
 
-### Related content
-[Pure Storage Resource Guide](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Azure_Native_Pure_Storage_Cloud/management/c_psc_management.html)
+Once you've connected, see the [Pure Storage Resource Guide](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Azure_Native_Pure_Storage_Cloud/management/c_psc_management.html) to learn how to manage your datastores and volumes.
 
 ## Get support
 
-Contact [Pure Storage](https://support.purestorage.com/bundle/m_contact_us/page/Pure_Storage_Technical_Services/Technical_Services_Information/topics/reference/r_contact_us.html) for customer support.
+Contact [Pure Storage](https://pure1.purestorage.com/) for customer support.
 
-See the [Pure Storage troubleshooting documentation](https://pure1.purestorage.com/) for more information.
+See the [Pure Storage troubleshooting documentation](https://support.purestorage.com/bundle/m_azure_native_pure_storage_cloud/page/Azure_Native_Pure_Storage_Cloud/troubleshooting/c_troubleshooting.html) for more information.
 
