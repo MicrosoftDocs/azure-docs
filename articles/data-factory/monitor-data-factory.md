@@ -1,10 +1,10 @@
 ---
 title: Monitor Azure Data Factory
 description: Start here to learn how to monitor Azure Data Factory.
-ms.date: 10/03/2024
+ms.date: 07/25/2025
 ms.subservice: monitoring
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: concept-article
 author: whhender
 ms.author: whhender
 ---
@@ -19,7 +19,7 @@ There are several ways to monitor Azure Data Factory.
 
 ### Azure Data Factory Studio
 
-You can monitor all of your Data Factory pipeline runs natively in Azure Data Factory Studio. To open the monitoring experience, select **Launch Studio** from your Data Factory page in the Azure portal, and in Azure Data Factory Studio, select **Monitor** from the left menu. 
+You can monitor all of your Data Factory pipeline runs natively in Azure Data Factory Studio. To open the monitoring experience, select **Launch Studio** from your Data Factory page in the Azure portal, and in Azure Data Factory Studio, select **Monitor** from the left menu.
 
 For more information about monitoring in Azure Data Factory Studio, see the following articles:
 

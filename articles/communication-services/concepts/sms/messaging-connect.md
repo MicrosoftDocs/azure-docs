@@ -20,23 +20,35 @@ ms.custom: references_regions
 
 ## Introduction
 
-Welcome to Messaging Connect—the new way to deliver Short Message Service (SMS) globally with Azure Communication Services (ACS).
+Welcome to Messaging Connect, a new way to deliver Short Message Service (SMS) globally with Azure Communication Services. It integrates trusted partners so you can lease numbers and meet local regulatory requirements while continuing to use the familiar Azure Communication Services: single API endpoint, strong observability, and deep integration across Microsoft services. Whether you're sending appointment reminders, booking confirmations, or intelligent Copilot prompts, Messaging Connect helps you reach users globally with less complexity.
 
-This feature isn't just new—it represents a major evolution in the platform's approach to global messaging. Messaging Connect is a partner-powered model that dramatically expands Azure’s messaging reach while preserving everything developers love about Azure Communication Services: unified APIs, strong observability, and deep integration across Microsoft services.
+Instead of building and maintaining separate integrations with multiple providers, you connect once through Azure Communication Services and route traffic to global partners. The partner handles number leasing and compliance. Messaging, observability, and AI workflows remain inside your Azure environment where you already build, monitor, and scale.
 
-With Messaging Connect, you don’t need to build and maintain separate integrations with providers around the world. Instead, you connect once through Azure Communication Services to access global SMS coverage via trusted partners. Number leasing and compliance are handled through the partner, but everything else—messaging, observability, and AI workflows—stays in your Azure environment, where you already build, monitor, and scale.
+Value at a glance:
 
-This model offers the best of both worlds. You get global coverage, local compliance, and faster provisioning—without giving up the rich analytics, developer experience, and integration surface that Microsoft delivers. Whether you're sending appointment reminders, booking confirmations, or intelligent Copilot prompts, Messaging Connect turns Azure into the central nervous system for SMS engagement at scale.
+- Global reach across 190+ countries
 
-This model represents Microsoft’s approach to global messaging—smart, scalable, and ready for what’s next.
+- Local compliance and faster provisioning through partners
+
+- Simple to use Azure Communication Services APIs/SDKs, diagnostics, and Event Grid observability
+
+- Separation of duties: Microsoft provides the developer platform; partners deliver and provision numbers
 
 ## Conceptual Overview
 
-Messaging Connect gives you a way to bring global SMS into your applications using Azure Communication Services.
+Global SMS is inherently complex: regulations differ by country, sender types vary, and delivery routes are fragmented. Messaging Connect integrates pre-approved partners so you can acquire compliant sender identities and route traffic without leaving the Azure Communication Services developer experience.
 
-If you work with messaging, you know it can be complex: different regulations in every region, separate vendors for different markets, and fragmented delivery infrastructure that’s hard to monitor. That complexity is exactly why Messaging Connect integrates trusted partners—to help you navigate country-specific rules, documentation, and approval processes. With Messaging Connect, you lease numbers directly from one of our messaging partners and use them through Azure Communication Services as if they were native ACS numbers.
+Provisioning flow (high level):
 
-The process starts in the Azure portal. When you search for an SMS number type and country, and Azure Communication Services doesn’t offer direct provisioning, you’re guided to connect with a pre-integrated partner. From there, you’re redirected to the partner’s portal to purchase the number. Depending on the country and sender type, you may need to complete registration steps, submit documentation, or wait for approval. Once the partner assigns the number to you, they initiate the sync to Azure. You then return to the Azure portal, where the numbers appear—ready to use.
+1. In the Azure portal, go to the Messaging Connect blade
+
+2. Select your Messaging Connect partner.
+
+3. You’re redirected to the partner's portal to purchase/configure SMS capable phone numbers, complete any required registrations, and await approval.
+
+4. The partner syncs approved numbers back to your Azure Communication Services resource.
+
+5. The number appears in the Azure portal and is ready for use with Azure Communication Services SMS APIs.
 
 :::image type="content" source="./media/message-connect-provision-concept.png" alt-text="Diagram showing Messaging Connect number provisioning flow in Azure." lightbox="./media/message-connect-provision-concept.png":::
 
@@ -280,6 +292,11 @@ Let's go step-by-step:
 
    :::image type="content" source="./media/message-connect-provision-number-4.png" alt-text="Screen showing partner portal with numbers purchased." lightbox="./media/message-connect-provision-number-4.png":::
 
+> [!TIP]
+> Need help configuring the Infobip side?
+> Follow the official guide to connect your Azure Communication Services resource to Infobip and provision SMS numbers:  
+> [SMS for Microsoft Azure Communication Services – Messaging Connect](https://www.infobip.com/docs/integrations/microsoft-azure-acs-messaging-connect)
+
 3. **Return to the Azure portal**
 
    Once the partner confirms that your numbers are provisioned, they trigger the sync with Azure Communication Services. After the sync is complete, the numbers automatically appear in your ACS resource—ready to use with the ACS SMS API, just like any number provisioned directly through Azure Communication Services. No extra setup is needed on your side.
@@ -380,4 +397,7 @@ The following table lists the currently supported partners. More partners will b
 > [!IMPORTANT]
 > Messaging Connect partners are selected based on global reach, regulatory expertise, reliability, and strong integration with Microsoft’s ecosystem.
 
+## Next Steps
 
+> [!div class="nextstepaction"]
+> [Send SMS messages](../../quickstarts/sms/send.md)

@@ -2,8 +2,8 @@
 title: Export Splunk data to target platform
 titleSuffix: Microsoft Sentinel
 description: Learn how to export your historical data from Splunk for a Microsoft Sentinel migration of security monitoring use cases.
-author: cwatson-cat
-ms.author: cwatson
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: how-to
 ms.date: 03/11/2024
 

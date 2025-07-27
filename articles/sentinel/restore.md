@@ -1,10 +1,10 @@
 ---
 title: Restore archived logs from search - Microsoft Sentinel
 description: Learn how to restore archived logs from search job results.
-author: cwatson-cat
+author: EdB-MSFT
 ms.topic: how-to
 ms.date: 09/25/2024
-ms.author: cwatson
+ms.author: edbaynash
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
