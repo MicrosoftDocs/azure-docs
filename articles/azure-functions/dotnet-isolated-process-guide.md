@@ -92,27 +92,6 @@ You find these extension packages under [Microsoft.Azure.Functions.Worker.Extens
 
 When you use the isolated worker model, you have access to the start-up of your function app, which is usually in `Program.cs`. You're responsible for creating and starting your own host instance. As such, you also have direct access to the configuration pipeline for your app. With .NET Functions isolated worker process, you can much more easily add configurations, inject dependencies, and run your own middleware. 
 
-# [IHostBuilder](#tab/hostbuilder)
-
-The following code shows an example of a [HostBuilder] pipeline:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_startup":::
-
-This code requires `using Microsoft.Extensions.DependencyInjection;`.
-
-Before calling `Build()` on the `IHostBuilder`, you should:
-
-- Call either `ConfigureFunctionsWebApplication()` if using [ASP.NET Core integration](#aspnet-core-integration) or `ConfigureFunctionsWorkerDefaults()` otherwise. See [HTTP trigger](#http-trigger) for details on these options.   
-    If you're writing your application using F#, some trigger and binding extensions require extra configuration. See the setup documentation for the [Blobs extension][fsharp-blobs], the [Tables extension][fsharp-tables], and the [Cosmos DB extension][fsharp-cosmos] when you plan to use these extensions in an F# app.
-- Configure any services or app configuration your project requires. See [Configuration](#configuration) for details.  
-    If you're planning to use Application Insights, you need to call `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` in the `ConfigureServices()` delegate. See [Application Insights](#application-insights) for details.
-
-If your project targets .NET Framework 4.8, you also need to add `FunctionsDebugger.Enable();` before creating the HostBuilder. It should be the first line of your `Main()` method. For more information, see [Debugging when targeting .NET Framework](#debugging-when-targeting-net-framework).
-
-The [HostBuilder] is used to build and return a fully initialized [`IHost`][IHost] instance, which you run asynchronously to start your function app. 
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
-
 # [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 _To use `IHostApplicationBuilder`, your app must use version 2.x or later of the [core packages](#core-packages)._
@@ -161,6 +140,27 @@ The [IHostApplicationBuilder] is used to build and return a fully initialized [`
 await host.RunAsync();
 ```
 
+# [IHostBuilder](#tab/hostbuilder)
+
+The following code shows an example of a [HostBuilder] pipeline:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_startup":::
+
+This code requires `using Microsoft.Extensions.DependencyInjection;`.
+
+Before calling `Build()` on the `IHostBuilder`, you should:
+
+- Call either `ConfigureFunctionsWebApplication()` if using [ASP.NET Core integration](#aspnet-core-integration) or `ConfigureFunctionsWorkerDefaults()` otherwise. See [HTTP trigger](#http-trigger) for details on these options.   
+    If you're writing your application using F#, some trigger and binding extensions require extra configuration. See the setup documentation for the [Blobs extension][fsharp-blobs], the [Tables extension][fsharp-tables], and the [Cosmos DB extension][fsharp-cosmos] when you plan to use these extensions in an F# app.
+- Configure any services or app configuration your project requires. See [Configuration](#configuration) for details.  
+    If you're planning to use Application Insights, you need to call `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` in the `ConfigureServices()` delegate. See [Application Insights](#application-insights) for details.
+
+If your project targets .NET Framework 4.8, you also need to add `FunctionsDebugger.Enable();` before creating the HostBuilder. It should be the first line of your `Main()` method. For more information, see [Debugging when targeting .NET Framework](#debugging-when-targeting-net-framework).
+
+The [HostBuilder] is used to build and return a fully initialized [`IHost`][IHost] instance, which you run asynchronously to start your function app. 
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
+
 ---
 
 [fsharp-blobs]: ./functions-bindings-storage-blob.md#install-extension
@@ -170,6 +170,20 @@ await host.RunAsync();
 ### Configuration
 
 The type of builder you use determines how you can configure the application.
+
+# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
+
+The `FunctionsApplication.CreateBuilder()` method is used to add the settings required for the function app to run. The method includes the following functionality:
+
++ Default set of converters.
++ Set the default [JsonSerializerOptions] to ignore casing on property names.
++ Integrate with Azure Functions logging.
++ Output binding middleware and features.
++ Function execution middleware.
++ Default gRPC support.
++ Apply other defaults from [Host.CreateDefaultBuilder()](/dotnet/api/microsoft.extensions.hosting.host.createdefaultbuilder).
+
+Having access to the builder pipeline means that you can also set any app-specific configurations during initialization. You can call extension methods on the builder's `Configuration` property to add any configuration sources required by your code. To learn more about app configuration, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration). 
 
 # [IHostBuilder](#tab/hostbuilder)
 
@@ -186,20 +200,6 @@ The [ConfigureFunctionsWorkerDefaults] method is used to add the settings requir
 
 Having access to the host builder pipeline means that you can also set any app-specific configurations during initialization. You can call the [ConfigureAppConfiguration] method on [HostBuilder] one or more times to add any configuration sources required by your code. To learn more about app configuration, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration). 
 
-# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
-
-The `FunctionsApplication.CreateBuilder()` method is used to add the settings required for the function app to run. The method includes the following functionality:
-
-+ Default set of converters.
-+ Set the default [JsonSerializerOptions] to ignore casing on property names.
-+ Integrate with Azure Functions logging.
-+ Output binding middleware and features.
-+ Function execution middleware.
-+ Default gRPC support.
-+ Apply other defaults from [Host.CreateDefaultBuilder()](/dotnet/api/microsoft.extensions.hosting.host.createdefaultbuilder).
-
-Having access to the builder pipeline means that you can also set any app-specific configurations during initialization. You can call extension methods on the builder's `Configuration` property to add any configuration sources required by your code. To learn more about app configuration, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration). 
-
 ---
 
 These configurations only apply to the worker code you author, and they don't directly influence the configuration of the Functions host or triggers and bindings. To make changes to the functions host or trigger and binding configuration, you still need to use the [host.json file](functions-host-json.md).
@@ -211,6 +211,14 @@ These configurations only apply to the worker code you author, and they don't di
 
 The isolated worker model uses standard .NET mechanisms for injecting services.
  
+# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
+
+When you use an `IHostApplicationBuilder`, you can use its `Services` property to access the [IServiceCollection]. The following example injects a singleton service dependency:
+
+```csharp
+builder.Services.AddSingleton<IHttpResponderService, DefaultHttpResponderService>();
+```
+
 # [IHostBuilder](#tab/hostbuilder)
 
 When you use a `HostBuilder`, call [ConfigureServices] on the host builder and use the extension methods on [IServiceCollection] to inject specific services. The following example injects a singleton service dependency:
@@ -222,14 +230,6 @@ When you use a `HostBuilder`, call [ConfigureServices] on the host builder and u
 })
 ```
 
-# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
-
-When you use an `IHostApplicationBuilder`, you can use its `Services` property to access the [IServiceCollection]. The following example injects a singleton service dependency:
-
-```csharp
-builder.Services.AddSingleton<IHttpResponderService, DefaultHttpResponderService>();
-```
-
 ---
 
 This code requires `using Microsoft.Extensions.DependencyInjection;`. To learn more, see [Dependency injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0&preserve-view=true).
@@ -237,6 +237,26 @@ This code requires `using Microsoft.Extensions.DependencyInjection;`. To learn m
 #### Register Azure clients
 
 Dependency injection can be used to interact with other Azure services. You can inject clients from the [Azure SDK for .NET](/dotnet/azure/sdk/azure-sdk-for-dotnet) using the [Microsoft.Extensions.Azure](https://www.nuget.org/packages/Microsoft.Extensions.Azure) package. After installing the package, [register the clients](/dotnet/azure/sdk/dependency-injection#register-clients) by calling `AddAzureClients()` on the service collection in `Program.cs`. The following example configures a [named client](/dotnet/azure/sdk/dependency-injection#configure-multiple-service-clients-with-different-names) for Azure Blobs:
+
+# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
+
+```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Builder;
+using Microsoft.Extensions.Azure;
+using Microsoft.Extensions.Hosting;
+
+var builder = FunctionsApplication.CreateBuilder(args);
+
+builder.Services
+    .AddAzureClients(clientBuilder =>
+        {
+            clientBuilder.AddBlobServiceClient(builder.Configuration.GetSection("MyStorageConnection"))
+                .WithName("copierOutputBlob");
+        });
+
+builder.Build().Run();
+```
 
 # [IHostBuilder](#tab/hostbuilder)
 
@@ -259,26 +279,6 @@ var host = new HostBuilder()
     .Build();
 
 host.Run();
-```
-
-# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
-
-```csharp
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.Functions.Worker.Builder;
-using Microsoft.Extensions.Azure;
-using Microsoft.Extensions.Hosting;
-
-var builder = FunctionsApplication.CreateBuilder(args);
-
-builder.Services
-    .AddAzureClients(clientBuilder =>
-        {
-            clientBuilder.AddBlobServiceClient(builder.Configuration.GetSection("MyStorageConnection"))
-                .WithName("copierOutputBlob");
-        });
-
-builder.Build().Run();
 ```
 
 ---
@@ -325,10 +325,6 @@ The isolated worker model also supports middleware registration, again by using 
 
 The [ConfigureFunctionsWorkerDefaults] extension method has an overload that lets you register your own middleware, as you can see in the following example.  
 
-# [IHostBuilder](#tab/hostbuilder)
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/CustomMiddleware/Program.cs" id="docsnippet_middleware_register" :::
-
 # [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 ```csharp
@@ -353,6 +349,10 @@ builder
 builder.Build().Run();
 ```
 
+# [IHostBuilder](#tab/hostbuilder)
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/CustomMiddleware/Program.cs" id="docsnippet_middleware_register" :::
+
 ---
 
  The `UseWhen` extension method can be used to register a middleware that gets executed conditionally. You must pass to this method a predicate that returns a boolean value, and the middleware participates in the invocation processing pipeline when the return value of the predicate is `true`.
@@ -376,6 +376,30 @@ This middleware checks for the presence of a specific request header(x-correlati
 ### Customizing JSON serialization
 
 The isolated worker model uses `System.Text.Json` by default. You can customize the behavior of the serializer by configuring services as part of your `Program.cs` file. This section covers general-purpose serialization and won't influence [HTTP trigger JSON serialization with ASP.NET Core integration](#json-serialization-with-aspnet-core-integration), which must be configured separately.
+
+# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
+
+```csharp
+using Microsoft.Azure.Functions.Worker.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+var builder = FunctionsApplication.CreateBuilder(args);
+
+builder.ConfigureFunctionsWebApplication();
+
+builder.Services.Configure<JsonSerializerOptions>(jsonSerializerOptions =>
+    {
+        jsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+        jsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+        jsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+
+        // override the default value
+        jsonSerializerOptions.PropertyNameCaseInsensitive = false;
+    });
+
+builder.Build().Run();
+```
 
 # [IHostBuilder](#tab/hostbuilder)
 
@@ -404,57 +428,9 @@ var host = new HostBuilder()
 host.Run();
 ```
 
-# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
-
-```csharp
-using Microsoft.Azure.Functions.Worker.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-
-var builder = FunctionsApplication.CreateBuilder(args);
-
-builder.ConfigureFunctionsWebApplication();
-
-builder.Services.Configure<JsonSerializerOptions>(jsonSerializerOptions =>
-    {
-        jsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
-        jsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
-        jsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
-
-        // override the default value
-        jsonSerializerOptions.PropertyNameCaseInsensitive = false;
-    });
-
-builder.Build().Run();
-```
-
 ---
 
 You might want to instead use JSON.NET (`Newtonsoft.Json`) for serialization. To do this, you would install the [`Microsoft.Azure.Core.NewtonsoftJson`](https://www.nuget.org/packages/Microsoft.Azure.Core.NewtonsoftJson) package. Then, in your service registration, you would reassign the `Serializer` property on the `WorkerOptions` configuration. The following example shows this using `ConfigureFunctionsWebApplication`, but it will also work for `ConfigureFunctionsWorkerDefaults`:
-
-# [IHostBuilder](#tab/hostbuilder)
-
-```csharp
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-
-var host = new HostBuilder()
-    .ConfigureFunctionsWebApplication((IFunctionsWorkerApplicationBuilder builder) =>
-    {
-        builder.Services.Configure<WorkerOptions>(workerOptions =>
-        {
-            var settings = NewtonsoftJsonObjectSerializer.CreateJsonSerializerSettings();
-            settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            settings.NullValueHandling = NullValueHandling.Ignore;
-
-            workerOptions.Serializer = new NewtonsoftJsonObjectSerializer(settings);
-        });
-    })
-    .Build();
-
-host.Run();
-```
 
 # [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
@@ -478,6 +454,30 @@ builder.Services.Configure<WorkerOptions>(workerOptions =>
     });
 
 builder.Build().Run();
+```
+
+# [IHostBuilder](#tab/hostbuilder)
+
+```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+var host = new HostBuilder()
+    .ConfigureFunctionsWebApplication((IFunctionsWorkerApplicationBuilder builder) =>
+    {
+        builder.Services.Configure<WorkerOptions>(workerOptions =>
+        {
+            var settings = NewtonsoftJsonObjectSerializer.CreateJsonSerializerSettings();
+            settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            settings.NullValueHandling = NullValueHandling.Ignore;
+
+            workerOptions.Serializer = new NewtonsoftJsonObjectSerializer(settings);
+        });
+    })
+    .Build();
+
+host.Run();
 ```
 
 ---
@@ -755,29 +755,6 @@ You can continue to use `HttpRequestData` and `HttpResponsedata` while using ASP
 
 The following example shows how to configure JSON.NET (`Newtonsoft.Json`) and the [Microsoft.AspNetCore.Mvc.NewtonsoftJson NuGet package](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.NewtonsoftJson) for serialization using this approach:
 
-# [IHostBuilder](#tab/hostbuilder)
-
-```csharp
-using Microsoft.AspNetCore.Server.Kestrel.Core;
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-
-var host = new HostBuilder()
-    .ConfigureFunctionsWebApplication()
-    .ConfigureServices(services =>
-    {
-        services.AddApplicationInsightsTelemetryWorkerService();
-        services.ConfigureFunctionsApplicationInsights();
-        services.AddMvc().AddNewtonsoftJson();
-
-        // Only needed if using HttpRequestData/HttpResponseData and a serializer that doesn't support asynchronous IO
-        // services.Configure<KestrelServerOptions>(options => options.AllowSynchronousIO = true);
-    })
-    .Build();
-host.Run();
-```
-
 # [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 ```csharp
@@ -801,6 +778,29 @@ builder.Services.AddMvc().AddNewtonsoftJson();
 // builder.Services.Configure<KestrelServerOptions>(options => options.AllowSynchronousIO = true);
 
 builder.Build().Run();
+```
+
+# [IHostBuilder](#tab/hostbuilder)
+
+```csharp
+using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+var host = new HostBuilder()
+    .ConfigureFunctionsWebApplication()
+    .ConfigureServices(services =>
+    {
+        services.AddApplicationInsightsTelemetryWorkerService();
+        services.ConfigureFunctionsApplicationInsights();
+        services.AddMvc().AddNewtonsoftJson();
+
+        // Only needed if using HttpRequestData/HttpResponseData and a serializer that doesn't support asynchronous IO
+        // services.Configure<KestrelServerOptions>(options => options.AllowSynchronousIO = true);
+    })
+    .Build();
+host.Run();
 ```
 
 ---
@@ -841,6 +841,30 @@ The logger can also be obtained from a [FunctionContext] object passed to your f
 
 Use the methods of [`ILogger<T>`][ILogger&lt;T&gt;] and [`ILogger`][ILogger] to write various log levels, such as `LogWarning` or `LogError`. To learn more about log levels, see the [monitoring article](functions-monitoring.md#log-levels-and-categories). You can customize the log levels for components added to your code by registering filters:
 
+# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
+
+```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+
+var builder = FunctionsApplication.CreateBuilder(args);
+
+builder.ConfigureFunctionsWebApplication();
+
+// Registers IHttpClientFactory.
+// By default this sends a lot of Information-level logs.
+builder.Services.AddHttpClient();
+
+// Disable IHttpClientFactory Informational logs.
+// Note -- you can also remove the handler that does the logging: https://github.com/aspnet/HttpClientFactory/issues/196#issuecomment-432755765 
+builder.Logging.AddFilter("System.Net.Http.HttpClient", LogLevel.Warning);
+    
+builder.Build().Run();
+```
+
 # [IHostBuilder](#tab/hostbuilder)
 
 ```csharp
@@ -866,33 +890,13 @@ var host = new HostBuilder()
     .Build();
 ```
 
-# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
-
-```csharp
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.Functions.Worker.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-
-var builder = FunctionsApplication.CreateBuilder(args);
-
-builder.ConfigureFunctionsWebApplication();
-
-// Registers IHttpClientFactory.
-// By default this sends a lot of Information-level logs.
-builder.Services.AddHttpClient();
-
-// Disable IHttpClientFactory Informational logs.
-// Note -- you can also remove the handler that does the logging: https://github.com/aspnet/HttpClientFactory/issues/196#issuecomment-432755765 
-builder.Logging.AddFilter("System.Net.Http.HttpClient", LogLevel.Warning);
-    
-builder.Build().Run();
-```
-
 ---
 
 As part of configuring your app in `Program.cs`, you can also define the behavior for how errors are surfaced to your logs. The default behavior depends on the type of builder you're using.
+
+# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
+
+When you use an `IHostApplicationBuilder`, by default, exceptions thrown by your code flow through the system without changes. No other configuration is required.
 
 # [IHostBuilder](#tab/hostbuilder)
 
@@ -911,10 +915,6 @@ var host = new HostBuilder()
 
 host.Run();
 ```
-
-# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
-
-When you use an `IHostApplicationBuilder`, by default, exceptions thrown by your code flow through the system without changes. No other configuration is required.
 
 ---
 
@@ -944,6 +944,23 @@ dotnet add package Microsoft.Azure.Functions.Worker.ApplicationInsights
 
 With the packages installed, you must call `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` during service configuration in your `Program.cs` file, as in this example:
 
+# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
+
+```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+    
+var builder = FunctionsApplication.CreateBuilder(args);
+
+builder.Services
+    .AddApplicationInsightsTelemetryWorkerService()
+    .ConfigureFunctionsApplicationInsights();
+
+builder.Build().Run();
+```
+
 # [IHostBuilder](#tab/hostbuilder)
 
 ```csharp
@@ -962,23 +979,6 @@ var host = new HostBuilder()
 host.Run();
 ```
 
-# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
-
-```csharp
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.Functions.Worker.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-    
-var builder = FunctionsApplication.CreateBuilder(args);
-
-builder.Services
-    .AddApplicationInsightsTelemetryWorkerService()
-    .ConfigureFunctionsApplicationInsights();
-
-builder.Build().Run();
-```
-
 ---
 
 The call to `ConfigureFunctionsApplicationInsights()` adds an `ITelemetryModule`, which listens to a Functions-defined `ActivitySource`. This creates the dependency telemetry required to support distributed tracing. To learn more about `AddApplicationInsightsTelemetryWorkerService()` and how to use it, see [Application Insights for Worker Service applications](/azure/azure-monitor/app/worker-service).
@@ -989,6 +989,34 @@ The call to `ConfigureFunctionsApplicationInsights()` adds an `ITelemetryModule`
 > The Functions host and the isolated process worker have separate configuration for log levels, etc. Any [Application Insights configuration in host.json](./functions-host-json.md#applicationinsights) will not affect the logging from the worker, and similarly, configuration made in your worker code will not impact logging from the host. You need to apply changes in both places if your scenario requires customization at both layers.
 
 The rest of your application continues to work with `ILogger` and `ILogger<T>`. However, by default, the Application Insights SDK adds a logging filter that instructs the logger to capture only warnings and more severe logs. If you want to disable this behavior, remove the filter rule as part of service configuration:
+
+# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
+
+```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+
+var builder = FunctionsApplication.CreateBuilder(args);
+
+builder.Services
+    .AddApplicationInsightsTelemetryWorkerService()
+    .ConfigureFunctionsApplicationInsights();
+
+builder.Logging.Services.Configure<LoggerFilterOptions>(options =>
+    {
+        LoggerFilterRule defaultRule = options.Rules.FirstOrDefault(rule => rule.ProviderName
+            == "Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider");
+        if (defaultRule is not null)
+        {
+            options.Rules.Remove(defaultRule);
+        }
+    });
+
+builder.Build().Run();
+```
 
 # [IHostBuilder](#tab/hostbuilder)
 
@@ -1019,34 +1047,6 @@ var host = new HostBuilder()
     .Build();
 
 host.Run();
-```
-
-# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
-
-```csharp
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.Functions.Worker.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-
-var builder = FunctionsApplication.CreateBuilder(args);
-
-builder.Services
-    .AddApplicationInsightsTelemetryWorkerService()
-    .ConfigureFunctionsApplicationInsights();
-
-builder.Logging.Services.Configure<LoggerFilterOptions>(options =>
-    {
-        LoggerFilterRule defaultRule = options.Rules.FirstOrDefault(rule => rule.ProviderName
-            == "Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider");
-        if (defaultRule is not null)
-        {
-            options.Rules.Remove(defaultRule);
-        }
-    });
-
-builder.Build().Run();
 ```
 
 ---
@@ -1235,33 +1235,6 @@ If your isolated project targets .NET Framework 4.8, you need to take manual ste
 
 Your app should start with a call to `FunctionsDebugger.Enable();` as its first operation. This occurs in the `Main()` method before initializing a HostBuilder. Your `Program.cs` file should look similar to this:
 
-# [IHostBuilder](#tab/hostbuilder)
-
-```csharp
-using System;
-using System.Diagnostics;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Azure.Functions.Worker;
-using NetFxWorker;
-
-namespace MyDotnetFrameworkProject
-{
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            FunctionsDebugger.Enable();
-
-            var host = new HostBuilder()
-                .ConfigureFunctionsWorkerDefaults()
-                .Build();
-
-            host.Run();
-        }
-    }
-}
-```
-
 # [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 ```csharp
@@ -1281,6 +1254,33 @@ namespace MyDotnetFrameworkProject
 
             var host = FunctionsApplication
                 .CreateBuilder(args)
+                .Build();
+
+            host.Run();
+        }
+    }
+}
+```
+
+# [IHostBuilder](#tab/hostbuilder)
+
+```csharp
+using System;
+using System.Diagnostics;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Azure.Functions.Worker;
+using NetFxWorker;
+
+namespace MyDotnetFrameworkProject
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            FunctionsDebugger.Enable();
+
+            var host = new HostBuilder()
+                .ConfigureFunctionsWorkerDefaults()
                 .Build();
 
             host.Run();
