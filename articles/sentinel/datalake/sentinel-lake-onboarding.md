@@ -77,8 +77,10 @@ The following roles that are required to set up billing and authorize ingestion 
 
 ## Existing Microsoft Sentinel workspaces
 
-The Microsoft Sentinel data lake mirrors data from Microsoft Sentinel workspaces that are connected to the Defender portal. You must connect your Microsoft Sentinel workspaces to the Defender portal to include them in the data lake. If you have connected Sentinel to the Defender portal, to onboard to the data lake, the primary workspace must be in the tenant's home geographic region. If you haven't connected Microsoft Sentinel to the Defender portal, you can connect your Microsoft Sentinel workspaces to the Defender portal after onboarding, and the data will be mirrored to the data lake. For more information, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard).
+The Microsoft Sentinel data lake mirrors data from Microsoft Sentinel workspaces that are connected to the Defender portal. You must connect your Microsoft Sentinel workspaces to the Defender portal to include them in the data lake. If you have connected Microsoft Sentinel to the Defender portal, to onboard to the data lake, the primary workspace must be in the tenant's home geographic region. If you haven't connected Microsoft Sentinel to the Defender portal, you can connect your Microsoft Sentinel workspaces to the Defender portal after onboarding, and the data will be mirrored to the data lake. For more information, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard).
 
+> [!NOTE]
+> During preview, you can onboard up to 20 workspaces to the Microsoft Sentinel data lake. 
 
 ## Onboarding steps
 
