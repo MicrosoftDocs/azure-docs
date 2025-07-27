@@ -156,7 +156,7 @@ During Public Preview, you can acquire and use two types of sender identities fr
 
 When you search for a country and number type in the Azure portal, you're offered Messaging Connect as an option if Azure Communication Services doesn’t support that configuration directly. You then complete the provisioning process through the partner’s portal.
 
-🌐 The Messaging Connect partner determines country availability. The Messaging Connect partner (for example, Infobip) handles number types, compliance requirements, and onboarding steps, which vary by country.
+🌐 The Messaging Connect partner determines country availability. The Messaging Connect partner (for example, Infobip) handles number types, compliance requirements, and onboarding steps, which vary by country. See [Infobip SMS Coverage](https://www.infobip.com/docs/essentials/getting-started/sms-coverage-and-connectivity).
 
 📌 Short codes aren't yet supported in Public Preview but are planned for General Availability.
 
