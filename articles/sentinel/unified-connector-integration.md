@@ -42,7 +42,7 @@ From your Okta account, you need the following information:
 
 For information about integrating Okta with Defender for Identity, see [Integrate Okta with Microsoft Defender for Identity](/defender-for-identity/okta-integration).
 
-## Create an Okta instance to a Sentinel workspace
+## Configure an Okta connector to a Sentinel workspace
 
 To create an Okta instance in Microsoft Sentinel using the Okta unified connector, follow these steps:
 
