@@ -54,7 +54,7 @@ The platform allows integration with data lake, including enabling data federati
 
 ### Lifecycle management
 
-Unified connectors are pre-installed with the latest version minimizing the need for manual updates.
+Unified connectors are pre-installed with the latest version where possible, minimizing the need for manual updates.
 
 ## Supported Products
 
@@ -95,10 +95,10 @@ The Sentinel tab shows the connectors that are available only to Sentinel as the
 ## Considerations and limitations
 
 - The unified connectors scope doesn't include billing. Each individual product is responsible for how its users are charged.
-
+- Unified connectors are the preferred way to create a connection. Even of yo already have a connector to a product we recommend removing it an installing a unified connector where possible. It's not recommended to have both a unified connector and a product specific connector for the same data source.
 - Currently for Sentinel unified connectors are not part of solutions and cannot be discovered through content hub.
 - Currently the unified connectors platform doesn't allow self-service development for 3rd parties.
 
 ## Related content
 
-[Integrate Microsoft Sentinel with unified connectors](./integrate-unified-connector.md)
+[Integrate Microsoft Sentinel with unified connectors](./unified-connector-integration.md)
