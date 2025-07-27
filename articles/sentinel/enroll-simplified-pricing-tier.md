@@ -161,7 +161,7 @@ The table shows two scenarios where the three-workspace dedicated cluster is ing
 Since the commitment tier is 5 TB, there's 1 TB of unused ingestion.
 
 > [!IMPORTANT]
-> All unused data ingestion is billed to the Log Analytics commitment tiers regardless of whether the workspaces in the cluster have Microsoft Sentinel enabled.
+> Any unused commitment is billed to the Log Analytics commitment tiers regardless of whether the workspaces in the cluster have Microsoft Sentinel enabled.
  
 The first scenario uses cluster billing mode, the second uses workspace billing mode. 
 
