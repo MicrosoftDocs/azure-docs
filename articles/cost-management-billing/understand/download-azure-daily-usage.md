@@ -65,7 +65,7 @@ Use the following information to download your Azure usage file.
 1. If necessary, select a billing scope.
 1. On the billing scope overview page, at the bottom of the page under **Shortcuts**, select **Download usage and prices**.
 1. On the Download usage and prices page, under **Azure usage file**, select **Prepare**. A notification message appears stating that the usage file is being prepared.
- :::image:::
+ :::image type="content" source="./media/download-azure-daily-usage/download-usage-prices.png" border="true" alt-text="Screenshot showing navigation to Download usage and prices." lightbox="./media/download-azure-daily-usage/download-usage-prices.png" :::
 1. When the file is ready to download, select **Download**. If you missed the notification, you can view it from **Notifications** area in top right of the Azure portal (the bell symbol).
 
 ### Download the usage file from the Invoices page
