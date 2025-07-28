@@ -5,7 +5,7 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: azure-ddos-protection
 ms.topic: concept-article
-ms.date: 07/24/2025
+ms.date: 07/28/2025
 ms.author: abell
 # Customer intent: As a cloud architect or IT administrator, I want to optimize costs for Azure DDoS Protection, so that I can maintain effective security protection while controlling expenses and maximizing return on investment.
 ---
