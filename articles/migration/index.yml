@@ -55,6 +55,7 @@ sections:
           componentType: link
           url: /azure/architecture/aws-professional/
           text: Get started
+          
   - componentType: cards
     isShadowless: false
     backgroundColor: alternating-grey
