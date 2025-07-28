@@ -9,14 +9,9 @@ ms.date: 04/15/2025
 # Customer intent: As a developer, I want to monitor the health for my Standard logic app workflows in single-tenant Azure Logic Apps by setting up Health Check, which is an Azure App Service feature.
 ---
 
-# Monitor health for Standard workflows in Azure Logic Apps with Health Check (Preview)
+# Monitor health for Standard workflows in Azure Logic Apps with Health Check
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
-
-> [!NOTE]
->
-> This capability is in preview and is subject to the
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To help your Standard logic app workflows run with high availability and performance, set up the Health Check feature on your logic app to monitor workflow health. This feature makes sure that your app stays resilient by providing the following benefits:
 

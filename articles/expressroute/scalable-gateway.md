@@ -57,9 +57,13 @@ ErGwScale is available in most regions except the following regions:
 
 ErGwScale is free of charge during the preview. For information about ExpressRoute pricing, see [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/#pricing).
 
+
 ## Next steps
 
 - Learn how to [create an ExpressRoute scalable gateway](expressroute-howto-add-gateway-resource-manager.md).
 - Learn more about [ExpressRoute gateways](expressroute-about-virtual-network-gateways.md).
+
+
+
 
 

@@ -309,11 +309,12 @@ LTS intends to give you an extended period of time to plan and test for upgrades
 |   | Community Support  |Long Term Support   |
 |---|---|---|
 | **When to use** | When you can keep up with upstream Kubernetes releases | Scenarios where your applications aren't compatible with the changes introduced in newer Kubernetes versions, and you can't transition to a continuous release cycle due to technical constraints or other factors  |
-|  **Support versions** | Three GA minor versions | One Kubernetes version (currently *1.27*) for two years  |
+|  **Support versions** | Three GA minor versions | One Kubernetes version for two years  |
 
 > [!IMPORTANT]
 > Kubernetes version 1.27 is the first supported LTS version of Kubernetes on Operator Nexus Kubernetes service.
 > The next LTS version after 1.27 is 1.30, which will start its LTS support in October 2024.
+> Starting from Kubernetes version 1.30, all Nexus Kubernetes versions will be LTS-compatible.
 
 ### Migrate from LTS to the next LTS release
 

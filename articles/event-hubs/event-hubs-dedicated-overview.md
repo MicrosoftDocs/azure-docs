@@ -1,18 +1,23 @@
 ---
-title: Overview of Azure Event Hubs Dedicated tier
-description: This article provides an overview of the Dedicated tier of Azure Event Hubs, which offers single-tenant deployments of event hubs.  
+title: Azure Event Hubs Dedicated Tier Overview
+description: Discover Azure Event Hubs Dedicated tier, a single-tenant solution for enterprise-scale, low-latency event streaming. Evaluate its benefits for mission-critical workloads.
+#customer intent: As an enterprise architect, I want to understand the benefits of Azure Event Hubs Dedicated tier so that I can evaluate its suitability for mission-critical workloads.  
 ms.topic: article
-ms.date: 02/07/2023
+ms.date: 07/28/2025
+ms.custom:
+  - ai-gen-docs-bap
+  - ai-gen-title
+  - ai-seo-date:07/28/2025
+  - ai-gen-description
 ---
 
-# Overview of the Azure Event Hubs Dedicated tier
-
-Azure Event Hubs dedicated clusters are designed to meet the needs of the most demanding mission-critical event streaming workloads. These clusters provide a high-performance, low-latency, scalable, and reliable event streaming service for your event streaming applications that are based on the Advanced Message Queuing Protocol (Event Hubs SDK) or Apache Kafka APIs.
+# Azure Event Hubs Dedicated tier overview
+Azure Event Hubs Dedicated tier is a single-tenant solution designed to meet the needs of enterprise-scale, mission-critical event streaming workloads. This article provides an overview of the Dedicated tier, highlighting its key features, benefits, and use cases, showing how it supports high-performance, low-latency applications using Event Hubs SDK or Apache Kafka APIs.
 
 > [!NOTE]
 > The Dedicated tier isn't available in all regions. Try to create a dedicated cluster in the Azure portal. See the supported regions in the **Location** dropdown list on the **Create Event Hubs Cluster** page.
 
-## Why dedicated clusters?
+## Benefits of dedicated clusters
 
 The Dedicated tier of Event Hubs offers several benefits to customers who need to run mission-critical workloads at enterprise-level capacity.
 
@@ -30,7 +35,7 @@ Event Hubs dedicated clusters minimize the latency jitter and ensure consistent 
 
 ### Zero interference
 
-Event Hubs dedicated clusters operate on a single-tenant architecture. This architecture ensures that the allocated resources aren't being shared with any other tenants. Unlike with other tiers, you won't see any cross-tenant interference in a dedicated cluster.
+Event Hubs dedicated clusters operate on a single-tenant architecture. This architecture ensures that the allocated resources aren't being shared with any other tenants. Unlike with other tiers, you don't see any cross-tenant interference in a dedicated cluster.
 
 ### Self-serve scaling
 
@@ -110,9 +115,7 @@ For more information about quotas and limits, see [Event Hubs quotas and limits]
 [!INCLUDE [event-hubs-dedicated-clusters-faq](./includes/event-hubs-dedicated-clusters-faq.md)]
 
 ## Related content
-
-Contact your Microsoft sales representative or Microsoft Support to get more details about Event Hubs Dedicated. You can also create a cluster or learn more about Event Hubs pricing tiers:
-
-- [Create an Event Hubs cluster through the Azure portal](https://portal.azure.com).
-- Check out [Event Hubs Dedicated pricing](https://azure.microsoft.com/pricing/details/event-hubs/). You can also contact your Microsoft sales representative or Microsoft Support to get more details about Event Hubs Dedicated capacity.
-- See the [Event Hubs FAQ](event-hubs-faq.yml) for pricing information and answers to frequently asked questions about Event Hubs.
+Explore more about Event Hubs Dedicated:  
+- [Create an Event Hubs cluster through the Azure portal](https://portal.azure.com).  
+- [Event Hubs Dedicated pricing](https://azure.microsoft.com/pricing/details/event-hubs/): Learn about pricing tiers and capacity options.  
+- [Event Hubs FAQ](event-hubs-faq.yml): Find answers to frequently asked questions about Event Hubs.  
