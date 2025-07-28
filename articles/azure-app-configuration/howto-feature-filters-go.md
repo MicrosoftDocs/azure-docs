@@ -23,7 +23,6 @@ In this guide, you learn how to implement a custom feature filter and use the fe
 
 - Create a [Go Gin web application with a feature flag](./quickstart-feature-flag-go-gin.md).
 - [Add a custom feature filter to the feature flag](./howto-feature-filters.md)
-- [Azure App Configuration Go provider](https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration) v1.1.0-beta.1 or later.
 
 ## Implement a custom feature filter
 
