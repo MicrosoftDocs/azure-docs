@@ -129,7 +129,7 @@ Log signature: N/A
 
 When you add a new asset with a new asset endpoint profile to the OPC UA broker and trigger a reconfiguration, the deployment of the `opc.tcp` pods changes to accommodate the new secret mounts for username and password. If the new mount fails for some reason, the pod doesn't restart and therefore the old flow for the correctly configured assets stops as well.
 
-### An OPC UA server modelled as a device can only have one inbound endpoint of type "Microsoft.OpcUa"
+### An OPC UA server modeled as a device can only have one inbound endpoint of type "Microsoft.OpcUa"
 
 ---
 
@@ -141,11 +141,11 @@ Issue ID: 2411
 
 ---
 
-When you create an OPC UA device, you can only have one inbound endpoint of type `Microsoft.OpcUa`. Currently, any additional endpoints aren't used used.
+When you create an OPC UA device, you can only have one inbound endpoint of type `Microsoft.OpcUa`. Currently, any other endpoints aren't used.
 
 Workaround: Create multiple devices with a single endpoint each if you want to use namespace assets.
 
-A OPC UA namespaced asset can only have a single dataset, additional datasets aren't used.
+An OPC UA namespaced asset can only have a single dataset. Currently, any other datasets aren't used.
 
 Workaround: Create multiple namespace assets each with a single dataset.
 
@@ -181,7 +181,7 @@ Log signature: `"Error HelmUninstallUnknown: Helm encountered an error while att
 
 ---
 
-Sometimes, when you attempt to uninstall Azure IoT Operations from the cluster, the system can get to a state where CRD removal job is stuck in pending state and that blocks the cleanup of Azure IoT Operations.
+Sometimes, when you attempt to uninstall Azure IoT Operations from the cluster, the system reaches a state where CRD removal job is stuck in pending state, which blocks the cleanup of Azure IoT Operations.
 
 To work around this issue, complete the following steps to manually delete the CRD and finish the uninstall:
 
@@ -221,9 +221,9 @@ Log signature: N/A
 
 ---
 
-Media assets with a task type of "snapshot-to-fs" or "clip-to-fs" won't honor the "Path" in the "Destination configuration". Instead they use the path configured in the "Path" field for the "Additional configuration".
+Media assets with a task type of "snapshot-to-fs" or "clip-to-fs" don't honor the path in the destination configuration. Instead, they use the "Additional configuration" path field.
 
-### Media connector ignore MQTT topic setting in asset
+### Media connector ignores MQTT topic setting in asset
 
 ---
 
@@ -237,7 +237,7 @@ Log signature: N/A
 
 The media connector ignores the MQTT destination topic setting in the asset. Instead, it uses the default topic: `/azure-iot-operations/data/<asset-name>/snapshot-to-mqtt`.
 
-### Media connector inbound endpoint addresses are not fully validated
+### Media connector inbound endpoint addresses aren't fully validated
 
 ---
 
@@ -249,7 +249,7 @@ Log signature: N/A
 
 ---
 
-In the public preview release the media connector accepts device inbound endpoint addresses with the following schemes: `async`, `cache`, `concat`, `concatf`, `crypto`, `data`, `fd`, `ffrtmpcrypt`, `ffrtmphttp`, `file`, `ftp`, `gopher`, `gophers`, `hls`, `http`, `httpproxy`, `https`, `mmsh`, `mmst`, `pipe`, `rtmp`, `rtmpe`, `rtmps`, `rtmpt`, `rtmpte`, `rtmpts`, `rtp`, `srtp`, `subfile`, `tcp`, `tls`, `udp`, `udplite`, `unix`, `ipfx`, `ipns`.
+In the public preview release, the media connector accepts device inbound endpoint addresses with the following schemes: `async`, `cache`, `concat`, `concatf`, `crypto`, `data`, `fd`, `ffrtmpcrypt`, `ffrtmphttp`, `file`, `ftp`, `gopher`, `gophers`, `hls`, `http`, `httpproxy`, `https`, `mmsh`, `mmst`, `pipe`, `rtmp`, `rtmpe`, `rtmps`, `rtmpt`, `rtmpte`, `rtmpts`, `rtp`, `srtp`, `subfile`, `tcp`, `tls`, `udp`, `udplite`, `unix`, `ipfx`, `ipns`.
 
 This enables input data from multiple source types. However, because the output configuration is based on the `streamConfiguration`, the possibilities for using data from these sources are limited.
 
