@@ -69,6 +69,9 @@ There are required fields that you need to fill out.
 
 [!INCLUDE [review-create](../includes/review-create.md)]
 
+> [!IMPORTANT]
+> After you create the Pure Storage resoure, you need to [create a storage pool](manage.md#create-a-storage-pool) to use and manage your storage volumes. 
+
 ## Next step
 
 > [!div class="nextstepaction"]
