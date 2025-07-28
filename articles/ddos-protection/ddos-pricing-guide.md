@@ -85,7 +85,7 @@ When DDoS Network Protection is enabled on the virtual network containing the Ap
 To learn more about Application Gateway WAF pricing, see [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 
-## Value-added benefits analysis
+## Value-added benefits
 
 Network Protection provides extra value beyond IP Protection that should be considered in total cost of ownership calculations. To learn more about the value-added benefits of Network Protection, see [DDoS Protection tier comparison](ddos-protection-sku-comparison.md).
 
