@@ -162,7 +162,7 @@ items:
   - name: Deploy Azure VMware Solution
     href: deploy-azure-vmware-solution.md
   - name: Azure VMware Solution SDDC maintenance best practices
-    href: azure-vmware-solution-host-remediation.md
+    href: azure-vmware-solution-private-cloud-maintenance-best-practices.md
   - name: Deploy vSAN stretched clusters
     href: deploy-vsan-stretched-clusters.md
   - name: Create a placement policy
@@ -353,10 +353,10 @@ items:
     href: configure-azure-vmware-solution-metrics.md
   - name: Resource Health for AVS
     items:
-    - name: Resource Health for Azure VMware Solution overview
-      href: resource-health-for-avs-overview.md
+    - name: Overview
+      href: resource-health-for-azure-vmware-solution-overview.md
     - name: Configure Azure Monitor for Resource Health alerts
-      href: configure-azure-monitor-for-resource-health-for-avs.md
+      href: configure-azure-monitor-for-resource-health-for-azure-vmware-solution.md
   - name: Arc-enabled Azure VMware Solution private cloud
     items:
     - name: Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud
