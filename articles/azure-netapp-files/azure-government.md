@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: devx-track-azurecli, no-azure-ad-ps-ref
 ms.topic: concept-article
-ms.date: 05/21/2025
+ms.date: 07/28/2025
 ms.author: anfdocs
 # Customer intent: As a government IT administrator, I want to understand how to access and utilize Azure NetApp Files in Azure Government, so that I can effectively manage mission-critical workloads within the dedicated cloud environment.
 ---
