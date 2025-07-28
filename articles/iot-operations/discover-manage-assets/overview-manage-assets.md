@@ -4,7 +4,7 @@ description: Understand concepts and options needed to manage the devices and na
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 07/17/2025
+ms.date: 07/28/2025
 ai-usage: ai-assisted
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to understand the key components in the Azure IoT Operations for managing devices and assets, so that I can effectively manage the devices and assets in my solution. 
@@ -34,7 +34,7 @@ In the previous diagram:
 - The assets, such **Asset-01** that could be an oven, are *physical assets* that connect indirectly through one of the OPC UA servers.
 - The OPC UA servers are *physical devices* that connect to Azure IoT Operations through the connector for OPC UA.
 
-A physical device can connect using a variety of protocols. It could connect through a connector such as the media connector. If it uses the MQTT protocol, it can connect directly to the MQTT broker bypassing the connectors.
+A physical device can connect using various protocols. It could connect through a connector such as the media connector. If it uses the MQTT protocol, it can connect directly to the MQTT broker bypassing the connectors.
 
 The following diagram shows how physical devices connect to Azure IoT Operations:
 
@@ -99,9 +99,7 @@ Azure IoT Operations includes several services that help you manage devices and 
 - The **connector for ONVIF (preview)** is a service that discovers and registers ONVIF assets such as cameras. The connector enables you to manage and control ONVIF assets such as cameras connected to your cluster.
 - The **connector for REST/HTTP (preview)** is a service that lets you connect to REST/HTTP endpoints and publish data to the MQTT broker.
 - **Custom connectors** are services that you can create to connect to other data sources and publish data to the MQTT broker. Use the Azure IoT Operations SDKS to create custom connectors that meet your specific requirements.
-- **Akri services** are a set of services that enable protocol and edge-focused data processing stack connectivity for customers with a simple all-in-one deployment + an elegant, no-code UI for on-site technicians in manufacturing/healthcare, store employees in retail, etc. It enables a seamless modeling of different device and protocol connections through the concept of Assets. 
-
-
+- **Akri services (preview)** enable the automatic discovery of physical devices and assets and help OT users configure devices and namespace assets in the operations experience web UI. The connectors described previously all use the framework provided by the Akri services to implement their core capabilities.
 
 ## Store assets as Azure resources in a centralized registry
 
