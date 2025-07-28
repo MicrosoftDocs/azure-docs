@@ -149,7 +149,7 @@ To set up Azure IoT Operations with your own issuer for internal communications,
 
 The certificate management experience for external communications uses Azure Key vault as the managed vault solution on the cloud. Certificates are added to the key vault as secrets and synchronized to the edge as Kubernetes secrets via [Azure Key Vault Secret Store extension](/azure/azure-arc/kubernetes/secret-store-extension).
 
-Connectors use the certificate management experience to configure client application authentication to external servers. Azure IoT Operations manages two distinct certificate stores for connectors: one for the *Trust list* and one for the *Issuer list*. To learn more about how connectors use certificates to establish mutual trust with external servers, see the connector-specific certificate management documentation.
+Connectors use the certificate management experience to configure client application authentication to external servers. To learn more about how connectors use certificates to establish mutual trust with external servers, see the connector-specific certificate management documentation.
 
 When you [deploy Azure IoT Operations with secure settings](../deploy-iot-ops/overview-deploy.md#secure-settings-deployment), you can start adding certificates to Azure Key Vault, and sync them to the Kubernetes cluster to be used in the *Trust list* and *Issuer list* stores for external connections.
 
@@ -191,6 +191,6 @@ To manage certificates for external communications, follow these steps:
     :::image type="content" source="media/howto-manage-certificates/list-certificates.png" lightbox="media/howto-manage-certificates/list-certificates.png" alt-text="Screenshot that shows the list of certificates in the devices page and how to filter by Trust List and Issuer List.":::
 
 
-To learn more about the *Trust list* and *Issuer list* stores, see the connector-specific certificate management documentation.
+To learn more about how trust certificates are managed for specific connectors, see the connector-specific certificate management documentation.
 
 You can delete synced certificates as well. When you delete a synced certificate, it only deletes the synced certificate from the Kubernetes cluster, and doesn't delete the contained secret reference from Azure Key Vault. You must delete the certificate secret manually from the key vault.
