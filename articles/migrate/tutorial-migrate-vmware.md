@@ -154,7 +154,9 @@ Replication occurs as follows: <br /><br />
 5. Run this command in Azure Cloud Shell to monitor the migration status of the server you need.
 
     ```powershell
-    Run this command in Azure Cloud Shell to monitor the migration status of the server you need.
+    
+    Get-AzMigrateServerMigrationStatus -ProjectName "<your-project-name>"   -ResourceGroupName "<your-resource-group>" -MachineName "<your-server-name>"
+
     ```
 6. Replace `your-project-name`, `your-resource-group`, and `your-server-name` with the actual Azure Migrate project, resource group, and server name.
 7. You run this command and get the following output: 
