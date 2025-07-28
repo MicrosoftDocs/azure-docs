@@ -1,7 +1,7 @@
 ---
 title: Integrate Microsoft Copilot Studio to Azure Communication Services
 titleSuffix: An Azure Communication Services sample showing how to integrate with agents built using Microsoft Copilot Studio
-description: Overview of a Call Automation sample that uses Azure Communication Services to enable developers to learn how to incorporate voice into their Microsoft Copilot Studio agent.
+description: Overview of a Call Automation sample that uses Azure Communication Services to enable developers to learn how to incorporate voice into their Microsoft Copilot Studio agents.
 author: kpunjabi
 services: azure-communication-services
 ms.author: kpunjabi
