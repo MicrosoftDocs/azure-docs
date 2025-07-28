@@ -111,9 +111,9 @@ The Akri services support the following features:
 To learn more about OPC UA automatic asset discovery with Akri services, see [Discover OPC UA data sources using the Akri services](howto-autodetect-opc-ua-assets-use-akri.md)
 
 To learn more about using Akri with ONVIF, Media, or REST/HTTP, see:
-- [Understand the connector for media](/articles/iot-operations/discover-manage-assets/overview-media-connector.md)
-- [Understand the connector for ONVIF](/articles/iot-operations/discover-manage-assets/overview-onvif-connector.md)
-- [Understand the connector for REST/HTTP](/articles/iot-operations/discover-manage-assets/overview-http-connector.md)
+- [Understand the connector for media](./overview-media-connector.md)
+- [Understand the connector for ONVIF](./overview-onvif-connector.md)
+- [Understand the connector for REST/HTTP](overview-http-connector.md)
 
 To learn more about the open-source CNCF Akri, see the following resources:
 
