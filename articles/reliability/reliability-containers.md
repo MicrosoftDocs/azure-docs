@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-container-instances
-ms.date: 06/23/2025
+ms.date: 07/28/2025
 #Customer intent: I want to understand reliability support in Azure Container Instances so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
 ---
 
@@ -38,10 +38,10 @@ Azure Container Instances supports *zonal* container group deployments, meaning 
 * If using PowerShell, ensure version `2.1.1-preview` or later is installed.
 * If using the Java SDK, ensure version `2.9.0` or later is installed.
 * Availability zone support is only available on ACI API version `09-01-2021` or later.
-
+* Zonal container group deployments require the Standard SKU. They don't support the Confidential SKU.
 
 > [!IMPORTANT]
-> Container groups with GPU resources don't support availability zones at this time.
+> Not all features are supported in zonal deployments. For example, Confidential Compute isn't supported, and GPU resource support is zone-dependent, based on hardware availability in specific zones.
 
 ### Availability zone redeployment and migration
 
@@ -192,8 +192,9 @@ To create a Container Instance resource with availability zone enabled, you'll n
       --resource-group myResourceGroup \
       --template-file azuredeploy.json
     ```
+
 4. To verify the container group deployed successfully into an availability zone, view the container group details with the [az container show][az-container-show] command:
-    
+
     ```azurecli
     az container show --name acilinuxpublicipcontainergroup --resource-group myResourceGroup
     ```
@@ -205,6 +206,20 @@ A container group of container instances is assigned to a single availability zo
 If, however, an outage occurs in the availability zone of the container group, you can expect downtime for all the container instances within that group.
 
 To avoid container instance downtime, we recommend that you create a minimum of two container groups across two different availability zones in a given region. This ensures that your container instance resources are up and running whenever any single zone in that region experiences outage.
+
+We recommend you use [Azure Monitor](/azure/container-instances/monitor-azure-container-instances), regional status pages, and custom health checks to guide your failover decisions.
+
+## NGroups
+
+[NGroups](/azure/container-instances/container-instance-ngroups/container-instances-about-ngroups) provide advanced capabilities for managing multiple related container groups, which can be used across availability zones.
+
+NGroups offer zone-redundant deployment support.
+
+## Standby pools
+
+[Standby pools for Azure Container Instances](/azure/container-instances/container-instances-standby-pool-overview) enable you to create a pool of pre-provisioned container groups that can be used in response to incoming traffic. The container groups in the pool are fully provisioned, initialized, and ready to receive work.
+
+Standby pools support creating and requesting containers across multiple availability zones. However, standby pool don't support zone-redundancy.
 
 ## Multi-region support
 
