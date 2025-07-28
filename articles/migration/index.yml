@@ -118,9 +118,9 @@ sections:
   # By role
   - componentType: markdown
     content: |
-      ## Migrate workloads from other clouds or on-premises
+      ## Migrate workloads from other clouds 
 
-      Easily migrate your workloads from Amazon Web Services (AWS), Google Cloud, or on-premises environments to Azure using our guided tools and proven best practices. Select a tab to get tailored migration guidance for your current platform.
+      Easily migrate your workloads from Amazon Web Services (AWS) or Google Cloud environments to Azure using our guided tools and proven best practices. Select a tab to get tailored migration guidance for your current platform.
       
       #### [Amazon Web Services](#tab/azure-web-services)
       
@@ -182,8 +182,6 @@ sections:
       :::row-end:::
       ---
    
-      <br />
-
   - componentType: grid
     title: Read migration blogs and articles from community members
     summary: Check out some of the latest migration blogs and articles from advocates and experts within the Azure community.
