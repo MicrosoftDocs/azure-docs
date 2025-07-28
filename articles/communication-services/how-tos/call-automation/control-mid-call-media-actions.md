@@ -14,7 +14,7 @@ services: azure-communication-services
 
 # Control mid-call media actions with Call Automation
 
-Call Automation uses a REST API interface to receive requests for actions and provide responses to notify whether the request was successfully submitted or not. Because of the asynchronous nature of calling, most actions have corresponding events that are triggered when the action completes successfully or fails. This article covers the actions that are available to developers during calls, like `SendDTMF` and `ContinuousDtmfRecognition`. Actions are accompanied with sample code on how to invoke the particular action.
+Call Automation uses a REST API interface to receive requests for actions and provide responses to notify whether the request was successfully submitted or not. Because of the asynchronous nature of calling, most actions have corresponding events that are triggered when the action finishes successfully or fails. This article covers the actions that are available to developers during calls, like `SendDTMF` and `ContinuousDtmfRecognition`. Actions are accompanied with sample code on how to invoke the particular action.
 
 Call Automation supports other actions to manage calls and recordings that aren't included in this article.
 
@@ -29,7 +29,7 @@ Call Automation supports other actions to manage calls and recordings that aren'
 
 For all the code samples, `client` is the `CallAutomationClient` object that you can create, as shown, and `callConnection` is the `CallConnection` object that you obtain from the `Answer` or `CreateCall` response. You can also obtain it from callback events that your application receives.
 
-### [csharp](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 var callAutomationClient = new CallAutomationClient("<Azure Communication Services connection string>");
@@ -67,7 +67,7 @@ You can send dual-tone multifrequency (DTMF) tones to an external participant. T
 
 Send a list of DTMF tones to an external participant.
 
-### [csharp](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 var tones = new DtmfTone[] { DtmfTone.One, DtmfTone.Two, DtmfTone.Three, DtmfTone.Pound }; 
@@ -124,7 +124,7 @@ When your application sends these DTMF tones, you receive event updates. You can
 
 An example of a `SendDtmfTonesCompleted` event:
 
-### [csharp](#tab/csharp)
+### [C#](#tab/csharp)
 
 ``` csharp
 if (acsEvent is SendDtmfTonesCompleted sendDtmfCompleted) 
@@ -160,7 +160,7 @@ if event.type == "Microsoft.Communication.SendDtmfTonesCompleted":
 
 An example of a `SendDtmfTonesFailed` event:
 
-### [csharp](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 if (acsEvent is SendDtmfTonesFailed sendDtmfFailed) 
@@ -206,7 +206,7 @@ You can subscribe to receive continuous DTMF tones throughout the call. Your app
 
 Start detecting DTMF tones sent by a participant.
 
-### [csharp](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 await callAutomationClient.GetCallConnection(callConnectionId) 
@@ -258,7 +258,7 @@ When your application no longer wants to receive DTMF tones from the participant
 
 Stop detecting DTMF tones sent by a participant.
 
-### [csharp](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 var continuousDtmfRecognitionOptions = new ContinuousDtmfRecognitionOptions(new PhoneNumberIdentifier(callerPhonenumber)) 
@@ -312,7 +312,7 @@ Your application receives event updates when these actions either succeed or fai
 
 An example of how you can handle a DTMF tone that was successfully detected.
 
-### [csharp](#tab/csharp)
+### [C#](#tab/csharp)
 
 ``` csharp
 if (acsEvent is ContinuousDtmfRecognitionToneReceived continuousDtmfRecognitionToneReceived) 
@@ -362,7 +362,7 @@ Azure Communication Services provides you with `SequenceId` as part of the `Cont
 
 An example of what to do when DTMF tone detection fails.
 
-### [csharp](#tab/csharp)
+### [C#](#tab/csharp)
 
 ``` csharp
 if (acsEvent is ContinuousDtmfRecognitionToneFailed continuousDtmfRecognitionToneFailed) 
@@ -407,7 +407,7 @@ if event.type == "Microsoft.Communication.ContinuousDtmfRecognitionToneFailed":
 
 An example of what to do when continuous DTMF recognition stops. Maybe your application invoked the `StopContinuousDtmfRecognitionAsync` event or the call ended.
 
-### [csharp](#tab/csharp)
+### [C#](#tab/csharp)
 
 ``` csharp
 if (acsEvent is ContinuousDtmfRecognitionStopped continuousDtmfRecognitionStopped) 
@@ -445,7 +445,7 @@ if event.type == "Microsoft.Communication.ContinuousDtmfRecognitionStopped":
 
 The hold action allows developers to temporarily pause a conversation between a participant and a system or agent. This capability is useful in scenarios where the participant needs to be transferred to another agent or department or when the agent needs to consult a supervisor before continuing the conversation. During this time, you can choose to play audio to the participant who is on hold.
 
-### [csharp](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 // Option 1: Hold without additional options
@@ -468,7 +468,7 @@ await callMedia.HoldAsync(holdOptions);
 */
 ```
 
-### [java](#tab/java)
+### [Java](#tab/java)
 
 ```java
 // Option 1: Hold with options
@@ -524,7 +524,7 @@ call_connection_client.hold(
 
 The unhold action allows developers to resume a conversation between a participant and a system or agent that was previously paused. When the participant is taken off hold, they can hear the system or agent again.
 
-### [csharp](#tab/csharp)
+### [C#](#tab/csharp)
 
 ``` csharp
 var unHoldOptions = new UnholdOptions(target) 
@@ -541,7 +541,7 @@ var UnHoldParticipant = await callMedia.UnholdAsync(target);
 */
 ```
 
-### [java](#tab/java)
+### [Java](#tab/java)
 
 ``` java
 // Option 1

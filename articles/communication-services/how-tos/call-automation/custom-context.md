@@ -41,7 +41,7 @@ The maximum length of a VoIP header key is 64 characters. These headers can be s
 
 ## Add custom context when you invite a participant
 
-### [csharp](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 // Invite an Azure Communication Services user and include one VOIP header
@@ -126,7 +126,7 @@ result = call_connection_client.add_participant(
 -----
 ## Add a custom context during a call transfer
 
-### [csharp](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 //Transfer to an Azure Communication Services user and include one VOIP header
@@ -219,7 +219,7 @@ Currently, transfer of a VoIP call to a phone number isn't supported.
 -----
 ## Read custom context from an incoming call event
 
-### [csharp](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 AcsIncomingCallEventData incomingEvent = <incoming call event from Event Grid>;

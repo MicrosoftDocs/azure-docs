@@ -15,7 +15,7 @@ ms.author: richardcho
 
 Each mid-call webhook callback sent by Call Automation uses a signed JSON Web Token (JWT) in the Authentication header of the inbound HTTPS request. You can use standard OpenID Connect (OIDC) JWT validation techniques to ensure the integrity of the token. The lifetime of the JWT is five minutes, and a new token is created for every event sent to the callback URI.
 
-1. Obtain the OpenID configuration URL: <https://acscallautomation.communication.azure.com/calling/.well-known/acsopenidconfiguration>
+1. Obtain the OpenID configuration URL: `<https://acscallautomation.communication.azure.com/calling/.well-known/acsopenidconfiguration>`
 1. Install the following packages:
     - [flask pypi](https://pypi.org/project/Flask/)
     - [PyJWT pypi](https://pypi.org/project/PyJWT/)

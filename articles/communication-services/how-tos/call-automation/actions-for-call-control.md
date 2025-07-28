@@ -14,7 +14,7 @@ services: azure-communication-services
 
 # Control and steer calls with Call Automation
 
-Call Automation uses a REST API interface to receive requests for actions and provide responses to notify whether the request was successfully submitted or not. Because of the asynchronous nature of calling, most actions have corresponding events that are triggered when the action completes successfully or fails. This article covers the actions that are available for steering calls, like `CreateCall`, `Transfer`, and `Redirect`, and managing participants. Sample code shows how to invoke the particular action. Sequence diagrams describe the events that are expected after you invoke an action. The diagrams help you visualize how to program your service application with Call Automation.
+Call Automation uses a REST API interface to receive requests for actions and provide responses to notify whether the request was successfully submitted or not. Because of the asynchronous nature of calling, most actions have corresponding events that are triggered when the action finishes successfully or fails. This article covers the actions that are available for steering calls, like `CreateCall`, `Transfer`, and `Redirect`, and managing participants. Sample code shows how to invoke the particular action. Sequence diagrams describe the events that are expected after you invoke an action. The diagrams help you visualize how to program your service application with Call Automation.
 
 Call Automation supports other actions to manage call media and recording that have separate articles.
 
@@ -23,9 +23,9 @@ Call Automation supports other actions to manage call media and recording that h
 - Read the Call Automation [concepts article](../../concepts/call-automation/call-automation.md#call-actions) that describes the action-event programming model and event callbacks.
 - Learn about the [user identifiers](../../concepts/identifiers.md#the-communicationidentifier-type) like `CommunicationUserIdentifier` and `PhoneNumberIdentifier` that are used in this article.
 
-For all the code samples, `client` is the `CallAutomationClient` object that you can create, as shown, and `callConnection` is the `CallConnection` object that you obtain from the `Answer` or `CreateCall` response. You can also obtain it from callback events that your application receives.
+For all the code samples, `client` is the `CallAutomationClient` object that you can create, as shown. Also, `callConnection` is the `CallConnection` object that you obtain from the `Answer` or `CreateCall` response. You can also obtain it from callback events that your application receives.
 
-## [csharp](#tab/csharp)
+## [C#](#tab/csharp)
 
 ```csharp
 var client = new CallAutomationClient("<resource_connection_string>"); 
@@ -58,7 +58,7 @@ When you call a public-switched telephone network (PSTN) endpoint, you also need
 
 To place a call to an Azure Communication Services user, you need to provide a `CommunicationUserIdentifier` object instead of `PhoneNumberIdentifier`.  
 
-### [csharp](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 Uri callbackUri = new Uri("https://<myendpoint>/Events"); //the callback endpoint where you want to receive subsequent events 
@@ -104,7 +104,7 @@ call_connection_properties = client.create_call(call_invite, callback_uri)
 -----
 When you make a group call that includes a phone number, you must provide a phone number to use as a caller ID number for the PSTN endpoint.
 
-### [csharp](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 Uri callbackUri = new Uri("https://<myendpoint>/Events"); //the callback endpoint where you want to receive subsequent events 
@@ -175,7 +175,7 @@ If the call fails, you receive a `CallDisconnected` event and a `CreateCallFaile
 The connect action enables your service to establish a connection with an ongoing call and take actions on it. This capability is useful to manage a Rooms call or when client applications start a 1:1 or group call in which Call Automation isn't a part. Use the `CallLocator` property to establish the connection. The type options are `ServerCallLocator`, `GroupCallLocator`, and `RoomCallLocator`. You can find these IDs when the call is originally established or a Room is created, and can also be published as part of [CallStarted](./../../../event-grid/communication-services-voice-video-events.md#microsoftcommunicationcallstarted) event.
 
 To connect to any 1:1 or group call, use `ServerCallLocator`. If you used `GroupCallId` to start a call, you can also use `GroupCallLocator`.
-### [csharp](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 Uri callbackUri = new Uri("https://<myendpoint>/Events"); //the callback endpoint where you want to receive subsequent events
@@ -211,7 +211,7 @@ call_connection_properties = client.connect_call(call_locator=server_call_locato
 
 To connect to a Rooms call, use `RoomCallLocator`, which takes `RoomId`. Learn more about [Rooms](./../../concepts/rooms/room-concept.md) and how you can use the Call Automation API to [manage an ongoing Rooms call](./../../quickstarts/rooms/manage-rooms-call.md).
 
-### [csharp](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 Uri callbackUri = new Uri("https://<myendpoint>/Events"); //the callback endpoint where you want to receive subsequent events
@@ -258,7 +258,7 @@ At any point after a successful connection, if your service disconnects from thi
 
 After you subscribe to receive [incoming call notifications](../../concepts/call-automation/incoming-call-notification.md) to your resource, you can answer an incoming call. When you answer a call, you need to provide a callback URL. Azure Communication Services posts all subsequent events about this call to that URL.
 
-### [csharp](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 string incomingCallContext = "<IncomingCallContext_From_IncomingCall_Event>"; 
@@ -312,7 +312,7 @@ If the answer operation fails, you receive an `AnswerFailed` event with error co
 
 You can reject an incoming call. Reasons for the rejection are `None`, `Busy`, or `Forbidden`. If nothing is provided, the default is `None`.
 
-# [csharp](#tab/csharp)
+# [C#](#tab/csharp)
 
 ```csharp
 string incomingCallContext = "<IncomingCallContext_From_IncomingCall_Event>"; 
@@ -357,7 +357,7 @@ No events are published for the reject action.
 
 You can redirect an incoming call to another endpoint without answering it. Redirecting a call removes your application's ability to control the call by using Call Automation.
 
-# [csharp](#tab/csharp)
+# [C#](#tab/csharp)
 
 ```csharp
 string incomingCallContext = "<IncomingCallContext_From_IncomingCall_Event>"; 
@@ -397,7 +397,7 @@ client.redirect_call(
 -----
 To redirect the call to a phone number, construct the target and caller ID with `PhoneNumberIdentifier`.
 
-# [csharp](#tab/csharp)
+# [C#](#tab/csharp)
 
 ```csharp
 var callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the Azure Communication Services provisioned phone number for the caller
@@ -440,7 +440,7 @@ No events are published for redirect. If the target is an Azure Communication Se
 
 When your application answers a call or places an outbound call to an endpoint, your app can transfer the endpoint to another destination endpoint. Transferring a 1:1 call removes your application from the call and removes its ability to control the call by using Call Automation. The call invite to the target shows the caller ID of the endpoint being transferred. Providing a custom caller ID isn't supported.
 
-# [csharp](#tab/csharp)
+# [C#](#tab/csharp)
 
 ```csharp
 var transferDestination = new CommunicationUserIdentifier("<user_id>"); 
@@ -499,7 +499,7 @@ result = call_connection_client.transfer_call_to_participant(
 -----
 When your application answers a group call, places an outbound group call to an endpoint, or adds a participant to a 1:1 call, the app can transfer the endpoint from the call to another destination endpoint, except for the Call Automation endpoint. Transferring a participant in a group call removes the endpoint being transferred from the call. The call invite to the target shows the caller ID of the endpoint being transferred. Providing a custom caller ID isn't supported.
 
-# [csharp](#tab/csharp)
+# [C#](#tab/csharp)
 
 ```csharp
 // Transfer User
@@ -640,7 +640,7 @@ The sequence diagram shows the expected flow when your application places an out
 
 You can add a participant such as an Azure Communication Services user or a phone number to an existing call. When you add a phone number, it's mandatory to provide a caller ID. This caller ID is shown on call notification to the added participant.
 
-# [csharp](#tab/csharp)
+# [C#](#tab/csharp)
 
 ```csharp
 // Add user
@@ -772,7 +772,7 @@ Next, `AddParticipant` publishes an `AddParticipantSucceeded` or `AddParticipant
 
 ## Cancel an add participant request
 
-# [csharp](#tab/csharp)
+# [C#](#tab/csharp)
 
 ```csharp
 // add a participant
@@ -840,7 +840,7 @@ call_connection_client.cancel_add_participant_operation(result.invitation_id, op
 
 ## Remove a participant from a call
 
-# [csharp](#tab/csharp)
+# [C#](#tab/csharp)
 
 ```csharp
 var removeThisUser = new CommunicationUserIdentifier("<user_id>"); 
@@ -894,7 +894,7 @@ result = call_connection_client.remove_participant(remove_this_user, operation_c
 
 You can use the `hangUp` action to remove your application from the call or to terminate a group call by setting the `forEveryone` parameter to `true`. For a 1:1 call, `hangUp` terminates the call with the other participant by default.
 
-# [csharp](#tab/csharp)
+# [C#](#tab/csharp)
 
 ```csharp
 _ = await callConnection.HangUpAsync(forEveryone: true); 
@@ -919,11 +919,11 @@ call_connection_client.hang_up(is_for_everyone=True)
 ```
 
 -----
-The `CallDisconnected` event is published after the `hangUp` action successfully completes.
+The `CallDisconnected` event is published after the `hangUp` action successfully finishes.
 
 ## Get information about a call participant
 
-# [csharp](#tab/csharp)
+# [C#](#tab/csharp)
 
 ```csharp
 CallParticipant participantInfo = await callConnection.GetParticipantAsync(new CommunicationUserIdentifier("<user_id>"));
@@ -953,7 +953,7 @@ participant_info = call_connection_client.get_participant(
 
 ## Get information about all call participants
 
-# [csharp](#tab/csharp)
+# [C#](#tab/csharp)
 
 ```csharp
 List<CallParticipant> participantList = (await callConnection.GetParticipantsAsync()).Value.ToList(); 
@@ -981,7 +981,7 @@ participant_list = call_connection_client.list_participants()
 
 ## Get the latest information about a call
 
-# [csharp](#tab/csharp)
+# [C#](#tab/csharp)
 
 ```csharp
 CallConnectionProperties callConnectionProperties = await callConnection.GetCallConnectionPropertiesAsync(); 
