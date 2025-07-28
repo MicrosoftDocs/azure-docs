@@ -15,7 +15,7 @@ author: cjk7989
 |---|---|---|---|
 | [swa login](#swa-login) | Log in to Azure. | SWA Core | GA |
 | [swa init](#swa-init) | Configures a new Azure Static Web Apps project. | SWA Core | GA |
-| [swa build](#swa-build) | Builds the application. If you have a Node.js application, it will install dependencies first. | SWA Core | GA |
+| [swa build](#swa-build) | Builds the application. If you have a Node.js application, it installs dependencies first. | SWA Core | GA |
 | [swa start](#swa-start) | Start the Azure Static Web Apps emulator from a directory or bind to a running dev server. | SWA Core | GA |
 | [swa deploy](#swa-deploy) | Deploy the current project to Azure Static Web Apps. | SWA Core | GA |
 | [swa db](#swa-db) | Generate and edit your Static Web Apps database connections configuration. | SWA Core | GA |
@@ -104,7 +104,7 @@ ___[Global Parameters](#global-parameters)___
 
 Configures a new Azure Static Web Apps project.
 
-Configures a new Azure Static Web Apps project with the Static Web Apps CLI. Interactive mode prompts you for a configuration name, will detect your project settings and the frameworks used. Once complete, a new static web app is created and a swa-cli.config.json file is generated in the current directory.
+Configures a new Azure Static Web Apps project with the Static Web Apps CLI. Interactive mode prompts you for a configuration name, detects your project settings and the frameworks used. Once complete, a new static web app is created and a `swa-cli.config.json` file is generated in the current directory.
 
 You can run `swa init` multiple times to create different configurations for your project. You may want to do this if you're working on a monorepo and want to configure different projects.
 
@@ -166,7 +166,7 @@ ___[Global Parameters](#global-parameters)___
 
 ## swa build
 
-Builds the application. If you have a Node.js application, it will install dependencies first.
+Builds the application. If you have a Node.js application, it installs dependencies first.
 
 Common use cases include: installing dependencies for the front-end app and API and running the build commands for both, only building the front-end or API project if the other doesn't have a build step.
 
@@ -301,7 +301,7 @@ Then access the application with the emulated services from `http://localhost:42
 
 ### Serve both the front-end app and API
 
-If your project includes API functions, the CLI will check if the Azure Functions Core Tools are installed and available. If not, the CLI will download and install the right version of the Azure Functions Core Tools.
+If your project includes API functions, the CLI checks if the Azure Functions Core Tools are installed and available. If not, the CLI downloads and install the right version of the Azure Functions Core Tools.
 
 #### Start the API server automatically
 
@@ -620,7 +620,7 @@ ___[Global Parameters](#global-parameters)___
 
 Generate and edit your Static Web Apps database connections configuration.
 
-Use `swa db init` to generate a sample *swa-db-connections* folder, along with a *staticwebapp.database.config.json* configuration file. If you are using a Cosmos DB for NoSQL database, this will also generate a sample *staticwebapp.database.schema.gql* schema file.
+Use `swa db init` to generate a sample _swa-db-connections_ folder, along with a `staticwebapp.database.config.json` configuration file. If you are using a Cosmos DB for NoSQL database, this also generates a sample `staticwebapp.database.schema.gql` schema file.
 
 ### Syntax
 
