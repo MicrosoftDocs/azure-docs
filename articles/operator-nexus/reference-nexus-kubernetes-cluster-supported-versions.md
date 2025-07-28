@@ -10,11 +10,11 @@ ms.service: azure-operator-nexus
 
 # Supported Kubernetes versions in Azure Operator Nexus Kubernetes service
 
-This document provides an overview of the versioning schema used for the Operator Nexus Kubernetes service, including the supported Kubernetes versions. It explains the differences between major, minor, and patch versions, and provides guidance on upgrading Kubernetes versions, and what the upgrade experience is like. The document also covers the version support lifecycle and end of life (EOL) for each minor version of Kubernetes.
+This document provides an overview of the versioning schema used for the Operator Nexus Kubernetes service, including the supported Kubernetes versions. It explains the differences between major, minor, and patch versions, and provides guidance on upgrading Kubernetes versions, and what the upgrade experience is like. The document also covers the version support lifecycle and end of life (EOL) for each minor version of Kubernetes. Additionally it will speak of Features, a group of components which were previously known as "Add-ons". For more in-depth information about Features than what is described in this article, see [Nexus Kubernetes Cluster Features](./concepts-nexus-kubernetes-cluster.md#nexus-kubernetes-cluster-features)
 
 The Kubernetes community releases minor versions roughly every three months. Starting with version 1.19, the Kubernetes community has [increased the support window for each version from nine months to one year](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/).
 
-Minor version releases include new features and improvements. Patch releases are more frequent (sometimes weekly) and are intended for critical bug fixes within a minor version. Patch releases include fixes for security vulnerabilities or major bugs.
+Minor version releases may include new capabilities and/or improvements. Patch releases are more frequent (sometimes weekly) and are intended for critical bug fixes within a minor version. Patch releases include fixes for security vulnerabilities or major bugs.
 
 ## Kubernetes versions
 
@@ -37,7 +37,6 @@ Each number in the version indicates general compatibility with the previous ver
 We strongly recommend staying up to date with the latest available patches. For example, if your production cluster is on **`1.25.4`**, and **`1.25.6`** is the latest available patch version available for the *1.25* series. You should upgrade to **`1.25.6`** as soon as possible to ensure your cluster is fully patched and supported. Further details on upgrading your cluster can be found in the [Upgrading Kubernetes versions](./howto-kubernetes-cluster-upgrade.md) documentation.
 
 ## Nexus Kubernetes release calendar
-
 View the upcoming version releases on the Nexus Kubernetes release calendar.
 
 > [!NOTE]
@@ -48,42 +47,55 @@ For the past release history, see [Kubernetes history](https://github.com/kubern
 [!INCLUDE [supported-versions](./includes/kubernetes-cluster/supported-versions.md)]
 
 ## Nexus Kubernetes service version components
-
 An Operator Nexus Kubernetes service version is made of two discrete components that are combined into a single representation:
 
 * The Kubernetes version. For example, 1.25.4, is the version of Kubernetes that you deploy in Operator Nexus. These packages are supplied by Azure AKS, including all patch versions that Operator Nexus supports. For more information on Azure AKS versions, see [AKS Supported Kubernetes Versions](/azure/aks/supported-kubernetes-versions)
-* The [Version Bundle](#version-bundles), which encapsulates the features (add-ons) and the operating system image used by nodes in the Operator Nexus Kubernetes cluster, as a single number. For example, 2.
+* A [Version Bundle](#version-bundles) number which encapsulates the Kubernetes version, Features, and operating system (OS) image used by nodes in the Operator Nexus Kubernetes cluster, as a single number. For example, 2.†
+
 The combination of these values is represented in the API as the single kubernetesVersion. For example, `1.25.4-2` or the alternatively supported “v” notation: `v1.25.4-2`.
 
-### Version bundles
+† As of April 2025 version bundle increments have now changed to include release versioning rather than sequential numbering to provide release-to-release distinctiveness at a glance. Continue reading for more information on this change.
 
-By extending the version of Kubernetes to include a secondary value, the version bundle, Operator Nexus Kubernetes service can account for cases where the deployment is modified to include updates that occur on the Operating System and Kubernetes add-ons. Such updates might include but aren't limited to: updated operating system images, patch releases for features (add-ons) and the introduction of some platform features.  Version bundles are always backward compatible with prior version bundles within the same patch version, for example, 1.25.4-2 is backwards compatible with 1.25.4-1.
- 
-When new version bundles are released, all the Kubernetes patch versions in that series use the same versions of the OS and add-ons; only the Kubernetes code differs between them.   
-If the goal of the Nexus cluster upgrade is to ONLY patch or update the Kubernetes minor version, select an available Kubernetes version from the same version bundle series.
-If the goal of the Nexus cluster upgrade is to ONLY patch or update node OS or platform components, select a version bundle within the same K8s minor version as your cluster, but with a later version bundle number. In some cases, you may need to accept an updated Kubernetes patch as well.
-If the goal of the Nexus cluster upgrade is to patch or update both Kubernetes and the OS/platform components together, select the from the latest version bundle series.
-Prior to April 2025, version bundle numbers were incremented starting from "1" and varied depending on how long a particular Kubernetes patch version had been available on Nexus.  After April 2025, all version bundles in the same series are numbered with the same release identifier.  The chart below details which version bundles are in the same series.
+### Version bundles
+By extending the version of Kubernetes to include a secondary value, cumulatively called the "version bundle", the Operator Nexus service can clearly account for cases where the Kubernetes version is unchanged but the OS and Features are modified to include updates from a new Nexus release. Such updates might include but aren't limited to: updated operating system images, patch releases for Features, and the introduction of some platform Features.
+
+Prior to April 2025, version bundle numbers were incremented starting from "1" and varied depending on how long a particular Kubernetes patch version had been available on Nexus.  After April 2025, all version bundles in the same release are numbered with the same release identifier, e.g. "-4.4.0" or "-4.5.0".  The chart below details which version bundles are in the same series.
  
 Using this information, it becomes easier to predict and manage the process of moving between different versions of Kubernetes clusters offered by the Operator Nexus Kubernetes service.
  
-All Nexus cluster upgrades will take into account the standard Kubernetes versions skey policy, so in some cases you may need to perform more than one upgrade to bring a cluster to the desired Kubernetes level.  Skipping over any version bundle series is accepted, however you cannot downgrade to a previous version bundle series. 
+All Nexus cluster upgrades follow the standard Kubernetes versions skew policy, so in some cases you may need to perform more than one upgrade to bring a cluster to the desired Kubernetes version. Skipping over any version bundle release is accepted, however you cannot downgrade to a previous version bundle series.
 
 Changes to the configuration of a deployed Operator Nexus Kubernetes cluster should only be applied within a Kubernetes minor version upgrade, not during a patch version upgrade. Examples of configuration changes that could be applied during the minor version upgrade include:
 
 * Changing the configuration of the kube-proxy from using the iptables to ipvs
 * Changing the CNI from one product to another
 
-We can easily upgrade from any small update in one Kubernetes version to any small update in the next version, giving you flexibility. For example, an upgrade from 1.24.1-x to 1.25.4-x would be allowed, regardless of the presence of an intermediate 1.24.2-x version.
+### Choosing a version bundle for an upgrade scenario
+We allow upgrade from any patch version in one Kubernetes minor version to any patch version in the next Kubernetes minor version, giving you flexibility. For example, an upgrade from 1.31.1-x.x.x to 1.32.x-x.x.x would be allowed, regardless of the presence of an intermediate 1.31.2-x.x.x version.
+
+When new version bundles are released, all the Kubernetes patch versions in that version bundle release use the same versions of both OS and Features; only the Kubernetes code differs between them. Let's look at a few examples of upgrade routes which may be desirable:
+
+#### Kubernetes version update
+To patch or update the Kubernetes minor version, select an available Kubernetes version from the same version bundle series. E.G., if 1.32.1-4.4.0 is your current version bundle, and 1.33.1-4.4.0 is the latest 1.33.x version bundle, then you should choose 1.33.1-4.4.0.
+
+#### OS and component version update
+To patch or update OS or platform components, select a version bundle within the same Kubernetes minor version as your cluster, but with a later release number. E.G., if 1.32.1-4.4.0 is your current version bundle, and 1.32.1-4.5.0 is the latest 1.32.1 version bundle, then you should choose 1.32.1-4.5.0. This will ensure the Kubernetes version remains the same.
+
+#### Kubernetes, OS, and Component version update
+To patch or update both Kubernetes version, OS version, and platform components together, select the latest release version for the subsequent Kubernetes minor version. E.G., if 1.32.1-4.4.0 is your current version bundle and the latest version bundle for the subsequent Kubernetes minor version is 1.33.2-4.5.0, then you should use 1.33.2-4.5.0. This will upgrade all components.
+
+In the first two cases, you may need to accept an updated Kubernetes version or component version if a version bundle containing the desires upgrades was not released. In this case, any subsequent Kubernetes minor version will work, but the version bundle with the latest release version will be the most up-to-date and secure version of that Kubernetes minor version. It is highly recommended to choose the latest release version for a given version bundle.
+
 
 ### Components version and breaking changes
-
 Note the following important changes to make before you upgrade to any of the available minor versions:
 
-Note that the azure-arc-k8sagents version refers to the version of this feature shipped with the version bundle. The Arc-enabled Kubernetes agent is set to auto upgrade to the latest version of the agent whenever it's available.
+Note that the azure-arc-k8sagents version refers to the version of this Feature shipped with the version bundle. The Arc-enabled Kubernetes agent is set to auto upgrade to the latest version of the agent whenever it's available.
 
 |Kubernetes Version|Version Bundle|OS Image|azure-arc-k8sagents|cloud-provider-kubevirt|calico|metallb|multus|sriov-dp|csi-nfs|csi-volume|metrics-server|ipam-cni-plugin|node-local-dns|azure-arc-servers|pause image|etcd image|coredns image|kube-vip image|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| v1.33.2<br/>v1.33.1<br/>v1.32.6<br/>v1.32.5<br/>v1.31.10<br/>v1.31.9<br/>v1.30.14<br/>v1.30.13<br/>|4.5.0|[Azure Linux 3.0.20250702-3.0](https://github.com/microsoft/azurelinux/releases/tag/3.0.20250702-3.0)|1.27.0|1.0.9|[v3.29.2](https://github.com/projectcalico/calico/releases/tag/v3.29.2)|v0.14.9-1|[v4.0.2](https://github.com/k8snetworkplumbingwg/multus-cni/releases/tag/v4.0.2)|[v3.7.0](https://github.com/k8snetworkplumbingwg/sriov-network-device-plugin/releases/tag/v3.7.0)|[v4.11.0](https://github.com/kubernetes-csi/csi-driver-nfs/releases/tag/v4.11.0)|4.5.0-48|[v0.7.2-7](https://github.com/kubernetes-sigs/metrics-server/releases/tag/v0.7.2)|v1.0.9|1.26.0-1|v1.2.2|3.10-3|v3.5.21-2|v1.10.1-1|v0.8.9|
+| v1.32.4<br/>v1.32.1<br/>v1.31.8<br/>v1.31.7<br/>v1.30.12<br/>v1.30.9<br/>|4.4.0|[Azure Linux 3.0.20250429-3.0](https://github.com/microsoft/azurelinux/releases/tag/3.0.20250429-3.0)|1.26.0|1.0.8|[v3.29.2](https://github.com/projectcalico/calico/releases/tag/v3.29.2)|v0.14.9-1|[v4.0.2](https://github.com/k8snetworkplumbingwg/multus-cni/releases/tag/v4.0.2)|[v3.7.0](https://github.com/k8snetworkplumbingwg/sriov-network-device-plugin/releases/tag/v3.7.0)|[v4.11.0](https://github.com/kubernetes-csi/csi-driver-nfs/releases/tag/v4.11.0)|4.4.0-49|[v0.7.2](https://github.com/kubernetes-sigs/metrics-server/releases/tag/v0.7.2)|v1.0.8|1.25.0-2|v1.2.1|3.10-3|v3.5.21-1|v1.10.1-1|v0.8.9|
 | v1.32.1<br/>v1.31.5<br/>v1.31.4<br/>v1.30.9<br/>v1.30.8<br/>v1.29.13<br/>v1.29.12<br/>v1.28.14<br/>v1.28.12<br/>v1.27.13<br/>v1.27.9|4.3.0|v1.30.x and newer: [Azure Linux 3.0.20250311-3.0](https://github.com/microsoft/azurelinux/releases/tag/3.0.20250311-3.0)<br/>1.29.x and older: [Azure Linux 2.0.20250304-2.0](https://github.com/microsoft/azurelinux/releases/tag/2.0.20250304-2.0)|1.24.4|1.0.5|[v3.29.2](https://github.com/projectcalico/calico/releases/tag/v3.29.2)|v0.14.5-9|[v4.0.2](https://github.com/k8snetworkplumbingwg/multus-cni/releases/tag/v4.0.2)|[v3.7.0](https://github.com/k8snetworkplumbingwg/sriov-network-device-plugin/releases/tag/v3.7.0)|[v4.11.0](https://github.com/kubernetes-csi/csi-driver-nfs/releases/tag/v4.11.0)|4.3.0-45|[v0.7.2](https://github.com/kubernetes-sigs/metrics-server/releases/tag/v0.7.2)|v1.0.7|1.23.1-1|v1.2.0|3.10|v3.5.15-1|v1.9.4-4|v0.8.5|
 | v1.31.4<br/>v1.31.3<br/>v1.30.8<br/>v1.30.7<br/>v1.29.12<br/>v1.29.11<br/>v1.28.14<br/>v1.28.12<br/>v1.27.13<br/>v1.27.9|4.2.0|v1.30.x and newer: [Azure Linux 3.0.20250206-3.0](https://github.com/microsoft/azurelinux/releases/tag/3.0.20250206-3.0)<br/>1.29.x and older: [Azure Linux 2.0.20250207-2.0](https://github.com/microsoft/azurelinux/releases/tag/2.0.20250207-2.0)|1.23.3|v1.0.4|[v3.29.1](https://github.com/projectcalico/calico/releases/tag/v3.29.1)|v0.14.5-7|[v4.0.2](https://github.com/k8snetworkplumbingwg/multus-cni/releases/tag/v4.0.2)|[v3.7.0](https://github.com/k8snetworkplumbingwg/sriov-network-device-plugin/releases/tag/v3.7.0)|[v4.10.0](https://github.com/kubernetes-csi/csi-driver-nfs/releases/tag/v4.10.0)|v1.0.13|[v0.7.2](https://github.com/kubernetes-sigs/metrics-server/releases/tag/v0.7.2)|v1.0.5|1.23.1-1|v1.1.0|3.10|v3.5.15-1|v1.9.4-4|v0.8.5|
 | v1.31.3|1|[Azure Linux 3.0.20241005-3.0](https://github.com/microsoft/azurelinux/releases/tag/3.0.20241005-3.0)|1.22.4|v1.0.4|[v3.29.1](https://github.com/projectcalico/calico/releases/tag/v3.29.1)|v0.14.5-7|[v4.0.2](https://github.com/k8snetworkplumbingwg/multus-cni/releases/tag/v4.0.2)|[v3.7.0](https://github.com/k8snetworkplumbingwg/sriov-network-device-plugin/releases/tag/v3.7.0)|[v4.9.0](https://github.com/kubernetes-csi/csi-driver-nfs/releases/tag/v4.9.0)|v1.0.11|[v0.7.2](https://github.com/kubernetes-sigs/metrics-server/releases/tag/v0.7.2)|v1.0.5|1.23.1|v1.1.0|3.10|v3.5.15-1|v1.9.4-4|v0.8.5|
@@ -170,7 +182,7 @@ Note that the azure-arc-k8sagents version refers to the version of this feature 
 | v1.26.3|2|[Azure Linux 2.0.20230904-2.0](https://github.com/microsoft/azurelinux/releases/tag/2.0.20230904-2.0)|1.21.10|v1.0.1|[v3.26.1](https://github.com/projectcalico/calico/releases/tag/v3.26.1)|v0.13.9|[v3.8](https://github.com/k8snetworkplumbingwg/multus-cni/releases/tag/v3.8)|[v3.5.1](https://github.com/k8snetworkplumbingwg/sriov-network-device-plugin/releases/tag/v3.5.1)|[v4.4.0](https://github.com/kubernetes-csi/csi-driver-nfs/releases/tag/v4.4.0)|v1.0.4|[v0.6.3](https://github.com/kubernetes-sigs/metrics-server/releases/tag/v0.6.3)|v1.0.1|v0.1.0|Not Installed|3.8|v3.5.6-5|v1.9.3|v0.5.11|
 | v1.26.3|1|[Azure Linux 2.0.20230904-2.0](https://github.com/microsoft/azurelinux/releases/tag/2.0.20230904-2.0)|1.21.10|v1.0.1|[v3.24.0](https://github.com/projectcalico/calico/releases/tag/v3.24.0)|v0.13.9|[v3.8](https://github.com/k8snetworkplumbingwg/multus-cni/releases/tag/v3.8)|[v3.5.1](https://github.com/k8snetworkplumbingwg/sriov-network-device-plugin/releases/tag/v3.5.1)|[v4.1.0](https://github.com/kubernetes-csi/csi-driver-nfs/releases/tag/v4.1.0)|v1.0.3|[v0.6.3](https://github.com/kubernetes-sigs/metrics-server/releases/tag/v0.6.3)|v1.0.0|v0.1.0|Not Installed|3.8|v3.5.6-5|v1.9.3|v0.5.11|
 
-### Version bundle features
+### Version bundle Features
 
 | Feature            | Version Bundle | Notes           |
 |--------------------|----------------|-----------------|
@@ -237,20 +249,20 @@ End of life (EOL) means no more patch or version bundles are produced. It's poss
 
 During the extended availability period for unsupported Kubernetes versions (that is, EOL Kubernetes versions), users don't receive security patches or bug fixes. For detailed information on support categories, please refer to the following table.
 
-| Support category                         | N-2 to N                | Extended availability            |
-|------------------------------------------|-------------------------|----------------------------------|
-| Upgrades from N-3 to a supported version | Supported               | Supported                        |
-| Node pool scaling                        | Supported               | Supported                        |
-| Cluster or node pool creation            | Supported               | Supported                        |
-| Kubernetes components (including Add-ons)| Supported               | Not supported                    |
-| Component updates                        | Supported               | Not supported                    |
-| Component hotfixes                       | Supported               | Not supported                    |
-| Applying Kubernetes bug fixes            | Supported               | Not supported                    |
-| Applying Kubernetes security patches     | Supported               | Not supported                    |
-| Node image security patches              | Supported               | Not supported                    |
+| Support category                           | N-2 to N                | Extended availability            |
+|--------------------------------------------|-------------------------|----------------------------------|
+| Upgrades from N-3 to a supported version   | Supported               | Supported                        |
+| Node pool scaling                          | Supported               | Supported                        |
+| Cluster or node pool creation              | Supported               | Supported                        |
+| Kubernetes components (including Features) | Supported               | Not supported                    |
+| Component updates                          | Supported               | Not supported                    |
+| Component hotfixes                         | Supported               | Not supported                    |
+| Applying Kubernetes bug fixes              | Supported               | Not supported                    |
+| Applying Kubernetes security patches       | Supported               | Not supported                    |
+| Node image security patches                | Supported               | Not supported                    |
 
 > [!NOTE]
-> Operator Nexus relies on the releases and patches from [kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of three minor versions. Operator Nexus can only guarantee [full support](#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, Operator Nexus can either leave those versions unpatched or fork. Due to this limitation, extended availability doesn't support anything from relying on kubernetes upstream.
+> Operator Nexus relies on the releases and patches from [Kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of three minor versions. Operator Nexus can only guarantee [full support](#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, Operator Nexus can either leave those versions unpatched or fork. Due to this limitation, extended availability doesn't support anything from relying on Kubernetes upstream.
 
 ### Abandoned Nexus Kubernetes clusters
 
@@ -297,11 +309,12 @@ LTS intends to give you an extended period of time to plan and test for upgrades
 |   | Community Support  |Long Term Support   |
 |---|---|---|
 | **When to use** | When you can keep up with upstream Kubernetes releases | Scenarios where your applications aren't compatible with the changes introduced in newer Kubernetes versions, and you can't transition to a continuous release cycle due to technical constraints or other factors  |
-|  **Support versions** | Three GA minor versions | One Kubernetes version (currently *1.27*) for two years  |
+|  **Support versions** | Three GA minor versions | One Kubernetes version for two years  |
 
 > [!IMPORTANT]
 > Kubernetes version 1.27 is the first supported LTS version of Kubernetes on Operator Nexus Kubernetes service.
 > The next LTS version after 1.27 is 1.30, which will start its LTS support in October 2024.
+> Starting from Kubernetes version 1.30, all Nexus Kubernetes versions will be LTS-compatible.
 
 ### Migrate from LTS to the next LTS release
 

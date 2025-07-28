@@ -2,7 +2,7 @@
 title: Troubleshooting call end response codes for Calling SDK, Call Automation SDK, PSTN, Chat SDK, and SMS SDK - Azure Communication Services
 description: Use call end response codes to diagnose why a call ended for Calling SDK, Call Automation SDK, PSTN, Chat SDK, and SMS SDK.
 services: azure-communication-services
-ms.date: 11/24/2023
+ms.date: 07/14/2025
 author: slpavkov
 ms.service: azure-communication-services
 ms.author: slpavkov
@@ -16,6 +16,8 @@ zone_pivot_groups: acs-calling-automation-pstn
 
 This article describes troubleshooting call end response codes for Calling SDK, Call Automation, and PSTN calling.
 
+::: zone pivot="calling,callend,automation,pstn,chat"
+
 ## Troubleshooting tips
 
 Consider the following tips when troubleshooting: 
@@ -25,6 +27,8 @@ Consider the following tips when troubleshooting:
 - Actions on PSTN endpoints aren't working: For `CreateCall`, `Transfer`, `AddParticipant`, and `Redirect` to phone numbers, you need to set the `SourceCallerId` in the action request. Unless you're using direct routing, the source caller ID must be a phone number owned by your Communication Services resource for the action to succeed. 
 
 For more information about issues tracked by the product team, see [Known issues](../../../concepts/known-issues.md).
+
+::: zone-end
 
 > [!NOTE]
 > Message and Result Categories listed in the following tables are in public preview. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

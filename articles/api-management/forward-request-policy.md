@@ -35,7 +35,7 @@ The `forward-request` policy forwards the incoming request to the backend servic
 | timeout                             | The amount of time in seconds to wait for the HTTP response headers to be returned by the backend service before a timeout error is raised. Minimum value is 0 seconds. Values greater than 240 seconds may not be honored, because the underlying network infrastructure can drop idle connections after this time. Policy expressions are allowed. You can specify either `timeout` or `timeout-ms` but not both. | No       | 300    |
 | timeout-ms                             | The amount of time in milliseconds to wait for the HTTP response headers to be returned by the backend service before a timeout error is raised. Minimum value is 0 ms. Policy expressions are allowed. You can specify either `timeout` or `timeout-ms` but not both.  | No       | N/A    |
 | continue-timeout | The amount of time in seconds to wait for a `100 Continue` status code to be returned by the backend service before a timeout error is raised. Policy expressions are allowed. | No  | N/A |
-| http-version                             | The HTTP spec version to use when sending the HTTP response to the backend service. When using `2or1`, the gateway will favor HTTP /2 over /1, but fall back to HTTP /1 if HTTP /2 doesn't work. | No       | 1    |
+| http-version                             | The HTTP protocol version to use when sending the HTTP request to the backend service: <br> - `1`: HTTP/1 <br> - `2`: HTTP/2 <br/> - `2or1`: The gateway favors HTTP/2 over HTTP/1, but falls back to HTTP/1 if HTTP/2 doesn't work.<br/><br/> HTTP/2 outbound is supported in select gateways. See [Usage notes](#usage-notes) for details. | No       | 1    |
 | follow-redirects | Specifies whether redirects from the backend service are followed by the gateway or returned to the caller. Policy expressions are allowed.                                                                                                                                                                                                    | No       | `false`   |
 | buffer-request-body      | When set to `true`, request is buffered and will be reused on [retry](retry-policy.md).                                                                                                                                                                                               | No       | `false`   |
 | buffer-response | Affects processing of chunked responses. When set to `false`, each chunk received from the backend is immediately returned to the caller. When set to `true`, chunks are buffered (8 KB, unless end of stream is detected) and only then returned to the caller.<br/><br/>Set to `false` with backends such as those implementing [server-sent events (SSE)](how-to-server-sent-events.md) that require content to be returned or streamed immediately to the caller. Policy expressions aren't allowed. | No | `true` |
@@ -48,11 +48,18 @@ The `forward-request` policy forwards the incoming request to the backend servic
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
+### Usage notes
+
+*  Use the `http-version` attribute to enable the HTTP/2 protocol outbound from the gateway to the backend. Set the attribute to `2or1` or `2`. Currently, HTTP/2 outbound is supported in the self-hosted gateway and in preview in the v2 gateway.
+
+    > [!IMPORTANT]
+    > In the v2 gateway, HTTP/2 is supported inbound to the API Management gateway and outbound from the gateway to the backend but not end-to-end. Currently, the v2 gateway downgrades an incoming HTTP/2 connection to HTTP/1 before forwarding the request to the backend.
+
 ## Examples
 
 ### Send request to HTTP/2 backend
 
-The following API level policy forwards all API requests to an HTTP/2 backend service.
+The following API level policy forwards all API requests to an HTTP/2 backend service. For example, use this policy to forward requests from a self-hosted gateway to a gRPC backend.
 
 ```xml
 <!-- api level -->
@@ -68,8 +75,6 @@ The following API level policy forwards all API requests to an HTTP/2 backend se
     </outbound>
 </policies>
 ```
-
-This is required for HTTP /2 or gRPC workloads and currently only supported in self-hosted gateway. Learn more in our [API gateway overview](api-management-gateways-overview.md).
 
 ### Forward request with timeout interval
 

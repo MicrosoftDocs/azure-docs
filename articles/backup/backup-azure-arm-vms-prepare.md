@@ -4,8 +4,8 @@ description: Describes how to back up Azure VMs in a Recovery Services vault usi
 ms.topic: how-to
 ms.date: 09/09/2024
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to configure a backup for Azure VMs using a Recovery Services vault, so that I can ensure data protection and recovery options are in place for my virtual machines.
 ---
 

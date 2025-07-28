@@ -4,8 +4,8 @@ description: In this article, you'll learn about backing up SAP HANA databases t
 ms.topic: overview
 ms.date: 06/05/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to implement backup and restore for SAP HANA databases on Azure VMs, so that I can ensure data integrity and meet recovery objectives efficiently."
 ---
 

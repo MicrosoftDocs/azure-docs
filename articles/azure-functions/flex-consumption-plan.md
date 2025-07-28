@@ -122,7 +122,9 @@ This table shows the language stack versions that are currently supported for Fl
 
 ## Regional subscription memory quotas
 
-Currently, each region in a given subscription has a memory limit of `512,000 MB` for all instances of apps running on Flex Consumption plans. This quota means that, in a given subscription and region, you could have any combination of instance memory sizes and counts, as long as they stay under the quota limit. For example, each the following examples would mean the quota is reached and the apps would stop scaling:
+The Flex Consumption plan has a memory-based quota that limits how much compute all your Flex Consumption apps can use at the same time in a specific region and subscription. Imagine you have a bucket of memory measured in GB for your entire subscription in a region. All your Flex Consumption apps in that region share this bucket. If your Flex Consumption apps try to use more than the quota allows, some executions may be delayed or throttled from scaling, but you won’t be blocked from creating or deploying apps.
+
+Currently, each region in a given subscription has a default memory limit quota of `512,000 MB` for all instances of apps running on Flex Consumption plans. This quota means that, in a given subscription and region, you could have any combination of instance memory sizes and counts, as long as they stay under the quota limit. For example, each the following examples would mean the quota is reached and the apps would stop scaling:
 
 + You have one 512-MB app scaled to 250 instances and a second 512-MB app scaled to 750 instances. 
 + You have one 512-MB app scaled to 1,000 instances.
@@ -151,7 +153,6 @@ Keep these other considerations in mind when using Flex Consumption plan:
 + **Proxies**: Functions Proxies aren't supported. Consider integrating your function apps with Azure API Management.
 + **Scale**: The lowest maximum scale is currently `40`. The highest currently supported value is `1000`. 
 + **Managed dependencies**: [Managed dependencies in PowerShell](functions-reference-powershell.md#managed-dependencies-feature) aren't supported by Flex Consumption. You must instead [upload modules with app content](functions-reference-powershell.md#including-modules-in-app-content).
-+ **Diagnostic settings**: Diagnostic settings aren't currently supported.
 + **Certificates**: Loading certificates with the WEBSITE_LOAD_CERTIFICATES app setting, managed certificates, app service certificates, and other platform certificate-based features are currently not supported.
 + **Key Vault and App Configuration References**: You can't currently use [Azure Key Vault](../app-service/app-service-key-vault-references.md) or [Azure App Configuration](../app-service/app-service-configuration-references.md) references in your Flex Consumption plan app settings when these services are network access restricted. This limitation applies even when the function app has Virtual Network integration enabled. If you must use restricted Key Vault or App Configuration instances, you must use client SDKs to manually retrieve values from references in these services. Functions binding extensions also can't access these references, which means you must also use Azure client SDKs for accessing remote service data from your function code.
 + **Timezones**: `WEBSITE_TIME_ZONE` and `TZ` app settings aren't currently supported when running on Flex Consumption plan.

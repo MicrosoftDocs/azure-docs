@@ -99,7 +99,7 @@ You can optionally provide an instance of [TransferManagerOptions](/dotnet/api/a
 
 - [CheckpointStoreOptions](/dotnet/api/azure.storage.datamovement.transfermanageroptions.checkpointstoreoptions): Optional. Defines the options for creating a checkpoint used for saving transfer state so transfers can be resumed.
 - [Diagnostics](/dotnet/api/azure.storage.datamovement.transfermanageroptions.diagnostics): Gets the transfer manager diagnostic options.
-- [ErrorHandling](/dotnet/api/azure.storage.datamovement.transfermanageroptions.errorhandling): Optional. Defines how errors are handled during a transfer. Default is `StopOnAnyFailure`.
+- [ErrorMode](/dotnet/api/azure.storage.datamovement.transfermanageroptions.errormode): Optional. Defines how errors are handled during a transfer. Default is `StopOnAnyFailure`.
 - [MaximumConcurrency](/dotnet/api/azure.storage.datamovement.transfermanageroptions.maximumconcurrency): The maximum number of workers that can be used in a parallel transfer.
 - [ProvidersForResuming](/dotnet/api/azure.storage.datamovement.transfermanageroptions.providersforresuming): Resource providers for the transfer manager to use in resuming a transfer. Expects one provider for each storage provider in use. To learn more, see [Resume an existing transfer](#resume-an-existing-transfer).
 

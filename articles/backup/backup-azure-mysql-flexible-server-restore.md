@@ -3,8 +3,8 @@ title: Restore an Azure Database for MySQL Flexible Server by Using Azure Backup
 description: Learn how to restore an Azure Database for MySQL flexible server.
 ms.topic: how-to
 ms.date: 11/21/2024
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to restore an Azure Database for MySQL flexible server using backup, so that I can recover data and ensure business continuity after data loss or corruption."
 ---
 

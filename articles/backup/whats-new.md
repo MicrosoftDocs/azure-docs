@@ -2,12 +2,12 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 06/02/2025
+ms.date: 07/25/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to stay informed about new features and enhancements in Azure Backup, so that I can effectively manage data protection and ensure compliance within my organization's cloud infrastructure."
 ---
 
@@ -19,6 +19,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- July 2025
+  - [Agentless multi-disk crash-consistent backups for Azure VMs is now generally available](#agentless-multi-disk-crash-consistent-backups-for-azure-vms-is-now-generally-available)
 - June 2025
   - [Migration of Azure VM backups from Standard to Enhanced policy is now generally available](#migration-of-azure-vm-backups-from-standard-to-enhanced-policy-is-now-generally-available)
 - May 2025
@@ -115,6 +117,12 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
+## Agentless multi-disk crash-consistent backups for Azure VMs is now generally available
+
+Azure Backup now supports agentless VM backups by using multi-disk crash-consistent restore points. Crash consistent backups are OS agnostic, do not require any agent, and quiesce VM I/O for a shorter period compared to application or file-system consistent backups for performance sensitive workloads.
+
+For more information, see [About agentless multi-disk crash-consistent backup for Azure VMs](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md).
+
 ## Migration of Azure VM backups from Standard to Enhanced policy is now generally available
 
 Azure Backup now supports migrating VM backups (protected with Standard policy) to the Enhanced policy, offering greater flexibility and resilience.
@@ -132,13 +140,13 @@ For more information, see [Migrate Azure VM backups from Standard to Enhanced po
 
 ## Operational backup support for Azure Elastic SAN (preview)
 
-Azure Backup now allows secure backup and restoration for Azure Elastic storage area network (SAN) volumes through Azure Backup vault, ensuring seamless data protection. This fully managed solution seamlessly allows you to schedule backups, set expiration timelines for restore points, and restore data to a new volume.
+Azure Backup now allows secure backup and restoration for Azure Elastic SAN volumes through Azure Backup vault, ensuring seamless data protection. This fully managed solution seamlessly allows you to schedule backups, set expiration timelines for restore points, and restore data to a new volume.
 
 Key features include:
 
 - Protects against accidental deletions, ransomware attacks, and application updates.
 - Captures Elastic SAN volumes at specific points in time as independent Managed Disk incremental snapshots with Locally redundant storage (LRS) resiliency.
-- Stores up to **450 restore points**, with backup frequencies from **4 hours** to **24 hours**.
+- Stores up to **450** recovery points, which allows you customize **daily** or **weekly** schedules to align your backup strategy with business continuity and compliance needs.
 
 >[!Note]
 >This feature is in preview and [available in specific Azure regions](azure-elastic-storage-area-network-backup-support-matrix.md#supported-regions).

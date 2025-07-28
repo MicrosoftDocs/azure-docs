@@ -1,10 +1,10 @@
 ---
 title: Deployment guide for Microsoft Sentinel
 description: Learn about the steps to deploy Microsoft Sentinel including the phases to plan and prepare, deploy, and fine tune.
-author: cwatson-cat
-ms.author: cwatson
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: conceptual
-ms.date: 06/28/2024
+ms.date: 07/09/2025
 ms.service: microsoft-sentinel
 
 
@@ -40,7 +40,7 @@ The deployment phase is typically performed by a SOC analyst or related roles.
 | [**2. Configure content**](configure-content.md) | Configure the different types of Microsoft Sentinel security content, which allow you to detect, monitor, and respond to security threats across your systems: Data connectors, analytics rules, automation rules, playbooks, workbooks, and watchlists. |
 | [**3. Set up a cross-workspace architecture**](use-multiple-workspaces.md) | If your environment requires multiple workspaces, you can now set them up as part of your deployment. In this article, you learn how to set up Microsoft Sentinel to extend across multiple workspaces and tenants. |
 | [**4. Enable User and Entity Behavior Analytics (UEBA)**](enable-entity-behavior-analytics.md) | Enable and use the UEBA feature to streamline the analysis process.  |
-| [**5. Set up interactive and long-term data retention**](configure-data-retention-archive.md) | Set up interactive and long-term data retention, to make sure your organization retains the data that's important in the long term. |
+| [**5. Configure Microsoft Sentinel data lake**](datalake/sentinel-lake-onboarding.md) | Configure interactive and data retention settings to ensure your organization retains critical long-term data, leveraging the Microsoft Sentinel data lake for cost-effective storage, enhanced visibility, and seamless integration with advanced analytics tools. |
 
 ## Fine tune and review: Checklist for post-deployment
 
@@ -54,8 +54,8 @@ The fine tune and review phase is typically performed by a SOC engineer or relat
 |&#x2705; **Review and fine-tune analytics rules** | - Based on your incident review, check whether your analytics rules are triggered as expected, and whether the rules reflect the types of incidents you're interested in.<br>- [Handle false positives](false-positives.md), either by using automation or by modifying scheduled analytics rules.<br>- Microsoft Sentinel provides built-in fine-tuning capabilities to help you analyze your analytics rules. [Review these built-in insights and implement relevant recommendations](detection-tuning.md).  |
 |&#x2705; **Review automation rules and playbooks** |- Similar to analytics rules, check that your automation rules are working as expected, and reflect the incidents you're concerned about and are interested in.<br>- Check whether your playbooks are responding to alerts and incidents as expected. |
 |&#x2705; **Add data to watchlists** |Check that your watchlists are up to date. If any changes have occurred in your environment, such as new users or use cases, [update your watchlists accordingly](watchlists-manage.md). |
-|&#x2705; **Review commitment tiers** | [Review the commitment tiers](billing.md#analytics-logs) you initially set up, and verify that these tiers reflect your current configuration.  |
-|&#x2705; **Keep track of ingestion costs** |To keep track of ingestion costs, use one of these workbooks:<br>- The [**Workspace Usage Report** workbook](billing-monitor-costs.md#deploy-a-workbook-to-visualize-data-ingestion) provides your workspace's data consumption, cost, and usage statistics. The workbook gives the workspace's data ingestion status and amount of free and billable data. You can use the workbook logic to monitor data ingestion and costs, and to build custom views and rule-based alerts.<br>- The **Microsoft Sentinel Cost** workbook gives a more focused view of Microsoft Sentinel costs, including ingestion and retention data, ingestion data for eligible data sources, Logic Apps billing information, and more. |
+|&#x2705; **Review commitment tiers** | [Review the commitment tiers](billing.md#analytics-tier) you initially set up, and verify that these tiers reflect your current configuration.  |
+|&#x2705; **Keep track of ingestion costs** |To keep track of ingestion costs, use one of these workbooks:<br>- The [**Workspace Usage Report** workbook](billing-monitor-costs.md#deploy-a-workbook-to-visualize-data-ingestion-into-the-analytics-tier) provides your workspace's data consumption, cost, and usage statistics. The workbook gives the workspace's data ingestion status and amount of free and billable data. You can use the workbook logic to monitor data ingestion and costs, and to build custom views and rule-based alerts.<br>- The **Microsoft Sentinel Cost** workbook gives a more focused view of Microsoft Sentinel costs, including ingestion and retention data, ingestion data for eligible data sources, Logic Apps billing information, and more. |
 |&#x2705; **Fine-tune Data Collection Rules (DCRs)** |- Check that your [DCRs](/azure/azure-monitor/essentials/data-collection-rule-overview) reflect your data ingestion needs and use cases.<br>- If needed, [implement ingestion-time transformation](data-transformation.md) to filter out irrelevant data even before it's first stored in your workspace. |
 |&#x2705; **Check analytics rules against MITRE framework** |[Check your MITRE coverage in the Microsoft Sentinel MITRE page](mitre-coverage.md): View the detections already active in your workspace, and those available for you to configure, to understand your organization's security coverage, based on the tactics and techniques from the MITRE ATT&CK® framework. |
 |&#x2705; **Hunt for suspicious activity** |Make sure that your SOC has a process in place for [proactive threat hunting](hunts.md). Hunting is a process where security analysts seek out undetected threats and malicious behaviors. By creating a hypothesis, searching through data, and validating that hypothesis, they determine what to act on. Actions can include creating new detections, new threat intelligence, or spinning up a new incident. |
@@ -71,7 +71,7 @@ Depending on which phase you're in, choose the appropriate next steps:
 - Fine tune and review - [Navigate and investigate incidents in Microsoft Sentinel](investigate-incidents.md)
 
 When you're finished with your deployment of Microsoft Sentinel, continue to explore Microsoft Sentinel capabilities by reviewing tutorials that cover common tasks:  
-
+- [What is Microsoft Sentinel data lake?](datalake/sentinel-lake-overview.md)
 - [Forward Syslog data to a Log Analytics workspace with Microsoft Sentinel by using Azure Monitor Agent](forward-syslog-monitor-agent.md)
 - [Configure table-level retention](/azure/azure-monitor/logs/data-retention-configure?tabs=portal-3%2Cportal-1%2Cportal-2#configure-table-level-retention)
 - [Detect threats using analytics rules](tutorial-log4j-detection.md)

@@ -87,7 +87,7 @@ In the Azure CLI:
 1. Once you have reviewed the breaking changes in Grafana 11 and are ready to proceed with the upgrade, run the [az grafana update](/cli/azure/grafana#az-grafana-update) command and replace `<azure-managed-grafana-workspace>` with the name of your Azure Managed Grafana workspace.
 
     ```azurecli
-    az grafana update --name <azure-managed-grafana-workspace> --major-version 11
+    az grafana update --name <azure-managed-grafana-workspace> --resource-group <azure-managed-grafana-resource-group-name> --major-version 11
     ```
 
 1. The CLI displays a warning indicating that upgrading to Grafana version 11 is a permanent an irreversible operation.

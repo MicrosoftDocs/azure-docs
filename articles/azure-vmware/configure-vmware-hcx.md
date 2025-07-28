@@ -5,6 +5,7 @@ ms.topic: tutorial
 ms.service: azure-vmware
 ms.date: 02/26/2024
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud administrator, I want to configure the VMware HCX Connector for Azure VMware Solution, so that I can enable efficient workload migrations and disaster recovery for my virtual machines."
 ---
 
 # Configure on-premises VMware HCX Connector

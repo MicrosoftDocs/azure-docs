@@ -11,6 +11,7 @@ ms.subservice: sap-automation
 ms.custom: devx-track-terraform
 title: advanced_state_management
 description: Updates the Terraform state file using a shell script
+# Customer intent: "As a DevOps engineer managing infrastructure, I want to update the Terraform state file using a shell script, so that I can efficiently manage resources that were modified or created outside of Terraform."
 ---
 
 # advanced_state_management.sh
