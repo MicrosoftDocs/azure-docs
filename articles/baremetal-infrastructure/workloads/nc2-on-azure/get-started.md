@@ -29,7 +29,7 @@ For more information, see "NC2 on Azure Subscription and Billing" in [Nutanix Cl
 
 To help you evaluate NC2 on Azure, Nutanix offers and manages a 30-day free trial. You can sign up for the trial with Nutanix. 
 
-The following items are important considerations for Nutanix on Azure BareMetal nodes:
+Consider these important items for Nutanix on Azure BareMetal nodes:
 
 **Cost coverage**: The BareMetal cluster nodes have no cost through the trial. Other components like VMs for Flow Gateway networking and other Azure services are billed and not included in the trial.
 
@@ -40,7 +40,6 @@ The following items are important considerations for Nutanix on Azure BareMetal 
 **Track the trial period**: There's no visible trial information for the BareMetal. You should track your BareMetal deployment date manually.
 
 For more information, see _*[Starting a Free Trial for NC2 ](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Cloud-Clusters-Azure:nc2-clusters-starting-a-nc2-free-trial-t.html"https://portal.nutanix.com/page/documents/details?targetid=nutanix-cloud-clusters-azure:nc2-clusters-starting-a-nc2-free-trial-t.html")*
-
 
 ## Networking requirements
 
@@ -58,7 +57,7 @@ gateway-external-api.cloud.nutanix.com.
 
 ## Sign up for NC2
 
-Go to [Nutanix Cloud Clusters on Azure Deployment and User Guide](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Cloud-Clusters-Azure:Nutanix-Cloud-Clusters-Azure) to sign up.
+To sign up, go to [Nutanix Cloud Clusters on Azure Deployment and User Guide(https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Cloud-Clusters-Azure:Nutanix-Cloud-Clusters-Azure).
 
 To learn about Microsoft BareMetal hardware pricing, and to purchase Nutanix software, go to [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/nutanixinc.nc2_azure?tab=Overview).
 
