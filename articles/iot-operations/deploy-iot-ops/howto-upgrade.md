@@ -118,25 +118,6 @@ If you want to upgrade to a specific version of Azure IoT Operations that isn't 
 az extension add --upgrade --name azure-iot-ops --version <VERSION_NUMBER>
 ```
 
-## Upgrade observability configuration
-
-To upgrade the observability configuration of your Azure IoT Operations instance, first you need to follow the steps in [Deploy observability resources](../configure-observability-monitoring/howto-configure-observability.md).
-
-You can upgrade the observability configuration by running the `az iot ops upgrade` command with the `--ops-config` parameter to specify the new configuration values.
-
-```azurecli
-az iot ops upgrade --resource-group <rg name> -n <instance name> --ops-config observability.metrics.openTelemetryCollectorAddress=<>
-```
-
-| Parameter | Value | Description |    
-| --------- | ----- | ----------- |
-| `--ops-config` | `observability.metrics.openTelemetryCollectorAddress=<FULLNAMEOVERRIDE>.azure-iot-operations.svc.cluster.local:<GRPC_ENDPOINT>` | Provide the OpenTelemetry (OTel) collector address you configured in the otel-collector-values.yaml file.<br><br>The sample values used in [Configure observability](../configure-observability-monitoring/howto-configure-observability.md) are **fullnameOverride=aio-otel-collector** and **grpc.endpoint=4317**. |
-| `--ops-config` | `observability.metrics.exportInternalSeconds=<CHECK_INTERVAL>` | Provide the **check_interval** value you configured in the otel-collector-values.yaml file.<br><br>The sample value used in [Configure observability](../configure-observability-monitoring/howto-configure-observability.md) is **check_interval=60**. |
-
-> [!NOTE]
-> In preview releases, the `az iot ops upgrade` command doesn't work for upgrading to a preview version, but it works for configuring the Azure IoT Operations for observability.
-
-
 ## MQTT broker upgrade considerations
 
 To ensure zero data loss and high availability during deployment upgrades, the MQTT broker implements rolling updates across the MQTT broker pods. The health manager pod coordinates an incremental upgrade process for the MQTT broker pods to ensure that:
