@@ -67,4 +67,4 @@ To deploy a Discovery Workspace, user must have following access:
 
 Storage Discovery is available in two different SKUs or pricing plans.
 
-[!INCLUDE [pricing-plan-differentiation](includes/pricing-plan-differetiation)]
+[!INCLUDE [pricing-plan-differentiation](includes/pricing-plan-differentiation.md)]
