@@ -21,13 +21,12 @@ The example used in this article is based on the Go Gin web application introduc
 
 - Create a [Go Gin web application with a feature flag](./quickstart-feature-flag-go-gin.md).
 - [Add a time window filter to the feature flag](./howto-timewindow-filter.md)
-- [Azure App Configuration Go provider](https://pkg.go.dev/github.com/Azure/AppConfiguration-GoProvider/azureappconfiguration) v1.1.0-beta.1 or later.
 
 ## Use the time window filter
 
-You've added a time window filter for your *Beta* feature flag in the prerequisites. Next, you'll use the feature flag with the time window filter in your Go Gin web application.
+You added a time window filter for your *Beta* feature flag in the prerequisites. Next, you'll use the feature flag with the time window filter in your Go Gin web application.
 
-The Go Feature Management library automatically supports built-in feature filters, including the time window filter. When you create a feature manager with the Azure App Configuration provider, time window filters are evaluated automatically without requiring additional configuration.
+When you create a feature manager, the built-in feature filters are automatically added to its feature filter collection
 
 The existing code from the quickstart already handles time window filters through the feature manager:
 
@@ -38,7 +37,7 @@ if err != nil {
     log.Fatalf("Error creating feature flag provider: %v", err)
 }
 
-// Create feature manager (automatically supports built-in filters including TimeWindowFilter)
+// Create feature manager (supports built-in filters including TimeWindowFilter)
 featureManager, err := featuremanagement.NewFeatureManager(featureFlagProvider, nil)
 if err != nil {
     log.Fatalf("Error creating feature manager: %v", err)
