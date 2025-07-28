@@ -19,7 +19,7 @@ This tutorial shows how to set up an account with Azure Maps, then use the Maps 
 >
 > * Create an Azure Maps account
 > * Retrieve the subscription key for your Maps account
-> * Create a new web page using the map control API
+> * Create a new web page using the Map Control API
 > * Use the Maps search service to find a nearby point of interest
 
 ## Prerequisites
