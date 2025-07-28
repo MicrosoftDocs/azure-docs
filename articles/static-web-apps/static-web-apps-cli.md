@@ -652,11 +652,11 @@ The connection string of the database you want to connect.
 
 ___`--cosmosdb_nosql-database, -nd <COSMOSDB_NOSQL_DATABASE>`___
 
-The database of your Cosmos DB account you want to connect (only needed if using cosmosdb_nosql database type).
+The database of your Cosmos DB account you want to connect (only needed if using `cosmosdb_nosql` database type).
 
 ___`--cosmosdb_nosql-container, -nc <COSMOSDB_NOSQL_CONTAINER>`___
 
-The container of your cosmosdb account you want to connect.
+The container of your Cosmos DB account you want to connect.
 
 ___`--help, -h`___
 
