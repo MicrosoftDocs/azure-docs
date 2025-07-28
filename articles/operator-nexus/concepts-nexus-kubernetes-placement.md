@@ -321,4 +321,4 @@ across the NUMA-cells.
 
 ## Storage-optimized VM SKUs
 
-`NC_L46_224_v1` and `NC_L54_224_v1` are SKUs designed to enhance local storage utilization and scalability by allowing a Nexus Kubernetes node to allocate up to 1.6 TiB of disk space for local use. This is to support workload that requires large amount of local disk space, more than the typical 300 GiB allocated by other SKUs.
+`NC_L46_224_v1` and `NC_L54_224_v1` are SKUs designed to enhance local storage utilization and scalability by allowing a Nexus Kubernetes node to allocate up to 1.6 TiB of disk space. This is to support workloads that require more than the typical 300 GiB allocated by other SKUs. 
