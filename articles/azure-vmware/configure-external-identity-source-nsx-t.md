@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 3/29/2024
 ms.custom: engagement-fy23
+# Customer intent: As a network administrator, I want to configure an external LDAP identity source for VMware NSX in Azure VMware Solution, so that I can manage user authentication and access control using existing Active Directory accounts.
 ---
 
 # Set an external identity source for VMware NSX

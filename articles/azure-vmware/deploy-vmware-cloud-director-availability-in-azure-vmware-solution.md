@@ -1,17 +1,18 @@
---- 
+---
 title: Deploy VMware Cloud Director Availability in Azure VMware Solution
 description: Learn how to install and configure VMware Cloud Director Availability in Azure VMware Solution
 author: suzuber
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 01/09/2025
---- 
-
+# Customer intent: As a cloud administrator, I want to install and configure VMware Cloud Director Availability in Azure VMware Solution, so that I can efficiently manage workload migration and disaster recovery across my cloud environments.
+---
+ 
 # Deploy VMware Cloud Director Availability in Azure VMware Solution
 
 In this article, learn how to deploy VMware Cloud Director Availability in Azure VMware Solution.
 
-Customers can use [VMware Cloud Director Availability](/azure/azure-vmware/deploy-vmware-cloud-director-availability-in-azure-vmware-solution), a Disaster Recovery as a Service (DRaaS) solution, to protect and migrate workloads both to and from the VMware Cloud Director service associated with Azure VMware Solution. The native integration of VMware Cloud Director Availability with VMware Cloud Director and VMware Cloud Director service (CDS) enables provider and their tenants to efficiently manage migration and disaster recovery for workloads through the VMware Cloud Director Availability provider and tenant portal. 
+Customers can use [VMware Cloud Director Availability](/azure/azure-vmware/deploy-vmware-cloud-director-availability-in-azure-vmware-solution), a Disaster Recovery as a Service (DRaaS) solution, to protect and migrate workloads both to and from the VMware Cloud Director service associated with Azure VMware Solution. The native integration of VMware Cloud Director Availability with VMware Cloud Director enables provider and their tenants to efficiently manage migration and disaster recovery for workloads through the VMware Cloud Director Availability provider and tenant portal. 
 
 ## VMware Cloud Director Availability scenarios on Azure VMware Solution
 
@@ -19,12 +20,12 @@ You can use VMware Cloud Director Availability with Azure VMware Solution for th
 
 - On-Premises to Azure VMware Solution
 
-    VMware Cloud Director Availability provides migration, protection, failover, and reverse failover of VMs, vApps, and templates across on-premises VMware vCenter, VMware Cloud Director, or VMware Cloud Director service (CDS) to VMware CDS on Azure VMware Solution. 
-
+    VMware Cloud Director Availability provides migration, protection, failover, and reverse failover of VMs, vApps, and templates across on-premises VMware vCenter, VMware Cloud Director (VCD) to VMware Cloud Director on Azure VMware Solution. 
+  
 - Azure VMware Solution to Azure VMware Solution
 
-    VMware Cloud Director Availability provides a flexible solution for multitenant customers. The flexible solution enables smooth workload migration between Cloud Director service (CDS) instances hosted on Azure VMware Solution SDDC, which empowers efficient cloud-to-cloud migration at the tenant level when using CDs with Azure VMware Solution.
-
+    VMware Cloud Director Availability provides a flexible solution for multitenant customers. The flexible solution enables smooth workload migration between VMware Cloud Director instances hosted on Azure VMware Solution SDDC, which empowers efficient cloud-to-cloud migration at the tenant level when using VCD with Azure VMware Solution.
+  
 ## Key components of VMware Cloud Director Availability
 
 VMware Cloud Director Availability consists of the following types of appliances.
@@ -66,12 +67,13 @@ Verify the following prerequisites to ensure you're ready to install and configu
 - Verify the Azure VMware Solution private cloud is configured. 
 - Verify the VMware-Cloud-Director-Availability-Providerrelease.number.xxxxxxx-build_sha_OVF10.ova version 4.7 is uploaded under the correct datastore. 
 - Verify the subnet, DNS zone and records for the VMware Cloud Director Availability appliances are configured. 
-- Verify the subnet has outbound Internet connectivity to communicate with: VMware Cloud Director service, remote VMware Cloud Director Availability sites, and the upgrade repository. 
+- Verify the subnet has outbound Internet connectivity to communicate with: VMware Cloud Director, remote VMware Cloud Director Availability sites, and the upgrade repository. 
+
 - Verify the DNS zone has a forwarding capability for the public IP addresses that need to be reached.  
 
 For using VMware Cloud Director Availability outside of the local network segment, [turn on public IP addresses to an NSX-T Edge node for NSX-T Data Center](enable-public-ip-nsx-edge.md).
 
-- Verify the Cloud Director service is associated, and the Transport Proxy is configured with the Azure VMware Solution private cloud SDDC.
+- Verify the Cloud Director is associated, and the Transport Proxy is configured with the Azure VMware Solution private cloud SDDC.
 
 ## Install and manage VMware Cloud Directory Availability using Run commands
 

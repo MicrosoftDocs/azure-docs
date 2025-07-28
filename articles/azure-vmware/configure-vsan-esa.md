@@ -10,6 +10,7 @@ ms.author:   pjeyakumar # Microsoft alias
 ms.service: azure-vmware
 ms.topic: how-to
 ms.date:     05/12/2025
+# Customer intent: As a cloud administrator, I want to configure VMware vSAN ESA features such as TRIM/UNMAP and data-in-transit encryption, so that I can optimize storage efficiency and enhance data security in my Azure VMware environment.
 ---
 
 # Configure VMware vSAN ESA

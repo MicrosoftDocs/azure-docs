@@ -4,19 +4,25 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 5/23/2025
+ms.date: 7/21/2025
+# Customer intent: "As an Azure VMware Solution user, I want to stay informed about platform updates and maintenance schedules, so that I can ensure my workloads remain optimized and secure during transitions."
 ---
 
 # What's new in Azure VMware Solution
 
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-host-remediation.md#host-maintenance-and-lifecycle-management).
 
-## May 2025
+## July 2025
 
+**Self-Service Maintenance Orchestrator (preview)**
+
+Public preview of Self-Service Capabilities for Planned Maintenance. [Learn more](https://techcommunity.microsoft.com/blog/azuremigrationblog/take-control-of-your-azure-vmware-solution-maintenance-schedule/4434496) 
+
+## May 2025
 
 **vSAN ESA (Express Storage Architecture) support**
 
-Azure VMware Solution will now support vSAN ESA (Express Storage Architecture) as the default vSAN architecture for AV48 (including Stretched Clusters) and AV64 (Gen 2) host types.
+Azure VMware Solution supports vSAN ESA (Express Storage Architecture) as the default vSAN architecture for AV48 (including Stretched Clusters) and AV64 (Gen 2) host types.
 
 **HCX Upgrade and Hybridity Depot Decommissioning**
 

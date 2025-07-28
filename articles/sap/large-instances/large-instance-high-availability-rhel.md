@@ -8,6 +8,7 @@ ms.subservice: sap-large-instances
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 04/19/2021
+# Customer intent: "As a systems administrator configuring high availability for SAP on RHEL, I want to automate SAP HANA database failover using a Pacemaker cluster, so that I can ensure continuous operation and minimize downtime in case of failures."
 ---
 
 # Azure Large Instances high availability for SAP on RHEL

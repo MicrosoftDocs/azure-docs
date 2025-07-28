@@ -4,8 +4,8 @@ description: This article summarizes Azure Backup support when you use Microsoft
 ms.service: azure-backup
 ms.date: 07/17/2025
 ms.topic: reference
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
 # Customer intent: As an IT administrator using MABS or DPM, I want to understand the backup support limitations and configurations, so that I can effectively manage and safeguard my on-premises and Azure workloads.
 ---

@@ -4,6 +4,7 @@ description: Understand the best practices and recommendations to maintain Azure
 ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 03/25/2025
+# Customer intent: "As an IT administrator managing Azure VMware Solution, I want to follow best practices for host maintenance and monitoring, so that I can ensure optimal performance and minimize downtime during updates."
 ---
 
 # Azure VMware Solution Software-Defined Data Center (SDDC) maintenance best practices

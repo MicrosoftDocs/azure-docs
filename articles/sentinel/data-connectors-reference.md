@@ -1,11 +1,11 @@
 ---
 title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
-author: cwatson-cat
+author: EdB-MSFT
 ms.topic: reference
 ms.date: 11/18/2024
 ms.custom: linux-related-content
-ms.author: cwatson
+ms.author: edbaynash
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
