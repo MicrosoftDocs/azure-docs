@@ -37,7 +37,7 @@ More than ingesting alerts and logs from other sources, Microsoft Sentinel also:
     - Run playbooks to automatically act on alerts
     - Integrate [machine learning models](bring-your-own-ml.md) to enhance your security operations
     - Ingest and fetch enrichment feeds from threat intelligence platforms.
-- Provides **[threat investigation capabilities](overview.md#investigate-threats)**, allowing you to visualize and explore alerts and entities, detect anomalies in user and entity behavior, and monitor real-time events during an investigation.
+- Provides **[threat investigation capabilities](overview.md#respond-to-incidents-rapidly)**, allowing you to visualize and explore alerts and entities, detect anomalies in user and entity behavior, and monitor real-time events during an investigation.
 - **[Collect data](overview.md#collect-data-at-scale)** across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.
 - Provides **[threat response capabilities](overview.md#respond-to-threats)**, such as playbooks that integrate with Azure services and your existing tools.
 - **Integrates with partner platforms** using [Microsoft Sentinel data connectors](connect-data-sources.md), providing essential services for SOC teams.
