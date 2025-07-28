@@ -19,7 +19,7 @@ Call Automation uses a REST API interface to receive requests for actions and pr
 Call Automation supports other actions to manage calls and recordings that aren't included in this article.
 
 > [!NOTE]
-> Call Automation currently doesn't interoperate with Microsoft Teams. Actions like making or redirecting a call to a Teams user or playing audio to a Teams user by using Call Automation isn't supported.
+> Call Automation currently doesn't interoperate with Microsoft Teams. Actions like making or redirecting a call to a Teams user or playing audio to a Teams user by using Call Automation aren't supported.
 
 ## Prerequisites
 

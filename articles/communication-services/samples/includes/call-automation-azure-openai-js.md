@@ -20,7 +20,7 @@ This server-side application helps you create a virtual assistant that can handl
 
 ## Prerequisites
 
-- An Azure account with an active subscription. For more information, see [Create an account for free](https://azure.microsoft.com/free/)
+- An Azure account with an active subscription. For more information, see [Create an account for free](https://azure.microsoft.com/free/).
 - [Visual Studio Code](https://code.visualstudio.com/download) installed.
 - [Node.js](https://nodejs.org/en/download) installed.
 - An Azure Communication Services resource. For more information, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). You need to record your resource *connection string* for this sample.
@@ -34,7 +34,7 @@ This server-side application helps you create a virtual assistant that can handl
 ## Before you run the sample for the first time
 
 1. Open an instance of PowerShell, a Windows terminal, a command prompt, or the equivalent, and go to the directory where you want to clone the sample.
-1. Use the command `git clone` `https://github.com/Azure-Samples/communication-services-javascript-quickstarts.git`.
+1. Use the command `git clone https://github.com/Azure-Samples/communication-services-javascript-quickstarts.git`.
 1. Use the command `cd` to access the `callautomation-az-openai-voice` folder.
 1. From the root of the folder, and with a node installed, run `npm install`.
 
@@ -66,9 +66,9 @@ Open the `.env` file to configure the following settings:
 1. The browser opens with a page. If it doesn't, go to `http://localhost:8080/`.
 1. Register an Azure Event Grid webhook for the `IncomingCall` event that points to your 8080 port URI. For more information, see [Incoming call concepts](/azure/communication-services/concepts/call-automation/incoming-call-notification). For example:
 
-``` code
- https://<devtunelurl>/api/incomingCall
-```
+   ``` code
+    https://<devtunelurl>/api/incomingCall
+   ```
 
 Now you have a running application. The best way to test this sample is to place a call to your Azure Communication Services phone number and talk to your intelligent agent.
 

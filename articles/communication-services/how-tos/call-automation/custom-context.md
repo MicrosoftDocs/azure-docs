@@ -16,7 +16,7 @@ services: azure-communication-services
 
 Call Automation allows developers to pass along custom contextual information when routing calls. Developers can pass metadata about the call, caller, or any other information that's relevant to their application or business logic. Businesses can then manage and route calls across networks without having to worry about losing context.
 
-Passing context is supported by specifying custom headers. This optional list of key-value pairs is included as part of `AddParticipant` or `Transfer` actions. The context is retrieved later as part of the `IncomingCall` event payload.
+Passing context is supported by specifying custom headers. This optional list of key/value pairs is included as part of `AddParticipant` or `Transfer` actions. The context is retrieved later as part of the `IncomingCall` event payload.
 
 Custom call context is also forwarded to the Session Initiation Protocol (SIP), which includes both the freeform custom headers and the standard user-to-user information (UUI) SIP header. When an inbound call from your telephony network is routed, the data set from your Session Border Controller (SBC) in the custom headers and UUI is similarly included in the `IncomingCall` event payload.
 
@@ -27,7 +27,7 @@ The following samples show how to get started by using custom context headers in
 ## Prerequisites
 
 - Read the Call Automation [concepts article](../../concepts/call-automation/call-automation.md#call-actions) that describes the action-event programming model and event callbacks.
-- Learn about the [user identifiers](../../concepts/identifiers.md#the-communicationidentifier-type) like `CommunicationUserIdentifier`` and PhoneNumberIdentifier` that are used in this article.
+- Learn about the [user identifiers](../../concepts/identifiers.md#the-communicationidentifier-type) like `CommunicationUserIdentifier` and PhoneNumberIdentifier` that are used in this article.
 
 For all the code samples, `client` is the `CallAutomationClient` object that you can create, and `callConnection` is the `CallConnection` object that you obtain from an `Answer` or `CreateCall` response. You can also obtain it from callback events that your application receives.
 

@@ -239,6 +239,6 @@ Now you can make a call and talk to your agent.
 
 To optimize for voice, we recommend that you update topics where you're using the `Message` type of text to speech, because it optimizes the agent's responses for speech scenarios.
 
-### Handle system topics
+### System topics
 
 Your agent has system topics built in by default. You can choose to disable these topics. If you want to continue using them, your application should build logic to handle these topics. For example, you need to build agent transfer into your application to escalate the call from this Copilot agent to a human representative.
