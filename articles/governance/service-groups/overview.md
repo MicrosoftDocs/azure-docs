@@ -89,7 +89,7 @@ Access to the root has to be given from a user with "microsoft.authorization/rol
 There are three built-in roles definitions to support Service Groups in the preview.  
 
 > [!NOTE]
-> Custom Role Based Access Controls aren't supported within the Preview. 
+> Custom Role Based Access Controls aren't supported during the Preview. 
 
 - [Service Group Administrator](../../role-based-access-control/built-in-roles/management-and-governance.md#service-group-administrator): This built-in role manages all aspects of Service Groups and Relationships and is the *default role* given to users when they create a Service Group.
 
@@ -97,7 +97,7 @@ There are three built-in roles definitions to support Service Groups in the prev
 - [Service Group Contributor](../../role-based-access-control/built-in-roles/management-and-governance.md#service-group-contributor): This built-in role should be given to users when they need to create or manage the lifecycle of a Service Group. This role allows for all actions except for Role Assignment capabilities.  
 
 
-- [Service Group Reader](../../role-based-access-control/built-in-roles/management-and-governance.md#service-group-reader): This built-in role is to be used to read service groups and can also be assigned to other resources to view the connected relationships.  
+- [Service Group Reader](../../role-based-access-control/built-in-roles/management-and-governance.md#service-group-reader): This built-in role provides read-only access to service group information and can assigned to other resources in order to view the connected relationships.  
 
 
 
