@@ -318,7 +318,7 @@ This is a known VMware issue in which the disk size indicated by snapshot become
 This happens when the NFC host buffer is out of memory. To resolve this issue, you need to move the VM (compute vMotion) to a different host, which has free resources.
 
 ### Error Message: An internal error occurred. [File is larger than maximum file size supported (1012384)]
-This happens when the file size is larger than the maximum supported file size while creating the snapshot. Follow the resolution given in the [VMware KB](https://kb.vmware.com/s/article/1012384)
+This happens when the file size is larger than the maximum supported file size while creating the snapshot. Follow the resolution given in the [VMware KB](https://knowledge.broadcom.com/external/article?articleNumber=316392)
 
 ### Error Message: An internal error occurred. [Cannot connect to the host (1004109)]
 This happens when ESXi hosts can't connect to the network.
