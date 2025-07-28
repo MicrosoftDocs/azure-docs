@@ -120,9 +120,9 @@ az extension add --upgrade --name azure-iot-ops --version <VERSION_NUMBER>
 
 ## Upgrade observability configuration
 
-After deployment is complete, you need to follow [Deploy observability resources](../configure-observability-monitoring/howto-configure-observability.md) to upgrade the observability configuration of your Azure IoT Operations instance. 
+To upgrade the observability configuration of your Azure IoT Operations instance, first you need to follow the steps in [Deploy observability resources](../configure-observability-monitoring/howto-configure-observability.md).
 
-Once observability resources are configured, you can upgrade the observability configuration by running the `az iot ops upgrade` command with the `--ops-config` parameter to specify the new configuration values.
+You can upgrade the observability configuration by running the `az iot ops upgrade` command with the `--ops-config` parameter to specify the new configuration values.
 
 ```azurecli
 az iot ops upgrade --resource-group <rg name> -n <instance name> --ops-config observability.metrics.openTelemetryCollectorAddress=<>
