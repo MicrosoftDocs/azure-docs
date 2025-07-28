@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 02/11/2025
+ms.date: 07/23/2025
 ms.author: duau
 ---
 
@@ -74,6 +74,8 @@ This section helps you create, get, update, and delete the Microsoft peering con
    * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID. For both Primary and Secondary links you must use the same VLAN ID.
    * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
    * Advertised prefixes: You provide a list of all prefixes you plan to advertise over the BGP session. Only public IP address prefixes are accepted. If you plan to send a set of prefixes, you can send a comma-separated list. These prefixes must be registered to you in an RIR / IRR.
+   > [!NOTE]
+   > Microsoft creates a "Validation ID" for each configured prefix, which requires verification by the organization that owns the prefixes. The specific steps are provided in the following section.
    * **Optional -** Customer ASN: If you're advertising prefixes not registered to the peering AS number, you can specify the AS number to which they're registered with.
    * Routing Registry Name: You can specify the RIR / IRR against which the AS number and prefixes are registered.
    * **Optional -** An MD5 hash if you choose to use one.
@@ -84,13 +86,37 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
    :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/configuration-m-validation-needed.png" alt-text="Screenshot showing Microsoft peering configuration.":::
 
-    > [!IMPORTANT]
-    > Microsoft verifies if the specified 'Advertised public prefixes' and 'Peer ASN' (or 'Customer ASN') are assigned to you in the Internet Routing Registry. If you are getting the public prefixes from another entity and if the assignment is not recorded with the routing registry, the automatic validation will not complete and will require manual validation. If the automatic validation fails, you will see the message 'Validation needed'. 
-    >
-    > If you see the message 'Validation needed', collect the document(s) that show the public prefixes are assigned to your organization by the entity that is listed as the owner of the prefixes in the routing registry and submit these documents for manual validation by opening a support ticket. 
-    >
 
-   If your circuit gets to a **Validation needed** state, you must open a support ticket to show proof of ownership of the prefixes to our support team. You can open a support ticket directly from the portal.
+### To validate the Advertised public prefixes (Preview)
+
+When you configure Public IP address that you plan to advertise over BGP, Microsoft will verify the authority to advertise those prefixes. These IP addresses can be either owned by your organization or leased from a third party with permission to use and announce those prefixes. The prefixes are verified with the RIR / IRR by validating a signed digital certificate associated with each prefix configured.
+
+### Prerequisites 
+
+1. The organization that owns the prefixes is required to have a self-signed certificate using a secure private key. This certificate should be included in the comments section of the relevant RIR /  IRR associated with the IP range.
+    > [!IMPORTANT]
+    > Microsoft will never request your private key for any verification purposes, and it must never be shared. 
+    
+2. The Certificate must include:
+      * Organization name
+      * ASN
+      * IP Range
+        
+### Authorize the prefix
+
+1. Use the Validation ID and your private key to generate a signature for each prefix listed under Advertised Prefixes.
+    > [!IMPORTANT]
+    > Save the Validation ID to a file using **UTF-8 encoding**, with no spaces or special characters.
+    >  The generated signature must be in **Base64 format**.
+
+2. Upload the signature to the Microsoft portal and save the configuration.
+
+
+    > [!IMPORTANT]
+    > If automatic validation fails, you will see the message "Validation needed", and the process will require manual validation.
+    > > Collect documents that prove the public prefixes are assigned to your organization by the entity listed as the owner in the routing registry.
+    > > Submit these documents by opening a support ticket for manual validation.
+    
 
 ### <a name="getmsft"></a>To view Microsoft peering details
 
