@@ -49,7 +49,7 @@ To address the challenges of integrating non-Kubernetes IoT leaf devices, the Ak
 
 ### Connector deployment and lifecycle management
 
-Akri services include the _Akri operator_. The operator lets you deploy connector dynamically when certain types of device are found on the cluster and the corresponding namespace assets are allocated to the connector. The Akri operator provides automatic access to Azure IoT Operations resources such as device endpoints and namespace assets.
+Akri services include the _Akri operator_. The operator lets you deploy connectors dynamically when certain types of devices are found on the cluster and the corresponding namespace assets are allocated to the connector. The Akri operator provides automatic access to Azure IoT Operations resources such as device endpoints and namespace assets.
 
 ### Asset discovery
 
