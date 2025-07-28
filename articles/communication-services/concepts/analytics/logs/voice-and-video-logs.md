@@ -39,7 +39,7 @@ Azure Communication Services calling generates **eight distinct log types**, eac
 
 ### **Call summary updates logs**: 
 Fast-arriving logs with basic call metadata (IDs, timestamps, endpoints, SDK info). These log data arrive in Azure Monitor faster than the call summary logs. This log contains basic information about the call, including all the relevant IDs, time stamps, endpoints, and SDK information.
-- Data available within 60 minutes of the call ending.
+- Data generally available within 60 minutes after the call ending.
 - May contain multiple rows per call participant.
 - Contains the most recent updates for each participant.
 - Useful for near-real-time monitoring and analysis of call activities.
@@ -48,7 +48,7 @@ To learn more, see: [Call summary updates log schema](call-summary-updates-log-s
 
 ### **Call summary logs**:
 This log is a subset of the Call summary updates log schema. It contains basic information about the call, including all the relevant IDs, time stamps, endpoints, and SDK information. For faster log latency, use the call summary updates logs instead. 
-- Data available within 3-5 hours of the call ending.
+- Data generally available within 3 to 5 hours after the call ending.
 - Contains a single row per call participant.
 - Represents a snapshot of the call state at the time of finalization.
 - Useful for post-call analysis and reporting.
