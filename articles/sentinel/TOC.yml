@@ -101,7 +101,7 @@
   - name: Unified connectors overview
     href: unified-connector.md
   - name: Integrate with unified connectors
-    href: integrate-unified-connector.md
+    href: unified-connector-integration.md
   - name: Configure content
     href: configure-content.md
   - name: Set up multiple workspaces
