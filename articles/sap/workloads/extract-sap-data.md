@@ -57,14 +57,14 @@ The table below provides examples of common scenarios and recommends the most su
 | Scenario / Intent | Recommended data source |
 |----|----|
 | I want to access raw transactional tables and apply custom transformations and business logic myself. | SAP Tables |
-| I don’t have detailed knowledge of SAP’s underlying data model and want to reuse the existing structure and relationships from the transactional system | CDS Views / BW Extractors |
+| I don’t have detailed knowledge of SAP’s underlying data model and want to reuse the existing structure and relationships from the transactional system. | CDS Views / BW Extractors |
 | I need to build dashboards based on transactional data, but prefer to work with a curated, business-aligned model. | CDS Views / BW Extractors |
 | My organization already has a BW system with validated data models, and I want to use those as the basis for reporting. | BW InfoObjects / InfoProviders |
 | I need a secure reporting layer with predefined restrictions and business-specific key figures, ready for consumption in BI tools. | BW Queries |
 
 ## Summary of connectivity options
 
-Below table summarizes the available connectivity options to SAP systems.
+The following table summarizes the available connectivity options to SAP systems.
 
 | Connector | Sources | Use case | ETL Solution |
 |-----------|---------|----------|--------------|
@@ -81,7 +81,7 @@ Below table summarizes the available connectivity options to SAP systems.
 
 ## SAP data extraction tools and solutions
 
-In this section we provide an overview of available tools and solutions you can consider when extracting SAP data to Microsoft Fabric.
+This section provides an overview of available tools and solutions for you to consider when extracting SAP data to Microsoft Fabric.
 
 ### SAP data extraction using Microsoft Fabric
 
@@ -199,12 +199,12 @@ Find out more about [partner solutions supporting Open Mirroring](https://learn.
 
 Typically, partner solutions support two integration patterns:
 
-1)  Open Mirroring
+**Open Mirroring**
 
 Partner solutions leverages a set of native Microsoft Fabric APIs to synchronise source datasets with mirrored databases in Fabric. This approach ensures that the target tables remain a consistent and up-to-date copy of the source, as the mirroring engine automatically process and merges changes.  
 [Learn more about Open Mirroring in Microsoft Fabric](https://learn.microsoft.com/fabric/database/mirrored-database/open-mirroring)
 
-2)  Lakehouse
+**Lakehouse**
 
 Direct lakehouse integration allows partners to ingest data into Fabric in both full and incremental modes. While this method offers flexibility and control, it typically requires additional processing to handle deduplication and consolidation of records before the data is ready for downstream analytics.
 
