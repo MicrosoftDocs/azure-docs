@@ -138,7 +138,7 @@ No. After your accounts have been migrated, they can be managed with the modern 
 
 ### What resource group will my migrated resources appear in? 
 
-Any classic storage accounts that are migrated on your behalf will be placed in a new resource group. The name of the new resource group follows the pattern <classic-account-name>-Migrated. For more information on the migration process, visit [Understand storage account migration from the classic deployment model to Azure Resource Manager](classic-account-migration-process.md). 
+Any classic storage accounts that are migrated on your behalf will be placed in a new resource group. The name of the new resource group follows the pattern `<classic-account-name>-Migrated`. For more information on the migration process, visit [Understand storage account migration from the classic deployment model to Azure Resource Manager](classic-account-migration-process.md). 
 
 ### Will the URL of my storage account remain the same post-migration?
 
