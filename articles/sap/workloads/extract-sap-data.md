@@ -124,12 +124,9 @@ The connector supports delta extraction, which captures only records that have c
 
 Data extraction can also be handled by OData services, which expose business data from SAP systems through a standardized, REST-based protocol. This approach is particularly suited for accessing data made available via SAP Gateway services, such as those in SAP S/4HANA and SAP Business Suite. SAP provides a rich set of preconfigured OData services covering many core business objects and processes. In addition, custom or standard CDS Views can be exposed as OData endpoints, offering a flexible way to retrieve semantically rich and well-structured data.
 
-**  **
-
 ### SAP data extraction using Azure Data Factory
 
 Azure Data Factory is a cloud-based data integration service that enables you to build and schedule pipelines for moving and transforming data across diverse systems. Many data connectors, including SAP-specific ones like SAP Table and SAP BW, are already available in Microsoft Fabric. If SAP integration is a new workload you plan to onboard and you're considering Microsoft Fabric for analytics, we strongly recommend using it for data integration as well. This way, you benefit from a more unified experience across data ingestion, transformation, and analytics — all within a single platform. However, if you already have SAP pipelines built in Azure Data Factory or need to use the SAP CDC connector, there’s no immediate need to replatform. Existing pipelines and dataflows can be integrated with OneLake.
-
 
 **Figure 2**: SAP to Microsoft Fabric data connectivity options within Azure Data Factory.
 
@@ -143,13 +140,9 @@ The SAP CDC connector enables incremental data extraction from SAP systems using
 It supports a wide range of SAP data sources, including:
 
 - BW Extractors
-
 - Core Data Services (CDS) Views
-
 - SAP Landscape Transformation (SLT)
-
 - BW InfoProviders
-
 - SAP HANA Information Views
 
 It also supports data filtering and partitioning to optimize performance and control data volume during extraction.
