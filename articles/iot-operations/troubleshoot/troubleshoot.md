@@ -151,7 +151,7 @@ This error occurs when Azure IoT Operations tries to synchronize a secret from A
 
 An OPC UA server connection fails with a `BadSecurityModeRejected` error if the connector tries to connect to a server that only exposes endpoints with no security. There are two options to resolve this issue:
 
-- Overrule the restriction by explicitly setting the following values in the additional configuration for the asset endpoint profile:
+- Overrule the restriction by explicitly setting the following values in the additional configuration for the device:
 
     | Property | Value |
     |----------|-------|
@@ -162,9 +162,9 @@ An OPC UA server connection fails with a `BadSecurityModeRejected` error if the 
 
 ## Troubleshoot OPC PLC simulator
 
-### The OPC PLC simulator doesn't send data to the MQTT broker after you create an asset endpoint for it
+### The OPC PLC simulator doesn't send data to the MQTT broker after you create a device for it
 
-To work around this issue, run the following command to set `autoAcceptUntrustedServerCertificates=true` for the asset endpoint:
+To work around this issue, run the following command to set `autoAcceptUntrustedServerCertificates=true` for the device endpoint:
 
 ```bash
 ENDPOINT_NAME=<name-of-you-endpoint-here>
@@ -177,7 +177,7 @@ kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
 > [!CAUTION]
 > Don't use this configuration in production or preproduction environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
 
-You can patch all your asset endpoints with the following command:
+You can patch all your devices with the following command:
 
 ```bash
 ENDPOINTS=$(kubectl get AssetEndpointProfile -n azure-iot-operations --no-headers -o custom-columns=":metadata.name")

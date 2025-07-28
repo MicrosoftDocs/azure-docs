@@ -72,18 +72,8 @@ An operator configures and manages devices and namespace assets in the operation
 
 To learn more, see [Define assets and devices](concept-assets-devices.md).
 
-Previous versions of Azure IoT Operations used the term *asset endpoint* to refer to the configuration resource that encapsulated the connection information required to connect to a physical device or asset and the term *asset* to refer to the configuration resource that encapsulated information about the data that a physical asset or device exchanges with IoT Operations. Devices offer greater flexibility and more capabilities than asset endpoints, such the ability to define multiple endpoints within a single device. The current version of Azure IoT Operations supports the use of both devices and asset endpoints, but the recommended approach is to use devices.
-
-Assets associated with a device are known as *namespace assets*, assets that are associated with an asset endpoint are simply known as *assets*. The following table shows the differences between devices and asset endpoints:
-
-| Azure IoT Operations version | Devices supported | Asset endpoints supported |
-|-----------------------------|-------------------|--------------------------|
-| v1.1.x and before           | No                | Yes                      |
-| v1.2.x and later            | Yes (recommended) | Yes                      |
-
-To view the asset endpoint documentation, see [Asset management overview](https://go.microsoft.com/fwlink/?linkid=2328508&clcid=0x409) on the previous versions site.
-
-In the current version of Azure IoT Operations, you can continue to manage asset endpoints and assets in the operations experience web UI and by using the Azure CLI.
+> [!TIP]
+> Devices replace the asset endpoints from previous versions of Azure IoT Operations. To view the asset endpoint documentation, see [Asset management overview](https://go.microsoft.com/fwlink/?linkid=2328508&clcid=0x409) on the previous versions site.
 
 ## Understand services for managing devices and namespace assets
 
