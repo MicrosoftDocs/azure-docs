@@ -22,14 +22,14 @@ This article describes reliability and availability zones support in [Azure File
 
 ## Production deployment recommendations
 
-To learn about how to deploy Azure Files to support your solution's reliability requirements, and how reliability affects other aspects of your architecture, see [Architecture best practices forAzure Files](/azure/well-architected/service-guides/azure-files) in the Azure Well-Architected Framework.
+To learn about how to deploy Azure Files to support your solution's reliability requirements, and how reliability affects other aspects of your architecture, see [Architecture best practices for Azure Files](/azure/well-architected/service-guides/azure-files) in the Azure Well-Architected Framework.
 
 ## Reliability architecture overview
 
-Azure Files is available in two tiers: 
+Azure Files is available in two media tiers: 
 
 - **Premium tier** uses solid state disks (SSD) for high performance.
-- **Standard tier** supports hard disk drives (HDD) for cost efficiency. 
+- **Standard tier** uses hard disk drives (HDD) for cost efficiency. 
 
 To learn more about Azure Files tiers, see [Plan to deploy Azure Files](/azure/storage/files/storage-files-planning#storage-tiers).
 
