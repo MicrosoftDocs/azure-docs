@@ -46,7 +46,7 @@ First, [create an Azure Bot Service resource in the Azure portal](/azure/bot-ser
 
 This example demonstrates how to use a *[managed identity](/azure/bot-service/abs-quickstart?tabs=userassigned#bot-identity-information)* with your bot. If you're instead using single-tenant bot, refer to the instruction for setting up [single-tenant Bot identity](/azure/bot-service/abs-quickstart?tabs=singletenant#bot-identity-information).
 
-For managed identity bots, make sure to also [update your app with Bot Service identity](/azure/bot-service/abs-quickstart?view=azure-bot-service-4.0&tabs=userassigned#to-update-your-app-service) to ensure proper configuration.
+For managed identity bots, make sure to also [update your app with Bot Service identity](/azure/bot-service/abs-quickstart?tabs=userassigned#to-update-your-app-service) to ensure proper configuration.
 
 ### Get the bot's app ID and app password
 
