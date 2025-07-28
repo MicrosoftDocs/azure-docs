@@ -69,8 +69,8 @@ Assume we're making a price comparison in the following hot archive for multimed
 - 2048 MiB/sec throughput  
 
 For this scenario, if we're using the provisioned v1 billing model, we must follow the provisioned storage requirements and over-provision our IOPS and throughput. Here are the reverse calculations on the IOPS and throughput to see how much we are over-provisioned.
-IOPS limit will be 102,400 + 3,000 = 105,400 IOPS
-Throughput limit will be 102,400\*0.1+100=10,340 MiB / sec
+- IOPS limit will be 102,400 + 3,000 = 105,400 IOPS
+- Throughput limit will be 102,400\*0.1+100=10,340 MiB / sec
 
 |                 |            Provisioned v1 SSD             |                             Provisioned v2 SSD                             |
 | --------------- | :---------------------------------------: | :------------------------------------------------------------------------: |
@@ -81,4 +81,4 @@ Throughput limit will be 102,400\*0.1+100=10,340 MiB / sec
 
 100 – ($10641.93/ $16384.00 × 100) = 35.05%
 
-For this workload, Provisioned v2 SSD provides a 35.06% discount compared to the Provisioned v1 billing model.
+For this workload, Provisioned v2 SSD provides a 35% discount compared to the Provisioned v1 billing model.
