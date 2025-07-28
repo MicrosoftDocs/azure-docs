@@ -173,7 +173,7 @@
       - name: Configure SWA CLI
         href: static-web-apps-cli-configuration.md
       - name: API Reference
-        href: static-web-apps-cli.yml
+        href: static-web-apps-cli.md
 - name: Relocation
   items:
   - name: Relocate to another region

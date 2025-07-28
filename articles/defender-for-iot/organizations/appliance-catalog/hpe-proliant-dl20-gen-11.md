@@ -11,10 +11,10 @@ This article describes the **HPE ProLiant DL20 Gen 11** appliance for OT sensors
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | E1800 |
-|**Performance** | Max bandwidth: 1 Gbps <br>Max devices: 10,000 |
-|**Physical specifications** | Mounting: 1U <br> Minimum dimensions (H x W x D) 1.70 x 17.11 x 15.05 in<br>Minimum dimensions (H x W x D) 4.32 x 43.46 x 38.22 cm|
-|**Status** | Supported, available pre-configured |
+|**Hardware profile** | L500 |
+|**Performance** | Max bandwidth: 200 Mbps <br>Max devices: 1,000 |
+|**Physical specifications** | Mounting: 1U <br> Ports: 4x RJ45|
+|**Status** | Supported, not available pre-configured |
 
 ## Specifications
 

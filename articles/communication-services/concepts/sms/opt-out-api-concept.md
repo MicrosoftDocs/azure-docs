@@ -31,3 +31,5 @@ Key features include:
 ## Next steps
 
 Let's get started with the [SMS Opt-out API quickstart](../../quickstarts/sms/opt-out-api-quickstart.md).
+> [!TIP]
+> For global SMS delivery and partner-managed options, check out [Messaging Connect](../sms/messaging-connect.md).
