@@ -2,10 +2,10 @@
 title: Migrate applications to use passwordless authentication with Azure Blob Storage
 titleSuffix: Azure Storage
 description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Microsoft Entra ID and Azure RBAC for enhanced security.
-author: alexwolfmsft
-ms.author: alexwolf
+author: pauljewellmsft
+ms.author: pauljewell
 ms.reviewer: randolphwest
-ms.date: 05/09/2023
+ms.date: 07/28/2025
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
