@@ -78,7 +78,7 @@ To configure volume settings using Azure CLI, prepare a Broker configuration fil
 }
 ```
 
-Then run the [az iot ops create](/cli/azure/iot/ops?view=azure-cli-latest#az-iot-ops-create) command with the `--broker-config-file` flag to deploy IoT Operations:
+Then run the [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command with the `--broker-config-file` flag to deploy IoT Operations:
 
 ```azurecli
 az iot ops create --broker-config-file <BROKER_CONFIG_FILE>.json --cluster <CLUSTER_NAME> --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP_NAME> --sr-resource-id <SCHEMA_REGISTRY_RESOURCE_ID>
@@ -141,15 +141,16 @@ This setting controls which retained messages are persisted to disk.
 
 # [Azure portal](#tab/portal)
 
-:::image type="content" source="media/howto-broker-persistence/data-persistence-retained-messages.png" alt-text="[Screenshot changing data persistence retained messages options the Azure portal]":::
 
 To configure retained messages persistence in the Azure portal:
 
 1. Navigate to your IoT Operations instance.
 2. Go to **MQTT Broker** > **Data Persistence**.
 3. In the **Retained Messages** section:
-   - Select the **Mode**: None, All, or Custom.
-   - If Custom is selected, specify topic patterns and dynamic mode settings.
+    - Select the **Mode**: None, All, or Custom.
+    - If Custom is selected, specify topic patterns and dynamic mode settings.
+
+    :::image type="content" source="media/howto-broker-persistence/data-persistence-retained-messages.png" alt-text="[Screenshot changing data persistence retained messages options the Azure portal]":::
 
 # [Azure CLI](#tab/azurecli)
 
@@ -186,15 +187,16 @@ This setting controls which subscriber message queues are persisted to disk. Ses
 
 # [Azure portal](#tab/portal)
 
-:::image type="content" source="media/howto-broker-persistence/data-persistence-subscriber.png" alt-text="[Screenshot changing data persistence subscriber options the Azure portal]":::
 
 To configure subscriber queue persistence in the Azure portal:
 
 1. Navigate to your IoT Operations instance.
 2. Go to **MQTT Broker** > **Data Persistence**.
 3. In the **Subscriber Queue** section:
-   - Select the **Mode**: None, All, or Custom.
-   - If Custom is selected, specify subscriber client IDs and dynamic mode settings.
+    - Select the **Mode**: None, All, or Custom.
+    - If Custom is selected, specify subscriber client IDs and dynamic mode settings.
+
+    :::image type="content" source="media/howto-broker-persistence/data-persistence-subscriber.png" alt-text="[Screenshot changing data persistence subscriber options the Azure portal]":::
 
 # [Azure CLI](#tab/azurecli)
 
@@ -204,7 +206,7 @@ Use the `az iot ops broker persist update` command to update the subscriber queu
 az iot ops broker persist update --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <BrokerName> --persist-mode subscriberQueue=<PersistMode>
 ```
 
-Here's an example command configure persistence for all subscriber queues:
+Here's an example command to configure persistence for all subscriber queues:
 
 ```azurecli
 az iot ops broker persist update --resource-group myResourceGroup --instance myAioInstance --name myBroker --persist-mode subscriberQueue=All
@@ -269,15 +271,15 @@ This setting controls which keys in the internal state store are persisted.
 
 # [Azure portal](#tab/portal)
 
-:::image type="content" source="media/howto-broker-persistence/data-persistence-state-store.png" alt-text="[Screenshot changing data persistence state store options the Azure portal]":::
 
 To configure state store persistence in the Azure portal:
 
 1. Navigate to your IoT Operations instance.
 2. Go to **MQTT Broker** > **Data Persistence**.
 3. In the **State Store** section:
-   - Select the **Mode**: None, All, or Custom.
-   - If Custom is selected, specify state store resources with key types, keys, and dynamic mode settings.
+    - Select the **Mode**: None, All, or Custom.
+    - If Custom is selected, specify state store resources with key types, keys, and dynamic mode settings.
+    :::image type="content" source="media/howto-broker-persistence/data-persistence-state-store.png" alt-text="[Screenshot changing data persistence state store options the Azure portal]":::
 
 # [Azure CLI](#tab/azurecli)
 
@@ -305,17 +307,18 @@ You can enable or disable the dynamic persistence setting for each data type (re
 
 # [Azure portal](#tab/portal)
 
-:::image type="content" source="media/howto-broker-persistence/data-persistence-dynamic.png" alt-text="[Screenshot changing data persistence subscriber options the Azure portal]":::
 
 To configure dynamic persistence settings in the Azure portal:
 
 1. Navigate to your IoT Operations instance.
 2. Go to **MQTT Broker** > **Data Persistence**.
 3. Configure the global MQTT user property settings:
-   - Set the **User property key** (default: `aio-persistence`)
-   - Set the **User property value** (default: `true`)
+    - Set the **User property key** (default: `aio-persistence`)
+    - Set the **User property value** (default: `true`)
 4. In each persistence section (Retained Messages, Subscriber Queue, State Store):
-   - Set **Dynamic persistence** to enabled to allow clients to request persistence for that data type.
+    - Set **Dynamic persistence** to enabled to allow clients to request persistence for that data type.
+
+    :::image type="content" source="media/howto-broker-persistence/data-persistence-dynamic.png" alt-text="[Screenshot changing data persistence dynamic options the Azure portal]":::
 
 # [Azure CLI](#tab/azurecli)
 
@@ -331,7 +334,6 @@ Here's an example command Configure subscriber queue persistence for specific cl
 az iot ops broker persist update --resource-group myResourceGroup --instance myAioInstance --name myBroker --persist-mode subscriberQueue=Custom --subscriber-client-ids "factory-client-*" "sensor-gateway-01"--user-key disk-persistence --user-value disk
 ```
 
---- 
+---
 
 To learn more about Azure CLI support for advanced MQTT broker configuration, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config).
-
