@@ -42,9 +42,9 @@ From your Okta account, you need the following information:
 
 For information about integrating Okta with Defender for Identity, see [Integrate Okta with Microsoft Defender for Identity](/defender-for-identity/okta-integration).
 
-## Configure an Okta connector to a Sentinel workspace
+## Configure a connector to a Sentinel workspace
 
-To create an Okta instance in Microsoft Sentinel using the Okta unified connector, follow these steps:
+To create a unified connector instance in Microsoft Sentinel, follow these steps:
 
 1. Go to the Data connectors Gallery [directly](https://security.microsoft.com/sentinel/unified-connector), or navigate to it via **System** -> **Data management** -> **Data connectors**.
 
@@ -52,11 +52,11 @@ To create an Okta instance in Microsoft Sentinel using the Okta unified connecto
 
    For more information about the Data connectors Gallery, see [Data connectors Gallery](./unified-connector.md#data-connectors-gallery).
 
-1. Select the **Okta Single Sign-On** connector.
+1. Go to the **Unified connectors** section of the **My connectors** tab .
 
    :::image type="content" source="./media/unified-connector-integration/okta-connector.png" alt-text="Screenshot of Okta connector in the Connectors Gallery.":::
 
-1. Select a connector. A side panel opens with more information about the connector, including prerequisites.
+1. Select a connector (in this example, the **Okta Single Sign-On** connector). A side panel opens with more information about the connector, including prerequisites.
 
    :::image type="content" source="./media/unified-connector-integration/okta-connector-pane.png" alt-text="Screenshot of Okta connector configuration page.":::
 
@@ -86,7 +86,7 @@ Connectors that are successfully connected, appear in the **My Connectors tab**,
 
 ## Manage your connector
 
-Existing connectors appear in the **My Connectors tab**.
+Existing connectors appear in the **My Connectors** tab.
 
 :::image type="content" source="./media/unified-connector-integration/my-connectors.png" alt-text="Screenshot of unified connectors list in the My connectors tab.":::
 
