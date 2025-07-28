@@ -115,7 +115,7 @@ For more information about application binding requirements, see [How Accelerate
 
 Accelerated Networking requires configuring the NVIDIA drivers as unmanaged devices in your network settings. Images using cloud-init version 19.4 or later automatically apply the correct network configuration to support Accelerated Networking during provisioning. We strongly recommend avoiding concurrent network interface management tools (such as ifupdown and networkd) on custom images, and not running dhcpclient directly on multiple interfaces.
 
-# [RHEL, CentOS](#tab/redhat)
+# [RHEL](#tab/redhat)
 
 The following example shows a sample configuration drop-in for `NetworkManager` on RHEL or CentOS:
 
