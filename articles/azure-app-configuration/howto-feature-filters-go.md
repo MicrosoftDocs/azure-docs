@@ -17,7 +17,7 @@ Feature flags can use feature filters to enable features conditionally. To learn
 
 The example used in this guide is based on the Go Gin web application introduced in the feature management [quickstart](./quickstart-feature-flag-go-gin.md). Before proceeding further, complete the quickstart to create a Go Gin web application with a *Beta* feature flag. Once completed, you must [add a custom feature filter](./howto-feature-filters.md) to the *Beta* feature flag in your App Configuration store. 
 
-In this guide, you'll learn how to implement a custom feature filter and use the feature filter to enable features conditionally.
+In this guide, you learn how to implement a custom feature filter and use the feature filter to enable features conditionally.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ In this guide, you'll learn how to implement a custom feature filter and use the
 
 ## Implement a custom feature filter
 
-You've added a custom feature filter named **Random** with a **Percentage** parameter for your *Beta* feature flag in the prerequisites. Next, you'll implement the feature filter to enable the *Beta* feature flag based on the chance defined by the **Percentage** parameter.
+You added a custom feature filter named **Random** with a **Percentage** parameter for your *Beta* feature flag in the prerequisites. Next, you'll implement the feature filter to enable the *Beta* feature flag based on the chance defined by the **Percentage** parameter.
 
 1. Create a `random_filter.go` file with the following code:
 
@@ -103,7 +103,7 @@ You've added a custom feature filter named **Random** with a **Percentage** para
 
 ## Feature filter in action
 
-Relaunch the application and refresh the browser a few times. Without manually toggling the feature flag, you will see that the **Beta** menu sometimes appears and sometimes doesn't.
+Relaunch the application and refresh the browser a few times. Without manually toggling the feature flag, the **Beta** menu appears randomly based on the percentage you set.
 
 :::image type="content" source="./media/quickstarts/gin-app-feature-flag-before.png" alt-text="Screenshot of Gin web app with Beta menu hidden.":::
 
