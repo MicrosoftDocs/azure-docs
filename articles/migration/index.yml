@@ -1,8 +1,8 @@
 ### YamlMime:Marketing
-title: Microsoft Azure Migration Hub 
+title: Microsoft Azure Migration Hub
 
 metadata:
-  title: Microsoft Azure Migration Hub 
+  title: Microsoft Azure Migration Hub
   description: Explore key considerations, address migration challenges, and streamline your move while optimizing workloads for Azure.
   ms.service: azure
   ms.topic: marketing-hub
@@ -13,119 +13,53 @@ metadata:
   ms.collection: migration
 
 sections:
-
-# Header replaced to match Security and Copilot hubs May 2025 - this is the old one restored for image, TBC
-# masthead
   - componentType: hero
     size: small
     title: Microsoft Azure Migration Hub
     supertitle: Microsoft Learn
     summary: "Explore key considerations, address migration challenges, and streamline your move while optimizing workloads for Azure."
     background:
-     componentType: image
-     src: images/banner-image.png
-
-  - componentType: testimonials-section
-    title: 'Discover top picks'
-    cards:
-      - avatarUrl: images/functions.svg
-        componentType: testimonial-card
-        name: Migrate AWS Lambda to Azure Functions
-        role: Documentation
-        feedback: Learn how to migrate serverless applications from AWS Lambda to Azure Functions.
-        link:
-          componentType: link
-          url: /azure/azure-functions/migration/lambda-functions-migration-overview
-          text: Get started
-      - avatarUrl: images/azure-kubernetes-service.svg
-        componentType: testimonial-card
-        name: AKS for EKS Professionals
-        role: Documentation
-        feedback: Assists Amazon EKS professionals in understanding Azure Kubernetes Service (AKS) through comparisons and migration strategies.
-        link:
-          componentType: link
-          url: /azure/architecture/aws-professional/eks-to-aks/
-          text: Learn more
-      - avatarUrl: images/aws.svg
-        componentType: testimonial-card
-        name: Azure for AWS Professionals
-        role: Documentation
-        feedback: Discover articles for AWS professionals that explain Microsoft Azure's platform, services, and key differences, offering comparisons relevant to multicloud solutions and migration.
-        link:
-          componentType: link
-          url: /azure/architecture/aws-professional/
-          text: Get started
-          
-  - componentType: cards
-    isShadowless: false
-    backgroundColor: alternating-grey
-    title: Plan your migration to Azure
-    summary: Explore the aspects of migrating to Microsoft Azure. Discover essential steps, best practices, and technical resources to support a successful migration. Select a scenario to access comprehensive insights and practical guidance customized to your migration needs.
-    blocks:
-    - componentType: card
-      title: Adopt Azure
-      summary: ''
-      imageUrl: images/adopt-azure.png
-      links: 
-        - componentType: link
-          text: Prepare your Azure environment for migration
-          url: /azure/cloud-adoption-framework/migrate/prepare/ready-azure-landing-zone
-        - componentType: link
-          text: Assess workload readiness and classification
-          url: /azure/cloud-adoption-framework/migrate/assess/classify
-        - componentType: link
-          text: Deploy Azure services for migration
-          url: /azure/cloud-adoption-framework/migrate/deploy/
-    - componentType: card
-      title: Design and govern for Azure
-      summary: ''
-      imageUrl: images/design-govern.png
-      links: 
-        - componentType: link
-          text: Design Well-Architected Solutions
-          url: /azure/well-architected/pillars
-        - componentType: link
-          text: Workload assessment for Azure migration
-          url: /azure/cloud-adoption-framework/migrate/assess/
-        - componentType: link
-          text: Governance and compliance frameworks for Azure
-          url: /azure/governance/management-groups/azure-management
-    - componentType: card
-      title: Manage and optimize for Azure
-      summary: ''
-      imageUrl: images/optimize.png
-      links: 
-        - componentType: link
-          text: Cloud Design Patterns for reliable workloads
-          url: /azure/well-architected/reliability/design-patterns
-        - componentType: link
-          text: Microsoft Cloud Security Benchmark
-          url: /security/benchmark/azure/
-    - componentType: card
-      title: Training
-      summary: ''
-      imageUrl: images/training.png
-      links: 
-        - componentType: link
-          text: Introduction to migrating from AWS to Azure
-          url: /training/modules/introduction-to-migrating-aws-to-azure/
-        - componentType: link
-          text: Introduction to migrating from Google Cloud to Azure
-          url: /training/modules/introduction-to-migrating-gcp-to-azure/
-        - componentType: link
-          text: Azure Administrator certification training
-          url: /training/courses/az-104t00
-  
-  # By role
+      componentType: image
+      src: images/banner-image.png
   - componentType: markdown
     content: |
-      ## Migrate workloads from other clouds 
+      :::row:::
+        :::column:::       
+            > [!div style="text-align:center;"]
+            > # Migrate workloads from other clouds
+            > Learn more about the exciting new announcements at Microsoft Build 2025
+            > </br>
+            > </br>
+            > <a class="button button-sm button-primary button-filled margin-right-none" href="https://blogs.windows.com/windowsdeveloper/2025/05/19/advancing-windows-for-ai-development-new-platform-capabilities-and-tools-introduced-at-build-2025/">Read the announcement blog</a>
+        :::column-end:::
+      :::row-end:::
+
+  - componentType: cards
+    #   backgroundColor: dark
+    #   isShadowless: false # Removes the box shadow from around the card
+    blocks:
+      - componentType: card
+        title: Migrate workloads hosted on Amazon Web Services (AWS) to Microsoft Azure
+        summary: Compare AWS and Azure and review example scenarios to help integrate components for transition to Azure.
+        links:
+          - componentType: link
+            url: /azure/migration/migrate-from-aws
+            text: Learn more
+      - componentType: card
+        title: Migrate workloads hosted on Google Cloud to Microsoft Azure
+        summary: Compare Google Cloud and Azure and review example scenarios to help integrate components for transition to Azure.
+        links:
+          - componentType: link
+            url: /azure/migration/migrate-from-google-cloud
+            text: Learn more
+
+  - componentType: markdown
+    content: |
+      ##  Migration scenarios
 
       Easily migrate your workloads from Amazon Web Services (AWS) or Google Cloud environments to Azure using our guided tools and proven best practices. Select a tab to get tailored migration guidance for your current platform.
-      
+
       #### [Amazon Web Services](#tab/azure-web-services)
-      
-      ### Scenarios
 
       :::row:::
          :::column:::
@@ -182,7 +116,97 @@ sections:
          :::column-end:::         
       :::row-end:::
       ---
-   
+
+  - componentType: testimonials-section
+    title: "Discover top picks"
+    cards:
+      - avatarUrl: images/functions.svg
+        componentType: testimonial-card
+        name: Migrate AWS Lambda to Azure Functions
+        role: Documentation
+        feedback: Learn how to migrate serverless applications from AWS Lambda to Azure Functions.
+        link:
+          componentType: link
+          url: /azure/azure-functions/migration/lambda-functions-migration-overview
+          text: Get started
+      - avatarUrl: images/azure-kubernetes-service.svg
+        componentType: testimonial-card
+        name: AKS for EKS Professionals
+        role: Documentation
+        feedback: Assists Amazon EKS professionals in understanding Azure Kubernetes Service (AKS) through comparisons and migration strategies.
+        link:
+          componentType: link
+          url: /azure/architecture/aws-professional/eks-to-aks/
+          text: Learn more
+      - avatarUrl: images/aws.svg
+        componentType: testimonial-card
+        name: Azure for AWS Professionals
+        role: Documentation
+        feedback: Discover articles for AWS professionals that explain Microsoft Azure's platform, services, and key differences, offering comparisons relevant to multicloud solutions and migration.
+        link:
+          componentType: link
+          url: /azure/architecture/aws-professional/
+          text: Get started
+
+  - componentType: cards
+    isShadowless: false
+    backgroundColor: alternating-grey
+    title: Plan your migration to Azure
+    summary: Explore the aspects of migrating to Microsoft Azure. Discover essential steps, best practices, and technical resources to support a successful migration. Select a scenario to access comprehensive insights and practical guidance customized to your migration needs.
+    blocks:
+      - componentType: card
+        title: Adopt Azure
+        summary: ""
+        imageUrl: images/adopt-azure.png
+        links:
+          - componentType: link
+            text: Prepare your Azure environment for migration
+            url: /azure/cloud-adoption-framework/migrate/prepare/ready-azure-landing-zone
+          - componentType: link
+            text: Assess workload readiness and classification
+            url: /azure/cloud-adoption-framework/migrate/assess/classify
+          - componentType: link
+            text: Deploy Azure services for migration
+            url: /azure/cloud-adoption-framework/migrate/deploy/
+      - componentType: card
+        title: Design and govern for Azure
+        summary: ""
+        imageUrl: images/design-govern.png
+        links:
+          - componentType: link
+            text: Design Well-Architected Solutions
+            url: /azure/well-architected/pillars
+          - componentType: link
+            text: Workload assessment for Azure migration
+            url: /azure/cloud-adoption-framework/migrate/assess/
+          - componentType: link
+            text: Governance and compliance frameworks for Azure
+            url: /azure/governance/management-groups/azure-management
+      - componentType: card
+        title: Manage and optimize for Azure
+        summary: ""
+        imageUrl: images/optimize.png
+        links:
+          - componentType: link
+            text: Cloud Design Patterns for reliable workloads
+            url: /azure/well-architected/reliability/design-patterns
+          - componentType: link
+            text: Microsoft Cloud Security Benchmark
+            url: /security/benchmark/azure/
+      - componentType: card
+        title: Training
+        summary: ""
+        imageUrl: images/training.png
+        links:
+          - componentType: link
+            text: Introduction to migrating from AWS to Azure
+            url: /training/modules/introduction-to-migrating-aws-to-azure/
+          - componentType: link
+            text: Introduction to migrating from Google Cloud to Azure
+            url: /training/modules/introduction-to-migrating-gcp-to-azure/
+          - componentType: link
+            text: Azure Administrator certification training
+            url: /training/courses/az-104t00
   - componentType: grid
     title: Read migration blogs and articles from community members
     summary: Check out some of the latest migration blogs and articles from advocates and experts within the Azure community.
