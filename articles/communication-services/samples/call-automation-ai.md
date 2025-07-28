@@ -1,7 +1,7 @@
 ---
-title: Call Automation AI sample
+title: Call Automation AI Sample
 titleSuffix: An Azure Communication Services sample overview
-description: Overview of Call Automation AI hero sample using Azure Communication Services to enable developers to learn how to incorporate AI into their workflows.
+description: This Call Automation AI hero sample that uses Azure Communication Services shows developers how to incorporate AI into their workflows.
 author: kpunjabi
 manager: visho
 services: azure-communication-services
@@ -16,11 +16,9 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Get started with the Azure Communication Services Call Automation OpenAI sample
 
-The Azure Communication Services Call Automation OpenAI sample demonstrates how you can use Call Automation SDK and the recently announced public preview integration with Azure AI services to build intelligent virtual assistants.
+The Azure Communication Services Call Automation OpenAI sample demonstrates how you can use the Call Automation SDK and the recently announced public preview integration with Azure AI services to build intelligent virtual assistants.
 
-
-In this sample, we'll cover off what this sample does and what you need as pre-requisites before we run this sample locally on your machine. 
-
+In this article, we cover what this sample does and what you need as prerequisites before we run this sample locally on your machine.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Azure Communication Services Call Automation OpenAI C# sample](./includes/call-automation-ai-csharp.md)]

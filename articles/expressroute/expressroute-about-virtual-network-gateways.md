@@ -154,3 +154,4 @@ A virtual network with an ExpressRoute gateway can have virtual network peering 
 * For more information about configuring zone-redundant gateways, see [Create a zone-redundant virtual network gateway](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md).
 
 * For more information about FastPath, see [About FastPath](about-fastpath.md).
+
