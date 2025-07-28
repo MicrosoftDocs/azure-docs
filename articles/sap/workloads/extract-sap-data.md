@@ -98,7 +98,7 @@ The SAP Table connector connects to ABAP-based SAP systems and enables snapshot 
 
 #### SAP HANA connector
 
-The SAP HANA connector allows you to connect to SAP HANA database. It supports two access layers: the multidimensional analytic layer, based on HANA calculation views, and the transactional layer, which provides access to data stored in tables and views.
+The SAP HANA connector lets you connect to SAP HANA database. It supports two access layers: the multidimensional analytic layer, based on HANA calculation views, and the transactional layer, which provides access to data stored in tables and views.
 
 When connecting through Dataflow Gen2, which are designed for semantic modelling and analytics, the SAP HANA connector typically accesses the multidimensional layer. Calculation views work similarly to SAP BW queries and are often used directly access curated data and KPIs following built-in logic. 
 
