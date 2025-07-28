@@ -402,7 +402,7 @@ For an action parameter that uses only model-generated outputs, create an agent 
 
    :::image type="content" source="media/create-agent-workflows/generate-agent-parameter.png" alt-text="Screenshot shows an action with the mouse cursor inside a parameter box, parameter options, and the selected option to generate an agent parameter." lightbox="media/create-agent-workflows/generate-agent-parameter.png":::
 
-   The **Create agent parameter** window shows the **Name**, **Type**, and **Location** fields, which are prepopulated from the source action parameter.
+   The **Create agent parameter** window shows the **Name**, **Type**, and **Description** fields, which are prepopulated from the source action parameter.
 
    The following table describes the fields that define the agent parameter:
 

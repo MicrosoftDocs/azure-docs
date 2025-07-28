@@ -15,8 +15,6 @@ ms.date: 10/22/2024
 
 Observability provides visibility into every layer of your Azure IoT Operations configuration. It gives you insight into the actual behavior of issues, which increases the effectiveness of site reliability engineering. Azure IoT Operations offers observability through custom curated Grafana dashboards that are hosted in Azure. These dashboards are powered by Azure Monitor managed service for Prometheus and by Container Insights. This guide shows you how to set up Azure Managed Prometheus and Grafana and enable monitoring for your Azure Arc cluster.
 
-Complete the steps in this article *before* deploying Azure IoT Operations to your cluster.
-
 ## Prerequisites
 
 * An Arc-enabled Kubernetes cluster.
@@ -231,6 +229,23 @@ Configure Prometheus metrics collection on your cluster.
    kubectl apply -f ama-metrics-prometheus-config.yaml
    ```
 
+
+## Set up observability configuration
+
+You can set up the observability configuration of your Azure IoT Operations deployment at any time. Once observability resources are configured, you can upgrade the observability configuration by running the `az iot ops upgrade` command with the `--ops-config` parameter to specify the new configuration values.
+
+```azurecli
+az iot ops upgrade --resource-group <rg name> -n <instance name> --ops-config observability.metrics.openTelemetryCollectorAddress=<>
+```
+
+| Parameter | Value | Description |    
+| --------- | ----- | ----------- |
+| `--ops-config` | `observability.metrics.openTelemetryCollectorAddress=<FULLNAMEOVERRIDE>.azure-iot-operations.svc.cluster.local:<GRPC_ENDPOINT>` | Provide the OpenTelemetry (OTel) collector address you configured in the otel-collector-values.yaml file.<br><br>The [instructions in this article](#deploy-opentelemetry-collector) use the sample values **fullnameOverride=aio-otel-collector** and **grpc.endpoint=4317**. |
+| `--ops-config` | `observability.metrics.exportInternalSeconds=<CHECK_INTERVAL>` | Provide the **check_interval** value you configured in the otel-collector-values.yaml file.<br><br>The [instructions in this article](#deploy-opentelemetry-collector) use the sample value **check_interval=60**. |
+
+> [!NOTE]
+> In preview releases, the `az iot ops upgrade` command doesn't work for upgrading to a preview version, but it works for configuring the Azure IoT Operations for observability.
+
 ## Deploy dashboards to Grafana
 
 Azure IoT Operations provides a [sample dashboard](https://github.com/Azure/azure-iot-operations/tree/main/samples/grafana-dashboard) designed to give you many of the visualizations you need to understand the health and performance of your Azure IoT Operations deployment.
@@ -254,3 +269,6 @@ Complete the following steps to install the Azure IoT Operations curated Grafana
 1. When the application prompts, select your managed Prometheus data source.
 
 1. Select **Import**.
+
+
+

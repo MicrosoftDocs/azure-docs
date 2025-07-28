@@ -2,7 +2,7 @@
 title: Install Bicep tools
 description: Learn how to install tools to set up Bicep development and deployment environments.
 ms.topic: how-to
-ms.date: 03/25/2025
+ms.date: 07/25/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ---
 
@@ -49,7 +49,8 @@ To see the settings:
 
 1. From the `View` menu, select `Extensions`.
 1. Select `Bicep` from the list of extensions.
-1. Select the `FEATURE CONTRIBUTIONS` tab:
+1. Select the `FEATURE` tab.
+1. Select **Settings**.
 
     :::image type="content" source="./media/install/bicep-extension-feature-contributions-settings.png" alt-text="Screenshot of Bicep extension settings.":::
 
@@ -57,11 +58,11 @@ To see the settings:
 
     | ID | Default value | Description |
     |-----|-------------|---------|
-    | bicep.decompileOnPaste | true | Automatically convert pasted JSON values, Azure Resource Manager JSON templates (ARM templates,) or resources from an ARM template into Bicep (use Undo to revert). For more information, see the [Paste JSON as Bicep command](./visual-studio-code.md#paste-json-as-bicep-command).|
+    | bicep.completions.getAllAccessibleAzureContainerRegistries | false | When completing 'br:' module references, query Azure for all container registries accessible to the user (may be slow). If this option is off, only registries configured under moduleAliases in bicepconfig.json will be listed. |
+    | bicep.decompileOnPaste | true | Automatically convert pasted JSON values, JSON ARM templates or resources from a JSON ARM template into Bicep (use Undo to revert).|
     | bicep.enableOutputTimestamps | true | Prepend each line displayed in the Bicep Operations output channel with a timestamp. |
-    | bicep.suppressedWarnings | | Warnings that are being suppressed because a 'Don't show again' button was pressed. Remove items to reset.|
     | bicep.enableSurveys | true | Enable occasional surveys to collect feedback that helps us improve the Bicep extension. |
-    | bicep.completions.getAllAccessibleAzureContainerRegistries | false | When completing 'br:' module references, query Azure for all container registries accessible to the user (might be slow). If this option is off, only  registries configured under [moduleAliases](./bicep-config-modules.md#aliases-for-modules) in [_bicepconfig.json_ files](./bicep-config.md) will be listed. |
+    | bicep.suppressedWarnings | | Warnings that are being suppressed because a 'Don't show again' button was pressed. Remove items to reset.|
     | bicep.trace.server | off | Configure tracing of messages sent to the Bicep language server. |
 
 To configure the settings:
