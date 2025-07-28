@@ -277,47 +277,47 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 
 | MySQL data type | Interim service data type (for version 2.0)| Interim service data type (for version 1.0) |
 |:--- |:--- |:--- |
-| `bigint` |`Int64` |`Int64` |
-| `bigint unsigned` |`Decimal` |`Decimal` |
-| `bit(1)` |`UInt64` |`Boolean` |
-| `bit(M), M>1`|`UInt64`|`Byte[]`|
-| `blob` |`Byte[]` |`Byte[]` |
-| `bool` |`Boolean` <br/>(If TreatTinyAsBoolean=false, it is mapped as `SByte`. TreatTinyAsBoolean is true by default ) |`Int16` |
-| `char` |`String` |`String` |
-| `date` |`Datetime` |`Datetime` |
-| `datetime` |`Datetime` |`Datetime` |
-| `decimal` |`Decimal` |`Decimal, String` |
-| `double` |`Double` |`Double` |
-| `double precision` |`Double` |`Double` |
-| `enum` |`String` |`String` |
-| `float` |`Single` |`Single` |
-| `int` |`Int32` |`Int32` |
-| `int unsigned` |`Int64`|`Int64`|
-| `integer` |`Int32` |`Int32` |
-| `integer unsigned` |`Int64` |`Int64` |
-| `JSON` |`String` |-|
-| `long varbinary` |`Byte[]` |`Byte[]` |
-| `long varchar` |`String` |`String` |
-| `longblob` |`Byte[]` |`Byte[]` |
-| `longtext` |`String` |`String` |
-| `mediumblob` |`Byte[]` |`Byte[]` |
-| `mediumint` |`Int32` |`Int32` |
-| `mediumint unsigned` |`Int64` |`Int64` |
-| `mediumtext` |`String` |`String` |
-| `numeric` |`Decimal` |`Decimal` |
-| `real` |`Double` |`Double` |
-| `set` |`String` |`String` |
-| `smallint` |`Int16` |`Int16` |
-| `smallint unsigned` |`Int32` |`Int32` |
-| `text` |`String` |`String` |
-| `time` |`TimeSpan` |`TimeSpan` |
-| `timestamp` |`Datetime` |`Datetime` |
-| `tinyblob` |`Byte[]` |`Byte[]` |
-| `tinyint` |`SByte` <br/> (`tinyint(1)` is mapped to `Boolean`) |`Int16` |
-| `tinyint unsigned` |`Int16` |`Int16` |
-| `tinytext` |`String` |`String` |
-| `varchar` |`String` |`String` |
-| `year` |`Int` |`Int` |
+| bigint | Int64 | Int64 |
+| bigint unsigned | UInt64 | Decimal |
+| bit(1) | UInt64 | Boolean |
+| bit(M), M>1 | UInt64 | Byte[] |
+| blob |Byte[] |Byte[] |
+| bool |Boolean <br/>(If TreatTinyAsBoolean=false, it is mapped as SByte. TreatTinyAsBoolean is true by default) | Int16 |
+| char | String  | String |
+| date | Datetime  | Datetime  |
+| datetime | Datetime  | Datetime  |
+| decimal | Decimal | Decimal, String |
+| double | Double  | Double  |
+| double precision | Double  | Double  |
+| enum | String  | String  |
+| float | Single  | Single  |
+| int | Int32  | Int32  |
+| int unsigned | Int64 | Int64 |
+| integer | Int32  | Int32  |
+| integer unsigned | UInt32 | Int64  |
+| JSON |String |Byte[]|
+| long varbinary | Byte[] | Byte[]  |
+| long varchar | String | String  |
+| longblob |Byte[] |Byte[] |
+| longtext |String | String  |
+| mediumblob |Byte[] | Byte[]  |
+| mediumint |Int32 | Int32  |
+| mediumint unsigned |UInt32 |Int64 |
+| mediumtext |String |String |
+| numeric |Decimal |Decimal |
+| real |Double |Double |
+| set |String |String |
+| smallint |Int16 |Int16 |
+| smallint unsigned | UInt16 |Int32 |
+| text |String |String |
+| time |TimeSpan |TimeSpan |
+| timestamp |Datetime |Datetime |
+| tinyblob |Byte[] |Byte[] |
+| tinyint |SByte | Int16  |
+| tinyint unsigned |Int16 | Int16 |
+| tinytext | String | String |
+| varchar | String | String |
+| year | Int | Int |
 
 ## Lookup activity properties
 
@@ -351,10 +351,16 @@ The table below shows the data type mapping differences between MySQL using vers
 
 |MySQL data type |Interim service data type (using version 2.0) |Interim service data type (using version 1.0)|
 |:---|:---|:---|
+|bigint unsigned|UInt64|Decimal|
 |bit(1)| UInt64|Boolean|
 |bit(M), M>1|UInt64|Byte[]|
 |bool|Boolean|Int16|
+|decimal | Decimal | Decimal, String |
+|integer unsigned |UInt32|Int64|
 |JSON|String|Byte[]|
+|mediumint unsigned |UInt32|Int64|
+|smallint unsigned |UInt16|Int32|
+|tinyint |SByte| Int16|
 
 ## Related content
 
