@@ -16,7 +16,7 @@ ms.date: 07/08/2025
 
 The Azure IoT Operations southbound connectors use Akri services to:
 
-- Discover physical devices connected to your cluster and detect assets.
+- Discover physical devices and devices connected to your cluster.
 - Enable connectivity to the physical assets and devices by using protocols such as OPC UA, ONVIF, and REST/HTTP.
 - Configure namespace assets and devices as custom resources in your Kubernetes cluster.
 - Integrate with Azure Device Registry to project device and namespace assets to the cloud as Azure Resource Manager resources, reducing the amount of manual configuration required.
@@ -51,9 +51,9 @@ To address the challenges of integrating non-Kubernetes IoT leaf devices, the Ak
 
 Akri services include the _Akri operator_. The operator lets you deploy connector dynamically when certain types of device are found on the cluster and the corresponding namespace assets are allocated to the connector. The Akri operator provides automatic access to Azure IoT Operations resources such as device endpoints and namespace assets.
 
-### Asset detection
+### Asset discovery
 
-Akri services include the _Azure Device Registry service component_, which works with the connectors that have detection capabilities. These connectors enable the metadata and definitions such as datasets and events to be onboarded through known device endpoints. The Azure Device Registry service component creates the detected namespace assets as custom resources that an OT user can view in the operations experience web UI. The OT user can then onboard the detected assets as namespace assets that are automatically added to the Azure Device Registry.
+Akri services include the _Azure Device Registry service component_, which works with the connectors that have discovery capabilities. These connectors enable the metadata and definitions such as datasets and events to be onboarded through known device endpoints. The Azure Device Registry service component creates the discovered namespace assets as custom resources that an OT user can view in the operations experience web UI. The OT user can then onboard the discovered assets as namespace assets that are automatically added to the Azure Device Registry.
 
 ### Physical device discovery
 
@@ -69,9 +69,9 @@ The Akri services use standard Kubernetes primitives that let you apply your exi
 
 ## Supported connectors
 
-The following table shows the connectors currently available in Azure IoT Operations and their asset detection and device discovery capabilities:
+The following table shows the connectors currently available in Azure IoT Operations and their asset and device discovery capabilities:
 
-| Connector              | Device discovery | Asset detection |
+| Connector              | Device discovery | Asset discovery |
 |------------------------|:----------------:|:---------------:|
 | Connector for OPC UA   |       Yes        |      Yes        |
 | Connector for ONVIF    |        Yes (for Media inbound endpoints)        |      Yes  (events and management groups)      |

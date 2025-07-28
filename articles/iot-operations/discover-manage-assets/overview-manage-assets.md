@@ -173,7 +173,7 @@ Spec:
 Events:                   <none>
 ```
 
-### Protocol connectivity and asset detection
+### Protocol connectivity and asset discovery
 
 Akri services let you deploy and configure connectivity protocols at the edge. Akri services use the asset and device resources in Azure Device Registry to model the different device and protocol connections in your environment. It enables you to easily onboard and provision assets with open standards. It provides an extensible framework for all device protocols and a single pane of glass view for all assets.
 
