@@ -1,5 +1,5 @@
 items:
-- name: Azure Storage Mover documentation
+- name: Azure Storage Discovery documentation
   href: ./index.yml
 - name: Overview
   items:
@@ -7,28 +7,20 @@ items:
     href: overview.md  
   expanded: true
 - name: Concepts
-  items: 
-  - name: placeholder
-    href: overview.md  
+  items:
+  - name: Discovery core concepts
+    href: core-concepts.md 
+  - name: Planning for deployment
+    href: deploy-planning.md
+  - name: Understand Discovery Pricing
+    href: pricing.md
 - name: How-To
   items: 
   - name: Deploy
     items:
-    - name: placeholder
-      href: overview.md      
-  - name: Manage
-    items:
-    - name: placeholder
-      href: overview.md    
-  - name: Decommission
-    items: 
-    - name: placeholder
-      href: overview.md     
-  - name: Troubleshoot
-    items: 
-    - name: placeholder
-      href: overview.md    
+    - name: Create Storage Discovery Workspace
+      href: create-workspace.md     
 - name: Resources
   items:
-  - name: placeholder
-    href: overview.md
+  - name: Release notes
+    href: release-notes.md
