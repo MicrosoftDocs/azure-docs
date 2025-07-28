@@ -34,9 +34,9 @@ SAP Tables are the foundational layer of data storage in the SAP system. Every t
 
 Core Data Services (CDS) Views and Extractors provide a business-oriented, multidimensional view of transactional data directly within the operational SAP system. These sources offer predefined logic that reflect how data is used in day-to-day processes, such as sales, purchasing, or finance. Instead of accessing raw tables, CDS Views and Extractors expose data in a way that aligns with business meaning — for example, showing only active orders or including relevant descriptions and calculated fields.
 
-### BW InfoObjects / InfoProviders
+### Business Warehouse InfoObjects / InfoProviders
 
-InfoObjects and InfoProviders are part of the SAP BW semantic layer. They form the multidimensional model based on facts and dimensions to use in modelling and reporting across all layers of BW architecture. As data moves through the layers it is continuously transformed, cleansed and enriched. As a result, the data in the final data mart is consistent and prepared for use in enterprise dashboards and reports.
+InfoObjects and InfoProviders are part of the SAP Business Warehouse (BW) semantic layer. They form the multidimensional model based on facts and dimensions to use in modelling and reporting across all layers of BW architecture. As data moves through the layers it is continuously transformed, cleansed and enriched. As a result, the data in the final data mart is consistent and prepared for use in enterprise dashboards and reports.
 
 ### BW queries
 
@@ -191,7 +191,7 @@ A growing ecosystem of trusted partners brings specialised expertise in extracti
 | Simplement | Supported | Supported | [Link](https://www.sap.com/dmc/exp/sap-certified-solutions/#/solutions?search=Simplement&id=s:53c55980-3dbe-46c5-aa65-c97471c083de) |
 | SNP Glue | Supported | Supported | [Link](https://www.sap.com/dmc/exp/sap-certified-solutions/#/solutions?search=SNP%20Glue&id=s:28684d27-ef9c-412a-9370-aefa244e18b9) |
 
-Find out more about [partner solutions supporting Open Mirroring](https://learn.microsoft.com/fabric/database/mirrored-database/open-mirroring-partners-ecosystem).
+Learn more about [partner solutions supporting Open Mirroring](https://learn.microsoft.com/fabric/database/mirrored-database/open-mirroring-partners-ecosystem).
 
 **Figure 4**: SAP to Microsoft Fabric data connectivity options using partner solutions.
 
@@ -201,8 +201,9 @@ Typically, partner solutions support two integration patterns:
 
 **Open Mirroring**
 
-Partner solutions leverages a set of native Microsoft Fabric APIs to synchronise source datasets with mirrored databases in Fabric. This approach ensures that the target tables remain a consistent and up-to-date copy of the source, as the mirroring engine automatically process and merges changes.  
-[Learn more about Open Mirroring in Microsoft Fabric](https://learn.microsoft.com/fabric/database/mirrored-database/open-mirroring)
+Partner solutions leverages a set of native Microsoft Fabric APIs to synchronise source datasets with mirrored databases in Fabric. This approach ensures that the target tables remain a consistent and up-to-date copy of the source, as the mirroring engine automatically process and merges changes. 
+
+[Learn more about Open Mirroring in Microsoft Fabric](https://learn.microsoft.com/fabric/database/mirrored-database/open-mirroring).
 
 **Lakehouse**
 
