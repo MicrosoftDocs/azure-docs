@@ -50,15 +50,13 @@ Workspaces can be configured to enable double encryption with a customer-managed
 
 :::image type="content" source="media/workspaces-encryption/workspaces-encryption.png" alt-text="This diagram shows the option that must be selected to enable a workspace for double encryption with a customer-managed key." lightbox="media/workspaces-encryption/workspaces-encryption.png":::
 
----
-
 ## Prerequisites: Key Rotation and SQL Pool Status
 
 > [!WARNING]
 > **Before changing the encryption key of your workspace:**
 >
 > - **Ensure all dedicated SQL pools are in the Online state.** Offline pools will not be re-encrypted and cannot resume if the old key or key version is deleted, disabled, or expired.
-> - **Retain all old keys and key versions** used for encryption until every SQL pool has been brought online and re-encrypted with the new key. Only disable or delete the old key after all pools have successfully rotated to the new key.
+> - **Retain all old keys and key versions** used for encryption until every SQL pool is brought online and re-encrypted with the new key. Only disable or delete the old key after all pools have successfully rotated to the new key.
 >
 > ⚠️ *Failure to follow these prerequisites may result in SQL pools being permanently inaccessible, or backup data becoming unrecoverable.*
 
@@ -72,8 +70,6 @@ Workspaces can be configured to enable double encryption with a customer-managed
 | 4    | Verify all pools are re-encrypted                             | ☐      |
 | 5    | Safely disable old key or key version (after all pools done)  | ☐      |
 
----
-
 ## Key management best practices
 
 > [!IMPORTANT]
@@ -86,25 +82,26 @@ Workspaces can be configured to enable double encryption with a customer-managed
 >
 > **To ensure a smooth CMK rotation,** if some SQL pools are offline during the process, the old key or key version should remain enabled and have its expiration date set in the future. This is crucial until the offline pools are successfully resumed and re-encrypted with the new key or key version.
 >
-> **Do not delete old keys or key versions** until all pools and backups have been successfully re-encrypted and validated. Only *disable* the old key after all requirements are met.
-
----
+> **Do not delete old keys or key versions** until all pools and backups are successfully re-encrypted and validated. Only *disable* the old key after all requirements are met.
 
 ### Key Rotation Troubleshooting
 
 If a SQL pool is stuck offline after a key rotation:
 
 1. **Check the SQL pool key version** using PowerShell to confirm which key or key version the pool is expecting:
+   
     ```powershell
     Get-AzSqlServerTransparentDataEncryptionProtector -ServerName 'ContosoServer' -ResourceGroupName 'WORKSPACE_MANAGED_RESOURCE_GROUP'
     ```
-    > **Note:**  
-    > The `ResourceGroupName` refers to the workspace's **managed resource group**. You can find this in the Azure portal by selecting your Synapse workspace and viewing the `managedResourceGroup` value in the JSON view.
+> [!NOTE] 
+> The `ResourceGroupName` refers to the workspace's **managed resource group**. You can find this in the Azure portal by selecting your Synapse workspace and viewing the `managedResourceGroup` value in the JSON view.
+    
 2. **Enable** the required old key or key version in Azure Key Vault.
 3. **Set an expiration date** in the future for the old key or key version.
 4. Resume the SQL pool.
 5. Once the pool is back online, allow it to re-encrypt with the new key.
 6. **Verify the encryption status** of each database by running the following T-SQL query in your SQL pool:
+   
     ```sql
     SELECT
         [name],
@@ -112,10 +109,10 @@ If a SQL pool is stuck offline after a key rotation:
     FROM
         sys.databases;
     ```
+    
     - The `is_encrypted` column will show the encryption status (`1` = encrypted, `0` = not encrypted).
+      
 7. After confirming all pools and backups are accessible and encrypted, you may safely disable (not delete) the old key or key version.
-
----
 
 ### Key access and workspace activation
 
@@ -126,6 +123,7 @@ The workspace managed identity must be granted the permissions it needs on the k
 <a id="using-a-user-assigned-managed-identity"></a>
 
 #### Use a User-assigned Managed identity
+
 Workspaces can be configured to use a [User-assigned Managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to access your customer-managed key stored in Azure Key Vault. Configure a User-assigned Managed identity to avoid phased activation of your Azure Synapse workspace when using double encryption with customer-managed keys. The Managed Identity Contributor built-in role is required to assign a user-assigned managed identity to an Azure Synapse workspace.
 
 > [!NOTE]
