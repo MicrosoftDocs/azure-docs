@@ -3,8 +3,8 @@ description: Azure Static Web Apps CLI reference
 title: Azure Static Web Apps CLI reference
 ms.topic: reference
 ms.date: 07/25/2025
-ms.author: wujia
-author: v1212
+ms.author: jikunchen
+author: cjk7989
 ---
 
 # Azure Static Web Apps CLI reference
