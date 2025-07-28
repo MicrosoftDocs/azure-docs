@@ -421,6 +421,8 @@ In both cases, you must include a call to `builder.EnableMcpToolMetadata()` in y
 ```csharp
 var builder = FunctionsApplication.CreateBuilder(args);
 
+builder.ConfigureFunctionsWebApplication();
+
 builder.EnableMcpToolMetadata();
 
 // other configuration
@@ -448,6 +450,8 @@ You can define one or more tool properties in your entry point (`Program.cs`) fi
 
 ```csharp
 var builder = FunctionsApplication.CreateBuilder(args);
+
+builder.ConfigureFunctionsWebApplication();
 
 builder.EnableMcpToolMetadata();
 
