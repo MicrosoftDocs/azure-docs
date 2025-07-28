@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Apply MFA Self-Enforcement through Azure Policy"
+title: "Tutorial: Self-enforce MFA through Azure Policy"
 description: Learn how to gather audit events or enforce MFA enforcement on your environment
 ms.date: 07/17/2025
 ms.topic: how-to
@@ -32,12 +32,13 @@ Select Policy under Azure services. If you don't see it, type 'Policy' in the se
   > To enable safe rollout of policy enforcement, we recommend using [Azure Policy’s resource selectors](/azure/governance/policy/concepts/assignment-structure#resource-selectors) to gradually rollout policy enforcement across your resources.
 1. Click 'Expand' on the 'Resource Selectors' section of the Basics tab.
 2. Click 'Add a resource selector'
-  
-:::image type="content" source="../media/multifactor-enforcement/policy-resource-selectors.png" alt-text="Screenshot of Azure Policy Assignment Creation View." border="false" lightbox="../media/multifactor-enforcement/policy-resource-selectors.png":::
-  1. Add a name for your selector
-  2. Toggle resourceLocation to enable it.
-  3. Pick a few low-risk regions that you’d like to enforce on. The policy assignment will evaluate Azure resources in those regions.
-  4. You can update this assignment later to add more regions by adding more resourceLocation selectors or updating the existing resourceLocation selector to add more regions.
+
+   :::image type="content" source="../media/multifactor-enforcement/policy-resource-selectors.png" alt-text="Screenshot of Azure Policy Assignment Creation View." border="false" lightbox="../media/multifactor-enforcement/policy-resource-selectors.png":::
+    
+3. Add a name for your selector
+4. Toggle resourceLocation to enable it.
+5. Pick a few low-risk regions that you’d like to enforce on. The policy assignment will evaluate Azure resources in those regions.
+6. You can update this assignment later to add more regions by adding more resourceLocation selectors or updating the existing resourceLocation selector to add more regions.
   
 :::image type="content" source="../media/multifactor-enforcement/resource-selector-creation.png" alt-text="Screenshot of Azure Policy Selector Creation View." border="false" lightbox="../media/multifactor-enforcement/resource-selector-creation.png":::
 
@@ -87,8 +88,6 @@ You can enable enforcement by updating the 'Effect' of the policy assignment.
 6. Click 'Review + save', then 'Create'.
 7. Once you have confirmed no unexpected impact, you may update the existing override to add other regions.
 
-## User Experience during Preview
-
 ## Audit Mode
 Discover audit events in your activity log when this policy assignment is applied in audit mode. Each event represents a resource create, update or delete that was performed by a user who did not authenticate with MFA.
 
@@ -122,5 +121,5 @@ When you attempt to perform a create, update, or delete operation without an MFA
 :::image type="content" source="../media/multifactor-enforcement/powershell-sample.png" alt-text="Screenshot of Azure PowerShell View When User Gets Blocked By Policy." border="false" lightbox="../media/multifactor-enforcement/powershell-sample.png":::
 
 ## Limitations in the Preview Timeframe
-1. In some cases, you may not be prompted to complete MFA after receiving an error. In such cases, reauthenticate with MFA before retrying the operation (for example, through Azure portal).
-2. In some cases, the error message may not indicate that the operation is blocked due to the policy assignment in-place. Take note of the error message samples to familiarize your organization on what error messages they may receive.
+- In some cases, you may not be prompted to complete MFA after receiving an error. In such cases, reauthenticate with MFA before retrying the operation (for example, through Azure portal).
+- In some cases, the error message may not indicate that the operation is blocked due to the policy assignment in-place. Take note of the error message samples to familiarize your organization on what error messages they may receive.
