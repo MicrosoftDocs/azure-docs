@@ -2,9 +2,9 @@
 title: Migrate applications to use passwordless authentication with Azure Queue Storage
 titleSuffix: Azure Storage
 description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Microsoft Entra ID and Azure RBAC for enhanced security with Azure Storage Queues.
-author: alexwolfmsft
-ms.author: alexwolf
-ms.date: 05/09/2023
+author: pauljewellmsft
+ms.author: pauljewell
+ms.date: 07/28/2025
 ms.service: azure-queue-storage
 ms.topic: how-to
 ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, passwordless-go, devx-track-azurecli, devx-track-azurepowershell

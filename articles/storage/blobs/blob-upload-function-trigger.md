@@ -1,11 +1,11 @@
 ---
 title: Upload and analyze a file with Azure Functions and Blob Storage
 description: Learn how to upload an image to Azure Blob Storage and analyze its content using Azure Functions and Azure AI services
-author: alexwolfmsft
-ms.author: alexwolf
+author: pauljewellmsft
+ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: tutorial
-ms.date: 3/11/2022
+ms.date: 7/28/2025
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli
 # Customer intent: As a developer, I want to upload images to cloud storage and analyze their content using serverless functions, so that I can extract and store text data for further processing.
@@ -30,7 +30,7 @@ In this tutorial, you will learn how to:
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Visual Studio 2022](https://visualstudio.microsoft.com) installed.
+- [Visual Studio 2022](https://visualstudio.microsoft.com)
 
 ## Create the storage account and container
 
