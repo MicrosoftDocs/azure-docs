@@ -58,7 +58,7 @@ The `azure-openai-emit-token-metric` policy sends custom metrics to Application 
 | ----------- | --------------------------------------------------------------------------------- | -------- |
 | dimension   | Add one or more of these elements for each dimension included in the metric.  | Yes      |
 
-### dimension attributes
+### Dimension attributes
 
 | Attribute | Description                | Required |  Default value  |
 | --------- | -------------------------- |  ------------------ | -------------- |

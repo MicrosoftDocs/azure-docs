@@ -9,10 +9,10 @@ ms.custom:
 
 Azure Monitor imposes [usage limits](/azure/azure-monitor/essentials/metrics-custom-overview#quotas-and-limits) for custom metrics that may affect your ability to emit metrics from API Management. For example, Azure Monitor currently sets a limit of 10 dimension keys per metric, and a limit of 50,000 total active time series per region in a subscription (within a 12 hour period). In API Management, 5 of these are used for default dimensions including the following:
 
-•	Region
-•	Service ID
-•	Service Name
-•	Service Type
+- Region
+- Service ID
+- Service Name
+- Service Type
 
 These limits have the following implications for configuring custom metrics in an API Management policy such as `emit-metric` or `azure-openai-emit-token-metric`:
 
