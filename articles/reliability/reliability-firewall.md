@@ -174,40 +174,13 @@ Azure Firewall is a single-region service. If the region is unavailable, your Az
 
 ### Alternative multi-region approaches
 
-Since Azure Firewall doesn't have native multi-region capabilities, you must implement a multi-region architecture using separate firewall instances. This approach involves deploying independent Azure Firewall resources in different regions and implementing custom failover logic.
+You can implement multi-region architecture by using separate firewalls. This approach requires you to deploy an independent Azure Firewall into each region you use, route traffic to the approriate regional firewall, and implement custom failover logic. Consider the following points:
 
-**Architecture pattern:**
-1. Deploy separate Azure Firewall instances in each target region
-2. Use Azure Firewall Manager for centralized policy management
-3. Implement traffic routing using Azure Traffic Manager or Azure Front Door
-4. Configure monitoring and automated or manual failover procedures
+- **Use Azure Firewall Manager** for centralized policy management across multiple firewalls. Use [Firewall Policy](/azure/firewall-manager/policy-overview) for centralized rule management across multiple firewall instances.
 
-#### Requirements for multi-region deployments
+- **Implement traffic routing** by using Azure Traffic Manager or Azure Front Door.
 
-- Separate Azure Firewall instances must be deployed in each region
-- Azure Firewall Policy enables centralized rule management across multiple firewall instances
-- Network connectivity between regions must be established using virtual network peering, VPN, or ExpressRoute
-- Custom traffic routing and failover mechanisms must be implemented
-
-#### Considerations for multi-region deployments
-
-- Each Azure Firewall instance operates independently within its region
-- Firewall rules and policies must be synchronized across regions using Azure Firewall Manager
-- User-define routes (UDRs) must be configured to direct traffic to the appropriate regional firewall
-- Failover between regions requires manual intervention or custom automation
-- Cross-region data transfer charges can apply for traffic between regions
-
-#### Cost implications
-
-You're billed separately for each Azure Firewall instance deployed in different regions. Consider the following cost factors:
-- Per-region firewall instance charges
-- Cross-region data transfer costs
-- Extra networking components (VPN Gateway, ExpressRoute) for inter-region connectivity
-
-For example approaches that illustrate multi-region network security architectures, see:
-- [Multi-region load balancing with Traffic Manager, Azure Firewall, and Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway)
-- [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
-- [Network security in a multi-region Azure architecture](/azure/architecture/framework/security/design-network-segmentation)
+For an example archirecture that illustrate multi-region network security architectures, see [Multi-region load balancing with Traffic Manager, Azure Firewall, and Application Gateway](/azure/architecture/high-availability/reference-architecture-traffic-manager-application-gateway).
 
 ## Service-level agreement
 
