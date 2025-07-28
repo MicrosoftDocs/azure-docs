@@ -48,30 +48,10 @@ ErGwScale is available in most regions except the following regions:
 
 * Asia South East
 * Belgium Central
-* Chile Central
-* Europe North
 * Europe West
-* Germany West Central
-* India Central
 * India West
-* Israel North West
 * Japan East
-* Malaysia West
 * Qatar Central
-* Spain Central
-* Sweden Central
-* Switzerland North
-* Taiwan North West
-* UK South
-* US Central
-* US East 2
-* US North
-* US South
-* US South 2
-* US South East 3
-* US West
-* US West 2
-* Us West 3
 
 ### Pricing
 

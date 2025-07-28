@@ -8,6 +8,7 @@ ms.custom: subject-moving-resources
 ms.date: 03/03/2022
 ms.author: rohogue
 #Customer intent: As an HPC Cache administrator, I want to move a cache to another region so that it can be used with different services or provide failover for another cache instance.
+# Customer intent: As an HPC Cache administrator, I want to migrate my cache to a different Azure region so that I can leverage region-specific services and enhance my disaster recovery capabilities.
 ---
 
 # How to move an Azure HPC Cache to another region

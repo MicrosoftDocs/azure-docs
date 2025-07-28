@@ -21,7 +21,7 @@ Complete one of our quickstart articles to create and deploy your first function
 You can create C# functions by using one of the following tools:
 
 + [Azure Developer CLI (azd)](create-first-function-azure-developer-cli.md?pivots=programming-language-csharp)
-+ [Command line](./create-first-function-cli-csharp.md)
++ [Command line](./how-to-create-function-azure-cli.md?pivots=programming-language-csharp)
 + [Visual Studio](./functions-create-your-first-function-visual-studio.md)
 + [Visual Studio Code](./create-first-function-vs-code-csharp.md)
 
@@ -34,7 +34,7 @@ You can create Java functions by using one of the following tools:
 + [Eclipse](functions-create-maven-eclipse.md)
 + [Gradle](functions-create-first-java-gradle.md)
 + [IntelliJ IDEA](functions-create-maven-intellij.md) 
-+ [Maven](create-first-function-cli-java.md)
++ [Maven](how-to-create-function-azure-cli.md?pivots=programming-language-java)
 + [Quarkus](functions-create-first-quarkus.md)
 + [Spring Cloud](/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json)
 + [Visual Studio Code](create-first-function-vs-code-java.md) 
@@ -45,7 +45,7 @@ You can create JavaScript functions by using one of the following tools:
 
 + [Azure Developer CLI (azd)](create-first-function-azure-developer-cli.md?pivots=programming-language-javascript)
 + [Azure portal](./functions-create-function-app-portal.md#create-a-function-app)
-+ [Command line](./create-first-function-cli-node.md)
++ [Command line](./how-to-create-function-azure-cli.md?pivots=programming-language-javascript)
 + [Visual Studio Code](./create-first-function-vs-code-node.md)
 
 ::: zone-end
@@ -54,7 +54,7 @@ You can create PowerShell functions by using one of the following tools:
 
 + [Azure Developer CLI (azd)](create-first-function-azure-developer-cli.md?pivots=programming-language-powershell)
 + [Azure portal](./functions-create-function-app-portal.md#create-a-function-app)
-+ [Command line](./create-first-function-cli-powershell.md)
++ [Command line](./how-to-create-function-azure-cli.md?pivots=programming-language-powershell)
 + [Visual Studio Code](./create-first-function-vs-code-powershell.md)
 
 ::: zone-end
@@ -63,7 +63,7 @@ You can create Python functions by using one of the following tools:
 
 + [Azure Developer CLI (azd)](create-first-function-azure-developer-cli.md?pivots=programming-language-python)
 + [Azure portal](./functions-create-function-app-portal.md#create-a-function-app)
-+ [Command line](./create-first-function-cli-python.md)
++ [Command line](./how-to-create-function-azure-cli.md?pivots=programming-language-python)
 + [Visual Studio Code](./create-first-function-vs-code-python.md)
 
 ::: zone-end
@@ -71,7 +71,7 @@ You can create Python functions by using one of the following tools:
 You can create TypeScript functions by using one of the following tools:
 
 + [Azure Developer CLI (azd)](create-first-function-azure-developer-cli.md?pivots=programming-language-typescript)
-+ [Command line](./create-first-function-cli-typescript.md)
++ [Command line](./how-to-create-function-azure-cli.md?pivots=programming-language-typescript)
 + [Visual Studio Code](./create-first-function-vs-code-typescript.md)
 
 ::: zone-end

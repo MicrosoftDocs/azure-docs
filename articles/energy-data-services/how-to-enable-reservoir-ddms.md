@@ -7,7 +7,7 @@ ms.service: azure-data-manager-energy
 ms.topic: how-to #Don't change
 ms.date: 02/08/2025
 
-#customer intent: As a Data Manager, I want to enable Reservoir DDMS for storing data related to seismic and well intepretation, structural modeling, geological modeling and reservoir modeling including reservoir simulation input.
+#customer intent: As a Data Manager, I want to enable Reservoir DDMS for storing data related to seismic and well interpretation, structural modeling, geological modeling and reservoir modeling including reservoir simulation input.
 ---
 
 # How to enable Reservoir DDMS (Preview)

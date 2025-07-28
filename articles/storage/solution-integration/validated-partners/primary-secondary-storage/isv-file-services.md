@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 03/22/2022
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
+# Customer intent: As an IT decision-maker, I want to understand the different ISV file service options available in Azure, so that I can select the most suitable solution for our organization's file storage and performance requirements.
 ---
 
 # Running ISV file services in Azure

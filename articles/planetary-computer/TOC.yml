@@ -59,6 +59,8 @@
     href: collection-configuration-concept.md
   - name: Configure collections for visualization
     href: configure-collection-web-interface.md
+  - name: Data visualization sample gallery
+    href: data-visualization-samples.md
   - name: Mosaic configuration
     href: mosaic-configurations-for-collections.md
   - name: Render configuration

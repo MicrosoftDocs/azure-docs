@@ -10,6 +10,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-automation
 title: install_library.sh
 description: Bootstrap a new SAP Library in the control plane using a shell script.
+# Customer intent: "As an SAP administrator, I want to use the install_library.sh script to bootstrap a new SAP Library, so that I can manage Terraform state files and SAP installation media efficiently."
 ---
 
 # Install_library.sh

@@ -6,6 +6,7 @@ ms.author: vibansa
 ms.topic: concept-article
 ms.date: 05/08/2025
 ms.custom: engagement-fy24
+# Customer intent: As a cloud architect, I want to understand the Azure Migrate support matrix, so that I can determine the service's capabilities and limitations for assessing and migrating our on-premises workloads to the Azure cloud effectively.
 ---
 
 # Azure Migrate support matrix
@@ -69,11 +70,13 @@ Europe | North Europe or West Europe
 France | France Central
 Germany | Germany West Central
 India | Central India or South India
+Indonesia| Indonesia Central
 Israel| Israel Central
 Italy | North Italy
 Japan |  Japan East or Japan West
 Jio India | Jio India West 
 Korea | Korea Central
+Malaysia | Malaysia West
 Mexico | Mexico Central
 New Zealand | New Zealand North
 Norway | Norway East

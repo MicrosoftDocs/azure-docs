@@ -5,8 +5,9 @@ ms.topic: overview
 ms.service: azure-backup
 ms.custom: references_regions, engagement-fy24, ignite-2024
 ms.date: 06/19/2025
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a data protection administrator, I want to implement and lock the Immutable vault for backup data, so that I can ensure the integrity and recoverability of backups against malicious deletion or modification."
 ---
 
 # Immutable vault for Azure Backup

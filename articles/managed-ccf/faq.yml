@@ -38,7 +38,7 @@ sections:
             - High availability from running across a crash-fault tolerant network of nodes.
             - Rules-based multi-party governance and disaster recovery.
             - Auditability and rollback protection through the tamper-proof transaction ledger.
-            - Transferrable statements via transaction receipts.
+            - Transferable statements via transaction receipts.
 
       - question: |
           Can existing blockchain applications work with Azure Managed CCF?

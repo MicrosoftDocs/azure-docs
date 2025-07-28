@@ -40,7 +40,9 @@ The guided gateway migration experience supports the following scenarios:
 - Migrating from a non-Az-enabled SKU with a Basic IP to a non-Az-enabled SKU with a Standard IP.
 - Migrating from a non-Az-enabled SKU with a Basic IP to an Az-enabled SKU with a Standard IP.
 
- Learn how to [migrate using the Azure portal](expressroute-howto-gateway-migration-portal.md).  
+If you have an ExpressRoute gateway deployed in the same virtual network as a VPN Gateway, you can use the ExpressRoute Gateway migration tool. There is no expected impact to VPN Gateway traffic during this process.
+ 
+Learn how to [migrate using the Azure portal](expressroute-howto-gateway-migration-portal.md).  
 Learn how to [migrate using PowerShell](expressroute-howto-gateway-migration-powershell.md).
 
 For enhanced reliability and high availability, we recommend migrating to an Az-enabled SKU.
@@ -96,6 +98,25 @@ You have up to 15 days to commit after migration preparation. Use this time to v
 ### How do I check if my gateway SKU is eligible for migration?
 
 Azure Advisor notifications will alert you if your gateway requires migration. Attempting to migrate an ineligible gateway will result in an error. For more details, see [Troubleshooting Gateway Migration](gateway-migration-error-messaging.md).
+
+### Can I roll back this change?
+Yes, until it is committed. The migration is composed of four major steps:​
+
+1. Validate – Confirms if your gateway is eligible for migration. ​
+No changes at this stage; nothing to roll back​
+
+2. Prepare – Creates a new Virtual Network Gateway with the desired configuration. ​
+The process can be aborted after step 2 and the new gateway will be deleted.​
+
+3. Migrate – Transfer the configuration from the existing gateway to the new one.​
+If needed, the configuration can be reverted to the existing gateway after step 3.​
+
+4. Commit – Finalize the migration by decommissioning the old gateway and its connections. ​
+Once the change has been committed, it can no longer be rolled back.
+
+### What is the traffic impact during migration? Is there packet loss or routing disruption?
+
+During the migration process, traffic is rerouted seamlessly. There is no expected packet loss or routing disruption under normal conditions.
 
 ## Next Steps
 

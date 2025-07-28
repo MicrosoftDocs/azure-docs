@@ -4,8 +4,9 @@ description: This article describes how to manage and monitor SQL Server databas
 ms.topic: how-to
 ms.date: 06/03/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to manage and monitor SQL Server databases on Azure VMs, so that I can ensure reliable backups and recoveries while maintaining optimal performance and reducing downtime."
 ---
 
 # Manage and monitor backed up SQL Server databases using Azure portal

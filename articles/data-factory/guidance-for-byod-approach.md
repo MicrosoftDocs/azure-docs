@@ -7,7 +7,7 @@ ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 05/29/2025
+ms.date: 07/14/2025
 ---
 
 # Guidance on using the Bring Your Own Driver (BYOD) approach
@@ -89,6 +89,8 @@ This article provides step-by-step guidance for using connectors with Bring Your
 
 ### Related connectors
 
+- [Amazon Redshift (version 2.0 (Preview))](connector-amazon-redshift.md)
+- [Netezza (version 2.0)](connector-netezza.md)
 - [Vertica (version 2.0)](connector-vertica.md)
 
 ## Related content

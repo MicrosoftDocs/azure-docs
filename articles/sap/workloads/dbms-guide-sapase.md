@@ -9,6 +9,7 @@ ms.topic: article
 ms.date: 10/14/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, linux-related-content
+# Customer intent: As a cloud architect, I want to deploy SAP ASE on Azure virtual machines, so that I can optimize performance, cost, and manageability for our enterprise applications while ensuring compatibility with our existing systems.
 ---
 # SAP ASE Azure Virtual Machines DBMS deployment for SAP workload
 

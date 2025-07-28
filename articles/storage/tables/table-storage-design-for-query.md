@@ -7,6 +7,7 @@ ms.author: akashdubey
 ms.service: azure-table-storage
 ms.topic: article
 ms.date: 05/19/2023
+# Customer intent: "As a data architect, I want to design Azure Table storage schemas that optimize for query performance, so that I can ensure efficient data retrieval and scalability for applications relying on the table service."
 ---
 # Design for querying
 Table service solutions may be read intensive, write intensive, or a mix of the two. This article focuses on the things to bear in mind when you are designing your Table service to support read operations efficiently. Typically, a design that supports read operations efficiently is also efficient for write operations. However, there are additional considerations to bear in mind when designing to support write operations, discussed in the article [Design for data modification](table-storage-design-for-modification.md).

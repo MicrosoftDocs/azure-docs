@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 07/16/2024
 ms.author: cherylmc
 
+# Customer intent: "As a user of the Azure VPN Client, I want to effectively report issues via the Feedback Hub, so that I can receive timely support and improve my experience with the software."
 ---
 # Use Feedback Hub to report an Azure VPN Client problem
 

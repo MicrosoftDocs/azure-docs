@@ -49,8 +49,7 @@ All Global Administrators in Microsoft Entra ID get read-only access to all Micr
 6. Select **Access Control (IAM)** on the left side of the page.
 7. Select **Add** at the top of the page.  
     :::image type="content" source="./media/elevate-access-global-admin/role-assignment-list.png" alt-text="Screenshot showing global admins selecting Add." lightbox="./media/elevate-access-global-admin/role-assignment-list.png" :::
-8. In the Add permission window, in the **Role** list, select **Billing account owner**. Under the **Select** area, select your user name, and then select **Save** at the bottom of the window.   
-    :::image type="content" source="./media/elevate-access-global-admin/role-assignment-add.png" alt-text="Screenshot showing a global admin adding themself as an owner." lightbox="./media/elevate-access-global-admin/role-assignment-add.png" :::
+1. In the Add permission window, in the **Role** list, select **Billing account owner**. Under the **Select** area, select your user name, and then select **Add** at the bottom of the window.
 
 ### [REST API](#tab/rest)
 

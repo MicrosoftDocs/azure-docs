@@ -5,13 +5,14 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/11/2023
 ms.custom: engagement-fy23
+# Customer intent: As an IT administrator, I want to implement Zerto disaster recovery for my on-premises VMware and Azure VMware Solution virtual machines, so that I can ensure minimal downtime and data loss during adverse situations.
 ---
 
 # Deploy Zerto disaster recovery on Azure VMware Solution
 
 > [!IMPORTANT]
 > ### Zerto limitations on Azure VMware Solution
-> - AV64 node type doesn't support Zerto Disaster Recovery at the moment. You can contact your Zerto account team to get more information and an estimate of when AV64 is available.
+> - AV64 node type is again supported as of Zerto version 3.7.11 (previously it wasn't).
 > - Zerto supports from Version Zerto 10.0 U5 onwards.
 > - DNS and network configuration changes for Zerto Virtual Machine aren't supported after installation.
 > - Azure resource group modifications aren't supported after Zerto installation.

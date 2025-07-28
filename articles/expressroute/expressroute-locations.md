@@ -168,9 +168,9 @@ The following table shows locations by service provider. If you want to view ava
 | **NL-IX** | &check; | &check; | Amsterdam2<br/>Dublin2 |
 | **[NOS](https://www.nos.pt/empresas/solucoes/cloud/cloud-publica/nos-cloud-connect)** | &check; | &check; | Amsterdam2<br/>Madrid |
 | **Noovle** | &check; | &check; | Milan |
-| **[NTT Communications](https://www.ntt.com/en/services/network/virtual-private-network.html)** | &check; | &check; | Amsterdam<br/>Hong Kong<br/>London<br/>Los Angeles<br/>New York<br/>Osaka<br/>Singapore<br/>Sydney<br/>Tokyo<br/>Washington DC |
+| **[NTT DOCOMO BUSINESS](https://www.ntt.com/business/services/network/vpn/vpn/global.html?msockid=2c77b10c975466be0227a4ad962e67a1)** | &check; | &check; | Amsterdam<br/>Hong Kong<br/>London<br/>Los Angeles<br/>New York<br/>Singapore<br/>Sydney<br/>Washington DC |
 | **NTT Communications India Network Services Pvt Ltd** | &check; | &check; | Chennai<br/>Mumbai |
-| **[NTT Communications - Flexible InterConnect](https://sdpf.ntt.com/)** |&check; |&check; | Jakarta<br/>Osaka<br/>Singapore2<br/>Tokyo<br/>Tokyo2 |
+| **[NTT DOCOMO BUSINESS - Flexible InterConnect](https://sdpf.ntt.com/)** |&check; |&check; | Jakarta<br/>Osaka<br/>Singapore2<br/>Tokyo<br/>Tokyo2 |
 | **[NTT EAST](https://business.ntt-east.co.jp/service/crossconnect/)** |&check; |&check; | Tokyo |
 | **[NTT Global DataCenters EMEA](https://hello.global.ntt/)** |&check; |&check; | Amsterdam2<br/>Berlin<br/>Frankfurt<br/>London2 |
 | **[NTT Indonesia](https://jktix.id/cloud-connect/)** | &check; | &check; | Jakarta |
@@ -365,7 +365,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[RETN](https://retn.net/products/cloud-connect)** | Equinix | Amsterdam |
 | **Rogers** | Cologix<br/>Equinix | Montreal<br/>Toronto |
 | **[Spectrum Enterprise](https://enterprise.spectrum.com/products/networking/connectivity/cloud-connect.html)** | Equinix | Chicago<br/>Dallas<br/>Los Angeles<br/>New York<br/>Silicon Valley | 
-| **[Tamares Telecom](https://www.tamarestelecom.com/services/)** | Equinix | London | 
+| **[Tamares Telecom](https://www.exelera.net/)** | Equinix | London | 
 | **[Tata Teleservices](https://www.tatatelebusiness.com/data-services/ez-cloud-connect/)** | Tata Communications | Chennai<br/>Mumbai |
 | **[TDC Erhverv](https://tdc.dk/)** | Equinix | Amsterdam | 
 | **Telecom Italia Sparkle**| Equinix | Amsterdam |
@@ -439,7 +439,7 @@ Enabling private connectivity to meet your needs can be challenging, depending o
 | **[OneAs1a](https://www.oneas1a.com/connectivity.html)** | Asia |
 | **Orange Networks** | Europe |
 | **[Perficient](https://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | North America |
-| **[Presidio](https://www.presidio.com/subpage/1107/microsoft-azure)** | North America |
+| **[Presidio](https://www.presidio.com/partners/microsoft/)** | North America |
 | **[sol-tec](https://www.advania.co.uk/our-services/azure-and-cloud/)** | Europe |
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | South America |
 | **Vigilant.IT** | Australia |

@@ -7,10 +7,12 @@ ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 06/17/2025
+ms.date: 07/11/2025
 ---
 
 # Connector release stages and timelines
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article provides an overview of the release stages and timelines for each connector available in Azure Data Factory.
 For comprehensive details on support levels and recommended usage at each stage, please see [this article](connector-lifecycle-overview.md#release-rhythm).
@@ -54,6 +56,8 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [Marketo (Preview)](connector-marketo.md)                  | /              | End of support                    | December 31, 2024     | December 31, 2024     |
 | [MySQL](connector-mysql.md)                              | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | End of support                | October 31, 2024      | September 30, 2025    |
+| [Netezza](connector-netezza.md)                          | version 2.0    | GA                                | /                   | /                   |
+|                                    | version 1.0    | End of support announced          | September 30, 2025         | October 31, 2025    |
 | [Oracle](connector-oracle.md)                             | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | End of support announced          | October 31, 2025         | March 31, 2026      |
 | [Oracle Eloqua (Preview)](connector-oracle-eloqua.md)      | /              | End of support                    | December 31, 2024     | December 31, 2024     |
@@ -65,16 +69,18 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [PostgreSQL V1](connector-postgresql-legacy.md)            | /              | End of support                    | October 31, 2024      | September 30, 2025    |
 | [Presto](connector-presto.md)                             | version 2.0    | GA                           | /                   | /                   |
 |                                    | version 1.0    | End of support announced                             | August 31, 2025      | September 30, 2025                    |
+| [QuickBooks Online (Preview)](connector-quickbooks.md)                        | version 2.0    | Public Preview                    | /                   |
+|                                    | version 1.0    | End of support announced                                | August 31, 2025     | September 30, 2025                    |
 | [Salesforce V2](connector-salesforce.md)                   | /              | GA                                | /                   | /                   |
-| [Salesforce V1](connector-salesforce-legacy.md)            | /              | End of support announced          | June 30, 2025         | September 30, 2025    |
+| [Salesforce V1](connector-salesforce-legacy.md)            | /              | End of support          | June 30, 2025         | September 30, 2025    |
 | [Salesforce Marketing Cloud](connector-salesforce-marketing-cloud.md) | /              | End of support                    | December 31, 2024     | December 31, 2024     |
 | [Salesforce Service Cloud V2](connector-salesforce-service-cloud.md) | /              | GA                                | /                   | /                   |
-| [Salesforce Service Cloud V1](connector-salesforce-service-cloud-legacy.md) | /              | End of support announced          | June 30, 2025         | September 30, 2025    |
+| [Salesforce Service Cloud V1](connector-salesforce-service-cloud-legacy.md) | /              | End of support         | June 30, 2025         | September 30, 2025    |
 | [ServiceNow V2](connector-servicenow.md)                   | /              | GA                                | /                   | /                   |
-| [ServiceNow V1](connector-servicenow-legacy.md)            | /              | End of support announced          | June 30, 2025         | September 30, 2025    |
+| [ServiceNow V1](connector-servicenow-legacy.md)            | /              | End of support          | June 30, 2025         | September 30, 2025    |
 | [Snowflake V2](connector-snowflake.md)                     | version 1.1    | Public Preview                    | /                   | /                   |
 |                                    | version 1.0    | GA                                | /                   | /                   |
-| [Snowflake V1](connector-snowflake-legacy.md)              | /              | End of support announced          | June 30, 2025         | September 30, 2025    |
+| [Snowflake V1](connector-snowflake-legacy.md)              | /              | End of support        | June 30, 2025         | September 30, 2025    |
 | [Spark](connector-spark.md)                               | version 2.0    | GA                 | /                   | /                   |
 |                                    | version 1.0    | End of support announced                                |September 30, 2025     | October 31, 2025                  |
 | [SQL Server](connector-sql-server.md)                 | version 2.0  | GA                           | /                      | /                      |
