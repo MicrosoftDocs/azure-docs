@@ -18,16 +18,16 @@ The two scenarios are similar in setup, with the main difference being the sink 
 
 If you plan to migrate your SAP data from ADLS Gen2 into Microsoft Fabric, you can even redirect an existing CDC dataflow from ADLS Gen2 to OneLake by adjusting the sink configuration. After changing the sink, you can resume the original CDC process, allowing you to seamlessly migrate to Fabric without a cumbersome reinitialization.
 
-:::image type="content" source="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/architecture-diagram.png" alt-text="Diagram of the architecture for SAP change data capture to OneLake using Azure Data Factory.":::
+:::image type="content" source="media/change-data-capture-sap-onelake-azure-data-factory/architecture-diagram.png" alt-text="Diagram of the architecture for SAP change data capture to OneLake using Azure Data Factory.":::
 
 ## Getting started
 
 To follow this article step-by-step in your own environment, you need the following resources:
 
-1. An Azure Data Factory or Synapse Analytics workspace.
-1. A Microsoft Fabric workspace with a Lakehouse.
-1. An SAP system that satisfies the requirements for ADF’s SAP CDC connector specified here. In our scenario, we use an SAP S/4HANA on-premises 2023 FPS00, but all up-to-date versions of SAP ECC, SAP BW, SAP BW/4HANA, etc. are supported as well.
-1. A self-hosted integration runtime (SHIR) with a current version of the SAP .NET Connector installed.
+- An Azure Data Factory or Synapse Analytics workspace.
+- A Microsoft Fabric workspace with a Lakehouse.
+- An SAP system that satisfies the requirements for ADF’s SAP CDC connector specified here. In our scenario, we use an SAP S/4HANA on-premises 2023 FPS00, but all up-to-date versions of SAP ECC, SAP BW, SAP BW/4HANA, etc. are supported as well.
+- A self-hosted integration runtime (SHIR) with a current version of the SAP .NET Connector installed.
 
 In order to concentrate on the connectivity part, here’s a pipeline template that covers the most straightforward scenario of extracting change data using the SAP CDC connector and merging it with a Fabric Lakehouse table without any further transformations: https://github.com/ukchrist/ADF-SAP-data-flows/blob/main/p_SAPtoFabric.zip. If you’re familiar with ADF mapping dataflows and SAP CDC, you can set up a scenario from scratch by yourself and skip to the following configuration of the Lakehouse linked service.
 
@@ -57,7 +57,7 @@ To collect the required Fabric workspace ID and Lakehouse object ID in Microsoft
 
 1. Navigate to your Lakehouse in Microsoft Fabric.
 
-   :::image type="content" source="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/navigate-to-fabric-lakehouse.png" alt-text="Screenshot showing where to navigate to the Fabric Lakehouse.":::
+   :::image type="content" source="media/change-data-capture-sap-onelake-azure-data-factory/navigate-to-fabric-lakehouse.png" alt-text="Screenshot showing where to navigate to the Fabric Lakehouse.":::
 
 1. Once the Lakehouse experience opens in the browser, copy the browser URL. It has the following format:
 
@@ -73,29 +73,29 @@ Let’s start with Microsoft Entra ID.
 
 1. Navigate to Azure portal and select **Microsoft Entra ID** from the left-hand side menu. Copy the **Tenant ID** for later use.
 
-   :::image type="content" source="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/capture-microsoft-entra-id.png" lightbox="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/capture-microsoft-entra-id.png" alt-text="Screenshot showing where to find the Microsoft Entra ID in the Azure portal.":::
+   :::image type="content" source="media/change-data-capture-sap-onelake-azure-data-factory/capture-microsoft-entra-id.png" lightbox="media/change-data-capture-sap-onelake-azure-data-factory/capture-microsoft-entra-id.png" alt-text="Screenshot showing where to find the Microsoft Entra ID in the Azure portal.":::
 
 1. To create the service principal, select **App registrations** and **+ New registration**.
 
-   :::image type="content" source="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/create-new-service-principal.png" lightbox="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/create-new-service-principal.png" alt-text="Screenshot showing where to create a new service principal app registration.":::
+   :::image type="content" source="media/change-data-capture-sap-onelake-azure-data-factory/create-new-service-principal.png" lightbox="media/change-data-capture-sap-onelake-azure-data-factory/create-new-service-principal.png" alt-text="Screenshot showing where to create a new service principal app registration.":::
 
 1. Enter a **Name** for the application. The name is the same as the service principal name, so copy it for later use.
 1. Select **Accounts in this organizational directory only**.
 1. Then select **Register**.
 
-   :::image type="content" source="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/register-application.png" lightbox="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/register-application.png" alt-text="Screenshot showing where to provide the new app registration name and account type.":::
+   :::image type="content" source="media/change-data-capture-sap-onelake-azure-data-factory/register-application.png" lightbox="media/change-data-capture-sap-onelake-azure-data-factory/register-application.png" alt-text="Screenshot showing where to provide the new app registration name and account type.":::
 
 1. Copy the **Application (client) ID**. This step is required in the linked service definition in ADF later. Then select **Add a certificate or secret**.
 
-   :::image type="content" source="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/add-certificate-or-secret.png" lightbox="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/add-certificate-or-secret.png" alt-text="Screenshot showing where to find the Application (client) ID and add a certificate or secret.":::
+   :::image type="content" source="media/change-data-capture-sap-onelake-azure-data-factory/add-certificate-or-secret.png" lightbox="media/change-data-capture-sap-onelake-azure-data-factory/add-certificate-or-secret.png" alt-text="Screenshot showing where to find the Application (client) ID and add a certificate or secret.":::
 
 1. Select **+ New client secret**. Add a **Description** and **expiration policy**.
 
-   a:::image type="content" source="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/add-new-client-secret.png" lightbox="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/add-new-client-secret.png" alt-text="Screenshot showing where to add a new client secret, description, and expiration policy.":::
+   :::image type="content" source="media/change-data-capture-sap-onelake-azure-data-factory/add-new-client-secret.png" lightbox="media/change-data-capture-sap-onelake-azure-data-factory/add-new-client-secret.png" alt-text="Screenshot showing where to add a new client secret, description, and expiration policy.":::
 
 1. Copy the **Value** of the client secret. This step completes the service principal configuration in Microsoft Entra ID.
 
-   :::image type="content" source="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/client-secret-value.png" lightbox="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/client-secret-value.png" alt-text="Screenshot showing where to find the client secret value.":::
+   :::image type="content" source="media/change-data-capture-sap-onelake-azure-data-factory/client-secret-value.png" lightbox="media/change-data-capture-sap-onelake-azure-data-factory/client-secret-value.png" alt-text="Screenshot showing where to find the client secret value.":::
 
 Next, we add the service principal as a **contributor** or **admin** to your Microsoft Fabric workspace.
 
@@ -109,11 +109,11 @@ Now we’re ready to configure the Lakehouse linked service in ADF or Synapse.
 
 1. Open your ADF or Synapse workspace, select the **Manage** tool and select **Linked services**. Then select **+ New**.
 
-   :::image type="content" source="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/add-new-linked-service.png" lightbox="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/add-new-linked-service.png" alt-text="Screenshot showing where to add a new linked service in ADF or Synapse.":::
+   :::image type="content" source="media/change-data-capture-sap-onelake-azure-data-factory/add-new-linked-service.png" lightbox="media/change-data-capture-sap-onelake-azure-data-factory/add-new-linked-service.png" alt-text="Screenshot showing where to add a new linked service in ADF or Synapse.":::
 
 1. Search for “Lakehouse”, select the **Microsoft Fabric Lakehouse** linked service type, and select **Continue**.
 
-   :::image type="content" source="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/new-fabric-lakehouse-linked-service.png" alt-text="Screenshot showing how to find the Microsoft Fabric Lakehouse linked service.":::
+   :::image type="content" source="media/change-data-capture-sap-onelake-azure-data-factory/new-fabric-lakehouse-linked-service.png" alt-text="Screenshot showing how to find the Microsoft Fabric Lakehouse linked service.":::
 
 1. Assign a **Name** to the linked service, select **Enter manually** and configure the **Fabric workspace ID** and **Lakehouse object ID** values copied from the Fabric URL earlier.
 
@@ -123,7 +123,7 @@ Now we’re ready to configure the Lakehouse linked service in ADF or Synapse.
 
    Verify that the connection can be established successfully and select **Create**.
 
-   :::image type="content" source="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/lakehouse-linked-service-configuration.png" alt-text="Screenshot showing the configuration of the Fabric Lakehouse linked service in ADF.":::
+   :::image type="content" source="media/change-data-capture-sap-onelake-azure-data-factory/lakehouse-linked-service-configuration.png" alt-text="Screenshot showing the configuration of the Fabric Lakehouse linked service in ADF.":::
 
 ## Configuring the pipeline template
 
@@ -131,15 +131,15 @@ With the setup of the linked services completed, you can import the template and
 
 1. From the pipeline menu, choose **+** to add a new resource, then select **Pipeline** and **Template gallery**.
 
-   :::image type="content" source="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/select-pipeline-template.png" alt-text="Screenshot showing where to choose a template in the ADF studio's Template gallery.":::
+   :::image type="content" source="media/change-data-capture-sap-onelake-azure-data-factory/select-pipeline-template.png" alt-text="Screenshot showing where to choose a template in the ADF studio's Template gallery.":::
 
 1. The **Template gallery** dialog appears. Find the **Copy change data from SAP to Fabric Lakehouse table** template, select it, and select **Continue**.
 
-   :::image type="content" source="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/select-sap-to-fabric-template.png" alt-text="Screenshot showing the template selected in the Template gallery.":::
+   :::image type="content" source="media/change-data-capture-sap-onelake-azure-data-factory/select-sap-to-fabric-template.png" alt-text="Screenshot showing the template selected in the Template gallery.":::
 
 1. The configuration screen opens, in which you specify the linked services to be used to instantiate the template. Enter the linked services created in the prior sections. The first linked service is the one required for the staging folder in ADLS Gen2, the second one is connection to the SAP source and the third one connects to Microsoft Fabric Lakehouse:
 
-   :::image type="content" source="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/configure-pipeline-template.png" alt-text="Screenshot showing how to configure the pipeline template.":::
+   :::image type="content" source="media/change-data-capture-sap-onelake-azure-data-factory/configure-pipeline-template.png" alt-text="Screenshot showing how to configure the pipeline template.":::
 
 1. After you configure the template, ADF creates the new pipeline, and you can make any adjustments you require for your specific setup. As a first step, configure the staging folder to intermediately store the change data from SAP before it's merged with your delta table in Fabric. Select on the data flow activity in the pipeline and select the **Settings** tab. In the **Staging** properties you can see the staging linked service configured in the last step. Enter a **Staging storage folder**.
 
@@ -157,7 +157,7 @@ With the setup of the linked services completed, you can import the template and
 
 1. Open your Lakehouse in your Fabric workspace. Under **Tables**, you see the newly created Lakehouse table. In the right of your screen, a preview of the data you loaded from SAP is displayed.
 
-   :::image type="content" source="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/view-data-in-lakehouse.png" lightbox="media/change-data-capture-from-sap-to-onelake-with-azure-data-factory/view-data-in-lakehouse.png" alt-text="Screenshot showing the imported data from SAP in the Lakehouse table.":::
+   :::image type="content" source="media/change-data-capture-sap-onelake-azure-data-factory/view-data-in-lakehouse.png" lightbox="media/change-data-capture-sap-onelake-azure-data-factory/view-data-in-lakehouse.png" alt-text="Screenshot showing the imported data from SAP in the Lakehouse table.":::
 
 ## Related content
 
