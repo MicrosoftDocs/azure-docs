@@ -7,7 +7,7 @@ ms.service: azure-lab-services
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to
-ms.date: 03/04/2024
+ms.date: 07/08/2025
 #customer intent: As a student or trainee, I want to connect to an Azure Lab Services VM from my Mac over RDP in order to use the lab resources.
 ---
 
@@ -43,7 +43,7 @@ Connect to the lab VM by using the remote desktop application. You can retrieve 
 
 1. Open the *RDP* file on your computer with **Windows App** installed. Your computer should start to connect to the VM.
 
-1. When prompted, enter your user name and password.
+1. When prompted, log in.
 
 1. After the connection is established, you see the desktop of your lab VM.
 
