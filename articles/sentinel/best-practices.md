@@ -39,7 +39,7 @@ More than ingesting alerts and logs from other sources, Microsoft Sentinel also:
     - Ingest and fetch enrichment feeds from threat intelligence platforms.
 - Provides **[threat investigation capabilities](overview.md#respond-to-incidents-rapidly)**, allowing you to visualize and explore alerts and entities, detect anomalies in user and entity behavior, and monitor real-time events during an investigation.
 - **[Collect data](overview.md#collect-data-at-scale)** across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.
-- Provides **[threat response capabilities](overview.md#respond-to-threats)**, such as playbooks that integrate with Azure services and your existing tools.
+- Provides **[threat response capabilities](overview.md#respond-to-incidents-rapidly)**, such as playbooks that integrate with Azure services and your existing tools.
 - **Integrates with partner platforms** using [Microsoft Sentinel data connectors](connect-data-sources.md), providing essential services for SOC teams.
 
 ## Microsoft Sentinel in the Microsoft Defender portal
