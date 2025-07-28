@@ -654,14 +654,8 @@ done
 > [!NOTE]
 > The VS Code extension for WASM module development is currently in private preview. Contact your Microsoft representative for access.
 
-<!-- TODO: Add WASM module development overview -->
-
-### Use WASM operators
-
-<!-- TODO: Add WASM operators documentation content -->
-
-## Develop graph definition
-
+<!-- TODO: Add WASM module development overview -- ### Use WASM operators -->
+<!-- TODO: Add WASM operators documentation content ## Develop graph definition -->
 <!-- TODO: Add graph definition development overview -->
 
 ## Configuration reference
