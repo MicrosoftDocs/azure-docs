@@ -169,7 +169,7 @@ Once the data lands in Azure Data Lake Gen2, it can be virtually exposed in Micr
 
 #### ODBC connection
 
-ODBC connectivity allows customers to consume views in SAP Datasphere directly from Spark notebooks in Microsoft Fabric, enabling real-time data exploration, transformation, and advanced analytics without the need for replication. Additionally, the SAP HANA connector can be used to ingest data into Microsoft Fabric lakehouses using pipelines and dataflows.
+ODBC connectivity allows customers to consume views in SAP Datasphere directly from Spark notebooks in Microsoft Fabric, enabling real-time data exploration, transformation, and advanced analytics without the need for replication. The SAP HANA connector can also be used to ingest data into Microsoft Fabric lakehouses using pipelines and dataflows.
 
 ### Partner solutions
 
@@ -189,7 +189,7 @@ Learn more about [partner solutions supporting Open Mirroring](https://learn.mic
 
 :::image type="content" source="media/sap-extract-data-fabric/4-sap-connectivity-options-partner-solutions.png" alt-text="Diagram shows SAP to Microsoft Fabric data connectivity options using partner solutions":::
 
-Typically, partner solutions support two integration patterns:
+Partner solutions usually support two integration patterns:
 
 **Open Mirroring**
 
@@ -199,7 +199,7 @@ Partner solutions leverages a set of native Microsoft Fabric APIs to synchronise
 
 **Lakehouse**
 
-Direct lakehouse integration allows partners to ingest data into Fabric in both full and incremental modes. While this method offers flexibility and control, it typically requires additional processing to handle deduplication and consolidation of records before the data is ready for downstream analytics.
+Direct lakehouse integration allows partners to ingest data into Fabric in both full and incremental modes. While this method offers flexibility and control, it usually requires additional processing to handle deduplication and consolidation of records before the data is ready for downstream analytics.
 
 ## Additional resources
 
