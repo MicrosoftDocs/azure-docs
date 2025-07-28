@@ -35,7 +35,7 @@ the aggregator rack, by following these steps:
 
 1. Start on the cluster (Operator Nexus) resource overview page. Click the link to the network fabric resource.
    :::image type="content" source="media/navigate-network-fabric-portal.png" alt-text="Screenshot of a cluster resource, with the network fabric link highlighted." lightbox="media/navigate-network-fabric-portal.png":::
-2. Go to `Infrastructue->Devices`, and search for the aggregator rack management switches. Ensure they are successfully
+2. Go to `Infrastructure->Network Devices`, and search for the aggregator rack management switches. Ensure they are successfully
    provisioned and enabled.
    :::image type="content" source="media/navigate-mgmt-switch-portal.png" alt-text="Screenshot of the Infrastructure tab of a network fabric resource." lightbox="media/navigate-mgmt-switch-portal.png":::
 3. Click on a management switch, and go to the `Monitoring->Metrics` tab. Select `Interface Out Pkts`, then apply splitting

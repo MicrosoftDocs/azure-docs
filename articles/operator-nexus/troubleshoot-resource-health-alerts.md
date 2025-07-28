@@ -20,15 +20,14 @@ These alerts are generated based on the status of the resource and its dependenc
 
 ## Cluster
 
-| Resource Health Event Name                                                                             | Troubleshooting Guide                                                 |
-| ------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
-| `1PExtensionsFailedInstall`                                                                            | [Requires to contact support](#please-contact-support)                |
-| `ClusterHeartbeatConnectionStatusDisconnectedClusterManagerOperationsAreAffectedPossibleNetworkIssues` | [Troubleshoot Cluster heartbeat connection status shows disconnected] |
-| `ClusterHeartbeatConnectionStatusTimedoutPossiblePerformanceIssues`                                    | [Troubleshoot Cluster heartbeat connection status shows disconnected] |
-| `AttachmentFailuresDegraded`, and `AttachmentFailuresUnhealthy`                                        | [Troubleshoot failed volume attachments]                              |
-| `NFSPodDegraded`, and `NFSPodUnhealthy`                                                                | [Troubleshoot NFS unhealthy]                                          |
-| `CSIControllerUnhealthy`, `CSINodeDegraded`, and `CSINodeUnhealthy`                                    | [Troubleshoot unhealthy CSI (storage)]                                |
-| `ControlPlaneStorageConnectivityDegraded`, and `ControlPlaneStorageConnectivityUnhealthyVIP`           | [Troubleshoot storage control plane disconnected]                     |
+| Resource Health Event Name                                                                                                                                                      | Troubleshooting Guide                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `1PExtensionsFailedInstall`                                                                                                                                                     | [Requires to contact support](#please-contact-support)                |
+| `ClusterHeartbeatConnectionStatusDisconnectedClusterManagerOperationsAreAffectedPossibleNetworkIssues`, and `ClusterHeartbeatConnectionStatusTimedoutPossiblePerformanceIssues` | [Troubleshoot Cluster heartbeat connection status shows disconnected] |
+| `AttachmentFailuresDegraded`, and `AttachmentFailuresUnhealthy`                                                                                                                 | [Troubleshoot failed volume attachments]                              |
+| `NFSPodDegraded`, and `NFSPodUnhealthy`                                                                                                                                         | [Troubleshoot NFS unhealthy]                                          |
+| `CSIControllerUnhealthy`, `CSINodeDegraded`, and `CSINodeUnhealthy`                                                                                                             | [Troubleshoot unhealthy CSI (storage)]                                |
+| `ControlPlaneStorageConnectivityDegraded`, and `ControlPlaneStorageConnectivityUnhealthyVIP`                                                                                    | [Troubleshoot storage control plane disconnected]                     |
 
 [Troubleshoot Cluster heartbeat connection status shows disconnected]: ./troubleshoot-cluster-heartbeat-connection-status-disconnected.md
 [Troubleshoot failed volume attachments]: ./troubleshoot-failed-volume-attachments.md
