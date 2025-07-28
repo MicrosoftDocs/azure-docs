@@ -326,6 +326,27 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
 1. Create a file named `main.go` with the following content.
 
     ```golang
+    package main
+
+    import (
+        "context"
+        "fmt"
+        "log"
+        "net/http"
+        "strings"
+
+        "github.com/gin-contrib/sessions"
+        "github.com/gin-contrib/sessions/cookie"
+        "github.com/gin-gonic/gin"
+        "github.com/microsoft/Featuremanagement-Go/featuremanagement"
+        "github.com/microsoft/Featuremanagement-Go/featuremanagement/providers/azappconfig"
+    )
+
+    type WebApp struct {
+        featureManager *featuremanagement.FeatureManager
+        appConfig      *azureappconfiguration.AzureAppConfiguration
+    }
+
     func main() {
         // Load Azure App Configuration
         appConfig, err := loadAzureAppConfiguration(context.Background())
@@ -355,12 +376,13 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
         r := gin.Default()
 
         // Start server
-        fmt.Println("Starting server on http://localhost:8080")
-        fmt.Println("Open http://localhost:8080 in your browser")
-        fmt.Println()
         if err := r.Run(":8080"); err != nil {
             log.Fatalf("Failed to start server: %v", err)
         }
+
+        fmt.Println("Starting server on http://localhost:8080")
+        fmt.Println("Open http://localhost:8080 in your browser")
+        fmt.Println()
     }
     ```
 
@@ -530,8 +552,9 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
 	app.setupRoutes(r)
 
 	// Start server
-	fmt.Println("Starting server on http://localhost:8080")
-
+	if err := r.Run(":8080"); err != nil {
+        log.Fatalf("Failed to start server: %v", err)
+    }
     // The rest of existing code
     // ... ...
     ```
@@ -546,7 +569,6 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
         "fmt"
         "log"
         "net/http"
-        "os"
         "strings"
 
         "github.com/gin-contrib/sessions"
@@ -728,12 +750,13 @@ func loadAzureAppConfiguration(ctx context.Context) (*azureappconfiguration.Azur
         app.setupRoutes(r)
 
         // Start server
-        fmt.Println("Starting server on http://localhost:8080")
-        fmt.Println("Open http://localhost:8080 in your browser")
-        fmt.Println()
         if err := r.Run(":8080"); err != nil {
             log.Fatalf("Failed to start server: %v", err)
         }
+
+        fmt.Println("Starting server on http://localhost:8080")
+        fmt.Println("Open http://localhost:8080 in your browser")
+        fmt.Println()
     }
     ```
 
