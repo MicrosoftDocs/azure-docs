@@ -51,14 +51,15 @@ The MQTT broker uses a persistent volume (PV) to store data on disk. Two setting
 
 # [Azure portal](#tab/portal)
 
-:::image type="content" source="media/howto-broker-persistence/data-persistence-deploy.png" alt-text="[Screenshot showing data persistence options during deployment in the Azure portal]":::
 
 To configure volume settings in the Azure portal:
 
 1. During IoT Operations deployment, navigate to the **MQTT Broker** configuration section.
 2. In the **Data Persistence** settings:
-   - Set the **Maximum Size** for the persistent volume (required).
-   - Optionally configure **Persistent Volume Claim Spec** settings for custom storage class requirements.
+    - Set the **Maximum Size** for the persistent volume (required).
+    - Optionally configure **Persistent Volume Claim Spec** settings for custom storage class requirements.
+
+    :::image type="content" source="media/howto-broker-persistence/data-persistence-deploy.png" alt-text="[Screenshot showing data persistence options during deployment in the Azure portal]":::
 
 # [Azure CLI](#tab/azurecli)
 
@@ -94,16 +95,11 @@ Encryption is optional and is on by default. You can turn off encryption if you 
 
 # [Azure portal](#tab/portal)
 
-To configure encryption settings in the Azure portal:
-
-1. During IoT Operations deployment, navigate to the **MQTT Broker** configuration section.
-2. In the **Data Persistence** settings:
-   - Toggle **Encryption** to enable or disable data encryption.
-   - By default, encryption is enabled using AES-256-GCM.
+Encryption is enabled by default when deploying using the Azure portal. you can disable encryption in the broker configuration file if you deploy using Azure CLI.
 
 # [Azure CLI](#tab/azurecli)
 
-To disable encryption using Azure CLI, add the following to your Broker configuration file:
+To disable encryption using Azure CLI, add the following to your Broker configuration file when using the `--broker-config-file` flag with the [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command:
 
 ```json
 {
