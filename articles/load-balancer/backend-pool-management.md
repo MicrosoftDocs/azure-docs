@@ -226,6 +226,7 @@ az vm create \
   * You can configure IP based and NIC based backend pools for the same load balancer. You can’t create a single backend pool that mixes backed addresses targeted by NIC and IP addresses within the same pool.
   * A virtual machine in the same virtual network as an internal load balancer can't access the frontend of the ILB and its backend VMs simultaneously.
   * Internet routing preference IPs are currently not supported with IP based backend pools. Any Internet routing preference IPs in IP based backend pools will be billed and routed via the default Microsoft global network.
+  * Performing move-related operations on VNETs that are attached to IP-based backend pools is not supported
   * If backend pools are constantly changing (due to the constant addition or removal of backend resources). This may cause reset signals sent back to the source from the backend resource. As a workaround, you can use retries.
 
 >[!Important]

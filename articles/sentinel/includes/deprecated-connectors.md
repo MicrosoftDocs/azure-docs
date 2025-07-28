@@ -2,7 +2,9 @@
 author: EdB-MSFT
 ms.author: edbayansh
 ms.topic: include
-ms.date: 07/21/2025
+ms.date: 07/27/2025
+
+# This file is auto-generated . Do not edit manually. Changes will be overwritten.
 ---
 
 ## Deprecated Sentinel data connectors

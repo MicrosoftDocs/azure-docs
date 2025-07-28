@@ -125,7 +125,6 @@ Confidential VMs *don't support*:
 - [Azure Backup](/azure/backup/backup-overview)
 - [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery/)
 - Limited [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery) support
-- [Shared disks](/azure/virtual-machines/disks-shared)
 - [Accelerated Networking](/azure/virtual-network/accelerated-networking-overview)
 - [Live migration](/windows-server/virtualization/hyper-v/manage/live-migration-overview)
 - [Screenshots under boot diagnostics](/azure/virtual-machines/boot-diagnostics#boot-diagnostics-view)

@@ -3,8 +3,8 @@ title: Operational guide - Microsoft Sentinel
 description: Learn about the operational recommendations to help security operations teams to plan and run security activities.
 ms.date: 08/30/2024
 ms.topic: reference
-ms.author: cwatson
-author: cwatson-cat
+ms.author: edbaynash
+author: EdB-MSFT
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal

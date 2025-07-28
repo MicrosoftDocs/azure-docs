@@ -1,8 +1,8 @@
 ---
 title: Sample Microsoft Sentinel workspace designs
 description: Learn from samples of Microsoft Sentinel architecture designs with multiple tenants, clouds or regions.
-author: cwatson-cat
-ms.author: cwatson
+author: EdB-MSFT
+ms.author: edbaynash
 ms.topic: conceptual
 ms.date: 08/27/2024
 

@@ -24,7 +24,6 @@ In this example:
 - The private zone azure.contoso.com is linked to VNets in three different regions. Autoregistration is enabled in two regions.
 - A temporary outage occurs in region A.
 - Regions B and C are still able to successfully query DNS names in the private zone, including names that are autoregistered from region A (ex: VM1).
-- Region B can add, edit, or delete records from the private DNS zone as needed.
 - Service interruption in region A doesn't affect name resolution in the other regions.
 
 The example shown here doesn't illustrate a disaster recovery scenario, however the global nature of private zones also makes it possible to recreate VM1 in another VNet and assume its workload.

@@ -1,12 +1,12 @@
 ---
-title: Create, change, or delete an Azure network security group
+title: Create, Change, or Delete Azure Network Security Groups
 titlesuffix: Azure Virtual Network
-description: Learn how to create, change, or delete an Azure network security group (NSG).
+description: Learn to create, change, or delete Azure network security groups (NSGs) to control traffic flow and enhance network security with Portal, PowerShell, and CLI examples.
 services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 07/10/2025
+ms.date: 07/26/2025
 ms.author: allensu
 ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: As a network administrator, I want to create, change, or delete network security groups so that I can control the flow of network traffic and enhance the security of my virtual networks.
@@ -14,7 +14,7 @@ ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-tr
 
 # Create, change, or delete a network security group
 
-Security rules in network security groups (NSGs) filter the type of network traffic that flows in and out of virtual network subnets and network interfaces (NICs). To learn more about NSGs, see [Network security group overview](./network-security-groups-overview.md). Next, complete the [Filter network traffic tutorial](tutorial-filter-network-traffic.md) to gain hands-on experience with NSGs.
+Network security groups (NSGs) control network traffic flow through security rules that filter traffic in and out of virtual network subnets and network interfaces. This guide shows you how to create, change, or delete network security groups to enhance your Azure virtual network security. Learn to manage NSG rules using the Azure portal, PowerShell, and Azure CLI. To learn more about NSGs, see [Network security group overview](./network-security-groups-overview.md). Next, complete the [Filter network traffic tutorial](tutorial-filter-network-traffic.md) to gain hands-on experience with NSGs.
 
 ## Prerequisites
 
@@ -94,7 +94,7 @@ az network nsg create \
 
 In the search box at the top of the portal, enter **Network security group**. Select **Network security groups** in the search results to see the list of NSGs in your subscription.
 
-:::image type="content" source="./media/manage-network-security-group/view-network-security-groups.png" alt-text="Screenshot that shows the Network security groups list in the Azure portal.":::
+:::image type="content" source="./media/manage-network-security-group/view-network-security-groups.png" alt-text="Screenshot of the Network security groups list in the Azure portal.":::
 
 # [**PowerShell**](#tab/network-security-group-powershell)
 
@@ -127,7 +127,7 @@ az network nsg list --out table
    
    - In **Help**, view **Effective security rules**. For more information, see [Diagnose a virtual machine (VM) network traffic filter problem](diagnose-network-traffic-filter-problem.md).
 
-   :::image type="content" source="./media/manage-network-security-group/network-security-group-details-inline.png" alt-text="Screenshot that shows the Network security group page in the Azure portal." lightbox="./media/manage-network-security-group/network-security-group-details-expanded.png":::
+   :::image type="content" source="./media/manage-network-security-group/network-security-group-details-inline.png" alt-text="Screenshot of the Network security group page in the Azure portal." lightbox="./media/manage-network-security-group/network-security-group-details-expanded.png":::
 
 To learn more about the common Azure settings that are listed, see the following articles:
 
@@ -213,11 +213,11 @@ For more information about the association and dissociation of an NSG, see [Asso
 
    - To associate an NSG to the subnet, select **+ Associate**. Then select your virtual network and the subnet to which you want to associate the NSG. Select **OK**.
 
-     :::image type="content" source="./media/manage-network-security-group/associate-subnet-network-security-group.png" alt-text="Screenshot that shows associating a network security group to a subnet in the Azure portal.":::
+     :::image type="content" source="./media/manage-network-security-group/associate-subnet-network-security-group.png" alt-text="Screenshot of associating a network security group to a subnet in the Azure portal.":::
 
    - To dissociate an NSG from the subnet, select the three dots next to the subnet from which you want to dissociate the NSG, and then select **Dissociate**. Select **Yes**.
 
-     :::image type="content" source="./media/manage-network-security-group/dissociate-subnet-network-security-group.png" alt-text="Screenshot that shows dissociating an NSG from a subnet in the Azure portal.":::
+     :::image type="content" source="./media/manage-network-security-group/dissociate-subnet-network-security-group.png" alt-text="Screenshot of dissociating an NSG from a subnet in the Azure portal.":::
 
 # [**PowerShell**](#tab/network-security-group-powershell)
 
@@ -270,7 +270,7 @@ If an NSG is associated with any subnets or network interfaces, you can't delete
 
 1. Select **Delete**, and then select **Yes** in the confirmation dialog box.
 
-    :::image type="content" source="./media/manage-network-security-group/delete-network-security-group.png" alt-text="Screenshot that shows deleting a network security group in the Azure portal.":::
+    :::image type="content" source="./media/manage-network-security-group/delete-network-security-group.png" alt-text="Screenshot of deleting a network security group in the Azure portal.":::
 
 # [**PowerShell**](#tab/network-security-group-powershell)
 
@@ -338,7 +338,7 @@ To learn more, see [Azure subscription and service limits, quotas, and constrain
     | **Name** | A unique name for the rule within the NSG | The name can be up to 80 characters. It must begin with a letter or number, and it must end with a letter, number, or underscore. The name can contain only letters, numbers, underscores, periods, or hyphens. |
     | **Description** | A text description | You can optionally specify a text description for the security rule. The description can't be longer than 140 characters. |
 
-    :::image type="content" source="./media/manage-network-security-group/add-security-rule.png" alt-text="Screenshot that shows adding a security rule to a network security group in the Azure portal.":::
+    :::image type="content" source="./media/manage-network-security-group/add-security-rule.png" alt-text="Screenshot of adding a security rule to a network security group in the Azure portal.":::
 
 # [**PowerShell**](#tab/network-security-group-powershell)
 
@@ -425,7 +425,7 @@ An NSG can contain multiple security rules. To learn more about the list of info
 
     The list contains any rules that you created and the [default security rules](./network-security-groups-overview.md#default-security-rules) of your NSG.
 
-    :::image type="content" source="./media/manage-network-security-group/view-security-rules.png" alt-text="Screenshot that shows inbound security rules of a network security group in the Azure portal.":::
+    :::image type="content" source="./media/manage-network-security-group/view-security-rules.png" alt-text="Screenshot of inbound security rules of a network security group in the Azure portal.":::
 
 # [**PowerShell**](#tab/network-security-group-powershell)
 
@@ -471,7 +471,7 @@ az network nsg rule list \
    > [!NOTE]
    > This procedure applies only to a custom security rule. It doesn't work if you choose a default security rule.
 
-    :::image type="content" source="./media/manage-network-security-group/view-security-rule-details.png" alt-text="Screenshot that shows the details of an inbound security rule of a network security group in the Azure portal.":::
+    :::image type="content" source="./media/manage-network-security-group/view-security-rule-details.png" alt-text="Screenshot of the details of an inbound security rule of a network security group in the Azure portal.":::
 
 # [**PowerShell**](#tab/network-security-group-powershell)
 
@@ -526,7 +526,7 @@ az network nsg rule show \
 
 1. Change the rule's settings as needed, then select **Save**. For an explanation of all settings, see [Security rule settings](#security-rule-settings).
 
-    :::image type="content" source="./media/manage-network-security-group/change-security-rule.png" alt-text="Screenshot that shows changing the inbound security rule details of a network security group in the Azure portal.":::
+    :::image type="content" source="./media/manage-network-security-group/change-security-rule.png" alt-text="Screenshot of changing the inbound security rule details of a network security group in the Azure portal.":::
 
     > [!NOTE]
     > This procedure applies only to a custom security rule. You aren't allowed to change a default security rule.
@@ -593,11 +593,11 @@ az network nsg rule update \
 
 1. Select **Inbound security rules** or **Outbound security rules**.
 
-1. Select the rule that you want to delete. You may select more than one rule to delete at a time.
+1. Select the rule that you want to delete. You can select more than one rule to delete at a time.
 
 1. Select **Delete**, then select **Yes**.
 
-    :::image type="content" source="./media/manage-network-security-group/delete-security-rule.png" alt-text="Screenshot that shows deleting an inbound security rule of a network security group in the Azure portal.":::
+    :::image type="content" source="./media/manage-network-security-group/delete-security-rule.png" alt-text="Screenshot of deleting an inbound security rule of a network security group in the Azure portal.":::
 
     > [!NOTE]
     > This procedure applies only to a custom security rule. You aren't allowed to delete a default security rule.
@@ -706,7 +706,7 @@ az network asg create \
 
 In the search box at the top of the portal, enter **Application security group**. Then select **Application security groups** in the search results. A list of your application security groups appears in the Azure portal.
 
-:::image type="content" source="./media/manage-network-security-group/view-application-security-groups.png" alt-text="Screenshot that shows existing application security groups in the Azure portal.":::
+:::image type="content" source="./media/manage-network-security-group/view-application-security-groups.png" alt-text="Screenshot of existing application security groups in the Azure portal.":::
 
 # [**PowerShell**](#tab/network-security-group-powershell)
 
@@ -766,12 +766,12 @@ az network asg show \
 
    - Select **edit** next to **Tags** to add or remove tags. To learn more, see [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md).
 
-     :::image type="content" source="./media/manage-network-security-group/change-application-security-group.png" alt-text="Screenshot that shows changing an application security group in the Azure portal.":::
+     :::image type="content" source="./media/manage-network-security-group/change-application-security-group.png" alt-text="Screenshot of changing an application security group in the Azure portal.":::
 
      > [!NOTE]
      > You can't change the location of an application security group.
 
-   - Navigate to the **Access control (IAM)** blade to assign or remove permissions to the application security group.
+   - Navigate to the **Access control (IAM)** section to assign or remove permissions to the application security group.
 
 # [**PowerShell**](#tab/network-security-group-powershell)
 
@@ -815,7 +815,7 @@ You can't delete an application security group if it contains any network interf
 
 1. Select **Delete**, and then select **Yes** to delete the application security group.
 
-    :::image type="content" source="./media/manage-network-security-group/delete-application-security-group.png" alt-text="Screenshot that shows deleting an application security group in the Azure portal.":::
+    :::image type="content" source="./media/manage-network-security-group/delete-application-security-group.png" alt-text="Screenshot of deleting an application security group in the Azure portal.":::
 
 # [**PowerShell**](#tab/network-security-group-powershell)
 

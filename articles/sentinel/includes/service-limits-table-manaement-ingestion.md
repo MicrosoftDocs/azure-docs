@@ -14,6 +14,7 @@ The following table lists the service parameters and limits for the Microsoft Se
 
 | Category                                         | Parameter/limit                              |
 |--------------------------------------------------|----------------------------------------------|
+| Workspaces per tenant                             | 20 workspaces during preview                 |
 | Data ingestion per minute to a data collection endpoint    | 50 GB                              |
 | Default ingestion volume rate threshold in LALog Analytics workspaces | 6 GB/min uncompressed   |
 | Ingestion requests per minute to a data collection endpoint | 15,000                            |

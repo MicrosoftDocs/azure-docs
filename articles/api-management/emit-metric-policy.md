@@ -52,7 +52,7 @@ The `emit-metric` policy sends custom metrics in the specified format to Applica
 | ----------- | --------------------------------------------------------------------------------- | -------- |
 | dimension   | Add one or more of these elements for each dimension included in the custom metric.  | Yes      |
 
-### dimension attributes
+### Dimension attributes
 
 | Attribute | Description                | Required |  Default value  |
 | --------- | -------------------------- |  ------------------ | -------------- |
@@ -69,7 +69,7 @@ The `emit-metric` policy sends custom metrics in the specified format to Applica
 
 ### Usage notes
 
-* You can configure at most 10 custom dimensions for this policy.
+* You can configure at most 5 custom dimensions for this policy.
 
 ## Example
 

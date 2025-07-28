@@ -3,7 +3,7 @@ title: Develop a deployment script in Bicep
 description: Learn how to develop a deployment script within a Bicep file or store one externally as a separate file.
 ms.custom: devx-track-bicep
 ms.topic: conceptual
-ms.date: 09/26/2024
+ms.date: 07/25/2025
 ---
 
 # Develop a deployment script in Bicep
