@@ -1,5 +1,5 @@
 ---
-description: Azure Static Web Apps CLI reference
+description: The reference of Azure Static Web Apps CLI commands.
 title: Azure Static Web Apps CLI reference
 ms.topic: reference
 ms.date: 07/25/2025
@@ -8,6 +8,8 @@ author: cjk7989
 ---
 
 # Azure Static Web Apps CLI reference
+
+The reference of Azure Static Web Apps CLI commands.
 
 ## Commands
 
@@ -168,7 +170,7 @@ ___[Global Parameters](#global-parameters)___
 
 Builds the application. If you have a Node.js application, it installs dependencies first.
 
-Common use cases include: installing dependencies for the front-end app and API and running the build commands for both, only building the front-end or API project if the other doesn't have a build step.
+Common use cases include: Installing dependencies for the front-end app and API and running the build commands for both, only building the front-end or API project if the other doesn't have a build step.
 
 ### Syntax
 
@@ -467,7 +469,8 @@ swa deploy --print-token
 
 You can then use that value with the `--deployment-token <TOKEN>` or you can create an environment variable called `SWA_CLI_DEPLOYMENT_TOKEN` and set it to the deployment token.
 
-  > **Important**: Don't store the deployment token in a public repository. This value must remain a secret.
+> [!IMPORTANT]
+> Don't store the deployment token in a public repository. This value must remain a secret.
 
 ### Deploy a front end app without an API
 
@@ -482,7 +485,8 @@ cd build/
 swa deploy
 ```
 
-  > **Note**: The `build` folder must contain the static content of your app that you want to deploy.
+> [!NOTE]
+> The `build` folder must contain the static content of your app that you want to deploy.
 
 **Option 2:** You can also deploy a specific folder:
 
@@ -510,7 +514,8 @@ To deploy both the front end app and an API to Azure Static Web Apps, use the fo
 }
 ```
 
-  > **Note**: If your project doesn't have any `staticwebapp.config.json` file, add one under your `outputLocation` folder.
+> [!NOTE]
+> If your project doesn't have any `staticwebapp.config.json` file, add one under your `outputLocation` folder.
 
 3. Deploy your app:
 
@@ -536,7 +541,8 @@ swa deploy ./bin/publish/wwwroot --api-location ./Api
 
 ### Deploy using the `swa-cli.config.json`
 
-> **Note**: The path for `outputLocation` must be relative to the `appLocation`.
+> [!NOTE]
+> The path for `outputLocation` must be relative to the `appLocation`.
 
 If you are using a `swa-cli.config.json` configuration file in your project and have a single configuration entry, use a configuration like this:
 
