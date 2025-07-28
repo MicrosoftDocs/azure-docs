@@ -17,8 +17,6 @@ This article helps you configure customer-controlled maintenance windows for Vir
 
 For more information on limitations and frequently asked questions related to customer-controlled maintenance, see the [Virtual WAN FAQ](virtual-wan-faq.md).
 
-[!INCLUDE [Preview rollout](../../includes/vpn-gateway-customer-controlled-maintenance-rollout-note.md)]
-
 ## Azure portal steps
 
 [!INCLUDE [Portal steps](../../includes/vpn-gateway-customer-controlled-gateway-maintenance-article-portal.md)]
