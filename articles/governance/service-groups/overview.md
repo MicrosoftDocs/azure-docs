@@ -97,7 +97,7 @@ There are three built-in roles definitions to support Service Groups in the prev
 - [Service Group Contributor](../../role-based-access-control/built-in-roles/management-and-governance.md#service-group-contributor): This built-in role should be given to users when they need to create or manage the lifecycle of a Service Group. This role allows for all actions except for Role Assignment capabilities.  
 
 
-- [Service Group Reader](../../role-based-access-control/built-in-roles/management-and-governance.md#service-group-reader): This built-in role provides read-only access to service group information and can assigned to other resources in order to view the connected relationships.  
+- [Service Group Reader](../../role-based-access-control/built-in-roles/management-and-governance.md#service-group-reader): This built-in role provides read-only access to service group information and can be assigned to other resources in order to view the connected relationships.  
 
 
 
