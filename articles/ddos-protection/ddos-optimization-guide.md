@@ -74,11 +74,11 @@ Protection needs change as your infrastructure evolves. Set up continuous monito
 
 ## Next steps
 
-- [Learn about Azure DDoS Protection features](ddos-protection-features.md)
-- [Compare DDoS protection SKUs](ddos-protection-overview.md)
-- [Configure DDoS protection](manage-ddos-protection.md)
-- [Monitor DDoS protection](monitor-ddos-protection.md)
-- [Azure Cost Management documentation](/azure/cost-management-billing/)
-- [Azure DDoS Protection pricing](https://azure.microsoft.com/pricing/details/ddos-protection/)
-- [Azure Well-Architected Framework](/azure/well-architected/)
-- [Azure Security Benchmark](/azure/security/benchmarks/introduction)
+- [Learn about Azure DDoS Protection features](ddos-protection-features.md).
+- [Compare DDoS protection SKUs](ddos-protection-overview.md).
+- [Configure DDoS protection](manage-ddos-protection.md).
+- [Monitor DDoS protection](monitor-ddos-protection.md).
+- [Azure Cost Management documentation](/azure/cost-management-billing/).
+- [Azure DDoS Protection pricing](https://azure.microsoft.com/pricing/details/ddos-protection/).
+- [Azure Well-Architected Framework](/azure/well-architected/).
+- [Azure Security Benchmark](/azure/security/benchmarks/introduction).
