@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Machine Network Throughput and Bandwidth
-description: Learn how Azure virtual machine network throughput and bandwidth allocation works. Discover flow limits, performance optimization, and monitoring best practices for VM networking.
+description: Learn how Azure virtual machine network throughput and bandwidth allocation work. Discover flow limits, performance optimization, and monitoring best practices for VM networking.
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
