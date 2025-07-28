@@ -48,9 +48,6 @@ Workspace root specifies the top-level Azure resource identifiers - such as subs
 
 Once the subscriptions, resource groups or tenant is added to the workspace, an access check is run to verify if the user has Microsoft.Storage/storageAccounts/read on the added resources. As the checks are running, status of the run is as shown:
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot of the access check on workspace root.](./media/create-access.png)
-
 If you do not have Microsoft.Storage/storageAccounts/read on any of the resources added, remove the resource from the workSpace root to proceed with the creation of workspace or resolve the access issue and try again.
 
 ### Create Scope
@@ -66,16 +63,10 @@ Add tags, if needed on the ASDW resource and click on Review and Create.
 
 If the access check for the workspace root resources hasn’t finished yet, the Review and Create tab shows a message saying the check is still in progress. You won’t be able to deploy the resource until the check is complete.
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot of access checks.](./media/review-create.png)
-
 > [!NOTE]
 > Note that Discovery resource creation fails if the access checks on any added subscription or resource group or tenant is not successful.
 
 When the access checks complete successfully, resource can be deployed.
-
-> [!div class="mx-imgBorder"]
-> ![Screenshot of deployment complete.](./media/deploy.png)
 
 > [!NOTE]
 > Note that it will take up to 24 hours for the metrics to start appearing in the Reports after the scope is created.
