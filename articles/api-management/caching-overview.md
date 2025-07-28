@@ -37,14 +37,14 @@ The internal (built-in) cache is automatically provisioned in all API Management
 
 Considerations for the internal (built-in) cache:
 
-- **Automatic provisioning**: No additional steps are required to deploy or manage the cache. Cache settings are not configurable.
+- **Automatic provisioning**: No other steps are required to deploy or manage the cache. Internal cache settings aren't configurable.
 - **Configure response caching for APIs using caching policies** - By default in caching policies, API Management uses an external cache if configured and a built-in cache otherwise.
 - **Not available for Consumption tier or self-hosted gateway**
 - **Regional storage** - Cache data is stored in the same region as your API Management instance and shared among scale units. In a [multi-region](multi-region-api-management.md) deployment, each region has its own cache.
 - **Volatile storage** - Cache contents *do not* persist when service updates take place.
 - **Per-tier limits** - Cache size varies by service tier. See [service limits](/azure-resource-manager/management/azure-subscription-service-limits#azure-api-management-limits)
 - **Does not support semantic caching** - [Semantic caching](azure-openai-enable-semantic-caching.md) of responses from LLM model deployments requires an external cache.
-- **No pre-loading** - Pre-loading of data into the built-in cache isn't supported.
+- **No pre-loading** - Preloading of data into the built-in cache isn't supported.
 
 [Learn more](api-management-howto-cache.md) about caching with the built-in cache.
 
@@ -54,7 +54,7 @@ For enhanced performance and persistence, you can optionally configure an extern
 
 Considerations for external cache:
 
-- **Separate deployment required** - You are responsible for deploying, connecting, and maintaining the external cache. The cache can incur additional costs.
+- **Separate deployment required** - You're responsible for deploying, connecting, and maintaining the external cache. The cache can incur added costs.
 - **Configure response caching using policies** - By default in caching policies, API Management uses an external cache if configured and a built-in cache otherwise.
 - **Only caching option for Consumption tier or self-hosted gateway**
 - **Persistent storage** - Cached data persists independently of API Management service updates
@@ -81,16 +81,16 @@ Use caching in Azure API Management mainly for the scenarios in the following ta
 
 **Considerations:**
 
-* In any caching scenario, the customer should consider the implications of loss of cache availability or connectivity loss. Such losses result in cache misses and requests continue
+* In any caching scenario, the customer should consider the possibility of loss of cache availability or connectivity. Such losses result in cache misses and by default requests continue to the backend service.
 
-* The internal cache is volatile and does not persist across service updates During a service update, the internal cache is cleared in a gradual process that involves up to 50% of the cache at a time.
+* The internal cache is volatile and doesn't persist across service updates During a service update, the internal cache is cleared in a gradual process that involves up to 50% of the cache at a time.
 
     > [!NOTE]
-    > You can configure [service update settings](configure-service-update-settings.md) in select API Management service tiers, including a maintenance window for updates. Choose a window that minimizes potential customer such as loss of the internal cache.
+    > You can configure [service update settings](configure-service-update-settings.md) in select API Management service tiers, including a maintenance window for updates. Choose a window that minimizes potential customer impacts such as loss of the internal cache.
 
 * If configured, an external cache can be persistent, but the customer is responsible for ensuring availability and connectivity. 
 
-* As a best practice to protect the backend service from traffic spikes that might overload it when a cache isn't available, we recommend configuring a rate limiting policy ([rate-limit](rate-limit-policy.md) or [rate-limit-by-key](rate-limit-by-key-policy.md)) immediately after any cache looku policy.
+* As a best practice to protect the backend service from traffic spikes that might overload it when a cache isn't available, we recommend configuring a rate limiting policy ([rate-limit](rate-limit-policy.md) or [rate-limit-by-key](rate-limit-by-key-policy.md)) immediately after any cache lookup policy.
 
 
 
@@ -207,23 +207,9 @@ To configure Azure Cache for Redis:
 3. **Update policies**: Set `caching-type="external"` or `caching-type="prefer-external"` in cache policies
 4. **Test connectivity**: Verify API Management can connect to your Redis instance
 
-## Limitations
+## 
 
-### Built-in cache limitations
-
-- **Volatile storage**: Cache contents may be lost during service operations
-- **Regional restrictions**: Cache is only available in the API Management region
-- **Size limits**: Cache size varies by service tier and cannot be increased
-- **Performance constraints**: Throughput limited by service tier specifications
-
-### General caching limitations
-
-- **GET requests only**: Response caching only works with HTTP GET requests
-- **Policy placement**: Cache policies can only be used once per policy section
-- **Memory pressure**: Cache entries may be evicted under memory pressure
-- **No cache sharing**: Built-in cache cannot be shared between API Management instances
-
-### Security considerations
+## Security considerations
 
 - **Sensitive data**: Avoid caching responses containing sensitive or personal information
 - **Cache keys**: Ensure cache keys don't expose sensitive information in logs or diagnostics
@@ -238,7 +224,7 @@ Monitor cache performance through:
 
 - **Cache hit ratio**: Percentage of requests served from cache vs. backend
 - **Cache size**: Current cache utilization and available space
-- **Response times**: Compare cached vs. non-cached response latencies
+- **Response times**: Compare cached vs. noncached response latencies
 - **Backend calls**: Monitor reduction in backend service calls
 
 ### Diagnostics
@@ -250,19 +236,9 @@ Use API Management diagnostics to:
 - **Performance analysis**: Compare response times with and without caching
 - **Error handling**: Identify cache-related errors and misconfigurations
 
-### Best practices
-
-- **Set appropriate TTL**: Balance data freshness with performance gains
-- **Use meaningful cache keys**: Ensure cache keys are unique and descriptive
-- **Monitor cache hit rates**: Optimize cache strategies based on actual usage patterns
-- **Handle cache failures gracefully**: Ensure APIs function when cache is unavailable
-- **Implement cache warming**: Pre-populate cache with frequently requested data
-
 ## Related content
 
 - Learn more about [cache policies](api-management-policies.md#caching) in API Management
 - [Set up external caching](api-management-howto-cache-external.md) with Azure Cache for Redis
 - [Custom caching examples](api-management-sample-cache-by-key.md) with advanced scenarios
 - [Monitor API Management](monitor-api-management.md) performance and caching metrics
-- Learn about [API Management policies](api-management-howto-policies.md) and configuration
-- [Policy reference](api-management-policy-reference.md) for all available policies
