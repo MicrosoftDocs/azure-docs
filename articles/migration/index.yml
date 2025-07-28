@@ -70,11 +70,6 @@ sections:
 
       :::row:::
          :::column:::
-         **[Getting started](/azure/migration/migrate-from-aws)**
-
-         Comparison between both platforms and example scenarios to help integrate components for transition to Azure.
-         :::column-end:::
-         :::column:::
          **[Compute](/azure/migration/migrate-compute-from-aws)**
 
          Discover scenarios that you can use to migrate AWS compute services to Azure.
@@ -106,11 +101,6 @@ sections:
       ### Scenarios
 
       :::row:::
-         :::column:::
-         **[Getting started](/azure/migration/migrate-from-google-cloud)**
-
-         Comparison between both platforms and example scenarios to help integrate components for transition to Azure.
-         :::column-end:::
          :::column:::
          **[Databases](/azure/migration/migrate-databases-from-google-cloud)**
 
