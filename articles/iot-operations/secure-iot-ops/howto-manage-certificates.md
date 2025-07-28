@@ -159,7 +159,7 @@ To manage certificates for external communications, follow these steps:
 1. In the left navigation pane, select **Asset endpoints**.
 1. Click on **Manage certificates and secrets**.
 
-    :::image type="content" source="media/howto-manage-certificates/manage-certificate.png" lightbox="media/howto-manage-certificates/manage-certificates.png" alt-text="Screenshot that shows the Manage certificates and secrets option in the left navigation pane.":::
+    :::image type="content" source="media/howto-manage-certificates/manage-certificates.png" lightbox="media/howto-manage-certificates/manage-certificates.png" alt-text="Screenshot that shows the Manage certificates and secrets option in the left navigation pane.":::
 
 1. In the Certificates and Secrets page, click on **Add new certificate**.
 
