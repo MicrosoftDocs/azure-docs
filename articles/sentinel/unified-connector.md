@@ -67,7 +67,7 @@ Currently, Defender for Cloud Apps and Microsoft Security Exposure Management ar
 
 ## Supported Connectors
 
-Currently, the Unified Connectors Platform is available in preview for [Okta Single Sign-On connectors](/defender-xdr/okta-integration.md) shared by Microsoft Sentinel, Microsoft Defender for Identity, and Microsoft Security Exposure Management.
+Currently, the Unified Connectors Platform is available in preview for [Okta Single Sign-On connectors](/defender-for-identity/okta-integration.md) shared by Microsoft Sentinel, Microsoft Defender for Identity, and Microsoft Security Exposure Management.
 
 ## Data connectors gallery
 
