@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 07/10/2025
+ms.date: 07/28/2025
 ms.author: anfdocs
 ms.custom: references_regions
 # Customer intent: As a storage administrator, I want to enable file access logs on Azure NetApp Files volumes so that I can monitor file access operations and troubleshoot access issues effectively.
@@ -102,6 +102,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 Availability for file access log is limited to the following regions: 
 
 - Australia Central
+- Australia Central 2
 - Australia East
 - Australia Southeast
 - Brazil South
@@ -123,6 +124,7 @@ Availability for file access log is limited to the following regions:
 - Switzerland North
 - Switzerland West
 - UK South
+- US Gov Virginia
 - West Europe
 - West US
 - West US 2
