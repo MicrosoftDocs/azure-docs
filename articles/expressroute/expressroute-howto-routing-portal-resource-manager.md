@@ -46,7 +46,6 @@ This section helps you create, get, update, and delete the Microsoft peering con
 > [!IMPORTANT]
 > Microsoft peering of ExpressRoute circuits that were configured prior to August 1, 2017 will have all Microsoft Office service prefixes advertised through the Microsoft peering, even if route filters are not defined. Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 will not have any prefixes advertised until a route filter is attached to the circuit. For more information, see [Configure a route filter for Microsoft peering](how-to-routefilter-powershell.md).
 > 
-> 
 
 ### To create Microsoft peering
 
@@ -74,8 +73,10 @@ This section helps you create, get, update, and delete the Microsoft peering con
    * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID. For both Primary and Secondary links you must use the same VLAN ID.
    * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
    * Advertised prefixes: You provide a list of all prefixes you plan to advertise over the BGP session. Only public IP address prefixes are accepted. If you plan to send a set of prefixes, you can send a comma-separated list. These prefixes must be registered to you in an RIR / IRR.
+
    > [!NOTE]
-   > Microsoft creates a "Validation ID" for each configured prefix, which requires verification by the organization that owns the prefixes. The specific steps are provided in the following section.
+> For each configured prefix, Microsoft generates a **Validation ID**. The organization that owns the prefixes will use this ID to verify their authority to advertise the prefixes. Detailed verification steps are provided in the next section.
+
    * **Optional -** Customer ASN: If you're advertising prefixes not registered to the peering AS number, you can specify the AS number to which they're registered with.
    * Routing Registry Name: You can specify the RIR / IRR against which the AS number and prefixes are registered.
    * **Optional -** An MD5 hash if you choose to use one.
@@ -86,37 +87,49 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
    :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/configuration-m-validation-needed.png" alt-text="Screenshot showing Microsoft peering configuration.":::
 
-
-### To validate the Advertised public prefixes (Preview)
-
-When you configure Public IP address that you plan to advertise over BGP, Microsoft will verify the authority to advertise those prefixes. These IP addresses can be either owned by your organization or leased from a third party with permission to use and announce those prefixes. The prefixes are verified with the RIR / IRR by validating a signed digital certificate associated with each prefix configured.
+### To validate the advertised public prefixes (Preview)
+When you configure public IP address prefixes to advertise over BGP, Microsoft verifies your authority to announce those prefixes. The IP addresses may be owned by your organization or leased from a third party with permission to use and advertise them. Verification is performed by checking a signed digital certificate associated with each prefix against the relevant RIR or IRR records.
 
 ### Prerequisites 
 
-1. The organization that owns the prefixes is required to have a self-signed certificate using a secure private key. This certificate should be included in the comments section of the relevant RIR /  IRR associated with the IP range.
+1. The organization that owns the prefixes must generate a self-signed certificate using a secure private key. You can use OpenSSL to create this certificate. The certificate should be included in the comments section of the relevant RIR / IRR associated with the IP range.
+
+    ```bash
+    # Generate a private key using openssl:
+
+    openssl.exe genpkey -algorithm rsa -out privkey.pem -pkeyopt rsa_keygen_bits:4096
+
+    # Generate the corresponding public key:
+
+    openssl rsa -in privkey.pem -outform PEM -pubout -out pubkey.pem
+
+    # Generate a Certificate Signing Request (CSR):
+  
+    openssl req -new -key privkey.pem -out request.csr
+
+    # Generate a self signed public certificate:
+
+    openssl x509 -req -days 365 -in request.csr -signkey privkey.pem -out certificate.crt
+    ```
+
     > [!IMPORTANT]
-    > Microsoft will never request your private key for any verification purposes, and it must never be shared. 
+    > Microsoft will never request your private key for any verification purposes, and it must never be shared.
     
-2. The Certificate must include:
+2. The certificate must include:
       * Organization name
       * ASN
       * IP Range
         
 ### Authorize the prefix
 
-1. Use the Validation ID and your private key to generate a signature for each prefix listed under Advertised Prefixes.
-    > [!IMPORTANT]
-    > Save the Validation ID to a file using **UTF-8 encoding**, with no spaces or special characters.
-    >  The generated signature must be in **Base64 format**.
+1. Use your private key and the *Validation ID* to generate a Base64-encoded signature for each prefix listed under Advertised Prefixes. Save the Validation ID to a file using UTF-8 encoding, ensuring there are no spaces or special characters.
 
-2. Upload the signature to the Microsoft portal and save the configuration.
+    :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/validation-id.png" alt-text="Screenshot showing the Validation ID field in the Azure portal for ExpressRoute Microsoft peering.":::
 
+2. Upload the generated signature to the Azure portal and save your configuration.
 
-    > [!IMPORTANT]
-    > If automatic validation fails, you will see the message "Validation needed", and the process will require manual validation.
-    > > Collect documents that prove the public prefixes are assigned to your organization by the entity listed as the owner in the routing registry.
-    > > Submit these documents by opening a support ticket for manual validation.
-    
+> [!NOTE]
+> If automatic validation fails, indicated by a **Validation needed** message, gather documentation proving your organization’s ownership of the public prefixes as registered in the routing registry. Submit these documents by opening a support ticket for manual validation.
 
 ### <a name="getmsft"></a>To view Microsoft peering details
 
