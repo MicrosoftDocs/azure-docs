@@ -189,17 +189,21 @@ The following settings are used to manually stop and immediately delete the spec
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
-| `Jobs.CleanupJobPartitionPrefixes` | None | Immediately deletes all the run jobs for the specified workflows. |
-| `Jobs.SuspendedJobPartitionPrefixes` | None | Stops the run jobs for the specified workflows. |
-| `SequencerJobs.SuspendedSequencerPartitionPrefixes` | None | Stops the sequencer run jobs for the specified workflows. |
+| `Jobs.CleanupJobPartition` | None | Immediately deletes all the run jobs for the specified workflows. |
+| `Jobs.SuspendedJobPartition` | None | Stops the run jobs for the specified workflows. |
+| `SequencerJobs.SuspendedSequencerPartition` | None | Stops the sequencer run jobs for the specified workflows. |
 
-The following example shows the syntax for these settings where each workflow ID is followed by a colon (`:`) and separated by a semicolon (`;`):
+To specify individual workflows, use the following syntax where each workflow ID is followed by a colon (`:`) and is separated by a semicolon (`;`):
 
 ```json
-"Jobs.CleanupJobPartitionPrefixes": "<workflow-ID-1>:;<workflow-ID-2>:",
-"Jobs.SuspendedJobPartitionPrefixes": "<workflow-ID-1>:;<workflow-ID-2>:",
-"SequencerJobs.SuspendedSequencerPartitionPrefixes": "<workflow-ID-1>:;<workflow-ID-2>:"
+"Jobs.CleanupJobPartition": "<workflow-ID-1>:;<workflow-ID-2>",
+"Jobs.SuspendedJobPartition": "<workflow-ID-1>:;<workflow-ID-2>:",
+"SequencerJobs.SuspendedSequencerPartition": "<workflow-ID-1>:;<workflow-ID-2>:"
 ```
+
+To cancel a specific run, provide the run ID following the workflow ID with **2D** as the separator, for example:
+
+`"Jobs.SuspendedJobPartition": "<workflow-ID-1>:2D<run-ID>;",`
 
 <a name="recurrence-triggers"></a>
 

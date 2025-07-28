@@ -365,7 +365,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[RETN](https://retn.net/products/cloud-connect)** | Equinix | Amsterdam |
 | **Rogers** | Cologix<br/>Equinix | Montreal<br/>Toronto |
 | **[Spectrum Enterprise](https://enterprise.spectrum.com/products/networking/connectivity/cloud-connect.html)** | Equinix | Chicago<br/>Dallas<br/>Los Angeles<br/>New York<br/>Silicon Valley | 
-| **[Tamares Telecom](https://www.tamarestelecom.com/services/)** | Equinix | London | 
+| **[Tamares Telecom](https://www.exelera.net/)** | Equinix | London | 
 | **[Tata Teleservices](https://www.tatatelebusiness.com/data-services/ez-cloud-connect/)** | Tata Communications | Chennai<br/>Mumbai |
 | **[TDC Erhverv](https://tdc.dk/)** | Equinix | Amsterdam | 
 | **Telecom Italia Sparkle**| Equinix | Amsterdam |
@@ -439,7 +439,7 @@ Enabling private connectivity to meet your needs can be challenging, depending o
 | **[OneAs1a](https://www.oneas1a.com/connectivity.html)** | Asia |
 | **Orange Networks** | Europe |
 | **[Perficient](https://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | North America |
-| **[Presidio](https://www.presidio.com/subpage/1107/microsoft-azure)** | North America |
+| **[Presidio](https://www.presidio.com/partners/microsoft/)** | North America |
 | **[sol-tec](https://www.advania.co.uk/our-services/azure-and-cloud/)** | Europe |
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | South America |
 | **Vigilant.IT** | Australia |

@@ -3,7 +3,7 @@ title: Common questions about Azure virtual machine disaster recovery with Azure
 description: This article answers common questions about Azure virtual machine disaster recovery when you use Azure Site Recovery.
 ms.author: jsuri
 author: jyothisuri
-ms.date: 05/30/2025
+ms.date: 07/25/2025
 ms.topic: faq
 ms.service: azure-site-recovery
 
@@ -145,6 +145,10 @@ When you replicate a new VM and specify a new Automation Account name, the vault
 Azure Site Recovery uses this new Automation Account to manage the site recovery extension on all replicated VMs.
 
 ### Premium SSD v2 disks (preview)
+
+#### If the source disk IOPS is changed after enable replication, will it reflect during failover?
+
+The IOPS of the source Premium SSD v2 disk at the time of enable replication are copied and reflected in the failover disk. Any changes made to the IOPS of the Premium SSD v2 disk after protection aren't reflected in the failover disk. You can change the IOPS of the failed over disk in the target region after completion of failover process.
 
 #### What disk sector size is supported when I protect VMs with Premium SSD v2 disks?
 
