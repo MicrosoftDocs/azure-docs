@@ -122,10 +122,10 @@ This section lists current known issues for the connector for OPC UA.
 Issue ID: 7518
 
 ---
-    
-    Log signature: N/A
-    
-    ---
+
+Log signature: N/A
+
+---
 
 When you add a new asset with a new asset endpoint profile to the OPC UA broker and trigger a reconfiguration, the deployment of the `opc.tcp` pods changes to accommodate the new secret mounts for username and password. If the new mount fails for some reason, the pod doesn't restart and therefore the old flow for the correctly configured assets stops as well.
 
@@ -133,7 +133,7 @@ When you add a new asset with a new asset endpoint profile to the OPC UA broker 
 
 ---
 
-Issue ID: 6513
+Issue ID: 2411
 
 ---
 
@@ -236,6 +236,22 @@ Log signature: N/A
 ---
 
 The media connector ignores the MQTT destination topic setting in the asset. Instead, it uses the default topic: `/azure-iot-operations/data/<asset-name>/snapshot-to-mqtt`.
+
+### Media connector inbound endpoint addresses are not fully validated
+
+---
+
+Issue ID: 2679
+
+---
+
+Log signature: N/A
+
+---
+
+In the public preview release the media connector accepts device inbound endpoint addresses with the following schemes: `async`, `cache`, `concat`, `concatf`, `crypto`, `data`, `fd`, `ffrtmpcrypt`, `ffrtmphttp`, `file`, `ftp`, `gopher`, `gophers`, `hls`, `http`, `httpproxy`, `https`, `mmsh`, `mmst`, `pipe`, `rtmp`, `rtmpe`, `rtmps`, `rtmpt`, `rtmpte`, `rtmpts`, `rtp`, `srtp`, `subfile`, `tcp`, `tls`, `udp`, `udplite`, `unix`, `ipfx`, `ipns`.
+
+This enables input data from multiple source types. However, because the output configuration is based on the `streamConfiguration`, the possibilities for using data from these sources are limited.
 
 ## Data flows issues
 
