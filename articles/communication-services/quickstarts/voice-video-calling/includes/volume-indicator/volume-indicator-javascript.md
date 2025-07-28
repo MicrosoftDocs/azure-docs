@@ -1,11 +1,11 @@
 ---
 title: Quickstart - Add volume indicator to your Web calling app
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to check call volume within your Web app when using Azure Communication Services.
+description: In this quickstart, you learn how to check call volume within your Web app when using Azure Communication Services.
 author: sloanster
 
 ms.author: micahvivion
-ms.date: 071/28/2025
+ms.date: 07/28/2025
 ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
