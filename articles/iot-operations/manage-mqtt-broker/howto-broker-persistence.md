@@ -6,7 +6,7 @@ ms.author: patricka
 ms.topic: how-to
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
-ms.date: 07/22/2025
+ms.date: 07/28/2025
 
 ---
 
@@ -94,8 +94,6 @@ Encryption is optional and is on by default. You can turn off encryption if you 
 
 # [Azure portal](#tab/portal)
 
-[Screenshot placeholder: Encryption configuration in Azure portal]
-
 To configure encryption settings in the Azure portal:
 
 1. During IoT Operations deployment, navigate to the **MQTT Broker** configuration section.
@@ -155,10 +153,10 @@ To configure retained messages persistence in the Azure portal:
 
 # [Azure CLI](#tab/azurecli)
 
-Use the [az iot ops broker persist update](/cli/azure/iot/ops/broker/persist) command to update MQTT broker data persistence settings.
+Use the `az iot ops broker persist update` command to update the retained messages persistence.
 
 ```azurecli
-az iot ops broker persist update --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <BrokerName> --persist-mode <PersistMode>
+az iot ops broker persist update --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <BrokerName> --persist-mode retain=<PersistMode> --retain-topics "<TopicPattern1>" "<TopicPattern2>"
 ```
 
 Here's an example command to update custom persistence policy for retain messages:
@@ -200,22 +198,16 @@ To configure subscriber queue persistence in the Azure portal:
 
 # [Azure CLI](#tab/azurecli)
 
-To configure subscriber queue persistence using Azure CLI, add the following to your Broker configuration file:
+Use the `az iot ops broker persist update` command to update the subscriber queue persistence.
 
-```json
-{
-  "persistence": {
-    "subscriberQueue": {
-      "mode": "Custom",
-      "subscriberQueueSettings": {
-        "subscriberClientIds": ["hello-client-id", "my-other-client-*"],
-        "dynamic": {
-          "mode": "Enabled"
-        }
-      }
-    }
-  }
-}
+```azurecli
+az iot ops broker persist update --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <BrokerName> --persist-mode subscriberQueue=<PersistMode>
+```
+
+Here's an example command configure persistence for all subscriber queues:
+
+```azurecli
+az iot ops broker persist update --resource-group myResourceGroup --instance myAioInstance --name myBroker --persist-mode subscriberQueue=All
 ```
 
 ---
@@ -277,7 +269,7 @@ This setting controls which keys in the internal state store are persisted.
 
 # [Azure portal](#tab/portal)
 
-[Screenshot placeholder: State store persistence configuration in Azure portal]
+:::image type="content" source="media/howto-broker-persistence/data-persistence-state-store.png" alt-text="[Screenshot changing data persistence state store options the Azure portal]":::
 
 To configure state store persistence in the Azure portal:
 
@@ -289,31 +281,16 @@ To configure state store persistence in the Azure portal:
 
 # [Azure CLI](#tab/azurecli)
 
-To configure state store persistence using Azure CLI, add the following to your Broker configuration file:
+Use the `az iot ops broker persist update` command to update the state store persistence.
 
-```json
-{
-  "persistence": {
-    "stateStore": {
-      "mode": "Custom",
-      "stateStoreSettings": {
-        "stateStoreResources": [
-          {
-            "keyType": "Pattern",
-            "keys": ["cats", "topics-*"]
-          },
-          {
-            "keyType": "Pattern",
-            "keys": ["dogs", "weather-*"]
-          }
-        ],
-        "dynamic": {
-          "mode": "Enabled"
-        }
-      }
-    }
-  }
-}
+```azurecli
+az iot ops broker persist update --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <BrokerName> --persist-mode stateStore=<PersistMode> --state-store-str-keys "<StringKey1>" "<StringKey2>" --state-store-glob-keys "<PatternKey1>" "<PatternKey2>" --state-store-bin-keys "<BinaryKey1>" "<BinaryKey2>"
+```
+
+Here's an example command to configure state store persistence with multiple key groups including string, pattern, and binary (base64 encoded) keys:
+
+```azurecli
+az iot ops broker persist update --resource-group myResourceGroup --instance myAioInstance --name myBroker --persist-mode stateStore=Custom --state-store-str-keys "device-001" "device-002" --state-store-glob-keys "sensors/*" --state-store-bin-keys "bXlrZXkx" "bXlrZXky"
 ```
 
 ---
@@ -328,63 +305,30 @@ You can enable or disable the dynamic persistence setting for each data type (re
 
 # [Azure portal](#tab/portal)
 
-[Screenshot placeholder: Dynamic persistence configuration in Azure portal]
+:::image type="content" source="media/howto-broker-persistence/data-persistence-dynamic.png" alt-text="[Screenshot changing data persistence subscriber options the Azure portal]":::
 
 To configure dynamic persistence settings in the Azure portal:
 
 1. Navigate to your IoT Operations instance.
 2. Go to **MQTT Broker** > **Data Persistence**.
 3. Configure the global MQTT user property settings:
-   - Set the **User Property Key** (default: `aio-persistence`)
-   - Set the **User Property Value** (default: `true`)
+   - Set the **User property key** (default: `aio-persistence`)
+   - Set the **User property value** (default: `true`)
 4. In each persistence section (Retained Messages, Subscriber Queue, State Store):
-   - Set **Dynamic Mode** to Enabled to allow clients to request persistence for that data type.
+   - Set **Dynamic persistence** to enabled to allow clients to request persistence for that data type.
 
 # [Azure CLI](#tab/azurecli)
 
-To configure dynamic persistence using Azure CLI, add the MQTT user property settings at the broker level and enable dynamic mode for specific data types:
+To configure dynamic persistence using Azure CLI, add the MQTT user property settings at the broker level and enable dynamic mode for specific data types. Use the `az iot ops broker persist update` command to update MQTT broker data persistence settings.
 
-```json
-{
-  "persistence": {
-    "dynamicSettings": {
-      "userPropertyKey": "custom-persistence-key",
-      "userPropertyValue": "true"
-    },
-    "retain": {
-      "mode": "Custom",
-      "retainSettings": {
-        "topics": ["my/+/topics"],
-        "dynamic": {
-          "mode": "Enabled"
-        }
-      }
-    },
-    "subscriberQueue": {
-      "mode": "Custom", 
-      "subscriberQueueSettings": {
-        "subscriberClientIds": ["client-*"],
-        "dynamic": {
-          "mode": "Enabled"
-        }
-      }
-    },
-    "stateStore": {
-      "mode": "Custom",
-      "stateStoreSettings": {
-        "stateStoreResources": [
-          {
-            "keyType": "Pattern",
-            "keys": ["important-*"]
-          }
-        ],
-        "dynamic": {
-          "mode": "Enabled"
-        }
-      }
-    }
-  }
-}
+```azurecli
+az iot ops broker persist update --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <BrokerName> --persist-mode <PersistMode>
+```
+
+Here's an example command Configure subscriber queue persistence for specific client IDs and apply user property key and value for dynamic persistence:
+
+```azurecli
+az iot ops broker persist update --resource-group myResourceGroup --instance myAioInstance --name myBroker --persist-mode subscriberQueue=Custom --subscriber-client-ids "factory-client-*" "sensor-gateway-01"--user-key disk-persistence --user-value disk
 ```
 
 --- 
