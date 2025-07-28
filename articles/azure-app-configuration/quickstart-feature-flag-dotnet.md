@@ -22,9 +22,9 @@ The .NET feature management libraries extend .NET by providing feature flag supp
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- An App Configuration store, as shown in the [quickstart for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [Visual Studio](https://visualstudio.microsoft.com/downloads).
-- [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download) for a .NET console app.
+- [.NET SDK 8.0 or later](https://dotnet.microsoft.com/download) for a .NET console app.
 - [.NET Framework 4.7.2 or later](https://dotnet.microsoft.com/download/dotnet-framework) for a .NET Framework console app.
 
 ## Add a feature flag
@@ -35,51 +35,49 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 ## Configure access settings
 
-The app that you create connects to your App Configuration store to access your feature flag settings. To connect to App Configuration, your app can use Microsoft Entra ID or a connection string. Microsoft Entra ID is the recommended approach.
-
-With either approach, your app uses an environment variable to establish the connection to App Configuration.
+The app that you create in this quickstart connects to your App Configuration store to access your feature flag settings. To connect to App Configuration, your app can use Microsoft Entra ID or a connection string. Microsoft Entra ID is the recommended approach.
 
 ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
-    Run the following command to set an environment variable named `Endpoint` to the endpoint of your App Configuration store.
+### Assign an App Configuration data role
 
-    ### [Windows Command Prompt](#tab/windowscommandprompt)
+By default, the app that you create uses `DefaultAzureCredential` to authenticate to your App Configuration store. `DefaultAzureCredential` is a chain of token credentials. For authorization to work, you need to grant the **App Configuration Data Reader** role to the credential that your app uses. For instructions, see [Authentication with token credentials](./concept-enable-rbac.md#authentication-with-token-credentials). Allow sufficient time for the role assignment to propagate before running your app.
 
-    ```console
-    setx Endpoint "<endpoint-of-your-app-configuration-store>"
-    ```
+### Set an environment variable
 
-    Close and reopen Command Prompt so that the change takes effect. Verify that the environment variable is set by printing its value to the console.
+Your app uses an environment variable to establish the connection to App Configuration. Use one of the following commands to set an environment variable named `Endpoint` to the endpoint of your App Configuration store.
 
-    ### [PowerShell](#tab/powershell)
+- If you use Command Prompt, run the following command:
 
-    ```azurepowershell
-    [System.Environment]::SetEnvironmentVariable("Endpoint", "<endpoint-of-your-app-configuration-store>", "User")
-    ```
+  ```console
+  setx Endpoint "<endpoint-of-your-app-configuration-store>"
+  ```
 
-    ---
+  Close and reopen Command Prompt so that the change takes effect. Verify that the environment variable is set by printing its value to the console.
 
-    By default, the app that you create uses `DefaultAzureCredential` to authenticate to your App Configuration store. `DefaultAzureCredential` is a chain of token credentials. For authorization to work, you need to grant the **App Configuration Data Reader** role to the credential that your app uses. For instructions, see [Authentication with token credentials](./concept-enable-rbac.md#authentication-with-token-credentials). Allow sufficient time for the role assignment to propagate before running your app.
+- If you use Windows PowerShell, run the following command:
+
+  ```azurepowershell
+  [System.Environment]::SetEnvironmentVariable("Endpoint", "<endpoint-of-your-app-configuration-store>", "User")
+  ```
 
 ### [Connection string](#tab/connection-string)
 
-    Run the following command to set an environment variable named `ConnectionString` to the connection string of your App Configuration store.
+Your app uses an environment variable to establish the connection to App Configuration. Use one of the following commands to set an environment variable named `ConnectionString` to the connection string of your App Configuration store.
 
-    ### [Windows Command Prompt](#tab/windowscommandprompt)
+- If you use Command Prompt, run the following command:
 
-    ```console
-    setx ConnectionString "<connection-string-of-your-app-configuration-store>"
-    ```
+  ```console
+  setx ConnectionString "<connection-string-of-your-app-configuration-store>"
+  ```
 
-    Close and reopen Command Prompt so that the change takes effect. Verify that the environment variable is set by printing its value to the console.
+  Close and reopen Command Prompt so that the change takes effect. Verify that the environment variable is set by printing its value to the console.
 
-    ### [PowerShell](#tab/powershell)
+- If you use Windows PowerShell, run the following command:
 
-    ```azurepowershell
-    [System.Environment]::SetEnvironmentVariable("ConnectionString", "<connection-string-of-your-app-configuration-store>", "User")
-    ```
-
-    ---
+  ```azurepowershell
+  [System.Environment]::SetEnvironmentVariable("ConnectionString", "<connection-string-of-your-app-configuration-store>", "User")
+  ```
 
 ---
 
@@ -142,7 +140,7 @@ To use the feature flag in your app, take the following steps.
     ```
     ---
 
-1. As shown in the following code blocks, update the *Program.cs* file by making three changes:
+1. As shown in the following code blocks, update *Program.cs* by making three changes:
 
     - To load feature flags from App Configuration, add a call to the `UseFeatureFlags` method.
     - To read feature flags from the configuration, create an instance of `FeatureManager`.
