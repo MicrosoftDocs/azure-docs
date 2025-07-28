@@ -34,7 +34,7 @@ For more information, see [Quickstart: Render configuration in Microsoft Planeta
 
 ### Tile Settings
 
-You also have the ability to define Tile Settings based on the unique features of your collection. For example, you can set the 'min-zoom' parameter that defines the minimum zoom level at which the assets within your collection appears on the Explorer basemap. High resolution imagery should have a high 'min-zoom' value to avoid experiencing latency when using the Explorer. Low resolution imagery can have lower 'min-zoom' levels without issue. 
+You also have the ability to define Tile Settings based on the unique features of your collection. For example, you can set the 'min-zoom' parameter that defines the minimum zoom level at which the assets within your collection appear on the Explorer basemap. High resolution imagery should have a high 'min-zoom' value to avoid experiencing latency when using the Explorer. Low resolution imagery can have lower 'min-zoom' levels without issue. 
 
 For more information, see [Quickstart: Tile settings in Microsoft Planetary Computer Pro](./tile-settings.md).
 
@@ -55,4 +55,5 @@ Here's a quickstart guide to configuring collections:
 ## Related content
 
 - [Quickstart: Create collections with the Microsoft Planetary Computer Pro web interface](./create-collection-web-interface.md)
+- [Data visualization sample guide](./data-visualization-samples.md)
 - [STAC in Microsoft Planetary Computer Pro](./stac-overview.md)

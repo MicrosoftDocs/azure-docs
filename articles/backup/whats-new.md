@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 07/15/2025
+ms.date: 07/25/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -19,6 +19,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- July 2025
+  - [Agentless multi-disk crash-consistent backups for Azure VMs is now generally available](#agentless-multi-disk-crash-consistent-backups-for-azure-vms-is-now-generally-available)
 - June 2025
   - [Migration of Azure VM backups from Standard to Enhanced policy is now generally available](#migration-of-azure-vm-backups-from-standard-to-enhanced-policy-is-now-generally-available)
 - May 2025
@@ -114,6 +116,12 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier for Azure Backup (in preview)](#archive-tier-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+## Agentless multi-disk crash-consistent backups for Azure VMs is now generally available
+
+Azure Backup now supports agentless VM backups by using multi-disk crash-consistent restore points. Crash consistent backups are OS agnostic, do not require any agent, and quiesce VM I/O for a shorter period compared to application or file-system consistent backups for performance sensitive workloads.
+
+For more information, see [About agentless multi-disk crash-consistent backup for Azure VMs](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md).
 
 ## Migration of Azure VM backups from Standard to Enhanced policy is now generally available
 

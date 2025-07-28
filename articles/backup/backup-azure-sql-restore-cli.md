@@ -2,7 +2,7 @@
 title: Restore SQL server databases in Azure VMs using Azure Backup via CLI
 description: Learn how to use CLI to restore SQL server databases in Azure VMs in the Recovery Services vault.
 ms.topic: how-to
-ms.date: 06/03/2025
+ms.date: 07/28/2025
 ms.service: azure-backup
 ms.custom: devx-track-azurecli, engagement-fy24
 author: AbhishekMallick-MS
@@ -58,8 +58,8 @@ The list above contains three recovery points: each for full, differential, and 
 
 Ensure that the following prerequisites are met before restoring a database:
 
-* You can restore the database only to an SQL instance in the same region.
-* The target instance must be registered with the same vault as the source.
+* You can restore the database only to an SQL instance in the same region or to a different region if Cross Region Restore is enabled on the vault.
+* The target instance must be registered with the same vault as the source, except during Cross Region Restore and Cross Subscription Restore. .
 
 ## Restore a database
 

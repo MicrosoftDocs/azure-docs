@@ -84,9 +84,9 @@ The following table shows the features that each gateway type supports and the m
 [!INCLUDE [expressroute-gateway-performance-include](../../includes/expressroute-gateway-performance-include.md)]
 
 
-## Hosted-On-Behalf-Of (HOBO) Public IP
+## Auto-Assigned Public IP
 
-The Hosted-On-Behalf-Of (HOBO) Public IP feature simplifies ExpressRoute gateway deployment by allowing Microsoft to manage the required public IP address on your behalf. For PowerShell/CLI, you are no longer required to create or maintain a separate public IP resource for your gateway. 
+The Auto-Assigned Public IP feature simplifies ExpressRoute gateway deployment by allowing Microsoft to manage the required public IP address on your behalf. For PowerShell/CLI, you are no longer required to create or maintain a separate public IP resource for your gateway. 
 
 **Key benefits:**
 
@@ -98,7 +98,7 @@ The Hosted-On-Behalf-Of (HOBO) Public IP feature simplifies ExpressRoute gateway
 When you create an ExpressRoute gateway, Microsoft automatically provisions and manages the public IP address in a secure, backend subscription. This IP is encapsulated within the gateway resource, enabling Microsoft to enforce policies such as data rate limits and enhance auditability.
 
 **Availability:**  
-HOBO Public IP is not available for Virtual WAN (vWAN) or Extended Zone deployments.
+Auto-Assigned Public IP is not available for Virtual WAN (vWAN) or Extended Zone deployments.
 
 
 ## Connectivity from VNet to VNet and from VNet to virtual WAN

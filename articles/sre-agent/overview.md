@@ -3,7 +3,7 @@ title: Azure SRE Agent overview (preview)
 description: Learn how AI-enabled agents help solve problems and support resilient and self-healing systems on your behalf.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 06/18/2025
+ms.date: 07/24/2025
 ms.author: cshoe
 ms.service: azure
 ---
@@ -128,6 +128,13 @@ Which Azure services do you have specialized tooling available for?
 ### Identifying resource groups
 
 As you create an agent, the resource group picker indicates groups that have instances of services with specialized tooling. From the resource group picker you'll see a checkmark (:::image type="icon" source="media/blue-check.png" border="false":::) next to the group name indicating the group includes services with specialized support.
+
+## Considerations
+
+Keep in mind the following considerations as you use Azure SRE Agent:
+
+* English is the only supported language in the chat interface
+* During preview, you can deploy the agent to the Sweden Central region, but the agent can monitor and remediate issues for services in any region.
 
 ## Preview access
 
