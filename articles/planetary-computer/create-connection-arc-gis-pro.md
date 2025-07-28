@@ -27,8 +27,9 @@ By the end of this guide, you'll be able to securely browse and access Microsoft
 > [!TIP] 
 > Before you begin, review [Register an application in Microsoft Entra ID](/entra/identity-platform/quickstart-register-app) for background information on app registration.
 
+# [Public](#tab/public)
 ## Register web API application for ArcGIS Pro
-### [Public](#tab/public)
+
 1. Open the Azure Portal and go to **Microsoft Entra ID**.
 
     [ ![Screenshot showing a user selecting Microsoft Entra ID from Azure portal.](media/microsoft-entra-id.png) ](media/microsoft-entra-id.png#lightbox)
@@ -104,7 +105,8 @@ By the end of this guide, you'll be able to securely browse and access Microsoft
 
     [ ![Screenshot showing how to add a client app.](media/add-a-client-app.png) ](media/add-a-client-app.png#lightbox)
 
-### [US Gov](#tab/usgov)
+# [US Gov](#tab/usgov)
+## Register web API application for ArcGIS Pro
 1. Open the Azure Portal and go to **Microsoft Entra ID**.
 
     [ ![Screenshot showing a user selecting Microsoft Entra ID from Azure portal.](media/microsoft-entra-id.png) ](media/microsoft-entra-id.png#lightbox)
@@ -140,11 +142,11 @@ By the end of this guide, you'll be able to securely browse and access Microsoft
     
 1. Set **Custom Redirect URI**: arcgis-pro://auth.
 
-    [ ![Screenshot showing configure desktop device.](media/usgov-mobile-redirect-1.png) ](media/usgov-mobile-redirect-1.png#lightbox)
+    [ ![Screenshot showing configure desktop plus device with a redirect URI.](media/government-mobile-first-redirect.png) ](media/government-mobile-first-redirect.png#lightbox)
 
 1. In the new **Mobile and desktop applications** panel, select *Add URI* to add a second Redirect URI: https://login.microsoftonline.us/common/oauth2/nativeclient
 
-    [ ![Screenshot showing configure desktop device.](media/usgov-mobile-redirect-2.png) ](media/usgov-mobile-redirect-2.png#lightbox)
+    [ ![Screenshot showing the addition of a second Redirect URI.](media/government-mobile-second-redirect..png) ](media/government-mobile-second-redirect..png#lightbox)
 
 1. Enable **ID tokens** under **Implicit grant and hybrid flows**.
 
@@ -168,7 +170,7 @@ By the end of this guide, you'll be able to securely browse and access Microsoft
 
     - Add **App ID URI**.
 
-    [ ![Screenshot showing how to add the app id URI .](media/add-app-id-uri.png) ](media/add-app-id-uri.png#lightbox)
+    [ ![Screenshot showing how to add the app id URI.](media/add-app-id-uri.png) ](media/add-app-id-uri.png#lightbox)
 
 1. Define scopes:
 
@@ -183,8 +185,8 @@ By the end of this guide, you'll be able to securely browse and access Microsoft
 
     [ ![Screenshot showing how to add a client app.](media/add-a-client-app.png) ](media/add-a-client-app.png#lightbox)
 
+# [Public](#tab/public)
 ## Register desktop client application for ArcGIS Pro
-### [Public](#tab/public)
 
 Register a second application (with a distinct name) to represent ArcGIS
 Pro Desktop and configure its API permissions --- ensuring it includes
@@ -242,7 +244,8 @@ access to the web API exposed by the first application.
   
     [ ![Screenshot showing grant admin consents (4).](media/grant-admin-consents-4.png) ](media/grant-admin-consents-4.png#lightbox)
 
-### [US Gov](#tab/usgov)
+# [US Gov](#tab/usgov)
+## Register desktop client application for ArcGIS Pro
 
 Register a second application (with a distinct name) to represent ArcGIS
 Pro Desktop and configure its API permissions --- ensuring it includes
@@ -305,8 +308,8 @@ access to the web API exposed by the first application.
 
 This section outlines how to configure authentication and data access in the **ArcGIS Pro desktop application**, using OAuth 2.0 integration with **Microsoft Entra ID** and access to the **Microsoft Planetary Computer Pro GeoCatalog**. It includes steps to add an authentication connection and create storage and STAC data connections.
 
+# [Public](#tab/public)
 ## Add an authentication connection
-### [Public](#tab/public)
 
 1. Open the **ArcGIS Pro settings** page in one of the following ways:
 
@@ -348,7 +351,8 @@ This section outlines how to configure authentication and data access in the **A
 > [!TIP] 
 > For more information, see the official ArcGIS Pro documentation [Connect to authentication providers from ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/get-started/connect-to-authentication-providers-from-arcgis-pro.htm).
 
-### [US Gov](#tab/usgov)
+# [US Gov](#tab/usgov)
+## Add an authentication connection
 
 1. Open the **ArcGIS Pro settings** page in one of the following ways:
 
@@ -400,7 +404,7 @@ This section outlines how to configure authentication and data access in the **A
 
 1. Select on the GeoCatalog. For example, **arcgisprogeocatalog**.
 
-1. Record the **GeoCatalog URI**. For example, **https://arcgisprogeocatalog.<unique-identity>.<cloud-region>.geocatalog.spatio.azure.com**.
+1. Record the **GeoCatalog URI**. For example, ```https://arcgisprogeocatalog.<unique-identity>.<cloud-region>.geocatalog.spatio.azure.com```.
 
     [ ![Screenshot showing how to retrieve the GeoCatalog URI.](media/get-geocatalog-uri.png) ](media/get-geocatalog-uri.png#lightbox)
 
@@ -448,9 +452,9 @@ This section outlines how to configure authentication and data access in the **A
 
 1. For **Authentication**, select the name of the auth profile that you created in previous steps.
 
-1. For **Access Key ID (Account Name)**, use the **Account Name** value that you recorded earlier: <unique-storage>.
+1. For **Access Key ID (Account Name)**, use the **Account Name** value that you recorded earlier: ```<unique-storage>```.
 
-1. For **Bucket (Container) Name** use the **Container Name** value that you recorded earlier: sentinel-2-l2a-tutorial-1000-<unique-id>.
+1. For **Bucket (Container) Name** use the **Container Name** value that you recorded earlier: ```sentinel-2-l2a-tutorial-1000-<unique-id>```.
 
 1. Do not specify a **Folder**.
 
