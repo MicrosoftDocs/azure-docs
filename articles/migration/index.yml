@@ -21,16 +21,13 @@ sections:
     background:
       componentType: image
       src: images/banner-image.png
+
   - componentType: markdown
     content: |
       :::row:::
         :::column:::       
             > [!div style="text-align:center;"]
-            > # Migrate workloads from other clouds
-            > Learn more about the exciting new announcements at Microsoft Build 2025
-            > </br>
-            > </br>
-            > <a class="button button-sm button-primary button-filled margin-right-none" href="https://blogs.windows.com/windowsdeveloper/2025/05/19/advancing-windows-for-ai-development-new-platform-capabilities-and-tools-introduced-at-build-2025/">Read the announcement blog</a>
+            > # Migrate workloads from other clouds or on-premises
         :::column-end:::
       :::row-end:::
 
@@ -39,19 +36,29 @@ sections:
     #   isShadowless: false # Removes the box shadow from around the card
     blocks:
       - componentType: card
-        title: Migrate workloads hosted on Amazon Web Services (AWS) to Microsoft Azure
+        title: Amazon Web Services (AWS) to Azure
         summary: Compare AWS and Azure and review example scenarios to help integrate components for transition to Azure.
+        imageUrl: ./images/removeme.png
         links:
           - componentType: link
             url: /azure/migration/migrate-from-aws
             text: Learn more
       - componentType: card
-        title: Migrate workloads hosted on Google Cloud to Microsoft Azure
+        title: Google Cloud to Azure
         summary: Compare Google Cloud and Azure and review example scenarios to help integrate components for transition to Azure.
+        imageUrl: ./images/removeme.png
         links:
           - componentType: link
             url: /azure/migration/migrate-from-google-cloud
             text: Learn more
+      - componentType: card
+        title: On-premise to Azure
+        summary: Review example scenarios to help integrate components for transition to Azure.
+        imageUrl: ./images/removeme.png
+        links:
+          - componentType: link
+            url: /azure/migration/migrate-from-google-cloud
+            text: Learn more            
 
   - componentType: markdown
     content: |
