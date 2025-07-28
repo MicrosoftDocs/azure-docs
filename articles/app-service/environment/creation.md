@@ -92,7 +92,7 @@ To create an App Service Environment in the Azure portal, do the following steps
     
      If you create an App Service Environment with an internal VIP, you can:
      
-     - Configure Azure DNS private zones to point your domain suffix to your App Service Environment. For more information, see the DNS section in [Use an App Service Environment](/azure/app-service/environment/using#dns-configuration).
+     - Configure Azure DNS private zones to point your domain suffix to your App Service Environment. For more information, see [DNS configuration](/azure/app-service/environment/using#dns-configuration).
 
      - Specify a private IP address by using the **Manual** option for **Inbound IP address**.
 

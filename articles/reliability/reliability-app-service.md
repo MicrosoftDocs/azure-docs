@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure App Service
-description: Find out about reliability in Azure App Service, including availability zones and multi-region deployments.
+description: Learn how to improve reliability in Azure App Service by using zone redundancy, multiple-region deployments, and best practices for scaling and fault tolerance.
 author: anaharris-ms 
 ms.author: anaharris
 ms.topic: reliability-article
@@ -13,7 +13,7 @@ ms.date: 07/17/2025
 
 # Reliability in Azure App Service
 
-Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. App Service integrates with Microsoft Azure to provide security, load balancing, autoscaling, and automated management for applications. This article describes reliability support in [App Service](../app-service/overview.md). It covers intra-regional resiliency via [availability zones](#availability-zone-support) and [multiple-region deployments](#multi-region-support).
+Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. App Service integrates with Microsoft Azure to provide security, load balancing, autoscaling, and automated management for applications. This article describes reliability support in [App Service](../app-service/overview.md). It covers intra-regional resiliency via [availability zones](#availability-zone-support) and [multiple-region deployments](#multiple-region-support).
 
 For more information about reliability support in App Service Environment, see [Reliability in App Service Environment](./reliability-app-service-environment.md).
 
@@ -103,7 +103,7 @@ If you enable availability zones but specify a capacity of less than two, the pl
 
 [!INCLUDE [Testing for zone failures description](includes/app-service/reliability-testing-for-zone-failures-include.md)]
 
-## Multi-region support
+## Multiple-region support
 
 App Service is a single-region service. If the region becomes unavailable, your application is also unavailable.
 
