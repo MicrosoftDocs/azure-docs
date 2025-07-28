@@ -54,7 +54,6 @@ A cluster host:
 
   If you deployed Azure IoT Operations to your cluster previously, uninstall those resources before continuing. For more information, see [Update Azure IoT Operations](./howto-manage-update-uninstall.md#uninstall).
 
-* (Optional) Prepare your cluster for observability before deploying Azure IoT Operations: [Configure observability](../configure-observability-monitoring/howto-configure-observability.md).
 
 ## Deploy in Azure portal
 
@@ -167,14 +166,6 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
     ```azurecli
     --feature connectors.settings.preview=Enabled
     ```
-
-    * If you followed the optional prerequisites to prepare your cluster for observability, add the following parameters to the `create` command:
-
-        | Parameter | Value | Description |
-        | --------- | ----- | ----------- |
-        | `--ops-config` | `observability.metrics.openTelemetryCollectorAddress=<FULLNAMEOVERRIDE>.azure-iot-operations.svc.cluster.local:<GRPC_ENDPOINT>` | Provide the OpenTelemetry (OTel) collector address you configured in the otel-collector-values.yaml file.<br><br>The sample values used in [Configure observability](../configure-observability-monitoring/howto-configure-observability.md) are **fullnameOverride=aio-otel-collector** and **grpc.endpoint=4317**. |
-        | `--ops-config` | `observability.metrics.exportInternalSeconds=<CHECK_INTERVAL>` | Provide the **check_interval** value you configured in the otel-collector-values.yaml file.<br><br>The sample value used in [Configure observability](../configure-observability-monitoring/howto-configure-observability.md) is **check_interval=60**. |
-
 
 1. Once all of the Azure CLI commands complete successfully, you can close the **Install Azure IoT Operations** wizard.
 

@@ -4,7 +4,7 @@ description: Understand concepts and options needed to manage the devices and na
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 07/17/2025
+ms.date: 07/28/2025
 ai-usage: ai-assisted
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to understand the key components in the Azure IoT Operations for managing devices and assets, so that I can effectively manage the devices and assets in my solution. 
@@ -34,7 +34,7 @@ In the previous diagram:
 - The assets, such **Asset-01** that could be an oven, are *physical assets* that connect indirectly through one of the OPC UA servers.
 - The OPC UA servers are *physical devices* that connect to Azure IoT Operations through the connector for OPC UA.
 
-A physical device can connect using a variety of protocols. It could connect through a connector such as the media connector. If it uses the MQTT protocol, it can connect directly to the MQTT broker bypassing the connectors.
+A physical device can connect using various protocols. It could connect through a connector such as the media connector. If it uses the MQTT protocol, it can connect directly to the MQTT broker bypassing the connectors.
 
 The following diagram shows how physical devices connect to Azure IoT Operations:
 
@@ -72,18 +72,8 @@ An operator configures and manages devices and namespace assets in the operation
 
 To learn more, see [Define assets and devices](concept-assets-devices.md).
 
-Previous versions of Azure IoT Operations used the term *asset endpoint* to refer to the configuration resource that encapsulated the connection information required to connect to a physical device or asset and the term *asset* to refer to the configuration resource that encapsulated information about the data that a physical asset or device exchanges with IoT Operations. Devices offer greater flexibility and more capabilities than asset endpoints, such the ability to define multiple endpoints within a single device. The current version of Azure IoT Operations supports the use of both devices and asset endpoints, but the recommended approach is to use devices.
-
-Assets associated with a device are known as *namespace assets*, assets that are associated with an asset endpoint are simply known as *assets*. The following table shows the differences between devices and asset endpoints:
-
-| Azure IoT Operations version | Devices supported | Asset endpoints supported |
-|-----------------------------|-------------------|--------------------------|
-| v1.1.x and before           | No                | Yes                      |
-| v1.2.x and later            | Yes (recommended) | Yes                      |
-
-To view the asset endpoint documentation, see [Asset management overview](https://go.microsoft.com/fwlink/?linkid=2328508&clcid=0x409) on the previous versions site.
-
-In the current version of Azure IoT Operations, you can continue to manage asset endpoints and assets in the operations experience web UI and by using the Azure CLI.
+> [!TIP]
+> Devices replace the asset endpoints from previous versions of Azure IoT Operations. To view the asset endpoint documentation, see [Asset management overview](https://go.microsoft.com/fwlink/?linkid=2328508&clcid=0x409) on the previous versions site.
 
 ## Understand services for managing devices and namespace assets
 
@@ -99,7 +89,7 @@ Azure IoT Operations includes several services that help you manage devices and 
 - The **connector for ONVIF (preview)** is a service that discovers and registers ONVIF assets such as cameras. The connector enables you to manage and control ONVIF assets such as cameras connected to your cluster.
 - The **connector for REST/HTTP (preview)** is a service that lets you connect to REST/HTTP endpoints and publish data to the MQTT broker.
 - **Custom connectors** are services that you can create to connect to other data sources and publish data to the MQTT broker. Use the Azure IoT Operations SDKS to create custom connectors that meet your specific requirements.
-- **Akri services** are a set of services that enable the automatic discovery of physical assets and devices in your environment. Akri services can help you create and configure assets and devices in operations experience. To learn more, see [What is asset discovery (preview)?](overview-akri.md).
+- **Akri services (preview)** enable the automatic discovery of physical devices and assets and help OT users configure devices and namespace assets in the operations experience web UI. The connectors described previously all use the framework provided by the Akri services to implement their core capabilities.
 
 ## Store assets as Azure resources in a centralized registry
 
@@ -173,10 +163,8 @@ Spec:
 Events:                   <none>
 ```
 
-### Automatic asset discovery
+### Protocol connectivity and asset discovery
 
-Akri services let you deploy and configure connectivity protocols, such as OPC UA and ONVIF, at the edge. Akri services use the asset and device resources in Azure Device Registry to model the different device and protocol connections in your environment.
+Akri services let you deploy and configure connectivity protocols at the edge. Akri services use the asset and device resources in Azure Device Registry to model the different device and protocol connections in your environment. It enables you to easily onboard and provision assets with open standards. It provides an extensible framework for all device protocols and a single pane of glass view for all assets.
 
-Akri services simplify the process of creating assets by automatically onboarding assets with pre-configured datasets and device endpoints generated by the connectors to represent capabilities and devices on the network.
-
-To learn more, see [What is asset and device discovery (preview)?](overview-akri.md).
+Akri services simplify the process of creating assets by automatically onboarding assets with pre-configured datasets and endpoints generated by the connectors to represent capabilities and devices on the network.

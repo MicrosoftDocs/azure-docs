@@ -245,9 +245,9 @@ Complete the following steps to install the Azure IoT Operations curated Grafana
    az grafana show --name <GRAFANA_NAME> --resource-group <RESOURCE_GROUP> --query url -o tsv
    ```
 
-1. In the Grafana application, select the **+** icon.
+1. On the Grafana landing page, select the **Create your first dashboard** tile.
 
-1. Select **Import dashboard**.
+1. Select **Import Dashboard**.
 
 1. Browse to the sample dashboard directory in your local copy of the Azure IoT Operations repository, **azure-iot-operations** > **samples** > **grafana-dashboard**, then select the  `aio.sample.json` dashboard file.
 
