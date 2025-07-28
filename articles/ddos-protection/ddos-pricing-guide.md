@@ -89,7 +89,7 @@ To learn more about Application Gateway WAF pricing, see [Application Gateway pr
 
 Network Protection provides extra value beyond IP Protection that should be considered in total cost of ownership calculations. To learn more about the value-added benefits of Network Protection, see [DDoS Protection tier comparison](ddos-protection-sku-comparison.md).
 
-## Cost optimization strategies
+## Cost optimization principles
 
 For comprehensive cost optimization guidance, see [DDoS Protection cost optimization principles](ddos-optimization-guide.md).
 
