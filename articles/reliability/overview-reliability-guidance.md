@@ -43,7 +43,7 @@ This section provides links to reliability guidance for many Azure services. Eac
 |Azure Application Gateway for Containers| [Reliability in Azure Application Gateway for Containers](reliability-app-gateway-containers.md )    ||
 |Azure API for FHIR®||[Disaster recovery for Azure API for FHIR](../healthcare-apis/azure-api-for-fhir/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure App Service| [Reliability in Azure App Service](reliability-app-service.md)||
-|Azure App Service Environment| [Reliability in Azure App Service Environment](reliability-app-service-environment.md)||
+|App Service Environment| [Reliability in App Service Environment](reliability-app-service-environment.md)||
 |Azure Backup| [Reliability in Azure Backup](reliability-backup.md)||
 |Azure Batch| [Reliability in Azure Batch](reliability-batch.md)||
 |Azure Bastion| [Reliability in Azure Bastion](reliability-bastion.md)||
