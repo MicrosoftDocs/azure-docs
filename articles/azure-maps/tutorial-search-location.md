@@ -207,7 +207,7 @@ At this point, the MapSearch page can display the locations of points of interes
 
 ## Add interactive data
 
-The map so far only looks at the longitude/latitude data for the search results. However, the raw JSON that the Maps Search service returns contains additional information about each gas station. Including the name and street address. You can incorporate that data into the map with interactive popup boxes.
+The map so far only looks at the longitude/latitude data for the search results. However, the raw JSON that the Maps Search service returns contains additional information about each gas station, including the name and street address. You can incorporate that data into the map with interactive popup boxes.
 
 1. Add the following lines of code in the map `ready` event handler after the code to query the fuzzy search service. This code creates an instance of a Popup and adds a mouseover event to the symbol layer.
 
