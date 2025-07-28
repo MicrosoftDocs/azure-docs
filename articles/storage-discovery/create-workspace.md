@@ -78,4 +78,4 @@ When the access checks complete successfully, resource can be deployed.
 > ![Screenshot of deployment complete.](./media/deploy.png)
 
 > [!NOTE]
-> Note that it will take upto 24 hours for the metrics to start appearing in the Reports after the scope is created.
+> Note that it will take up to 24 hours for the metrics to start appearing in the Reports after the scope is created.

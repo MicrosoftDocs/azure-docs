@@ -67,10 +67,4 @@ To deploy a Discovery Workspace, user must have following access:
 
 Storage Discovery is available in two different SKUs or pricing plans.
 
-| Pricing Plan | Best for | Capacity | Transactions | Configuration | History |
-|---|---|---|---|---|---|
-| Free | Small-scale deployments and evaluation | • Trends<br>• Distributions<br>• Top storage accounts | Not available | • Resource configuration | • Backfill: 15 days<br>• Retention: 15 days |
-| Standard | Production deployments with comprehensive insights | • Trends<br>• Distributions<br>• Top storage accounts | • Trends<br>• Distributions<br>• Top storage accounts | • Resource configuration<br>• Security configuration | • Backfill: 30 days <br>• Retention: 18 months |
-
-<br><br>
-Refer [Storage Discovery Pricing page](pricing.md) for more details.
+[!INCLUDE [pricing-plan-differentiation](includes/pricing-plan-differetiation)]
