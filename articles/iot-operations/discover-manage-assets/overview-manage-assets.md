@@ -72,8 +72,8 @@ An operator configures and manages devices and namespace assets in the operation
 
 To learn more, see [Define assets and devices](concept-assets-devices.md).
 
-> [!TIP]
-> Devices replace the asset endpoints from previous versions of Azure IoT Operations. To view the asset endpoint documentation, see [Asset management overview](https://go.microsoft.com/fwlink/?linkid=2328508&clcid=0x409) on the previous versions site.
+> [!IMPORTANT]
+> Devices (preview) are new in version 2.x.x of Azure IoT Operations and offer greater flexibility than *asset endpoints*. To view the asset endpoint documentation, see [Asset management overview](https://go.microsoft.com/fwlink/?linkid=2328508&clcid=0x409) on the previous versions site.
 
 ## Understand services for managing devices and namespace assets
 
